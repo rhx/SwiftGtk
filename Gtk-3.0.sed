@@ -70,6 +70,7 @@ s/public func set_icon_from_icon_name(icon_name: UnsafePointer<gchar>, size: CIn
 s/public func set_icon_from_stock(stock_id: UnsafePointer<gchar>, size: CInt)/public func set_icon_from_stock(stock_id: UnsafePointer<gchar>, size: GtkIconSize)/
 s/public func icon_size_get_name(size: CInt)/public func icon_size_get_name(size: GtkIconSize)/
 s/public func icon_size_lookup(size: CInt/public func icon_size_lookup(size: GtkIconSize/
+s/public func icon_size_lookup_for_settings(size: CInt/public func icon_size_lookup_for_settings(size: GtkIconSize/
 s/public func icon_size_lookup_for_settings(settings: SettingsProtocol, size: CInt/public func icon_size_lookup_for_settings(settings: SettingsProtocol, size: GtkIconSize/
 s/public func icon_size_register_alias(alias: UnsafePointer<gchar>, target: CInt/public func icon_size_register_alias(alias: UnsafePointer<gchar>, target: GtkIconSize/
 s/public func set_from_icon_set(icon_set: IconSetProtocol, size: CInt/public func set_from_icon_set(icon_set: IconSetProtocol, size: GtkIconSize/
