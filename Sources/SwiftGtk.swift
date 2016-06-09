@@ -93,3 +93,16 @@ public extension Application {
         }
     }
 }
+
+
+// These cause linker errors, so we simply define them internally here
+//#if os(Darwin)
+func gtk_clipboard_get_default(_ display: UnsafeMutablePointer<GdkDisplay>?) -> UnsafeMutablePointer<GtkClipboard>? {
+    return nil
+}
+
+func gtk_drag_set_icon_gicon(_ context: UnsafeMutablePointer<GdkDragContext>?, _ icon: UnsafeMutablePointer<GIcon>?, _ hot_x: gint, _ hot_y: gint) {}
+
+func gtk_drag_source_set_icon_gicon(_ widget: UnsafeMutablePointer<GtkWidget>?, _ icon: UnsafeMutablePointer<
+    GIcon>?) {}
+//#endif
