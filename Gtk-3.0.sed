@@ -74,3 +74,6 @@ s/public func icon_size_lookup_for_settings(size: CInt/public func icon_size_loo
 s/public func icon_size_lookup_for_settings(settings: SettingsProtocol, size: CInt/public func icon_size_lookup_for_settings(settings: SettingsProtocol, size: GtkIconSize/
 s/public func icon_size_register_alias(alias: UnsafePointer<gchar>, target: CInt/public func icon_size_register_alias(alias: UnsafePointer<gchar>, target: GtkIconSize/
 s/public func set_from_icon_set(icon_set: IconSetProtocol, size: CInt/public func set_from_icon_set(icon_set: IconSetProtocol, size: GtkIconSize/
+s/rv = gtk_clipboard_get_default/rv: UnsafeMutablePointer<GtkClipboard>? = nil \/\/ gtk_clipboard_get_default/
+s/gtk_drag_set_icon_gicon/\/\/ gtk_drag_set_icon_gicon/
+s/gtk_drag_source_set_icon_gicon/\/\/ gtk_drag_source_set_icon_gicon/
