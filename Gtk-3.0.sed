@@ -90,3 +90,4 @@ s/\(public .*new_from.*icon.*size:\)\( *CInt\)/\1 GtkIconSize/
 s/\(public .*init.*stock.*size:\)\( *CInt\)/\1 GtkIconSize/
 s/\(public .*new_from.*stock.*size:\)\( *CInt\)/\1 GtkIconSize/
 s/\(public .*init.*size:\)\( *CInt\)\(.*icon\)/\1 GtkIconSize\3/
+s/public static let String = GTK_FILE/public static let filename = GTK_FILE/
