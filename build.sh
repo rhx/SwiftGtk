@@ -24,5 +24,5 @@ if [ ! -e "${GIR}" ] ; then
 fi
 LINKFLAGS=`pkg-config --libs $module gdk-$ver pangocairo pangoft2 pango gobject-2.0 gio-unix-2.0 glib-2.0 | tr ' ' '\n' | sed 's/^/-Xlinker /' | tr '\n' ' '`
 CCFLAGS=`pkg-config --cflags $module gdk-$ver pangocairo pangoft2 pango gobject-2.0 gio-unix-2.0 glib-2.0 | tr ' ' '\n' | sed 's/^/-Xcc /' | tr '\n' ' ' `
-gir2swift -p ${GIR_DIR}/GLib-2.0.gir -p ${GIR_DIR}/GObject-2.0.gir -p ${GIR_DIR}/Gio-2.0.gir -p ${GIR_DIR}/Pango-1.0.gir -p ${GIR_DIR}/Cairo-1.0.gir -p ${GIR_DIR}/PangoCairo-1.0.gir -p ${GIR_DIR}/GdkPixbuf-2.0.gir -p ${GIR_DIR}/Atk-1.0.gir -p ${GIR_DIR}/Gdk-3.0.gir "${GIR}" | sed -f ${Module}.sed > Sources/${Module}.swift
+gir2swift -p ${GIR_DIR}/GLib-2.0.gir -p ${GIR_DIR}/GObject-2.0.gir -p ${GIR_DIR}/Gio-2.0.gir -p ${GIR_DIR}/Pango-1.0.gir -p ${GIR_DIR}/cairo-1.0.gir -p ${GIR_DIR}/PangoCairo-1.0.gir -p ${GIR_DIR}/GdkPixbuf-2.0.gir -p ${GIR_DIR}/Atk-1.0.gir -p ${GIR_DIR}/Gdk-3.0.gir "${GIR}" | sed -f ${Module}.sed > Sources/${Module}.swift
 exec swift build $CCFLAGS $LINKFLAGS "$@"
