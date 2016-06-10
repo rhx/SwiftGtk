@@ -77,3 +77,16 @@ s/public func set_from_icon_set(icon_set: IconSetProtocol, size: CInt/public fun
 s/rv = gtk_clipboard_get_default/rv: UnsafeMutablePointer<GtkClipboard>? = nil \/\/ gtk_clipboard_get_default/
 s/gtk_drag_set_icon_gicon/\/\/ gtk_drag_set_icon_gicon/
 s/gtk_drag_source_set_icon_gicon/\/\/ gtk_drag_source_set_icon_gicon/
+s/public init.icon_name: UnsafePointer<gchar>, size: CInt/public init(icon_name: UnsafePointer<gchar>, size: GtkIconSize/
+s/public static func new_from_icon_name.icon_name: UnsafePointer<gchar>, size: CInt/public static func new_from_icon_name(icon_name: UnsafePointer<gchar>, size: GtkIconSize/
+s/public convenience init.icon_name: UnsafePointer<gchar>, size: CInt/public convenience init(icon_name: UnsafePointer<gchar>, size: GtkIconSize/
+s/public static func new_from_icon_name.icon_name: UnsafePointer<gchar>, size: CInt/public static func new_from_icon_name(icon_name: UnsafePointer<gchar>, size: GtkIconSize/
+s/public init.gicon icon: IconProtocol, size: CInt/public init(gicon icon: IconProtocol, size: GtkIconSize/
+s/public init.icon_name: UnsafePointer<gchar>, size: CInt/public init(icon_name: UnsafePointer<gchar>, size: GtkIconSize/
+s/public init.icon_name: UnsafePointer<gchar>, size: CInt/public init(icon_name: UnsafePointer<gchar>, size: GtkIconSize/
+s/public init.icon_set: IconSetProtocol, size: CInt/public init(icon_set: IconSetProtocol, size: GtkIconSize/
+s/\(public .*init.*icon.*size:\)\( *CInt\)/\1 GtkIconSize/
+s/\(public .*new_from.*icon.*size:\)\( *CInt\)/\1 GtkIconSize/
+s/\(public .*init.*stock.*size:\)\( *CInt\)/\1 GtkIconSize/
+s/\(public .*new_from.*stock.*size:\)\( *CInt\)/\1 GtkIconSize/
+s/\(public .*init.*size:\)\( *CInt\)\(.*icon\)/\1 GtkIconSize\3/
