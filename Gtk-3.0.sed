@@ -49,7 +49,7 @@ s/gtk_symbolic_color_unref/g_object_unref/
 s/public func resolve_for_context/@available(*, deprecated) public func resolve_for_context/
 s/\(renderIcon.*\), size: CInt/\1, size: GtkIconSize/
 s/\(icon_source.*\)size: CInt/\1size: GtkIconSize/
-s/setSize(size: CInt)/set_size(size: GtkIconSize)/
+s/set(size: CInt)/set(size: GtkIconSize)/
 s/icon_size: CInt/icon_size: GtkIconSize/
 s/-> GdkAtom {/-> GdkAtom! {/
 s/-> GCallback {/-> CGLib.GCallback? {/
@@ -74,15 +74,15 @@ s/public func setFromIconName(iconName icon_name: UnsafePointer<gchar>, size: CI
 s/setFromStock(stockID stock_id: UnsafePointer<gchar>, size: CInt)/setFrom(stock stock_id: UnsafePointer<gchar>, size: GtkIconSize)/
 s/setIconFromStock(stockID stock_id: UnsafePointer<gchar>, size: CInt)/setFrom(stock stock_id: UnsafePointer<gchar>, size: GtkIconSize)/
 s/\(gtk_menu_set_active.cast.ptr., guint.newValue..\)/\/\/ \1/
-s/public func setIconFromIcon(gicon: IconProtocol, size: CInt)/public func setIconFrom(gicon: IconProtocol, size: GtkIconSize)/
+s/public func setIconFrom(gicon: IconProtocol, size: CInt)/public func setIconFrom(gicon: IconProtocol, size: GtkIconSize)/
 s/public func setFrom(iconName icon_name: UnsafePointer<gchar>, size: CInt)/public func setFrom(iconName icon_name: UnsafePointer<gchar>, size: GtkIconSize)/
 s/public func setIconFrom(iconName icon_name: UnsafePointer<gchar>, size: CInt)/public func setIconFrom(iconName icon_name: UnsafePointer<gchar>, size: GtkIconSize)/
 s/public func setIconFromStock(stock_id: UnsafePointer<gchar>, size: CInt)/public func setIconFrom(stock stock_id: UnsafePointer<gchar>, size: GtkIconSize)/
 s/public func iconSizeGetName(size: CInt)/public func iconSizeGetName(size: GtkIconSize)/
 s/public func iconSizeLookup(size: CInt/public func iconSizeLookup(size: GtkIconSize/
 s/public func iconSizeLookupForSettings(size: CInt/public func iconSizeLookupForSettings(size: GtkIconSize/
-s/public func iconSizeLookupForSettings(settings: SettingsProtocol, size: CInt/public func iconSizeLookupFor(settings: SettingsProtocol, size: GtkIconSize/
-s/public func iconSizeRegisterAlias(alias: UnsafePointer<gchar>, target: CInt/public func iconSizeRegister(alias: UnsafePointer<gchar>, target: GtkIconSize/
+s/public func iconSizeLookupFor(settings: SettingsProtocol, size: CInt/public func iconSizeLookupFor(settings: SettingsProtocol, size: GtkIconSize/
+s/public func iconSizeRegister(alias: UnsafePointer<gchar>, target: CInt/public func iconSizeRegister(alias: UnsafePointer<gchar>, target: GtkIconSize/
 s/public func setFrom(iconSet icon_set: IconSetProtocol, size: CInt/public func setFrom(iconSet icon_set: IconSetProtocol, size: GtkIconSize/
 s/rv = gtk_clipboard_get_default/rv: UnsafeMutablePointer<GtkClipboard>? = nil \/\/ gtk_clipboard_get_default/
 s/gtk_drag_set_icon_gicon/\/\/ gtk_drag_set_icon_gicon/
