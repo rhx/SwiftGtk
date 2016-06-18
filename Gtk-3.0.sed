@@ -11,17 +11,17 @@ s/  public static func newWith(with_label label: UnsafePointer<gchar>) -> Toggle
 s/\(public typealias Stock = GtkStock\)/@available(*, deprecated) \1/
 s/\(public func getCurrentAlpha.. -> UInt16\)/@available(*, deprecated) \1/
 s/\(public func getPreviousAlpha.. -> UInt16\)/@available(*, deprecated) \1/
-s/\(public func getCurrentRGBA.rgba: RGBAProtocol. {\)/@available(*, deprecated) \1/
-s/\(public func getPreviousRGBA.rgba: RGBAProtocol. {\)/@available(*, deprecated) \1/
+s/\(public func getCurrent.rgba: RGBAProtocol\)/@available(*, deprecated) \1/
+s/\(public func getPrevious.rgba: RGBAProtocol\)/@available(*, deprecated) \1/
 s/\(public func getHasOpacityControl.. -> Bool\)/@available(*, deprecated) \1/
 s/\(public func getHasPalette.. -> Bool\)/@available(*, deprecated) \1/
 s/\(public func isAdjusting.. -> Bool\)/@available(*, deprecated) \1/
-s/\(public func setCurrentAlpha(alpha: UInt16.\)/@available(*, deprecated) \1/
-s/\(public func setCurrentRGBA.rgba: RGBAProtocol. {\)/@available(*, deprecated) \1/
-s/\(public func setHasOpacityControl.has_opacity: Bool.\)/@available(*, deprecated) \1/
-s/\(public func setHasPalette.has_palette: Bool.\)/@available(*, deprecated) \1/
-s/\(public func setPreviousAlpha.alpha: UInt16.\)/@available(*, deprecated) \1/
-s/\(public func setPreviousRGBA.rgba: RGBAProtocol.\)/@available(*, deprecated) \1/
+s/\(public func setCurrent.alpha: UInt16\)/@available(*, deprecated) \1/
+s/\(public func setCurrent.rgba: RGBAProtocol\)/@available(*, deprecated) \1/
+s/\(public func setHasOpacityControl.hasOpacity\)/@available(*, deprecated) \1/
+s/\(public func set.hasPalette has_palette:\)/@available(*, deprecated) \1/
+s/\(public func setPrevious.alpha: UInt16.\)/@available(*, deprecated) \1/
+s/\(public func setPrevious.rgba: RGBAProtocol.\)/@available(*, deprecated) \1/
 s/\(public var currentAlpha: UInt16\)/@available(*, deprecated) \1/
 s/\(public var hasOpacityControl: Bool\)/@available(*, deprecated) \1/
 s/\(public var hasPalette: Bool\)/@available(*, deprecated) \1/
@@ -32,14 +32,15 @@ s/\(public var colorSelection:\)/@available(*, deprecated) \1/
 s/\(public func getColor.h:\)/@available(*, deprecated) \1/
 s/\(public func getMetrics.size:\)/@available(*, deprecated) \1/
 s/\(public func setMetrics.size:\)/@available(*, deprecated) \1/
-s/\(public func getStyleProperty.widget_type: GType\)/@available(*, deprecated) \1/
-s/\(public func getValist.widget_type: GType\)/@available(*, deprecated) \1/
+s/\(public func getStyleProperty.widgetType \)/@available(*, deprecated) \1/
+s/\(public func getValist.widgetType \)/@available(*, deprecated) \1/
 s/\(public func hasContext.. -> Bool\)/@available(*, deprecated) \1/
 s/\(public func dragBegin.targets:\)/@available(*, deprecated) \1/
-s/\(public func drag.*_set_icon_stock\)/@available(*, deprecated) \1/
+s/\(public func drag.*SetIconStock\)/@available(*, deprecated) \1/
 s/\(public func getDoubleBuffered.. -> Bool\)/@available(*, deprecated) \1/
 s/\(public var doubleBuffered: Bool\)/@available(*, deprecated) \1/
 s/\(public func setColor.h:\)/@available(*, deprecated) \1/
+s/\(public func resolveFor.context:\)/@available(*, deprecated) \1/
 s/gtk_gradient_ref/g_object_ref/
 s/gtk_gradient_unref/g_object_unref/
 s/gtk_icon_set_ref/g_object_ref/
