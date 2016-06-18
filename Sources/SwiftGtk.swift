@@ -61,7 +61,7 @@ public extension Application {
     public convenience init?(id: String? = nil, flags: ApplicationFlags = .flags_none) {
         let rv: UnsafeMutablePointer<GtkApplication>?
         if let application_id = id where !application_id.isEmpty {
-            set_application_name(application_name: application_id)
+            GLib.set(applicationName: application_id)
             rv = gtk_application_new(id, flags)
         } else {
             rv = gtk_application_new(nil, flags)
@@ -83,7 +83,7 @@ public extension Application {
     ///    Since 2.40, applications that are not explicitly flagged as services or launchers (ie: neither G_APPLICATION_IS_SERVICE or G_APPLICATION_IS_LAUNCHER are given as flags) will check (from the default handler for local_command_line) if "--gapplication-service" was given in the command line. If this flag is present then normal commandline processing is interrupted and the G_APPLICATION_IS_SERVICE flag is set. This provides a "compromise" solution whereby running an application directly from the commandline will invoke it in the normal way (which can be useful for debugging) while still allowing applications to be D-Bus activated in service mode. The D-Bus service file should invoke the executable with "--gapplication-service" as the sole commandline argument. This approach is suitable for use by most graphical applications but should not be used from applications like editors that need precise control over when processes invoked via the commandline will exit and what their exit status will be.
     func run(arguments: [String]? = nil, handler: CGLib.GCallback? = nil) -> Int {
         if let h = handler {
-            let _ = signal_connect_data(detailed_signal: "activate", c_handler: h, data: OpaquePointer(ptr), destroy_data: { (_: gpointer?, _: UnsafeMutablePointer<GClosure>?) in return }, connect_flags: ConnectFlags(0))
+            let _ = signalConnectData(detailedSignal: "activate", cHandler: h, data: OpaquePointer(ptr), destroyData: { (_: gpointer?, _: UnsafeMutablePointer<GClosure>?) in return }, connectFlags: ConnectFlags(0))
         }
         if let params = arguments where params.count != 0 {
             var av = argv(params)
