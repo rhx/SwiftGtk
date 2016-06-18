@@ -104,3 +104,4 @@ s/public static let String = GTK_FILE/public static let filename = GTK_FILE/
 s/xlib.Window/gulong/g
 s/getID() -> Window/getID() -> gulong/
 s/public var id: Window/public var id: gulong/
+s/gtk_widget_path_iter_add_qclass/\/\/ gtk_widget_path_iter_add_qclass/
