@@ -41,6 +41,9 @@ s/\(public func getDoubleBuffered.. -> Bool\)/@available(*, deprecated) \1/
 s/\(public var doubleBuffered: Bool\)/@available(*, deprecated) \1/
 s/\(public func setColor.h:\)/@available(*, deprecated) \1/
 s/\(public func resolveFor.context:\)/@available(*, deprecated) \1/
+s/\(public func getFocusOnClick.. -> Bool\)/@available(*, deprecated) \1/
+s/\(public func set.focusOnClick focus_on_click: Bool\)/@available(*, deprecated) \1/
+s/\(public var focusOnClick: Bool\)/@available(*, deprecated) \1/
 s/gtk_gradient_ref/g_object_ref/
 s/gtk_gradient_unref/g_object_unref/
 s/gtk_icon_set_ref/g_object_ref/
