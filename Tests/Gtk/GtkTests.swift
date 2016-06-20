@@ -2,9 +2,6 @@ import XCTest
 import CGtk
 @testable import Gtk
 
-var app: Application!
-var appWasRunning = false
-
 class GtkTests: XCTestCase {
     func testMajorVersion() { XCTAssertEqual(getMajorVersion(), gtk_get_major_version()) }
     func testMinorVersion() { XCTAssertEqual(getMinorVersion(), gtk_get_minor_version()) }
@@ -12,14 +9,20 @@ class GtkTests: XCTestCase {
     func testInterfaceAge() { XCTAssertEqual(getInterfaceAge(), gtk_get_interface_age()) }
     func testBinaryAge()    { XCTAssertEqual(getBinaryAge(),    gtk_get_binary_age())    }
 
-    /// test that we can run and qui an app
+    /// test that we can run and quit an app
     func testApp() {
-        app = Application()
+        let app: Application! = Application()
         XCTAssertNotNil(app)
-        let status = app.run {
+        var appWasRunning = false
+        var appDidStart = false
+        let status = app.run(startupHandler: {
+            XCTAssertFalse(appDidStart)
+            appDidStart = true
+            XCTAssertFalse(appWasRunning)
+        }, activationHandler: {
             appWasRunning = true
             app.quit()
-        }
+        })
         XCTAssertEqual(status, 0)
         XCTAssertTrue(appWasRunning)
     }

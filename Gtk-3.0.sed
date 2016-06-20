@@ -108,3 +108,14 @@ s/xlib.Window/gulong/g
 s/getID() -> Window/getID() -> gulong/
 s/public var id: Window/public var id: gulong/
 s/gtk_widget_path_iter_add_qclass/\/\/ gtk_widget_path_iter_add_qclass/
+s/CallbackSymbol(callbackName/(callback/
+s/FromFile(String_:/From(file String_:/
+s/FromResource(resourcePath/From(resource/
+s/Layout(layoutStyle/(layoutStyle/
+s/FromString(buffer:/From(stringBuffer buffer:/
+s/FromString(pspec:/From(pspec:/
+s/FromString(type:/From(type:/
+s/init(with_\([^ :]*) \([^ :]*):/init(\2:/
+s/[gs]etChild\([a-zA-Z_])*(child:/get\1(child:/
+s/(func_:/(_ func_:/
+s/,func_:/,_ func_:/

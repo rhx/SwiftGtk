@@ -33,6 +33,17 @@ func argv(_ arguments: [String]) -> [UnsafeMutablePointer<CChar>?] {
 }
 
 
+/// Widget convenience methods
+public extension Widget {
+}
+
+public extension WidgetRef {
+    public init(_ object: UnsafeMutablePointer<GObject>) {
+        ptr = UnsafeMutablePointer(object)
+    }
+}
+
+/// Application convenience methods
 public extension Application {
     /// Creates a new #GtkApplication instance.
     ///
@@ -58,9 +69,9 @@ public extension Application {
     /// If no application ID is given then some features (most notably application
     /// uniqueness) will be disabled. A null application ID is only allowed with
     /// GTK+ 3.6 or later.
-    public convenience init?(id: String? = nil, flags: ApplicationFlags = .flags_none) {
+    public convenience init?(id: UnsafePointer<gchar>? = nil, flags: ApplicationFlags = .flags_none) {
         let rv: UnsafeMutablePointer<GtkApplication>?
-        if let application_id = id where !application_id.isEmpty {
+        if let application_id = id {
             GLib.set(applicationName: application_id)
             rv = gtk_application_new(id, flags)
         } else {
@@ -81,9 +92,12 @@ public extension Application {
     ///    If the G_APPLICATION_IS_SERVICE flag is set, then the service will run for as much as 10 seconds with a use count of zero while waiting for the message that caused the activation to arrive. After that, if the use count falls to zero the application will exit immediately, except in the case that g_application_set_inactivity_timeout() is in use.
     ///    This function sets the prgname (g_set_prgname()), if not already set, to the basename of argv[0].
     ///    Since 2.40, applications that are not explicitly flagged as services or launchers (ie: neither G_APPLICATION_IS_SERVICE or G_APPLICATION_IS_LAUNCHER are given as flags) will check (from the default handler for local_command_line) if "--gapplication-service" was given in the command line. If this flag is present then normal commandline processing is interrupted and the G_APPLICATION_IS_SERVICE flag is set. This provides a "compromise" solution whereby running an application directly from the commandline will invoke it in the normal way (which can be useful for debugging) while still allowing applications to be D-Bus activated in service mode. The D-Bus service file should invoke the executable with "--gapplication-service" as the sole commandline argument. This approach is suitable for use by most graphical applications but should not be used from applications like editors that need precise control over when processes invoked via the commandline will exit and what their exit status will be.
-    func run(arguments: [String]? = nil, handler: CGLib.GCallback? = nil) -> Int {
-        if let h = handler {
-            let _ = signalConnectData(detailedSignal: "activate", cHandler: h, data: OpaquePointer(ptr), destroyData: { (_: gpointer?, _: UnsafeMutablePointer<GClosure>?) in return }, connectFlags: ConnectFlags(0))
+    func run(arguments: [String]? = nil, startupHandler: SignalHandler? = nil, activationHandler: SignalHandler? = nil) -> Int {
+        if let s = startupHandler {
+            let _ = connect(signal: "startup", handler: s)
+        }
+        if let a = activationHandler {
+            let _ = connect(signal: "activate", handler: a)
         }
         if let params = arguments where params.count != 0 {
             var av = argv(params)
