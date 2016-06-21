@@ -1,10 +1,11 @@
 s/^public let STOCK_/\/\/ public let STOCK_/
 s/^public let \(.*\): String/public let \1: CChar/
+s/Gicon/Icon/g
 s/Id/ID/g
 s/IDe/Ide/g
 s/Rgba/RGBA/g
 s/Rgb/RGB/g
-s/Gicon/Icon/g
+s/Uri/URI/g
 s/setApplicationName(applicationName:/set(applicationName:/
 s/public static func newWith(with_label label/public static func newWith(label/g
 s/  public static func newWith(with_label label: UnsafePointer<gchar>) -> ToggleButton/  override public static func newWith(with_label label: UnsafePointer<gchar>) -> ToggleButton/
@@ -115,6 +116,16 @@ s/Layout(layoutStyle/(layoutStyle/
 s/FromString(buffer:/From(stringBuffer buffer:/
 s/FromString(pspec:/From(pspec:/
 s/FromString(type:/From(type:/
+s/String(str:/(string str:/
+s/Text(str:/(text str:/
+s/Label(str:/(label str:/
+s/Markup(str:/(markup str:/
+s/Mnemonic(str:/(mnemonic str:/
+s/Search(str:/Search(_ str:/
+s/Chars(nChars /(nChars /
+s/Selectable(setting:/(selectable setting:/
+s/Use\([A-Z][A-Za-z]*\)(setting:/(use\1 setting:/
+s/TrackVisitedLinks(trackLinks /(trackVisitedLinks /
 s/init(with_\([^ :]*\) \([^ :]*\):/init(\1 \2:/
 s/[gs]etChild\([a-zA-Z_]\)*(child:/get\1(child:/
 s/(func_:/(_ func_:/
