@@ -9,6 +9,23 @@ import GLib
 import GObject
 import GIO
 
+/// A closure taking a reference to the current application as an argument
+public typealias ApplicationSignalHandler = (ApplicationRef) -> Void
+
+/// Internal Class that wraps a closure to make sure the closure is retained
+/// until no longer required
+class ClosureHolder<S,T> {
+    let call: (S) -> T
+
+    init(_ closure: (S) -> T) {
+        self.call = closure
+    }
+}
+
+/// Internal type for SignalHandler closure holder
+typealias SignalHandlerClosureHolder = ClosureHolder<ApplicationRef,Void>
+
+
 /**
  * Convert a swift string (or UnsafePointer<Char>) into
  * an UnsafeMutablePointer<CChar> as used by many POSIX functions.
@@ -42,6 +59,36 @@ public extension WidgetRef {
         ptr = UnsafeMutablePointer(object)
     }
 }
+
+/// Application protocol convenience methods
+public extension ApplicationProtocol {
+    /// Connection helper function
+    private func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: SignalHandlerClosureHolder, handler: @convention(c) (gpointer, gpointer) -> Void) -> CUnsignedLong {
+        let opaqueHolder = OpaquePointer(bitPattern: Unmanaged.passRetained(data))
+        let callback = unsafeBitCast(handler, to: Callback.self)
+        let rv = signalConnectData(detailedSignal: name, cHandler: callback, data: opaqueHolder, destroyData: {
+            if let swift = OpaquePointer($0) {
+                let holder = Unmanaged<SignalHandlerClosureHolder>.fromOpaque(swift)
+                holder.release()
+            }
+            let _ = $1
+            }, connectFlags: flags)
+        return rv
+    }
+
+    /// Connects a (Void) -> Void closure or function to a signal for
+    /// the receiver object.  Similar to g_signal_connect(), but allows
+    /// to provide a Swift closure that can capture its surrounding context.
+    public func connect(signal name: UnsafePointer<gchar>, flags f: ConnectFlags = ConnectFlags(0), handler: ApplicationSignalHandler) -> CUnsignedLong {
+        let rv = _connect(signal: name, flags: f, data: ClosureHolder(handler)) {
+            let ptr = OpaquePointer($1)
+            let holder = Unmanaged<SignalHandlerClosureHolder>.fromOpaque(ptr).takeUnretainedValue()
+            holder.call(ApplicationRef(UnsafeMutablePointer($0)))
+        }
+        return rv
+    }
+}
+
 
 /// Application convenience methods
 public extension Application {
@@ -92,7 +139,7 @@ public extension Application {
     ///    If the G_APPLICATION_IS_SERVICE flag is set, then the service will run for as much as 10 seconds with a use count of zero while waiting for the message that caused the activation to arrive. After that, if the use count falls to zero the application will exit immediately, except in the case that g_application_set_inactivity_timeout() is in use.
     ///    This function sets the prgname (g_set_prgname()), if not already set, to the basename of argv[0].
     ///    Since 2.40, applications that are not explicitly flagged as services or launchers (ie: neither G_APPLICATION_IS_SERVICE or G_APPLICATION_IS_LAUNCHER are given as flags) will check (from the default handler for local_command_line) if "--gapplication-service" was given in the command line. If this flag is present then normal commandline processing is interrupted and the G_APPLICATION_IS_SERVICE flag is set. This provides a "compromise" solution whereby running an application directly from the commandline will invoke it in the normal way (which can be useful for debugging) while still allowing applications to be D-Bus activated in service mode. The D-Bus service file should invoke the executable with "--gapplication-service" as the sole commandline argument. This approach is suitable for use by most graphical applications but should not be used from applications like editors that need precise control over when processes invoked via the commandline will exit and what their exit status will be.
-    func run(arguments: [String]? = nil, startupHandler: SignalHandler? = nil, activationHandler: SignalHandler? = nil) -> Int {
+    func run(arguments: [String]? = nil, startupHandler: ApplicationSignalHandler? = nil, activationHandler: ApplicationSignalHandler? = nil) -> Int {
         if let s = startupHandler {
             let _ = connect(signal: "startup", handler: s)
         }

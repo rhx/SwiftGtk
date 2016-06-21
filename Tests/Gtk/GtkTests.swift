@@ -11,15 +11,15 @@ class GtkTests: XCTestCase {
 
     /// test that we can run and quit an app
     func testApp() {
-        let app: Application! = Application()
-        XCTAssertNotNil(app)
+        let application: Application! = Application()
+        XCTAssertNotNil(application)
         var appWasRunning = false
         var appDidStart = false
-        let status = app.run(startupHandler: {
+        let status = application.run(startupHandler: { _ in
             XCTAssertFalse(appDidStart)
             appDidStart = true
             XCTAssertFalse(appWasRunning)
-        }, activationHandler: {
+        }, activationHandler: { app in
             appWasRunning = true
             app.quit()
         })
