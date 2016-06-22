@@ -26,12 +26,21 @@ class GtkTests: XCTestCase {
         XCTAssertEqual(status, 0)
         XCTAssertTrue(appWasRunning)
     }
+
+    /// text text buffers
+    func testTextBuffer() {
+        guard var buffer = TextBuffer() else { XCTFail() ; return }
+        let text = "Hello, world!\n"
+        buffer.text = text
+        XCTAssertEqual(buffer.text, text)
+    }
 }
 
 extension GtkTests {
     static var allTests : [(String, (GtkTests) -> () throws -> Void)] {
         return [
             ("testApp",             testApp),
+            ("testTextBuffer",      testTextBuffer),
             ("testMajorVersion",    testMajorVersion),
             ("testMinorVersion",    testMinorVersion),
             ("testMicroVersion",    testMicroVersion),

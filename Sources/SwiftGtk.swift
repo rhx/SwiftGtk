@@ -60,6 +60,71 @@ public extension WidgetRef {
     }
 }
 
+
+/// Text view convenience methods
+public extension TextViewProtocol {
+    public var text: String {
+        get {
+            let text = TextBufferRef(buffer).text
+            return text
+        }
+        set {
+            var b = TextBufferRef(buffer)
+            b.text = newValue
+        }
+    }
+}
+
+/// A holder for the bounds of a text buffer
+class BoundsIter: TextIter {
+    /// the actual text iterator
+    var iter = GtkTextIter()
+
+    /// default constructor
+    ///
+    /// - returns: an iterator with the pointer pointing to the internal var
+    init() {
+        super.init(&iter)
+    }
+}
+
+
+/// Text buffer convenience mentods
+public extension TextBufferProtocol {
+    /// A string containing the text stored inside the text buffer,
+    /// including hidden characters
+    public var text: String {
+        get {
+            var beg = GtkTextIter()
+            var end = GtkTextIter()
+            gtk_text_buffer_get_bounds(UnsafeMutablePointer(ptr), &beg, &end)
+            let text = getText(start: TextIterRef(&beg), end: TextIterRef(&end), includeHiddenChars: true) ?? ""
+            return text
+        }
+        set {
+            set(text: newValue, len: -1)
+        }
+    }
+
+    /// bounds for the start and end of the text buffer
+    public var bounds: (start: TextIter, end: TextIter) {
+        let beg = BoundsIter()
+        let end = BoundsIter()
+        gtk_text_buffer_get_bounds(UnsafeMutablePointer(ptr), beg.ptr, end.ptr)
+        return (start: beg, end: end)
+    }
+}
+
+public extension TextBuffer {
+    /// Default contstructor
+    ///
+    /// - returns: a new text buffer with a new tag table
+    public convenience init?() {
+        guard let buffer = gtk_text_buffer_new(nil) else { return nil }
+        self.init(buffer)
+    }
+}
+
 /// Application protocol convenience methods
 public extension ApplicationProtocol {
     /// Connection helper function
@@ -157,7 +222,7 @@ public extension Application {
 
 
 
-    /// Create and run an application.
+    /// Create and run an application with an optional ID and optional flags.
     ///    This function is intended to be run from main() and its return value is intended to be returned by main(). Although you are expected to pass the argc , argv parameters from main() to this function, it is possible to pass NULL if argv is not available or commandline handling is not required. Note that on Windows, argc and argv are ignored, and g_win32_get_command_line() is called internally (for proper support of Unicode commandline arguments).
     ///    GApplication will attempt to parse the commandline arguments. You can add commandline flags to the list of recognised options by way of g_application_add_main_option_entries(). After this, the “handle-local-options” signal is emitted, from which the application can inspect the values of its GOptionEntrys.
     ///    “handle-local-options” is a good place to handle options such as --version, where an immediate reply from the local process is desired (instead of communicating with an already-running instance). A “handle-local-options” handler can stop further processing by returning a non-negative value, which then becomes the exit status of the process.
@@ -167,7 +232,7 @@ public extension Application {
     ///    If the G_APPLICATION_IS_SERVICE flag is set, then the service will run for as much as 10 seconds with a use count of zero while waiting for the message that caused the activation to arrive. After that, if the use count falls to zero the application will exit immediately, except in the case that g_application_set_inactivity_timeout() is in use.
     ///    This function sets the prgname (g_set_prgname()), if not already set, to the basename of argv[0].
     ///    Since 2.40, applications that are not explicitly flagged as services or launchers (ie: neither G_APPLICATION_IS_SERVICE or G_APPLICATION_IS_LAUNCHER are given as flags) will check (from the default handler for local_command_line) if "--gapplication-service" was given in the command line. If this flag is present then normal commandline processing is interrupted and the G_APPLICATION_IS_SERVICE flag is set. This provides a "compromise" solution whereby running an application directly from the commandline will invoke it in the normal way (which can be useful for debugging) while still allowing applications to be D-Bus activated in service mode. The D-Bus service file should invoke the executable with "--gapplication-service" as the sole commandline argument. This approach is suitable for use by most graphical applications but should not be used from applications like editors that need precise control over when processes invoked via the commandline will exit and what their exit status will be.
-    static func run(arguments args: [String]? = nil, startupHandler s: ApplicationSignalHandler? = nil, activationHandler a: ApplicationSignalHandler? = nil) -> Int? {
-        return Application()?.run(arguments: args, startupHandler: s, activationHandler: a)
+    static func run(id name: UnsafePointer<gchar>? = nil, flags f: ApplicationFlags = .flags_none, arguments args: [String]? = nil, startupHandler s: ApplicationSignalHandler? = nil, activationHandler a: ApplicationSignalHandler? = nil) -> Int? {
+        return Application(id: name, flags: f)?.run(arguments: args, startupHandler: s, activationHandler: a)
     }
 }
