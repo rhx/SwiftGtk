@@ -9,6 +9,7 @@
 ./package.sh generate-xcodeproj "$@"
 ( cd ${Mod}.xcodeproj/Configs						&& \
   mv Project.xcconfig Project.xcconfig.in				&& \
+  echo 'SWIFT_VERSION = 3.0' >> Project.xcconfig.in			&& \
   sed -e 's/ -I ?[^ ]*//g' < Project.xcconfig.in > Project.xcconfig	&& \
   grep 'OTHER_CFLAGS' < Project.xcconfig.in | sed 's/-I */-I/g'		|  \
     tr ' ' '\n' | grep -- -I | tr '\n' ' '				|  \

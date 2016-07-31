@@ -129,10 +129,10 @@ public extension TextBuffer {
 public extension ApplicationProtocol {
     /// Connection helper function
     private func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: SignalHandlerClosureHolder, handler: @convention(c) (gpointer, gpointer) -> Void) -> CUnsignedLong {
-        let opaqueHolder = OpaquePointer(bitPattern: Unmanaged.passRetained(data))
+        let opaqueHolder = OpaquePointer(Unmanaged.passRetained(data).toOpaque())
         let callback = unsafeBitCast(handler, to: Callback.self)
         let rv = signalConnectData(detailedSignal: name, cHandler: callback, data: opaqueHolder, destroyData: {
-            if let swift = OpaquePointer($0) {
+            if let swift = UnsafePointer<Void>($0) {
                 let holder = Unmanaged<SignalHandlerClosureHolder>.fromOpaque(swift)
                 holder.release()
             }
@@ -146,7 +146,7 @@ public extension ApplicationProtocol {
     /// to provide a Swift closure that can capture its surrounding context.
     public func connect(signal name: UnsafePointer<gchar>, flags f: ConnectFlags = ConnectFlags(0), handler: ApplicationSignalHandler) -> CUnsignedLong {
         let rv = _connect(signal: name, flags: f, data: ClosureHolder(handler)) {
-            let ptr = OpaquePointer($1)
+            let ptr = UnsafePointer<Void>($1)
             let holder = Unmanaged<SignalHandlerClosureHolder>.fromOpaque(ptr).takeUnretainedValue()
             holder.call(ApplicationRef(UnsafeMutablePointer($0)))
         }
@@ -211,7 +211,7 @@ public extension Application {
         if let a = activationHandler {
             let _ = connect(signal: "activate", handler: a)
         }
-        if let params = arguments where params.count != 0 {
+        if let params = arguments, params.count != 0 {
             var av = argv(params)
             return Int(g_application_run(UnsafeMutablePointer<GApplication>(ptr), CInt(params.count), &av))
         } else {
