@@ -12,18 +12,8 @@ import GIO
 /// A closure taking a reference to the current application as an argument
 public typealias ApplicationSignalHandler = (ApplicationRef) -> Void
 
-/// Internal Class that wraps a closure to make sure the closure is retained
-/// until no longer required
-class ClosureHolder<S,T> {
-    let call: (S) -> T
-
-    init(_ closure: (S) -> T) {
-        self.call = closure
-    }
-}
-
 /// Internal type for SignalHandler closure holder
-typealias SignalHandlerClosureHolder = ClosureHolder<ApplicationRef,Void>
+typealias ApplicationSignalHandlerClosureHolder = ClosureHolder<ApplicationRef,Void>
 
 
 /**
@@ -125,15 +115,16 @@ public extension TextBuffer {
     }
 }
 
+
 /// Application protocol convenience methods
 public extension ApplicationProtocol {
     /// Connection helper function
-    private func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: SignalHandlerClosureHolder, handler: @convention(c) (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    private func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: ApplicationSignalHandlerClosureHolder, handler: @convention(c) (gpointer, gpointer) -> Void) -> CUnsignedLong {
         let opaqueHolder = OpaquePointer(Unmanaged.passRetained(data).toOpaque())
         let callback = unsafeBitCast(handler, to: Callback.self)
         let rv = signalConnectData(detailedSignal: name, cHandler: callback, data: opaqueHolder, destroyData: {
             if let swift = UnsafePointer<Void>($0) {
-                let holder = Unmanaged<SignalHandlerClosureHolder>.fromOpaque(swift)
+                let holder = Unmanaged<ApplicationSignalHandlerClosureHolder>.fromOpaque(swift)
                 holder.release()
             }
             let _ = $1
@@ -147,7 +138,7 @@ public extension ApplicationProtocol {
     public func connect(signal name: UnsafePointer<gchar>, flags f: ConnectFlags = ConnectFlags(0), handler: ApplicationSignalHandler) -> CUnsignedLong {
         let rv = _connect(signal: name, flags: f, data: ClosureHolder(handler)) {
             let ptr = UnsafePointer<Void>($1)
-            let holder = Unmanaged<SignalHandlerClosureHolder>.fromOpaque(ptr).takeUnretainedValue()
+            let holder = Unmanaged<ApplicationSignalHandlerClosureHolder>.fromOpaque(ptr).takeUnretainedValue()
             holder.call(ApplicationRef(UnsafeMutablePointer($0)))
         }
         return rv
