@@ -6,16 +6,16 @@ A Swift wrapper around gtk-3.x that is largely auto-generated from gobject-intro
 
 ### Swift
 
-To build, you need a very recent Swift compiler (Swift 3.0 Preview 3 at the time of this writing, download from https://swift.org/download/ -- if you are using macOS, make sure you have the command line tools installed as well).  Test that your compiler works using `swift --version`, which should give you something like
+To build, you need a very recent Swift compiler (Swift 3.0 Preview 4 at the time of this writing, download from https://swift.org/download/ -- if you are using macOS, make sure you have the command line tools installed as well).  Test that your compiler works using `swift --version`, which should give you something like
 
 	$ swift --version
-	Apple Swift version 3.0 (swiftlang-800.0.34.6 clang-800.0.33)
+	Apple Swift version 3.0 (swiftlang-800.0.41.2 clang-800.0.36)
 	Target: x86_64-apple-macosx10.9
 
 on macOS, or on Linux you should get something like:
 
 	$ swift --version
-	Swift version 3.0 (swift-3.0-PREVIEW-3)
+	Swift version 3.0 (swift-3.0-PREVIEW-4)
 	Target: x86_64-unknown-linux-gnu
 
 ### Gtk 3.18 or higher
@@ -71,10 +71,10 @@ If you get an error such as
 	$ ./build.sh 
 	error: unable to invoke subcommand: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swift-package (No such file or directory)
 	
-this probably means that your Swift toolchain is too old.  Make sure the latest toolchain (Swift 3 preview 3 at the time of this writing) is the one that is found when you run the Swift compiler, e.g.:
+this probably means that your Swift toolchain is too old.  Make sure the latest toolchain (Swift 3 preview 4 at the time of this writing) is the one that is found when you run the Swift compiler, e.g.:
 
 	$ swiftc --version
-	Apple Swift version 3.0 (swiftlang-800.0.34.6 clang-800.0.33)
+	Apple Swift version 3.0 (swiftlang-800.0.41.2 clang-800.0.36)
 	Target: x86_64-apple-macosx10.9
 
   If you get an older version, make sure that the right version of the swift compiler is found first in your `PATH`.  On macOS, use xcode-select to select and install the latest version, e.g.:
