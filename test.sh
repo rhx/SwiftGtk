@@ -5,4 +5,4 @@
 #
 . ./config.sh
 [ -e Sources/${Module}.swift ] || ./generate-wrapper.sh
-exec swift test "$@"
+exec swift test $CCFLAGS $LINKFLAGS "$@"
