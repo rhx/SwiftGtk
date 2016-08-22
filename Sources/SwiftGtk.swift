@@ -23,7 +23,7 @@ typealias ApplicationSignalHandlerClosureHolder = ClosureHolder<ApplicationRef,V
  * C APIs fail to declare them `const'
  */
 func cstring(_ arg: UnsafePointer<CChar>) -> UnsafeMutablePointer<CChar> {
-    return UnsafeMutablePointer<CChar>(arg)
+    return UnsafeMutablePointer<CChar>(mutating: arg)
 }
 
 
@@ -36,7 +36,7 @@ func cstring(_ arg: UnsafePointer<CChar>) -> UnsafeMutablePointer<CChar> {
  }
  */
 func argv(_ arguments: [String]) -> [UnsafeMutablePointer<CChar>?] {
-    return arguments.map { let s = cstring($0); return s } + [UnsafeMutablePointer<CChar>(nil)]
+    return arguments.map { let s = cstring($0); return s } + [nil]
 }
 
 
@@ -85,10 +85,12 @@ public extension TextBufferProtocol {
     /// including hidden characters
     public var text: String {
         get {
-            var beg = GtkTextIter()
-            var end = GtkTextIter()
-            gtk_text_buffer_get_bounds(UnsafeMutablePointer(ptr), &beg, &end)
-            let text = getText(start: TextIterRef(&beg), end: TextIterRef(&end), includeHiddenChars: true) ?? ""
+            let text = ptr.withMemoryRebound(to: GtkTextBuffer.self, capacity: 1) { (buf: UnsafeMutablePointer<GtkTextBuffer>) -> String in
+                var beg = GtkTextIter()
+                var end = GtkTextIter()
+                gtk_text_buffer_get_bounds(buf, &beg, &end)
+                return getText(start: TextIterRef(&beg), end: TextIterRef(&end), includeHiddenChars: true) ?? ""
+            }
             return text
         }
         set {
@@ -100,7 +102,7 @@ public extension TextBufferProtocol {
     public var bounds: (start: TextIter, end: TextIter) {
         let beg = BoundsIter()
         let end = BoundsIter()
-        gtk_text_buffer_get_bounds(UnsafeMutablePointer(ptr), beg.ptr, end.ptr)
+        gtk_text_buffer_get_bounds(ptr.withMemoryRebound(to: GtkTextBuffer.self, capacity: 1) { $0 }, beg.ptr, end.ptr)
         return (start: beg, end: end)
     }
 }
@@ -120,10 +122,10 @@ public extension TextBuffer {
 public extension ApplicationProtocol {
     /// Connection helper function
     private func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: ApplicationSignalHandlerClosureHolder, handler: @convention(c) (gpointer, gpointer) -> Void) -> CUnsignedLong {
-        let opaqueHolder = OpaquePointer(Unmanaged.passRetained(data).toOpaque())
+        let opaqueHolder = Unmanaged.passRetained(data).toOpaque()
         let callback = unsafeBitCast(handler, to: Callback.self)
         let rv = signalConnectData(detailedSignal: name, cHandler: callback, data: opaqueHolder, destroyData: {
-            if let swift = UnsafePointer<Void>($0) {
+            if let swift = $0 {
                 let holder = Unmanaged<ApplicationSignalHandlerClosureHolder>.fromOpaque(swift)
                 holder.release()
             }
@@ -135,13 +137,29 @@ public extension ApplicationProtocol {
     /// Connects a (Void) -> Void closure or function to a signal for
     /// the receiver object.  Similar to g_signal_connect(), but allows
     /// to provide a Swift closure that can capture its surrounding context.
-    public func connect(signal name: UnsafePointer<gchar>, flags f: ConnectFlags = ConnectFlags(0), handler: ApplicationSignalHandler) -> CUnsignedLong {
+    @discardableResult
+    public func connectSignal(name: UnsafePointer<gchar>, flags f: ConnectFlags = ConnectFlags(0), handler: ApplicationSignalHandler) -> CUnsignedLong {
         let rv = _connect(signal: name, flags: f, data: ClosureHolder(handler)) {
-            let ptr = UnsafePointer<Void>($1)
-            let holder = Unmanaged<ApplicationSignalHandlerClosureHolder>.fromOpaque(ptr).takeUnretainedValue()
-            holder.call(ApplicationRef(UnsafeMutablePointer($0)))
+            let holder = Unmanaged<ApplicationSignalHandlerClosureHolder>.fromOpaque($1).takeUnretainedValue()
+            holder.call(ApplicationRef(raw: $0))
         }
         return rv
+    }
+
+    /// Connects a (Void) -> Void closure or function to a signal for
+    /// the receiver object.  Similar to g_signal_connect(), but allows
+    /// to provide a Swift closure that can capture its surrounding context.
+    @discardableResult
+    public func connect<T>(signal s: T, flags f: ConnectFlags = ConnectFlags(0), handler: ApplicationSignalHandler) -> CUnsignedLong where T: SignalNameProtocol {
+        return connectSignal(name: s.rawValue, flags: f, handler: handler)
+    }
+
+    /// Connects a (Void) -> Void closure or function to an application signal for
+    /// the receiver object.  Similar to g_signal_connect(), but allows
+    /// to provide a Swift closure that can capture its surrounding context.
+    @discardableResult
+    public func connect(signal: ApplicationSignalName, flags f: ConnectFlags = ConnectFlags(0), handler: ApplicationSignalHandler) -> CUnsignedLong {
+        return connectSignal(name: signal.rawValue, flags: f, handler: handler)
     }
 }
 
@@ -197,16 +215,20 @@ public extension Application {
     ///    Since 2.40, applications that are not explicitly flagged as services or launchers (ie: neither G_APPLICATION_IS_SERVICE or G_APPLICATION_IS_LAUNCHER are given as flags) will check (from the default handler for local_command_line) if "--gapplication-service" was given in the command line. If this flag is present then normal commandline processing is interrupted and the G_APPLICATION_IS_SERVICE flag is set. This provides a "compromise" solution whereby running an application directly from the commandline will invoke it in the normal way (which can be useful for debugging) while still allowing applications to be D-Bus activated in service mode. The D-Bus service file should invoke the executable with "--gapplication-service" as the sole commandline argument. This approach is suitable for use by most graphical applications but should not be used from applications like editors that need precise control over when processes invoked via the commandline will exit and what their exit status will be.
     func run(arguments: [String]? = nil, startupHandler: ApplicationSignalHandler? = nil, activationHandler: ApplicationSignalHandler? = nil) -> Int {
         if let s = startupHandler {
-            let _ = connect(signal: "startup", handler: s)
+            connect(signal:.startup, handler: s)
         }
         if let a = activationHandler {
-            let _ = connect(signal: "activate", handler: a)
+            connect(signal:.activate, handler: a)
         }
-        if let params = arguments, params.count != 0 {
-            var av = argv(params)
-            return Int(g_application_run(UnsafeMutablePointer<GApplication>(ptr), CInt(params.count), &av))
-        } else {
-            return Int(g_application_run(UnsafeMutablePointer<GApplication>(ptr), 0, nil))
+        return ptr.withMemoryRebound(to: GApplication.self, capacity: 1) {
+            let rv: Int32
+            if let params = arguments, params.count != 0 {
+                var av = argv(params)
+                rv = g_application_run($0, CInt(params.count), &av)
+            } else {
+                rv = g_application_run($0, 0, nil)
+            }
+            return Int(rv)
         }
     }
 
