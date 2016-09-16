@@ -162,7 +162,7 @@ public extension BoxProtocol {
     /// the receiver object.  Similar to g_signal_connect(), but allows
     /// to provide a Swift closure that can capture its surrounding context.
     @discardableResult
-    public func connectSignal(name: UnsafePointer<gchar>, flags f: ConnectFlags = ConnectFlags(0), handler: BoxSignalHandler) -> CUnsignedLong {
+    public func connectSignal(name: UnsafePointer<gchar>, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping BoxSignalHandler) -> CUnsignedLong {
         let rv = _connect(signal: name, flags: f, data: DualClosureHolder(handler)) {
             let holder = Unmanaged<BoxSignalHandlerClosureHolder>.fromOpaque($2).takeUnretainedValue()
             let rv: gboolean = holder.call(BoxRef(raw: $0), Cairo.ContextRef(raw: $1)) ? 1 : 0
@@ -175,7 +175,7 @@ public extension BoxProtocol {
     /// the receiver object.  Similar to g_signal_connect(), but allows
     /// to provide a Swift closure that can capture its surrounding context.
     @discardableResult
-    public func connect<T>(signal s: T, flags f: ConnectFlags = ConnectFlags(0), handler: BoxSignalHandler) -> CUnsignedLong where T: SignalNameProtocol {
+    public func connect<T>(signal s: T, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping BoxSignalHandler) -> CUnsignedLong where T: SignalNameProtocol {
         return connectSignal(name: s.rawValue, flags: f, handler: handler)
     }
     
@@ -183,7 +183,7 @@ public extension BoxProtocol {
     /// the receiver object.  Similar to g_signal_connect(), but allows
     /// to provide a Swift closure that can capture its surrounding context.
     @discardableResult
-    public func connect(signal: BoxSignalName, flags f: ConnectFlags = ConnectFlags(0), handler: BoxSignalHandler) -> CUnsignedLong {
+    public func connect(signal: BoxSignalName, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping BoxSignalHandler) -> CUnsignedLong {
         return connectSignal(name: signal.rawValue, flags: f, handler: handler)
     }
     
@@ -191,7 +191,7 @@ public extension BoxProtocol {
     /// signal of the receiver object.  Similar to g_signal_connect(), but allows
     /// to provide a Swift closure that can capture its surrounding context.
     @discardableResult
-    public func onDraw(flags f: ConnectFlags = ConnectFlags(0), handler: BoxSignalHandler) -> CUnsignedLong {
+    public func onDraw(flags f: ConnectFlags = ConnectFlags(0), handler: @escaping BoxSignalHandler) -> CUnsignedLong {
         return connectSignal(name: BoxSignalName.draw.rawValue, flags: f, handler: handler)
     }
 }
@@ -220,7 +220,7 @@ public extension WidgetProtocol {
     /// the receiver object.  Similar to g_signal_connect(), but allows
     /// to provide a Swift closure that can capture its surrounding context.
     @discardableResult
-    public func connectSignal(name: UnsafePointer<gchar>, flags f: ConnectFlags = ConnectFlags(0), handler: WidgetSignalHandler) -> CUnsignedLong {
+    public func connectSignal(name: UnsafePointer<gchar>, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping WidgetSignalHandler) -> CUnsignedLong {
         let rv = _connect(signal: name, flags: f, data: DualClosureHolder(handler)) {
             let holder = Unmanaged<WidgetSignalHandlerClosureHolder>.fromOpaque($2).takeUnretainedValue()
             let rv: gboolean = holder.call(WidgetRef(raw: $0), Cairo.ContextRef(raw: $1)) ? 1 : 0
@@ -233,7 +233,7 @@ public extension WidgetProtocol {
     /// the receiver object.  Similar to g_signal_connect(), but allows
     /// to provide a Swift closure that can capture its surrounding context.
     @discardableResult
-    public func connect<T>(signal s: T, flags f: ConnectFlags = ConnectFlags(0), handler: WidgetSignalHandler) -> CUnsignedLong where T: SignalNameProtocol {
+    public func connect<T>(signal s: T, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping WidgetSignalHandler) -> CUnsignedLong where T: SignalNameProtocol {
         return connectSignal(name: s.rawValue, flags: f, handler: handler)
     }
     
@@ -241,7 +241,7 @@ public extension WidgetProtocol {
     /// the receiver object.  Similar to g_signal_connect(), but allows
     /// to provide a Swift closure that can capture its surrounding context.
     @discardableResult
-    public func connect(signal: WidgetSignalName, flags f: ConnectFlags = ConnectFlags(0), handler: WidgetSignalHandler) -> CUnsignedLong {
+    public func connect(signal: WidgetSignalName, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping WidgetSignalHandler) -> CUnsignedLong {
         return connectSignal(name: signal.rawValue, flags: f, handler: handler)
     }
     
@@ -249,7 +249,7 @@ public extension WidgetProtocol {
     /// signal of the receiver object.  Similar to g_signal_connect(), but allows
     /// to provide a Swift closure that can capture its surrounding context.
     @discardableResult
-    public func onDraw(flags f: ConnectFlags = ConnectFlags(0), handler: WidgetSignalHandler) -> CUnsignedLong {
+    public func onDraw(flags f: ConnectFlags = ConnectFlags(0), handler: @escaping WidgetSignalHandler) -> CUnsignedLong {
         return connectSignal(name: WidgetSignalName.draw.rawValue, flags: f, handler: handler)
     }
 }
@@ -275,7 +275,7 @@ public extension ApplicationProtocol {
     /// the receiver object.  Similar to g_signal_connect(), but allows
     /// to provide a Swift closure that can capture its surrounding context.
     @discardableResult
-    public func connectSignal(name: UnsafePointer<gchar>, flags f: ConnectFlags = ConnectFlags(0), handler: ApplicationSignalHandler) -> CUnsignedLong {
+    public func connectSignal(name: UnsafePointer<gchar>, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping ApplicationSignalHandler) -> CUnsignedLong {
         let rv = _connect(signal: name, flags: f, data: ClosureHolder(handler)) {
             let holder = Unmanaged<ApplicationSignalHandlerClosureHolder>.fromOpaque($1).takeUnretainedValue()
             holder.call(ApplicationRef(raw: $0))
@@ -287,7 +287,7 @@ public extension ApplicationProtocol {
     /// the receiver object.  Similar to g_signal_connect(), but allows
     /// to provide a Swift closure that can capture its surrounding context.
     @discardableResult
-    public func connect<T>(signal s: T, flags f: ConnectFlags = ConnectFlags(0), handler: ApplicationSignalHandler) -> CUnsignedLong where T: SignalNameProtocol {
+    public func connect<T>(signal s: T, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping ApplicationSignalHandler) -> CUnsignedLong where T: SignalNameProtocol {
         return connectSignal(name: s.rawValue, flags: f, handler: handler)
     }
 
@@ -295,7 +295,7 @@ public extension ApplicationProtocol {
     /// the receiver object.  Similar to g_signal_connect(), but allows
     /// to provide a Swift closure that can capture its surrounding context.
     @discardableResult
-    public func connect(signal: ApplicationSignalName, flags f: ConnectFlags = ConnectFlags(0), handler: ApplicationSignalHandler) -> CUnsignedLong {
+    public func connect(signal: ApplicationSignalName, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping ApplicationSignalHandler) -> CUnsignedLong {
         return connectSignal(name: signal.rawValue, flags: f, handler: handler)
     }
 }
