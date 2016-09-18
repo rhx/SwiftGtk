@@ -255,6 +255,16 @@ public extension WidgetProtocol {
 }
 
 
+/// Window convenience methods
+public extension WindowProtocol {
+    /// size of the window
+    public var size: (width: CInt, height: CInt) {
+        var w = CInt(0), h = CInt(0)
+        getSize(width: &w, height: &h)
+        return (w, h)
+    }
+}
+
 /// Application protocol convenience methods
 public extension ApplicationProtocol {
     /// Connection helper function
