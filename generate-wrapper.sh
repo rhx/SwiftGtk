@@ -14,7 +14,7 @@ fi
 export PATH=`pwd`/.build/debug:${PATH}
 popd >/dev/null
 if which parallel >/dev/null ; then
-  for gen in Packages/*/gir-to-swift.sh ; do \
+  for gen in Packages/*/gir-to-swift.sh ./gir-to-swift.sh ; do \
 	echo echo \"Generate Swift Wrapper for `dirname $gen | cut -d/ -f2`\" \; \
 	"( cd `dirname $gen` && ./`basename $gen` $@ )" ; \
   done | $TAC | parallel
@@ -24,4 +24,3 @@ else
 	( cd `dirname $gen` && ./`basename $gen` "$@" )
   done
 fi
-. ./gir-to-swift.sh "$@"
