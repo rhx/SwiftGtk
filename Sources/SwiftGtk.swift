@@ -10,6 +10,13 @@ import GObject
 import Cairo
 import GIO
 
+#if os(macOS)
+    /// This seems to be missing on macOS in gtk-3.22
+    func gtk_clipboard_get_selection(_ clipboard: UnsafeMutablePointer<GtkClipboard>) -> GdkAtom? {
+        return nil
+    }
+#endif
+
 /// Internal Class that wraps a 2-parameter closure to make sure the closure
 /// is retained until no longer required
 public class DualClosureHolder<S, T, U> {
