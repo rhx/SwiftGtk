@@ -128,6 +128,7 @@ s/Use\([A-Z][A-Za-z]*\)(setting:/(use\1 setting:/
 s/TrackVisitedLinks(trackLinks /(trackVisitedLinks /
 s/init(with_\([^ :]*\) \([^ :]*\):/init(\1 \2:/
 s/[gs]etChild\([a-zA-Z_]\)*(child:/get\1(child:/
+s/let rv = gtk_clipboard_get_selection.*/let rv: GdkAtom! = nil/
 s/(func_:/(_ func_:/
 s/,func_:/,_ func_:/
 s/: \([A-Za-z.]*Notify[,)]\)/: @escaping \1/g
