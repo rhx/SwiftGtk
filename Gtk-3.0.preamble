@@ -6,7 +6,7 @@ import CGdk
 import CAtk
 import CGtk
 import GLib
-import GObject
+import GLibObject
 import GIO
 import Pango
 import Cairo

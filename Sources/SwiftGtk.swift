@@ -6,7 +6,7 @@ import CGdk
 import CAtk
 import CGtk
 import GLib
-import GObject
+import GLibObject
 import Cairo
 import GIO
 
@@ -152,7 +152,7 @@ public extension TextBuffer {
 /// Box protocol convenience methods
 public extension BoxProtocol {
     /// Connection helper function
-    private func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: BoxSignalHandlerClosureHolder, handler: @convention(c) (gpointer, gpointer, gpointer) -> gboolean) -> CUnsignedLong {
+    private func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: BoxSignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer, gpointer) -> gboolean) -> CUnsignedLong {
         let opaqueHolder = Unmanaged.passRetained(data).toOpaque()
         let callback = unsafeBitCast(handler, to: Callback.self)
         let rv = signalConnectData(detailedSignal: name, cHandler: callback, data: opaqueHolder, destroyData: {
@@ -210,7 +210,7 @@ public extension BoxProtocol {
 /// Widget protocol convenience methods
 public extension WidgetProtocol {
     /// Connection helper function
-    private func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: WidgetSignalHandlerClosureHolder, handler: @convention(c) (gpointer, gpointer, gpointer) -> gboolean) -> CUnsignedLong {
+    private func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: WidgetSignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer, gpointer) -> gboolean) -> CUnsignedLong {
         let opaqueHolder = Unmanaged.passRetained(data).toOpaque()
         let callback = unsafeBitCast(handler, to: Callback.self)
         let rv = signalConnectData(detailedSignal: name, cHandler: callback, data: opaqueHolder, destroyData: {
@@ -275,7 +275,7 @@ public extension WindowProtocol {
 /// Application protocol convenience methods
 public extension ApplicationProtocol {
     /// Connection helper function
-    private func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: ApplicationSignalHandlerClosureHolder, handler: @convention(c) (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    private func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: ApplicationSignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
         let opaqueHolder = Unmanaged.passRetained(data).toOpaque()
         let callback = unsafeBitCast(handler, to: Callback.self)
         let rv = signalConnectData(detailedSignal: name, cHandler: callback, data: opaqueHolder, destroyData: {

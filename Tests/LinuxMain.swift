@@ -1,5 +1,5 @@
 import XCTest
-@testable import GtkTestSuite
+@testable import GtkTests
 
 XCTMain([
 	 testCase(GtkTests.allTests),

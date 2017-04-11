@@ -66,9 +66,11 @@ s/MountOperationProtocol: MountOperationProtocol/MountOperationProtocol: Gio.Mou
 s/MountOperation: MountOperation/MountOperation: Gio.MountOperation/
 s/AccessibleProtocol: ObjectProtocol/AccessibleProtocol: Atk.ObjectProtocol/
 s/Accessible: Object/Accessible: Atk.Object/
-s/Protocol: ObjectProtocol/Protocol: GObject.ObjectProtocol/
-s/: Object/: GObject.Object/
-s/: Value/: GObject.Value/g
+s/Protocol: ObjectProtocol/Protocol: GLibObject.ObjectProtocol/
+s/GObject\./GLibObject./g
+s/GLibObject.self/GObject.self/g
+s/: Object/: GLibObject.Object/
+s/: Value/: GLibObject.Value/g
 s/: ColorProtocol/: Gdk.ColorProtocol/g
 s/: Color\([^A-Z]\)/: Gdk.Color\1/g
 s/: Rectangle/: Gdk.Rectangle/g

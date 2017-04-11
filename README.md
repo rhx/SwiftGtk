@@ -6,21 +6,21 @@ A Swift wrapper around gtk-3.x that is largely auto-generated from gobject-intro
 
 ### Swift
 
-To build, you need Swift 3.0 (download from https://swift.org/download/ -- if you are using macOS, make sure you have the command line tools installed as well).  Test that your compiler works using `swift --version`, which should give you something like
+To build, you need Swift 3.1 (download from https://swift.org/download/ -- if you are using macOS, make sure you have the command line tools installed as well).  Test that your compiler works using `swift --version`, which should give you something like
 
 	$ swift --version
-	Apple Swift version 3.0 (swiftlang-800.0.46.2 clang-800.0.38)
+	Apple Swift version 3.1 (swiftlang-802.0.51 clang-802.0.41)
 	Target: x86_64-apple-macosx10.9
 
 on macOS, or on Linux you should get something like:
 
 	$ swift --version
-	Swift version 3.0 (swift-3.0-RELEASE)
+	Swift version 3.1 (swift-3.1-RELEASE)
 	Target: x86_64-unknown-linux-gnu
 
 ### Gtk 3.18 or higher
 
-The Swift wrappers have been tested with glib-2.46 and 2.48, and gdk/gtk 3.18 and 3.20.  They should work with higher versions, but YMMV.  Also make sure you have `gobject-introspection` and its `.gir` files installed.
+The Swift wrappers have been tested with glib-2.46, 2.48 and 2.52, and gdk/gtk 3.18, 3.20, and 3.22.  They should work with higher versions, but YMMV.  Also make sure you have `gobject-introspection` and its `.gir` files installed.
 
 #### Linux
 
@@ -46,7 +46,7 @@ On macOS, you can install gtk using HomeBrew (for setup instructions, see http:/
 
 ## Building
 
-Normally, you don't build this package directly, but you embed it into your own project (see 'Embedding' below).  However, you can build and test this module separately to ensure that everything works.  Make sure you have all the prerequisites installed (see above).  After that, you can simply clone this repository and build the command line executable (be patient, this will download all the required dependencies and take a while to compile) using
+Normally, you don't build this package directly, but you embed it into your own project (see 'Usage' below).  However, you can build and test this module separately to ensure that everything works.  Make sure you have all the prerequisites installed (see above).  After that, you can simply clone this repository and build the command line executable (be patient, this will download all the required dependencies and take a while to compile) using
 
 	git clone https://github.com/rhx/SwiftGtk.git
 	./build.sh
@@ -62,8 +62,39 @@ On macOS, you can build the project using Xcode instead.  To do this, you need t
 After that, use the (usual) Build and Test buttons to build/test this package.
 
 
+## Usage
+
+To use SwiftGtk, you need to use the [Swift Package Manager](https://swift.org/package-manager/).  Simply add `SwiftGtk` as a dependency to your `Package.swift` file, e.g.:
+
+```Swift
+import PackageDescription
+
+let package = Package(
+    name: "MyPackage",
+    dependencies: [
+        .Package(url: "https://github.com/rhx/SwiftGtk.git", majorVersion: 3)
+    ]
+)
+```
+
+### Example Projects
+
+You can find the following example projects on GitHub that show how to use SwiftGtk:
+
+ * [SwiftHelloGtk](https://github.com/rhx/SwiftHelloGtk)
+ * [SwiftHelloGtkBuilder](https://github.com/rhx/SwiftHelloGtkBuilder)
+ 
+
 ## Troubleshooting
 Here are some common errors you might encounter and how to fix them.
+
+### SwiftGtk takes a very long time to build
+
+Yes, `gtk` is a huge beast.  The Swift interface generated from the `gtk` header files is close to 300,000 lines.  This takes a long time to build!
+
+### Xcode freezes when opening `Gtk-3.0.swift`
+
+Don't try to open `Gtk-3.0.swift` (either directly or by Command-clicking on a Gtk type)!  If you do, Xcode will try to run the syntax highlighter over close to 300,000 lines of code (see above), which takes a very long time during which you will only see a spinning beach ball (eventually the source will show up, but Xcode will be very sluggish)!  If you want to open `Gtk-3.0.swift` better  use an editor that can handle such large text files, such as [vim](http://www.vim.org).
 
 ### Old Swift toolchain or Xcode
 If you get an error such as
