@@ -83,7 +83,9 @@ You can find the following example projects on GitHub that show how to use Swift
 
  * [SwiftHelloGtk](https://github.com/rhx/SwiftHelloGtk)
  * [SwiftHelloGtkBuilder](https://github.com/rhx/SwiftHelloGtkBuilder)
- 
+ * [SwiftHelloCairoGtk](https://github.com/rhx/SwiftHelloCairoGtk)
+ * [SwiftGtkCairoAnimationDemo](https://github.com/rhx/SwiftGtkCairoAnimationDemo)
+
 
 ## Troubleshooting
 Here are some common errors you might encounter and how to fix them.
