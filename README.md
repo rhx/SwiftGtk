@@ -77,11 +77,12 @@ let package = Package(
 )
 ```
 
-### Example Projects
+### Examples
 
-You can find the following example projects on GitHub that show how to use SwiftGtk:
+You can find some example projects on GitHub that show how to use SwiftGtk:
 
  * [SwiftHelloGtk](https://github.com/rhx/SwiftHelloGtk)
+ * [SwiftGtkListViewDemo](https://github.com/rhx/SwiftGtkListViewDemo)
  * [SwiftHelloGtkBuilder](https://github.com/rhx/SwiftHelloGtkBuilder)
  * [SwiftHelloCairoGtk](https://github.com/rhx/SwiftHelloCairoGtk)
  * [SwiftGtkCairoAnimationDemo](https://github.com/rhx/SwiftGtkCairoAnimationDemo)
