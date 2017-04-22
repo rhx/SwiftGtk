@@ -26,4 +26,5 @@ else
 	( cd `dirname $gen` && ./`basename $gen` "$@" )
   done
 fi
+echo "Generate Swift Wrapper for Swift${Mod}.git"
 . ./gir-to-swift.sh "$@"
