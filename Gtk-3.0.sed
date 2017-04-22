@@ -6,6 +6,7 @@ s/IDe/Ide/g
 s/Rgba/RGBA/g
 s/Rgb/RGB/g
 s/Uri/URI/g
+s/open class TreeIter: TreeIterProtocol/open class TreeIterBase: TreeIterProtocol/
 s/setApplicationName(applicationName:/set(applicationName:/
 s/public static func newWith(with_label label/public static func newWith(label/g
 s/  public static func newWith(with_label label: UnsafePointer<gchar>) -> ToggleButton/  override public static func newWith(with_label label: UnsafePointer<gchar>) -> ToggleButton/
