@@ -17,8 +17,8 @@ export PACKAGES=.build/checkouts
 [ -e $PACKAGES ] || export PACKAGES=Packages
 if which parallel >/dev/null ; then
   for gen in $PACKAGES/*/gir-to-swift.sh ; do \
-	echo echo \"Generate Swift Wrapper for `basename $(dirname $gen) | cut -d- -f1`\" \; \
-	"( cd `dirname $gen` && ./`basename $gen` $@ )" ; \
+	echo "( cd `dirname $gen` && ./`basename $gen` $@ )" \; \
+	echo \"Generate Swift Wrapper for `basename $(dirname $gen) | cut -d- -f1`\" ; \
   done | $TAC | parallel
 else
   for gen in $PACKAGES/*/gir-to-swift.sh ; do
