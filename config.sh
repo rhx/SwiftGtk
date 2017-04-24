@@ -1,11 +1,10 @@
 #!/bin/sh
-#!/bin/sh
 #
 # Configuration for the module to compile, the Swift toolchain, and
 # the compiler and linker flags to use.
 #
 ver=3.0
-Mod=Gtk
+Mod=`grep name: Package.swift | cut -d'"' -f2`
 Module=${Mod}-$ver
 mod=`echo "${Mod}" | tr '[:upper:]' '[:lower:]'`+
 module="${mod}-${ver}"
