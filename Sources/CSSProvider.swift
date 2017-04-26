@@ -14,7 +14,10 @@ public typealias CSSProviderRef = CssProvider
 /// CSS Provider class
 public typealias CSSProvider = CssProvider
 
-public extension CSSProvider {
+public extension CssProviderProtocol {
+    /// Return the CSS provider as a style provider
+    public var styleProvider: StyleProviderRef { return StyleProviderRef(cPointer: ptr) }
+
     /// Loads the data provided in the given string into the CSS Provider
     ///
     /// - Parameter data: the CSS data represented as a String
@@ -24,7 +27,9 @@ public extension CSSProvider {
     public func load(from data: String) throws -> Bool {
         return try loadFrom(data: string(data), length: -1)
     }
+}
 
+public extension CSSProvider {
     /// Convenience initialiser from a given string
     ///
     /// - Parameter data: String providing the CSS data
