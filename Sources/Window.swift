@@ -20,3 +20,15 @@ public extension WindowProtocol {
         return (w, h)
     }
 }
+
+
+public extension ScrolledWindow {
+    /// Convenience constructor
+    /// - Parameters:
+    ///   - vAdjustment: optional vertical adjustment
+    public convenience init(vAdjustment: AdjustmentProtocol? = nil) {
+        let vadjust = vAdjustment.map { $0.ptr.withMemoryRebound(to: GtkAdjustment.self, capacity: 1) { $0 } }
+        let win = gtk_scrolled_window_new(nil, vadjust).withMemoryRebound(to: GtkScrolledWindow.self, capacity: 1) { $0 }
+        self.init(win)
+    }
+}
