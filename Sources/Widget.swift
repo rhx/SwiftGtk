@@ -14,6 +14,11 @@ import Cairo
 
 /// Widget protocol convenience methods
 public extension WidgetProtocol {
+    /// Return a reference to the style context
+    public var styleContextRef: StyleContextRef {
+        return StyleContextRef(styleContext)
+    }
+
     /// Connection helper function
     private func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: WidgetSignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer, gpointer) -> gboolean) -> CUnsignedLong {
         let opaqueHolder = Unmanaged.passRetained(data).toOpaque()
@@ -76,4 +81,3 @@ public extension WidgetRef {
         ptr = UnsafeMutablePointer(object)
     }
 }
-
