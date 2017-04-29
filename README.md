@@ -9,7 +9,7 @@ A Swift wrapper around gtk-3.x that is largely auto-generated from gobject-intro
 To build, you need Swift 3.1 (download from https://swift.org/download/ -- if you are using macOS, make sure you have the command line tools installed as well).  Test that your compiler works using `swift --version`, which should give you something like
 
 	$ swift --version
-	Apple Swift version 3.1 (swiftlang-802.0.51 clang-802.0.41)
+	Apple Swift version 3.1 (swiftlang-802.0.53 clang-802.0.42)
 	Target: x86_64-apple-macosx10.9
 
 on macOS, or on Linux you should get something like:
