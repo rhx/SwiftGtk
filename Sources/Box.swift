@@ -15,6 +15,16 @@ import Cairo
 
 /// Box protocol convenience methods
 public extension BoxProtocol {
+    /// Set the start margin of the box
+    ///
+    /// - Parameter marginStart: start margin
+
+    public func set(marginStart: Int) { setMarginStart(margin: CInt(marginStart)) }
+    /// Set the end margin of the box
+    ///
+    /// - Parameter marginEnd: end margin
+    public func set(marginEnd: Int) { setMarginStart(margin: CInt(marginEnd)) }
+
     /// Connection helper function
     private func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: BoxSignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer, gpointer) -> gboolean) -> CUnsignedLong {
         let opaqueHolder = Unmanaged.passRetained(data).toOpaque()
@@ -66,3 +76,50 @@ public extension BoxProtocol {
         return connectSignal(name: BoxSignalName.draw.rawValue, flags: f, handler: handler)
     }
 }
+
+
+public extension Box {
+    /// Set the property of a child widget of this box
+    ///
+    /// - Parameters:
+    ///   - child: widget to set property for
+    ///   - property: name of the property
+    ///   - value: value to set
+    public func set<W: WidgetProtocol>(child widget: W, properties: [(BoxPropertyName, Any)]) {
+        let nq = widget.freeze(context: _gtk_widget_child_property_notify_context)
+        defer { if let nq = nq { widget.thaw(queue: nq) } }
+        for (p, v) in properties {
+            set(child: widget, property: p, value: v)
+        }
+    }
+    /// Set up a child widget of this box with the given list of properties
+    ///
+    /// - Parameters:
+    ///   - widget: child widget to set properties for
+    ///   - properties: `PropertyName` / value pairs to set
+    public func set<W: WidgetProtocol>(child widget: W, properties ps: (BoxPropertyName, Any)...) {
+        set(child: widget, properties: ps)
+    }
+    /// Add a child widget to this box with a given list of properties
+    ///
+    /// - Parameters:
+    ///   - widget: child widget to add
+    ///   - properties: `PropertyName` / value pairs of properties to set
+    public func add<W: WidgetProtocol>(_ widget: W, properties ps: (BoxPropertyName, Any)...) {
+        widget.freezeChildNotify() ; defer { widget.thawChildNotify() }
+        emit(ContainerSignalName.add, widget.ptr)
+        set(child: widget, properties: ps)
+    }
+    /// Add a child widget to this box with a given property
+    ///
+    /// - Parameters:
+    ///   - widget: child widget to add
+    ///   - property: name of the property to set
+    ///   - value: value of the property to set
+    public func add<W: WidgetProtocol, V>(_ widget: W, property p: BoxPropertyName, value v: V) {
+        widget.freezeChildNotify() ; defer { widget.thawChildNotify() }
+        emit(ContainerSignalName.add, widget.ptr)
+        set(child: widget, property: p, value: v)
+    }
+}
+
