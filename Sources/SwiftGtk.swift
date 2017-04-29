@@ -41,12 +41,6 @@ public typealias BoxSignalHandler = (BoxRef, Cairo.ContextRef) -> Bool
 /// Internal type for Drawing SignalHandler closure holder
 typealias BoxSignalHandlerClosureHolder = DualClosureHolder<BoxRef,Cairo.ContextRef, Bool>
 
-/// A closure taking a reference to the current box and cairo_t as an argument
-public typealias WidgetSignalHandler = (WidgetRef, Cairo.ContextRef) -> Bool
-
-/// Internal type for Drawing SignalHandler closure holder
-typealias WidgetSignalHandlerClosureHolder = DualClosureHolder<WidgetRef,Cairo.ContextRef, Bool>
-
 /**
  * Convert a swift string (or UnsafePointer<Char>) into
  * an UnsafeMutablePointer<CChar> as used by many POSIX functions.

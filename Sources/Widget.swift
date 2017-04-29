@@ -11,6 +11,19 @@ import GLib
 import GLibObject
 import GIO
 import Cairo
+import Gdk
+
+/// A closure taking a reference to the current box and cairo_t as an argument
+public typealias WidgetSignalHandler = (WidgetRef, Cairo.ContextRef) -> Bool
+
+/// Internal type for Drawing SignalHandler closure holder
+typealias WidgetSignalHandlerClosureHolder = DualClosureHolder<WidgetRef,Cairo.ContextRef, Bool>
+
+/// A closure taking a reference to the current box and cairo_t as an argument
+public typealias DragSignalHandler = (WidgetRef, Gdk.DragContextRef) -> Void
+
+/// Internal type for Dragging SignalHandler closure holder
+typealias DragSignalHandlerClosureHolder = DualClosureHolder<WidgetRef, Gdk.DragContextRef, Void>
 
 /// Widget protocol convenience methods
 public extension WidgetProtocol {
@@ -33,7 +46,21 @@ public extension WidgetProtocol {
         return rv
     }
 
-    /// Connects a (WidgetRef,Cairo.Context) -> Void closure or function to a signal for
+    /// Connection helper function
+    private func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: DragSignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer, gpointer) -> Void) -> CUnsignedLong {
+        let opaqueHolder = Unmanaged.passRetained(data).toOpaque()
+        let callback = unsafeBitCast(handler, to: Callback.self)
+        let rv = signalConnectData(detailedSignal: name, cHandler: callback, data: opaqueHolder, destroyData: {
+            if let swift = $0 {
+                let holder = Unmanaged<DragSignalHandlerClosureHolder>.fromOpaque(swift)
+                holder.release()
+            }
+            let _ = $1
+        }, connectFlags: flags)
+        return rv
+    }
+
+    /// Connects a (WidgetRef,Cairo.Context) -> Bool closure or function to a signal for
     /// the receiver object.  Similar to g_signal_connect(), but allows
     /// to provide a Swift closure that can capture its surrounding context.
     @discardableResult
@@ -42,6 +69,18 @@ public extension WidgetProtocol {
             let holder = Unmanaged<WidgetSignalHandlerClosureHolder>.fromOpaque($2).takeUnretainedValue()
             let rv: gboolean = holder.call(WidgetRef(raw: $0), Cairo.ContextRef(raw: $1)) ? 1 : 0
             return rv
+        }
+        return rv
+    }
+
+    /// Connects a (WidgetRef,Gdk.DragContextRef) -> Void closure or function to a signal for
+    /// the receiver object.  Similar to g_signal_connect(), but allows
+    /// to provide a Swift closure that can capture its surrounding context.
+    @discardableResult
+    public func connectSignal(name: UnsafePointer<gchar>, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping DragSignalHandler) -> CUnsignedLong {
+        let rv = _connect(signal: name, flags: f, data: DualClosureHolder(handler)) {
+            let holder = Unmanaged<DragSignalHandlerClosureHolder>.fromOpaque($2).takeUnretainedValue()
+            holder.call(WidgetRef(raw: $0), Gdk.DragContextRef(raw: $1))
         }
         return rv
     }
@@ -68,6 +107,11 @@ public extension WidgetProtocol {
     @discardableResult
     public func onDraw(flags f: ConnectFlags = ConnectFlags(0), handler: @escaping WidgetSignalHandler) -> CUnsignedLong {
         return connectSignal(name: WidgetSignalName.draw.rawValue, flags: f, handler: handler)
+    }
+
+    @discardableResult
+    public func onDragBegin(flags f: ConnectFlags = ConnectFlags(0), handler: @escaping DragSignalHandler) -> CUnsignedLong {
+        return connectSignal(name: WidgetSignalName.dragBegin.rawValue, flags: f, handler: handler)
     }
 }
 
