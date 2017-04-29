@@ -10,6 +10,12 @@ import CGtk
 fileprivate let string: (UnsafePointer<CChar>) -> UnsafeMutablePointer<CChar> = { UnsafeMutablePointer(mutating: $0) }
 
 public extension GtkTargetEntry {
+    /// Drag and drop target entry convenience constructor
+    ///
+    /// - Parameters:
+    ///   - target: name of the target
+    ///   - flags: target restrictions (defaults to `.same_app`)
+    ///   - info: target information
     public init(target: String, flags: TargetFlags = .same_app, info: Int = 0) {
         self.target = string(target)
         self.flags = flags.rawValue
