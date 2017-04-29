@@ -28,6 +28,61 @@ public class DualClosureHolder<S, T, U> {
     }
 }
 
+/// Internal Class that wraps a 3-parameter closure to make sure the closure
+/// is retained until no longer required
+public class Closure3Holder<S, T, U, V> {
+
+    public let call: (S, T, U) -> V
+
+    public init(_ closure: @escaping (S, T, U) -> V) {
+        self.call = closure
+    }
+}
+
+/// Internal Class that wraps a 4-parameter closure to make sure the closure
+/// is retained until no longer required
+public class Closure4Holder<S, T, U, V, W> {
+
+    public let call: (S, T, U, V) -> W
+
+    public init(_ closure: @escaping (S, T, U, V) -> W) {
+        self.call = closure
+    }
+}
+
+/// Internal Class that wraps a 5-parameter closure to make sure the closure
+/// is retained until no longer required
+public class Closure5Holder<S, T, U, V, W, X> {
+
+    public let call: (S, T, U, V, W) -> X
+
+    public init(_ closure: @escaping (S, T, U, V, W) -> X) {
+        self.call = closure
+    }
+}
+
+/// Internal Class that wraps a 6-parameter closure to make sure the closure
+/// is retained until no longer required
+public class Closure6Holder<S, T, U, V, W, X, Y> {
+
+    public let call: (S, T, U, V, W, X) -> Y
+
+    public init(_ closure: @escaping (S, T, U, V, W, X) -> Y) {
+        self.call = closure
+    }
+}
+
+/// Internal Class that wraps a 7-parameter closure to make sure the closure
+/// is retained until no longer required
+public class Closure7Holder<S, T, U, V, W, X, Y, Z> {
+
+    public let call: (S, T, U, V, W, X, Y) -> Z
+
+    public init(_ closure: @escaping (S, T, U, V, W, X, Y) -> Z) {
+        self.call = closure
+    }
+}
+
 
 /// A closure taking a reference to the current application as an argument
 public typealias ApplicationSignalHandler = (ApplicationRef) -> Void
