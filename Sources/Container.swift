@@ -12,7 +12,7 @@ import GLibObject
 import GIO
 import Cairo
 
-public extension Container {
+public extension ContainerProtocol {
     /// Set a child widget property
     ///
     /// - Parameters:

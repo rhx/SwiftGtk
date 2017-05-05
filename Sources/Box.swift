@@ -75,10 +75,7 @@ public extension BoxProtocol {
     public func onDraw(flags f: ConnectFlags = ConnectFlags(0), handler: @escaping BoxSignalHandler) -> CUnsignedLong {
         return connectSignal(name: BoxSignalName.draw.rawValue, flags: f, handler: handler)
     }
-}
 
-
-public extension Box {
     /// Set the property of a child widget of this box
     ///
     /// - Parameters:
