@@ -42,7 +42,9 @@ public extension WidgetProtocol {
     ///   - targets: array of targets to target
     public func dragSourceSet(startButton: Gdk.ModifierType = .button1_mask, action: Gdk.DragAction = .copy, targets: [GtkTargetEntry]) {
         var t = targets
-        dragSourceSet(startButtonMask: startButton, targets: &t, nTargets: CInt(t.count), actions: action)
+        t.withUnsafeMutableBufferPointer {
+            dragSourceSet(startButtonMask: startButton, targets: $0.baseAddress!, nTargets: CInt($0.count), actions: action)
+        }
     }
     /// Set a drag source
     ///
