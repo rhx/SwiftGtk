@@ -32,12 +32,19 @@ public extension ContainerProtocol {
              (property.ptr.pointee.flags.rawValue & (ParamFlags.lax_validation)) != 0) */ else { return false }
         let paramID = property.ptr.pointee.param_id
         let widget = child.ptr.withMemoryRebound(to: GtkWidget.self, capacity: 1) { $0 }
-        let typeClass = ContainerClassRef(raw: typeClassPeek(type: ptype))
+        let otype = property.ptr.pointee.owner_type
+        guard let p = typeClassPeek(type: otype) else {
+            let n = property.ptr.pointee.name
+            let pname = n.map { String(cString: $0) } ?? "<unnamed>"
+            g_warning("\(#file): No type class for owner type \(otype) of property named \(pname))")
+            return false
+        }
+        let typeClass = ContainerClassRef(raw: p)
         typeClass.ptr.pointee.set_child_property(container, widget, paramID, tmpValue.ptr, property.ptr)
         return true
     }
     public func set<W: WidgetProtocol, P: PropertyNameProtocol, V>(child widget: W, property: P, value: V) {
-        guard let paramSpec = ParamSpecRef(name: property, from:_gtk_widget_child_property_pool) else {
+        guard let paramSpec = ParamSpecRef(name: property, from:_gtk_widget_child_property_pool, ownerType: type) else {
             g_warning("\(#file): container class \(typeName) has no child property named \(property.rawValue)")
             return
         }
