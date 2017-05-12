@@ -83,8 +83,7 @@ public extension BoxProtocol {
     ///   - property: name of the property
     ///   - value: value to set
     public func set<W: WidgetProtocol>(child widget: W, properties: [(BoxPropertyName, Any)]) {
-        let nq = widget.freeze(context: _gtk_widget_child_property_notify_context)
-        defer { if let nq = nq { widget.thaw(queue: nq) } }
+        widget.freezeChildNotify() ; defer { widget.thawChildNotify() }
         for (p, v) in properties {
             set(child: widget, property: p, value: v)
         }

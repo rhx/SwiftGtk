@@ -61,6 +61,7 @@ public extension ContainerProtocol {
     ///   - child: widget to set property for
     ///   - properties: array of `PropertyName`/value pairs for the properties to set
     public func set<W: WidgetProtocol, P: PropertyNameProtocol>(child widget: W, properties: [(P, Any)]) {
+        widget.freezeChildNotify() ; defer { widget.thawChildNotify() }
         for (p, v) in properties {
             set(child: widget, property: p, value: v)
         }
