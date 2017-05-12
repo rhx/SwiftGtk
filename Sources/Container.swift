@@ -22,28 +22,28 @@ public extension ContainerProtocol {
     /// - Returns: `true` if successful, `false` if value cannot be transformed
     @discardableResult
     public func set<W: WidgetProtocol, P: ParamSpecProtocol, V: ValueProtocol>(child: W, property: P, value: V) -> Bool {
-        return ptr.withMemoryRebound(to: GtkContainer.self, capacity: 1) { container in
-            let ptype = property.ptr.pointee.value_type
-            let tmpValue = Value()
-            _ = tmpValue.init_(gType: ptype)
-            defer { tmpValue.unset() }
-            guard value.transform(destValue: tmpValue) /* &&
-                 (property.paramValueValidate(value: tmpValue) ||
-                 (property.ptr.pointee.flags.rawValue & (ParamFlags.lax_validation)) != 0) */ else { return false }
-            let paramID = property.ptr.pointee.param_id
-            let otype = property.ptr.pointee.owner_type
-            guard let p = typeClassPeek(type: otype) else {
-                let n = property.ptr.pointee.name
-                let pname = n.map { String(cString: $0) } ?? "<unnamed>"
-                g_warning("\(#file): No type class for owner type \(otype) of property named \(pname))")
-                return false
-            }
+        let ptype = property.ptr.pointee.value_type
+        let tmpValue = Value()
+        _ = tmpValue.init_(gType: ptype)
+        defer { tmpValue.unset() }
+        guard value.transform(destValue: tmpValue) /* &&
+             (property.paramValueValidate(value: tmpValue) ||
+             (property.ptr.pointee.flags.rawValue & (ParamFlags.lax_validation)) != 0) */ else { return false }
+        let paramID = property.ptr.pointee.param_id
+        let otype = property.ptr.pointee.owner_type
+        guard let p = typeClassPeek(type: otype) else {
+            let n = property.ptr.pointee.name
+            let pname = n.map { String(cString: $0) } ?? "<unnamed>"
+            g_warning("\(#file): No type class for owner type \(otype) of property named \(pname))")
+            return false
+        }
+        ptr.withMemoryRebound(to: GtkContainer.self, capacity: 1) { container in
             child.ptr.withMemoryRebound(to: GtkWidget.self, capacity: 1) { widget in
                 let typeClass = ContainerClassRef(raw: p)
                 typeClass.ptr.pointee.set_child_property(container, widget, paramID, tmpValue.ptr, property.ptr)
             }
-            return true
         }
+        return true
     }
     /// Set the property of a child widget
     ///
