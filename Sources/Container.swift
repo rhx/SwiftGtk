@@ -45,6 +45,7 @@ public extension ContainerProtocol {
         }
         return true
     }
+
     /// Set the property of a child widget
     ///
     /// - Parameters:
@@ -55,6 +56,7 @@ public extension ContainerProtocol {
         let v = Value(value)
         childSetProperty(child: widget, propertyName: property.rawValue, value: v)
     }
+
     /// Set the property of a child widget
     ///
     /// - Parameters:
@@ -66,6 +68,7 @@ public extension ContainerProtocol {
             set(child: widget, property: p, value: v)
         }
     }
+
     /// Set up a child widget with the given list of properties
     ///
     /// - Parameters:
@@ -74,6 +77,7 @@ public extension ContainerProtocol {
     public func set<W: WidgetProtocol, P: PropertyNameProtocol>(child widget: W, properties ps: (P, Any)...) {
         set(child: widget, properties: ps)
     }
+
     /// Add a child widget with a given list of properties
     ///
     /// - Parameters:
@@ -84,6 +88,7 @@ public extension ContainerProtocol {
         emit(ContainerSignalName.add, widget.ptr)
         set(child: widget, properties: ps)
     }
+
     /// Add a child widget with a given property
     ///
     /// - Parameters:

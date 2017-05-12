@@ -88,6 +88,7 @@ public extension BoxProtocol {
             set(child: widget, property: p, value: v)
         }
     }
+
     /// Set up a child widget of this box with the given list of properties
     ///
     /// - Parameters:
@@ -96,6 +97,7 @@ public extension BoxProtocol {
     public func set<W: WidgetProtocol>(child widget: W, properties ps: (BoxPropertyName, Any)...) {
         set(child: widget, properties: ps)
     }
+
     /// Add a child widget to this box with a given list of properties
     ///
     /// - Parameters:
@@ -106,6 +108,7 @@ public extension BoxProtocol {
         emit(ContainerSignalName.add, widget.ptr)
         set(child: widget, properties: ps)
     }
+
     /// Add a child widget to this box with a given property
     ///
     /// - Parameters:
