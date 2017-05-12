@@ -43,23 +43,22 @@ public extension ContainerProtocol {
         typeClass.ptr.pointee.set_child_property(container, widget, paramID, tmpValue.ptr, property.ptr)
         return true
     }
+    /// Set the property of a child widget
+    ///
+    /// - Parameters:
+    ///   - widget: child widget to set the property for
+    ///   - property: name of the property
+    ///   - value: the value to set the property to
     public func set<W: WidgetProtocol, P: PropertyNameProtocol, V>(child widget: W, property: P, value: V) {
-        guard let paramSpec = ParamSpecRef(name: property, from:_gtk_widget_child_property_pool, ownerType: type) else {
-            g_warning("\(#file): container class \(typeName) has no child property named \(property.rawValue)")
-            return
-        }
         let v = Value(value)
-        set(child: widget, property: paramSpec, value: v)
+        childSetProperty(child: widget, propertyName: property.rawValue, value: v)
     }
     /// Set the property of a child widget
     ///
     /// - Parameters:
     ///   - child: widget to set property for
-    ///   - property: name of the property
-    ///   - value: value to set
+    ///   - properties: array of `PropertyName`/value pairs for the properties to set
     public func set<W: WidgetProtocol, P: PropertyNameProtocol>(child widget: W, properties: [(P, Any)]) {
-        let nq = widget.freeze(context: _gtk_widget_child_property_notify_context)
-        defer { if let nq = nq { widget.thaw(queue: nq) } }
         for (p, v) in properties {
             set(child: widget, property: p, value: v)
         }
