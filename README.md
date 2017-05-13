@@ -97,10 +97,6 @@ Here are some common errors you might encounter and how to fix them.
 
 Yes, `gtk` is a huge beast.  The Swift interface generated from the `gtk` header files is close to 300,000 lines.  This takes a long time to build!
 
-### Xcode freezes when opening `Gtk-3.0.swift`
-
-Don't try to open `Gtk-3.0.swift` (either directly or by Command-clicking on a Gtk type)!  If you do, Xcode will try to run the syntax highlighter over close to 300,000 lines of code (see above), which takes a very long time during which you will only see a spinning beach ball (eventually the source will show up, but Xcode will be very sluggish)!  If you want to open `Gtk-3.0.swift` better  use an editor that can handle such large text files, such as [vim](http://www.vim.org).
-
 ### Old Swift toolchain or Xcode
 If you get an error such as
 
