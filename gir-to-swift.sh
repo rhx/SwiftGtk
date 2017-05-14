@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #
 # Swift code wrapper generator for gobject-introspection (.gir) files.
 # This needs an installed `gir2swift' executable (github.com/rhx/gir2swift)
