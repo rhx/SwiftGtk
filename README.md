@@ -1,6 +1,31 @@
 # SwiftGtk
-A Swift wrapper around gtk-3.x that is largely auto-generated from gobject-introspection
+A Swift wrapper around gtk-3.x that is largely auto-generated from gobject-introspection.
+This project tries to make gtk more "swifty" than using the plain C language interface.
 
+
+## Usage
+
+To use SwiftGtk, you need to use the [Swift Package Manager](https://swift.org/package-manager/).  After installing the prerequisites (see 'Prerequisites' below), add `SwiftGtk` as a dependency to your `Package.swift` file, e.g.:
+
+```Swift
+import PackageDescription
+
+let package = Package(name: "MyPackage",
+    dependencies: [
+        .Package(url: "https://github.com/rhx/SwiftGtk.git", majorVersion: 3)
+    ]
+)
+```
+
+At this stage, unfortunately the Swift Package manager does not (yet) know how to run external programs such as `pkg-config`.  Therefore the easiest way to compile your project with SwiftGtk is to use build scripts that do this for you and pass the necessary flags to the Swift Package manager (see the following section).
+
+### Build Scripts
+
+The demo applications come with build scripts that configure some environment variables and pass required arguments when calling `swift build`, `swift package`, etc.  The easiest way to get started is to clone one of the following projects, then copy all the `*.sh` shell scripts into your own project.  Also, if you want to be able to build a desktop app, create a `Resources` folder, and copy (at least) the `Info.plist` file as well:
+
+ * [SwiftHelloGtk](https://github.com/rhx/SwiftHelloGtk): this is a quick starting point for a simple gtk app that does not need any resources.
+ * [SwiftHelloGtkBuilder](https://github.com/rhx/SwiftHelloGtkBuilder): this is a good starting point for a more complex app that has user interface files (`*.ui`) for GtkBuilder in its `Resources` folder.
+ 
 
 ## Prerequisites
 
@@ -46,7 +71,7 @@ On macOS, you can install gtk using HomeBrew (for setup instructions, see http:/
 
 ## Building
 
-Normally, you don't build this package directly, but you embed it into your own project (see 'Usage' below).  However, you can build and test this module separately to ensure that everything works.  Make sure you have all the prerequisites installed (see above).  After that, you can simply clone this repository and build the command line executable (be patient, this will download all the required dependencies and take a while to compile) using
+Normally, you don't build this package directly, but you embed it into your own project (see 'Usage' above).  However, you can build and test this module separately to ensure that everything works.  Make sure you have all the prerequisites installed (see above).  After that, you can simply clone this repository and build the command line executable (be patient, this will download all the required dependencies and take a while to compile) using
 
 	git clone https://github.com/rhx/SwiftGtk.git
 	cd SwiftGtk
@@ -62,21 +87,6 @@ On macOS, you can build the project using Xcode instead.  To do this, you need t
 
 After that, use the (usual) Build and Test buttons to build/test this package.
 
-
-## Usage
-
-To use SwiftGtk, you need to use the [Swift Package Manager](https://swift.org/package-manager/).  Simply add `SwiftGtk` as a dependency to your `Package.swift` file, e.g.:
-
-```Swift
-import PackageDescription
-
-let package = Package(
-    name: "MyPackage",
-    dependencies: [
-        .Package(url: "https://github.com/rhx/SwiftGtk.git", majorVersion: 3)
-    ]
-)
-```
 
 ### Examples
 
