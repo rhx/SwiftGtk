@@ -17,7 +17,7 @@ let package = Package(name: "MyPackage",
 )
 ```
 
-At this stage, unfortunately the Swift Package manager does not (yet) know how to run external programs such as `pkg-config`.  Therefore the easiest way to compile your project with SwiftGtk is to use build scripts that do this for you and pass the necessary flags to the Swift Package manager (see the following section).
+At this stage, unfortunately the Swift Package manager does not (yet) know how to run external programs such as `gir2swift`.  Therefore the easiest way to compile your project with SwiftGtk is to use build scripts that do this for you and pass the necessary flags to the Swift Package manager (see the following section).
 
 ### Build Scripts
 
