@@ -16,6 +16,9 @@ import Gdk
 /// A closure taking a reference to the current widget and cairo_t as an argument
 public typealias WidgetSignalHandler = (WidgetRef, Cairo.ContextRef) -> Bool
 
+/// A closure taking a reference to the current widget and `Gdk.EventKeyRef` as an argument
+public typealias KeySignalHandler = (WidgetRef, EventKeyRef) -> Void
+
 /// A closure taking a reference to the current widget and `Gdk.EventButtonRef` as an argument
 public typealias ButtonSignalHandler = (WidgetRef, EventButtonRef) -> Void
 
@@ -33,6 +36,9 @@ public typealias DragDataReceivedSignalHandler = (WidgetRef, Gdk.DragContextRef,
 
 /// Internal type for Drawing SignalHandler closure holder
 typealias WidgetSignalHandlerClosureHolder = DualClosureHolder<WidgetRef,Cairo.ContextRef, Bool>
+
+/// Internal type for key event SignalHandler closure holder
+typealias KeySignalHandlerClosureHolder = DualClosureHolder<WidgetRef, Gdk.EventKeyRef, Void>
 
 /// Internal type for button event SignalHandler closure holder
 typealias ButtonSignalHandlerClosureHolder = DualClosureHolder<WidgetRef, Gdk.EventButtonRef, Void>
@@ -63,6 +69,20 @@ public extension WidgetProtocol {
         let rv = signalConnectData(detailedSignal: name, cHandler: callback, data: opaqueHolder, destroyData: {
             if let swift = $0 {
                 let holder = Unmanaged<WidgetSignalHandlerClosureHolder>.fromOpaque(swift)
+                holder.release()
+            }
+            let _ = $1
+        }, connectFlags: flags)
+        return rv
+    }
+
+    /// Connection helper function
+    private func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: KeySignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer, gpointer) -> Void) -> CUnsignedLong {
+        let opaqueHolder = Unmanaged.passRetained(data).toOpaque()
+        let callback = unsafeBitCast(handler, to: Callback.self)
+        let rv = signalConnectData(detailedSignal: name, cHandler: callback, data: opaqueHolder, destroyData: {
+            if let swift = $0 {
+                let holder = Unmanaged<KeySignalHandlerClosureHolder>.fromOpaque(swift)
                 holder.release()
             }
             let _ = $1
@@ -153,6 +173,18 @@ public extension WidgetProtocol {
         return rv
     }
 
+    /// Connects a (WidgetRef,Gdk.EventKeyRef) -> Void closure or function to a signal for
+    /// the receiver object.  Similar to g_signal_connect(), but allows
+    /// to provide a Swift closure that can capture its surrounding context.
+    @discardableResult
+    public func connectKey(signal name: UnsafePointer<gchar>, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping KeySignalHandler) -> CUnsignedLong {
+        let rv = _connect(signal: name, flags: f, data: DualClosureHolder(handler)) {
+            let holder = Unmanaged<KeySignalHandlerClosureHolder>.fromOpaque($2).takeUnretainedValue()
+            holder.call(WidgetRef(raw: $0), Gdk.EventKeyRef(raw: $1))
+        }
+        return rv
+    }
+
     /// Connects a (WidgetRef,Gdk.EventButtonRef) -> Void closure or function to a signal for
     /// the receiver object.  Similar to g_signal_connect(), but allows
     /// to provide a Swift closure that can capture its surrounding context.
@@ -237,6 +269,46 @@ public extension WidgetProtocol {
         return connectSignal(name: WidgetSignalName.draw.rawValue, flags: f, handler: handler)
     }
 
+    /// Connect a `(WidgetRef, Gdk.EventKeyRef) -> Void` closure or function to a button event signal for the receiver.
+    /// Before calling this, you need to call `add(events:)`, e.g.
+    /// widget.add(events: CInt(GDK_KEY_PRESS_MASK.rawValue)
+    ///
+    /// - Parameters:
+    ///   - event: widget signal name (defaults to `.keyPressEvent`)
+    ///   - f: connection flags (defaults to `0`)
+    ///   - handler: signal handler
+    /// - Returns: the corresponding return value of `g_signal_connect()`
+    @discardableResult
+    public func onKey(event: WidgetSignalName = .keyPressEvent, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping KeySignalHandler) -> CUnsignedLong {
+        return connectKey(signal: event.rawValue, flags: f, handler: handler)
+    }
+
+    /// Connect a `(WidgetRef, Gdk.EventKeyRef) -> Void` closure or function to the `.keyPressEvent` signal for the receiver.
+    /// This method adds the `GDK_KEY_PRESS_MASK` to the widget prior to connecting the closure.
+    ///
+    /// - Parameters:
+    ///   - f: connection flags (defaults to `0`)
+    ///   - handler: signal handler
+    /// - Returns: the corresponding return value of `g_signal_connect()`
+    @discardableResult
+    public func onKeyPress(flags f: ConnectFlags = ConnectFlags(0), handler h: @escaping KeySignalHandler) -> CUnsignedLong {
+        add(events: CInt(GDK_KEY_PRESS_MASK.rawValue))
+        return onKey(event: .keyPressEvent, flags: f, handler: h)
+    }
+
+    /// Connect a `(WidgetRef, Gdk.EventKeyRef) -> Void` closure or function to the `.keyReleaseEvent` signal for the receiver.
+    /// This method adds the `GDK_KEY_RELEASE_MASK` to the widget prior to connecting the closure.
+    ///
+    /// - Parameters:
+    ///   - f: connection flags (defaults to `0`)
+    ///   - handler: signal handler
+    /// - Returns: the corresponding return value of `g_signal_connect()`
+    @discardableResult
+    public func onKeyRelease(flags f: ConnectFlags = ConnectFlags(0), handler h: @escaping KeySignalHandler) -> CUnsignedLong {
+        add(events: CInt(GDK_KEY_RELEASE_MASK.rawValue))
+        return onKey(event: .keyReleaseEvent, flags: f, handler: h)
+    }
+
     /// Connect a `(WidgetRef, Gdk.EventButtonRef) -> Void` closure or function to a button event signal for the receiver.
     /// Before calling this, you need to call `add(events:)`, e.g.
     /// widget.add(events: CInt(GDK_BUTTON_PRESS_MASK.rawValue)
@@ -250,7 +322,6 @@ public extension WidgetProtocol {
     public func onButton(event: WidgetSignalName = .buttonPressEvent, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping ButtonSignalHandler) -> CUnsignedLong {
         return connectButton(signal: event.rawValue, flags: f, handler: handler)
     }
-
 
     /// Connect a `(WidgetRef, Gdk.EventButtonRef) -> Void` closure or function to the `.buttonPressEvent` signal for the receiver.
     /// This method adds the `GDK_BUTTON_PRESS_MASK` to the widget prior to connecting the closure.
