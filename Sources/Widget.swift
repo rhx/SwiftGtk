@@ -13,20 +13,32 @@ import GIO
 import Cairo
 import Gdk
 
-/// A closure taking a reference to the current box and cairo_t as an argument
+/// A closure taking a reference to the current widget and cairo_t as an argument
 public typealias WidgetSignalHandler = (WidgetRef, Cairo.ContextRef) -> Bool
 
-/// A closure taking a reference to the current box and cairo_t as an argument
+/// A closure taking a reference to the current widget and `Gdk.EventButtonRef` as an argument
+public typealias ButtonSignalHandler = (WidgetRef, EventButtonRef) -> Void
+
+/// A closure taking a reference to the current widget and `Gdk.EventMotionRef` as an argument
+public typealias MotionSignalHandler = (WidgetRef, EventMotionRef) -> Void
+
+/// A closure taking a reference to the current widget and drag context as an argument
 public typealias DragSignalHandler = (WidgetRef, Gdk.DragContextRef) -> Void
 
-/// A closure taking a reference to the current box and cairo_t as an argument
+/// A closure taking a reference to the current widget, drag context, selection data, and integers as an argument
 public typealias DragDataGetSignalHandler = (WidgetRef, Gdk.DragContextRef, UnsafeMutablePointer<GtkSelectionData>?, guint, guint) -> Void
 
-/// A closure taking a reference to the current box and cairo_t as an argument
+/// A closure taking a reference to the current widget drag context, integers, and selection data pointer as an argument
 public typealias DragDataReceivedSignalHandler = (WidgetRef, Gdk.DragContextRef, gint, gint, UnsafeMutablePointer<GtkSelectionData>?, guint, guint32) -> Void
 
 /// Internal type for Drawing SignalHandler closure holder
 typealias WidgetSignalHandlerClosureHolder = DualClosureHolder<WidgetRef,Cairo.ContextRef, Bool>
+
+/// Internal type for button event SignalHandler closure holder
+typealias ButtonSignalHandlerClosureHolder = DualClosureHolder<WidgetRef, Gdk.EventButtonRef, Void>
+
+/// Internal type for a pointer motion SignalHandler closure holder
+typealias MotionSignalHandlerClosureHolder = DualClosureHolder<WidgetRef, Gdk.EventMotionRef, Void>
 
 /// Internal type for Dragging SignalHandler closure holder
 typealias DragSignalHandlerClosureHolder = DualClosureHolder<WidgetRef, Gdk.DragContextRef, Void>
@@ -51,6 +63,34 @@ public extension WidgetProtocol {
         let rv = signalConnectData(detailedSignal: name, cHandler: callback, data: opaqueHolder, destroyData: {
             if let swift = $0 {
                 let holder = Unmanaged<WidgetSignalHandlerClosureHolder>.fromOpaque(swift)
+                holder.release()
+            }
+            let _ = $1
+        }, connectFlags: flags)
+        return rv
+    }
+
+    /// Connection helper function
+    private func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: ButtonSignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer, gpointer) -> Void) -> CUnsignedLong {
+        let opaqueHolder = Unmanaged.passRetained(data).toOpaque()
+        let callback = unsafeBitCast(handler, to: Callback.self)
+        let rv = signalConnectData(detailedSignal: name, cHandler: callback, data: opaqueHolder, destroyData: {
+            if let swift = $0 {
+                let holder = Unmanaged<ButtonSignalHandlerClosureHolder>.fromOpaque(swift)
+                holder.release()
+            }
+            let _ = $1
+        }, connectFlags: flags)
+        return rv
+    }
+
+    /// Connection helper function
+    private func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: MotionSignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer, gpointer) -> Void) -> CUnsignedLong {
+        let opaqueHolder = Unmanaged.passRetained(data).toOpaque()
+        let callback = unsafeBitCast(handler, to: Callback.self)
+        let rv = signalConnectData(detailedSignal: name, cHandler: callback, data: opaqueHolder, destroyData: {
+            if let swift = $0 {
+                let holder = Unmanaged<MotionSignalHandlerClosureHolder>.fromOpaque(swift)
                 holder.release()
             }
             let _ = $1
@@ -109,6 +149,30 @@ public extension WidgetProtocol {
             let holder = Unmanaged<WidgetSignalHandlerClosureHolder>.fromOpaque($2).takeUnretainedValue()
             let rv: gboolean = holder.call(WidgetRef(raw: $0), Cairo.ContextRef(raw: $1)) ? 1 : 0
             return rv
+        }
+        return rv
+    }
+
+    /// Connects a (WidgetRef,Gdk.EventButtonRef) -> Void closure or function to a signal for
+    /// the receiver object.  Similar to g_signal_connect(), but allows
+    /// to provide a Swift closure that can capture its surrounding context.
+    @discardableResult
+    public func connectButton(signal name: UnsafePointer<gchar>, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping ButtonSignalHandler) -> CUnsignedLong {
+        let rv = _connect(signal: name, flags: f, data: DualClosureHolder(handler)) {
+            let holder = Unmanaged<ButtonSignalHandlerClosureHolder>.fromOpaque($2).takeUnretainedValue()
+            holder.call(WidgetRef(raw: $0), Gdk.EventButtonRef(raw: $1))
+        }
+        return rv
+    }
+
+    /// Connects a (WidgetRef,Gdk.EventMotionRef) -> Void closure or function to a signal for
+    /// the receiver object.  Similar to g_signal_connect(), but allows
+    /// to provide a Swift closure that can capture its surrounding context.
+    @discardableResult
+    public func connectMotion(signal name: UnsafePointer<gchar>, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping MotionSignalHandler) -> CUnsignedLong {
+        let rv = _connect(signal: name, flags: f, data: DualClosureHolder(handler)) {
+            let holder = Unmanaged<MotionSignalHandlerClosureHolder>.fromOpaque($2).takeUnretainedValue()
+            holder.call(WidgetRef(raw: $0), Gdk.EventMotionRef(raw: $1))
         }
         return rv
     }
@@ -173,7 +237,61 @@ public extension WidgetProtocol {
         return connectSignal(name: WidgetSignalName.draw.rawValue, flags: f, handler: handler)
     }
 
-    /// Connect a `(WidgetRef, Gdk.DragContextRef) -> Void` closure or function to a widget signal for the receiver.
+    /// Connect a `(WidgetRef, Gdk.EventButtonRef) -> Void` closure or function to a button event signal for the receiver.
+    /// Before calling this, you need to call `add(events:)`, e.g.
+    /// widget.add(events: CInt(GDK_BUTTON_PRESS_MASK.rawValue)
+    ///
+    /// - Parameters:
+    ///   - event: widget signal name (defaults to `.buttonPressEvent`)
+    ///   - f: connection flags (defaults to `0`)
+    ///   - handler: signal handler
+    /// - Returns: the corresponding return value of `g_signal_connect()`
+    @discardableResult
+    public func onButton(event: WidgetSignalName = .buttonPressEvent, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping ButtonSignalHandler) -> CUnsignedLong {
+        return connectButton(signal: event.rawValue, flags: f, handler: handler)
+    }
+
+
+    /// Connect a `(WidgetRef, Gdk.EventButtonRef) -> Void` closure or function to the `.buttonPressEvent` signal for the receiver.
+    /// This method adds the `GDK_BUTTON_PRESS_MASK` to the widget prior to connecting the closure.
+    ///
+    /// - Parameters:
+    ///   - f: connection flags (defaults to `0`)
+    ///   - handler: signal handler
+    /// - Returns: the corresponding return value of `g_signal_connect()`
+    @discardableResult
+    public func onButtonPress(flags f: ConnectFlags = ConnectFlags(0), handler h: @escaping ButtonSignalHandler) -> CUnsignedLong {
+        add(events: CInt(GDK_BUTTON_PRESS_MASK.rawValue))
+        return onButton(event: .buttonPressEvent, flags: f, handler: h)
+    }
+
+    /// Connect a `(WidgetRef, Gdk.EventButtonRef) -> Void` closure or function to the `.buttonPressEvent` signal for the receiver.
+    ///
+    /// - Parameters:
+    ///   - f: connection flags (defaults to `0`)
+    ///   - handler: signal handler
+    /// - Returns: the corresponding return value of `g_signal_connect()`
+    @discardableResult
+    public func onButtonRelease(flags f: ConnectFlags = ConnectFlags(0), handler h: @escaping ButtonSignalHandler) -> CUnsignedLong {
+        add(events: CInt(GDK_BUTTON_RELEASE_MASK.rawValue))
+        return onButton(event: .buttonReleaseEvent, flags: f, handler: h)
+    }
+
+    /// Connect a `(WidgetRef, Gdk.EventMotionRef) -> Void` closure or function to the motion signal for the receiver.
+    /// This method adds the `GDK_POINTER_MOTION_MASK` to the widget prior to connecting the closure.
+    ///
+    /// - Parameters:
+    ///   - event: widget signal name (defaults to `.motionNotifyEvent`)
+    ///   - f: connection flags (defaults to `0`)
+    ///   - handler: signal handler
+    /// - Returns: the corresponding return value of `g_signal_connect()`
+    @discardableResult
+    public func onMotion(event: WidgetSignalName = .motionNotifyEvent, flags f: ConnectFlags = ConnectFlags(0), handler h: @escaping MotionSignalHandler) -> CUnsignedLong {
+        add(events: CInt(GDK_POINTER_MOTION_MASK.rawValue))
+        return connectMotion(signal: event.rawValue, flags: f, handler: h)
+    }
+
+    /// Connect a `(WidgetRef, Gdk.DragContextRef) -> Void` closure or function to the `.dragBegin` signal for the receiver.
     ///
     /// - Parameters:
     ///   - f: connection flags (defaults to `0`)
