@@ -4,7 +4,7 @@
 # This calls the non-recursive gir-to-swift.sh to do the heavy lifting.
 #
 . ./config.sh
-./package.sh fetch
+./package.sh update
 if ! pushd .build/gir2swift >/dev/null 2>&1 ; then
 	mkdir -p .build
 	pushd .build >/dev/null
