@@ -43,7 +43,7 @@ After that, use the (usual) Build and Test buttons to build/test this package.  
 
 ### Swift
 
-Building should work with both Swift 4 and Swift 3 (you need at least Swift 3.1). You can download Swift from https://swift.org/download/ -- if you are using macOS, make sure you have the command line tools installed as well).  Test that your compiler works using `swift --version`, which should give you something like
+Building should work with both Swift 4 and Swift 3 (you need at least Swift 3.1). You can download Swift from https://swift.org/download/ -- if you are using macOS, make sure you have the command line tools installed as well (install them using `xcode-select --install`).  Test that your compiler works using `swift --version`, which should give you something like
 
 	$ swift --version
 	Apple Swift version 4.0 (swiftlang-900.0.65 clang-900.0.37)
