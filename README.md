@@ -13,11 +13,12 @@ import PackageDescription
 let package = Package(name: "MyPackage",
     dependencies: [
         .Package(url: "https://github.com/rhx/SwiftGtk.git", majorVersion: 3)
-    ]
+    ],
+    swiftLanguageVersions: [3, 4]
 )
 ```
 
-At this stage, unfortunately the Swift Package manager does not (yet) know how to run external programs such as `gir2swift`.  Therefore the easiest way to compile your project with SwiftGtk is to use build scripts that do this for you and pass the necessary flags to the Swift Package manager (see the following section).
+At this stage, the Swift Package manager does not (yet) know how to run external programs such as `gir2swift`.  Therefore the easiest way to compile your project with SwiftGtk is to use build scripts that do this for you and pass the necessary flags to the Swift Package manager (see the following section).
 
 ### Build Scripts
 
@@ -42,21 +43,21 @@ After that, use the (usual) Build and Test buttons to build/test this package.  
 
 ### Swift
 
-To build, you need at least Swift 3.1 (Swift 4 works fine as well -- download from https://swift.org/download/ -- if you are using macOS, make sure you have the command line tools installed as well).  Test that your compiler works using `swift --version`, which should give you something like
+Building should work with both Swift 4 and Swift 3 (you need at least Swift 3.1). You can download Swift from https://swift.org/download/ -- if you are using macOS, make sure you have the command line tools installed as well).  Test that your compiler works using `swift --version`, which should give you something like
 
 	$ swift --version
-	Apple Swift version 3.1 (swiftlang-802.0.53 clang-802.0.42)
+	Apple Swift version 4.0 (swiftlang-900.0.65 clang-900.0.37)
 	Target: x86_64-apple-macosx10.9
 
 on macOS, or on Linux you should get something like:
 
 	$ swift --version
-	Swift version 3.1 (swift-3.1-RELEASE)
+	Swift version 4.0 (swift-4.0-RELEASE)
 	Target: x86_64-unknown-linux-gnu
 
 ### Gtk 3.18 or higher
 
-The Swift wrappers have been tested with glib-2.46, 2.48 and 2.52, and gdk/gtk 3.18, 3.20, and 3.22.  They should work with higher versions, but YMMV.  Also make sure you have `gobject-introspection` and its `.gir` files installed.
+The Swift wrappers have been tested with glib-2.46, 2.48, 2.52 and 2.54, and gdk/gtk 3.18, 3.20, and 3.22.  They should work with higher versions, but YMMV.  Also make sure you have `gobject-introspection` and its `.gir` files installed.
 
 #### Linux
 
