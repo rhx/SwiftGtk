@@ -42,7 +42,7 @@ After that, use the (usual) Build and Test buttons to build/test this package.  
 
 ### Swift
 
-To build, you need Swift 3.1 (download from https://swift.org/download/ -- if you are using macOS, make sure you have the command line tools installed as well).  Test that your compiler works using `swift --version`, which should give you something like
+To build, you need at least Swift 3.1 (Swift 4 works fine as well -- download from https://swift.org/download/ -- if you are using macOS, make sure you have the command line tools installed as well).  Test that your compiler works using `swift --version`, which should give you something like
 
 	$ swift --version
 	Apple Swift version 3.1 (swiftlang-802.0.53 clang-802.0.42)
