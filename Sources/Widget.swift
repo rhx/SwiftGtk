@@ -293,7 +293,7 @@ public extension WidgetProtocol {
     /// - Returns: the corresponding return value of `g_signal_connect()`
     @discardableResult
     public func onKeyPress(flags f: ConnectFlags = ConnectFlags(0), handler h: @escaping KeySignalHandler) -> CUnsignedLong {
-        add(events: CInt(GDK_KEY_PRESS_MASK.rawValue))
+        add(events: CInt(CGdk.GDK_KEY_PRESS_MASK.rawValue))
         return onKey(event: .keyPressEvent, flags: f, handler: h)
     }
 
@@ -306,7 +306,7 @@ public extension WidgetProtocol {
     /// - Returns: the corresponding return value of `g_signal_connect()`
     @discardableResult
     public func onKeyRelease(flags f: ConnectFlags = ConnectFlags(0), handler h: @escaping KeySignalHandler) -> CUnsignedLong {
-        add(events: CInt(GDK_KEY_RELEASE_MASK.rawValue))
+        add(events: CInt(CGdk.GDK_KEY_RELEASE_MASK.rawValue))
         return onKey(event: .keyReleaseEvent, flags: f, handler: h)
     }
 
@@ -333,7 +333,7 @@ public extension WidgetProtocol {
     /// - Returns: the corresponding return value of `g_signal_connect()`
     @discardableResult
     public func onButtonPress(flags f: ConnectFlags = ConnectFlags(0), handler h: @escaping ButtonSignalHandler) -> CUnsignedLong {
-        add(events: CInt(GDK_BUTTON_PRESS_MASK.rawValue))
+        add(events: CInt(CGdk.GDK_BUTTON_PRESS_MASK.rawValue))
         return onButton(event: .buttonPressEvent, flags: f, handler: h)
     }
 
@@ -345,7 +345,7 @@ public extension WidgetProtocol {
     /// - Returns: the corresponding return value of `g_signal_connect()`
     @discardableResult
     public func onButtonRelease(flags f: ConnectFlags = ConnectFlags(0), handler h: @escaping ButtonSignalHandler) -> CUnsignedLong {
-        add(events: CInt(GDK_BUTTON_RELEASE_MASK.rawValue))
+        add(events: CInt(CGdk.GDK_BUTTON_RELEASE_MASK.rawValue))
         return onButton(event: .buttonReleaseEvent, flags: f, handler: h)
     }
 
@@ -359,7 +359,7 @@ public extension WidgetProtocol {
     /// - Returns: the corresponding return value of `g_signal_connect()`
     @discardableResult
     public func onMotion(event: WidgetSignalName = .motionNotifyEvent, flags f: ConnectFlags = ConnectFlags(0), handler h: @escaping MotionSignalHandler) -> CUnsignedLong {
-        add(events: CInt(GDK_POINTER_MOTION_MASK.rawValue))
+        add(events: CInt(CGdk.GDK_POINTER_MOTION_MASK.rawValue))
         return connectMotion(signal: event.rawValue, flags: f, handler: h)
     }
 
