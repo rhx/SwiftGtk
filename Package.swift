@@ -1,11 +1,19 @@
+// swift-tools-version:4.0
+
 import PackageDescription
 
 let package = Package(
     name: "Gtk",
-    dependencies: [
-        .Package(url: "https://github.com/rhx/CGtk.git", majorVersion: 1),
-        .Package(url: "https://github.com/rhx/SwiftGdk.git", majorVersion: 3),
-        .Package(url: "https://github.com/rhx/SwiftAtk.git", majorVersion: 2)
+    products: [
+        .library(name: "Gtk", targets: ["Gtk"]),
     ],
-    swiftLanguageVersions: [3, 4]
+    dependencies: [
+        .package(url: "https://github.com/rhx/CGtk.git", .branch("master")),
+        .package(url: "https://github.com/rhx/SwiftAtk.git", .branch("master")),
+        .package(url: "https://github.com/rhx/SwiftGdk.git", .branch("master")),
+    ],
+    targets: [
+        .target(name: "Gtk", dependencies: ["Gdk", "Atk"]),
+        .testTarget(name: "GtkTests", dependencies: ["Gtk"]),
+    ]
 )

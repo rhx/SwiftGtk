@@ -4,5 +4,5 @@
 # to determine compiler and linker flags
 #
 . ./config.sh
-[ -e Sources/${Module}.swift ] || ./generate-wrapper.sh
+[ -e Sources/${Mod}/${Module}.swift ] || ./generate-wrapper.sh
 exec swift build $CCFLAGS $LINKFLAGS "$@"
