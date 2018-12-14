@@ -8,13 +8,15 @@ This project tries to make gtk more "swifty" than using the plain C language int
 Normally, you don't build this package directly (but for testing you can - see 'Building' below), but you embed it into your own project.  To use SwiftGtk, you need to use the [Swift Package Manager](https://swift.org/package-manager/).  After installing the prerequisites (see 'Prerequisites' below), add `SwiftGtk` as a dependency to your `Package.swift` file, e.g.:
 
 ```Swift
+// swift-tools-version:4.0
+
 import PackageDescription
 
 let package = Package(name: "MyPackage",
     dependencies: [
-        .Package(url: "https://github.com/rhx/SwiftGtk.git", majorVersion: 3)
+        .package(url: "https://github.com/rhx/SwiftGtk.git", .branch("master")),
     ],
-    swiftLanguageVersions: [3, 4]
+    targets: [.target(name: "MyPackage", dependencies: ["Gtk"])]
 )
 ```
 
@@ -43,16 +45,16 @@ After that, use the (usual) Build and Test buttons to build/test this package.  
 
 ### Swift
 
-Building should work with both Swift 4 and Swift 3 (you need at least Swift 3.1). You can download Swift from https://swift.org/download/ -- if you are using macOS, make sure you have the command line tools installed as well (install them using `xcode-select --install`).  Test that your compiler works using `swift --version`, which should give you something like
+Building should work with Swift 4. You can download Swift from https://swift.org/download/ -- if you are using macOS, make sure you have the command line tools installed as well (install them using `xcode-select --install`).  Test that your compiler works using `swift --version`, which should give you something like
 
 	$ swift --version
-	Apple Swift version 4.2 (swiftlang-1000.0.32.1 clang-1000.10.39)
-	Target: x86_64-apple-darwin18.0.0
+	Apple Swift version 4.2.1 (swiftlang-1000.11.42 clang-1000.11.45.1)
+	Target: x86_64-apple-darwin18.2.0
 
 on macOS, or on Linux you should get something like:
 
 	$ swift --version
-	Swift version 4.1 (swift-4.1-RELEASE)
+	Swift version 4.2 (swift-4.2-RELEASE)
 	Target: x86_64-unknown-linux-gnu
 
 ### Gtk 3.18 or higher
