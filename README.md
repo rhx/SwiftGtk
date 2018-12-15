@@ -59,11 +59,13 @@ on macOS, or on Linux you should get something like:
 
 ### Gtk 3.18 or higher
 
-The Swift wrappers have been tested with glib-2.46, 2.48, 2.52, 2.54, and 2.56.1, and gdk/gtk 3.18, 3.20, and 3.22.  They should work with higher versions, but YMMV.  Also make sure you have `gobject-introspection` and its `.gir` files installed.
+The Swift wrappers have been tested with glib-2.46, 2.48, 2.52, 2.54, 2.56, and 2.58, and gdk/gtk 3.18, 3.20, 3.22, and 3.24.  They should work with higher versions, but YMMV.  Also make sure you have `gobject-introspection` and its `.gir` files installed.
 
 #### Linux
 
-On Ubuntu 16.04 and 18.04, you can use the gtk that comes with the distribution.  Just install with the `apt` package manager:
+##### Ubuntu
+
+On Ubuntu 18.04 and 16.04, you can use the gtk that comes with the distribution.  Just install with the `apt` package manager:
 
 	sudo apt update
 	sudo apt install libgtk-3-dev gir1.2-gtksource-3.0 gobject-introspection libgirepository1.0-dev libxml2-dev
@@ -74,6 +76,12 @@ If you prefer a newer version of gtk, you can also install it from the GNOME 3 S
 	sudo apt update
 	sudo apt dist-upgrade
 	sudo apt install libgtk-3-dev gir1.2-gtksource-3.0 gobject-introspection libgirepository1.0-dev libxml2-dev
+
+##### Fedora
+
+On Fedora 29, you can use the gtk that comes with the distribution.  Just install with the `dnf` package manager:
+
+	sudo dnf install gtk3-devel pango-devel cairo-devel cairo-gobject-devel glib2-devel gobject-introspection-devel libxml2-devel
 
 #### macOS
 
