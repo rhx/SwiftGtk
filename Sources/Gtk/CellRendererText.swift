@@ -3,7 +3,7 @@
 //  SwiftGtk
 //
 //  Created by Carl Lusty on 14/7/17.
-//  Copyright © 2017 Carl Lusty.  All rights reserved.
+//  Copyright © 2017, 2018 Rene Hexel and Carl Lusty.  All rights reserved.
 //
 import CGLib
 import CGtk
@@ -40,7 +40,7 @@ public extension CellRendererTextProtocol {
     /// the receiver object.  Similar to g_signal_connect(), but allows
     /// to provide a Swift closure that can capture its surrounding context.
     @discardableResult
-    public func connectEdited(signal name: UnsafePointer<gchar>, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping EditedSignalHandler) -> CUnsignedLong {
+    func connectEdited(signal name: UnsafePointer<gchar>, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping EditedSignalHandler) -> CUnsignedLong {
         let rv = _connect(signal: name, flags: f, data: EditedSignalHandlerClosureHolder(handler)) {
             let holder = Unmanaged<EditedSignalHandlerClosureHolder>.fromOpaque($3).takeUnretainedValue()
             holder.call(CellRendererTextRef(raw: $0), String(cString: $1.assumingMemoryBound(to: UInt8.self)), String(cString: $2.assumingMemoryBound(to: UInt8.self)))
@@ -52,7 +52,7 @@ public extension CellRendererTextProtocol {
     /// signal of the receiver object.  Similar to g_signal_connect(), but allows
     /// to provide a Swift closure that can capture its surrounding context.
     @discardableResult
-    public func onEdited(flags f: ConnectFlags = ConnectFlags(0), handler: @escaping EditedSignalHandler) -> CUnsignedLong {
+    func onEdited(flags f: ConnectFlags = ConnectFlags(0), handler: @escaping EditedSignalHandler) -> CUnsignedLong {
         return connectEdited(signal: CellRendererTextSignalName.edited.rawValue, flags: f, handler: handler)
     }
 }

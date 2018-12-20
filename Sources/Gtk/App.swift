@@ -3,7 +3,7 @@
 //  SwiftGtk
 //
 //  Created by Rene Hexel on 23/4/17.
-//  Copyright © 2017 Rene Hexel.  All rights reserved.
+//  Copyright © 2017, 2018 Rene Hexel.  All rights reserved.
 //
 import CGLib
 import GLib
@@ -39,7 +39,7 @@ public extension ApplicationProtocol {
     /// the receiver object.  Similar to g_signal_connect(), but allows
     /// to provide a Swift closure that can capture its surrounding context.
     @discardableResult
-    public func connectSignal(name: UnsafePointer<gchar>, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping ApplicationSignalHandler) -> CUnsignedLong {
+    func connectSignal(name: UnsafePointer<gchar>, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping ApplicationSignalHandler) -> CUnsignedLong {
         let rv = _connect(signal: name, flags: f, data: ClosureHolder(handler)) {
             let holder = Unmanaged<ApplicationSignalHandlerClosureHolder>.fromOpaque($1).takeUnretainedValue()
             holder.call(App($0))
@@ -51,7 +51,7 @@ public extension ApplicationProtocol {
     /// the receiver object.  Similar to g_signal_connect(), but allows
     /// to provide a Swift closure that can capture its surrounding context.
     @discardableResult
-    public func connect<T>(signal s: T, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping ApplicationSignalHandler) -> CUnsignedLong where T: SignalNameProtocol {
+    func connect<T>(signal s: T, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping ApplicationSignalHandler) -> CUnsignedLong where T: SignalNameProtocol {
         return connectSignal(name: s.rawValue, flags: f, handler: handler)
     }
 
@@ -59,7 +59,7 @@ public extension ApplicationProtocol {
     /// the receiver object.  Similar to g_signal_connect(), but allows
     /// to provide a Swift closure that can capture its surrounding context.
     @discardableResult
-    public func connect(signal: ApplicationSignalName, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping ApplicationSignalHandler) -> CUnsignedLong {
+    func connect(signal: ApplicationSignalName, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping ApplicationSignalHandler) -> CUnsignedLong {
         return connectSignal(name: signal.rawValue, flags: f, handler: handler)
     }
 }
@@ -91,7 +91,7 @@ public extension Application {
     /// If no application ID is given then some features (most notably application
     /// uniqueness) will be disabled. A null application ID is only allowed with
     /// GTK+ 3.6 or later.
-    public convenience init?(id: UnsafePointer<gchar>? = nil, flags: ApplicationFlags = .flags_none) {
+    convenience init?(id: UnsafePointer<gchar>? = nil, flags: ApplicationFlags = .flags_none) {
         let rv: UnsafeMutablePointer<GtkApplication>?
         if let application_id = id {
             GLib.set(applicationName: application_id)

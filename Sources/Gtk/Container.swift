@@ -21,7 +21,7 @@ public extension ContainerProtocol {
     ///   - value: value to set
     /// - Returns: `true` if successful, `false` if value cannot be transformed
     @discardableResult
-    public func set<W: WidgetProtocol, P: ParamSpecProtocol, V: ValueProtocol>(child: W, property: P, value: V) -> Bool {
+    func set<W: WidgetProtocol, P: ParamSpecProtocol, V: ValueProtocol>(child: W, property: P, value: V) -> Bool {
         let ptype = property.ptr.pointee.value_type
         let tmpValue = Value()
         _ = tmpValue.init_(gType: ptype)
@@ -52,7 +52,7 @@ public extension ContainerProtocol {
     ///   - widget: child widget to set the property for
     ///   - property: name of the property
     ///   - value: the value to set the property to
-    public func set<W: WidgetProtocol, P: PropertyNameProtocol, V>(child widget: W, property: P, value: V) {
+    func set<W: WidgetProtocol, P: PropertyNameProtocol, V>(child widget: W, property: P, value: V) {
         let v = Value(value)
         childSetProperty(child: widget, propertyName: property.rawValue, value: v)
     }
@@ -62,7 +62,7 @@ public extension ContainerProtocol {
     /// - Parameters:
     ///   - child: widget to set property for
     ///   - properties: array of `PropertyName`/value pairs for the properties to set
-    public func set<W: WidgetProtocol, P: PropertyNameProtocol>(child widget: W, properties: [(P, Any)]) {
+    func set<W: WidgetProtocol, P: PropertyNameProtocol>(child widget: W, properties: [(P, Any)]) {
         widget.freezeChildNotify() ; defer { widget.thawChildNotify() }
         for (p, v) in properties {
             set(child: widget, property: p, value: v)
@@ -74,7 +74,7 @@ public extension ContainerProtocol {
     /// - Parameters:
     ///   - widget: child widget to set properties for
     ///   - properties: `PropertyName` / value pairs to set
-    public func set<W: WidgetProtocol, P: PropertyNameProtocol>(child widget: W, properties ps: (P, Any)...) {
+    func set<W: WidgetProtocol, P: PropertyNameProtocol>(child widget: W, properties ps: (P, Any)...) {
         set(child: widget, properties: ps)
     }
 
@@ -83,7 +83,7 @@ public extension ContainerProtocol {
     /// - Parameters:
     ///   - widget: child widget to add
     ///   - properties: `PropertyName` / value pairs of properties to set
-    public func add<W: WidgetProtocol, P: PropertyNameProtocol>(_ widget: W, properties ps: (P, Any)...) {
+    func add<W: WidgetProtocol, P: PropertyNameProtocol>(_ widget: W, properties ps: (P, Any)...) {
         widget.freezeChildNotify() ; defer { widget.thawChildNotify() }
         emit(ContainerSignalName.add, widget.ptr)
         set(child: widget, properties: ps)
@@ -95,7 +95,7 @@ public extension ContainerProtocol {
     ///   - widget: child widget to add
     ///   - property: name of the property to set
     ///   - value: value of the property to set
-    public func add<W: WidgetProtocol, P: PropertyNameProtocol, V>(_ widget: W, property p: P, value v: V) {
+    func add<W: WidgetProtocol, P: PropertyNameProtocol, V>(_ widget: W, property p: P, value v: V) {
         widget.freezeChildNotify() ; defer { widget.thawChildNotify() }
         emit(ContainerSignalName.add, widget.ptr)
         set(child: widget, property: p, value: v)

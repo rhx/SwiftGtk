@@ -3,19 +3,19 @@
 //  Gtk
 //
 //  Created by Rene Hexel on 22/4/17.
-//  Copyright © 2017 Rene Hexel.  All rights reserved.
+//  Copyright © 2017, 2018 Rene Hexel.  All rights reserved.
 //
 import GLibObject
 import CGtk
 
 public extension TreeStore {
     /// Return a tree model reference for the list store
-    public var treeModel: TreeModelRef { return TreeModelRef(cPointer: ptr) }
+    var treeModel: TreeModelRef { return TreeModelRef(cPointer: ptr) }
 
     /// Convenience constructor specifying the column types
     ///
     /// - Parameter types: array of column types for this tree model
-    public convenience init(types: [GType]) {
+    convenience init(types: [GType]) {
         var ts = types
         self.init(nColumns: CInt(types.count), types: &ts)
     }
@@ -23,7 +23,7 @@ public extension TreeStore {
     /// Convenience constructor specifying the column types
     ///
     /// - Parameter types: column types for this tree model
-    public convenience init(_ types: GType...) {
+    convenience init(_ types: GType...) {
         var ts = types
         self.init(nColumns: CInt(types.count), types: &ts)
     }
@@ -34,7 +34,7 @@ public extension TreeStore {
     ///   - i: iterator representing the current row
     ///   - values: array of values to add
     ///   - startColumn: column to start from (defaults to `0`)
-    public func set<I: TreeIterProtocol, V: ValueProtocol>(iter i: I, values: [V], startColumn: Int = 0) {
+    func set<I: TreeIterProtocol, V: ValueProtocol>(iter i: I, values: [V], startColumn: Int = 0) {
         ptr.withMemoryRebound(to: GtkTreeStore.self, capacity: 1) {
             var c = gint(startColumn)
             for v in values {
@@ -51,7 +51,7 @@ public extension TreeStore {
     ///   - p: parent iterator to append to
     ///   - v: array of values to add
     ///   - startColumn: column to start from (defaults to `0`)
-    public func append<I: TreeIterProtocol, V: ValueProtocol>(asNextRow i: I, parent p: I? = nil, values v: [V], startColumn s: Int = 0) {
+    func append<I: TreeIterProtocol, V: ValueProtocol>(asNextRow i: I, parent p: I? = nil, values v: [V], startColumn s: Int = 0) {
         ptr.withMemoryRebound(to: GtkTreeStore.self, capacity: 1) {
             gtk_tree_store_append($0, i.ptr, p?.ptr)
         }
@@ -65,7 +65,7 @@ public extension TreeStore {
     ///   - p: parent iterator to append to
     ///   - values: array of values to add
     ///   - startColumn: column to start from (defaults to `0`)
-    public func append<I: TreeIterProtocol>(asNextRow i: I, parent p: I? = nil, startColumn s: Int = 0, _ values: Value...) {
+    func append<I: TreeIterProtocol>(asNextRow i: I, parent p: I? = nil, startColumn s: Int = 0, _ values: Value...) {
         ptr.withMemoryRebound(to: GtkTreeStore.self, capacity: 1) {
             gtk_tree_store_append($0, i.ptr, p?.ptr)
         }
@@ -101,21 +101,21 @@ public extension TreeView {
     /// Convenience Tree View constructor
     ///
     /// - Parameter store: tree view store description
-    public convenience init(model store: TreeStore) {
+    convenience init(model store: TreeStore) {
         self.init(model: store.treeModel)
     }
 
     /// Append the given columns
     ///
     /// - Parameter columns: array of columns to append
-    public func append<T: TreeViewColumnProtocol>(_ columns: [T]) {
+    func append<T: TreeViewColumnProtocol>(_ columns: [T]) {
         for c in columns { _ = append(column: c) }
     }
 
     /// Append the given columns
     ///
     /// - Parameter columns: list of of columns to append
-    public func append<T: TreeViewColumnProtocol>(_ columns: T...) {
+    func append<T: TreeViewColumnProtocol>(_ columns: T...) {
         for c in columns { _ = append(column: c) }
     }
 }
@@ -131,7 +131,7 @@ public extension TreeViewColumn {
     ///   - attribute: model attribute to use
     ///   - expand: set to `false` to prevent cell from allocating more space than it needs
     ///   - rendererAttributes: array of attribute name/value pairs to set on the renderer
-    public convenience init(_ column: Int, title: String? = nil, renderer: CellRenderer = CellRendererText(), attribute: PropertyName = "text", expand e: Bool = true, rendererAttributes: [(PropertyName, Value)] = []) {
+    convenience init(_ column: Int, title: String? = nil, renderer: CellRenderer = CellRendererText(), attribute: PropertyName = "text", expand e: Bool = true, rendererAttributes: [(PropertyName, Value)] = []) {
         self.init()
         if let t = title { set(title: t) }
         for a in rendererAttributes {
@@ -150,7 +150,7 @@ public extension TreeViewColumn {
     ///   - attribute: model attribute to use
     ///   - expand: set to `false` to prevent cell from allocating more space than it needs
     ///   - rendererAttributes: array of attribute name/value pairs to set on the renderer
-    public convenience init(_ column: Int, title t: String? = nil, renderer r: CellRenderer = CellRendererText(), attribute a: PropertyName = "text", expand e: Bool = true, rendererAttributes ras: (PropertyName, Value)...) {
+    convenience init(_ column: Int, title t: String? = nil, renderer r: CellRenderer = CellRendererText(), attribute a: PropertyName = "text", expand e: Bool = true, rendererAttributes ras: (PropertyName, Value)...) {
         self.init(column, title: t, renderer: r, attribute: a, expand: e, rendererAttributes: ras)
     }
 }

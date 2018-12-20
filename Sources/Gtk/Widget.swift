@@ -59,7 +59,7 @@ typealias DragDataReceivedSignalHandlerClosureHolder = Closure7Holder<WidgetRef,
 /// Widget protocol convenience methods
 public extension WidgetProtocol {
     /// Return a reference to the style context
-    public var styleContextRef: StyleContextRef {
+    var styleContextRef: StyleContextRef {
         return StyleContextRef(styleContext)
     }
 
@@ -165,7 +165,7 @@ public extension WidgetProtocol {
     /// the receiver object.  Similar to g_signal_connect(), but allows
     /// to provide a Swift closure that can capture its surrounding context.
     @discardableResult
-    public func connectSignal(name: UnsafePointer<gchar>, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping WidgetSignalHandler) -> CUnsignedLong {
+    func connectSignal(name: UnsafePointer<gchar>, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping WidgetSignalHandler) -> CUnsignedLong {
         let rv = _connect(signal: name, flags: f, data: DualClosureHolder(handler)) {
             let holder = Unmanaged<WidgetSignalHandlerClosureHolder>.fromOpaque($2).takeUnretainedValue()
             let rv: gboolean = holder.call(WidgetRef(raw: $0), Cairo.ContextRef(raw: $1)) ? 1 : 0
@@ -178,7 +178,7 @@ public extension WidgetProtocol {
     /// the receiver object.  Similar to g_signal_connect(), but allows
     /// to provide a Swift closure that can capture its surrounding context.
     @discardableResult
-    public func connectKey(signal name: UnsafePointer<gchar>, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping KeySignalHandler) -> CUnsignedLong {
+    func connectKey(signal name: UnsafePointer<gchar>, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping KeySignalHandler) -> CUnsignedLong {
         let rv = _connect(signal: name, flags: f, data: DualClosureHolder(handler)) {
             let holder = Unmanaged<KeySignalHandlerClosureHolder>.fromOpaque($2).takeUnretainedValue()
             holder.call(WidgetRef(raw: $0), Gdk.EventKeyRef(raw: $1))
@@ -190,7 +190,7 @@ public extension WidgetProtocol {
     /// the receiver object.  Similar to g_signal_connect(), but allows
     /// to provide a Swift closure that can capture its surrounding context.
     @discardableResult
-    public func connectButton(signal name: UnsafePointer<gchar>, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping ButtonSignalHandler) -> CUnsignedLong {
+    func connectButton(signal name: UnsafePointer<gchar>, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping ButtonSignalHandler) -> CUnsignedLong {
         let rv = _connect(signal: name, flags: f, data: DualClosureHolder(handler)) {
             let holder = Unmanaged<ButtonSignalHandlerClosureHolder>.fromOpaque($2).takeUnretainedValue()
             holder.call(WidgetRef(raw: $0), Gdk.EventButtonRef(raw: $1))
@@ -202,7 +202,7 @@ public extension WidgetProtocol {
     /// the receiver object.  Similar to g_signal_connect(), but allows
     /// to provide a Swift closure that can capture its surrounding context.
     @discardableResult
-    public func connectMotion(signal name: UnsafePointer<gchar>, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping MotionSignalHandler) -> CUnsignedLong {
+    func connectMotion(signal name: UnsafePointer<gchar>, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping MotionSignalHandler) -> CUnsignedLong {
         let rv = _connect(signal: name, flags: f, data: DualClosureHolder(handler)) {
             let holder = Unmanaged<MotionSignalHandlerClosureHolder>.fromOpaque($2).takeUnretainedValue()
             holder.call(WidgetRef(raw: $0), Gdk.EventMotionRef(raw: $1))
@@ -214,7 +214,7 @@ public extension WidgetProtocol {
     /// the receiver object.  Similar to g_signal_connect(), but allows
     /// to provide a Swift closure that can capture its surrounding context.
     @discardableResult
-    public func connectDrag(signal name: UnsafePointer<gchar>, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping DragSignalHandler) -> CUnsignedLong {
+    func connectDrag(signal name: UnsafePointer<gchar>, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping DragSignalHandler) -> CUnsignedLong {
         let rv = _connect(signal: name, flags: f, data: DualClosureHolder(handler)) {
             let holder = Unmanaged<DragSignalHandlerClosureHolder>.fromOpaque($2).takeUnretainedValue()
             holder.call(WidgetRef(raw: $0), Gdk.DragContextRef(raw: $1))
@@ -226,7 +226,7 @@ public extension WidgetProtocol {
     /// the receiver object.  Similar to g_signal_connect(), but allows
     /// to provide a Swift closure that can capture its surrounding context.
     @discardableResult
-    public func connectDragDataGet(signal name: UnsafePointer<gchar>, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping DragDataGetSignalHandler) -> CUnsignedLong {
+    func connectDragDataGet(signal name: UnsafePointer<gchar>, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping DragDataGetSignalHandler) -> CUnsignedLong {
         let rv = _connect(signal: name, flags: f, data: DragDataGetSignalHandlerClosureHolder(handler)) {
             let holder = Unmanaged<DragDataGetSignalHandlerClosureHolder>.fromOpaque($5).takeUnretainedValue()
             holder.call(WidgetRef(raw: $0), Gdk.DragContextRef(raw: $1), $2.assumingMemoryBound(to: GtkSelectionData.self), $3, $4)
@@ -238,7 +238,7 @@ public extension WidgetProtocol {
     /// the receiver object.  Similar to g_signal_connect(), but allows
     /// to provide a Swift closure that can capture its surrounding context.
     @discardableResult
-    public func connectDragDataReceived(signal name: UnsafePointer<gchar>, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping DragDataReceivedSignalHandler) -> CUnsignedLong {
+    func connectDragDataReceived(signal name: UnsafePointer<gchar>, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping DragDataReceivedSignalHandler) -> CUnsignedLong {
         let rv = _connect(signal: name, flags: f, data: DragDataReceivedSignalHandlerClosureHolder(handler)) {
             let holder = Unmanaged<DragDataReceivedSignalHandlerClosureHolder>.fromOpaque($7).takeUnretainedValue()
             holder.call(WidgetRef(raw: $0), Gdk.DragContextRef(raw: $1), $2, $3, $4.assumingMemoryBound(to: GtkSelectionData.self), $5, $6)
@@ -250,7 +250,7 @@ public extension WidgetProtocol {
     /// the receiver object.  Similar to g_signal_connect(), but allows
     /// to provide a Swift closure that can capture its surrounding context.
     @discardableResult
-    public func connect<T>(signal s: T, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping WidgetSignalHandler) -> CUnsignedLong where T: SignalNameProtocol {
+    func connect<T>(signal s: T, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping WidgetSignalHandler) -> CUnsignedLong where T: SignalNameProtocol {
         return connectSignal(name: s.rawValue, flags: f, handler: handler)
     }
 
@@ -258,7 +258,7 @@ public extension WidgetProtocol {
     /// the receiver object.  Similar to g_signal_connect(), but allows
     /// to provide a Swift closure that can capture its surrounding context.
     @discardableResult
-    public func connect(signal: WidgetSignalName, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping WidgetSignalHandler) -> CUnsignedLong {
+    func connect(signal: WidgetSignalName, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping WidgetSignalHandler) -> CUnsignedLong {
         return connectSignal(name: signal.rawValue, flags: f, handler: handler)
     }
 
@@ -266,7 +266,7 @@ public extension WidgetProtocol {
     /// signal of the receiver object.  Similar to g_signal_connect(), but allows
     /// to provide a Swift closure that can capture its surrounding context.
     @discardableResult
-    public func onDraw(flags f: ConnectFlags = ConnectFlags(0), handler: @escaping WidgetSignalHandler) -> CUnsignedLong {
+    func onDraw(flags f: ConnectFlags = ConnectFlags(0), handler: @escaping WidgetSignalHandler) -> CUnsignedLong {
         return connectSignal(name: WidgetSignalName.draw.rawValue, flags: f, handler: handler)
     }
 
@@ -280,7 +280,7 @@ public extension WidgetProtocol {
     ///   - handler: signal handler
     /// - Returns: the corresponding return value of `g_signal_connect()`
     @discardableResult
-    public func onKey(event: WidgetSignalName = .keyPressEvent, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping KeySignalHandler) -> CUnsignedLong {
+    func onKey(event: WidgetSignalName = .keyPressEvent, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping KeySignalHandler) -> CUnsignedLong {
         return connectKey(signal: event.rawValue, flags: f, handler: handler)
     }
 
@@ -292,7 +292,7 @@ public extension WidgetProtocol {
     ///   - handler: signal handler
     /// - Returns: the corresponding return value of `g_signal_connect()`
     @discardableResult
-    public func onKeyPress(flags f: ConnectFlags = ConnectFlags(0), handler h: @escaping KeySignalHandler) -> CUnsignedLong {
+    func onKeyPress(flags f: ConnectFlags = ConnectFlags(0), handler h: @escaping KeySignalHandler) -> CUnsignedLong {
         add(events: CInt(CGdk.GDK_KEY_PRESS_MASK.rawValue))
         return onKey(event: .keyPressEvent, flags: f, handler: h)
     }
@@ -305,7 +305,7 @@ public extension WidgetProtocol {
     ///   - handler: signal handler
     /// - Returns: the corresponding return value of `g_signal_connect()`
     @discardableResult
-    public func onKeyRelease(flags f: ConnectFlags = ConnectFlags(0), handler h: @escaping KeySignalHandler) -> CUnsignedLong {
+    func onKeyRelease(flags f: ConnectFlags = ConnectFlags(0), handler h: @escaping KeySignalHandler) -> CUnsignedLong {
         add(events: CInt(CGdk.GDK_KEY_RELEASE_MASK.rawValue))
         return onKey(event: .keyReleaseEvent, flags: f, handler: h)
     }
@@ -320,7 +320,7 @@ public extension WidgetProtocol {
     ///   - handler: signal handler
     /// - Returns: the corresponding return value of `g_signal_connect()`
     @discardableResult
-    public func onButton(event: WidgetSignalName = .buttonPressEvent, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping ButtonSignalHandler) -> CUnsignedLong {
+    func onButton(event: WidgetSignalName = .buttonPressEvent, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping ButtonSignalHandler) -> CUnsignedLong {
         return connectButton(signal: event.rawValue, flags: f, handler: handler)
     }
 
@@ -332,7 +332,7 @@ public extension WidgetProtocol {
     ///   - handler: signal handler
     /// - Returns: the corresponding return value of `g_signal_connect()`
     @discardableResult
-    public func onButtonPress(flags f: ConnectFlags = ConnectFlags(0), handler h: @escaping ButtonSignalHandler) -> CUnsignedLong {
+    func onButtonPress(flags f: ConnectFlags = ConnectFlags(0), handler h: @escaping ButtonSignalHandler) -> CUnsignedLong {
         add(events: CInt(CGdk.GDK_BUTTON_PRESS_MASK.rawValue))
         return onButton(event: .buttonPressEvent, flags: f, handler: h)
     }
@@ -344,7 +344,7 @@ public extension WidgetProtocol {
     ///   - handler: signal handler
     /// - Returns: the corresponding return value of `g_signal_connect()`
     @discardableResult
-    public func onButtonRelease(flags f: ConnectFlags = ConnectFlags(0), handler h: @escaping ButtonSignalHandler) -> CUnsignedLong {
+    func onButtonRelease(flags f: ConnectFlags = ConnectFlags(0), handler h: @escaping ButtonSignalHandler) -> CUnsignedLong {
         add(events: CInt(CGdk.GDK_BUTTON_RELEASE_MASK.rawValue))
         return onButton(event: .buttonReleaseEvent, flags: f, handler: h)
     }
@@ -358,7 +358,7 @@ public extension WidgetProtocol {
     ///   - handler: signal handler
     /// - Returns: the corresponding return value of `g_signal_connect()`
     @discardableResult
-    public func onMotion(event: WidgetSignalName = .motionNotifyEvent, flags f: ConnectFlags = ConnectFlags(0), handler h: @escaping MotionSignalHandler) -> CUnsignedLong {
+    func onMotion(event: WidgetSignalName = .motionNotifyEvent, flags f: ConnectFlags = ConnectFlags(0), handler h: @escaping MotionSignalHandler) -> CUnsignedLong {
         add(events: CInt(CGdk.GDK_POINTER_MOTION_MASK.rawValue))
         return connectMotion(signal: event.rawValue, flags: f, handler: h)
     }
@@ -370,7 +370,7 @@ public extension WidgetProtocol {
     ///   - handler: signal handler
     /// - Returns: the corresponding return value of `g_signal_connect()`
     @discardableResult
-    public func onDragBegin(flags f: ConnectFlags = ConnectFlags(0), handler: @escaping DragSignalHandler) -> CUnsignedLong {
+    func onDragBegin(flags f: ConnectFlags = ConnectFlags(0), handler: @escaping DragSignalHandler) -> CUnsignedLong {
         return connectDrag(signal: WidgetSignalName.dragBegin.rawValue, flags: f, handler: handler)
     }
 
@@ -381,7 +381,7 @@ public extension WidgetProtocol {
     ///   - handler: signal handler
     /// - Returns: the corresponding return value of `g_signal_connect()`
     @discardableResult
-    public func onDragDataGet(flags f: ConnectFlags = ConnectFlags(0), handler: @escaping DragDataGetSignalHandler) -> CUnsignedLong {
+    func onDragDataGet(flags f: ConnectFlags = ConnectFlags(0), handler: @escaping DragDataGetSignalHandler) -> CUnsignedLong {
         return connectDragDataGet(signal: WidgetSignalName.dragDataGet.rawValue, flags: f, handler: handler)
     }
 
@@ -392,7 +392,7 @@ public extension WidgetProtocol {
     ///   - handler: signal handler
     /// - Returns: the corresponding return value of `g_signal_connect()`
     @discardableResult
-    public func onDragDataReceived(flags f: ConnectFlags = ConnectFlags(0), handler: @escaping DragDataReceivedSignalHandler) -> CUnsignedLong {
+    func onDragDataReceived(flags f: ConnectFlags = ConnectFlags(0), handler: @escaping DragDataReceivedSignalHandler) -> CUnsignedLong {
         return connectDragDataReceived(signal: WidgetSignalName.dragDataReceived.rawValue, flags: f, handler: handler)
     }
 }
@@ -403,7 +403,7 @@ public extension Widget {
 }
 
 public extension WidgetRef {
-    public init(_ object: UnsafeMutablePointer<GObject>) {
+    init(_ object: UnsafeMutablePointer<GObject>) {
         ptr = UnsafeMutablePointer(object)
     }
 }
