@@ -158,3 +158,4 @@ s/: \([A-Za-z.]*ListenerInit[,)]\)/: @escaping \1/g
 s/: \([A-Za-z.]*Predicate[,)]\)/: @escaping \1/g
 s/: \([A-Za-z.]*Foreach[,)]\)/: @escaping \1/g
 s/: \([A-Za-z.]*Parser[,)]\)/: @escaping \1/g
+s/ *label group: SListProtocol/group: SListProtocol/
