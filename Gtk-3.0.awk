@@ -13,7 +13,7 @@ BEGIN { depr_init = 0 ; comment = 0 ; slist = 0 }
 /^[^ ]/ { slist = 0 }
 / UnsafeMutablePointer<GSList>! {/ {
 	slist = 1
-	gsub("UnsafeMutablePointer.GSList..", "SListRef?")
+	gsub("UnsafeMutablePointer.GSList..", "SListRef!")
 }
 /return cast.rv.$/ {
 	if (slist) {
@@ -45,7 +45,7 @@ BEGIN { depr_init = 0 ; comment = 0 ; slist = 0 }
 	print "    /// creating a new group."
 	print "    ///"
 	print "    /// - Parameter label: the label to use for the button"
-	print "    convenience init(label: UnsafePointer<gchar>) {"
+	print "    public convenience init(label: UnsafePointer<gchar>) {"
 	print "        let rv = gtk_radio_button_new_with_label(nil, label)"
 	print "        self.init(cast(rv))"
 	print "    }"
@@ -55,7 +55,7 @@ BEGIN { depr_init = 0 ; comment = 0 ; slist = 0 }
 	print "    /// indicate the mnemonic for the button."
 	print "    ///"
 	print "    /// - Parameter label: the label (including mnemonic) to use for the button"
-	print "    convenience init(mnemonic label: UnsafePointer<gchar>) {"
+	print "    public convenience init(mnemonic label: UnsafePointer<gchar>) {"
 	print "        let rv = gtk_radio_button_new_with_mnemonic(nil, label)"
 	print "        self.init(cast(rv))"
 	print "    }"
@@ -68,7 +68,7 @@ BEGIN { depr_init = 0 ; comment = 0 ; slist = 0 }
 	print "    /// creating a new group."
 	print "    ///"
 	print "    /// - Parameter label: the label to use for the button"
-	print "    convenience init(label: UnsafePointer<gchar>) {"
+	print "    public convenience init(label: UnsafePointer<gchar>) {"
 	print "        let rv = gtk_radio_menu_item_new_with_label(nil, label)"
 	print "        self.init(cast(rv))"
 	print "    }"
@@ -78,7 +78,7 @@ BEGIN { depr_init = 0 ; comment = 0 ; slist = 0 }
 	print "    /// indicate the mnemonic for the button."
 	print "    ///"
 	print "    /// - Parameter label: the label (including mnemonic) to use for the button"
-	print "    convenience init(mnemonic label: UnsafePointer<gchar>) {"
+	print "    public convenience init(mnemonic label: UnsafePointer<gchar>) {"
 	print "        let rv = gtk_radio_menu_item_new_with_mnemonic(nil, label)"
 	print "        self.init(cast(rv))"
 	print "    }"
@@ -88,7 +88,7 @@ BEGIN { depr_init = 0 ; comment = 0 ; slist = 0 }
 /^open class RadioToolButton:/ {
 	print
 	print "    /// Convenience constructor for creating a RadioToolButton group."
-	print "    convenience init() {"
+	print "    public convenience init() {"
 	print "        let rv = gtk_radio_tool_button_new(nil)"
 	print "        self.init(cast(rv))"
 	print "    }"
