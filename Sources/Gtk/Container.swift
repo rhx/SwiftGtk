@@ -3,7 +3,7 @@
 //  Gtk
 //
 //  Created by Rene Hexel on 29/4/17.
-//  Copyright © 2017 Rene Hexel.  All rights reserved.
+//  Copyright © 2017, 2019 Rene Hexel.  All rights reserved.
 //
 import CGLib
 import CGtk
@@ -99,5 +99,21 @@ public extension ContainerProtocol {
         widget.freezeChildNotify() ; defer { widget.thawChildNotify() }
         emit(ContainerSignalName.add, widget.ptr)
         set(child: widget, property: p, value: v)
+    }
+
+    /// Add an array of widgets to the container
+    ///
+    /// - Parameter widgets: the widgets to add
+    func add(widgets: [WidgetProtocol]) {
+        for w in widgets {
+            add(widget: w)
+        }
+    }
+
+    /// Add widgets to the container
+    ///
+    /// - Parameter widgets: the widgets to add
+    func add(_ widgets: WidgetProtocol...) {
+        add(widgets: widgets)
     }
 }
