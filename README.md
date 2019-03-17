@@ -22,6 +22,19 @@ let package = Package(name: "MyPackage",
 
 At this stage, the Swift Package manager does not (yet) know how to run external programs such as `gir2swift`.  Therefore the easiest way to compile your project with SwiftGtk is to use build scripts that do this for you and pass the necessary flags to the Swift Package manager (see the following section).
 
+### Examples
+
+You can find some example projects on GitHub that show how to use SwiftGtk:
+
+ * [SwiftHelloGtk](https://github.com/rhx/SwiftHelloGtk)
+ * [SwiftHelloGtkRadioButtons](https://github.com/rhx/SwiftHelloGtkRadioButtons)
+ * [SwiftGtkListViewDemo](https://github.com/rhx/SwiftGtkListViewDemo)
+ * [SwiftGtkListBoxDNDDemo](https://github.com/rhx/SwiftGtkListBoxDNDDemo)
+ * [SwiftHelloGtkBuilder](https://github.com/rhx/SwiftHelloGtkBuilder)
+ * [SwiftHelloCairoGtk](https://github.com/rhx/SwiftHelloCairoGtk)
+ * [SwiftGtkCairoAnimationDemo](https://github.com/rhx/SwiftGtkCairoAnimationDemo)
+
+
 ### Build Scripts
 
 The demo applications come with build scripts that configure some environment variables and pass required arguments when calling `swift build`, `swift package`, etc.  The easiest way to get started is to clone one of the following projects, then copy all the `*.sh` shell scripts into your own project.  Also, if you want to be able to build a desktop app, create a `Resources` folder, and copy (at least) the `Info.plist` file as well:
@@ -108,18 +121,6 @@ On macOS, you can build the project using Xcode instead.  To do this, you need t
 	open Gtk.xcodeproj
 
 After that, use the (usual) Build and Test buttons to build/test this package.
-
-
-### Examples
-
-You can find some example projects on GitHub that show how to use SwiftGtk:
-
- * [SwiftHelloGtk](https://github.com/rhx/SwiftHelloGtk)
- * [SwiftGtkListViewDemo](https://github.com/rhx/SwiftGtkListViewDemo)
- * [SwiftGtkListBoxDNDDemo](https://github.com/rhx/SwiftGtkListBoxDNDDemo)
- * [SwiftHelloGtkBuilder](https://github.com/rhx/SwiftHelloGtkBuilder)
- * [SwiftHelloCairoGtk](https://github.com/rhx/SwiftHelloCairoGtk)
- * [SwiftGtkCairoAnimationDemo](https://github.com/rhx/SwiftGtkCairoAnimationDemo)
 
 
 ## Troubleshooting
