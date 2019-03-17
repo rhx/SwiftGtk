@@ -2,7 +2,7 @@
 #
 # Patch the generated wrapper Swift code to handle special cases
 #
-BEGIN { depr_init = 0 ; comment = 0 }
+BEGIN { depr_init = 0 ; comment = 0 ; slist = 0 }
 /open .* ColorSelection/ { depr_init = 1 }
 /public .* ColorSelection/ { depr_init = 1 }
 /public .* HSV/ { depr_init = 1 }
@@ -10,6 +10,23 @@ BEGIN { depr_init = 0 ; comment = 0 }
 /open .* HSV/ { depr_init = 1 }
 /func getColumnHeaderCells/ { comment = 1 }
 /func getRowHeaderCells/ { comment = 1 }
+/^[^ ]/ { slist = 0 }
+/ UnsafeMutablePointer<GSList>! {/ {
+	slist = 1
+	gsub("UnsafeMutablePointer.GSList..", "SListRef?")
+}
+/return cast.rv.$/ {
+	if (slist) {
+		gsub("cast.rv.", "rv.map { SListRef($0) }")
+	}
+}
+/cast.newValue./ {
+	if (slist) {
+		gsub("cast.newValue.", "newValue.map { $0.ptr }")
+		slist = 0
+	}
+}
+/^    }$/ { slist = 0 }
 / init.. {/ {
 	if (depr_init) {
 		printf("@available(*, deprecated) ")
