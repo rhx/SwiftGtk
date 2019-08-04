@@ -13,7 +13,8 @@ let package = Package(
         .package(url: "https://github.com/rhx/SwiftGdk.git", .branch("master")),
     ],
     targets: [
-        .target(name: "Gtk", dependencies: ["Gdk", "Atk"]),
+        .target(name: "Gtk", dependencies: ["GtkCHelpers", "Gdk", "Atk"]),
+        .target(name: "GtkCHelpers"),
         .testTarget(name: "GtkTests", dependencies: ["Gtk"]),
     ]
 )
