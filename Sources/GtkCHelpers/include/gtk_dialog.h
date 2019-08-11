@@ -1,3 +1,4 @@
+#include <termios.h>
 #include <gtk/gtk.h>
 
 /// Convenience function to create a dialog with a single button.
