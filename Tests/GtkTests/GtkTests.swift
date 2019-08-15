@@ -42,7 +42,7 @@ class GtkTests: XCTestCase {
 
     /// text text buffers
     func testTextBuffer() {
-        guard var buffer = TextBuffer() else { XCTFail() ; return }
+        guard let buffer = TextBuffer() else { XCTFail() ; return }
         let text = "Hello, world!\n"
         buffer.text = text
         XCTAssertEqual(buffer.text, text)
