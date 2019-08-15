@@ -8,7 +8,7 @@
 import CGtk
 import GtkCHelpers
 
-public extension FileChooser {
+public extension FileChooserDialog {
     /// Convenience constructor to create a file chooser dialog with two buttons.
     /// - Parameter title: Title of the dialog
     /// - Parameter action: file chooser action kind, such as `.open`, `.save`, `.selectFolder`
