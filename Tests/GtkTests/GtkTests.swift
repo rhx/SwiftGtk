@@ -67,7 +67,7 @@ class GtkTests: XCTestCase {
     
     // test file chooser
     func testFileChooser() {
-        XCTAssertNotNil(FileChooser(firstText: "Cancel", secondText: "Okay").ptr)
+        XCTAssertNotNil(FileChooserDialog(firstText: "Cancel", secondText: "Okay").ptr)
     }
 }
 
