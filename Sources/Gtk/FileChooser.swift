@@ -38,7 +38,7 @@ public extension FileChooserDialog {
 
 public extension FileChooserAction {
     /// convenience alias for `.select_folder`
-    static var selectFolder = FileChooserAction.select_folder
+    static let selectFolder = FileChooserAction.select_folder
     /// convenience alias for `.create_folder`
-    static var createFolder = FileChooserAction.create_folder
+    static let createFolder = FileChooserAction.create_folder
 }

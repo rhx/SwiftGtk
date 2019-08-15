@@ -3,7 +3,7 @@
 //  SwiftGtk
 //
 //  Created by Rene Hexel on 23/4/17.
-//  Copyright © 2017, 2018 Rene Hexel.  All rights reserved.
+//  Copyright © 2017, 2018, 2019 Rene Hexel.  All rights reserved.
 //
 import CGLib
 import CGtk
@@ -18,8 +18,8 @@ public extension TextViewProtocol {
             let text = TextBufferRef(buffer).text
             return text
         }
-        set {
-            var b = TextBufferRef(buffer)
+        nonmutating set {
+            let b = TextBufferRef(buffer)
             b.text = newValue
         }
     }
@@ -53,7 +53,7 @@ public extension TextBufferProtocol {
             }
             return text
         }
-        set {
+        nonmutating set {
             set(text: newValue, len: -1)
         }
     }
