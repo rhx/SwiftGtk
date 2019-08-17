@@ -8,7 +8,7 @@ This project tries to make gtk more "swifty" than using the plain C language int
 Normally, you don't build this package directly (but for testing you can - see 'Building' below), but you embed it into your own project.  To use SwiftGtk, you need to use the [Swift Package Manager](https://swift.org/package-manager/).  After installing the prerequisites (see 'Prerequisites' below), add `SwiftGtk` as a dependency to your `Package.swift` file, e.g.:
 
 ```Swift
-// swift-tools-version:4.0
+// swift-tools-version:4.2
 
 import PackageDescription
 
@@ -58,16 +58,16 @@ After that, use the (usual) Build and Test buttons to build/test this package.  
 
 ### Swift
 
-Building should work with Swift 4. You can download Swift from https://swift.org/download/ -- if you are using macOS, make sure you have the command line tools installed as well (install them using `xcode-select --install`).  Test that your compiler works using `swift --version`, which should give you something like
+To build, you need at least Swift 4.2 (Swift 5.x should work fine), download from https://swift.org/download/ -- if you are using macOS, make sure you have the command line tools installed as well).  Test that your compiler works using `swift --version`, which should give you something like
 
 	$ swift --version
-	Apple Swift version 4.2.1 (swiftlang-1000.11.42 clang-1000.11.45.1)
-	Target: x86_64-apple-darwin18.2.0
+	Apple Swift version 5.0.1 (swiftlang-1001.0.82.4 clang-1001.0.46.5)
+	Target: x86_64-apple-darwin18.6.0
 
 on macOS, or on Linux you should get something like:
 
 	$ swift --version
-	Swift version 4.2.3 (swift-4.2.3-RELEASE)
+	Swift version 5.0.2 (swift-5.0.2-RELEASE)
 	Target: x86_64-unknown-linux-gnu
 
 ### Gtk 3.18 or higher
