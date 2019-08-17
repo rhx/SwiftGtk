@@ -22,3 +22,11 @@ public extension GtkTargetEntry {
         self.info = guint(info)
     }
 }
+
+/// Construct an array of `GtkTargetEntry` elements
+/// - Parameter f: flags to use for all entries
+/// - Parameter i: information to record for all entries
+/// - Parameter names: names of the target entries
+public func GtkTargetEntries(flags f: TargetFlags = .same_app, info i: Int = 0, _ names: String...) -> [GtkTargetEntry] {
+    return names.map { GtkTargetEntry(target: $0, flags: f, info: i) }
+}
