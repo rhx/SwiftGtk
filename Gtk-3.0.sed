@@ -162,3 +162,4 @@ s/ *label group: SListProtocol/group: SListProtocol/
 s/NewWith(mnemonic group: SListProtocol, label:/NewWith(group: SListProtocol, mnemonic label:/
 s/radio.*NewWith/newWith/
 s/init(mnemonic group: SListProtocol, label:/init(group: SListProtocol, mnemonic label:/
+s/, GObject.TypePluginProtocol//
