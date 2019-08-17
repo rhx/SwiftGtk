@@ -3,14 +3,14 @@
 //  Gtk
 //
 //  Created by Rene Hexel on 22/4/17.
-//  Copyright © 2017, 2018 Rene Hexel.  All rights reserved.
+//  Copyright © 2017, 2018, 2019 Rene Hexel.  All rights reserved.
 //
 import GLibObject
 import CGtk
 
 public extension ListStore {
     /// Return a tree model reference for the list store
-    var treeModel: TreeModelRef { return TreeModelRef(cPointer: ptr) }
+    var treeModel: TreeModelRef { return TreeModelRef(cPointer: list_store_ptr) }
 
     /// Convenience constructor specifying the column types
     ///
@@ -35,10 +35,10 @@ public extension ListStore {
     ///   - values: array of values to add
     ///   - startColumn: column to start from (defaults to `0`)
     func set<I: TreeIterProtocol, V: ValueProtocol>(iter i: I, values: [V], startColumn: Int = 0) {
-        ptr.withMemoryRebound(to: GtkListStore.self, capacity: 1) {
+        list_store_ptr.withMemoryRebound(to: GtkListStore.self, capacity: 1) {
             var c = gint(startColumn)
             for v in values {
-                gtk_list_store_set_value($0, i.ptr, c, v.ptr)
+                gtk_list_store_set_value($0, i.tree_iter_ptr, c, v.value_ptr)
                 c += 1
             }
         }
@@ -51,8 +51,8 @@ public extension ListStore {
     ///   - v: array of values to add
     ///   - startColumn: column to start from (defaults to `0`)
     func append<I: TreeIterProtocol, V: ValueProtocol>(asNextRow i: I, values v: [V], startColumn s: Int = 0) {
-        ptr.withMemoryRebound(to: GtkListStore.self, capacity: 1) {
-            gtk_list_store_append($0, i.ptr)
+        list_store_ptr.withMemoryRebound(to: GtkListStore.self, capacity: 1) {
+            gtk_list_store_append($0, i.tree_iter_ptr)
         }
         set(iter: i, values: v, startColumn: s)
     }
@@ -64,8 +64,8 @@ public extension ListStore {
     ///   - values: array of values to add
     ///   - startColumn: column to start from (defaults to `0`)
     func append<I: TreeIterProtocol>(asNextRow i: I, startColumn s: Int = 0, _ values: Value...) {
-        ptr.withMemoryRebound(to: GtkListStore.self, capacity: 1) {
-            gtk_list_store_append($0, i.ptr)
+        list_store_ptr.withMemoryRebound(to: GtkListStore.self, capacity: 1) {
+            gtk_list_store_append($0, i.tree_iter_ptr)
         }
         set(iter: i, values: values, startColumn: s)
     }

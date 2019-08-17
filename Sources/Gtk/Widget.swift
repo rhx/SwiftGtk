@@ -3,7 +3,7 @@
 //  SwiftGtk
 //
 //  Created by Rene Hexel on 23/4/17.
-//  Copyright © 2017, 2018 Rene Hexel.  All rights reserved.
+//  Copyright © 2017, 2018, 2019 Rene Hexel.  All rights reserved.
 //
 import CGLib
 import CGdk
@@ -404,6 +404,6 @@ public extension Widget {
 
 public extension WidgetRef {
     init(_ object: UnsafeMutablePointer<GObject>) {
-        ptr = UnsafeMutablePointer(object)
+        ptr = UnsafeMutableRawPointer(object)
     }
 }

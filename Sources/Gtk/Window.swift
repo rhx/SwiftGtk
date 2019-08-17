@@ -3,7 +3,7 @@
 //  SwiftGtk
 //
 //  Created by Rene Hexel on 23/4/17.
-//  Copyright © 2017, 2018 Rene Hexel.  All rights reserved.
+//  Copyright © 2017, 2018, 2019 Rene Hexel.  All rights reserved.
 //
 import CGLib
 import CGtk
@@ -27,7 +27,7 @@ public extension ScrolledWindow {
     /// - Parameters:
     ///   - vAdjustment: optional vertical adjustment
     convenience init(vAdjustment: AdjustmentProtocol? = nil) {
-        let vadjust = vAdjustment.map { $0.ptr.withMemoryRebound(to: GtkAdjustment.self, capacity: 1) { $0 } }
+        let vadjust = vAdjustment.map { $0.adjustment_ptr.withMemoryRebound(to: GtkAdjustment.self, capacity: 1) { $0 } }
         let win = gtk_scrolled_window_new(nil, vadjust).withMemoryRebound(to: GtkScrolledWindow.self, capacity: 1) { $0 }
         self.init(win)
     }

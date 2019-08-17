@@ -45,7 +45,7 @@ public extension TextBufferProtocol {
     /// including hidden characters
     var text: String {
         get {
-            let text = ptr.withMemoryRebound(to: GtkTextBuffer.self, capacity: 1) { (buf: UnsafeMutablePointer<GtkTextBuffer>) -> String in
+            let text = text_buffer_ptr.withMemoryRebound(to: GtkTextBuffer.self, capacity: 1) { (buf: UnsafeMutablePointer<GtkTextBuffer>) -> String in
                 var beg = GtkTextIter()
                 var end = GtkTextIter()
                 gtk_text_buffer_get_bounds(buf, &beg, &end)
@@ -62,7 +62,7 @@ public extension TextBufferProtocol {
     var bounds: (start: TextIter, end: TextIter) {
         let beg = BoundsIter()
         let end = BoundsIter()
-        gtk_text_buffer_get_bounds(ptr.withMemoryRebound(to: GtkTextBuffer.self, capacity: 1) { $0 }, beg.ptr, end.ptr)
+        gtk_text_buffer_get_bounds(text_buffer_ptr.withMemoryRebound(to: GtkTextBuffer.self, capacity: 1) { $0 }, beg.text_iter_ptr, end.text_iter_ptr)
         return (start: beg, end: end)
     }
 }

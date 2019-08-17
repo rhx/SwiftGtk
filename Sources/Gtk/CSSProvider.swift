@@ -3,7 +3,7 @@
 //  SwiftGtk
 //
 //  Created by Rene Hexel on 25/4/17.
-//  Copyright © 2017, 2018 Rene Hexel.  All rights reserved.
+//  Copyright © 2017, 2018, 2019 Rene Hexel.  All rights reserved.
 //
 import Foundation
 import CGtk
@@ -20,7 +20,7 @@ public typealias CSSProvider = CssProvider
 public extension CssProviderProtocol {
     /// Return the CSS provider as a style provider
     var styleProvider: StyleProviderRef {
-        return StyleProviderRef(cPointer: ptr.withMemoryRebound(to: GTypeInstance.self, capacity: 1) {
+        return StyleProviderRef(cPointer: css_provider_ptr.withMemoryRebound(to: GTypeInstance.self, capacity: 1) {
             g_type_check_instance_cast($0, gtk_style_provider_get_type())
         })
     }

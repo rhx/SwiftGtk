@@ -3,7 +3,7 @@
 //  SwiftGtk
 //
 //  Created by Rene Hexel on 23/4/17.
-//  Copyright © 2017, 2018 Rene Hexel.  All rights reserved.
+//  Copyright © 2017, 2018, 2019 Rene Hexel.  All rights reserved.
 //
 import CGLib
 import GLib
@@ -121,7 +121,7 @@ public extension Application {
         if let a = activationHandler {
             connect(signal:.activate, handler: a)
         }
-        return ptr.withMemoryRebound(to: GApplication.self, capacity: 1) {
+        return application_ptr.withMemoryRebound(to: GApplication.self, capacity: 1) {
             let rv: Int32
             if let params = arguments, params.count != 0 {
                 var av = argv(params)

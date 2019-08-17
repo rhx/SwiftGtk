@@ -87,7 +87,7 @@ s/func setFromIcon(icon: IconProtocol, size: CInt)/func setFrom(icon: IconProtoc
 s/func setFromIconName(iconName icon_name: UnsafePointer<gchar>, size: CInt)/func setFrom(iconName icon_name: UnsafePointer<gchar>, size: GtkIconSize)/
 s/setFromStock(stockID stock_id: UnsafePointer<gchar>, size: CInt)/setFrom(stock stock_id: UnsafePointer<gchar>, size: GtkIconSize)/
 s/setIconFromStock(stockID stock_id: UnsafePointer<gchar>, size: CInt)/setFrom(stock stock_id: UnsafePointer<gchar>, size: GtkIconSize)/
-s/\(gtk_menu_set_active.cast.ptr., guint.newValue..\)/\/\/ \1/
+s/\(gtk_menu_set_active.cast.menu_ptr., guint.newValue..\)/\/\/ \1/
 s/func setIconFrom(gicon: IconProtocol, size: CInt)/func setIconFrom(gicon: IconProtocol, size: GtkIconSize)/
 s/func setFrom(iconName icon_name: UnsafePointer<gchar>, size: CInt)/func setFrom(iconName icon_name: UnsafePointer<gchar>, size: GtkIconSize)/
 s/func setIconFrom(iconName icon_name: UnsafePointer<gchar>, size: CInt)/func setIconFrom(iconName icon_name: UnsafePointer<gchar>, size: GtkIconSize)/

@@ -16,8 +16,8 @@ public extension DragContextProtocol {
     /// - Parameters:
     ///   - surface: Cairo surface to act as the icon
     func set<S: SurfaceProtocol>(icon surface: S) {
-        ptr.withMemoryRebound(to: GdkDragContext.self, capacity: 1) {
-            gtk_drag_set_icon_surface($0, surface.ptr)
+        drag_context_ptr.withMemoryRebound(to: GdkDragContext.self, capacity: 1) {
+            gtk_drag_set_icon_surface($0, surface._ptr)
         }
     }
 }

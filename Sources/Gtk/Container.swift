@@ -22,25 +22,25 @@ public extension ContainerProtocol {
     /// - Returns: `true` if successful, `false` if value cannot be transformed
     @discardableResult
     func set<W: WidgetProtocol, P: ParamSpecProtocol, V: ValueProtocol>(child: W, property: P, value: V) -> Bool {
-        let ptype = property.ptr.pointee.value_type
+        let ptype = property.param_spec_ptr.pointee.value_type
         let tmpValue = Value()
         _ = tmpValue.init_(gType: ptype)
         defer { tmpValue.unset() }
         guard value.transform(destValue: tmpValue) /* &&
              (property.paramValueValidate(value: tmpValue) ||
              (property.ptr.pointee.flags.rawValue & (ParamFlags.lax_validation)) != 0) */ else { return false }
-        let paramID = property.ptr.pointee.param_id
-        let otype = property.ptr.pointee.owner_type
+        let paramID = property.param_spec_ptr.pointee.param_id
+        let otype = property.param_spec_ptr.pointee.owner_type
         guard let p = typeClassPeek(type: otype) else {
-            let n = property.ptr.pointee.name
+            let n = property.param_spec_ptr.pointee.name
             let pname = n.map { String(cString: $0) } ?? "<unnamed>"
             g_warning("\(#file): No type class for owner type \(otype) of property named \(pname))")
             return false
         }
-        ptr.withMemoryRebound(to: GtkContainer.self, capacity: 1) { container in
-            child.ptr.withMemoryRebound(to: GtkWidget.self, capacity: 1) { widget in
+        container_ptr.withMemoryRebound(to: GtkContainer.self, capacity: 1) { container in
+            child.widget_ptr.withMemoryRebound(to: GtkWidget.self, capacity: 1) { widget in
                 let typeClass = ContainerClassRef(raw: p)
-                typeClass.ptr.pointee.set_child_property(container, widget, paramID, tmpValue.ptr, property.ptr)
+                typeClass._ptr.pointee.set_child_property(container, widget, paramID, tmpValue.value_ptr, property.param_spec_ptr)
             }
         }
         return true
@@ -85,7 +85,7 @@ public extension ContainerProtocol {
     ///   - properties: `PropertyName` / value pairs of properties to set
     func add<W: WidgetProtocol, P: PropertyNameProtocol>(_ widget: W, properties ps: (P, Any)...) {
         widget.freezeChildNotify() ; defer { widget.thawChildNotify() }
-        emit(ContainerSignalName.add, widget.ptr)
+        emit(ContainerSignalName.add, widget.widget_ptr)
         set(child: widget, properties: ps)
     }
 
@@ -97,7 +97,7 @@ public extension ContainerProtocol {
     ///   - value: value of the property to set
     func add<W: WidgetProtocol, P: PropertyNameProtocol, V>(_ widget: W, property p: P, value v: V) {
         widget.freezeChildNotify() ; defer { widget.thawChildNotify() }
-        emit(ContainerSignalName.add, widget.ptr)
+        emit(ContainerSignalName.add, widget.widget_ptr)
         set(child: widget, property: p, value: v)
     }
 

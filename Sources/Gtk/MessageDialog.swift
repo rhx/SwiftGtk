@@ -38,7 +38,7 @@ public extension MessageDialog {
     /// - Parameter text: text to display in the dialog box
     /// - Parameter secondaryText: optional secondary text to display
     convenience init<W: WindowProtocol>(parent: W, flags: DialogFlags = .modal, type: MessageType = .info, buttons: ButtonsType = .ok, text: String, secondaryText: String? = nil) {
-        let dialog = parent.ptr.withMemoryRebound(to: GtkWindow.self, capacity: 1) {
+        let dialog = parent.window_ptr.withMemoryRebound(to: GtkWindow.self, capacity: 1) {
             gtk_c_helper_message_dialog_new_with_button($0, flags, type, buttons, text)!
         }
         self.init(cPointer: dialog)
@@ -76,7 +76,7 @@ public extension MessageDialog {
     /// - Parameter markup: markup text to display in the dialog box
     /// - Parameter secondaryMarkup: optional secondary text to display
     convenience init<W: WindowProtocol>(parent: W, flags: DialogFlags = .modal, type: MessageType = .info, buttons: ButtonsType = .ok, markup: String, secondaryMarkup: String? = nil) {
-        let dialog = parent.ptr.withMemoryRebound(to: GtkWindow.self, capacity: 1) {
+        let dialog = parent.window_ptr.withMemoryRebound(to: GtkWindow.self, capacity: 1) {
             gtk_c_helper_message_dialog_new_with_button($0, flags, type, buttons, markup)!
         }
         self.init(cPointer: dialog)

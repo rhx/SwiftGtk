@@ -60,7 +60,7 @@ public extension Dialog {
     /// - Parameter text: title of the  button
     /// - Parameter responseType: response type for the button
     convenience init<W: WindowProtocol>(title: UnsafePointer<gchar>? = nil, parent: W, flags: DialogFlags = .modal, text: String, responseType: ResponseType = .ok) {
-        let dialog = parent.ptr.withMemoryRebound(to: GtkWindow.self, capacity: 1) {
+        let dialog = parent.window_ptr.withMemoryRebound(to: GtkWindow.self, capacity: 1) {
             gtk_c_helper_dialog_new_with_button(title, $0, flags, text, responseType)!
         }
         self.init(cPointer: dialog)
@@ -112,7 +112,7 @@ public extension Dialog {
     /// - Parameter secondText: title of the second button
     /// - Parameter secondResponseType: response type for the second button
     convenience init<W: WindowProtocol>(title: UnsafePointer<gchar>? = nil, parent: W, flags: DialogFlags = .modal, firstText: String, firstResponseType: ResponseType = .cancel, secondText: String, secondResponseType: ResponseType = .ok) {
-        let dialog = parent.ptr.withMemoryRebound(to: GtkWindow.self, capacity: 1) {
+        let dialog = parent.window_ptr.withMemoryRebound(to: GtkWindow.self, capacity: 1) {
             gtk_c_helper_dialog_new_with_two_buttons(title, $0, flags, firstText, firstResponseType, secondText, secondResponseType)!
         }
         self.init(cPointer: dialog)
@@ -168,7 +168,7 @@ public extension Dialog {
     /// - Parameter thirdText: title of the third button
     /// - Parameter thirdResponseType: response type for the third button
     convenience init<W: WindowProtocol>(title: UnsafePointer<gchar>? = nil, parent: W, flags: DialogFlags = .modal, firstText: String, firstResponseType: ResponseType = .help, secondText: String, secondResponseType: ResponseType = .cancel, thirdText: String, thirdResponseType: ResponseType = .ok) {
-        let dialog = parent.ptr.withMemoryRebound(to: GtkWindow.self, capacity: 1) {
+        let dialog = parent.window_ptr.withMemoryRebound(to: GtkWindow.self, capacity: 1) {
             gtk_c_helper_dialog_new_with_three_buttons(title, $0, flags, firstText, firstResponseType, secondText, secondResponseType, thirdText, thirdResponseType)!
         }
         self.init(cPointer: dialog)

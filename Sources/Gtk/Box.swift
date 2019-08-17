@@ -105,7 +105,7 @@ public extension BoxProtocol {
     ///   - properties: `PropertyName` / value pairs of properties to set
     func add<W: WidgetProtocol>(_ widget: W, properties ps: (BoxPropertyName, Any)...) {
         widget.freezeChildNotify() ; defer { widget.thawChildNotify() }
-        emit(ContainerSignalName.add, widget.ptr)
+        emit(ContainerSignalName.add, widget.widget_ptr)
         set(child: widget, properties: ps)
     }
 
@@ -117,7 +117,7 @@ public extension BoxProtocol {
     ///   - value: value of the property to set
     func add<W: WidgetProtocol, V>(_ widget: W, property p: BoxPropertyName, value v: V) {
         widget.freezeChildNotify() ; defer { widget.thawChildNotify() }
-        emit(ContainerSignalName.add, widget.ptr)
+        emit(ContainerSignalName.add, widget.widget_ptr)
         set(child: widget, property: p, value: v)
     }
 }

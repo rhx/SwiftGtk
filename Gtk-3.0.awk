@@ -17,12 +17,12 @@ BEGIN { depr_init = 0 ; comment = 0 ; slist = 0 }
 }
 /return cast.rv.$/ {
 	if (slist) {
-		gsub("cast.rv.", "rv.map { SListRef($0) }")
+		gsub("cast.rv.", "cast(rv.map { SListRef($0) })")
 	}
 }
 /cast.newValue./ {
 	if (slist) {
-		gsub("cast.newValue.", "newValue.map { $0.ptr }")
+		gsub("cast.newValue.", "cast(newValue.map { $0.ptr })")
 		slist = 0
 	}
 }
