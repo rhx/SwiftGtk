@@ -1,0 +1,18 @@
+module CGtk [system] {
+	header "gtk_bridging.h"
+
+	link "gtk-3"
+	link "gdk-3"
+	link "atk-1.0"
+	link "pangocairo-1.0"
+	link "pangoft2-1.0"
+	link "fontconfig"
+	link "freetype"
+	link "pango-1.0"
+	link "cairo"
+	link "cairo-gobject"
+	link "gobject-2.0"
+	link "glib-2.0"
+
+	export *
+}
