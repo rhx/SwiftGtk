@@ -69,20 +69,27 @@ class GtkTests: XCTestCase {
     func testFileChooser() {
         XCTAssertNotNil(FileChooserDialog(firstText: "Cancel", secondText: "Okay").ptr)
     }
+    
+    // test native file chooser
+    func testFileChooserNative() {
+        XCTAssertNotNil(FileChooserNative(title: "Native", acceptLabel: "OK", cancelLabel: "Nope").ptr)
+    }
 }
 
 extension GtkTests {
     static var allTests : [(String, (GtkTests) -> () throws -> Void)] {
         return [
-            ("testApp",             testApp),
-            ("testDialog",          testDialog),
-            ("testMessageDialog",   testMessageDialog),
-            ("testTextBuffer",      testTextBuffer),
-            ("testMajorVersion",    testMajorVersion),
-            ("testMinorVersion",    testMinorVersion),
-            ("testMicroVersion",    testMicroVersion),
-            ("testInterfaceAge",    testInterfaceAge),
-            ("testBinaryAge",       testBinaryAge),
+            ("testApp",                 testApp),
+            ("testDialog",              testDialog),
+            ("testFileChooser",         testFileChooser),
+            ("testFileChooserNative",   testFileChooserNative),
+            ("testMessageDialog",       testMessageDialog),
+            ("testTextBuffer",          testTextBuffer),
+            ("testMajorVersion",        testMajorVersion),
+            ("testMinorVersion",        testMinorVersion),
+            ("testMicroVersion",        testMicroVersion),
+            ("testInterfaceAge",        testInterfaceAge),
+            ("testBinaryAge",           testBinaryAge),
         ]
     }
 }
