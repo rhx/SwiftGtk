@@ -309,6 +309,22 @@ struct _GtkShortcutLabelInterface {};
 #    define GTK_COMPILATION
 #    include <gtk/a11y/gtkstackaccessible.h>
 #  endif
+#if GTK_MINOR_VERSION > 24 || (GTK_MINOR_VERSION == 24 && GTK_MICRO_VERSION >= 10)
+#  ifndef GTK_TYPE_HEADER_BAR_ACCESSIBLE
+#    undef  GTK_COMPILATION
+#    define GTK_COMPILATION
+struct _GtkMountOperationHandler {};
+struct _GtkMountOperationHandlerIface {};
+struct _GtkMountOperationHandlerProxy {};
+struct _GtkMountOperationHandlerProxyClass {};
+struct _GtkMountOperationHandlerProxyPrivate {};
+struct _GtkMountOperationHandlerSkeleton {};
+struct _GtkMountOperationHandlerSkeletonClass {};
+struct _GtkMountOperationHandlerSkeletonPrivate {};
+struct _GtkHeaderBarAccessiblePrivate {};
+#    include <gtk/a11y/gtkheaderbaraccessible.h>
+#  endif
+#endif
 #endif
 
 // gtk+-3.8
