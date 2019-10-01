@@ -1,8 +1,10 @@
 .DS_Store
 /.build
+/.docs.old
 /Packages
 /*.xcodeproj
 Package.pins
 Package.resolved
+Gtk.tgz
 *-*.swift
 *-*.swift.out
