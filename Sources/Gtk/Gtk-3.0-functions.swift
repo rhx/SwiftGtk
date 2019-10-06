@@ -38,7 +38,7 @@ public func accelGroupsFrom(object: GLibObject.ObjectProtocol) -> SListRef! {
 /// Gets the modifier mask.
 /// 
 /// The modifier mask determines which modifiers are considered significant
-/// for keyboard accelerators. See gtk_accelerator_set_default_mod_mask().
+/// for keyboard accelerators. See `gtk_accelerator_set_default_mod_mask()`.
 public func acceleratorGetDefaultModMask() -> GdkModifierType {
     let rv = gtk_accelerator_get_default_mod_mask()
     return rv
@@ -59,11 +59,11 @@ public func acceleratorGetLabel(acceleratorKey accelerator_key: CUnsignedInt, ac
 
 /// Converts an accelerator keyval and modifier mask
 /// into a (possibly translated) string that can be displayed to
-/// a user, similarly to gtk_accelerator_get_label(), but handling
+/// a user, similarly to `gtk_accelerator_get_label()`, but handling
 /// keycodes.
 /// 
 /// This is only useful for system-level components, applications
-/// should use gtk_accelerator_parse() instead.
+/// should use `gtk_accelerator_parse()` instead.
 public func acceleratorGetLabelWithKeycode(display: DisplayProtocol, acceleratorKey accelerator_key: CUnsignedInt, keycode: CUnsignedInt, acceleratorMods accelerator_mods: Gdk.ModifierType) -> String! {
     let rv = gtk_accelerator_get_label_with_keycode(cast(display.ptr), guint(accelerator_key), guint(keycode), accelerator_mods)
     return rv.map { String(cString: UnsafePointer<CChar>($0)) }
@@ -73,11 +73,11 @@ public func acceleratorGetLabelWithKeycode(display: DisplayProtocol, accelerator
 
 
 /// Converts an accelerator keyval and modifier mask into a string
-/// parseable by gtk_accelerator_parse(). For example, if you pass in
+/// parseable by `gtk_accelerator_parse()`. For example, if you pass in
 /// `GDK_KEY_q` and `GDK_CONTROL_MASK`, this function returns “<Control>q”.
 /// 
 /// If you need to display accelerators in the user interface,
-/// see gtk_accelerator_get_label().
+/// see `gtk_accelerator_get_label()`.
 public func acceleratorName(acceleratorKey accelerator_key: CUnsignedInt, acceleratorMods accelerator_mods: Gdk.ModifierType) -> String! {
     let rv = gtk_accelerator_name(guint(accelerator_key), accelerator_mods)
     return rv.map { String(cString: UnsafePointer<CChar>($0)) }
@@ -87,10 +87,10 @@ public func acceleratorName(acceleratorKey accelerator_key: CUnsignedInt, accele
 
 
 /// Converts an accelerator keyval and modifier mask
-/// into a string parseable by gtk_accelerator_parse_with_keycode(),
-/// similarly to gtk_accelerator_name() but handling keycodes.
+/// into a string parseable by `gtk_accelerator_parse_with_keycode()`,
+/// similarly to `gtk_accelerator_name()` but handling keycodes.
 /// This is only useful for system-level components, applications
-/// should use gtk_accelerator_parse() instead.
+/// should use `gtk_accelerator_parse()` instead.
 public func acceleratorNameWithKeycode(display: DisplayProtocol, acceleratorKey accelerator_key: CUnsignedInt, keycode: CUnsignedInt, acceleratorMods accelerator_mods: Gdk.ModifierType) -> String! {
     let rv = gtk_accelerator_name_with_keycode(cast(display.ptr), guint(accelerator_key), guint(keycode), accelerator_mods)
     return rv.map { String(cString: UnsafePointer<CChar>($0)) }
@@ -105,7 +105,7 @@ public func acceleratorNameWithKeycode(display: DisplayProtocol, acceleratorKey 
 /// 
 /// The parser is fairly liberal and allows lower or upper case, and also
 /// abbreviations such as “<Ctl>” and “<Ctrl>”. Key names are parsed using
-/// gdk_keyval_from_name(). For character keys the name is not the symbol,
+/// `gdk_keyval_from_name()`. For character keys the name is not the symbol,
 /// but the lowercase name, e.g. one would use “<Ctrl>minus” instead of
 /// “<Ctrl>-”.
 /// 
@@ -120,12 +120,12 @@ public func acceleratorParse(accelerator: UnsafePointer<gchar>, acceleratorKey a
 
 
 /// Parses a string representing an accelerator, similarly to
-/// gtk_accelerator_parse() but handles keycodes as well. This is only
+/// `gtk_accelerator_parse()` but handles keycodes as well. This is only
 /// useful for system-level components, applications should use
-/// gtk_accelerator_parse() instead.
+/// `gtk_accelerator_parse()` instead.
 /// 
 /// If `accelerator_codes` is given and the result stored in it is non-`nil`,
-/// the result must be freed with g_free().
+/// the result must be freed with `g_free()`.
 /// 
 /// If a keycode is present in the accelerator and no `accelerator_codes`
 /// is given, the parse will fail.
@@ -175,11 +175,11 @@ public func acceleratorValid(keyval: CUnsignedInt, modifiers: Gdk.ModifierType) 
 
 /// Returns `true` if dialogs are expected to use an alternative
 /// button order on the screen `screen`. See
-/// gtk_dialog_set_alternative_button_order() for more details
+/// `gtk_dialog_set_alternative_button_order()` for more details
 /// about alternative button order.
 /// 
 /// If you need to use this function, you should probably connect
-/// to the ::notify:gtk-alternative-button-order signal on the
+/// to the `notify:gtk`-alternative-button-order signal on the
 /// `GtkSettings` object associated to `screen`, in order to be
 /// notified if the button order setting changes.
 ///
@@ -205,15 +205,13 @@ public func acceleratorValid(keyval: CUnsignedInt, modifiers: Gdk.ModifierType) 
 ///   }
 /// ```
 /// 
-/// 
 /// Or they may also unbind a key combination:
 /// ```
 ///   unbind "key"
 /// ```
 /// 
-/// 
 /// Key combinations must be in a format that can be parsed by
-/// gtk_accelerator_parse().
+/// `gtk_accelerator_parse()`.
 public func bindingEntryAddSignalFromString(bindingSet binding_set: BindingSetProtocol, signalDesc signal_desc: UnsafePointer<gchar>) -> GTokenType {
     let rv = gtk_binding_entry_add_signal_from_string(cast(binding_set.ptr), signal_desc)
     return rv
@@ -233,7 +231,7 @@ public func bindingEntryAddSignall(bindingSet binding_set: BindingSetProtocol, k
 
 
 /// Remove a binding previously installed via
-/// gtk_binding_entry_add_signal() on `binding_set`.
+/// `gtk_binding_entry_add_signal()` on `binding_set`.
 public func bindingEntryRemove(bindingSet binding_set: BindingSetProtocol, keyval: CUnsignedInt, modifiers: Gdk.ModifierType) {
     gtk_binding_entry_remove(cast(binding_set.ptr), guint(keyval), modifiers)
 
@@ -266,8 +264,8 @@ public func bindingSetByClass(objectClass object_class: UnsafeMutableRawPointer)
 
 /// Find a binding set by its globally unique name.
 /// 
-/// The `set_name` can either be a name used for gtk_binding_set_new()
-/// or the type name of a class used in gtk_binding_set_by_class().
+/// The `set_name` can either be a name used for `gtk_binding_set_new()`
+/// or the type name of a class used in `gtk_binding_set_by_class()`.
 public func bindingSetFind(setName set_name: UnsafePointer<gchar>) -> UnsafeMutablePointer<GtkBindingSet>! {
     let rv = gtk_binding_set_find(set_name)
     return cast(rv)
@@ -314,7 +312,7 @@ public func builderErrorQuark() -> GQuark {
 
 
 
-/// This function is supposed to be called in `GtkWidget`::draw
+/// This function is supposed to be called in `GtkWidget::draw`
 /// implementations for widgets that support multiple windows.
 /// `cr` must be untransformed from invoking of the draw function.
 /// This function will return `true` if the contents of the given
@@ -337,7 +335,7 @@ public func cairoShouldDrawWindow(cr: cairo.ContextProtocol, window: WindowProto
 /// modification will be applied.
 /// 
 /// This is the inverse to the transformation GTK applies when
-/// preparing an expose event to be emitted with the `GtkWidget`::draw
+/// preparing an expose event to be emitted with the `GtkWidget::draw`
 /// signal. It is intended to help porting multiwindow widgets from
 /// GTK+ 2 to the rendering architecture of GTK+ 3.
 public func cairoTransformToWindow(cr: cairo.ContextProtocol, widget: WidgetProtocol, window: WindowProtocol) {
@@ -358,9 +356,9 @@ public func cairoTransformToWindow(cr: cairo.ContextProtocol, widget: WidgetProt
 /// 
 /// Compatibility is defined by two things: first the version
 /// of the running library is newer than the version
-/// `required_major`.required_minor.`required_micro`. Second
+/// `required_major.required_minor`.`required_micro`. Second
 /// the running library must be binary compatible with the
-/// version `required_major`.required_minor.`required_micro`
+/// version `required_major.required_minor`.`required_micro`
 /// (same major version.)
 /// 
 /// This function is primarily for GTK+ modules; the module
@@ -368,7 +366,7 @@ public func cairoTransformToWindow(cr: cairo.ContextProtocol, widget: WidgetProt
 /// into an incompatible version of GTK+. However, such a
 /// check isn’t completely reliable, since the module may be
 /// linked against an old version of GTK+ and calling the
-/// old version of gtk_check_version(), but still get loaded
+/// old version of `gtk_check_version()`, but still get loaded
 /// into an application using a newer version of GTK+.
 public func checkVersion(requiredMajor required_major: CUnsignedInt, requiredMinor required_minor: CUnsignedInt, requiredMicro required_micro: CUnsignedInt) -> String! {
     let rv = gtk_check_version(guint(required_major), guint(required_minor), guint(required_micro))
@@ -400,8 +398,8 @@ public func deviceGrabAdd(widget: WidgetProtocol, device: Gdk.DeviceProtocol, bl
 
 /// Removes a device grab from the given widget.
 /// 
-/// You have to pair calls to gtk_device_grab_add() and
-/// gtk_device_grab_remove().
+/// You have to pair calls to `gtk_device_grab_add()` and
+/// `gtk_device_grab_remove()`.
 public func deviceGrabRemove(widget: WidgetProtocol, device: Gdk.DeviceProtocol) {
     gtk_device_grab_remove(cast(widget.ptr), cast(device.ptr))
 
@@ -410,8 +408,8 @@ public func deviceGrabRemove(widget: WidgetProtocol, device: Gdk.DeviceProtocol)
 
 
 
-/// Prevents gtk_init(), gtk_init_check(), gtk_init_with_args() and
-/// gtk_parse_args() from automatically
+/// Prevents `gtk_init()`, `gtk_init_check()`, `gtk_init_with_args()` and
+/// `gtk_parse_args()` from automatically
 /// calling `setlocale (LC_ALL, "")`. You would
 /// want to use this function if you wanted to set the locale for
 /// your program to something other than the user’s locale, or if
@@ -518,7 +516,7 @@ public func dragSetIconPixbuf(context: DragContextProtocol, pixbuf: PixbufProtoc
 /// they are no longer needed.
 /// 
 /// To position the surface relative to the mouse, use
-/// cairo_surface_set_device_offset() on `surface`. The mouse
+/// `cairo_surface_set_device_offset()` on `surface`. The mouse
 /// cursor will be positioned at the (0,0) coordinate of the
 /// surface.
 public func dragSetIconSurface(context: DragContextProtocol, surface: SurfaceProtocol) {
@@ -559,7 +557,7 @@ public func dragSetIconWidget(context: DragContextProtocol, widget: WidgetProtoc
 /// This can be used to update the UI and invoke timeouts etc.
 /// while doing some time intensive computation.
 /// 
-/// ``` Updating the UI during a long computation
+/// ## Updating the UI during a long computation
 /// 
 /// (C Language Example):
 /// ```C
@@ -579,7 +577,7 @@ public func eventsPending() -> Bool {
 
 
 
-/// Analogical to gtk_true(), this function does nothing
+/// Analogical to `gtk_true()`, this function does nothing
 /// but always returns `false`.
 public func false_() -> Bool {
     let rv = gtk_false()
@@ -612,9 +610,9 @@ public func getBinaryAge() -> CUnsignedInt {
 
 /// Obtains a copy of the event currently being processed by GTK+.
 /// 
-/// For example, if you are handling a `GtkButton`::clicked signal,
+/// For example, if you are handling a `GtkButton::clicked` signal,
 /// the current event will be the `GdkEventButton` that triggered
-/// the ::clicked signal.
+/// the `clicked` signal.
 public func getCurrentEvent() -> UnsafeMutablePointer<GdkEvent>! {
     let rv = gtk_get_current_event()
     return cast(rv)
@@ -672,7 +670,7 @@ public func getDebugFlags() -> CUnsignedInt {
 /// locale. It determines, for example, whether GTK+ uses the
 /// right-to-left or left-to-right text direction.
 /// 
-/// This function is equivalent to pango_language_get_default().
+/// This function is equivalent to `pango_language_get_default()`.
 /// See that function for details.
 public func getDefaultLanguage() -> UnsafeMutablePointer<PangoLanguage>! {
     let rv = gtk_get_default_language()
@@ -709,12 +707,12 @@ public func getInterfaceAge() -> CUnsignedInt {
 /// reading direction for text and UI.
 /// 
 /// This function depends on the current locale being set with
-/// setlocale() and will default to setting the `GTK_TEXT_DIR_LTR`
+/// `setlocale()` and will default to setting the `GTK_TEXT_DIR_LTR`
 /// direction otherwise. `GTK_TEXT_DIR_NONE` will never be returned.
 /// 
 /// GTK+ sets the default text direction according to the locale
-/// during gtk_init(), and you should normally use
-/// gtk_widget_get_direction() or gtk_widget_get_default_direction()
+/// during `gtk_init()`, and you should normally use
+/// `gtk_widget_get_direction()` or `gtk_widget_get_default_direction()`
 /// to obtain the current direcion.
 /// 
 /// This function is only needed rare cases when the locale is
@@ -785,8 +783,8 @@ public func getMinorVersion() -> CUnsignedInt {
 /// by GTK+ and GDK.
 /// 
 /// You should add this group to your `GOptionContext`
-/// with g_option_context_add_group(), if you are using
-/// g_option_context_parse() to parse your commandline arguments.
+/// with `g_option_context_add_group()`, if you are using
+/// `g_option_context_parse()` to parse your commandline arguments.
 public func getOptionGroup(openDefaultDisplay open_default_display: Bool) -> UnsafeMutablePointer<GOptionGroup>! {
     let rv = gtk_get_option_group(gboolean(open_default_display ? 1 : 0))
     return cast(rv)
@@ -829,12 +827,12 @@ public func grabGetCurrent() -> UnsafeMutablePointer<GtkWidget>! {
 
 
 
-/// Obtains the pixel size of a semantic icon size `size`:
+/// Obtains the pixel size of a semantic icon size `size:`
 /// `GTK_ICON_SIZE_MENU`, `GTK_ICON_SIZE_BUTTON`, etc.  This function
-/// isn’t normally needed, gtk_icon_theme_load_icon() is the usual
+/// isn’t normally needed, `gtk_icon_theme_load_icon()` is the usual
 /// way to get an icon for rendering, then just look at the size of
 /// the rendered pixbuf. The rendered pixbuf may not even correspond to
-/// the width/height returned by gtk_icon_size_lookup(), because themes
+/// the width/height returned by `gtk_icon_size_lookup()`, because themes
 /// are free to render the pixbuf however they like, including changing
 /// the usual size.
 public func iconSizeLookup(size: GtkIconSize, width: UnsafeMutablePointer<CInt>, height: UnsafeMutablePointer<CInt>) -> Bool {
@@ -849,10 +847,10 @@ public func iconSizeLookup(size: GtkIconSize, width: UnsafeMutablePointer<CInt>,
 /// modified by user preferences for a particular
 /// `GtkSettings`. Normally `size` would be
 /// `GTK_ICON_SIZE_MENU`, `GTK_ICON_SIZE_BUTTON`, etc.  This function
-/// isn’t normally needed, gtk_widget_render_icon_pixbuf() is the usual
+/// isn’t normally needed, `gtk_widget_render_icon_pixbuf()` is the usual
 /// way to get an icon for rendering, then just look at the size of
 /// the rendered pixbuf. The rendered pixbuf may not even correspond to
-/// the width/height returned by gtk_icon_size_lookup(), because themes
+/// the width/height returned by `gtk_icon_size_lookup()`, because themes
 /// are free to render the pixbuf however they like, including changing
 /// the usual size.
 ///
@@ -880,7 +878,7 @@ public func iconSizeLookup(size: GtkIconSize, width: UnsafeMutablePointer<CInt>,
 
 
 /// Registers `alias` as another name for `target`.
-/// So calling gtk_icon_size_from_name() with `alias` as argument
+/// So calling `gtk_icon_size_from_name()` with `alias` as argument
 /// will return `target`.
 ///
 /// **icon_size_register_alias is deprecated:**
@@ -905,7 +903,7 @@ public func iconThemeErrorQuark() -> GQuark {
 /// applications.  It will initialize everything needed to operate the
 /// toolkit and parses some standard command line options.
 /// 
-/// Although you are expected to pass the `argc`, `argv` parameters from main() to
+/// Although you are expected to pass the `argc`, `argv` parameters from `main()` to
 /// this function, it is possible to pass `nil` if `argv` is not available or
 /// commandline handling is not required.
 /// 
@@ -913,24 +911,24 @@ public func iconThemeErrorQuark() -> GQuark {
 /// never see those standard arguments.
 /// 
 /// Note that there are some alternative ways to initialize GTK+:
-/// if you are calling gtk_parse_args(), gtk_init_check(),
-/// gtk_init_with_args() or g_option_context_parse() with
-/// the option group returned by gtk_get_option_group(),
-/// you don’t have to call gtk_init().
+/// if you are calling `gtk_parse_args()`, `gtk_init_check()`,
+/// `gtk_init_with_args()` or `g_option_context_parse()` with
+/// the option group returned by `gtk_get_option_group()`,
+/// you don’t have to call `gtk_init()`.
 /// 
 /// And if you are using `GtkApplication`, you don't have to call any of the
-/// initialization functions either; the `GtkApplication`::startup handler
+/// initialization functions either; the `GtkApplication::startup` handler
 /// does it for you.
 /// 
 /// This function will terminate your program if it was unable to
 /// initialize the windowing system for some reason. If you want
 /// your program to fall back to a textual interface you want to
-/// call gtk_init_check() instead.
+/// call `gtk_init_check()` instead.
 /// 
 /// Since 2.18, GTK+ calls `signal (SIGPIPE, SIG_IGN)`
 /// during initialization, to ignore SIGPIPE signals, since these are
 /// almost never wanted in graphical applications. If you do need to
-/// handle SIGPIPE for some reason, reset the handler after gtk_init(),
+/// handle SIGPIPE for some reason, reset the handler after `gtk_init()`,
 /// but notice that other libraries (e.g. libdbus or gvfs) might do
 /// similar things.
 public func init_(argc: UnsafeMutablePointer<CInt>, argv: UnsafeMutablePointer<UnsafeMutablePointer<UnsafeMutablePointer<CChar>>>) {
@@ -941,7 +939,7 @@ public func init_(argc: UnsafeMutablePointer<CInt>, argv: UnsafeMutablePointer<U
 
 
 
-/// This function does the same work as gtk_init() with only a single
+/// This function does the same work as `gtk_init()` with only a single
 /// change: It does not terminate the program if the commandline
 /// arguments couldn’t be parsed or the windowing system can’t be
 /// initialized. Instead it returns `false` on failure.
@@ -957,7 +955,7 @@ public func initCheck(argc: UnsafeMutablePointer<CInt>, argv: UnsafeMutablePoint
 
 
 
-/// This function does the same work as gtk_init_check().
+/// This function does the same work as `gtk_init_check()`.
 /// Additionally, it allows you to add your own commandline options,
 /// and it automatically generates nicely formatted
 /// `--help` output. Note that your program will
@@ -1001,9 +999,9 @@ public func initWithArgs(argc: UnsafeMutablePointer<CInt>, argv: UnsafeMutablePo
 
 
 
-/// Runs the main loop until gtk_main_quit() is called.
+/// Runs the main loop until `gtk_main_quit()` is called.
 /// 
-/// You can nest calls to gtk_main(). In that case gtk_main_quit()
+/// You can nest calls to `gtk_main()`. In that case `gtk_main_quit()`
 /// will make the innermost invocation of the main loop return.
 public func main() {
     gtk_main()
@@ -1031,7 +1029,7 @@ public func main() {
 ///    the event is thrown away unless it belongs to a INCR transaction.
 /// 
 /// 3. Then the event is pushed onto a stack so you can query the currently
-///    handled event with gtk_get_current_event().
+///    handled event with `gtk_get_current_event()`.
 /// 
 /// 4. The event is sent to a widget. If a grab is active all events for widgets
 ///    that are not in the contained in the grab widget are sent to the latter
@@ -1046,7 +1044,7 @@ public func main() {
 ///      of that would be.
 ///    Another point of interest might be that all key events are first passed
 ///    through the key snooper functions if there are any. Read the description
-///    of gtk_key_snooper_install() if you need this feature.
+///    of `gtk_key_snooper_install()` if you need this feature.
 /// 
 /// 5. After finishing the delivery the event is popped from the event stack.
 public func mainDo(event: UnsafeMutablePointer<GdkEvent>) {
@@ -1061,8 +1059,8 @@ public func mainDo(event: UnsafeMutablePointer<GdkEvent>) {
 /// 
 /// If no events are waiting to be processed GTK+ will block
 /// until the next event is noticed. If you don’t want to block
-/// look at gtk_main_iteration_do() or check if any events are
-/// pending with gtk_events_pending() first.
+/// look at `gtk_main_iteration_do()` or check if any events are
+/// pending with `gtk_events_pending()` first.
 public func mainIteration() -> Bool {
     let rv = gtk_main_iteration()
     return Bool(rv != 0)
@@ -1385,13 +1383,13 @@ public func paperSizeGetPaperSizes(includeCustom include_custom: Bool) -> Unsafe
 
 /// Parses command line arguments, and initializes global
 /// attributes of GTK+, but does not actually open a connection
-/// to a display. (See gdk_display_open(), gdk_get_display_arg_name())
+/// to a display. (See `gdk_display_open()`, `gdk_get_display_arg_name()`)
 /// 
 /// Any arguments used by GTK+ or GDK are removed from the array and
 /// `argc` and `argv` are updated accordingly.
 /// 
 /// There is no need to call this function explicitly if you are using
-/// gtk_init(), or gtk_init_check().
+/// `gtk_init()`, or `gtk_init_check()`.
 /// 
 /// Note that many aspects of GTK+ require a display connection to
 /// function, so this way of initializing GTK+ is really only useful
@@ -1419,7 +1417,7 @@ public func printErrorQuark() -> GQuark {
 /// modifications done in the dialog.
 /// 
 /// Note that this function may use a recursive mainloop to show the page
-/// setup dialog. See gtk_print_run_page_setup_dialog_async() if this is
+/// setup dialog. See `gtk_print_run_page_setup_dialog_async()` if this is
 /// a problem.
 public func printRunPageSetupDialog(parent: WindowProtocol, pageSetup page_setup: PageSetupProtocol, settings: PrintSettingsProtocol) -> UnsafeMutablePointer<GtkPageSetup>! {
     let rv = gtk_print_run_page_setup_dialog(cast(parent.ptr), cast(page_setup.ptr), cast(settings.ptr))
@@ -1431,9 +1429,9 @@ public func printRunPageSetupDialog(parent: WindowProtocol, pageSetup page_setup
 
 /// Runs a page setup dialog, letting the user modify the values from `page_setup`.
 /// 
-/// In contrast to gtk_print_run_page_setup_dialog(), this function  returns after
+/// In contrast to `gtk_print_run_page_setup_dialog()`, this function  returns after
 /// showing the page setup dialog on platforms that support this, and calls `done_cb`
-/// from a signal handler for the ::response signal of the dialog.
+/// from a signal handler for the `response` signal of the dialog.
 public func printRunPageSetupDialogAsync(parent: WindowProtocol, pageSetup page_setup: PageSetupProtocol, settings: PrintSettingsProtocol, doneCb done_cb: @escaping PageSetupDoneFunc, data: UnsafeMutableRawPointer) {
     gtk_print_run_page_setup_dialog_async(cast(parent.ptr), cast(page_setup.ptr), cast(settings.ptr), done_cb, cast(data))
 
@@ -1445,20 +1443,20 @@ public func printRunPageSetupDialogAsync(parent: WindowProtocol, pageSetup page_
 /// Sends an event to a widget, propagating the event to parent widgets
 /// if the event remains unhandled.
 /// 
-/// Events received by GTK+ from GDK normally begin in gtk_main_do_event().
+/// Events received by GTK+ from GDK normally begin in `gtk_main_do_event()`.
 /// Depending on the type of event, existence of modal dialogs, grabs, etc.,
 /// the event may be propagated; if so, this function is used.
 /// 
-/// gtk_propagate_event() calls gtk_widget_event() on each widget it
-/// decides to send the event to. So gtk_widget_event() is the lowest-level
-/// function; it simply emits the `GtkWidget`::event and possibly an
-/// event-specific signal on a widget. gtk_propagate_event() is a bit
-/// higher-level, and gtk_main_do_event() is the highest level.
+/// `gtk_propagate_event()` calls `gtk_widget_event()` on each widget it
+/// decides to send the event to. So `gtk_widget_event()` is the lowest-level
+/// function; it simply emits the `GtkWidget::event` and possibly an
+/// event-specific signal on a widget. `gtk_propagate_event()` is a bit
+/// higher-level, and `gtk_main_do_event()` is the highest level.
 /// 
 /// All that said, you most likely don’t want to use any of these
 /// functions; synthesizing events is rarely needed. There are almost
 /// certainly better ways to achieve your goals. For example, use
-/// gdk_window_invalidate_rect() or gtk_widget_queue_draw() instead
+/// `gdk_window_invalidate_rect()` or `gtk_widget_queue_draw()` instead
 /// of making up expose events.
 public func propagateEvent(widget: WidgetProtocol, event: UnsafeMutablePointer<GdkEvent>) {
     gtk_propagate_event(cast(widget.ptr), cast(event))
@@ -1469,7 +1467,7 @@ public func propagateEvent(widget: WidgetProtocol, event: UnsafeMutablePointer<G
 
 
 /// Adds a file to the list of files to be parsed at the
-/// end of gtk_init().
+/// end of `gtk_init()`.
 ///
 /// **rc_add_default_file is deprecated:**
 /// Use #GtkStyleContext with a custom #GtkStyleProvider instead
@@ -1496,7 +1494,7 @@ public func propagateEvent(widget: WidgetProtocol, event: UnsafeMutablePointer<G
 
 /// Looks up a file in pixmap path for the specified `GtkSettings`.
 /// If the file is not found, it outputs a warning message using
-/// g_warning() and returns `nil`.
+/// `g_warning()` and returns `nil`.
 ///
 /// **rc_find_pixmap_in_path is deprecated:**
 /// Use #GtkCssProvider instead.
@@ -1509,7 +1507,7 @@ public func propagateEvent(widget: WidgetProtocol, event: UnsafeMutablePointer<G
 
 
 /// Retrieves the current list of RC files that will be parsed
-/// at the end of gtk_init().
+/// at the end of `gtk_init()`.
 ///
 /// **rc_get_default_files is deprecated:**
 /// Use #GtkStyleContext instead
@@ -1553,7 +1551,7 @@ public func propagateEvent(widget: WidgetProtocol, event: UnsafeMutablePointer<G
 
 /// Returns a directory in which GTK+ looks for theme engines.
 /// For full information about the search for theme engines,
-/// see the docs for `GTK_PATH` in [Running GTK+ Applications][gtk-running].
+/// see the docs for `GTK_PATH` in [Running GTK+ Applications](#gtk-running).
 ///
 /// **rc_get_module_dir is deprecated:**
 /// Use #GtkCssProvider instead.
@@ -1588,7 +1586,7 @@ public func propagateEvent(widget: WidgetProtocol, event: UnsafeMutablePointer<G
 /// don’t actually have corresponding GTK+ widgets. An example of this
 /// would be items inside a GNOME canvas widget.
 /// 
-/// The action of gtk_rc_get_style() is similar to:
+/// The action of `gtk_rc_get_style()` is similar to:
 /// (C Language Example):
 /// ```C
 ///  gtk_widget_path (widget, NULL, &path, NULL);
@@ -1638,7 +1636,7 @@ public func propagateEvent(widget: WidgetProtocol, event: UnsafeMutablePointer<G
 /// Parses a color in the format expected
 /// in a RC file.
 /// 
-/// Note that theme engines should use gtk_rc_parse_color_full() in
+/// Note that theme engines should use `gtk_rc_parse_color_full()` in
 /// order to support symbolic colors.
 ///
 /// **rc_parse_color is deprecated:**
@@ -1703,8 +1701,8 @@ public func propagateEvent(widget: WidgetProtocol, event: UnsafeMutablePointer<G
 
 
 
-/// A `GtkRcPropertyParser` for use with gtk_settings_install_property_parser()
-/// or gtk_widget_class_install_style_property_parser() which parses
+/// A `GtkRcPropertyParser` for use with `gtk_settings_install_property_parser()`
+/// or `gtk_widget_class_install_style_property_parser()` which parses
 /// borders in the form
 /// `"{ left, right, top, bottom }"` for integers
 /// left, right, top and bottom.
@@ -1716,8 +1714,8 @@ public func rcPropertyParseBorder(pspec: ParamSpecProtocol, gstring: StringTypeP
 
 
 
-/// A `GtkRcPropertyParser` for use with gtk_settings_install_property_parser()
-/// or gtk_widget_class_install_style_property_parser() which parses a
+/// A `GtkRcPropertyParser` for use with `gtk_settings_install_property_parser()`
+/// or `gtk_widget_class_install_style_property_parser()` which parses a
 /// color given either by its name or in the form
 /// `{ red, green, blue }` where red, green and
 /// blue are integers between 0 and 65535 or floating-point numbers
@@ -1730,8 +1728,8 @@ public func rcPropertyParseColor(pspec: ParamSpecProtocol, gstring: StringTypePr
 
 
 
-/// A `GtkRcPropertyParser` for use with gtk_settings_install_property_parser()
-/// or gtk_widget_class_install_style_property_parser() which parses a single
+/// A `GtkRcPropertyParser` for use with `gtk_settings_install_property_parser()`
+/// or `gtk_widget_class_install_style_property_parser()` which parses a single
 /// enumeration value.
 /// 
 /// The enumeration value can be specified by its name, its nickname or
@@ -1745,8 +1743,8 @@ public func rcPropertyParseEnum(pspec: ParamSpecProtocol, gstring: StringTypePro
 
 
 
-/// A `GtkRcPropertyParser` for use with gtk_settings_install_property_parser()
-/// or gtk_widget_class_install_style_property_parser() which parses flags.
+/// A `GtkRcPropertyParser` for use with `gtk_settings_install_property_parser()`
+/// or `gtk_widget_class_install_style_property_parser()` which parses flags.
 /// 
 /// Flags can be specified by their name, their nickname or
 /// numerically. Multiple flags can be specified in the form
@@ -1759,8 +1757,8 @@ public func rcPropertyParseFlags(pspec: ParamSpecProtocol, gstring: StringTypePr
 
 
 
-/// A `GtkRcPropertyParser` for use with gtk_settings_install_property_parser()
-/// or gtk_widget_class_install_style_property_parser() which parses a
+/// A `GtkRcPropertyParser` for use with `gtk_settings_install_property_parser()`
+/// or `gtk_widget_class_install_style_property_parser()` which parses a
 /// requisition in the form
 /// `"{ width, height }"` for integers `width` and `height`.
 public func rcPropertyParseRequisition(pspec: ParamSpecProtocol, gstring: StringTypeProtocol, propertyValue property_value: GLibObject.ValueProtocol) -> Bool {
@@ -1801,14 +1799,14 @@ public func rcPropertyParseRequisition(pspec: ParamSpecProtocol, gstring: String
 
 /// This function recomputes the styles for all widgets that use a
 /// particular `GtkSettings` object. (There is one `GtkSettings` object
-/// per `GdkScreen`, see gtk_settings_get_for_screen()); It is useful
+/// per `GdkScreen`, see `gtk_settings_get_for_screen()`); It is useful
 /// when some global parameter has changed that affects the appearance
 /// of all widgets, because when a widget gets a new style, it will
 /// both redraw and recompute any cached information about its
 /// appearance. As an example, it is used when the default font size
 /// set by the operating system changes. Note that this function
 /// doesn’t affect widgets that have a style set explicitly on them
-/// with gtk_widget_set_style().
+/// with `gtk_widget_set_style()`.
 ///
 /// **rc_reset_styles is deprecated:**
 /// Use #GtkCssProvider instead.
@@ -1833,7 +1831,7 @@ public func rcPropertyParseRequisition(pspec: ParamSpecProtocol, gstring: String
 
 
 /// Sets the list of files that GTK+ will read at the
-/// end of gtk_init().
+/// end of `gtk_init()`.
 ///
 /// **rc_set_default_files is deprecated:**
 /// Use #GtkStyleContext with a custom #GtkStyleProvider instead
@@ -1900,7 +1898,7 @@ public func renderBackground(context: StyleContextProtocol, cr: cairo.ContextPro
 
 
 /// Returns the area that will be affected (i.e. drawn to) when
-/// calling gtk_render_background() for the given `context` and
+/// calling `gtk_render_background()` for the given `context` and
 /// rectangle.
 public func renderBackgroundGetClip(context: StyleContextProtocol, x: gdouble, y: gdouble, width: gdouble, height: gdouble, outClip out_clip: Gdk.RectangleProtocol) {
     gtk_render_background_get_clip(cast(context.ptr), x, y, width, height, cast(out_clip.ptr))
@@ -2025,7 +2023,7 @@ public func renderHandle(context: StyleContextProtocol, cr: cairo.ContextProtoco
 /// regardless of scaling factors, which may not be appropriate when
 /// drawing on displays with high pixel densities.
 /// 
-/// You probably want to use gtk_render_icon_surface() instead, if you
+/// You probably want to use `gtk_render_icon_surface()` instead, if you
 /// already have a Cairo surface.
 public func renderIcon(context: StyleContextProtocol, cr: cairo.ContextProtocol, pixbuf: PixbufProtocol, x: gdouble, y: gdouble) {
     gtk_render_icon(cast(context.ptr), cast(cr.ptr), cast(pixbuf.ptr), x, y)
@@ -2215,7 +2213,7 @@ public func setDebug(flags: CUnsignedInt) {
 
 
 /// A convenience function for launching the default application
-/// to show the uri. Like gtk_show_uri_on_window(), but takes a screen
+/// to show the uri. Like `gtk_show_uri_on_window()`, but takes a screen
 /// as transient parent instead of a window.
 /// 
 /// Note that this function is deprecated as it does not pass the necessary
@@ -2240,10 +2238,10 @@ public func setDebug(flags: CUnsignedInt) {
 /// Typical examples are
 /// - `file:///home/gnome/pict.jpg`
 /// - `http://www.gnome.org`
-/// - `mailto:me`gnome`.org`
+/// - `mailto:me`gnome.org``
 /// 
 /// Ideally the timestamp is taken from the event triggering
-/// the gtk_show_uri() call. If timestamp is not known you can take
+/// the `gtk_show_uri()` call. If timestamp is not known you can take
 /// `GDK_CURRENT_TIME`.
 /// 
 /// This is the recommended call to be used as it passes information
@@ -2264,7 +2262,7 @@ public func showURIOnWindow(parent: WindowProtocol, uri: UnsafePointer<CChar>, t
 /// exists with the same stock ID as one of the `items`, the old item
 /// gets replaced. The stock items are copied, so GTK+ does not hold
 /// any pointer into `items` and `items` can be freed. Use
-/// gtk_stock_add_static() if `items` is persistent and GTK+ need not
+/// `gtk_stock_add_static()` if `items` is persistent and GTK+ need not
 /// copy the array.
 ///
 /// **stock_add is deprecated:**
@@ -2277,7 +2275,7 @@ public func showURIOnWindow(parent: WindowProtocol, uri: UnsafePointer<CChar>, t
 
 
 
-/// Same as gtk_stock_add(), but doesn’t copy `items`, so
+/// Same as `gtk_stock_add()`, but doesn’t copy `items`, so
 /// `items` must persist until application exit.
 ///
 /// **stock_add_static is deprecated:**
@@ -2291,8 +2289,8 @@ public func showURIOnWindow(parent: WindowProtocol, uri: UnsafePointer<CChar>, t
 
 
 /// Retrieves a list of all known stock IDs added to a `GtkIconFactory`
-/// or registered with gtk_stock_add(). The list must be freed with g_slist_free(),
-/// and each string in the list must be freed with g_free().
+/// or registered with `gtk_stock_add()`. The list must be freed with `g_slist_free()`,
+/// and each string in the list must be freed with `g_free()`.
 ///
 /// **stock_list_ids is deprecated:**
 /// This method is deprecated.
@@ -2321,13 +2319,13 @@ public func showURIOnWindow(parent: WindowProtocol, uri: UnsafePointer<CChar>, t
 /// a stock item.
 /// 
 /// If no function is registered for a translation domain,
-/// g_dgettext() is used.
+/// `g_dgettext()` is used.
 /// 
 /// The function is used for all stock items whose
 /// `translation_domain` matches `domain`. Note that it is possible
 /// to use strings different from the actual gettext translation domain
 /// of your application for this, as long as your `GtkTranslateFunc` uses
-/// the correct domain when calling dgettext(). This can be useful, e.g.
+/// the correct domain when calling `dgettext()`. This can be useful, e.g.
 /// when dealing with message contexts:
 /// 
 /// (C Language Example):
@@ -2365,7 +2363,7 @@ public func showURIOnWindow(parent: WindowProtocol, uri: UnsafePointer<CChar>, t
 
 
 /// This function frees a target table as returned by
-/// gtk_target_table_new_from_list()
+/// `gtk_target_table_new_from_list()`
 public func targetTableFree(targets: UnsafeMutablePointer<GtkTargetEntry>, nTargets n_targets: CInt) {
     gtk_target_table_free(cast(targets), gint(n_targets))
 
@@ -2376,7 +2374,7 @@ public func targetTableFree(targets: UnsafeMutablePointer<GtkTargetEntry>, nTarg
 
 /// This function creates an `GtkTargetEntry` array that contains the
 /// same targets as the passed `list`. The returned table is newly
-/// allocated and should be freed using gtk_target_table_free() when no
+/// allocated and should be freed using `gtk_target_table_free()` when no
 /// longer needed.
 public func targetTableNewFrom(list: TargetListProtocol, nTargets n_targets: UnsafeMutablePointer<CInt>) -> UnsafeMutablePointer<GtkTargetEntry>! {
     let rv = gtk_target_table_new_from_list(cast(list.ptr), cast(n_targets))
@@ -2428,7 +2426,7 @@ public func targetsIncludeURI(targets: UnsafeMutablePointer<GdkAtom>, nTargets n
 
 /// Create a simple window with window title `window_title` and
 /// text contents `dialog_text`.
-/// The window will quit any running gtk_main()-loop when destroyed, and it
+/// The window will quit any running `gtk_main()`-loop when destroyed, and it
 /// will automatically be destroyed upon test function teardown.
 ///
 /// **test_create_simple_window is deprecated:**
@@ -2458,10 +2456,10 @@ public func targetsIncludeURI(targets: UnsafeMutablePointer<GdkAtom>, nTargets n
 /// This function will search `widget` and all its descendants for a GtkLabel
 /// widget with a text string matching `label_pattern`.
 /// The `label_pattern` may contain asterisks “*” and question marks “?” as
-/// placeholders, g_pattern_match() is used for the matching.
+/// placeholders, `g_pattern_match()` is used for the matching.
 /// Note that locales other than "C“ tend to alter (translate” label strings,
 /// so this function is genrally only useful in test programs with
-/// predetermined locales, see gtk_test_init() for more details.
+/// predetermined locales, see `gtk_test_init()` for more details.
 public func testFindLabel(widget: WidgetProtocol, labelPattern label_pattern: UnsafePointer<gchar>) -> UnsafeMutablePointer<GtkWidget>! {
     let rv = gtk_test_find_label(cast(widget.ptr), label_pattern)
     return cast(rv)
@@ -2489,8 +2487,8 @@ public func testFindSibling(baseWidget base_widget: WidgetProtocol, widgetType w
 /// of type `widget_type` that has a label matching `label_pattern` next
 /// to it. This is most useful for automated GUI testing, e.g. to find
 /// the “OK” button in a dialog and synthesize clicks on it.
-/// However see gtk_test_find_label(), gtk_test_find_sibling() and
-/// gtk_test_widget_click() for possible caveats involving the search of
+/// However see `gtk_test_find_label()`, `gtk_test_find_sibling()` and
+/// `gtk_test_widget_click()` for possible caveats involving the search of
 /// such widgets and synthesizing widget events.
 public func testFind(widget: WidgetProtocol, labelPattern label_pattern: UnsafePointer<gchar>, widgetType widget_type: GType) -> UnsafeMutablePointer<GtkWidget>! {
     let rv = gtk_test_find_widget(cast(widget.ptr), label_pattern, widget_type)
@@ -2508,7 +2506,7 @@ public func testFind(widget: WidgetProtocol, labelPattern label_pattern: UnsafeP
 
 
 /// Return the type ids that have been registered after
-/// calling gtk_test_register_all_types().
+/// calling `gtk_test_register_all_types()`.
 public func testListAllTypes(nTypes n_types: UnsafeMutablePointer<CUnsignedInt>) -> UnsafePointer<GType>! {
     let rv = gtk_test_list_all_types(cast(n_types))
     return cast(rv)
@@ -2519,7 +2517,7 @@ public func testListAllTypes(nTypes n_types: UnsafeMutablePointer<CUnsignedInt>)
 
 /// Force registration of all core Gtk+ and Gdk object types.
 /// This allowes to refer to any of those object types via
-/// g_type_from_name() after calling this function.
+/// `g_type_from_name()` after calling this function.
 public func testRegisterAllTypes() {
     gtk_test_register_all_types()
 
@@ -2532,7 +2530,7 @@ public func testRegisterAllTypes() {
 /// widgets and spin buttons. Note that the value returned by
 /// this function is anything between the lower and upper bounds
 /// of the adjustment belonging to `widget`, and is not a percentage
-/// as passed in to gtk_test_slider_set_perc().
+/// as passed in to `gtk_test_slider_set_perc()`.
 ///
 /// **test_slider_get_value is deprecated:**
 /// This testing infrastructure is phased out in favor of reftests.
@@ -2604,11 +2602,11 @@ public func testRegisterAllTypes() {
 /// release event) in the middle of the first GdkWindow found that belongs
 /// to `widget`.
 /// For windowless widgets like `GtkButton` (which returns `false` from
-/// gtk_widget_get_has_window()), this will often be an
+/// `gtk_widget_get_has_window()`), this will often be an
 /// input-only event window. For other widgets, this is usually widget->window.
 /// Certain caveats should be considered when using this function, in
 /// particular because the mouse pointer is warped to the button click
-/// location, see gdk_test_simulate_button() for details.
+/// location, see `gdk_test_simulate_button()` for details.
 ///
 /// **test_widget_click is deprecated:**
 /// This testing infrastructure is phased out in favor of reftests.
@@ -2623,11 +2621,11 @@ public func testRegisterAllTypes() {
 /// This function will generate keyboard press and release events in
 /// the middle of the first GdkWindow found that belongs to `widget`.
 /// For windowless widgets like `GtkButton` (which returns `false` from
-/// gtk_widget_get_has_window()), this will often be an
+/// `gtk_widget_get_has_window()`), this will often be an
 /// input-only event window. For other widgets, this is usually widget->window.
 /// Certain caveats should be considered when using this function, in
 /// particular because the mouse pointer is warped to the key press
-/// location, see gdk_test_simulate_key() for details.
+/// location, see `gdk_test_simulate_key()` for details.
 public func testWidgetSendKey(widget: WidgetProtocol, keyval: CUnsignedInt, modifiers: Gdk.ModifierType) -> Bool {
     let rv = gtk_test_widget_send_key(cast(widget.ptr), guint(keyval), modifiers)
     return Bool(rv != 0)
@@ -2659,7 +2657,7 @@ public func testWidgetWaitForDraw(widget: WidgetProtocol) {
 /// get memory corruption. In the `GtkTreeDragDest` drag_data_received handler,
 /// you can assume that selection data of type `GTK_TREE_MODEL_ROW` is
 /// in from the current process. The returned path must be freed with
-/// gtk_tree_path_free().
+/// `gtk_tree_path_free()`.
 public func treeGetRowDragData(selectionData selection_data: SelectionDataProtocol, treeModel tree_model: TreeModelProtocol, path: TreePathProtocol) -> Bool {
     let rv = gtk_tree_get_row_drag_data(cast(selection_data.ptr), cast(tree_model.ptr), cast(path.ptr))
     return Bool(rv != 0)
@@ -2669,8 +2667,8 @@ public func treeGetRowDragData(selectionData selection_data: SelectionDataProtoc
 
 
 /// Lets a set of row reference created by
-/// gtk_tree_row_reference_new_proxy() know that the
-/// model emitted the `GtkTreeModel`::row-deleted signal.
+/// `gtk_tree_row_reference_new_proxy()` know that the
+/// model emitted the `GtkTreeModel::row`-deleted signal.
 public func treeRowReferenceDeleted(proxy: GLibObject.ObjectProtocol, path: TreePathProtocol) {
     gtk_tree_row_reference_deleted(cast(proxy.ptr), cast(path.ptr))
 
@@ -2680,8 +2678,8 @@ public func treeRowReferenceDeleted(proxy: GLibObject.ObjectProtocol, path: Tree
 
 
 /// Lets a set of row reference created by
-/// gtk_tree_row_reference_new_proxy() know that the
-/// model emitted the `GtkTreeModel`::row-inserted signal.
+/// `gtk_tree_row_reference_new_proxy()` know that the
+/// model emitted the `GtkTreeModel::row`-inserted signal.
 public func treeRowReferenceInserted(proxy: GLibObject.ObjectProtocol, path: TreePathProtocol) {
     gtk_tree_row_reference_inserted(cast(proxy.ptr), cast(path.ptr))
 
@@ -2691,8 +2689,8 @@ public func treeRowReferenceInserted(proxy: GLibObject.ObjectProtocol, path: Tre
 
 
 /// Lets a set of row reference created by
-/// gtk_tree_row_reference_new_proxy() know that the
-/// model emitted the `GtkTreeModel`::rows-reordered signal.
+/// `gtk_tree_row_reference_new_proxy()` know that the
+/// model emitted the `GtkTreeModel::rows`-reordered signal.
 public func treeRowReferenceReordered(proxy: GLibObject.ObjectProtocol, path: TreePathProtocol, iter: TreeIterProtocol, newOrder new_order: UnsafeMutablePointer<CInt>) {
     gtk_tree_row_reference_reordered(cast(proxy.ptr), cast(path.ptr), cast(iter.ptr), cast(new_order))
 
@@ -2717,11 +2715,11 @@ public func treeSetRowDragData(selectionData selection_data: SelectionDataProtoc
 /// of a window. Of course you should not do this as the user expects
 /// a reaction from clicking the close icon of the window...
 /// 
-/// ``` A persistent window
+/// ## A persistent window
 /// 
 /// (C Language Example):
 /// ```C
-/// `include` <gtk/gtk.h>
+/// #include <gtk/gtk.h>
 /// 
 /// int
 /// main (int argc, char **argv)

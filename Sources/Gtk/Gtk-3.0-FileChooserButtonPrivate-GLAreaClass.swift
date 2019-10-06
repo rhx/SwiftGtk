@@ -851,7 +851,7 @@ public extension FileChooserWidgetPrivateProtocol {
 /// Alternatively, use `FileFilterInfoRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
 /// A `GtkFileFilterInfo`-struct is used to pass information about the
-/// tested file to gtk_file_filter_filter().
+/// tested file to `gtk_file_filter_filter()`.
 public protocol FileFilterInfoProtocol {
     /// Untyped pointer to the underlying `GtkFileFilterInfo` instance.
     var ptr: UnsafeMutableRawPointer { get }
@@ -865,7 +865,7 @@ public protocol FileFilterInfoProtocol {
 /// Use `FileFilterInfoRef` only as an `unowned` reference to an existing `GtkFileFilterInfo` instance.
 ///
 /// A `GtkFileFilterInfo`-struct is used to pass information about the
-/// tested file to gtk_file_filter_filter().
+/// tested file to `gtk_file_filter_filter()`.
 public struct FileFilterInfoRef: FileFilterInfoProtocol {
     /// Untyped pointer to the underlying `GtkFileFilterInfo` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -919,7 +919,7 @@ public extension FileFilterInfoRef {
 /// Use `FileFilterInfo` as a strong reference or owner of a `GtkFileFilterInfo` instance.
 ///
 /// A `GtkFileFilterInfo`-struct is used to pass information about the
-/// tested file to gtk_file_filter_filter().
+/// tested file to `gtk_file_filter_filter()`.
 open class FileFilterInfo: FileFilterInfoProtocol {
     /// Untyped pointer to the underlying `GtkFileFilterInfo` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.

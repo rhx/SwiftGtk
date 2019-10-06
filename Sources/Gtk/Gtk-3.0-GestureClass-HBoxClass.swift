@@ -1404,9 +1404,9 @@ public extension GestureZoomClassProtocol {
 ///
 /// GtkGradient is a boxed type that represents a gradient.
 /// It is the result of parsing a
-/// [gradient expression][gtkcssprovider-gradients].
+/// [gradient expression](#gtkcssprovider-gradients).
 /// To obtain the gradient represented by a GtkGradient, it has to
-/// be resolved with gtk_gradient_resolve(), which replaces all
+/// be resolved with `gtk_gradient_resolve()`, which replaces all
 /// symbolic color references by the colors they refer to (in a given
 /// context) and constructs a `cairo_pattern_t` value.
 /// 
@@ -1432,9 +1432,9 @@ public protocol GradientProtocol {
 ///
 /// GtkGradient is a boxed type that represents a gradient.
 /// It is the result of parsing a
-/// [gradient expression][gtkcssprovider-gradients].
+/// [gradient expression](#gtkcssprovider-gradients).
 /// To obtain the gradient represented by a GtkGradient, it has to
-/// be resolved with gtk_gradient_resolve(), which replaces all
+/// be resolved with `gtk_gradient_resolve()`, which replaces all
 /// symbolic color references by the colors they refer to (in a given
 /// context) and constructs a `cairo_pattern_t` value.
 /// 
@@ -1493,7 +1493,7 @@ public extension GradientRef {
     }
 
         /// Creates a new linear gradient along the line defined by (x0, y0) and (x1, y1). Before using the gradient
-    /// a number of stop colors must be added through gtk_gradient_add_color_stop().
+    /// a number of stop colors must be added through `gtk_gradient_add_color_stop()`.
     ///
     /// **new_linear is deprecated:**
     /// #GtkGradient is deprecated.
@@ -1504,7 +1504,7 @@ public extension GradientRef {
 
     /// Creates a new radial gradient along the two circles defined by (x0, y0, radius0) and
     /// (x1, y1, radius1). Before using the gradient a number of stop colors must be added
-    /// through gtk_gradient_add_color_stop().
+    /// through `gtk_gradient_add_color_stop()`.
     ///
     /// **new_radial is deprecated:**
     /// #GtkGradient is deprecated.
@@ -1513,7 +1513,7 @@ public extension GradientRef {
         self.init(cast(rv))
     }
     /// Creates a new linear gradient along the line defined by (x0, y0) and (x1, y1). Before using the gradient
-    /// a number of stop colors must be added through gtk_gradient_add_color_stop().
+    /// a number of stop colors must be added through `gtk_gradient_add_color_stop()`.
     ///
     /// **new_linear is deprecated:**
     /// #GtkGradient is deprecated.
@@ -1524,7 +1524,7 @@ public extension GradientRef {
 
     /// Creates a new radial gradient along the two circles defined by (x0, y0, radius0) and
     /// (x1, y1, radius1). Before using the gradient a number of stop colors must be added
-    /// through gtk_gradient_add_color_stop().
+    /// through `gtk_gradient_add_color_stop()`.
     ///
     /// **new_radial is deprecated:**
     /// #GtkGradient is deprecated.
@@ -1540,9 +1540,9 @@ public extension GradientRef {
 ///
 /// GtkGradient is a boxed type that represents a gradient.
 /// It is the result of parsing a
-/// [gradient expression][gtkcssprovider-gradients].
+/// [gradient expression](#gtkcssprovider-gradients).
 /// To obtain the gradient represented by a GtkGradient, it has to
-/// be resolved with gtk_gradient_resolve(), which replaces all
+/// be resolved with `gtk_gradient_resolve()`, which replaces all
 /// symbolic color references by the colors they refer to (in a given
 /// context) and constructs a `cairo_pattern_t` value.
 /// 
@@ -1602,7 +1602,7 @@ open class Gradient: GradientProtocol {
     }
 
     /// Creates a new linear gradient along the line defined by (x0, y0) and (x1, y1). Before using the gradient
-    /// a number of stop colors must be added through gtk_gradient_add_color_stop().
+    /// a number of stop colors must be added through `gtk_gradient_add_color_stop()`.
     ///
     /// **new_linear is deprecated:**
     /// #GtkGradient is deprecated.
@@ -1613,7 +1613,7 @@ open class Gradient: GradientProtocol {
 
     /// Creates a new radial gradient along the two circles defined by (x0, y0, radius0) and
     /// (x1, y1, radius1). Before using the gradient a number of stop colors must be added
-    /// through gtk_gradient_add_color_stop().
+    /// through `gtk_gradient_add_color_stop()`.
     ///
     /// **new_radial is deprecated:**
     /// #GtkGradient is deprecated.
@@ -1623,7 +1623,7 @@ open class Gradient: GradientProtocol {
     }
 
     /// Creates a new linear gradient along the line defined by (x0, y0) and (x1, y1). Before using the gradient
-    /// a number of stop colors must be added through gtk_gradient_add_color_stop().
+    /// a number of stop colors must be added through `gtk_gradient_add_color_stop()`.
     ///
     /// **new_linear is deprecated:**
     /// #GtkGradient is deprecated.
@@ -1634,7 +1634,7 @@ open class Gradient: GradientProtocol {
 
     /// Creates a new radial gradient along the two circles defined by (x0, y0, radius0) and
     /// (x1, y1, radius1). Before using the gradient a number of stop colors must be added
-    /// through gtk_gradient_add_color_stop().
+    /// through `gtk_gradient_add_color_stop()`.
     ///
     /// **new_radial is deprecated:**
     /// #GtkGradient is deprecated.

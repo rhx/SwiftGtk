@@ -143,14 +143,14 @@ open class PrintOperationPreview: PrintOperationPreviewProtocol {
 // MARK: - no PrintOperationPreview properties
 
 public enum PrintOperationPreviewSignalName: String, SignalNameProtocol {
-    /// The ::got-page-size signal is emitted once for each page
+    /// The `got`-page-size signal is emitted once for each page
     /// that gets rendered to the preview.
     /// 
     /// A handler for this signal should update the `context`
     /// according to `page_setup` and set up a suitable cairo
-    /// context, using gtk_print_context_set_cairo_context().
+    /// context, using `gtk_print_context_set_cairo_context()`.
     case gotPageSize = "got-page-size"
-    /// The ::ready signal gets emitted once per preview operation,
+    /// The `ready` signal gets emitted once per preview operation,
     /// before the first page is rendered.
     /// 
     /// A handler for this signal can be used for setup tasks.
@@ -206,10 +206,10 @@ public extension PrintOperationPreviewProtocol {
     }
 
     /// Renders a page to the preview, using the print context that
-    /// was passed to the `GtkPrintOperation`::preview handler together
+    /// was passed to the `GtkPrintOperation::preview` handler together
     /// with `preview`.
     /// 
-    /// A custom iprint preview should use this function in its ::expose
+    /// A custom iprint preview should use this function in its `expose`
     /// handler to render the currently selected page.
     /// 
     /// Note that this function requires a suitable cairo context to
@@ -503,7 +503,7 @@ public extension RecentChooserProtocol {
     /// Adds `filter` to the list of `GtkRecentFilter` objects held by `chooser`.
     /// 
     /// If no previous filter objects were defined, this function will call
-    /// gtk_recent_chooser_set_filter().
+    /// `gtk_recent_chooser_set_filter()`.
     func add(filter: RecentFilterProtocol) {
         gtk_recent_chooser_add_filter(cast(recent_chooser_ptr), cast(filter.ptr))
     
@@ -537,15 +537,15 @@ public extension RecentChooserProtocol {
         return cast(rv)
     }
 
-    /// Gets the number of items returned by gtk_recent_chooser_get_items()
-    /// and gtk_recent_chooser_get_uris().
+    /// Gets the number of items returned by `gtk_recent_chooser_get_items()`
+    /// and `gtk_recent_chooser_get_uris()`.
     func getLimit() -> CInt {
         let rv = gtk_recent_chooser_get_limit(cast(recent_chooser_ptr))
         return CInt(rv)
     }
 
     /// Gets whether only local resources should be shown in the recently used
-    /// resources selector.  See gtk_recent_chooser_set_local_only()
+    /// resources selector.  See `gtk_recent_chooser_set_local_only()`
     func getLocalOnly() -> Bool {
         let rv = gtk_recent_chooser_get_local_only(cast(recent_chooser_ptr))
         return Bool(rv != 0)
@@ -584,7 +584,7 @@ public extension RecentChooserProtocol {
         return Bool(rv != 0)
     }
 
-    /// Gets the value set by gtk_recent_chooser_set_sort_type().
+    /// Gets the value set by `gtk_recent_chooser_set_sort_type()`.
     func getSortType() -> GtkRecentSortType {
         let rv = gtk_recent_chooser_get_sort_type(cast(recent_chooser_ptr))
         return rv
@@ -648,7 +648,7 @@ public extension RecentChooserProtocol {
     }
 
     /// Sets the number of items that should be returned by
-    /// gtk_recent_chooser_get_items() and gtk_recent_chooser_get_uris().
+    /// `gtk_recent_chooser_get_items()` and `gtk_recent_chooser_get_uris()`.
     func set(limit: CInt) {
         gtk_recent_chooser_set_limit(cast(recent_chooser_ptr), gint(limit))
     
@@ -779,24 +779,24 @@ public extension RecentChooserProtocol {
     /// The maximum number of recently used resources to be displayed,
     /// or -1 to display all items.
     var limit: CInt {
-        /// Gets the number of items returned by gtk_recent_chooser_get_items()
-        /// and gtk_recent_chooser_get_uris().
+        /// Gets the number of items returned by `gtk_recent_chooser_get_items()`
+        /// and `gtk_recent_chooser_get_uris()`.
         get {
             let rv = gtk_recent_chooser_get_limit(cast(recent_chooser_ptr))
             return CInt(rv)
         }
         /// Sets the number of items that should be returned by
-        /// gtk_recent_chooser_get_items() and gtk_recent_chooser_get_uris().
+        /// `gtk_recent_chooser_get_items()` and `gtk_recent_chooser_get_uris()`.
         nonmutating set {
             gtk_recent_chooser_set_limit(cast(recent_chooser_ptr), gint(newValue))
         }
     }
 
     /// Gets whether only local resources should be shown in the recently used
-    /// resources selector.  See gtk_recent_chooser_set_local_only()
+    /// resources selector.  See `gtk_recent_chooser_set_local_only()`
     var localOnly: Bool {
         /// Gets whether only local resources should be shown in the recently used
-        /// resources selector.  See gtk_recent_chooser_set_local_only()
+        /// resources selector.  See `gtk_recent_chooser_set_local_only()`
         get {
             let rv = gtk_recent_chooser_get_local_only(cast(recent_chooser_ptr))
             return Bool(rv != 0)
@@ -884,9 +884,9 @@ public extension RecentChooserProtocol {
         }
     }
 
-    /// Gets the value set by gtk_recent_chooser_set_sort_type().
+    /// Gets the value set by `gtk_recent_chooser_set_sort_type()`.
     var sortType: GtkRecentSortType {
-        /// Gets the value set by gtk_recent_chooser_set_sort_type().
+        /// Gets the value set by `gtk_recent_chooser_set_sort_type()`.
         get {
             let rv = gtk_recent_chooser_get_sort_type(cast(recent_chooser_ptr))
             return rv

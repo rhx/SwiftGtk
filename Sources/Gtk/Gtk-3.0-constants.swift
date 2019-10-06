@@ -15,16 +15,16 @@ import GdkPixbuf
 import Gdk
 import Atk
 
-/// Like gtk_get_binary_age(), but from the headers used at
+/// Like `gtk_get_binary_age()`, but from the headers used at
 /// application compile time, rather than from the library linked
 /// against at application run time.
 public let BINARY_AGE = GTK_BINARY_AGE /* gint 2410 */
 
-/// Constant to return from a signal handler for the `GtkSpinButton`::input
+/// Constant to return from a signal handler for the `GtkSpinButton::input`
 /// signal in case of conversion failure.
 public let INPUT_ERROR = GTK_INPUT_ERROR /* gint -1 */
 
-/// Like gtk_get_interface_age(), but from the headers used at
+/// Like `gtk_get_interface_age()`, but from the headers used at
 /// application compile time, rather than from the library linked
 /// against at application run time.
 public let INTERFACE_AGE = GTK_INTERFACE_AGE /* gint 4 */
@@ -38,7 +38,7 @@ public let LEVEL_BAR_OFFSET_HIGH = GTK_LEVEL_BAR_OFFSET_HIGH /* utf8 4 */
 /// The name used for the stock low offset included by `GtkLevelBar`.
 public let LEVEL_BAR_OFFSET_LOW = GTK_LEVEL_BAR_OFFSET_LOW /* utf8 5 */
 
-/// Like gtk_get_major_version(), but from the headers used at
+/// Like `gtk_get_major_version()`, but from the headers used at
 /// application compile time, rather than from the library linked
 /// against at application run time.
 public let MAJOR_VERSION = GTK_MAJOR_VERSION /* gint 3 */
@@ -46,12 +46,12 @@ public let MAJOR_VERSION = GTK_MAJOR_VERSION /* gint 3 */
 /// The maximum length of sequences in compose tables.
 public let MAX_COMPOSE_LEN = GTK_MAX_COMPOSE_LEN /* gint 7 */
 
-/// Like gtk_get_micro_version(), but from the headers used at
+/// Like `gtk_get_micro_version()`, but from the headers used at
 /// application compile time, rather than from the library linked
 /// against at application run time.
 public let MICRO_VERSION = GTK_MICRO_VERSION /* gint 10 */
 
-/// Like gtk_get_minor_version(), but from the headers used at
+/// Like `gtk_get_minor_version()`, but from the headers used at
 /// application compile time, rather than from the library linked
 /// against at application run time.
 public let MINOR_VERSION = GTK_MINOR_VERSION /* gint 24 */
@@ -1270,7 +1270,7 @@ public let STYLE_PROPERTY_BORDER_STYLE = GTK_STYLE_PROPERTY_BORDER_STYLE /* utf8
 /// a `GtkBorder`. The border is the intermediary spacing property of the
 /// padding/border/margin series.
 /// 
-/// gtk_render_frame() uses this property to find out the frame line width,
+/// `gtk_render_frame()` uses this property to find out the frame line width,
 /// so `GtkWidgets` rendering frames may need to add up this padding when
 /// requesting size
 public let STYLE_PROPERTY_BORDER_WIDTH = GTK_STYLE_PROPERTY_BORDER_WIDTH /* utf8 245 */
@@ -1357,11 +1357,11 @@ public let TEXT_VIEW_PRIORITY_VALIDATE: CInt = 125 /* GTK_TEXT_VIEW_PRIORITY_VAL
 /// The GTK_TREE_SORTABLE_DEFAULT_SORT_COLUMN_ID can be used to make a
 /// `GtkTreeSortable` use the default sort function.
 /// 
-/// See also gtk_tree_sortable_set_sort_column_id()
+/// See also `gtk_tree_sortable_set_sort_column_id()`
 public let TREE_SORTABLE_DEFAULT_SORT_COLUMN_ID = GTK_TREE_SORTABLE_DEFAULT_SORT_COLUMN_ID /* gint -1 */
 
 /// The GTK_TREE_SORTABLE_DEFAULT_SORT_COLUMN_ID can be used to make a
 /// `GtkTreeSortable` use no sorting.
 /// 
-/// See also gtk_tree_sortable_set_sort_column_id()
+/// See also `gtk_tree_sortable_set_sort_column_id()`
 public let TREE_SORTABLE_UNSORTED_SORT_COLUMN_ID = GTK_TREE_SORTABLE_UNSORTED_SORT_COLUMN_ID /* gint -2 */

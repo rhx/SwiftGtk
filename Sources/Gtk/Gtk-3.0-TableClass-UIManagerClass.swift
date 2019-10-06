@@ -586,7 +586,7 @@ public extension TargetEntryProtocol {
     }
 
     /// Frees a `GtkTargetEntry` returned from
-    /// gtk_target_entry_new() or gtk_target_entry_copy().
+    /// `gtk_target_entry_new()` or `gtk_target_entry_copy()`.
     func free() {
         gtk_target_entry_free(cast(target_entry_ptr))
     
@@ -759,8 +759,8 @@ public extension TargetListProtocol {
     }
 
     /// Appends the rich text targets registered with
-    /// gtk_text_buffer_register_serialize_format() or
-    /// gtk_text_buffer_register_deserialize_format() to the target list. All
+    /// `gtk_text_buffer_register_serialize_format()` or
+    /// `gtk_text_buffer_register_deserialize_format()` to the target list. All
     /// targets are added with the same `info`.
     func addRichTextTargets(info: CUnsignedInt, deserializable: Bool, buffer: TextBufferProtocol) {
         gtk_target_list_add_rich_text_targets(cast(target_list_ptr), guint(info), gboolean(deserializable ? 1 : 0), cast(buffer.ptr))
@@ -814,7 +814,7 @@ public extension TargetListProtocol {
 
     /// This function creates an `GtkTargetEntry` array that contains the
     /// same targets as the passed `list`. The returned table is newly
-    /// allocated and should be freed using gtk_target_table_free() when no
+    /// allocated and should be freed using `gtk_target_table_free()` when no
     /// longer needed.
     func targetTableNewFromList(nTargets n_targets: UnsafeMutablePointer<CInt>) -> UnsafeMutablePointer<GtkTargetEntry>! {
         let rv = gtk_target_table_new_from_list(cast(target_list_ptr), cast(n_targets))
@@ -1390,7 +1390,7 @@ public extension TextAppearanceProtocol {
 /// Alternatively, use `TextAttributesRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
 /// Using `GtkTextAttributes` directly should rarely be necessary.
-/// It’s primarily useful with gtk_text_iter_get_attributes().
+/// It’s primarily useful with `gtk_text_iter_get_attributes()`.
 /// As with most GTK+ structs, the fields in this struct should only
 /// be read, never modified directly.
 public protocol TextAttributesProtocol {
@@ -1406,7 +1406,7 @@ public protocol TextAttributesProtocol {
 /// Use `TextAttributesRef` only as an `unowned` reference to an existing `GtkTextAttributes` instance.
 ///
 /// Using `GtkTextAttributes` directly should rarely be necessary.
-/// It’s primarily useful with gtk_text_iter_get_attributes().
+/// It’s primarily useful with `gtk_text_iter_get_attributes()`.
 /// As with most GTK+ structs, the fields in this struct should only
 /// be read, never modified directly.
 public struct TextAttributesRef: TextAttributesProtocol {
@@ -1468,7 +1468,7 @@ public extension TextAttributesRef {
 /// Use `TextAttributes` as a strong reference or owner of a `GtkTextAttributes` instance.
 ///
 /// Using `GtkTextAttributes` directly should rarely be necessary.
-/// It’s primarily useful with gtk_text_iter_get_attributes().
+/// It’s primarily useful with `gtk_text_iter_get_attributes()`.
 /// As with most GTK+ structs, the fields in this struct should only
 /// be read, never modified directly.
 open class TextAttributes: TextAttributesProtocol {
@@ -2402,7 +2402,7 @@ public extension TextChildAnchorClassProtocol {
 /// Alternatively, use `TextIterRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
 /// You may wish to begin by reading the
-/// [text widget conceptual overview][TextWidget]
+/// [text widget conceptual overview](#TextWidget)
 /// which gives an overview of all the objects and data
 /// types related to the text widget and how they work together.
 public protocol TextIterProtocol {
@@ -2418,7 +2418,7 @@ public protocol TextIterProtocol {
 /// Use `TextIterRef` only as an `unowned` reference to an existing `GtkTextIter` instance.
 ///
 /// You may wish to begin by reading the
-/// [text widget conceptual overview][TextWidget]
+/// [text widget conceptual overview](#TextWidget)
 /// which gives an overview of all the objects and data
 /// types related to the text widget and how they work together.
 public struct TextIterRef: TextIterProtocol {
@@ -2474,7 +2474,7 @@ public extension TextIterRef {
 /// Use `TextIter` as a strong reference or owner of a `GtkTextIter` instance.
 ///
 /// You may wish to begin by reading the
-/// [text widget conceptual overview][TextWidget]
+/// [text widget conceptual overview](#TextWidget)
 /// which gives an overview of all the objects and data
 /// types related to the text widget and how they work together.
 open class TextIter: TextIterProtocol {
@@ -2548,7 +2548,7 @@ public extension TextIterProtocol {
 
     /// Moves backward by one character offset. Returns `true` if movement
     /// was possible; if `iter` was the first in the buffer (character
-    /// offset 0), gtk_text_iter_backward_char() returns `false` for convenience when
+    /// offset 0), `gtk_text_iter_backward_char()` returns `false` for convenience when
     /// writing loops.
     func backwardChar() -> Bool {
         let rv = gtk_text_iter_backward_char(cast(text_iter_ptr))
@@ -2566,20 +2566,20 @@ public extension TextIterProtocol {
         return Bool(rv != 0)
     }
 
-    /// Like gtk_text_iter_forward_cursor_position(), but moves backward.
+    /// Like `gtk_text_iter_forward_cursor_position()`, but moves backward.
     func backwardCursorPosition() -> Bool {
         let rv = gtk_text_iter_backward_cursor_position(cast(text_iter_ptr))
         return Bool(rv != 0)
     }
 
     /// Moves up to `count` cursor positions. See
-    /// gtk_text_iter_forward_cursor_position() for details.
+    /// `gtk_text_iter_forward_cursor_position()` for details.
     func backwardCursorPositions(count: CInt) -> Bool {
         let rv = gtk_text_iter_backward_cursor_positions(cast(text_iter_ptr), gint(count))
         return Bool(rv != 0)
     }
 
-    /// Same as gtk_text_iter_forward_find_char(), but goes backward from `iter`.
+    /// Same as `gtk_text_iter_forward_find_char()`, but goes backward from `iter`.
     func backwardFindChar(pred: @escaping TextCharPredicate, userData user_data: UnsafeMutableRawPointer, limit: TextIterProtocol) -> Bool {
         let rv = gtk_text_iter_backward_find_char(cast(text_iter_ptr), pred, cast(user_data), cast(limit.ptr))
         return Bool(rv != 0)
@@ -2609,7 +2609,7 @@ public extension TextIterProtocol {
         return Bool(rv != 0)
     }
 
-    /// Same as gtk_text_iter_forward_search(), but moves backward.
+    /// Same as `gtk_text_iter_forward_search()`, but moves backward.
     /// 
     /// `match_end` will never be set to a `GtkTextIter` located after `iter`, even if
     /// there is a possible `match_start` before or at `iter`.
@@ -2628,7 +2628,7 @@ public extension TextIterProtocol {
         return Bool(rv != 0)
     }
 
-    /// Calls gtk_text_iter_backward_sentence_start() up to `count` times,
+    /// Calls `gtk_text_iter_backward_sentence_start()` up to `count` times,
     /// or until it returns `false`. If `count` is negative, moves forward
     /// instead of backward.
     func backwardSentenceStarts(count: CInt) -> Bool {
@@ -2649,14 +2649,14 @@ public extension TextIterProtocol {
     }
 
     /// Moves `iter` forward to the previous visible cursor position. See
-    /// gtk_text_iter_backward_cursor_position() for details.
+    /// `gtk_text_iter_backward_cursor_position()` for details.
     func backwardVisibleCursorPosition() -> Bool {
         let rv = gtk_text_iter_backward_visible_cursor_position(cast(text_iter_ptr))
         return Bool(rv != 0)
     }
 
     /// Moves up to `count` visible cursor positions. See
-    /// gtk_text_iter_backward_cursor_position() for details.
+    /// `gtk_text_iter_backward_cursor_position()` for details.
     func backwardVisibleCursorPositions(count: CInt) -> Bool {
         let rv = gtk_text_iter_backward_visible_cursor_positions(cast(text_iter_ptr), gint(count))
         return Bool(rv != 0)
@@ -2696,7 +2696,7 @@ public extension TextIterProtocol {
         return Bool(rv != 0)
     }
 
-    /// Calls gtk_text_iter_backward_visible_word_start() up to `count` times.
+    /// Calls `gtk_text_iter_backward_visible_word_start()` up to `count` times.
     func backwardVisibleWordStarts(count: CInt) -> Bool {
         let rv = gtk_text_iter_backward_visible_word_starts(cast(text_iter_ptr), gint(count))
         return Bool(rv != 0)
@@ -2712,7 +2712,7 @@ public extension TextIterProtocol {
         return Bool(rv != 0)
     }
 
-    /// Calls gtk_text_iter_backward_word_start() up to `count` times.
+    /// Calls `gtk_text_iter_backward_word_start()` up to `count` times.
     func backwardWordStarts(count: CInt) -> Bool {
         let rv = gtk_text_iter_backward_word_starts(cast(text_iter_ptr), gint(count))
         return Bool(rv != 0)
@@ -2721,11 +2721,11 @@ public extension TextIterProtocol {
     /// Returns `true` if `tag` is toggled on at exactly this point. If `tag`
     /// is `nil`, returns `true` if any tag is toggled on at this point.
     /// 
-    /// Note that if gtk_text_iter_begins_tag() returns `true`, it means that `iter` is
+    /// Note that if `gtk_text_iter_begins_tag()` returns `true`, it means that `iter` is
     /// at the beginning of the tagged range, and that the
     /// character at `iter` is inside the tagged range. In other
-    /// words, unlike gtk_text_iter_ends_tag(), if gtk_text_iter_begins_tag() returns
-    /// `true`, gtk_text_iter_has_tag() will also return `true` for the same
+    /// words, unlike `gtk_text_iter_ends_tag()`, if `gtk_text_iter_begins_tag()` returns
+    /// `true`, `gtk_text_iter_has_tag()` will also return `true` for the same
     /// parameters.
     ///
     /// **begins_tag is deprecated:**
@@ -2739,14 +2739,14 @@ public extension TextIterProtocol {
     /// affect editability, determines whether text inserted at `iter` would
     /// be editable. If text inserted at `iter` would be editable then the
     /// user should be allowed to insert text at `iter`.
-    /// gtk_text_buffer_insert_interactive() uses this function to decide
+    /// `gtk_text_buffer_insert_interactive()` uses this function to decide
     /// whether insertions are allowed at a given position.
     func canInsert(defaultEditability default_editability: Bool) -> Bool {
         let rv = gtk_text_iter_can_insert(cast(text_iter_ptr), gboolean(default_editability ? 1 : 0))
         return Bool(rv != 0)
     }
 
-    /// A qsort()-style function that returns negative if `lhs` is less than
+    /// A `qsort()`-style function that returns negative if `lhs` is less than
     /// `rhs`, positive if `lhs` is greater than `rhs`, and 0 if they’re equal.
     /// Ordering is in character offset order, i.e. the first character in the buffer
     /// is less than the second character in the buffer.
@@ -2767,14 +2767,14 @@ public extension TextIterProtocol {
     /// Returns whether the character at `iter` is within an editable region
     /// of text.  Non-editable text is “locked” and can’t be changed by the
     /// user via `GtkTextView`. This function is simply a convenience
-    /// wrapper around gtk_text_iter_get_attributes(). If no tags applied
+    /// wrapper around `gtk_text_iter_get_attributes()`. If no tags applied
     /// to this text affect editability, `default_setting` will be returned.
     /// 
     /// You don’t want to use this function to decide whether text can be
     /// inserted at `iter`, because for insertion you don’t want to know
     /// whether the char at `iter` is inside an editable range, you want to
     /// know whether a new character inserted at `iter` would be inside an
-    /// editable range. Use gtk_text_iter_can_insert() to handle this
+    /// editable range. Use `gtk_text_iter_can_insert()` to handle this
     /// case.
     func editable(defaultSetting default_setting: Bool) -> Bool {
         let rv = gtk_text_iter_editable(cast(text_iter_ptr), gboolean(default_setting ? 1 : 0))
@@ -2806,11 +2806,11 @@ public extension TextIterProtocol {
     /// Returns `true` if `tag` is toggled off at exactly this point. If `tag`
     /// is `nil`, returns `true` if any tag is toggled off at this point.
     /// 
-    /// Note that if gtk_text_iter_ends_tag() returns `true`, it means that `iter` is
+    /// Note that if `gtk_text_iter_ends_tag()` returns `true`, it means that `iter` is
     /// at the end of the tagged range, but that the character
     /// at `iter` is outside the tagged range. In other words,
-    /// unlike gtk_text_iter_starts_tag(), if gtk_text_iter_ends_tag() returns `true`,
-    /// gtk_text_iter_has_tag() will return `false` for the same parameters.
+    /// unlike `gtk_text_iter_starts_tag()`, if `gtk_text_iter_ends_tag()` returns `true`,
+    /// `gtk_text_iter_has_tag()` will return `false` for the same parameters.
     func ends(tag: TextTagProtocol) -> Bool {
         let rv = gtk_text_iter_ends_tag(cast(text_iter_ptr), cast(tag.ptr))
         return Bool(rv != 0)
@@ -2829,7 +2829,7 @@ public extension TextIterProtocol {
     /// mechanism. This function is very fast; you can expect it to perform
     /// better than e.g. getting the character offset for each iterator and
     /// comparing the offsets yourself. Also, it’s a bit faster than
-    /// gtk_text_iter_compare().
+    /// `gtk_text_iter_compare()`.
     func equal(rhs: TextIterProtocol) -> Bool {
         let rv = gtk_text_iter_equal(cast(text_iter_ptr), cast(rhs.ptr))
         return Bool(rv != 0)
@@ -2837,10 +2837,10 @@ public extension TextIterProtocol {
 
     /// Moves `iter` forward by one character offset. Note that images
     /// embedded in the buffer occupy 1 character slot, so
-    /// gtk_text_iter_forward_char() may actually move onto an image instead
+    /// `gtk_text_iter_forward_char()` may actually move onto an image instead
     /// of a character, if you have images in your buffer.  If `iter` is the
     /// end iterator or one character before it, `iter` will now point at
-    /// the end iterator, and gtk_text_iter_forward_char() returns `false` for
+    /// the end iterator, and `gtk_text_iter_forward_char()` returns `false` for
     /// convenience when writing loops.
     func forwardChar() -> Bool {
         let rv = gtk_text_iter_forward_char(cast(text_iter_ptr))
@@ -2867,14 +2867,14 @@ public extension TextIterProtocol {
     /// represented as two characters, first the letter then a "combining
     /// mark" that causes the accent to be rendered; so the cursor can’t go
     /// between those two characters. See also the `PangoLogAttr`-struct and
-    /// pango_break() function.
+    /// `pango_break()` function.
     func forwardCursorPosition() -> Bool {
         let rv = gtk_text_iter_forward_cursor_position(cast(text_iter_ptr))
         return Bool(rv != 0)
     }
 
     /// Moves up to `count` cursor positions. See
-    /// gtk_text_iter_forward_cursor_position() for details.
+    /// `gtk_text_iter_forward_cursor_position()` for details.
     func forwardCursorPositions(count: CInt) -> Bool {
         let rv = gtk_text_iter_forward_cursor_positions(cast(text_iter_ptr), gint(count))
         return Bool(rv != 0)
@@ -2913,7 +2913,7 @@ public extension TextIterProtocol {
     /// Searches forward for `str`. Any match is returned by setting
     /// `match_start` to the first character of the match and `match_end` to the
     /// first character after the match. The search will not continue past
-    /// `limit`. Note that a search is a linear or O(n) operation, so you
+    /// `limit`. Note that a search is a linear or `O(n)` operation, so you
     /// may wish to use `limit` to avoid locking up your UI on large
     /// buffers.
     /// 
@@ -2934,8 +2934,8 @@ public extension TextIterProtocol {
         return Bool(rv != 0)
     }
 
-    /// Calls gtk_text_iter_forward_sentence_end() `count` times (or until
-    /// gtk_text_iter_forward_sentence_end() returns `false`). If `count` is
+    /// Calls `gtk_text_iter_forward_sentence_end()` `count` times (or until
+    /// `gtk_text_iter_forward_sentence_end()` returns `false`). If `count` is
     /// negative, moves backward instead of forward.
     func forwardSentenceEnds(count: CInt) -> Bool {
         let rv = gtk_text_iter_forward_sentence_ends(cast(text_iter_ptr), gint(count))
@@ -2943,7 +2943,7 @@ public extension TextIterProtocol {
     }
 
     /// Moves `iter` forward to the “end iterator,” which points one past the last
-    /// valid character in the buffer. gtk_text_iter_get_char() called on the
+    /// valid character in the buffer. `gtk_text_iter_get_char()` called on the
     /// end iterator returns 0, which is convenient for writing loops.
     func forwardToEnd() {
         gtk_text_iter_forward_to_end(cast(text_iter_ptr))
@@ -2976,14 +2976,14 @@ public extension TextIterProtocol {
     }
 
     /// Moves `iter` forward to the next visible cursor position. See
-    /// gtk_text_iter_forward_cursor_position() for details.
+    /// `gtk_text_iter_forward_cursor_position()` for details.
     func forwardVisibleCursorPosition() -> Bool {
         let rv = gtk_text_iter_forward_visible_cursor_position(cast(text_iter_ptr))
         return Bool(rv != 0)
     }
 
     /// Moves up to `count` visible cursor positions. See
-    /// gtk_text_iter_forward_cursor_position() for details.
+    /// `gtk_text_iter_forward_cursor_position()` for details.
     func forwardVisibleCursorPositions(count: CInt) -> Bool {
         let rv = gtk_text_iter_forward_visible_cursor_positions(cast(text_iter_ptr), gint(count))
         return Bool(rv != 0)
@@ -3020,7 +3020,7 @@ public extension TextIterProtocol {
         return Bool(rv != 0)
     }
 
-    /// Calls gtk_text_iter_forward_visible_word_end() up to `count` times.
+    /// Calls `gtk_text_iter_forward_visible_word_end()` up to `count` times.
     func forwardVisibleWordEnds(count: CInt) -> Bool {
         let rv = gtk_text_iter_forward_visible_word_ends(cast(text_iter_ptr), gint(count))
         return Bool(rv != 0)
@@ -3036,7 +3036,7 @@ public extension TextIterProtocol {
         return Bool(rv != 0)
     }
 
-    /// Calls gtk_text_iter_forward_word_end() up to `count` times.
+    /// Calls `gtk_text_iter_forward_word_end()` up to `count` times.
     func forwardWordEnds(count: CInt) -> Bool {
         let rv = gtk_text_iter_forward_word_ends(cast(text_iter_ptr), gint(count))
         return Bool(rv != 0)
@@ -3054,9 +3054,9 @@ public extension TextIterProtocol {
     /// Computes the effect of any tags applied to this spot in the
     /// text. The `values` parameter should be initialized to the default
     /// settings you wish to use if no tags are in effect. You’d typically
-    /// obtain the defaults from gtk_text_view_get_default_attributes().
+    /// obtain the defaults from `gtk_text_view_get_default_attributes()`.
     /// 
-    /// gtk_text_iter_get_attributes() will modify `values`, applying the
+    /// `gtk_text_iter_get_attributes()` will modify `values`, applying the
     /// effects of any tags present at `iter`. If any tags affected `values`,
     /// the function returns `true`.
     func getAttributes(values: TextAttributesProtocol) -> Bool {
@@ -3082,7 +3082,7 @@ public extension TextIterProtocol {
     /// non-character element, such as an image embedded in the buffer, the
     /// Unicode “unknown” character 0xFFFC is returned. If invoked on
     /// the end iterator, zero is returned; zero is not a valid Unicode character.
-    /// So you can write a loop which ends when gtk_text_iter_get_char()
+    /// So you can write a loop which ends when `gtk_text_iter_get_char()`
     /// returns 0.
     func getChar() -> gunichar {
         let rv = gtk_text_iter_get_char(cast(text_iter_ptr))
@@ -3104,10 +3104,10 @@ public extension TextIterProtocol {
         return cast(rv)
     }
 
-    /// A convenience wrapper around gtk_text_iter_get_attributes(),
+    /// A convenience wrapper around `gtk_text_iter_get_attributes()`,
     /// which returns the language in effect at `iter`. If no tags affecting
     /// language apply to `iter`, the return value is identical to that of
-    /// gtk_get_default_language().
+    /// `gtk_get_default_language()`.
     func getLanguage() -> UnsafeMutablePointer<PangoLanguage>! {
         let rv = gtk_text_iter_get_language(cast(text_iter_ptr))
         return cast(rv)
@@ -3152,7 +3152,7 @@ public extension TextIterProtocol {
     /// Returns the character offset of an iterator.
     /// Each character in a `GtkTextBuffer` has an offset,
     /// starting with 0 for the first character in the buffer.
-    /// Use gtk_text_buffer_get_iter_at_offset() to convert an
+    /// Use `gtk_text_buffer_get_iter_at_offset()` to convert an
     /// offset back into an iterator.
     func getOffset() -> CInt {
         let rv = gtk_text_iter_get_offset(cast(text_iter_ptr))
@@ -3193,7 +3193,7 @@ public extension TextIterProtocol {
     /// contains non-text elements such as images, the character and byte
     /// offsets in the returned string will not correspond to character and
     /// byte offsets in the buffer. If you want offsets to correspond, see
-    /// gtk_text_iter_get_slice().
+    /// `gtk_text_iter_get_slice()`.
     func getText(end: TextIterProtocol) -> String! {
         let rv = gtk_text_iter_get_text(cast(text_iter_ptr), cast(end.ptr))
         return rv.map { String(cString: UnsafePointer<CChar>($0)) }
@@ -3228,7 +3228,7 @@ public extension TextIterProtocol {
         return CInt(rv)
     }
 
-    /// Like gtk_text_iter_get_slice(), but invisible text is not included.
+    /// Like `gtk_text_iter_get_slice()`, but invisible text is not included.
     /// Invisible text is usually invisible because a `GtkTextTag` with the
     /// “invisible” attribute turned on has been applied to it.
     func getVisibleSlice(end: TextIterProtocol) -> String! {
@@ -3236,7 +3236,7 @@ public extension TextIterProtocol {
         return rv.map { String(cString: UnsafePointer<CChar>($0)) }
     }
 
-    /// Like gtk_text_iter_get_text(), but invisible text is not included.
+    /// Like `gtk_text_iter_get_text()`, but invisible text is not included.
     /// Invisible text is usually invisible because a `GtkTextTag` with the
     /// “invisible” attribute turned on has been applied to it.
     func getVisibleText(end: TextIterProtocol) -> String! {
@@ -3245,7 +3245,7 @@ public extension TextIterProtocol {
     }
 
     /// Returns `true` if `iter` points to a character that is part of a range tagged
-    /// with `tag`. See also gtk_text_iter_starts_tag() and gtk_text_iter_ends_tag().
+    /// with `tag`. See also `gtk_text_iter_starts_tag()` and `gtk_text_iter_ends_tag()`.
     func has(tag: TextTagProtocol) -> Bool {
         let rv = gtk_text_iter_has_tag(cast(text_iter_ptr), cast(tag.ptr))
         return Bool(rv != 0)
@@ -3273,7 +3273,7 @@ public extension TextIterProtocol {
     /// breaks are determined by Pango and should be correct for nearly any language
     /// (if not, the correct fix would be to the Pango word break algorithms).
     /// 
-    /// Note that if gtk_text_iter_starts_word() returns `true`, then this function
+    /// Note that if `gtk_text_iter_starts_word()` returns `true`, then this function
     /// returns `true` too, since `iter` points to the first character of the word.
     func insideWord() -> Bool {
         let rv = gtk_text_iter_inside_word(cast(text_iter_ptr))
@@ -3284,7 +3284,7 @@ public extension TextIterProtocol {
     /// `first` in the buffer. That is, ensures that `first` and `second` are
     /// in sequence. Most text buffer functions that take a range call this
     /// automatically on your behalf, so there’s no real reason to call it yourself
-    /// in those cases. There are some exceptions, such as gtk_text_iter_in_range(),
+    /// in those cases. There are some exceptions, such as `gtk_text_iter_in_range()`,
     /// that expect a pre-sorted range.
     func order(second: TextIterProtocol) {
         gtk_text_iter_order(cast(text_iter_ptr), cast(second.ptr))
@@ -3299,7 +3299,7 @@ public extension TextIterProtocol {
     
     }
 
-    /// Same as gtk_text_iter_set_line_offset(), but works with a
+    /// Same as `gtk_text_iter_set_line_offset()`, but works with a
     /// byte index. The given byte index must be at
     /// the start of a character, it can’t be in the middle of a UTF-8
     /// encoded character.
@@ -3312,7 +3312,7 @@ public extension TextIterProtocol {
     /// (not byte) offset. The given character offset must be less than or
     /// equal to the number of characters in the line; if equal, `iter`
     /// moves to the start of the next line. See
-    /// gtk_text_iter_set_line_index() if you have a byte index rather than
+    /// `gtk_text_iter_set_line_index()` if you have a byte index rather than
     /// a character offset.
     func setLineOffset(charOnLine char_on_line: CInt) {
         gtk_text_iter_set_line_offset(cast(text_iter_ptr), gint(char_on_line))
@@ -3326,7 +3326,7 @@ public extension TextIterProtocol {
     
     }
 
-    /// Like gtk_text_iter_set_line_index(), but the index is in visible
+    /// Like `gtk_text_iter_set_line_index()`, but the index is in visible
     /// bytes, i.e. text with a tag making it invisible is not counted
     /// in the index.
     func setVisibleLineIndex(byteOnLine byte_on_line: CInt) {
@@ -3334,7 +3334,7 @@ public extension TextIterProtocol {
     
     }
 
-    /// Like gtk_text_iter_set_line_offset(), but the offset is in visible
+    /// Like `gtk_text_iter_set_line_offset()`, but the offset is in visible
     /// characters, i.e. text with a tag making it invisible is not
     /// counted in the offset.
     func setVisibleLineOffset(charOnLine char_on_line: CInt) {
@@ -3343,9 +3343,9 @@ public extension TextIterProtocol {
     }
 
     /// Returns `true` if `iter` begins a paragraph,
-    /// i.e. if gtk_text_iter_get_line_offset() would return 0.
+    /// i.e. if `gtk_text_iter_get_line_offset()` would return 0.
     /// However this function is potentially more efficient than
-    /// gtk_text_iter_get_line_offset() because it doesn’t have to compute
+    /// `gtk_text_iter_get_line_offset()` because it doesn’t have to compute
     /// the offset, it just has to see whether it’s 0.
     func startsLine() -> Bool {
         let rv = gtk_text_iter_starts_line(cast(text_iter_ptr))
@@ -3364,11 +3364,11 @@ public extension TextIterProtocol {
     /// Returns `true` if `tag` is toggled on at exactly this point. If `tag`
     /// is `nil`, returns `true` if any tag is toggled on at this point.
     /// 
-    /// Note that if gtk_text_iter_starts_tag() returns `true`, it means that `iter` is
+    /// Note that if `gtk_text_iter_starts_tag()` returns `true`, it means that `iter` is
     /// at the beginning of the tagged range, and that the
     /// character at `iter` is inside the tagged range. In other
-    /// words, unlike gtk_text_iter_ends_tag(), if gtk_text_iter_starts_tag() returns
-    /// `true`, gtk_text_iter_has_tag() will also return `true` for the same
+    /// words, unlike `gtk_text_iter_ends_tag()`, if `gtk_text_iter_starts_tag()` returns
+    /// `true`, `gtk_text_iter_has_tag()` will also return `true` for the same
     /// parameters.
     func starts(tag: TextTagProtocol) -> Bool {
         let rv = gtk_text_iter_starts_tag(cast(text_iter_ptr), cast(tag.ptr))
@@ -3384,8 +3384,8 @@ public extension TextIterProtocol {
         return Bool(rv != 0)
     }
 
-    /// This is equivalent to (gtk_text_iter_starts_tag() ||
-    /// gtk_text_iter_ends_tag()), i.e. it tells you whether a range with
+    /// This is equivalent to (`gtk_text_iter_starts_tag()` ||
+    /// `gtk_text_iter_ends_tag()`), i.e. it tells you whether a range with
     /// `tag` applied to it begins or ends at `iter`.
     func toggles(tag: TextTagProtocol) -> Bool {
         let rv = gtk_text_iter_toggles_tag(cast(text_iter_ptr), cast(tag.ptr))
@@ -3416,7 +3416,7 @@ public extension TextIterProtocol {
     /// non-character element, such as an image embedded in the buffer, the
     /// Unicode “unknown” character 0xFFFC is returned. If invoked on
     /// the end iterator, zero is returned; zero is not a valid Unicode character.
-    /// So you can write a loop which ends when gtk_text_iter_get_char()
+    /// So you can write a loop which ends when `gtk_text_iter_get_char()`
     /// returns 0.
     var char: gunichar {
         /// The Unicode character at this iterator is returned.  (Equivalent to
@@ -3424,7 +3424,7 @@ public extension TextIterProtocol {
         /// non-character element, such as an image embedded in the buffer, the
         /// Unicode “unknown” character 0xFFFC is returned. If invoked on
         /// the end iterator, zero is returned; zero is not a valid Unicode character.
-        /// So you can write a loop which ends when gtk_text_iter_get_char()
+        /// So you can write a loop which ends when `gtk_text_iter_get_char()`
         /// returns 0.
         get {
             let rv = gtk_text_iter_get_char(cast(text_iter_ptr))
@@ -3456,11 +3456,11 @@ public extension TextIterProtocol {
         }
     }
 
-    /// See gtk_text_iter_forward_cursor_position() or `PangoLogAttr` or
-    /// pango_break() for details on what a cursor position is.
+    /// See `gtk_text_iter_forward_cursor_position()` or `PangoLogAttr` or
+    /// `pango_break()` for details on what a cursor position is.
     var isCursorPosition: Bool {
-        /// See gtk_text_iter_forward_cursor_position() or `PangoLogAttr` or
-        /// pango_break() for details on what a cursor position is.
+        /// See `gtk_text_iter_forward_cursor_position()` or `PangoLogAttr` or
+        /// `pango_break()` for details on what a cursor position is.
         get {
             let rv = gtk_text_iter_is_cursor_position(cast(text_iter_ptr))
             return Bool(rv != 0)
@@ -3468,12 +3468,12 @@ public extension TextIterProtocol {
     }
 
     /// Returns `true` if `iter` is the end iterator, i.e. one past the last
-    /// dereferenceable iterator in the buffer. gtk_text_iter_is_end() is
+    /// dereferenceable iterator in the buffer. `gtk_text_iter_is_end()` is
     /// the most efficient way to check whether an iterator is the end
     /// iterator.
     var isEnd: Bool {
         /// Returns `true` if `iter` is the end iterator, i.e. one past the last
-        /// dereferenceable iterator in the buffer. gtk_text_iter_is_end() is
+        /// dereferenceable iterator in the buffer. `gtk_text_iter_is_end()` is
         /// the most efficient way to check whether an iterator is the end
         /// iterator.
         get {
@@ -3493,15 +3493,15 @@ public extension TextIterProtocol {
         }
     }
 
-    /// A convenience wrapper around gtk_text_iter_get_attributes(),
+    /// A convenience wrapper around `gtk_text_iter_get_attributes()`,
     /// which returns the language in effect at `iter`. If no tags affecting
     /// language apply to `iter`, the return value is identical to that of
-    /// gtk_get_default_language().
+    /// `gtk_get_default_language()`.
     var language: UnsafeMutablePointer<PangoLanguage>! {
-        /// A convenience wrapper around gtk_text_iter_get_attributes(),
+        /// A convenience wrapper around `gtk_text_iter_get_attributes()`,
         /// which returns the language in effect at `iter`. If no tags affecting
         /// language apply to `iter`, the return value is identical to that of
-        /// gtk_get_default_language().
+        /// `gtk_get_default_language()`.
         get {
             let rv = gtk_text_iter_get_language(cast(text_iter_ptr))
             return cast(rv)
@@ -3542,7 +3542,7 @@ public extension TextIterProtocol {
             let rv = gtk_text_iter_get_line_index(cast(text_iter_ptr))
             return CInt(rv)
         }
-        /// Same as gtk_text_iter_set_line_offset(), but works with a
+        /// Same as `gtk_text_iter_set_line_offset()`, but works with a
         /// byte index. The given byte index must be at
         /// the start of a character, it can’t be in the middle of a UTF-8
         /// encoded character.
@@ -3566,7 +3566,7 @@ public extension TextIterProtocol {
         /// (not byte) offset. The given character offset must be less than or
         /// equal to the number of characters in the line; if equal, `iter`
         /// moves to the start of the next line. See
-        /// gtk_text_iter_set_line_index() if you have a byte index rather than
+        /// `gtk_text_iter_set_line_index()` if you have a byte index rather than
         /// a character offset.
         nonmutating set {
             gtk_text_iter_set_line_offset(cast(text_iter_ptr), gint(newValue))
@@ -3593,13 +3593,13 @@ public extension TextIterProtocol {
     /// Returns the character offset of an iterator.
     /// Each character in a `GtkTextBuffer` has an offset,
     /// starting with 0 for the first character in the buffer.
-    /// Use gtk_text_buffer_get_iter_at_offset() to convert an
+    /// Use `gtk_text_buffer_get_iter_at_offset()` to convert an
     /// offset back into an iterator.
     var offset: CInt {
         /// Returns the character offset of an iterator.
         /// Each character in a `GtkTextBuffer` has an offset,
         /// starting with 0 for the first character in the buffer.
-        /// Use gtk_text_buffer_get_iter_at_offset() to convert an
+        /// Use `gtk_text_buffer_get_iter_at_offset()` to convert an
         /// offset back into an iterator.
         get {
             let rv = gtk_text_iter_get_offset(cast(text_iter_ptr))
@@ -3653,7 +3653,7 @@ public extension TextIterProtocol {
             let rv = gtk_text_iter_get_visible_line_index(cast(text_iter_ptr))
             return CInt(rv)
         }
-        /// Like gtk_text_iter_set_line_index(), but the index is in visible
+        /// Like `gtk_text_iter_set_line_index()`, but the index is in visible
         /// bytes, i.e. text with a tag making it invisible is not counted
         /// in the index.
         nonmutating set {
@@ -3674,7 +3674,7 @@ public extension TextIterProtocol {
             let rv = gtk_text_iter_get_visible_line_offset(cast(text_iter_ptr))
             return CInt(rv)
         }
-        /// Like gtk_text_iter_set_line_offset(), but the offset is in visible
+        /// Like `gtk_text_iter_set_line_offset()`, but the offset is in visible
         /// characters, i.e. text with a tag making it invisible is not
         /// counted in the offset.
         nonmutating set {
@@ -5487,7 +5487,7 @@ public extension ToggleActionClassProtocol {
 /// Alternatively, use `ToggleActionEntryRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
 /// `GtkToggleActionEntry` structs are used with
-/// gtk_action_group_add_toggle_actions() to construct toggle actions.
+/// `gtk_action_group_add_toggle_actions()` to construct toggle actions.
 public protocol ToggleActionEntryProtocol {
     /// Untyped pointer to the underlying `GtkToggleActionEntry` instance.
     var ptr: UnsafeMutableRawPointer { get }
@@ -5501,7 +5501,7 @@ public protocol ToggleActionEntryProtocol {
 /// Use `ToggleActionEntryRef` only as an `unowned` reference to an existing `GtkToggleActionEntry` instance.
 ///
 /// `GtkToggleActionEntry` structs are used with
-/// gtk_action_group_add_toggle_actions() to construct toggle actions.
+/// `gtk_action_group_add_toggle_actions()` to construct toggle actions.
 public struct ToggleActionEntryRef: ToggleActionEntryProtocol {
     /// Untyped pointer to the underlying `GtkToggleActionEntry` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -5555,7 +5555,7 @@ public extension ToggleActionEntryRef {
 /// Use `ToggleActionEntry` as a strong reference or owner of a `GtkToggleActionEntry` instance.
 ///
 /// `GtkToggleActionEntry` structs are used with
-/// gtk_action_group_add_toggle_actions() to construct toggle actions.
+/// `gtk_action_group_add_toggle_actions()` to construct toggle actions.
 open class ToggleActionEntry: ToggleActionEntryProtocol {
     /// Untyped pointer to the underlying `GtkToggleActionEntry` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -8807,13 +8807,13 @@ public extension TreeIterProtocol {
     /// This function is not intended for use in applications,
     /// because you can just copy the structs by value
     /// (`GtkTreeIter new_iter = iter;`).
-    /// You must free this iter with gtk_tree_iter_free().
+    /// You must free this iter with `gtk_tree_iter_free()`.
     func copy() -> UnsafeMutablePointer<GtkTreeIter>! {
         let rv = gtk_tree_iter_copy(cast(tree_iter_ptr))
         return cast(rv)
     }
 
-    /// Frees an iterator that has been allocated by gtk_tree_iter_copy().
+    /// Frees an iterator that has been allocated by `gtk_tree_iter_copy()`.
     /// 
     /// This function is mainly used for language bindings.
     func free() {
@@ -8822,8 +8822,8 @@ public extension TreeIterProtocol {
     }
 
     /// Lets a set of row reference created by
-    /// gtk_tree_row_reference_new_proxy() know that the
-    /// model emitted the `GtkTreeModel`::rows-reordered signal.
+    /// `gtk_tree_row_reference_new_proxy()` know that the
+    /// model emitted the `GtkTreeModel::rows`-reordered signal.
     func treeRowReferenceReordered(proxy: GLibObject.ObjectProtocol, path: TreePathProtocol, newOrder new_order: UnsafeMutablePointer<CInt>) {
         gtk_tree_row_reference_reordered(cast(proxy.ptr), cast(path.ptr), cast(tree_iter_ptr), cast(new_order))
     
@@ -9817,7 +9817,7 @@ public extension TreePathProtocol {
     /// This is an array of integers, each representing a node in a tree.
     /// This value should not be freed.
     /// 
-    /// The length of the array can be obtained with gtk_tree_path_get_depth().
+    /// The length of the array can be obtained with `gtk_tree_path_get_depth()`.
     func getIndices() -> UnsafeMutablePointer<CInt>! {
         let rv = gtk_tree_path_get_indices(cast(tree_path_ptr))
         return cast(rv)
@@ -9890,31 +9890,31 @@ public extension TreePathProtocol {
     /// get memory corruption. In the `GtkTreeDragDest` drag_data_received handler,
     /// you can assume that selection data of type `GTK_TREE_MODEL_ROW` is
     /// in from the current process. The returned path must be freed with
-    /// gtk_tree_path_free().
+    /// `gtk_tree_path_free()`.
     func treeGetRowDragData(selectionData selection_data: SelectionDataProtocol, treeModel tree_model: TreeModelProtocol) -> Bool {
         let rv = gtk_tree_get_row_drag_data(cast(selection_data.ptr), cast(tree_model.ptr), cast(tree_path_ptr))
         return Bool(rv != 0)
     }
 
     /// Lets a set of row reference created by
-    /// gtk_tree_row_reference_new_proxy() know that the
-    /// model emitted the `GtkTreeModel`::row-deleted signal.
+    /// `gtk_tree_row_reference_new_proxy()` know that the
+    /// model emitted the `GtkTreeModel::row`-deleted signal.
     func treeRowReferenceDeleted(proxy: GLibObject.ObjectProtocol) {
         gtk_tree_row_reference_deleted(cast(proxy.ptr), cast(tree_path_ptr))
     
     }
 
     /// Lets a set of row reference created by
-    /// gtk_tree_row_reference_new_proxy() know that the
-    /// model emitted the `GtkTreeModel`::row-inserted signal.
+    /// `gtk_tree_row_reference_new_proxy()` know that the
+    /// model emitted the `GtkTreeModel::row`-inserted signal.
     func treeRowReferenceInserted(proxy: GLibObject.ObjectProtocol) {
         gtk_tree_row_reference_inserted(cast(proxy.ptr), cast(tree_path_ptr))
     
     }
 
     /// Lets a set of row reference created by
-    /// gtk_tree_row_reference_new_proxy() know that the
-    /// model emitted the `GtkTreeModel`::rows-reordered signal.
+    /// `gtk_tree_row_reference_new_proxy()` know that the
+    /// model emitted the `GtkTreeModel::rows`-reordered signal.
     func treeRowReferenceReordered(proxy: GLibObject.ObjectProtocol, iter: TreeIterProtocol, newOrder new_order: UnsafeMutablePointer<CInt>) {
         gtk_tree_row_reference_reordered(cast(proxy.ptr), cast(tree_path_ptr), cast(iter.ptr), cast(new_order))
     
@@ -9940,14 +9940,14 @@ public extension TreePathProtocol {
     /// This is an array of integers, each representing a node in a tree.
     /// This value should not be freed.
     /// 
-    /// The length of the array can be obtained with gtk_tree_path_get_depth().
+    /// The length of the array can be obtained with `gtk_tree_path_get_depth()`.
     var indices: UnsafeMutablePointer<CInt>! {
         /// Returns the current indices of `path`.
         /// 
         /// This is an array of integers, each representing a node in a tree.
         /// This value should not be freed.
         /// 
-        /// The length of the array can be obtained with gtk_tree_path_get_depth().
+        /// The length of the array can be obtained with `gtk_tree_path_get_depth()`.
         get {
             let rv = gtk_tree_path_get_indices(cast(tree_path_ptr))
             return cast(rv)
@@ -9966,7 +9966,7 @@ public extension TreePathProtocol {
 ///
 /// A GtkTreeRowReference tracks model changes so that it always refers to the
 /// same row (a `GtkTreePath` refers to a position, not a fixed row). Create a
-/// new GtkTreeRowReference with gtk_tree_row_reference_new().
+/// new GtkTreeRowReference with `gtk_tree_row_reference_new()`.
 public protocol TreeRowReferenceProtocol {
     /// Untyped pointer to the underlying `GtkTreeRowReference` instance.
     var ptr: UnsafeMutableRawPointer { get }
@@ -9981,7 +9981,7 @@ public protocol TreeRowReferenceProtocol {
 ///
 /// A GtkTreeRowReference tracks model changes so that it always refers to the
 /// same row (a `GtkTreePath` refers to a position, not a fixed row). Create a
-/// new GtkTreeRowReference with gtk_tree_row_reference_new().
+/// new GtkTreeRowReference with `gtk_tree_row_reference_new()`.
 public struct TreeRowReferenceRef: TreeRowReferenceProtocol {
     /// Untyped pointer to the underlying `GtkTreeRowReference` instance.
     /// For type-safe access, use the generated, typed pointer `tree_row_reference_ptr` property instead.
@@ -10046,11 +10046,11 @@ public extension TreeRowReferenceRef {
     /// This reference will keep pointing to the node pointed to
     /// by `path`, so long as it exists. If `path` isn’t a valid
     /// path in `model`, then `nil` is returned. However, unlike
-    /// references created with gtk_tree_row_reference_new(), it
+    /// references created with `gtk_tree_row_reference_new()`, it
     /// does not listen to the model for changes. The creator of
     /// the row reference must do this explicitly using
-    /// gtk_tree_row_reference_inserted(), gtk_tree_row_reference_deleted(),
-    /// gtk_tree_row_reference_reordered().
+    /// `gtk_tree_row_reference_inserted()`, `gtk_tree_row_reference_deleted()`,
+    /// `gtk_tree_row_reference_reordered()`.
     /// 
     /// These functions must be called exactly once per proxy when the
     /// corresponding signal on the model is emitted. This single call
@@ -10074,11 +10074,11 @@ public extension TreeRowReferenceRef {
     /// This reference will keep pointing to the node pointed to
     /// by `path`, so long as it exists. If `path` isn’t a valid
     /// path in `model`, then `nil` is returned. However, unlike
-    /// references created with gtk_tree_row_reference_new(), it
+    /// references created with `gtk_tree_row_reference_new()`, it
     /// does not listen to the model for changes. The creator of
     /// the row reference must do this explicitly using
-    /// gtk_tree_row_reference_inserted(), gtk_tree_row_reference_deleted(),
-    /// gtk_tree_row_reference_reordered().
+    /// `gtk_tree_row_reference_inserted()`, `gtk_tree_row_reference_deleted()`,
+    /// `gtk_tree_row_reference_reordered()`.
     /// 
     /// These functions must be called exactly once per proxy when the
     /// corresponding signal on the model is emitted. This single call
@@ -10103,7 +10103,7 @@ public extension TreeRowReferenceRef {
 ///
 /// A GtkTreeRowReference tracks model changes so that it always refers to the
 /// same row (a `GtkTreePath` refers to a position, not a fixed row). Create a
-/// new GtkTreeRowReference with gtk_tree_row_reference_new().
+/// new GtkTreeRowReference with `gtk_tree_row_reference_new()`.
 open class TreeRowReference: TreeRowReferenceProtocol {
     /// Untyped pointer to the underlying `GtkTreeRowReference` instance.
     /// For type-safe access, use the generated, typed pointer `tree_row_reference_ptr` property instead.
@@ -10169,11 +10169,11 @@ open class TreeRowReference: TreeRowReferenceProtocol {
     /// This reference will keep pointing to the node pointed to
     /// by `path`, so long as it exists. If `path` isn’t a valid
     /// path in `model`, then `nil` is returned. However, unlike
-    /// references created with gtk_tree_row_reference_new(), it
+    /// references created with `gtk_tree_row_reference_new()`, it
     /// does not listen to the model for changes. The creator of
     /// the row reference must do this explicitly using
-    /// gtk_tree_row_reference_inserted(), gtk_tree_row_reference_deleted(),
-    /// gtk_tree_row_reference_reordered().
+    /// `gtk_tree_row_reference_inserted()`, `gtk_tree_row_reference_deleted()`,
+    /// `gtk_tree_row_reference_reordered()`.
     /// 
     /// These functions must be called exactly once per proxy when the
     /// corresponding signal on the model is emitted. This single call
@@ -10198,11 +10198,11 @@ open class TreeRowReference: TreeRowReferenceProtocol {
     /// This reference will keep pointing to the node pointed to
     /// by `path`, so long as it exists. If `path` isn’t a valid
     /// path in `model`, then `nil` is returned. However, unlike
-    /// references created with gtk_tree_row_reference_new(), it
+    /// references created with `gtk_tree_row_reference_new()`, it
     /// does not listen to the model for changes. The creator of
     /// the row reference must do this explicitly using
-    /// gtk_tree_row_reference_inserted(), gtk_tree_row_reference_deleted(),
-    /// gtk_tree_row_reference_reordered().
+    /// `gtk_tree_row_reference_inserted()`, `gtk_tree_row_reference_deleted()`,
+    /// `gtk_tree_row_reference_reordered()`.
     /// 
     /// These functions must be called exactly once per proxy when the
     /// corresponding signal on the model is emitted. This single call

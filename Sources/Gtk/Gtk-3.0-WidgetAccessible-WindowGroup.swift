@@ -233,29 +233,28 @@ public enum WidgetAccessibleSignalName: String, SignalNameProtocol {
     /// Use the #AtkObject::state-change signal instead.
     case focusEvent = "focus-event"
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
     /// The signal "property-change" is emitted when an object's property
@@ -267,9 +266,9 @@ public enum WidgetAccessibleSignalName: String, SignalNameProtocol {
     /// reinstate the previous value.
     /// 
     /// Toolkit implementor note: ATK implementors should use
-    /// g_object_notify() to emit property-changed
-    /// notifications. `AtkObject`::property-changed is needed by the
-    /// implementation of atk_add_global_event_listener() because GObject
+    /// `g_object_notify()` to emit property-changed
+    /// notifications. `AtkObject::property`-changed is needed by the
+    /// implementation of `atk_add_global_event_listener()` because GObject
     /// notify doesn't support emission hooks.
     case propertyChange = "property-change"
     /// The "state-change" signal is emitted when an object's state
@@ -375,12 +374,12 @@ public extension WidgetAccessibleProtocol {
 /// of the windowing system and allow the user to manipulate the window
 /// (resize it, move it, close it,...).
 /// 
-/// `` GtkWindow as GtkBuildable
+/// # GtkWindow as GtkBuildable
 /// 
 /// The GtkWindow implementation of the `GtkBuildable` interface supports a
 /// custom <accel-groups> element, which supports any number of <group>
 /// elements representing the `GtkAccelGroup` objects you want to add to
-/// your window (synonymous with gtk_window_add_accel_group().
+/// your window (synonymous with `gtk_window_add_accel_group()`.
 /// 
 /// It also supports the <initial-focus> element, whose name property names
 /// the widget to receive the focus when the window is mapped.
@@ -399,20 +398,19 @@ public extension WidgetAccessibleProtocol {
 /// <object class="GtkAccelGroup" id="accelgroup1"/>
 /// ```
 /// 
-/// 
 /// The GtkWindow implementation of the `GtkBuildable` interface supports
 /// setting a child as the titlebar by specifying “titlebar” as the “type”
 /// attribute of a <child> element.
 /// 
-/// `` CSS nodes
+/// # CSS nodes
 /// 
-/// ```
+/// (plain Language Example):
+/// ```plain
 /// window.background
 /// ├── decoration
 /// ├── <titlebar child>.titlebar [.default-decoration]
 /// ╰── <child>
 /// ```
-/// 
 /// 
 /// GtkWindow has a main CSS node with name window and style class .background,
 /// and a subnode with name decoration.
@@ -444,12 +442,12 @@ public protocol WindowProtocol: BinProtocol {
 /// of the windowing system and allow the user to manipulate the window
 /// (resize it, move it, close it,...).
 /// 
-/// `` GtkWindow as GtkBuildable
+/// # GtkWindow as GtkBuildable
 /// 
 /// The GtkWindow implementation of the `GtkBuildable` interface supports a
 /// custom <accel-groups> element, which supports any number of <group>
 /// elements representing the `GtkAccelGroup` objects you want to add to
-/// your window (synonymous with gtk_window_add_accel_group().
+/// your window (synonymous with `gtk_window_add_accel_group()`.
 /// 
 /// It also supports the <initial-focus> element, whose name property names
 /// the widget to receive the focus when the window is mapped.
@@ -468,20 +466,19 @@ public protocol WindowProtocol: BinProtocol {
 /// <object class="GtkAccelGroup" id="accelgroup1"/>
 /// ```
 /// 
-/// 
 /// The GtkWindow implementation of the `GtkBuildable` interface supports
 /// setting a child as the titlebar by specifying “titlebar” as the “type”
 /// attribute of a <child> element.
 /// 
-/// `` CSS nodes
+/// # CSS nodes
 /// 
-/// ```
+/// (plain Language Example):
+/// ```plain
 /// window.background
 /// ├── decoration
 /// ├── <titlebar child>.titlebar [.default-decoration]
 /// ╰── <child>
 /// ```
-/// 
 /// 
 /// GtkWindow has a main CSS node with name window and style class .background,
 /// and a subnode with name decoration.
@@ -550,18 +547,18 @@ public extension WindowRef {
     /// dialogs, though in some other toolkits dialogs are called “popups”.
     /// In GTK+, `GTK_WINDOW_POPUP` means a pop-up menu or pop-up tooltip.
     /// On X11, popup windows are not controlled by the
-    /// [window manager][gtk-X11-arch].
+    /// [window manager](#gtk-X11-arch).
     /// 
     /// If you simply want an undecorated window (no window borders), use
-    /// gtk_window_set_decorated(), don’t use `GTK_WINDOW_POPUP`.
+    /// `gtk_window_set_decorated()`, don’t use `GTK_WINDOW_POPUP`.
     /// 
-    /// All top-level windows created by gtk_window_new() are stored in
+    /// All top-level windows created by `gtk_window_new()` are stored in
     /// an internal top-level window list.  This list can be obtained from
-    /// gtk_window_list_toplevels().  Due to Gtk+ keeping a reference to
-    /// the window internally, gtk_window_new() does not return a reference
+    /// `gtk_window_list_toplevels()`.  Due to Gtk+ keeping a reference to
+    /// the window internally, `gtk_window_new()` does not return a reference
     /// to the caller.
     /// 
-    /// To delete a `GtkWindow`, call gtk_widget_destroy().
+    /// To delete a `GtkWindow`, call `gtk_widget_destroy()`.
     init( type: WindowType) {
         let rv = gtk_window_new(type)
         self.init(cast(rv))
@@ -577,12 +574,12 @@ public extension WindowRef {
 /// of the windowing system and allow the user to manipulate the window
 /// (resize it, move it, close it,...).
 /// 
-/// `` GtkWindow as GtkBuildable
+/// # GtkWindow as GtkBuildable
 /// 
 /// The GtkWindow implementation of the `GtkBuildable` interface supports a
 /// custom <accel-groups> element, which supports any number of <group>
 /// elements representing the `GtkAccelGroup` objects you want to add to
-/// your window (synonymous with gtk_window_add_accel_group().
+/// your window (synonymous with `gtk_window_add_accel_group()`.
 /// 
 /// It also supports the <initial-focus> element, whose name property names
 /// the widget to receive the focus when the window is mapped.
@@ -601,20 +598,19 @@ public extension WindowRef {
 /// <object class="GtkAccelGroup" id="accelgroup1"/>
 /// ```
 /// 
-/// 
 /// The GtkWindow implementation of the `GtkBuildable` interface supports
 /// setting a child as the titlebar by specifying “titlebar” as the “type”
 /// attribute of a <child> element.
 /// 
-/// `` CSS nodes
+/// # CSS nodes
 /// 
-/// ```
+/// (plain Language Example):
+/// ```plain
 /// window.background
 /// ├── decoration
 /// ├── <titlebar child>.titlebar [.default-decoration]
 /// ╰── <child>
 /// ```
-/// 
 /// 
 /// GtkWindow has a main CSS node with name window and style class .background,
 /// and a subnode with name decoration.
@@ -675,18 +671,18 @@ open class Window: Bin, WindowProtocol {
     /// dialogs, though in some other toolkits dialogs are called “popups”.
     /// In GTK+, `GTK_WINDOW_POPUP` means a pop-up menu or pop-up tooltip.
     /// On X11, popup windows are not controlled by the
-    /// [window manager][gtk-X11-arch].
+    /// [window manager](#gtk-X11-arch).
     /// 
     /// If you simply want an undecorated window (no window borders), use
-    /// gtk_window_set_decorated(), don’t use `GTK_WINDOW_POPUP`.
+    /// `gtk_window_set_decorated()`, don’t use `GTK_WINDOW_POPUP`.
     /// 
-    /// All top-level windows created by gtk_window_new() are stored in
+    /// All top-level windows created by `gtk_window_new()` are stored in
     /// an internal top-level window list.  This list can be obtained from
-    /// gtk_window_list_toplevels().  Due to Gtk+ keeping a reference to
-    /// the window internally, gtk_window_new() does not return a reference
+    /// `gtk_window_list_toplevels()`.  Due to Gtk+ keeping a reference to
+    /// the window internally, `gtk_window_new()` does not return a reference
     /// to the caller.
     /// 
-    /// To delete a `GtkWindow`, call gtk_widget_destroy().
+    /// To delete a `GtkWindow`, call `gtk_widget_destroy()`.
     public convenience init( type: WindowType) {
         let rv = gtk_window_new(type)
         self.init(cast(rv))
@@ -747,7 +743,7 @@ public enum WindowPropertyName: String, PropertyNameProtocol {
     /// The `GtkApplication` associated with the window.
     /// 
     /// The application will be kept alive for at least as long as it
-    /// has any windows associated with it (see g_application_hold()
+    /// has any windows associated with it (see `g_application_hold()`
     /// for a way to keep it alive without windows).
     /// 
     /// Normally, the connection between the application and the window
@@ -755,7 +751,7 @@ public enum WindowPropertyName: String, PropertyNameProtocol {
     /// remove it by setting the :application property to `nil`.
     case application = "application"
     /// The widget to which this window is attached.
-    /// See gtk_window_set_attached_to().
+    /// See `gtk_window_set_attached_to()`.
     /// 
     /// Examples of places where specifying this relation is useful are
     /// for instance a `GtkMenu` created by a `GtkComboBox`, a completion
@@ -780,7 +776,7 @@ public enum WindowPropertyName: String, PropertyNameProtocol {
     /// Widgets should not use this property.
     case doubleBuffered = "double-buffered"
     case events = "events"
-    /// Whether to expand in both directions. Setting this sets both `GtkWidget`:hexpand and `GtkWidget`:vexpand
+    /// Whether to expand in both directions. Setting this sets both `GtkWidget:hexpand` and `GtkWidget:vexpand`
     case expand = "expand"
     /// Whether the widget should grab focus when it is clicked with the mouse.
     /// 
@@ -796,7 +792,7 @@ public enum WindowPropertyName: String, PropertyNameProtocol {
     /// This property is maintained by GTK+ based on user input
     /// and should not be set by applications.
     case focusVisible = "focus-visible"
-    /// The window gravity of the window. See gtk_window_move() and `GdkGravity` for
+    /// The window gravity of the window. See `gtk_window_move()` and `GdkGravity` for
     /// more details about window gravity.
     case gravity = "gravity"
     /// How to distribute horizontal space if widget gets extra space, see `GtkAlign`
@@ -807,15 +803,15 @@ public enum WindowPropertyName: String, PropertyNameProtocol {
     /// 
     /// Note that the resize grip is only shown if the window is
     /// actually resizable and not maximized. Use
-    /// `GtkWindow`:resize-grip-visible to find out if the resize
+    /// `GtkWindow:resize`-grip-visible to find out if the resize
     /// grip is currently shown.
     ///
     /// **has-resize-grip is deprecated:**
     /// Resize grips have been removed.
     case hasResizeGrip = "has-resize-grip"
-    /// Enables or disables the emission of `GtkWidget`::query-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget`::query-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
     /// whether it will provide a tooltip or not.
     /// 
     /// Note that setting this property to `true` for the first time will change
@@ -825,9 +821,9 @@ public enum WindowPropertyName: String, PropertyNameProtocol {
     case hasTooltip = "has-tooltip"
     case hasToplevelFocus = "has-toplevel-focus"
     case heightRequest = "height-request"
-    /// Whether to expand horizontally. See gtk_widget_set_hexpand().
+    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
     case hexpand = "hexpand"
-    /// Whether to use the `GtkWidget`:hexpand property. See gtk_widget_get_hexpand_set().
+    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
     case hexpandSet = "hexpand-set"
     /// Whether the titlebar should be hidden during maximization.
     case hideTitlebarWhenMaximized = "hide-titlebar-when-maximized"
@@ -845,20 +841,20 @@ public enum WindowPropertyName: String, PropertyNameProtocol {
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// gtk_widget_set_size_request() for example.
+    /// `gtk_widget_set_size_request()` for example.
     case marginBottom = "margin-bottom"
     /// Margin on end of widget, horizontally. This property supports
     /// left-to-right and right-to-left text directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// gtk_widget_set_size_request() for example.
+    /// `gtk_widget_set_size_request()` for example.
     case marginEnd = "margin-end"
     /// Margin on left side of widget.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// gtk_widget_set_size_request() for example.
+    /// `gtk_widget_set_size_request()` for example.
     ///
     /// **margin-left is deprecated:**
     /// Use #GtkWidget:margin-start instead.
@@ -867,7 +863,7 @@ public enum WindowPropertyName: String, PropertyNameProtocol {
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// gtk_widget_set_size_request() for example.
+    /// `gtk_widget_set_size_request()` for example.
     ///
     /// **margin-right is deprecated:**
     /// Use #GtkWidget:margin-end instead.
@@ -877,13 +873,13 @@ public enum WindowPropertyName: String, PropertyNameProtocol {
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// gtk_widget_set_size_request() for example.
+    /// `gtk_widget_set_size_request()` for example.
     case marginStart = "margin-start"
     /// Margin on top side of widget.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// gtk_widget_set_size_request() for example.
+    /// `gtk_widget_set_size_request()` for example.
     case marginTop = "margin-top"
     /// Whether mnemonics are currently visible in this window.
     /// 
@@ -893,7 +889,7 @@ public enum WindowPropertyName: String, PropertyNameProtocol {
     case modal = "modal"
     case name = "name"
     case noShowAll = "no-show-all"
-    /// The requested opacity of the widget. See gtk_widget_set_opacity() for
+    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
     /// more details about window opacity.
     /// 
     /// Before 3.8 this was only available in GtkWindow
@@ -908,7 +904,7 @@ public enum WindowPropertyName: String, PropertyNameProtocol {
     case resizeGripVisible = "resize-grip-visible"
     case resizeMode = "resize-mode"
     case role = "role"
-    /// The scale factor of the widget. See gtk_widget_get_scale_factor() for
+    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
     /// more details about widget scaling.
     case scaleFactor = "scale-factor"
     case screen = "screen"
@@ -916,7 +912,7 @@ public enum WindowPropertyName: String, PropertyNameProtocol {
     case skipPagerHint = "skip-pager-hint"
     case skipTaskbarHint = "skip-taskbar-hint"
     /// The :startup-id is a write-only property for setting window's
-    /// startup notification identifier. See gtk_window_set_startup_id()
+    /// startup notification identifier. See `gtk_window_set_startup_id()`
     /// for more details.
     case startupID = "startup-id"
     /// The style of the widget, which contains information about how it will look (colors, etc).
@@ -926,30 +922,30 @@ public enum WindowPropertyName: String, PropertyNameProtocol {
     case style = "style"
     case title = "title"
     /// Sets the text of tooltip to be the given string, which is marked up
-    /// with the [Pango text markup language][PangoMarkupFormat].
-    /// Also see gtk_tooltip_set_markup().
+    /// with the [Pango text markup language](#PangoMarkupFormat).
+    /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget`:has-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget`::query-tooltip in the default signal handler.
+    /// `GtkWidget::query`-tooltip in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget`:tooltip-text and `GtkWidget`:tooltip-markup
+    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
     /// are set, the last one wins.
     case tooltipMarkup = "tooltip-markup"
     /// Sets the text of tooltip to be the given string.
     /// 
-    /// Also see gtk_tooltip_set_text().
+    /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget`:has-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget`::query-tooltip in the default signal handler.
+    /// `GtkWidget::query`-tooltip in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget`:tooltip-text and `GtkWidget`:tooltip-markup
+    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
     /// are set, the last one wins.
     case tooltipText = "tooltip-text"
-    /// The transient parent of the window. See gtk_window_set_transient_for() for
+    /// The transient parent of the window. See `gtk_window_set_transient_for()` for
     /// more details about transient windows.
     case transientFor = "transient-for"
     case type = "type"
@@ -957,9 +953,9 @@ public enum WindowPropertyName: String, PropertyNameProtocol {
     case urgencyHint = "urgency-hint"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
     case valign = "valign"
-    /// Whether to expand vertically. See gtk_widget_set_vexpand().
+    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
     case vexpand = "vexpand"
-    /// Whether to use the `GtkWidget`:vexpand property. See gtk_widget_get_vexpand_set().
+    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
     case vexpandSet = "vexpand-set"
     case visible = "visible"
     case widthRequest = "width-request"
@@ -1006,13 +1002,13 @@ public extension WindowProtocol {
 
 public enum WindowSignalName: String, SignalNameProtocol {
     case accelClosuresChanged = "accel-closures-changed"
-    /// The ::activate-default signal is a
-    /// [keybinding signal][GtkBindingSignal]
+    /// The `activate`-default signal is a
+    /// [keybinding signal](#GtkBindingSignal)
     /// which gets emitted when the user activates the default widget
     /// of `window`.
     case activateDefault = "activate-default"
-    /// The ::activate-focus signal is a
-    /// [keybinding signal][GtkBindingSignal]
+    /// The `activate`-focus signal is a
+    /// [keybinding signal](#GtkBindingSignal)
     /// which gets emitted when the user activates the currently
     /// focused widget of `window`.
     case activateFocus = "activate-focus"
@@ -1022,7 +1018,7 @@ public enum WindowSignalName: String, SignalNameProtocol {
     /// signal when the cell in the table which has focus changes.
     case activeDescendantChanged = "active-descendant-changed"
     case add = "add"
-    /// The ::button-press-event signal will be emitted when a button
+    /// The `button`-press-event signal will be emitted when a button
     /// (typically from a mouse) is pressed.
     /// 
     /// To receive this signal, the `GdkWindow` associated to the
@@ -1030,7 +1026,7 @@ public enum WindowSignalName: String, SignalNameProtocol {
     /// 
     /// This signal will be sent to the grab widget if there is one.
     case buttonPressEvent = "button-press-event"
-    /// The ::button-release-event signal will be emitted when a button
+    /// The `button`-release-event signal will be emitted when a button
     /// (typically from a mouse) is released.
     /// 
     /// To receive this signal, the `GdkWindow` associated to the
@@ -1045,22 +1041,22 @@ public enum WindowSignalName: String, SignalNameProtocol {
     /// for determining whether an accelerator can be activated.
     case canActivateAccel = "can-activate-accel"
     case checkResize = "check-resize"
-    /// The ::child-notify signal is emitted for each
-    /// [child property][child-properties]  that has
+    /// The `child`-notify signal is emitted for each
+    /// [child property](#child-properties)  that has
     /// changed on an object. The signal's detail holds the property name.
     case childNotify = "child-notify"
     /// The signal "children-changed" is emitted when a child is added or
     /// removed form an object. It supports two details: "add" and
     /// "remove"
     case childrenChanged = "children-changed"
-    /// The ::composited-changed signal is emitted when the composited
+    /// The `composited`-changed signal is emitted when the composited
     /// status of `widgets` screen changes.
-    /// See gdk_screen_is_composited().
+    /// See `gdk_screen_is_composited()`.
     ///
     /// **composited-changed is deprecated:**
     /// Use GdkScreen::composited-changed instead.
     case compositedChanged = "composited-changed"
-    /// The ::configure-event signal will be emitted when the size, position or
+    /// The `configure`-event signal will be emitted when the size, position or
     /// stacking of the `widget`'s window has changed.
     /// 
     /// To receive this signal, the `GdkWindow` associated to the widget needs
@@ -1071,9 +1067,9 @@ public enum WindowSignalName: String, SignalNameProtocol {
     /// The region/area members of the event shows what area of the redirected
     /// drawable was drawn into.
     case damageEvent = "damage-event"
-    /// The ::delete-event signal is emitted if a user requests that
+    /// The `delete`-event signal is emitted if a user requests that
     /// a toplevel window is closed. The default handler for this signal
-    /// destroys the window. Connecting gtk_widget_hide_on_delete() to
+    /// destroys the window. Connecting `gtk_widget_hide_on_delete()` to
     /// this signal will cause the window to be hidden instead, so that
     /// it can later be shown again without reconstructing it.
     case deleteEvent = "delete-event"
@@ -1083,7 +1079,7 @@ public enum WindowSignalName: String, SignalNameProtocol {
     /// 
     /// This signal is not suitable for saving widget state.
     case destroy = "destroy"
-    /// The ::destroy-event signal is emitted when a `GdkWindow` is destroyed.
+    /// The `destroy`-event signal is emitted when a `GdkWindow` is destroyed.
     /// You rarely get this signal, because most widgets disconnect themselves
     /// from their window before they destroy it, so no widget owns the
     /// window at destroy time.
@@ -1092,44 +1088,44 @@ public enum WindowSignalName: String, SignalNameProtocol {
     /// to enable the `GDK_STRUCTURE_MASK` mask. GDK will enable this mask
     /// automatically for all new windows.
     case destroyEvent = "destroy-event"
-    /// The ::direction-changed signal is emitted when the text direction
+    /// The `direction`-changed signal is emitted when the text direction
     /// of a widget changes.
     case directionChanged = "direction-changed"
-    /// The ::drag-begin signal is emitted on the drag source when a drag is
+    /// The `drag`-begin signal is emitted on the drag source when a drag is
     /// started. A typical reason to connect to this signal is to set up a
-    /// custom drag icon with e.g. gtk_drag_source_set_icon_pixbuf().
+    /// custom drag icon with e.g. `gtk_drag_source_set_icon_pixbuf()`.
     /// 
     /// Note that some widgets set up a drag icon in the default handler of
-    /// this signal, so you may have to use g_signal_connect_after() to
+    /// this signal, so you may have to use `g_signal_connect_after()` to
     /// override what the default handler did.
     case dragBegin = "drag-begin"
-    /// The ::drag-data-delete signal is emitted on the drag source when a drag
+    /// The `drag`-data-delete signal is emitted on the drag source when a drag
     /// with the action `GDK_ACTION_MOVE` is successfully completed. The signal
     /// handler is responsible for deleting the data that has been dropped. What
     /// "delete" means depends on the context of the drag operation.
     case dragDataDelete = "drag-data-delete"
-    /// The ::drag-data-get signal is emitted on the drag source when the drop
+    /// The `drag`-data-get signal is emitted on the drag source when the drop
     /// site requests the data which is dragged. It is the responsibility of
     /// the signal handler to fill `data` with the data in the format which
-    /// is indicated by `info`. See gtk_selection_data_set() and
-    /// gtk_selection_data_set_text().
+    /// is indicated by `info`. See `gtk_selection_data_set()` and
+    /// `gtk_selection_data_set_text()`.
     case dragDataGet = "drag-data-get"
-    /// The ::drag-data-received signal is emitted on the drop site when the
+    /// The `drag`-data-received signal is emitted on the drop site when the
     /// dragged data has been received. If the data was received in order to
     /// determine whether the drop will be accepted, the handler is expected
-    /// to call gdk_drag_status() and not finish the drag.
-    /// If the data was received in response to a `GtkWidget`::drag-drop signal
+    /// to call `gdk_drag_status()` and not finish the drag.
+    /// If the data was received in response to a `GtkWidget::drag`-drop signal
     /// (and this is the last target to be received), the handler for this
     /// signal is expected to process the received data and then call
-    /// gtk_drag_finish(), setting the `success` parameter depending on
+    /// `gtk_drag_finish()`, setting the `success` parameter depending on
     /// whether the data was processed successfully.
     /// 
     /// Applications must create some means to determine why the signal was emitted
-    /// and therefore whether to call gdk_drag_status() or gtk_drag_finish().
+    /// and therefore whether to call `gdk_drag_status()` or `gtk_drag_finish()`.
     /// 
     /// The handler may inspect the selected action with
-    /// gdk_drag_context_get_selected_action() before calling
-    /// gtk_drag_finish(), e.g. to implement `GDK_ACTION_ASK` as
+    /// `gdk_drag_context_get_selected_action()` before calling
+    /// `gtk_drag_finish()`, e.g. to implement `GDK_ACTION_ASK` as
     /// shown in the following example:
     /// (C Language Example):
     /// ```C
@@ -1177,58 +1173,58 @@ public enum WindowSignalName: String, SignalNameProtocol {
     /// ```
     /// 
     case dragDataReceived = "drag-data-received"
-    /// The ::drag-drop signal is emitted on the drop site when the user drops
+    /// The `drag`-drop signal is emitted on the drop site when the user drops
     /// the data onto the widget. The signal handler must determine whether
     /// the cursor position is in a drop zone or not. If it is not in a drop
     /// zone, it returns `false` and no further processing is necessary.
     /// Otherwise, the handler returns `true`. In this case, the handler must
-    /// ensure that gtk_drag_finish() is called to let the source know that
-    /// the drop is done. The call to gtk_drag_finish() can be done either
-    /// directly or in a `GtkWidget`::drag-data-received handler which gets
-    /// triggered by calling gtk_drag_get_data() to receive the data for one
+    /// ensure that `gtk_drag_finish()` is called to let the source know that
+    /// the drop is done. The call to `gtk_drag_finish()` can be done either
+    /// directly or in a `GtkWidget::drag`-data-received handler which gets
+    /// triggered by calling `gtk_drag_get_data()` to receive the data for one
     /// or more of the supported targets.
     case dragDrop = "drag-drop"
-    /// The ::drag-end signal is emitted on the drag source when a drag is
+    /// The `drag`-end signal is emitted on the drag source when a drag is
     /// finished.  A typical reason to connect to this signal is to undo
-    /// things done in `GtkWidget`::drag-begin.
+    /// things done in `GtkWidget::drag`-begin.
     case dragEnd = "drag-end"
-    /// The ::drag-failed signal is emitted on the drag source when a drag has
+    /// The `drag`-failed signal is emitted on the drag source when a drag has
     /// failed. The signal handler may hook custom code to handle a failed DnD
     /// operation based on the type of error, it returns `true` is the failure has
     /// been already handled (not showing the default "drag operation failed"
     /// animation), otherwise it returns `false`.
     case dragFailed = "drag-failed"
-    /// The ::drag-leave signal is emitted on the drop site when the cursor
+    /// The `drag`-leave signal is emitted on the drop site when the cursor
     /// leaves the widget. A typical reason to connect to this signal is to
-    /// undo things done in `GtkWidget`::drag-motion, e.g. undo highlighting
-    /// with gtk_drag_unhighlight().
+    /// undo things done in `GtkWidget::drag`-motion, e.g. undo highlighting
+    /// with `gtk_drag_unhighlight()`.
     /// 
     /// 
-    /// Likewise, the `GtkWidget`::drag-leave signal is also emitted before the
-    /// ::drag-drop signal, for instance to allow cleaning up of a preview item
-    /// created in the `GtkWidget`::drag-motion signal handler.
+    /// Likewise, the `GtkWidget::drag`-leave signal is also emitted before the
+    /// `drag`-drop signal, for instance to allow cleaning up of a preview item
+    /// created in the `GtkWidget::drag`-motion signal handler.
     case dragLeave = "drag-leave"
-    /// The ::drag-motion signal is emitted on the drop site when the user
+    /// The `drag`-motion signal is emitted on the drop site when the user
     /// moves the cursor over the widget during a drag. The signal handler
     /// must determine whether the cursor position is in a drop zone or not.
     /// If it is not in a drop zone, it returns `false` and no further processing
     /// is necessary. Otherwise, the handler returns `true`. In this case, the
     /// handler is responsible for providing the necessary information for
-    /// displaying feedback to the user, by calling gdk_drag_status().
+    /// displaying feedback to the user, by calling `gdk_drag_status()`.
     /// 
     /// If the decision whether the drop will be accepted or rejected can't be
     /// made based solely on the cursor position and the type of the data, the
-    /// handler may inspect the dragged data by calling gtk_drag_get_data() and
-    /// defer the gdk_drag_status() call to the `GtkWidget`::drag-data-received
+    /// handler may inspect the dragged data by calling `gtk_drag_get_data()` and
+    /// defer the `gdk_drag_status()` call to the `GtkWidget::drag`-data-received
     /// handler. Note that you must pass `GTK_DEST_DEFAULT_DROP`,
-    /// `GTK_DEST_DEFAULT_MOTION` or `GTK_DEST_DEFAULT_ALL` to gtk_drag_dest_set()
+    /// `GTK_DEST_DEFAULT_MOTION` or `GTK_DEST_DEFAULT_ALL` to `gtk_drag_dest_set()`
     /// when using the drag-motion signal that way.
     /// 
     /// Also note that there is no drag-enter signal. The drag receiver has to
     /// keep track of whether he has received any drag-motion signals since the
-    /// last `GtkWidget`::drag-leave and if not, treat the drag-motion signal as
+    /// last `GtkWidget::drag`-leave and if not, treat the drag-motion signal as
     /// an "enter" signal. Upon an "enter", the handler will typically highlight
-    /// the drop site with gtk_drag_highlight().
+    /// the drop site with `gtk_drag_highlight()`.
     /// (C Language Example):
     /// ```C
     /// static void
@@ -1300,22 +1296,22 @@ public enum WindowSignalName: String, SignalNameProtocol {
     /// This signal is emitted when a widget is supposed to render itself.
     /// The `widget`'s top left corner must be painted at the origin of
     /// the passed in context and be sized to the values returned by
-    /// gtk_widget_get_allocated_width() and
-    /// gtk_widget_get_allocated_height().
+    /// `gtk_widget_get_allocated_width()` and
+    /// `gtk_widget_get_allocated_height()`.
     /// 
     /// Signal handlers connected to this signal can modify the cairo
     /// context passed as `cr` in any way they like and don't need to
-    /// restore it. The signal emission takes care of calling cairo_save()
-    /// before and cairo_restore() after invoking the handler.
+    /// restore it. The signal emission takes care of calling `cairo_save()`
+    /// before and `cairo_restore()` after invoking the handler.
     /// 
     /// The signal handler will get a `cr` with a clip region already set to the
     /// widget's dirty region, i.e. to the area that needs repainting.  Complicated
     /// widgets that want to avoid redrawing themselves completely can get the full
-    /// extents of the clip region with gdk_cairo_get_clip_rectangle(), or they can
+    /// extents of the clip region with `gdk_cairo_get_clip_rectangle()`, or they can
     /// get a finer-grained representation of the dirty region with
-    /// cairo_copy_clip_rectangle_list().
+    /// `cairo_copy_clip_rectangle_list()`.
     case draw = "draw"
-    /// The ::enable-debugging signal is a [keybinding signal][GtkBindingSignal]
+    /// The `enable`-debugging signal is a [keybinding signal](#GtkBindingSignal)
     /// which gets emitted when the user enables or disables interactive
     /// debugging. When `toggle` is `true`, interactive debugging is toggled
     /// on or off, when it is `false`, the debugger will be pointed at the
@@ -1324,7 +1320,7 @@ public enum WindowSignalName: String, SignalNameProtocol {
     /// The default bindings for this signal are Ctrl-Shift-I
     /// and Ctrl-Shift-D.
     case enableDebugging = "enable-debugging"
-    /// The ::enter-notify-event will be emitted when the pointer enters
+    /// The `enter`-notify-event will be emitted when the pointer enters
     /// the `widget`'s window.
     /// 
     /// To receive this signal, the `GdkWindow` associated to the widget needs
@@ -1333,13 +1329,13 @@ public enum WindowSignalName: String, SignalNameProtocol {
     /// This signal will be sent to the grab widget if there is one.
     case enterNotifyEvent = "enter-notify-event"
     /// The GTK+ main loop will emit three signals for each GDK event delivered
-    /// to a widget: one generic ::event signal, another, more specific,
+    /// to a widget: one generic `event` signal, another, more specific,
     /// signal that matches the type of event delivered (e.g.
-    /// `GtkWidget`::key-press-event) and finally a generic
-    /// `GtkWidget`::event-after signal.
+    /// `GtkWidget::key`-press-event) and finally a generic
+    /// `GtkWidget::event`-after signal.
     case event = "event"
-    /// After the emission of the `GtkWidget`::event signal and (optionally)
-    /// the second more specific signal, ::event-after will be emitted
+    /// After the emission of the `GtkWidget::event` signal and (optionally)
+    /// the second more specific signal, `event`-after will be emitted
     /// regardless of the previous two signals handlers return values.
     case eventAfter = "event-after"
     case focus = "focus"
@@ -1349,13 +1345,13 @@ public enum WindowSignalName: String, SignalNameProtocol {
     /// **focus-event is deprecated:**
     /// Use the #AtkObject::state-change signal instead.
     case focusEvent = "focus-event"
-    /// The ::focus-in-event signal will be emitted when the keyboard focus
+    /// The `focus`-in-event signal will be emitted when the keyboard focus
     /// enters the `widget`'s window.
     /// 
     /// To receive this signal, the `GdkWindow` associated to the widget needs
     /// to enable the `GDK_FOCUS_CHANGE_MASK` mask.
     case focusInEvent = "focus-in-event"
-    /// The ::focus-out-event signal will be emitted when the keyboard focus
+    /// The `focus`-out-event signal will be emitted when the keyboard focus
     /// leaves the `widget`'s window.
     /// 
     /// To receive this signal, the `GdkWindow` associated to the widget needs
@@ -1369,25 +1365,25 @@ public enum WindowSignalName: String, SignalNameProtocol {
     /// application grabs the pointer or keyboard again.
     case grabBrokenEvent = "grab-broken-event"
     case grabFocus = "grab-focus"
-    /// The ::grab-notify signal is emitted when a widget becomes
+    /// The `grab`-notify signal is emitted when a widget becomes
     /// shadowed by a GTK+ grab (not a pointer or keyboard grab) on
     /// another widget, or when it becomes unshadowed due to a grab
     /// being removed.
     /// 
-    /// A widget is shadowed by a gtk_grab_add() when the topmost
+    /// A widget is shadowed by a `gtk_grab_add()` when the topmost
     /// grab widget in the grab stack of its window group is not
     /// its ancestor.
     case grabNotify = "grab-notify"
-    /// The ::hide signal is emitted when `widget` is hidden, for example with
-    /// gtk_widget_hide().
+    /// The `hide` signal is emitted when `widget` is hidden, for example with
+    /// `gtk_widget_hide()`.
     case hide = "hide"
-    /// The ::hierarchy-changed signal is emitted when the
+    /// The `hierarchy`-changed signal is emitted when the
     /// anchored state of a widget changes. A widget is
     /// “anchored” when its toplevel
     /// ancestor is a `GtkWindow`. This signal is emitted when
     /// a widget changes from un-anchored to anchored or vice-versa.
     case hierarchyChanged = "hierarchy-changed"
-    /// The ::key-press-event signal is emitted when a key is pressed. The signal
+    /// The `key`-press-event signal is emitted when a key is pressed. The signal
     /// emission will reoccur at the key-repeat rate when the key is kept pressed.
     /// 
     /// To receive this signal, the `GdkWindow` associated to the widget needs
@@ -1395,7 +1391,7 @@ public enum WindowSignalName: String, SignalNameProtocol {
     /// 
     /// This signal will be sent to the grab widget if there is one.
     case keyPressEvent = "key-press-event"
-    /// The ::key-release-event signal is emitted when a key is released.
+    /// The `key`-release-event signal is emitted when a key is released.
     /// 
     /// To receive this signal, the `GdkWindow` associated to the widget needs
     /// to enable the `GDK_KEY_RELEASE_MASK` mask.
@@ -1403,12 +1399,12 @@ public enum WindowSignalName: String, SignalNameProtocol {
     /// This signal will be sent to the grab widget if there is one.
     case keyReleaseEvent = "key-release-event"
     /// Gets emitted if keyboard navigation fails.
-    /// See gtk_widget_keynav_failed() for details.
+    /// See `gtk_widget_keynav_failed()` for details.
     case keynavFailed = "keynav-failed"
-    /// The ::keys-changed signal gets emitted when the set of accelerators
+    /// The `keys`-changed signal gets emitted when the set of accelerators
     /// or mnemonics that are associated with `window` changes.
     case keysChanged = "keys-changed"
-    /// The ::leave-notify-event will be emitted when the pointer leaves
+    /// The `leave`-notify-event will be emitted when the pointer leaves
     /// the `widget`'s window.
     /// 
     /// To receive this signal, the `GdkWindow` associated to the widget needs
@@ -1416,17 +1412,17 @@ public enum WindowSignalName: String, SignalNameProtocol {
     /// 
     /// This signal will be sent to the grab widget if there is one.
     case leaveNotifyEvent = "leave-notify-event"
-    /// The ::map signal is emitted when `widget` is going to be mapped, that is
+    /// The `map` signal is emitted when `widget` is going to be mapped, that is
     /// when the widget is visible (which is controlled with
-    /// gtk_widget_set_visible()) and all its parents up to the toplevel widget
-    /// are also visible. Once the map has occurred, `GtkWidget`::map-event will
+    /// `gtk_widget_set_visible()`) and all its parents up to the toplevel widget
+    /// are also visible. Once the map has occurred, `GtkWidget::map`-event will
     /// be emitted.
     /// 
-    /// The ::map signal can be used to determine whether a widget will be drawn,
+    /// The `map` signal can be used to determine whether a widget will be drawn,
     /// for instance it can resume an animation that was stopped during the
-    /// emission of `GtkWidget`::unmap.
+    /// emission of `GtkWidget::unmap`.
     case map = "map"
-    /// The ::map-event signal will be emitted when the `widget`'s window is
+    /// The `map`-event signal will be emitted when the `widget`'s window is
     /// mapped. A window is mapped when it becomes visible on the screen.
     /// 
     /// To receive this signal, the `GdkWindow` associated to the widget needs
@@ -1436,7 +1432,7 @@ public enum WindowSignalName: String, SignalNameProtocol {
     /// The default handler for this signal activates `widget` if `group_cycling`
     /// is `false`, or just makes `widget` grab focus if `group_cycling` is `true`.
     case mnemonicActivate = "mnemonic-activate"
-    /// The ::motion-notify-event signal is emitted when the pointer moves
+    /// The `motion`-notify-event signal is emitted when the pointer moves
     /// over the widget's `GdkWindow`.
     /// 
     /// To receive this signal, the `GdkWindow` associated to the widget
@@ -1446,32 +1442,31 @@ public enum WindowSignalName: String, SignalNameProtocol {
     case motionNotifyEvent = "motion-notify-event"
     case moveFocus = "move-focus"
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// The ::parent-set signal is emitted when a new parent
+    /// The `parent`-set signal is emitted when a new parent
     /// has been set on a widget.
     case parentSet = "parent-set"
     /// This signal gets emitted whenever a widget should pop up a context
@@ -1479,7 +1474,7 @@ public enum WindowSignalName: String, SignalNameProtocol {
     /// by pressing a certain key while a widget is focused, the user can cause
     /// the widget to pop up a menu.  For example, the `GtkEntry` widget creates
     /// a menu with clipboard commands. See the
-    /// [Popup Menu Migration Checklist][checklist-popup-menu]
+    /// [Popup Menu Migration Checklist](#checklist-popup-menu)
     /// for an example of how to use this signal.
     case popupMenu = "popup-menu"
     /// The signal "property-change" is emitted when an object's property
@@ -1491,12 +1486,12 @@ public enum WindowSignalName: String, SignalNameProtocol {
     /// reinstate the previous value.
     /// 
     /// Toolkit implementor note: ATK implementors should use
-    /// g_object_notify() to emit property-changed
-    /// notifications. `AtkObject`::property-changed is needed by the
-    /// implementation of atk_add_global_event_listener() because GObject
+    /// `g_object_notify()` to emit property-changed
+    /// notifications. `AtkObject::property`-changed is needed by the
+    /// implementation of `atk_add_global_event_listener()` because GObject
     /// notify doesn't support emission hooks.
     case propertyChange = "property-change"
-    /// The ::property-notify-event signal will be emitted when a property on
+    /// The `property`-notify-event signal will be emitted when a property on
     /// the `widget`'s window has been changed or deleted.
     /// 
     /// To receive this signal, the `GdkWindow` associated to the widget needs
@@ -1512,7 +1507,7 @@ public enum WindowSignalName: String, SignalNameProtocol {
     /// 
     /// This signal will be sent to the grab widget if there is one.
     case proximityOutEvent = "proximity-out-event"
-    /// Emitted when `GtkWidget`:has-tooltip is `true` and the hover timeout
+    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
     /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
     /// focus in keyboard mode.
     /// 
@@ -1525,15 +1520,15 @@ public enum WindowSignalName: String, SignalNameProtocol {
     /// The signal handler is free to manipulate `tooltip` with the therefore
     /// destined function calls.
     case queryTooltip = "query-tooltip"
-    /// The ::realize signal is emitted when `widget` is associated with a
-    /// `GdkWindow`, which means that gtk_widget_realize() has been called or the
+    /// The `realize` signal is emitted when `widget` is associated with a
+    /// `GdkWindow`, which means that `gtk_widget_realize()` has been called or the
     /// widget has been mapped (that is, it is going to be drawn).
     case realize = "realize"
     case remove = "remove"
-    /// The ::screen-changed signal gets emitted when the
+    /// The `screen`-changed signal gets emitted when the
     /// screen of a widget has changed.
     case screenChanged = "screen-changed"
-    /// The ::scroll-event signal is emitted when a button in the 4 to 7
+    /// The `scroll`-event signal is emitted when a button in the 4 to 7
     /// range is pressed. Wheel mice are usually configured to generate
     /// button press events for buttons 4 and 5 when the wheel is turned.
     /// 
@@ -1542,20 +1537,20 @@ public enum WindowSignalName: String, SignalNameProtocol {
     /// 
     /// This signal will be sent to the grab widget if there is one.
     case scrollEvent = "scroll-event"
-    /// The ::selection-clear-event signal will be emitted when the
+    /// The `selection`-clear-event signal will be emitted when the
     /// the `widget`'s window has lost ownership of a selection.
     case selectionClearEvent = "selection-clear-event"
     case selectionGet = "selection-get"
     case selectionNotifyEvent = "selection-notify-event"
     case selectionReceived = "selection-received"
-    /// The ::selection-request-event signal will be emitted when
+    /// The `selection`-request-event signal will be emitted when
     /// another client requests ownership of the selection owned by
     /// the `widget`'s window.
     case selectionRequestEvent = "selection-request-event"
     case setFocus = "set-focus"
     case setFocusChild = "set-focus-child"
-    /// The ::show signal is emitted when `widget` is shown, for example with
-    /// gtk_widget_show().
+    /// The `show` signal is emitted when `widget` is shown, for example with
+    /// `gtk_widget_show()`.
     case show = "show"
     case showHelp = "show-help"
     case sizeAllocate = "size-allocate"
@@ -1563,54 +1558,54 @@ public enum WindowSignalName: String, SignalNameProtocol {
     /// changes.  The detail value identifies the state type which has
     /// changed.
     case stateChange = "state-change"
-    /// The ::state-changed signal is emitted when the widget state changes.
-    /// See gtk_widget_get_state().
+    /// The `state`-changed signal is emitted when the widget state changes.
+    /// See `gtk_widget_get_state()`.
     ///
     /// **state-changed is deprecated:**
     /// Use #GtkWidget::state-flags-changed instead.
     case stateChanged = "state-changed"
-    /// The ::state-flags-changed signal is emitted when the widget state
-    /// changes, see gtk_widget_get_state_flags().
+    /// The `state`-flags-changed signal is emitted when the widget state
+    /// changes, see `gtk_widget_get_state_flags()`.
     case stateFlagsChanged = "state-flags-changed"
-    /// The ::style-set signal is emitted when a new style has been set
+    /// The `style`-set signal is emitted when a new style has been set
     /// on a widget. Note that style-modifying functions like
-    /// gtk_widget_modify_base() also cause this signal to be emitted.
+    /// `gtk_widget_modify_base()` also cause this signal to be emitted.
     /// 
     /// Note that this signal is emitted for changes to the deprecated
     /// `GtkStyle`. To track changes to the `GtkStyleContext` associated
-    /// with a widget, use the `GtkWidget`::style-updated signal.
+    /// with a widget, use the `GtkWidget::style`-updated signal.
     ///
     /// **style-set is deprecated:**
     /// Use the #GtkWidget::style-updated signal
     case styleSet = "style-set"
-    /// The ::style-updated signal is a convenience signal that is emitted when the
-    /// `GtkStyleContext`::changed signal is emitted on the `widget`'s associated
-    /// `GtkStyleContext` as returned by gtk_widget_get_style_context().
+    /// The `style`-updated signal is a convenience signal that is emitted when the
+    /// `GtkStyleContext::changed` signal is emitted on the `widget`'s associated
+    /// `GtkStyleContext` as returned by `gtk_widget_get_style_context()`.
     /// 
-    /// Note that style-modifying functions like gtk_widget_override_color() also
+    /// Note that style-modifying functions like `gtk_widget_override_color()` also
     /// cause this signal to be emitted.
     case styleUpdated = "style-updated"
     case touchEvent = "touch-event"
-    /// The ::unmap signal is emitted when `widget` is going to be unmapped, which
+    /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
     /// means that either it or any of its parents up to the toplevel widget have
     /// been set as hidden.
     /// 
-    /// As ::unmap indicates that a widget will not be shown any longer, it can be
+    /// As `unmap` indicates that a widget will not be shown any longer, it can be
     /// used to, for example, stop an animation on the widget.
     case unmap = "unmap"
-    /// The ::unmap-event signal will be emitted when the `widget`'s window is
+    /// The `unmap`-event signal will be emitted when the `widget`'s window is
     /// unmapped. A window is unmapped when it becomes invisible on the screen.
     /// 
     /// To receive this signal, the `GdkWindow` associated to the widget needs
     /// to enable the `GDK_STRUCTURE_MASK` mask. GDK will enable this mask
     /// automatically for all new windows.
     case unmapEvent = "unmap-event"
-    /// The ::unrealize signal is emitted when the `GdkWindow` associated with
-    /// `widget` is destroyed, which means that gtk_widget_unrealize() has been
+    /// The `unrealize` signal is emitted when the `GdkWindow` associated with
+    /// `widget` is destroyed, which means that `gtk_widget_unrealize()` has been
     /// called or the widget has been unmapped (that is, it is going to be
     /// hidden).
     case unrealize = "unrealize"
-    /// The ::visibility-notify-event will be emitted when the `widget`'s
+    /// The `visibility`-notify-event will be emitted when the `widget`'s
     /// window is obscured or unobscured.
     /// 
     /// To receive this signal the `GdkWindow` associated to the widget needs
@@ -1625,7 +1620,7 @@ public enum WindowSignalName: String, SignalNameProtocol {
     /// The "visible-data-changed" signal is emitted when the visual
     /// appearance of the object changed.
     case visibleDataChanged = "visible-data-changed"
-    /// The ::window-state-event will be emitted when the state of the
+    /// The `window`-state-event will be emitted when the state of the
     /// toplevel window associated to the `widget` changes.
     /// 
     /// To receive this signal the `GdkWindow` associated to the widget
@@ -1683,7 +1678,7 @@ public enum WindowSignalName: String, SignalNameProtocol {
     /// The `GtkApplication` associated with the window.
     /// 
     /// The application will be kept alive for at least as long as it
-    /// has any windows associated with it (see g_application_hold()
+    /// has any windows associated with it (see `g_application_hold()`
     /// for a way to keep it alive without windows).
     /// 
     /// Normally, the connection between the application and the window
@@ -1691,7 +1686,7 @@ public enum WindowSignalName: String, SignalNameProtocol {
     /// remove it by setting the :application property to `nil`.
     case notifyApplication = "notify::application"
     /// The widget to which this window is attached.
-    /// See gtk_window_set_attached_to().
+    /// See `gtk_window_set_attached_to()`.
     /// 
     /// Examples of places where specifying this relation is useful are
     /// for instance a `GtkMenu` created by a `GtkComboBox`, a completion
@@ -1716,7 +1711,7 @@ public enum WindowSignalName: String, SignalNameProtocol {
     /// Widgets should not use this property.
     case notifyDoubleBuffered = "notify::double-buffered"
     case notifyEvents = "notify::events"
-    /// Whether to expand in both directions. Setting this sets both `GtkWidget`:hexpand and `GtkWidget`:vexpand
+    /// Whether to expand in both directions. Setting this sets both `GtkWidget:hexpand` and `GtkWidget:vexpand`
     case notifyExpand = "notify::expand"
     /// Whether the widget should grab focus when it is clicked with the mouse.
     /// 
@@ -1732,7 +1727,7 @@ public enum WindowSignalName: String, SignalNameProtocol {
     /// This property is maintained by GTK+ based on user input
     /// and should not be set by applications.
     case notifyFocusVisible = "notify::focus-visible"
-    /// The window gravity of the window. See gtk_window_move() and `GdkGravity` for
+    /// The window gravity of the window. See `gtk_window_move()` and `GdkGravity` for
     /// more details about window gravity.
     case notifyGravity = "notify::gravity"
     /// How to distribute horizontal space if widget gets extra space, see `GtkAlign`
@@ -1743,15 +1738,15 @@ public enum WindowSignalName: String, SignalNameProtocol {
     /// 
     /// Note that the resize grip is only shown if the window is
     /// actually resizable and not maximized. Use
-    /// `GtkWindow`:resize-grip-visible to find out if the resize
+    /// `GtkWindow:resize`-grip-visible to find out if the resize
     /// grip is currently shown.
     ///
     /// **has-resize-grip is deprecated:**
     /// Resize grips have been removed.
     case notifyHasResizeGrip = "notify::has-resize-grip"
-    /// Enables or disables the emission of `GtkWidget`::query-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget`::query-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
     /// whether it will provide a tooltip or not.
     /// 
     /// Note that setting this property to `true` for the first time will change
@@ -1761,9 +1756,9 @@ public enum WindowSignalName: String, SignalNameProtocol {
     case notifyHasTooltip = "notify::has-tooltip"
     case notifyHasToplevelFocus = "notify::has-toplevel-focus"
     case notifyHeightRequest = "notify::height-request"
-    /// Whether to expand horizontally. See gtk_widget_set_hexpand().
+    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
     case notifyHexpand = "notify::hexpand"
-    /// Whether to use the `GtkWidget`:hexpand property. See gtk_widget_get_hexpand_set().
+    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
     case notifyHexpandSet = "notify::hexpand-set"
     /// Whether the titlebar should be hidden during maximization.
     case notifyHideTitlebarWhenMaximized = "notify::hide-titlebar-when-maximized"
@@ -1781,20 +1776,20 @@ public enum WindowSignalName: String, SignalNameProtocol {
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// gtk_widget_set_size_request() for example.
+    /// `gtk_widget_set_size_request()` for example.
     case notifyMarginBottom = "notify::margin-bottom"
     /// Margin on end of widget, horizontally. This property supports
     /// left-to-right and right-to-left text directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// gtk_widget_set_size_request() for example.
+    /// `gtk_widget_set_size_request()` for example.
     case notifyMarginEnd = "notify::margin-end"
     /// Margin on left side of widget.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// gtk_widget_set_size_request() for example.
+    /// `gtk_widget_set_size_request()` for example.
     ///
     /// **margin-left is deprecated:**
     /// Use #GtkWidget:margin-start instead.
@@ -1803,7 +1798,7 @@ public enum WindowSignalName: String, SignalNameProtocol {
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// gtk_widget_set_size_request() for example.
+    /// `gtk_widget_set_size_request()` for example.
     ///
     /// **margin-right is deprecated:**
     /// Use #GtkWidget:margin-end instead.
@@ -1813,13 +1808,13 @@ public enum WindowSignalName: String, SignalNameProtocol {
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// gtk_widget_set_size_request() for example.
+    /// `gtk_widget_set_size_request()` for example.
     case notifyMarginStart = "notify::margin-start"
     /// Margin on top side of widget.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// gtk_widget_set_size_request() for example.
+    /// `gtk_widget_set_size_request()` for example.
     case notifyMarginTop = "notify::margin-top"
     /// Whether mnemonics are currently visible in this window.
     /// 
@@ -1829,7 +1824,7 @@ public enum WindowSignalName: String, SignalNameProtocol {
     case notifyModal = "notify::modal"
     case notifyName = "notify::name"
     case notifyNoShowAll = "notify::no-show-all"
-    /// The requested opacity of the widget. See gtk_widget_set_opacity() for
+    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
     /// more details about window opacity.
     /// 
     /// Before 3.8 this was only available in GtkWindow
@@ -1844,7 +1839,7 @@ public enum WindowSignalName: String, SignalNameProtocol {
     case notifyResizeGripVisible = "notify::resize-grip-visible"
     case notifyResizeMode = "notify::resize-mode"
     case notifyRole = "notify::role"
-    /// The scale factor of the widget. See gtk_widget_get_scale_factor() for
+    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
     /// more details about widget scaling.
     case notifyScaleFactor = "notify::scale-factor"
     case notifyScreen = "notify::screen"
@@ -1852,7 +1847,7 @@ public enum WindowSignalName: String, SignalNameProtocol {
     case notifySkipPagerHint = "notify::skip-pager-hint"
     case notifySkipTaskbarHint = "notify::skip-taskbar-hint"
     /// The :startup-id is a write-only property for setting window's
-    /// startup notification identifier. See gtk_window_set_startup_id()
+    /// startup notification identifier. See `gtk_window_set_startup_id()`
     /// for more details.
     case notifyStartupID = "notify::startup-id"
     /// The style of the widget, which contains information about how it will look (colors, etc).
@@ -1862,30 +1857,30 @@ public enum WindowSignalName: String, SignalNameProtocol {
     case notifyStyle = "notify::style"
     case notifyTitle = "notify::title"
     /// Sets the text of tooltip to be the given string, which is marked up
-    /// with the [Pango text markup language][PangoMarkupFormat].
-    /// Also see gtk_tooltip_set_markup().
+    /// with the [Pango text markup language](#PangoMarkupFormat).
+    /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget`:has-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget`::query-tooltip in the default signal handler.
+    /// `GtkWidget::query`-tooltip in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget`:tooltip-text and `GtkWidget`:tooltip-markup
+    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
     /// are set, the last one wins.
     case notifyTooltipMarkup = "notify::tooltip-markup"
     /// Sets the text of tooltip to be the given string.
     /// 
-    /// Also see gtk_tooltip_set_text().
+    /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget`:has-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget`::query-tooltip in the default signal handler.
+    /// `GtkWidget::query`-tooltip in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget`:tooltip-text and `GtkWidget`:tooltip-markup
+    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
     /// are set, the last one wins.
     case notifyTooltipText = "notify::tooltip-text"
-    /// The transient parent of the window. See gtk_window_set_transient_for() for
+    /// The transient parent of the window. See `gtk_window_set_transient_for()` for
     /// more details about transient windows.
     case notifyTransientFor = "notify::transient-for"
     case notifyType_ = "notify::type"
@@ -1893,9 +1888,9 @@ public enum WindowSignalName: String, SignalNameProtocol {
     case notifyUrgencyHint = "notify::urgency-hint"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
     case notifyValign = "notify::valign"
-    /// Whether to expand vertically. See gtk_widget_set_vexpand().
+    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
     case notifyVexpand = "notify::vexpand"
-    /// Whether to use the `GtkWidget`:vexpand property. See gtk_widget_get_vexpand_set().
+    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
     case notifyVexpandSet = "notify::vexpand-set"
     case notifyVisible = "notify::visible"
     case notifyWidthRequest = "notify::width-request"
@@ -1938,7 +1933,7 @@ public extension WindowProtocol {
 
     /// Activates the default widget for the window, unless the current
     /// focused widget has been configured to receive the default action
-    /// (see gtk_widget_set_receives_default()), in which case the
+    /// (see `gtk_widget_set_receives_default()`), in which case the
     /// focused widget is activated.
     func activateDefault() -> Bool {
         let rv = gtk_window_activate_default(cast(window_ptr))
@@ -1952,7 +1947,7 @@ public extension WindowProtocol {
     }
 
     /// Activates mnemonics and accelerators for this `GtkWindow`. This is normally
-    /// called by the default ::key_press_event handler for toplevel windows,
+    /// called by the default `key_press_event` handler for toplevel windows,
     /// however in some cases it may be useful to call this directly when
     /// overriding the standard key handling for a toplevel window.
     func activateKey(event: EventKeyProtocol) -> Bool {
@@ -1961,7 +1956,7 @@ public extension WindowProtocol {
     }
 
     /// Associate `accel_group` with `window`, such that calling
-    /// gtk_accel_groups_activate() on `window` will activate accelerators
+    /// `gtk_accel_groups_activate()` on `window` will activate accelerators
     /// in `accel_group`.
     func add(accelGroup accel_group: AccelGroupProtocol) {
         gtk_window_add_accel_group(cast(window_ptr), cast(accel_group.ptr))
@@ -1977,7 +1972,7 @@ public extension WindowProtocol {
     /// Starts moving a window. This function is used if an application has
     /// window movement grips. When GDK can support it, the window movement
     /// will be done using the standard mechanism for the
-    /// [window manager][gtk-X11-arch] or windowing
+    /// [window manager](#gtk-X11-arch) or windowing
     /// system. Otherwise, GDK will try to emulate window movement,
     /// potentially not all that well, depending on the windowing system.
     func beginMoveDrag(button: CInt, rootX root_x: CInt, rootY root_y: CInt, timestamp: UInt32) {
@@ -1988,7 +1983,7 @@ public extension WindowProtocol {
     /// Starts resizing a window. This function is used if an application
     /// has window resizing controls. When GDK can support it, the resize
     /// will be done using the standard mechanism for the
-    /// [window manager][gtk-X11-arch] or windowing
+    /// [window manager](#gtk-X11-arch) or windowing
     /// system. Otherwise, GDK will try to emulate window resizing,
     /// potentially not all that well, depending on the windowing system.
     func beginResizeDrag(edge: Gdk.WindowEdge, button: CInt, rootX root_x: CInt, rootY root_y: CInt, timestamp: UInt32) {
@@ -2009,7 +2004,7 @@ public extension WindowProtocol {
     /// Asks to deiconify (i.e. unminimize) the specified `window`. Note
     /// that you shouldn’t assume the window is definitely deiconified
     /// afterward, because other entities (e.g. the user or
-    /// [window manager][gtk-X11-arch])) could iconify it
+    /// [window manager](#gtk-X11-arch))) could iconify it
     /// again before your code which assumes deiconification gets to run.
     /// 
     /// You can track iconification via the “window-state-event” signal
@@ -2022,7 +2017,7 @@ public extension WindowProtocol {
     /// Asks to place `window` in the fullscreen state. Note that you
     /// shouldn’t assume the window is definitely full screen afterward,
     /// because other entities (e.g. the user or
-    /// [window manager][gtk-X11-arch]) could unfullscreen it
+    /// [window manager](#gtk-X11-arch)) could unfullscreen it
     /// again, and not all window managers honor requests to fullscreen
     /// windows. But normally the window will end up fullscreen. Just
     /// don’t write code that crashes if not.
@@ -2044,7 +2039,7 @@ public extension WindowProtocol {
     
     }
 
-    /// Gets the value set by gtk_window_set_accept_focus().
+    /// Gets the value set by `gtk_window_set_accept_focus()`.
     func getAcceptFocus() -> Bool {
         let rv = gtk_window_get_accept_focus(cast(window_ptr))
         return Bool(rv != 0)
@@ -2057,14 +2052,14 @@ public extension WindowProtocol {
     }
 
     /// Fetches the attach widget for this window. See
-    /// gtk_window_set_attached_to().
+    /// `gtk_window_set_attached_to()`.
     func getAttachedTo() -> UnsafeMutablePointer<GtkWidget>! {
         let rv = gtk_window_get_attached_to(cast(window_ptr))
         return cast(rv)
     }
 
     /// Returns whether the window has been set to have decorations
-    /// such as a title bar via gtk_window_set_decorated().
+    /// such as a title bar via `gtk_window_set_decorated()`.
     func getDecorated() -> Bool {
         let rv = gtk_window_get_decorated(cast(window_ptr))
         return Bool(rv != 0)
@@ -2080,14 +2075,14 @@ public extension WindowProtocol {
     }
 
     /// Returns the default widget for `window`. See
-    /// gtk_window_set_default() for more details.
+    /// `gtk_window_set_default()` for more details.
     func getDefaultWidget() -> UnsafeMutablePointer<GtkWidget>! {
         let rv = gtk_window_get_default_widget(cast(window_ptr))
         return cast(rv)
     }
 
     /// Returns whether the window has been set to have a close button
-    /// via gtk_window_set_deletable().
+    /// via `gtk_window_set_deletable()`.
     func getDeletable() -> Bool {
         let rv = gtk_window_get_deletable(cast(window_ptr))
         return Bool(rv != 0)
@@ -2110,19 +2105,19 @@ public extension WindowProtocol {
         return cast(rv)
     }
 
-    /// Gets the value set by gtk_window_set_focus_on_map().
+    /// Gets the value set by `gtk_window_set_focus_on_map()`.
     func getFocusOnMap() -> Bool {
         let rv = gtk_window_get_focus_on_map(cast(window_ptr))
         return Bool(rv != 0)
     }
 
-    /// Gets the value of the `GtkWindow`:focus-visible property.
+    /// Gets the value of the `GtkWindow:focus`-visible property.
     func getFocusVisible() -> Bool {
         let rv = gtk_window_get_focus_visible(cast(window_ptr))
         return Bool(rv != 0)
     }
 
-    /// Gets the value set by gtk_window_set_gravity().
+    /// Gets the value set by `gtk_window_set_gravity()`.
     func getGravity() -> GdkGravity {
         let rv = gtk_window_get_gravity(cast(window_ptr))
         return rv
@@ -2152,15 +2147,15 @@ public extension WindowProtocol {
         return Bool(rv != 0)
     }
 
-    /// Gets the value set by gtk_window_set_icon() (or if you've
-    /// called gtk_window_set_icon_list(), gets the first icon in
+    /// Gets the value set by `gtk_window_set_icon()` (or if you've
+    /// called `gtk_window_set_icon_list()`, gets the first icon in
     /// the icon list).
     func getIcon() -> UnsafeMutablePointer<GdkPixbuf>! {
         let rv = gtk_window_get_icon(cast(window_ptr))
         return cast(rv)
     }
 
-    /// Retrieves the list of icons set by gtk_window_set_icon_list().
+    /// Retrieves the list of icons set by `gtk_window_set_icon_list()`.
     /// The list is copied, but the reference count on each
     /// member won’t be incremented.
     func getIconList() -> UnsafeMutablePointer<GList>! {
@@ -2169,33 +2164,33 @@ public extension WindowProtocol {
     }
 
     /// Returns the name of the themed icon for the window,
-    /// see gtk_window_set_icon_name().
+    /// see `gtk_window_set_icon_name()`.
     func getIconName() -> String! {
         let rv = gtk_window_get_icon_name(cast(window_ptr))
         return rv.map { String(cString: UnsafePointer<CChar>($0)) }
     }
 
     /// Returns the mnemonic modifier for this window. See
-    /// gtk_window_set_mnemonic_modifier().
+    /// `gtk_window_set_mnemonic_modifier()`.
     func getMnemonicModifier() -> GdkModifierType {
         let rv = gtk_window_get_mnemonic_modifier(cast(window_ptr))
         return rv
     }
 
-    /// Gets the value of the `GtkWindow`:mnemonics-visible property.
+    /// Gets the value of the `GtkWindow:mnemonics`-visible property.
     func getMnemonicsVisible() -> Bool {
         let rv = gtk_window_get_mnemonics_visible(cast(window_ptr))
         return Bool(rv != 0)
     }
 
-    /// Returns whether the window is modal. See gtk_window_set_modal().
+    /// Returns whether the window is modal. See `gtk_window_set_modal()`.
     func getModal() -> Bool {
         let rv = gtk_window_get_modal(cast(window_ptr))
         return Bool(rv != 0)
     }
 
     /// Fetches the requested opacity for this window. See
-    /// gtk_window_set_opacity().
+    /// `gtk_window_set_opacity()`.
     ///
     /// **get_opacity is deprecated:**
     /// Use gtk_widget_get_opacity instead.
@@ -2205,9 +2200,9 @@ public extension WindowProtocol {
     }
 
     /// This function returns the position you need to pass to
-    /// gtk_window_move() to keep `window` in its current position.
+    /// `gtk_window_move()` to keep `window` in its current position.
     /// This means that the meaning of the returned value varies with
-    /// window gravity. See gtk_window_move() for more details.
+    /// window gravity. See `gtk_window_move()` for more details.
     /// 
     /// The reliability of this function depends on the windowing system
     /// currently in use. Some windowing systems, such as Wayland, do not
@@ -2220,13 +2215,13 @@ public extension WindowProtocol {
     /// returned by this function.
     /// 
     /// If you haven’t changed the window gravity, its gravity will be
-    /// `GDK_GRAVITY_NORTH_WEST`. This means that gtk_window_get_position()
+    /// `GDK_GRAVITY_NORTH_WEST`. This means that `gtk_window_get_position()`
     /// gets the position of the top-left corner of the window manager
-    /// frame for the window. gtk_window_move() sets the position of this
+    /// frame for the window. `gtk_window_move()` sets the position of this
     /// same top-left corner.
     /// 
     /// If a window has gravity `GDK_GRAVITY_STATIC` the window manager
-    /// frame is not relevant, and thus gtk_window_get_position() will
+    /// frame is not relevant, and thus `gtk_window_get_position()` will
     /// always produce accurate results. However you can’t use static
     /// gravity to do things like place a window in a corner of the screen,
     /// because static gravity ignores the window manager decorations.
@@ -2245,7 +2240,7 @@ public extension WindowProtocol {
     
     }
 
-    /// Gets the value set by gtk_window_set_resizable().
+    /// Gets the value set by `gtk_window_set_resizable()`.
     func getResizable() -> Bool {
         let rv = gtk_window_get_resizable(cast(window_ptr))
         return Bool(rv != 0)
@@ -2261,7 +2256,7 @@ public extension WindowProtocol {
         return Bool(rv != 0)
     }
 
-    /// Returns the role of the window. See gtk_window_set_role() for
+    /// Returns the role of the window. See `gtk_window_set_role()` for
     /// further explanation.
     func getRole() -> String! {
         let rv = gtk_window_get_role(cast(window_ptr))
@@ -2277,13 +2272,13 @@ public extension WindowProtocol {
     /// Obtains the current size of `window`.
     /// 
     /// If `window` is not visible on screen, this function return the size GTK+
-    /// will suggest to the [window manager][gtk-X11-arch] for the initial window
+    /// will suggest to the [window manager](#gtk-X11-arch) for the initial window
     /// size (but this is not reliably the same as the size the window manager
-    /// will actually select). See: gtk_window_set_default_size().
+    /// will actually select). See: `gtk_window_set_default_size()`.
     /// 
     /// Depending on the windowing system and the window manager constraints,
     /// the size returned by this function may not match the size set using
-    /// gtk_window_resize(); additionally, since gtk_window_resize() may be
+    /// `gtk_window_resize()`; additionally, since `gtk_window_resize()` may be
     /// implemented as an asynchronous operation, GTK+ cannot guarantee in any
     /// way that this code:
     /// 
@@ -2296,7 +2291,6 @@ public extension WindowProtocol {
     ///   gtk_window_get_size (window, &new_width, &new_height);
     /// ```
     /// 
-    /// 
     /// will result in `new_width` and `new_height` matching `width` and
     /// `height`, respectively.
     /// 
@@ -2308,13 +2302,13 @@ public extension WindowProtocol {
     /// call this function.
     /// 
     /// The dimensions returned by this function are suitable for being
-    /// stored across sessions; use gtk_window_set_default_size() to
+    /// stored across sessions; use `gtk_window_set_default_size()` to
     /// restore them when before showing the window.
     /// 
     /// To avoid potential race conditions, you should only call this
     /// function in response to a size change notification, for instance
-    /// inside a handler for the `GtkWidget`::size-allocate signal, or
-    /// inside a handler for the `GtkWidget`::configure-event signal:
+    /// inside a handler for the `GtkWidget::size`-allocate signal, or
+    /// inside a handler for the `GtkWidget::configure`-event signal:
     /// 
     /// (C Language Example):
     /// ```C
@@ -2329,8 +2323,7 @@ public extension WindowProtocol {
     /// }
     /// ```
     /// 
-    /// 
-    /// Note that, if you connect to the `GtkWidget`::size-allocate signal,
+    /// Note that, if you connect to the `GtkWidget::size`-allocate signal,
     /// you should not use the dimensions of the `GtkAllocation` passed to
     /// the signal handler, as the allocation may contain client side
     /// decorations added by GTK+, depending on the windowing system in
@@ -2338,9 +2331,9 @@ public extension WindowProtocol {
     /// 
     /// If you are getting a window size in order to position the window
     /// on the screen, you should, instead, simply set the window’s semantic
-    /// type with gtk_window_set_type_hint(), which allows the window manager
+    /// type with `gtk_window_set_type_hint()`, which allows the window manager
     /// to e.g. center dialogs. Also, if you set the transient parent of
-    /// dialogs with gtk_window_set_transient_for() window managers will
+    /// dialogs with `gtk_window_set_transient_for()` window managers will
     /// often center the dialog over its parent window. It's much preferred
     /// to let the window manager handle these cases rather than doing it
     /// yourself, because all apps will behave consistently and according to
@@ -2349,51 +2342,51 @@ public extension WindowProtocol {
     /// decorations and border that it may add, and of which GTK+ has no
     /// knowledge. Additionally, positioning windows in global screen coordinates
     /// may not be allowed by the windowing system. For more information,
-    /// see: gtk_window_set_position().
+    /// see: `gtk_window_set_position()`.
     func getSize(width: UnsafeMutablePointer<CInt>, height: UnsafeMutablePointer<CInt>) {
         gtk_window_get_size(cast(window_ptr), cast(width), cast(height))
     
     }
 
-    /// Gets the value set by gtk_window_set_skip_pager_hint().
+    /// Gets the value set by `gtk_window_set_skip_pager_hint()`.
     func getSkipPagerHint() -> Bool {
         let rv = gtk_window_get_skip_pager_hint(cast(window_ptr))
         return Bool(rv != 0)
     }
 
-    /// Gets the value set by gtk_window_set_skip_taskbar_hint()
+    /// Gets the value set by `gtk_window_set_skip_taskbar_hint()`
     func getSkipTaskbarHint() -> Bool {
         let rv = gtk_window_get_skip_taskbar_hint(cast(window_ptr))
         return Bool(rv != 0)
     }
 
-    /// Retrieves the title of the window. See gtk_window_set_title().
+    /// Retrieves the title of the window. See `gtk_window_set_title()`.
     func getTitle() -> String! {
         let rv = gtk_window_get_title(cast(window_ptr))
         return rv.map { String(cString: UnsafePointer<CChar>($0)) }
     }
 
     /// Returns the custom titlebar that has been set with
-    /// gtk_window_set_titlebar().
+    /// `gtk_window_set_titlebar()`.
     func getTitlebar() -> UnsafeMutablePointer<GtkWidget>! {
         let rv = gtk_window_get_titlebar(cast(window_ptr))
         return cast(rv)
     }
 
     /// Fetches the transient parent for this window. See
-    /// gtk_window_set_transient_for().
+    /// `gtk_window_set_transient_for()`.
     func getTransientFor() -> UnsafeMutablePointer<GtkWindow>! {
         let rv = gtk_window_get_transient_for(cast(window_ptr))
         return cast(rv)
     }
 
-    /// Gets the type hint for this window. See gtk_window_set_type_hint().
+    /// Gets the type hint for this window. See `gtk_window_set_type_hint()`.
     func getTypeHint() -> GdkWindowTypeHint {
         let rv = gtk_window_get_type_hint(cast(window_ptr))
         return rv
     }
 
-    /// Gets the value set by gtk_window_set_urgency_hint()
+    /// Gets the value set by `gtk_window_set_urgency_hint()`
     func getUrgencyHint() -> Bool {
         let rv = gtk_window_get_urgency_hint(cast(window_ptr))
         return Bool(rv != 0)
@@ -2412,7 +2405,7 @@ public extension WindowProtocol {
     }
 
     /// Returns whether the input focus is within this GtkWindow.
-    /// For real toplevel windows, this is identical to gtk_window_is_active(),
+    /// For real toplevel windows, this is identical to `gtk_window_is_active()`,
     /// but for embedded windows, like `GtkPlug`, the results will differ.
     func hasToplevelFocus() -> Bool {
         let rv = gtk_window_has_toplevel_focus(cast(window_ptr))
@@ -2422,7 +2415,7 @@ public extension WindowProtocol {
     /// Asks to iconify (i.e. minimize) the specified `window`. Note that
     /// you shouldn’t assume the window is definitely iconified afterward,
     /// because other entities (e.g. the user or
-    /// [window manager][gtk-X11-arch]) could deiconify it
+    /// [window manager](#gtk-X11-arch)) could deiconify it
     /// again, or there may not be a window manager in which case
     /// iconification isn’t possible, etc. But normally the window will end
     /// up iconified. Just don’t write code that crashes if not.
@@ -2441,7 +2434,7 @@ public extension WindowProtocol {
     /// Asks to maximize `window`, so that it becomes full-screen. Note that
     /// you shouldn’t assume the window is definitely maximized afterward,
     /// because other entities (e.g. the user or
-    /// [window manager][gtk-X11-arch]) could unmaximize it
+    /// [window manager](#gtk-X11-arch)) could unmaximize it
     /// again, and not all window managers support maximization. But
     /// normally the window will end up maximized. Just don’t write code
     /// that crashes if not.
@@ -2452,7 +2445,7 @@ public extension WindowProtocol {
     /// 
     /// You can track maximization via the “window-state-event” signal
     /// on `GtkWidget`, or by listening to notifications on the
-    /// `GtkWindow`:is-maximized property.
+    /// `GtkWindow:is`-maximized property.
     func maximize() {
         gtk_window_maximize(cast(window_ptr))
     
@@ -2464,7 +2457,7 @@ public extension WindowProtocol {
         return Bool(rv != 0)
     }
 
-    /// Asks the [window manager][gtk-X11-arch] to move
+    /// Asks the [window manager](#gtk-X11-arch) to move
     /// `window` to the given position.  Window managers are free to ignore
     /// this; most window managers ignore requests for initial window
     /// positions (instead using a user-defined placement algorithm) and
@@ -2477,7 +2470,7 @@ public extension WindowProtocol {
     /// the reference point.
     /// 
     /// By default the gravity is `GDK_GRAVITY_NORTH_WEST`, so the reference
-    /// point is simply the `x`, `y` supplied to gtk_window_move(). The
+    /// point is simply the `x`, `y` supplied to `gtk_window_move()`. The
     /// top-left corner of the window decorations (aka window frame or
     /// border) will be placed at `x`, `y`.  Therefore, to position a window
     /// at the top left of the screen, you want to use the default gravity
@@ -2496,7 +2489,7 @@ public extension WindowProtocol {
     /// The [Extended Window Manager Hints Specification](http://www.freedesktop.org/Standards/wm-spec)
     /// has a nice table of gravities in the “implementation notes” section.
     /// 
-    /// The gtk_window_get_position() documentation may also be relevant.
+    /// The `gtk_window_get_position()` documentation may also be relevant.
     func move(x: CInt, y: CInt) {
         gtk_window_move(cast(window_ptr), gint(x), gint(y))
     
@@ -2504,27 +2497,27 @@ public extension WindowProtocol {
 
     /// Parses a standard X Window System geometry string - see the
     /// manual page for X (type “man X”) for details on this.
-    /// gtk_window_parse_geometry() does work on all GTK+ ports
+    /// `gtk_window_parse_geometry()` does work on all GTK+ ports
     /// including Win32 but is primarily intended for an X environment.
     /// 
     /// If either a size or a position can be extracted from the
-    /// geometry string, gtk_window_parse_geometry() returns `true`
-    /// and calls gtk_window_set_default_size() and/or gtk_window_move()
+    /// geometry string, `gtk_window_parse_geometry()` returns `true`
+    /// and calls `gtk_window_set_default_size()` and/or `gtk_window_move()`
     /// to resize/move the window.
     /// 
-    /// If gtk_window_parse_geometry() returns `true`, it will also
+    /// If `gtk_window_parse_geometry()` returns `true`, it will also
     /// set the `GDK_HINT_USER_POS` and/or `GDK_HINT_USER_SIZE` hints
     /// indicating to the window manager that the size/position of
     /// the window was user-specified. This causes most window
     /// managers to honor the geometry.
     /// 
-    /// Note that for gtk_window_parse_geometry() to work as expected, it has
+    /// Note that for `gtk_window_parse_geometry()` to work as expected, it has
     /// to be called when the window has its “final” size, i.e. after calling
-    /// gtk_widget_show_all() on the contents and gtk_window_set_geometry_hints()
+    /// `gtk_widget_show_all()` on the contents and `gtk_window_set_geometry_hints()`
     /// on the window.
     /// (C Language Example):
     /// ```C
-    /// `include` <gtk/gtk.h>
+    /// #include <gtk/gtk.h>
     /// 
     /// static void
     /// fill_with_content (GtkWidget *vbox)
@@ -2564,7 +2557,7 @@ public extension WindowProtocol {
     ///                                        argv[1]);
     ///       if (! res)
     ///         fprintf (stderr,
-    ///                  "Failed to parse “`s`”\n",
+    ///                  "Failed to parse “%s”\n",
     ///                  argv[1]);
     ///     }
     /// 
@@ -2596,13 +2589,13 @@ public extension WindowProtocol {
     /// desktop, and/or giving it the keyboard focus, possibly dependent
     /// on the user’s platform, window manager, and preferences.
     /// 
-    /// If `window` is hidden, this function calls gtk_widget_show()
+    /// If `window` is hidden, this function calls `gtk_widget_show()`
     /// as well.
     /// 
     /// This function should be used when the user tries to open a window
     /// that’s already open. Say for example the preferences dialog is
     /// currently open, and the user chooses Preferences from the menu
-    /// a second time; use gtk_window_present() to move the already-open dialog
+    /// a second time; use `gtk_window_present()` to move the already-open dialog
     /// where the user can see it.
     /// 
     /// Presents a window to the user in response to a user interaction. The
@@ -2616,8 +2609,8 @@ public extension WindowProtocol {
 
     /// Propagate a key press or release event to the focus widget and
     /// up the focus container chain until a widget handles `event`.
-    /// This is normally called by the default ::key_press_event and
-    /// ::key_release_event handlers for toplevel windows,
+    /// This is normally called by the default `key_press_event` and
+    /// `key_release_event` handlers for toplevel windows,
     /// however in some cases it may be useful to call this directly when
     /// overriding the standard key handling for a toplevel window.
     func propagateKey(event: EventKeyProtocol) -> Bool {
@@ -2625,7 +2618,7 @@ public extension WindowProtocol {
         return Bool(rv != 0)
     }
 
-    /// Reverses the effects of gtk_window_add_accel_group().
+    /// Reverses the effects of `gtk_window_add_accel_group()`.
     func remove(accelGroup accel_group: AccelGroupProtocol) {
         gtk_window_remove_accel_group(cast(window_ptr), cast(accel_group.ptr))
     
@@ -2653,12 +2646,12 @@ public extension WindowProtocol {
     /// Resizes the window as if the user had done so, obeying geometry
     /// constraints. The default geometry constraint is that windows may
     /// not be smaller than their size request; to override this
-    /// constraint, call gtk_widget_set_size_request() to set the window's
+    /// constraint, call `gtk_widget_set_size_request()` to set the window's
     /// request to a smaller value.
     /// 
-    /// If gtk_window_resize() is called before showing a window for the
+    /// If `gtk_window_resize()` is called before showing a window for the
     /// first time, it overrides any default size set with
-    /// gtk_window_set_default_size().
+    /// `gtk_window_set_default_size()`.
     /// 
     /// Windows may not be resized smaller than 1 by 1 pixels.
     /// 
@@ -2668,15 +2661,15 @@ public extension WindowProtocol {
     /// the client side decorations, but there is no guarantee that the
     /// result will be totally accurate because these widgets added for
     /// client side decorations depend on the theme and may not be realized
-    /// or visible at the time gtk_window_resize() is issued.
+    /// or visible at the time `gtk_window_resize()` is issued.
     /// 
-    /// If the GtkWindow has a titlebar widget (see gtk_window_set_titlebar()), then
-    /// typically, gtk_window_resize() will compensate for the height of the titlebar
+    /// If the GtkWindow has a titlebar widget (see `gtk_window_set_titlebar()`), then
+    /// typically, `gtk_window_resize()` will compensate for the height of the titlebar
     /// widget only if the height is known when the resulting GtkWindow configuration
     /// is issued.
     /// For example, if new widgets are added after the GtkWindow configuration
     /// and cause the titlebar widget to grow in height, this will result in a
-    /// window content smaller that specified by gtk_window_resize() and not
+    /// window content smaller that specified by `gtk_window_resize()` and not
     /// a larger window.
     func resize(width: CInt, height: CInt) {
         gtk_window_resize(cast(window_ptr), gint(width), gint(height))
@@ -2692,7 +2685,7 @@ public extension WindowProtocol {
         return Bool(rv != 0)
     }
 
-    /// Like gtk_window_resize(), but `width` and `height` are interpreted
+    /// Like `gtk_window_resize()`, but `width` and `height` are interpreted
     /// in terms of the base size and increment set with
     /// gtk_window_set_geometry_hints.
     ///
@@ -2714,15 +2707,15 @@ public extension WindowProtocol {
     /// Sets or unsets the `GtkApplication` associated with the window.
     /// 
     /// The application will be kept alive for at least as long as it has any windows
-    /// associated with it (see g_application_hold() for a way to keep it alive
+    /// associated with it (see `g_application_hold()` for a way to keep it alive
     /// without windows).
     /// 
     /// Normally, the connection between the application and the window will remain
     /// until the window is destroyed, but you can explicitly remove it by setting
     /// the `application` to `nil`.
     /// 
-    /// This is equivalent to calling gtk_application_remove_window() and/or
-    /// gtk_application_add_window() on the old/new applications as relevant.
+    /// This is equivalent to calling `gtk_application_remove_window()` and/or
+    /// `gtk_application_add_window()` on the old/new applications as relevant.
     func set(application: ApplicationProtocol) {
         gtk_window_set_application(cast(window_ptr), cast(application.ptr))
     
@@ -2738,7 +2731,7 @@ public extension WindowProtocol {
     /// created by `GtkEntry` or a typeahead search entry created by `GtkTreeView`.
     /// 
     /// Note that this function should not be confused with
-    /// gtk_window_set_transient_for(), which specifies a window manager relation
+    /// `gtk_window_set_transient_for()`, which specifies a window manager relation
     /// between two toplevels instead.
     /// 
     /// Passing `nil` for `attach_widget` detaches the window.
@@ -2748,13 +2741,13 @@ public extension WindowProtocol {
     }
 
     /// By default, windows are decorated with a title bar, resize
-    /// controls, etc.  Some [window managers][gtk-X11-arch]
+    /// controls, etc.  Some [window managers](#gtk-X11-arch)
     /// allow GTK+ to disable these decorations, creating a
     /// borderless window. If you set the decorated property to `false`
     /// using this function, GTK+ will do its best to convince the window
     /// manager not to decorate the window. Depending on the system, this
     /// function may not have any effect when called on a window that is
-    /// already visible, so you should call it before calling gtk_widget_show().
+    /// already visible, so you should call it before calling `gtk_widget_show()`.
     /// 
     /// On Windows, this function always works, since there’s no window manager
     /// policy involved.
@@ -2767,15 +2760,15 @@ public extension WindowProtocol {
     /// presses Enter in a dialog (for example). This function sets or
     /// unsets the default widget for a `GtkWindow`. When setting (rather
     /// than unsetting) the default widget it’s generally easier to call
-    /// gtk_widget_grab_default() on the widget. Before making a widget
-    /// the default widget, you must call gtk_widget_set_can_default() on
+    /// `gtk_widget_grab_default()` on the widget. Before making a widget
+    /// the default widget, you must call `gtk_widget_set_can_default()` on
     /// the widget you’d like to make the default.
     func setDefault(defaultWidget default_widget: WidgetProtocol) {
         gtk_window_set_default(cast(window_ptr), cast(default_widget.ptr))
     
     }
 
-    /// Like gtk_window_set_default_size(), but `width` and `height` are interpreted
+    /// Like `gtk_window_set_default_size()`, but `width` and `height` are interpreted
     /// in terms of the base size and increment set with
     /// gtk_window_set_geometry_hints.
     ///
@@ -2790,11 +2783,11 @@ public extension WindowProtocol {
     /// Sets the default size of a window. If the window’s “natural” size
     /// (its size request) is larger than the default, the default will be
     /// ignored. More generally, if the default size does not obey the
-    /// geometry hints for the window (gtk_window_set_geometry_hints() can
+    /// geometry hints for the window (`gtk_window_set_geometry_hints()` can
     /// be used to set these explicitly), the default size will be clamped
     /// to the nearest permitted size.
     /// 
-    /// Unlike gtk_widget_set_size_request(), which sets a size request for
+    /// Unlike `gtk_widget_set_size_request()`, which sets a size request for
     /// a widget and thus would keep users from shrinking the window, this
     /// function only sets the initial size, just as if the user had
     /// resized the window themselves. Users can still shrink the window
@@ -2802,11 +2795,11 @@ public extension WindowProtocol {
     /// use the “natural” default size (the size request of the window).
     /// 
     /// For more control over a window’s initial size and how resizing works,
-    /// investigate gtk_window_set_geometry_hints().
+    /// investigate `gtk_window_set_geometry_hints()`.
     /// 
-    /// For some uses, gtk_window_resize() is a more appropriate function.
-    /// gtk_window_resize() changes the current size of the window, rather
-    /// than the size to be used on initial display. gtk_window_resize() always
+    /// For some uses, `gtk_window_resize()` is a more appropriate function.
+    /// `gtk_window_resize()` changes the current size of the window, rather
+    /// than the size to be used on initial display. `gtk_window_resize()` always
     /// affects the window itself, not the geometry widget.
     /// 
     /// The default size of a window only affects the first time a window is
@@ -2818,7 +2811,7 @@ public extension WindowProtocol {
     /// 
     /// If you use this function to reestablish a previously saved window size,
     /// note that the appropriate size to save is the one returned by
-    /// gtk_window_get_size(). Using the window allocation directly will not
+    /// `gtk_window_get_size()`. Using the window allocation directly will not
     /// work in all circumstances and can lead to growing or shrinking windows.
     func setDefaultSize(width: CInt, height: CInt) {
         gtk_window_set_default_size(cast(window_ptr), gint(width), gint(height))
@@ -2826,12 +2819,12 @@ public extension WindowProtocol {
     }
 
     /// By default, windows have a close button in the window frame. Some
-    /// [window managers][gtk-X11-arch] allow GTK+ to
+    /// [window managers](#gtk-X11-arch) allow GTK+ to
     /// disable this button. If you set the deletable property to `false`
     /// using this function, GTK+ will do its best to convince the window
     /// manager not to show a close button. Depending on the system, this
     /// function may not have any effect when called on a window that is
-    /// already visible, so you should call it before calling gtk_widget_show().
+    /// already visible, so you should call it before calling `gtk_widget_show()`.
     /// 
     /// On Windows, this function always works, since there’s no window manager
     /// policy involved.
@@ -2853,7 +2846,7 @@ public extension WindowProtocol {
     /// it as the focus widget for the window. If `focus` is `nil`, unsets
     /// the focus widget for this window. To set the focus to a particular
     /// widget in the toplevel, it is usually more convenient to use
-    /// gtk_widget_grab_focus() instead of this function.
+    /// `gtk_widget_grab_focus()` instead of this function.
     func set(focus: WidgetProtocol) {
         gtk_window_set_focus(cast(window_ptr), cast(focus.ptr))
     
@@ -2867,7 +2860,7 @@ public extension WindowProtocol {
     
     }
 
-    /// Sets the `GtkWindow`:focus-visible property.
+    /// Sets the `GtkWindow:focus`-visible property.
     func setFocusVisible(setting: Bool) {
         gtk_window_set_focus_visible(cast(window_ptr), gboolean(setting ? 1 : 0))
     
@@ -2883,7 +2876,7 @@ public extension WindowProtocol {
     }
 
     /// Window gravity defines the meaning of coordinates passed to
-    /// gtk_window_move(). See gtk_window_move() and `GdkGravity` for
+    /// `gtk_window_move()`. See `gtk_window_move()` and `GdkGravity` for
     /// more details.
     /// 
     /// The default window gravity is `GDK_GRAVITY_NORTH_WEST` which will
@@ -2897,7 +2890,7 @@ public extension WindowProtocol {
     /// 
     /// Note that the resize grip is only shown if the window
     /// is actually resizable and not maximized. Use
-    /// gtk_window_resize_grip_is_visible() to find out if the
+    /// `gtk_window_resize_grip_is_visible()` to find out if the
     /// resize grip is currently shown.
     ///
     /// **set_has_resize_grip is deprecated:**
@@ -2908,7 +2901,7 @@ public extension WindowProtocol {
     }
 
     /// Tells GTK+ whether to drop its extra reference to the window
-    /// when gtk_widget_destroy() is called.
+    /// when `gtk_widget_destroy()` is called.
     /// 
     /// This function is only exported for the benefit of language
     /// bindings which may need to keep the window alive until their
@@ -2926,7 +2919,7 @@ public extension WindowProtocol {
     /// screen space to better use. If the underlying window system does not
     /// support the request, the setting will not have any effect.
     /// 
-    /// Note that custom titlebars set with gtk_window_set_titlebar() are
+    /// Note that custom titlebars set with `gtk_window_set_titlebar()` are
     /// not affected by this. The application is in full control of their
     /// content and visibility anyway.
     func setHideTitlebarWhenMaximized(setting: Bool) {
@@ -2946,12 +2939,12 @@ public extension WindowProtocol {
     /// final size is known, to allow best quality.
     /// 
     /// If you have your icon hand-drawn in multiple sizes, use
-    /// gtk_window_set_icon_list(). Then the best size will be used.
+    /// `gtk_window_set_icon_list()`. Then the best size will be used.
     /// 
-    /// This function is equivalent to calling gtk_window_set_icon_list()
+    /// This function is equivalent to calling `gtk_window_set_icon_list()`
     /// with a 1-element list.
     /// 
-    /// See also gtk_window_set_default_icon_list() to set the icon
+    /// See also `gtk_window_set_default_icon_list()` to set the icon
     /// for all windows in your application in one go.
     func set(icon: PixbufProtocol) {
         gtk_window_set_icon(cast(window_ptr), cast(icon.ptr))
@@ -2961,7 +2954,7 @@ public extension WindowProtocol {
     /// Sets the icon for `window`.
     /// Warns on failure if `err` is `nil`.
     /// 
-    /// This function is equivalent to calling gtk_window_set_icon()
+    /// This function is equivalent to calling `gtk_window_set_icon()`
     /// with a pixbuf created by loading the image from `filename`.
     func setIconFrom(file String_: UnsafePointer<gchar>) throws -> Bool {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
@@ -2978,7 +2971,7 @@ public extension WindowProtocol {
     /// frame, or display it in other contexts. On others, the icon is not
     /// used at all, so your mileage may vary.
     /// 
-    /// gtk_window_set_icon_list() allows you to pass in the same icon in
+    /// `gtk_window_set_icon_list()` allows you to pass in the same icon in
     /// several hand-drawn sizes. The list should contain the natural sizes
     /// your icon is available in; that is, don’t scale the image before
     /// passing it to GTK+. Scaling is postponed until the last minute,
@@ -2990,11 +2983,11 @@ public extension WindowProtocol {
     /// Recommended sizes to provide: 16x16, 32x32, 48x48 at minimum, and
     /// larger images (64x64, 128x128) if you have them.
     /// 
-    /// See also gtk_window_set_default_icon_list() to set the icon
+    /// See also `gtk_window_set_default_icon_list()` to set the icon
     /// for all windows in your application in one go.
     /// 
     /// Note that transient windows (those who have been set transient for another
-    /// window using gtk_window_set_transient_for()) will inherit their
+    /// window using `gtk_window_set_transient_for()`) will inherit their
     /// icon from their transient parent. So there’s no need to explicitly
     /// set the icon on transient windows.
     func setIcon(list: ListProtocol) {
@@ -3016,7 +3009,7 @@ public extension WindowProtocol {
     /// Asks to keep `window` above, so that it stays on top. Note that
     /// you shouldn’t assume the window is definitely above afterward,
     /// because other entities (e.g. the user or
-    /// [window manager][gtk-X11-arch]) could not keep it above,
+    /// [window manager](#gtk-X11-arch)) could not keep it above,
     /// and not all window managers support keeping windows above. But
     /// normally the window will end kept above. Just don’t write code
     /// that crashes if not.
@@ -3041,7 +3034,7 @@ public extension WindowProtocol {
     /// Asks to keep `window` below, so that it stays in bottom. Note that
     /// you shouldn’t assume the window is definitely below afterward,
     /// because other entities (e.g. the user or
-    /// [window manager][gtk-X11-arch]) could not keep it below,
+    /// [window manager](#gtk-X11-arch)) could not keep it below,
     /// and not all window managers support putting windows below. But
     /// normally the window will be kept below. Just don’t write code
     /// that crashes if not.
@@ -3069,7 +3062,7 @@ public extension WindowProtocol {
     
     }
 
-    /// Sets the `GtkWindow`:mnemonics-visible property.
+    /// Sets the `GtkWindow:mnemonics`-visible property.
     func setMnemonicsVisible(setting: Bool) {
         gtk_window_set_mnemonics_visible(cast(window_ptr), gboolean(setting ? 1 : 0))
     
@@ -3078,8 +3071,8 @@ public extension WindowProtocol {
     /// Sets a window modal or non-modal. Modal windows prevent interaction
     /// with other windows in the same application. To keep modal dialogs
     /// on top of main application windows, use
-    /// gtk_window_set_transient_for() to make the dialog transient for the
-    /// parent; most [window managers][gtk-X11-arch]
+    /// `gtk_window_set_transient_for()` to make the dialog transient for the
+    /// parent; most [window managers](#gtk-X11-arch)
     /// will then disallow lowering the dialog below the parent.
     func set(modal: Bool) {
         gtk_window_set_modal(cast(window_ptr), gboolean(modal ? 1 : 0))
@@ -3090,7 +3083,7 @@ public extension WindowProtocol {
     /// with opacity 0 being fully transparent and 1 fully opaque. (Values
     /// of the opacity parameter are clamped to the [0,1] range.) On X11
     /// this has any effect only on X screens with a compositing manager
-    /// running. See gtk_widget_is_composited(). On Windows it should work
+    /// running. See `gtk_widget_is_composited()`. On Windows it should work
     /// always.
     /// 
     /// Note that setting a window’s opacity after the window has been
@@ -3121,7 +3114,7 @@ public extension WindowProtocol {
     /// This function is only useful on X11, not with other GTK+ targets.
     /// 
     /// In combination with the window title, the window role allows a
-    /// [window manager][gtk-X11-arch] to identify "the
+    /// [window manager](#gtk-X11-arch) to identify "the
     /// same" window when an application is restarted. So for example you
     /// might set the “toolbox” role on your app’s toolbox window, so that
     /// when the user restarts their session, the window manager can put
@@ -3166,7 +3159,7 @@ public extension WindowProtocol {
     /// underlying GdkWindow. Normally, startup identifier is managed
     /// automatically and you should only use this function in special cases
     /// like transferring focus from other processes. You should use this
-    /// function before calling gtk_window_present() or any equivalent
+    /// function before calling `gtk_window_present()` or any equivalent
     /// function generating a window map event.
     /// 
     /// This function is only useful on X11, not with other GTK+ targets.
@@ -3177,7 +3170,7 @@ public extension WindowProtocol {
 
     /// Sets the title of the `GtkWindow`. The title of a window will be
     /// displayed in its title bar; on the X Window System, the title bar
-    /// is rendered by the [window manager][gtk-X11-arch],
+    /// is rendered by the [window manager](#gtk-X11-arch),
     /// so exactly how the title appears to users may vary
     /// according to a user’s exact configuration. The title should help a
     /// user distinguish this window from other windows they may have
@@ -3197,7 +3190,7 @@ public extension WindowProtocol {
     /// the window manager not to put its own titlebar on the window.
     /// Depending on the system, this function may not work for a window
     /// that is already visible, so you set the titlebar before calling
-    /// gtk_widget_show().
+    /// `gtk_widget_show()`.
     func set(titlebar: WidgetProtocol) {
         gtk_window_set_titlebar(cast(window_ptr), cast(titlebar.ptr))
     
@@ -3205,11 +3198,11 @@ public extension WindowProtocol {
 
     /// Dialog windows should be set transient for the main application
     /// window they were spawned from. This allows
-    /// [window managers][gtk-X11-arch] to e.g. keep the
+    /// [window managers](#gtk-X11-arch) to e.g. keep the
     /// dialog on top of the main window, or center the dialog over the
-    /// main window. gtk_dialog_new_with_buttons() and other convenience
+    /// main window. `gtk_dialog_new_with_buttons()` and other convenience
     /// functions in GTK+ will sometimes call
-    /// gtk_window_set_transient_for() on your behalf.
+    /// `gtk_window_set_transient_for()` on your behalf.
     /// 
     /// Passing `nil` for `parent` unsets the current transient window.
     /// 
@@ -3232,8 +3225,8 @@ public extension WindowProtocol {
     /// 
     /// This function should be called before the window becomes visible.
     /// 
-    /// gtk_dialog_new_with_buttons() and other convenience functions in GTK+
-    /// will sometimes call gtk_window_set_type_hint() on your behalf.
+    /// `gtk_dialog_new_with_buttons()` and other convenience functions in GTK+
+    /// will sometimes call `gtk_window_set_type_hint()` on your behalf.
     func setType(hint: Gdk.WindowTypeHint) {
         gtk_window_set_type_hint(cast(window_ptr), hint)
     
@@ -3251,7 +3244,7 @@ public extension WindowProtocol {
     /// always set these to the same value for all windows in an
     /// application, and GTK+ sets them to that value by default, so calling
     /// this function is sort of pointless. However, you may want to call
-    /// gtk_window_set_role() on each window in your application, for the
+    /// `gtk_window_set_role()` on each window in your application, for the
     /// benefit of the session manager. Setting the role allows the window
     /// manager to restore window positions when loading a saved session.
     ///
@@ -3265,7 +3258,7 @@ public extension WindowProtocol {
     /// Asks to stick `window`, which means that it will appear on all user
     /// desktops. Note that you shouldn’t assume the window is definitely
     /// stuck afterward, because other entities (e.g. the user or
-    /// [window manager][gtk-X11-arch] could unstick it
+    /// [window manager](#gtk-X11-arch) could unstick it
     /// again, and some window managers do not support sticking
     /// windows. But normally the window will end up stuck. Just don't
     /// write code that crashes if not.
@@ -3282,7 +3275,7 @@ public extension WindowProtocol {
     /// Asks to toggle off the fullscreen state for `window`. Note that you
     /// shouldn’t assume the window is definitely not full screen
     /// afterward, because other entities (e.g. the user or
-    /// [window manager][gtk-X11-arch]) could fullscreen it
+    /// [window manager](#gtk-X11-arch)) could fullscreen it
     /// again, and not all window managers honor requests to unfullscreen
     /// windows. But normally the window will end up restored to its normal
     /// state. Just don’t write code that crashes if not.
@@ -3296,7 +3289,7 @@ public extension WindowProtocol {
 
     /// Asks to unmaximize `window`. Note that you shouldn’t assume the
     /// window is definitely unmaximized afterward, because other entities
-    /// (e.g. the user or [window manager][gtk-X11-arch])
+    /// (e.g. the user or [window manager](#gtk-X11-arch))
     /// could maximize it again, and not all window
     /// managers honor requests to unmaximize. But normally the window will
     /// end up unmaximized. Just don’t write code that crashes if not.
@@ -3311,7 +3304,7 @@ public extension WindowProtocol {
     /// Asks to unstick `window`, which means that it will appear on only
     /// one of the user’s desktops. Note that you shouldn’t assume the
     /// window is definitely unstuck afterward, because other entities
-    /// (e.g. the user or [window manager][gtk-X11-arch]) could
+    /// (e.g. the user or [window manager](#gtk-X11-arch)) could
     /// stick it again. But normally the window will
     /// end up stuck. Just don’t write code that crashes if not.
     /// 
@@ -3322,7 +3315,7 @@ public extension WindowProtocol {
     
     }
 
-    /// This function is supposed to be called in `GtkWidget`::draw
+    /// This function is supposed to be called in `GtkWidget::draw`
     /// implementations for widgets that support multiple windows.
     /// `cr` must be untransformed from invoking of the draw function.
     /// This function will return `true` if the contents of the given
@@ -3342,7 +3335,7 @@ public extension WindowProtocol {
     /// modification will be applied.
     /// 
     /// This is the inverse to the transformation GTK applies when
-    /// preparing an expose event to be emitted with the `GtkWidget`::draw
+    /// preparing an expose event to be emitted with the `GtkWidget::draw`
     /// signal. It is intended to help porting multiwindow widgets from
     /// GTK+ 2 to the rendering architecture of GTK+ 3.
     func cairoTransformToWindow(cr: cairo.ContextProtocol, widget: WidgetProtocol) {
@@ -3356,7 +3349,7 @@ public extension WindowProtocol {
     /// modifications done in the dialog.
     /// 
     /// Note that this function may use a recursive mainloop to show the page
-    /// setup dialog. See gtk_print_run_page_setup_dialog_async() if this is
+    /// setup dialog. See `gtk_print_run_page_setup_dialog_async()` if this is
     /// a problem.
     func printRunPageSetupDialog(pageSetup page_setup: PageSetupProtocol, settings: PrintSettingsProtocol) -> UnsafeMutablePointer<GtkPageSetup>! {
         let rv = gtk_print_run_page_setup_dialog(cast(window_ptr), cast(page_setup.ptr), cast(settings.ptr))
@@ -3365,9 +3358,9 @@ public extension WindowProtocol {
 
     /// Runs a page setup dialog, letting the user modify the values from `page_setup`.
     /// 
-    /// In contrast to gtk_print_run_page_setup_dialog(), this function  returns after
+    /// In contrast to `gtk_print_run_page_setup_dialog()`, this function  returns after
     /// showing the page setup dialog on platforms that support this, and calls `done_cb`
-    /// from a signal handler for the ::response signal of the dialog.
+    /// from a signal handler for the `response` signal of the dialog.
     func printRunPageSetupDialogAsync(pageSetup page_setup: PageSetupProtocol, settings: PrintSettingsProtocol, doneCb done_cb: @escaping PageSetupDoneFunc, data: UnsafeMutableRawPointer) {
         gtk_print_run_page_setup_dialog_async(cast(window_ptr), cast(page_setup.ptr), cast(settings.ptr), done_cb, cast(data))
     
@@ -3384,10 +3377,10 @@ public extension WindowProtocol {
     /// Typical examples are
     /// - `file:///home/gnome/pict.jpg`
     /// - `http://www.gnome.org`
-    /// - `mailto:me`gnome`.org`
+    /// - `mailto:me`gnome.org``
     /// 
     /// Ideally the timestamp is taken from the event triggering
-    /// the gtk_show_uri() call. If timestamp is not known you can take
+    /// the `gtk_show_uri()` call. If timestamp is not known you can take
     /// `GDK_CURRENT_TIME`.
     /// 
     /// This is the recommended call to be used as it passes information
@@ -3400,9 +3393,9 @@ public extension WindowProtocol {
         }
         return Bool(rv != 0)
     }
-    /// Gets the value set by gtk_window_set_accept_focus().
+    /// Gets the value set by `gtk_window_set_accept_focus()`.
     var acceptFocus: Bool {
-        /// Gets the value set by gtk_window_set_accept_focus().
+        /// Gets the value set by `gtk_window_set_accept_focus()`.
         get {
             let rv = gtk_window_get_accept_focus(cast(window_ptr))
             return Bool(rv != 0)
@@ -3417,7 +3410,7 @@ public extension WindowProtocol {
     /// The `GtkApplication` associated with the window.
     /// 
     /// The application will be kept alive for at least as long as it
-    /// has any windows associated with it (see g_application_hold()
+    /// has any windows associated with it (see `g_application_hold()`
     /// for a way to keep it alive without windows).
     /// 
     /// Normally, the connection between the application and the window
@@ -3432,25 +3425,25 @@ public extension WindowProtocol {
         /// Sets or unsets the `GtkApplication` associated with the window.
         /// 
         /// The application will be kept alive for at least as long as it has any windows
-        /// associated with it (see g_application_hold() for a way to keep it alive
+        /// associated with it (see `g_application_hold()` for a way to keep it alive
         /// without windows).
         /// 
         /// Normally, the connection between the application and the window will remain
         /// until the window is destroyed, but you can explicitly remove it by setting
         /// the `application` to `nil`.
         /// 
-        /// This is equivalent to calling gtk_application_remove_window() and/or
-        /// gtk_application_add_window() on the old/new applications as relevant.
+        /// This is equivalent to calling `gtk_application_remove_window()` and/or
+        /// `gtk_application_add_window()` on the old/new applications as relevant.
         nonmutating set {
             gtk_window_set_application(cast(window_ptr), cast(newValue))
         }
     }
 
     /// Fetches the attach widget for this window. See
-    /// gtk_window_set_attached_to().
+    /// `gtk_window_set_attached_to()`.
     var attachedTo: UnsafeMutablePointer<GtkWidget>! {
         /// Fetches the attach widget for this window. See
-        /// gtk_window_set_attached_to().
+        /// `gtk_window_set_attached_to()`.
         get {
             let rv = gtk_window_get_attached_to(cast(window_ptr))
             return cast(rv)
@@ -3465,7 +3458,7 @@ public extension WindowProtocol {
         /// created by `GtkEntry` or a typeahead search entry created by `GtkTreeView`.
         /// 
         /// Note that this function should not be confused with
-        /// gtk_window_set_transient_for(), which specifies a window manager relation
+        /// `gtk_window_set_transient_for()`, which specifies a window manager relation
         /// between two toplevels instead.
         /// 
         /// Passing `nil` for `attach_widget` detaches the window.
@@ -3477,19 +3470,19 @@ public extension WindowProtocol {
     /// Whether the window should be decorated by the window manager.
     var decorated: Bool {
         /// Returns whether the window has been set to have decorations
-        /// such as a title bar via gtk_window_set_decorated().
+        /// such as a title bar via `gtk_window_set_decorated()`.
         get {
             let rv = gtk_window_get_decorated(cast(window_ptr))
             return Bool(rv != 0)
         }
         /// By default, windows are decorated with a title bar, resize
-        /// controls, etc.  Some [window managers][gtk-X11-arch]
+        /// controls, etc.  Some [window managers](#gtk-X11-arch)
         /// allow GTK+ to disable these decorations, creating a
         /// borderless window. If you set the decorated property to `false`
         /// using this function, GTK+ will do its best to convince the window
         /// manager not to decorate the window. Depending on the system, this
         /// function may not have any effect when called on a window that is
-        /// already visible, so you should call it before calling gtk_widget_show().
+        /// already visible, so you should call it before calling `gtk_widget_show()`.
         /// 
         /// On Windows, this function always works, since there’s no window manager
         /// policy involved.
@@ -3499,10 +3492,10 @@ public extension WindowProtocol {
     }
 
     /// Returns the default widget for `window`. See
-    /// gtk_window_set_default() for more details.
+    /// `gtk_window_set_default()` for more details.
     var defaultWidget: UnsafeMutablePointer<GtkWidget>! {
         /// Returns the default widget for `window`. See
-        /// gtk_window_set_default() for more details.
+        /// `gtk_window_set_default()` for more details.
         get {
             let rv = gtk_window_get_default_widget(cast(window_ptr))
             return cast(rv)
@@ -3512,18 +3505,18 @@ public extension WindowProtocol {
     /// Whether the window frame should have a close button.
     var deletable: Bool {
         /// Returns whether the window has been set to have a close button
-        /// via gtk_window_set_deletable().
+        /// via `gtk_window_set_deletable()`.
         get {
             let rv = gtk_window_get_deletable(cast(window_ptr))
             return Bool(rv != 0)
         }
         /// By default, windows have a close button in the window frame. Some
-        /// [window managers][gtk-X11-arch] allow GTK+ to
+        /// [window managers](#gtk-X11-arch) allow GTK+ to
         /// disable this button. If you set the deletable property to `false`
         /// using this function, GTK+ will do its best to convince the window
         /// manager not to show a close button. Depending on the system, this
         /// function may not have any effect when called on a window that is
-        /// already visible, so you should call it before calling gtk_widget_show().
+        /// already visible, so you should call it before calling `gtk_widget_show()`.
         /// 
         /// On Windows, this function always works, since there’s no window manager
         /// policy involved.
@@ -3569,15 +3562,15 @@ public extension WindowProtocol {
         /// it as the focus widget for the window. If `focus` is `nil`, unsets
         /// the focus widget for this window. To set the focus to a particular
         /// widget in the toplevel, it is usually more convenient to use
-        /// gtk_widget_grab_focus() instead of this function.
+        /// `gtk_widget_grab_focus()` instead of this function.
         nonmutating set {
             gtk_window_set_focus(cast(window_ptr), cast(newValue))
         }
     }
 
-    /// Gets the value set by gtk_window_set_focus_on_map().
+    /// Gets the value set by `gtk_window_set_focus_on_map()`.
     var focusOnMap: Bool {
-        /// Gets the value set by gtk_window_set_focus_on_map().
+        /// Gets the value set by `gtk_window_set_focus_on_map()`.
         get {
             let rv = gtk_window_get_focus_on_map(cast(window_ptr))
             return Bool(rv != 0)
@@ -3590,29 +3583,29 @@ public extension WindowProtocol {
         }
     }
 
-    /// Gets the value of the `GtkWindow`:focus-visible property.
+    /// Gets the value of the `GtkWindow:focus`-visible property.
     var focusVisible: Bool {
-        /// Gets the value of the `GtkWindow`:focus-visible property.
+        /// Gets the value of the `GtkWindow:focus`-visible property.
         get {
             let rv = gtk_window_get_focus_visible(cast(window_ptr))
             return Bool(rv != 0)
         }
-        /// Sets the `GtkWindow`:focus-visible property.
+        /// Sets the `GtkWindow:focus`-visible property.
         nonmutating set {
             gtk_window_set_focus_visible(cast(window_ptr), gboolean(newValue ? 1 : 0))
         }
     }
 
-    /// The window gravity of the window. See gtk_window_move() and `GdkGravity` for
+    /// The window gravity of the window. See `gtk_window_move()` and `GdkGravity` for
     /// more details about window gravity.
     var gravity: GdkGravity {
-        /// Gets the value set by gtk_window_set_gravity().
+        /// Gets the value set by `gtk_window_set_gravity()`.
         get {
             let rv = gtk_window_get_gravity(cast(window_ptr))
             return rv
         }
         /// Window gravity defines the meaning of coordinates passed to
-        /// gtk_window_move(). See gtk_window_move() and `GdkGravity` for
+        /// `gtk_window_move()`. See `gtk_window_move()` and `GdkGravity` for
         /// more details.
         /// 
         /// The default window gravity is `GDK_GRAVITY_NORTH_WEST` which will
@@ -3652,7 +3645,7 @@ public extension WindowProtocol {
         /// 
         /// Note that the resize grip is only shown if the window
         /// is actually resizable and not maximized. Use
-        /// gtk_window_resize_grip_is_visible() to find out if the
+        /// `gtk_window_resize_grip_is_visible()` to find out if the
         /// resize grip is currently shown.
         ///
         /// **set_has_resize_grip is deprecated:**
@@ -3678,7 +3671,7 @@ public extension WindowProtocol {
         /// screen space to better use. If the underlying window system does not
         /// support the request, the setting will not have any effect.
         /// 
-        /// Note that custom titlebars set with gtk_window_set_titlebar() are
+        /// Note that custom titlebars set with `gtk_window_set_titlebar()` are
         /// not affected by this. The application is in full control of their
         /// content and visibility anyway.
         nonmutating set {
@@ -3687,8 +3680,8 @@ public extension WindowProtocol {
     }
 
     var icon: UnsafeMutablePointer<GdkPixbuf>! {
-        /// Gets the value set by gtk_window_set_icon() (or if you've
-        /// called gtk_window_set_icon_list(), gets the first icon in
+        /// Gets the value set by `gtk_window_set_icon()` (or if you've
+        /// called `gtk_window_set_icon_list()`, gets the first icon in
         /// the icon list).
         get {
             let rv = gtk_window_get_icon(cast(window_ptr))
@@ -3706,23 +3699,23 @@ public extension WindowProtocol {
         /// final size is known, to allow best quality.
         /// 
         /// If you have your icon hand-drawn in multiple sizes, use
-        /// gtk_window_set_icon_list(). Then the best size will be used.
+        /// `gtk_window_set_icon_list()`. Then the best size will be used.
         /// 
-        /// This function is equivalent to calling gtk_window_set_icon_list()
+        /// This function is equivalent to calling `gtk_window_set_icon_list()`
         /// with a 1-element list.
         /// 
-        /// See also gtk_window_set_default_icon_list() to set the icon
+        /// See also `gtk_window_set_default_icon_list()` to set the icon
         /// for all windows in your application in one go.
         nonmutating set {
             gtk_window_set_icon(cast(window_ptr), cast(newValue))
         }
     }
 
-    /// Retrieves the list of icons set by gtk_window_set_icon_list().
+    /// Retrieves the list of icons set by `gtk_window_set_icon_list()`.
     /// The list is copied, but the reference count on each
     /// member won’t be incremented.
     var iconList: UnsafeMutablePointer<GList>! {
-        /// Retrieves the list of icons set by gtk_window_set_icon_list().
+        /// Retrieves the list of icons set by `gtk_window_set_icon_list()`.
         /// The list is copied, but the reference count on each
         /// member won’t be incremented.
         get {
@@ -3735,7 +3728,7 @@ public extension WindowProtocol {
         /// frame, or display it in other contexts. On others, the icon is not
         /// used at all, so your mileage may vary.
         /// 
-        /// gtk_window_set_icon_list() allows you to pass in the same icon in
+        /// `gtk_window_set_icon_list()` allows you to pass in the same icon in
         /// several hand-drawn sizes. The list should contain the natural sizes
         /// your icon is available in; that is, don’t scale the image before
         /// passing it to GTK+. Scaling is postponed until the last minute,
@@ -3747,11 +3740,11 @@ public extension WindowProtocol {
         /// Recommended sizes to provide: 16x16, 32x32, 48x48 at minimum, and
         /// larger images (64x64, 128x128) if you have them.
         /// 
-        /// See also gtk_window_set_default_icon_list() to set the icon
+        /// See also `gtk_window_set_default_icon_list()` to set the icon
         /// for all windows in your application in one go.
         /// 
         /// Note that transient windows (those who have been set transient for another
-        /// window using gtk_window_set_transient_for()) will inherit their
+        /// window using `gtk_window_set_transient_for()`) will inherit their
         /// icon from their transient parent. So there’s no need to explicitly
         /// set the icon on transient windows.
         nonmutating set {
@@ -3760,10 +3753,10 @@ public extension WindowProtocol {
     }
 
     /// Returns the name of the themed icon for the window,
-    /// see gtk_window_set_icon_name().
+    /// see `gtk_window_set_icon_name()`.
     var iconName: String! {
         /// Returns the name of the themed icon for the window,
-        /// see gtk_window_set_icon_name().
+        /// see `gtk_window_set_icon_name()`.
         get {
             let rv = gtk_window_get_icon_name(cast(window_ptr))
             return rv.map { String(cString: UnsafePointer<CChar>($0)) }
@@ -3785,7 +3778,7 @@ public extension WindowProtocol {
     /// itself, but also if it is, say, a `GtkPlug` embedded in the active toplevel.
     /// You might use this function if you wanted to draw a widget
     /// differently in an active window from a widget in an inactive window.
-    /// See gtk_window_has_toplevel_focus()
+    /// See `gtk_window_has_toplevel_focus()`
     var isActive: Bool {
         /// Returns whether the window is part of the current active toplevel.
         /// (That is, the toplevel window receiving keystrokes.)
@@ -3793,7 +3786,7 @@ public extension WindowProtocol {
         /// itself, but also if it is, say, a `GtkPlug` embedded in the active toplevel.
         /// You might use this function if you wanted to draw a widget
         /// differently in an active window from a widget in an inactive window.
-        /// See gtk_window_has_toplevel_focus()
+        /// See `gtk_window_has_toplevel_focus()`
         get {
             let rv = gtk_window_is_active(cast(window_ptr))
             return Bool(rv != 0)
@@ -3806,7 +3799,7 @@ public extension WindowProtocol {
     /// manager and happens asynchronously to an application request, you
     /// shouldn’t assume the return value of this function changing
     /// immediately (or at all), as an effect of calling
-    /// gtk_window_maximize() or gtk_window_unmaximize().
+    /// `gtk_window_maximize()` or `gtk_window_unmaximize()`.
     var isMaximized: Bool {
         /// Retrieves the current maximized state of `window`.
         /// 
@@ -3814,7 +3807,7 @@ public extension WindowProtocol {
         /// manager and happens asynchronously to an application request, you
         /// shouldn’t assume the return value of this function changing
         /// immediately (or at all), as an effect of calling
-        /// gtk_window_maximize() or gtk_window_unmaximize().
+        /// `gtk_window_maximize()` or `gtk_window_unmaximize()`.
         get {
             let rv = gtk_window_is_maximized(cast(window_ptr))
             return Bool(rv != 0)
@@ -3822,10 +3815,10 @@ public extension WindowProtocol {
     }
 
     /// Returns the mnemonic modifier for this window. See
-    /// gtk_window_set_mnemonic_modifier().
+    /// `gtk_window_set_mnemonic_modifier()`.
     var mnemonicModifier: GdkModifierType {
         /// Returns the mnemonic modifier for this window. See
-        /// gtk_window_set_mnemonic_modifier().
+        /// `gtk_window_set_mnemonic_modifier()`.
         get {
             let rv = gtk_window_get_mnemonic_modifier(cast(window_ptr))
             return rv
@@ -3836,21 +3829,21 @@ public extension WindowProtocol {
         }
     }
 
-    /// Gets the value of the `GtkWindow`:mnemonics-visible property.
+    /// Gets the value of the `GtkWindow:mnemonics`-visible property.
     var mnemonicsVisible: Bool {
-        /// Gets the value of the `GtkWindow`:mnemonics-visible property.
+        /// Gets the value of the `GtkWindow:mnemonics`-visible property.
         get {
             let rv = gtk_window_get_mnemonics_visible(cast(window_ptr))
             return Bool(rv != 0)
         }
-        /// Sets the `GtkWindow`:mnemonics-visible property.
+        /// Sets the `GtkWindow:mnemonics`-visible property.
         nonmutating set {
             gtk_window_set_mnemonics_visible(cast(window_ptr), gboolean(newValue ? 1 : 0))
         }
     }
 
     var modal: Bool {
-        /// Returns whether the window is modal. See gtk_window_set_modal().
+        /// Returns whether the window is modal. See `gtk_window_set_modal()`.
         get {
             let rv = gtk_window_get_modal(cast(window_ptr))
             return Bool(rv != 0)
@@ -3858,8 +3851,8 @@ public extension WindowProtocol {
         /// Sets a window modal or non-modal. Modal windows prevent interaction
         /// with other windows in the same application. To keep modal dialogs
         /// on top of main application windows, use
-        /// gtk_window_set_transient_for() to make the dialog transient for the
-        /// parent; most [window managers][gtk-X11-arch]
+        /// `gtk_window_set_transient_for()` to make the dialog transient for the
+        /// parent; most [window managers](#gtk-X11-arch)
         /// will then disallow lowering the dialog below the parent.
         nonmutating set {
             gtk_window_set_modal(cast(window_ptr), gboolean(newValue ? 1 : 0))
@@ -3867,13 +3860,13 @@ public extension WindowProtocol {
     }
 
     /// Fetches the requested opacity for this window. See
-    /// gtk_window_set_opacity().
+    /// `gtk_window_set_opacity()`.
     ///
     /// **get_opacity is deprecated:**
     /// Use gtk_widget_get_opacity instead.
     var opacity: gdouble {
         /// Fetches the requested opacity for this window. See
-        /// gtk_window_set_opacity().
+        /// `gtk_window_set_opacity()`.
         ///
         /// **get_opacity is deprecated:**
         /// Use gtk_widget_get_opacity instead.
@@ -3885,7 +3878,7 @@ public extension WindowProtocol {
         /// with opacity 0 being fully transparent and 1 fully opaque. (Values
         /// of the opacity parameter are clamped to the [0,1] range.) On X11
         /// this has any effect only on X screens with a compositing manager
-        /// running. See gtk_widget_is_composited(). On Windows it should work
+        /// running. See `gtk_widget_is_composited()`. On Windows it should work
         /// always.
         /// 
         /// Note that setting a window’s opacity after the window has been
@@ -3899,7 +3892,7 @@ public extension WindowProtocol {
     }
 
     var resizable: Bool {
-        /// Gets the value set by gtk_window_set_resizable().
+        /// Gets the value set by `gtk_window_set_resizable()`.
         get {
             let rv = gtk_window_get_resizable(cast(window_ptr))
             return Bool(rv != 0)
@@ -3912,7 +3905,7 @@ public extension WindowProtocol {
     }
 
     var role: String! {
-        /// Returns the role of the window. See gtk_window_set_role() for
+        /// Returns the role of the window. See `gtk_window_set_role()` for
         /// further explanation.
         get {
             let rv = gtk_window_get_role(cast(window_ptr))
@@ -3921,7 +3914,7 @@ public extension WindowProtocol {
         /// This function is only useful on X11, not with other GTK+ targets.
         /// 
         /// In combination with the window title, the window role allows a
-        /// [window manager][gtk-X11-arch] to identify "the
+        /// [window manager](#gtk-X11-arch) to identify "the
         /// same" window when an application is restarted. So for example you
         /// might set the “toolbox” role on your app’s toolbox window, so that
         /// when the user restarts their session, the window manager can put
@@ -3949,9 +3942,9 @@ public extension WindowProtocol {
         }
     }
 
-    /// Gets the value set by gtk_window_set_skip_pager_hint().
+    /// Gets the value set by `gtk_window_set_skip_pager_hint()`.
     var skipPagerHint: Bool {
-        /// Gets the value set by gtk_window_set_skip_pager_hint().
+        /// Gets the value set by `gtk_window_set_skip_pager_hint()`.
         get {
             let rv = gtk_window_get_skip_pager_hint(cast(window_ptr))
             return Bool(rv != 0)
@@ -3966,9 +3959,9 @@ public extension WindowProtocol {
         }
     }
 
-    /// Gets the value set by gtk_window_set_skip_taskbar_hint()
+    /// Gets the value set by `gtk_window_set_skip_taskbar_hint()`
     var skipTaskbarHint: Bool {
-        /// Gets the value set by gtk_window_set_skip_taskbar_hint()
+        /// Gets the value set by `gtk_window_set_skip_taskbar_hint()`
         get {
             let rv = gtk_window_get_skip_taskbar_hint(cast(window_ptr))
             return Bool(rv != 0)
@@ -3981,14 +3974,14 @@ public extension WindowProtocol {
     }
 
     var title: String! {
-        /// Retrieves the title of the window. See gtk_window_set_title().
+        /// Retrieves the title of the window. See `gtk_window_set_title()`.
         get {
             let rv = gtk_window_get_title(cast(window_ptr))
             return rv.map { String(cString: UnsafePointer<CChar>($0)) }
         }
         /// Sets the title of the `GtkWindow`. The title of a window will be
         /// displayed in its title bar; on the X Window System, the title bar
-        /// is rendered by the [window manager][gtk-X11-arch],
+        /// is rendered by the [window manager](#gtk-X11-arch),
         /// so exactly how the title appears to users may vary
         /// according to a user’s exact configuration. The title should help a
         /// user distinguish this window from other windows they may have
@@ -4000,10 +3993,10 @@ public extension WindowProtocol {
     }
 
     /// Returns the custom titlebar that has been set with
-    /// gtk_window_set_titlebar().
+    /// `gtk_window_set_titlebar()`.
     var titlebar: UnsafeMutablePointer<GtkWidget>! {
         /// Returns the custom titlebar that has been set with
-        /// gtk_window_set_titlebar().
+        /// `gtk_window_set_titlebar()`.
         get {
             let rv = gtk_window_get_titlebar(cast(window_ptr))
             return cast(rv)
@@ -4017,28 +4010,28 @@ public extension WindowProtocol {
         /// the window manager not to put its own titlebar on the window.
         /// Depending on the system, this function may not work for a window
         /// that is already visible, so you set the titlebar before calling
-        /// gtk_widget_show().
+        /// `gtk_widget_show()`.
         nonmutating set {
             gtk_window_set_titlebar(cast(window_ptr), cast(newValue))
         }
     }
 
     /// Fetches the transient parent for this window. See
-    /// gtk_window_set_transient_for().
+    /// `gtk_window_set_transient_for()`.
     var transientFor: UnsafeMutablePointer<GtkWindow>! {
         /// Fetches the transient parent for this window. See
-        /// gtk_window_set_transient_for().
+        /// `gtk_window_set_transient_for()`.
         get {
             let rv = gtk_window_get_transient_for(cast(window_ptr))
             return cast(rv)
         }
         /// Dialog windows should be set transient for the main application
         /// window they were spawned from. This allows
-        /// [window managers][gtk-X11-arch] to e.g. keep the
+        /// [window managers](#gtk-X11-arch) to e.g. keep the
         /// dialog on top of the main window, or center the dialog over the
-        /// main window. gtk_dialog_new_with_buttons() and other convenience
+        /// main window. `gtk_dialog_new_with_buttons()` and other convenience
         /// functions in GTK+ will sometimes call
-        /// gtk_window_set_transient_for() on your behalf.
+        /// `gtk_window_set_transient_for()` on your behalf.
         /// 
         /// Passing `nil` for `parent` unsets the current transient window.
         /// 
@@ -4055,9 +4048,9 @@ public extension WindowProtocol {
         }
     }
 
-    /// Gets the type hint for this window. See gtk_window_set_type_hint().
+    /// Gets the type hint for this window. See `gtk_window_set_type_hint()`.
     var typeHint: GdkWindowTypeHint {
-        /// Gets the type hint for this window. See gtk_window_set_type_hint().
+        /// Gets the type hint for this window. See `gtk_window_set_type_hint()`.
         get {
             let rv = gtk_window_get_type_hint(cast(window_ptr))
             return rv
@@ -4068,16 +4061,16 @@ public extension WindowProtocol {
         /// 
         /// This function should be called before the window becomes visible.
         /// 
-        /// gtk_dialog_new_with_buttons() and other convenience functions in GTK+
-        /// will sometimes call gtk_window_set_type_hint() on your behalf.
+        /// `gtk_dialog_new_with_buttons()` and other convenience functions in GTK+
+        /// will sometimes call `gtk_window_set_type_hint()` on your behalf.
         nonmutating set {
             gtk_window_set_type_hint(cast(window_ptr), newValue)
         }
     }
 
-    /// Gets the value set by gtk_window_set_urgency_hint()
+    /// Gets the value set by `gtk_window_set_urgency_hint()`
     var urgencyHint: Bool {
-        /// Gets the value set by gtk_window_set_urgency_hint()
+        /// Gets the value set by `gtk_window_set_urgency_hint()`
         get {
             let rv = gtk_window_get_urgency_hint(cast(window_ptr))
             return Bool(rv != 0)
@@ -4319,29 +4312,28 @@ public enum WindowAccessibleSignalName: String, SignalNameProtocol {
     /// Use the #AtkObject::state-change signal instead.
     case focusEvent = "focus-event"
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
     /// The signal "property-change" is emitted when an object's property
@@ -4353,9 +4345,9 @@ public enum WindowAccessibleSignalName: String, SignalNameProtocol {
     /// reinstate the previous value.
     /// 
     /// Toolkit implementor note: ATK implementors should use
-    /// g_object_notify() to emit property-changed
-    /// notifications. `AtkObject`::property-changed is needed by the
-    /// implementation of atk_add_global_event_listener() because GObject
+    /// `g_object_notify()` to emit property-changed
+    /// notifications. `AtkObject::property`-changed is needed by the
+    /// implementation of `atk_add_global_event_listener()` because GObject
     /// notify doesn't support emission hooks.
     case propertyChange = "property-change"
     /// The "state-change" signal is emitted when an object's state
@@ -4466,7 +4458,7 @@ public extension WindowAccessibleProtocol {
 /// 
 /// GtkWindowGroup objects are referenced by each window in the group,
 /// so once you have added all windows to a GtkWindowGroup, you can drop
-/// the initial reference to the window group with g_object_unref(). If the
+/// the initial reference to the window group with `g_object_unref()`. If the
 /// windows in the window group are subsequently destroyed, then they will
 /// be removed from the window group and drop their references on the window
 /// group; when all window have been removed, the window group will be
@@ -4493,7 +4485,7 @@ public protocol WindowGroupProtocol: GLibObject.ObjectProtocol {
 /// 
 /// GtkWindowGroup objects are referenced by each window in the group,
 /// so once you have added all windows to a GtkWindowGroup, you can drop
-/// the initial reference to the window group with g_object_unref(). If the
+/// the initial reference to the window group with `g_object_unref()`. If the
 /// windows in the window group are subsequently destroyed, then they will
 /// be removed from the window group and drop their references on the window
 /// group; when all window have been removed, the window group will be
@@ -4545,7 +4537,7 @@ public extension WindowGroupRef {
     }
 
         /// Creates a new `GtkWindowGroup` object. Grabs added with
-    /// gtk_grab_add() only affect windows within the same `GtkWindowGroup`.
+    /// `gtk_grab_add()` only affect windows within the same `GtkWindowGroup`.
     init() {
         let rv = gtk_window_group_new()
         self.init(cast(rv))
@@ -4566,7 +4558,7 @@ public extension WindowGroupRef {
 /// 
 /// GtkWindowGroup objects are referenced by each window in the group,
 /// so once you have added all windows to a GtkWindowGroup, you can drop
-/// the initial reference to the window group with g_object_unref(). If the
+/// the initial reference to the window group with `g_object_unref()`. If the
 /// windows in the window group are subsequently destroyed, then they will
 /// be removed from the window group and drop their references on the window
 /// group; when all window have been removed, the window group will be
@@ -4610,7 +4602,7 @@ open class WindowGroup: GLibObject.Object, WindowGroupProtocol {
     }
 
     /// Creates a new `GtkWindowGroup` object. Grabs added with
-    /// gtk_grab_add() only affect windows within the same `GtkWindowGroup`.
+    /// `gtk_grab_add()` only affect windows within the same `GtkWindowGroup`.
     public convenience init() {
         let rv = gtk_window_group_new()
         self.init(cast(rv))
@@ -4623,29 +4615,28 @@ open class WindowGroup: GLibObject.Object, WindowGroupProtocol {
 
 public enum WindowGroupSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
 
@@ -4696,7 +4687,7 @@ public extension WindowGroupProtocol {
     }
 
     /// Gets the current grab widget of the given group,
-    /// see gtk_grab_add().
+    /// see `gtk_grab_add()`.
     func getCurrentGrab() -> UnsafeMutablePointer<GtkWidget>! {
         let rv = gtk_window_group_get_current_grab(cast(window_group_ptr))
         return cast(rv)
@@ -4714,10 +4705,10 @@ public extension WindowGroupProtocol {
     
     }
     /// Gets the current grab widget of the given group,
-    /// see gtk_grab_add().
+    /// see `gtk_grab_add()`.
     var currentGrab: UnsafeMutablePointer<GtkWidget>! {
         /// Gets the current grab widget of the given group,
-        /// see gtk_grab_add().
+        /// see `gtk_grab_add()`.
         get {
             let rv = gtk_window_group_get_current_grab(cast(window_group_ptr))
             return cast(rv)

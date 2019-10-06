@@ -18,7 +18,7 @@ import Atk
 /// A `GtkAllocation`-struct of a widget represents region
 /// which has been allocated to the widget by its parent. It is a subregion
 /// of its parents allocation. See
-/// [GtkWidget’s geometry management section][geometry-management] for
+/// [GtkWidget’s geometry management section](#geometry-management) for
 /// more information.
 public typealias Allocation = GtkAllocation
 

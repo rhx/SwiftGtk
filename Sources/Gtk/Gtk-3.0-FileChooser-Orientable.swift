@@ -46,7 +46,7 @@ import Atk
 /// - Volumes: are provided by the underlying filesystem abstraction. They are
 ///   the “roots” of the filesystem.
 /// 
-/// `` File Names and Encodings
+/// # File Names and Encodings
 /// 
 /// When the user is finished selecting files in a
 /// `GtkFileChooser`, your program can get the selected names
@@ -59,31 +59,31 @@ import Atk
 /// variable.
 /// 
 /// This means that while you can pass the result of
-/// gtk_file_chooser_get_filename() to open() or fopen(),
+/// `gtk_file_chooser_get_filename()` to `open()` or `fopen()`,
 /// you may not be able to directly set it as the text of a
 /// `GtkLabel` widget unless you convert it first to UTF-8,
-/// which all GTK+ widgets expect. You should use g_filename_to_utf8()
+/// which all GTK+ widgets expect. You should use `g_filename_to_utf8()`
 /// to convert filenames into strings that can be passed to GTK+
 /// widgets.
 /// 
-/// `` Adding a Preview Widget
+/// # Adding a Preview Widget
 /// 
 /// You can add a custom preview widget to a file chooser and then
 /// get notification about when the preview needs to be updated.
 /// To install a preview widget, use
-/// gtk_file_chooser_set_preview_widget().  Then, connect to the
-/// `GtkFileChooser`::update-preview signal to get notified when
+/// `gtk_file_chooser_set_preview_widget()`.  Then, connect to the
+/// `GtkFileChooser::update`-preview signal to get notified when
 /// you need to update the contents of the preview.
 /// 
 /// Your callback should use
-/// gtk_file_chooser_get_preview_filename() to see what needs
+/// `gtk_file_chooser_get_preview_filename()` to see what needs
 /// previewing.  Once you have generated the preview for the
 /// corresponding file, you must call
-/// gtk_file_chooser_set_preview_widget_active() with a boolean
+/// `gtk_file_chooser_set_preview_widget_active()` with a boolean
 /// flag that indicates whether your callback could successfully
 /// generate a preview.
 /// 
-/// ``` Example: Using a Preview Widget ``` {`gtkfilechooser`-preview}
+/// ## Example: Using a Preview Widget ## <a name="gtkfilechooser-preview"></a>
 /// (C Language Example):
 /// ```C
 /// {
@@ -121,14 +121,13 @@ import Atk
 /// }
 /// ```
 /// 
-/// 
-/// `` Adding Extra Widgets
+/// # Adding Extra Widgets
 /// 
 /// You can add extra widgets to a file chooser to provide options
 /// that are not present in the default design.  For example, you
 /// can add a toggle button to give the user the option to open a
 /// file in read-only mode.  You can use
-/// gtk_file_chooser_set_extra_widget() to insert additional
+/// `gtk_file_chooser_set_extra_widget()` to insert additional
 /// widgets in a file chooser.
 /// 
 /// An example for adding extra widgets:
@@ -144,7 +143,6 @@ import Atk
 ///   gtk_file_chooser_set_extra_widget (my_file_chooser, toggle);
 /// }
 /// ```
-/// 
 /// 
 /// If you want to set more than one extra widget in the file
 /// chooser, you can a container such as a `GtkBox` or a `GtkGrid`
@@ -186,7 +184,7 @@ public protocol FileChooserProtocol {
 /// - Volumes: are provided by the underlying filesystem abstraction. They are
 ///   the “roots” of the filesystem.
 /// 
-/// `` File Names and Encodings
+/// # File Names and Encodings
 /// 
 /// When the user is finished selecting files in a
 /// `GtkFileChooser`, your program can get the selected names
@@ -199,31 +197,31 @@ public protocol FileChooserProtocol {
 /// variable.
 /// 
 /// This means that while you can pass the result of
-/// gtk_file_chooser_get_filename() to open() or fopen(),
+/// `gtk_file_chooser_get_filename()` to `open()` or `fopen()`,
 /// you may not be able to directly set it as the text of a
 /// `GtkLabel` widget unless you convert it first to UTF-8,
-/// which all GTK+ widgets expect. You should use g_filename_to_utf8()
+/// which all GTK+ widgets expect. You should use `g_filename_to_utf8()`
 /// to convert filenames into strings that can be passed to GTK+
 /// widgets.
 /// 
-/// `` Adding a Preview Widget
+/// # Adding a Preview Widget
 /// 
 /// You can add a custom preview widget to a file chooser and then
 /// get notification about when the preview needs to be updated.
 /// To install a preview widget, use
-/// gtk_file_chooser_set_preview_widget().  Then, connect to the
-/// `GtkFileChooser`::update-preview signal to get notified when
+/// `gtk_file_chooser_set_preview_widget()`.  Then, connect to the
+/// `GtkFileChooser::update`-preview signal to get notified when
 /// you need to update the contents of the preview.
 /// 
 /// Your callback should use
-/// gtk_file_chooser_get_preview_filename() to see what needs
+/// `gtk_file_chooser_get_preview_filename()` to see what needs
 /// previewing.  Once you have generated the preview for the
 /// corresponding file, you must call
-/// gtk_file_chooser_set_preview_widget_active() with a boolean
+/// `gtk_file_chooser_set_preview_widget_active()` with a boolean
 /// flag that indicates whether your callback could successfully
 /// generate a preview.
 /// 
-/// ``` Example: Using a Preview Widget ``` {`gtkfilechooser`-preview}
+/// ## Example: Using a Preview Widget ## <a name="gtkfilechooser-preview"></a>
 /// (C Language Example):
 /// ```C
 /// {
@@ -261,14 +259,13 @@ public protocol FileChooserProtocol {
 /// }
 /// ```
 /// 
-/// 
-/// `` Adding Extra Widgets
+/// # Adding Extra Widgets
 /// 
 /// You can add extra widgets to a file chooser to provide options
 /// that are not present in the default design.  For example, you
 /// can add a toggle button to give the user the option to open a
 /// file in read-only mode.  You can use
-/// gtk_file_chooser_set_extra_widget() to insert additional
+/// `gtk_file_chooser_set_extra_widget()` to insert additional
 /// widgets in a file chooser.
 /// 
 /// An example for adding extra widgets:
@@ -284,7 +281,6 @@ public protocol FileChooserProtocol {
 ///   gtk_file_chooser_set_extra_widget (my_file_chooser, toggle);
 /// }
 /// ```
-/// 
 /// 
 /// If you want to set more than one extra widget in the file
 /// chooser, you can a container such as a `GtkBox` or a `GtkGrid`
@@ -366,7 +362,7 @@ public extension FileChooserRef {
 /// - Volumes: are provided by the underlying filesystem abstraction. They are
 ///   the “roots” of the filesystem.
 /// 
-/// `` File Names and Encodings
+/// # File Names and Encodings
 /// 
 /// When the user is finished selecting files in a
 /// `GtkFileChooser`, your program can get the selected names
@@ -379,31 +375,31 @@ public extension FileChooserRef {
 /// variable.
 /// 
 /// This means that while you can pass the result of
-/// gtk_file_chooser_get_filename() to open() or fopen(),
+/// `gtk_file_chooser_get_filename()` to `open()` or `fopen()`,
 /// you may not be able to directly set it as the text of a
 /// `GtkLabel` widget unless you convert it first to UTF-8,
-/// which all GTK+ widgets expect. You should use g_filename_to_utf8()
+/// which all GTK+ widgets expect. You should use `g_filename_to_utf8()`
 /// to convert filenames into strings that can be passed to GTK+
 /// widgets.
 /// 
-/// `` Adding a Preview Widget
+/// # Adding a Preview Widget
 /// 
 /// You can add a custom preview widget to a file chooser and then
 /// get notification about when the preview needs to be updated.
 /// To install a preview widget, use
-/// gtk_file_chooser_set_preview_widget().  Then, connect to the
-/// `GtkFileChooser`::update-preview signal to get notified when
+/// `gtk_file_chooser_set_preview_widget()`.  Then, connect to the
+/// `GtkFileChooser::update`-preview signal to get notified when
 /// you need to update the contents of the preview.
 /// 
 /// Your callback should use
-/// gtk_file_chooser_get_preview_filename() to see what needs
+/// `gtk_file_chooser_get_preview_filename()` to see what needs
 /// previewing.  Once you have generated the preview for the
 /// corresponding file, you must call
-/// gtk_file_chooser_set_preview_widget_active() with a boolean
+/// `gtk_file_chooser_set_preview_widget_active()` with a boolean
 /// flag that indicates whether your callback could successfully
 /// generate a preview.
 /// 
-/// ``` Example: Using a Preview Widget ``` {`gtkfilechooser`-preview}
+/// ## Example: Using a Preview Widget ## <a name="gtkfilechooser-preview"></a>
 /// (C Language Example):
 /// ```C
 /// {
@@ -441,14 +437,13 @@ public extension FileChooserRef {
 /// }
 /// ```
 /// 
-/// 
-/// `` Adding Extra Widgets
+/// # Adding Extra Widgets
 /// 
 /// You can add extra widgets to a file chooser to provide options
 /// that are not present in the default design.  For example, you
 /// can add a toggle button to give the user the option to open a
 /// file in read-only mode.  You can use
-/// gtk_file_chooser_set_extra_widget() to insert additional
+/// `gtk_file_chooser_set_extra_widget()` to insert additional
 /// widgets in a file chooser.
 /// 
 /// An example for adding extra widgets:
@@ -464,7 +459,6 @@ public extension FileChooserRef {
 ///   gtk_file_chooser_set_extra_widget (my_file_chooser, toggle);
 /// }
 /// ```
-/// 
 /// 
 /// If you want to set more than one extra widget in the file
 /// chooser, you can a container such as a `GtkBox` or a `GtkGrid`
@@ -583,11 +577,11 @@ public enum FileChooserSignalName: String, SignalNameProtocol {
     /// chooser is in `GTK_FILE_CHOOSER_ACTION_SAVE` mode.
     /// 
     /// Most applications just need to turn on the
-    /// `GtkFileChooser`:do-overwrite-confirmation property (or call the
-    /// gtk_file_chooser_set_do_overwrite_confirmation() function), and
+    /// `GtkFileChooser:do`-overwrite-confirmation property (or call the
+    /// `gtk_file_chooser_set_do_overwrite_confirmation()` function), and
     /// they will automatically get a stock confirmation dialog.
     /// Applications which need to customize this behavior should do
-    /// that, and also connect to the `GtkFileChooser`::confirm-overwrite
+    /// that, and also connect to the `GtkFileChooser::confirm`-overwrite
     /// signal.
     /// 
     /// A signal handler for this signal must return a
@@ -602,7 +596,7 @@ public enum FileChooserSignalName: String, SignalNameProtocol {
     /// `GTK_FILE_CHOOSER_CONFIRMATION_CONFIRM`. The following example
     /// illustrates this.
     /// 
-    /// ``` Custom confirmation ``` {`gtkfilechooser`-confirmation}
+    /// ## Custom confirmation ## <a name="gtkfilechooser-confirmation"></a>
     /// 
     /// (C Language Example):
     /// ```C
@@ -647,10 +641,10 @@ public enum FileChooserSignalName: String, SignalNameProtocol {
     /// Normally you do not need to connect to this signal, unless you need to keep
     /// track of which folder a file chooser is showing.
     /// 
-    /// See also:  gtk_file_chooser_set_current_folder(),
-    /// gtk_file_chooser_get_current_folder(),
-    /// gtk_file_chooser_set_current_folder_uri(),
-    /// gtk_file_chooser_get_current_folder_uri().
+    /// See also:  `gtk_file_chooser_set_current_folder()`,
+    /// `gtk_file_chooser_get_current_folder()`,
+    /// `gtk_file_chooser_set_current_folder_uri()`,
+    /// `gtk_file_chooser_get_current_folder_uri()`.
     case currentFolderChanged = "current-folder-changed"
     /// This signal is emitted when the user "activates" a file in the file
     /// chooser.  This can happen by double-clicking on a file in the file list, or
@@ -660,9 +654,9 @@ public enum FileChooserSignalName: String, SignalNameProtocol {
     /// by `GtkFileChooserDialog` to know when to activate the default button in the
     /// dialog.
     /// 
-    /// See also: gtk_file_chooser_get_filename(),
-    /// gtk_file_chooser_get_filenames(), gtk_file_chooser_get_uri(),
-    /// gtk_file_chooser_get_uris().
+    /// See also: `gtk_file_chooser_get_filename()`,
+    /// `gtk_file_chooser_get_filenames()`, `gtk_file_chooser_get_uri()`,
+    /// `gtk_file_chooser_get_uris()`.
     case fileActivated = "file-activated"
     /// This signal is emitted when there is a change in the set of selected files
     /// in a `GtkFileChooser`.  This can happen when the user modifies the selection
@@ -673,11 +667,11 @@ public enum FileChooserSignalName: String, SignalNameProtocol {
     /// for the file chooser to finish running, and then to get the list of
     /// selected files using the functions mentioned below.
     /// 
-    /// See also: gtk_file_chooser_select_filename(),
-    /// gtk_file_chooser_unselect_filename(), gtk_file_chooser_get_filename(),
-    /// gtk_file_chooser_get_filenames(), gtk_file_chooser_select_uri(),
-    /// gtk_file_chooser_unselect_uri(), gtk_file_chooser_get_uri(),
-    /// gtk_file_chooser_get_uris().
+    /// See also: `gtk_file_chooser_select_filename()`,
+    /// `gtk_file_chooser_unselect_filename()`, `gtk_file_chooser_get_filename()`,
+    /// `gtk_file_chooser_get_filenames()`, `gtk_file_chooser_select_uri()`,
+    /// `gtk_file_chooser_unselect_uri()`, `gtk_file_chooser_get_uri()`,
+    /// `gtk_file_chooser_get_uris()`.
     case selectionChanged = "selection-changed"
     /// This signal is emitted when the preview in a file chooser should be
     /// regenerated.  For example, this can happen when the currently selected file
@@ -685,22 +679,22 @@ public enum FileChooserSignalName: String, SignalNameProtocol {
     /// a preview widget.
     /// 
     /// Once you have installed a preview widget with
-    /// gtk_file_chooser_set_preview_widget(), you should update it when this
+    /// `gtk_file_chooser_set_preview_widget()`, you should update it when this
     /// signal is emitted.  You can use the functions
-    /// gtk_file_chooser_get_preview_filename() or
-    /// gtk_file_chooser_get_preview_uri() to get the name of the file to preview.
+    /// `gtk_file_chooser_get_preview_filename()` or
+    /// `gtk_file_chooser_get_preview_uri()` to get the name of the file to preview.
     /// Your widget may not be able to preview all kinds of files; your callback
-    /// must call gtk_file_chooser_set_preview_widget_active() to inform the file
+    /// must call `gtk_file_chooser_set_preview_widget_active()` to inform the file
     /// chooser about whether the preview was generated successfully or not.
     /// 
     /// Please see the example code in
-    /// [Using a Preview Widget][gtkfilechooser-preview].
+    /// [Using a Preview Widget](#gtkfilechooser-preview).
     /// 
-    /// See also: gtk_file_chooser_set_preview_widget(),
-    /// gtk_file_chooser_set_preview_widget_active(),
-    /// gtk_file_chooser_set_use_preview_label(),
-    /// gtk_file_chooser_get_preview_filename(),
-    /// gtk_file_chooser_get_preview_uri().
+    /// See also: `gtk_file_chooser_set_preview_widget()`,
+    /// `gtk_file_chooser_set_preview_widget_active()`,
+    /// `gtk_file_chooser_set_use_preview_label()`,
+    /// `gtk_file_chooser_get_preview_filename()`,
+    /// `gtk_file_chooser_get_preview_uri()`.
     case updatePreview = "update-preview"
     case notifyAction = "notify::action"
     /// Whether a file chooser not in `GTK_FILE_CHOOSER_ACTION_OPEN` mode
@@ -754,11 +748,11 @@ public extension FileChooserProtocol {
 
     /// Adds a 'choice' to the file chooser. This is typically implemented
     /// as a combobox or, for boolean choices, as a checkbutton. You can select
-    /// a value using gtk_file_chooser_set_choice() before the dialog is shown,
-    /// and you can obtain the user-selected value in the ::response signal handler
-    /// using gtk_file_chooser_get_choice().
+    /// a value using `gtk_file_chooser_set_choice()` before the dialog is shown,
+    /// and you can obtain the user-selected value in the `response` signal handler
+    /// using `gtk_file_chooser_get_choice()`.
     /// 
-    /// Compare gtk_file_chooser_set_extra_widget().
+    /// Compare `gtk_file_chooser_set_extra_widget()`.
     func addChoice(id: UnsafePointer<CChar>, label: UnsafePointer<CChar>, options: UnsafePointer<UnsafePointer<CChar>>, optionLabels option_labels: UnsafePointer<UnsafePointer<CChar>>) {
         gtk_file_chooser_add_choice(cast(file_chooser_ptr), id, label, cast(options), cast(option_labels))
     
@@ -802,7 +796,7 @@ public extension FileChooserProtocol {
     }
 
     /// Gets the type of operation that the file chooser is performing; see
-    /// gtk_file_chooser_set_action().
+    /// `gtk_file_chooser_set_action()`.
     func getAction() -> GtkFileChooserAction {
         let rv = gtk_file_chooser_get_action(cast(file_chooser_ptr))
         return rv
@@ -815,21 +809,21 @@ public extension FileChooserProtocol {
     }
 
     /// Gets whether file choser will offer to create new folders.
-    /// See gtk_file_chooser_set_create_folders().
+    /// See `gtk_file_chooser_set_create_folders()`.
     func getCreateFolders() -> Bool {
         let rv = gtk_file_chooser_get_create_folders(cast(file_chooser_ptr))
         return Bool(rv != 0)
     }
 
     /// Gets the current folder of `chooser` as a local filename.
-    /// See gtk_file_chooser_set_current_folder().
+    /// See `gtk_file_chooser_set_current_folder()`.
     /// 
     /// Note that this is the folder that the file chooser is currently displaying
     /// (e.g. "/home/username/Documents"), which is not the same
     /// as the currently-selected folder if the chooser is in
     /// `GTK_FILE_CHOOSER_ACTION_SELECT_FOLDER` mode
     /// (e.g. "/home/username/Documents/selected-folder/".  To get the
-    /// currently-selected folder in that mode, use gtk_file_chooser_get_uri() as the
+    /// currently-selected folder in that mode, use `gtk_file_chooser_get_uri()` as the
     /// usual way to get the selection.
     func getCurrentFolder() -> String! {
         let rv = gtk_file_chooser_get_current_folder(cast(file_chooser_ptr))
@@ -837,21 +831,21 @@ public extension FileChooserProtocol {
     }
 
     /// Gets the current folder of `chooser` as `GFile`.
-    /// See gtk_file_chooser_get_current_folder_uri().
+    /// See `gtk_file_chooser_get_current_folder_uri()`.
     func getCurrentFolderFile() -> UnsafeMutablePointer<GFile>! {
         let rv = gtk_file_chooser_get_current_folder_file(cast(file_chooser_ptr))
         return cast(rv)
     }
 
     /// Gets the current folder of `chooser` as an URI.
-    /// See gtk_file_chooser_set_current_folder_uri().
+    /// See `gtk_file_chooser_set_current_folder_uri()`.
     /// 
     /// Note that this is the folder that the file chooser is currently displaying
     /// (e.g. "file:///home/username/Documents"), which is not the same
     /// as the currently-selected folder if the chooser is in
     /// `GTK_FILE_CHOOSER_ACTION_SELECT_FOLDER` mode
     /// (e.g. "file:///home/username/Documents/selected-folder/".  To get the
-    /// currently-selected folder in that mode, use gtk_file_chooser_get_uri() as the
+    /// currently-selected folder in that mode, use `gtk_file_chooser_get_uri()` as the
     /// usual way to get the selection.
     func getCurrentFolderURI() -> String! {
         let rv = gtk_file_chooser_get_current_folder_uri(cast(file_chooser_ptr))
@@ -879,7 +873,7 @@ public extension FileChooserProtocol {
     }
 
     /// Gets the current extra widget; see
-    /// gtk_file_chooser_set_extra_widget().
+    /// `gtk_file_chooser_set_extra_widget()`.
     func getExtraWidget() -> UnsafeMutablePointer<GtkWidget>! {
         let rv = gtk_file_chooser_get_extra_widget(cast(file_chooser_ptr))
         return cast(rv)
@@ -911,77 +905,77 @@ public extension FileChooserProtocol {
     /// Lists all the selected files and subfolders in the current folder of
     /// `chooser`. The returned names are full absolute paths. If files in the current
     /// folder cannot be represented as local filenames they will be ignored. (See
-    /// gtk_file_chooser_get_uris())
+    /// `gtk_file_chooser_get_uris()`)
     func getFilenames() -> SListRef! {
         let rv = gtk_file_chooser_get_filenames(cast(file_chooser_ptr))
         return cast(rv.map { SListRef($0) })
     }
 
     /// Lists all the selected files and subfolders in the current folder of `chooser`
-    /// as `GFile`. An internal function, see gtk_file_chooser_get_uris().
+    /// as `GFile`. An internal function, see `gtk_file_chooser_get_uris()`.
     func getFiles() -> SListRef! {
         let rv = gtk_file_chooser_get_files(cast(file_chooser_ptr))
         return cast(rv.map { SListRef($0) })
     }
 
-    /// Gets the current filter; see gtk_file_chooser_set_filter().
+    /// Gets the current filter; see `gtk_file_chooser_set_filter()`.
     func getFilter() -> UnsafeMutablePointer<GtkFileFilter>! {
         let rv = gtk_file_chooser_get_filter(cast(file_chooser_ptr))
         return cast(rv)
     }
 
     /// Gets whether only local files can be selected in the
-    /// file selector. See gtk_file_chooser_set_local_only()
+    /// file selector. See `gtk_file_chooser_set_local_only()`
     func getLocalOnly() -> Bool {
         let rv = gtk_file_chooser_get_local_only(cast(file_chooser_ptr))
         return Bool(rv != 0)
     }
 
     /// Gets the `GFile` that should be previewed in a custom preview
-    /// Internal function, see gtk_file_chooser_get_preview_uri().
+    /// Internal function, see `gtk_file_chooser_get_preview_uri()`.
     func getPreviewFile() -> UnsafeMutablePointer<GFile>! {
         let rv = gtk_file_chooser_get_preview_file(cast(file_chooser_ptr))
         return cast(rv)
     }
 
     /// Gets the filename that should be previewed in a custom preview
-    /// widget. See gtk_file_chooser_set_preview_widget().
+    /// widget. See `gtk_file_chooser_set_preview_widget()`.
     func getPreviewFilename() -> String! {
         let rv = gtk_file_chooser_get_preview_filename(cast(file_chooser_ptr))
         return rv.map { String(cString: UnsafePointer<CChar>($0)) }
     }
 
     /// Gets the URI that should be previewed in a custom preview
-    /// widget. See gtk_file_chooser_set_preview_widget().
+    /// widget. See `gtk_file_chooser_set_preview_widget()`.
     func getPreviewURI() -> String! {
         let rv = gtk_file_chooser_get_preview_uri(cast(file_chooser_ptr))
         return rv.map { String(cString: UnsafePointer<CChar>($0)) }
     }
 
     /// Gets the current preview widget; see
-    /// gtk_file_chooser_set_preview_widget().
+    /// `gtk_file_chooser_set_preview_widget()`.
     func getPreviewWidget() -> UnsafeMutablePointer<GtkWidget>! {
         let rv = gtk_file_chooser_get_preview_widget(cast(file_chooser_ptr))
         return cast(rv)
     }
 
-    /// Gets whether the preview widget set by gtk_file_chooser_set_preview_widget()
+    /// Gets whether the preview widget set by `gtk_file_chooser_set_preview_widget()`
     /// should be shown for the current filename. See
-    /// gtk_file_chooser_set_preview_widget_active().
+    /// `gtk_file_chooser_set_preview_widget_active()`.
     func getPreviewWidgetActive() -> Bool {
         let rv = gtk_file_chooser_get_preview_widget_active(cast(file_chooser_ptr))
         return Bool(rv != 0)
     }
 
     /// Gets whether multiple files can be selected in the file
-    /// selector. See gtk_file_chooser_set_select_multiple().
+    /// selector. See `gtk_file_chooser_set_select_multiple()`.
     func getSelectMultiple() -> Bool {
         let rv = gtk_file_chooser_get_select_multiple(cast(file_chooser_ptr))
         return Bool(rv != 0)
     }
 
     /// Gets whether hidden files and folders are displayed in the file selector.
-    /// See gtk_file_chooser_set_show_hidden().
+    /// See `gtk_file_chooser_set_show_hidden()`.
     func getShowHidden() -> Bool {
         let rv = gtk_file_chooser_get_show_hidden(cast(file_chooser_ptr))
         return Bool(rv != 0)
@@ -1006,34 +1000,34 @@ public extension FileChooserProtocol {
     }
 
     /// Gets whether a stock label should be drawn with the name of the previewed
-    /// file.  See gtk_file_chooser_set_use_preview_label().
+    /// file.  See `gtk_file_chooser_set_use_preview_label()`.
     func getUsePreviewLabel() -> Bool {
         let rv = gtk_file_chooser_get_use_preview_label(cast(file_chooser_ptr))
         return Bool(rv != 0)
     }
 
     /// Lists the current set of user-selectable filters; see
-    /// gtk_file_chooser_add_filter(), gtk_file_chooser_remove_filter().
+    /// `gtk_file_chooser_add_filter()`, `gtk_file_chooser_remove_filter()`.
     func listFilters() -> SListRef! {
         let rv = gtk_file_chooser_list_filters(cast(file_chooser_ptr))
         return cast(rv.map { SListRef($0) })
     }
 
     /// Queries the list of shortcut folders in the file chooser, as set by
-    /// gtk_file_chooser_add_shortcut_folder_uri().
+    /// `gtk_file_chooser_add_shortcut_folder_uri()`.
     func listShortcutFolderURIs() -> SListRef! {
         let rv = gtk_file_chooser_list_shortcut_folder_uris(cast(file_chooser_ptr))
         return cast(rv.map { SListRef($0) })
     }
 
     /// Queries the list of shortcut folders in the file chooser, as set by
-    /// gtk_file_chooser_add_shortcut_folder().
+    /// `gtk_file_chooser_add_shortcut_folder()`.
     func listShortcutFolders() -> SListRef! {
         let rv = gtk_file_chooser_list_shortcut_folders(cast(file_chooser_ptr))
         return cast(rv.map { SListRef($0) })
     }
 
-    /// Removes a 'choice' that has been added with gtk_file_chooser_add_choice().
+    /// Removes a 'choice' that has been added with `gtk_file_chooser_add_choice()`.
     func removeChoice(id: UnsafePointer<CChar>) {
         gtk_file_chooser_remove_choice(cast(file_chooser_ptr), id)
     
@@ -1072,7 +1066,7 @@ public extension FileChooserProtocol {
     }
 
     /// Selects the file referred to by `file`. An internal function. See
-    /// _gtk_file_chooser_select_uri().
+    /// `_gtk_file_chooser_select_uri()`.
     func select(file: FileProtocol) throws -> Bool {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = gtk_file_chooser_select_file(cast(file_chooser_ptr), cast(file.ptr), &error)
@@ -1109,7 +1103,7 @@ public extension FileChooserProtocol {
     }
 
     /// Selects an option in a 'choice' that has been added with
-    /// gtk_file_chooser_add_choice(). For a boolean choice, the
+    /// `gtk_file_chooser_add_choice()`. For a boolean choice, the
     /// possible options are "true" and "false".
     func setChoice(id: UnsafePointer<CChar>, option: UnsafePointer<CChar>) {
         gtk_file_chooser_set_choice(cast(file_chooser_ptr), id, option)
@@ -1129,7 +1123,7 @@ public extension FileChooserProtocol {
     /// plus user interface elements for navigating to other folders.
     /// 
     /// In general, you should not use this function.  See the
-    /// [section on setting up a file chooser dialog][gtkfilechooserdialog-setting-up]
+    /// [section on setting up a file chooser dialog](#gtkfilechooserdialog-setting-up)
     /// for the rationale behind this.
     func setCurrentFolder(String_: UnsafePointer<gchar>) -> Bool {
         let rv = gtk_file_chooser_set_current_folder(cast(file_chooser_ptr), String_)
@@ -1137,7 +1131,7 @@ public extension FileChooserProtocol {
     }
 
     /// Sets the current folder for `chooser` from a `GFile`.
-    /// Internal function, see gtk_file_chooser_set_current_folder_uri().
+    /// Internal function, see `gtk_file_chooser_set_current_folder_uri()`.
     func setCurrentFolder(file: FileProtocol) throws -> Bool {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = gtk_file_chooser_set_current_folder_file(cast(file_chooser_ptr), cast(file.ptr), &error)
@@ -1152,7 +1146,7 @@ public extension FileChooserProtocol {
     /// plus user interface elements for navigating to other folders.
     /// 
     /// In general, you should not use this function.  See the
-    /// [section on setting up a file chooser dialog][gtkfilechooserdialog-setting-up]
+    /// [section on setting up a file chooser dialog](#gtkfilechooserdialog-setting-up)
     /// for the rationale behind this.
     func setCurrentFolder(uri: UnsafePointer<gchar>) -> Bool {
         let rv = gtk_file_chooser_set_current_folder_uri(cast(file_chooser_ptr), uri)
@@ -1166,9 +1160,9 @@ public extension FileChooserProtocol {
     /// pass “Untitled.doc” or a similarly suitable suggestion for the `name`.
     /// 
     /// If you want to preselect a particular existing file, you should use
-    /// gtk_file_chooser_set_filename() or gtk_file_chooser_set_uri() instead.
+    /// `gtk_file_chooser_set_filename()` or `gtk_file_chooser_set_uri()` instead.
     /// Please see the documentation for those functions for an example of using
-    /// gtk_file_chooser_set_current_name() as well.
+    /// `gtk_file_chooser_set_current_name()` as well.
     func setCurrent(name: UnsafePointer<gchar>) {
         gtk_file_chooser_set_current_name(cast(file_chooser_ptr), name)
     
@@ -1179,11 +1173,11 @@ public extension FileChooserProtocol {
     /// is `false` by default.
     /// 
     /// If set to `true`, the `chooser` will emit the
-    /// `GtkFileChooser`::confirm-overwrite signal when appropriate.
+    /// `GtkFileChooser::confirm`-overwrite signal when appropriate.
     /// 
     /// If all you need is the stock confirmation dialog, set this property to `true`.
     /// You can override the way confirmation is done by actually handling the
-    /// `GtkFileChooser`::confirm-overwrite signal; please refer to its documentation
+    /// `GtkFileChooser::confirm`-overwrite signal; please refer to its documentation
     /// for the details.
     func set(doOverwriteConfirmation do_overwrite_confirmation: Bool) {
         gtk_file_chooser_set_do_overwrite_confirmation(cast(file_chooser_ptr), gboolean(do_overwrite_confirmation ? 1 : 0))
@@ -1203,8 +1197,8 @@ public extension FileChooserProtocol {
     /// 
     /// If the file name isn’t in the current folder of `chooser`, then the current
     /// folder of `chooser` will be changed to the folder containing `filename`. This
-    /// is equivalent to a sequence of gtk_file_chooser_unselect_all() followed by
-    /// gtk_file_chooser_select_filename().
+    /// is equivalent to a sequence of `gtk_file_chooser_unselect_all()` followed by
+    /// `gtk_file_chooser_select_filename()`.
     /// 
     /// Note that the file must exist, or nothing will be done except
     /// for the directory change.
@@ -1270,7 +1264,6 @@ public extension FileChooserProtocol {
     ///   }
     /// ```
     /// 
-    /// 
     /// In the first case, the file chooser will present the user with useful suggestions
     /// as to where to save his new file.  In the second case, the file’s existing location
     /// is already known, so the file chooser will use it.
@@ -1296,9 +1289,9 @@ public extension FileChooserProtocol {
     /// accessible through the operating systems native file
     /// system and therefore the application only
     /// needs to worry about the filename functions in
-    /// `GtkFileChooser`, like gtk_file_chooser_get_filename(),
+    /// `GtkFileChooser`, like `gtk_file_chooser_get_filename()`,
     /// rather than the URI functions like
-    /// gtk_file_chooser_get_uri(),
+    /// `gtk_file_chooser_get_uri()`,
     /// 
     /// On some systems non-native files may still be
     /// available using the native filesystem via a userspace
@@ -1310,11 +1303,11 @@ public extension FileChooserProtocol {
 
     /// Sets an application-supplied widget to use to display a custom preview
     /// of the currently selected file. To implement a preview, after setting the
-    /// preview widget, you connect to the `GtkFileChooser`::update-preview
-    /// signal, and call gtk_file_chooser_get_preview_filename() or
-    /// gtk_file_chooser_get_preview_uri() on each change. If you can
+    /// preview widget, you connect to the `GtkFileChooser::update`-preview
+    /// signal, and call `gtk_file_chooser_get_preview_filename()` or
+    /// `gtk_file_chooser_get_preview_uri()` on each change. If you can
     /// display a preview of the new file, update your widget and
-    /// set the preview active using gtk_file_chooser_set_preview_widget_active().
+    /// set the preview active using `gtk_file_chooser_set_preview_widget_active()`.
     /// Otherwise, set the preview inactive.
     /// 
     /// When there is no application-supplied preview widget, or the
@@ -1326,11 +1319,11 @@ public extension FileChooserProtocol {
     }
 
     /// Sets whether the preview widget set by
-    /// gtk_file_chooser_set_preview_widget() should be shown for the
+    /// `gtk_file_chooser_set_preview_widget()` should be shown for the
     /// current filename. When `active` is set to false, the file chooser
     /// may display an internally generated preview of the current file
     /// or it may display no preview at all. See
-    /// gtk_file_chooser_set_preview_widget() for more details.
+    /// `gtk_file_chooser_set_preview_widget()` for more details.
     func setPreviewWidget(active: Bool) {
         gtk_file_chooser_set_preview_widget_active(cast(file_chooser_ptr), gboolean(active ? 1 : 0))
     
@@ -1380,7 +1373,6 @@ public extension FileChooserProtocol {
     /// ```
     /// 
     /// 
-    /// 
     /// In the first case, the file chooser will present the user with useful suggestions
     /// as to where to save his new file.  In the second case, the file’s existing location
     /// is already known, so the file chooser will use it.
@@ -1394,7 +1386,7 @@ public extension FileChooserProtocol {
     /// want to draw the whole preview area themselves should set this to `false` and
     /// display the name themselves in their preview widget.
     /// 
-    /// See also: gtk_file_chooser_set_preview_widget()
+    /// See also: `gtk_file_chooser_set_preview_widget()`
     func setUsePreviewLabel(useLabel use_label: Bool) {
         gtk_file_chooser_set_use_preview_label(cast(file_chooser_ptr), gboolean(use_label ? 1 : 0))
     
@@ -1430,7 +1422,7 @@ public extension FileChooserProtocol {
     }
     var action: GtkFileChooserAction {
         /// Gets the type of operation that the file chooser is performing; see
-        /// gtk_file_chooser_set_action().
+        /// `gtk_file_chooser_set_action()`.
         get {
             let rv = gtk_file_chooser_get_action(cast(file_chooser_ptr))
             return rv
@@ -1446,10 +1438,10 @@ public extension FileChooserProtocol {
     }
 
     /// Gets whether file choser will offer to create new folders.
-    /// See gtk_file_chooser_set_create_folders().
+    /// See `gtk_file_chooser_set_create_folders()`.
     var createFolders: Bool {
         /// Gets whether file choser will offer to create new folders.
-        /// See gtk_file_chooser_set_create_folders().
+        /// See `gtk_file_chooser_set_create_folders()`.
         get {
             let rv = gtk_file_chooser_get_create_folders(cast(file_chooser_ptr))
             return Bool(rv != 0)
@@ -1463,25 +1455,25 @@ public extension FileChooserProtocol {
     }
 
     /// Gets the current folder of `chooser` as a local filename.
-    /// See gtk_file_chooser_set_current_folder().
+    /// See `gtk_file_chooser_set_current_folder()`.
     /// 
     /// Note that this is the folder that the file chooser is currently displaying
     /// (e.g. "/home/username/Documents"), which is not the same
     /// as the currently-selected folder if the chooser is in
     /// `GTK_FILE_CHOOSER_ACTION_SELECT_FOLDER` mode
     /// (e.g. "/home/username/Documents/selected-folder/".  To get the
-    /// currently-selected folder in that mode, use gtk_file_chooser_get_uri() as the
+    /// currently-selected folder in that mode, use `gtk_file_chooser_get_uri()` as the
     /// usual way to get the selection.
     var currentFolder: String! {
         /// Gets the current folder of `chooser` as a local filename.
-        /// See gtk_file_chooser_set_current_folder().
+        /// See `gtk_file_chooser_set_current_folder()`.
         /// 
         /// Note that this is the folder that the file chooser is currently displaying
         /// (e.g. "/home/username/Documents"), which is not the same
         /// as the currently-selected folder if the chooser is in
         /// `GTK_FILE_CHOOSER_ACTION_SELECT_FOLDER` mode
         /// (e.g. "/home/username/Documents/selected-folder/".  To get the
-        /// currently-selected folder in that mode, use gtk_file_chooser_get_uri() as the
+        /// currently-selected folder in that mode, use `gtk_file_chooser_get_uri()` as the
         /// usual way to get the selection.
         get {
             let rv = gtk_file_chooser_get_current_folder(cast(file_chooser_ptr))
@@ -1492,7 +1484,7 @@ public extension FileChooserProtocol {
         /// plus user interface elements for navigating to other folders.
         /// 
         /// In general, you should not use this function.  See the
-        /// [section on setting up a file chooser dialog][gtkfilechooserdialog-setting-up]
+        /// [section on setting up a file chooser dialog](#gtkfilechooserdialog-setting-up)
         /// for the rationale behind this.
         nonmutating set {
             let _ = gtk_file_chooser_set_current_folder(cast(file_chooser_ptr), newValue)
@@ -1500,10 +1492,10 @@ public extension FileChooserProtocol {
     }
 
     /// Gets the current folder of `chooser` as `GFile`.
-    /// See gtk_file_chooser_get_current_folder_uri().
+    /// See `gtk_file_chooser_get_current_folder_uri()`.
     var currentFolderFile: UnsafeMutablePointer<GFile>! {
         /// Gets the current folder of `chooser` as `GFile`.
-        /// See gtk_file_chooser_get_current_folder_uri().
+        /// See `gtk_file_chooser_get_current_folder_uri()`.
         get {
             let rv = gtk_file_chooser_get_current_folder_file(cast(file_chooser_ptr))
             return cast(rv)
@@ -1511,25 +1503,25 @@ public extension FileChooserProtocol {
     }
 
     /// Gets the current folder of `chooser` as an URI.
-    /// See gtk_file_chooser_set_current_folder_uri().
+    /// See `gtk_file_chooser_set_current_folder_uri()`.
     /// 
     /// Note that this is the folder that the file chooser is currently displaying
     /// (e.g. "file:///home/username/Documents"), which is not the same
     /// as the currently-selected folder if the chooser is in
     /// `GTK_FILE_CHOOSER_ACTION_SELECT_FOLDER` mode
     /// (e.g. "file:///home/username/Documents/selected-folder/".  To get the
-    /// currently-selected folder in that mode, use gtk_file_chooser_get_uri() as the
+    /// currently-selected folder in that mode, use `gtk_file_chooser_get_uri()` as the
     /// usual way to get the selection.
     var currentFolderURI: String! {
         /// Gets the current folder of `chooser` as an URI.
-        /// See gtk_file_chooser_set_current_folder_uri().
+        /// See `gtk_file_chooser_set_current_folder_uri()`.
         /// 
         /// Note that this is the folder that the file chooser is currently displaying
         /// (e.g. "file:///home/username/Documents"), which is not the same
         /// as the currently-selected folder if the chooser is in
         /// `GTK_FILE_CHOOSER_ACTION_SELECT_FOLDER` mode
         /// (e.g. "file:///home/username/Documents/selected-folder/".  To get the
-        /// currently-selected folder in that mode, use gtk_file_chooser_get_uri() as the
+        /// currently-selected folder in that mode, use `gtk_file_chooser_get_uri()` as the
         /// usual way to get the selection.
         get {
             let rv = gtk_file_chooser_get_current_folder_uri(cast(file_chooser_ptr))
@@ -1540,7 +1532,7 @@ public extension FileChooserProtocol {
         /// plus user interface elements for navigating to other folders.
         /// 
         /// In general, you should not use this function.  See the
-        /// [section on setting up a file chooser dialog][gtkfilechooserdialog-setting-up]
+        /// [section on setting up a file chooser dialog](#gtkfilechooserdialog-setting-up)
         /// for the rationale behind this.
         nonmutating set {
             let _ = gtk_file_chooser_set_current_folder_uri(cast(file_chooser_ptr), newValue)
@@ -1575,9 +1567,9 @@ public extension FileChooserProtocol {
         /// pass “Untitled.doc” or a similarly suitable suggestion for the `name`.
         /// 
         /// If you want to preselect a particular existing file, you should use
-        /// gtk_file_chooser_set_filename() or gtk_file_chooser_set_uri() instead.
+        /// `gtk_file_chooser_set_filename()` or `gtk_file_chooser_set_uri()` instead.
         /// Please see the documentation for those functions for an example of using
-        /// gtk_file_chooser_set_current_name() as well.
+        /// `gtk_file_chooser_set_current_name()` as well.
         nonmutating set {
             gtk_file_chooser_set_current_name(cast(file_chooser_ptr), newValue)
         }
@@ -1597,11 +1589,11 @@ public extension FileChooserProtocol {
         /// is `false` by default.
         /// 
         /// If set to `true`, the `chooser` will emit the
-        /// `GtkFileChooser`::confirm-overwrite signal when appropriate.
+        /// `GtkFileChooser::confirm`-overwrite signal when appropriate.
         /// 
         /// If all you need is the stock confirmation dialog, set this property to `true`.
         /// You can override the way confirmation is done by actually handling the
-        /// `GtkFileChooser`::confirm-overwrite signal; please refer to its documentation
+        /// `GtkFileChooser::confirm`-overwrite signal; please refer to its documentation
         /// for the details.
         nonmutating set {
             gtk_file_chooser_set_do_overwrite_confirmation(cast(file_chooser_ptr), gboolean(newValue ? 1 : 0))
@@ -1609,10 +1601,10 @@ public extension FileChooserProtocol {
     }
 
     /// Gets the current extra widget; see
-    /// gtk_file_chooser_set_extra_widget().
+    /// `gtk_file_chooser_set_extra_widget()`.
     var extraWidget: UnsafeMutablePointer<GtkWidget>! {
         /// Gets the current extra widget; see
-        /// gtk_file_chooser_set_extra_widget().
+        /// `gtk_file_chooser_set_extra_widget()`.
         get {
             let rv = gtk_file_chooser_get_extra_widget(cast(file_chooser_ptr))
             return cast(rv)
@@ -1691,7 +1683,6 @@ public extension FileChooserProtocol {
         ///   }
         /// ```
         /// 
-        /// 
         /// In the first case, the file chooser will present the user with useful suggestions
         /// as to where to save his new file.  In the second case, the file’s existing location
         /// is already known, so the file chooser will use it.
@@ -1703,12 +1694,12 @@ public extension FileChooserProtocol {
     /// Lists all the selected files and subfolders in the current folder of
     /// `chooser`. The returned names are full absolute paths. If files in the current
     /// folder cannot be represented as local filenames they will be ignored. (See
-    /// gtk_file_chooser_get_uris())
+    /// `gtk_file_chooser_get_uris()`)
     var filenames: SListRef! {
         /// Lists all the selected files and subfolders in the current folder of
         /// `chooser`. The returned names are full absolute paths. If files in the current
         /// folder cannot be represented as local filenames they will be ignored. (See
-        /// gtk_file_chooser_get_uris())
+        /// `gtk_file_chooser_get_uris()`)
         get {
             let rv = gtk_file_chooser_get_filenames(cast(file_chooser_ptr))
             return cast(rv.map { SListRef($0) })
@@ -1716,10 +1707,10 @@ public extension FileChooserProtocol {
     }
 
     /// Lists all the selected files and subfolders in the current folder of `chooser`
-    /// as `GFile`. An internal function, see gtk_file_chooser_get_uris().
+    /// as `GFile`. An internal function, see `gtk_file_chooser_get_uris()`.
     var files: SListRef! {
         /// Lists all the selected files and subfolders in the current folder of `chooser`
-        /// as `GFile`. An internal function, see gtk_file_chooser_get_uris().
+        /// as `GFile`. An internal function, see `gtk_file_chooser_get_uris()`.
         get {
             let rv = gtk_file_chooser_get_files(cast(file_chooser_ptr))
             return cast(rv.map { SListRef($0) })
@@ -1727,7 +1718,7 @@ public extension FileChooserProtocol {
     }
 
     var filter: UnsafeMutablePointer<GtkFileFilter>! {
-        /// Gets the current filter; see gtk_file_chooser_set_filter().
+        /// Gets the current filter; see `gtk_file_chooser_set_filter()`.
         get {
             let rv = gtk_file_chooser_get_filter(cast(file_chooser_ptr))
             return cast(rv)
@@ -1744,10 +1735,10 @@ public extension FileChooserProtocol {
     }
 
     /// Gets whether only local files can be selected in the
-    /// file selector. See gtk_file_chooser_set_local_only()
+    /// file selector. See `gtk_file_chooser_set_local_only()`
     var localOnly: Bool {
         /// Gets whether only local files can be selected in the
-        /// file selector. See gtk_file_chooser_set_local_only()
+        /// file selector. See `gtk_file_chooser_set_local_only()`
         get {
             let rv = gtk_file_chooser_get_local_only(cast(file_chooser_ptr))
             return Bool(rv != 0)
@@ -1758,9 +1749,9 @@ public extension FileChooserProtocol {
         /// accessible through the operating systems native file
         /// system and therefore the application only
         /// needs to worry about the filename functions in
-        /// `GtkFileChooser`, like gtk_file_chooser_get_filename(),
+        /// `GtkFileChooser`, like `gtk_file_chooser_get_filename()`,
         /// rather than the URI functions like
-        /// gtk_file_chooser_get_uri(),
+        /// `gtk_file_chooser_get_uri()`,
         /// 
         /// On some systems non-native files may still be
         /// available using the native filesystem via a userspace
@@ -1771,10 +1762,10 @@ public extension FileChooserProtocol {
     }
 
     /// Gets the `GFile` that should be previewed in a custom preview
-    /// Internal function, see gtk_file_chooser_get_preview_uri().
+    /// Internal function, see `gtk_file_chooser_get_preview_uri()`.
     var previewFile: UnsafeMutablePointer<GFile>! {
         /// Gets the `GFile` that should be previewed in a custom preview
-        /// Internal function, see gtk_file_chooser_get_preview_uri().
+        /// Internal function, see `gtk_file_chooser_get_preview_uri()`.
         get {
             let rv = gtk_file_chooser_get_preview_file(cast(file_chooser_ptr))
             return cast(rv)
@@ -1782,10 +1773,10 @@ public extension FileChooserProtocol {
     }
 
     /// Gets the filename that should be previewed in a custom preview
-    /// widget. See gtk_file_chooser_set_preview_widget().
+    /// widget. See `gtk_file_chooser_set_preview_widget()`.
     var previewFilename: String! {
         /// Gets the filename that should be previewed in a custom preview
-        /// widget. See gtk_file_chooser_set_preview_widget().
+        /// widget. See `gtk_file_chooser_set_preview_widget()`.
         get {
             let rv = gtk_file_chooser_get_preview_filename(cast(file_chooser_ptr))
             return rv.map { String(cString: UnsafePointer<CChar>($0)) }
@@ -1793,10 +1784,10 @@ public extension FileChooserProtocol {
     }
 
     /// Gets the URI that should be previewed in a custom preview
-    /// widget. See gtk_file_chooser_set_preview_widget().
+    /// widget. See `gtk_file_chooser_set_preview_widget()`.
     var previewURI: String! {
         /// Gets the URI that should be previewed in a custom preview
-        /// widget. See gtk_file_chooser_set_preview_widget().
+        /// widget. See `gtk_file_chooser_set_preview_widget()`.
         get {
             let rv = gtk_file_chooser_get_preview_uri(cast(file_chooser_ptr))
             return rv.map { String(cString: UnsafePointer<CChar>($0)) }
@@ -1804,21 +1795,21 @@ public extension FileChooserProtocol {
     }
 
     /// Gets the current preview widget; see
-    /// gtk_file_chooser_set_preview_widget().
+    /// `gtk_file_chooser_set_preview_widget()`.
     var previewWidget: UnsafeMutablePointer<GtkWidget>! {
         /// Gets the current preview widget; see
-        /// gtk_file_chooser_set_preview_widget().
+        /// `gtk_file_chooser_set_preview_widget()`.
         get {
             let rv = gtk_file_chooser_get_preview_widget(cast(file_chooser_ptr))
             return cast(rv)
         }
         /// Sets an application-supplied widget to use to display a custom preview
         /// of the currently selected file. To implement a preview, after setting the
-        /// preview widget, you connect to the `GtkFileChooser`::update-preview
-        /// signal, and call gtk_file_chooser_get_preview_filename() or
-        /// gtk_file_chooser_get_preview_uri() on each change. If you can
+        /// preview widget, you connect to the `GtkFileChooser::update`-preview
+        /// signal, and call `gtk_file_chooser_get_preview_filename()` or
+        /// `gtk_file_chooser_get_preview_uri()` on each change. If you can
         /// display a preview of the new file, update your widget and
-        /// set the preview active using gtk_file_chooser_set_preview_widget_active().
+        /// set the preview active using `gtk_file_chooser_set_preview_widget_active()`.
         /// Otherwise, set the preview inactive.
         /// 
         /// When there is no application-supplied preview widget, or the
@@ -1829,33 +1820,33 @@ public extension FileChooserProtocol {
         }
     }
 
-    /// Gets whether the preview widget set by gtk_file_chooser_set_preview_widget()
+    /// Gets whether the preview widget set by `gtk_file_chooser_set_preview_widget()`
     /// should be shown for the current filename. See
-    /// gtk_file_chooser_set_preview_widget_active().
+    /// `gtk_file_chooser_set_preview_widget_active()`.
     var previewWidgetActive: Bool {
-        /// Gets whether the preview widget set by gtk_file_chooser_set_preview_widget()
+        /// Gets whether the preview widget set by `gtk_file_chooser_set_preview_widget()`
         /// should be shown for the current filename. See
-        /// gtk_file_chooser_set_preview_widget_active().
+        /// `gtk_file_chooser_set_preview_widget_active()`.
         get {
             let rv = gtk_file_chooser_get_preview_widget_active(cast(file_chooser_ptr))
             return Bool(rv != 0)
         }
         /// Sets whether the preview widget set by
-        /// gtk_file_chooser_set_preview_widget() should be shown for the
+        /// `gtk_file_chooser_set_preview_widget()` should be shown for the
         /// current filename. When `active` is set to false, the file chooser
         /// may display an internally generated preview of the current file
         /// or it may display no preview at all. See
-        /// gtk_file_chooser_set_preview_widget() for more details.
+        /// `gtk_file_chooser_set_preview_widget()` for more details.
         nonmutating set {
             gtk_file_chooser_set_preview_widget_active(cast(file_chooser_ptr), gboolean(newValue ? 1 : 0))
         }
     }
 
     /// Gets whether multiple files can be selected in the file
-    /// selector. See gtk_file_chooser_set_select_multiple().
+    /// selector. See `gtk_file_chooser_set_select_multiple()`.
     var selectMultiple: Bool {
         /// Gets whether multiple files can be selected in the file
-        /// selector. See gtk_file_chooser_set_select_multiple().
+        /// selector. See `gtk_file_chooser_set_select_multiple()`.
         get {
             let rv = gtk_file_chooser_get_select_multiple(cast(file_chooser_ptr))
             return Bool(rv != 0)
@@ -1869,10 +1860,10 @@ public extension FileChooserProtocol {
     }
 
     /// Gets whether hidden files and folders are displayed in the file selector.
-    /// See gtk_file_chooser_set_show_hidden().
+    /// See `gtk_file_chooser_set_show_hidden()`.
     var showHidden: Bool {
         /// Gets whether hidden files and folders are displayed in the file selector.
-        /// See gtk_file_chooser_set_show_hidden().
+        /// See `gtk_file_chooser_set_show_hidden()`.
         get {
             let rv = gtk_file_chooser_get_show_hidden(cast(file_chooser_ptr))
             return Bool(rv != 0)
@@ -1930,7 +1921,6 @@ public extension FileChooserProtocol {
         /// ```
         /// 
         /// 
-        /// 
         /// In the first case, the file chooser will present the user with useful suggestions
         /// as to where to save his new file.  In the second case, the file’s existing location
         /// is already known, so the file chooser will use it.
@@ -1951,10 +1941,10 @@ public extension FileChooserProtocol {
     }
 
     /// Gets whether a stock label should be drawn with the name of the previewed
-    /// file.  See gtk_file_chooser_set_use_preview_label().
+    /// file.  See `gtk_file_chooser_set_use_preview_label()`.
     var usePreviewLabel: Bool {
         /// Gets whether a stock label should be drawn with the name of the previewed
-        /// file.  See gtk_file_chooser_set_use_preview_label().
+        /// file.  See `gtk_file_chooser_set_use_preview_label()`.
         get {
             let rv = gtk_file_chooser_get_use_preview_label(cast(file_chooser_ptr))
             return Bool(rv != 0)
@@ -1964,7 +1954,7 @@ public extension FileChooserProtocol {
         /// want to draw the whole preview area themselves should set this to `false` and
         /// display the name themselves in their preview widget.
         /// 
-        /// See also: gtk_file_chooser_set_preview_widget()
+        /// See also: `gtk_file_chooser_set_preview_widget()`
         nonmutating set {
             gtk_file_chooser_set_use_preview_label(cast(file_chooser_ptr), gboolean(newValue ? 1 : 0))
         }
@@ -2118,7 +2108,7 @@ public enum FontChooserPropertyName: String, PropertyNameProtocol {
     /// The selected font features, in a format that is compatible with
     /// CSS and with Pango attributes.
     case fontFeatures = "font-features"
-    /// The language for which the `GtkFontChooser`:font-features were
+    /// The language for which the `GtkFontChooser:font`-features were
     /// selected, in a format that is compatible with CSS and with Pango
     /// attributes.
     case language = "language"
@@ -2179,7 +2169,7 @@ public enum FontChooserSignalName: String, SignalNameProtocol {
     /// The selected font features, in a format that is compatible with
     /// CSS and with Pango attributes.
     case notifyFontFeatures = "notify::font-features"
-    /// The language for which the `GtkFontChooser`:font-features were
+    /// The language for which the `GtkFontChooser:font`-features were
     /// selected, in a format that is compatible with CSS and with Pango
     /// attributes.
     case notifyLanguage = "notify::language"
@@ -2226,12 +2216,12 @@ public extension FontChooserProtocol {
     /// Gets the currently-selected font name.
     /// 
     /// Note that this can be a different string than what you set with
-    /// gtk_font_chooser_set_font(), as the font chooser widget may
+    /// `gtk_font_chooser_set_font()`, as the font chooser widget may
     /// normalize font names and thus return a string with a different
     /// structure. For example, “Helvetica Italic Bold 12” could be
     /// normalized to “Helvetica Bold Italic 12”.
     /// 
-    /// Use pango_font_description_equal() if you want to compare two
+    /// Use `pango_font_description_equal()` if you want to compare two
     /// font descriptions.
     func getFont() -> String! {
         let rv = gtk_font_chooser_get_font(cast(font_chooser_ptr))
@@ -2241,12 +2231,12 @@ public extension FontChooserProtocol {
     /// Gets the currently-selected font.
     /// 
     /// Note that this can be a different string than what you set with
-    /// gtk_font_chooser_set_font(), as the font chooser widget may
+    /// `gtk_font_chooser_set_font()`, as the font chooser widget may
     /// normalize font names and thus return a string with a different
     /// structure. For example, “Helvetica Italic Bold 12” could be
     /// normalized to “Helvetica Bold Italic 12”.
     /// 
-    /// Use pango_font_description_equal() if you want to compare two
+    /// Use `pango_font_description_equal()` if you want to compare two
     /// font descriptions.
     func getFontDesc() -> UnsafeMutablePointer<PangoFontDescription>! {
         let rv = gtk_font_chooser_get_font_desc(cast(font_chooser_ptr))
@@ -2351,7 +2341,6 @@ public extension FontChooserProtocol {
     /// gtk_font_chooser_set_font_map (font_chooser, fontmap);
     /// ```
     /// 
-    /// 
     /// Note that other GTK+ widgets will only be able to use the application-specific
     /// font if it is present in the font map they use:
     /// 
@@ -2394,12 +2383,12 @@ public extension FontChooserProtocol {
         /// Gets the currently-selected font name.
         /// 
         /// Note that this can be a different string than what you set with
-        /// gtk_font_chooser_set_font(), as the font chooser widget may
+        /// `gtk_font_chooser_set_font()`, as the font chooser widget may
         /// normalize font names and thus return a string with a different
         /// structure. For example, “Helvetica Italic Bold 12” could be
         /// normalized to “Helvetica Bold Italic 12”.
         /// 
-        /// Use pango_font_description_equal() if you want to compare two
+        /// Use `pango_font_description_equal()` if you want to compare two
         /// font descriptions.
         get {
             let rv = gtk_font_chooser_get_font(cast(font_chooser_ptr))
@@ -2414,23 +2403,23 @@ public extension FontChooserProtocol {
     /// Gets the currently-selected font.
     /// 
     /// Note that this can be a different string than what you set with
-    /// gtk_font_chooser_set_font(), as the font chooser widget may
+    /// `gtk_font_chooser_set_font()`, as the font chooser widget may
     /// normalize font names and thus return a string with a different
     /// structure. For example, “Helvetica Italic Bold 12” could be
     /// normalized to “Helvetica Bold Italic 12”.
     /// 
-    /// Use pango_font_description_equal() if you want to compare two
+    /// Use `pango_font_description_equal()` if you want to compare two
     /// font descriptions.
     var fontDesc: UnsafeMutablePointer<PangoFontDescription>! {
         /// Gets the currently-selected font.
         /// 
         /// Note that this can be a different string than what you set with
-        /// gtk_font_chooser_set_font(), as the font chooser widget may
+        /// `gtk_font_chooser_set_font()`, as the font chooser widget may
         /// normalize font names and thus return a string with a different
         /// structure. For example, “Helvetica Italic Bold 12” could be
         /// normalized to “Helvetica Bold Italic 12”.
         /// 
-        /// Use pango_font_description_equal() if you want to compare two
+        /// Use `pango_font_description_equal()` if you want to compare two
         /// font descriptions.
         get {
             let rv = gtk_font_chooser_get_font_desc(cast(font_chooser_ptr))
@@ -2508,7 +2497,6 @@ public extension FontChooserProtocol {
         /// gtk_font_chooser_set_font_map (font_chooser, fontmap);
         /// ```
         /// 
-        /// 
         /// Note that other GTK+ widgets will only be able to use the application-specific
         /// font if it is present in the font map they use:
         /// 
@@ -2531,7 +2519,7 @@ public extension FontChooserProtocol {
         }
     }
 
-    /// The language for which the `GtkFontChooser`:font-features were
+    /// The language for which the `GtkFontChooser:font`-features were
     /// selected, in a format that is compatible with CSS and with Pango
     /// attributes.
     var language: String! {

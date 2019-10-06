@@ -2226,7 +2226,7 @@ public extension SelectionDataProtocol {
     }
 
     /// Frees a `GtkSelectionData`-struct returned from
-    /// gtk_selection_data_copy().
+    /// `gtk_selection_data_copy()`.
     func free() {
         gtk_selection_data_free(cast(selection_data_ptr))
     
@@ -2379,7 +2379,7 @@ public extension SelectionDataProtocol {
     /// get memory corruption. In the `GtkTreeDragDest` drag_data_received handler,
     /// you can assume that selection data of type `GTK_TREE_MODEL_ROW` is
     /// in from the current process. The returned path must be freed with
-    /// gtk_tree_path_free().
+    /// `gtk_tree_path_free()`.
     func treeGetRowDragData(treeModel tree_model: TreeModelProtocol, path: TreePathProtocol) -> Bool {
         let rv = gtk_tree_get_row_drag_data(cast(selection_data_ptr), cast(tree_model.ptr), cast(path.ptr))
         return Bool(rv != 0)
@@ -7332,7 +7332,7 @@ public extension StockItemProtocol {
     }
 
     /// Frees a stock item allocated on the heap, such as one returned by
-    /// gtk_stock_item_copy(). Also frees the fields inside the stock item,
+    /// `gtk_stock_item_copy()`. Also frees the fields inside the stock item,
     /// if they are not `nil`.
     ///
     /// **free is deprecated:**
@@ -8744,9 +8744,9 @@ public extension SwitchPrivateProtocol {
 ///
 /// GtkSymbolicColor is a boxed type that represents a symbolic color.
 /// It is the result of parsing a
-/// [color expression][gtkcssprovider-symbolic-colors].
+/// [color expression](#gtkcssprovider-symbolic-colors).
 /// To obtain the color represented by a GtkSymbolicColor, it has to
-/// be resolved with gtk_symbolic_color_resolve(), which replaces all
+/// be resolved with `gtk_symbolic_color_resolve()`, which replaces all
 /// symbolic color references by the colors they refer to (in a given
 /// context) and evaluates mix, shade and other expressions, resulting
 /// in a `GdkRGBA` value.
@@ -8771,9 +8771,9 @@ public protocol SymbolicColorProtocol {
 ///
 /// GtkSymbolicColor is a boxed type that represents a symbolic color.
 /// It is the result of parsing a
-/// [color expression][gtkcssprovider-symbolic-colors].
+/// [color expression](#gtkcssprovider-symbolic-colors).
 /// To obtain the color represented by a GtkSymbolicColor, it has to
-/// be resolved with gtk_symbolic_color_resolve(), which replaces all
+/// be resolved with `gtk_symbolic_color_resolve()`, which replaces all
 /// symbolic color references by the colors they refer to (in a given
 /// context) and evaluates mix, shade and other expressions, resulting
 /// in a `GdkRGBA` value.
@@ -8840,8 +8840,8 @@ public extension SymbolicColorRef {
     }
 
     /// Creates a symbolic color pointing to an unresolved named
-    /// color. See gtk_style_context_lookup_color() and
-    /// gtk_style_properties_lookup_color().
+    /// color. See `gtk_style_context_lookup_color()` and
+    /// `gtk_style_properties_lookup_color()`.
     ///
     /// **new_name is deprecated:**
     /// #GtkSymbolicColor is deprecated.
@@ -8873,8 +8873,8 @@ public extension SymbolicColorRef {
     }
 
     /// Creates a symbolic color pointing to an unresolved named
-    /// color. See gtk_style_context_lookup_color() and
-    /// gtk_style_properties_lookup_color().
+    /// color. See `gtk_style_context_lookup_color()` and
+    /// `gtk_style_properties_lookup_color()`.
     ///
     /// **new_name is deprecated:**
     /// #GtkSymbolicColor is deprecated.
@@ -8904,9 +8904,9 @@ public extension SymbolicColorRef {
 ///
 /// GtkSymbolicColor is a boxed type that represents a symbolic color.
 /// It is the result of parsing a
-/// [color expression][gtkcssprovider-symbolic-colors].
+/// [color expression](#gtkcssprovider-symbolic-colors).
 /// To obtain the color represented by a GtkSymbolicColor, it has to
-/// be resolved with gtk_symbolic_color_resolve(), which replaces all
+/// be resolved with `gtk_symbolic_color_resolve()`, which replaces all
 /// symbolic color references by the colors they refer to (in a given
 /// context) and evaluates mix, shade and other expressions, resulting
 /// in a `GdkRGBA` value.
@@ -8974,8 +8974,8 @@ open class SymbolicColor: SymbolicColorProtocol {
     }
 
     /// Creates a symbolic color pointing to an unresolved named
-    /// color. See gtk_style_context_lookup_color() and
-    /// gtk_style_properties_lookup_color().
+    /// color. See `gtk_style_context_lookup_color()` and
+    /// `gtk_style_properties_lookup_color()`.
     ///
     /// **new_name is deprecated:**
     /// #GtkSymbolicColor is deprecated.
@@ -9008,8 +9008,8 @@ open class SymbolicColor: SymbolicColorProtocol {
     }
 
     /// Creates a symbolic color pointing to an unresolved named
-    /// color. See gtk_style_context_lookup_color() and
-    /// gtk_style_properties_lookup_color().
+    /// color. See `gtk_style_context_lookup_color()` and
+    /// `gtk_style_properties_lookup_color()`.
     ///
     /// **new_name is deprecated:**
     /// #GtkSymbolicColor is deprecated.

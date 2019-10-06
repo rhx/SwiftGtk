@@ -1954,7 +1954,7 @@ public extension ActionClassProtocol {
 /// For a concrete class that implements these methods and properties, see `ActionEntry`.
 /// Alternatively, use `ActionEntryRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// `GtkActionEntry` structs are used with gtk_action_group_add_actions() to
+/// `GtkActionEntry` structs are used with `gtk_action_group_add_actions()` to
 /// construct actions.
 public protocol ActionEntryProtocol {
     /// Untyped pointer to the underlying `GtkActionEntry` instance.
@@ -1968,7 +1968,7 @@ public protocol ActionEntryProtocol {
 /// It exposes methods that can operate on this data type through `ActionEntryProtocol` conformance.
 /// Use `ActionEntryRef` only as an `unowned` reference to an existing `GtkActionEntry` instance.
 ///
-/// `GtkActionEntry` structs are used with gtk_action_group_add_actions() to
+/// `GtkActionEntry` structs are used with `gtk_action_group_add_actions()` to
 /// construct actions.
 public struct ActionEntryRef: ActionEntryProtocol {
     /// Untyped pointer to the underlying `GtkActionEntry` instance.
@@ -2022,7 +2022,7 @@ public extension ActionEntryRef {
 /// It provides the methods that can operate on this data type through `ActionEntryProtocol` conformance.
 /// Use `ActionEntry` as a strong reference or owner of a `GtkActionEntry` instance.
 ///
-/// `GtkActionEntry` structs are used with gtk_action_group_add_actions() to
+/// `GtkActionEntry` structs are used with `gtk_action_group_add_actions()` to
 /// construct actions.
 open class ActionEntry: ActionEntryProtocol {
     /// Untyped pointer to the underlying `GtkActionEntry` instance.

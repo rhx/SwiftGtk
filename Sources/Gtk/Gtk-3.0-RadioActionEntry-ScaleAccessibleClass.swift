@@ -23,7 +23,7 @@ import Atk
 /// Alternatively, use `RadioActionEntryRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
 /// `GtkRadioActionEntry` structs are used with
-/// gtk_action_group_add_radio_actions() to construct groups of radio actions.
+/// `gtk_action_group_add_radio_actions()` to construct groups of radio actions.
 public protocol RadioActionEntryProtocol {
     /// Untyped pointer to the underlying `GtkRadioActionEntry` instance.
     var ptr: UnsafeMutableRawPointer { get }
@@ -37,7 +37,7 @@ public protocol RadioActionEntryProtocol {
 /// Use `RadioActionEntryRef` only as an `unowned` reference to an existing `GtkRadioActionEntry` instance.
 ///
 /// `GtkRadioActionEntry` structs are used with
-/// gtk_action_group_add_radio_actions() to construct groups of radio actions.
+/// `gtk_action_group_add_radio_actions()` to construct groups of radio actions.
 public struct RadioActionEntryRef: RadioActionEntryProtocol {
     /// Untyped pointer to the underlying `GtkRadioActionEntry` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -91,7 +91,7 @@ public extension RadioActionEntryRef {
 /// Use `RadioActionEntry` as a strong reference or owner of a `GtkRadioActionEntry` instance.
 ///
 /// `GtkRadioActionEntry` structs are used with
-/// gtk_action_group_add_radio_actions() to construct groups of radio actions.
+/// `gtk_action_group_add_radio_actions()` to construct groups of radio actions.
 open class RadioActionEntry: RadioActionEntryProtocol {
     /// Untyped pointer to the underlying `GtkRadioActionEntry` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -3751,7 +3751,7 @@ public extension RecentChooserWidgetPrivateProtocol {
 /// For a concrete class that implements these methods and properties, see `RecentData`.
 /// Alternatively, use `RecentDataRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Meta-data to be passed to gtk_recent_manager_add_full() when
+/// Meta-data to be passed to `gtk_recent_manager_add_full()` when
 /// registering a recently used resource.
 public protocol RecentDataProtocol {
     /// Untyped pointer to the underlying `GtkRecentData` instance.
@@ -3765,7 +3765,7 @@ public protocol RecentDataProtocol {
 /// It exposes methods that can operate on this data type through `RecentDataProtocol` conformance.
 /// Use `RecentDataRef` only as an `unowned` reference to an existing `GtkRecentData` instance.
 ///
-/// Meta-data to be passed to gtk_recent_manager_add_full() when
+/// Meta-data to be passed to `gtk_recent_manager_add_full()` when
 /// registering a recently used resource.
 public struct RecentDataRef: RecentDataProtocol {
     /// Untyped pointer to the underlying `GtkRecentData` instance.
@@ -3819,7 +3819,7 @@ public extension RecentDataRef {
 /// It provides the methods that can operate on this data type through `RecentDataProtocol` conformance.
 /// Use `RecentData` as a strong reference or owner of a `GtkRecentData` instance.
 ///
-/// Meta-data to be passed to gtk_recent_manager_add_full() when
+/// Meta-data to be passed to `gtk_recent_manager_add_full()` when
 /// registering a recently used resource.
 open class RecentData: RecentDataProtocol {
     /// Untyped pointer to the underlying `GtkRecentData` instance.
@@ -3893,7 +3893,7 @@ public extension RecentDataProtocol {
 /// Alternatively, use `RecentFilterInfoRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
 /// A GtkRecentFilterInfo struct is used
-/// to pass information about the tested file to gtk_recent_filter_filter().
+/// to pass information about the tested file to `gtk_recent_filter_filter()`.
 public protocol RecentFilterInfoProtocol {
     /// Untyped pointer to the underlying `GtkRecentFilterInfo` instance.
     var ptr: UnsafeMutableRawPointer { get }
@@ -3907,7 +3907,7 @@ public protocol RecentFilterInfoProtocol {
 /// Use `RecentFilterInfoRef` only as an `unowned` reference to an existing `GtkRecentFilterInfo` instance.
 ///
 /// A GtkRecentFilterInfo struct is used
-/// to pass information about the tested file to gtk_recent_filter_filter().
+/// to pass information about the tested file to `gtk_recent_filter_filter()`.
 public struct RecentFilterInfoRef: RecentFilterInfoProtocol {
     /// Untyped pointer to the underlying `GtkRecentFilterInfo` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -3961,7 +3961,7 @@ public extension RecentFilterInfoRef {
 /// Use `RecentFilterInfo` as a strong reference or owner of a `GtkRecentFilterInfo` instance.
 ///
 /// A GtkRecentFilterInfo struct is used
-/// to pass information about the tested file to gtk_recent_filter_filter().
+/// to pass information about the tested file to `gtk_recent_filter_filter()`.
 open class RecentFilterInfo: RecentFilterInfoProtocol {
     /// Untyped pointer to the underlying `GtkRecentFilterInfo` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -4291,7 +4291,7 @@ public extension RecentInfoProtocol {
 
     /// Gets a displayable version of the resource’s URI. If the resource
     /// is local, it returns a local path; if the resource is not local,
-    /// it returns the UTF-8 encoded content of gtk_recent_info_get_uri().
+    /// it returns the UTF-8 encoded content of `gtk_recent_info_get_uri()`.
     func getURIDisplay() -> String! {
         let rv = gtk_recent_info_get_uri_display(cast(recent_info_ptr))
         return rv.map { String(cString: UnsafePointer<CChar>($0)) }
@@ -4464,11 +4464,11 @@ public extension RecentInfoProtocol {
 
     /// Gets a displayable version of the resource’s URI. If the resource
     /// is local, it returns a local path; if the resource is not local,
-    /// it returns the UTF-8 encoded content of gtk_recent_info_get_uri().
+    /// it returns the UTF-8 encoded content of `gtk_recent_info_get_uri()`.
     var uriDisplay: String! {
         /// Gets a displayable version of the resource’s URI. If the resource
         /// is local, it returns a local path; if the resource is not local,
-        /// it returns the UTF-8 encoded content of gtk_recent_info_get_uri().
+        /// it returns the UTF-8 encoded content of `gtk_recent_info_get_uri()`.
         get {
             let rv = gtk_recent_info_get_uri_display(cast(recent_info_ptr))
             return rv.map { String(cString: UnsafePointer<CChar>($0)) }
@@ -5050,7 +5050,7 @@ public extension RendererCellAccessiblePrivateProtocol {
 ///
 /// Represents a request of a screen object in a given orientation. These
 /// are primarily used in container implementations when allocating a natural
-/// size for children calling. See gtk_distribute_natural_allocation().
+/// size for children calling. See `gtk_distribute_natural_allocation()`.
 public protocol RequestedSizeProtocol {
     /// Untyped pointer to the underlying `GtkRequestedSize` instance.
     var ptr: UnsafeMutableRawPointer { get }
@@ -5065,7 +5065,7 @@ public protocol RequestedSizeProtocol {
 ///
 /// Represents a request of a screen object in a given orientation. These
 /// are primarily used in container implementations when allocating a natural
-/// size for children calling. See gtk_distribute_natural_allocation().
+/// size for children calling. See `gtk_distribute_natural_allocation()`.
 public struct RequestedSizeRef: RequestedSizeProtocol {
     /// Untyped pointer to the underlying `GtkRequestedSize` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -5120,7 +5120,7 @@ public extension RequestedSizeRef {
 ///
 /// Represents a request of a screen object in a given orientation. These
 /// are primarily used in container implementations when allocating a natural
-/// size for children calling. See gtk_distribute_natural_allocation().
+/// size for children calling. See `gtk_distribute_natural_allocation()`.
 open class RequestedSize: RequestedSizeProtocol {
     /// Untyped pointer to the underlying `GtkRequestedSize` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -5203,7 +5203,7 @@ public extension RequestedSizeProtocol {
 /// Alternatively, use `RequisitionRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
 /// A `GtkRequisition`-struct represents the desired size of a widget. See
-/// [GtkWidget’s geometry management section][geometry-management] for
+/// [GtkWidget’s geometry management section](#geometry-management) for
 /// more information.
 public protocol RequisitionProtocol {
     /// Untyped pointer to the underlying `GtkRequisition` instance.
@@ -5218,7 +5218,7 @@ public protocol RequisitionProtocol {
 /// Use `RequisitionRef` only as an `unowned` reference to an existing `GtkRequisition` instance.
 ///
 /// A `GtkRequisition`-struct represents the desired size of a widget. See
-/// [GtkWidget’s geometry management section][geometry-management] for
+/// [GtkWidget’s geometry management section](#geometry-management) for
 /// more information.
 public struct RequisitionRef: RequisitionProtocol {
     /// Untyped pointer to the underlying `GtkRequisition` instance.
@@ -5278,7 +5278,7 @@ public extension RequisitionRef {
 /// Use `Requisition` as a strong reference or owner of a `GtkRequisition` instance.
 ///
 /// A `GtkRequisition`-struct represents the desired size of a widget. See
-/// [GtkWidget’s geometry management section][geometry-management] for
+/// [GtkWidget’s geometry management section](#geometry-management) for
 /// more information.
 open class Requisition: RequisitionProtocol {
     /// Untyped pointer to the underlying `GtkRequisition` instance.

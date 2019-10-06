@@ -1191,7 +1191,7 @@ public extension IconSetRef {
     /// for a given size and state on request, and automatically caches
     /// some of the rendered `GdkPixbuf` objects.
     /// 
-    /// Normally you would use gtk_widget_render_icon_pixbuf() instead of
+    /// Normally you would use `gtk_widget_render_icon_pixbuf()` instead of
     /// using `GtkIconSet` directly. The one case where you’d use
     /// `GtkIconSet` is to create application-specific icon sets to place in
     /// a `GtkIconFactory`.
@@ -1286,7 +1286,7 @@ open class IconSet: IconSetProtocol {
     /// for a given size and state on request, and automatically caches
     /// some of the rendered `GdkPixbuf` objects.
     /// 
-    /// Normally you would use gtk_widget_render_icon_pixbuf() instead of
+    /// Normally you would use `gtk_widget_render_icon_pixbuf()` instead of
     /// using `GtkIconSet` directly. The one case where you’d use
     /// `GtkIconSet` is to create application-specific icon sets to place in
     /// a `GtkIconFactory`.
@@ -1338,7 +1338,7 @@ public extension IconSetProtocol {
     /// Icon sets have a list of `GtkIconSource`, which they use as base
     /// icons for rendering icons in different states and sizes. Icons are
     /// scaled, made to look insensitive, etc. in
-    /// gtk_icon_set_render_icon(), but `GtkIconSet` needs base images to
+    /// `gtk_icon_set_render_icon()`, but `GtkIconSet` needs base images to
     /// work with. The base images and when to use them are described by
     /// a `GtkIconSource`.
     /// 
@@ -1358,7 +1358,7 @@ public extension IconSetProtocol {
     /// icon sources to more generic icon sources. The order in which you
     /// add the sources to the icon set does not matter.
     /// 
-    /// gtk_icon_set_new_from_pixbuf() creates a new icon set with a
+    /// `gtk_icon_set_new_from_pixbuf()` creates a new icon set with a
     /// default icon source based on the given pixbuf.
     ///
     /// **add_source is deprecated:**
@@ -1378,7 +1378,7 @@ public extension IconSetProtocol {
     }
 
     /// Obtains a list of icon sizes this icon set can render. The returned
-    /// array must be freed with g_free().
+    /// array must be freed with `g_free()`.
     ///
     /// **get_sizes is deprecated:**
     /// Use #GtkIconTheme instead.
@@ -1396,8 +1396,8 @@ public extension IconSetProtocol {
         return cast(rv)
     }
 
-    /// Renders an icon using gtk_style_render_icon(). In most cases,
-    /// gtk_widget_render_icon() is better, since it automatically provides
+    /// Renders an icon using `gtk_style_render_icon()`. In most cases,
+    /// `gtk_widget_render_icon()` is better, since it automatically provides
     /// most of the arguments from the current widget settings.  This
     /// function never returns `nil`; if the icon can’t be rendered
     /// (perhaps because an image file fails to load), a default "missing
@@ -1410,8 +1410,8 @@ public extension IconSetProtocol {
         return cast(rv)
     }
 
-    /// Renders an icon using gtk_render_icon_pixbuf(). In most cases,
-    /// gtk_widget_render_icon_pixbuf() is better, since it automatically provides
+    /// Renders an icon using `gtk_render_icon_pixbuf()`. In most cases,
+    /// `gtk_widget_render_icon_pixbuf()` is better, since it automatically provides
     /// most of the arguments from the current widget settings.  This
     /// function never returns `nil`; if the icon can’t be rendered
     /// (perhaps because an image file fails to load), a default "missing
@@ -1424,7 +1424,7 @@ public extension IconSetProtocol {
         return cast(rv)
     }
 
-    /// Renders an icon using gtk_render_icon_pixbuf() and converts it to a
+    /// Renders an icon using `gtk_render_icon_pixbuf()` and converts it to a
     /// cairo surface.
     /// 
     /// This function never returns `nil`; if the icon can’t be rendered
@@ -1535,13 +1535,13 @@ public extension IconSourceRef {
     /// 
     /// In the simplest case, `GtkIconSet` contains one source pixbuf from
     /// which it derives all variants. The convenience function
-    /// gtk_icon_set_new_from_pixbuf() handles this case; if you only have
+    /// `gtk_icon_set_new_from_pixbuf()` handles this case; if you only have
     /// one source pixbuf, just use that function.
     /// 
     /// If you want to use a different base pixbuf for different icon
     /// variants, you create multiple icon sources, mark which variants
     /// they’ll be used to create, and add them to the icon set with
-    /// gtk_icon_set_add_source().
+    /// `gtk_icon_set_add_source()`.
     /// 
     /// By default, the icon source has all parameters wildcarded. That is,
     /// the icon source will be used as the base icon for any desired text
@@ -1624,13 +1624,13 @@ open class IconSource: IconSourceProtocol {
     /// 
     /// In the simplest case, `GtkIconSet` contains one source pixbuf from
     /// which it derives all variants. The convenience function
-    /// gtk_icon_set_new_from_pixbuf() handles this case; if you only have
+    /// `gtk_icon_set_new_from_pixbuf()` handles this case; if you only have
     /// one source pixbuf, just use that function.
     /// 
     /// If you want to use a different base pixbuf for different icon
     /// variants, you create multiple icon sources, mark which variants
     /// they’ll be used to create, and add them to the icon set with
-    /// gtk_icon_set_add_source().
+    /// `gtk_icon_set_add_source()`.
     /// 
     /// By default, the icon source has all parameters wildcarded. That is,
     /// the icon source will be used as the base icon for any desired text
@@ -1685,7 +1685,7 @@ public extension IconSourceProtocol {
         return rv
     }
 
-    /// Gets the value set by gtk_icon_source_set_direction_wildcarded().
+    /// Gets the value set by `gtk_icon_source_set_direction_wildcarded()`.
     ///
     /// **get_direction_wildcarded is deprecated:**
     /// Use #GtkIconTheme instead.
@@ -1720,7 +1720,7 @@ public extension IconSourceProtocol {
     /// In addition, if a filename source is in use, this
     /// function in some cases will return the pixbuf from
     /// loaded from the filename. This is, for example, true
-    /// for the GtkIconSource passed to the `GtkStyle` render_icon()
+    /// for the GtkIconSource passed to the `GtkStyle` `render_icon()`
     /// virtual function. The reference count on the pixbuf is
     /// not incremented.
     ///
@@ -1741,7 +1741,7 @@ public extension IconSourceProtocol {
         return rv
     }
 
-    /// Gets the value set by gtk_icon_source_set_size_wildcarded().
+    /// Gets the value set by `gtk_icon_source_set_size_wildcarded()`.
     ///
     /// **get_size_wildcarded is deprecated:**
     /// Use #GtkIconTheme instead.
@@ -1761,7 +1761,7 @@ public extension IconSourceProtocol {
         return rv
     }
 
-    /// Gets the value set by gtk_icon_source_set_state_wildcarded().
+    /// Gets the value set by `gtk_icon_source_set_state_wildcarded()`.
     ///
     /// **get_state_wildcarded is deprecated:**
     /// Use #GtkIconTheme instead.
@@ -1775,7 +1775,7 @@ public extension IconSourceProtocol {
     /// 
     /// Setting the text direction on an icon source makes no difference
     /// if the text direction is wildcarded. Therefore, you should usually
-    /// call gtk_icon_source_set_direction_wildcarded() to un-wildcard it
+    /// call `gtk_icon_source_set_direction_wildcarded()` to un-wildcard it
     /// in addition to calling this function.
     ///
     /// **set_direction is deprecated:**
@@ -1789,7 +1789,7 @@ public extension IconSourceProtocol {
     /// as the base image for an icon in any `GtkTextDirection`.
     /// If the text direction is not wildcarded, then the
     /// text direction the icon source applies to should be set
-    /// with gtk_icon_source_set_direction(), and the icon source
+    /// with `gtk_icon_source_set_direction()`, and the icon source
     /// will only be used with that text direction.
     /// 
     /// `GtkIconSet` prefers non-wildcarded sources (exact matches) over
@@ -1837,7 +1837,7 @@ public extension IconSourceProtocol {
     /// 
     /// Setting the icon size on an icon source makes no difference
     /// if the size is wildcarded. Therefore, you should usually
-    /// call gtk_icon_source_set_size_wildcarded() to un-wildcard it
+    /// call `gtk_icon_source_set_size_wildcarded()` to un-wildcard it
     /// in addition to calling this function.
     ///
     /// **set_size is deprecated:**
@@ -1850,7 +1850,7 @@ public extension IconSourceProtocol {
     /// If the icon size is wildcarded, this source can be used as the base
     /// image for an icon of any size.  If the size is not wildcarded, then
     /// the size the source applies to should be set with
-    /// gtk_icon_source_set_size() and the icon source will only be used
+    /// `gtk_icon_source_set_size()` and the icon source will only be used
     /// with that specific size.
     /// 
     /// `GtkIconSet` prefers non-wildcarded sources (exact matches) over
@@ -1872,7 +1872,7 @@ public extension IconSourceProtocol {
     /// 
     /// Setting the widget state on an icon source makes no difference
     /// if the state is wildcarded. Therefore, you should usually
-    /// call gtk_icon_source_set_state_wildcarded() to un-wildcard it
+    /// call `gtk_icon_source_set_state_wildcarded()` to un-wildcard it
     /// in addition to calling this function.
     ///
     /// **set_state is deprecated:**
@@ -1885,7 +1885,7 @@ public extension IconSourceProtocol {
     /// If the widget state is wildcarded, this source can be used as the
     /// base image for an icon in any `GtkStateType`.  If the widget state
     /// is not wildcarded, then the state the source applies to should be
-    /// set with gtk_icon_source_set_state() and the icon source will
+    /// set with `gtk_icon_source_set_state()` and the icon source will
     /// only be used with that specific state.
     /// 
     /// `GtkIconSet` prefers non-wildcarded sources (exact matches) over
@@ -1934,7 +1934,7 @@ public extension IconSourceProtocol {
         /// 
         /// Setting the text direction on an icon source makes no difference
         /// if the text direction is wildcarded. Therefore, you should usually
-        /// call gtk_icon_source_set_direction_wildcarded() to un-wildcard it
+        /// call `gtk_icon_source_set_direction_wildcarded()` to un-wildcard it
         /// in addition to calling this function.
         ///
         /// **set_direction is deprecated:**
@@ -1944,12 +1944,12 @@ public extension IconSourceProtocol {
         }
     }
 
-    /// Gets the value set by gtk_icon_source_set_direction_wildcarded().
+    /// Gets the value set by `gtk_icon_source_set_direction_wildcarded()`.
     ///
     /// **get_direction_wildcarded is deprecated:**
     /// Use #GtkIconTheme instead.
     var directionWildcarded: Bool {
-        /// Gets the value set by gtk_icon_source_set_direction_wildcarded().
+        /// Gets the value set by `gtk_icon_source_set_direction_wildcarded()`.
         ///
         /// **get_direction_wildcarded is deprecated:**
         /// Use #GtkIconTheme instead.
@@ -1961,7 +1961,7 @@ public extension IconSourceProtocol {
         /// as the base image for an icon in any `GtkTextDirection`.
         /// If the text direction is not wildcarded, then the
         /// text direction the icon source applies to should be set
-        /// with gtk_icon_source_set_direction(), and the icon source
+        /// with `gtk_icon_source_set_direction()`, and the icon source
         /// will only be used with that text direction.
         /// 
         /// `GtkIconSet` prefers non-wildcarded sources (exact matches) over
@@ -2032,7 +2032,7 @@ public extension IconSourceProtocol {
     /// In addition, if a filename source is in use, this
     /// function in some cases will return the pixbuf from
     /// loaded from the filename. This is, for example, true
-    /// for the GtkIconSource passed to the `GtkStyle` render_icon()
+    /// for the GtkIconSource passed to the `GtkStyle` `render_icon()`
     /// virtual function. The reference count on the pixbuf is
     /// not incremented.
     ///
@@ -2043,7 +2043,7 @@ public extension IconSourceProtocol {
         /// In addition, if a filename source is in use, this
         /// function in some cases will return the pixbuf from
         /// loaded from the filename. This is, for example, true
-        /// for the GtkIconSource passed to the `GtkStyle` render_icon()
+        /// for the GtkIconSource passed to the `GtkStyle` `render_icon()`
         /// virtual function. The reference count on the pixbuf is
         /// not incremented.
         ///
@@ -2083,7 +2083,7 @@ public extension IconSourceProtocol {
         /// 
         /// Setting the icon size on an icon source makes no difference
         /// if the size is wildcarded. Therefore, you should usually
-        /// call gtk_icon_source_set_size_wildcarded() to un-wildcard it
+        /// call `gtk_icon_source_set_size_wildcarded()` to un-wildcard it
         /// in addition to calling this function.
         ///
         /// **set_size is deprecated:**
@@ -2093,12 +2093,12 @@ public extension IconSourceProtocol {
         }
     }
 
-    /// Gets the value set by gtk_icon_source_set_size_wildcarded().
+    /// Gets the value set by `gtk_icon_source_set_size_wildcarded()`.
     ///
     /// **get_size_wildcarded is deprecated:**
     /// Use #GtkIconTheme instead.
     var sizeWildcarded: Bool {
-        /// Gets the value set by gtk_icon_source_set_size_wildcarded().
+        /// Gets the value set by `gtk_icon_source_set_size_wildcarded()`.
         ///
         /// **get_size_wildcarded is deprecated:**
         /// Use #GtkIconTheme instead.
@@ -2109,7 +2109,7 @@ public extension IconSourceProtocol {
         /// If the icon size is wildcarded, this source can be used as the base
         /// image for an icon of any size.  If the size is not wildcarded, then
         /// the size the source applies to should be set with
-        /// gtk_icon_source_set_size() and the icon source will only be used
+        /// `gtk_icon_source_set_size()` and the icon source will only be used
         /// with that specific size.
         /// 
         /// `GtkIconSet` prefers non-wildcarded sources (exact matches) over
@@ -2148,7 +2148,7 @@ public extension IconSourceProtocol {
         /// 
         /// Setting the widget state on an icon source makes no difference
         /// if the state is wildcarded. Therefore, you should usually
-        /// call gtk_icon_source_set_state_wildcarded() to un-wildcard it
+        /// call `gtk_icon_source_set_state_wildcarded()` to un-wildcard it
         /// in addition to calling this function.
         ///
         /// **set_state is deprecated:**
@@ -2158,12 +2158,12 @@ public extension IconSourceProtocol {
         }
     }
 
-    /// Gets the value set by gtk_icon_source_set_state_wildcarded().
+    /// Gets the value set by `gtk_icon_source_set_state_wildcarded()`.
     ///
     /// **get_state_wildcarded is deprecated:**
     /// Use #GtkIconTheme instead.
     var stateWildcarded: Bool {
-        /// Gets the value set by gtk_icon_source_set_state_wildcarded().
+        /// Gets the value set by `gtk_icon_source_set_state_wildcarded()`.
         ///
         /// **get_state_wildcarded is deprecated:**
         /// Use #GtkIconTheme instead.
@@ -2174,7 +2174,7 @@ public extension IconSourceProtocol {
         /// If the widget state is wildcarded, this source can be used as the
         /// base image for an icon in any `GtkStateType`.  If the widget state
         /// is not wildcarded, then the state the source applies to should be
-        /// set with gtk_icon_source_set_state() and the icon source will
+        /// set with `gtk_icon_source_set_state()` and the icon source will
         /// only be used with that specific state.
         /// 
         /// `GtkIconSet` prefers non-wildcarded sources (exact matches) over

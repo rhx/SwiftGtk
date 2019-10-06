@@ -288,37 +288,37 @@ public extension WidgetClassProtocol {
     var _ptr: UnsafeMutablePointer<GtkWidgetClass> { return ptr.assumingMemoryBound(to: GtkWidgetClass.self) }
 
     /// Declares a `callback_symbol` to handle `callback_name` from the template XML
-    /// defined for `widget_type`. See gtk_builder_add_callback_symbol().
+    /// defined for `widget_type`. See `gtk_builder_add_callback_symbol()`.
     /// 
     /// Note that this must be called from a composite widget classes class
-    /// initializer after calling gtk_widget_class_set_template().
+    /// initializer after calling `gtk_widget_class_set_template()`.
     func bindTemplateCallbackFull(callbackName callback_name: UnsafePointer<gchar>, callbackSymbol callback_symbol: @escaping GLibObject.Callback) {
         gtk_widget_class_bind_template_callback_full(cast(_ptr), callback_name, callback_symbol)
     
     }
 
     /// Automatically assign an object declared in the class template XML to be set to a location
-    /// on a freshly built instance’s private data, or alternatively accessible via gtk_widget_get_template_child().
+    /// on a freshly built instance’s private data, or alternatively accessible via `gtk_widget_get_template_child()`.
     /// 
-    /// The struct can point either into the public instance, then you should use G_STRUCT_OFFSET(WidgetType, member)
-    /// for `struct_offset`,  or in the private struct, then you should use G_PRIVATE_OFFSET(WidgetType, member).
+    /// The struct can point either into the public instance, then you should use `G_STRUCT_OFFSET(WidgetType, member)`
+    /// for `struct_offset`,  or in the private struct, then you should use `G_PRIVATE_OFFSET(WidgetType, member)`.
     /// 
     /// An explicit strong reference will be held automatically for the duration of your
-    /// instance’s life cycle, it will be released automatically when `GObjectClass`.dispose() runs
+    /// instance’s life cycle, it will be released automatically when `GObjectClass.dispose``()` runs
     /// on your instance and if a `struct_offset` that is != 0 is specified, then the automatic location
     /// in your instance public or private data will be set to `nil`. You can however access an automated child
-    /// pointer the first time your classes `GObjectClass`.dispose() runs, or alternatively in
-    /// `GtkWidgetClass`.destroy().
+    /// pointer the first time your classes `GObjectClass.dispose``()` runs, or alternatively in
+    /// `GtkWidgetClass.destroy``()`.
     /// 
-    /// If `internal_child` is specified, `GtkBuildableIface`.get_internal_child() will be automatically
+    /// If `internal_child` is specified, `GtkBuildableIface.get_internal_child``()` will be automatically
     /// implemented by the `GtkWidget` class so there is no need to implement it manually.
     /// 
-    /// The wrapper macros gtk_widget_class_bind_template_child(), gtk_widget_class_bind_template_child_internal(),
-    /// gtk_widget_class_bind_template_child_private() and gtk_widget_class_bind_template_child_internal_private()
+    /// The wrapper macros `gtk_widget_class_bind_template_child()`, `gtk_widget_class_bind_template_child_internal()`,
+    /// `gtk_widget_class_bind_template_child_private()` and `gtk_widget_class_bind_template_child_internal_private()`
     /// might be more convenient to use.
     /// 
     /// Note that this must be called from a composite widget classes class
-    /// initializer after calling gtk_widget_class_set_template().
+    /// initializer after calling `gtk_widget_class_set_template()`.
     func bindTemplateChildFull(name: UnsafePointer<gchar>, internalChild internal_child: Bool, structOffset struct_offset: gssize) {
         gtk_widget_class_bind_template_child_full(cast(_ptr), name, gboolean(internal_child ? 1 : 0), struct_offset)
     
@@ -331,7 +331,7 @@ public extension WidgetClassProtocol {
     }
 
     /// Gets the name used by this class for matching in CSS code. See
-    /// gtk_widget_class_set_css_name() for details.
+    /// `gtk_widget_class_set_css_name()` for details.
     func getCssName() -> String! {
         let rv = gtk_widget_class_get_css_name(cast(_ptr))
         return rv.map { String(cString: UnsafePointer<CChar>($0)) }
@@ -359,11 +359,11 @@ public extension WidgetClassProtocol {
     /// Sets the default `AtkRole` to be set on accessibles created for
     /// widgets of `widget_class`. Accessibles may decide to not honor this
     /// setting if their role reporting is more refined. Calls to
-    /// gtk_widget_class_set_accessible_type() will reset this value.
+    /// `gtk_widget_class_set_accessible_type()` will reset this value.
     /// 
     /// In cases where you want more fine-grained control over the role of
     /// accessibles created for `widget_class`, you should provide your own
-    /// accessible type and use gtk_widget_class_set_accessible_type()
+    /// accessible type and use `gtk_widget_class_set_accessible_type()`
     /// instead.
     /// 
     /// If `role` is `ATK_ROLE_INVALID`, the default role will not be changed
@@ -389,7 +389,7 @@ public extension WidgetClassProtocol {
     /// used when parsing GtkBuilder XML from this class’s template data.
     /// 
     /// Note that this must be called from a composite widget classes class
-    /// initializer after calling gtk_widget_class_set_template().
+    /// initializer after calling `gtk_widget_class_set_template()`.
     func set(connectFunc connect_func: @escaping BuilderConnectFunc, connectData connect_data: UnsafeMutableRawPointer, connectDataDestroy connect_data_destroy: @escaping GLib.DestroyNotify) {
         gtk_widget_class_set_connect_func(cast(_ptr), connect_func, cast(connect_data), connect_data_destroy)
     
@@ -407,28 +407,28 @@ public extension WidgetClassProtocol {
     /// This should be called at class initialization time to specify
     /// the GtkBuilder XML to be used to extend a widget.
     /// 
-    /// For convenience, gtk_widget_class_set_template_from_resource() is also provided.
+    /// For convenience, `gtk_widget_class_set_template_from_resource()` is also provided.
     /// 
-    /// Note that any class that installs templates must call gtk_widget_init_template()
+    /// Note that any class that installs templates must call `gtk_widget_init_template()`
     /// in the widget’s instance initializer.
     func setTemplate(templateBytes template_bytes: BytesProtocol) {
         gtk_widget_class_set_template(cast(_ptr), cast(template_bytes.ptr))
     
     }
 
-    /// A convenience function to call gtk_widget_class_set_template().
+    /// A convenience function to call `gtk_widget_class_set_template()`.
     /// 
-    /// Note that any class that installs templates must call gtk_widget_init_template()
+    /// Note that any class that installs templates must call `gtk_widget_init_template()`
     /// in the widget’s instance initializer.
     func setTemplateFromResource(resourceName resource_name: UnsafePointer<gchar>) {
         gtk_widget_class_set_template_from_resource(cast(_ptr), resource_name)
     
     }
     /// Gets the name used by this class for matching in CSS code. See
-    /// gtk_widget_class_set_css_name() for details.
+    /// `gtk_widget_class_set_css_name()` for details.
     var cssName: String! {
         /// Gets the name used by this class for matching in CSS code. See
-        /// gtk_widget_class_set_css_name() for details.
+        /// `gtk_widget_class_set_css_name()` for details.
         get {
             let rv = gtk_widget_class_get_css_name(cast(_ptr))
             return rv.map { String(cString: UnsafePointer<CChar>($0)) }
@@ -596,13 +596,13 @@ public extension WidgetClassPrivateProtocol {
 /// widget in order to query style information.
 /// 
 /// If you are using GTK+ widgets, you probably will not need to use
-/// this API directly, as there is gtk_widget_get_path(), and the style
-/// context returned by gtk_widget_get_style_context() will be automatically
+/// this API directly, as there is `gtk_widget_get_path()`, and the style
+/// context returned by `gtk_widget_get_style_context()` will be automatically
 /// updated on widget hierarchy changes.
 /// 
 /// The widget path generation is generally simple:
 /// 
-/// ``` Defining a button within a window
+/// ## Defining a button within a window
 /// 
 /// (C Language Example):
 /// ```C
@@ -615,12 +615,11 @@ public extension WidgetClassPrivateProtocol {
 /// }
 /// ```
 /// 
-/// 
 /// Although more complex information, such as widget names, or
 /// different classes (property that may be used by other widget
 /// types) and intermediate regions may be included:
 /// 
-/// ``` Defining the first tab widget in a notebook
+/// ## Defining the first tab widget in a notebook
 /// 
 /// (C Language Example):
 /// ```C
@@ -637,7 +636,6 @@ public extension WidgetClassPrivateProtocol {
 ///   gtk_widget_path_iter_set_name (path, pos, "first tab label");
 /// }
 /// ```
-/// 
 /// 
 /// All this information will be used to match the style information
 /// that applies to the described widget.
@@ -659,13 +657,13 @@ public protocol WidgetPathProtocol {
 /// widget in order to query style information.
 /// 
 /// If you are using GTK+ widgets, you probably will not need to use
-/// this API directly, as there is gtk_widget_get_path(), and the style
-/// context returned by gtk_widget_get_style_context() will be automatically
+/// this API directly, as there is `gtk_widget_get_path()`, and the style
+/// context returned by `gtk_widget_get_style_context()` will be automatically
 /// updated on widget hierarchy changes.
 /// 
 /// The widget path generation is generally simple:
 /// 
-/// ``` Defining a button within a window
+/// ## Defining a button within a window
 /// 
 /// (C Language Example):
 /// ```C
@@ -678,12 +676,11 @@ public protocol WidgetPathProtocol {
 /// }
 /// ```
 /// 
-/// 
 /// Although more complex information, such as widget names, or
 /// different classes (property that may be used by other widget
 /// types) and intermediate regions may be included:
 /// 
-/// ``` Defining the first tab widget in a notebook
+/// ## Defining the first tab widget in a notebook
 /// 
 /// (C Language Example):
 /// ```C
@@ -700,7 +697,6 @@ public protocol WidgetPathProtocol {
 ///   gtk_widget_path_iter_set_name (path, pos, "first tab label");
 /// }
 /// ```
-/// 
 /// 
 /// All this information will be used to match the style information
 /// that applies to the described widget.
@@ -767,13 +763,13 @@ public extension WidgetPathRef {
 /// widget in order to query style information.
 /// 
 /// If you are using GTK+ widgets, you probably will not need to use
-/// this API directly, as there is gtk_widget_get_path(), and the style
-/// context returned by gtk_widget_get_style_context() will be automatically
+/// this API directly, as there is `gtk_widget_get_path()`, and the style
+/// context returned by `gtk_widget_get_style_context()` will be automatically
 /// updated on widget hierarchy changes.
 /// 
 /// The widget path generation is generally simple:
 /// 
-/// ``` Defining a button within a window
+/// ## Defining a button within a window
 /// 
 /// (C Language Example):
 /// ```C
@@ -786,12 +782,11 @@ public extension WidgetPathRef {
 /// }
 /// ```
 /// 
-/// 
 /// Although more complex information, such as widget names, or
 /// different classes (property that may be used by other widget
 /// types) and intermediate regions may be included:
 /// 
-/// ``` Defining the first tab widget in a notebook
+/// ## Defining the first tab widget in a notebook
 /// 
 /// (C Language Example):
 /// ```C
@@ -808,7 +803,6 @@ public extension WidgetPathRef {
 ///   gtk_widget_path_iter_set_name (path, pos, "first tab label");
 /// }
 /// ```
-/// 
 /// 
 /// All this information will be used to match the style information
 /// that applies to the described widget.
@@ -894,10 +888,10 @@ public extension WidgetPathProtocol {
 
     /// Appends a widget type with all its siblings to the widget hierarchy
     /// represented by `path`. Using this function instead of
-    /// gtk_widget_path_append_type() will allow the CSS theming to use
-    /// sibling matches in selectors and apply :nth-child() pseudo classes.
+    /// `gtk_widget_path_append_type()` will allow the CSS theming to use
+    /// sibling matches in selectors and apply :`nth-child()` pseudo classes.
     /// In turn, it requires a lot more care in widget implementations as
-    /// widgets need to make sure to call gtk_widget_reset_style() on all
+    /// widgets need to make sure to call `gtk_widget_reset_style()` on all
     /// involved widgets when the `siblings` path changes.
     func appendWith(siblings: WidgetPathProtocol, siblingIndex sibling_index: CUnsignedInt) -> CInt {
         let rv = gtk_widget_path_append_with_siblings(cast(widget_path_ptr), cast(siblings.ptr), guint(sibling_index))
@@ -940,7 +934,7 @@ public extension WidgetPathProtocol {
 
     /// Adds the class `name` to the widget at position `pos` in
     /// the hierarchy defined in `path`. See
-    /// gtk_style_context_add_class().
+    /// `gtk_style_context_add_class()`.
     func iterAddClass(pos: CInt, name: UnsafePointer<gchar>) {
         gtk_widget_path_iter_add_class(cast(widget_path_ptr), gint(pos), name)
     
@@ -948,7 +942,7 @@ public extension WidgetPathProtocol {
 
     /// Adds the region `name` to the widget at position `pos` in
     /// the hierarchy defined in `path`. See
-    /// gtk_style_context_add_region().
+    /// `gtk_style_context_add_region()`.
     /// 
     /// Region names must only contain lowercase letters
     /// and “-”, starting always with a lowercase letter.
@@ -1000,7 +994,7 @@ public extension WidgetPathProtocol {
     }
 
     /// Returns the index into the list of siblings for the element at `pos` as
-    /// returned by gtk_widget_path_iter_get_siblings(). If that function would
+    /// returned by `gtk_widget_path_iter_get_siblings()`. If that function would
     /// return `nil` because the element at `pos` has no siblings, this function
     /// will return 0.
     func iterGetSiblingIndex(pos: CInt) -> CUnsignedInt {
@@ -1037,21 +1031,21 @@ public extension WidgetPathProtocol {
         return Bool(rv != 0)
     }
 
-    /// See gtk_widget_path_iter_has_class(). This is a version that operates
+    /// See `gtk_widget_path_iter_has_class()`. This is a version that operates
     /// with GQuarks.
     func iterHasQclass(pos: CInt, qname: GLib.Quark) -> Bool {
         let rv = gtk_widget_path_iter_has_qclass(cast(widget_path_ptr), gint(pos), qname)
         return Bool(rv != 0)
     }
 
-    /// See gtk_widget_path_iter_has_name(). This is a version
+    /// See `gtk_widget_path_iter_has_name()`. This is a version
     /// that operates on `GQuarks`.
     func iterHasQname(pos: CInt, qname: GLib.Quark) -> Bool {
         let rv = gtk_widget_path_iter_has_qname(cast(widget_path_ptr), gint(pos), qname)
         return Bool(rv != 0)
     }
 
-    /// See gtk_widget_path_iter_has_region(). This is a version that operates
+    /// See `gtk_widget_path_iter_has_region()`. This is a version that operates
     /// with GQuarks.
     ///
     /// **iter_has_qregion is deprecated:**
@@ -1135,15 +1129,14 @@ public extension WidgetPathProtocol {
     /// If you want to update just a single state flag, you need to do
     /// this manually, as this function updates all state flags.
     /// 
-    /// ``` Setting a flag
+    /// ## Setting a flag
     /// 
     /// (C Language Example):
     /// ```C
     /// gtk_widget_path_iter_set_state (path, pos, gtk_widget_path_iter_get_state (path, pos) | flag);
     /// ```
     /// 
-    /// 
-    /// ``` Unsetting a flag
+    /// ## Unsetting a flag
     /// 
     /// (C Language Example):
     /// ```C
@@ -1179,7 +1172,7 @@ public extension WidgetPathProtocol {
     /// that cannot be represented in CSS).
     /// 
     /// The main use of this code is for debugging purposes, so that you can
-    /// g_print() the path or dump it in a gdb session.
+    /// `g_print()` the path or dump it in a gdb session.
     func toString() -> String! {
         let rv = gtk_widget_path_to_string(cast(widget_path_ptr))
         return rv.map { String(cString: UnsafePointer<CChar>($0)) }

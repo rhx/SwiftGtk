@@ -15,7 +15,7 @@ import GdkPixbuf
 import Gdk
 import Atk
 
-/// Accelerator flags used with gtk_accel_group_connect().
+/// Accelerator flags used with `gtk_accel_group_connect()`.
 public typealias AccelFlags = GtkAccelFlags
 
 public extension AccelFlags {
@@ -27,7 +27,7 @@ public extension AccelFlags {
     static let mask = GTK_ACCEL_MASK /* 7 */
 }
 
-/// Types of user actions that may be blocked by gtk_application_inhibit().
+/// Types of user actions that may be blocked by `gtk_application_inhibit()`.
 public typealias ApplicationInhibitFlags = GtkApplicationInhibitFlags
 
 public extension ApplicationInhibitFlags {
@@ -72,7 +72,7 @@ public extension CalendarDisplayOptions {
     /// left side of the calendar.
     static let show_week_numbers = GTK_CALENDAR_SHOW_WEEK_NUMBERS /* 8 */
     /// Just show an indicator, not the full details
-    /// text when details are provided. See gtk_calendar_set_detail_func().
+    /// text when details are provided. See `gtk_calendar_set_detail_func()`.
     static let show_details = GTK_CALENDAR_SHOW_DETAILS /* 32 */
 }
 
@@ -133,7 +133,7 @@ public extension DestDefaults {
     /// If set for a widget, GTK+, during a drag over this
     ///   widget will check if the drag matches this widget’s list of possible targets
     ///   and actions.
-    ///   GTK+ will then call gdk_drag_status() as appropriate.
+    ///   GTK+ will then call `gdk_drag_status()` as appropriate.
     static let motion = GTK_DEST_DEFAULT_MOTION /* 1 */
     /// If set for a widget, GTK+ will draw a highlight on
     ///   this widget as long as a drag is over this widget and the widget drag format
@@ -141,10 +141,10 @@ public extension DestDefaults {
     static let highlight = GTK_DEST_DEFAULT_HIGHLIGHT /* 2 */
     /// If set for a widget, when a drop occurs, GTK+ will
     ///   will check if the drag matches this widget’s list of possible targets and
-    ///   actions. If so, GTK+ will call gtk_drag_get_data() on behalf of the widget.
-    ///   Whether or not the drop is successful, GTK+ will call gtk_drag_finish(). If
+    ///   actions. If so, GTK+ will call `gtk_drag_get_data()` on behalf of the widget.
+    ///   Whether or not the drop is successful, GTK+ will call `gtk_drag_finish()`. If
     ///   the action was a move, then if the drag was successful, then `true` will be
-    ///   passed for the `delete` parameter to gtk_drag_finish().
+    ///   passed for the `delete` parameter to `gtk_drag_finish()`.
     static let drop = GTK_DEST_DEFAULT_DROP /* 4 */
     /// If set, specifies that all default actions should
     ///   be taken.
@@ -156,10 +156,10 @@ public typealias DialogFlags = GtkDialogFlags
 
 public extension DialogFlags {
     /// Make the constructed dialog modal,
-    ///     see gtk_window_set_modal()
+    ///     see `gtk_window_set_modal()`
     static let modal = GTK_DIALOG_MODAL /* 1 */
     /// Destroy the dialog when its
-    ///     parent is destroyed, see gtk_window_set_destroy_with_parent()
+    ///     parent is destroyed, see `gtk_window_set_destroy_with_parent()`
     static let destroy_with_parent = GTK_DIALOG_DESTROY_WITH_PARENT /* 2 */
     /// Create dialog with actions in header
     ///     bar instead of action area. Since 3.12.
@@ -178,7 +178,7 @@ public extension EventControllerScrollFlags {
     static let horizontal = GTK_EVENT_CONTROLLER_SCROLL_HORIZONTAL /* 2 */
     /// Only emit deltas that are multiples of 1.
     static let discrete = GTK_EVENT_CONTROLLER_SCROLL_DISCRETE /* 4 */
-    /// Emit `GtkEventControllerScroll`::decelerate
+    /// Emit `GtkEventControllerScroll::decelerate`
     ///   after continuous scroll finishes.
     static let kinetic = GTK_EVENT_CONTROLLER_SCROLL_KINETIC /* 8 */
     /// Emit scroll on both axes.
@@ -220,7 +220,7 @@ public extension FontChooserLevel {
     static let features = GTK_FONT_CHOOSER_LEVEL_FEATURES /* 8 */
 }
 
-/// Used to specify options for gtk_icon_theme_lookup_icon()
+/// Used to specify options for `gtk_icon_theme_lookup_icon()`
 public typealias IconLookupFlags = GtkIconLookupFlags
 
 public extension IconLookupFlags {
@@ -232,14 +232,14 @@ public extension IconLookupFlags {
     ///   Cannot be used together with `GTK_ICON_LOOKUP_NO_SVG`.
     static let force_svg = GTK_ICON_LOOKUP_FORCE_SVG /* 2 */
     /// When passed to
-    ///   gtk_icon_theme_lookup_icon() includes builtin icons
-    ///   as well as files. For a builtin icon, gtk_icon_info_get_filename()
-    ///   is `nil` and you need to call gtk_icon_info_get_builtin_pixbuf().
+    ///   `gtk_icon_theme_lookup_icon()` includes builtin icons
+    ///   as well as files. For a builtin icon, `gtk_icon_info_get_filename()`
+    ///   is `nil` and you need to call `gtk_icon_info_get_builtin_pixbuf()`.
     static let use_builtin = GTK_ICON_LOOKUP_USE_BUILTIN /* 4 */
     /// Try to shorten icon name at '-'
     ///   characters before looking at inherited themes. This flag is only
     ///   supported in functions that take a single icon name. For more general
-    ///   fallback, see gtk_icon_theme_choose_icon(). Since 2.12.
+    ///   fallback, see `gtk_icon_theme_choose_icon()`. Since 2.12.
     static let generic_fallback = GTK_ICON_LOOKUP_GENERIC_FALLBACK /* 8 */
     /// Always get the icon scaled to the
     ///   requested size. Since 2.14.
@@ -323,19 +323,19 @@ public extension JunctionSides {
     static let right_ = GTK_JUNCTION_RIGHT /* 10 */
 }
 
-/// These flags serve two purposes.  First, the application can call gtk_places_sidebar_set_open_flags()
+/// These flags serve two purposes.  First, the application can call `gtk_places_sidebar_set_open_flags()`
 /// using these flags as a bitmask.  This tells the sidebar that the application is able to open
 /// folders selected from the sidebar in various ways, for example, in new tabs or in new windows in
 /// addition to the normal mode.
 /// 
 /// Second, when one of these values gets passed back to the application in the
-/// `GtkPlacesSidebar`::open-location signal, it means that the application should
+/// `GtkPlacesSidebar::open`-location signal, it means that the application should
 /// open the selected location in the normal way, in a new tab, or in a new
 /// window.  The sidebar takes care of determining the desired way to open the location,
 /// based on the modifier keys that the user is pressing at the time the selection is made.
 /// 
-/// If the application never calls gtk_places_sidebar_set_open_flags(), then the sidebar will only
-/// use `GTK_PLACES_OPEN_NORMAL` in the `GtkPlacesSidebar`::open-location signal.  This is the
+/// If the application never calls `gtk_places_sidebar_set_open_flags()`, then the sidebar will only
+/// use `GTK_PLACES_OPEN_NORMAL` in the `GtkPlacesSidebar::open`-location signal.  This is the
 /// default mode of operation.
 public typealias PlacesOpenFlags = GtkPlacesOpenFlags
 
@@ -344,9 +344,9 @@ public extension PlacesOpenFlags {
     ///  are specified.  It indicates that the calling application should open the selected location
     ///  in the normal way, for example, in the folder view beside the sidebar.
     static let normal = GTK_PLACES_OPEN_NORMAL /* 1 */
-    /// When passed to gtk_places_sidebar_set_open_flags(), this indicates
+    /// When passed to `gtk_places_sidebar_set_open_flags()`, this indicates
     ///  that the application can open folders selected from the sidebar in new tabs.  This value
-    ///  will be passed to the `GtkPlacesSidebar`::open-location signal when the user selects
+    ///  will be passed to the `GtkPlacesSidebar::open`-location signal when the user selects
     ///  that a location be opened in a new tab instead of in the standard fashion.
     static let new_tab = GTK_PLACES_OPEN_NEW_TAB /* 2 */
     /// Similar to `GTK_PLACES_OPEN_NEW_TAB`, but indicates that the application
@@ -444,7 +444,7 @@ public extension StateFlags {
     static let drop_active = GTK_STATE_FLAG_DROP_ACTIVE /* 4096 */
 }
 
-/// Flags that modify the behavior of gtk_style_context_to_string().
+/// Flags that modify the behavior of `gtk_style_context_to_string()`.
 /// New values may be added to this enumeration.
 public typealias StyleContextPrintFlags = GtkStyleContextPrintFlags
 
@@ -508,7 +508,7 @@ public extension ToolPaletteDragTargets {
 
 /// These flags indicate various properties of a `GtkTreeModel`.
 /// 
-/// They are returned by gtk_tree_model_get_flags(), and must be
+/// They are returned by `gtk_tree_model_get_flags()`, and must be
 /// static for the lifetime of the object. A more complete description
 /// of `GTK_TREE_MODEL_ITERS_PERSIST` can be found in the overview of
 /// this section.
@@ -523,7 +523,7 @@ public extension TreeModelFlags {
     static let list_only = GTK_TREE_MODEL_LIST_ONLY /* 2 */
 }
 
-/// These enumeration values are used by gtk_ui_manager_add_ui() to determine
+/// These enumeration values are used by `gtk_ui_manager_add_ui()` to determine
 /// what UI element to create.
 ///
 /// **UIManagerItemType is deprecated:**

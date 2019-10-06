@@ -389,7 +389,7 @@ public extension TreeDragSourceProtocol {
 /// a specific model. It is a generic struct with an integer and three
 /// generic pointers. These are filled in by the model in a model-specific
 /// way. One can convert a path to an iterator by calling
-/// gtk_tree_model_get_iter(). These iterators are the primary way
+/// `gtk_tree_model_get_iter()`. These iterators are the primary way
 /// of accessing a model and are similar to the iterators used by
 /// `GtkTextBuffer`. They are generally statically allocated on the
 /// stack and only used for a short time. The model interface defines
@@ -422,7 +422,7 @@ public extension TreeDragSourceProtocol {
 /// easier, the second is much more common, as you often get paths from
 /// callbacks.
 /// 
-/// ``` Acquiring a `GtkTreeIter`-struct
+/// ## Acquiring a `GtkTreeIter`-struct
 /// 
 /// (C Language Example):
 /// ```C
@@ -452,14 +452,13 @@ public extension TreeDragSourceProtocol {
 ///                                &parent_iter, 5);
 /// ```
 /// 
-/// 
 /// This second example shows a quick way of iterating through a list
 /// and getting a string and an integer from each row. The
-/// populate_model() function used below is not
+/// `populate_model()` function used below is not
 /// shown, as it is specific to the `GtkListStore`. For information on
 /// how to write such a function, see the `GtkListStore` documentation.
 /// 
-/// ``` Reading data from a `GtkTreeModel`
+/// ## Reading data from a `GtkTreeModel`
 /// 
 /// (C Language Example):
 /// ```C
@@ -502,7 +501,7 @@ public extension TreeDragSourceProtocol {
 ///                        -1);
 /// 
 ///    // Do something with the data
-///    g_print ("Row `d`: (`s`,`d`)\n",
+///    g_print ("Row %d: (%s,%d)\n",
 ///             row_count, str_data, int_data);
 ///    g_free (str_data);
 /// 
@@ -512,9 +511,8 @@ public extension TreeDragSourceProtocol {
 ///  }
 /// ```
 /// 
-/// 
 /// The `GtkTreeModel` interface contains two methods for reference
-/// counting: gtk_tree_model_ref_node() and gtk_tree_model_unref_node().
+/// counting: `gtk_tree_model_ref_node()` and `gtk_tree_model_unref_node()`.
 /// These two methods are optional to implement. The reference counting
 /// is meant as a way for views to let models know when nodes are being
 /// displayed. `GtkTreeView` will take a reference on a node when it is
@@ -599,7 +597,7 @@ public protocol TreeModelProtocol {
 /// a specific model. It is a generic struct with an integer and three
 /// generic pointers. These are filled in by the model in a model-specific
 /// way. One can convert a path to an iterator by calling
-/// gtk_tree_model_get_iter(). These iterators are the primary way
+/// `gtk_tree_model_get_iter()`. These iterators are the primary way
 /// of accessing a model and are similar to the iterators used by
 /// `GtkTextBuffer`. They are generally statically allocated on the
 /// stack and only used for a short time. The model interface defines
@@ -632,7 +630,7 @@ public protocol TreeModelProtocol {
 /// easier, the second is much more common, as you often get paths from
 /// callbacks.
 /// 
-/// ``` Acquiring a `GtkTreeIter`-struct
+/// ## Acquiring a `GtkTreeIter`-struct
 /// 
 /// (C Language Example):
 /// ```C
@@ -662,14 +660,13 @@ public protocol TreeModelProtocol {
 ///                                &parent_iter, 5);
 /// ```
 /// 
-/// 
 /// This second example shows a quick way of iterating through a list
 /// and getting a string and an integer from each row. The
-/// populate_model() function used below is not
+/// `populate_model()` function used below is not
 /// shown, as it is specific to the `GtkListStore`. For information on
 /// how to write such a function, see the `GtkListStore` documentation.
 /// 
-/// ``` Reading data from a `GtkTreeModel`
+/// ## Reading data from a `GtkTreeModel`
 /// 
 /// (C Language Example):
 /// ```C
@@ -712,7 +709,7 @@ public protocol TreeModelProtocol {
 ///                        -1);
 /// 
 ///    // Do something with the data
-///    g_print ("Row `d`: (`s`,`d`)\n",
+///    g_print ("Row %d: (%s,%d)\n",
 ///             row_count, str_data, int_data);
 ///    g_free (str_data);
 /// 
@@ -722,9 +719,8 @@ public protocol TreeModelProtocol {
 ///  }
 /// ```
 /// 
-/// 
 /// The `GtkTreeModel` interface contains two methods for reference
-/// counting: gtk_tree_model_ref_node() and gtk_tree_model_unref_node().
+/// counting: `gtk_tree_model_ref_node()` and `gtk_tree_model_unref_node()`.
 /// These two methods are optional to implement. The reference counting
 /// is meant as a way for views to let models know when nodes are being
 /// displayed. `GtkTreeView` will take a reference on a node when it is
@@ -849,7 +845,7 @@ public extension TreeModelRef {
 /// a specific model. It is a generic struct with an integer and three
 /// generic pointers. These are filled in by the model in a model-specific
 /// way. One can convert a path to an iterator by calling
-/// gtk_tree_model_get_iter(). These iterators are the primary way
+/// `gtk_tree_model_get_iter()`. These iterators are the primary way
 /// of accessing a model and are similar to the iterators used by
 /// `GtkTextBuffer`. They are generally statically allocated on the
 /// stack and only used for a short time. The model interface defines
@@ -882,7 +878,7 @@ public extension TreeModelRef {
 /// easier, the second is much more common, as you often get paths from
 /// callbacks.
 /// 
-/// ``` Acquiring a `GtkTreeIter`-struct
+/// ## Acquiring a `GtkTreeIter`-struct
 /// 
 /// (C Language Example):
 /// ```C
@@ -912,14 +908,13 @@ public extension TreeModelRef {
 ///                                &parent_iter, 5);
 /// ```
 /// 
-/// 
 /// This second example shows a quick way of iterating through a list
 /// and getting a string and an integer from each row. The
-/// populate_model() function used below is not
+/// `populate_model()` function used below is not
 /// shown, as it is specific to the `GtkListStore`. For information on
 /// how to write such a function, see the `GtkListStore` documentation.
 /// 
-/// ``` Reading data from a `GtkTreeModel`
+/// ## Reading data from a `GtkTreeModel`
 /// 
 /// (C Language Example):
 /// ```C
@@ -962,7 +957,7 @@ public extension TreeModelRef {
 ///                        -1);
 /// 
 ///    // Do something with the data
-///    g_print ("Row `d`: (`s`,`d`)\n",
+///    g_print ("Row %d: (%s,%d)\n",
 ///             row_count, str_data, int_data);
 ///    g_free (str_data);
 /// 
@@ -972,9 +967,8 @@ public extension TreeModelRef {
 ///  }
 /// ```
 /// 
-/// 
 /// The `GtkTreeModel` interface contains two methods for reference
-/// counting: gtk_tree_model_ref_node() and gtk_tree_model_unref_node().
+/// counting: `gtk_tree_model_ref_node()` and `gtk_tree_model_unref_node()`.
 /// These two methods are optional to implement. The reference counting
 /// is meant as a way for views to let models know when nodes are being
 /// displayed. `GtkTreeView` will take a reference on a node when it is
@@ -1129,7 +1123,7 @@ public extension TreeModelProtocol {
     /// Calls func on each node in model in a depth-first fashion.
     /// 
     /// If `func` returns `true`, then the tree ceases to be walked,
-    /// and gtk_tree_model_foreach() returns.
+    /// and `gtk_tree_model_foreach()` returns.
     func foreach(_ func_: @escaping TreeModelForeachFunc, userData user_data: UnsafeMutableRawPointer) {
         gtk_tree_model_foreach(cast(tree_model_ptr), func_, cast(user_data))
     
@@ -1185,7 +1179,7 @@ public extension TreeModelProtocol {
 
     /// Returns a newly-created `GtkTreePath`-struct referenced by `iter`.
     /// 
-    /// This path should be freed with gtk_tree_path_free().
+    /// This path should be freed with `gtk_tree_path_free()`.
     func getPath(iter: TreeIterProtocol) -> UnsafeMutablePointer<GtkTreePath>! {
         let rv = gtk_tree_model_get_path(cast(tree_model_ptr), cast(iter.ptr))
         return cast(rv)
@@ -1201,7 +1195,7 @@ public extension TreeModelProtocol {
         return rv.map { String(cString: UnsafePointer<CChar>($0)) }
     }
 
-    /// See gtk_tree_model_get(), this version takes a va_list
+    /// See `gtk_tree_model_get()`, this version takes a va_list
     /// for language bindings to use.
     func getValist(iter: TreeIterProtocol, varArgs var_args: CVaListPointer) {
         gtk_tree_model_get_valist(cast(tree_model_ptr), cast(iter.ptr), var_args)
@@ -1210,7 +1204,7 @@ public extension TreeModelProtocol {
 
     /// Initializes and sets `value` to that at `column`.
     /// 
-    /// When done with `value`, g_value_unset() needs to be called
+    /// When done with `value`, `g_value_unset()` needs to be called
     /// to free any allocated memory.
     func getValue(iter: TreeIterProtocol, column: CInt, value: GLibObject.ValueProtocol) {
         gtk_tree_model_get_value(cast(tree_model_ptr), cast(iter.ptr), gint(column), cast(value.ptr))
@@ -1311,13 +1305,13 @@ public extension TreeModelProtocol {
     
     }
 
-    /// Emits the `GtkTreeModel`::row-changed signal on `tree_model`.
+    /// Emits the `GtkTreeModel::row`-changed signal on `tree_model`.
     func rowChanged(path: TreePathProtocol, iter: TreeIterProtocol) {
         gtk_tree_model_row_changed(cast(tree_model_ptr), cast(path.ptr), cast(iter.ptr))
     
     }
 
-    /// Emits the `GtkTreeModel`::row-deleted signal on `tree_model`.
+    /// Emits the `GtkTreeModel::row`-deleted signal on `tree_model`.
     /// 
     /// This should be called by models after a row has been removed.
     /// The location pointed to by `path` should be the location that
@@ -1330,7 +1324,7 @@ public extension TreeModelProtocol {
     
     }
 
-    /// Emits the `GtkTreeModel`::row-has-child-toggled signal on
+    /// Emits the `GtkTreeModel::row`-has-child-toggled signal on
     /// `tree_model`. This should be called by models after the child
     /// state of a node changes.
     func rowHasChildToggled(path: TreePathProtocol, iter: TreeIterProtocol) {
@@ -1338,13 +1332,13 @@ public extension TreeModelProtocol {
     
     }
 
-    /// Emits the `GtkTreeModel`::row-inserted signal on `tree_model`.
+    /// Emits the `GtkTreeModel::row`-inserted signal on `tree_model`.
     func rowInserted(path: TreePathProtocol, iter: TreeIterProtocol) {
         gtk_tree_model_row_inserted(cast(tree_model_ptr), cast(path.ptr), cast(iter.ptr))
     
     }
 
-    /// Emits the `GtkTreeModel`::rows-reordered signal on `tree_model`.
+    /// Emits the `GtkTreeModel::rows`-reordered signal on `tree_model`.
     /// 
     /// This should be called by models when their rows have been
     /// reordered.
@@ -1353,7 +1347,7 @@ public extension TreeModelProtocol {
     
     }
 
-    /// Emits the `GtkTreeModel`::rows-reordered signal on `tree_model`.
+    /// Emits the `GtkTreeModel::rows`-reordered signal on `tree_model`.
     /// 
     /// This should be called by models when their rows have been
     /// reordered.
@@ -1373,7 +1367,7 @@ public extension TreeModelProtocol {
     /// This is an optional method for models to implement.
     /// To be more specific, models may ignore this call as it exists
     /// primarily for performance reasons. For more information on what
-    /// this means, see gtk_tree_model_ref_node().
+    /// this means, see `gtk_tree_model_ref_node()`.
     /// 
     /// Please note that nodes that are deleted are not unreffed.
     func unrefNode(iter: TreeIterProtocol) {
@@ -1389,7 +1383,7 @@ public extension TreeModelProtocol {
     /// get memory corruption. In the `GtkTreeDragDest` drag_data_received handler,
     /// you can assume that selection data of type `GTK_TREE_MODEL_ROW` is
     /// in from the current process. The returned path must be freed with
-    /// gtk_tree_path_free().
+    /// `gtk_tree_path_free()`.
     func treeGetRowDragData(selectionData selection_data: SelectionDataProtocol, path: TreePathProtocol) -> Bool {
         let rv = gtk_tree_get_row_drag_data(cast(selection_data.ptr), cast(tree_model_ptr), cast(path.ptr))
         return Bool(rv != 0)
@@ -1583,7 +1577,7 @@ public enum TreeSortableSignalName: String, SignalNameProtocol {
     /// when rows are reordered by DND, since this is implemented
     /// by removing and then reinserting the row.
     case rowsReordered = "rows-reordered"
-    /// The ::sort-column-changed signal is emitted when the sort column
+    /// The `sort`-column-changed signal is emitted when the sort column
     /// or sort order of `sortable` is changed. The signal is emitted before
     /// the contents of `sortable` are resorted.
     case sortColumnChanged = "sort-column-changed"
@@ -1655,13 +1649,13 @@ public extension TreeSortableProtocol {
 
     /// Sets the current sort column to be `sort_column_id`. The `sortable` will
     /// resort itself to reflect this change, after emitting a
-    /// `GtkTreeSortable`::sort-column-changed signal. `sort_column_id` may either be
+    /// `GtkTreeSortable::sort`-column-changed signal. `sort_column_id` may either be
     /// a regular column id, or one of the following special values:
     /// 
-    /// - `GTK_TREE_SORTABLE_DEFAULT_SORT_COLUMN_ID`: the default sort function
+    /// - `GTK_TREE_SORTABLE_DEFAULT_SORT_COLUMN_ID:` the default sort function
     ///   will be used, if it is set
     /// 
-    /// - `GTK_TREE_SORTABLE_UNSORTED_SORT_COLUMN_ID`: no sorting will occur
+    /// - `GTK_TREE_SORTABLE_UNSORTED_SORT_COLUMN_ID:` no sorting will occur
     func set(sortColumnID sort_column_id: CInt, order: SortType) {
         gtk_tree_sortable_set_sort_column_id(cast(tree_sortable_ptr), gint(sort_column_id), order)
     
@@ -1675,7 +1669,7 @@ public extension TreeSortableProtocol {
     
     }
 
-    /// Emits a `GtkTreeSortable`::sort-column-changed signal on `sortable`.
+    /// Emits a `GtkTreeSortable::sort`-column-changed signal on `sortable`.
     func sortColumnChanged() {
         gtk_tree_sortable_sort_column_changed(cast(tree_sortable_ptr))
     

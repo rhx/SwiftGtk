@@ -234,29 +234,28 @@ public enum BooleanCellAccessibleSignalName: String, SignalNameProtocol {
     /// Use the #AtkObject::state-change signal instead.
     case focusEvent = "focus-event"
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
     /// The signal "property-change" is emitted when an object's property
@@ -268,9 +267,9 @@ public enum BooleanCellAccessibleSignalName: String, SignalNameProtocol {
     /// reinstate the previous value.
     /// 
     /// Toolkit implementor note: ATK implementors should use
-    /// g_object_notify() to emit property-changed
-    /// notifications. `AtkObject`::property-changed is needed by the
-    /// implementation of atk_add_global_event_listener() because GObject
+    /// `g_object_notify()` to emit property-changed
+    /// notifications. `AtkObject::property`-changed is needed by the
+    /// implementation of `atk_add_global_event_listener()` because GObject
     /// notify doesn't support emission hooks.
     case propertyChange = "property-change"
     /// The "state-change" signal is emitted when an object's state
@@ -373,9 +372,9 @@ public extension BooleanCellAccessibleProtocol {
 /// Alternatively, use `BoxRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
 /// The GtkBox widget arranges child widgets into a single row or column,
-/// depending upon the value of its `GtkOrientable`:orientation property. Within
+/// depending upon the value of its `GtkOrientable:orientation` property. Within
 /// the other dimension, all children are allocated the same size. Of course,
-/// the `GtkWidget`:halign and `GtkWidget`:valign properties can be used on
+/// the `GtkWidget:halign` and `GtkWidget:valign` properties can be used on
 /// the children to influence their allocation.
 /// 
 /// GtkBox uses a notion of packing. Packing refers
@@ -386,33 +385,33 @@ public extension BooleanCellAccessibleProtocol {
 /// the end is defined as the bottom. For a horizontal `GtkBox` the start
 /// is defined as the left side and the end is defined as the right side.
 /// 
-/// Use repeated calls to gtk_box_pack_start() to pack widgets into a
-/// GtkBox from start to end. Use gtk_box_pack_end() to add widgets from
+/// Use repeated calls to `gtk_box_pack_start()` to pack widgets into a
+/// GtkBox from start to end. Use `gtk_box_pack_end()` to add widgets from
 /// end to start. You may intersperse these calls and add widgets from
 /// both ends of the same GtkBox.
 /// 
-/// Because GtkBox is a `GtkContainer`, you may also use gtk_container_add()
+/// Because GtkBox is a `GtkContainer`, you may also use `gtk_container_add()`
 /// to insert widgets into the box, and they will be packed with the default
-/// values for expand and fill child properties. Use gtk_container_remove()
+/// values for expand and fill child properties. Use `gtk_container_remove()`
 /// to remove widgets from the GtkBox.
 /// 
-/// Use gtk_box_set_homogeneous() to specify whether or not all children
+/// Use `gtk_box_set_homogeneous()` to specify whether or not all children
 /// of the GtkBox are forced to get the same amount of space.
 /// 
-/// Use gtk_box_set_spacing() to determine how much space will be
+/// Use `gtk_box_set_spacing()` to determine how much space will be
 /// minimally placed between all children in the GtkBox. Note that
 /// spacing is added between the children, while
-/// padding added by gtk_box_pack_start() or gtk_box_pack_end() is added
+/// padding added by `gtk_box_pack_start()` or `gtk_box_pack_end()` is added
 /// on either side of the widget it belongs to.
 /// 
-/// Use gtk_box_reorder_child() to move a GtkBox child to a different
+/// Use `gtk_box_reorder_child()` to move a GtkBox child to a different
 /// place in the box.
 /// 
-/// Use gtk_box_set_child_packing() to reset the expand,
+/// Use `gtk_box_set_child_packing()` to reset the expand,
 /// fill and padding child properties.
-/// Use gtk_box_query_child_packing() to query these fields.
+/// Use `gtk_box_query_child_packing()` to query these fields.
 /// 
-/// `` CSS nodes
+/// # CSS nodes
 /// 
 /// GtkBox uses a single CSS node with name box.
 /// 
@@ -432,9 +431,9 @@ public protocol BoxProtocol: ContainerProtocol, OrientableProtocol {
 /// Use `BoxRef` only as an `unowned` reference to an existing `GtkBox` instance.
 ///
 /// The GtkBox widget arranges child widgets into a single row or column,
-/// depending upon the value of its `GtkOrientable`:orientation property. Within
+/// depending upon the value of its `GtkOrientable:orientation` property. Within
 /// the other dimension, all children are allocated the same size. Of course,
-/// the `GtkWidget`:halign and `GtkWidget`:valign properties can be used on
+/// the `GtkWidget:halign` and `GtkWidget:valign` properties can be used on
 /// the children to influence their allocation.
 /// 
 /// GtkBox uses a notion of packing. Packing refers
@@ -445,33 +444,33 @@ public protocol BoxProtocol: ContainerProtocol, OrientableProtocol {
 /// the end is defined as the bottom. For a horizontal `GtkBox` the start
 /// is defined as the left side and the end is defined as the right side.
 /// 
-/// Use repeated calls to gtk_box_pack_start() to pack widgets into a
-/// GtkBox from start to end. Use gtk_box_pack_end() to add widgets from
+/// Use repeated calls to `gtk_box_pack_start()` to pack widgets into a
+/// GtkBox from start to end. Use `gtk_box_pack_end()` to add widgets from
 /// end to start. You may intersperse these calls and add widgets from
 /// both ends of the same GtkBox.
 /// 
-/// Because GtkBox is a `GtkContainer`, you may also use gtk_container_add()
+/// Because GtkBox is a `GtkContainer`, you may also use `gtk_container_add()`
 /// to insert widgets into the box, and they will be packed with the default
-/// values for expand and fill child properties. Use gtk_container_remove()
+/// values for expand and fill child properties. Use `gtk_container_remove()`
 /// to remove widgets from the GtkBox.
 /// 
-/// Use gtk_box_set_homogeneous() to specify whether or not all children
+/// Use `gtk_box_set_homogeneous()` to specify whether or not all children
 /// of the GtkBox are forced to get the same amount of space.
 /// 
-/// Use gtk_box_set_spacing() to determine how much space will be
+/// Use `gtk_box_set_spacing()` to determine how much space will be
 /// minimally placed between all children in the GtkBox. Note that
 /// spacing is added between the children, while
-/// padding added by gtk_box_pack_start() or gtk_box_pack_end() is added
+/// padding added by `gtk_box_pack_start()` or `gtk_box_pack_end()` is added
 /// on either side of the widget it belongs to.
 /// 
-/// Use gtk_box_reorder_child() to move a GtkBox child to a different
+/// Use `gtk_box_reorder_child()` to move a GtkBox child to a different
 /// place in the box.
 /// 
-/// Use gtk_box_set_child_packing() to reset the expand,
+/// Use `gtk_box_set_child_packing()` to reset the expand,
 /// fill and padding child properties.
-/// Use gtk_box_query_child_packing() to query these fields.
+/// Use `gtk_box_query_child_packing()` to query these fields.
 /// 
-/// `` CSS nodes
+/// # CSS nodes
 /// 
 /// GtkBox uses a single CSS node with name box.
 /// 
@@ -536,9 +535,9 @@ public extension BoxRef {
 /// Use `Box` as a strong reference or owner of a `GtkBox` instance.
 ///
 /// The GtkBox widget arranges child widgets into a single row or column,
-/// depending upon the value of its `GtkOrientable`:orientation property. Within
+/// depending upon the value of its `GtkOrientable:orientation` property. Within
 /// the other dimension, all children are allocated the same size. Of course,
-/// the `GtkWidget`:halign and `GtkWidget`:valign properties can be used on
+/// the `GtkWidget:halign` and `GtkWidget:valign` properties can be used on
 /// the children to influence their allocation.
 /// 
 /// GtkBox uses a notion of packing. Packing refers
@@ -549,33 +548,33 @@ public extension BoxRef {
 /// the end is defined as the bottom. For a horizontal `GtkBox` the start
 /// is defined as the left side and the end is defined as the right side.
 /// 
-/// Use repeated calls to gtk_box_pack_start() to pack widgets into a
-/// GtkBox from start to end. Use gtk_box_pack_end() to add widgets from
+/// Use repeated calls to `gtk_box_pack_start()` to pack widgets into a
+/// GtkBox from start to end. Use `gtk_box_pack_end()` to add widgets from
 /// end to start. You may intersperse these calls and add widgets from
 /// both ends of the same GtkBox.
 /// 
-/// Because GtkBox is a `GtkContainer`, you may also use gtk_container_add()
+/// Because GtkBox is a `GtkContainer`, you may also use `gtk_container_add()`
 /// to insert widgets into the box, and they will be packed with the default
-/// values for expand and fill child properties. Use gtk_container_remove()
+/// values for expand and fill child properties. Use `gtk_container_remove()`
 /// to remove widgets from the GtkBox.
 /// 
-/// Use gtk_box_set_homogeneous() to specify whether or not all children
+/// Use `gtk_box_set_homogeneous()` to specify whether or not all children
 /// of the GtkBox are forced to get the same amount of space.
 /// 
-/// Use gtk_box_set_spacing() to determine how much space will be
+/// Use `gtk_box_set_spacing()` to determine how much space will be
 /// minimally placed between all children in the GtkBox. Note that
 /// spacing is added between the children, while
-/// padding added by gtk_box_pack_start() or gtk_box_pack_end() is added
+/// padding added by `gtk_box_pack_start()` or `gtk_box_pack_end()` is added
 /// on either side of the widget it belongs to.
 /// 
-/// Use gtk_box_reorder_child() to move a GtkBox child to a different
+/// Use `gtk_box_reorder_child()` to move a GtkBox child to a different
 /// place in the box.
 /// 
-/// Use gtk_box_set_child_packing() to reset the expand,
+/// Use `gtk_box_set_child_packing()` to reset the expand,
 /// fill and padding child properties.
-/// Use gtk_box_query_child_packing() to query these fields.
+/// Use `gtk_box_query_child_packing()` to query these fields.
 /// 
-/// `` CSS nodes
+/// # CSS nodes
 /// 
 /// GtkBox uses a single CSS node with name box.
 /// 
@@ -688,7 +687,7 @@ public enum BoxPropertyName: String, PropertyNameProtocol {
     /// Widgets should not use this property.
     case doubleBuffered = "double-buffered"
     case events = "events"
-    /// Whether to expand in both directions. Setting this sets both `GtkWidget`:hexpand and `GtkWidget`:vexpand
+    /// Whether to expand in both directions. Setting this sets both `GtkWidget:hexpand` and `GtkWidget:vexpand`
     case expand = "expand"
     /// Whether the widget should grab focus when it is clicked with the mouse.
     /// 
@@ -701,9 +700,9 @@ public enum BoxPropertyName: String, PropertyNameProtocol {
     case halign = "halign"
     case hasDefault = "has-default"
     case hasFocus = "has-focus"
-    /// Enables or disables the emission of `GtkWidget`::query-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget`::query-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
     /// whether it will provide a tooltip or not.
     /// 
     /// Note that setting this property to `true` for the first time will change
@@ -712,9 +711,9 @@ public enum BoxPropertyName: String, PropertyNameProtocol {
     /// property is set to `false` again.
     case hasTooltip = "has-tooltip"
     case heightRequest = "height-request"
-    /// Whether to expand horizontally. See gtk_widget_set_hexpand().
+    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
     case hexpand = "hexpand"
-    /// Whether to use the `GtkWidget`:hexpand property. See gtk_widget_get_hexpand_set().
+    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
     case hexpandSet = "hexpand-set"
     case homogeneous = "homogeneous"
     case isFocus = "is-focus"
@@ -725,20 +724,20 @@ public enum BoxPropertyName: String, PropertyNameProtocol {
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// gtk_widget_set_size_request() for example.
+    /// `gtk_widget_set_size_request()` for example.
     case marginBottom = "margin-bottom"
     /// Margin on end of widget, horizontally. This property supports
     /// left-to-right and right-to-left text directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// gtk_widget_set_size_request() for example.
+    /// `gtk_widget_set_size_request()` for example.
     case marginEnd = "margin-end"
     /// Margin on left side of widget.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// gtk_widget_set_size_request() for example.
+    /// `gtk_widget_set_size_request()` for example.
     ///
     /// **margin-left is deprecated:**
     /// Use #GtkWidget:margin-start instead.
@@ -747,7 +746,7 @@ public enum BoxPropertyName: String, PropertyNameProtocol {
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// gtk_widget_set_size_request() for example.
+    /// `gtk_widget_set_size_request()` for example.
     ///
     /// **margin-right is deprecated:**
     /// Use #GtkWidget:margin-end instead.
@@ -757,17 +756,17 @@ public enum BoxPropertyName: String, PropertyNameProtocol {
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// gtk_widget_set_size_request() for example.
+    /// `gtk_widget_set_size_request()` for example.
     case marginStart = "margin-start"
     /// Margin on top side of widget.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// gtk_widget_set_size_request() for example.
+    /// `gtk_widget_set_size_request()` for example.
     case marginTop = "margin-top"
     case name = "name"
     case noShowAll = "no-show-all"
-    /// The requested opacity of the widget. See gtk_widget_set_opacity() for
+    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
     /// more details about window opacity.
     /// 
     /// Before 3.8 this was only available in GtkWindow
@@ -775,7 +774,7 @@ public enum BoxPropertyName: String, PropertyNameProtocol {
     case parent = "parent"
     case receivesDefault = "receives-default"
     case resizeMode = "resize-mode"
-    /// The scale factor of the widget. See gtk_widget_get_scale_factor() for
+    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
     /// more details about widget scaling.
     case scaleFactor = "scale-factor"
     case sensitive = "sensitive"
@@ -786,34 +785,34 @@ public enum BoxPropertyName: String, PropertyNameProtocol {
     /// Use #GtkStyleContext instead
     case style = "style"
     /// Sets the text of tooltip to be the given string, which is marked up
-    /// with the [Pango text markup language][PangoMarkupFormat].
-    /// Also see gtk_tooltip_set_markup().
+    /// with the [Pango text markup language](#PangoMarkupFormat).
+    /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget`:has-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget`::query-tooltip in the default signal handler.
+    /// `GtkWidget::query`-tooltip in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget`:tooltip-text and `GtkWidget`:tooltip-markup
+    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
     /// are set, the last one wins.
     case tooltipMarkup = "tooltip-markup"
     /// Sets the text of tooltip to be the given string.
     /// 
-    /// Also see gtk_tooltip_set_text().
+    /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget`:has-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget`::query-tooltip in the default signal handler.
+    /// `GtkWidget::query`-tooltip in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget`:tooltip-text and `GtkWidget`:tooltip-markup
+    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
     /// are set, the last one wins.
     case tooltipText = "tooltip-text"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
     case valign = "valign"
-    /// Whether to expand vertically. See gtk_widget_set_vexpand().
+    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
     case vexpand = "vexpand"
-    /// Whether to use the `GtkWidget`:vexpand property. See gtk_widget_get_vexpand_set().
+    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
     case vexpandSet = "vexpand-set"
     case visible = "visible"
     case widthRequest = "width-request"
@@ -865,7 +864,7 @@ public enum BoxSignalName: String, SignalNameProtocol {
     /// signal when the cell in the table which has focus changes.
     case activeDescendantChanged = "active-descendant-changed"
     case add = "add"
-    /// The ::button-press-event signal will be emitted when a button
+    /// The `button`-press-event signal will be emitted when a button
     /// (typically from a mouse) is pressed.
     /// 
     /// To receive this signal, the `GdkWindow` associated to the
@@ -873,7 +872,7 @@ public enum BoxSignalName: String, SignalNameProtocol {
     /// 
     /// This signal will be sent to the grab widget if there is one.
     case buttonPressEvent = "button-press-event"
-    /// The ::button-release-event signal will be emitted when a button
+    /// The `button`-release-event signal will be emitted when a button
     /// (typically from a mouse) is released.
     /// 
     /// To receive this signal, the `GdkWindow` associated to the
@@ -888,22 +887,22 @@ public enum BoxSignalName: String, SignalNameProtocol {
     /// for determining whether an accelerator can be activated.
     case canActivateAccel = "can-activate-accel"
     case checkResize = "check-resize"
-    /// The ::child-notify signal is emitted for each
-    /// [child property][child-properties]  that has
+    /// The `child`-notify signal is emitted for each
+    /// [child property](#child-properties)  that has
     /// changed on an object. The signal's detail holds the property name.
     case childNotify = "child-notify"
     /// The signal "children-changed" is emitted when a child is added or
     /// removed form an object. It supports two details: "add" and
     /// "remove"
     case childrenChanged = "children-changed"
-    /// The ::composited-changed signal is emitted when the composited
+    /// The `composited`-changed signal is emitted when the composited
     /// status of `widgets` screen changes.
-    /// See gdk_screen_is_composited().
+    /// See `gdk_screen_is_composited()`.
     ///
     /// **composited-changed is deprecated:**
     /// Use GdkScreen::composited-changed instead.
     case compositedChanged = "composited-changed"
-    /// The ::configure-event signal will be emitted when the size, position or
+    /// The `configure`-event signal will be emitted when the size, position or
     /// stacking of the `widget`'s window has changed.
     /// 
     /// To receive this signal, the `GdkWindow` associated to the widget needs
@@ -914,9 +913,9 @@ public enum BoxSignalName: String, SignalNameProtocol {
     /// The region/area members of the event shows what area of the redirected
     /// drawable was drawn into.
     case damageEvent = "damage-event"
-    /// The ::delete-event signal is emitted if a user requests that
+    /// The `delete`-event signal is emitted if a user requests that
     /// a toplevel window is closed. The default handler for this signal
-    /// destroys the window. Connecting gtk_widget_hide_on_delete() to
+    /// destroys the window. Connecting `gtk_widget_hide_on_delete()` to
     /// this signal will cause the window to be hidden instead, so that
     /// it can later be shown again without reconstructing it.
     case deleteEvent = "delete-event"
@@ -926,7 +925,7 @@ public enum BoxSignalName: String, SignalNameProtocol {
     /// 
     /// This signal is not suitable for saving widget state.
     case destroy = "destroy"
-    /// The ::destroy-event signal is emitted when a `GdkWindow` is destroyed.
+    /// The `destroy`-event signal is emitted when a `GdkWindow` is destroyed.
     /// You rarely get this signal, because most widgets disconnect themselves
     /// from their window before they destroy it, so no widget owns the
     /// window at destroy time.
@@ -935,44 +934,44 @@ public enum BoxSignalName: String, SignalNameProtocol {
     /// to enable the `GDK_STRUCTURE_MASK` mask. GDK will enable this mask
     /// automatically for all new windows.
     case destroyEvent = "destroy-event"
-    /// The ::direction-changed signal is emitted when the text direction
+    /// The `direction`-changed signal is emitted when the text direction
     /// of a widget changes.
     case directionChanged = "direction-changed"
-    /// The ::drag-begin signal is emitted on the drag source when a drag is
+    /// The `drag`-begin signal is emitted on the drag source when a drag is
     /// started. A typical reason to connect to this signal is to set up a
-    /// custom drag icon with e.g. gtk_drag_source_set_icon_pixbuf().
+    /// custom drag icon with e.g. `gtk_drag_source_set_icon_pixbuf()`.
     /// 
     /// Note that some widgets set up a drag icon in the default handler of
-    /// this signal, so you may have to use g_signal_connect_after() to
+    /// this signal, so you may have to use `g_signal_connect_after()` to
     /// override what the default handler did.
     case dragBegin = "drag-begin"
-    /// The ::drag-data-delete signal is emitted on the drag source when a drag
+    /// The `drag`-data-delete signal is emitted on the drag source when a drag
     /// with the action `GDK_ACTION_MOVE` is successfully completed. The signal
     /// handler is responsible for deleting the data that has been dropped. What
     /// "delete" means depends on the context of the drag operation.
     case dragDataDelete = "drag-data-delete"
-    /// The ::drag-data-get signal is emitted on the drag source when the drop
+    /// The `drag`-data-get signal is emitted on the drag source when the drop
     /// site requests the data which is dragged. It is the responsibility of
     /// the signal handler to fill `data` with the data in the format which
-    /// is indicated by `info`. See gtk_selection_data_set() and
-    /// gtk_selection_data_set_text().
+    /// is indicated by `info`. See `gtk_selection_data_set()` and
+    /// `gtk_selection_data_set_text()`.
     case dragDataGet = "drag-data-get"
-    /// The ::drag-data-received signal is emitted on the drop site when the
+    /// The `drag`-data-received signal is emitted on the drop site when the
     /// dragged data has been received. If the data was received in order to
     /// determine whether the drop will be accepted, the handler is expected
-    /// to call gdk_drag_status() and not finish the drag.
-    /// If the data was received in response to a `GtkWidget`::drag-drop signal
+    /// to call `gdk_drag_status()` and not finish the drag.
+    /// If the data was received in response to a `GtkWidget::drag`-drop signal
     /// (and this is the last target to be received), the handler for this
     /// signal is expected to process the received data and then call
-    /// gtk_drag_finish(), setting the `success` parameter depending on
+    /// `gtk_drag_finish()`, setting the `success` parameter depending on
     /// whether the data was processed successfully.
     /// 
     /// Applications must create some means to determine why the signal was emitted
-    /// and therefore whether to call gdk_drag_status() or gtk_drag_finish().
+    /// and therefore whether to call `gdk_drag_status()` or `gtk_drag_finish()`.
     /// 
     /// The handler may inspect the selected action with
-    /// gdk_drag_context_get_selected_action() before calling
-    /// gtk_drag_finish(), e.g. to implement `GDK_ACTION_ASK` as
+    /// `gdk_drag_context_get_selected_action()` before calling
+    /// `gtk_drag_finish()`, e.g. to implement `GDK_ACTION_ASK` as
     /// shown in the following example:
     /// (C Language Example):
     /// ```C
@@ -1020,58 +1019,58 @@ public enum BoxSignalName: String, SignalNameProtocol {
     /// ```
     /// 
     case dragDataReceived = "drag-data-received"
-    /// The ::drag-drop signal is emitted on the drop site when the user drops
+    /// The `drag`-drop signal is emitted on the drop site when the user drops
     /// the data onto the widget. The signal handler must determine whether
     /// the cursor position is in a drop zone or not. If it is not in a drop
     /// zone, it returns `false` and no further processing is necessary.
     /// Otherwise, the handler returns `true`. In this case, the handler must
-    /// ensure that gtk_drag_finish() is called to let the source know that
-    /// the drop is done. The call to gtk_drag_finish() can be done either
-    /// directly or in a `GtkWidget`::drag-data-received handler which gets
-    /// triggered by calling gtk_drag_get_data() to receive the data for one
+    /// ensure that `gtk_drag_finish()` is called to let the source know that
+    /// the drop is done. The call to `gtk_drag_finish()` can be done either
+    /// directly or in a `GtkWidget::drag`-data-received handler which gets
+    /// triggered by calling `gtk_drag_get_data()` to receive the data for one
     /// or more of the supported targets.
     case dragDrop = "drag-drop"
-    /// The ::drag-end signal is emitted on the drag source when a drag is
+    /// The `drag`-end signal is emitted on the drag source when a drag is
     /// finished.  A typical reason to connect to this signal is to undo
-    /// things done in `GtkWidget`::drag-begin.
+    /// things done in `GtkWidget::drag`-begin.
     case dragEnd = "drag-end"
-    /// The ::drag-failed signal is emitted on the drag source when a drag has
+    /// The `drag`-failed signal is emitted on the drag source when a drag has
     /// failed. The signal handler may hook custom code to handle a failed DnD
     /// operation based on the type of error, it returns `true` is the failure has
     /// been already handled (not showing the default "drag operation failed"
     /// animation), otherwise it returns `false`.
     case dragFailed = "drag-failed"
-    /// The ::drag-leave signal is emitted on the drop site when the cursor
+    /// The `drag`-leave signal is emitted on the drop site when the cursor
     /// leaves the widget. A typical reason to connect to this signal is to
-    /// undo things done in `GtkWidget`::drag-motion, e.g. undo highlighting
-    /// with gtk_drag_unhighlight().
+    /// undo things done in `GtkWidget::drag`-motion, e.g. undo highlighting
+    /// with `gtk_drag_unhighlight()`.
     /// 
     /// 
-    /// Likewise, the `GtkWidget`::drag-leave signal is also emitted before the
-    /// ::drag-drop signal, for instance to allow cleaning up of a preview item
-    /// created in the `GtkWidget`::drag-motion signal handler.
+    /// Likewise, the `GtkWidget::drag`-leave signal is also emitted before the
+    /// `drag`-drop signal, for instance to allow cleaning up of a preview item
+    /// created in the `GtkWidget::drag`-motion signal handler.
     case dragLeave = "drag-leave"
-    /// The ::drag-motion signal is emitted on the drop site when the user
+    /// The `drag`-motion signal is emitted on the drop site when the user
     /// moves the cursor over the widget during a drag. The signal handler
     /// must determine whether the cursor position is in a drop zone or not.
     /// If it is not in a drop zone, it returns `false` and no further processing
     /// is necessary. Otherwise, the handler returns `true`. In this case, the
     /// handler is responsible for providing the necessary information for
-    /// displaying feedback to the user, by calling gdk_drag_status().
+    /// displaying feedback to the user, by calling `gdk_drag_status()`.
     /// 
     /// If the decision whether the drop will be accepted or rejected can't be
     /// made based solely on the cursor position and the type of the data, the
-    /// handler may inspect the dragged data by calling gtk_drag_get_data() and
-    /// defer the gdk_drag_status() call to the `GtkWidget`::drag-data-received
+    /// handler may inspect the dragged data by calling `gtk_drag_get_data()` and
+    /// defer the `gdk_drag_status()` call to the `GtkWidget::drag`-data-received
     /// handler. Note that you must pass `GTK_DEST_DEFAULT_DROP`,
-    /// `GTK_DEST_DEFAULT_MOTION` or `GTK_DEST_DEFAULT_ALL` to gtk_drag_dest_set()
+    /// `GTK_DEST_DEFAULT_MOTION` or `GTK_DEST_DEFAULT_ALL` to `gtk_drag_dest_set()`
     /// when using the drag-motion signal that way.
     /// 
     /// Also note that there is no drag-enter signal. The drag receiver has to
     /// keep track of whether he has received any drag-motion signals since the
-    /// last `GtkWidget`::drag-leave and if not, treat the drag-motion signal as
+    /// last `GtkWidget::drag`-leave and if not, treat the drag-motion signal as
     /// an "enter" signal. Upon an "enter", the handler will typically highlight
-    /// the drop site with gtk_drag_highlight().
+    /// the drop site with `gtk_drag_highlight()`.
     /// (C Language Example):
     /// ```C
     /// static void
@@ -1143,22 +1142,22 @@ public enum BoxSignalName: String, SignalNameProtocol {
     /// This signal is emitted when a widget is supposed to render itself.
     /// The `widget`'s top left corner must be painted at the origin of
     /// the passed in context and be sized to the values returned by
-    /// gtk_widget_get_allocated_width() and
-    /// gtk_widget_get_allocated_height().
+    /// `gtk_widget_get_allocated_width()` and
+    /// `gtk_widget_get_allocated_height()`.
     /// 
     /// Signal handlers connected to this signal can modify the cairo
     /// context passed as `cr` in any way they like and don't need to
-    /// restore it. The signal emission takes care of calling cairo_save()
-    /// before and cairo_restore() after invoking the handler.
+    /// restore it. The signal emission takes care of calling `cairo_save()`
+    /// before and `cairo_restore()` after invoking the handler.
     /// 
     /// The signal handler will get a `cr` with a clip region already set to the
     /// widget's dirty region, i.e. to the area that needs repainting.  Complicated
     /// widgets that want to avoid redrawing themselves completely can get the full
-    /// extents of the clip region with gdk_cairo_get_clip_rectangle(), or they can
+    /// extents of the clip region with `gdk_cairo_get_clip_rectangle()`, or they can
     /// get a finer-grained representation of the dirty region with
-    /// cairo_copy_clip_rectangle_list().
+    /// `cairo_copy_clip_rectangle_list()`.
     case draw = "draw"
-    /// The ::enter-notify-event will be emitted when the pointer enters
+    /// The `enter`-notify-event will be emitted when the pointer enters
     /// the `widget`'s window.
     /// 
     /// To receive this signal, the `GdkWindow` associated to the widget needs
@@ -1167,13 +1166,13 @@ public enum BoxSignalName: String, SignalNameProtocol {
     /// This signal will be sent to the grab widget if there is one.
     case enterNotifyEvent = "enter-notify-event"
     /// The GTK+ main loop will emit three signals for each GDK event delivered
-    /// to a widget: one generic ::event signal, another, more specific,
+    /// to a widget: one generic `event` signal, another, more specific,
     /// signal that matches the type of event delivered (e.g.
-    /// `GtkWidget`::key-press-event) and finally a generic
-    /// `GtkWidget`::event-after signal.
+    /// `GtkWidget::key`-press-event) and finally a generic
+    /// `GtkWidget::event`-after signal.
     case event = "event"
-    /// After the emission of the `GtkWidget`::event signal and (optionally)
-    /// the second more specific signal, ::event-after will be emitted
+    /// After the emission of the `GtkWidget::event` signal and (optionally)
+    /// the second more specific signal, `event`-after will be emitted
     /// regardless of the previous two signals handlers return values.
     case eventAfter = "event-after"
     case focus = "focus"
@@ -1183,13 +1182,13 @@ public enum BoxSignalName: String, SignalNameProtocol {
     /// **focus-event is deprecated:**
     /// Use the #AtkObject::state-change signal instead.
     case focusEvent = "focus-event"
-    /// The ::focus-in-event signal will be emitted when the keyboard focus
+    /// The `focus`-in-event signal will be emitted when the keyboard focus
     /// enters the `widget`'s window.
     /// 
     /// To receive this signal, the `GdkWindow` associated to the widget needs
     /// to enable the `GDK_FOCUS_CHANGE_MASK` mask.
     case focusInEvent = "focus-in-event"
-    /// The ::focus-out-event signal will be emitted when the keyboard focus
+    /// The `focus`-out-event signal will be emitted when the keyboard focus
     /// leaves the `widget`'s window.
     /// 
     /// To receive this signal, the `GdkWindow` associated to the widget needs
@@ -1203,25 +1202,25 @@ public enum BoxSignalName: String, SignalNameProtocol {
     /// application grabs the pointer or keyboard again.
     case grabBrokenEvent = "grab-broken-event"
     case grabFocus = "grab-focus"
-    /// The ::grab-notify signal is emitted when a widget becomes
+    /// The `grab`-notify signal is emitted when a widget becomes
     /// shadowed by a GTK+ grab (not a pointer or keyboard grab) on
     /// another widget, or when it becomes unshadowed due to a grab
     /// being removed.
     /// 
-    /// A widget is shadowed by a gtk_grab_add() when the topmost
+    /// A widget is shadowed by a `gtk_grab_add()` when the topmost
     /// grab widget in the grab stack of its window group is not
     /// its ancestor.
     case grabNotify = "grab-notify"
-    /// The ::hide signal is emitted when `widget` is hidden, for example with
-    /// gtk_widget_hide().
+    /// The `hide` signal is emitted when `widget` is hidden, for example with
+    /// `gtk_widget_hide()`.
     case hide = "hide"
-    /// The ::hierarchy-changed signal is emitted when the
+    /// The `hierarchy`-changed signal is emitted when the
     /// anchored state of a widget changes. A widget is
     /// “anchored” when its toplevel
     /// ancestor is a `GtkWindow`. This signal is emitted when
     /// a widget changes from un-anchored to anchored or vice-versa.
     case hierarchyChanged = "hierarchy-changed"
-    /// The ::key-press-event signal is emitted when a key is pressed. The signal
+    /// The `key`-press-event signal is emitted when a key is pressed. The signal
     /// emission will reoccur at the key-repeat rate when the key is kept pressed.
     /// 
     /// To receive this signal, the `GdkWindow` associated to the widget needs
@@ -1229,7 +1228,7 @@ public enum BoxSignalName: String, SignalNameProtocol {
     /// 
     /// This signal will be sent to the grab widget if there is one.
     case keyPressEvent = "key-press-event"
-    /// The ::key-release-event signal is emitted when a key is released.
+    /// The `key`-release-event signal is emitted when a key is released.
     /// 
     /// To receive this signal, the `GdkWindow` associated to the widget needs
     /// to enable the `GDK_KEY_RELEASE_MASK` mask.
@@ -1237,9 +1236,9 @@ public enum BoxSignalName: String, SignalNameProtocol {
     /// This signal will be sent to the grab widget if there is one.
     case keyReleaseEvent = "key-release-event"
     /// Gets emitted if keyboard navigation fails.
-    /// See gtk_widget_keynav_failed() for details.
+    /// See `gtk_widget_keynav_failed()` for details.
     case keynavFailed = "keynav-failed"
-    /// The ::leave-notify-event will be emitted when the pointer leaves
+    /// The `leave`-notify-event will be emitted when the pointer leaves
     /// the `widget`'s window.
     /// 
     /// To receive this signal, the `GdkWindow` associated to the widget needs
@@ -1247,17 +1246,17 @@ public enum BoxSignalName: String, SignalNameProtocol {
     /// 
     /// This signal will be sent to the grab widget if there is one.
     case leaveNotifyEvent = "leave-notify-event"
-    /// The ::map signal is emitted when `widget` is going to be mapped, that is
+    /// The `map` signal is emitted when `widget` is going to be mapped, that is
     /// when the widget is visible (which is controlled with
-    /// gtk_widget_set_visible()) and all its parents up to the toplevel widget
-    /// are also visible. Once the map has occurred, `GtkWidget`::map-event will
+    /// `gtk_widget_set_visible()`) and all its parents up to the toplevel widget
+    /// are also visible. Once the map has occurred, `GtkWidget::map`-event will
     /// be emitted.
     /// 
-    /// The ::map signal can be used to determine whether a widget will be drawn,
+    /// The `map` signal can be used to determine whether a widget will be drawn,
     /// for instance it can resume an animation that was stopped during the
-    /// emission of `GtkWidget`::unmap.
+    /// emission of `GtkWidget::unmap`.
     case map = "map"
-    /// The ::map-event signal will be emitted when the `widget`'s window is
+    /// The `map`-event signal will be emitted when the `widget`'s window is
     /// mapped. A window is mapped when it becomes visible on the screen.
     /// 
     /// To receive this signal, the `GdkWindow` associated to the widget needs
@@ -1267,7 +1266,7 @@ public enum BoxSignalName: String, SignalNameProtocol {
     /// The default handler for this signal activates `widget` if `group_cycling`
     /// is `false`, or just makes `widget` grab focus if `group_cycling` is `true`.
     case mnemonicActivate = "mnemonic-activate"
-    /// The ::motion-notify-event signal is emitted when the pointer moves
+    /// The `motion`-notify-event signal is emitted when the pointer moves
     /// over the widget's `GdkWindow`.
     /// 
     /// To receive this signal, the `GdkWindow` associated to the widget
@@ -1277,32 +1276,31 @@ public enum BoxSignalName: String, SignalNameProtocol {
     case motionNotifyEvent = "motion-notify-event"
     case moveFocus = "move-focus"
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// The ::parent-set signal is emitted when a new parent
+    /// The `parent`-set signal is emitted when a new parent
     /// has been set on a widget.
     case parentSet = "parent-set"
     /// This signal gets emitted whenever a widget should pop up a context
@@ -1310,7 +1308,7 @@ public enum BoxSignalName: String, SignalNameProtocol {
     /// by pressing a certain key while a widget is focused, the user can cause
     /// the widget to pop up a menu.  For example, the `GtkEntry` widget creates
     /// a menu with clipboard commands. See the
-    /// [Popup Menu Migration Checklist][checklist-popup-menu]
+    /// [Popup Menu Migration Checklist](#checklist-popup-menu)
     /// for an example of how to use this signal.
     case popupMenu = "popup-menu"
     /// The signal "property-change" is emitted when an object's property
@@ -1322,12 +1320,12 @@ public enum BoxSignalName: String, SignalNameProtocol {
     /// reinstate the previous value.
     /// 
     /// Toolkit implementor note: ATK implementors should use
-    /// g_object_notify() to emit property-changed
-    /// notifications. `AtkObject`::property-changed is needed by the
-    /// implementation of atk_add_global_event_listener() because GObject
+    /// `g_object_notify()` to emit property-changed
+    /// notifications. `AtkObject::property`-changed is needed by the
+    /// implementation of `atk_add_global_event_listener()` because GObject
     /// notify doesn't support emission hooks.
     case propertyChange = "property-change"
-    /// The ::property-notify-event signal will be emitted when a property on
+    /// The `property`-notify-event signal will be emitted when a property on
     /// the `widget`'s window has been changed or deleted.
     /// 
     /// To receive this signal, the `GdkWindow` associated to the widget needs
@@ -1343,7 +1341,7 @@ public enum BoxSignalName: String, SignalNameProtocol {
     /// 
     /// This signal will be sent to the grab widget if there is one.
     case proximityOutEvent = "proximity-out-event"
-    /// Emitted when `GtkWidget`:has-tooltip is `true` and the hover timeout
+    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
     /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
     /// focus in keyboard mode.
     /// 
@@ -1356,15 +1354,15 @@ public enum BoxSignalName: String, SignalNameProtocol {
     /// The signal handler is free to manipulate `tooltip` with the therefore
     /// destined function calls.
     case queryTooltip = "query-tooltip"
-    /// The ::realize signal is emitted when `widget` is associated with a
-    /// `GdkWindow`, which means that gtk_widget_realize() has been called or the
+    /// The `realize` signal is emitted when `widget` is associated with a
+    /// `GdkWindow`, which means that `gtk_widget_realize()` has been called or the
     /// widget has been mapped (that is, it is going to be drawn).
     case realize = "realize"
     case remove = "remove"
-    /// The ::screen-changed signal gets emitted when the
+    /// The `screen`-changed signal gets emitted when the
     /// screen of a widget has changed.
     case screenChanged = "screen-changed"
-    /// The ::scroll-event signal is emitted when a button in the 4 to 7
+    /// The `scroll`-event signal is emitted when a button in the 4 to 7
     /// range is pressed. Wheel mice are usually configured to generate
     /// button press events for buttons 4 and 5 when the wheel is turned.
     /// 
@@ -1373,19 +1371,19 @@ public enum BoxSignalName: String, SignalNameProtocol {
     /// 
     /// This signal will be sent to the grab widget if there is one.
     case scrollEvent = "scroll-event"
-    /// The ::selection-clear-event signal will be emitted when the
+    /// The `selection`-clear-event signal will be emitted when the
     /// the `widget`'s window has lost ownership of a selection.
     case selectionClearEvent = "selection-clear-event"
     case selectionGet = "selection-get"
     case selectionNotifyEvent = "selection-notify-event"
     case selectionReceived = "selection-received"
-    /// The ::selection-request-event signal will be emitted when
+    /// The `selection`-request-event signal will be emitted when
     /// another client requests ownership of the selection owned by
     /// the `widget`'s window.
     case selectionRequestEvent = "selection-request-event"
     case setFocusChild = "set-focus-child"
-    /// The ::show signal is emitted when `widget` is shown, for example with
-    /// gtk_widget_show().
+    /// The `show` signal is emitted when `widget` is shown, for example with
+    /// `gtk_widget_show()`.
     case show = "show"
     case showHelp = "show-help"
     case sizeAllocate = "size-allocate"
@@ -1393,54 +1391,54 @@ public enum BoxSignalName: String, SignalNameProtocol {
     /// changes.  The detail value identifies the state type which has
     /// changed.
     case stateChange = "state-change"
-    /// The ::state-changed signal is emitted when the widget state changes.
-    /// See gtk_widget_get_state().
+    /// The `state`-changed signal is emitted when the widget state changes.
+    /// See `gtk_widget_get_state()`.
     ///
     /// **state-changed is deprecated:**
     /// Use #GtkWidget::state-flags-changed instead.
     case stateChanged = "state-changed"
-    /// The ::state-flags-changed signal is emitted when the widget state
-    /// changes, see gtk_widget_get_state_flags().
+    /// The `state`-flags-changed signal is emitted when the widget state
+    /// changes, see `gtk_widget_get_state_flags()`.
     case stateFlagsChanged = "state-flags-changed"
-    /// The ::style-set signal is emitted when a new style has been set
+    /// The `style`-set signal is emitted when a new style has been set
     /// on a widget. Note that style-modifying functions like
-    /// gtk_widget_modify_base() also cause this signal to be emitted.
+    /// `gtk_widget_modify_base()` also cause this signal to be emitted.
     /// 
     /// Note that this signal is emitted for changes to the deprecated
     /// `GtkStyle`. To track changes to the `GtkStyleContext` associated
-    /// with a widget, use the `GtkWidget`::style-updated signal.
+    /// with a widget, use the `GtkWidget::style`-updated signal.
     ///
     /// **style-set is deprecated:**
     /// Use the #GtkWidget::style-updated signal
     case styleSet = "style-set"
-    /// The ::style-updated signal is a convenience signal that is emitted when the
-    /// `GtkStyleContext`::changed signal is emitted on the `widget`'s associated
-    /// `GtkStyleContext` as returned by gtk_widget_get_style_context().
+    /// The `style`-updated signal is a convenience signal that is emitted when the
+    /// `GtkStyleContext::changed` signal is emitted on the `widget`'s associated
+    /// `GtkStyleContext` as returned by `gtk_widget_get_style_context()`.
     /// 
-    /// Note that style-modifying functions like gtk_widget_override_color() also
+    /// Note that style-modifying functions like `gtk_widget_override_color()` also
     /// cause this signal to be emitted.
     case styleUpdated = "style-updated"
     case touchEvent = "touch-event"
-    /// The ::unmap signal is emitted when `widget` is going to be unmapped, which
+    /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
     /// means that either it or any of its parents up to the toplevel widget have
     /// been set as hidden.
     /// 
-    /// As ::unmap indicates that a widget will not be shown any longer, it can be
+    /// As `unmap` indicates that a widget will not be shown any longer, it can be
     /// used to, for example, stop an animation on the widget.
     case unmap = "unmap"
-    /// The ::unmap-event signal will be emitted when the `widget`'s window is
+    /// The `unmap`-event signal will be emitted when the `widget`'s window is
     /// unmapped. A window is unmapped when it becomes invisible on the screen.
     /// 
     /// To receive this signal, the `GdkWindow` associated to the widget needs
     /// to enable the `GDK_STRUCTURE_MASK` mask. GDK will enable this mask
     /// automatically for all new windows.
     case unmapEvent = "unmap-event"
-    /// The ::unrealize signal is emitted when the `GdkWindow` associated with
-    /// `widget` is destroyed, which means that gtk_widget_unrealize() has been
+    /// The `unrealize` signal is emitted when the `GdkWindow` associated with
+    /// `widget` is destroyed, which means that `gtk_widget_unrealize()` has been
     /// called or the widget has been unmapped (that is, it is going to be
     /// hidden).
     case unrealize = "unrealize"
-    /// The ::visibility-notify-event will be emitted when the `widget`'s
+    /// The `visibility`-notify-event will be emitted when the `widget`'s
     /// window is obscured or unobscured.
     /// 
     /// To receive this signal the `GdkWindow` associated to the widget needs
@@ -1455,7 +1453,7 @@ public enum BoxSignalName: String, SignalNameProtocol {
     /// The "visible-data-changed" signal is emitted when the visual
     /// appearance of the object changed.
     case visibleDataChanged = "visible-data-changed"
-    /// The ::window-state-event will be emitted when the state of the
+    /// The `window`-state-event will be emitted when the state of the
     /// toplevel window associated to the `widget` changes.
     /// 
     /// To receive this signal the `GdkWindow` associated to the widget
@@ -1520,7 +1518,7 @@ public enum BoxSignalName: String, SignalNameProtocol {
     /// Widgets should not use this property.
     case notifyDoubleBuffered = "notify::double-buffered"
     case notifyEvents = "notify::events"
-    /// Whether to expand in both directions. Setting this sets both `GtkWidget`:hexpand and `GtkWidget`:vexpand
+    /// Whether to expand in both directions. Setting this sets both `GtkWidget:hexpand` and `GtkWidget:vexpand`
     case notifyExpand = "notify::expand"
     /// Whether the widget should grab focus when it is clicked with the mouse.
     /// 
@@ -1533,9 +1531,9 @@ public enum BoxSignalName: String, SignalNameProtocol {
     case notifyHalign = "notify::halign"
     case notifyHasDefault = "notify::has-default"
     case notifyHasFocus = "notify::has-focus"
-    /// Enables or disables the emission of `GtkWidget`::query-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget`::query-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
     /// whether it will provide a tooltip or not.
     /// 
     /// Note that setting this property to `true` for the first time will change
@@ -1544,9 +1542,9 @@ public enum BoxSignalName: String, SignalNameProtocol {
     /// property is set to `false` again.
     case notifyHasTooltip = "notify::has-tooltip"
     case notifyHeightRequest = "notify::height-request"
-    /// Whether to expand horizontally. See gtk_widget_set_hexpand().
+    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
     case notifyHexpand = "notify::hexpand"
-    /// Whether to use the `GtkWidget`:hexpand property. See gtk_widget_get_hexpand_set().
+    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
     case notifyHexpandSet = "notify::hexpand-set"
     case notifyHomogeneous = "notify::homogeneous"
     case notifyIsFocus = "notify::is-focus"
@@ -1557,20 +1555,20 @@ public enum BoxSignalName: String, SignalNameProtocol {
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// gtk_widget_set_size_request() for example.
+    /// `gtk_widget_set_size_request()` for example.
     case notifyMarginBottom = "notify::margin-bottom"
     /// Margin on end of widget, horizontally. This property supports
     /// left-to-right and right-to-left text directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// gtk_widget_set_size_request() for example.
+    /// `gtk_widget_set_size_request()` for example.
     case notifyMarginEnd = "notify::margin-end"
     /// Margin on left side of widget.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// gtk_widget_set_size_request() for example.
+    /// `gtk_widget_set_size_request()` for example.
     ///
     /// **margin-left is deprecated:**
     /// Use #GtkWidget:margin-start instead.
@@ -1579,7 +1577,7 @@ public enum BoxSignalName: String, SignalNameProtocol {
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// gtk_widget_set_size_request() for example.
+    /// `gtk_widget_set_size_request()` for example.
     ///
     /// **margin-right is deprecated:**
     /// Use #GtkWidget:margin-end instead.
@@ -1589,17 +1587,17 @@ public enum BoxSignalName: String, SignalNameProtocol {
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// gtk_widget_set_size_request() for example.
+    /// `gtk_widget_set_size_request()` for example.
     case notifyMarginStart = "notify::margin-start"
     /// Margin on top side of widget.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// gtk_widget_set_size_request() for example.
+    /// `gtk_widget_set_size_request()` for example.
     case notifyMarginTop = "notify::margin-top"
     case notifyName = "notify::name"
     case notifyNoShowAll = "notify::no-show-all"
-    /// The requested opacity of the widget. See gtk_widget_set_opacity() for
+    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
     /// more details about window opacity.
     /// 
     /// Before 3.8 this was only available in GtkWindow
@@ -1607,7 +1605,7 @@ public enum BoxSignalName: String, SignalNameProtocol {
     case notifyParent = "notify::parent"
     case notifyReceivesDefault = "notify::receives-default"
     case notifyResizeMode = "notify::resize-mode"
-    /// The scale factor of the widget. See gtk_widget_get_scale_factor() for
+    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
     /// more details about widget scaling.
     case notifyScaleFactor = "notify::scale-factor"
     case notifySensitive = "notify::sensitive"
@@ -1618,34 +1616,34 @@ public enum BoxSignalName: String, SignalNameProtocol {
     /// Use #GtkStyleContext instead
     case notifyStyle = "notify::style"
     /// Sets the text of tooltip to be the given string, which is marked up
-    /// with the [Pango text markup language][PangoMarkupFormat].
-    /// Also see gtk_tooltip_set_markup().
+    /// with the [Pango text markup language](#PangoMarkupFormat).
+    /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget`:has-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget`::query-tooltip in the default signal handler.
+    /// `GtkWidget::query`-tooltip in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget`:tooltip-text and `GtkWidget`:tooltip-markup
+    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
     /// are set, the last one wins.
     case notifyTooltipMarkup = "notify::tooltip-markup"
     /// Sets the text of tooltip to be the given string.
     /// 
-    /// Also see gtk_tooltip_set_text().
+    /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget`:has-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget`::query-tooltip in the default signal handler.
+    /// `GtkWidget::query`-tooltip in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget`:tooltip-text and `GtkWidget`:tooltip-markup
+    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
     /// are set, the last one wins.
     case notifyTooltipText = "notify::tooltip-text"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
     case notifyValign = "notify::valign"
-    /// Whether to expand vertically. See gtk_widget_set_vexpand().
+    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
     case notifyVexpand = "notify::vexpand"
-    /// Whether to use the `GtkWidget`:vexpand property. See gtk_widget_get_vexpand_set().
+    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
     case notifyVexpandSet = "notify::vexpand-set"
     case notifyVisible = "notify::visible"
     case notifyWidthRequest = "notify::width-request"
@@ -1685,7 +1683,7 @@ public extension BoxProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkBox` instance.
     var box_ptr: UnsafeMutablePointer<GtkBox> { return ptr.assumingMemoryBound(to: GtkBox.self) }
 
-    /// Gets the value set by gtk_box_set_baseline_position().
+    /// Gets the value set by `gtk_box_set_baseline_position()`.
     func getBaselinePosition() -> GtkBaselinePosition {
         let rv = gtk_box_get_baseline_position(cast(box_ptr))
         return rv
@@ -1698,13 +1696,13 @@ public extension BoxProtocol {
     }
 
     /// Returns whether the box is homogeneous (all children are the
-    /// same size). See gtk_box_set_homogeneous().
+    /// same size). See `gtk_box_set_homogeneous()`.
     func getHomogeneous() -> Bool {
         let rv = gtk_box_get_homogeneous(cast(box_ptr))
         return Bool(rv != 0)
     }
 
-    /// Gets the value set by gtk_box_set_spacing().
+    /// Gets the value set by `gtk_box_set_spacing()`.
     func getSpacing() -> CInt {
         let rv = gtk_box_get_spacing(cast(box_ptr))
         return CInt(rv)
@@ -1772,7 +1770,7 @@ public extension BoxProtocol {
     
     }
 
-    /// Sets the `GtkBox`:homogeneous property of `box`, controlling
+    /// Sets the `GtkBox:homogeneous` property of `box`, controlling
     /// whether or not all children of `box` are given equal space
     /// in the box.
     func set(homogeneous: Bool) {
@@ -1780,15 +1778,15 @@ public extension BoxProtocol {
     
     }
 
-    /// Sets the `GtkBox`:spacing property of `box`, which is the
+    /// Sets the `GtkBox:spacing` property of `box`, which is the
     /// number of pixels to place between children of `box`.
     func set(spacing: CInt) {
         gtk_box_set_spacing(cast(box_ptr), gint(spacing))
     
     }
-    /// Gets the value set by gtk_box_set_baseline_position().
+    /// Gets the value set by `gtk_box_set_baseline_position()`.
     var baselinePosition: GtkBaselinePosition {
-        /// Gets the value set by gtk_box_set_baseline_position().
+        /// Gets the value set by `gtk_box_set_baseline_position()`.
         get {
             let rv = gtk_box_get_baseline_position(cast(box_ptr))
             return rv
@@ -1822,12 +1820,12 @@ public extension BoxProtocol {
 
     var homogeneous: Bool {
         /// Returns whether the box is homogeneous (all children are the
-        /// same size). See gtk_box_set_homogeneous().
+        /// same size). See `gtk_box_set_homogeneous()`.
         get {
             let rv = gtk_box_get_homogeneous(cast(box_ptr))
             return Bool(rv != 0)
         }
-        /// Sets the `GtkBox`:homogeneous property of `box`, controlling
+        /// Sets the `GtkBox:homogeneous` property of `box`, controlling
         /// whether or not all children of `box` are given equal space
         /// in the box.
         nonmutating set {
@@ -1836,12 +1834,12 @@ public extension BoxProtocol {
     }
 
     var spacing: CInt {
-        /// Gets the value set by gtk_box_set_spacing().
+        /// Gets the value set by `gtk_box_set_spacing()`.
         get {
             let rv = gtk_box_get_spacing(cast(box_ptr))
             return CInt(rv)
         }
-        /// Sets the `GtkBox`:spacing property of `box`, which is the
+        /// Sets the `GtkBox:spacing` property of `box`, which is the
         /// number of pixels to place between children of `box`.
         nonmutating set {
             gtk_box_set_spacing(cast(box_ptr), gint(newValue))
@@ -1861,44 +1859,44 @@ public extension BoxProtocol {
 /// A GtkBuilder is an auxiliary object that reads textual descriptions
 /// of a user interface and instantiates the described objects. To create
 /// a GtkBuilder from a user interface description, call
-/// gtk_builder_new_from_file(), gtk_builder_new_from_resource() or
-/// gtk_builder_new_from_string().
+/// `gtk_builder_new_from_file()`, `gtk_builder_new_from_resource()` or
+/// `gtk_builder_new_from_string()`.
 /// 
 /// In the (unusual) case that you want to add user interface
 /// descriptions from multiple sources to the same GtkBuilder you can
-/// call gtk_builder_new() to get an empty builder and populate it by
-/// (multiple) calls to gtk_builder_add_from_file(),
-/// gtk_builder_add_from_resource() or gtk_builder_add_from_string().
+/// call `gtk_builder_new()` to get an empty builder and populate it by
+/// (multiple) calls to `gtk_builder_add_from_file()`,
+/// `gtk_builder_add_from_resource()` or `gtk_builder_add_from_string()`.
 /// 
 /// A GtkBuilder holds a reference to all objects that it has constructed
 /// and drops these references when it is finalized. This finalization can
 /// cause the destruction of non-widget objects or widgets which are not
 /// contained in a toplevel window. For toplevel windows constructed by a
-/// builder, it is the responsibility of the user to call gtk_widget_destroy()
+/// builder, it is the responsibility of the user to call `gtk_widget_destroy()`
 /// to get rid of them and all the widgets they contain.
 /// 
-/// The functions gtk_builder_get_object() and gtk_builder_get_objects()
+/// The functions `gtk_builder_get_object()` and `gtk_builder_get_objects()`
 /// can be used to access the widgets in the interface by the names assigned
 /// to them inside the UI description. Toplevel windows returned by these
 /// functions will stay around until the user explicitly destroys them
-/// with gtk_widget_destroy(). Other widgets will either be part of a
+/// with `gtk_widget_destroy()`. Other widgets will either be part of a
 /// larger hierarchy constructed by the builder (in which case you should
 /// not have to worry about their lifecycle), or without a parent, in which
 /// case they have to be added to some container to make use of them.
-/// Non-widget objects need to be reffed with g_object_ref() to keep them
+/// Non-widget objects need to be reffed with `g_object_ref()` to keep them
 /// beyond the lifespan of the builder.
 /// 
-/// The function gtk_builder_connect_signals() and variants thereof can be
+/// The function `gtk_builder_connect_signals()` and variants thereof can be
 /// used to connect handlers to the named signals in the description.
 /// 
-/// `` GtkBuilder UI Definitions `` {`BUILDER`-UI}
+/// # GtkBuilder UI Definitions # <a name="BUILDER-UI"></a>
 /// 
 /// GtkBuilder parses textual descriptions of user interfaces which are
 /// specified in an XML format which can be roughly described by the
 /// RELAX NG schema below. We refer to these descriptions as “GtkBuilder
 /// UI definitions” or just “UI definitions” if the context is clear.
 /// Do not confuse GtkBuilder UI Definitions with
-/// [GtkUIManager UI Definitions][XML-UI], which are more limited in scope.
+/// [GtkUIManager UI Definitions](#XML-UI), which are more limited in scope.
 /// It is common to use `.ui` as the filename extension for files containing
 /// GtkBuilder UI definitions.
 /// 
@@ -1906,15 +1904,15 @@ public extension BoxProtocol {
 /// 
 /// The toplevel element is <interface>. It optionally takes a “domain”
 /// attribute, which will make the builder look for translated strings
-/// using dgettext() in the domain specified. This can also be done by
-/// calling gtk_builder_set_translation_domain() on the builder.
+/// using `dgettext()` in the domain specified. This can also be done by
+/// calling `gtk_builder_set_translation_domain()` on the builder.
 /// Objects are described by <object> elements, which can contain
 /// <property> elements to set properties, <signal> elements which
 /// connect signals to handlers, and <child> elements, which describe
 /// child objects (most often widgets inside a container, but also e.g.
 /// actions in an action group, or columns in a tree model). A <child>
 /// element contains an <object> element which describes the child object.
-/// The target toolkit version(s) are described by <requires> elements,
+/// The target toolkit `version(s)` are described by <requires> elements,
 /// the “lib” attribute specifies the widget library in question (currently
 /// the only supported value is “gtk+”) and the “version” attribute specifies
 /// the target version in the form “<major>.<minor>”. The builder will error
@@ -1922,9 +1920,9 @@ public extension BoxProtocol {
 /// 
 /// Typically, the specific kind of object represented by an <object>
 /// element is specified by the “class” attribute. If the type has not
-/// been loaded yet, GTK+ tries to find the get_type() function from the
+/// been loaded yet, GTK+ tries to find the `get_type()` function from the
 /// class name by applying heuristics. This works in most cases, but if
-/// necessary, it is possible to specify the name of the get_type() function
+/// necessary, it is possible to specify the name of the `get_type()` function
 /// explictly with the "type-func" attribute. As a special case, GtkBuilder
 /// allows to use an object that has been constructed by a `GtkUIManager` in
 /// another part of the UI definition by specifying the id of the `GtkUIManager`
@@ -1932,7 +1930,7 @@ public extension BoxProtocol {
 /// attribute.
 /// 
 /// Objects may be given a name with the “id” attribute, which allows the
-/// application to retrieve them from the builder with gtk_builder_get_object().
+/// application to retrieve them from the builder with `gtk_builder_get_object()`.
 /// An id is also necessary to use the object as property value in other
 /// parts of the UI definition. GTK+ reserves ids starting and ending
 /// with ___ (3 underscores) for its own purposes.
@@ -1941,7 +1939,7 @@ public extension BoxProtocol {
 /// <property> element: the “name” attribute specifies the name of the
 /// property, and the content of the element specifies the value.
 /// If the “translatable” attribute is set to a true value, GTK+ uses
-/// gettext() (or dgettext() if the builder has a translation domain set)
+/// `gettext()` (or `dgettext()` if the builder has a translation domain set)
 /// to find a translation for the value. This happens before the value
 /// is parsed, so it can be used for properties of any type, but it is
 /// probably most useful for string properties. It is also possible to
@@ -1955,14 +1953,14 @@ public extension BoxProtocol {
 /// as `false`), enumerations (can be specified by their name, nick or
 /// integer value), flags (can be specified by their name, nick, integer
 /// value, optionally combined with “|”, e.g. “GTK_VISIBLE|GTK_REALIZED”)
-/// and colors (in a format understood by gdk_rgba_parse()).
+/// and colors (in a format understood by `gdk_rgba_parse()`).
 /// 
-/// GVariants can be specified in the format understood by g_variant_parse(),
+/// GVariants can be specified in the format understood by `g_variant_parse()`,
 /// and pixbufs can be specified as a filename of an image file to load.
 /// 
 /// Objects can be referred to by their name and by default refer to
 /// objects declared in the local xml fragment and objects exposed via
-/// gtk_builder_expose_object(). In general, GtkBuilder allows forward
+/// `gtk_builder_expose_object()`. In general, GtkBuilder allows forward
 /// references to objects — declared in the local xml; an object doesn’t
 /// have to be constructed before it can be referred to. The exception
 /// to this rule is that an object has to be constructed before it can
@@ -1974,17 +1972,17 @@ public extension BoxProtocol {
 /// "bind-property" to specify the source property and optionally
 /// "bind-flags" to specify the binding flags
 /// Internally builder implement this using GBinding objects.
-/// For more information see g_object_bind_property()
+/// For more information see `g_object_bind_property()`
 /// 
 /// Signal handlers are set up with the <signal> element. The “name”
 /// attribute specifies the name of the signal, and the “handler” attribute
 /// specifies the function to connect to the signal. By default, GTK+ tries
-/// to find the handler using g_module_symbol(), but this can be changed by
+/// to find the handler using `g_module_symbol()`, but this can be changed by
 /// passing a custom `GtkBuilderConnectFunc` to
-/// gtk_builder_connect_signals_full(). The remaining attributes, “after”,
+/// `gtk_builder_connect_signals_full()`. The remaining attributes, “after”,
 /// “swapped” and “object”, have the same meaning as the corresponding
-/// parameters of the g_signal_connect_object() or
-/// g_signal_connect_data() functions. A “last_modification_time”
+/// parameters of the `g_signal_connect_object()` or
+/// `g_signal_connect_data()` functions. A “last_modification_time”
 /// attribute is also allowed, but it does not have a meaning to the
 /// builder.
 /// 
@@ -2002,7 +2000,7 @@ public extension BoxProtocol {
 /// The possible values for the “type” attribute are described in the
 /// sections describing the widget-specific portions of UI definitions.
 /// 
-/// `` A GtkBuilder UI Definition
+/// # A GtkBuilder UI Definition
 /// 
 /// ```
 /// <interface>
@@ -2028,7 +2026,6 @@ public extension BoxProtocol {
 /// </interface>
 /// ```
 /// 
-/// 
 /// Beyond this general structure, several object classes define their
 /// own XML DTD fragments for filling in the ANY placeholders in the DTD
 /// above. Note that a custom element in a <child> element gets parsed by
@@ -2040,7 +2037,7 @@ public extension BoxProtocol {
 /// 
 /// Additionally, since 3.10 a special <template> tag has been added
 /// to the format allowing one to define a widget class’s components.
-/// See the [GtkWidget documentation][composite-templates] for details.
+/// See the [GtkWidget documentation](#composite-templates) for details.
 public protocol BuilderProtocol: GLibObject.ObjectProtocol {
     /// Untyped pointer to the underlying `GtkBuilder` instance.
     var ptr: UnsafeMutableRawPointer { get }
@@ -2056,44 +2053,44 @@ public protocol BuilderProtocol: GLibObject.ObjectProtocol {
 /// A GtkBuilder is an auxiliary object that reads textual descriptions
 /// of a user interface and instantiates the described objects. To create
 /// a GtkBuilder from a user interface description, call
-/// gtk_builder_new_from_file(), gtk_builder_new_from_resource() or
-/// gtk_builder_new_from_string().
+/// `gtk_builder_new_from_file()`, `gtk_builder_new_from_resource()` or
+/// `gtk_builder_new_from_string()`.
 /// 
 /// In the (unusual) case that you want to add user interface
 /// descriptions from multiple sources to the same GtkBuilder you can
-/// call gtk_builder_new() to get an empty builder and populate it by
-/// (multiple) calls to gtk_builder_add_from_file(),
-/// gtk_builder_add_from_resource() or gtk_builder_add_from_string().
+/// call `gtk_builder_new()` to get an empty builder and populate it by
+/// (multiple) calls to `gtk_builder_add_from_file()`,
+/// `gtk_builder_add_from_resource()` or `gtk_builder_add_from_string()`.
 /// 
 /// A GtkBuilder holds a reference to all objects that it has constructed
 /// and drops these references when it is finalized. This finalization can
 /// cause the destruction of non-widget objects or widgets which are not
 /// contained in a toplevel window. For toplevel windows constructed by a
-/// builder, it is the responsibility of the user to call gtk_widget_destroy()
+/// builder, it is the responsibility of the user to call `gtk_widget_destroy()`
 /// to get rid of them and all the widgets they contain.
 /// 
-/// The functions gtk_builder_get_object() and gtk_builder_get_objects()
+/// The functions `gtk_builder_get_object()` and `gtk_builder_get_objects()`
 /// can be used to access the widgets in the interface by the names assigned
 /// to them inside the UI description. Toplevel windows returned by these
 /// functions will stay around until the user explicitly destroys them
-/// with gtk_widget_destroy(). Other widgets will either be part of a
+/// with `gtk_widget_destroy()`. Other widgets will either be part of a
 /// larger hierarchy constructed by the builder (in which case you should
 /// not have to worry about their lifecycle), or without a parent, in which
 /// case they have to be added to some container to make use of them.
-/// Non-widget objects need to be reffed with g_object_ref() to keep them
+/// Non-widget objects need to be reffed with `g_object_ref()` to keep them
 /// beyond the lifespan of the builder.
 /// 
-/// The function gtk_builder_connect_signals() and variants thereof can be
+/// The function `gtk_builder_connect_signals()` and variants thereof can be
 /// used to connect handlers to the named signals in the description.
 /// 
-/// `` GtkBuilder UI Definitions `` {`BUILDER`-UI}
+/// # GtkBuilder UI Definitions # <a name="BUILDER-UI"></a>
 /// 
 /// GtkBuilder parses textual descriptions of user interfaces which are
 /// specified in an XML format which can be roughly described by the
 /// RELAX NG schema below. We refer to these descriptions as “GtkBuilder
 /// UI definitions” or just “UI definitions” if the context is clear.
 /// Do not confuse GtkBuilder UI Definitions with
-/// [GtkUIManager UI Definitions][XML-UI], which are more limited in scope.
+/// [GtkUIManager UI Definitions](#XML-UI), which are more limited in scope.
 /// It is common to use `.ui` as the filename extension for files containing
 /// GtkBuilder UI definitions.
 /// 
@@ -2101,15 +2098,15 @@ public protocol BuilderProtocol: GLibObject.ObjectProtocol {
 /// 
 /// The toplevel element is <interface>. It optionally takes a “domain”
 /// attribute, which will make the builder look for translated strings
-/// using dgettext() in the domain specified. This can also be done by
-/// calling gtk_builder_set_translation_domain() on the builder.
+/// using `dgettext()` in the domain specified. This can also be done by
+/// calling `gtk_builder_set_translation_domain()` on the builder.
 /// Objects are described by <object> elements, which can contain
 /// <property> elements to set properties, <signal> elements which
 /// connect signals to handlers, and <child> elements, which describe
 /// child objects (most often widgets inside a container, but also e.g.
 /// actions in an action group, or columns in a tree model). A <child>
 /// element contains an <object> element which describes the child object.
-/// The target toolkit version(s) are described by <requires> elements,
+/// The target toolkit `version(s)` are described by <requires> elements,
 /// the “lib” attribute specifies the widget library in question (currently
 /// the only supported value is “gtk+”) and the “version” attribute specifies
 /// the target version in the form “<major>.<minor>”. The builder will error
@@ -2117,9 +2114,9 @@ public protocol BuilderProtocol: GLibObject.ObjectProtocol {
 /// 
 /// Typically, the specific kind of object represented by an <object>
 /// element is specified by the “class” attribute. If the type has not
-/// been loaded yet, GTK+ tries to find the get_type() function from the
+/// been loaded yet, GTK+ tries to find the `get_type()` function from the
 /// class name by applying heuristics. This works in most cases, but if
-/// necessary, it is possible to specify the name of the get_type() function
+/// necessary, it is possible to specify the name of the `get_type()` function
 /// explictly with the "type-func" attribute. As a special case, GtkBuilder
 /// allows to use an object that has been constructed by a `GtkUIManager` in
 /// another part of the UI definition by specifying the id of the `GtkUIManager`
@@ -2127,7 +2124,7 @@ public protocol BuilderProtocol: GLibObject.ObjectProtocol {
 /// attribute.
 /// 
 /// Objects may be given a name with the “id” attribute, which allows the
-/// application to retrieve them from the builder with gtk_builder_get_object().
+/// application to retrieve them from the builder with `gtk_builder_get_object()`.
 /// An id is also necessary to use the object as property value in other
 /// parts of the UI definition. GTK+ reserves ids starting and ending
 /// with ___ (3 underscores) for its own purposes.
@@ -2136,7 +2133,7 @@ public protocol BuilderProtocol: GLibObject.ObjectProtocol {
 /// <property> element: the “name” attribute specifies the name of the
 /// property, and the content of the element specifies the value.
 /// If the “translatable” attribute is set to a true value, GTK+ uses
-/// gettext() (or dgettext() if the builder has a translation domain set)
+/// `gettext()` (or `dgettext()` if the builder has a translation domain set)
 /// to find a translation for the value. This happens before the value
 /// is parsed, so it can be used for properties of any type, but it is
 /// probably most useful for string properties. It is also possible to
@@ -2150,14 +2147,14 @@ public protocol BuilderProtocol: GLibObject.ObjectProtocol {
 /// as `false`), enumerations (can be specified by their name, nick or
 /// integer value), flags (can be specified by their name, nick, integer
 /// value, optionally combined with “|”, e.g. “GTK_VISIBLE|GTK_REALIZED”)
-/// and colors (in a format understood by gdk_rgba_parse()).
+/// and colors (in a format understood by `gdk_rgba_parse()`).
 /// 
-/// GVariants can be specified in the format understood by g_variant_parse(),
+/// GVariants can be specified in the format understood by `g_variant_parse()`,
 /// and pixbufs can be specified as a filename of an image file to load.
 /// 
 /// Objects can be referred to by their name and by default refer to
 /// objects declared in the local xml fragment and objects exposed via
-/// gtk_builder_expose_object(). In general, GtkBuilder allows forward
+/// `gtk_builder_expose_object()`. In general, GtkBuilder allows forward
 /// references to objects — declared in the local xml; an object doesn’t
 /// have to be constructed before it can be referred to. The exception
 /// to this rule is that an object has to be constructed before it can
@@ -2169,17 +2166,17 @@ public protocol BuilderProtocol: GLibObject.ObjectProtocol {
 /// "bind-property" to specify the source property and optionally
 /// "bind-flags" to specify the binding flags
 /// Internally builder implement this using GBinding objects.
-/// For more information see g_object_bind_property()
+/// For more information see `g_object_bind_property()`
 /// 
 /// Signal handlers are set up with the <signal> element. The “name”
 /// attribute specifies the name of the signal, and the “handler” attribute
 /// specifies the function to connect to the signal. By default, GTK+ tries
-/// to find the handler using g_module_symbol(), but this can be changed by
+/// to find the handler using `g_module_symbol()`, but this can be changed by
 /// passing a custom `GtkBuilderConnectFunc` to
-/// gtk_builder_connect_signals_full(). The remaining attributes, “after”,
+/// `gtk_builder_connect_signals_full()`. The remaining attributes, “after”,
 /// “swapped” and “object”, have the same meaning as the corresponding
-/// parameters of the g_signal_connect_object() or
-/// g_signal_connect_data() functions. A “last_modification_time”
+/// parameters of the `g_signal_connect_object()` or
+/// `g_signal_connect_data()` functions. A “last_modification_time”
 /// attribute is also allowed, but it does not have a meaning to the
 /// builder.
 /// 
@@ -2197,7 +2194,7 @@ public protocol BuilderProtocol: GLibObject.ObjectProtocol {
 /// The possible values for the “type” attribute are described in the
 /// sections describing the widget-specific portions of UI definitions.
 /// 
-/// `` A GtkBuilder UI Definition
+/// # A GtkBuilder UI Definition
 /// 
 /// ```
 /// <interface>
@@ -2223,7 +2220,6 @@ public protocol BuilderProtocol: GLibObject.ObjectProtocol {
 /// </interface>
 /// ```
 /// 
-/// 
 /// Beyond this general structure, several object classes define their
 /// own XML DTD fragments for filling in the ANY placeholders in the DTD
 /// above. Note that a custom element in a <child> element gets parsed by
@@ -2235,7 +2231,7 @@ public protocol BuilderProtocol: GLibObject.ObjectProtocol {
 /// 
 /// Additionally, since 3.10 a special <template> tag has been added
 /// to the format allowing one to define a widget class’s components.
-/// See the [GtkWidget documentation][composite-templates] for details.
+/// See the [GtkWidget documentation](#composite-templates) for details.
 public struct BuilderRef: BuilderProtocol {
     /// Untyped pointer to the underlying `GtkBuilder` instance.
     /// For type-safe access, use the generated, typed pointer `builder_ptr` property instead.
@@ -2285,18 +2281,18 @@ public extension BuilderRef {
         /// Creates a new empty builder object.
     /// 
     /// This function is only useful if you intend to make multiple calls
-    /// to gtk_builder_add_from_file(), gtk_builder_add_from_resource()
-    /// or gtk_builder_add_from_string() in order to merge multiple UI
+    /// to `gtk_builder_add_from_file()`, `gtk_builder_add_from_resource()`
+    /// or `gtk_builder_add_from_string()` in order to merge multiple UI
     /// descriptions into a single builder.
     /// 
-    /// Most users will probably want to use gtk_builder_new_from_file(),
-    /// gtk_builder_new_from_resource() or gtk_builder_new_from_string().
+    /// Most users will probably want to use `gtk_builder_new_from_file()`,
+    /// `gtk_builder_new_from_resource()` or `gtk_builder_new_from_string()`.
     init() {
         let rv = gtk_builder_new()
         self.init(cast(rv))
     }
 
-    /// Builds the [GtkBuilder UI definition][BUILDER-UI]
+    /// Builds the [GtkBuilder UI definition](#BUILDER-UI)
     /// in the file `filename`.
     /// 
     /// If there is an error opening the file or parsing the description then
@@ -2307,7 +2303,7 @@ public extension BuilderRef {
         self.init(cast(rv))
     }
 
-    /// Builds the [GtkBuilder UI definition][BUILDER-UI]
+    /// Builds the [GtkBuilder UI definition](#BUILDER-UI)
     /// at `resource_path`.
     /// 
     /// If there is an error locating the resource or parsing the
@@ -2318,7 +2314,7 @@ public extension BuilderRef {
     }
 
     /// Builds the user interface described by `string` (in the
-    /// [GtkBuilder UI definition][BUILDER-UI] format).
+    /// [GtkBuilder UI definition](#BUILDER-UI) format).
     /// 
     /// If `string` is `nil`-terminated, then `length` should be -1.
     /// If `length` is not -1, then it is the length of `string`.
@@ -2330,7 +2326,7 @@ public extension BuilderRef {
         let rv = gtk_builder_new_from_string(string, length)
         self.init(cast(rv))
     }
-    /// Builds the [GtkBuilder UI definition][BUILDER-UI]
+    /// Builds the [GtkBuilder UI definition](#BUILDER-UI)
     /// in the file `filename`.
     /// 
     /// If there is an error opening the file or parsing the description then
@@ -2341,7 +2337,7 @@ public extension BuilderRef {
         return rv.map { BuilderRef(cast($0)) }
     }
 
-    /// Builds the [GtkBuilder UI definition][BUILDER-UI]
+    /// Builds the [GtkBuilder UI definition](#BUILDER-UI)
     /// at `resource_path`.
     /// 
     /// If there is an error locating the resource or parsing the
@@ -2352,7 +2348,7 @@ public extension BuilderRef {
     }
 
     /// Builds the user interface described by `string` (in the
-    /// [GtkBuilder UI definition][BUILDER-UI] format).
+    /// [GtkBuilder UI definition](#BUILDER-UI) format).
     /// 
     /// If `string` is `nil`-terminated, then `length` should be -1.
     /// If `length` is not -1, then it is the length of `string`.
@@ -2373,44 +2369,44 @@ public extension BuilderRef {
 /// A GtkBuilder is an auxiliary object that reads textual descriptions
 /// of a user interface and instantiates the described objects. To create
 /// a GtkBuilder from a user interface description, call
-/// gtk_builder_new_from_file(), gtk_builder_new_from_resource() or
-/// gtk_builder_new_from_string().
+/// `gtk_builder_new_from_file()`, `gtk_builder_new_from_resource()` or
+/// `gtk_builder_new_from_string()`.
 /// 
 /// In the (unusual) case that you want to add user interface
 /// descriptions from multiple sources to the same GtkBuilder you can
-/// call gtk_builder_new() to get an empty builder and populate it by
-/// (multiple) calls to gtk_builder_add_from_file(),
-/// gtk_builder_add_from_resource() or gtk_builder_add_from_string().
+/// call `gtk_builder_new()` to get an empty builder and populate it by
+/// (multiple) calls to `gtk_builder_add_from_file()`,
+/// `gtk_builder_add_from_resource()` or `gtk_builder_add_from_string()`.
 /// 
 /// A GtkBuilder holds a reference to all objects that it has constructed
 /// and drops these references when it is finalized. This finalization can
 /// cause the destruction of non-widget objects or widgets which are not
 /// contained in a toplevel window. For toplevel windows constructed by a
-/// builder, it is the responsibility of the user to call gtk_widget_destroy()
+/// builder, it is the responsibility of the user to call `gtk_widget_destroy()`
 /// to get rid of them and all the widgets they contain.
 /// 
-/// The functions gtk_builder_get_object() and gtk_builder_get_objects()
+/// The functions `gtk_builder_get_object()` and `gtk_builder_get_objects()`
 /// can be used to access the widgets in the interface by the names assigned
 /// to them inside the UI description. Toplevel windows returned by these
 /// functions will stay around until the user explicitly destroys them
-/// with gtk_widget_destroy(). Other widgets will either be part of a
+/// with `gtk_widget_destroy()`. Other widgets will either be part of a
 /// larger hierarchy constructed by the builder (in which case you should
 /// not have to worry about their lifecycle), or without a parent, in which
 /// case they have to be added to some container to make use of them.
-/// Non-widget objects need to be reffed with g_object_ref() to keep them
+/// Non-widget objects need to be reffed with `g_object_ref()` to keep them
 /// beyond the lifespan of the builder.
 /// 
-/// The function gtk_builder_connect_signals() and variants thereof can be
+/// The function `gtk_builder_connect_signals()` and variants thereof can be
 /// used to connect handlers to the named signals in the description.
 /// 
-/// `` GtkBuilder UI Definitions `` {`BUILDER`-UI}
+/// # GtkBuilder UI Definitions # <a name="BUILDER-UI"></a>
 /// 
 /// GtkBuilder parses textual descriptions of user interfaces which are
 /// specified in an XML format which can be roughly described by the
 /// RELAX NG schema below. We refer to these descriptions as “GtkBuilder
 /// UI definitions” or just “UI definitions” if the context is clear.
 /// Do not confuse GtkBuilder UI Definitions with
-/// [GtkUIManager UI Definitions][XML-UI], which are more limited in scope.
+/// [GtkUIManager UI Definitions](#XML-UI), which are more limited in scope.
 /// It is common to use `.ui` as the filename extension for files containing
 /// GtkBuilder UI definitions.
 /// 
@@ -2418,15 +2414,15 @@ public extension BuilderRef {
 /// 
 /// The toplevel element is <interface>. It optionally takes a “domain”
 /// attribute, which will make the builder look for translated strings
-/// using dgettext() in the domain specified. This can also be done by
-/// calling gtk_builder_set_translation_domain() on the builder.
+/// using `dgettext()` in the domain specified. This can also be done by
+/// calling `gtk_builder_set_translation_domain()` on the builder.
 /// Objects are described by <object> elements, which can contain
 /// <property> elements to set properties, <signal> elements which
 /// connect signals to handlers, and <child> elements, which describe
 /// child objects (most often widgets inside a container, but also e.g.
 /// actions in an action group, or columns in a tree model). A <child>
 /// element contains an <object> element which describes the child object.
-/// The target toolkit version(s) are described by <requires> elements,
+/// The target toolkit `version(s)` are described by <requires> elements,
 /// the “lib” attribute specifies the widget library in question (currently
 /// the only supported value is “gtk+”) and the “version” attribute specifies
 /// the target version in the form “<major>.<minor>”. The builder will error
@@ -2434,9 +2430,9 @@ public extension BuilderRef {
 /// 
 /// Typically, the specific kind of object represented by an <object>
 /// element is specified by the “class” attribute. If the type has not
-/// been loaded yet, GTK+ tries to find the get_type() function from the
+/// been loaded yet, GTK+ tries to find the `get_type()` function from the
 /// class name by applying heuristics. This works in most cases, but if
-/// necessary, it is possible to specify the name of the get_type() function
+/// necessary, it is possible to specify the name of the `get_type()` function
 /// explictly with the "type-func" attribute. As a special case, GtkBuilder
 /// allows to use an object that has been constructed by a `GtkUIManager` in
 /// another part of the UI definition by specifying the id of the `GtkUIManager`
@@ -2444,7 +2440,7 @@ public extension BuilderRef {
 /// attribute.
 /// 
 /// Objects may be given a name with the “id” attribute, which allows the
-/// application to retrieve them from the builder with gtk_builder_get_object().
+/// application to retrieve them from the builder with `gtk_builder_get_object()`.
 /// An id is also necessary to use the object as property value in other
 /// parts of the UI definition. GTK+ reserves ids starting and ending
 /// with ___ (3 underscores) for its own purposes.
@@ -2453,7 +2449,7 @@ public extension BuilderRef {
 /// <property> element: the “name” attribute specifies the name of the
 /// property, and the content of the element specifies the value.
 /// If the “translatable” attribute is set to a true value, GTK+ uses
-/// gettext() (or dgettext() if the builder has a translation domain set)
+/// `gettext()` (or `dgettext()` if the builder has a translation domain set)
 /// to find a translation for the value. This happens before the value
 /// is parsed, so it can be used for properties of any type, but it is
 /// probably most useful for string properties. It is also possible to
@@ -2467,14 +2463,14 @@ public extension BuilderRef {
 /// as `false`), enumerations (can be specified by their name, nick or
 /// integer value), flags (can be specified by their name, nick, integer
 /// value, optionally combined with “|”, e.g. “GTK_VISIBLE|GTK_REALIZED”)
-/// and colors (in a format understood by gdk_rgba_parse()).
+/// and colors (in a format understood by `gdk_rgba_parse()`).
 /// 
-/// GVariants can be specified in the format understood by g_variant_parse(),
+/// GVariants can be specified in the format understood by `g_variant_parse()`,
 /// and pixbufs can be specified as a filename of an image file to load.
 /// 
 /// Objects can be referred to by their name and by default refer to
 /// objects declared in the local xml fragment and objects exposed via
-/// gtk_builder_expose_object(). In general, GtkBuilder allows forward
+/// `gtk_builder_expose_object()`. In general, GtkBuilder allows forward
 /// references to objects — declared in the local xml; an object doesn’t
 /// have to be constructed before it can be referred to. The exception
 /// to this rule is that an object has to be constructed before it can
@@ -2486,17 +2482,17 @@ public extension BuilderRef {
 /// "bind-property" to specify the source property and optionally
 /// "bind-flags" to specify the binding flags
 /// Internally builder implement this using GBinding objects.
-/// For more information see g_object_bind_property()
+/// For more information see `g_object_bind_property()`
 /// 
 /// Signal handlers are set up with the <signal> element. The “name”
 /// attribute specifies the name of the signal, and the “handler” attribute
 /// specifies the function to connect to the signal. By default, GTK+ tries
-/// to find the handler using g_module_symbol(), but this can be changed by
+/// to find the handler using `g_module_symbol()`, but this can be changed by
 /// passing a custom `GtkBuilderConnectFunc` to
-/// gtk_builder_connect_signals_full(). The remaining attributes, “after”,
+/// `gtk_builder_connect_signals_full()`. The remaining attributes, “after”,
 /// “swapped” and “object”, have the same meaning as the corresponding
-/// parameters of the g_signal_connect_object() or
-/// g_signal_connect_data() functions. A “last_modification_time”
+/// parameters of the `g_signal_connect_object()` or
+/// `g_signal_connect_data()` functions. A “last_modification_time”
 /// attribute is also allowed, but it does not have a meaning to the
 /// builder.
 /// 
@@ -2514,7 +2510,7 @@ public extension BuilderRef {
 /// The possible values for the “type” attribute are described in the
 /// sections describing the widget-specific portions of UI definitions.
 /// 
-/// `` A GtkBuilder UI Definition
+/// # A GtkBuilder UI Definition
 /// 
 /// ```
 /// <interface>
@@ -2540,7 +2536,6 @@ public extension BuilderRef {
 /// </interface>
 /// ```
 /// 
-/// 
 /// Beyond this general structure, several object classes define their
 /// own XML DTD fragments for filling in the ANY placeholders in the DTD
 /// above. Note that a custom element in a <child> element gets parsed by
@@ -2552,7 +2547,7 @@ public extension BuilderRef {
 /// 
 /// Additionally, since 3.10 a special <template> tag has been added
 /// to the format allowing one to define a widget class’s components.
-/// See the [GtkWidget documentation][composite-templates] for details.
+/// See the [GtkWidget documentation](#composite-templates) for details.
 open class Builder: GLibObject.Object, BuilderProtocol {
     /// Designated initialiser from the underlying `C` data type.
     /// Ownership is transferred to the `Builder` instance.
@@ -2594,18 +2589,18 @@ open class Builder: GLibObject.Object, BuilderProtocol {
     /// Creates a new empty builder object.
     /// 
     /// This function is only useful if you intend to make multiple calls
-    /// to gtk_builder_add_from_file(), gtk_builder_add_from_resource()
-    /// or gtk_builder_add_from_string() in order to merge multiple UI
+    /// to `gtk_builder_add_from_file()`, `gtk_builder_add_from_resource()`
+    /// or `gtk_builder_add_from_string()` in order to merge multiple UI
     /// descriptions into a single builder.
     /// 
-    /// Most users will probably want to use gtk_builder_new_from_file(),
-    /// gtk_builder_new_from_resource() or gtk_builder_new_from_string().
+    /// Most users will probably want to use `gtk_builder_new_from_file()`,
+    /// `gtk_builder_new_from_resource()` or `gtk_builder_new_from_string()`.
     public convenience init() {
         let rv = gtk_builder_new()
         self.init(cast(rv))
     }
 
-    /// Builds the [GtkBuilder UI definition][BUILDER-UI]
+    /// Builds the [GtkBuilder UI definition](#BUILDER-UI)
     /// in the file `filename`.
     /// 
     /// If there is an error opening the file or parsing the description then
@@ -2616,7 +2611,7 @@ open class Builder: GLibObject.Object, BuilderProtocol {
         self.init(cast(rv))
     }
 
-    /// Builds the [GtkBuilder UI definition][BUILDER-UI]
+    /// Builds the [GtkBuilder UI definition](#BUILDER-UI)
     /// at `resource_path`.
     /// 
     /// If there is an error locating the resource or parsing the
@@ -2627,7 +2622,7 @@ open class Builder: GLibObject.Object, BuilderProtocol {
     }
 
     /// Builds the user interface described by `string` (in the
-    /// [GtkBuilder UI definition][BUILDER-UI] format).
+    /// [GtkBuilder UI definition](#BUILDER-UI) format).
     /// 
     /// If `string` is `nil`-terminated, then `length` should be -1.
     /// If `length` is not -1, then it is the length of `string`.
@@ -2640,7 +2635,7 @@ open class Builder: GLibObject.Object, BuilderProtocol {
         self.init(cast(rv))
     }
 
-    /// Builds the [GtkBuilder UI definition][BUILDER-UI]
+    /// Builds the [GtkBuilder UI definition](#BUILDER-UI)
     /// in the file `filename`.
     /// 
     /// If there is an error opening the file or parsing the description then
@@ -2651,7 +2646,7 @@ open class Builder: GLibObject.Object, BuilderProtocol {
         return rv.map { Builder(cast($0)) }
     }
 
-    /// Builds the [GtkBuilder UI definition][BUILDER-UI]
+    /// Builds the [GtkBuilder UI definition](#BUILDER-UI)
     /// at `resource_path`.
     /// 
     /// If there is an error locating the resource or parsing the
@@ -2662,7 +2657,7 @@ open class Builder: GLibObject.Object, BuilderProtocol {
     }
 
     /// Builds the user interface described by `string` (in the
-    /// [GtkBuilder UI definition][BUILDER-UI] format).
+    /// [GtkBuilder UI definition](#BUILDER-UI) format).
     /// 
     /// If `string` is `nil`-terminated, then `length` should be -1.
     /// If `length` is not -1, then it is the length of `string`.
@@ -2680,8 +2675,8 @@ open class Builder: GLibObject.Object, BuilderProtocol {
 public enum BuilderPropertyName: String, PropertyNameProtocol {
     /// The translation domain used when translating property values that
     /// have been marked as translatable in interface descriptions.
-    /// If the translation domain is `nil`, `GtkBuilder` uses gettext(),
-    /// otherwise g_dgettext().
+    /// If the translation domain is `nil`, `GtkBuilder` uses `gettext()`,
+    /// otherwise `g_dgettext()`.
     case translationDomain = "translation-domain"
 }
 
@@ -2723,35 +2718,34 @@ public extension BuilderProtocol {
 
 public enum BuilderSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
     /// The translation domain used when translating property values that
     /// have been marked as translatable in interface descriptions.
-    /// If the translation domain is `nil`, `GtkBuilder` uses gettext(),
-    /// otherwise g_dgettext().
+    /// If the translation domain is `nil`, `GtkBuilder` uses `gettext()`,
+    /// otherwise `g_dgettext()`.
     case notifyTranslationDomain = "notify::translation-domain"
 }
 
@@ -2789,7 +2783,7 @@ public extension BuilderProtocol {
 
     /// Adds the `callback_symbol` to the scope of `builder` under the given `callback_name`.
     /// 
-    /// Using this function overrides the behavior of gtk_builder_connect_signals()
+    /// Using this function overrides the behavior of `gtk_builder_connect_signals()`
     /// for any callback symbols that are added. Using this method allows for better
     /// encapsulation as it does not require that callback symbols be declared in
     /// the global namespace.
@@ -2802,10 +2796,10 @@ public extension BuilderProtocol {
     // *** addCallbackSymbols() is not available because it has a varargs (...) parameter!
 
 
-    /// Parses a file containing a [GtkBuilder UI definition][BUILDER-UI]
+    /// Parses a file containing a [GtkBuilder UI definition](#BUILDER-UI)
     /// and merges it with the current contents of `builder`.
     /// 
-    /// Most users will probably want to use gtk_builder_new_from_file().
+    /// Most users will probably want to use `gtk_builder_new_from_file()`.
     /// 
     /// If an error occurs, 0 will be returned and `error` will be assigned a
     /// `GError` from the `GTK_BUILDER_ERROR`, `G_MARKUP_ERROR` or `G_FILE_ERROR`
@@ -2816,7 +2810,7 @@ public extension BuilderProtocol {
     /// files that are not part of your application). Broken `GtkBuilder`
     /// files can easily crash your program, and it’s possible that memory
     /// was leaked leading up to the reported failure. The only reasonable
-    /// thing to do when an error is detected is to call g_error().
+    /// thing to do when an error is detected is to call `g_error()`.
     func addFrom(file String_: UnsafePointer<gchar>) throws -> CUnsignedInt {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = gtk_builder_add_from_file(cast(builder_ptr), String_, &error)
@@ -2826,10 +2820,10 @@ public extension BuilderProtocol {
         return CUnsignedInt(rv)
     }
 
-    /// Parses a resource file containing a [GtkBuilder UI definition][BUILDER-UI]
+    /// Parses a resource file containing a [GtkBuilder UI definition](#BUILDER-UI)
     /// and merges it with the current contents of `builder`.
     /// 
-    /// Most users will probably want to use gtk_builder_new_from_resource().
+    /// Most users will probably want to use `gtk_builder_new_from_resource()`.
     /// 
     /// If an error occurs, 0 will be returned and `error` will be assigned a
     /// `GError` from the `GTK_BUILDER_ERROR`, `G_MARKUP_ERROR` or `G_RESOURCE_ERROR`
@@ -2837,7 +2831,7 @@ public extension BuilderProtocol {
     /// 
     /// It’s not really reasonable to attempt to handle failures of this
     /// call.  The only reasonable thing to do when an error is detected is
-    /// to call g_error().
+    /// to call `g_error()`.
     func addFrom(resource resource_path: UnsafePointer<gchar>) throws -> CUnsignedInt {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = gtk_builder_add_from_resource(cast(builder_ptr), resource_path, &error)
@@ -2847,10 +2841,10 @@ public extension BuilderProtocol {
         return CUnsignedInt(rv)
     }
 
-    /// Parses a string containing a [GtkBuilder UI definition][BUILDER-UI]
+    /// Parses a string containing a [GtkBuilder UI definition](#BUILDER-UI)
     /// and merges it with the current contents of `builder`.
     /// 
-    /// Most users will probably want to use gtk_builder_new_from_string().
+    /// Most users will probably want to use `gtk_builder_new_from_string()`.
     /// 
     /// Upon errors 0 will be returned and `error` will be assigned a
     /// `GError` from the `GTK_BUILDER_ERROR`, `G_MARKUP_ERROR` or
@@ -2858,7 +2852,7 @@ public extension BuilderProtocol {
     /// 
     /// It’s not really reasonable to attempt to handle failures of this
     /// call.  The only reasonable thing to do when an error is detected is
-    /// to call g_error().
+    /// to call `g_error()`.
     func addFrom(stringBuffer buffer: UnsafePointer<gchar>, length: Int) throws -> CUnsignedInt {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = gtk_builder_add_from_string(cast(builder_ptr), buffer, gsize(length), &error)
@@ -2868,7 +2862,7 @@ public extension BuilderProtocol {
         return CUnsignedInt(rv)
     }
 
-    /// Parses a file containing a [GtkBuilder UI definition][BUILDER-UI]
+    /// Parses a file containing a [GtkBuilder UI definition](#BUILDER-UI)
     /// building only the requested objects and merges
     /// them with the current contents of `builder`.
     /// 
@@ -2888,7 +2882,7 @@ public extension BuilderProtocol {
         return CUnsignedInt(rv)
     }
 
-    /// Parses a resource file containing a [GtkBuilder UI definition][BUILDER-UI]
+    /// Parses a resource file containing a [GtkBuilder UI definition](#BUILDER-UI)
     /// building only the requested objects and merges
     /// them with the current contents of `builder`.
     /// 
@@ -2908,7 +2902,7 @@ public extension BuilderProtocol {
         return CUnsignedInt(rv)
     }
 
-    /// Parses a string containing a [GtkBuilder UI definition][BUILDER-UI]
+    /// Parses a string containing a [GtkBuilder UI definition](#BUILDER-UI)
     /// building only the requested objects and merges
     /// them with the current contents of `builder`.
     /// 
@@ -2927,16 +2921,16 @@ public extension BuilderProtocol {
         return CUnsignedInt(rv)
     }
 
-    /// This method is a simpler variation of gtk_builder_connect_signals_full().
+    /// This method is a simpler variation of `gtk_builder_connect_signals_full()`.
     /// It uses symbols explicitly added to `builder` with prior calls to
-    /// gtk_builder_add_callback_symbol(). In the case that symbols are not
+    /// `gtk_builder_add_callback_symbol()`. In the case that symbols are not
     /// explicitly added; it uses `GModule`’s introspective features (by opening the module `nil`)
     /// to look at the application’s symbol table. From here it tries to match
     /// the signal handler names given in the interface description with
     /// symbols in the application and connects the signals. Note that this
     /// function can only be called once, subsequent calls will do nothing.
     /// 
-    /// Note that unless gtk_builder_add_callback_symbol() is called for
+    /// Note that unless `gtk_builder_add_callback_symbol()` is called for
     /// all signal callbacks which are referenced by the loaded XML, this
     /// function will require that `GModule` be supported on the platform.
     /// 
@@ -2954,7 +2948,7 @@ public extension BuilderProtocol {
     }
 
     /// This function can be thought of the interpreted language binding
-    /// version of gtk_builder_connect_signals(), except that it does not
+    /// version of `gtk_builder_connect_signals()`, except that it does not
     /// require GModule to function correctly.
     func connectSignalsFull(_ func_: @escaping BuilderConnectFunc, userData user_data: UnsafeMutableRawPointer) {
         gtk_builder_connect_signals_full(cast(builder_ptr), func_, cast(user_data))
@@ -2988,8 +2982,8 @@ public extension BuilderProtocol {
     /// from XML that the builder is loading.
     /// 
     /// By default, the builder uses the default application: the one from
-    /// g_application_get_default(). If you want to use another application
-    /// for constructing proxies, use gtk_builder_set_application().
+    /// `g_application_get_default()`. If you want to use another application
+    /// for constructing proxies, use `gtk_builder_set_application()`.
     func getApplication() -> UnsafeMutablePointer<GtkApplication>! {
         let rv = gtk_builder_get_application(cast(builder_ptr))
         return cast(rv)
@@ -3025,11 +3019,11 @@ public extension BuilderProtocol {
     }
 
     /// Fetches a symbol previously added to `builder`
-    /// with gtk_builder_add_callback_symbols()
+    /// with `gtk_builder_add_callback_symbols()`
     /// 
     /// This function is intended for possible use in language bindings
     /// or for any case that one might be cusomizing signal connections
-    /// using gtk_builder_connect_signals_full()
+    /// using `gtk_builder_connect_signals_full()`
     func lookup(callback callback_name: UnsafePointer<gchar>) -> CGLib.GCallback? {
         let rv = gtk_builder_lookup_callback_symbol(cast(builder_ptr), callback_name)
         return rv
@@ -3045,14 +3039,14 @@ public extension BuilderProtocol {
     }
 
     /// Sets the translation domain of `builder`.
-    /// See `GtkBuilder`:translation-domain.
+    /// See `GtkBuilder:translation`-domain.
     func setTranslation(domain: UnsafePointer<gchar>) {
         gtk_builder_set_translation_domain(cast(builder_ptr), domain)
     
     }
 
     /// This function demarshals a value from a string. This function
-    /// calls g_value_init() on the `value` argument, so it need not be
+    /// calls `g_value_init()` on the `value` argument, so it need not be
     /// initialised beforehand.
     /// 
     /// This function can handle char, uchar, boolean, int, uint, long,
@@ -3071,9 +3065,9 @@ public extension BuilderProtocol {
         return Bool(rv != 0)
     }
 
-    /// Like gtk_builder_value_from_string(), this function demarshals
+    /// Like `gtk_builder_value_from_string()`, this function demarshals
     /// a value from a string, but takes a `GType` instead of `GParamSpec`.
-    /// This function calls g_value_init() on the `value` argument, so it
+    /// This function calls `g_value_init()` on the `value` argument, so it
     /// need not be initialised beforehand.
     /// 
     /// Upon errors `false` will be returned and `error` will be assigned a
@@ -3092,8 +3086,8 @@ public extension BuilderProtocol {
     /// from XML that the builder is loading.
     /// 
     /// By default, the builder uses the default application: the one from
-    /// g_application_get_default(). If you want to use another application
-    /// for constructing proxies, use gtk_builder_set_application().
+    /// `g_application_get_default()`. If you want to use another application
+    /// for constructing proxies, use `gtk_builder_set_application()`.
     var application: UnsafeMutablePointer<GtkApplication>! {
         /// Gets the `GtkApplication` associated with the builder.
         /// 
@@ -3101,8 +3095,8 @@ public extension BuilderProtocol {
         /// from XML that the builder is loading.
         /// 
         /// By default, the builder uses the default application: the one from
-        /// g_application_get_default(). If you want to use another application
-        /// for constructing proxies, use gtk_builder_set_application().
+        /// `g_application_get_default()`. If you want to use another application
+        /// for constructing proxies, use `gtk_builder_set_application()`.
         get {
             let rv = gtk_builder_get_application(cast(builder_ptr))
             return cast(rv)
@@ -3137,7 +3131,7 @@ public extension BuilderProtocol {
             return rv.map { String(cString: UnsafePointer<CChar>($0)) }
         }
         /// Sets the translation domain of `builder`.
-        /// See `GtkBuilder`:translation-domain.
+        /// See `GtkBuilder:translation`-domain.
         nonmutating set {
             gtk_builder_set_translation_domain(cast(builder_ptr), newValue)
         }
@@ -3161,7 +3155,7 @@ public extension BuilderProtocol {
 /// almost any other standard `GtkWidget`.  The most commonly used child is the
 /// `GtkLabel`.
 /// 
-/// `` CSS nodes
+/// # CSS nodes
 /// 
 /// GtkButton has a single CSS node with name button. The node will get the
 /// style classes .image-button or .text-button, if the content is just an
@@ -3195,7 +3189,7 @@ public protocol ButtonProtocol: BinProtocol, ActionableProtocol, ActivatableProt
 /// almost any other standard `GtkWidget`.  The most commonly used child is the
 /// `GtkLabel`.
 /// 
-/// `` CSS nodes
+/// # CSS nodes
 /// 
 /// GtkButton has a single CSS node with name button. The node will get the
 /// style classes .image-button or .text-button, if the content is just an
@@ -3256,7 +3250,7 @@ public extension ButtonRef {
     }
 
         /// Creates a new `GtkButton` widget. To add a child widget to the button,
-    /// use gtk_container_add().
+    /// use `gtk_container_add()`.
     init() {
         let rv = gtk_button_new()
         self.init(cast(rv))
@@ -3268,20 +3262,20 @@ public extension ButtonRef {
     /// displayed instead. If the current icon theme is changed, the icon
     /// will be updated appropriately.
     /// 
-    /// This function is a convenience wrapper around gtk_button_new() and
-    /// gtk_button_set_image().
+    /// This function is a convenience wrapper around `gtk_button_new()` and
+    /// `gtk_button_set_image()`.
     init(iconName icon_name: UnsafePointer<gchar>, size: GtkIconSize) {
         let rv = gtk_button_new_from_icon_name(icon_name, size)
         self.init(cast(rv))
     }
 
     /// Creates a new `GtkButton` containing the image and text from a
-    /// [stock item][gtkstock].
+    /// [stock item](#gtkstock).
     /// Some stock ids have preprocessor macros like `GTK_STOCK_OK` and
     /// `GTK_STOCK_APPLY`.
     /// 
     /// If `stock_id` is unknown, then it will be treated as a mnemonic
-    /// label (as for gtk_button_new_with_mnemonic()).
+    /// label (as for `gtk_button_new_with_mnemonic()`).
     ///
     /// **new_from_stock is deprecated:**
     /// Stock items are deprecated. Use gtk_button_new_with_label()
@@ -3314,20 +3308,20 @@ public extension ButtonRef {
     /// displayed instead. If the current icon theme is changed, the icon
     /// will be updated appropriately.
     /// 
-    /// This function is a convenience wrapper around gtk_button_new() and
-    /// gtk_button_set_image().
+    /// This function is a convenience wrapper around `gtk_button_new()` and
+    /// `gtk_button_set_image()`.
     static func newFrom(iconName icon_name: UnsafePointer<gchar>, size: GtkIconSize) -> ButtonRef! {
         let rv = gtk_button_new_from_icon_name(icon_name, size)
         return rv.map { ButtonRef(cast($0)) }
     }
 
     /// Creates a new `GtkButton` containing the image and text from a
-    /// [stock item][gtkstock].
+    /// [stock item](#gtkstock).
     /// Some stock ids have preprocessor macros like `GTK_STOCK_OK` and
     /// `GTK_STOCK_APPLY`.
     /// 
     /// If `stock_id` is unknown, then it will be treated as a mnemonic
-    /// label (as for gtk_button_new_with_mnemonic()).
+    /// label (as for `gtk_button_new_with_mnemonic()`).
     ///
     /// **new_from_stock is deprecated:**
     /// Stock items are deprecated. Use gtk_button_new_with_label()
@@ -3368,7 +3362,7 @@ public extension ButtonRef {
 /// almost any other standard `GtkWidget`.  The most commonly used child is the
 /// `GtkLabel`.
 /// 
-/// `` CSS nodes
+/// # CSS nodes
 /// 
 /// GtkButton has a single CSS node with name button. The node will get the
 /// style classes .image-button or .text-button, if the content is just an
@@ -3421,7 +3415,7 @@ open class Button: Bin, ButtonProtocol {
     }
 
     /// Creates a new `GtkButton` widget. To add a child widget to the button,
-    /// use gtk_container_add().
+    /// use `gtk_container_add()`.
     public convenience init() {
         let rv = gtk_button_new()
         self.init(cast(rv))
@@ -3433,20 +3427,20 @@ open class Button: Bin, ButtonProtocol {
     /// displayed instead. If the current icon theme is changed, the icon
     /// will be updated appropriately.
     /// 
-    /// This function is a convenience wrapper around gtk_button_new() and
-    /// gtk_button_set_image().
+    /// This function is a convenience wrapper around `gtk_button_new()` and
+    /// `gtk_button_set_image()`.
     public convenience init(iconName icon_name: UnsafePointer<gchar>, size: GtkIconSize) {
         let rv = gtk_button_new_from_icon_name(icon_name, size)
         self.init(cast(rv))
     }
 
     /// Creates a new `GtkButton` containing the image and text from a
-    /// [stock item][gtkstock].
+    /// [stock item](#gtkstock).
     /// Some stock ids have preprocessor macros like `GTK_STOCK_OK` and
     /// `GTK_STOCK_APPLY`.
     /// 
     /// If `stock_id` is unknown, then it will be treated as a mnemonic
-    /// label (as for gtk_button_new_with_mnemonic()).
+    /// label (as for `gtk_button_new_with_mnemonic()`).
     ///
     /// **new_from_stock is deprecated:**
     /// Stock items are deprecated. Use gtk_button_new_with_label()
@@ -3480,20 +3474,20 @@ open class Button: Bin, ButtonProtocol {
     /// displayed instead. If the current icon theme is changed, the icon
     /// will be updated appropriately.
     /// 
-    /// This function is a convenience wrapper around gtk_button_new() and
-    /// gtk_button_set_image().
+    /// This function is a convenience wrapper around `gtk_button_new()` and
+    /// `gtk_button_set_image()`.
     public static func newFrom(iconName icon_name: UnsafePointer<gchar>, size: GtkIconSize) -> Button! {
         let rv = gtk_button_new_from_icon_name(icon_name, size)
         return rv.map { Button(cast($0)) }
     }
 
     /// Creates a new `GtkButton` containing the image and text from a
-    /// [stock item][gtkstock].
+    /// [stock item](#gtkstock).
     /// Some stock ids have preprocessor macros like `GTK_STOCK_OK` and
     /// `GTK_STOCK_APPLY`.
     /// 
     /// If `stock_id` is unknown, then it will be treated as a mnemonic
-    /// label (as for gtk_button_new_with_mnemonic()).
+    /// label (as for `gtk_button_new_with_mnemonic()`).
     ///
     /// **new_from_stock is deprecated:**
     /// Stock items are deprecated. Use gtk_button_new_with_label()
@@ -3569,7 +3563,7 @@ public enum ButtonPropertyName: String, PropertyNameProtocol {
     /// the value, and value-changed signal to be notified on their value
     /// changes.
     case accessibleValue = "accessible-value"
-    /// If `true`, the button will ignore the `GtkSettings`:gtk-button-images
+    /// If `true`, the button will ignore the `GtkSettings:gtk`-button-images
     /// setting and always show the image, if available.
     /// 
     /// Use this property if the button would be useless or hard to use
@@ -3587,7 +3581,7 @@ public enum ButtonPropertyName: String, PropertyNameProtocol {
     /// Widgets should not use this property.
     case doubleBuffered = "double-buffered"
     case events = "events"
-    /// Whether to expand in both directions. Setting this sets both `GtkWidget`:hexpand and `GtkWidget`:vexpand
+    /// Whether to expand in both directions. Setting this sets both `GtkWidget:hexpand` and `GtkWidget:vexpand`
     case expand = "expand"
     /// Whether the widget should grab focus when it is clicked with the mouse.
     /// 
@@ -3600,9 +3594,9 @@ public enum ButtonPropertyName: String, PropertyNameProtocol {
     case halign = "halign"
     case hasDefault = "has-default"
     case hasFocus = "has-focus"
-    /// Enables or disables the emission of `GtkWidget`::query-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget`::query-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
     /// whether it will provide a tooltip or not.
     /// 
     /// Note that setting this property to `true` for the first time will change
@@ -3611,9 +3605,9 @@ public enum ButtonPropertyName: String, PropertyNameProtocol {
     /// property is set to `false` again.
     case hasTooltip = "has-tooltip"
     case heightRequest = "height-request"
-    /// Whether to expand horizontally. See gtk_widget_set_hexpand().
+    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
     case hexpand = "hexpand"
-    /// Whether to use the `GtkWidget`:hexpand property. See gtk_widget_get_hexpand_set().
+    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
     case hexpandSet = "hexpand-set"
     /// The child widget to appear next to the button text.
     case image = "image"
@@ -3628,20 +3622,20 @@ public enum ButtonPropertyName: String, PropertyNameProtocol {
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// gtk_widget_set_size_request() for example.
+    /// `gtk_widget_set_size_request()` for example.
     case marginBottom = "margin-bottom"
     /// Margin on end of widget, horizontally. This property supports
     /// left-to-right and right-to-left text directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// gtk_widget_set_size_request() for example.
+    /// `gtk_widget_set_size_request()` for example.
     case marginEnd = "margin-end"
     /// Margin on left side of widget.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// gtk_widget_set_size_request() for example.
+    /// `gtk_widget_set_size_request()` for example.
     ///
     /// **margin-left is deprecated:**
     /// Use #GtkWidget:margin-start instead.
@@ -3650,7 +3644,7 @@ public enum ButtonPropertyName: String, PropertyNameProtocol {
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// gtk_widget_set_size_request() for example.
+    /// `gtk_widget_set_size_request()` for example.
     ///
     /// **margin-right is deprecated:**
     /// Use #GtkWidget:margin-end instead.
@@ -3660,17 +3654,17 @@ public enum ButtonPropertyName: String, PropertyNameProtocol {
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// gtk_widget_set_size_request() for example.
+    /// `gtk_widget_set_size_request()` for example.
     case marginStart = "margin-start"
     /// Margin on top side of widget.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// gtk_widget_set_size_request() for example.
+    /// `gtk_widget_set_size_request()` for example.
     case marginTop = "margin-top"
     case name = "name"
     case noShowAll = "no-show-all"
-    /// The requested opacity of the widget. See gtk_widget_set_opacity() for
+    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
     /// more details about window opacity.
     /// 
     /// Before 3.8 this was only available in GtkWindow
@@ -3679,7 +3673,7 @@ public enum ButtonPropertyName: String, PropertyNameProtocol {
     case receivesDefault = "receives-default"
     case relief = "relief"
     case resizeMode = "resize-mode"
-    /// The scale factor of the widget. See gtk_widget_get_scale_factor() for
+    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
     /// more details about widget scaling.
     case scaleFactor = "scale-factor"
     case sensitive = "sensitive"
@@ -3689,27 +3683,27 @@ public enum ButtonPropertyName: String, PropertyNameProtocol {
     /// Use #GtkStyleContext instead
     case style = "style"
     /// Sets the text of tooltip to be the given string, which is marked up
-    /// with the [Pango text markup language][PangoMarkupFormat].
-    /// Also see gtk_tooltip_set_markup().
+    /// with the [Pango text markup language](#PangoMarkupFormat).
+    /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget`:has-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget`::query-tooltip in the default signal handler.
+    /// `GtkWidget::query`-tooltip in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget`:tooltip-text and `GtkWidget`:tooltip-markup
+    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
     /// are set, the last one wins.
     case tooltipMarkup = "tooltip-markup"
     /// Sets the text of tooltip to be the given string.
     /// 
-    /// Also see gtk_tooltip_set_text().
+    /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget`:has-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget`::query-tooltip in the default signal handler.
+    /// `GtkWidget::query`-tooltip in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget`:tooltip-text and `GtkWidget`:tooltip-markup
+    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
     /// are set, the last one wins.
     case tooltipText = "tooltip-text"
 
@@ -3720,9 +3714,9 @@ public enum ButtonPropertyName: String, PropertyNameProtocol {
     case useUnderline = "use-underline"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
     case valign = "valign"
-    /// Whether to expand vertically. See gtk_widget_set_vexpand().
+    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
     case vexpand = "vexpand"
-    /// Whether to use the `GtkWidget`:vexpand property. See gtk_widget_get_vexpand_set().
+    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
     case vexpandSet = "vexpand-set"
     case visible = "visible"
     case widthRequest = "width-request"
@@ -3784,10 +3778,10 @@ public extension ButtonProtocol {
 
 public enum ButtonSignalName: String, SignalNameProtocol {
     case accelClosuresChanged = "accel-closures-changed"
-    /// The ::activate signal on GtkButton is an action signal and
+    /// The `activate` signal on GtkButton is an action signal and
     /// emitting it causes the button to animate press then release.
     /// Applications should never connect to this signal, but use the
-    /// `GtkButton`::clicked signal.
+    /// `GtkButton::clicked` signal.
     case activate = "activate"
     /// The "active-descendant-changed" signal is emitted by an object
     /// which has the state ATK_STATE_MANAGES_DESCENDANTS when the focus
@@ -3795,7 +3789,7 @@ public enum ButtonSignalName: String, SignalNameProtocol {
     /// signal when the cell in the table which has focus changes.
     case activeDescendantChanged = "active-descendant-changed"
     case add = "add"
-    /// The ::button-press-event signal will be emitted when a button
+    /// The `button`-press-event signal will be emitted when a button
     /// (typically from a mouse) is pressed.
     /// 
     /// To receive this signal, the `GdkWindow` associated to the
@@ -3803,7 +3797,7 @@ public enum ButtonSignalName: String, SignalNameProtocol {
     /// 
     /// This signal will be sent to the grab widget if there is one.
     case buttonPressEvent = "button-press-event"
-    /// The ::button-release-event signal will be emitted when a button
+    /// The `button`-release-event signal will be emitted when a button
     /// (typically from a mouse) is released.
     /// 
     /// To receive this signal, the `GdkWindow` associated to the
@@ -3818,8 +3812,8 @@ public enum ButtonSignalName: String, SignalNameProtocol {
     /// for determining whether an accelerator can be activated.
     case canActivateAccel = "can-activate-accel"
     case checkResize = "check-resize"
-    /// The ::child-notify signal is emitted for each
-    /// [child property][child-properties]  that has
+    /// The `child`-notify signal is emitted for each
+    /// [child property](#child-properties)  that has
     /// changed on an object. The signal's detail holds the property name.
     case childNotify = "child-notify"
     /// The signal "children-changed" is emitted when a child is added or
@@ -3828,14 +3822,14 @@ public enum ButtonSignalName: String, SignalNameProtocol {
     case childrenChanged = "children-changed"
     /// Emitted when the button has been activated (pressed and released).
     case clicked = "clicked"
-    /// The ::composited-changed signal is emitted when the composited
+    /// The `composited`-changed signal is emitted when the composited
     /// status of `widgets` screen changes.
-    /// See gdk_screen_is_composited().
+    /// See `gdk_screen_is_composited()`.
     ///
     /// **composited-changed is deprecated:**
     /// Use GdkScreen::composited-changed instead.
     case compositedChanged = "composited-changed"
-    /// The ::configure-event signal will be emitted when the size, position or
+    /// The `configure`-event signal will be emitted when the size, position or
     /// stacking of the `widget`'s window has changed.
     /// 
     /// To receive this signal, the `GdkWindow` associated to the widget needs
@@ -3846,9 +3840,9 @@ public enum ButtonSignalName: String, SignalNameProtocol {
     /// The region/area members of the event shows what area of the redirected
     /// drawable was drawn into.
     case damageEvent = "damage-event"
-    /// The ::delete-event signal is emitted if a user requests that
+    /// The `delete`-event signal is emitted if a user requests that
     /// a toplevel window is closed. The default handler for this signal
-    /// destroys the window. Connecting gtk_widget_hide_on_delete() to
+    /// destroys the window. Connecting `gtk_widget_hide_on_delete()` to
     /// this signal will cause the window to be hidden instead, so that
     /// it can later be shown again without reconstructing it.
     case deleteEvent = "delete-event"
@@ -3858,7 +3852,7 @@ public enum ButtonSignalName: String, SignalNameProtocol {
     /// 
     /// This signal is not suitable for saving widget state.
     case destroy = "destroy"
-    /// The ::destroy-event signal is emitted when a `GdkWindow` is destroyed.
+    /// The `destroy`-event signal is emitted when a `GdkWindow` is destroyed.
     /// You rarely get this signal, because most widgets disconnect themselves
     /// from their window before they destroy it, so no widget owns the
     /// window at destroy time.
@@ -3867,44 +3861,44 @@ public enum ButtonSignalName: String, SignalNameProtocol {
     /// to enable the `GDK_STRUCTURE_MASK` mask. GDK will enable this mask
     /// automatically for all new windows.
     case destroyEvent = "destroy-event"
-    /// The ::direction-changed signal is emitted when the text direction
+    /// The `direction`-changed signal is emitted when the text direction
     /// of a widget changes.
     case directionChanged = "direction-changed"
-    /// The ::drag-begin signal is emitted on the drag source when a drag is
+    /// The `drag`-begin signal is emitted on the drag source when a drag is
     /// started. A typical reason to connect to this signal is to set up a
-    /// custom drag icon with e.g. gtk_drag_source_set_icon_pixbuf().
+    /// custom drag icon with e.g. `gtk_drag_source_set_icon_pixbuf()`.
     /// 
     /// Note that some widgets set up a drag icon in the default handler of
-    /// this signal, so you may have to use g_signal_connect_after() to
+    /// this signal, so you may have to use `g_signal_connect_after()` to
     /// override what the default handler did.
     case dragBegin = "drag-begin"
-    /// The ::drag-data-delete signal is emitted on the drag source when a drag
+    /// The `drag`-data-delete signal is emitted on the drag source when a drag
     /// with the action `GDK_ACTION_MOVE` is successfully completed. The signal
     /// handler is responsible for deleting the data that has been dropped. What
     /// "delete" means depends on the context of the drag operation.
     case dragDataDelete = "drag-data-delete"
-    /// The ::drag-data-get signal is emitted on the drag source when the drop
+    /// The `drag`-data-get signal is emitted on the drag source when the drop
     /// site requests the data which is dragged. It is the responsibility of
     /// the signal handler to fill `data` with the data in the format which
-    /// is indicated by `info`. See gtk_selection_data_set() and
-    /// gtk_selection_data_set_text().
+    /// is indicated by `info`. See `gtk_selection_data_set()` and
+    /// `gtk_selection_data_set_text()`.
     case dragDataGet = "drag-data-get"
-    /// The ::drag-data-received signal is emitted on the drop site when the
+    /// The `drag`-data-received signal is emitted on the drop site when the
     /// dragged data has been received. If the data was received in order to
     /// determine whether the drop will be accepted, the handler is expected
-    /// to call gdk_drag_status() and not finish the drag.
-    /// If the data was received in response to a `GtkWidget`::drag-drop signal
+    /// to call `gdk_drag_status()` and not finish the drag.
+    /// If the data was received in response to a `GtkWidget::drag`-drop signal
     /// (and this is the last target to be received), the handler for this
     /// signal is expected to process the received data and then call
-    /// gtk_drag_finish(), setting the `success` parameter depending on
+    /// `gtk_drag_finish()`, setting the `success` parameter depending on
     /// whether the data was processed successfully.
     /// 
     /// Applications must create some means to determine why the signal was emitted
-    /// and therefore whether to call gdk_drag_status() or gtk_drag_finish().
+    /// and therefore whether to call `gdk_drag_status()` or `gtk_drag_finish()`.
     /// 
     /// The handler may inspect the selected action with
-    /// gdk_drag_context_get_selected_action() before calling
-    /// gtk_drag_finish(), e.g. to implement `GDK_ACTION_ASK` as
+    /// `gdk_drag_context_get_selected_action()` before calling
+    /// `gtk_drag_finish()`, e.g. to implement `GDK_ACTION_ASK` as
     /// shown in the following example:
     /// (C Language Example):
     /// ```C
@@ -3952,58 +3946,58 @@ public enum ButtonSignalName: String, SignalNameProtocol {
     /// ```
     /// 
     case dragDataReceived = "drag-data-received"
-    /// The ::drag-drop signal is emitted on the drop site when the user drops
+    /// The `drag`-drop signal is emitted on the drop site when the user drops
     /// the data onto the widget. The signal handler must determine whether
     /// the cursor position is in a drop zone or not. If it is not in a drop
     /// zone, it returns `false` and no further processing is necessary.
     /// Otherwise, the handler returns `true`. In this case, the handler must
-    /// ensure that gtk_drag_finish() is called to let the source know that
-    /// the drop is done. The call to gtk_drag_finish() can be done either
-    /// directly or in a `GtkWidget`::drag-data-received handler which gets
-    /// triggered by calling gtk_drag_get_data() to receive the data for one
+    /// ensure that `gtk_drag_finish()` is called to let the source know that
+    /// the drop is done. The call to `gtk_drag_finish()` can be done either
+    /// directly or in a `GtkWidget::drag`-data-received handler which gets
+    /// triggered by calling `gtk_drag_get_data()` to receive the data for one
     /// or more of the supported targets.
     case dragDrop = "drag-drop"
-    /// The ::drag-end signal is emitted on the drag source when a drag is
+    /// The `drag`-end signal is emitted on the drag source when a drag is
     /// finished.  A typical reason to connect to this signal is to undo
-    /// things done in `GtkWidget`::drag-begin.
+    /// things done in `GtkWidget::drag`-begin.
     case dragEnd = "drag-end"
-    /// The ::drag-failed signal is emitted on the drag source when a drag has
+    /// The `drag`-failed signal is emitted on the drag source when a drag has
     /// failed. The signal handler may hook custom code to handle a failed DnD
     /// operation based on the type of error, it returns `true` is the failure has
     /// been already handled (not showing the default "drag operation failed"
     /// animation), otherwise it returns `false`.
     case dragFailed = "drag-failed"
-    /// The ::drag-leave signal is emitted on the drop site when the cursor
+    /// The `drag`-leave signal is emitted on the drop site when the cursor
     /// leaves the widget. A typical reason to connect to this signal is to
-    /// undo things done in `GtkWidget`::drag-motion, e.g. undo highlighting
-    /// with gtk_drag_unhighlight().
+    /// undo things done in `GtkWidget::drag`-motion, e.g. undo highlighting
+    /// with `gtk_drag_unhighlight()`.
     /// 
     /// 
-    /// Likewise, the `GtkWidget`::drag-leave signal is also emitted before the
-    /// ::drag-drop signal, for instance to allow cleaning up of a preview item
-    /// created in the `GtkWidget`::drag-motion signal handler.
+    /// Likewise, the `GtkWidget::drag`-leave signal is also emitted before the
+    /// `drag`-drop signal, for instance to allow cleaning up of a preview item
+    /// created in the `GtkWidget::drag`-motion signal handler.
     case dragLeave = "drag-leave"
-    /// The ::drag-motion signal is emitted on the drop site when the user
+    /// The `drag`-motion signal is emitted on the drop site when the user
     /// moves the cursor over the widget during a drag. The signal handler
     /// must determine whether the cursor position is in a drop zone or not.
     /// If it is not in a drop zone, it returns `false` and no further processing
     /// is necessary. Otherwise, the handler returns `true`. In this case, the
     /// handler is responsible for providing the necessary information for
-    /// displaying feedback to the user, by calling gdk_drag_status().
+    /// displaying feedback to the user, by calling `gdk_drag_status()`.
     /// 
     /// If the decision whether the drop will be accepted or rejected can't be
     /// made based solely on the cursor position and the type of the data, the
-    /// handler may inspect the dragged data by calling gtk_drag_get_data() and
-    /// defer the gdk_drag_status() call to the `GtkWidget`::drag-data-received
+    /// handler may inspect the dragged data by calling `gtk_drag_get_data()` and
+    /// defer the `gdk_drag_status()` call to the `GtkWidget::drag`-data-received
     /// handler. Note that you must pass `GTK_DEST_DEFAULT_DROP`,
-    /// `GTK_DEST_DEFAULT_MOTION` or `GTK_DEST_DEFAULT_ALL` to gtk_drag_dest_set()
+    /// `GTK_DEST_DEFAULT_MOTION` or `GTK_DEST_DEFAULT_ALL` to `gtk_drag_dest_set()`
     /// when using the drag-motion signal that way.
     /// 
     /// Also note that there is no drag-enter signal. The drag receiver has to
     /// keep track of whether he has received any drag-motion signals since the
-    /// last `GtkWidget`::drag-leave and if not, treat the drag-motion signal as
+    /// last `GtkWidget::drag`-leave and if not, treat the drag-motion signal as
     /// an "enter" signal. Upon an "enter", the handler will typically highlight
-    /// the drop site with gtk_drag_highlight().
+    /// the drop site with `gtk_drag_highlight()`.
     /// (C Language Example):
     /// ```C
     /// static void
@@ -4075,27 +4069,27 @@ public enum ButtonSignalName: String, SignalNameProtocol {
     /// This signal is emitted when a widget is supposed to render itself.
     /// The `widget`'s top left corner must be painted at the origin of
     /// the passed in context and be sized to the values returned by
-    /// gtk_widget_get_allocated_width() and
-    /// gtk_widget_get_allocated_height().
+    /// `gtk_widget_get_allocated_width()` and
+    /// `gtk_widget_get_allocated_height()`.
     /// 
     /// Signal handlers connected to this signal can modify the cairo
     /// context passed as `cr` in any way they like and don't need to
-    /// restore it. The signal emission takes care of calling cairo_save()
-    /// before and cairo_restore() after invoking the handler.
+    /// restore it. The signal emission takes care of calling `cairo_save()`
+    /// before and `cairo_restore()` after invoking the handler.
     /// 
     /// The signal handler will get a `cr` with a clip region already set to the
     /// widget's dirty region, i.e. to the area that needs repainting.  Complicated
     /// widgets that want to avoid redrawing themselves completely can get the full
-    /// extents of the clip region with gdk_cairo_get_clip_rectangle(), or they can
+    /// extents of the clip region with `gdk_cairo_get_clip_rectangle()`, or they can
     /// get a finer-grained representation of the dirty region with
-    /// cairo_copy_clip_rectangle_list().
+    /// `cairo_copy_clip_rectangle_list()`.
     case draw = "draw"
     /// Emitted when the pointer enters the button.
     ///
     /// **enter is deprecated:**
     /// Use the #GtkWidget::enter-notify-event signal.
     case enter = "enter"
-    /// The ::enter-notify-event will be emitted when the pointer enters
+    /// The `enter`-notify-event will be emitted when the pointer enters
     /// the `widget`'s window.
     /// 
     /// To receive this signal, the `GdkWindow` associated to the widget needs
@@ -4104,13 +4098,13 @@ public enum ButtonSignalName: String, SignalNameProtocol {
     /// This signal will be sent to the grab widget if there is one.
     case enterNotifyEvent = "enter-notify-event"
     /// The GTK+ main loop will emit three signals for each GDK event delivered
-    /// to a widget: one generic ::event signal, another, more specific,
+    /// to a widget: one generic `event` signal, another, more specific,
     /// signal that matches the type of event delivered (e.g.
-    /// `GtkWidget`::key-press-event) and finally a generic
-    /// `GtkWidget`::event-after signal.
+    /// `GtkWidget::key`-press-event) and finally a generic
+    /// `GtkWidget::event`-after signal.
     case event = "event"
-    /// After the emission of the `GtkWidget`::event signal and (optionally)
-    /// the second more specific signal, ::event-after will be emitted
+    /// After the emission of the `GtkWidget::event` signal and (optionally)
+    /// the second more specific signal, `event`-after will be emitted
     /// regardless of the previous two signals handlers return values.
     case eventAfter = "event-after"
     case focus = "focus"
@@ -4120,13 +4114,13 @@ public enum ButtonSignalName: String, SignalNameProtocol {
     /// **focus-event is deprecated:**
     /// Use the #AtkObject::state-change signal instead.
     case focusEvent = "focus-event"
-    /// The ::focus-in-event signal will be emitted when the keyboard focus
+    /// The `focus`-in-event signal will be emitted when the keyboard focus
     /// enters the `widget`'s window.
     /// 
     /// To receive this signal, the `GdkWindow` associated to the widget needs
     /// to enable the `GDK_FOCUS_CHANGE_MASK` mask.
     case focusInEvent = "focus-in-event"
-    /// The ::focus-out-event signal will be emitted when the keyboard focus
+    /// The `focus`-out-event signal will be emitted when the keyboard focus
     /// leaves the `widget`'s window.
     /// 
     /// To receive this signal, the `GdkWindow` associated to the widget needs
@@ -4140,25 +4134,25 @@ public enum ButtonSignalName: String, SignalNameProtocol {
     /// application grabs the pointer or keyboard again.
     case grabBrokenEvent = "grab-broken-event"
     case grabFocus = "grab-focus"
-    /// The ::grab-notify signal is emitted when a widget becomes
+    /// The `grab`-notify signal is emitted when a widget becomes
     /// shadowed by a GTK+ grab (not a pointer or keyboard grab) on
     /// another widget, or when it becomes unshadowed due to a grab
     /// being removed.
     /// 
-    /// A widget is shadowed by a gtk_grab_add() when the topmost
+    /// A widget is shadowed by a `gtk_grab_add()` when the topmost
     /// grab widget in the grab stack of its window group is not
     /// its ancestor.
     case grabNotify = "grab-notify"
-    /// The ::hide signal is emitted when `widget` is hidden, for example with
-    /// gtk_widget_hide().
+    /// The `hide` signal is emitted when `widget` is hidden, for example with
+    /// `gtk_widget_hide()`.
     case hide = "hide"
-    /// The ::hierarchy-changed signal is emitted when the
+    /// The `hierarchy`-changed signal is emitted when the
     /// anchored state of a widget changes. A widget is
     /// “anchored” when its toplevel
     /// ancestor is a `GtkWindow`. This signal is emitted when
     /// a widget changes from un-anchored to anchored or vice-versa.
     case hierarchyChanged = "hierarchy-changed"
-    /// The ::key-press-event signal is emitted when a key is pressed. The signal
+    /// The `key`-press-event signal is emitted when a key is pressed. The signal
     /// emission will reoccur at the key-repeat rate when the key is kept pressed.
     /// 
     /// To receive this signal, the `GdkWindow` associated to the widget needs
@@ -4166,7 +4160,7 @@ public enum ButtonSignalName: String, SignalNameProtocol {
     /// 
     /// This signal will be sent to the grab widget if there is one.
     case keyPressEvent = "key-press-event"
-    /// The ::key-release-event signal is emitted when a key is released.
+    /// The `key`-release-event signal is emitted when a key is released.
     /// 
     /// To receive this signal, the `GdkWindow` associated to the widget needs
     /// to enable the `GDK_KEY_RELEASE_MASK` mask.
@@ -4174,14 +4168,14 @@ public enum ButtonSignalName: String, SignalNameProtocol {
     /// This signal will be sent to the grab widget if there is one.
     case keyReleaseEvent = "key-release-event"
     /// Gets emitted if keyboard navigation fails.
-    /// See gtk_widget_keynav_failed() for details.
+    /// See `gtk_widget_keynav_failed()` for details.
     case keynavFailed = "keynav-failed"
     /// Emitted when the pointer leaves the button.
     ///
     /// **leave is deprecated:**
     /// Use the #GtkWidget::leave-notify-event signal.
     case leave = "leave"
-    /// The ::leave-notify-event will be emitted when the pointer leaves
+    /// The `leave`-notify-event will be emitted when the pointer leaves
     /// the `widget`'s window.
     /// 
     /// To receive this signal, the `GdkWindow` associated to the widget needs
@@ -4189,17 +4183,17 @@ public enum ButtonSignalName: String, SignalNameProtocol {
     /// 
     /// This signal will be sent to the grab widget if there is one.
     case leaveNotifyEvent = "leave-notify-event"
-    /// The ::map signal is emitted when `widget` is going to be mapped, that is
+    /// The `map` signal is emitted when `widget` is going to be mapped, that is
     /// when the widget is visible (which is controlled with
-    /// gtk_widget_set_visible()) and all its parents up to the toplevel widget
-    /// are also visible. Once the map has occurred, `GtkWidget`::map-event will
+    /// `gtk_widget_set_visible()`) and all its parents up to the toplevel widget
+    /// are also visible. Once the map has occurred, `GtkWidget::map`-event will
     /// be emitted.
     /// 
-    /// The ::map signal can be used to determine whether a widget will be drawn,
+    /// The `map` signal can be used to determine whether a widget will be drawn,
     /// for instance it can resume an animation that was stopped during the
-    /// emission of `GtkWidget`::unmap.
+    /// emission of `GtkWidget::unmap`.
     case map = "map"
-    /// The ::map-event signal will be emitted when the `widget`'s window is
+    /// The `map`-event signal will be emitted when the `widget`'s window is
     /// mapped. A window is mapped when it becomes visible on the screen.
     /// 
     /// To receive this signal, the `GdkWindow` associated to the widget needs
@@ -4209,7 +4203,7 @@ public enum ButtonSignalName: String, SignalNameProtocol {
     /// The default handler for this signal activates `widget` if `group_cycling`
     /// is `false`, or just makes `widget` grab focus if `group_cycling` is `true`.
     case mnemonicActivate = "mnemonic-activate"
-    /// The ::motion-notify-event signal is emitted when the pointer moves
+    /// The `motion`-notify-event signal is emitted when the pointer moves
     /// over the widget's `GdkWindow`.
     /// 
     /// To receive this signal, the `GdkWindow` associated to the widget
@@ -4219,32 +4213,31 @@ public enum ButtonSignalName: String, SignalNameProtocol {
     case motionNotifyEvent = "motion-notify-event"
     case moveFocus = "move-focus"
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// The ::parent-set signal is emitted when a new parent
+    /// The `parent`-set signal is emitted when a new parent
     /// has been set on a widget.
     case parentSet = "parent-set"
     /// This signal gets emitted whenever a widget should pop up a context
@@ -4252,7 +4245,7 @@ public enum ButtonSignalName: String, SignalNameProtocol {
     /// by pressing a certain key while a widget is focused, the user can cause
     /// the widget to pop up a menu.  For example, the `GtkEntry` widget creates
     /// a menu with clipboard commands. See the
-    /// [Popup Menu Migration Checklist][checklist-popup-menu]
+    /// [Popup Menu Migration Checklist](#checklist-popup-menu)
     /// for an example of how to use this signal.
     case popupMenu = "popup-menu"
     /// Emitted when the button is pressed.
@@ -4269,12 +4262,12 @@ public enum ButtonSignalName: String, SignalNameProtocol {
     /// reinstate the previous value.
     /// 
     /// Toolkit implementor note: ATK implementors should use
-    /// g_object_notify() to emit property-changed
-    /// notifications. `AtkObject`::property-changed is needed by the
-    /// implementation of atk_add_global_event_listener() because GObject
+    /// `g_object_notify()` to emit property-changed
+    /// notifications. `AtkObject::property`-changed is needed by the
+    /// implementation of `atk_add_global_event_listener()` because GObject
     /// notify doesn't support emission hooks.
     case propertyChange = "property-change"
-    /// The ::property-notify-event signal will be emitted when a property on
+    /// The `property`-notify-event signal will be emitted when a property on
     /// the `widget`'s window has been changed or deleted.
     /// 
     /// To receive this signal, the `GdkWindow` associated to the widget needs
@@ -4290,7 +4283,7 @@ public enum ButtonSignalName: String, SignalNameProtocol {
     /// 
     /// This signal will be sent to the grab widget if there is one.
     case proximityOutEvent = "proximity-out-event"
-    /// Emitted when `GtkWidget`:has-tooltip is `true` and the hover timeout
+    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
     /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
     /// focus in keyboard mode.
     /// 
@@ -4303,8 +4296,8 @@ public enum ButtonSignalName: String, SignalNameProtocol {
     /// The signal handler is free to manipulate `tooltip` with the therefore
     /// destined function calls.
     case queryTooltip = "query-tooltip"
-    /// The ::realize signal is emitted when `widget` is associated with a
-    /// `GdkWindow`, which means that gtk_widget_realize() has been called or the
+    /// The `realize` signal is emitted when `widget` is associated with a
+    /// `GdkWindow`, which means that `gtk_widget_realize()` has been called or the
     /// widget has been mapped (that is, it is going to be drawn).
     case realize = "realize"
     /// Emitted when the button is released.
@@ -4313,10 +4306,10 @@ public enum ButtonSignalName: String, SignalNameProtocol {
     /// Use the #GtkWidget::button-release-event signal.
     case released = "released"
     case remove = "remove"
-    /// The ::screen-changed signal gets emitted when the
+    /// The `screen`-changed signal gets emitted when the
     /// screen of a widget has changed.
     case screenChanged = "screen-changed"
-    /// The ::scroll-event signal is emitted when a button in the 4 to 7
+    /// The `scroll`-event signal is emitted when a button in the 4 to 7
     /// range is pressed. Wheel mice are usually configured to generate
     /// button press events for buttons 4 and 5 when the wheel is turned.
     /// 
@@ -4325,19 +4318,19 @@ public enum ButtonSignalName: String, SignalNameProtocol {
     /// 
     /// This signal will be sent to the grab widget if there is one.
     case scrollEvent = "scroll-event"
-    /// The ::selection-clear-event signal will be emitted when the
+    /// The `selection`-clear-event signal will be emitted when the
     /// the `widget`'s window has lost ownership of a selection.
     case selectionClearEvent = "selection-clear-event"
     case selectionGet = "selection-get"
     case selectionNotifyEvent = "selection-notify-event"
     case selectionReceived = "selection-received"
-    /// The ::selection-request-event signal will be emitted when
+    /// The `selection`-request-event signal will be emitted when
     /// another client requests ownership of the selection owned by
     /// the `widget`'s window.
     case selectionRequestEvent = "selection-request-event"
     case setFocusChild = "set-focus-child"
-    /// The ::show signal is emitted when `widget` is shown, for example with
-    /// gtk_widget_show().
+    /// The `show` signal is emitted when `widget` is shown, for example with
+    /// `gtk_widget_show()`.
     case show = "show"
     case showHelp = "show-help"
     case sizeAllocate = "size-allocate"
@@ -4345,54 +4338,54 @@ public enum ButtonSignalName: String, SignalNameProtocol {
     /// changes.  The detail value identifies the state type which has
     /// changed.
     case stateChange = "state-change"
-    /// The ::state-changed signal is emitted when the widget state changes.
-    /// See gtk_widget_get_state().
+    /// The `state`-changed signal is emitted when the widget state changes.
+    /// See `gtk_widget_get_state()`.
     ///
     /// **state-changed is deprecated:**
     /// Use #GtkWidget::state-flags-changed instead.
     case stateChanged = "state-changed"
-    /// The ::state-flags-changed signal is emitted when the widget state
-    /// changes, see gtk_widget_get_state_flags().
+    /// The `state`-flags-changed signal is emitted when the widget state
+    /// changes, see `gtk_widget_get_state_flags()`.
     case stateFlagsChanged = "state-flags-changed"
-    /// The ::style-set signal is emitted when a new style has been set
+    /// The `style`-set signal is emitted when a new style has been set
     /// on a widget. Note that style-modifying functions like
-    /// gtk_widget_modify_base() also cause this signal to be emitted.
+    /// `gtk_widget_modify_base()` also cause this signal to be emitted.
     /// 
     /// Note that this signal is emitted for changes to the deprecated
     /// `GtkStyle`. To track changes to the `GtkStyleContext` associated
-    /// with a widget, use the `GtkWidget`::style-updated signal.
+    /// with a widget, use the `GtkWidget::style`-updated signal.
     ///
     /// **style-set is deprecated:**
     /// Use the #GtkWidget::style-updated signal
     case styleSet = "style-set"
-    /// The ::style-updated signal is a convenience signal that is emitted when the
-    /// `GtkStyleContext`::changed signal is emitted on the `widget`'s associated
-    /// `GtkStyleContext` as returned by gtk_widget_get_style_context().
+    /// The `style`-updated signal is a convenience signal that is emitted when the
+    /// `GtkStyleContext::changed` signal is emitted on the `widget`'s associated
+    /// `GtkStyleContext` as returned by `gtk_widget_get_style_context()`.
     /// 
-    /// Note that style-modifying functions like gtk_widget_override_color() also
+    /// Note that style-modifying functions like `gtk_widget_override_color()` also
     /// cause this signal to be emitted.
     case styleUpdated = "style-updated"
     case touchEvent = "touch-event"
-    /// The ::unmap signal is emitted when `widget` is going to be unmapped, which
+    /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
     /// means that either it or any of its parents up to the toplevel widget have
     /// been set as hidden.
     /// 
-    /// As ::unmap indicates that a widget will not be shown any longer, it can be
+    /// As `unmap` indicates that a widget will not be shown any longer, it can be
     /// used to, for example, stop an animation on the widget.
     case unmap = "unmap"
-    /// The ::unmap-event signal will be emitted when the `widget`'s window is
+    /// The `unmap`-event signal will be emitted when the `widget`'s window is
     /// unmapped. A window is unmapped when it becomes invisible on the screen.
     /// 
     /// To receive this signal, the `GdkWindow` associated to the widget needs
     /// to enable the `GDK_STRUCTURE_MASK` mask. GDK will enable this mask
     /// automatically for all new windows.
     case unmapEvent = "unmap-event"
-    /// The ::unrealize signal is emitted when the `GdkWindow` associated with
-    /// `widget` is destroyed, which means that gtk_widget_unrealize() has been
+    /// The `unrealize` signal is emitted when the `GdkWindow` associated with
+    /// `widget` is destroyed, which means that `gtk_widget_unrealize()` has been
     /// called or the widget has been unmapped (that is, it is going to be
     /// hidden).
     case unrealize = "unrealize"
-    /// The ::visibility-notify-event will be emitted when the `widget`'s
+    /// The `visibility`-notify-event will be emitted when the `widget`'s
     /// window is obscured or unobscured.
     /// 
     /// To receive this signal the `GdkWindow` associated to the widget needs
@@ -4407,7 +4400,7 @@ public enum ButtonSignalName: String, SignalNameProtocol {
     /// The "visible-data-changed" signal is emitted when the visual
     /// appearance of the object changed.
     case visibleDataChanged = "visible-data-changed"
-    /// The ::window-state-event will be emitted when the state of the
+    /// The `window`-state-event will be emitted when the state of the
     /// toplevel window associated to the `widget` changes.
     /// 
     /// To receive this signal the `GdkWindow` associated to the widget
@@ -4459,7 +4452,7 @@ public enum ButtonSignalName: String, SignalNameProtocol {
     /// the value, and value-changed signal to be notified on their value
     /// changes.
     case notifyAccessibleValue = "notify::accessible-value"
-    /// If `true`, the button will ignore the `GtkSettings`:gtk-button-images
+    /// If `true`, the button will ignore the `GtkSettings:gtk`-button-images
     /// setting and always show the image, if available.
     /// 
     /// Use this property if the button would be useless or hard to use
@@ -4477,7 +4470,7 @@ public enum ButtonSignalName: String, SignalNameProtocol {
     /// Widgets should not use this property.
     case notifyDoubleBuffered = "notify::double-buffered"
     case notifyEvents = "notify::events"
-    /// Whether to expand in both directions. Setting this sets both `GtkWidget`:hexpand and `GtkWidget`:vexpand
+    /// Whether to expand in both directions. Setting this sets both `GtkWidget:hexpand` and `GtkWidget:vexpand`
     case notifyExpand = "notify::expand"
     /// Whether the widget should grab focus when it is clicked with the mouse.
     /// 
@@ -4490,9 +4483,9 @@ public enum ButtonSignalName: String, SignalNameProtocol {
     case notifyHalign = "notify::halign"
     case notifyHasDefault = "notify::has-default"
     case notifyHasFocus = "notify::has-focus"
-    /// Enables or disables the emission of `GtkWidget`::query-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget`::query-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
     /// whether it will provide a tooltip or not.
     /// 
     /// Note that setting this property to `true` for the first time will change
@@ -4501,9 +4494,9 @@ public enum ButtonSignalName: String, SignalNameProtocol {
     /// property is set to `false` again.
     case notifyHasTooltip = "notify::has-tooltip"
     case notifyHeightRequest = "notify::height-request"
-    /// Whether to expand horizontally. See gtk_widget_set_hexpand().
+    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
     case notifyHexpand = "notify::hexpand"
-    /// Whether to use the `GtkWidget`:hexpand property. See gtk_widget_get_hexpand_set().
+    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
     case notifyHexpandSet = "notify::hexpand-set"
     /// The child widget to appear next to the button text.
     case notifyImage = "notify::image"
@@ -4518,20 +4511,20 @@ public enum ButtonSignalName: String, SignalNameProtocol {
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// gtk_widget_set_size_request() for example.
+    /// `gtk_widget_set_size_request()` for example.
     case notifyMarginBottom = "notify::margin-bottom"
     /// Margin on end of widget, horizontally. This property supports
     /// left-to-right and right-to-left text directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// gtk_widget_set_size_request() for example.
+    /// `gtk_widget_set_size_request()` for example.
     case notifyMarginEnd = "notify::margin-end"
     /// Margin on left side of widget.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// gtk_widget_set_size_request() for example.
+    /// `gtk_widget_set_size_request()` for example.
     ///
     /// **margin-left is deprecated:**
     /// Use #GtkWidget:margin-start instead.
@@ -4540,7 +4533,7 @@ public enum ButtonSignalName: String, SignalNameProtocol {
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// gtk_widget_set_size_request() for example.
+    /// `gtk_widget_set_size_request()` for example.
     ///
     /// **margin-right is deprecated:**
     /// Use #GtkWidget:margin-end instead.
@@ -4550,17 +4543,17 @@ public enum ButtonSignalName: String, SignalNameProtocol {
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// gtk_widget_set_size_request() for example.
+    /// `gtk_widget_set_size_request()` for example.
     case notifyMarginStart = "notify::margin-start"
     /// Margin on top side of widget.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// gtk_widget_set_size_request() for example.
+    /// `gtk_widget_set_size_request()` for example.
     case notifyMarginTop = "notify::margin-top"
     case notifyName = "notify::name"
     case notifyNoShowAll = "notify::no-show-all"
-    /// The requested opacity of the widget. See gtk_widget_set_opacity() for
+    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
     /// more details about window opacity.
     /// 
     /// Before 3.8 this was only available in GtkWindow
@@ -4569,7 +4562,7 @@ public enum ButtonSignalName: String, SignalNameProtocol {
     case notifyReceivesDefault = "notify::receives-default"
     case notifyRelief = "notify::relief"
     case notifyResizeMode = "notify::resize-mode"
-    /// The scale factor of the widget. See gtk_widget_get_scale_factor() for
+    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
     /// more details about widget scaling.
     case notifyScaleFactor = "notify::scale-factor"
     case notifySensitive = "notify::sensitive"
@@ -4579,27 +4572,27 @@ public enum ButtonSignalName: String, SignalNameProtocol {
     /// Use #GtkStyleContext instead
     case notifyStyle = "notify::style"
     /// Sets the text of tooltip to be the given string, which is marked up
-    /// with the [Pango text markup language][PangoMarkupFormat].
-    /// Also see gtk_tooltip_set_markup().
+    /// with the [Pango text markup language](#PangoMarkupFormat).
+    /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget`:has-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget`::query-tooltip in the default signal handler.
+    /// `GtkWidget::query`-tooltip in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget`:tooltip-text and `GtkWidget`:tooltip-markup
+    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
     /// are set, the last one wins.
     case notifyTooltipMarkup = "notify::tooltip-markup"
     /// Sets the text of tooltip to be the given string.
     /// 
-    /// Also see gtk_tooltip_set_text().
+    /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget`:has-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget`::query-tooltip in the default signal handler.
+    /// `GtkWidget::query`-tooltip in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget`:tooltip-text and `GtkWidget`:tooltip-markup
+    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
     /// are set, the last one wins.
     case notifyTooltipText = "notify::tooltip-text"
 
@@ -4610,9 +4603,9 @@ public enum ButtonSignalName: String, SignalNameProtocol {
     case notifyUseUnderline = "notify::use-underline"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
     case notifyValign = "notify::valign"
-    /// Whether to expand vertically. See gtk_widget_set_vexpand().
+    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
     case notifyVexpand = "notify::vexpand"
-    /// Whether to use the `GtkWidget`:vexpand property. See gtk_widget_get_vexpand_set().
+    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
     case notifyVexpandSet = "notify::vexpand-set"
     case notifyVisible = "notify::visible"
     case notifyWidthRequest = "notify::width-request"
@@ -4668,13 +4661,13 @@ public extension ButtonProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkButton` instance.
     var button_ptr: UnsafeMutablePointer<GtkButton> { return ptr.assumingMemoryBound(to: GtkButton.self) }
 
-    /// Emits a `GtkButton`::clicked signal to the given `GtkButton`.
+    /// Emits a `GtkButton::clicked` signal to the given `GtkButton`.
     func clicked() {
         gtk_button_clicked(cast(button_ptr))
     
     }
 
-    /// Emits a `GtkButton`::enter signal to the given `GtkButton`.
+    /// Emits a `GtkButton::enter` signal to the given `GtkButton`.
     ///
     /// **enter is deprecated:**
     /// Use the #GtkWidget::enter-notify-event signal.
@@ -4693,7 +4686,7 @@ public extension ButtonProtocol {
     
     }
 
-    /// Returns whether the button will ignore the `GtkSettings`:gtk-button-images
+    /// Returns whether the button will ignore the `GtkSettings:gtk`-button-images
     /// setting and always show the image, if available.
     func getAlwaysShowImage() -> Bool {
         let rv = gtk_button_get_always_show_image(cast(button_ptr))
@@ -4708,7 +4701,7 @@ public extension ButtonProtocol {
     }
 
     /// Returns whether the button grabs focus when it is clicked with the mouse.
-    /// See gtk_button_set_focus_on_click().
+    /// See `gtk_button_set_focus_on_click()`.
     ///
     /// **get_focus_on_click is deprecated:**
     /// Use gtk_widget_get_focus_on_click() instead
@@ -4718,8 +4711,8 @@ public extension ButtonProtocol {
     }
 
     /// Gets the widget that is currenty set as the image of `button`.
-    /// This may have been explicitly set by gtk_button_set_image()
-    /// or constructed by gtk_button_new_from_stock().
+    /// This may have been explicitly set by `gtk_button_set_image()`
+    /// or constructed by `gtk_button_new_from_stock()`.
     func getImage() -> UnsafeMutablePointer<GtkWidget>! {
         let rv = gtk_button_get_image(cast(button_ptr))
         return cast(rv)
@@ -4733,9 +4726,9 @@ public extension ButtonProtocol {
     }
 
     /// Fetches the text from the label of the button, as set by
-    /// gtk_button_set_label(). If the label text has not
+    /// `gtk_button_set_label()`. If the label text has not
     /// been set the return value will be `nil`. This will be the
-    /// case if you create an empty button with gtk_button_new() to
+    /// case if you create an empty button with `gtk_button_new()` to
     /// use as a container.
     func getLabel() -> String! {
         let rv = gtk_button_get_label(cast(button_ptr))
@@ -4764,7 +4757,7 @@ public extension ButtonProtocol {
         return Bool(rv != 0)
     }
 
-    /// Emits a `GtkButton`::leave signal to the given `GtkButton`.
+    /// Emits a `GtkButton::leave` signal to the given `GtkButton`.
     ///
     /// **leave is deprecated:**
     /// Use the #GtkWidget::leave-notify-event signal.
@@ -4773,7 +4766,7 @@ public extension ButtonProtocol {
     
     }
 
-    /// Emits a `GtkButton`::pressed signal to the given `GtkButton`.
+    /// Emits a `GtkButton::pressed` signal to the given `GtkButton`.
     ///
     /// **pressed is deprecated:**
     /// Use the #GtkWidget::button-press-event signal.
@@ -4782,7 +4775,7 @@ public extension ButtonProtocol {
     
     }
 
-    /// Emits a `GtkButton`::released signal to the given `GtkButton`.
+    /// Emits a `GtkButton::released` signal to the given `GtkButton`.
     ///
     /// **released is deprecated:**
     /// Use the #GtkWidget::button-release-event signal.
@@ -4802,7 +4795,7 @@ public extension ButtonProtocol {
     
     }
 
-    /// If `true`, the button will ignore the `GtkSettings`:gtk-button-images
+    /// If `true`, the button will ignore the `GtkSettings:gtk`-button-images
     /// setting and always show the image, if available.
     /// 
     /// Use this property if the button  would be useless or hard to use
@@ -4826,8 +4819,8 @@ public extension ButtonProtocol {
 
     /// Set the image of `button` to the given widget. The image will be
     /// displayed if the label text is `nil` or if
-    /// `GtkButton`:always-show-image is `true`. You don’t have to call
-    /// gtk_widget_show() on `image` yourself.
+    /// `GtkButton:always`-show-image is `true`. You don’t have to call
+    /// `gtk_widget_show()` on `image` yourself.
     func set(image: WidgetProtocol) {
         gtk_button_set_image(cast(button_ptr), cast(image.ptr))
     
@@ -4841,7 +4834,7 @@ public extension ButtonProtocol {
     }
 
     /// Sets the text of the label of the button to `str`. This text is
-    /// also used to select the stock item if gtk_button_set_use_stock()
+    /// also used to select the stock item if `gtk_button_set_use_stock()`
     /// is used.
     /// 
     /// This will also clear any previously set labels.
@@ -4876,16 +4869,16 @@ public extension ButtonProtocol {
         gtk_button_set_use_underline(cast(button_ptr), gboolean(use_underline ? 1 : 0))
     
     }
-    /// Returns whether the button will ignore the `GtkSettings`:gtk-button-images
+    /// Returns whether the button will ignore the `GtkSettings:gtk`-button-images
     /// setting and always show the image, if available.
     var alwaysShowImage: Bool {
-        /// Returns whether the button will ignore the `GtkSettings`:gtk-button-images
+        /// Returns whether the button will ignore the `GtkSettings:gtk`-button-images
         /// setting and always show the image, if available.
         get {
             let rv = gtk_button_get_always_show_image(cast(button_ptr))
             return Bool(rv != 0)
         }
-        /// If `true`, the button will ignore the `GtkSettings`:gtk-button-images
+        /// If `true`, the button will ignore the `GtkSettings:gtk`-button-images
         /// setting and always show the image, if available.
         /// 
         /// Use this property if the button  would be useless or hard to use
@@ -4907,13 +4900,13 @@ public extension ButtonProtocol {
     }
 
     /// Returns whether the button grabs focus when it is clicked with the mouse.
-    /// See gtk_button_set_focus_on_click().
+    /// See `gtk_button_set_focus_on_click()`.
     ///
     /// **get_focus_on_click is deprecated:**
     /// Use gtk_widget_get_focus_on_click() instead
     @available(*, deprecated) var focusOnClick: Bool {
         /// Returns whether the button grabs focus when it is clicked with the mouse.
-        /// See gtk_button_set_focus_on_click().
+        /// See `gtk_button_set_focus_on_click()`.
         ///
         /// **get_focus_on_click is deprecated:**
         /// Use gtk_widget_get_focus_on_click() instead
@@ -4936,16 +4929,16 @@ public extension ButtonProtocol {
     /// The child widget to appear next to the button text.
     var image: UnsafeMutablePointer<GtkWidget>! {
         /// Gets the widget that is currenty set as the image of `button`.
-        /// This may have been explicitly set by gtk_button_set_image()
-        /// or constructed by gtk_button_new_from_stock().
+        /// This may have been explicitly set by `gtk_button_set_image()`
+        /// or constructed by `gtk_button_new_from_stock()`.
         get {
             let rv = gtk_button_get_image(cast(button_ptr))
             return cast(rv)
         }
         /// Set the image of `button` to the given widget. The image will be
         /// displayed if the label text is `nil` or if
-        /// `GtkButton`:always-show-image is `true`. You don’t have to call
-        /// gtk_widget_show() on `image` yourself.
+        /// `GtkButton:always`-show-image is `true`. You don’t have to call
+        /// `gtk_widget_show()` on `image` yourself.
         nonmutating set {
             gtk_button_set_image(cast(button_ptr), cast(newValue))
         }
@@ -4969,16 +4962,16 @@ public extension ButtonProtocol {
 
     var label: String! {
         /// Fetches the text from the label of the button, as set by
-        /// gtk_button_set_label(). If the label text has not
+        /// `gtk_button_set_label()`. If the label text has not
         /// been set the return value will be `nil`. This will be the
-        /// case if you create an empty button with gtk_button_new() to
+        /// case if you create an empty button with `gtk_button_new()` to
         /// use as a container.
         get {
             let rv = gtk_button_get_label(cast(button_ptr))
             return rv.map { String(cString: UnsafePointer<CChar>($0)) }
         }
         /// Sets the text of the label of the button to `str`. This text is
-        /// also used to select the stock item if gtk_button_set_use_stock()
+        /// also used to select the stock item if `gtk_button_set_use_stock()`
         /// is used.
         /// 
         /// This will also clear any previously set labels.
@@ -5263,29 +5256,28 @@ public enum ButtonAccessibleSignalName: String, SignalNameProtocol {
     /// Use the #AtkObject::state-change signal instead.
     case focusEvent = "focus-event"
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
     /// The signal "property-change" is emitted when an object's property
@@ -5297,9 +5289,9 @@ public enum ButtonAccessibleSignalName: String, SignalNameProtocol {
     /// reinstate the previous value.
     /// 
     /// Toolkit implementor note: ATK implementors should use
-    /// g_object_notify() to emit property-changed
-    /// notifications. `AtkObject`::property-changed is needed by the
-    /// implementation of atk_add_global_event_listener() because GObject
+    /// `g_object_notify()` to emit property-changed
+    /// notifications. `AtkObject::property`-changed is needed by the
+    /// implementation of `atk_add_global_event_listener()` because GObject
     /// notify doesn't support emission hooks.
     case propertyChange = "property-change"
     /// The "state-change" signal is emitted when an object's state
@@ -5578,7 +5570,7 @@ public enum ButtonBoxPropertyName: String, PropertyNameProtocol {
     /// Widgets should not use this property.
     case doubleBuffered = "double-buffered"
     case events = "events"
-    /// Whether to expand in both directions. Setting this sets both `GtkWidget`:hexpand and `GtkWidget`:vexpand
+    /// Whether to expand in both directions. Setting this sets both `GtkWidget:hexpand` and `GtkWidget:vexpand`
     case expand = "expand"
     /// Whether the widget should grab focus when it is clicked with the mouse.
     /// 
@@ -5591,9 +5583,9 @@ public enum ButtonBoxPropertyName: String, PropertyNameProtocol {
     case halign = "halign"
     case hasDefault = "has-default"
     case hasFocus = "has-focus"
-    /// Enables or disables the emission of `GtkWidget`::query-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget`::query-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
     /// whether it will provide a tooltip or not.
     /// 
     /// Note that setting this property to `true` for the first time will change
@@ -5602,9 +5594,9 @@ public enum ButtonBoxPropertyName: String, PropertyNameProtocol {
     /// property is set to `false` again.
     case hasTooltip = "has-tooltip"
     case heightRequest = "height-request"
-    /// Whether to expand horizontally. See gtk_widget_set_hexpand().
+    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
     case hexpand = "hexpand"
-    /// Whether to use the `GtkWidget`:hexpand property. See gtk_widget_get_hexpand_set().
+    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
     case hexpandSet = "hexpand-set"
     case homogeneous = "homogeneous"
     case isFocus = "is-focus"
@@ -5616,20 +5608,20 @@ public enum ButtonBoxPropertyName: String, PropertyNameProtocol {
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// gtk_widget_set_size_request() for example.
+    /// `gtk_widget_set_size_request()` for example.
     case marginBottom = "margin-bottom"
     /// Margin on end of widget, horizontally. This property supports
     /// left-to-right and right-to-left text directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// gtk_widget_set_size_request() for example.
+    /// `gtk_widget_set_size_request()` for example.
     case marginEnd = "margin-end"
     /// Margin on left side of widget.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// gtk_widget_set_size_request() for example.
+    /// `gtk_widget_set_size_request()` for example.
     ///
     /// **margin-left is deprecated:**
     /// Use #GtkWidget:margin-start instead.
@@ -5638,7 +5630,7 @@ public enum ButtonBoxPropertyName: String, PropertyNameProtocol {
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// gtk_widget_set_size_request() for example.
+    /// `gtk_widget_set_size_request()` for example.
     ///
     /// **margin-right is deprecated:**
     /// Use #GtkWidget:margin-end instead.
@@ -5648,17 +5640,17 @@ public enum ButtonBoxPropertyName: String, PropertyNameProtocol {
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// gtk_widget_set_size_request() for example.
+    /// `gtk_widget_set_size_request()` for example.
     case marginStart = "margin-start"
     /// Margin on top side of widget.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// gtk_widget_set_size_request() for example.
+    /// `gtk_widget_set_size_request()` for example.
     case marginTop = "margin-top"
     case name = "name"
     case noShowAll = "no-show-all"
-    /// The requested opacity of the widget. See gtk_widget_set_opacity() for
+    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
     /// more details about window opacity.
     /// 
     /// Before 3.8 this was only available in GtkWindow
@@ -5666,7 +5658,7 @@ public enum ButtonBoxPropertyName: String, PropertyNameProtocol {
     case parent = "parent"
     case receivesDefault = "receives-default"
     case resizeMode = "resize-mode"
-    /// The scale factor of the widget. See gtk_widget_get_scale_factor() for
+    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
     /// more details about widget scaling.
     case scaleFactor = "scale-factor"
     case sensitive = "sensitive"
@@ -5677,34 +5669,34 @@ public enum ButtonBoxPropertyName: String, PropertyNameProtocol {
     /// Use #GtkStyleContext instead
     case style = "style"
     /// Sets the text of tooltip to be the given string, which is marked up
-    /// with the [Pango text markup language][PangoMarkupFormat].
-    /// Also see gtk_tooltip_set_markup().
+    /// with the [Pango text markup language](#PangoMarkupFormat).
+    /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget`:has-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget`::query-tooltip in the default signal handler.
+    /// `GtkWidget::query`-tooltip in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget`:tooltip-text and `GtkWidget`:tooltip-markup
+    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
     /// are set, the last one wins.
     case tooltipMarkup = "tooltip-markup"
     /// Sets the text of tooltip to be the given string.
     /// 
-    /// Also see gtk_tooltip_set_text().
+    /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget`:has-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget`::query-tooltip in the default signal handler.
+    /// `GtkWidget::query`-tooltip in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget`:tooltip-text and `GtkWidget`:tooltip-markup
+    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
     /// are set, the last one wins.
     case tooltipText = "tooltip-text"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
     case valign = "valign"
-    /// Whether to expand vertically. See gtk_widget_set_vexpand().
+    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
     case vexpand = "vexpand"
-    /// Whether to use the `GtkWidget`:vexpand property. See gtk_widget_get_vexpand_set().
+    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
     case vexpandSet = "vexpand-set"
     case visible = "visible"
     case widthRequest = "width-request"
@@ -5756,7 +5748,7 @@ public enum ButtonBoxSignalName: String, SignalNameProtocol {
     /// signal when the cell in the table which has focus changes.
     case activeDescendantChanged = "active-descendant-changed"
     case add = "add"
-    /// The ::button-press-event signal will be emitted when a button
+    /// The `button`-press-event signal will be emitted when a button
     /// (typically from a mouse) is pressed.
     /// 
     /// To receive this signal, the `GdkWindow` associated to the
@@ -5764,7 +5756,7 @@ public enum ButtonBoxSignalName: String, SignalNameProtocol {
     /// 
     /// This signal will be sent to the grab widget if there is one.
     case buttonPressEvent = "button-press-event"
-    /// The ::button-release-event signal will be emitted when a button
+    /// The `button`-release-event signal will be emitted when a button
     /// (typically from a mouse) is released.
     /// 
     /// To receive this signal, the `GdkWindow` associated to the
@@ -5779,22 +5771,22 @@ public enum ButtonBoxSignalName: String, SignalNameProtocol {
     /// for determining whether an accelerator can be activated.
     case canActivateAccel = "can-activate-accel"
     case checkResize = "check-resize"
-    /// The ::child-notify signal is emitted for each
-    /// [child property][child-properties]  that has
+    /// The `child`-notify signal is emitted for each
+    /// [child property](#child-properties)  that has
     /// changed on an object. The signal's detail holds the property name.
     case childNotify = "child-notify"
     /// The signal "children-changed" is emitted when a child is added or
     /// removed form an object. It supports two details: "add" and
     /// "remove"
     case childrenChanged = "children-changed"
-    /// The ::composited-changed signal is emitted when the composited
+    /// The `composited`-changed signal is emitted when the composited
     /// status of `widgets` screen changes.
-    /// See gdk_screen_is_composited().
+    /// See `gdk_screen_is_composited()`.
     ///
     /// **composited-changed is deprecated:**
     /// Use GdkScreen::composited-changed instead.
     case compositedChanged = "composited-changed"
-    /// The ::configure-event signal will be emitted when the size, position or
+    /// The `configure`-event signal will be emitted when the size, position or
     /// stacking of the `widget`'s window has changed.
     /// 
     /// To receive this signal, the `GdkWindow` associated to the widget needs
@@ -5805,9 +5797,9 @@ public enum ButtonBoxSignalName: String, SignalNameProtocol {
     /// The region/area members of the event shows what area of the redirected
     /// drawable was drawn into.
     case damageEvent = "damage-event"
-    /// The ::delete-event signal is emitted if a user requests that
+    /// The `delete`-event signal is emitted if a user requests that
     /// a toplevel window is closed. The default handler for this signal
-    /// destroys the window. Connecting gtk_widget_hide_on_delete() to
+    /// destroys the window. Connecting `gtk_widget_hide_on_delete()` to
     /// this signal will cause the window to be hidden instead, so that
     /// it can later be shown again without reconstructing it.
     case deleteEvent = "delete-event"
@@ -5817,7 +5809,7 @@ public enum ButtonBoxSignalName: String, SignalNameProtocol {
     /// 
     /// This signal is not suitable for saving widget state.
     case destroy = "destroy"
-    /// The ::destroy-event signal is emitted when a `GdkWindow` is destroyed.
+    /// The `destroy`-event signal is emitted when a `GdkWindow` is destroyed.
     /// You rarely get this signal, because most widgets disconnect themselves
     /// from their window before they destroy it, so no widget owns the
     /// window at destroy time.
@@ -5826,44 +5818,44 @@ public enum ButtonBoxSignalName: String, SignalNameProtocol {
     /// to enable the `GDK_STRUCTURE_MASK` mask. GDK will enable this mask
     /// automatically for all new windows.
     case destroyEvent = "destroy-event"
-    /// The ::direction-changed signal is emitted when the text direction
+    /// The `direction`-changed signal is emitted when the text direction
     /// of a widget changes.
     case directionChanged = "direction-changed"
-    /// The ::drag-begin signal is emitted on the drag source when a drag is
+    /// The `drag`-begin signal is emitted on the drag source when a drag is
     /// started. A typical reason to connect to this signal is to set up a
-    /// custom drag icon with e.g. gtk_drag_source_set_icon_pixbuf().
+    /// custom drag icon with e.g. `gtk_drag_source_set_icon_pixbuf()`.
     /// 
     /// Note that some widgets set up a drag icon in the default handler of
-    /// this signal, so you may have to use g_signal_connect_after() to
+    /// this signal, so you may have to use `g_signal_connect_after()` to
     /// override what the default handler did.
     case dragBegin = "drag-begin"
-    /// The ::drag-data-delete signal is emitted on the drag source when a drag
+    /// The `drag`-data-delete signal is emitted on the drag source when a drag
     /// with the action `GDK_ACTION_MOVE` is successfully completed. The signal
     /// handler is responsible for deleting the data that has been dropped. What
     /// "delete" means depends on the context of the drag operation.
     case dragDataDelete = "drag-data-delete"
-    /// The ::drag-data-get signal is emitted on the drag source when the drop
+    /// The `drag`-data-get signal is emitted on the drag source when the drop
     /// site requests the data which is dragged. It is the responsibility of
     /// the signal handler to fill `data` with the data in the format which
-    /// is indicated by `info`. See gtk_selection_data_set() and
-    /// gtk_selection_data_set_text().
+    /// is indicated by `info`. See `gtk_selection_data_set()` and
+    /// `gtk_selection_data_set_text()`.
     case dragDataGet = "drag-data-get"
-    /// The ::drag-data-received signal is emitted on the drop site when the
+    /// The `drag`-data-received signal is emitted on the drop site when the
     /// dragged data has been received. If the data was received in order to
     /// determine whether the drop will be accepted, the handler is expected
-    /// to call gdk_drag_status() and not finish the drag.
-    /// If the data was received in response to a `GtkWidget`::drag-drop signal
+    /// to call `gdk_drag_status()` and not finish the drag.
+    /// If the data was received in response to a `GtkWidget::drag`-drop signal
     /// (and this is the last target to be received), the handler for this
     /// signal is expected to process the received data and then call
-    /// gtk_drag_finish(), setting the `success` parameter depending on
+    /// `gtk_drag_finish()`, setting the `success` parameter depending on
     /// whether the data was processed successfully.
     /// 
     /// Applications must create some means to determine why the signal was emitted
-    /// and therefore whether to call gdk_drag_status() or gtk_drag_finish().
+    /// and therefore whether to call `gdk_drag_status()` or `gtk_drag_finish()`.
     /// 
     /// The handler may inspect the selected action with
-    /// gdk_drag_context_get_selected_action() before calling
-    /// gtk_drag_finish(), e.g. to implement `GDK_ACTION_ASK` as
+    /// `gdk_drag_context_get_selected_action()` before calling
+    /// `gtk_drag_finish()`, e.g. to implement `GDK_ACTION_ASK` as
     /// shown in the following example:
     /// (C Language Example):
     /// ```C
@@ -5911,58 +5903,58 @@ public enum ButtonBoxSignalName: String, SignalNameProtocol {
     /// ```
     /// 
     case dragDataReceived = "drag-data-received"
-    /// The ::drag-drop signal is emitted on the drop site when the user drops
+    /// The `drag`-drop signal is emitted on the drop site when the user drops
     /// the data onto the widget. The signal handler must determine whether
     /// the cursor position is in a drop zone or not. If it is not in a drop
     /// zone, it returns `false` and no further processing is necessary.
     /// Otherwise, the handler returns `true`. In this case, the handler must
-    /// ensure that gtk_drag_finish() is called to let the source know that
-    /// the drop is done. The call to gtk_drag_finish() can be done either
-    /// directly or in a `GtkWidget`::drag-data-received handler which gets
-    /// triggered by calling gtk_drag_get_data() to receive the data for one
+    /// ensure that `gtk_drag_finish()` is called to let the source know that
+    /// the drop is done. The call to `gtk_drag_finish()` can be done either
+    /// directly or in a `GtkWidget::drag`-data-received handler which gets
+    /// triggered by calling `gtk_drag_get_data()` to receive the data for one
     /// or more of the supported targets.
     case dragDrop = "drag-drop"
-    /// The ::drag-end signal is emitted on the drag source when a drag is
+    /// The `drag`-end signal is emitted on the drag source when a drag is
     /// finished.  A typical reason to connect to this signal is to undo
-    /// things done in `GtkWidget`::drag-begin.
+    /// things done in `GtkWidget::drag`-begin.
     case dragEnd = "drag-end"
-    /// The ::drag-failed signal is emitted on the drag source when a drag has
+    /// The `drag`-failed signal is emitted on the drag source when a drag has
     /// failed. The signal handler may hook custom code to handle a failed DnD
     /// operation based on the type of error, it returns `true` is the failure has
     /// been already handled (not showing the default "drag operation failed"
     /// animation), otherwise it returns `false`.
     case dragFailed = "drag-failed"
-    /// The ::drag-leave signal is emitted on the drop site when the cursor
+    /// The `drag`-leave signal is emitted on the drop site when the cursor
     /// leaves the widget. A typical reason to connect to this signal is to
-    /// undo things done in `GtkWidget`::drag-motion, e.g. undo highlighting
-    /// with gtk_drag_unhighlight().
+    /// undo things done in `GtkWidget::drag`-motion, e.g. undo highlighting
+    /// with `gtk_drag_unhighlight()`.
     /// 
     /// 
-    /// Likewise, the `GtkWidget`::drag-leave signal is also emitted before the
-    /// ::drag-drop signal, for instance to allow cleaning up of a preview item
-    /// created in the `GtkWidget`::drag-motion signal handler.
+    /// Likewise, the `GtkWidget::drag`-leave signal is also emitted before the
+    /// `drag`-drop signal, for instance to allow cleaning up of a preview item
+    /// created in the `GtkWidget::drag`-motion signal handler.
     case dragLeave = "drag-leave"
-    /// The ::drag-motion signal is emitted on the drop site when the user
+    /// The `drag`-motion signal is emitted on the drop site when the user
     /// moves the cursor over the widget during a drag. The signal handler
     /// must determine whether the cursor position is in a drop zone or not.
     /// If it is not in a drop zone, it returns `false` and no further processing
     /// is necessary. Otherwise, the handler returns `true`. In this case, the
     /// handler is responsible for providing the necessary information for
-    /// displaying feedback to the user, by calling gdk_drag_status().
+    /// displaying feedback to the user, by calling `gdk_drag_status()`.
     /// 
     /// If the decision whether the drop will be accepted or rejected can't be
     /// made based solely on the cursor position and the type of the data, the
-    /// handler may inspect the dragged data by calling gtk_drag_get_data() and
-    /// defer the gdk_drag_status() call to the `GtkWidget`::drag-data-received
+    /// handler may inspect the dragged data by calling `gtk_drag_get_data()` and
+    /// defer the `gdk_drag_status()` call to the `GtkWidget::drag`-data-received
     /// handler. Note that you must pass `GTK_DEST_DEFAULT_DROP`,
-    /// `GTK_DEST_DEFAULT_MOTION` or `GTK_DEST_DEFAULT_ALL` to gtk_drag_dest_set()
+    /// `GTK_DEST_DEFAULT_MOTION` or `GTK_DEST_DEFAULT_ALL` to `gtk_drag_dest_set()`
     /// when using the drag-motion signal that way.
     /// 
     /// Also note that there is no drag-enter signal. The drag receiver has to
     /// keep track of whether he has received any drag-motion signals since the
-    /// last `GtkWidget`::drag-leave and if not, treat the drag-motion signal as
+    /// last `GtkWidget::drag`-leave and if not, treat the drag-motion signal as
     /// an "enter" signal. Upon an "enter", the handler will typically highlight
-    /// the drop site with gtk_drag_highlight().
+    /// the drop site with `gtk_drag_highlight()`.
     /// (C Language Example):
     /// ```C
     /// static void
@@ -6034,22 +6026,22 @@ public enum ButtonBoxSignalName: String, SignalNameProtocol {
     /// This signal is emitted when a widget is supposed to render itself.
     /// The `widget`'s top left corner must be painted at the origin of
     /// the passed in context and be sized to the values returned by
-    /// gtk_widget_get_allocated_width() and
-    /// gtk_widget_get_allocated_height().
+    /// `gtk_widget_get_allocated_width()` and
+    /// `gtk_widget_get_allocated_height()`.
     /// 
     /// Signal handlers connected to this signal can modify the cairo
     /// context passed as `cr` in any way they like and don't need to
-    /// restore it. The signal emission takes care of calling cairo_save()
-    /// before and cairo_restore() after invoking the handler.
+    /// restore it. The signal emission takes care of calling `cairo_save()`
+    /// before and `cairo_restore()` after invoking the handler.
     /// 
     /// The signal handler will get a `cr` with a clip region already set to the
     /// widget's dirty region, i.e. to the area that needs repainting.  Complicated
     /// widgets that want to avoid redrawing themselves completely can get the full
-    /// extents of the clip region with gdk_cairo_get_clip_rectangle(), or they can
+    /// extents of the clip region with `gdk_cairo_get_clip_rectangle()`, or they can
     /// get a finer-grained representation of the dirty region with
-    /// cairo_copy_clip_rectangle_list().
+    /// `cairo_copy_clip_rectangle_list()`.
     case draw = "draw"
-    /// The ::enter-notify-event will be emitted when the pointer enters
+    /// The `enter`-notify-event will be emitted when the pointer enters
     /// the `widget`'s window.
     /// 
     /// To receive this signal, the `GdkWindow` associated to the widget needs
@@ -6058,13 +6050,13 @@ public enum ButtonBoxSignalName: String, SignalNameProtocol {
     /// This signal will be sent to the grab widget if there is one.
     case enterNotifyEvent = "enter-notify-event"
     /// The GTK+ main loop will emit three signals for each GDK event delivered
-    /// to a widget: one generic ::event signal, another, more specific,
+    /// to a widget: one generic `event` signal, another, more specific,
     /// signal that matches the type of event delivered (e.g.
-    /// `GtkWidget`::key-press-event) and finally a generic
-    /// `GtkWidget`::event-after signal.
+    /// `GtkWidget::key`-press-event) and finally a generic
+    /// `GtkWidget::event`-after signal.
     case event = "event"
-    /// After the emission of the `GtkWidget`::event signal and (optionally)
-    /// the second more specific signal, ::event-after will be emitted
+    /// After the emission of the `GtkWidget::event` signal and (optionally)
+    /// the second more specific signal, `event`-after will be emitted
     /// regardless of the previous two signals handlers return values.
     case eventAfter = "event-after"
     case focus = "focus"
@@ -6074,13 +6066,13 @@ public enum ButtonBoxSignalName: String, SignalNameProtocol {
     /// **focus-event is deprecated:**
     /// Use the #AtkObject::state-change signal instead.
     case focusEvent = "focus-event"
-    /// The ::focus-in-event signal will be emitted when the keyboard focus
+    /// The `focus`-in-event signal will be emitted when the keyboard focus
     /// enters the `widget`'s window.
     /// 
     /// To receive this signal, the `GdkWindow` associated to the widget needs
     /// to enable the `GDK_FOCUS_CHANGE_MASK` mask.
     case focusInEvent = "focus-in-event"
-    /// The ::focus-out-event signal will be emitted when the keyboard focus
+    /// The `focus`-out-event signal will be emitted when the keyboard focus
     /// leaves the `widget`'s window.
     /// 
     /// To receive this signal, the `GdkWindow` associated to the widget needs
@@ -6094,25 +6086,25 @@ public enum ButtonBoxSignalName: String, SignalNameProtocol {
     /// application grabs the pointer or keyboard again.
     case grabBrokenEvent = "grab-broken-event"
     case grabFocus = "grab-focus"
-    /// The ::grab-notify signal is emitted when a widget becomes
+    /// The `grab`-notify signal is emitted when a widget becomes
     /// shadowed by a GTK+ grab (not a pointer or keyboard grab) on
     /// another widget, or when it becomes unshadowed due to a grab
     /// being removed.
     /// 
-    /// A widget is shadowed by a gtk_grab_add() when the topmost
+    /// A widget is shadowed by a `gtk_grab_add()` when the topmost
     /// grab widget in the grab stack of its window group is not
     /// its ancestor.
     case grabNotify = "grab-notify"
-    /// The ::hide signal is emitted when `widget` is hidden, for example with
-    /// gtk_widget_hide().
+    /// The `hide` signal is emitted when `widget` is hidden, for example with
+    /// `gtk_widget_hide()`.
     case hide = "hide"
-    /// The ::hierarchy-changed signal is emitted when the
+    /// The `hierarchy`-changed signal is emitted when the
     /// anchored state of a widget changes. A widget is
     /// “anchored” when its toplevel
     /// ancestor is a `GtkWindow`. This signal is emitted when
     /// a widget changes from un-anchored to anchored or vice-versa.
     case hierarchyChanged = "hierarchy-changed"
-    /// The ::key-press-event signal is emitted when a key is pressed. The signal
+    /// The `key`-press-event signal is emitted when a key is pressed. The signal
     /// emission will reoccur at the key-repeat rate when the key is kept pressed.
     /// 
     /// To receive this signal, the `GdkWindow` associated to the widget needs
@@ -6120,7 +6112,7 @@ public enum ButtonBoxSignalName: String, SignalNameProtocol {
     /// 
     /// This signal will be sent to the grab widget if there is one.
     case keyPressEvent = "key-press-event"
-    /// The ::key-release-event signal is emitted when a key is released.
+    /// The `key`-release-event signal is emitted when a key is released.
     /// 
     /// To receive this signal, the `GdkWindow` associated to the widget needs
     /// to enable the `GDK_KEY_RELEASE_MASK` mask.
@@ -6128,9 +6120,9 @@ public enum ButtonBoxSignalName: String, SignalNameProtocol {
     /// This signal will be sent to the grab widget if there is one.
     case keyReleaseEvent = "key-release-event"
     /// Gets emitted if keyboard navigation fails.
-    /// See gtk_widget_keynav_failed() for details.
+    /// See `gtk_widget_keynav_failed()` for details.
     case keynavFailed = "keynav-failed"
-    /// The ::leave-notify-event will be emitted when the pointer leaves
+    /// The `leave`-notify-event will be emitted when the pointer leaves
     /// the `widget`'s window.
     /// 
     /// To receive this signal, the `GdkWindow` associated to the widget needs
@@ -6138,17 +6130,17 @@ public enum ButtonBoxSignalName: String, SignalNameProtocol {
     /// 
     /// This signal will be sent to the grab widget if there is one.
     case leaveNotifyEvent = "leave-notify-event"
-    /// The ::map signal is emitted when `widget` is going to be mapped, that is
+    /// The `map` signal is emitted when `widget` is going to be mapped, that is
     /// when the widget is visible (which is controlled with
-    /// gtk_widget_set_visible()) and all its parents up to the toplevel widget
-    /// are also visible. Once the map has occurred, `GtkWidget`::map-event will
+    /// `gtk_widget_set_visible()`) and all its parents up to the toplevel widget
+    /// are also visible. Once the map has occurred, `GtkWidget::map`-event will
     /// be emitted.
     /// 
-    /// The ::map signal can be used to determine whether a widget will be drawn,
+    /// The `map` signal can be used to determine whether a widget will be drawn,
     /// for instance it can resume an animation that was stopped during the
-    /// emission of `GtkWidget`::unmap.
+    /// emission of `GtkWidget::unmap`.
     case map = "map"
-    /// The ::map-event signal will be emitted when the `widget`'s window is
+    /// The `map`-event signal will be emitted when the `widget`'s window is
     /// mapped. A window is mapped when it becomes visible on the screen.
     /// 
     /// To receive this signal, the `GdkWindow` associated to the widget needs
@@ -6158,7 +6150,7 @@ public enum ButtonBoxSignalName: String, SignalNameProtocol {
     /// The default handler for this signal activates `widget` if `group_cycling`
     /// is `false`, or just makes `widget` grab focus if `group_cycling` is `true`.
     case mnemonicActivate = "mnemonic-activate"
-    /// The ::motion-notify-event signal is emitted when the pointer moves
+    /// The `motion`-notify-event signal is emitted when the pointer moves
     /// over the widget's `GdkWindow`.
     /// 
     /// To receive this signal, the `GdkWindow` associated to the widget
@@ -6168,32 +6160,31 @@ public enum ButtonBoxSignalName: String, SignalNameProtocol {
     case motionNotifyEvent = "motion-notify-event"
     case moveFocus = "move-focus"
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// The ::parent-set signal is emitted when a new parent
+    /// The `parent`-set signal is emitted when a new parent
     /// has been set on a widget.
     case parentSet = "parent-set"
     /// This signal gets emitted whenever a widget should pop up a context
@@ -6201,7 +6192,7 @@ public enum ButtonBoxSignalName: String, SignalNameProtocol {
     /// by pressing a certain key while a widget is focused, the user can cause
     /// the widget to pop up a menu.  For example, the `GtkEntry` widget creates
     /// a menu with clipboard commands. See the
-    /// [Popup Menu Migration Checklist][checklist-popup-menu]
+    /// [Popup Menu Migration Checklist](#checklist-popup-menu)
     /// for an example of how to use this signal.
     case popupMenu = "popup-menu"
     /// The signal "property-change" is emitted when an object's property
@@ -6213,12 +6204,12 @@ public enum ButtonBoxSignalName: String, SignalNameProtocol {
     /// reinstate the previous value.
     /// 
     /// Toolkit implementor note: ATK implementors should use
-    /// g_object_notify() to emit property-changed
-    /// notifications. `AtkObject`::property-changed is needed by the
-    /// implementation of atk_add_global_event_listener() because GObject
+    /// `g_object_notify()` to emit property-changed
+    /// notifications. `AtkObject::property`-changed is needed by the
+    /// implementation of `atk_add_global_event_listener()` because GObject
     /// notify doesn't support emission hooks.
     case propertyChange = "property-change"
-    /// The ::property-notify-event signal will be emitted when a property on
+    /// The `property`-notify-event signal will be emitted when a property on
     /// the `widget`'s window has been changed or deleted.
     /// 
     /// To receive this signal, the `GdkWindow` associated to the widget needs
@@ -6234,7 +6225,7 @@ public enum ButtonBoxSignalName: String, SignalNameProtocol {
     /// 
     /// This signal will be sent to the grab widget if there is one.
     case proximityOutEvent = "proximity-out-event"
-    /// Emitted when `GtkWidget`:has-tooltip is `true` and the hover timeout
+    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
     /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
     /// focus in keyboard mode.
     /// 
@@ -6247,15 +6238,15 @@ public enum ButtonBoxSignalName: String, SignalNameProtocol {
     /// The signal handler is free to manipulate `tooltip` with the therefore
     /// destined function calls.
     case queryTooltip = "query-tooltip"
-    /// The ::realize signal is emitted when `widget` is associated with a
-    /// `GdkWindow`, which means that gtk_widget_realize() has been called or the
+    /// The `realize` signal is emitted when `widget` is associated with a
+    /// `GdkWindow`, which means that `gtk_widget_realize()` has been called or the
     /// widget has been mapped (that is, it is going to be drawn).
     case realize = "realize"
     case remove = "remove"
-    /// The ::screen-changed signal gets emitted when the
+    /// The `screen`-changed signal gets emitted when the
     /// screen of a widget has changed.
     case screenChanged = "screen-changed"
-    /// The ::scroll-event signal is emitted when a button in the 4 to 7
+    /// The `scroll`-event signal is emitted when a button in the 4 to 7
     /// range is pressed. Wheel mice are usually configured to generate
     /// button press events for buttons 4 and 5 when the wheel is turned.
     /// 
@@ -6264,19 +6255,19 @@ public enum ButtonBoxSignalName: String, SignalNameProtocol {
     /// 
     /// This signal will be sent to the grab widget if there is one.
     case scrollEvent = "scroll-event"
-    /// The ::selection-clear-event signal will be emitted when the
+    /// The `selection`-clear-event signal will be emitted when the
     /// the `widget`'s window has lost ownership of a selection.
     case selectionClearEvent = "selection-clear-event"
     case selectionGet = "selection-get"
     case selectionNotifyEvent = "selection-notify-event"
     case selectionReceived = "selection-received"
-    /// The ::selection-request-event signal will be emitted when
+    /// The `selection`-request-event signal will be emitted when
     /// another client requests ownership of the selection owned by
     /// the `widget`'s window.
     case selectionRequestEvent = "selection-request-event"
     case setFocusChild = "set-focus-child"
-    /// The ::show signal is emitted when `widget` is shown, for example with
-    /// gtk_widget_show().
+    /// The `show` signal is emitted when `widget` is shown, for example with
+    /// `gtk_widget_show()`.
     case show = "show"
     case showHelp = "show-help"
     case sizeAllocate = "size-allocate"
@@ -6284,54 +6275,54 @@ public enum ButtonBoxSignalName: String, SignalNameProtocol {
     /// changes.  The detail value identifies the state type which has
     /// changed.
     case stateChange = "state-change"
-    /// The ::state-changed signal is emitted when the widget state changes.
-    /// See gtk_widget_get_state().
+    /// The `state`-changed signal is emitted when the widget state changes.
+    /// See `gtk_widget_get_state()`.
     ///
     /// **state-changed is deprecated:**
     /// Use #GtkWidget::state-flags-changed instead.
     case stateChanged = "state-changed"
-    /// The ::state-flags-changed signal is emitted when the widget state
-    /// changes, see gtk_widget_get_state_flags().
+    /// The `state`-flags-changed signal is emitted when the widget state
+    /// changes, see `gtk_widget_get_state_flags()`.
     case stateFlagsChanged = "state-flags-changed"
-    /// The ::style-set signal is emitted when a new style has been set
+    /// The `style`-set signal is emitted when a new style has been set
     /// on a widget. Note that style-modifying functions like
-    /// gtk_widget_modify_base() also cause this signal to be emitted.
+    /// `gtk_widget_modify_base()` also cause this signal to be emitted.
     /// 
     /// Note that this signal is emitted for changes to the deprecated
     /// `GtkStyle`. To track changes to the `GtkStyleContext` associated
-    /// with a widget, use the `GtkWidget`::style-updated signal.
+    /// with a widget, use the `GtkWidget::style`-updated signal.
     ///
     /// **style-set is deprecated:**
     /// Use the #GtkWidget::style-updated signal
     case styleSet = "style-set"
-    /// The ::style-updated signal is a convenience signal that is emitted when the
-    /// `GtkStyleContext`::changed signal is emitted on the `widget`'s associated
-    /// `GtkStyleContext` as returned by gtk_widget_get_style_context().
+    /// The `style`-updated signal is a convenience signal that is emitted when the
+    /// `GtkStyleContext::changed` signal is emitted on the `widget`'s associated
+    /// `GtkStyleContext` as returned by `gtk_widget_get_style_context()`.
     /// 
-    /// Note that style-modifying functions like gtk_widget_override_color() also
+    /// Note that style-modifying functions like `gtk_widget_override_color()` also
     /// cause this signal to be emitted.
     case styleUpdated = "style-updated"
     case touchEvent = "touch-event"
-    /// The ::unmap signal is emitted when `widget` is going to be unmapped, which
+    /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
     /// means that either it or any of its parents up to the toplevel widget have
     /// been set as hidden.
     /// 
-    /// As ::unmap indicates that a widget will not be shown any longer, it can be
+    /// As `unmap` indicates that a widget will not be shown any longer, it can be
     /// used to, for example, stop an animation on the widget.
     case unmap = "unmap"
-    /// The ::unmap-event signal will be emitted when the `widget`'s window is
+    /// The `unmap`-event signal will be emitted when the `widget`'s window is
     /// unmapped. A window is unmapped when it becomes invisible on the screen.
     /// 
     /// To receive this signal, the `GdkWindow` associated to the widget needs
     /// to enable the `GDK_STRUCTURE_MASK` mask. GDK will enable this mask
     /// automatically for all new windows.
     case unmapEvent = "unmap-event"
-    /// The ::unrealize signal is emitted when the `GdkWindow` associated with
-    /// `widget` is destroyed, which means that gtk_widget_unrealize() has been
+    /// The `unrealize` signal is emitted when the `GdkWindow` associated with
+    /// `widget` is destroyed, which means that `gtk_widget_unrealize()` has been
     /// called or the widget has been unmapped (that is, it is going to be
     /// hidden).
     case unrealize = "unrealize"
-    /// The ::visibility-notify-event will be emitted when the `widget`'s
+    /// The `visibility`-notify-event will be emitted when the `widget`'s
     /// window is obscured or unobscured.
     /// 
     /// To receive this signal the `GdkWindow` associated to the widget needs
@@ -6346,7 +6337,7 @@ public enum ButtonBoxSignalName: String, SignalNameProtocol {
     /// The "visible-data-changed" signal is emitted when the visual
     /// appearance of the object changed.
     case visibleDataChanged = "visible-data-changed"
-    /// The ::window-state-event will be emitted when the state of the
+    /// The `window`-state-event will be emitted when the state of the
     /// toplevel window associated to the `widget` changes.
     /// 
     /// To receive this signal the `GdkWindow` associated to the widget
@@ -6411,7 +6402,7 @@ public enum ButtonBoxSignalName: String, SignalNameProtocol {
     /// Widgets should not use this property.
     case notifyDoubleBuffered = "notify::double-buffered"
     case notifyEvents = "notify::events"
-    /// Whether to expand in both directions. Setting this sets both `GtkWidget`:hexpand and `GtkWidget`:vexpand
+    /// Whether to expand in both directions. Setting this sets both `GtkWidget:hexpand` and `GtkWidget:vexpand`
     case notifyExpand = "notify::expand"
     /// Whether the widget should grab focus when it is clicked with the mouse.
     /// 
@@ -6424,9 +6415,9 @@ public enum ButtonBoxSignalName: String, SignalNameProtocol {
     case notifyHalign = "notify::halign"
     case notifyHasDefault = "notify::has-default"
     case notifyHasFocus = "notify::has-focus"
-    /// Enables or disables the emission of `GtkWidget`::query-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget`::query-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
     /// whether it will provide a tooltip or not.
     /// 
     /// Note that setting this property to `true` for the first time will change
@@ -6435,9 +6426,9 @@ public enum ButtonBoxSignalName: String, SignalNameProtocol {
     /// property is set to `false` again.
     case notifyHasTooltip = "notify::has-tooltip"
     case notifyHeightRequest = "notify::height-request"
-    /// Whether to expand horizontally. See gtk_widget_set_hexpand().
+    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
     case notifyHexpand = "notify::hexpand"
-    /// Whether to use the `GtkWidget`:hexpand property. See gtk_widget_get_hexpand_set().
+    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
     case notifyHexpandSet = "notify::hexpand-set"
     case notifyHomogeneous = "notify::homogeneous"
     case notifyIsFocus = "notify::is-focus"
@@ -6449,20 +6440,20 @@ public enum ButtonBoxSignalName: String, SignalNameProtocol {
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// gtk_widget_set_size_request() for example.
+    /// `gtk_widget_set_size_request()` for example.
     case notifyMarginBottom = "notify::margin-bottom"
     /// Margin on end of widget, horizontally. This property supports
     /// left-to-right and right-to-left text directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// gtk_widget_set_size_request() for example.
+    /// `gtk_widget_set_size_request()` for example.
     case notifyMarginEnd = "notify::margin-end"
     /// Margin on left side of widget.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// gtk_widget_set_size_request() for example.
+    /// `gtk_widget_set_size_request()` for example.
     ///
     /// **margin-left is deprecated:**
     /// Use #GtkWidget:margin-start instead.
@@ -6471,7 +6462,7 @@ public enum ButtonBoxSignalName: String, SignalNameProtocol {
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// gtk_widget_set_size_request() for example.
+    /// `gtk_widget_set_size_request()` for example.
     ///
     /// **margin-right is deprecated:**
     /// Use #GtkWidget:margin-end instead.
@@ -6481,17 +6472,17 @@ public enum ButtonBoxSignalName: String, SignalNameProtocol {
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// gtk_widget_set_size_request() for example.
+    /// `gtk_widget_set_size_request()` for example.
     case notifyMarginStart = "notify::margin-start"
     /// Margin on top side of widget.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// gtk_widget_set_size_request() for example.
+    /// `gtk_widget_set_size_request()` for example.
     case notifyMarginTop = "notify::margin-top"
     case notifyName = "notify::name"
     case notifyNoShowAll = "notify::no-show-all"
-    /// The requested opacity of the widget. See gtk_widget_set_opacity() for
+    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
     /// more details about window opacity.
     /// 
     /// Before 3.8 this was only available in GtkWindow
@@ -6499,7 +6490,7 @@ public enum ButtonBoxSignalName: String, SignalNameProtocol {
     case notifyParent = "notify::parent"
     case notifyReceivesDefault = "notify::receives-default"
     case notifyResizeMode = "notify::resize-mode"
-    /// The scale factor of the widget. See gtk_widget_get_scale_factor() for
+    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
     /// more details about widget scaling.
     case notifyScaleFactor = "notify::scale-factor"
     case notifySensitive = "notify::sensitive"
@@ -6510,34 +6501,34 @@ public enum ButtonBoxSignalName: String, SignalNameProtocol {
     /// Use #GtkStyleContext instead
     case notifyStyle = "notify::style"
     /// Sets the text of tooltip to be the given string, which is marked up
-    /// with the [Pango text markup language][PangoMarkupFormat].
-    /// Also see gtk_tooltip_set_markup().
+    /// with the [Pango text markup language](#PangoMarkupFormat).
+    /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget`:has-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget`::query-tooltip in the default signal handler.
+    /// `GtkWidget::query`-tooltip in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget`:tooltip-text and `GtkWidget`:tooltip-markup
+    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
     /// are set, the last one wins.
     case notifyTooltipMarkup = "notify::tooltip-markup"
     /// Sets the text of tooltip to be the given string.
     /// 
-    /// Also see gtk_tooltip_set_text().
+    /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget`:has-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget`::query-tooltip in the default signal handler.
+    /// `GtkWidget::query`-tooltip in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget`:tooltip-text and `GtkWidget`:tooltip-markup
+    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
     /// are set, the last one wins.
     case notifyTooltipText = "notify::tooltip-text"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
     case notifyValign = "notify::valign"
-    /// Whether to expand vertically. See gtk_widget_set_vexpand().
+    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
     case notifyVexpand = "notify::vexpand"
-    /// Whether to use the `GtkWidget`:vexpand property. See gtk_widget_get_vexpand_set().
+    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
     case notifyVexpandSet = "notify::vexpand-set"
     case notifyVisible = "notify::visible"
     case notifyWidthRequest = "notify::width-request"
@@ -6610,7 +6601,7 @@ public extension ButtonBoxProtocol {
     /// `GTK_BUTTONBOX_EDGE`, and before the other children if the style
     /// is `GTK_BUTTONBOX_END`. For horizontal button boxes, the definition
     /// of before/after depends on direction of the widget (see
-    /// gtk_widget_set_direction()). If the style is `GTK_BUTTONBOX_START`
+    /// `gtk_widget_set_direction()`). If the style is `GTK_BUTTONBOX_START`
     /// or `GTK_BUTTONBOX_END`, then the secondary children are aligned at
     /// the other end of the button box from the main children. For the
     /// other styles, they appear immediately next to the main children.
@@ -6648,21 +6639,21 @@ public extension ButtonBoxProtocol {
 /// Alternatively, use `CalendarRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
 /// `GtkCalendar` is a widget that displays a Gregorian calendar, one month
-/// at a time. It can be created with gtk_calendar_new().
+/// at a time. It can be created with `gtk_calendar_new()`.
 /// 
 /// The month and year currently displayed can be altered with
-/// gtk_calendar_select_month(). The exact day can be selected from the
-/// displayed month using gtk_calendar_select_day().
+/// `gtk_calendar_select_month()`. The exact day can be selected from the
+/// displayed month using `gtk_calendar_select_day()`.
 /// 
-/// To place a visual marker on a particular day, use gtk_calendar_mark_day()
-/// and to remove the marker, gtk_calendar_unmark_day(). Alternative, all
-/// marks can be cleared with gtk_calendar_clear_marks().
+/// To place a visual marker on a particular day, use `gtk_calendar_mark_day()`
+/// and to remove the marker, `gtk_calendar_unmark_day()`. Alternative, all
+/// marks can be cleared with `gtk_calendar_clear_marks()`.
 /// 
 /// The way in which the calendar itself is displayed can be altered using
-/// gtk_calendar_set_display_options().
+/// `gtk_calendar_set_display_options()`.
 /// 
 /// The selected date can be retrieved from a `GtkCalendar` using
-/// gtk_calendar_get_date().
+/// `gtk_calendar_get_date()`.
 /// 
 /// Users should be aware that, although the Gregorian calendar is the
 /// legal calendar in most countries, it was adopted progressively
@@ -6681,21 +6672,21 @@ public protocol CalendarProtocol: WidgetProtocol {
 /// Use `CalendarRef` only as an `unowned` reference to an existing `GtkCalendar` instance.
 ///
 /// `GtkCalendar` is a widget that displays a Gregorian calendar, one month
-/// at a time. It can be created with gtk_calendar_new().
+/// at a time. It can be created with `gtk_calendar_new()`.
 /// 
 /// The month and year currently displayed can be altered with
-/// gtk_calendar_select_month(). The exact day can be selected from the
-/// displayed month using gtk_calendar_select_day().
+/// `gtk_calendar_select_month()`. The exact day can be selected from the
+/// displayed month using `gtk_calendar_select_day()`.
 /// 
-/// To place a visual marker on a particular day, use gtk_calendar_mark_day()
-/// and to remove the marker, gtk_calendar_unmark_day(). Alternative, all
-/// marks can be cleared with gtk_calendar_clear_marks().
+/// To place a visual marker on a particular day, use `gtk_calendar_mark_day()`
+/// and to remove the marker, `gtk_calendar_unmark_day()`. Alternative, all
+/// marks can be cleared with `gtk_calendar_clear_marks()`.
 /// 
 /// The way in which the calendar itself is displayed can be altered using
-/// gtk_calendar_set_display_options().
+/// `gtk_calendar_set_display_options()`.
 /// 
 /// The selected date can be retrieved from a `GtkCalendar` using
-/// gtk_calendar_get_date().
+/// `gtk_calendar_get_date()`.
 /// 
 /// Users should be aware that, although the Gregorian calendar is the
 /// legal calendar in most countries, it was adopted progressively
@@ -6759,21 +6750,21 @@ public extension CalendarRef {
 /// Use `Calendar` as a strong reference or owner of a `GtkCalendar` instance.
 ///
 /// `GtkCalendar` is a widget that displays a Gregorian calendar, one month
-/// at a time. It can be created with gtk_calendar_new().
+/// at a time. It can be created with `gtk_calendar_new()`.
 /// 
 /// The month and year currently displayed can be altered with
-/// gtk_calendar_select_month(). The exact day can be selected from the
-/// displayed month using gtk_calendar_select_day().
+/// `gtk_calendar_select_month()`. The exact day can be selected from the
+/// displayed month using `gtk_calendar_select_day()`.
 /// 
-/// To place a visual marker on a particular day, use gtk_calendar_mark_day()
-/// and to remove the marker, gtk_calendar_unmark_day(). Alternative, all
-/// marks can be cleared with gtk_calendar_clear_marks().
+/// To place a visual marker on a particular day, use `gtk_calendar_mark_day()`
+/// and to remove the marker, `gtk_calendar_unmark_day()`. Alternative, all
+/// marks can be cleared with `gtk_calendar_clear_marks()`.
 /// 
 /// The way in which the calendar itself is displayed can be altered using
-/// gtk_calendar_set_display_options().
+/// `gtk_calendar_set_display_options()`.
 /// 
 /// The selected date can be retrieved from a `GtkCalendar` using
-/// gtk_calendar_get_date().
+/// `gtk_calendar_get_date()`.
 /// 
 /// Users should be aware that, although the Gregorian calendar is the
 /// legal calendar in most countries, it was adopted progressively
@@ -6881,10 +6872,10 @@ public enum CalendarPropertyName: String, PropertyNameProtocol {
     /// This property gets initially set to the current day.
     case day = "day"
     /// Height of a detail cell, in rows.
-    /// A value of 0 allows any width. See gtk_calendar_set_detail_func().
+    /// A value of 0 allows any width. See `gtk_calendar_set_detail_func()`.
     case detailHeightRows = "detail-height-rows"
     /// Width of a detail cell, in characters.
-    /// A value of 0 allows any width. See gtk_calendar_set_detail_func().
+    /// A value of 0 allows any width. See `gtk_calendar_set_detail_func()`.
     case detailWidthChars = "detail-width-chars"
     /// Whether the widget is double buffered.
     ///
@@ -6892,7 +6883,7 @@ public enum CalendarPropertyName: String, PropertyNameProtocol {
     /// Widgets should not use this property.
     case doubleBuffered = "double-buffered"
     case events = "events"
-    /// Whether to expand in both directions. Setting this sets both `GtkWidget`:hexpand and `GtkWidget`:vexpand
+    /// Whether to expand in both directions. Setting this sets both `GtkWidget:hexpand` and `GtkWidget:vexpand`
     case expand = "expand"
     /// Whether the widget should grab focus when it is clicked with the mouse.
     /// 
@@ -6905,9 +6896,9 @@ public enum CalendarPropertyName: String, PropertyNameProtocol {
     case halign = "halign"
     case hasDefault = "has-default"
     case hasFocus = "has-focus"
-    /// Enables or disables the emission of `GtkWidget`::query-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget`::query-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
     /// whether it will provide a tooltip or not.
     /// 
     /// Note that setting this property to `true` for the first time will change
@@ -6916,9 +6907,9 @@ public enum CalendarPropertyName: String, PropertyNameProtocol {
     /// property is set to `false` again.
     case hasTooltip = "has-tooltip"
     case heightRequest = "height-request"
-    /// Whether to expand horizontally. See gtk_widget_set_hexpand().
+    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
     case hexpand = "hexpand"
-    /// Whether to use the `GtkWidget`:hexpand property. See gtk_widget_get_hexpand_set().
+    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
     case hexpandSet = "hexpand-set"
     case isFocus = "is-focus"
     /// Sets all four sides' margin at once. If read, returns max
@@ -6928,20 +6919,20 @@ public enum CalendarPropertyName: String, PropertyNameProtocol {
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// gtk_widget_set_size_request() for example.
+    /// `gtk_widget_set_size_request()` for example.
     case marginBottom = "margin-bottom"
     /// Margin on end of widget, horizontally. This property supports
     /// left-to-right and right-to-left text directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// gtk_widget_set_size_request() for example.
+    /// `gtk_widget_set_size_request()` for example.
     case marginEnd = "margin-end"
     /// Margin on left side of widget.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// gtk_widget_set_size_request() for example.
+    /// `gtk_widget_set_size_request()` for example.
     ///
     /// **margin-left is deprecated:**
     /// Use #GtkWidget:margin-start instead.
@@ -6950,7 +6941,7 @@ public enum CalendarPropertyName: String, PropertyNameProtocol {
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// gtk_widget_set_size_request() for example.
+    /// `gtk_widget_set_size_request()` for example.
     ///
     /// **margin-right is deprecated:**
     /// Use #GtkWidget:margin-end instead.
@@ -6960,13 +6951,13 @@ public enum CalendarPropertyName: String, PropertyNameProtocol {
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// gtk_widget_set_size_request() for example.
+    /// `gtk_widget_set_size_request()` for example.
     case marginStart = "margin-start"
     /// Margin on top side of widget.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// gtk_widget_set_size_request() for example.
+    /// `gtk_widget_set_size_request()` for example.
     case marginTop = "margin-top"
     /// The selected month (as a number between 0 and 11).
     /// This property gets initially set to the current month.
@@ -6975,14 +6966,14 @@ public enum CalendarPropertyName: String, PropertyNameProtocol {
     /// Determines whether the selected month can be changed.
     case noMonthChange = "no-month-change"
     case noShowAll = "no-show-all"
-    /// The requested opacity of the widget. See gtk_widget_set_opacity() for
+    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
     /// more details about window opacity.
     /// 
     /// Before 3.8 this was only available in GtkWindow
     case opacity = "opacity"
     case parent = "parent"
     case receivesDefault = "receives-default"
-    /// The scale factor of the widget. See gtk_widget_get_scale_factor() for
+    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
     /// more details about widget scaling.
     case scaleFactor = "scale-factor"
     case sensitive = "sensitive"
@@ -7002,34 +6993,34 @@ public enum CalendarPropertyName: String, PropertyNameProtocol {
     /// Use #GtkStyleContext instead
     case style = "style"
     /// Sets the text of tooltip to be the given string, which is marked up
-    /// with the [Pango text markup language][PangoMarkupFormat].
-    /// Also see gtk_tooltip_set_markup().
+    /// with the [Pango text markup language](#PangoMarkupFormat).
+    /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget`:has-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget`::query-tooltip in the default signal handler.
+    /// `GtkWidget::query`-tooltip in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget`:tooltip-text and `GtkWidget`:tooltip-markup
+    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
     /// are set, the last one wins.
     case tooltipMarkup = "tooltip-markup"
     /// Sets the text of tooltip to be the given string.
     /// 
-    /// Also see gtk_tooltip_set_text().
+    /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget`:has-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget`::query-tooltip in the default signal handler.
+    /// `GtkWidget::query`-tooltip in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget`:tooltip-text and `GtkWidget`:tooltip-markup
+    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
     /// are set, the last one wins.
     case tooltipText = "tooltip-text"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
     case valign = "valign"
-    /// Whether to expand vertically. See gtk_widget_set_vexpand().
+    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
     case vexpand = "vexpand"
-    /// Whether to use the `GtkWidget`:vexpand property. See gtk_widget_get_vexpand_set().
+    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
     case vexpandSet = "vexpand-set"
     case visible = "visible"
     case widthRequest = "width-request"
@@ -7083,7 +7074,7 @@ public enum CalendarSignalName: String, SignalNameProtocol {
     /// object in the object changes. For instance, a table will emit the
     /// signal when the cell in the table which has focus changes.
     case activeDescendantChanged = "active-descendant-changed"
-    /// The ::button-press-event signal will be emitted when a button
+    /// The `button`-press-event signal will be emitted when a button
     /// (typically from a mouse) is pressed.
     /// 
     /// To receive this signal, the `GdkWindow` associated to the
@@ -7091,7 +7082,7 @@ public enum CalendarSignalName: String, SignalNameProtocol {
     /// 
     /// This signal will be sent to the grab widget if there is one.
     case buttonPressEvent = "button-press-event"
-    /// The ::button-release-event signal will be emitted when a button
+    /// The `button`-release-event signal will be emitted when a button
     /// (typically from a mouse) is released.
     /// 
     /// To receive this signal, the `GdkWindow` associated to the
@@ -7105,22 +7096,22 @@ public enum CalendarSignalName: String, SignalNameProtocol {
     /// widgets to override the default `GtkWidget` handling
     /// for determining whether an accelerator can be activated.
     case canActivateAccel = "can-activate-accel"
-    /// The ::child-notify signal is emitted for each
-    /// [child property][child-properties]  that has
+    /// The `child`-notify signal is emitted for each
+    /// [child property](#child-properties)  that has
     /// changed on an object. The signal's detail holds the property name.
     case childNotify = "child-notify"
     /// The signal "children-changed" is emitted when a child is added or
     /// removed form an object. It supports two details: "add" and
     /// "remove"
     case childrenChanged = "children-changed"
-    /// The ::composited-changed signal is emitted when the composited
+    /// The `composited`-changed signal is emitted when the composited
     /// status of `widgets` screen changes.
-    /// See gdk_screen_is_composited().
+    /// See `gdk_screen_is_composited()`.
     ///
     /// **composited-changed is deprecated:**
     /// Use GdkScreen::composited-changed instead.
     case compositedChanged = "composited-changed"
-    /// The ::configure-event signal will be emitted when the size, position or
+    /// The `configure`-event signal will be emitted when the size, position or
     /// stacking of the `widget`'s window has changed.
     /// 
     /// To receive this signal, the `GdkWindow` associated to the widget needs
@@ -7135,9 +7126,9 @@ public enum CalendarSignalName: String, SignalNameProtocol {
     case daySelected = "day-selected"
     /// Emitted when the user double-clicks a day.
     case daySelectedDoubleClick = "day-selected-double-click"
-    /// The ::delete-event signal is emitted if a user requests that
+    /// The `delete`-event signal is emitted if a user requests that
     /// a toplevel window is closed. The default handler for this signal
-    /// destroys the window. Connecting gtk_widget_hide_on_delete() to
+    /// destroys the window. Connecting `gtk_widget_hide_on_delete()` to
     /// this signal will cause the window to be hidden instead, so that
     /// it can later be shown again without reconstructing it.
     case deleteEvent = "delete-event"
@@ -7147,7 +7138,7 @@ public enum CalendarSignalName: String, SignalNameProtocol {
     /// 
     /// This signal is not suitable for saving widget state.
     case destroy = "destroy"
-    /// The ::destroy-event signal is emitted when a `GdkWindow` is destroyed.
+    /// The `destroy`-event signal is emitted when a `GdkWindow` is destroyed.
     /// You rarely get this signal, because most widgets disconnect themselves
     /// from their window before they destroy it, so no widget owns the
     /// window at destroy time.
@@ -7156,44 +7147,44 @@ public enum CalendarSignalName: String, SignalNameProtocol {
     /// to enable the `GDK_STRUCTURE_MASK` mask. GDK will enable this mask
     /// automatically for all new windows.
     case destroyEvent = "destroy-event"
-    /// The ::direction-changed signal is emitted when the text direction
+    /// The `direction`-changed signal is emitted when the text direction
     /// of a widget changes.
     case directionChanged = "direction-changed"
-    /// The ::drag-begin signal is emitted on the drag source when a drag is
+    /// The `drag`-begin signal is emitted on the drag source when a drag is
     /// started. A typical reason to connect to this signal is to set up a
-    /// custom drag icon with e.g. gtk_drag_source_set_icon_pixbuf().
+    /// custom drag icon with e.g. `gtk_drag_source_set_icon_pixbuf()`.
     /// 
     /// Note that some widgets set up a drag icon in the default handler of
-    /// this signal, so you may have to use g_signal_connect_after() to
+    /// this signal, so you may have to use `g_signal_connect_after()` to
     /// override what the default handler did.
     case dragBegin = "drag-begin"
-    /// The ::drag-data-delete signal is emitted on the drag source when a drag
+    /// The `drag`-data-delete signal is emitted on the drag source when a drag
     /// with the action `GDK_ACTION_MOVE` is successfully completed. The signal
     /// handler is responsible for deleting the data that has been dropped. What
     /// "delete" means depends on the context of the drag operation.
     case dragDataDelete = "drag-data-delete"
-    /// The ::drag-data-get signal is emitted on the drag source when the drop
+    /// The `drag`-data-get signal is emitted on the drag source when the drop
     /// site requests the data which is dragged. It is the responsibility of
     /// the signal handler to fill `data` with the data in the format which
-    /// is indicated by `info`. See gtk_selection_data_set() and
-    /// gtk_selection_data_set_text().
+    /// is indicated by `info`. See `gtk_selection_data_set()` and
+    /// `gtk_selection_data_set_text()`.
     case dragDataGet = "drag-data-get"
-    /// The ::drag-data-received signal is emitted on the drop site when the
+    /// The `drag`-data-received signal is emitted on the drop site when the
     /// dragged data has been received. If the data was received in order to
     /// determine whether the drop will be accepted, the handler is expected
-    /// to call gdk_drag_status() and not finish the drag.
-    /// If the data was received in response to a `GtkWidget`::drag-drop signal
+    /// to call `gdk_drag_status()` and not finish the drag.
+    /// If the data was received in response to a `GtkWidget::drag`-drop signal
     /// (and this is the last target to be received), the handler for this
     /// signal is expected to process the received data and then call
-    /// gtk_drag_finish(), setting the `success` parameter depending on
+    /// `gtk_drag_finish()`, setting the `success` parameter depending on
     /// whether the data was processed successfully.
     /// 
     /// Applications must create some means to determine why the signal was emitted
-    /// and therefore whether to call gdk_drag_status() or gtk_drag_finish().
+    /// and therefore whether to call `gdk_drag_status()` or `gtk_drag_finish()`.
     /// 
     /// The handler may inspect the selected action with
-    /// gdk_drag_context_get_selected_action() before calling
-    /// gtk_drag_finish(), e.g. to implement `GDK_ACTION_ASK` as
+    /// `gdk_drag_context_get_selected_action()` before calling
+    /// `gtk_drag_finish()`, e.g. to implement `GDK_ACTION_ASK` as
     /// shown in the following example:
     /// (C Language Example):
     /// ```C
@@ -7241,58 +7232,58 @@ public enum CalendarSignalName: String, SignalNameProtocol {
     /// ```
     /// 
     case dragDataReceived = "drag-data-received"
-    /// The ::drag-drop signal is emitted on the drop site when the user drops
+    /// The `drag`-drop signal is emitted on the drop site when the user drops
     /// the data onto the widget. The signal handler must determine whether
     /// the cursor position is in a drop zone or not. If it is not in a drop
     /// zone, it returns `false` and no further processing is necessary.
     /// Otherwise, the handler returns `true`. In this case, the handler must
-    /// ensure that gtk_drag_finish() is called to let the source know that
-    /// the drop is done. The call to gtk_drag_finish() can be done either
-    /// directly or in a `GtkWidget`::drag-data-received handler which gets
-    /// triggered by calling gtk_drag_get_data() to receive the data for one
+    /// ensure that `gtk_drag_finish()` is called to let the source know that
+    /// the drop is done. The call to `gtk_drag_finish()` can be done either
+    /// directly or in a `GtkWidget::drag`-data-received handler which gets
+    /// triggered by calling `gtk_drag_get_data()` to receive the data for one
     /// or more of the supported targets.
     case dragDrop = "drag-drop"
-    /// The ::drag-end signal is emitted on the drag source when a drag is
+    /// The `drag`-end signal is emitted on the drag source when a drag is
     /// finished.  A typical reason to connect to this signal is to undo
-    /// things done in `GtkWidget`::drag-begin.
+    /// things done in `GtkWidget::drag`-begin.
     case dragEnd = "drag-end"
-    /// The ::drag-failed signal is emitted on the drag source when a drag has
+    /// The `drag`-failed signal is emitted on the drag source when a drag has
     /// failed. The signal handler may hook custom code to handle a failed DnD
     /// operation based on the type of error, it returns `true` is the failure has
     /// been already handled (not showing the default "drag operation failed"
     /// animation), otherwise it returns `false`.
     case dragFailed = "drag-failed"
-    /// The ::drag-leave signal is emitted on the drop site when the cursor
+    /// The `drag`-leave signal is emitted on the drop site when the cursor
     /// leaves the widget. A typical reason to connect to this signal is to
-    /// undo things done in `GtkWidget`::drag-motion, e.g. undo highlighting
-    /// with gtk_drag_unhighlight().
+    /// undo things done in `GtkWidget::drag`-motion, e.g. undo highlighting
+    /// with `gtk_drag_unhighlight()`.
     /// 
     /// 
-    /// Likewise, the `GtkWidget`::drag-leave signal is also emitted before the
-    /// ::drag-drop signal, for instance to allow cleaning up of a preview item
-    /// created in the `GtkWidget`::drag-motion signal handler.
+    /// Likewise, the `GtkWidget::drag`-leave signal is also emitted before the
+    /// `drag`-drop signal, for instance to allow cleaning up of a preview item
+    /// created in the `GtkWidget::drag`-motion signal handler.
     case dragLeave = "drag-leave"
-    /// The ::drag-motion signal is emitted on the drop site when the user
+    /// The `drag`-motion signal is emitted on the drop site when the user
     /// moves the cursor over the widget during a drag. The signal handler
     /// must determine whether the cursor position is in a drop zone or not.
     /// If it is not in a drop zone, it returns `false` and no further processing
     /// is necessary. Otherwise, the handler returns `true`. In this case, the
     /// handler is responsible for providing the necessary information for
-    /// displaying feedback to the user, by calling gdk_drag_status().
+    /// displaying feedback to the user, by calling `gdk_drag_status()`.
     /// 
     /// If the decision whether the drop will be accepted or rejected can't be
     /// made based solely on the cursor position and the type of the data, the
-    /// handler may inspect the dragged data by calling gtk_drag_get_data() and
-    /// defer the gdk_drag_status() call to the `GtkWidget`::drag-data-received
+    /// handler may inspect the dragged data by calling `gtk_drag_get_data()` and
+    /// defer the `gdk_drag_status()` call to the `GtkWidget::drag`-data-received
     /// handler. Note that you must pass `GTK_DEST_DEFAULT_DROP`,
-    /// `GTK_DEST_DEFAULT_MOTION` or `GTK_DEST_DEFAULT_ALL` to gtk_drag_dest_set()
+    /// `GTK_DEST_DEFAULT_MOTION` or `GTK_DEST_DEFAULT_ALL` to `gtk_drag_dest_set()`
     /// when using the drag-motion signal that way.
     /// 
     /// Also note that there is no drag-enter signal. The drag receiver has to
     /// keep track of whether he has received any drag-motion signals since the
-    /// last `GtkWidget`::drag-leave and if not, treat the drag-motion signal as
+    /// last `GtkWidget::drag`-leave and if not, treat the drag-motion signal as
     /// an "enter" signal. Upon an "enter", the handler will typically highlight
-    /// the drop site with gtk_drag_highlight().
+    /// the drop site with `gtk_drag_highlight()`.
     /// (C Language Example):
     /// ```C
     /// static void
@@ -7364,22 +7355,22 @@ public enum CalendarSignalName: String, SignalNameProtocol {
     /// This signal is emitted when a widget is supposed to render itself.
     /// The `widget`'s top left corner must be painted at the origin of
     /// the passed in context and be sized to the values returned by
-    /// gtk_widget_get_allocated_width() and
-    /// gtk_widget_get_allocated_height().
+    /// `gtk_widget_get_allocated_width()` and
+    /// `gtk_widget_get_allocated_height()`.
     /// 
     /// Signal handlers connected to this signal can modify the cairo
     /// context passed as `cr` in any way they like and don't need to
-    /// restore it. The signal emission takes care of calling cairo_save()
-    /// before and cairo_restore() after invoking the handler.
+    /// restore it. The signal emission takes care of calling `cairo_save()`
+    /// before and `cairo_restore()` after invoking the handler.
     /// 
     /// The signal handler will get a `cr` with a clip region already set to the
     /// widget's dirty region, i.e. to the area that needs repainting.  Complicated
     /// widgets that want to avoid redrawing themselves completely can get the full
-    /// extents of the clip region with gdk_cairo_get_clip_rectangle(), or they can
+    /// extents of the clip region with `gdk_cairo_get_clip_rectangle()`, or they can
     /// get a finer-grained representation of the dirty region with
-    /// cairo_copy_clip_rectangle_list().
+    /// `cairo_copy_clip_rectangle_list()`.
     case draw = "draw"
-    /// The ::enter-notify-event will be emitted when the pointer enters
+    /// The `enter`-notify-event will be emitted when the pointer enters
     /// the `widget`'s window.
     /// 
     /// To receive this signal, the `GdkWindow` associated to the widget needs
@@ -7388,13 +7379,13 @@ public enum CalendarSignalName: String, SignalNameProtocol {
     /// This signal will be sent to the grab widget if there is one.
     case enterNotifyEvent = "enter-notify-event"
     /// The GTK+ main loop will emit three signals for each GDK event delivered
-    /// to a widget: one generic ::event signal, another, more specific,
+    /// to a widget: one generic `event` signal, another, more specific,
     /// signal that matches the type of event delivered (e.g.
-    /// `GtkWidget`::key-press-event) and finally a generic
-    /// `GtkWidget`::event-after signal.
+    /// `GtkWidget::key`-press-event) and finally a generic
+    /// `GtkWidget::event`-after signal.
     case event = "event"
-    /// After the emission of the `GtkWidget`::event signal and (optionally)
-    /// the second more specific signal, ::event-after will be emitted
+    /// After the emission of the `GtkWidget::event` signal and (optionally)
+    /// the second more specific signal, `event`-after will be emitted
     /// regardless of the previous two signals handlers return values.
     case eventAfter = "event-after"
     case focus = "focus"
@@ -7404,13 +7395,13 @@ public enum CalendarSignalName: String, SignalNameProtocol {
     /// **focus-event is deprecated:**
     /// Use the #AtkObject::state-change signal instead.
     case focusEvent = "focus-event"
-    /// The ::focus-in-event signal will be emitted when the keyboard focus
+    /// The `focus`-in-event signal will be emitted when the keyboard focus
     /// enters the `widget`'s window.
     /// 
     /// To receive this signal, the `GdkWindow` associated to the widget needs
     /// to enable the `GDK_FOCUS_CHANGE_MASK` mask.
     case focusInEvent = "focus-in-event"
-    /// The ::focus-out-event signal will be emitted when the keyboard focus
+    /// The `focus`-out-event signal will be emitted when the keyboard focus
     /// leaves the `widget`'s window.
     /// 
     /// To receive this signal, the `GdkWindow` associated to the widget needs
@@ -7424,25 +7415,25 @@ public enum CalendarSignalName: String, SignalNameProtocol {
     /// application grabs the pointer or keyboard again.
     case grabBrokenEvent = "grab-broken-event"
     case grabFocus = "grab-focus"
-    /// The ::grab-notify signal is emitted when a widget becomes
+    /// The `grab`-notify signal is emitted when a widget becomes
     /// shadowed by a GTK+ grab (not a pointer or keyboard grab) on
     /// another widget, or when it becomes unshadowed due to a grab
     /// being removed.
     /// 
-    /// A widget is shadowed by a gtk_grab_add() when the topmost
+    /// A widget is shadowed by a `gtk_grab_add()` when the topmost
     /// grab widget in the grab stack of its window group is not
     /// its ancestor.
     case grabNotify = "grab-notify"
-    /// The ::hide signal is emitted when `widget` is hidden, for example with
-    /// gtk_widget_hide().
+    /// The `hide` signal is emitted when `widget` is hidden, for example with
+    /// `gtk_widget_hide()`.
     case hide = "hide"
-    /// The ::hierarchy-changed signal is emitted when the
+    /// The `hierarchy`-changed signal is emitted when the
     /// anchored state of a widget changes. A widget is
     /// “anchored” when its toplevel
     /// ancestor is a `GtkWindow`. This signal is emitted when
     /// a widget changes from un-anchored to anchored or vice-versa.
     case hierarchyChanged = "hierarchy-changed"
-    /// The ::key-press-event signal is emitted when a key is pressed. The signal
+    /// The `key`-press-event signal is emitted when a key is pressed. The signal
     /// emission will reoccur at the key-repeat rate when the key is kept pressed.
     /// 
     /// To receive this signal, the `GdkWindow` associated to the widget needs
@@ -7450,7 +7441,7 @@ public enum CalendarSignalName: String, SignalNameProtocol {
     /// 
     /// This signal will be sent to the grab widget if there is one.
     case keyPressEvent = "key-press-event"
-    /// The ::key-release-event signal is emitted when a key is released.
+    /// The `key`-release-event signal is emitted when a key is released.
     /// 
     /// To receive this signal, the `GdkWindow` associated to the widget needs
     /// to enable the `GDK_KEY_RELEASE_MASK` mask.
@@ -7458,9 +7449,9 @@ public enum CalendarSignalName: String, SignalNameProtocol {
     /// This signal will be sent to the grab widget if there is one.
     case keyReleaseEvent = "key-release-event"
     /// Gets emitted if keyboard navigation fails.
-    /// See gtk_widget_keynav_failed() for details.
+    /// See `gtk_widget_keynav_failed()` for details.
     case keynavFailed = "keynav-failed"
-    /// The ::leave-notify-event will be emitted when the pointer leaves
+    /// The `leave`-notify-event will be emitted when the pointer leaves
     /// the `widget`'s window.
     /// 
     /// To receive this signal, the `GdkWindow` associated to the widget needs
@@ -7468,17 +7459,17 @@ public enum CalendarSignalName: String, SignalNameProtocol {
     /// 
     /// This signal will be sent to the grab widget if there is one.
     case leaveNotifyEvent = "leave-notify-event"
-    /// The ::map signal is emitted when `widget` is going to be mapped, that is
+    /// The `map` signal is emitted when `widget` is going to be mapped, that is
     /// when the widget is visible (which is controlled with
-    /// gtk_widget_set_visible()) and all its parents up to the toplevel widget
-    /// are also visible. Once the map has occurred, `GtkWidget`::map-event will
+    /// `gtk_widget_set_visible()`) and all its parents up to the toplevel widget
+    /// are also visible. Once the map has occurred, `GtkWidget::map`-event will
     /// be emitted.
     /// 
-    /// The ::map signal can be used to determine whether a widget will be drawn,
+    /// The `map` signal can be used to determine whether a widget will be drawn,
     /// for instance it can resume an animation that was stopped during the
-    /// emission of `GtkWidget`::unmap.
+    /// emission of `GtkWidget::unmap`.
     case map = "map"
-    /// The ::map-event signal will be emitted when the `widget`'s window is
+    /// The `map`-event signal will be emitted when the `widget`'s window is
     /// mapped. A window is mapped when it becomes visible on the screen.
     /// 
     /// To receive this signal, the `GdkWindow` associated to the widget needs
@@ -7491,7 +7482,7 @@ public enum CalendarSignalName: String, SignalNameProtocol {
     /// Emitted when the user clicks a button to change the selected month on a
     /// calendar.
     case monthChanged = "month-changed"
-    /// The ::motion-notify-event signal is emitted when the pointer moves
+    /// The `motion`-notify-event signal is emitted when the pointer moves
     /// over the widget's `GdkWindow`.
     /// 
     /// To receive this signal, the `GdkWindow` associated to the widget
@@ -7505,32 +7496,31 @@ public enum CalendarSignalName: String, SignalNameProtocol {
     /// Emitted when user switched to the next year.
     case nextYear = "next-year"
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// The ::parent-set signal is emitted when a new parent
+    /// The `parent`-set signal is emitted when a new parent
     /// has been set on a widget.
     case parentSet = "parent-set"
     /// This signal gets emitted whenever a widget should pop up a context
@@ -7538,7 +7528,7 @@ public enum CalendarSignalName: String, SignalNameProtocol {
     /// by pressing a certain key while a widget is focused, the user can cause
     /// the widget to pop up a menu.  For example, the `GtkEntry` widget creates
     /// a menu with clipboard commands. See the
-    /// [Popup Menu Migration Checklist][checklist-popup-menu]
+    /// [Popup Menu Migration Checklist](#checklist-popup-menu)
     /// for an example of how to use this signal.
     case popupMenu = "popup-menu"
     /// Emitted when the user switched to the previous month.
@@ -7554,12 +7544,12 @@ public enum CalendarSignalName: String, SignalNameProtocol {
     /// reinstate the previous value.
     /// 
     /// Toolkit implementor note: ATK implementors should use
-    /// g_object_notify() to emit property-changed
-    /// notifications. `AtkObject`::property-changed is needed by the
-    /// implementation of atk_add_global_event_listener() because GObject
+    /// `g_object_notify()` to emit property-changed
+    /// notifications. `AtkObject::property`-changed is needed by the
+    /// implementation of `atk_add_global_event_listener()` because GObject
     /// notify doesn't support emission hooks.
     case propertyChange = "property-change"
-    /// The ::property-notify-event signal will be emitted when a property on
+    /// The `property`-notify-event signal will be emitted when a property on
     /// the `widget`'s window has been changed or deleted.
     /// 
     /// To receive this signal, the `GdkWindow` associated to the widget needs
@@ -7575,7 +7565,7 @@ public enum CalendarSignalName: String, SignalNameProtocol {
     /// 
     /// This signal will be sent to the grab widget if there is one.
     case proximityOutEvent = "proximity-out-event"
-    /// Emitted when `GtkWidget`:has-tooltip is `true` and the hover timeout
+    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
     /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
     /// focus in keyboard mode.
     /// 
@@ -7588,14 +7578,14 @@ public enum CalendarSignalName: String, SignalNameProtocol {
     /// The signal handler is free to manipulate `tooltip` with the therefore
     /// destined function calls.
     case queryTooltip = "query-tooltip"
-    /// The ::realize signal is emitted when `widget` is associated with a
-    /// `GdkWindow`, which means that gtk_widget_realize() has been called or the
+    /// The `realize` signal is emitted when `widget` is associated with a
+    /// `GdkWindow`, which means that `gtk_widget_realize()` has been called or the
     /// widget has been mapped (that is, it is going to be drawn).
     case realize = "realize"
-    /// The ::screen-changed signal gets emitted when the
+    /// The `screen`-changed signal gets emitted when the
     /// screen of a widget has changed.
     case screenChanged = "screen-changed"
-    /// The ::scroll-event signal is emitted when a button in the 4 to 7
+    /// The `scroll`-event signal is emitted when a button in the 4 to 7
     /// range is pressed. Wheel mice are usually configured to generate
     /// button press events for buttons 4 and 5 when the wheel is turned.
     /// 
@@ -7604,18 +7594,18 @@ public enum CalendarSignalName: String, SignalNameProtocol {
     /// 
     /// This signal will be sent to the grab widget if there is one.
     case scrollEvent = "scroll-event"
-    /// The ::selection-clear-event signal will be emitted when the
+    /// The `selection`-clear-event signal will be emitted when the
     /// the `widget`'s window has lost ownership of a selection.
     case selectionClearEvent = "selection-clear-event"
     case selectionGet = "selection-get"
     case selectionNotifyEvent = "selection-notify-event"
     case selectionReceived = "selection-received"
-    /// The ::selection-request-event signal will be emitted when
+    /// The `selection`-request-event signal will be emitted when
     /// another client requests ownership of the selection owned by
     /// the `widget`'s window.
     case selectionRequestEvent = "selection-request-event"
-    /// The ::show signal is emitted when `widget` is shown, for example with
-    /// gtk_widget_show().
+    /// The `show` signal is emitted when `widget` is shown, for example with
+    /// `gtk_widget_show()`.
     case show = "show"
     case showHelp = "show-help"
     case sizeAllocate = "size-allocate"
@@ -7623,54 +7613,54 @@ public enum CalendarSignalName: String, SignalNameProtocol {
     /// changes.  The detail value identifies the state type which has
     /// changed.
     case stateChange = "state-change"
-    /// The ::state-changed signal is emitted when the widget state changes.
-    /// See gtk_widget_get_state().
+    /// The `state`-changed signal is emitted when the widget state changes.
+    /// See `gtk_widget_get_state()`.
     ///
     /// **state-changed is deprecated:**
     /// Use #GtkWidget::state-flags-changed instead.
     case stateChanged = "state-changed"
-    /// The ::state-flags-changed signal is emitted when the widget state
-    /// changes, see gtk_widget_get_state_flags().
+    /// The `state`-flags-changed signal is emitted when the widget state
+    /// changes, see `gtk_widget_get_state_flags()`.
     case stateFlagsChanged = "state-flags-changed"
-    /// The ::style-set signal is emitted when a new style has been set
+    /// The `style`-set signal is emitted when a new style has been set
     /// on a widget. Note that style-modifying functions like
-    /// gtk_widget_modify_base() also cause this signal to be emitted.
+    /// `gtk_widget_modify_base()` also cause this signal to be emitted.
     /// 
     /// Note that this signal is emitted for changes to the deprecated
     /// `GtkStyle`. To track changes to the `GtkStyleContext` associated
-    /// with a widget, use the `GtkWidget`::style-updated signal.
+    /// with a widget, use the `GtkWidget::style`-updated signal.
     ///
     /// **style-set is deprecated:**
     /// Use the #GtkWidget::style-updated signal
     case styleSet = "style-set"
-    /// The ::style-updated signal is a convenience signal that is emitted when the
-    /// `GtkStyleContext`::changed signal is emitted on the `widget`'s associated
-    /// `GtkStyleContext` as returned by gtk_widget_get_style_context().
+    /// The `style`-updated signal is a convenience signal that is emitted when the
+    /// `GtkStyleContext::changed` signal is emitted on the `widget`'s associated
+    /// `GtkStyleContext` as returned by `gtk_widget_get_style_context()`.
     /// 
-    /// Note that style-modifying functions like gtk_widget_override_color() also
+    /// Note that style-modifying functions like `gtk_widget_override_color()` also
     /// cause this signal to be emitted.
     case styleUpdated = "style-updated"
     case touchEvent = "touch-event"
-    /// The ::unmap signal is emitted when `widget` is going to be unmapped, which
+    /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
     /// means that either it or any of its parents up to the toplevel widget have
     /// been set as hidden.
     /// 
-    /// As ::unmap indicates that a widget will not be shown any longer, it can be
+    /// As `unmap` indicates that a widget will not be shown any longer, it can be
     /// used to, for example, stop an animation on the widget.
     case unmap = "unmap"
-    /// The ::unmap-event signal will be emitted when the `widget`'s window is
+    /// The `unmap`-event signal will be emitted when the `widget`'s window is
     /// unmapped. A window is unmapped when it becomes invisible on the screen.
     /// 
     /// To receive this signal, the `GdkWindow` associated to the widget needs
     /// to enable the `GDK_STRUCTURE_MASK` mask. GDK will enable this mask
     /// automatically for all new windows.
     case unmapEvent = "unmap-event"
-    /// The ::unrealize signal is emitted when the `GdkWindow` associated with
-    /// `widget` is destroyed, which means that gtk_widget_unrealize() has been
+    /// The `unrealize` signal is emitted when the `GdkWindow` associated with
+    /// `widget` is destroyed, which means that `gtk_widget_unrealize()` has been
     /// called or the widget has been unmapped (that is, it is going to be
     /// hidden).
     case unrealize = "unrealize"
-    /// The ::visibility-notify-event will be emitted when the `widget`'s
+    /// The `visibility`-notify-event will be emitted when the `widget`'s
     /// window is obscured or unobscured.
     /// 
     /// To receive this signal the `GdkWindow` associated to the widget needs
@@ -7685,7 +7675,7 @@ public enum CalendarSignalName: String, SignalNameProtocol {
     /// The "visible-data-changed" signal is emitted when the visual
     /// appearance of the object changed.
     case visibleDataChanged = "visible-data-changed"
-    /// The ::window-state-event will be emitted when the state of the
+    /// The `window`-state-event will be emitted when the state of the
     /// toplevel window associated to the `widget` changes.
     /// 
     /// To receive this signal the `GdkWindow` associated to the widget
@@ -7746,10 +7736,10 @@ public enum CalendarSignalName: String, SignalNameProtocol {
     /// This property gets initially set to the current day.
     case notifyDay = "notify::day"
     /// Height of a detail cell, in rows.
-    /// A value of 0 allows any width. See gtk_calendar_set_detail_func().
+    /// A value of 0 allows any width. See `gtk_calendar_set_detail_func()`.
     case notifyDetailHeightRows = "notify::detail-height-rows"
     /// Width of a detail cell, in characters.
-    /// A value of 0 allows any width. See gtk_calendar_set_detail_func().
+    /// A value of 0 allows any width. See `gtk_calendar_set_detail_func()`.
     case notifyDetailWidthChars = "notify::detail-width-chars"
     /// Whether the widget is double buffered.
     ///
@@ -7757,7 +7747,7 @@ public enum CalendarSignalName: String, SignalNameProtocol {
     /// Widgets should not use this property.
     case notifyDoubleBuffered = "notify::double-buffered"
     case notifyEvents = "notify::events"
-    /// Whether to expand in both directions. Setting this sets both `GtkWidget`:hexpand and `GtkWidget`:vexpand
+    /// Whether to expand in both directions. Setting this sets both `GtkWidget:hexpand` and `GtkWidget:vexpand`
     case notifyExpand = "notify::expand"
     /// Whether the widget should grab focus when it is clicked with the mouse.
     /// 
@@ -7770,9 +7760,9 @@ public enum CalendarSignalName: String, SignalNameProtocol {
     case notifyHalign = "notify::halign"
     case notifyHasDefault = "notify::has-default"
     case notifyHasFocus = "notify::has-focus"
-    /// Enables or disables the emission of `GtkWidget`::query-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget`::query-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
     /// whether it will provide a tooltip or not.
     /// 
     /// Note that setting this property to `true` for the first time will change
@@ -7781,9 +7771,9 @@ public enum CalendarSignalName: String, SignalNameProtocol {
     /// property is set to `false` again.
     case notifyHasTooltip = "notify::has-tooltip"
     case notifyHeightRequest = "notify::height-request"
-    /// Whether to expand horizontally. See gtk_widget_set_hexpand().
+    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
     case notifyHexpand = "notify::hexpand"
-    /// Whether to use the `GtkWidget`:hexpand property. See gtk_widget_get_hexpand_set().
+    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
     case notifyHexpandSet = "notify::hexpand-set"
     case notifyIsFocus = "notify::is-focus"
     /// Sets all four sides' margin at once. If read, returns max
@@ -7793,20 +7783,20 @@ public enum CalendarSignalName: String, SignalNameProtocol {
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// gtk_widget_set_size_request() for example.
+    /// `gtk_widget_set_size_request()` for example.
     case notifyMarginBottom = "notify::margin-bottom"
     /// Margin on end of widget, horizontally. This property supports
     /// left-to-right and right-to-left text directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// gtk_widget_set_size_request() for example.
+    /// `gtk_widget_set_size_request()` for example.
     case notifyMarginEnd = "notify::margin-end"
     /// Margin on left side of widget.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// gtk_widget_set_size_request() for example.
+    /// `gtk_widget_set_size_request()` for example.
     ///
     /// **margin-left is deprecated:**
     /// Use #GtkWidget:margin-start instead.
@@ -7815,7 +7805,7 @@ public enum CalendarSignalName: String, SignalNameProtocol {
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// gtk_widget_set_size_request() for example.
+    /// `gtk_widget_set_size_request()` for example.
     ///
     /// **margin-right is deprecated:**
     /// Use #GtkWidget:margin-end instead.
@@ -7825,13 +7815,13 @@ public enum CalendarSignalName: String, SignalNameProtocol {
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// gtk_widget_set_size_request() for example.
+    /// `gtk_widget_set_size_request()` for example.
     case notifyMarginStart = "notify::margin-start"
     /// Margin on top side of widget.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// gtk_widget_set_size_request() for example.
+    /// `gtk_widget_set_size_request()` for example.
     case notifyMarginTop = "notify::margin-top"
     /// The selected month (as a number between 0 and 11).
     /// This property gets initially set to the current month.
@@ -7840,14 +7830,14 @@ public enum CalendarSignalName: String, SignalNameProtocol {
     /// Determines whether the selected month can be changed.
     case notifyNoMonthChange = "notify::no-month-change"
     case notifyNoShowAll = "notify::no-show-all"
-    /// The requested opacity of the widget. See gtk_widget_set_opacity() for
+    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
     /// more details about window opacity.
     /// 
     /// Before 3.8 this was only available in GtkWindow
     case notifyOpacity = "notify::opacity"
     case notifyParent = "notify::parent"
     case notifyReceivesDefault = "notify::receives-default"
-    /// The scale factor of the widget. See gtk_widget_get_scale_factor() for
+    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
     /// more details about widget scaling.
     case notifyScaleFactor = "notify::scale-factor"
     case notifySensitive = "notify::sensitive"
@@ -7867,34 +7857,34 @@ public enum CalendarSignalName: String, SignalNameProtocol {
     /// Use #GtkStyleContext instead
     case notifyStyle = "notify::style"
     /// Sets the text of tooltip to be the given string, which is marked up
-    /// with the [Pango text markup language][PangoMarkupFormat].
-    /// Also see gtk_tooltip_set_markup().
+    /// with the [Pango text markup language](#PangoMarkupFormat).
+    /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget`:has-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget`::query-tooltip in the default signal handler.
+    /// `GtkWidget::query`-tooltip in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget`:tooltip-text and `GtkWidget`:tooltip-markup
+    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
     /// are set, the last one wins.
     case notifyTooltipMarkup = "notify::tooltip-markup"
     /// Sets the text of tooltip to be the given string.
     /// 
-    /// Also see gtk_tooltip_set_text().
+    /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget`:has-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget`::query-tooltip in the default signal handler.
+    /// `GtkWidget::query`-tooltip in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget`:tooltip-text and `GtkWidget`:tooltip-markup
+    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
     /// are set, the last one wins.
     case notifyTooltipText = "notify::tooltip-text"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
     case notifyValign = "notify::valign"
-    /// Whether to expand vertically. See gtk_widget_set_vexpand().
+    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
     case notifyVexpand = "notify::vexpand"
-    /// Whether to use the `GtkWidget`:vexpand property. See gtk_widget_get_vexpand_set().
+    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
     case notifyVexpandSet = "notify::vexpand-set"
     case notifyVisible = "notify::visible"
     case notifyWidthRequest = "notify::width-request"
@@ -7956,14 +7946,14 @@ public extension CalendarProtocol {
     }
 
     /// Queries the height of detail cells, in rows.
-    /// See `GtkCalendar`:detail-width-chars.
+    /// See `GtkCalendar:detail`-width-chars.
     func getDetailHeightRows() -> CInt {
         let rv = gtk_calendar_get_detail_height_rows(cast(calendar_ptr))
         return CInt(rv)
     }
 
     /// Queries the width of detail cells, in characters.
-    /// See `GtkCalendar`:detail-width-chars.
+    /// See `GtkCalendar:detail`-width-chars.
     func getDetailWidthChars() -> CInt {
         let rv = gtk_calendar_get_detail_width_chars(cast(calendar_ptr))
         return CInt(rv)
@@ -7995,13 +7985,13 @@ public extension CalendarProtocol {
 
     /// Installs a function which provides Pango markup with detail information
     /// for each day. Examples for such details are holidays or appointments. That
-    /// information is shown below each day when `GtkCalendar`:show-details is set.
+    /// information is shown below each day when `GtkCalendar:show`-details is set.
     /// A tooltip containing with full detail information is provided, if the entire
-    /// text should not fit into the details area, or if `GtkCalendar`:show-details
+    /// text should not fit into the details area, or if `GtkCalendar:show`-details
     /// is not set.
     /// 
     /// The size of the details area can be restricted by setting the
-    /// `GtkCalendar`:detail-width-chars and `GtkCalendar`:detail-height-rows
+    /// `GtkCalendar:detail`-width-chars and `GtkCalendar:detail`-height-rows
     /// properties.
     func setDetailFunc(_ func_: @escaping CalendarDetailFunc, data: UnsafeMutableRawPointer, destroy: @escaping GLib.DestroyNotify) {
         gtk_calendar_set_detail_func(cast(calendar_ptr), func_, cast(data), destroy)
@@ -8009,14 +7999,14 @@ public extension CalendarProtocol {
     }
 
     /// Updates the height of detail cells.
-    /// See `GtkCalendar`:detail-height-rows.
+    /// See `GtkCalendar:detail`-height-rows.
     func setDetailHeight(rows: CInt) {
         gtk_calendar_set_detail_height_rows(cast(calendar_ptr), gint(rows))
     
     }
 
     /// Updates the width of detail cells.
-    /// See `GtkCalendar`:detail-width-chars.
+    /// See `GtkCalendar:detail`-width-chars.
     func setDetailWidth(chars: CInt) {
         gtk_calendar_set_detail_width_chars(cast(calendar_ptr), gint(chars))
     
@@ -8035,32 +8025,32 @@ public extension CalendarProtocol {
     
     }
     /// Queries the height of detail cells, in rows.
-    /// See `GtkCalendar`:detail-width-chars.
+    /// See `GtkCalendar:detail`-width-chars.
     var detailHeightRows: CInt {
         /// Queries the height of detail cells, in rows.
-        /// See `GtkCalendar`:detail-width-chars.
+        /// See `GtkCalendar:detail`-width-chars.
         get {
             let rv = gtk_calendar_get_detail_height_rows(cast(calendar_ptr))
             return CInt(rv)
         }
         /// Updates the height of detail cells.
-        /// See `GtkCalendar`:detail-height-rows.
+        /// See `GtkCalendar:detail`-height-rows.
         nonmutating set {
             gtk_calendar_set_detail_height_rows(cast(calendar_ptr), gint(newValue))
         }
     }
 
     /// Queries the width of detail cells, in characters.
-    /// See `GtkCalendar`:detail-width-chars.
+    /// See `GtkCalendar:detail`-width-chars.
     var detailWidthChars: CInt {
         /// Queries the width of detail cells, in characters.
-        /// See `GtkCalendar`:detail-width-chars.
+        /// See `GtkCalendar:detail`-width-chars.
         get {
             let rv = gtk_calendar_get_detail_width_chars(cast(calendar_ptr))
             return CInt(rv)
         }
         /// Updates the width of detail cells.
-        /// See `GtkCalendar`:detail-width-chars.
+        /// See `GtkCalendar:detail`-width-chars.
         nonmutating set {
             gtk_calendar_set_detail_width_chars(cast(calendar_ptr), gint(newValue))
         }

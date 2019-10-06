@@ -8330,7 +8330,7 @@ public extension ContainerClassProtocol {
     /// allocate methods. The intent is for a subclass to invoke this
     /// in its class_init function.
     /// 
-    /// gtk_container_class_handle_border_width() is necessary because it
+    /// `gtk_container_class_handle_border_width()` is necessary because it
     /// would break API too badly to make this behavior the default. So
     /// subclasses must “opt in” to the parent class handling border_width
     /// for them.
@@ -8782,7 +8782,7 @@ public extension CssProviderPrivateProtocol {
 /// Alternatively, use `CssSectionRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
 /// Defines a part of a CSS document. Because sections are nested into
-/// one another, you can use gtk_css_section_get_parent() to get the
+/// one another, you can use `gtk_css_section_get_parent()` to get the
 /// containing region.
 public protocol CssSectionProtocol {
     /// Untyped pointer to the underlying `GtkCssSection` instance.
@@ -8797,7 +8797,7 @@ public protocol CssSectionProtocol {
 /// Use `CssSectionRef` only as an `unowned` reference to an existing `GtkCssSection` instance.
 ///
 /// Defines a part of a CSS document. Because sections are nested into
-/// one another, you can use gtk_css_section_get_parent() to get the
+/// one another, you can use `gtk_css_section_get_parent()` to get the
 /// containing region.
 public struct CssSectionRef: CssSectionProtocol {
     /// Untyped pointer to the underlying `GtkCssSection` instance.
@@ -8852,7 +8852,7 @@ public extension CssSectionRef {
 /// Use `CssSection` as a strong reference or owner of a `GtkCssSection` instance.
 ///
 /// Defines a part of a CSS document. Because sections are nested into
-/// one another, you can use gtk_css_section_get_parent() to get the
+/// one another, you can use `gtk_css_section_get_parent()` to get the
 /// containing region.
 open class CssSection: CssSectionProtocol {
     /// Untyped pointer to the underlying `GtkCssSection` instance.
@@ -8919,7 +8919,7 @@ public extension CssSectionProtocol {
     /// will return 0.
     /// This value may change in future invocations of this function if
     /// `section` is not yet parsed completely. This will for example
-    /// happen in the GtkCssProvider::parsing-error signal.
+    /// happen in the GtkCssProvider`parsing`-error signal.
     /// The end position and line may be identical to the start
     /// position and line for sections which failed to parse anything
     /// successfully.
@@ -8929,10 +8929,10 @@ public extension CssSectionProtocol {
     }
 
     /// Returns the offset in bytes from the start of the current line
-    /// returned via gtk_css_section_get_end_line().
+    /// returned via `gtk_css_section_get_end_line()`.
     /// This value may change in future invocations of this function if
     /// `section` is not yet parsed completely. This will for example
-    /// happen in the GtkCssProvider::parsing-error signal.
+    /// happen in the GtkCssProvider`parsing`-error signal.
     /// The end position and line may be identical to the start
     /// position and line for sections which failed to parse anything
     /// successfully.
@@ -8943,7 +8943,7 @@ public extension CssSectionProtocol {
 
     /// Gets the file that `section` was parsed from. If no such file exists,
     /// for example because the CSS was loaded via
-    /// `gtk_css_provider_load_from_data`(), then `nil` is returned.
+    /// `gtk_css_provider_load_from_data``()`, then `nil` is returned.
     func getFile() -> UnsafeMutablePointer<GFile>! {
         let rv = gtk_css_section_get_file(cast(css_section_ptr))
         return cast(rv)
@@ -8953,7 +8953,7 @@ public extension CssSectionProtocol {
     /// the section that contains this `section`. A special case are sections of
     /// type `GTK_CSS_SECTION_DOCUMENT`. Their parent will either be `nil`
     /// if they are the original CSS document that was loaded by
-    /// gtk_css_provider_load_from_file() or a section of type
+    /// `gtk_css_provider_load_from_file()` or a section of type
     /// `GTK_CSS_SECTION_IMPORT` if it was loaded with an import rule from
     /// a different file.
     func getParent() -> UnsafeMutablePointer<GtkCssSection>! {
@@ -8976,7 +8976,7 @@ public extension CssSectionProtocol {
     }
 
     /// Returns the offset in bytes from the start of the current line
-    /// returned via gtk_css_section_get_start_line().
+    /// returned via `gtk_css_section_get_start_line()`.
     func getStartPosition() -> CUnsignedInt {
         let rv = gtk_css_section_get_start_position(cast(css_section_ptr))
         return CUnsignedInt(rv)
@@ -8999,7 +8999,7 @@ public extension CssSectionProtocol {
     /// will return 0.
     /// This value may change in future invocations of this function if
     /// `section` is not yet parsed completely. This will for example
-    /// happen in the GtkCssProvider::parsing-error signal.
+    /// happen in the GtkCssProvider`parsing`-error signal.
     /// The end position and line may be identical to the start
     /// position and line for sections which failed to parse anything
     /// successfully.
@@ -9009,7 +9009,7 @@ public extension CssSectionProtocol {
         /// will return 0.
         /// This value may change in future invocations of this function if
         /// `section` is not yet parsed completely. This will for example
-        /// happen in the GtkCssProvider::parsing-error signal.
+        /// happen in the GtkCssProvider`parsing`-error signal.
         /// The end position and line may be identical to the start
         /// position and line for sections which failed to parse anything
         /// successfully.
@@ -9020,19 +9020,19 @@ public extension CssSectionProtocol {
     }
 
     /// Returns the offset in bytes from the start of the current line
-    /// returned via gtk_css_section_get_end_line().
+    /// returned via `gtk_css_section_get_end_line()`.
     /// This value may change in future invocations of this function if
     /// `section` is not yet parsed completely. This will for example
-    /// happen in the GtkCssProvider::parsing-error signal.
+    /// happen in the GtkCssProvider`parsing`-error signal.
     /// The end position and line may be identical to the start
     /// position and line for sections which failed to parse anything
     /// successfully.
     var endPosition: CUnsignedInt {
         /// Returns the offset in bytes from the start of the current line
-        /// returned via gtk_css_section_get_end_line().
+        /// returned via `gtk_css_section_get_end_line()`.
         /// This value may change in future invocations of this function if
         /// `section` is not yet parsed completely. This will for example
-        /// happen in the GtkCssProvider::parsing-error signal.
+        /// happen in the GtkCssProvider`parsing`-error signal.
         /// The end position and line may be identical to the start
         /// position and line for sections which failed to parse anything
         /// successfully.
@@ -9044,11 +9044,11 @@ public extension CssSectionProtocol {
 
     /// Gets the file that `section` was parsed from. If no such file exists,
     /// for example because the CSS was loaded via
-    /// `gtk_css_provider_load_from_data`(), then `nil` is returned.
+    /// `gtk_css_provider_load_from_data``()`, then `nil` is returned.
     var file: UnsafeMutablePointer<GFile>! {
         /// Gets the file that `section` was parsed from. If no such file exists,
         /// for example because the CSS was loaded via
-        /// `gtk_css_provider_load_from_data`(), then `nil` is returned.
+        /// `gtk_css_provider_load_from_data``()`, then `nil` is returned.
         get {
             let rv = gtk_css_section_get_file(cast(css_section_ptr))
             return cast(rv)
@@ -9059,7 +9059,7 @@ public extension CssSectionProtocol {
     /// the section that contains this `section`. A special case are sections of
     /// type `GTK_CSS_SECTION_DOCUMENT`. Their parent will either be `nil`
     /// if they are the original CSS document that was loaded by
-    /// gtk_css_provider_load_from_file() or a section of type
+    /// `gtk_css_provider_load_from_file()` or a section of type
     /// `GTK_CSS_SECTION_IMPORT` if it was loaded with an import rule from
     /// a different file.
     var parent: UnsafeMutablePointer<GtkCssSection>! {
@@ -9067,7 +9067,7 @@ public extension CssSectionProtocol {
         /// the section that contains this `section`. A special case are sections of
         /// type `GTK_CSS_SECTION_DOCUMENT`. Their parent will either be `nil`
         /// if they are the original CSS document that was loaded by
-        /// gtk_css_provider_load_from_file() or a section of type
+        /// `gtk_css_provider_load_from_file()` or a section of type
         /// `GTK_CSS_SECTION_IMPORT` if it was loaded with an import rule from
         /// a different file.
         get {
@@ -9099,10 +9099,10 @@ public extension CssSectionProtocol {
     }
 
     /// Returns the offset in bytes from the start of the current line
-    /// returned via gtk_css_section_get_start_line().
+    /// returned via `gtk_css_section_get_start_line()`.
     var startPosition: CUnsignedInt {
         /// Returns the offset in bytes from the start of the current line
-        /// returned via gtk_css_section_get_start_line().
+        /// returned via `gtk_css_section_get_start_line()`.
         get {
             let rv = gtk_css_section_get_start_position(cast(css_section_ptr))
             return CUnsignedInt(rv)

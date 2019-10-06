@@ -160,7 +160,7 @@ public extension PadControllerClassProtocol {
 /// For a concrete class that implements these methods and properties, see `PageRange`.
 /// Alternatively, use `PageRangeRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// See also gtk_print_settings_set_page_ranges().
+/// See also `gtk_print_settings_set_page_ranges()`.
 public protocol PageRangeProtocol {
     /// Untyped pointer to the underlying `GtkPageRange` instance.
     var ptr: UnsafeMutableRawPointer { get }
@@ -173,7 +173,7 @@ public protocol PageRangeProtocol {
 /// It exposes methods that can operate on this data type through `PageRangeProtocol` conformance.
 /// Use `PageRangeRef` only as an `unowned` reference to an existing `GtkPageRange` instance.
 ///
-/// See also gtk_print_settings_set_page_ranges().
+/// See also `gtk_print_settings_set_page_ranges()`.
 public struct PageRangeRef: PageRangeProtocol {
     /// Untyped pointer to the underlying `GtkPageRange` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -226,7 +226,7 @@ public extension PageRangeRef {
 /// It provides the methods that can operate on this data type through `PageRangeProtocol` conformance.
 /// Use `PageRange` as a strong reference or owner of a `GtkPageRange` instance.
 ///
-/// See also gtk_print_settings_set_page_ranges().
+/// See also `gtk_print_settings_set_page_ranges()`.
 open class PageRange: PageRangeProtocol {
     /// Untyped pointer to the underlying `GtkPageRange` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -858,7 +858,7 @@ public extension PanedPrivateProtocol {
 /// 
 /// The `GtkPaperSize` object stores not only the dimensions (width
 /// and height) of a paper size and its name, it also provides
-/// default [print margins][print-margins].
+/// default [print margins](#print-margins).
 /// 
 /// Printing support has been added in GTK+ 2.10.
 public protocol PaperSizeProtocol {
@@ -881,7 +881,7 @@ public protocol PaperSizeProtocol {
 /// 
 /// The `GtkPaperSize` object stores not only the dimensions (width
 /// and height) of a paper size and its name, it also provides
-/// default [print margins][print-margins].
+/// default [print margins](#print-margins).
 /// 
 /// Printing support has been added in GTK+ 2.10.
 public struct PaperSizeRef: PaperSizeProtocol {
@@ -935,7 +935,7 @@ public extension PaperSizeRef {
     /// paper name.
     /// 
     /// If `name` is `nil`, the default paper size is returned,
-    /// see gtk_paper_size_get_default().
+    /// see `gtk_paper_size_get_default()`.
     init( name: UnsafePointer<gchar>) {
         let rv = gtk_paper_size_new(name)
         self.init(cast(rv))
@@ -949,7 +949,7 @@ public extension PaperSizeRef {
     }
 
     /// Deserialize a paper size from an a{sv} variant in
-    /// the format produced by gtk_paper_size_to_gvariant().
+    /// the format produced by `gtk_paper_size_to_gvariant()`.
     init(gvariant variant: VariantProtocol) {
         let rv = gtk_paper_size_new_from_gvariant(cast(variant.ptr))
         self.init(cast(rv))
@@ -995,7 +995,7 @@ public extension PaperSizeRef {
     }
 
     /// Deserialize a paper size from an a{sv} variant in
-    /// the format produced by gtk_paper_size_to_gvariant().
+    /// the format produced by `gtk_paper_size_to_gvariant()`.
     static func newFromG(gvariant variant: VariantProtocol) -> PaperSizeRef! {
         let rv = gtk_paper_size_new_from_gvariant(cast(variant.ptr))
         return rv.map { PaperSizeRef(cast($0)) }
@@ -1047,7 +1047,7 @@ public extension PaperSizeRef {
 /// 
 /// The `GtkPaperSize` object stores not only the dimensions (width
 /// and height) of a paper size and its name, it also provides
-/// default [print margins][print-margins].
+/// default [print margins](#print-margins).
 /// 
 /// Printing support has been added in GTK+ 2.10.
 open class PaperSize: PaperSizeProtocol {
@@ -1102,7 +1102,7 @@ open class PaperSize: PaperSizeProtocol {
     /// paper name.
     /// 
     /// If `name` is `nil`, the default paper size is returned,
-    /// see gtk_paper_size_get_default().
+    /// see `gtk_paper_size_get_default()`.
     public convenience init( name: UnsafePointer<gchar>) {
         let rv = gtk_paper_size_new(name)
         self.init(cast(rv))
@@ -1116,7 +1116,7 @@ open class PaperSize: PaperSizeProtocol {
     }
 
     /// Deserialize a paper size from an a{sv} variant in
-    /// the format produced by gtk_paper_size_to_gvariant().
+    /// the format produced by `gtk_paper_size_to_gvariant()`.
     public convenience init(gvariant variant: VariantProtocol) {
         let rv = gtk_paper_size_new_from_gvariant(cast(variant.ptr))
         self.init(cast(rv))
@@ -1163,7 +1163,7 @@ open class PaperSize: PaperSizeProtocol {
     }
 
     /// Deserialize a paper size from an a{sv} variant in
-    /// the format produced by gtk_paper_size_to_gvariant().
+    /// the format produced by `gtk_paper_size_to_gvariant()`.
     public static func newFromG(gvariant variant: VariantProtocol) -> PaperSize! {
         let rv = gtk_paper_size_new_from_gvariant(cast(variant.ptr))
         return rv.map { PaperSize(cast($0)) }

@@ -19,7 +19,7 @@ import Atk
 /// dimension.
 /// 
 /// Alignment only matters if the widget receives a “too large” allocation,
-/// for example if you packed the widget with the `GtkWidget`:expand
+/// for example if you packed the widget with the `GtkWidget:expand`
 /// flag inside a `GtkBox`, then the widget might get extra space.  If
 /// you have for example a 16x16 icon inside a 32x32 space, the icon
 /// could be scaled and stretched, it could be centered, or it could be
@@ -86,7 +86,7 @@ public extension ArrowType {
 /// `GTK_ASSISTANT_PAGE_PROGRESS` to be correct.
 /// 
 /// The Cancel button will only be shown if the page isn’t “committed”.
-/// See gtk_assistant_commit() for details.
+/// See `gtk_assistant_commit()` for details.
 public typealias AssistantPageType = GtkAssistantPageType
 
 public extension AssistantPageType {
@@ -109,7 +109,7 @@ public extension AssistantPageType {
     static let progress = GTK_ASSISTANT_PAGE_PROGRESS /* 4 */
     /// Used for when other page types are not
     ///  appropriate. No buttons will be shown, and the application must
-    ///  add its own buttons through gtk_assistant_add_action_widget().
+    ///  add its own buttons through `gtk_assistant_add_action_widget()`.
     static let custom = GTK_ASSISTANT_PAGE_CUSTOM /* 5 */
 }
 
@@ -219,8 +219,8 @@ public extension ButtonBoxStyle {
     static let center = GTK_BUTTONBOX_CENTER /* 5 */
     /// Buttons expand to fill the box. This entails giving
     ///   buttons a "linked" appearance, making button sizes homogeneous, and
-    ///   setting spacing to 0 (same as calling gtk_box_set_homogeneous() and
-    ///   gtk_box_set_spacing() manually). Since 3.12.
+    ///   setting spacing to 0 (same as calling `gtk_box_set_homogeneous()` and
+    ///   `gtk_box_set_spacing()` manually). Since 3.12.
     static let expand = GTK_BUTTONBOX_EXPAND /* 6 */
 }
 
@@ -238,7 +238,7 @@ public extension ButtonRole {
 
 /// Prebuilt sets of buttons for the dialog. If
 /// none of these choices are appropriate, simply use `GTK_BUTTONS_NONE`
-/// then call gtk_dialog_add_buttons().
+/// then call `gtk_dialog_add_buttons()`.
 /// 
 /// > Please note that `GTK_BUTTONS_OK`, `GTK_BUTTONS_YES_NO`
 /// > and `GTK_BUTTONS_OK_CANCEL` are discouraged by the
@@ -337,7 +337,7 @@ public typealias CssSectionType = GtkCssSectionType
 
 public extension CssSectionType {
     /// The section describes a complete document.
-    ///   This section time is the only one where gtk_css_section_get_parent()
+    ///   This section time is the only one where `gtk_css_section_get_parent()`
     ///   might return `nil`.
     static let document = GTK_CSS_SECTION_DOCUMENT /* 0 */
     /// The section defines an import rule.
@@ -362,7 +362,7 @@ public extension CssSectionType {
     static let keyframes = GTK_CSS_SECTION_KEYFRAMES /* 8 */
 }
 
-/// See also: `GtkEntry`::delete-from-cursor.
+/// See also: `GtkEntry::delete`-from-cursor.
 public typealias DeleteType = GtkDeleteType
 
 public extension DeleteType {
@@ -410,7 +410,7 @@ public extension DirectionType {
 
 /// Gives an indication why a drag operation failed.
 /// The value can by obtained by connecting to the
-/// `GtkWidget`::drag-failed signal.
+/// `GtkWidget::drag`-failed signal.
 public typealias DragResult = GtkDragResult
 
 public extension DragResult {
@@ -489,7 +489,7 @@ public extension FileChooserAction {
 }
 
 /// Used as a return value of handlers for the
-/// `GtkFileChooser`::confirm-overwrite signal of a `GtkFileChooser`. This
+/// `GtkFileChooser::confirm`-overwrite signal of a `GtkFileChooser`. This
 /// value determines whether the file chooser will present the stock
 /// confirmation dialog, accept the user’s choice of a filename, or
 /// let the user choose another filename.
@@ -524,7 +524,7 @@ public extension FileChooserError {
 }
 
 /// Style for input method preedit. See also
-/// `GtkSettings`:gtk-im-preedit-style
+/// `GtkSettings:gtk`-im-preedit-style
 ///
 /// **IMPreeditStyle is deprecated:**
 /// This method is deprecated.
@@ -540,7 +540,7 @@ public extension IMPreeditStyle {
 }
 
 /// Style for input method status. See also
-/// `GtkSettings`:gtk-im-status-style
+/// `GtkSettings:gtk`-im-status-style
 ///
 /// **IMStatusStyle is deprecated:**
 /// This method is deprecated.
@@ -606,8 +606,8 @@ public extension IconViewDropPosition {
 /// Describes the image data representation used by a `GtkImage`. If you
 /// want to get the image from the widget, you can only get the
 /// currently-stored representation. e.g.  if the
-/// gtk_image_get_storage_type() returns `GTK_IMAGE_PIXBUF`, then you can
-/// call gtk_image_get_pixbuf() but not gtk_image_get_stock().  For empty
+/// `gtk_image_get_storage_type()` returns `GTK_IMAGE_PIXBUF`, then you can
+/// call `gtk_image_get_pixbuf()` but not `gtk_image_get_stock()`.  For empty
 /// images, you can request any storage type (call any of the "get"
 /// functions), but they will all return `nil` values.
 public typealias ImageType = GtkImageType
@@ -617,7 +617,7 @@ public extension ImageType {
     static let empty = GTK_IMAGE_EMPTY /* 0 */
     /// the widget contains a `GdkPixbuf`
     static let pixbuf = GTK_IMAGE_PIXBUF /* 1 */
-    /// the widget contains a [stock item name][gtkstock]
+    /// the widget contains a [stock item name](#gtkstock)
     static let stock = GTK_IMAGE_STOCK /* 2 */
     /// the widget contains a `GtkIconSet`
     static let icon_set = GTK_IMAGE_ICON_SET /* 3 */
@@ -878,7 +878,7 @@ public extension PadActionType {
     static let strip = GTK_PAD_ACTION_STRIP /* 2 */
 }
 
-/// See also gtk_print_settings_set_orientation().
+/// See also `gtk_print_settings_set_orientation()`.
 public typealias PageOrientation = GtkPageOrientation
 
 public extension PageOrientation {
@@ -892,7 +892,7 @@ public extension PageOrientation {
     static let reverse_landscape = GTK_PAGE_ORIENTATION_REVERSE_LANDSCAPE /* 3 */
 }
 
-/// See also gtk_print_job_set_page_set().
+/// See also `gtk_print_job_set_page_set()`.
 public typealias PageSet = GtkPageSet
 
 public extension PageSet {
@@ -919,7 +919,7 @@ public extension PanDirection {
 }
 
 /// Priorities for path lookups.
-/// See also gtk_binding_set_add_path().
+/// See also `gtk_binding_set_add_path()`.
 ///
 /// **PathPriorityType is deprecated:**
 /// This method is deprecated.
@@ -941,7 +941,7 @@ public extension PathPriorityType {
 }
 
 /// Widget path types.
-/// See also gtk_binding_set_add_path().
+/// See also `gtk_binding_set_add_path()`.
 ///
 /// **PathType is deprecated:**
 /// This method is deprecated.
@@ -1005,7 +1005,7 @@ public extension PositionType {
     static let bottom = GTK_POS_BOTTOM /* 3 */
 }
 
-/// See also gtk_print_settings_set_duplex().
+/// See also `gtk_print_settings_set_duplex()`.
 public typealias PrintDuplex = GtkPrintDuplex
 
 public extension PrintDuplex {
@@ -1033,7 +1033,7 @@ public extension PrintError {
     static let invalid_file = GTK_PRINT_ERROR_INVALID_FILE /* 3 */
 }
 
-/// The `action` parameter to gtk_print_operation_run()
+/// The `action` parameter to `gtk_print_operation_run()`
 /// determines what action the print operation should perform.
 public typealias PrintOperationAction = GtkPrintOperationAction
 
@@ -1050,7 +1050,7 @@ public extension PrintOperationAction {
     static let export = GTK_PRINT_OPERATION_ACTION_EXPORT /* 3 */
 }
 
-/// A value of this type is returned by gtk_print_operation_run().
+/// A value of this type is returned by `gtk_print_operation_run()`.
 public typealias PrintOperationResult = GtkPrintOperationResult
 
 public extension PrintOperationResult {
@@ -1066,7 +1066,7 @@ public extension PrintOperationResult {
     static let in_progress = GTK_PRINT_OPERATION_RESULT_IN_PROGRESS /* 3 */
 }
 
-/// See also gtk_print_job_set_pages()
+/// See also `gtk_print_job_set_pages()`
 public typealias PrintPages = GtkPrintPages
 
 public extension PrintPages {
@@ -1080,7 +1080,7 @@ public extension PrintPages {
     static let selection = GTK_PRINT_PAGES_SELECTION /* 3 */
 }
 
-/// See also gtk_print_settings_set_quality().
+/// See also `gtk_print_settings_set_quality()`.
 public typealias PrintQuality = GtkPrintQuality
 
 public extension PrintQuality {
@@ -1130,7 +1130,7 @@ public typealias PropagationPhase = GtkPropagationPhase
 
 public extension PropagationPhase {
     /// Events are not delivered automatically. Those can be
-    ///   manually fed through gtk_event_controller_handle_event(). This should
+    ///   manually fed through `gtk_event_controller_handle_event()`. This should
     ///   only be used when full control about when, or whether the controller
     ///   handles the event is needed.
     static let none_ = GTK_PHASE_NONE /* 0 */
@@ -1292,7 +1292,7 @@ public extension RecentSortType {
     ///   items first.
     static let lru = GTK_RECENT_SORT_LRU /* 2 */
     /// Sort the returned list using a custom sorting
-    ///   function passed using gtk_recent_chooser_set_sort_func().
+    ///   function passed using `gtk_recent_chooser_set_sort_func()`.
     static let custom = GTK_RECENT_SORT_CUSTOM /* 3 */
 }
 
@@ -1319,7 +1319,7 @@ public extension ResizeMode {
     static let immediate = GTK_RESIZE_IMMEDIATE /* 2 */
 }
 
-/// Predefined values for use as response ids in gtk_dialog_add_button().
+/// Predefined values for use as response ids in `gtk_dialog_add_button()`.
 /// All predefined values are negative; GTK+ leaves values of 0 or greater for
 /// application-defined response ids.
 public typealias ResponseType = GtkResponseType
@@ -1496,7 +1496,7 @@ public extension ShadowType {
 public typealias ShortcutType = GtkShortcutType
 
 public extension ShortcutType {
-    /// The shortcut is a keyboard accelerator. The `GtkShortcutsShortcut`:accelerator
+    /// The shortcut is a keyboard accelerator. The `GtkShortcutsShortcut:accelerator`
     ///   property will be used.
     static let accelerator = GTK_SHORTCUT_ACCELERATOR /* 0 */
     /// The shortcut is a pinch gesture. GTK+ provides an icon and subtitle.
@@ -1511,7 +1511,7 @@ public extension ShortcutType {
     static let gesture_two_finger_swipe_left = GTK_SHORTCUT_GESTURE_TWO_FINGER_SWIPE_LEFT /* 5 */
     /// The shortcut is a two-finger swipe gesture. GTK+ provides an icon and subtitle.
     static let gesture_two_finger_swipe_right = GTK_SHORTCUT_GESTURE_TWO_FINGER_SWIPE_RIGHT /* 6 */
-    /// The shortcut is a gesture. The `GtkShortcutsShortcut`:icon property will be
+    /// The shortcut is a gesture. The `GtkShortcutsShortcut:icon` property will be
     ///   used.
     static let gesture = GTK_SHORTCUT_GESTURE /* 7 */
 }
@@ -1556,7 +1556,7 @@ public extension SortType {
 
 /// The spin button update policy determines whether the spin button displays
 /// values even if they are outside the bounds of its adjustment.
-/// See gtk_spin_button_set_update_policy().
+/// See `gtk_spin_button_set_update_policy()`.
 public typealias SpinButtonUpdatePolicy = GtkSpinButtonUpdatePolicy
 
 public extension SpinButtonUpdatePolicy {
@@ -1570,7 +1570,7 @@ public extension SpinButtonUpdatePolicy {
 }
 
 /// The values of the GtkSpinType enumeration are used to specify the
-/// change to make in gtk_spin_button_spin().
+/// change to make in `gtk_spin_button_spin()`.
 public typealias SpinType = GtkSpinType
 
 public extension SpinType {
@@ -1671,8 +1671,8 @@ public extension StateType {
 }
 
 /// These values are used as “info” for the targets contained in the
-/// lists returned by gtk_text_buffer_get_copy_target_list() and
-/// gtk_text_buffer_get_paste_target_list().
+/// lists returned by `gtk_text_buffer_get_copy_target_list()` and
+/// `gtk_text_buffer_get_paste_target_list()`.
 /// 
 /// The values counts down from `-1` to avoid clashes
 /// with application added drag destinations which usually start at 0.
@@ -1700,7 +1700,7 @@ public extension TextDirection {
 }
 
 /// Granularity types that extend the text selection. Use the
-/// `GtkTextView`::extend-selection signal to customize the selection.
+/// `GtkTextView::extend`-selection signal to customize the selection.
 public typealias TextExtendSelection = GtkTextExtendSelection
 
 public extension TextExtendSelection {
@@ -1713,7 +1713,7 @@ public extension TextExtendSelection {
 }
 
 /// Used to reference the layers of `GtkTextView` for the purpose of customized
-/// drawing with the ::draw_layer vfunc.
+/// drawing with the `draw_layer` vfunc.
 public typealias TextViewLayer = GtkTextViewLayer
 
 public extension TextViewLayer {
@@ -1821,7 +1821,7 @@ public extension TreeViewGridLines {
     static let both = GTK_TREE_VIEW_GRID_LINES_BOTH /* 3 */
 }
 
-/// See also gtk_print_settings_set_paper_width().
+/// See also `gtk_print_settings_set_paper_width()`.
 public typealias Unit = GtkUnit
 
 public extension Unit {
@@ -1835,7 +1835,7 @@ public extension Unit {
     static let mm = GTK_UNIT_MM /* 3 */
 }
 
-/// Kinds of widget-specific help. Used by the ::show-help signal.
+/// Kinds of widget-specific help. Used by the `show`-help signal.
 public typealias WidgetHelpType = GtkWidgetHelpType
 
 public extension WidgetHelpType {
@@ -1860,14 +1860,14 @@ public extension WindowPosition {
     /// Keep window centered as it changes size, etc.
     static let center_always = GTK_WIN_POS_CENTER_ALWAYS /* 3 */
     /// Center the window on its transient
-    ///  parent (see gtk_window_set_transient_for()).
+    ///  parent (see `gtk_window_set_transient_for()`).
     static let center_on_parent = GTK_WIN_POS_CENTER_ON_PARENT /* 4 */
 }
 
 /// A `GtkWindow` can be one of these types. Most things you’d consider a
 /// “window” should have type `GTK_WINDOW_TOPLEVEL`; windows with this type
 /// are managed by the window manager and have a frame by default (call
-/// gtk_window_set_decorated() to toggle the frame).  Windows with type
+/// `gtk_window_set_decorated()` to toggle the frame).  Windows with type
 /// `GTK_WINDOW_POPUP` are ignored by the window manager; window manager
 /// keybindings won’t work on them, the window manager won’t decorate the
 /// window with a frame, many GTK+ features that rely on the window
@@ -1876,7 +1876,7 @@ public extension WindowPosition {
 /// widgets such as `GtkMenu` or tooltips that you normally don’t think of
 /// as windows per se. Nearly all windows should be `GTK_WINDOW_TOPLEVEL`.
 /// In particular, do not use `GTK_WINDOW_POPUP` just to turn off
-/// the window borders; use gtk_window_set_decorated() for that.
+/// the window borders; use `gtk_window_set_decorated()` for that.
 public typealias WindowType = GtkWindowType
 
 public extension WindowType {
@@ -1894,7 +1894,7 @@ public extension WrapMode {
     static let none_ = GTK_WRAP_NONE /* 0 */
     /// wrap text, breaking lines anywhere the cursor can
     ///     appear (between characters, usually - if you want to be technical,
-    ///     between graphemes, see pango_get_log_attrs())
+    ///     between graphemes, see `pango_get_log_attrs()`)
     static let char = GTK_WRAP_CHAR /* 1 */
     /// wrap text, breaking lines in between words
     static let word = GTK_WRAP_WORD /* 2 */

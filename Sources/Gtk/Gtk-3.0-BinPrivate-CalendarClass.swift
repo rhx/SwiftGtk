@@ -525,8 +525,8 @@ public extension BindingSetRef {
 
     /// Find a binding set by its globally unique name.
     /// 
-    /// The `set_name` can either be a name used for gtk_binding_set_new()
-    /// or the type name of a class used in gtk_binding_set_by_class().
+    /// The `set_name` can either be a name used for `gtk_binding_set_new()`
+    /// or the type name of a class used in `gtk_binding_set_by_class()`.
     static func find(setName set_name: UnsafePointer<gchar>) -> BindingSetRef! {
         let rv = gtk_binding_set_find(set_name)
         return rv.map { BindingSetRef(cast($0)) }
@@ -601,8 +601,8 @@ open class BindingSet: BindingSetProtocol {
 
     /// Find a binding set by its globally unique name.
     /// 
-    /// The `set_name` can either be a name used for gtk_binding_set_new()
-    /// or the type name of a class used in gtk_binding_set_by_class().
+    /// The `set_name` can either be a name used for `gtk_binding_set_new()`
+    /// or the type name of a class used in `gtk_binding_set_by_class()`.
     public static func find(setName set_name: UnsafePointer<gchar>) -> BindingSet! {
         let rv = gtk_binding_set_find(set_name)
         return rv.map { BindingSet(cast($0)) }
@@ -650,15 +650,13 @@ public extension BindingSetProtocol {
     ///   }
     /// ```
     /// 
-    /// 
     /// Or they may also unbind a key combination:
     /// ```
     ///   unbind "key"
     /// ```
     /// 
-    /// 
     /// Key combinations must be in a format that can be parsed by
-    /// gtk_accelerator_parse().
+    /// `gtk_accelerator_parse()`.
     func bindingEntryAddSignalFromString(signalDesc signal_desc: UnsafePointer<gchar>) -> GTokenType {
         let rv = gtk_binding_entry_add_signal_from_string(cast(_ptr), signal_desc)
         return rv
@@ -672,7 +670,7 @@ public extension BindingSetProtocol {
     }
 
     /// Remove a binding previously installed via
-    /// gtk_binding_entry_add_signal() on `binding_set`.
+    /// `gtk_binding_entry_add_signal()` on `binding_set`.
     func bindingEntryRemove(keyval: CUnsignedInt, modifiers: Gdk.ModifierType) {
         gtk_binding_entry_remove(cast(_ptr), guint(keyval), modifiers)
     
