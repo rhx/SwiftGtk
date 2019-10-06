@@ -11545,22 +11545,23 @@ children, you may have to wrap it in a <code>GtkScrolledWindow</code> to enable 
 <p>The children of a GtkFlowBox can be dynamically sorted and filtered.</p>
 
 <p>Although a GtkFlowBox must have only <code>GtkFlowBoxChild</code> children,
-you can add any kind of widget to it via gtk_container_add(), and
+you can add any kind of widget to it via <code>gtk_container_add()</code>, and
 a GtkFlowBoxChild widget will automatically be inserted between
 the box and the widget.</p>
 
 <p>Also see <code>GtkListBox</code>.</p>
 
 <p>GtkFlowBox was added in GTK+ 3.12.</p>
+<h1 id='css-nodes' class='heading'>CSS nodes</h1>
 
-<p>&ldquo; CSS nodes</p>
-<pre class="highlight swift"><code><span class="n">flowbox</span>
-<span class="err">├──</span> <span class="n">flowboxchild</span>
-<span class="err">│</span>   <span class="err">╰──</span> <span class="o">&lt;</span><span class="n">child</span><span class="o">&gt;</span>
-<span class="err">├──</span> <span class="n">flowboxchild</span>
-<span class="err">│</span>   <span class="err">╰──</span> <span class="o">&lt;</span><span class="n">child</span><span class="o">&gt;</span>
-<span class="err">┊</span>
-<span class="err">╰──</span> <span class="p">[</span><span class="n">rubberband</span><span class="p">]</span>
+<p>(plain Language Example):</p>
+<pre class="highlight plaintext"><code>flowbox
+├── flowboxchild
+│   ╰── &lt;child&gt;
+├── flowboxchild
+│   ╰── &lt;child&gt;
+┊
+╰── [rubberband]
 </code></pre>
 
 <p>GtkFlowBox uses a single CSS node with name flowbox. GtkFlowBoxChild
@@ -11600,7 +11601,7 @@ Ownership is transferred to the <code>FlowBox</code> instance.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L6148-L6150">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L6128-L6130">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11626,12 +11627,12 @@ Will retain <code>GtkFlowBox</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">other</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/FlowBoxProtocol.html">FlowBoxProtocol</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">other</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/FlowBoxProtocol.html">FlowBoxProtocol</a></span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L6154-L6157">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L6134-L6137">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11657,12 +11658,12 @@ Will retain <code>GtkFlowBox</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">cPointer</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">cPointer</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L6161-L6163">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L6141-L6143">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11688,12 +11689,12 @@ Will retain <code>GtkFlowBox</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeRawPointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L6167-L6169">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L6147-L6149">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11719,12 +11720,12 @@ Will retain <code>GtkFlowBox</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L6173-L6175">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L6153-L6155">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11750,12 +11751,12 @@ Will retain <code>GtkFlowBox</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">opaquePointer</span><span class="p">:</span> <span class="kt">OpaquePointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">opaquePointer</span><span class="p">:</span> <span class="kt">OpaquePointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L6179-L6181">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L6159-L6161">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11780,12 +11781,12 @@ Will retain <code>GtkFlowBox</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">()</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L6184-L6187">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L6164-L6167">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11798,7 +11799,7 @@ Will retain <code>GtkFlowBox</code>.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

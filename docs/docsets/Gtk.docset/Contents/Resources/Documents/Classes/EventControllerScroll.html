@@ -11528,23 +11528,23 @@ Use <code>EventControllerScroll</code> as a strong reference or owner of a <code
 <p><code>GtkEventControllerScroll</code> is an event controller meant to handle
 scroll events from mice and touchpads. It is capable of handling
 both discrete and continuous scroll events, abstracting them both
-on the <code>GtkEventControllerScroll</code>::scroll signal (deltas in the
+on the <code>GtkEventControllerScroll::scroll</code> signal (deltas in the
 discrete case are multiples of 1).</p>
 
 <p>In the case of continuous scroll events, <code>GtkEventControllerScroll</code>
-encloses all <code>GtkEventControllerScroll</code>::scroll events between two
-<code>GtkEventControllerScroll</code>::scroll-begin and <code>GtkEventControllerScroll</code>::scroll-end
+encloses all <code>GtkEventControllerScroll::scroll</code> events between two
+<code>GtkEventControllerScroll::scroll</code>-begin and <code>GtkEventControllerScroll::scroll</code>-end
 signals.</p>
 
 <p>The behavior of the event controller can be modified by the
 flags given at creation time, or modified at a later point through
-gtk_event_controller_scroll_set_flags() (e.g. because the scrolling
+<code>gtk_event_controller_scroll_set_flags()</code> (e.g. because the scrolling
 conditions of the widget changed).</p>
 
 <p>The controller can be set up to emit motion for either/both vertical
 and horizontal scroll events through <code>GTK_EVENT_CONTROLLER_SCROLL_VERTICAL</code>,
 <code>GTK_EVENT_CONTROLLER_SCROLL_HORIZONTAL</code> and <code>GTK_EVENT_CONTROLLER_SCROLL_BOTH</code>.
-If any axis is disabled, the respective <code>GtkEventControllerScroll</code>::scroll
+If any axis is disabled, the respective <code>GtkEventControllerScroll::scroll</code>
 delta will be 0. Vertical scroll events will be translated to horizontal
 motion for the devices incapable of horizontal scrolling.</p>
 
@@ -11554,7 +11554,7 @@ discrete actions triggered through scroll events (e.g. switching across
 combobox options).</p>
 
 <p>The <code>GTK_EVENT_CONTROLLER_SCROLL_KINETIC</code> flag toggles the emission of the
-<code>GtkEventControllerScroll</code>::decelerate signal, emitted at the end of scrolling
+<code>GtkEventControllerScroll::decelerate</code> signal, emitted at the end of scrolling
 with two X/Y velocity arguments that are consistent with the motion that
 was received.</p>
 
@@ -11593,7 +11593,7 @@ Ownership is transferred to the <code>EventControllerScroll</code> instance.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L4276-L4278">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L4268-L4270">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11619,12 +11619,12 @@ Will retain <code>GtkEventControllerScroll</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">other</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/EventControllerScrollProtocol.html">EventControllerScrollProtocol</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">other</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/EventControllerScrollProtocol.html">EventControllerScrollProtocol</a></span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L4282-L4285">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L4274-L4277">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11650,12 +11650,12 @@ Will retain <code>GtkEventControllerScroll</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">cPointer</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">cPointer</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L4289-L4291">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L4281-L4283">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11681,12 +11681,12 @@ Will retain <code>GtkEventControllerScroll</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeRawPointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L4295-L4297">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L4287-L4289">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11712,12 +11712,12 @@ Will retain <code>GtkEventControllerScroll</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L4301-L4303">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L4293-L4295">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11743,12 +11743,12 @@ Will retain <code>GtkEventControllerScroll</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">opaquePointer</span><span class="p">:</span> <span class="kt">OpaquePointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">opaquePointer</span><span class="p">:</span> <span class="kt">OpaquePointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L4307-L4309">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L4299-L4301">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11774,12 +11774,12 @@ for the given <code>widget</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">widget</span><span class="p">:</span> <span class="kt"><a href="../Protocols/WidgetProtocol.html">WidgetProtocol</a></span><span class="p">,</span> <span class="nv">flags</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:3Gtk26EventControllerScrollFlagsa">EventControllerScrollFlags</a></span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">widget</span><span class="p">:</span> <span class="kt"><a href="../Protocols/WidgetProtocol.html">WidgetProtocol</a></span><span class="p">,</span> <span class="nv">flags</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:3Gtk26EventControllerScrollFlagsa">EventControllerScrollFlags</a></span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L4313-L4316">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L4305-L4308">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11792,7 +11792,7 @@ for the given <code>widget</code>.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

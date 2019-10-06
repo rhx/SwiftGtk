@@ -11533,16 +11533,15 @@ capabilities. Use GtkViewport to scroll child widgets such as
 
 <p>If a widget has native scrolling abilities, such as <code>GtkTextView</code>,
 <code>GtkTreeView</code> or <code>GtkIconView</code>, it can be added to a <code>GtkScrolledWindow</code>
-with gtk_container_add(). If a widget does not, you must first add the
+with <code>gtk_container_add()</code>. If a widget does not, you must first add the
 widget to a <code>GtkViewport</code>, then add the viewport to the scrolled window.
-gtk_container_add() does this automatically if a child that does not
+<code>gtk_container_add()</code> does this automatically if a child that does not
 implement <code>GtkScrollable</code> is added to a <code>GtkScrolledWindow</code>, so you can
 ignore the presence of the viewport.</p>
 
 <p>The GtkViewport will start scrolling content only if allocated less
 than the child widget’s minimum size in a given orientation.</p>
-
-<p>&ldquo; CSS nodes</p>
+<h1 id='css-nodes' class='heading'>CSS nodes</h1>
 
 <p>GtkViewport has a single CSS node with name viewport.</p>
 
@@ -11578,7 +11577,7 @@ than the child widget’s minimum size in a given orientation.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-VBox-Widget.swift#L7555">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-VBox-Widget.swift#L7546">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11616,7 +11615,7 @@ than the child widget’s minimum size in a given orientation.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-VBox-Widget.swift#L7558">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-VBox-Widget.swift#L7549">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11744,7 +11743,7 @@ than the child widget’s minimum size in a given orientation.</p>
                         <p>binding reference or <code>nil</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-VBox-Widget.swift#L7908-L7932">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-VBox-Widget.swift#L7899-L7923">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11836,7 +11835,7 @@ than the child widget’s minimum size in a given orientation.</p>
                         <p>positive handler ID, or a value less than or equal to <code>0</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-VBox-Widget.swift#L8735-L8754">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-VBox-Widget.swift#L8725-L8744">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11880,7 +11879,7 @@ than the child widget’s minimum size in a given orientation.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-VBox-Widget.swift#L8762-L8765">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-VBox-Widget.swift#L8752-L8755">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11911,13 +11910,13 @@ Use gtk_scrollable_get_hadjustment()</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">getHadjustment</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">GtkAdjustment</span><span class="o">&gt;!</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-VBox-Widget.swift#L8771-L8774">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-VBox-Widget.swift#L8761-L8764">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11939,7 +11938,7 @@ Use gtk_scrollable_get_hadjustment()</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Gets the shadow type of the <code>GtkViewport</code>. See
-gtk_viewport_set_shadow_type().</p>
+<code>gtk_viewport_set_shadow_type()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -11951,7 +11950,7 @@ gtk_viewport_set_shadow_type().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-VBox-Widget.swift#L8778-L8781">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-VBox-Widget.swift#L8768-L8771">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11982,13 +11981,13 @@ Use gtk_scrollable_get_vadjustment()</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">getVadjustment</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">GtkAdjustment</span><span class="o">&gt;!</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-VBox-Widget.swift#L8787-L8790">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-VBox-Widget.swift#L8777-L8780">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12021,7 +12020,7 @@ Use gtk_scrollable_get_vadjustment()</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-VBox-Widget.swift#L8793-L8796">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-VBox-Widget.swift#L8783-L8786">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12052,13 +12051,13 @@ Use gtk_scrollable_set_hadjustment()</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">setHadjustment</span><span class="p">(</span><span class="nv">adjustment</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AdjustmentProtocol.html">AdjustmentProtocol</a></span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-VBox-Widget.swift#L8802-L8805">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-VBox-Widget.swift#L8792-L8795">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12091,7 +12090,7 @@ Use gtk_scrollable_set_hadjustment()</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-VBox-Widget.swift#L8808-L8811">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-VBox-Widget.swift#L8798-L8801">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12122,13 +12121,13 @@ Use gtk_scrollable_set_vadjustment()</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">setVadjustment</span><span class="p">(</span><span class="nv">adjustment</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AdjustmentProtocol.html">AdjustmentProtocol</a></span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-VBox-Widget.swift#L8817-L8820">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-VBox-Widget.swift#L8807-L8810">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12161,7 +12160,7 @@ Use gtk_scrollable_set_vadjustment()</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-VBox-Widget.swift#L8822-L8828">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-VBox-Widget.swift#L8812-L8818">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12197,7 +12196,7 @@ Use gtk_scrollable_get_hadjustment()</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-VBox-Widget.swift#L8834-L8850">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-VBox-Widget.swift#L8824-L8840">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12219,7 +12218,7 @@ Use gtk_scrollable_get_hadjustment()</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Gets the shadow type of the <code>GtkViewport</code>. See
-gtk_viewport_set_shadow_type().</p>
+<code>gtk_viewport_set_shadow_type()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12231,7 +12230,7 @@ gtk_viewport_set_shadow_type().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-VBox-Widget.swift#L8854-L8865">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-VBox-Widget.swift#L8844-L8855">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12267,7 +12266,7 @@ Use gtk_scrollable_get_vadjustment()</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-VBox-Widget.swift#L8871-L8887">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-VBox-Widget.swift#L8861-L8877">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12300,7 +12299,7 @@ Use gtk_scrollable_get_vadjustment()</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-VBox-Widget.swift#L8890-L8896">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-VBox-Widget.swift#L8880-L8886">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12313,7 +12312,7 @@ Use gtk_scrollable_get_vadjustment()</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

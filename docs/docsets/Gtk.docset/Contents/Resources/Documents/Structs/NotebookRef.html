@@ -11530,13 +11530,12 @@ can be switched between using tab labels along one edge.</p>
 
 <p>There are many configuration options for GtkNotebook. Among other
 things, you can choose on which edge the tabs appear
-(see gtk_notebook_set_tab_pos()), whether, if there are too many
+(see <code>gtk_notebook_set_tab_pos()</code>), whether, if there are too many
 tabs to fit the notebook should be made bigger or scrolling
-arrows added (see gtk_notebook_set_scrollable()), and whether there
+arrows added (see <code>gtk_notebook_set_scrollable()</code>), and whether there
 will be a popup menu allowing the users to switch pages.
-(see gtk_notebook_popup_enable(), gtk_notebook_popup_disable())</p>
-
-<p>&ldquo; GtkNotebook as GtkBuildable</p>
+(see <code>gtk_notebook_popup_enable()</code>, <code>gtk_notebook_popup_disable()</code>)</p>
+<h1 id='gtknotebook-as-gtkbuildable' class='heading'>GtkNotebook as GtkBuildable</h1>
 
 <p>The GtkNotebook implementation of the <code>GtkBuildable</code> interface
 supports placing children into tabs by specifying “tab” as the
@@ -11563,25 +11562,26 @@ type attribute.</p>
   <span class="o">&lt;/</span><span class="n">child</span><span class="o">&gt;</span>
 <span class="o">&lt;/</span><span class="n">object</span><span class="o">&gt;</span>
 </code></pre>
+<h1 id='css-nodes' class='heading'>CSS nodes</h1>
 
-<p>&rdquo; CSS nodes</p>
-<pre class="highlight swift"><code><span class="n">notebook</span>
-<span class="err">├──</span> <span class="n">header</span><span class="o">.</span><span class="n">top</span>
-<span class="err">│</span>   <span class="err">├──</span> <span class="p">[</span><span class="o">&lt;</span><span class="n">action</span> <span class="n">widget</span><span class="o">&gt;</span><span class="p">]</span>
-<span class="err">│</span>   <span class="err">├──</span> <span class="n">tabs</span>
-<span class="err">│</span>   <span class="err">│</span>   <span class="err">├──</span> <span class="p">[</span><span class="n">arrow</span><span class="p">]</span>
-<span class="err">│</span>   <span class="err">│</span>   <span class="err">├──</span> <span class="n">tab</span>
-<span class="err">│</span>   <span class="err">│</span>   <span class="err">│</span>   <span class="err">╰──</span> <span class="o">&lt;</span><span class="n">tab</span> <span class="n">label</span><span class="o">&gt;</span>
-<span class="err">┊</span>   <span class="err">┊</span>   <span class="err">┊</span>
-<span class="err">│</span>   <span class="err">│</span>   <span class="err">├──</span> <span class="n">tab</span><span class="p">[</span><span class="o">.</span><span class="n">reorderable</span><span class="o">-</span><span class="n">page</span><span class="p">]</span>
-<span class="err">│</span>   <span class="err">│</span>   <span class="err">│</span>   <span class="err">╰──</span> <span class="o">&lt;</span><span class="n">tab</span> <span class="n">label</span><span class="o">&gt;</span>
-<span class="err">│</span>   <span class="err">│</span>   <span class="err">╰──</span> <span class="p">[</span><span class="n">arrow</span><span class="p">]</span>
-<span class="err">│</span>   <span class="err">╰──</span> <span class="p">[</span><span class="o">&lt;</span><span class="n">action</span> <span class="n">widget</span><span class="o">&gt;</span><span class="p">]</span>
-<span class="err">│</span>
-<span class="err">╰──</span> <span class="n">stack</span>
-    <span class="err">├──</span> <span class="o">&lt;</span><span class="n">child</span><span class="o">&gt;</span>
-    <span class="err">┊</span>
-    <span class="err">╰──</span> <span class="o">&lt;</span><span class="n">child</span><span class="o">&gt;</span>
+<p>(plain Language Example):</p>
+<pre class="highlight plaintext"><code>notebook
+├── header.top
+│   ├── [&lt;action widget&gt;]
+│   ├── tabs
+│   │   ├── [arrow]
+│   │   ├── tab
+│   │   │   ╰── &lt;tab label&gt;
+┊   ┊   ┊
+│   │   ├── tab[.reorderable-page]
+│   │   │   ╰── &lt;tab label&gt;
+│   │   ╰── [arrow]
+│   ╰── [&lt;action widget&gt;]
+│
+╰── stack
+    ├── &lt;child&gt;
+    ┊
+    ╰── &lt;child&gt;
 </code></pre>
 
 <p>GtkNotebook has a main CSS node with name notebook, a subnode
@@ -11593,7 +11593,7 @@ to the tabs node. If the notebook is scrollable, CSS nodes with
 name arrow are placed as first and last child of the tabs node.</p>
 
 <p>The main node gets the .frame style class when the notebook
-has a border (see gtk_notebook_set_show_border()).</p>
+has a border (see <code>gtk_notebook_set_show_border()</code>).</p>
 
 <p>The header node gets one of the style class .top, .bottom,
 .left or .right, depending on where the tabs are placed. For
@@ -11636,7 +11636,7 @@ For type-safe access, use the generated, typed pointer <code>notebook_ptr</code>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Notebook-OffscreenWindow.swift#L204">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Notebook-OffscreenWindow.swift#L202">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11677,7 +11677,7 @@ For type-safe access, use the generated, typed pointer <code>notebook_ptr</code>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Notebook-OffscreenWindow.swift#L209-L210">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Notebook-OffscreenWindow.swift#L207-L208">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11707,7 +11707,7 @@ For type-safe access, use the generated, typed pointer <code>notebook_ptr</code>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Notebook-OffscreenWindow.swift#L213-L215">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Notebook-OffscreenWindow.swift#L211-L213">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11738,7 +11738,7 @@ For type-safe access, use the generated, typed pointer <code>notebook_ptr</code>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Notebook-OffscreenWindow.swift#L219-L221">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Notebook-OffscreenWindow.swift#L217-L219">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11769,7 +11769,7 @@ For type-safe access, use the generated, typed pointer <code>notebook_ptr</code>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Notebook-OffscreenWindow.swift#L225-L227">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Notebook-OffscreenWindow.swift#L223-L225">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11800,7 +11800,7 @@ For type-safe access, use the generated, typed pointer <code>notebook_ptr</code>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Notebook-OffscreenWindow.swift#L231-L233">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Notebook-OffscreenWindow.swift#L229-L231">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11831,7 +11831,7 @@ For type-safe access, use the generated, typed pointer <code>notebook_ptr</code>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Notebook-OffscreenWindow.swift#L237-L239">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Notebook-OffscreenWindow.swift#L235-L237">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11862,7 +11862,7 @@ For type-safe access, use the generated, typed pointer <code>notebook_ptr</code>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Notebook-OffscreenWindow.swift#L243-L245">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Notebook-OffscreenWindow.swift#L241-L243">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11892,7 +11892,7 @@ For type-safe access, use the generated, typed pointer <code>notebook_ptr</code>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Notebook-OffscreenWindow.swift#L248-L251">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Notebook-OffscreenWindow.swift#L246-L249">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11905,7 +11905,7 @@ For type-safe access, use the generated, typed pointer <code>notebook_ptr</code>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

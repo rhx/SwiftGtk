@@ -11538,8 +11538,7 @@ choose a file and make it available to the application.</p>
 difference is that there is no access to any <code>GtkWindow</code> or <code>GtkWidget</code> for the dialog.
 This is required, as there may not be one in the case of a platform native dialog.
 Showing, hiding and running the dialog is handled by the <code>GtkNativeDialog</code> functions.</p>
-
-<p><code>Typical usage</code> {<code>gtkfilechoosernative</code>-typical-usage}</p>
+<h2 id='typical-usage-a-name-gtkfilechoosernative-typical-usage-a' class='heading'>Typical usage ## <a name="gtkfilechoosernative-typical-usage"></a></h2>
 
 <p>In the simplest of cases, you can the following code to use
 <code>GtkFileChooserDialog</code> to select a file for opening:</p>
@@ -11602,15 +11601,13 @@ Showing, hiding and running the dialog is handled by the <code>GtkNativeDialog</
 </code></pre>
 
 <p>For more information on how to best set up a file dialog, see <code>GtkFileChooserDialog</code>.</p>
-
-<p><code>Response Codes</code> {<code>gtkfilechooserdialognative</code>-responses}</p>
+<h2 id='response-codes-a-name-gtkfilechooserdialognative-responses-a' class='heading'>Response Codes ## <a name="gtkfilechooserdialognative-responses"></a></h2>
 
 <p><code>GtkFileChooserNative</code> inherits from <code>GtkNativeDialog</code>, which means it
 will return <code>GTK_RESPONSE_ACCEPT</code> if the user accepted, and
 <code>GTK_RESPONSE_CANCEL</code> if he pressed cancel. It can also return
 <code>GTK_RESPONSE_DELETE_EVENT</code> if the window was unexpectedly closed.</p>
-
-<p><code>Differences from `GtkFileChooserDialog`</code>  {<code>gtkfilechooserdialognative</code>-differences}</p>
+<h2 id='differences-from-code-gtkfilechooserdialog-code-a-name-gtkfilechooserdialognative-differences-a' class='heading'>Differences from <code>GtkFileChooserDialog</code> ##  <a name="gtkfilechooserdialognative-differences"></a></h2>
 
 <p>There are a few things in the GtkFileChooser API that are not
 possible to use with <code>GtkFileChooserNative</code>, as such use would
@@ -11620,41 +11617,39 @@ prohibit the use of a native dialog.</p>
 navigates in the dialog, including:</p>
 
 <ul>
-<li><code>GtkFileChooser</code>::current-folder-changed</li>
-<li><code>GtkFileChooser</code>::selection-changed</li>
-<li><code>GtkFileChooser</code>::file-activated</li>
-<li><code>GtkFileChooser</code>::confirm-overwrite</li>
+<li><code>GtkFileChooser::current</code>-folder-changed</li>
+<li><code>GtkFileChooser::selection</code>-changed</li>
+<li><code>GtkFileChooser::file</code>-activated</li>
+<li><code>GtkFileChooser::confirm</code>-overwrite</li>
 </ul>
 
 <p>You can also not use the methods that directly control user navigation:</p>
 
 <ul>
-<li>gtk_file_chooser_unselect_filename()</li>
-<li>gtk_file_chooser_select_all()</li>
-<li>gtk_file_chooser_unselect_all()</li>
+<li><code>gtk_file_chooser_unselect_filename()</code></li>
+<li><code>gtk_file_chooser_select_all()</code></li>
+<li><code>gtk_file_chooser_unselect_all()</code></li>
 </ul>
 
 <p>If you need any of the above you will have to use <code>GtkFileChooserDialog</code> directly.</p>
 
 <p>No operations that change the the dialog work while the dialog is
 visible. Set all the properties that are required before showing the dialog.</p>
-
-<p><code>Win32 details</code> {<code>gtkfilechooserdialognative</code>-win32}</p>
+<h2 id='win32-details-a-name-gtkfilechooserdialognative-win32-a' class='heading'>Win32 details ## <a name="gtkfilechooserdialognative-win32"></a></h2>
 
 <p>On windows the IFileDialog implementation (added in Windows Vista) is
 used. It supports many of the features that <code>GtkFileChooserDialog</code>
 does, but there are some things it does not handle:</p>
 
 <ul>
-<li><p>Extra widgets added with gtk_file_chooser_set_extra_widget().</p></li>
-<li><p>Use of custom previews by connecting to <code>GtkFileChooser</code>::update-preview.</p></li>
+<li><p>Extra widgets added with <code>gtk_file_chooser_set_extra_widget()</code>.</p></li>
+<li><p>Use of custom previews by connecting to <code>GtkFileChooser::update</code>-preview.</p></li>
 <li><p>Any <code>GtkFileFilter</code> added using a mimetype or custom filter.</p></li>
 </ul>
 
 <p>If any of these features are used the regular <code>GtkFileChooserDialog</code>
 will be used in place of the native one.</p>
-
-<p><code>Portal details</code> {<code>gtkfilechooserdialognative</code>-portal}</p>
+<h2 id='portal-details-a-name-gtkfilechooserdialognative-portal-a' class='heading'>Portal details ## <a name="gtkfilechooserdialognative-portal"></a></h2>
 
 <p>When the org.freedesktop.portal.FileChooser portal is available on the
 session bus, it is used to bring up an out-of-process file chooser. Depending
@@ -11663,22 +11658,21 @@ be a GTK+ file chooser. In this situation, the following things are not
 supported and will be silently ignored:</p>
 
 <ul>
-<li><p>Extra widgets added with gtk_file_chooser_set_extra_widget().</p></li>
-<li><p>Use of custom previews by connecting to <code>GtkFileChooser</code>::update-preview.</p></li>
+<li><p>Extra widgets added with <code>gtk_file_chooser_set_extra_widget()</code>.</p></li>
+<li><p>Use of custom previews by connecting to <code>GtkFileChooser::update</code>-preview.</p></li>
 <li><p>Any <code>GtkFileFilter</code> added with a custom filter.</p></li>
 </ul>
-
-<p><code>macOS details</code> {<code>gtkfilechooserdialognative</code>-macos}</p>
+<h2 id='macos-details-a-name-gtkfilechooserdialognative-macos-a' class='heading'>macOS details ## <a name="gtkfilechooserdialognative-macos"></a></h2>
 
 <p>On macOS the NSSavePanel and NSOpenPanel classes are used to provide native
 file chooser dialogs. Some features provided by <code>GtkFileChooserDialog</code> are
 not supported:</p>
 
 <ul>
-<li><p>Extra widgets added with gtk_file_chooser_set_extra_widget(), unless the
+<li><p>Extra widgets added with <code>gtk_file_chooser_set_extra_widget()</code>, unless the
 widget is an instance of GtkLabel, in which case the label text will be used
 to set the NSSavePanel message instance property.</p></li>
-<li><p>Use of custom previews by connecting to <code>GtkFileChooser</code>::update-preview.</p></li>
+<li><p>Use of custom previews by connecting to <code>GtkFileChooser::update</code>-preview.</p></li>
 <li><p>Any <code>GtkFileFilter</code> added with a custom filter.</p></li>
 <li><p>Shortcut folders.</p></li>
 </ul>
@@ -11716,7 +11710,7 @@ Ownership is transferred to the <code>FileChooserNative</code> instance.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L2433-L2435">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L2417-L2419">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11742,12 +11736,12 @@ Will retain <code>GtkFileChooserNative</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">other</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/FileChooserNativeProtocol.html">FileChooserNativeProtocol</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">other</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/FileChooserNativeProtocol.html">FileChooserNativeProtocol</a></span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L2439-L2442">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L2423-L2426">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11773,12 +11767,12 @@ Will retain <code>GtkFileChooserNative</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">cPointer</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">cPointer</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L2446-L2448">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L2430-L2432">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11804,12 +11798,12 @@ Will retain <code>GtkFileChooserNative</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeRawPointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L2452-L2454">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L2436-L2438">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11835,12 +11829,12 @@ Will retain <code>GtkFileChooserNative</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L2458-L2460">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L2442-L2444">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11866,12 +11860,12 @@ Will retain <code>GtkFileChooserNative</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">opaquePointer</span><span class="p">:</span> <span class="kt">OpaquePointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">opaquePointer</span><span class="p">:</span> <span class="kt">OpaquePointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L2464-L2466">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L2448-L2450">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11896,12 +11890,12 @@ Will retain <code>GtkFileChooserNative</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">,</span> <span class="nv">parent</span><span class="p">:</span> <span class="kt"><a href="../Protocols/WindowProtocol.html">WindowProtocol</a></span><span class="p">,</span> <span class="nv">action</span><span class="p">:</span> <span class="kt">FileChooserAction</span><span class="p">,</span> <span class="n">acceptLabel</span> <span class="nv">accept_label</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">cancelLabel</span> <span class="nv">cancel_label</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">,</span> <span class="nv">parent</span><span class="p">:</span> <span class="kt"><a href="../Protocols/WindowProtocol.html">WindowProtocol</a></span><span class="p">,</span> <span class="nv">action</span><span class="p">:</span> <span class="kt">FileChooserAction</span><span class="p">,</span> <span class="n">acceptLabel</span> <span class="nv">accept_label</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">cancelLabel</span> <span class="nv">cancel_label</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L2469-L2472">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L2453-L2456">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11930,7 +11924,7 @@ Will retain <code>GtkFileChooserNative</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">action</span><span class="p">:</span> <span class="kt">FileChooserAction</span> <span class="o">=</span> <span class="o">.</span><span class="kd">open</span><span class="p">,</span> <span class="nv">acceptLabel</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">cancelLabel</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">action</span><span class="p">:</span> <span class="kt">FileChooserAction</span> <span class="o">=</span> <span class="o">.</span><span class="kd">open</span><span class="p">,</span> <span class="nv">acceptLabel</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">cancelLabel</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -12015,7 +12009,7 @@ Will retain <code>GtkFileChooserNative</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="n">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">W</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">parent</span><span class="p">:</span> <span class="kt">W</span><span class="p">,</span> <span class="nv">action</span><span class="p">:</span> <span class="kt">FileChooserAction</span> <span class="o">=</span> <span class="o">.</span><span class="kd">open</span><span class="p">,</span> <span class="nv">acceptLabel</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">cancelLabel</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="k">where</span> <span class="kt">W</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/WindowProtocol.html">WindowProtocol</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">W</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">parent</span><span class="p">:</span> <span class="kt">W</span><span class="p">,</span> <span class="nv">action</span><span class="p">:</span> <span class="kt">FileChooserAction</span> <span class="o">=</span> <span class="o">.</span><span class="kd">open</span><span class="p">,</span> <span class="nv">acceptLabel</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">cancelLabel</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="k">where</span> <span class="kt">W</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/WindowProtocol.html">WindowProtocol</a></span></code></pre>
 
                         </div>
                       </div>
@@ -12100,7 +12094,7 @@ Will retain <code>GtkFileChooserNative</code>.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

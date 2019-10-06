@@ -11529,7 +11529,7 @@ Alternatively, use <code><a href="../Structs/IconViewRef.html">IconViewRef</a></
 <p><code>GtkIconView</code> provides an alternative view on a <code>GtkTreeModel</code>.
 It displays the model as a grid of icons with labels. Like
 <code>GtkTreeView</code>, it allows to select one or multiple items
-(depending on the selection mode, see gtk_icon_view_set_selection_mode()).
+(depending on the selection mode, see <code>gtk_icon_view_set_selection_mode()</code>).
 In addition to selection with the arrow keys, <code>GtkIconView</code> supports
 rubberband selection, which is controlled by dragging the pointer.</p>
 
@@ -11537,10 +11537,11 @@ rubberband selection, which is controlled by dragging the pointer.</p>
 opposed to a flat list where the mapping to icons is obvious),
 <code>GtkIconView</code> will only display the first level of the tree and
 ignore the tree’s branches.</p>
+<h1 id='css-nodes' class='heading'>CSS nodes</h1>
 
-<p>&ldquo; CSS nodes</p>
-<pre class="highlight swift"><code><span class="n">iconview</span><span class="o">.</span><span class="n">view</span>
-<span class="err">╰──</span> <span class="p">[</span><span class="n">rubberband</span><span class="p">]</span>
+<p>(plain Language Example):</p>
+<pre class="highlight plaintext"><code>iconview.view
+╰── [rubberband]
 </code></pre>
 
 <p>GtkIconView has a single CSS node with name iconview and style class .view.
@@ -11578,7 +11579,7 @@ For rubberband selection, a subnode with name rubberband is used.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L2469">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L2464">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11616,7 +11617,7 @@ For rubberband selection, a subnode with name rubberband is used.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L2472">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L2467">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11744,7 +11745,7 @@ For rubberband selection, a subnode with name rubberband is used.</p>
                         <p>binding reference or <code>nil</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L2931-L2955">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L2926-L2950">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11836,7 +11837,7 @@ For rubberband selection, a subnode with name rubberband is used.</p>
                         <p>positive handler ID, or a value less than or equal to <code>0</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L3888-L3907">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L3882-L3901">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11869,7 +11870,7 @@ For rubberband selection, a subnode with name rubberband is used.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Converts widget coordinates to coordinates for the bin_window,
-as expected by e.g. gtk_icon_view_get_path_at_pos().</p>
+as expected by e.g. <code>gtk_icon_view_get_path_at_pos()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -11881,7 +11882,7 @@ as expected by e.g. gtk_icon_view_get_path_at_pos().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L3916-L3919">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L3910-L3913">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11915,7 +11916,7 @@ This image is used for a drag icon.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L3923-L3926">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L3917-L3920">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11937,7 +11938,7 @@ This image is used for a drag icon.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Turns <code>icon_view</code> into a drop destination for automatic DND. Calling this
-method sets <code>GtkIconView</code>:reorderable to <code>false</code>.</p>
+method sets <code>GtkIconView:reorderable</code> to <code>false</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -11949,7 +11950,7 @@ method sets <code>GtkIconView</code>:reorderable to <code>false</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L3930-L3933">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L3924-L3927">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11971,7 +11972,7 @@ method sets <code>GtkIconView</code>:reorderable to <code>false</code>.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Turns <code>icon_view</code> into a drag source for automatic DND. Calling this
-method sets <code>GtkIconView</code>:reorderable to <code>false</code>.</p>
+method sets <code>GtkIconView:reorderable</code> to <code>false</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -11983,7 +11984,7 @@ method sets <code>GtkIconView</code>:reorderable to <code>false</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L3937-L3940">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L3931-L3934">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12004,7 +12005,7 @@ method sets <code>GtkIconView</code>:reorderable to <code>false</code>.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets the setting set by gtk_icon_view_set_activate_on_single_click().</p>
+                        <p>Gets the setting set by <code>gtk_icon_view_set_activate_on_single_click()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12016,7 +12017,7 @@ method sets <code>GtkIconView</code>:reorderable to <code>false</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L3943-L3946">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L3937-L3940">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12052,7 +12053,7 @@ method sets <code>GtkIconView</code>:reorderable to <code>false</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L3952-L3955">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L3946-L3949">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12073,7 +12074,7 @@ method sets <code>GtkIconView</code>:reorderable to <code>false</code>.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns the value of the ::column-spacing property.</p>
+                        <p>Returns the value of the <code>column</code>-spacing property.</p>
 
                       </div>
                       <div class="declaration">
@@ -12085,7 +12086,7 @@ method sets <code>GtkIconView</code>:reorderable to <code>false</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L3958-L3961">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L3952-L3955">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12106,7 +12107,7 @@ method sets <code>GtkIconView</code>:reorderable to <code>false</code>.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns the value of the ::columns property.</p>
+                        <p>Returns the value of the <code><a href="../Protocols/IconViewProtocol.html#/s:3Gtk16IconViewProtocolPAAE7columnss5Int32Vvp">columns</a></code> property.</p>
 
                       </div>
                       <div class="declaration">
@@ -12118,7 +12119,7 @@ method sets <code>GtkIconView</code>:reorderable to <code>false</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L3964-L3967">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L3958-L3961">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12143,7 +12144,7 @@ method sets <code>GtkIconView</code>:reorderable to <code>false</code>.</p>
 If the cursor isn’t currently set, then *<code>path</code> will be <code>nil</code>.
 If no cell currently has focus, then *<code>cell</code> will be <code>nil</code>.</p>
 
-<p>The returned <code>GtkTreePath</code> must be freed with gtk_tree_path_free().</p>
+<p>The returned <code>GtkTreePath</code> must be freed with <code>gtk_tree_path_free()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12155,7 +12156,7 @@ If no cell currently has focus, then *<code>cell</code> will be <code>nil</code>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L3974-L3977">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L3968-L3971">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12188,7 +12189,7 @@ If no cell currently has focus, then *<code>cell</code> will be <code>nil</code>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L3980-L3983">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L3974-L3977">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12221,7 +12222,7 @@ If no cell currently has focus, then *<code>cell</code> will be <code>nil</code>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L3986-L3989">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L3980-L3983">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12243,10 +12244,10 @@ If no cell currently has focus, then *<code>cell</code> will be <code>nil</code>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Finds the path at the point (<code>x</code>, <code>y</code>), relative to bin_window coordinates.
-In contrast to gtk_icon_view_get_path_at_pos(), this function also
+In contrast to <code>gtk_icon_view_get_path_at_pos()</code>, this function also
 obtains the cell at the specified position. The returned path should
-be freed with gtk_tree_path_free().
-See gtk_icon_view_convert_widget_to_bin_window_coords() for converting
+be freed with <code>gtk_tree_path_free()</code>.
+See <code>gtk_icon_view_convert_widget_to_bin_window_coords()</code> for converting
 widget coordinates to bin_window coordinates.</p>
 
                       </div>
@@ -12259,7 +12260,7 @@ widget coordinates to bin_window coordinates.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L3997-L4000">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L3991-L3994">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12293,7 +12294,7 @@ displayed. Column numbers start at 0.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4004-L4007">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L3998-L4001">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12314,7 +12315,7 @@ displayed. Column numbers start at 0.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns the value of the ::item-orientation property which determines
+                        <p>Returns the value of the <code>item</code>-orientation property which determines
 whether the labels are drawn beside the icons instead of below.</p>
 
                       </div>
@@ -12327,7 +12328,7 @@ whether the labels are drawn beside the icons instead of below.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4011-L4014">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4005-L4008">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12348,7 +12349,7 @@ whether the labels are drawn beside the icons instead of below.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns the value of the ::item-padding property.</p>
+                        <p>Returns the value of the <code>item</code>-padding property.</p>
 
                       </div>
                       <div class="declaration">
@@ -12360,7 +12361,7 @@ whether the labels are drawn beside the icons instead of below.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4017-L4020">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4011-L4014">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12394,7 +12395,7 @@ displayed. Row numbers start at 0.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4024-L4027">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4018-L4021">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12415,7 +12416,7 @@ displayed. Row numbers start at 0.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns the value of the ::item-width property.</p>
+                        <p>Returns the value of the <code>item</code>-width property.</p>
 
                       </div>
                       <div class="declaration">
@@ -12427,7 +12428,7 @@ displayed. Row numbers start at 0.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4030-L4033">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4024-L4027">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12448,7 +12449,7 @@ displayed. Row numbers start at 0.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns the value of the ::margin property.</p>
+                        <p>Returns the value of the <code><a href="../Protocols/IconViewProtocol.html#/s:3Gtk16IconViewProtocolPAAE6margins5Int32Vvp">margin</a></code> property.</p>
 
                       </div>
                       <div class="declaration">
@@ -12460,7 +12461,7 @@ displayed. Row numbers start at 0.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4036-L4039">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4030-L4033">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12493,7 +12494,7 @@ displayed. Row numbers start at 0.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4042-L4045">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4036-L4039">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12527,7 +12528,7 @@ model is unset.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4049-L4052">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4043-L4046">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12549,9 +12550,9 @@ model is unset.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Finds the path at the point (<code>x</code>, <code>y</code>), relative to bin_window coordinates.
-See gtk_icon_view_get_item_at_pos(), if you are also interested in
+See <code>gtk_icon_view_get_item_at_pos()</code>, if you are also interested in
 the cell at the specified position.
-See gtk_icon_view_convert_widget_to_bin_window_coords() for converting
+See <code>gtk_icon_view_convert_widget_to_bin_window_coords()</code> for converting
 widget coordinates to bin_window coordinates.</p>
 
                       </div>
@@ -12564,7 +12565,7 @@ widget coordinates to bin_window coordinates.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4059-L4062">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4053-L4056">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12597,7 +12598,7 @@ widget coordinates to bin_window coordinates.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4065-L4068">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4059-L4062">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12619,7 +12620,7 @@ widget coordinates to bin_window coordinates.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Retrieves whether the user can reorder the list via drag-and-drop.
-See gtk_icon_view_set_reorderable().</p>
+See <code>gtk_icon_view_set_reorderable()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12631,7 +12632,7 @@ See gtk_icon_view_set_reorderable().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4072-L4075">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4066-L4069">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12652,7 +12653,7 @@ See gtk_icon_view_set_reorderable().</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns the value of the ::row-spacing property.</p>
+                        <p>Returns the value of the <code>row</code>-spacing property.</p>
 
                       </div>
                       <div class="declaration">
@@ -12664,7 +12665,7 @@ See gtk_icon_view_set_reorderable().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4078-L4081">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4072-L4075">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12688,7 +12689,7 @@ See gtk_icon_view_set_reorderable().</p>
                         <p>Creates a list of paths of all selected items. Additionally, if you are
 planning on modifying the model after calling this function, you may
 want to convert the returned list into a list of <code>GtkTreeRowReferences</code>.
-To do this, you can use gtk_tree_row_reference_new().</p>
+To do this, you can use <code>gtk_tree_row_reference_new()</code>.</p>
 
 <p>To free the return value, use:
 (C Language Example):</p>
@@ -12705,7 +12706,7 @@ To do this, you can use gtk_tree_row_reference_new().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4094-L4097">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4088-L4091">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12738,7 +12739,7 @@ To do this, you can use gtk_tree_row_reference_new().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4100-L4103">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4094-L4097">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12759,7 +12760,7 @@ To do this, you can use gtk_tree_row_reference_new().</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns the value of the ::spacing property.</p>
+                        <p>Returns the value of the <code><a href="../Protocols/IconViewProtocol.html#/s:3Gtk16IconViewProtocolPAAE7spacings5Int32Vvp">spacing</a></code> property.</p>
 
                       </div>
                       <div class="declaration">
@@ -12771,7 +12772,7 @@ To do this, you can use gtk_tree_row_reference_new().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4106-L4109">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4100-L4103">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12804,7 +12805,7 @@ To do this, you can use gtk_tree_row_reference_new().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4112-L4115">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4106-L4109">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12838,7 +12839,7 @@ displaying tooltips on <code>icon_view</code>’s rows.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4119-L4122">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4113-L4116">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12859,7 +12860,7 @@ displaying tooltips on <code>icon_view</code>’s rows.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>This function is supposed to be used in a <code>GtkWidget</code>::query-tooltip
+                        <p>This function is supposed to be used in a <code>GtkWidget::query</code>-tooltip
 signal handler for <code>GtkIconView</code>.  The <code>x</code>, <code>y</code> and <code>keyboard_tip</code> values
 which are received in the signal handler, should be passed to this
 function without modification.</p>
@@ -12881,7 +12882,7 @@ to be relative to <code>icon_view</code>’s bin_window if <code>keyboard_toolti
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4135-L4138">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4129-L4132">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12905,7 +12906,7 @@ to be relative to <code>icon_view</code>’s bin_window if <code>keyboard_toolti
                         <p>Sets <code>start_path</code> and <code>end_path</code> to be the first and last visible path.
 Note that there may be invisible paths in between.</p>
 
-<p>Both paths should be freed with gtk_tree_path_free() after use.</p>
+<p>Both paths should be freed with <code>gtk_tree_path_free()</code> after use.</p>
 
                       </div>
                       <div class="declaration">
@@ -12917,7 +12918,7 @@ Note that there may be invisible paths in between.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4144-L4147">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4138-L4141">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12950,7 +12951,7 @@ Note that there may be invisible paths in between.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4150-L4153">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4144-L4147">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12984,7 +12985,7 @@ selected. If <code>path</code> does not point to a valid location, <code>false</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4157-L4160">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4151-L4154">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13030,7 +13031,7 @@ centered path will be modified to reflect this change.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4176-L4179">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4170-L4173">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13064,7 +13065,7 @@ to <code>GTK_SELECTION_MULTIPLE</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4183-L4186">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4177-L4180">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13097,7 +13098,7 @@ to <code>GTK_SELECTION_MULTIPLE</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4189-L4192">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4183-L4186">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13131,7 +13132,7 @@ selection cannot be modified from within this function.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4196-L4199">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4190-L4193">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13152,7 +13153,7 @@ selection cannot be modified from within this function.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Causes the <code>GtkIconView</code>::item-activated signal to be emitted on
+                        <p>Causes the <code>GtkIconView::item</code>-activated signal to be emitted on
 a single click instead of a double click.</p>
 
                       </div>
@@ -13165,7 +13166,7 @@ a single click instead of a double click.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4203-L4206">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4197-L4200">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13186,7 +13187,7 @@ a single click instead of a double click.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Sets the ::column-spacing property which specifies the space
+                        <p>Sets the <code>column</code>-spacing property which specifies the space
 which is inserted between the columns of the icon view.</p>
 
                       </div>
@@ -13199,7 +13200,7 @@ which is inserted between the columns of the icon view.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4210-L4213">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4204-L4207">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13220,7 +13221,7 @@ which is inserted between the columns of the icon view.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Sets the ::columns property which determines in how
+                        <p>Sets the <code><a href="../Protocols/IconViewProtocol.html#/s:3Gtk16IconViewProtocolPAAE7columnss5Int32Vvp">columns</a></code> property which determines in how
 many columns the icons are arranged. If <code><a href="../Protocols/IconViewProtocol.html#/s:3Gtk16IconViewProtocolPAAE7columnss5Int32Vvp">columns</a></code> is
 -1, the number of columns will be chosen automatically
 to fill the available area.</p>
@@ -13235,7 +13236,7 @@ to fill the available area.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4219-L4222">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4213-L4216">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13277,7 +13278,7 @@ Please note that editing can only happen when the widget is realized.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4233-L4236">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4227-L4230">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13310,7 +13311,7 @@ Please note that editing can only happen when the widget is realized.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4239-L4242">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4233-L4236">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13331,7 +13332,7 @@ Please note that editing can only happen when the widget is realized.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Sets the ::item-orientation property which determines whether the labels
+                        <p>Sets the <code>item</code>-orientation property which determines whether the labels
 are drawn beside the icons instead of below.</p>
 
                       </div>
@@ -13344,7 +13345,7 @@ are drawn beside the icons instead of below.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4246-L4249">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4240-L4243">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13365,7 +13366,7 @@ are drawn beside the icons instead of below.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Sets the <code>GtkIconView</code>:item-padding property which specifies the padding
+                        <p>Sets the <code>GtkIconView:item</code>-padding property which specifies the padding
 around each of the icon view’s items.</p>
 
                       </div>
@@ -13378,7 +13379,7 @@ around each of the icon view’s items.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4253-L4256">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4247-L4250">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13399,7 +13400,7 @@ around each of the icon view’s items.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Sets the ::item-width property which specifies the width
+                        <p>Sets the <code>item</code>-width property which specifies the width
 to use for each item. If it is set to -1, the icon view will
 automatically determine a suitable item size.</p>
 
@@ -13413,7 +13414,7 @@ automatically determine a suitable item size.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4261-L4264">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4255-L4258">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13434,7 +13435,7 @@ automatically determine a suitable item size.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Sets the ::margin property which specifies the space
+                        <p>Sets the <code><a href="../Protocols/IconViewProtocol.html#/s:3Gtk16IconViewProtocolPAAE6margins5Int32Vvp">margin</a></code> property which specifies the space
 which is inserted at the top, bottom, left and right
 of the icon view.</p>
 
@@ -13448,7 +13449,7 @@ of the icon view.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4269-L4272">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4263-L4266">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13472,7 +13473,7 @@ of the icon view.</p>
                         <p>Sets the column with markup information for <code>icon_view</code> to be
 <code>column</code>. The markup column must be of type <code>G_TYPE_STRING</code>.
 If the markup column is set to something, it overrides
-the text column set by gtk_icon_view_set_text_column().</p>
+the text column set by <code>gtk_icon_view_set_text_column()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -13484,7 +13485,7 @@ the text column set by gtk_icon_view_set_text_column().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4278-L4281">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4272-L4275">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13520,7 +13521,7 @@ it will unset the old model.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4287-L4290">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4281-L4284">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13554,7 +13555,7 @@ column must be of type <code>GDK_TYPE_PIXBUF</code></p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4294-L4297">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4288-L4291">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13598,7 +13599,7 @@ handle drag and drop manually.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4311-L4314">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4305-L4308">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13619,7 +13620,7 @@ handle drag and drop manually.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Sets the ::row-spacing property which specifies the space
+                        <p>Sets the <code>row</code>-spacing property which specifies the space
 which is inserted between the rows of the icon view.</p>
 
                       </div>
@@ -13632,7 +13633,7 @@ which is inserted between the rows of the icon view.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4318-L4321">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4312-L4315">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13665,7 +13666,7 @@ which is inserted between the rows of the icon view.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4324-L4327">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4318-L4321">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13686,7 +13687,7 @@ which is inserted between the rows of the icon view.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Sets the ::spacing property which specifies the space
+                        <p>Sets the <code><a href="../Protocols/IconViewProtocol.html#/s:3Gtk16IconViewProtocolPAAE7spacings5Int32Vvp">spacing</a></code> property which specifies the space
 which is inserted between the cells (i.e. the icon and
 the text) of an item.</p>
 
@@ -13700,7 +13701,7 @@ the text) of an item.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4332-L4335">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4326-L4329">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13734,7 +13735,7 @@ column must be of type <code>G_TYPE_STRING</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4339-L4342">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4333-L4336">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13756,9 +13757,9 @@ column must be of type <code>G_TYPE_STRING</code>.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Sets the tip area of <code>tooltip</code> to the area which <code>cell</code> occupies in
-the item pointed to by <code>path</code>. See also gtk_tooltip_set_tip_area().</p>
+the item pointed to by <code>path</code>. See also <code>gtk_tooltip_set_tip_area()</code>.</p>
 
-<p>See also gtk_icon_view_set_tooltip_column() for a simpler alternative.</p>
+<p>See also <code>gtk_icon_view_set_tooltip_column()</code> for a simpler alternative.</p>
 
                       </div>
                       <div class="declaration">
@@ -13770,7 +13771,7 @@ the item pointed to by <code>path</code>. See also gtk_tooltip_set_tip_area().</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4348-L4351">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4342-L4345">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13796,10 +13797,10 @@ can use this function to have <code>GtkIconView</code> handle these automaticall
 for you. <code>column</code> should be set to the column in <code>icon_view</code>’s model
 containing the tooltip texts, or -1 to disable this feature.</p>
 
-<p>When enabled, <code>GtkWidget</code>:has-tooltip will be set to <code>true</code> and
-<code>icon_view</code> will connect a <code>GtkWidget</code>::query-tooltip signal handler.</p>
+<p>When enabled, <code>GtkWidget:has</code>-tooltip will be set to <code>true</code> and
+<code>icon_view</code> will connect a <code>GtkWidget::query</code>-tooltip signal handler.</p>
 
-<p>Note that the signal handler sets the text with gtk_tooltip_set_markup(),
+<p>Note that the signal handler sets the text with <code>gtk_tooltip_set_markup()</code>,
 so &amp;, &lt;, etc have to be escaped in the text.</p>
 
                       </div>
@@ -13812,7 +13813,7 @@ so &amp;, &lt;, etc have to be escaped in the text.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4363-L4366">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4357-L4360">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13834,8 +13835,8 @@ so &amp;, &lt;, etc have to be escaped in the text.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Sets the tip area of <code>tooltip</code> to be the area covered by the item at <code>path</code>.
-See also gtk_icon_view_set_tooltip_column() for a simpler alternative.
-See also gtk_tooltip_set_tip_area().</p>
+See also <code>gtk_icon_view_set_tooltip_column()</code> for a simpler alternative.
+See also <code>gtk_tooltip_set_tip_area()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -13847,7 +13848,7 @@ See also gtk_tooltip_set_tip_area().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4371-L4374">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4365-L4368">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13880,7 +13881,7 @@ See also gtk_tooltip_set_tip_area().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4377-L4380">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4371-L4374">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13913,7 +13914,7 @@ See also gtk_tooltip_set_tip_area().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4383-L4386">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4377-L4380">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13934,8 +13935,8 @@ See also gtk_tooltip_set_tip_area().</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undoes the effect of gtk_icon_view_enable_model_drag_dest(). Calling this
-method sets <code>GtkIconView</code>:reorderable to <code>false</code>.</p>
+                        <p>Undoes the effect of <code>gtk_icon_view_enable_model_drag_dest()</code>. Calling this
+method sets <code>GtkIconView:reorderable</code> to <code>false</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -13947,7 +13948,7 @@ method sets <code>GtkIconView</code>:reorderable to <code>false</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4390-L4393">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4384-L4387">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13968,8 +13969,8 @@ method sets <code>GtkIconView</code>:reorderable to <code>false</code>.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undoes the effect of gtk_icon_view_enable_model_drag_source(). Calling this
-method sets <code>GtkIconView</code>:reorderable to <code>false</code>.</p>
+                        <p>Undoes the effect of <code>gtk_icon_view_enable_model_drag_source()</code>. Calling this
+method sets <code>GtkIconView:reorderable</code> to <code>false</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -13981,7 +13982,7 @@ method sets <code>GtkIconView</code>:reorderable to <code>false</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4397-L4400">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4391-L4394">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14002,7 +14003,7 @@ method sets <code>GtkIconView</code>:reorderable to <code>false</code>.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets the setting set by gtk_icon_view_set_activate_on_single_click().</p>
+                        <p>Gets the setting set by <code>gtk_icon_view_set_activate_on_single_click()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -14014,7 +14015,7 @@ method sets <code>GtkIconView</code>:reorderable to <code>false</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4402-L4413">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4396-L4407">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14035,7 +14036,7 @@ method sets <code>GtkIconView</code>:reorderable to <code>false</code>.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns the value of the ::column-spacing property.</p>
+                        <p>Returns the value of the <code>column</code>-spacing property.</p>
 
                       </div>
                       <div class="declaration">
@@ -14047,7 +14048,7 @@ method sets <code>GtkIconView</code>:reorderable to <code>false</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4416-L4427">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4410-L4421">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14082,7 +14083,7 @@ be chosen automatically to fill the available area.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4432-L4445">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4426-L4439">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14103,7 +14104,7 @@ be chosen automatically to fill the available area.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns the value of the ::item-orientation property which determines
+                        <p>Returns the value of the <code>item</code>-orientation property which determines
 whether the labels are drawn beside the icons instead of below.</p>
 
                       </div>
@@ -14116,7 +14117,7 @@ whether the labels are drawn beside the icons instead of below.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4449-L4461">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4443-L4455">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14137,7 +14138,7 @@ whether the labels are drawn beside the icons instead of below.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns the value of the ::item-padding property.</p>
+                        <p>Returns the value of the <code>item</code>-padding property.</p>
 
                       </div>
                       <div class="declaration">
@@ -14149,7 +14150,7 @@ whether the labels are drawn beside the icons instead of below.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4464-L4475">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4458-L4469">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14170,7 +14171,7 @@ whether the labels are drawn beside the icons instead of below.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns the value of the ::item-width property.</p>
+                        <p>Returns the value of the <code>item</code>-width property.</p>
 
                       </div>
                       <div class="declaration">
@@ -14182,7 +14183,7 @@ whether the labels are drawn beside the icons instead of below.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4478-L4490">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4472-L4484">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14216,7 +14217,7 @@ at the edges of the icon view.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4494-L4506">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4488-L4500">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14249,7 +14250,7 @@ at the edges of the icon view.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4509-L4522">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4503-L4516">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14282,7 +14283,7 @@ at the edges of the icon view.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4524-L4538">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4518-L4532">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14315,7 +14316,7 @@ at the edges of the icon view.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4541-L4552">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4535-L4546">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14349,7 +14350,7 @@ by DND.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4556-L4578">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4550-L4572">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14370,7 +14371,7 @@ by DND.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns the value of the ::row-spacing property.</p>
+                        <p>Returns the value of the <code>row</code>-spacing property.</p>
 
                       </div>
                       <div class="declaration">
@@ -14382,7 +14383,7 @@ by DND.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4581-L4592">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4575-L4586">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14406,7 +14407,7 @@ by DND.</p>
                         <p>Creates a list of paths of all selected items. Additionally, if you are
 planning on modifying the model after calling this function, you may
 want to convert the returned list into a list of <code>GtkTreeRowReferences</code>.
-To do this, you can use gtk_tree_row_reference_new().</p>
+To do this, you can use <code>gtk_tree_row_reference_new()</code>.</p>
 
 <p>To free the return value, use:
 (C Language Example):</p>
@@ -14423,7 +14424,7 @@ To do this, you can use gtk_tree_row_reference_new().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4605-L4621">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4599-L4615">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14456,7 +14457,7 @@ To do this, you can use gtk_tree_row_reference_new().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4624-L4634">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4618-L4628">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14490,7 +14491,7 @@ the cells (i.e. the icon and the text) of an item.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4638-L4650">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4632-L4644">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14523,7 +14524,7 @@ the cells (i.e. the icon and the text) of an item.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4653-L4664">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4647-L4658">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14557,7 +14558,7 @@ displaying tooltips on <code>icon_view</code>’s rows.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4668-L4688">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L4662-L4682">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14570,7 +14571,7 @@ displaying tooltips on <code>icon_view</code>’s rows.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

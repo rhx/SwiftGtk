@@ -11528,23 +11528,23 @@ Use <code>EventControllerScrollRef</code> only as an <code>unowned</code> refere
 <p><code>GtkEventControllerScroll</code> is an event controller meant to handle
 scroll events from mice and touchpads. It is capable of handling
 both discrete and continuous scroll events, abstracting them both
-on the <code>GtkEventControllerScroll</code>::scroll signal (deltas in the
+on the <code>GtkEventControllerScroll::scroll</code> signal (deltas in the
 discrete case are multiples of 1).</p>
 
 <p>In the case of continuous scroll events, <code>GtkEventControllerScroll</code>
-encloses all <code>GtkEventControllerScroll</code>::scroll events between two
-<code>GtkEventControllerScroll</code>::scroll-begin and <code>GtkEventControllerScroll</code>::scroll-end
+encloses all <code>GtkEventControllerScroll::scroll</code> events between two
+<code>GtkEventControllerScroll::scroll</code>-begin and <code>GtkEventControllerScroll::scroll</code>-end
 signals.</p>
 
 <p>The behavior of the event controller can be modified by the
 flags given at creation time, or modified at a later point through
-gtk_event_controller_scroll_set_flags() (e.g. because the scrolling
+<code>gtk_event_controller_scroll_set_flags()</code> (e.g. because the scrolling
 conditions of the widget changed).</p>
 
 <p>The controller can be set up to emit motion for either/both vertical
 and horizontal scroll events through <code>GTK_EVENT_CONTROLLER_SCROLL_VERTICAL</code>,
 <code>GTK_EVENT_CONTROLLER_SCROLL_HORIZONTAL</code> and <code>GTK_EVENT_CONTROLLER_SCROLL_BOTH</code>.
-If any axis is disabled, the respective <code>GtkEventControllerScroll</code>::scroll
+If any axis is disabled, the respective <code>GtkEventControllerScroll::scroll</code>
 delta will be 0. Vertical scroll events will be translated to horizontal
 motion for the devices incapable of horizontal scrolling.</p>
 
@@ -11554,7 +11554,7 @@ discrete actions triggered through scroll events (e.g. switching across
 combobox options).</p>
 
 <p>The <code>GTK_EVENT_CONTROLLER_SCROLL_KINETIC</code> flag toggles the emission of the
-<code>GtkEventControllerScroll</code>::decelerate signal, emitted at the end of scrolling
+<code>GtkEventControllerScroll::decelerate</code> signal, emitted at the end of scrolling
 with two X/Y velocity arguments that are consistent with the motion that
 was received.</p>
 
@@ -11593,7 +11593,7 @@ For type-safe access, use the generated, typed pointer <code>event_controller_sc
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L4184">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L4176">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11634,7 +11634,7 @@ For type-safe access, use the generated, typed pointer <code>event_controller_sc
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L4189-L4190">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L4181-L4182">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11664,7 +11664,7 @@ For type-safe access, use the generated, typed pointer <code>event_controller_sc
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L4193-L4195">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L4185-L4187">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11695,7 +11695,7 @@ For type-safe access, use the generated, typed pointer <code>event_controller_sc
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L4199-L4201">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L4191-L4193">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11726,7 +11726,7 @@ For type-safe access, use the generated, typed pointer <code>event_controller_sc
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L4205-L4207">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L4197-L4199">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11757,7 +11757,7 @@ For type-safe access, use the generated, typed pointer <code>event_controller_sc
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L4211-L4213">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L4203-L4205">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11788,7 +11788,7 @@ For type-safe access, use the generated, typed pointer <code>event_controller_sc
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L4217-L4219">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L4209-L4211">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11819,7 +11819,7 @@ For type-safe access, use the generated, typed pointer <code>event_controller_sc
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L4223-L4225">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L4215-L4217">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11852,7 +11852,7 @@ For type-safe access, use the generated, typed pointer <code>event_controller_sc
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L4229-L4232">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L4221-L4224">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11865,7 +11865,7 @@ For type-safe access, use the generated, typed pointer <code>event_controller_sc
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

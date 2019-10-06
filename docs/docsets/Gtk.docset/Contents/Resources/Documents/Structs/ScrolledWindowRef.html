@@ -11532,12 +11532,12 @@ associated adjustments, and optionally draws a frame around the child.</p>
 <p>Widgets with native scrolling support, i.e. those whose classes implement the
 <code>GtkScrollable</code> interface, are added directly. For other types of widget, the
 class <code>GtkViewport</code> acts as an adaptor, giving scrollability to other widgets.
-GtkScrolledWindow’s implementation of gtk_container_add() intelligently
+GtkScrolledWindow’s implementation of <code>gtk_container_add()</code> intelligently
 accounts for whether or not the added child is a <code>GtkScrollable</code>. If it isn’t,
 <code>GtkScrolledWindow</code> wraps the child in a <code>GtkViewport</code> and adds that for you.
 Therefore, you can just add any child widget and not worry about the details.</p>
 
-<p>If gtk_container_add() has added a <code>GtkViewport</code> for you, you can remove
+<p>If <code>gtk_container_add()</code> has added a <code>GtkViewport</code> for you, you can remove
 both your added child widget from the <code>GtkViewport</code>, and the <code>GtkViewport</code>
 from the GtkScrolledWindow, like this:</p>
 
@@ -11558,10 +11558,10 @@ gtk_container_remove (GTK_CONTAINER (scrolled_window),
                       gtk_bin_get_child (GTK_BIN (scrolled_window)));
 </code></pre>
 
-<p>Unless <code>GtkScrolledWindow</code>:policy is GTK_POLICY_NEVER or GTK_POLICY_EXTERNAL,
+<p>Unless <code>GtkScrolledWindow:policy</code> is GTK_POLICY_NEVER or GTK_POLICY_EXTERNAL,
 GtkScrolledWindow adds internal <code>GtkScrollbar</code> widgets around its child. The
 scroll position of the child, and if applicable the scrollbars, is controlled
-by the <code>GtkScrolledWindow</code>:hadjustment and <code>GtkScrolledWindow</code>:vadjustment
+by the <code>GtkScrolledWindow:hadjustment</code> and <code>GtkScrolledWindow:vadjustment</code>
 that are associated with the GtkScrolledWindow. See the docs on <code>GtkScrollbar</code>
 for the details, but note that the “step_increment” and “page_increment”
 fields are only effective if the policy causes scrollbars to be present.</p>
@@ -11569,25 +11569,23 @@ fields are only effective if the policy causes scrollbars to be present.</p>
 <p>If a GtkScrolledWindow doesn’t behave quite as you would like, or
 doesn’t have exactly the right layout, it’s very possible to set up
 your own scrolling with <code>GtkScrollbar</code> and for example a <code>GtkGrid</code>.</p>
-
-<p>&ldquo; Touch support</p>
+<h1 id='touch-support' class='heading'>Touch support</h1>
 
 <p>GtkScrolledWindow has built-in support for touch devices. When a
 touchscreen is used, swiping will move the scrolled window, and will
 expose &lsquo;kinetic&rsquo; behavior. This can be turned off with the
-<code>GtkScrolledWindow</code>:kinetic-scrolling property if it is undesired.</p>
+<code>GtkScrolledWindow:kinetic</code>-scrolling property if it is undesired.</p>
 
 <p>GtkScrolledWindow also displays visual &lsquo;overshoot&rsquo; indication when
 the content is pulled beyond the end, and this situation can be
-captured with the <code>GtkScrolledWindow</code>::edge-overshot signal.</p>
+captured with the <code>GtkScrolledWindow::edge</code>-overshot signal.</p>
 
 <p>If no mouse device is present, the scrollbars will overlayed as
 narrow, auto-hiding indicators over the content. If traditional
 scrollbars are desired although no mouse is present, this behaviour
-can be turned off with the <code>GtkScrolledWindow</code>:overlay-scrolling
+can be turned off with the <code>GtkScrolledWindow:overlay</code>-scrolling
 property.</p>
-
-<p>&rdquo; CSS nodes</p>
+<h1 id='css-nodes' class='heading'>CSS nodes</h1>
 
 <p>GtkScrolledWindow has a main CSS node with name scrolledwindow.</p>
 
@@ -11636,7 +11634,7 @@ For type-safe access, use the generated, typed pointer <code>scrolled_window_ptr
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L3701">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L3695">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11677,7 +11675,7 @@ For type-safe access, use the generated, typed pointer <code>scrolled_window_ptr
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L3706-L3707">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L3700-L3701">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11707,7 +11705,7 @@ For type-safe access, use the generated, typed pointer <code>scrolled_window_ptr
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L3710-L3712">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L3704-L3706">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11738,7 +11736,7 @@ For type-safe access, use the generated, typed pointer <code>scrolled_window_ptr
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L3716-L3718">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L3710-L3712">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11769,7 +11767,7 @@ For type-safe access, use the generated, typed pointer <code>scrolled_window_ptr
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L3722-L3724">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L3716-L3718">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11800,7 +11798,7 @@ For type-safe access, use the generated, typed pointer <code>scrolled_window_ptr
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L3728-L3730">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L3722-L3724">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11831,7 +11829,7 @@ For type-safe access, use the generated, typed pointer <code>scrolled_window_ptr
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L3734-L3736">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L3728-L3730">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11862,7 +11860,7 @@ For type-safe access, use the generated, typed pointer <code>scrolled_window_ptr
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L3740-L3742">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L3734-L3736">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11898,7 +11896,7 @@ will cause the scrolled window to create them for you.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L3750-L3753">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L3744-L3747">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11911,7 +11909,7 @@ will cause the scrolled window to create them for you.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

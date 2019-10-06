@@ -11530,27 +11530,25 @@ Alternatively, use <code><a href="../Structs/ToggleButtonRef.html">ToggleButtonR
 clicked. Clicking again will cause the toggle button to return to its
 normal state.</p>
 
-<p>A toggle button is created by calling either gtk_toggle_button_new() or
-gtk_toggle_button_new_with_label(). If using the former, it is advisable to
+<p>A toggle button is created by calling either <code>gtk_toggle_button_new()</code> or
+<code>gtk_toggle_button_new_with_label()</code>. If using the former, it is advisable to
 pack a widget, (such as a <code>GtkLabel</code> and/or a <code>GtkImage</code>), into the toggle
 button’s container. (See <code>GtkButton</code> for more information).</p>
 
 <p>The state of a <code>GtkToggleButton</code> can be set specifically using
-gtk_toggle_button_set_active(), and retrieved using
-gtk_toggle_button_get_active().</p>
+<code>gtk_toggle_button_set_active()</code>, and retrieved using
+<code>gtk_toggle_button_get_active()</code>.</p>
 
-<p>To simply switch the state of a toggle button, use gtk_toggle_button_toggled().</p>
-
-<p>&ldquo; CSS nodes</p>
+<p>To simply switch the state of a toggle button, use <code>gtk_toggle_button_toggled()</code>.</p>
+<h1 id='css-nodes' class='heading'>CSS nodes</h1>
 
 <p>GtkToggleButton has a single CSS node with name button. To differentiate
 it from a plain <code>GtkButton</code>, it gets the .toggle style class.</p>
-
-<p>&rdquo;<code>Creating two</code>GtkToggleButton` widgets.</p>
+<h2 id='creating-two-code-gtktogglebutton-code-widgets' class='heading'>Creating two <code>GtkToggleButton</code> widgets.</h2>
 
 <p>(C Language Example):</p>
 <pre class="highlight plaintext"><code>static void output_state (GtkToggleButton *source, gpointer user_data) {
-  printf ("Active: `d`\n", gtk_toggle_button_get_active (source));
+  printf ("Active: %d\n", gtk_toggle_button_get_active (source));
 }
 
 void make_toggles (void) {
@@ -11619,7 +11617,7 @@ void make_toggles (void) {
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L8684">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L8673">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11657,7 +11655,7 @@ void make_toggles (void) {
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L8687">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L8676">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11785,7 +11783,7 @@ void make_toggles (void) {
                         <p>binding reference or <code>nil</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L9211-L9235">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L9200-L9224">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11877,7 +11875,7 @@ void make_toggles (void) {
                         <p>positive handler ID, or a value less than or equal to <code>0</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L10104-L10123">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L10092-L10111">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11922,7 +11920,7 @@ the toggle button is pressed in and <code>false</code> if it is raised.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L10132-L10135">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L10120-L10123">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11943,7 +11941,7 @@ the toggle button is pressed in and <code>false</code> if it is raised.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets the value set by gtk_toggle_button_set_inconsistent().</p>
+                        <p>Gets the value set by <code>gtk_toggle_button_set_inconsistent()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -11955,7 +11953,7 @@ the toggle button is pressed in and <code>false</code> if it is raised.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L10138-L10141">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L10126-L10129">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11977,7 +11975,7 @@ the toggle button is pressed in and <code>false</code> if it is raised.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Retrieves whether the button is displayed as a separate indicator
-and label. See gtk_toggle_button_set_mode().</p>
+and label. See <code>gtk_toggle_button_set_mode()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -11989,7 +11987,7 @@ and label. See gtk_toggle_button_set_mode().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L10145-L10148">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L10133-L10136">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12012,8 +12010,8 @@ and label. See gtk_toggle_button_set_mode().</p>
                       <div class="abstract">
                         <p>Sets the status of the toggle button. Set to <code>true</code> if you want the
 GtkToggleButton to be “pressed in”, and <code>false</code> to raise it.
-This action causes the <code>GtkToggleButton</code>::toggled signal and the
-<code>GtkButton</code>::clicked signal to be emitted.</p>
+This action causes the <code>GtkToggleButton::toggled</code> signal and the
+<code>GtkButton::clicked</code> signal to be emitted.</p>
 
                       </div>
                       <div class="declaration">
@@ -12025,7 +12023,7 @@ This action causes the <code>GtkToggleButton</code>::toggled signal and the
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L10154-L10157">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L10142-L10145">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12052,7 +12050,7 @@ current values in that range are inconsistent, you may want to
 display the toggle in an “in between” state. This function turns on
 “in between” display.  Normally you would turn off the inconsistent
 state again if the user toggles the toggle button. This has to be
-done manually, gtk_toggle_button_set_inconsistent() only affects
+done manually, <code>gtk_toggle_button_set_inconsistent()</code> only affects
 visual appearance, it doesn’t affect the semantics of the button.</p>
 
                       </div>
@@ -12065,7 +12063,7 @@ visual appearance, it doesn’t affect the semantics of the button.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L10167-L10170">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L10155-L10158">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12107,7 +12105,7 @@ not instances of <code>GtkToggleButton</code> itself.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L10182-L10185">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L10170-L10173">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12128,7 +12126,7 @@ not instances of <code>GtkToggleButton</code> itself.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Emits the <code>GtkToggleButton</code>::toggled signal on the
+                        <p>Emits the <code>GtkToggleButton::toggled</code> signal on the
 <code>GtkToggleButton</code>. There is no good reason for an
 application ever to call this function.</p>
 
@@ -12142,7 +12140,7 @@ application ever to call this function.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L10190-L10193">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L10178-L10181">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12175,7 +12173,7 @@ application ever to call this function.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L10194-L10208">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L10182-L10196">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12208,7 +12206,7 @@ application ever to call this function.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L10210-L10227">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L10198-L10215">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12230,7 +12228,7 @@ application ever to call this function.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Retrieves whether the button is displayed as a separate indicator
-and label. See gtk_toggle_button_set_mode().</p>
+and label. See <code>gtk_toggle_button_set_mode()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12242,7 +12240,7 @@ and label. See gtk_toggle_button_set_mode().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L10231-L10251">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L10219-L10239">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12255,7 +12253,7 @@ and label. See gtk_toggle_button_set_mode().</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

@@ -11551,36 +11551,33 @@ items, choose the item’s menu path, e.g. “File/Save As”,
 path may look like: “<Gimp-Toolbox>/File/Dialogs/Tool Options&hellip;”.</p>
 
 <p>All accelerators are stored inside one global <code>GtkAccelMap</code> that can
-be obtained using gtk_accel_map_get(). See
-[Monitoring changes][monitoring-changes] for additional
+be obtained using <code>gtk_accel_map_get()</code>. See
+<a href="#monitoring-changes">Monitoring changes</a> for additional
 details.</p>
+<h1 id='manipulating-accelerators' class='heading'>Manipulating accelerators</h1>
 
-<p>&ldquo; Manipulating accelerators</p>
-
-<p>New accelerators can be added using gtk_accel_map_add_entry().
-To search for specific accelerator, use gtk_accel_map_lookup_entry().
+<p>New accelerators can be added using <code>gtk_accel_map_add_entry()</code>.
+To search for specific accelerator, use <code>gtk_accel_map_lookup_entry()</code>.
 Modifications of existing accelerators should be done using
-gtk_accel_map_change_entry().</p>
+<code>gtk_accel_map_change_entry()</code>.</p>
 
 <p>In order to avoid having some accelerators changed, they can be
-locked using gtk_accel_map_lock_path(). Unlocking is done using
-gtk_accel_map_unlock_path().</p>
-
-<p>&rdquo; Saving and loading accelerator maps</p>
+locked using <code>gtk_accel_map_lock_path()</code>. Unlocking is done using
+<code>gtk_accel_map_unlock_path()</code>.</p>
+<h1 id='saving-and-loading-accelerator-maps' class='heading'>Saving and loading accelerator maps</h1>
 
 <p>Accelerator maps can be saved to and loaded from some external
 resource. For simple saving and loading from file,
-gtk_accel_map_save() and gtk_accel_map_load() are provided.
+<code>gtk_accel_map_save()</code> and <code>gtk_accel_map_load()</code> are provided.
 Saving and loading can also be done by providing file descriptor
-to gtk_accel_map_save_fd() and gtk_accel_map_load_fd().</p>
-
-<p>&ldquo; Monitoring changes</p>
+to <code>gtk_accel_map_save_fd()</code> and <code>gtk_accel_map_load_fd()</code>.</p>
+<h1 id='monitoring-changes' class='heading'>Monitoring changes</h1>
 
 <p><code>GtkAccelMap</code> object is only useful for monitoring changes of
-accelerators. By connecting to <code>GtkAccelMap</code>::changed signal, one
+accelerators. By connecting to <code>GtkAccelMap::changed</code> signal, one
 can monitor changes of all accelerators. It is also possible to
 monitor only single accelerator path by using it as a detail of
-the <code>GtkAccelMap</code>::changed signal.</p>
+the <code>GtkAccelMap::changed</code> signal.</p>
 
           </div>
         </section>
@@ -11615,7 +11612,7 @@ Ownership is transferred to the <code>AccelMap</code> instance.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L4480-L4482">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L4469-L4471">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11641,12 +11638,12 @@ Will retain <code>GtkAccelMap</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">other</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AccelMapProtocol.html">AccelMapProtocol</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">other</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AccelMapProtocol.html">AccelMapProtocol</a></span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L4486-L4489">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L4475-L4478">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11672,12 +11669,12 @@ Will retain <code>GtkAccelMap</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">cPointer</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">cPointer</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L4493-L4495">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L4482-L4484">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11703,12 +11700,12 @@ Will retain <code>GtkAccelMap</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeRawPointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L4499-L4501">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L4488-L4490">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11734,12 +11731,12 @@ Will retain <code>GtkAccelMap</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L4505-L4507">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L4494-L4496">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11765,12 +11762,12 @@ Will retain <code>GtkAccelMap</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">opaquePointer</span><span class="p">:</span> <span class="kt">OpaquePointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">opaquePointer</span><span class="p">:</span> <span class="kt">OpaquePointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L4511-L4513">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L4500-L4502">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11790,7 +11787,7 @@ Will retain <code>GtkAccelMap</code>.</p>
                       <div class="abstract">
                         <p>Gets the singleton global <code>GtkAccelMap</code> object. This object
 is useful only for notification of changes to the accelerator
-map via the ::changed signal; it isn’t a parameter to the
+map via the <code>changed</code> signal; it isn’t a parameter to the
 other accelerator map functions.</p>
 
                       </div>
@@ -11803,7 +11800,7 @@ other accelerator map functions.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L4520-L4523">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L4509-L4512">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11816,7 +11813,7 @@ other accelerator map functions.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

@@ -11548,8 +11548,7 @@ cannot be modified by the user.</p></li>
 <li><p>Volumes: are provided by the underlying filesystem abstraction. They are
 the “roots” of the filesystem.</p></li>
 </ul>
-
-<p>&ldquo; File Names and Encodings</p>
+<h1 id='file-names-and-encodings' class='heading'>File Names and Encodings</h1>
 
 <p>When the user is finished selecting files in a
 <code>GtkFileChooser</code>, your program can get the selected names
@@ -11562,32 +11561,31 @@ Please see the GLib documentation for more details about this
 variable.</p>
 
 <p>This means that while you can pass the result of
-gtk_file_chooser_get_filename() to open() or fopen(),
+<code>gtk_file_chooser_get_filename()</code> to <code>open()</code> or <code>fopen()</code>,
 you may not be able to directly set it as the text of a
 <code>GtkLabel</code> widget unless you convert it first to UTF-8,
-which all GTK+ widgets expect. You should use g_filename_to_utf8()
+which all GTK+ widgets expect. You should use <code>g_filename_to_utf8()</code>
 to convert filenames into strings that can be passed to GTK+
 widgets.</p>
-
-<p>&rdquo; Adding a Preview Widget</p>
+<h1 id='adding-a-preview-widget' class='heading'>Adding a Preview Widget</h1>
 
 <p>You can add a custom preview widget to a file chooser and then
 get notification about when the preview needs to be updated.
 To install a preview widget, use
-gtk_file_chooser_set_preview_widget().  Then, connect to the
-<code>GtkFileChooser</code>::update-preview signal to get notified when
+<code>gtk_file_chooser_set_preview_widget()</code>.  Then, connect to the
+<code>GtkFileChooser::update</code>-preview signal to get notified when
 you need to update the contents of the preview.</p>
 
 <p>Your callback should use
-gtk_file_chooser_get_preview_filename() to see what needs
+<code>gtk_file_chooser_get_preview_filename()</code> to see what needs
 previewing.  Once you have generated the preview for the
 corresponding file, you must call
-gtk_file_chooser_set_preview_widget_active() with a boolean
+<code>gtk_file_chooser_set_preview_widget_active()</code> with a boolean
 flag that indicates whether your callback could successfully
 generate a preview.</p>
+<h2 id='example-using-a-preview-widget-a-name-gtkfilechooser-preview-a' class='heading'>Example: Using a Preview Widget ## <a name="gtkfilechooser-preview"></a></h2>
 
-<p><code>Example: Using a Preview Widget</code> {<code>gtkfilechooser</code>-preview}
-(C Language Example):</p>
+<p>(C Language Example):</p>
 <pre class="highlight plaintext"><code>{
   GtkImage *preview;
 
@@ -11622,14 +11620,13 @@ update_preview_cb (GtkFileChooser *file_chooser, gpointer data)
   gtk_file_chooser_set_preview_widget_active (file_chooser, have_preview);
 }
 </code></pre>
-
-<p>&ldquo; Adding Extra Widgets</p>
+<h1 id='adding-extra-widgets' class='heading'>Adding Extra Widgets</h1>
 
 <p>You can add extra widgets to a file chooser to provide options
 that are not present in the default design.  For example, you
 can add a toggle button to give the user the option to open a
 file in read-only mode.  You can use
-gtk_file_chooser_set_extra_widget() to insert additional
+<code>gtk_file_chooser_set_extra_widget()</code> to insert additional
 widgets in a file chooser.</p>
 
 <p>An example for adding extra widgets:
@@ -11683,7 +11680,7 @@ For type-safe access, use the generated, typed pointer <code>file_chooser_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooser-Orientable.swift#L476">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooser-Orientable.swift#L470">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11714,7 +11711,7 @@ Ownership is transferred to the <code>FileChooser</code> instance.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooser-Orientable.swift#L480-L482">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooser-Orientable.swift#L474-L476">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11740,12 +11737,12 @@ Ownership is transferred to the <code>FileChooser</code> instance.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">other</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/FileChooserProtocol.html">FileChooserProtocol</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">other</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/FileChooserProtocol.html">FileChooserProtocol</a></span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooser-Orientable.swift#L486-L489">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooser-Orientable.swift#L480-L483">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11771,12 +11768,12 @@ Ownership is transferred to the <code>FileChooser</code> instance.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">cPointer</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">cPointer</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooser-Orientable.swift#L498-L500">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooser-Orientable.swift#L492-L494">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11802,12 +11799,12 @@ Ownership is transferred to the <code>FileChooser</code> instance.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeRawPointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooser-Orientable.swift#L504-L506">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooser-Orientable.swift#L498-L500">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11833,12 +11830,12 @@ Ownership is transferred to the <code>FileChooser</code> instance.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooser-Orientable.swift#L510-L512">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooser-Orientable.swift#L504-L506">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11864,12 +11861,12 @@ Ownership is transferred to the <code>FileChooser</code> instance.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">opaquePointer</span><span class="p">:</span> <span class="kt">OpaquePointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">opaquePointer</span><span class="p">:</span> <span class="kt">OpaquePointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooser-Orientable.swift#L516-L518">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooser-Orientable.swift#L510-L512">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11882,7 +11879,7 @@ Ownership is transferred to the <code>FileChooser</code> instance.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

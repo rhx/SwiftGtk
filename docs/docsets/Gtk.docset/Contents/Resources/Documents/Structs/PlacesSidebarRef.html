@@ -11540,15 +11540,14 @@ of the sidebar.</p>
 <p>While bookmarks are completely in control of the user, the places sidebar also
 allows individual applications to provide extra shortcut folders that are unique
 to each application.  For example, a Paint program may want to add a shortcut
-for a Clipart folder.  You can do this with gtk_places_sidebar_add_shortcut().</p>
+for a Clipart folder.  You can do this with <code>gtk_places_sidebar_add_shortcut()</code>.</p>
 
 <p>To make use of the places sidebar, an application at least needs to connect
-to the <code>GtkPlacesSidebar</code>::open-location signal.  This is emitted when the
+to the <code>GtkPlacesSidebar::open</code>-location signal.  This is emitted when the
 user selects in the sidebar a location to open.  The application should also
-call gtk_places_sidebar_set_location() when it changes the currently-viewed
+call <code>gtk_places_sidebar_set_location()</code> when it changes the currently-viewed
 location.</p>
-
-<p>&ldquo; CSS nodes</p>
+<h1 id='css-nodes' class='heading'>CSS nodes</h1>
 
 <p>GtkPlacesSidebar uses a single CSS node with name placessidebar and style
 class .sidebar.</p>
@@ -11595,7 +11594,7 @@ For type-safe access, use the generated, typed pointer <code>places_sidebar_ptr<
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L2697">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L2691">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11636,7 +11635,7 @@ For type-safe access, use the generated, typed pointer <code>places_sidebar_ptr<
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L2702-L2703">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L2696-L2697">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11666,7 +11665,7 @@ For type-safe access, use the generated, typed pointer <code>places_sidebar_ptr<
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L2706-L2708">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L2700-L2702">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11697,7 +11696,7 @@ For type-safe access, use the generated, typed pointer <code>places_sidebar_ptr<
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L2712-L2714">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L2706-L2708">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11728,7 +11727,7 @@ For type-safe access, use the generated, typed pointer <code>places_sidebar_ptr<
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L2718-L2720">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L2712-L2714">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11759,7 +11758,7 @@ For type-safe access, use the generated, typed pointer <code>places_sidebar_ptr<
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L2724-L2726">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L2718-L2720">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11790,7 +11789,7 @@ For type-safe access, use the generated, typed pointer <code>places_sidebar_ptr<
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L2730-L2732">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L2724-L2726">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11821,7 +11820,7 @@ For type-safe access, use the generated, typed pointer <code>places_sidebar_ptr<
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L2736-L2738">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L2730-L2732">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11839,11 +11838,11 @@ For type-safe access, use the generated, typed pointer <code>places_sidebar_ptr<
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <pre class="highlight swift"><code><span class="kt">Creates</span> <span class="n">a</span> <span class="k">new</span> <span class="err">`</span><span class="kt">GtkPlacesSidebar</span><span class="err">`</span> <span class="n">widget</span><span class="o">.</span>
+                        <pre class="highlight swift"><code><span class="kt">Creates</span> <span class="n">a</span> <span class="k">new</span> <span class="p">`</span><span class="nv">GtkPlacesSidebar</span><span class="p">`</span> <span class="n">widget</span><span class="o">.</span>
 </code></pre>
 
 <p>The application should connect to at least the
-<code>GtkPlacesSidebar</code>::open-location signal to be notified
+<code>GtkPlacesSidebar::open</code>-location signal to be notified
 when the user makes a selection in the sidebar.</p>
 
                       </div>
@@ -11856,7 +11855,7 @@ when the user makes a selection in the sidebar.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L2745-L2748">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L2739-L2742">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11869,7 +11868,7 @@ when the user makes a selection in the sidebar.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

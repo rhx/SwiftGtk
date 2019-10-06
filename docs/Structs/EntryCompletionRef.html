@@ -11535,35 +11535,35 @@ in the entry, <code>GtkEntryCompletion</code> checks which rows in the model mat
 the current content of the entry, and displays a list of matches.
 By default, the matching is done by comparing the entry text
 case-insensitively against the text column of the model (see
-gtk_entry_completion_set_text_column()), but this can be overridden
-with a custom match function (see gtk_entry_completion_set_match_func()).</p>
+<code>gtk_entry_completion_set_text_column()</code>), but this can be overridden
+with a custom match function (see <code>gtk_entry_completion_set_match_func()</code>).</p>
 
 <p>When the user selects a completion, the content of the entry is
 updated. By default, the content of the entry is replaced by the
 text column of the model, but this can be overridden by connecting
-to the <code>GtkEntryCompletion</code>::match-selected signal and updating the
+to the <code>GtkEntryCompletion::match</code>-selected signal and updating the
 entry in the signal handler. Note that you should return <code>true</code> from
 the signal handler to suppress the default behaviour.</p>
 
-<p>To add completion functionality to an entry, use gtk_entry_set_completion().</p>
+<p>To add completion functionality to an entry, use <code>gtk_entry_set_completion()</code>.</p>
 
 <p>In addition to regular completion matches, which will be inserted into the
 entry when they are selected, <code>GtkEntryCompletion</code> also allows to display
 “actions” in the popup window. Their appearance is similar to menuitems,
 to differentiate them clearly from completion strings. When an action is
-selected, the <code>GtkEntryCompletion</code>::action-activated signal is emitted.</p>
+selected, the <code>GtkEntryCompletion::action</code>-activated signal is emitted.</p>
 
 <p>GtkEntryCompletion uses a <code>GtkTreeModelFilter</code> model to represent the
 subset of the entire model that is currently matching. While the
-GtkEntryCompletion signals <code>GtkEntryCompletion</code>::match-selected and
-<code>GtkEntryCompletion</code>::cursor-on-match take the original model and an
+GtkEntryCompletion signals <code>GtkEntryCompletion::match</code>-selected and
+<code>GtkEntryCompletion::cursor</code>-on-match take the original model and an
 iter pointing to that model as arguments, other callbacks and signals
-(such as <code>GtkCellLayoutDataFuncs</code> or <code>GtkCellArea</code>::apply-attributes)
+(such as <code>GtkCellLayoutDataFuncs</code> or <code>GtkCellArea::apply</code>-attributes)
 will generally take the filter model as argument. As long as you are
-only calling gtk_tree_model_get(), this will make no difference to
+only calling <code>gtk_tree_model_get()</code>, this will make no difference to
 you. If for some reason, you need the original model, use
-gtk_tree_model_filter_get_model(). Don’t forget to use
-gtk_tree_model_filter_convert_iter_to_child_iter() to obtain a
+<code>gtk_tree_model_filter_get_model()</code>. Don’t forget to use
+<code>gtk_tree_model_filter_convert_iter_to_child_iter()</code> to obtain a
 matching iter.</p>
 
           </div>
@@ -11599,7 +11599,7 @@ For type-safe access, use the generated, typed pointer <code>entry_completion_pt
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L882">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L880">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11640,7 +11640,7 @@ For type-safe access, use the generated, typed pointer <code>entry_completion_pt
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L887-L888">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L885-L886">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11670,7 +11670,7 @@ For type-safe access, use the generated, typed pointer <code>entry_completion_pt
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L891-L893">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L889-L891">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11701,7 +11701,7 @@ For type-safe access, use the generated, typed pointer <code>entry_completion_pt
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L897-L899">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L895-L897">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11732,7 +11732,7 @@ For type-safe access, use the generated, typed pointer <code>entry_completion_pt
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L903-L905">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L901-L903">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11763,7 +11763,7 @@ For type-safe access, use the generated, typed pointer <code>entry_completion_pt
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L909-L911">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L907-L909">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11794,7 +11794,7 @@ For type-safe access, use the generated, typed pointer <code>entry_completion_pt
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L915-L917">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L913-L915">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11825,7 +11825,7 @@ For type-safe access, use the generated, typed pointer <code>entry_completion_pt
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L921-L923">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L919-L921">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11855,7 +11855,7 @@ For type-safe access, use the generated, typed pointer <code>entry_completion_pt
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L926-L929">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L924-L927">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11887,7 +11887,7 @@ specified <code>area</code> to layout cells in the underlying
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L934-L937">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L932-L935">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11919,7 +11919,7 @@ specified <code>area</code> to layout cells in the underlying
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L941-L944">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L939-L942">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11932,7 +11932,7 @@ specified <code>area</code> to layout cells in the underlying
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

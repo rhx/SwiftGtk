@@ -11531,10 +11531,10 @@ that is used by <code>GtkStyleContext</code> and other <code>GtkStyleProvider</c
 implementations.</p>
 
 <p>Before style properties can be stored in GtkStyleProperties, they
-must be registered with gtk_style_properties_register_property().</p>
+must be registered with <code>gtk_style_properties_register_property()</code>.</p>
 
 <p>Unless you are writing a <code>GtkStyleProvider</code> implementation, you
-are unlikely to use this API directly, as gtk_style_context_get()
+are unlikely to use this API directly, as <code>gtk_style_context_get()</code>
 and its variants are the preferred way to access styling information
 from widget implementations and theming engine implementations
 should use the APIs provided by <code>GtkThemingEngine</code> instead.</p>
@@ -11575,7 +11575,7 @@ have been deprecated.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L35168">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L35122">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11613,7 +11613,7 @@ have been deprecated.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L35171">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L35125">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11705,7 +11705,7 @@ have been deprecated.</p>
                         <p>positive handler ID, or a value less than or equal to <code>0</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L35358-L35377">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L35311-L35330">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11747,13 +11747,13 @@ have been deprecated.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">clear</span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L35388-L35391">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L35341-L35344">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11775,7 +11775,7 @@ have been deprecated.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Gets a style property from <code>props</code> for the given state. When done with <code>value</code>,
-g_value_unset() needs to be called to free any allocated memory.</p>
+<code>g_value_unset()</code> needs to be called to free any allocated memory.</p>
 
 <p><strong>get_property is deprecated:</strong></p>
 <h1 id='gtkstyleproperties-are-deprecated' class='heading'>GtkStyleProperties are deprecated.</h1>
@@ -11785,13 +11785,13 @@ g_value_unset() needs to be called to free any allocated memory.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">get</span><span class="p">(</span><span class="nv">property</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">,</span> <span class="nv">state</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:3Gtk10StateFlagsa">StateFlags</a></span><span class="p">,</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">GLibObject</span><span class="o">.</span><span class="kt">ValueProtocol</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L35402-L35405">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L35355-L35358">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11822,13 +11822,13 @@ g_value_unset() needs to be called to free any allocated memory.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">getValist</span><span class="p">(</span><span class="nv">state</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:3Gtk10StateFlagsa">StateFlags</a></span><span class="p">,</span> <span class="nv">args</span><span class="p">:</span> <span class="kt">CVaListPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L35411-L35414">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L35364-L35367">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11860,13 +11860,13 @@ to <code>name</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">lookupColor</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">GtkSymbolicColor</span><span class="o">&gt;!</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L35421-L35424">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L35374-L35377">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11888,7 +11888,7 @@ to <code>name</code>.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Maps <code>color</code> so it can be referenced by <code>name</code>. See
-gtk_style_properties_lookup_color()</p>
+<code>gtk_style_properties_lookup_color()</code></p>
 
 <p><strong>map_color is deprecated:</strong></p>
 <h1 id='gtksymboliccolor-is-deprecated' class='heading'>GtkSymbolicColor is deprecated.</h1>
@@ -11898,13 +11898,13 @@ gtk_style_properties_lookup_color()</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">mapColor</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">,</span> <span class="nv">color</span><span class="p">:</span> <span class="kt"><a href="../Protocols/SymbolicColorProtocol.html">SymbolicColorProtocol</a></span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L35431-L35434">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L35384-L35387">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11938,13 +11938,13 @@ will prevail.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">merge</span><span class="p">(</span><span class="n">propsToMerge</span> <span class="nv">props_to_merge</span><span class="p">:</span> <span class="kt">StylePropertiesProtocol</span><span class="p">,</span> <span class="nv">replace</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L35443-L35446">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L35396-L35399">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11975,13 +11975,13 @@ will prevail.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">set</span><span class="p">(</span><span class="nv">property</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">,</span> <span class="nv">state</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:3Gtk10StateFlagsa">StateFlags</a></span><span class="p">,</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">GLibObject</span><span class="o">.</span><span class="kt">ValueProtocol</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L35456-L35459">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L35409-L35412">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12012,13 +12012,13 @@ will prevail.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">setValist</span><span class="p">(</span><span class="nv">state</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:3Gtk10StateFlagsa">StateFlags</a></span><span class="p">,</span> <span class="nv">args</span><span class="p">:</span> <span class="kt">CVaListPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L35465-L35468">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L35418-L35421">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12049,13 +12049,13 @@ will prevail.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">unset</span><span class="p">(</span><span class="nv">property</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">,</span> <span class="nv">state</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:3Gtk10StateFlagsa">StateFlags</a></span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L35474-L35477">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L35427-L35430">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12068,7 +12068,7 @@ will prevail.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

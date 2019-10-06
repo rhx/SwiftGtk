@@ -11528,44 +11528,43 @@ Use <code>Builder</code> as a strong reference or owner of a <code>GtkBuilder</c
 <p>A GtkBuilder is an auxiliary object that reads textual descriptions
 of a user interface and instantiates the described objects. To create
 a GtkBuilder from a user interface description, call
-gtk_builder_new_from_file(), gtk_builder_new_from_resource() or
-gtk_builder_new_from_string().</p>
+<code>gtk_builder_new_from_file()</code>, <code>gtk_builder_new_from_resource()</code> or
+<code>gtk_builder_new_from_string()</code>.</p>
 
 <p>In the (unusual) case that you want to add user interface
 descriptions from multiple sources to the same GtkBuilder you can
-call gtk_builder_new() to get an empty builder and populate it by
-(multiple) calls to gtk_builder_add_from_file(),
-gtk_builder_add_from_resource() or gtk_builder_add_from_string().</p>
+call <code>gtk_builder_new()</code> to get an empty builder and populate it by
+(multiple) calls to <code>gtk_builder_add_from_file()</code>,
+<code>gtk_builder_add_from_resource()</code> or <code>gtk_builder_add_from_string()</code>.</p>
 
 <p>A GtkBuilder holds a reference to all objects that it has constructed
 and drops these references when it is finalized. This finalization can
 cause the destruction of non-widget objects or widgets which are not
 contained in a toplevel window. For toplevel windows constructed by a
-builder, it is the responsibility of the user to call gtk_widget_destroy()
+builder, it is the responsibility of the user to call <code>gtk_widget_destroy()</code>
 to get rid of them and all the widgets they contain.</p>
 
-<p>The functions gtk_builder_get_object() and gtk_builder_get_objects()
+<p>The functions <code>gtk_builder_get_object()</code> and <code>gtk_builder_get_objects()</code>
 can be used to access the widgets in the interface by the names assigned
 to them inside the UI description. Toplevel windows returned by these
 functions will stay around until the user explicitly destroys them
-with gtk_widget_destroy(). Other widgets will either be part of a
+with <code>gtk_widget_destroy()</code>. Other widgets will either be part of a
 larger hierarchy constructed by the builder (in which case you should
 not have to worry about their lifecycle), or without a parent, in which
 case they have to be added to some container to make use of them.
-Non-widget objects need to be reffed with g_object_ref() to keep them
+Non-widget objects need to be reffed with <code>g_object_ref()</code> to keep them
 beyond the lifespan of the builder.</p>
 
-<p>The function gtk_builder_connect_signals() and variants thereof can be
+<p>The function <code>gtk_builder_connect_signals()</code> and variants thereof can be
 used to connect handlers to the named signals in the description.</p>
-
-<p><code>GtkBuilder UI Definitions</code> {<code>BUILDER</code>-UI}</p>
+<h1 id='gtkbuilder-ui-definitions-a-name-builder-ui-a' class='heading'>GtkBuilder UI Definitions # <a name="BUILDER-UI"></a></h1>
 
 <p>GtkBuilder parses textual descriptions of user interfaces which are
 specified in an XML format which can be roughly described by the
 RELAX NG schema below. We refer to these descriptions as “GtkBuilder
 UI definitions” or just “UI definitions” if the context is clear.
 Do not confuse GtkBuilder UI Definitions with
-[GtkUIManager UI Definitions][XML-UI], which are more limited in scope.
+<a href="#XML-UI">GtkUIManager UI Definitions</a>, which are more limited in scope.
 It is common to use <code>.ui</code> as the filename extension for files containing
 GtkBuilder UI definitions.</p>
 
@@ -11573,15 +11572,15 @@ GtkBuilder UI definitions.</p>
 
 <p>The toplevel element is <interface>. It optionally takes a “domain”
 attribute, which will make the builder look for translated strings
-using dgettext() in the domain specified. This can also be done by
-calling gtk_builder_set_translation_domain() on the builder.
+using <code>dgettext()</code> in the domain specified. This can also be done by
+calling <code>gtk_builder_set_translation_domain()</code> on the builder.
 Objects are described by <object> elements, which can contain
 <property> elements to set properties, <signal> elements which
 connect signals to handlers, and <child> elements, which describe
 child objects (most often widgets inside a container, but also e.g.
 actions in an action group, or columns in a tree model). A <child>
 element contains an <object> element which describes the child object.
-The target toolkit version(s) are described by <requires> elements,
+The target toolkit <code>version(s)</code> are described by <requires> elements,
 the “lib” attribute specifies the widget library in question (currently
 the only supported value is “gtk+”) and the “version” attribute specifies
 the target version in the form “<major>.<minor>”. The builder will error
@@ -11589,9 +11588,9 @@ out if the version requirements are not met.</p>
 
 <p>Typically, the specific kind of object represented by an <object>
 element is specified by the “class” attribute. If the type has not
-been loaded yet, GTK+ tries to find the get_type() function from the
+been loaded yet, GTK+ tries to find the <code>get_type()</code> function from the
 class name by applying heuristics. This works in most cases, but if
-necessary, it is possible to specify the name of the get_type() function
+necessary, it is possible to specify the name of the <code>get_type()</code> function
 explictly with the <q>type-func</q> attribute. As a special case, GtkBuilder
 allows to use an object that has been constructed by a <code>GtkUIManager</code> in
 another part of the UI definition by specifying the id of the <code>GtkUIManager</code>
@@ -11599,7 +11598,7 @@ in the “constructor” attribute and the name of the object in the “id”
 attribute.</p>
 
 <p>Objects may be given a name with the “id” attribute, which allows the
-application to retrieve them from the builder with gtk_builder_get_object().
+application to retrieve them from the builder with <code>gtk_builder_get_object()</code>.
 An id is also necessary to use the object as property value in other
 parts of the UI definition. GTK+ reserves ids starting and ending
 with ___ (3 underscores) for its own purposes.</p>
@@ -11608,7 +11607,7 @@ with ___ (3 underscores) for its own purposes.</p>
 <property> element: the “name” attribute specifies the name of the
 property, and the content of the element specifies the value.
 If the “translatable” attribute is set to a true value, GTK+ uses
-gettext() (or dgettext() if the builder has a translation domain set)
+<code>gettext()</code> (or <code>dgettext()</code> if the builder has a translation domain set)
 to find a translation for the value. This happens before the value
 is parsed, so it can be used for properties of any type, but it is
 probably most useful for string properties. It is also possible to
@@ -11622,14 +11621,14 @@ as <code>true</code>, strings like “FALSE”, “f”, “no”, “n”, “0
 as <code>false</code>), enumerations (can be specified by their name, nick or
 integer value), flags (can be specified by their name, nick, integer
 value, optionally combined with “|”, e.g. “GTK_VISIBLE|GTK_REALIZED”)
-and colors (in a format understood by gdk_rgba_parse()).</p>
+and colors (in a format understood by <code>gdk_rgba_parse()</code>).</p>
 
-<p>GVariants can be specified in the format understood by g_variant_parse(),
+<p>GVariants can be specified in the format understood by <code>g_variant_parse()</code>,
 and pixbufs can be specified as a filename of an image file to load.</p>
 
 <p>Objects can be referred to by their name and by default refer to
 objects declared in the local xml fragment and objects exposed via
-gtk_builder_expose_object(). In general, GtkBuilder allows forward
+<code>gtk_builder_expose_object()</code>. In general, GtkBuilder allows forward
 references to objects — declared in the local xml; an object doesn’t
 have to be constructed before it can be referred to. The exception
 to this rule is that an object has to be constructed before it can
@@ -11641,17 +11640,17 @@ property value using the attributes
 <q>bind-property</q> to specify the source property and optionally
 <q>bind-flags</q> to specify the binding flags
 Internally builder implement this using GBinding objects.
-For more information see g_object_bind_property()</p>
+For more information see <code>g_object_bind_property()</code></p>
 
 <p>Signal handlers are set up with the <signal> element. The “name”
 attribute specifies the name of the signal, and the “handler” attribute
 specifies the function to connect to the signal. By default, GTK+ tries
-to find the handler using g_module_symbol(), but this can be changed by
+to find the handler using <code>g_module_symbol()</code>, but this can be changed by
 passing a custom <code>GtkBuilderConnectFunc</code> to
-gtk_builder_connect_signals_full(). The remaining attributes, “after”,
+<code>gtk_builder_connect_signals_full()</code>. The remaining attributes, “after”,
 “swapped” and “object”, have the same meaning as the corresponding
-parameters of the g_signal_connect_object() or
-g_signal_connect_data() functions. A “last_modification_time”
+parameters of the <code>g_signal_connect_object()</code> or
+<code>g_signal_connect_data()</code> functions. A “last_modification_time”
 attribute is also allowed, but it does not have a meaning to the
 builder.</p>
 
@@ -11668,8 +11667,7 @@ has already been constructed.</p>
 a UI definition by specifying the “type” attribute on a <child>
 The possible values for the “type” attribute are described in the
 sections describing the widget-specific portions of UI definitions.</p>
-
-<p>&ldquo; A GtkBuilder UI Definition</p>
+<h1 id='a-gtkbuilder-ui-definition' class='heading'>A GtkBuilder UI Definition</h1>
 <pre class="highlight swift"><code><span class="o">&lt;</span><span class="n">interface</span><span class="o">&gt;</span>
   <span class="o">&lt;</span><span class="n">object</span> <span class="kd">class</span><span class="o">=</span><span class="s">"GtkDialog"</span> <span class="n">id</span><span class="o">=</span><span class="s">"dialog1"</span><span class="o">&gt;</span>
     <span class="o">&lt;</span><span class="n">child</span> <span class="kd">internal</span><span class="o">-</span><span class="n">child</span><span class="o">=</span><span class="s">"vbox"</span><span class="o">&gt;</span>
@@ -11704,7 +11702,7 @@ respective objects.</p>
 
 <p>Additionally, since 3.10 a special <template> tag has been added
 to the format allowing one to define a widget class’s components.
-See the [GtkWidget documentation][composite-templates] for details.</p>
+See the <a href="#composite-templates">GtkWidget documentation</a> for details.</p>
 
           </div>
         </section>
@@ -11739,7 +11737,7 @@ Ownership is transferred to the <code>Builder</code> instance.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L2559-L2561">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L2554-L2556">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11765,12 +11763,12 @@ Will retain <code>GtkBuilder</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">other</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/BuilderProtocol.html">BuilderProtocol</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">other</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/BuilderProtocol.html">BuilderProtocol</a></span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L2565-L2568">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L2560-L2563">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11796,12 +11794,12 @@ Will retain <code>GtkBuilder</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">cPointer</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">cPointer</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L2572-L2574">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L2567-L2569">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11827,12 +11825,12 @@ Will retain <code>GtkBuilder</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeRawPointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L2578-L2580">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L2573-L2575">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11858,12 +11856,12 @@ Will retain <code>GtkBuilder</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L2584-L2586">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L2579-L2581">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11889,12 +11887,12 @@ Will retain <code>GtkBuilder</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">opaquePointer</span><span class="p">:</span> <span class="kt">OpaquePointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">opaquePointer</span><span class="p">:</span> <span class="kt">OpaquePointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L2590-L2592">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L2585-L2587">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11915,24 +11913,24 @@ Will retain <code>GtkBuilder</code>.</p>
                         <p>Creates a new empty builder object.</p>
 
 <p>This function is only useful if you intend to make multiple calls
-to gtk_builder_add_from_file(), gtk_builder_add_from_resource()
-or gtk_builder_add_from_string() in order to merge multiple UI
+to <code>gtk_builder_add_from_file()</code>, <code>gtk_builder_add_from_resource()</code>
+or <code>gtk_builder_add_from_string()</code> in order to merge multiple UI
 descriptions into a single builder.</p>
 
-<p>Most users will probably want to use gtk_builder_new_from_file(),
-gtk_builder_new_from_resource() or gtk_builder_new_from_string().</p>
+<p>Most users will probably want to use <code>gtk_builder_new_from_file()</code>,
+<code>gtk_builder_new_from_resource()</code> or <code>gtk_builder_new_from_string()</code>.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">()</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L2603-L2606">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L2598-L2601">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11950,7 +11948,7 @@ gtk_builder_new_from_resource() or gtk_builder_new_from_string().</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Builds the [GtkBuilder UI definition][BUILDER-UI]
+                        <p>Builds the <a href="#BUILDER-UI">GtkBuilder UI definition</a>
 in the file <code>filename</code>.</p>
 
 <p>If there is an error opening the file or parsing the description then
@@ -11962,12 +11960,12 @@ user interface descriptions that are shipped as part of your program.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="n">file</span> <span class="kt">String_</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="n">file</span> <span class="kt">String_</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L2614-L2617">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L2609-L2612">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11985,7 +11983,7 @@ user interface descriptions that are shipped as part of your program.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Builds the [GtkBuilder UI definition][BUILDER-UI]
+                        <p>Builds the <a href="#BUILDER-UI">GtkBuilder UI definition</a>
 at <code>resource_path</code>.</p>
 
 <p>If there is an error locating the resource or parsing the
@@ -11996,12 +11994,12 @@ description, then the program will be aborted.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="n">resource</span> <span class="nv">resource_path</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="n">resource</span> <span class="nv">resource_path</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L2624-L2627">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L2619-L2622">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12020,7 +12018,7 @@ description, then the program will be aborted.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Builds the user interface described by <code>string</code> (in the
-[GtkBuilder UI definition][BUILDER-UI] format).</p>
+<a href="#BUILDER-UI">GtkBuilder UI definition</a> format).</p>
 
 <p>If <code>string</code> is <code>nil</code>-terminated, then <code>length</code> should be -1.
 If <code>length</code> is not -1, then it is the length of <code>string</code>.</p>
@@ -12034,12 +12032,12 @@ from untrusted sources.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">string</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">,</span> <span class="nv">length</span><span class="p">:</span> <span class="n">gssize</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">string</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">,</span> <span class="nv">length</span><span class="p">:</span> <span class="n">gssize</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L2638-L2641">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L2633-L2636">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12057,7 +12055,7 @@ from untrusted sources.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Builds the [GtkBuilder UI definition][BUILDER-UI]
+                        <p>Builds the <a href="#BUILDER-UI">GtkBuilder UI definition</a>
 in the file <code>filename</code>.</p>
 
 <p>If there is an error opening the file or parsing the description then
@@ -12074,7 +12072,7 @@ user interface descriptions that are shipped as part of your program.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L2649-L2652">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L2644-L2647">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12092,7 +12090,7 @@ user interface descriptions that are shipped as part of your program.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Builds the [GtkBuilder UI definition][BUILDER-UI]
+                        <p>Builds the <a href="#BUILDER-UI">GtkBuilder UI definition</a>
 at <code>resource_path</code>.</p>
 
 <p>If there is an error locating the resource or parsing the
@@ -12108,7 +12106,7 @@ description, then the program will be aborted.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L2659-L2662">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L2654-L2657">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12127,7 +12125,7 @@ description, then the program will be aborted.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Builds the user interface described by <code>string</code> (in the
-[GtkBuilder UI definition][BUILDER-UI] format).</p>
+<a href="#BUILDER-UI">GtkBuilder UI definition</a> format).</p>
 
 <p>If <code>string</code> is <code>nil</code>-terminated, then <code>length</code> should be -1.
 If <code>length</code> is not -1, then it is the length of <code>string</code>.</p>
@@ -12146,7 +12144,7 @@ from untrusted sources.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L2673-L2676">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L2668-L2671">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12159,7 +12157,7 @@ from untrusted sources.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

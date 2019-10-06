@@ -11533,19 +11533,19 @@ opened when the user selects the <code>About</code> option from the <code>Help</
 All parts of the dialog are optional.</p>
 
 <p>About dialogs often contain links and email addresses. GtkAboutDialog
-displays these as clickable links. By default, it calls gtk_show_uri_on_window()
+displays these as clickable links. By default, it calls <code>gtk_show_uri_on_window()</code>
 when a user clicks one. The behaviour can be overridden with the
-<code>GtkAboutDialog</code>::activate-link signal.</p>
+<code>GtkAboutDialog::activate</code>-link signal.</p>
 
 <p>To specify a person with an email address, use a string like
-<q>Edgar Allan Poe <edgar\`poe`.com></q>. To specify a website with a title,
+<q>Edgar Allan Poe <edgar\`poe.com`></q>. To specify a website with a title,
 use a string like <q>GTK+ team http://www.gtk.org</q>.</p>
 
 <p>To make constructing a GtkAboutDialog as convenient as possible, you can
-use the function gtk_show_about_dialog() which constructs and shows a dialog
+use the function <code>gtk_show_about_dialog()</code> which constructs and shows a dialog
 and keeps it around so that it can be shown again.</p>
 
-<p>Note that GTK+ sets a default title of <code>_(&quot;About</code>s<code>&quot;)</code> on the dialog
+<p>Note that GTK+ sets a default title of <code>_(&quot;About %s&quot;)</code> on the dialog
 window (where `s` is replaced by the name of the application, but in
 order to ensure proper translation of the title, applications should
 set the title property explicitly when constructing a GtkAboutDialog,
@@ -11560,7 +11560,7 @@ gtk_show_about_dialog (NULL,
 </code></pre>
 
 <p>It is also possible to show a <code>GtkAboutDialog</code> like any other <code>GtkDialog</code>,
-e.g. using gtk_dialog_run(). In this case, you might need to know that
+e.g. using <code>gtk_dialog_run()</code>. In this case, you might need to know that
 the “Close” button returns the <code>GTK_RESPONSE_CANCEL</code> response id.</p>
 
           </div>
@@ -11596,7 +11596,7 @@ For type-safe access, use the generated, typed pointer <code>about_dialog_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L118">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L116">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11637,7 +11637,7 @@ For type-safe access, use the generated, typed pointer <code>about_dialog_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L123-L124">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L121-L122">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11667,7 +11667,7 @@ For type-safe access, use the generated, typed pointer <code>about_dialog_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L127-L129">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L125-L127">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11698,7 +11698,7 @@ For type-safe access, use the generated, typed pointer <code>about_dialog_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L133-L135">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L131-L133">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11729,7 +11729,7 @@ For type-safe access, use the generated, typed pointer <code>about_dialog_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L139-L141">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L137-L139">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11760,7 +11760,7 @@ For type-safe access, use the generated, typed pointer <code>about_dialog_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L145-L147">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L143-L145">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11791,7 +11791,7 @@ For type-safe access, use the generated, typed pointer <code>about_dialog_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L151-L153">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L149-L151">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11822,7 +11822,7 @@ For type-safe access, use the generated, typed pointer <code>about_dialog_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L157-L159">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L155-L157">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11852,7 +11852,7 @@ For type-safe access, use the generated, typed pointer <code>about_dialog_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L162-L165">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L160-L163">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11865,7 +11865,7 @@ For type-safe access, use the generated, typed pointer <code>about_dialog_ptr</c
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

@@ -11525,27 +11525,26 @@
 It exposes methods that can operate on this data type through <code><a href="../Protocols/ToolbarProtocol.html">ToolbarProtocol</a></code> conformance.
 Use <code>ToolbarRef</code> only as an <code>unowned</code> reference to an existing <code>GtkToolbar</code> instance.</p>
 
-<p>A toolbar is created with a call to gtk_toolbar_new().</p>
+<p>A toolbar is created with a call to <code>gtk_toolbar_new()</code>.</p>
 
 <p>A toolbar can contain instances of a subclass of <code>GtkToolItem</code>. To add
-a <code>GtkToolItem</code> to the a toolbar, use gtk_toolbar_insert(). To remove
-an item from the toolbar use gtk_container_remove(). To add a button
+a <code>GtkToolItem</code> to the a toolbar, use <code>gtk_toolbar_insert()</code>. To remove
+an item from the toolbar use <code>gtk_container_remove()</code>. To add a button
 to the toolbar, add an instance of <code>GtkToolButton</code>.</p>
 
 <p>Toolbar items can be visually grouped by adding instances of
 <code>GtkSeparatorToolItem</code> to the toolbar. If the GtkToolbar child property
-“expand” is <code>TRUE</code> and the property <code>GtkSeparatorToolItem</code>:draw is set to
+“expand” is <code>TRUE</code> and the property <code>GtkSeparatorToolItem:draw</code> is set to
 <code>FALSE</code>, the effect is to force all following items to the end of the toolbar.</p>
 
 <p>By default, a toolbar can be shrunk, upon which it will add an arrow button
 to show an overflow menu offering access to any <code>GtkToolItem</code> child that has
 a proxy menu item. To disable this and request enough size for all children,
-call gtk_toolbar_set_show_arrow() to set <code>GtkToolbar</code>:show-arrow to <code>false</code>.</p>
+call <code>gtk_toolbar_set_show_arrow()</code> to set <code>GtkToolbar:show</code>-arrow to <code>false</code>.</p>
 
 <p>Creating a context menu for the toolbar can be done by connecting to
-the <code>GtkToolbar</code>::popup-context-menu signal.</p>
-
-<p>&ldquo; CSS nodes</p>
+the <code>GtkToolbar::popup</code>-context-menu signal.</p>
+<h1 id='css-nodes' class='heading'>CSS nodes</h1>
 
 <p>GtkToolbar has a single CSS node with name toolbar.</p>
 
@@ -11582,7 +11581,7 @@ For type-safe access, use the generated, typed pointer <code>toolbar_ptr</code> 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L18315">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L18291">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11623,7 +11622,7 @@ For type-safe access, use the generated, typed pointer <code>toolbar_ptr</code> 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L18320-L18321">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L18296-L18297">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11653,7 +11652,7 @@ For type-safe access, use the generated, typed pointer <code>toolbar_ptr</code> 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L18324-L18326">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L18300-L18302">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11684,7 +11683,7 @@ For type-safe access, use the generated, typed pointer <code>toolbar_ptr</code> 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L18330-L18332">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L18306-L18308">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11715,7 +11714,7 @@ For type-safe access, use the generated, typed pointer <code>toolbar_ptr</code> 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L18336-L18338">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L18312-L18314">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11746,7 +11745,7 @@ For type-safe access, use the generated, typed pointer <code>toolbar_ptr</code> 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L18342-L18344">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L18318-L18320">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11777,7 +11776,7 @@ For type-safe access, use the generated, typed pointer <code>toolbar_ptr</code> 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L18348-L18350">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L18324-L18326">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11808,7 +11807,7 @@ For type-safe access, use the generated, typed pointer <code>toolbar_ptr</code> 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L18354-L18356">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L18330-L18332">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11838,7 +11837,7 @@ For type-safe access, use the generated, typed pointer <code>toolbar_ptr</code> 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L18359-L18362">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L18335-L18338">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11851,7 +11850,7 @@ For type-safe access, use the generated, typed pointer <code>toolbar_ptr</code> 
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

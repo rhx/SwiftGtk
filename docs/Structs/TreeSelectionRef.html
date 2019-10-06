@@ -11534,7 +11534,7 @@ That is, there is no conceptual reason all these functions could not be
 methods on the <code>GtkTreeView</code> widget instead of a separate function.</p>
 
 <p>The <code>GtkTreeSelection</code> object is gotten from a <code>GtkTreeView</code> by calling
-gtk_tree_view_get_selection().  It can be manipulated to check the
+<code>gtk_tree_view_get_selection()</code>.  It can be manipulated to check the
 selection status of the tree, as well as select and deselect individual
 rows.  Selection is done completely view side.  As a result, multiple
 views of the same model can have completely different selections.
@@ -11543,9 +11543,9 @@ is not currently displayed by the view without expanding its parents
 first.</p>
 
 <p>One of the important things to remember when monitoring the selection of
-a view is that the <code>GtkTreeSelection</code>::changed signal is mostly a hint.
+a view is that the <code>GtkTreeSelection::changed</code> signal is mostly a hint.
 That is, it may only emit one signal when a range of rows is selected.
-Additionally, it may on occasion emit a <code>GtkTreeSelection</code>::changed signal
+Additionally, it may on occasion emit a <code>GtkTreeSelection::changed</code> signal
 when nothing has happened (mostly as a result of programmers calling
 select_row on an already selected row).</p>
 
@@ -11582,7 +11582,7 @@ For type-safe access, use the generated, typed pointer <code>tree_selection_ptr<
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L21646">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L21613">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11623,7 +11623,7 @@ For type-safe access, use the generated, typed pointer <code>tree_selection_ptr<
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L21651-L21652">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L21618-L21619">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11653,7 +11653,7 @@ For type-safe access, use the generated, typed pointer <code>tree_selection_ptr<
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L21655-L21657">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L21622-L21624">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11684,7 +11684,7 @@ For type-safe access, use the generated, typed pointer <code>tree_selection_ptr<
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L21661-L21663">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L21628-L21630">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11715,7 +11715,7 @@ For type-safe access, use the generated, typed pointer <code>tree_selection_ptr<
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L21667-L21669">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L21634-L21636">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11746,7 +11746,7 @@ For type-safe access, use the generated, typed pointer <code>tree_selection_ptr<
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L21673-L21675">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L21640-L21642">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11777,7 +11777,7 @@ For type-safe access, use the generated, typed pointer <code>tree_selection_ptr<
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L21679-L21681">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L21646-L21648">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11808,7 +11808,7 @@ For type-safe access, use the generated, typed pointer <code>tree_selection_ptr<
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L21685-L21687">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L21652-L21654">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11821,7 +11821,7 @@ For type-safe access, use the generated, typed pointer <code>tree_selection_ptr<
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

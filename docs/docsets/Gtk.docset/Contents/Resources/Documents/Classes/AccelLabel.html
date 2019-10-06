@@ -11530,27 +11530,26 @@ accelerator key on the right of the label text, e.g. “Ctrl+S”.
 It is commonly used in menus to show the keyboard short-cuts for commands.</p>
 
 <p>The accelerator key to display is typically not set explicitly (although it
-can be, with gtk_accel_label_set_accel()). Instead, the <code>GtkAccelLabel</code> displays
+can be, with <code>gtk_accel_label_set_accel()</code>). Instead, the <code>GtkAccelLabel</code> displays
 the accelerators which have been added to a particular widget. This widget is
-set by calling gtk_accel_label_set_accel_widget().</p>
+set by calling <code>gtk_accel_label_set_accel_widget()</code>.</p>
 
 <p>For example, a <code>GtkMenuItem</code> widget may have an accelerator added to emit
 the “activate” signal when the “Ctrl+S” key combination is pressed.
 A <code>GtkAccelLabel</code> is created and added to the <code>GtkMenuItem</code>, and
-gtk_accel_label_set_accel_widget() is called with the <code>GtkMenuItem</code> as the
+<code>gtk_accel_label_set_accel_widget()</code> is called with the <code>GtkMenuItem</code> as the
 second argument. The <code>GtkAccelLabel</code> will now display “Ctrl+S” after its label.</p>
 
-<p>Note that creating a <code>GtkMenuItem</code> with gtk_menu_item_new_with_label() (or
+<p>Note that creating a <code>GtkMenuItem</code> with <code>gtk_menu_item_new_with_label()</code> (or
 one of the similar functions for <code>GtkCheckMenuItem</code> and <code>GtkRadioMenuItem</code>)
 automatically adds a <code>GtkAccelLabel</code> to the <code>GtkMenuItem</code> and calls
-gtk_accel_label_set_accel_widget() to set it up for you.</p>
+<code>gtk_accel_label_set_accel_widget()</code> to set it up for you.</p>
 
 <p>A <code>GtkAccelLabel</code> will only display accelerators which have <code>GTK_ACCEL_VISIBLE</code>
 set (see <code>GtkAccelFlags</code>).
 A <code>GtkAccelLabel</code> can display multiple accelerators and even signal names,
 though it is almost always used to display just one accelerator key.</p>
-
-<p>&ldquo;` Creating a simple menu item with an accelerator key.</p>
+<h2 id='creating-a-simple-menu-item-with-an-accelerator-key' class='heading'>Creating a simple menu item with an accelerator key.</h2>
 
 <p>(C Language Example):</p>
 <pre class="highlight plaintext"><code>  GtkWidget *window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
@@ -11575,10 +11574,11 @@ though it is almost always used to display just one accelerator key.</p>
   gtk_widget_add_accelerator (save_item, "activate", accel_group,
                               GDK_KEY_s, GDK_CONTROL_MASK, GTK_ACCEL_VISIBLE);
 </code></pre>
+<h1 id='css-nodes' class='heading'>CSS nodes</h1>
 
-<p>&rdquo; CSS nodes</p>
-<pre class="highlight swift"><code><span class="n">label</span>
-<span class="err">╰──</span> <span class="n">accelerator</span>
+<p>(plain Language Example):</p>
+<pre class="highlight plaintext"><code>label
+╰── accelerator
 </code></pre>
 
 <p>Like <code>GtkLabel</code>, GtkAccelLabel has a main CSS node with the name label.
@@ -11617,7 +11617,7 @@ Ownership is transferred to the <code>AccelLabel</code> instance.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L2825-L2827">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L2815-L2817">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11643,12 +11643,12 @@ Will retain <code>GtkAccelLabel</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">other</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AccelLabelProtocol.html">AccelLabelProtocol</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">other</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AccelLabelProtocol.html">AccelLabelProtocol</a></span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L2831-L2834">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L2821-L2824">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11674,12 +11674,12 @@ Will retain <code>GtkAccelLabel</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">cPointer</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">cPointer</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L2838-L2840">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L2828-L2830">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11705,12 +11705,12 @@ Will retain <code>GtkAccelLabel</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeRawPointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L2844-L2846">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L2834-L2836">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11736,12 +11736,12 @@ Will retain <code>GtkAccelLabel</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L2850-L2852">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L2840-L2842">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11767,12 +11767,12 @@ Will retain <code>GtkAccelLabel</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">opaquePointer</span><span class="p">:</span> <span class="kt">OpaquePointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">opaquePointer</span><span class="p">:</span> <span class="kt">OpaquePointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L2856-L2858">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L2846-L2848">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11797,12 +11797,12 @@ Will retain <code>GtkAccelLabel</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">string</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">string</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L2861-L2864">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L2851-L2854">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11815,7 +11815,7 @@ Will retain <code>GtkAccelLabel</code>.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

@@ -11532,18 +11532,18 @@ has a action area at the bottom, <code>GtkInfoBar</code> has an action area
 at the side.</p>
 
 <p>The API of <code>GtkInfoBar</code> is very similar to <code>GtkDialog</code>, allowing you
-to add buttons to the action area with gtk_info_bar_add_button() or
-gtk_info_bar_new_with_buttons(). The sensitivity of action widgets
-can be controlled with gtk_info_bar_set_response_sensitive().
+to add buttons to the action area with <code>gtk_info_bar_add_button()</code> or
+<code>gtk_info_bar_new_with_buttons()</code>. The sensitivity of action widgets
+can be controlled with <code>gtk_info_bar_set_response_sensitive()</code>.
 To add widgets to the main content area of a <code>GtkInfoBar</code>, use
-gtk_info_bar_get_content_area() and add your widgets to the container.</p>
+<code>gtk_info_bar_get_content_area()</code> and add your widgets to the container.</p>
 
 <p>Similar to <code>GtkMessageDialog</code>, the contents of a <code>GtkInfoBar</code> can by
 classified as error message, warning, informational message, etc,
-by using gtk_info_bar_set_message_type(). GTK+ may use the message type
+by using <code>gtk_info_bar_set_message_type()</code>. GTK+ may use the message type
 to determine how the message is displayed.</p>
 
-<p>A simple example for using a <code>GtkInfoBar</code>:
+<p>A simple example for using a <code>GtkInfoBar:</code>
 (C Language Example):</p>
 <pre class="highlight plaintext"><code>GtkWidget *widget, *message_label, *content_area;
 GtkWidget *grid;
@@ -11578,8 +11578,7 @@ gtk_info_bar_set_message_type (bar,
                                GTK_MESSAGE_ERROR);
 gtk_widget_show (bar);
 </code></pre>
-
-<p>&ldquo; GtkInfoBar as GtkBuildable</p>
+<h1 id='gtkinfobar-as-gtkbuildable' class='heading'>GtkInfoBar as GtkBuildable</h1>
 
 <p>The GtkInfoBar implementation of the GtkBuildable interface exposes
 the content area and action area as internal children with the names
@@ -11589,8 +11588,7 @@ the content area and action area as internal children with the names
 multiple <action-widget> elements. The “response” attribute specifies a
 numeric response, and the content of the element is the id of widget
 (which should be a child of the dialogs <code>action_area</code>).</p>
-
-<p>&rdquo; CSS nodes</p>
+<h1 id='css-nodes' class='heading'>CSS nodes</h1>
 
 <p>GtkInfoBar has a single CSS node with name infobar. The node may get
 one of the style classes .info, .warning, .error or .question, depending
@@ -11629,7 +11627,7 @@ For type-safe access, use the generated, typed pointer <code>info_bar_ptr</code>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L9952">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L9930">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11670,7 +11668,7 @@ For type-safe access, use the generated, typed pointer <code>info_bar_ptr</code>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L9957-L9958">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L9935-L9936">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11700,7 +11698,7 @@ For type-safe access, use the generated, typed pointer <code>info_bar_ptr</code>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L9961-L9963">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L9939-L9941">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11731,7 +11729,7 @@ For type-safe access, use the generated, typed pointer <code>info_bar_ptr</code>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L9967-L9969">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L9945-L9947">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11762,7 +11760,7 @@ For type-safe access, use the generated, typed pointer <code>info_bar_ptr</code>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L9973-L9975">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L9951-L9953">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11793,7 +11791,7 @@ For type-safe access, use the generated, typed pointer <code>info_bar_ptr</code>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L9979-L9981">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L9957-L9959">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11824,7 +11822,7 @@ For type-safe access, use the generated, typed pointer <code>info_bar_ptr</code>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L9985-L9987">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L9963-L9965">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11855,7 +11853,7 @@ For type-safe access, use the generated, typed pointer <code>info_bar_ptr</code>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L9991-L9993">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L9969-L9971">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11885,7 +11883,7 @@ For type-safe access, use the generated, typed pointer <code>info_bar_ptr</code>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L9996-L9999">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L9974-L9977">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11898,7 +11896,7 @@ For type-safe access, use the generated, typed pointer <code>info_bar_ptr</code>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

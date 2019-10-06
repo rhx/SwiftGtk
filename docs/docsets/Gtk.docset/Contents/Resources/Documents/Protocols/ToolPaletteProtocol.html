@@ -11529,12 +11529,12 @@ Alternatively, use <code><a href="../Structs/ToolPaletteRef.html">ToolPaletteRef
 <p>A <code>GtkToolPalette</code> allows you to add <code>GtkToolItems</code> to a palette-like
 container with different categories and drag and drop support.</p>
 
-<p>A <code>GtkToolPalette</code> is created with a call to gtk_tool_palette_new().</p>
+<p>A <code>GtkToolPalette</code> is created with a call to <code>gtk_tool_palette_new()</code>.</p>
 
 <p><code>GtkToolItems</code> cannot be added directly to a <code>GtkToolPalette</code> -
 instead they are added to a <code>GtkToolItemGroup</code> which can than be added
 to a <code>GtkToolPalette</code>. To add a <code>GtkToolItemGroup</code> to a <code>GtkToolPalette</code>,
-use gtk_container_add().</p>
+use <code>gtk_container_add()</code>.</p>
 
 <p>(C Language Example):</p>
 <pre class="highlight plaintext"><code>GtkWidget *palette, *group;
@@ -11550,9 +11550,9 @@ gtk_tool_item_group_insert (GTK_TOOL_ITEM_GROUP (group), item, -1);
 </code></pre>
 
 <p>The easiest way to use drag and drop with <code>GtkToolPalette</code> is to call
-gtk_tool_palette_add_drag_dest() with the desired drag source <code>palette</code>
-and the desired drag target <code>widget</code>. Then gtk_tool_palette_get_drag_item()
-can be used to get the dragged item in the <code>GtkWidget</code>::drag-data-received
+<code>gtk_tool_palette_add_drag_dest()</code> with the desired drag source <code>palette</code>
+and the desired drag target <code>widget</code>. Then <code>gtk_tool_palette_get_drag_item()</code>
+can be used to get the dragged item in the <code>GtkWidget::drag</code>-data-received
 signal handler of the drag target.</p>
 
 <p>(C Language Example):</p>
@@ -11591,8 +11591,7 @@ gtk_tool_palette_add_drag_dest (GTK_TOOL_PALETTE (palette), target,
                                 GTK_TOOL_PALETTE_DRAG_ITEMS,
                                 GDK_ACTION_COPY);
 </code></pre>
-
-<p>&ldquo; CSS nodes</p>
+<h1 id='css-nodes' class='heading'>CSS nodes</h1>
 
 <p>GtkToolPalette has a single CSS node named toolpalette.</p>
 
@@ -11628,7 +11627,7 @@ gtk_tool_palette_add_drag_dest (GTK_TOOL_PALETTE (palette), target,
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L16719">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L16700">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11666,7 +11665,7 @@ gtk_tool_palette_add_drag_dest (GTK_TOOL_PALETTE (palette), target,
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L16722">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L16703">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11794,7 +11793,7 @@ gtk_tool_palette_add_drag_dest (GTK_TOOL_PALETTE (palette), target,
                         <p>binding reference or <code>nil</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L17188-L17212">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L17165-L17189">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11886,7 +11885,7 @@ gtk_tool_palette_add_drag_dest (GTK_TOOL_PALETTE (palette), target,
                         <p>positive handler ID, or a value less than or equal to <code>0</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L18025-L18044">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L18001-L18020">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11918,9 +11917,9 @@ gtk_tool_palette_add_drag_dest (GTK_TOOL_PALETTE (palette), target,
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Sets <code>palette</code> as drag source (see gtk_tool_palette_set_drag_source())
+                        <p>Sets <code>palette</code> as drag source (see <code>gtk_tool_palette_set_drag_source()</code>)
 and sets <code>widget</code> as a drag destination for drags from <code>palette</code>.
-See gtk_drag_dest_set().</p>
+See <code>gtk_drag_dest_set()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -11932,7 +11931,7 @@ See gtk_drag_dest_set().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L18054-L18057">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L18030-L18033">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11966,7 +11965,7 @@ This could be a <code>GtkToolItem</code> or a <code>GtkToolItemGroup</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L18061-L18064">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L18037-L18040">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11999,7 +11998,7 @@ This could be a <code>GtkToolItem</code> or a <code>GtkToolItemGroup</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L18067-L18070">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L18043-L18046">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12021,7 +12020,7 @@ This could be a <code>GtkToolItem</code> or a <code>GtkToolItemGroup</code>.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Gets the item at position (x, y).
-See gtk_tool_palette_get_drop_group().</p>
+See <code>gtk_tool_palette_get_drop_group()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12033,7 +12032,7 @@ See gtk_tool_palette_get_drop_group().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L18074-L18077">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L18050-L18053">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12055,7 +12054,7 @@ See gtk_tool_palette_get_drop_group().</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Gets whether <code>group</code> is exclusive or not.
-See gtk_tool_palette_set_exclusive().</p>
+See <code>gtk_tool_palette_set_exclusive()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12067,7 +12066,7 @@ See gtk_tool_palette_set_exclusive().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L18081-L18084">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L18057-L18060">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12089,7 +12088,7 @@ See gtk_tool_palette_set_exclusive().</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Gets whether group should be given extra space.
-See gtk_tool_palette_set_expand().</p>
+See <code>gtk_tool_palette_set_expand()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12101,7 +12100,7 @@ See gtk_tool_palette_set_expand().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L18088-L18091">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L18064-L18067">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12123,7 +12122,7 @@ See gtk_tool_palette_set_expand().</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Gets the position of <code>group</code> in <code>palette</code> as index.
-See gtk_tool_palette_set_group_position().</p>
+See <code>gtk_tool_palette_set_group_position()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12135,7 +12134,7 @@ See gtk_tool_palette_set_group_position().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L18095-L18098">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L18071-L18074">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12166,13 +12165,13 @@ Use gtk_scrollable_get_hadjustment()</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">getHadjustment</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">GtkAdjustment</span><span class="o">&gt;!</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L18104-L18107">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L18080-L18083">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12194,7 +12193,7 @@ Use gtk_scrollable_get_hadjustment()</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Gets the size of icons in the tool palette.
-See gtk_tool_palette_set_icon_size().</p>
+See <code>gtk_tool_palette_set_icon_size()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12206,7 +12205,7 @@ See gtk_tool_palette_set_icon_size().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L18111-L18114">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L18087-L18090">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12239,7 +12238,7 @@ See gtk_tool_palette_set_icon_size().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L18117-L18120">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L18093-L18096">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12270,13 +12269,13 @@ Use gtk_scrollable_get_vadjustment()</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">getVadjustment</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">GtkAdjustment</span><span class="o">&gt;!</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L18126-L18129">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L18102-L18105">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12300,7 +12299,7 @@ Use gtk_scrollable_get_vadjustment()</p>
                         <p>Sets the tool palette as a drag source.
 Enables all groups and items in the tool palette as drag sources
 on button 1 and button 3 press with copy and move actions.
-See gtk_drag_source_set().</p>
+See <code>gtk_drag_source_set()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12312,7 +12311,7 @@ See gtk_drag_source_set().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L18135-L18138">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L18111-L18114">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12346,7 +12345,7 @@ If an exclusive group is expanded all other groups are collapsed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L18142-L18145">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L18118-L18121">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12379,7 +12378,7 @@ If an exclusive group is expanded all other groups are collapsed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L18148-L18151">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L18124-L18127">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12414,7 +12413,7 @@ If position is 0 the group will become the first child, if position is
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L18156-L18159">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L18132-L18135">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12437,7 +12436,6 @@ If position is 0 the group will become the first child, if position is
                       <div class="abstract">
                         <p>Sets the size of icons in the tool palette.</p>
 
-                        <a href="../Protocols/ToolPaletteProtocol/set%28iconSize%3A%29.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
@@ -12448,7 +12446,7 @@ If position is 0 the group will become the first child, if position is
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L18162-L18165">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L18138-L18141">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12481,7 +12479,7 @@ If position is 0 the group will become the first child, if position is
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L18168-L18171">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L18144-L18147">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12502,7 +12500,7 @@ If position is 0 the group will become the first child, if position is
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Unsets the tool palette icon size set with gtk_tool_palette_set_icon_size(),
+                        <p>Unsets the tool palette icon size set with <code>gtk_tool_palette_set_icon_size()</code>,
 so that user preferences will be used to determine the icon size.</p>
 
                       </div>
@@ -12515,7 +12513,7 @@ so that user preferences will be used to determine the icon size.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L18175-L18178">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L18151-L18154">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12536,7 +12534,7 @@ so that user preferences will be used to determine the icon size.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Unsets a toolbar style set with gtk_tool_palette_set_style(),
+                        <p>Unsets a toolbar style set with <code>gtk_tool_palette_set_style()</code>,
 so that user preferences will be used to determine the toolbar style.</p>
 
                       </div>
@@ -12549,7 +12547,7 @@ so that user preferences will be used to determine the toolbar style.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L18182-L18185">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L18158-L18161">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12585,7 +12583,7 @@ Use gtk_scrollable_get_hadjustment()</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L18190-L18199">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L18166-L18175">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12607,7 +12605,7 @@ Use gtk_scrollable_get_hadjustment()</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Gets the size of icons in the tool palette.
-See gtk_tool_palette_set_icon_size().</p>
+See <code>gtk_tool_palette_set_icon_size()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12619,7 +12617,7 @@ See gtk_tool_palette_set_icon_size().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L18203-L18214">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L18179-L18190">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12652,7 +12650,7 @@ See gtk_tool_palette_set_icon_size().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L18217-L18227">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L18193-L18203">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12688,7 +12686,7 @@ Use gtk_scrollable_get_vadjustment()</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L18233-L18242">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L18209-L18218">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12701,7 +12699,7 @@ Use gtk_scrollable_get_vadjustment()</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

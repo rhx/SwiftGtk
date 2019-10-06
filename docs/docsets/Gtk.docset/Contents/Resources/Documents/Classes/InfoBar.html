@@ -11532,18 +11532,18 @@ has a action area at the bottom, <code>GtkInfoBar</code> has an action area
 at the side.</p>
 
 <p>The API of <code>GtkInfoBar</code> is very similar to <code>GtkDialog</code>, allowing you
-to add buttons to the action area with gtk_info_bar_add_button() or
-gtk_info_bar_new_with_buttons(). The sensitivity of action widgets
-can be controlled with gtk_info_bar_set_response_sensitive().
+to add buttons to the action area with <code>gtk_info_bar_add_button()</code> or
+<code>gtk_info_bar_new_with_buttons()</code>. The sensitivity of action widgets
+can be controlled with <code>gtk_info_bar_set_response_sensitive()</code>.
 To add widgets to the main content area of a <code>GtkInfoBar</code>, use
-gtk_info_bar_get_content_area() and add your widgets to the container.</p>
+<code>gtk_info_bar_get_content_area()</code> and add your widgets to the container.</p>
 
 <p>Similar to <code>GtkMessageDialog</code>, the contents of a <code>GtkInfoBar</code> can by
 classified as error message, warning, informational message, etc,
-by using gtk_info_bar_set_message_type(). GTK+ may use the message type
+by using <code>gtk_info_bar_set_message_type()</code>. GTK+ may use the message type
 to determine how the message is displayed.</p>
 
-<p>A simple example for using a <code>GtkInfoBar</code>:
+<p>A simple example for using a <code>GtkInfoBar:</code>
 (C Language Example):</p>
 <pre class="highlight plaintext"><code>GtkWidget *widget, *message_label, *content_area;
 GtkWidget *grid;
@@ -11578,8 +11578,7 @@ gtk_info_bar_set_message_type (bar,
                                GTK_MESSAGE_ERROR);
 gtk_widget_show (bar);
 </code></pre>
-
-<p>&ldquo; GtkInfoBar as GtkBuildable</p>
+<h1 id='gtkinfobar-as-gtkbuildable' class='heading'>GtkInfoBar as GtkBuildable</h1>
 
 <p>The GtkInfoBar implementation of the GtkBuildable interface exposes
 the content area and action area as internal children with the names
@@ -11589,8 +11588,7 @@ the content area and action area as internal children with the names
 multiple <action-widget> elements. The “response” attribute specifies a
 numeric response, and the content of the element is the id of widget
 (which should be a child of the dialogs <code>action_area</code>).</p>
-
-<p>&rdquo; CSS nodes</p>
+<h1 id='css-nodes' class='heading'>CSS nodes</h1>
 
 <p>GtkInfoBar has a single CSS node with name infobar. The node may get
 one of the style classes .info, .warning, .error or .question, depending
@@ -11629,7 +11627,7 @@ Ownership is transferred to the <code>InfoBar</code> instance.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L10088-L10090">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L10065-L10067">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11655,12 +11653,12 @@ Will retain <code>GtkInfoBar</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">other</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/InfoBarProtocol.html">InfoBarProtocol</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">other</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/InfoBarProtocol.html">InfoBarProtocol</a></span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L10094-L10097">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L10071-L10074">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11686,12 +11684,12 @@ Will retain <code>GtkInfoBar</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">cPointer</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">cPointer</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L10101-L10103">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L10078-L10080">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11717,12 +11715,12 @@ Will retain <code>GtkInfoBar</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeRawPointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L10107-L10109">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L10084-L10086">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11748,12 +11746,12 @@ Will retain <code>GtkInfoBar</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L10113-L10115">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L10090-L10092">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11779,12 +11777,12 @@ Will retain <code>GtkInfoBar</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">opaquePointer</span><span class="p">:</span> <span class="kt">OpaquePointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">opaquePointer</span><span class="p">:</span> <span class="kt">OpaquePointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L10119-L10121">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L10096-L10098">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11809,12 +11807,12 @@ Will retain <code>GtkInfoBar</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">()</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L10124-L10127">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L10101-L10104">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11827,7 +11825,7 @@ Will retain <code>GtkInfoBar</code>.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

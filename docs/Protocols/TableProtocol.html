@@ -11530,21 +11530,21 @@ Alternatively, use <code><a href="../Structs/TableRef.html">TableRef</a></code> 
 columns, making it easy to align many widgets next to each other,
 horizontally and vertically.</p>
 
-<p>Tables are created with a call to gtk_table_new(), the size of which can
-later be changed with gtk_table_resize().</p>
+<p>Tables are created with a call to <code>gtk_table_new()</code>, the size of which can
+later be changed with <code>gtk_table_resize()</code>.</p>
 
-<p>Widgets can be added to a table using gtk_table_attach() or the more
-convenient (but slightly less flexible) gtk_table_attach_defaults().</p>
+<p>Widgets can be added to a table using <code>gtk_table_attach()</code> or the more
+convenient (but slightly less flexible) <code>gtk_table_attach_defaults()</code>.</p>
 
-<p>To alter the space next to a specific row, use gtk_table_set_row_spacing(),
-and for a column, gtk_table_set_col_spacing().
+<p>To alter the space next to a specific row, use <code>gtk_table_set_row_spacing()</code>,
+and for a column, <code>gtk_table_set_col_spacing()</code>.
 The gaps between all rows or columns can be changed by
-calling gtk_table_set_row_spacings() or gtk_table_set_col_spacings()
+calling <code>gtk_table_set_row_spacings()</code> or <code>gtk_table_set_col_spacings()</code>
 respectively. Note that spacing is added between the
-children, while padding added by gtk_table_attach() is added on
+children, while padding added by <code>gtk_table_attach()</code> is added on
 either side of the widget it belongs to.</p>
 
-<p>gtk_table_set_homogeneous(), can be used to set whether all cells in the
+<p><code>gtk_table_set_homogeneous()</code>, can be used to set whether all cells in the
 table will resize themselves to the size of the largest widget in the table.</p>
 
 <blockquote>
@@ -11585,7 +11585,7 @@ does support height-for-width geometry management.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L37171">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L37122">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11623,7 +11623,7 @@ does support height-for-width geometry management.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L37174">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L37125">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11751,7 +11751,7 @@ does support height-for-width geometry management.</p>
                         <p>binding reference or <code>nil</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L37550-L37574">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L37501-L37525">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11843,7 +11843,7 @@ does support height-for-width geometry management.</p>
                         <p>positive handler ID, or a value less than or equal to <code>0</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L38381-L38400">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L38331-L38350">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11899,13 +11899,13 @@ Use gtk_grid_attach() with #GtkGrid. Note that the attach
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">attach</span><span class="p">(</span><span class="nv">child</span><span class="p">:</span> <span class="kt"><a href="../Protocols/WidgetProtocol.html">WidgetProtocol</a></span><span class="p">,</span> <span class="n">leftAttach</span> <span class="nv">left_attach</span><span class="p">:</span> <span class="kt">CUnsignedInt</span><span class="p">,</span> <span class="n">rightAttach</span> <span class="nv">right_attach</span><span class="p">:</span> <span class="kt">CUnsignedInt</span><span class="p">,</span> <span class="n">topAttach</span> <span class="nv">top_attach</span><span class="p">:</span> <span class="kt">CUnsignedInt</span><span class="p">,</span> <span class="n">bottomAttach</span> <span class="nv">bottom_attach</span><span class="p">:</span> <span class="kt">CUnsignedInt</span><span class="p">,</span> <span class="nv">xoptions</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:3Gtk13AttachOptionsa">AttachOptions</a></span><span class="p">,</span> <span class="nv">yoptions</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:3Gtk13AttachOptionsa">AttachOptions</a></span><span class="p">,</span> <span class="nv">xpadding</span><span class="p">:</span> <span class="kt">CUnsignedInt</span><span class="p">,</span> <span class="nv">ypadding</span><span class="p">:</span> <span class="kt">CUnsignedInt</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L38426-L38429">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L38375-L38378">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11926,7 +11926,7 @@ Use gtk_grid_attach() with #GtkGrid. Note that the attach
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>As there are many options associated with gtk_table_attach(), this convenience
+                        <p>As there are many options associated with <code>gtk_table_attach()</code>, this convenience
 function provides the programmer with a means to add children to a table with
 identical padding and expansion options. The values used for the <code>GtkAttachOptions</code>
 are <code>GTK_EXPAND | GTK_FILL</code>, and the padding is set to 0.</p>
@@ -11941,13 +11941,13 @@ Use gtk_grid_attach() with #GtkGrid. Note that the attach
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">attachDefaults</span><span class="p">(</span><span class="nv">widget</span><span class="p">:</span> <span class="kt"><a href="../Protocols/WidgetProtocol.html">WidgetProtocol</a></span><span class="p">,</span> <span class="n">leftAttach</span> <span class="nv">left_attach</span><span class="p">:</span> <span class="kt">CUnsignedInt</span><span class="p">,</span> <span class="n">rightAttach</span> <span class="nv">right_attach</span><span class="p">:</span> <span class="kt">CUnsignedInt</span><span class="p">,</span> <span class="n">topAttach</span> <span class="nv">top_attach</span><span class="p">:</span> <span class="kt">CUnsignedInt</span><span class="p">,</span> <span class="n">bottomAttach</span> <span class="nv">bottom_attach</span><span class="p">:</span> <span class="kt">CUnsignedInt</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L38439-L38442">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L38388-L38391">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11969,7 +11969,7 @@ Use gtk_grid_attach() with #GtkGrid. Note that the attach
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Gets the amount of space between column <code>col</code>, and
-column <code>col</code> + 1. See gtk_table_set_col_spacing().</p>
+column <code>col</code> + 1. See <code>gtk_table_set_col_spacing()</code>.</p>
 
 <p><strong>get_col_spacing is deprecated:</strong></p>
 <h1 id='gtkgrid-does-not-offer-a-replacement-for-this' class='heading'>GtkGrid does not offer a replacement for this</h1>
@@ -11981,13 +11981,13 @@ column <code>col</code> + 1. See gtk_table_set_col_spacing().</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">getColSpacing</span><span class="p">(</span><span class="nv">column</span><span class="p">:</span> <span class="kt">CUnsignedInt</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">CUnsignedInt</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L38450-L38453">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L38399-L38402">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12010,7 +12010,7 @@ column <code>col</code> + 1. See gtk_table_set_col_spacing().</p>
                       <div class="abstract">
                         <p>Gets the default column spacing for the table. This is
 the spacing that will be used for newly added columns.
-(See gtk_table_set_col_spacings())</p>
+(See <code>gtk_table_set_col_spacings()</code>)</p>
 
 <p><strong>get_default_col_spacing is deprecated:</strong>
 Use gtk_grid_get_column_spacing() with #GtkGrid.</p>
@@ -12020,13 +12020,13 @@ Use gtk_grid_get_column_spacing() with #GtkGrid.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">getDefaultColSpacing</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">CUnsignedInt</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L38461-L38464">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L38410-L38413">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12049,7 +12049,7 @@ Use gtk_grid_get_column_spacing() with #GtkGrid.</p>
                       <div class="abstract">
                         <p>Gets the default row spacing for the table. This is
 the spacing that will be used for newly added rows.
-(See gtk_table_set_row_spacings())</p>
+(See <code>gtk_table_set_row_spacings()</code>)</p>
 
 <p><strong>get_default_row_spacing is deprecated:</strong>
 Use gtk_grid_get_row_spacing() with #GtkGrid.</p>
@@ -12059,13 +12059,13 @@ Use gtk_grid_get_row_spacing() with #GtkGrid.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">getDefaultRowSpacing</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">CUnsignedInt</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L38472-L38475">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L38421-L38424">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12098,13 +12098,13 @@ Use gtk_grid_get_row_homogeneous() and
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">getHomogeneous</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L38483-L38486">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L38432-L38435">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12126,7 +12126,7 @@ Use gtk_grid_get_row_homogeneous() and
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Gets the amount of space between row <code>row</code>, and
-row <code>row</code> + 1. See gtk_table_set_row_spacing().</p>
+row <code>row</code> + 1. See <code>gtk_table_set_row_spacing()</code>.</p>
 
 <p><strong>get_row_spacing is deprecated:</strong></p>
 <h1 id='gtkgrid-does-not-offer-a-replacement-for-this' class='heading'>GtkGrid does not offer a replacement for this</h1>
@@ -12138,13 +12138,13 @@ row <code>row</code> + 1. See gtk_table_set_row_spacing().</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">getRowSpacing</span><span class="p">(</span><span class="nv">row</span><span class="p">:</span> <span class="kt">CUnsignedInt</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">CUnsignedInt</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L38494-L38497">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L38443-L38446">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12177,13 +12177,13 @@ row <code>row</code> + 1. See gtk_table_set_row_spacing().</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">getSize</span><span class="p">(</span><span class="nv">rows</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">CUnsignedInt</span><span class="o">&gt;</span><span class="p">,</span> <span class="nv">columns</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">CUnsignedInt</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L38504-L38507">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L38453-L38456">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12215,13 +12215,13 @@ it has been created, this function allows you to do so.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">resize</span><span class="p">(</span><span class="nv">rows</span><span class="p">:</span> <span class="kt">CUnsignedInt</span><span class="p">,</span> <span class="nv">columns</span><span class="p">:</span> <span class="kt">CUnsignedInt</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L38514-L38517">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L38463-L38466">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12255,13 +12255,13 @@ Use gtk_widget_set_margin_start() and
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">setColSpacing</span><span class="p">(</span><span class="nv">column</span><span class="p">:</span> <span class="kt">CUnsignedInt</span><span class="p">,</span> <span class="nv">spacing</span><span class="p">:</span> <span class="kt">CUnsignedInt</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L38526-L38529">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L38475-L38478">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12292,13 +12292,13 @@ Use gtk_grid_set_column_spacing() with #GtkGrid.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">setColSpacings</span><span class="p">(</span><span class="nv">spacing</span><span class="p">:</span> <span class="kt">CUnsignedInt</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L38535-L38538">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L38484-L38487">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12331,13 +12331,13 @@ Use gtk_grid_set_row_homogeneous() and
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">set</span><span class="p">(</span><span class="nv">homogeneous</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L38546-L38549">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L38495-L38498">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12370,13 +12370,13 @@ Use gtk_widget_set_margin_top() and
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">setRowSpacing</span><span class="p">(</span><span class="nv">row</span><span class="p">:</span> <span class="kt">CUnsignedInt</span><span class="p">,</span> <span class="nv">spacing</span><span class="p">:</span> <span class="kt">CUnsignedInt</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L38557-L38560">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L38506-L38509">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12407,13 +12407,13 @@ Use gtk_grid_set_row_spacing() with #GtkGrid.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">setRowSpacings</span><span class="p">(</span><span class="nv">spacing</span><span class="p">:</span> <span class="kt">CUnsignedInt</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L38566-L38569">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L38515-L38518">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12436,7 +12436,7 @@ Use gtk_grid_set_row_spacing() with #GtkGrid.</p>
                       <div class="abstract">
                         <p>Gets the default column spacing for the table. This is
 the spacing that will be used for newly added columns.
-(See gtk_table_set_col_spacings())</p>
+(See <code>gtk_table_set_col_spacings()</code>)</p>
 
 <p><strong>get_default_col_spacing is deprecated:</strong>
 Use gtk_grid_get_column_spacing() with #GtkGrid.</p>
@@ -12451,7 +12451,7 @@ Use gtk_grid_get_column_spacing() with #GtkGrid.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L38576-L38587">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L38525-L38536">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12474,7 +12474,7 @@ Use gtk_grid_get_column_spacing() with #GtkGrid.</p>
                       <div class="abstract">
                         <p>Gets the default row spacing for the table. This is
 the spacing that will be used for newly added rows.
-(See gtk_table_set_row_spacings())</p>
+(See <code>gtk_table_set_row_spacings()</code>)</p>
 
 <p><strong>get_default_row_spacing is deprecated:</strong>
 Use gtk_grid_get_row_spacing() with #GtkGrid.</p>
@@ -12489,7 +12489,7 @@ Use gtk_grid_get_row_spacing() with #GtkGrid.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L38595-L38606">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L38544-L38555">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12522,7 +12522,7 @@ Use gtk_grid_get_row_spacing() with #GtkGrid.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L38608-L38628">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L38557-L38577">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12535,7 +12535,7 @@ Use gtk_grid_get_row_spacing() with #GtkGrid.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

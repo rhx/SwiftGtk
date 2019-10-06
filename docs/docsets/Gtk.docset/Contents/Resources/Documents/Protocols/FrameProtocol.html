@@ -11529,9 +11529,8 @@ Alternatively, use <code><a href="../Structs/FrameRef.html">FrameRef</a></code> 
 <p>The frame widget is a bin that surrounds its child with a decorative
 frame and an optional label. If present, the label is drawn in a gap
 in the top side of the frame. The position of the label can be
-controlled with gtk_frame_set_label_align().</p>
-
-<p>&ldquo; GtkFrame as GtkBuildable</p>
+controlled with <code>gtk_frame_set_label_align()</code>.</p>
+<h1 id='gtkframe-as-gtkbuildable' class='heading'>GtkFrame as GtkBuildable</h1>
 
 <p>The GtkFrame implementation of the GtkBuildable interface supports
 placing a child in the label position by specifying “label” as the
@@ -11548,12 +11547,13 @@ be specified without specifying a <child> type attribute.</p>
   <span class="o">&lt;/</span><span class="n">child</span><span class="o">&gt;</span>
 <span class="o">&lt;/</span><span class="n">object</span><span class="o">&gt;</span>
 </code></pre>
+<h1 id='css-nodes' class='heading'>CSS nodes</h1>
 
-<p>&rdquo; CSS nodes</p>
-<pre class="highlight swift"><code><span class="n">frame</span>
-<span class="err">├──</span> <span class="n">border</span><span class="p">[</span><span class="o">.</span><span class="n">flat</span><span class="p">]</span>
-<span class="err">├──</span> <span class="o">&lt;</span><span class="n">label</span> <span class="n">widget</span><span class="o">&gt;</span>
-<span class="err">╰──</span> <span class="o">&lt;</span><span class="n">child</span><span class="o">&gt;</span>
+<p>(plain Language Example):</p>
+<pre class="highlight plaintext"><code>frame
+├── border[.flat]
+├── &lt;label widget&gt;
+╰── &lt;child&gt;
 </code></pre>
 
 <p>GtkFrame has a main CSS node named “frame” and a subnode named “border”. The
@@ -11562,7 +11562,7 @@ of the border using CSS properties like “border-style” on the “border” n
 
 <p>The border node can be given the style class “.flat”, which is used by themes
 to disable drawing of the border. To do this from code, call
-gtk_frame_set_shadow_type() with <code>GTK_SHADOW_NONE</code> to add the “.flat” class or
+<code>gtk_frame_set_shadow_type()</code> with <code>GTK_SHADOW_NONE</code> to add the “.flat” class or
 any other shadow type to remove it.</p>
 
           </div>
@@ -11597,7 +11597,7 @@ any other shadow type to remove it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L16992">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L16962">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11635,7 +11635,7 @@ any other shadow type to remove it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L16995">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L16965">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11763,7 +11763,7 @@ any other shadow type to remove it.</p>
                         <p>binding reference or <code>nil</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L17397-L17421">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L17365-L17389">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11855,7 +11855,7 @@ any other shadow type to remove it.</p>
                         <p>positive handler ID, or a value less than or equal to <code>0</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L18228-L18247">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L18195-L18214">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11890,7 +11890,7 @@ any other shadow type to remove it.</p>
                         <p>If the frame’s label widget is a <code>GtkLabel</code>, returns the
 text in the label widget. (The frame will have a <code>GtkLabel</code>
 for the label widget if a non-<code>nil</code> argument was passed
-to gtk_frame_new().)</p>
+to <code>gtk_frame_new()</code>.)</p>
 
                       </div>
                       <div class="declaration">
@@ -11902,7 +11902,7 @@ to gtk_frame_new().)</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L18258-L18261">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L18225-L18228">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11924,7 +11924,7 @@ to gtk_frame_new().)</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Retrieves the X and Y alignment of the frame’s label. See
-gtk_frame_set_label_align().</p>
+<code>gtk_frame_set_label_align()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -11936,7 +11936,7 @@ gtk_frame_set_label_align().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L18265-L18268">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L18232-L18235">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11958,7 +11958,7 @@ gtk_frame_set_label_align().</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Retrieves the label widget for the frame. See
-gtk_frame_set_label_widget().</p>
+<code>gtk_frame_set_label_widget()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -11970,7 +11970,7 @@ gtk_frame_set_label_widget().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L18272-L18275">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L18239-L18242">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11992,7 +11992,7 @@ gtk_frame_set_label_widget().</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Retrieves the shadow type of the frame. See
-gtk_frame_set_shadow_type().</p>
+<code>gtk_frame_set_shadow_type()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12004,7 +12004,7 @@ gtk_frame_set_shadow_type().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L18279-L18282">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L18246-L18249">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12025,8 +12025,8 @@ gtk_frame_set_shadow_type().</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Removes the current <code>GtkFrame</code>:label-widget. If <code><a href="../Protocols/FrameProtocol.html#/s:3Gtk13FrameProtocolPAAE5labelSSSgvp">label</a></code> is not <code>nil</code>, creates a
-new <code>GtkLabel</code> with that text and adds it as the <code>GtkFrame</code>:label-widget.</p>
+                        <p>Removes the current <code>GtkFrame:label</code>-widget. If <code><a href="../Protocols/FrameProtocol.html#/s:3Gtk13FrameProtocolPAAE5labelSSSgvp">label</a></code> is not <code>nil</code>, creates a
+new <code>GtkLabel</code> with that text and adds it as the <code>GtkFrame:label</code>-widget.</p>
 
                       </div>
                       <div class="declaration">
@@ -12038,7 +12038,7 @@ new <code>GtkLabel</code> with that text and adds it as the <code>GtkFrame</code
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L18286-L18289">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L18253-L18256">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12072,7 +12072,7 @@ default values for a newly created frame are 0.0 and 0.5.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L18293-L18296">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L18260-L18263">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12093,7 +12093,7 @@ default values for a newly created frame are 0.0 and 0.5.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Sets the <code>GtkFrame</code>:label-widget for the frame. This is the widget that
+                        <p>Sets the <code>GtkFrame:label</code>-widget for the frame. This is the widget that
 will appear embedded in the top edge of the frame as a title.</p>
 
                       </div>
@@ -12106,7 +12106,7 @@ will appear embedded in the top edge of the frame as a title.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L18300-L18303">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L18267-L18270">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12127,7 +12127,7 @@ will appear embedded in the top edge of the frame as a title.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Sets the <code>GtkFrame</code>:shadow-type for <code>frame</code>, i.e. whether it is drawn without
+                        <p>Sets the <code>GtkFrame:shadow</code>-type for <code>frame</code>, i.e. whether it is drawn without
 (<code>GTK_SHADOW_NONE</code>) or with (other values) a visible border. Values other than
 <code>GTK_SHADOW_NONE</code> are treated identically by GtkFrame. The chosen type is
 applied by removing or adding the .flat class to the CSS node named border.</p>
@@ -12142,7 +12142,7 @@ applied by removing or adding the .flat class to the CSS node named border.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L18309-L18312">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L18276-L18279">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12175,7 +12175,7 @@ applied by removing or adding the .flat class to the CSS node named border.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L18313-L18327">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L18280-L18294">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12197,7 +12197,7 @@ applied by removing or adding the .flat class to the CSS node named border.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Retrieves the label widget for the frame. See
-gtk_frame_set_label_widget().</p>
+<code>gtk_frame_set_label_widget()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12209,7 +12209,7 @@ gtk_frame_set_label_widget().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L18331-L18343">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L18298-L18310">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12231,7 +12231,7 @@ gtk_frame_set_label_widget().</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Retrieves the shadow type of the frame. See
-gtk_frame_set_shadow_type().</p>
+<code>gtk_frame_set_shadow_type()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12243,7 +12243,7 @@ gtk_frame_set_shadow_type().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L18347-L18361">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L18314-L18328">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12256,7 +12256,7 @@ gtk_frame_set_shadow_type().</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

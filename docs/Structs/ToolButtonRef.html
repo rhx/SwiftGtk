@@ -11527,24 +11527,23 @@ Use <code>ToolButtonRef</code> only as an <code>unowned</code> reference to an e
 
 <p><code>GtkToolButtons</code> are <code>GtkToolItems</code> containing buttons.</p>
 
-<p>Use gtk_tool_button_new() to create a new <code>GtkToolButton</code>.</p>
+<p>Use <code>gtk_tool_button_new()</code> to create a new <code>GtkToolButton</code>.</p>
 
 <p>The label of a <code>GtkToolButton</code> is determined by the properties
-<code>GtkToolButton</code>:label-widget, <code>GtkToolButton</code>:label, and
-<code>GtkToolButton</code>:stock-id. If <code>GtkToolButton</code>:label-widget is
+<code>GtkToolButton:label</code>-widget, <code>GtkToolButton:label</code>, and
+<code>GtkToolButton:stock</code>-id. If <code>GtkToolButton:label</code>-widget is
 non-<code>nil</code>, then that widget is used as the label. Otherwise, if
-<code>GtkToolButton</code>:label is non-<code>nil</code>, that string is used as the label.
-Otherwise, if <code>GtkToolButton</code>:stock-id is non-<code>nil</code>, the label is
+<code>GtkToolButton:label</code> is non-<code>nil</code>, that string is used as the label.
+Otherwise, if <code>GtkToolButton:stock</code>-id is non-<code>nil</code>, the label is
 determined by the stock item. Otherwise, the button does not have a label.</p>
 
 <p>The icon of a <code>GtkToolButton</code> is determined by the properties
-<code>GtkToolButton</code>:icon-widget and <code>GtkToolButton</code>:stock-id. If
-<code>GtkToolButton</code>:icon-widget is non-<code>nil</code>, then
-that widget is used as the icon. Otherwise, if <code>GtkToolButton</code>:stock-id is
+<code>GtkToolButton:icon</code>-widget and <code>GtkToolButton:stock</code>-id. If
+<code>GtkToolButton:icon</code>-widget is non-<code>nil</code>, then
+that widget is used as the icon. Otherwise, if <code>GtkToolButton:stock</code>-id is
 non-<code>nil</code>, the icon is determined by the stock item. Otherwise,
 the button does not have a icon.</p>
-
-<p>&ldquo; CSS nodes</p>
+<h1 id='css-nodes' class='heading'>CSS nodes</h1>
 
 <p>GtkToolButton has a single CSS node with name toolbutton.</p>
 
@@ -11581,7 +11580,7 @@ For type-safe access, use the generated, typed pointer <code>tool_button_ptr</co
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L12023">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L12009">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11622,7 +11621,7 @@ For type-safe access, use the generated, typed pointer <code>tool_button_ptr</co
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L12028-L12029">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L12014-L12015">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11652,7 +11651,7 @@ For type-safe access, use the generated, typed pointer <code>tool_button_ptr</co
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L12032-L12034">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L12018-L12020">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11683,7 +11682,7 @@ For type-safe access, use the generated, typed pointer <code>tool_button_ptr</co
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L12038-L12040">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L12024-L12026">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11714,7 +11713,7 @@ For type-safe access, use the generated, typed pointer <code>tool_button_ptr</co
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L12044-L12046">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L12030-L12032">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11745,7 +11744,7 @@ For type-safe access, use the generated, typed pointer <code>tool_button_ptr</co
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L12050-L12052">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L12036-L12038">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11776,7 +11775,7 @@ For type-safe access, use the generated, typed pointer <code>tool_button_ptr</co
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L12056-L12058">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L12042-L12044">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11807,7 +11806,7 @@ For type-safe access, use the generated, typed pointer <code>tool_button_ptr</co
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L12062-L12064">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L12048-L12050">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11825,7 +11824,7 @@ For type-safe access, use the generated, typed pointer <code>tool_button_ptr</co
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <pre class="highlight swift"><code><span class="kt">Creates</span> <span class="n">a</span> <span class="k">new</span> <span class="err">`</span><span class="kt">GtkToolButton</span><span class="err">`</span> <span class="n">using</span> <span class="err">`</span><span class="n">icon_widget</span><span class="err">`</span> <span class="k">as</span> <span class="n">contents</span> <span class="n">and</span> <span class="err">`</span><span class="n">label</span><span class="err">`</span> <span class="k">as</span>
+                        <pre class="highlight swift"><code><span class="kt">Creates</span> <span class="n">a</span> <span class="k">new</span> <span class="p">`</span><span class="nv">GtkToolButton</span><span class="p">`</span> <span class="n">using</span> <span class="p">`</span><span class="nv">icon_widget</span><span class="p">`</span> <span class="k">as</span> <span class="n">contents</span> <span class="n">and</span> <span class="p">`</span><span class="nv">label</span><span class="p">`</span> <span class="k">as</span>
 </code></pre>
 
 <p>label.</p>
@@ -11840,7 +11839,7 @@ For type-safe access, use the generated, typed pointer <code>tool_button_ptr</co
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L12068-L12071">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L12054-L12057">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11873,13 +11872,13 @@ gtk_image_new_from_icon_name() instead.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="nf">init</span><span class="p">(</span><span class="n">stock</span> <span class="nv">stock_id</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L12082-L12085">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L12068-L12071">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11912,13 +11911,13 @@ gtk_image_new_from_icon_name() instead.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">static</span> <span class="kd">func</span> <span class="nf">newFrom</span><span class="p">(</span><span class="n">stock</span> <span class="nv">stock_id</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">ToolButtonRef</span><span class="o">!</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L12095-L12098">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L12081-L12084">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11931,7 +11930,7 @@ gtk_image_new_from_icon_name() instead.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

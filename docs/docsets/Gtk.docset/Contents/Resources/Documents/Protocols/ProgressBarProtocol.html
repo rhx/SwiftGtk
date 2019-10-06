@@ -11536,24 +11536,25 @@ and activity mode.</p>
 progress, it can use the GtkProgressBar in percentage mode and the
 user sees a growing bar indicating the percentage of the work that
 has been completed. In this mode, the application is required to call
-gtk_progress_bar_set_fraction() periodically to update the progress bar.</p>
+<code>gtk_progress_bar_set_fraction()</code> periodically to update the progress bar.</p>
 
 <p>When an application has no accurate way of knowing the amount of work
 to do, it can use the <code>GtkProgressBar</code> in activity mode, which shows
 activity by a block moving back and forth within the progress area. In
-this mode, the application is required to call gtk_progress_bar_pulse()
+this mode, the application is required to call <code>gtk_progress_bar_pulse()</code>
 periodically to update the progress bar.</p>
 
 <p>There is quite a bit of flexibility provided to control the appearance
 of the <code>GtkProgressBar</code>. Functions are provided to control the orientation
 of the bar, optional text can be displayed along with the bar, and the
 step size used in activity mode can be set.</p>
+<h1 id='css-nodes' class='heading'>CSS nodes</h1>
 
-<p>&ldquo; CSS nodes</p>
-<pre class="highlight swift"><code><span class="n">progressbar</span><span class="p">[</span><span class="o">.</span><span class="n">osd</span><span class="p">]</span>
-<span class="err">├──</span> <span class="p">[</span><span class="n">text</span><span class="p">]</span>
-<span class="err">╰──</span> <span class="n">trough</span><span class="p">[</span><span class="o">.</span><span class="n">empty</span><span class="p">][</span><span class="o">.</span><span class="n">full</span><span class="p">]</span>
-    <span class="err">╰──</span> <span class="n">progress</span><span class="p">[</span><span class="o">.</span><span class="n">pulse</span><span class="p">]</span>
+<p>(plain Language Example):</p>
+<pre class="highlight plaintext"><code>progressbar[.osd]
+├── [text]
+╰── trough[.empty][.full]
+    ╰── progress[.pulse]
 </code></pre>
 
 <p>GtkProgressBar has a main CSS node with name progressbar and subnodes with
@@ -11596,7 +11597,7 @@ in overlays like the one Epiphany has for page loading progress.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L11106">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L11079">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11634,7 +11635,7 @@ in overlays like the one Epiphany has for page loading progress.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L11109">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L11082">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11762,7 +11763,7 @@ in overlays like the one Epiphany has for page loading progress.</p>
                         <p>binding reference or <code>nil</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L11518-L11542">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L11491-L11515">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11854,7 +11855,7 @@ in overlays like the one Epiphany has for page loading progress.</p>
                         <p>positive handler ID, or a value less than or equal to <code>0</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L12360-L12379">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L12332-L12351">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11887,7 +11888,7 @@ in overlays like the one Epiphany has for page loading progress.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Returns the ellipsizing position of the progress bar.
-See gtk_progress_bar_set_ellipsize().</p>
+See <code>gtk_progress_bar_set_ellipsize()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -11899,7 +11900,7 @@ See gtk_progress_bar_set_ellipsize().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L12388-L12391">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L12360-L12363">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11932,7 +11933,7 @@ See gtk_progress_bar_set_ellipsize().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L12394-L12397">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L12366-L12369">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11953,7 +11954,7 @@ See gtk_progress_bar_set_ellipsize().</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets the value set by gtk_progress_bar_set_inverted().</p>
+                        <p>Gets the value set by <code>gtk_progress_bar_set_inverted()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -11965,7 +11966,7 @@ See gtk_progress_bar_set_ellipsize().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L12400-L12403">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L12372-L12375">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11986,7 +11987,7 @@ See gtk_progress_bar_set_ellipsize().</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Retrieves the pulse step set with gtk_progress_bar_set_pulse_step().</p>
+                        <p>Retrieves the pulse step set with <code>gtk_progress_bar_set_pulse_step()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -11998,7 +11999,7 @@ See gtk_progress_bar_set_ellipsize().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L12406-L12409">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L12378-L12381">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12019,8 +12020,8 @@ See gtk_progress_bar_set_ellipsize().</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets the value of the <code>GtkProgressBar</code>:show-text property.
-See gtk_progress_bar_set_show_text().</p>
+                        <p>Gets the value of the <code>GtkProgressBar:show</code>-text property.
+See <code>gtk_progress_bar_set_show_text()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12032,7 +12033,7 @@ See gtk_progress_bar_set_show_text().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L12413-L12416">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L12385-L12388">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12068,7 +12069,7 @@ if you change the text in the progress bar.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L12422-L12425">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L12394-L12397">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12091,9 +12092,9 @@ if you change the text in the progress bar.</p>
                       <div class="abstract">
                         <p>Indicates that some progress has been made, but you don’t know how much.
 Causes the progress bar to enter “activity mode,” where a block
-bounces back and forth. Each call to gtk_progress_bar_pulse()
+bounces back and forth. Each call to <code>gtk_progress_bar_pulse()</code>
 causes the block to move by a little bit (the amount of movement
-per pulse is determined by gtk_progress_bar_set_pulse_step()).</p>
+per pulse is determined by <code>gtk_progress_bar_set_pulse_step()</code>).</p>
 
                       </div>
                       <div class="declaration">
@@ -12105,7 +12106,7 @@ per pulse is determined by gtk_progress_bar_set_pulse_step()).</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L12432-L12435">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L12404-L12407">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12139,7 +12140,7 @@ text if there is not enough space to render the entire string.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L12439-L12442">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L12411-L12414">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12174,7 +12175,7 @@ inclusive.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L12447-L12450">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L12419-L12422">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12208,7 +12209,7 @@ Inverted progress bars grow in the opposite direction.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L12454-L12457">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L12426-L12429">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12230,7 +12231,7 @@ Inverted progress bars grow in the opposite direction.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Sets the fraction of total progress bar length to move the
-bouncing block for each call to gtk_progress_bar_pulse().</p>
+bouncing block for each call to <code>gtk_progress_bar_pulse()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12242,7 +12243,7 @@ bouncing block for each call to gtk_progress_bar_pulse().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L12461-L12464">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L12433-L12436">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12264,13 +12265,13 @@ bouncing block for each call to gtk_progress_bar_pulse().</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Sets whether the progress bar will show text next to the bar.
-The shown text is either the value of the <code>GtkProgressBar</code>:text
-property or, if that is <code>nil</code>, the <code>GtkProgressBar</code>:fraction value,
+The shown text is either the value of the <code>GtkProgressBar:text</code>
+property or, if that is <code>nil</code>, the <code>GtkProgressBar:fraction</code> value,
 as a percentage.</p>
 
 <p>To make a progress bar that is styled and sized suitably for containing
-text (even if the actual text is blank), set <code>GtkProgressBar</code>:show-text to
-<code>true</code> and <code>GtkProgressBar</code>:text to the empty string (not <code>nil</code>).</p>
+text (even if the actual text is blank), set <code>GtkProgressBar:show</code>-text to
+<code>true</code> and <code>GtkProgressBar:text</code> to the empty string (not <code>nil</code>).</p>
 
                       </div>
                       <div class="declaration">
@@ -12282,7 +12283,7 @@ text (even if the actual text is blank), set <code>GtkProgressBar</code>:show-te
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L12474-L12477">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L12446-L12449">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12305,14 +12306,14 @@ text (even if the actual text is blank), set <code>GtkProgressBar</code>:show-te
                       <div class="abstract">
                         <p>Causes the given <code><a href="../Protocols/ProgressBarProtocol.html#/s:3Gtk19ProgressBarProtocolPAAE4textSSSgvp">text</a></code> to appear next to the progress bar.</p>
 
-<p>If <code><a href="../Protocols/ProgressBarProtocol.html#/s:3Gtk19ProgressBarProtocolPAAE4textSSSgvp">text</a></code> is <code>nil</code> and <code>GtkProgressBar</code>:show-text is <code>true</code>, the current
-value of <code>GtkProgressBar</code>:fraction will be displayed as a percentage.</p>
+<p>If <code><a href="../Protocols/ProgressBarProtocol.html#/s:3Gtk19ProgressBarProtocolPAAE4textSSSgvp">text</a></code> is <code>nil</code> and <code>GtkProgressBar:show</code>-text is <code>true</code>, the current
+value of <code>GtkProgressBar:fraction</code> will be displayed as a percentage.</p>
 
-<p>If <code><a href="../Protocols/ProgressBarProtocol.html#/s:3Gtk19ProgressBarProtocolPAAE4textSSSgvp">text</a></code> is non-<code>nil</code> and <code>GtkProgressBar</code>:show-text is <code>true</code>, the text
+<p>If <code><a href="../Protocols/ProgressBarProtocol.html#/s:3Gtk19ProgressBarProtocolPAAE4textSSSgvp">text</a></code> is non-<code>nil</code> and <code>GtkProgressBar:show</code>-text is <code>true</code>, the text
 will be displayed. In this case, it will not display the progress
 percentage. If <code><a href="../Protocols/ProgressBarProtocol.html#/s:3Gtk19ProgressBarProtocolPAAE4textSSSgvp">text</a></code> is the empty string, the progress bar will still
 be styled and sized suitably for containing text, as long as
-<code>GtkProgressBar</code>:show-text is <code>true</code>.</p>
+<code>GtkProgressBar:show</code>-text is <code>true</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12324,7 +12325,7 @@ be styled and sized suitably for containing text, as long as
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L12489-L12492">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L12461-L12464">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12352,7 +12353,7 @@ not have enough room to display the entire string, specified as a
 <p>Note that setting this property to a value other than
 <code>PANGO_ELLIPSIZE_NONE</code> has the side-effect that the progress bar requests
 only enough space to display the ellipsis (<q>&hellip;</q>). Another means to set a
-progress bar&rsquo;s width is gtk_widget_set_size_request().</p>
+progress bar&rsquo;s width is <code>gtk_widget_set_size_request()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12364,7 +12365,7 @@ progress bar&rsquo;s width is gtk_widget_set_size_request().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L12501-L12513">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L12473-L12485">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12397,7 +12398,7 @@ progress bar&rsquo;s width is gtk_widget_set_size_request().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L12515-L12527">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L12487-L12499">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12430,7 +12431,7 @@ progress bar&rsquo;s width is gtk_widget_set_size_request().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L12529-L12540">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L12501-L12512">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12451,7 +12452,7 @@ progress bar&rsquo;s width is gtk_widget_set_size_request().</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Retrieves the pulse step set with gtk_progress_bar_set_pulse_step().</p>
+                        <p>Retrieves the pulse step set with <code>gtk_progress_bar_set_pulse_step()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12463,7 +12464,7 @@ progress bar&rsquo;s width is gtk_widget_set_size_request().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L12543-L12554">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L12515-L12526">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12484,8 +12485,8 @@ progress bar&rsquo;s width is gtk_widget_set_size_request().</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets the value of the <code>GtkProgressBar</code>:show-text property.
-See gtk_progress_bar_set_show_text().</p>
+                        <p>Gets the value of the <code>GtkProgressBar:show</code>-text property.
+See <code>gtk_progress_bar_set_show_text()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12497,7 +12498,7 @@ See gtk_progress_bar_set_show_text().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L12558-L12576">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L12530-L12548">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12530,7 +12531,7 @@ See gtk_progress_bar_set_show_text().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L12578-L12600">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L12550-L12572">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12543,7 +12544,7 @@ See gtk_progress_bar_set_show_text().</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

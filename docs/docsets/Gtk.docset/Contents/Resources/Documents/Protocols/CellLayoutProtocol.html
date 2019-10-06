@@ -11534,13 +11534,12 @@ setting attributes and data funcs.</p>
 GtkCellLayout are attributes. Attributes let you set the properties
 in flexible ways. They can just be set to constant values like regular
 properties. But they can also be mapped to a column of the underlying
-tree model with gtk_cell_layout_set_attributes(), which means that the value
+tree model with <code>gtk_cell_layout_set_attributes()</code>, which means that the value
 of the attribute can change from cell to cell as they are rendered by
 the cell renderer. Finally, it is possible to specify a function with
-gtk_cell_layout_set_cell_data_func() that is called to determine the
+<code>gtk_cell_layout_set_cell_data_func()</code> that is called to determine the
 value of the attribute for each cell that is rendered.</p>
-
-<p>&ldquo; GtkCellLayouts as GtkBuildable</p>
+<h1 id='gtkcelllayouts-as-gtkbuildable' class='heading'>GtkCellLayouts as GtkBuildable</h1>
 
 <p>Implementations of GtkCellLayout which also implement the GtkBuildable
 interface (<code>GtkCellView</code>, <code>GtkIconView</code>, <code>GtkComboBox</code>,
@@ -11564,7 +11563,7 @@ attribute value.</p>
 
 <p>Furthermore for implementations of GtkCellLayout that use a <code>GtkCellArea</code>
 to lay out cells (all GtkCellLayouts in GTK+ use a GtkCellArea)
-[cell properties][cell-properties] can also be defined in the format by
+<a href="#cell-properties">cell properties</a> can also be defined in the format by
 specifying the custom <cell-packing> attribute which can contain multiple
 <property> elements defined in the normal way.</p>
 
@@ -11579,8 +11578,7 @@ specifying the custom <cell-packing> attribute which can contain multiple
   <span class="o">&lt;/</span><span class="n">child</span><span class="o">&gt;</span><span class="s">"
 &lt;/object&gt;
 </span></code></pre>
-
-<p>&rdquo; Subclassing GtkCellLayout implementations</p>
+<h1 id='subclassing-gtkcelllayout-implementations' class='heading'>Subclassing GtkCellLayout implementations</h1>
 
 <p>When subclassing a widget that implements <code>GtkCellLayout</code> like
 <code>GtkIconView</code> or <code>GtkComboBox</code>, there are some considerations related
@@ -11593,9 +11591,9 @@ widgets. This means that it is possible to e.g. do</p>
 </code></pre>
 
 <p>to use a custom cell area with a combo box. But construct properties
-are only initialized after instance init()
+are only initialized after instance <code>init()</code>
 functions have run, which means that using functions which rely on
-the existence of the cell area in your subclass’ init() function will
+the existence of the cell area in your subclass’ <code>init()</code> function will
 cause the default cell area to be instantiated. In this case, a provided
 construct property value will be ignored (with a warning, to alert
 you to the problem).</p>
@@ -11624,7 +11622,7 @@ my_combo_box_new (GtkCellArea *area)
 <p>If supporting alternative cell areas with your derived widget is
 not important, then this does not have to concern you. If you want
 to support alternative cell areas, you can do so by moving the
-problematic calls out of init() and into a constructor()
+problematic calls out of <code>init()</code> and into a <code>constructor()</code>
 for your class.</p>
 
           </div>
@@ -11659,7 +11657,7 @@ for your class.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessibleParent-Editable.swift#L1554">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessibleParent-Editable.swift#L1549">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11697,7 +11695,7 @@ for your class.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessibleParent-Editable.swift#L1557">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessibleParent-Editable.swift#L1552">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11746,7 +11744,7 @@ example if column 2 of the model contains strings, you could have the
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessibleParent-Editable.swift#L1900-L1903">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessibleParent-Editable.swift#L1887-L1890">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11780,7 +11778,7 @@ removes all renderers from <code>cell_layout</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessibleParent-Editable.swift#L1907-L1910">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessibleParent-Editable.swift#L1894-L1897">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11802,7 +11800,7 @@ removes all renderers from <code>cell_layout</code>.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Clears all existing attributes previously set with
-gtk_cell_layout_set_attributes().</p>
+<code>gtk_cell_layout_set_attributes()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -11814,7 +11812,7 @@ gtk_cell_layout_set_attributes().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessibleParent-Editable.swift#L1914-L1917">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessibleParent-Editable.swift#L1901-L1904">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11849,7 +11847,7 @@ is used by <code>cell_layout</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessibleParent-Editable.swift#L1922-L1925">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessibleParent-Editable.swift#L1909-L1912">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11882,7 +11880,7 @@ is used by <code>cell_layout</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessibleParent-Editable.swift#L1928-L1931">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessibleParent-Editable.swift#L1915-L1918">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11919,7 +11917,7 @@ divided evenly between cells for which <code>expand</code> is <code>true</code>.
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessibleParent-Editable.swift#L1938-L1941">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessibleParent-Editable.swift#L1925-L1928">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11956,7 +11954,7 @@ is divided evenly between cells for which <code>expand</code> is <code>true</cod
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessibleParent-Editable.swift#L1948-L1951">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessibleParent-Editable.swift#L1935-L1938">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11992,7 +11990,7 @@ for this to function properly.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessibleParent-Editable.swift#L1957-L1960">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessibleParent-Editable.swift#L1944-L1947">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12017,7 +12015,7 @@ for this to function properly.</p>
 
 <p>This function is used instead of the standard attributes mapping
 for setting the column value, and should set the value of <code>cell_layout</code>’s
-cell renderer(s) as appropriate.</p>
+cell <code>renderer(s)</code> as appropriate.</p>
 
 <p><code>func</code> may be <code>nil</code> to remove a previously set function.</p>
 
@@ -12031,7 +12029,7 @@ cell renderer(s) as appropriate.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessibleParent-Editable.swift#L1973-L1976">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessibleParent-Editable.swift#L1960-L1963">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12066,7 +12064,7 @@ is used by <code>cell_layout</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessibleParent-Editable.swift#L1980-L1988">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessibleParent-Editable.swift#L1967-L1975">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12099,7 +12097,7 @@ is used by <code>cell_layout</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessibleParent-Editable.swift#L1991-L1997">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessibleParent-Editable.swift#L1978-L1984">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12112,7 +12110,7 @@ is used by <code>cell_layout</code>.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

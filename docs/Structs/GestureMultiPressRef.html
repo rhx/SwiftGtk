@@ -11527,12 +11527,12 @@ Use <code>GestureMultiPressRef</code> only as an <code>unowned</code> reference 
 
 <p><code>GtkGestureMultiPress</code> is a <code>GtkGesture</code> implementation able to recognize
 multiple clicks on a nearby zone, which can be listened for through the
-<code>GtkGestureMultiPress</code>::pressed signal. Whenever time or distance between
-clicks exceed the GTK+ defaults, <code>GtkGestureMultiPress</code>::stopped is emitted,
+<code>GtkGestureMultiPress::pressed</code> signal. Whenever time or distance between
+clicks exceed the GTK+ defaults, <code>GtkGestureMultiPress::stopped</code> is emitted,
 and the click counter is reset.</p>
 
 <p>Callers may also restrict the area that is considered valid for a &gt;1
-touch/button press through gtk_gesture_multi_press_set_area(), so any
+touch/button press through <code>gtk_gesture_multi_press_set_area()</code>, so any
 click happening outside that area is considered to be a first click of
 its own.</p>
 
@@ -11569,7 +11569,7 @@ For type-safe access, use the generated, typed pointer <code>gesture_multi_press
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L1510">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L1506">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11610,7 +11610,7 @@ For type-safe access, use the generated, typed pointer <code>gesture_multi_press
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L1515-L1516">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L1511-L1512">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11640,7 +11640,7 @@ For type-safe access, use the generated, typed pointer <code>gesture_multi_press
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L1519-L1521">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L1515-L1517">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11671,7 +11671,7 @@ For type-safe access, use the generated, typed pointer <code>gesture_multi_press
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L1525-L1527">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L1521-L1523">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11702,7 +11702,7 @@ For type-safe access, use the generated, typed pointer <code>gesture_multi_press
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L1531-L1533">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L1527-L1529">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11733,7 +11733,7 @@ For type-safe access, use the generated, typed pointer <code>gesture_multi_press
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L1537-L1539">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L1533-L1535">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11764,7 +11764,7 @@ For type-safe access, use the generated, typed pointer <code>gesture_multi_press
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L1543-L1545">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L1539-L1541">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11795,7 +11795,7 @@ For type-safe access, use the generated, typed pointer <code>gesture_multi_press
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L1549-L1551">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L1545-L1547">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11813,7 +11813,7 @@ For type-safe access, use the generated, typed pointer <code>gesture_multi_press
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <pre class="highlight swift"><code><span class="kt">Returns</span> <span class="n">a</span> <span class="n">newly</span> <span class="n">created</span> <span class="err">`</span><span class="kt">GtkGesture</span><span class="err">`</span> <span class="n">that</span> <span class="n">recognizes</span> <span class="n">single</span> <span class="n">and</span> <span class="n">multiple</span>
+                        <pre class="highlight swift"><code><span class="kt">Returns</span> <span class="n">a</span> <span class="n">newly</span> <span class="n">created</span> <span class="p">`</span><span class="nv">GtkGesture</span><span class="p">`</span> <span class="n">that</span> <span class="n">recognizes</span> <span class="n">single</span> <span class="n">and</span> <span class="n">multiple</span>
 </code></pre>
 
 <p>presses.</p>
@@ -11828,7 +11828,7 @@ For type-safe access, use the generated, typed pointer <code>gesture_multi_press
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L1555-L1558">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L1551-L1554">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11841,7 +11841,7 @@ For type-safe access, use the generated, typed pointer <code>gesture_multi_press
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

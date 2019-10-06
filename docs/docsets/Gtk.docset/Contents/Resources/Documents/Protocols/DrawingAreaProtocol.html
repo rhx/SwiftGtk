@@ -11532,14 +11532,14 @@ creating a drawing area, the application may want to connect to:</p>
 
 <ul>
 <li><p>Mouse and button press signals to respond to input from
-the user. (Use gtk_widget_add_events() to enable events
+the user. (Use <code>gtk_widget_add_events()</code> to enable events
 you wish to receive.)</p></li>
-<li><p>The <code>GtkWidget</code>::realize signal to take any necessary actions
+<li><p>The <code>GtkWidget::realize</code> signal to take any necessary actions
 when the widget is instantiated on a particular display.
 (Create GDK resources in response to this signal.)</p></li>
-<li><p>The <code>GtkWidget</code>::size-allocate signal to take any necessary
+<li><p>The <code>GtkWidget::size</code>-allocate signal to take any necessary
 actions when the widget changes size.</p></li>
-<li><p>The <code>GtkWidget</code>::draw signal to handle redrawing the
+<li><p>The <code>GtkWidget::draw</code> signal to handle redrawing the
 contents of the widget.</p></li>
 </ul>
 
@@ -11550,9 +11550,8 @@ color.</p>
 <p>Note that GDK automatically clears the exposed area before sending
 the expose event, and that drawing is implicitly clipped to the exposed
 area. If you want to have a theme-provided background, you need
-to call gtk_render_background() in your ::draw method.</p>
-
-<p>&ldquo;` Simple GtkDrawingArea usage</p>
+to call <code>gtk_render_background()</code> in your <code>draw</code> method.</p>
+<h2 id='simple-gtkdrawingarea-usage' class='heading'>Simple GtkDrawingArea usage</h2>
 
 <p>(C Language Example):</p>
 <pre class="highlight plaintext"><code>gboolean
@@ -11593,21 +11592,21 @@ draw_callback (GtkWidget *widget, cairo_t *cr, gpointer data)
 <p>Draw signals are normally delivered when a drawing area first comes
 onscreen, or when it’s covered by another window and then uncovered.
 You can also force an expose event by adding to the “damage region”
-of the drawing area’s window; gtk_widget_queue_draw_area() and
-gdk_window_invalidate_rect() are equally good ways to do this.
+of the drawing area’s window; <code>gtk_widget_queue_draw_area()</code> and
+<code>gdk_window_invalidate_rect()</code> are equally good ways to do this.
 You’ll then get a draw signal for the invalid region.</p>
 
 <p>The available routines for drawing are documented on the
-[GDK Drawing Primitives][gdk3-Cairo-Interaction] page
+<a href="#gdk3-Cairo-Interaction">GDK Drawing Primitives</a> page
 and the cairo documentation.</p>
 
 <p>To receive mouse events on a drawing area, you will need to enable
-them with gtk_widget_add_events(). To receive keyboard events, you
+them with <code>gtk_widget_add_events()</code>. To receive keyboard events, you
 will need to set the “can-focus” property on the drawing area, and you
 should probably draw some user-visible indication that the drawing
-area is focused. Use gtk_widget_has_focus() in your expose event
+area is focused. Use <code>gtk_widget_has_focus()</code> in your expose event
 handler to decide whether to draw the focus indicator. See
-gtk_render_focus() for one way to draw focus.</p>
+<code>gtk_render_focus()</code> for one way to draw focus.</p>
 
           </div>
         </section>
@@ -11641,7 +11640,7 @@ gtk_render_focus() for one way to draw focus.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L112">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L111">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11679,7 +11678,7 @@ gtk_render_focus() for one way to draw focus.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L115">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L114">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11807,7 +11806,7 @@ gtk_render_focus() for one way to draw focus.</p>
                         <p>binding reference or <code>nil</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L591-L615">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L588-L612">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11899,7 +11898,7 @@ gtk_render_focus() for one way to draw focus.</p>
                         <p>positive handler ID, or a value less than or equal to <code>0</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L1410-L1429">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L1406-L1425">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11912,7 +11911,7 @@ gtk_render_focus() for one way to draw focus.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

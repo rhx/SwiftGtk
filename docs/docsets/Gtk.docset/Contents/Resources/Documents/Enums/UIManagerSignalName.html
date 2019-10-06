@@ -11543,7 +11543,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The ::actions-changed signal is emitted whenever the set of actions
+                        <p>The <code>actions</code>-changed signal is emitted whenever the set of actions
 changes.</p>
 
 <p><strong>actions-changed is deprecated:</strong>
@@ -11559,7 +11559,7 @@ This method is deprecated.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L27782">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L27732">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11577,9 +11577,9 @@ This method is deprecated.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The ::add-widget signal is emitted for each generated menubar and toolbar.
+                        <p>The <code>add</code>-widget signal is emitted for each generated menubar and toolbar.
 It is not emitted for generated popup menus, which can be obtained by
-gtk_ui_manager_get_widget().</p>
+<code>gtk_ui_manager_get_widget()</code>.</p>
 
 <p><strong>add-widget is deprecated:</strong>
 This method is deprecated.</p>
@@ -11594,7 +11594,7 @@ This method is deprecated.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L27789">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L27739">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11612,7 +11612,7 @@ This method is deprecated.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The ::connect-proxy signal is emitted after connecting a proxy to
+                        <p>The <code>connect</code>-proxy signal is emitted after connecting a proxy to
 an action in the group.</p>
 
 <p>This is intended for simple customizations for which a custom action
@@ -11632,7 +11632,7 @@ This method is deprecated.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L27799">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L27749">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11650,7 +11650,7 @@ This method is deprecated.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The ::disconnect-proxy signal is emitted after disconnecting a proxy
+                        <p>The <code>disconnect</code>-proxy signal is emitted after disconnecting a proxy
 from an action in the group.</p>
 
 <p><strong>disconnect-proxy is deprecated:</strong>
@@ -11666,7 +11666,7 @@ This method is deprecated.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L27805">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L27755">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11685,20 +11685,20 @@ This method is deprecated.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>The notify signal is emitted on an object when one of its properties has
-its value set through g_object_set_property(), g_object_set(), et al.</p>
+its value set through <code>g_object_set_property()</code>, <code>g_object_set()</code>, et al.</p>
 
 <p>Note that getting this signal doesn’t itself guarantee that the value of
 the property has actually changed. When it is emitted is determined by the
 derived GObject class. If the implementor did not create the property with
-<code>G_PARAM_EXPLICIT_NOTIFY</code>, then any call to g_object_set_property() results
-in ::notify being emitted, even if the new value is the same as the old.
+<code>G_PARAM_EXPLICIT_NOTIFY</code>, then any call to <code>g_object_set_property()</code> results
+in <code>notify</code> being emitted, even if the new value is the same as the old.
 If they did pass <code>G_PARAM_EXPLICIT_NOTIFY</code>, then this signal is emitted only
-when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+when they explicitly call <code>g_object_notify()</code> or <code>g_object_notify_by_pspec()</code>,
 and common practice is to do that only when the value has actually changed.</p>
 
 <p>This signal is typically used to obtain change notification for a
 single property, by specifying the property name as a detail in the
-g_signal_connect() call, like this:
+<code>g_signal_connect()</code> call, like this:
 (C Language Example):</p>
 <pre class="highlight plaintext"><code>g_signal_connect (text_view-&gt;buffer, "notify::paste-target-list",
                   G_CALLBACK (gtk_text_view_target_list_notify),
@@ -11706,7 +11706,7 @@ g_signal_connect() call, like this:
 </code></pre>
 
 <p>It is important to note that you must use
-[canonical parameter names][canonical-parameter-names] as
+<a href="#canonical-parameter-names">canonical parameter names</a> as
 detail strings for the notify signal.</p>
 
                       </div>
@@ -11719,7 +11719,7 @@ detail strings for the notify signal.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L27831">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L27780">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11737,7 +11737,7 @@ detail strings for the notify signal.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The ::post-activate signal is emitted just after the <code>action</code>
+                        <p>The <code>post</code>-activate signal is emitted just after the <code>action</code>
 is activated.</p>
 
 <p>This is intended for applications to get notification
@@ -11756,7 +11756,7 @@ This method is deprecated.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L27840">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L27789">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11774,7 +11774,7 @@ This method is deprecated.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The ::pre-activate signal is emitted just before the <code>action</code>
+                        <p>The <code>pre</code>-activate signal is emitted just before the <code>action</code>
 is activated.</p>
 
 <p>This is intended for applications to get notification
@@ -11793,7 +11793,7 @@ This method is deprecated.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L27849">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L27798">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11831,7 +11831,7 @@ Tearoff menus are deprecated and should not
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L27859">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L27808">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11874,7 +11874,7 @@ Tearoff menus are deprecated and should not
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

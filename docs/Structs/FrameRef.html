@@ -11528,9 +11528,8 @@ Use <code>FrameRef</code> only as an <code>unowned</code> reference to an existi
 <p>The frame widget is a bin that surrounds its child with a decorative
 frame and an optional label. If present, the label is drawn in a gap
 in the top side of the frame. The position of the label can be
-controlled with gtk_frame_set_label_align().</p>
-
-<p>&ldquo; GtkFrame as GtkBuildable</p>
+controlled with <code>gtk_frame_set_label_align()</code>.</p>
+<h1 id='gtkframe-as-gtkbuildable' class='heading'>GtkFrame as GtkBuildable</h1>
 
 <p>The GtkFrame implementation of the GtkBuildable interface supports
 placing a child in the label position by specifying “label” as the
@@ -11547,12 +11546,13 @@ be specified without specifying a <child> type attribute.</p>
   <span class="o">&lt;/</span><span class="n">child</span><span class="o">&gt;</span>
 <span class="o">&lt;/</span><span class="n">object</span><span class="o">&gt;</span>
 </code></pre>
+<h1 id='css-nodes' class='heading'>CSS nodes</h1>
 
-<p>&rdquo; CSS nodes</p>
-<pre class="highlight swift"><code><span class="n">frame</span>
-<span class="err">├──</span> <span class="n">border</span><span class="p">[</span><span class="o">.</span><span class="n">flat</span><span class="p">]</span>
-<span class="err">├──</span> <span class="o">&lt;</span><span class="n">label</span> <span class="n">widget</span><span class="o">&gt;</span>
-<span class="err">╰──</span> <span class="o">&lt;</span><span class="n">child</span><span class="o">&gt;</span>
+<p>(plain Language Example):</p>
+<pre class="highlight plaintext"><code>frame
+├── border[.flat]
+├── &lt;label widget&gt;
+╰── &lt;child&gt;
 </code></pre>
 
 <p>GtkFrame has a main CSS node named “frame” and a subnode named “border”. The
@@ -11561,7 +11561,7 @@ of the border using CSS properties like “border-style” on the “border” n
 
 <p>The border node can be given the style class “.flat”, which is used by themes
 to disable drawing of the border. To do this from code, call
-gtk_frame_set_shadow_type() with <code>GTK_SHADOW_NONE</code> to add the “.flat” class or
+<code>gtk_frame_set_shadow_type()</code> with <code>GTK_SHADOW_NONE</code> to add the “.flat” class or
 any other shadow type to remove it.</p>
 
           </div>
@@ -11597,7 +11597,7 @@ For type-safe access, use the generated, typed pointer <code>frame_ptr</code> pr
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L17048">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L17017">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11638,7 +11638,7 @@ For type-safe access, use the generated, typed pointer <code>frame_ptr</code> pr
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L17053-L17054">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L17022-L17023">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11668,7 +11668,7 @@ For type-safe access, use the generated, typed pointer <code>frame_ptr</code> pr
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L17057-L17059">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L17026-L17028">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11699,7 +11699,7 @@ For type-safe access, use the generated, typed pointer <code>frame_ptr</code> pr
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L17063-L17065">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L17032-L17034">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11730,7 +11730,7 @@ For type-safe access, use the generated, typed pointer <code>frame_ptr</code> pr
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L17069-L17071">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L17038-L17040">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11761,7 +11761,7 @@ For type-safe access, use the generated, typed pointer <code>frame_ptr</code> pr
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L17075-L17077">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L17044-L17046">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11792,7 +11792,7 @@ For type-safe access, use the generated, typed pointer <code>frame_ptr</code> pr
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L17081-L17083">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L17050-L17052">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11823,7 +11823,7 @@ For type-safe access, use the generated, typed pointer <code>frame_ptr</code> pr
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L17087-L17089">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L17056-L17058">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11841,7 +11841,7 @@ For type-safe access, use the generated, typed pointer <code>frame_ptr</code> pr
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <pre class="highlight swift"><code><span class="kt">Creates</span> <span class="n">a</span> <span class="k">new</span> <span class="err">`</span><span class="kt">GtkFrame</span><span class="err">`</span><span class="p">,</span> <span class="n">with</span> <span class="kd">optional</span> <span class="n">label</span> <span class="err">`</span><span class="n">label</span><span class="err">`</span><span class="o">.</span>
+                        <pre class="highlight swift"><code><span class="kt">Creates</span> <span class="n">a</span> <span class="k">new</span> <span class="p">`</span><span class="nv">GtkFrame</span><span class="p">`,</span> <span class="n">with</span> <span class="kd">optional</span> <span class="n">label</span> <span class="p">`</span><span class="nv">label</span><span class="p">`</span><span class="o">.</span>
 </code></pre>
 
 <p>If <code>label</code> is <code>nil</code>, the label is omitted.</p>
@@ -11856,7 +11856,7 @@ For type-safe access, use the generated, typed pointer <code>frame_ptr</code> pr
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L17093-L17096">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L17062-L17065">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11869,7 +11869,7 @@ For type-safe access, use the generated, typed pointer <code>frame_ptr</code> pr
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

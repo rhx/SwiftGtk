@@ -11528,7 +11528,7 @@ Use <code>TreeView</code> as a strong reference or owner of a <code>GtkTreeView<
 <p>Widget that displays any object that implements the <code>GtkTreeModel</code> interface.</p>
 
 <p>Please refer to the
-[tree widget conceptual overview][TreeWidget]
+<a href="#TreeWidget">tree widget conceptual overview</a>
 for an overview of all the objects and data types related
 to the tree widget and how they work together.</p>
 
@@ -11549,11 +11549,10 @@ coordinates start at (0, 0) for row 0 of the tree.</p></li>
 <p>Several functions are available for converting between the different
 coordinate systems.  The most common translations are between widget and bin
 window coordinates and between bin window and tree coordinates. For the
-former you can use gtk_tree_view_convert_widget_to_bin_window_coords()
-(and vice versa), for the latter gtk_tree_view_convert_bin_window_to_tree_coords()
+former you can use <code>gtk_tree_view_convert_widget_to_bin_window_coords()</code>
+(and vice versa), for the latter <code>gtk_tree_view_convert_bin_window_to_tree_coords()</code>
 (and vice versa).</p>
-
-<p>&ldquo; GtkTreeView as GtkBuildable</p>
+<h1 id='gtktreeview-as-gtkbuildable' class='heading'>GtkTreeView as GtkBuildable</h1>
 
 <p>The GtkTreeView implementation of the GtkBuildable interface accepts
 <code>GtkTreeViewColumn</code> objects as <child> elements and exposes the internal
@@ -11580,15 +11579,16 @@ former you can use gtk_tree_view_convert_widget_to_bin_window_coords()
   <span class="o">&lt;/</span><span class="n">child</span><span class="o">&gt;</span>
 <span class="o">&lt;/</span><span class="n">object</span><span class="o">&gt;</span>
 </code></pre>
+<h1 id='css-nodes' class='heading'>CSS nodes</h1>
 
-<p>&rdquo; CSS nodes</p>
-<pre class="highlight swift"><code><span class="n">treeview</span><span class="o">.</span><span class="n">view</span>
-<span class="err">├──</span> <span class="n">header</span>
-<span class="err">│</span>   <span class="err">├──</span> <span class="o">&lt;</span><span class="n">column</span> <span class="n">header</span><span class="o">&gt;</span>
-<span class="err">┊</span>   <span class="err">┊</span>
-<span class="err">│</span>   <span class="err">╰──</span> <span class="o">&lt;</span><span class="n">column</span> <span class="n">header</span><span class="o">&gt;</span>
-<span class="err">│</span>
-<span class="err">╰──</span> <span class="p">[</span><span class="n">rubberband</span><span class="p">]</span>
+<p>(plain Language Example):</p>
+<pre class="highlight plaintext"><code>treeview.view
+├── header
+│   ├── &lt;column header&gt;
+┊   ┊
+│   ╰── &lt;column header&gt;
+│
+╰── [rubberband]
 </code></pre>
 
 <p>GtkTreeView has a main CSS node with name treeview and style class .view.
@@ -11629,7 +11629,7 @@ Ownership is transferred to the <code>TreeView</code> instance.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L22845-L22847">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L22807-L22809">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11655,12 +11655,12 @@ Will retain <code>GtkTreeView</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">other</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/TreeViewProtocol.html">TreeViewProtocol</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">other</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/TreeViewProtocol.html">TreeViewProtocol</a></span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L22851-L22854">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L22813-L22816">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11686,12 +11686,12 @@ Will retain <code>GtkTreeView</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">cPointer</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">cPointer</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L22858-L22860">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L22820-L22822">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11717,12 +11717,12 @@ Will retain <code>GtkTreeView</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeRawPointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L22864-L22866">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L22826-L22828">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11748,12 +11748,12 @@ Will retain <code>GtkTreeView</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L22870-L22872">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L22832-L22834">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11779,12 +11779,12 @@ Will retain <code>GtkTreeView</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">opaquePointer</span><span class="p">:</span> <span class="kt">OpaquePointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">opaquePointer</span><span class="p">:</span> <span class="kt">OpaquePointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L22876-L22878">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L22838-L22840">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11809,12 +11809,12 @@ Will retain <code>GtkTreeView</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">()</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L22881-L22884">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L22843-L22846">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11839,12 +11839,12 @@ Will retain <code>GtkTreeView</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">model</span><span class="p">:</span> <span class="kt"><a href="../Protocols/TreeModelProtocol.html">TreeModelProtocol</a></span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">model</span><span class="p">:</span> <span class="kt"><a href="../Protocols/TreeModelProtocol.html">TreeModelProtocol</a></span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L22887-L22890">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L22849-L22852">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11874,7 +11874,7 @@ Will retain <code>GtkTreeView</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L22893-L22896">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L22855-L22858">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11903,7 +11903,7 @@ Will retain <code>GtkTreeView</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="n">model</span> <span class="nv">store</span><span class="p">:</span> <span class="kt"><a href="../Classes/ListStore.html">ListStore</a></span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="n">model</span> <span class="nv">store</span><span class="p">:</span> <span class="kt"><a href="../Classes/ListStore.html">ListStore</a></span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -11956,7 +11956,7 @@ Will retain <code>GtkTreeView</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="n">model</span> <span class="nv">store</span><span class="p">:</span> <span class="kt"><a href="../Classes/TreeStore.html">TreeStore</a></span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="n">model</span> <span class="nv">store</span><span class="p">:</span> <span class="kt"><a href="../Classes/TreeStore.html">TreeStore</a></span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -12091,7 +12091,7 @@ Will retain <code>GtkTreeView</code>.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

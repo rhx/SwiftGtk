@@ -11527,9 +11527,9 @@ For a concrete class that implements these methods and properties, see <code><a 
 Alternatively, use <code><a href="../Structs/BoxRef.html">BoxRef</a></code> as a lighweight, <code>unowned</code> reference if you already have an instance you just want to use.</p>
 
 <p>The GtkBox widget arranges child widgets into a single row or column,
-depending upon the value of its <code>GtkOrientable</code>:orientation property. Within
+depending upon the value of its <code>GtkOrientable:orientation</code> property. Within
 the other dimension, all children are allocated the same size. Of course,
-the <code>GtkWidget</code>:halign and <code>GtkWidget</code>:valign properties can be used on
+the <code>GtkWidget:halign</code> and <code>GtkWidget:valign</code> properties can be used on
 the children to influence their allocation.</p>
 
 <p>GtkBox uses a notion of packing. Packing refers
@@ -11540,33 +11540,32 @@ For a vertical <code>GtkBox</code>, the start is defined as the top of the box a
 the end is defined as the bottom. For a horizontal <code>GtkBox</code> the start
 is defined as the left side and the end is defined as the right side.</p>
 
-<p>Use repeated calls to gtk_box_pack_start() to pack widgets into a
-GtkBox from start to end. Use gtk_box_pack_end() to add widgets from
+<p>Use repeated calls to <code>gtk_box_pack_start()</code> to pack widgets into a
+GtkBox from start to end. Use <code>gtk_box_pack_end()</code> to add widgets from
 end to start. You may intersperse these calls and add widgets from
 both ends of the same GtkBox.</p>
 
-<p>Because GtkBox is a <code>GtkContainer</code>, you may also use gtk_container_add()
+<p>Because GtkBox is a <code>GtkContainer</code>, you may also use <code>gtk_container_add()</code>
 to insert widgets into the box, and they will be packed with the default
-values for expand and fill child properties. Use gtk_container_remove()
+values for expand and fill child properties. Use <code>gtk_container_remove()</code>
 to remove widgets from the GtkBox.</p>
 
-<p>Use gtk_box_set_homogeneous() to specify whether or not all children
+<p>Use <code>gtk_box_set_homogeneous()</code> to specify whether or not all children
 of the GtkBox are forced to get the same amount of space.</p>
 
-<p>Use gtk_box_set_spacing() to determine how much space will be
+<p>Use <code>gtk_box_set_spacing()</code> to determine how much space will be
 minimally placed between all children in the GtkBox. Note that
 spacing is added between the children, while
-padding added by gtk_box_pack_start() or gtk_box_pack_end() is added
+padding added by <code>gtk_box_pack_start()</code> or <code>gtk_box_pack_end()</code> is added
 on either side of the widget it belongs to.</p>
 
-<p>Use gtk_box_reorder_child() to move a GtkBox child to a different
+<p>Use <code>gtk_box_reorder_child()</code> to move a GtkBox child to a different
 place in the box.</p>
 
-<p>Use gtk_box_set_child_packing() to reset the expand,
+<p>Use <code>gtk_box_set_child_packing()</code> to reset the expand,
 fill and padding child properties.
-Use gtk_box_query_child_packing() to query these fields.</p>
-
-<p>&ldquo; CSS nodes</p>
+Use <code>gtk_box_query_child_packing()</code> to query these fields.</p>
+<h1 id='css-nodes' class='heading'>CSS nodes</h1>
 
 <p>GtkBox uses a single CSS node with name box.</p>
 
@@ -11606,7 +11605,7 @@ regardless of text direction.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L424">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L423">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11644,7 +11643,7 @@ regardless of text direction.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L427">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L426">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12304,7 +12303,7 @@ to provide a Swift closure that can capture its surrounding context.</p>
                         <p>binding reference or <code>nil</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L833-L857">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L832-L856">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12396,7 +12395,7 @@ to provide a Swift closure that can capture its surrounding context.</p>
                         <p>positive handler ID, or a value less than or equal to <code>0</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L1662-L1681">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L1660-L1679">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12428,7 +12427,7 @@ to provide a Swift closure that can capture its surrounding context.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets the value set by gtk_box_set_baseline_position().</p>
+                        <p>Gets the value set by <code>gtk_box_set_baseline_position()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12440,7 +12439,7 @@ to provide a Swift closure that can capture its surrounding context.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L1689-L1692">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L1687-L1690">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12473,7 +12472,7 @@ to provide a Swift closure that can capture its surrounding context.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L1695-L1698">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L1693-L1696">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12495,7 +12494,7 @@ to provide a Swift closure that can capture its surrounding context.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Returns whether the box is homogeneous (all children are the
-same size). See gtk_box_set_homogeneous().</p>
+same size). See <code>gtk_box_set_homogeneous()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12507,7 +12506,7 @@ same size). See gtk_box_set_homogeneous().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L1702-L1705">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L1700-L1703">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12528,7 +12527,7 @@ same size). See gtk_box_set_homogeneous().</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets the value set by gtk_box_set_spacing().</p>
+                        <p>Gets the value set by <code>gtk_box_set_spacing()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12540,7 +12539,7 @@ same size). See gtk_box_set_homogeneous().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L1708-L1711">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L1706-L1709">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12575,7 +12574,7 @@ packed with reference to the end of <code>box</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L1716-L1719">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L1714-L1717">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12610,7 +12609,7 @@ to the start of <code>box</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L1724-L1727">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L1722-L1725">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12643,7 +12642,7 @@ to the start of <code>box</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L1730-L1733">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L1728-L1731">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12684,7 +12683,7 @@ same packing type that appear earlier in the list.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L1744-L1747">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L1742-L1745">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12722,7 +12721,7 @@ extra space available.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L1755-L1758">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L1753-L1756">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12758,7 +12757,7 @@ of space.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L1764-L1767">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L1762-L1765">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12791,7 +12790,7 @@ of space.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L1770-L1773">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L1768-L1771">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12812,7 +12811,7 @@ of space.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Sets the <code>GtkBox</code>:homogeneous property of <code>box</code>, controlling
+                        <p>Sets the <code>GtkBox:homogeneous</code> property of <code>box</code>, controlling
 whether or not all children of <code>box</code> are given equal space
 in the box.</p>
 
@@ -12826,7 +12825,7 @@ in the box.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L1778-L1781">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L1776-L1779">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12847,7 +12846,7 @@ in the box.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Sets the <code>GtkBox</code>:spacing property of <code>box</code>, which is the
+                        <p>Sets the <code>GtkBox:spacing</code> property of <code>box</code>, which is the
 number of pixels to place between children of <code>box</code>.</p>
 
                       </div>
@@ -12860,7 +12859,7 @@ number of pixels to place between children of <code>box</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L1785-L1788">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L1783-L1786">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12881,7 +12880,7 @@ number of pixels to place between children of <code>box</code>.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets the value set by gtk_box_set_baseline_position().</p>
+                        <p>Gets the value set by <code>gtk_box_set_baseline_position()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12893,7 +12892,7 @@ number of pixels to place between children of <code>box</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L1790-L1805">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L1788-L1803">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12926,7 +12925,7 @@ number of pixels to place between children of <code>box</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L1808-L1821">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L1806-L1819">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12959,7 +12958,7 @@ number of pixels to place between children of <code>box</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L1823-L1836">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L1821-L1834">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12992,7 +12991,7 @@ number of pixels to place between children of <code>box</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L1838-L1849">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L1836-L1847">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13005,7 +13004,7 @@ number of pixels to place between children of <code>box</code>.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

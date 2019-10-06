@@ -11531,11 +11531,10 @@ parameters like page size and resolution. It also lets you easily
 create <code>PangoLayout</code> and <code>PangoContext</code> objects that match the font metrics
 of the cairo surface.</p>
 
-<p>GtkPrintContext objects gets passed to the <code>GtkPrintOperation</code>::begin-print,
-<code>GtkPrintOperation</code>::end-print, <code>GtkPrintOperation</code>::request-page-setup and
-<code>GtkPrintOperation</code>::draw-page signals on the <code>GtkPrintOperation</code>.</p>
-
-<p>&ldquo;<code>Using GtkPrintContext in a</code>GtkPrintOperation`::draw-page callback</p>
+<p>GtkPrintContext objects gets passed to the <code>GtkPrintOperation::begin</code>-print,
+<code>GtkPrintOperation::end</code>-print, <code>GtkPrintOperation::request</code>-page-setup and
+<code>GtkPrintOperation::draw</code>-page signals on the <code>GtkPrintOperation</code>.</p>
+<h2 id='using-gtkprintcontext-in-a-code-gtkprintoperation-draw-code-page-callback' class='heading'>Using GtkPrintContext in a <code>GtkPrintOperation::draw</code>-page callback</h2>
 
 <p>(C Language Example):</p>
 <pre class="highlight plaintext"><code>static void
@@ -11626,7 +11625,7 @@ For type-safe access, use the generated, typed pointer <code>print_context_ptr</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L8263">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L8245">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11667,7 +11666,7 @@ For type-safe access, use the generated, typed pointer <code>print_context_ptr</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L8268-L8269">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L8250-L8251">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11697,7 +11696,7 @@ For type-safe access, use the generated, typed pointer <code>print_context_ptr</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L8272-L8274">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L8254-L8256">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11728,7 +11727,7 @@ For type-safe access, use the generated, typed pointer <code>print_context_ptr</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L8278-L8280">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L8260-L8262">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11759,7 +11758,7 @@ For type-safe access, use the generated, typed pointer <code>print_context_ptr</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L8284-L8286">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L8266-L8268">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11790,7 +11789,7 @@ For type-safe access, use the generated, typed pointer <code>print_context_ptr</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L8290-L8292">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L8272-L8274">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11821,7 +11820,7 @@ For type-safe access, use the generated, typed pointer <code>print_context_ptr</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L8296-L8298">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L8278-L8280">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11852,7 +11851,7 @@ For type-safe access, use the generated, typed pointer <code>print_context_ptr</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L8302-L8304">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L8284-L8286">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11865,7 +11864,7 @@ For type-safe access, use the generated, typed pointer <code>print_context_ptr</
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

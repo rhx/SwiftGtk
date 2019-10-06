@@ -11529,8 +11529,8 @@ Use <code>LevelBarRef</code> only as an <code>unowned</code> reference to an exi
 as a level indicator. Typical use cases are displaying the strength
 of a password, or showing the charge level of a battery.</p>
 
-<p>Use gtk_level_bar_set_value() to set the current value, and
-gtk_level_bar_add_offset_value() to set the value offsets at which
+<p>Use <code>gtk_level_bar_set_value()</code> to set the current value, and
+<code>gtk_level_bar_add_offset_value()</code> to set the value offsets at which
 the bar will be considered in a different state. GTK will add a few
 offsets by default on the level bar: <code>GTK_LEVEL_BAR_OFFSET_LOW</code>,
 <code>GTK_LEVEL_BAR_OFFSET_HIGH</code> and <code>GTK_LEVEL_BAR_OFFSET_FULL</code>, with
@@ -11539,8 +11539,7 @@ values 0.25, 0.75 and 1.0 respectively.</p>
 <p>Note that it is your responsibility to update preexisting offsets
 when changing the minimum or maximum value. GTK+ will simply clamp
 them to the new range.</p>
-
-<p>&ldquo;` Adding a custom offset on the bar</p>
+<h2 id='adding-a-custom-offset-on-the-bar' class='heading'>Adding a custom offset on the bar</h2>
 
 <p>(C Language Example):</p>
 <pre class="highlight plaintext"><code>
@@ -11576,8 +11575,8 @@ create_level_bar (void)
 </code></pre>
 
 <p>The default interval of values is between zero and one, but it’s possible to
-modify the interval using gtk_level_bar_set_min_value() and
-gtk_level_bar_set_max_value(). The value will be always drawn in proportion to
+modify the interval using <code>gtk_level_bar_set_min_value()</code> and
+<code>gtk_level_bar_set_max_value()</code>. The value will be always drawn in proportion to
 the admissible interval, i.e. a value of 15 with a specified interval between
 10 and 20 is equivalent to a value of 0.5 with an interval between 0 and 1.
 When <code>GTK_LEVEL_BAR_MODE_DISCRETE</code> is used, the bar level is rendered
@@ -11590,20 +11589,20 @@ set the minimum value to 0 and the maximum value to 5 after changing the indicat
 mode to discrete.</p>
 
 <p>GtkLevelBar was introduced in GTK+ 3.6.</p>
-
-<p>&rdquo; GtkLevelBar as GtkBuildable</p>
+<h1 id='gtklevelbar-as-gtkbuildable' class='heading'>GtkLevelBar as GtkBuildable</h1>
 
 <p>The GtkLevelBar implementation of the GtkBuildable interface supports a
 custom <offsets> element, which can contain any number of <offset> elements,
 each of which must have name and value attributes.</p>
+<h1 id='css-nodes' class='heading'>CSS nodes</h1>
 
-<p>&ldquo; CSS nodes</p>
-<pre class="highlight swift"><code><span class="n">levelbar</span><span class="p">[</span><span class="o">.</span><span class="n">discrete</span><span class="p">]</span>
-<span class="err">╰──</span> <span class="n">trough</span>
-    <span class="err">├──</span> <span class="n">block</span><span class="o">.</span><span class="n">filled</span><span class="o">.</span><span class="n">level</span><span class="o">-</span><span class="n">name</span>
-    <span class="err">┊</span>
-    <span class="err">├──</span> <span class="n">block</span><span class="o">.</span><span class="n">empty</span>
-    <span class="err">┊</span>
+<p>(plain Language Example):</p>
+<pre class="highlight plaintext"><code>levelbar[.discrete]
+╰── trough
+    ├── block.filled.level-name
+    ┊
+    ├── block.empty
+    ┊
 </code></pre>
 
 <p>GtkLevelBar has a main CSS node with name levelbar and one of the style
@@ -11650,7 +11649,7 @@ For type-safe access, use the generated, typed pointer <code>level_bar_ptr</code
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L1980">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L1976">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11691,7 +11690,7 @@ For type-safe access, use the generated, typed pointer <code>level_bar_ptr</code
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L1985-L1986">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L1981-L1982">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11721,7 +11720,7 @@ For type-safe access, use the generated, typed pointer <code>level_bar_ptr</code
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L1989-L1991">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L1985-L1987">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11752,7 +11751,7 @@ For type-safe access, use the generated, typed pointer <code>level_bar_ptr</code
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L1995-L1997">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L1991-L1993">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11783,7 +11782,7 @@ For type-safe access, use the generated, typed pointer <code>level_bar_ptr</code
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L2001-L2003">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L1997-L1999">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11814,7 +11813,7 @@ For type-safe access, use the generated, typed pointer <code>level_bar_ptr</code
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L2007-L2009">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L2003-L2005">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11845,7 +11844,7 @@ For type-safe access, use the generated, typed pointer <code>level_bar_ptr</code
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L2013-L2015">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L2009-L2011">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11876,7 +11875,7 @@ For type-safe access, use the generated, typed pointer <code>level_bar_ptr</code
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L2019-L2021">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L2015-L2017">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11906,7 +11905,7 @@ For type-safe access, use the generated, typed pointer <code>level_bar_ptr</code
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L2024-L2027">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L2020-L2023">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11937,7 +11936,7 @@ interval.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L2031-L2034">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L2027-L2030">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11968,7 +11967,7 @@ interval.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L2037-L2040">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L2033-L2036">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11981,7 +11980,7 @@ interval.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

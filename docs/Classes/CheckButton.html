@@ -11529,20 +11529,23 @@ Use <code>CheckButton</code> as a strong reference or owner of a <code>GtkCheckB
 (usually a <code>GtkLabel</code>). See the section on <code>GtkToggleButton</code> widgets for
 more information about toggle/check buttons.</p>
 
-<p>The important signal ( <code>GtkToggleButton</code>::toggled ) is also inherited from
+<p>The important signal ( <code>GtkToggleButton::toggled</code> ) is also inherited from
 <code>GtkToggleButton</code>.</p>
+<h1 id='css-nodes' class='heading'>CSS nodes</h1>
 
-<p>&ldquo; CSS nodes</p>
-<pre class="highlight swift"><code><span class="n">checkbutton</span>
-<span class="err">├──</span> <span class="n">check</span>
-<span class="err">╰──</span> <span class="o">&lt;</span><span class="n">child</span><span class="o">&gt;</span>
+<p>(plain Language Example):</p>
+<pre class="highlight plaintext"><code>checkbutton
+├── check
+╰── &lt;child&gt;
 </code></pre>
 
-<p>A GtkCheckButton with indicator (see gtk_toggle_button_set_mode()) has a
+<p>A GtkCheckButton with indicator (see <code>gtk_toggle_button_set_mode()</code>) has a
 main CSS node with name checkbutton and a subnode with name check.</p>
-<pre class="highlight swift"><code><span class="n">button</span><span class="o">.</span><span class="n">check</span>
-<span class="err">├──</span> <span class="n">check</span>
-<span class="err">╰──</span> <span class="o">&lt;</span><span class="n">child</span><span class="o">&gt;</span>
+
+<p>(plain Language Example):</p>
+<pre class="highlight plaintext"><code>button.check
+├── check
+╰── &lt;child&gt;
 </code></pre>
 
 <p>A GtkCheckButton without indicator changes the name of its main node
@@ -11582,7 +11585,7 @@ Ownership is transferred to the <code>CheckButton</code> instance.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L10392-L10394">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L10363-L10365">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11608,12 +11611,12 @@ Will retain <code>GtkCheckButton</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">other</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/CheckButtonProtocol.html">CheckButtonProtocol</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">other</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/CheckButtonProtocol.html">CheckButtonProtocol</a></span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L10398-L10401">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L10369-L10372">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11639,12 +11642,12 @@ Will retain <code>GtkCheckButton</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">cPointer</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">cPointer</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L10405-L10407">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L10376-L10378">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11670,12 +11673,12 @@ Will retain <code>GtkCheckButton</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeRawPointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L10411-L10413">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L10382-L10384">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11701,12 +11704,12 @@ Will retain <code>GtkCheckButton</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L10417-L10419">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L10388-L10390">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11732,12 +11735,12 @@ Will retain <code>GtkCheckButton</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">opaquePointer</span><span class="p">:</span> <span class="kt">OpaquePointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">opaquePointer</span><span class="p">:</span> <span class="kt">OpaquePointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L10423-L10425">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L10394-L10396">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11762,12 +11765,12 @@ Will retain <code>GtkCheckButton</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">()</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L10428-L10431">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L10399-L10402">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11792,12 +11795,12 @@ Will retain <code>GtkCheckButton</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">label</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">label</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L10434-L10437">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L10405-L10408">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11816,7 +11819,7 @@ Will retain <code>GtkCheckButton</code>.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Creates a new <code>GtkCheckButton</code> containing a label. The label
-will be created using gtk_label_new_with_mnemonic(), so underscores
+will be created using <code>gtk_label_new_with_mnemonic()</code>, so underscores
 in <code>label</code> indicate the mnemonic for the check button.</p>
 
                         <a href="../Classes/CheckButton/init%28mnemonic%3A%29.html" class="slightly-smaller">See more</a>
@@ -11825,12 +11828,12 @@ in <code>label</code> indicate the mnemonic for the check button.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="n">mnemonic</span> <span class="nv">label</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="n">mnemonic</span> <span class="nv">label</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L10442-L10445">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L10413-L10416">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11860,7 +11863,7 @@ in <code>label</code> indicate the mnemonic for the check button.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L10448-L10451">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L10419-L10422">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11879,7 +11882,7 @@ in <code>label</code> indicate the mnemonic for the check button.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Creates a new <code>GtkCheckButton</code> containing a label. The label
-will be created using gtk_label_new_with_mnemonic(), so underscores
+will be created using <code>gtk_label_new_with_mnemonic()</code>, so underscores
 in <code>label</code> indicate the mnemonic for the check button.</p>
 
                       </div>
@@ -11892,7 +11895,7 @@ in <code>label</code> indicate the mnemonic for the check button.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L10456-L10459">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L10427-L10430">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11905,7 +11908,7 @@ in <code>label</code> indicate the mnemonic for the check button.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

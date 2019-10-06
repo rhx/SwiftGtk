@@ -11537,8 +11537,7 @@ actions (e.g. quit, about, new), and one group per document holding
 actions that act on that document (eg. save, cut/copy/paste, etc). Each
 window’s menus would be constructed from a combination of two action
 groups.</p>
-
-<p><code>Accelerators</code> {<code><a href="../Classes/Action.html">Action</a></code>-Accel}</p>
+<h2 id='accelerators-a-name-action-accel-a' class='heading'>Accelerators ## <a name="Action-Accel"></a></h2>
 
 <p>Accelerators are handled by the GTK+ accelerator map. All actions are
 assigned an accelerator path (which normally has the form
@@ -11546,8 +11545,7 @@ assigned an accelerator path (which normally has the form
 this accelerator path. All menuitems and toolitems take on this accelerator
 path. The GTK+ accelerator map code makes sure that the correct shortcut
 is displayed next to the menu item.</p>
-
-<p><code>GtkActionGroup as GtkBuildable</code> {<code>GtkActionGroup</code>-BUILDER-UI}</p>
+<h1 id='gtkactiongroup-as-gtkbuildable-a-name-gtkactiongroup-builder-ui-a' class='heading'>GtkActionGroup as GtkBuildable # <a name="GtkActionGroup-BUILDER-UI"></a></h1>
 
 <p>The <code>GtkActionGroup</code> implementation of the <code>GtkBuildable</code> interface accepts
 <code>GtkAction</code> objects as <child> elements in UI definitions.</p>
@@ -11560,8 +11558,7 @@ a custom <accelerator> element, which has attributes named “key“ and
 “modifiers“ and allows to specify accelerators. This is similar to the
 <accelerator> element of <code>GtkWidget</code>, the main difference is that
 it doesn’t allow you to specify a signal.</p>
-
-<p><code>A `GtkDialog` UI definition fragment.</code></p>
+<h2 id='a-code-gtkdialog-code-ui-definition-fragment' class='heading'>A <code>GtkDialog</code> UI definition fragment.</h2>
 <pre class="highlight swift"><code><span class="o">&lt;</span><span class="n">object</span> <span class="kd">class</span><span class="o">=</span><span class="s">"GtkActionGroup"</span> <span class="n">id</span><span class="o">=</span><span class="s">"actiongroup"</span><span class="o">&gt;</span>
   <span class="o">&lt;</span><span class="n">child</span><span class="o">&gt;</span>
       <span class="o">&lt;</span><span class="n">object</span> <span class="kd">class</span><span class="o">=</span><span class="s">"GtkAction"</span> <span class="n">id</span><span class="o">=</span><span class="s">"About"</span><span class="o">&gt;</span>
@@ -11607,7 +11604,7 @@ For type-safe access, use the generated, typed pointer <code>action_group_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L7911">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L7896">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11648,7 +11645,7 @@ For type-safe access, use the generated, typed pointer <code>action_group_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L7916-L7917">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L7901-L7902">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11678,7 +11675,7 @@ For type-safe access, use the generated, typed pointer <code>action_group_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L7920-L7922">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L7905-L7907">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11709,7 +11706,7 @@ For type-safe access, use the generated, typed pointer <code>action_group_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L7926-L7928">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L7911-L7913">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11740,7 +11737,7 @@ For type-safe access, use the generated, typed pointer <code>action_group_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L7932-L7934">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L7917-L7919">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11771,7 +11768,7 @@ For type-safe access, use the generated, typed pointer <code>action_group_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L7938-L7940">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L7923-L7925">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11802,7 +11799,7 @@ For type-safe access, use the generated, typed pointer <code>action_group_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L7944-L7946">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L7929-L7931">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11833,7 +11830,7 @@ For type-safe access, use the generated, typed pointer <code>action_group_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L7950-L7952">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L7935-L7937">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11851,10 +11848,10 @@ For type-safe access, use the generated, typed pointer <code>action_group_ptr</c
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <pre class="highlight swift"><code><span class="kt">Creates</span> <span class="n">a</span> <span class="k">new</span> <span class="err">`</span><span class="kt">GtkActionGroup</span><span class="err">`</span> <span class="n">object</span><span class="o">.</span> <span class="kt">The</span> <span class="n">name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">action</span> <span class="n">group</span>
+                        <pre class="highlight swift"><code><span class="kt">Creates</span> <span class="n">a</span> <span class="k">new</span> <span class="p">`</span><span class="nv">GtkActionGroup</span><span class="p">`</span> <span class="n">object</span><span class="o">.</span> <span class="kt">The</span> <span class="n">name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">action</span> <span class="n">group</span>
 </code></pre>
 
-<p>is used when associating [keybindings][Action-Accel]
+<p>is used when associating <a href="#Action-Accel">keybindings</a>
 with the actions.</p>
 
 <p><strong>new is deprecated:</strong>
@@ -11865,13 +11862,13 @@ This method is deprecated.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="nf">init</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L7960-L7963">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L7945-L7948">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11884,7 +11881,7 @@ This method is deprecated.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

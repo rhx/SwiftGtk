@@ -11631,7 +11631,7 @@ Alternatively, use <code><a href="../Structs/IconSetRef.html">IconSetRef</a></co
                         <p>Icon sets have a list of <code>GtkIconSource</code>, which they use as base
 icons for rendering icons in different states and sizes. Icons are
 scaled, made to look insensitive, etc. in
-gtk_icon_set_render_icon(), but <code>GtkIconSet</code> needs base images to
+<code>gtk_icon_set_render_icon()</code>, but <code>GtkIconSet</code> needs base images to
 work with. The base images and when to use them are described by
 a <code>GtkIconSource</code>.</p>
 
@@ -11651,7 +11651,7 @@ specific source matches. <code>GtkIconSet</code> always prefers more specific
 icon sources to more generic icon sources. The order in which you
 add the sources to the icon set does not matter.</p>
 
-<p>gtk_icon_set_new_from_pixbuf() creates a new icon set with a
+<p><code>gtk_icon_set_new_from_pixbuf()</code> creates a new icon set with a
 default icon source based on the given pixbuf.</p>
 
 <p><strong>add_source is deprecated:</strong>
@@ -11662,7 +11662,7 @@ Use #GtkIconTheme instead.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">add</span><span class="p">(</span><span class="nv">source</span><span class="p">:</span> <span class="kt"><a href="../Protocols/IconSourceProtocol.html">IconSourceProtocol</a></span><span class="p">)</span></code></pre>
 
                         </div>
@@ -11699,7 +11699,7 @@ Use #GtkIconTheme instead.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">copy</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">GtkIconSet</span><span class="o">&gt;!</span></code></pre>
 
                         </div>
@@ -11727,7 +11727,7 @@ Use #GtkIconTheme instead.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Obtains a list of icon sizes this icon set can render. The returned
-array must be freed with g_free().</p>
+array must be freed with <code>g_free()</code>.</p>
 
 <p><strong>get_sizes is deprecated:</strong>
 Use #GtkIconTheme instead.</p>
@@ -11737,7 +11737,7 @@ Use #GtkIconTheme instead.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">get</span><span class="p">(</span><span class="nv">sizes</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">GtkIconSize</span><span class="o">&gt;&gt;</span><span class="p">,</span> <span class="n">nSizes</span> <span class="nv">n_sizes</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">CInt</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
 
                         </div>
@@ -11774,7 +11774,7 @@ Use #GtkIconTheme instead.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">ref</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">GtkIconSet</span><span class="o">&gt;!</span></code></pre>
 
                         </div>
@@ -11801,8 +11801,8 @@ Use #GtkIconTheme instead.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Renders an icon using gtk_style_render_icon(). In most cases,
-gtk_widget_render_icon() is better, since it automatically provides
+                        <p>Renders an icon using <code>gtk_style_render_icon()</code>. In most cases,
+<code>gtk_widget_render_icon()</code> is better, since it automatically provides
 most of the arguments from the current widget settings.  This
 function never returns <code>nil</code>; if the icon can’t be rendered
 (perhaps because an image file fails to load), a default <q>missing
@@ -11816,7 +11816,7 @@ Use gtk_icon_set_render_icon_pixbuf() instead</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">renderIcon</span><span class="p">(</span><span class="nv">style</span><span class="p">:</span> <span class="kt"><a href="../Protocols/StyleProtocol.html">StyleProtocol</a></span><span class="p">,</span> <span class="nv">direction</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:3Gtk13TextDirectiona">TextDirection</a></span><span class="p">,</span> <span class="nv">state</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:3Gtk9StateTypea">StateType</a></span><span class="p">,</span> <span class="nv">size</span><span class="p">:</span> <span class="kt">GtkIconSize</span><span class="p">,</span> <span class="nv">widget</span><span class="p">:</span> <span class="kt"><a href="../Protocols/WidgetProtocol.html">WidgetProtocol</a></span><span class="p">,</span> <span class="nv">detail</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">GdkPixbuf</span><span class="o">&gt;!</span></code></pre>
 
                         </div>
@@ -11843,8 +11843,8 @@ Use gtk_icon_set_render_icon_pixbuf() instead</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Renders an icon using gtk_render_icon_pixbuf(). In most cases,
-gtk_widget_render_icon_pixbuf() is better, since it automatically provides
+                        <p>Renders an icon using <code>gtk_render_icon_pixbuf()</code>. In most cases,
+<code>gtk_widget_render_icon_pixbuf()</code> is better, since it automatically provides
 most of the arguments from the current widget settings.  This
 function never returns <code>nil</code>; if the icon can’t be rendered
 (perhaps because an image file fails to load), a default <q>missing
@@ -11858,7 +11858,7 @@ Use #GtkIconTheme instead.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">renderIconPixbuf</span><span class="p">(</span><span class="nv">context</span><span class="p">:</span> <span class="kt"><a href="../Protocols/StyleContextProtocol.html">StyleContextProtocol</a></span><span class="p">,</span> <span class="nv">size</span><span class="p">:</span> <span class="kt">GtkIconSize</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">GdkPixbuf</span><span class="o">&gt;!</span></code></pre>
 
                         </div>
@@ -11885,7 +11885,7 @@ Use #GtkIconTheme instead.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Renders an icon using gtk_render_icon_pixbuf() and converts it to a
+                        <p>Renders an icon using <code>gtk_render_icon_pixbuf()</code> and converts it to a
 cairo surface.</p>
 
 <p>This function never returns <code>nil</code>; if the icon can’t be rendered
@@ -11900,7 +11900,7 @@ Use #GtkIconTheme instead.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">renderIconSurface</span><span class="p">(</span><span class="nv">context</span><span class="p">:</span> <span class="kt"><a href="../Protocols/StyleContextProtocol.html">StyleContextProtocol</a></span><span class="p">,</span> <span class="nv">size</span><span class="p">:</span> <span class="kt">GtkIconSize</span><span class="p">,</span> <span class="nv">scale</span><span class="p">:</span> <span class="kt">CInt</span><span class="p">,</span> <span class="n">forWindow</span> <span class="nv">for_window</span><span class="p">:</span> <span class="kt"><a href="../Protocols/WindowProtocol.html">WindowProtocol</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="n">cairo_surface_t</span><span class="o">&gt;!</span></code></pre>
 
                         </div>
@@ -11938,7 +11938,7 @@ Use #GtkIconTheme instead.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">unref</span><span class="p">()</span></code></pre>
 
                         </div>
@@ -11957,7 +11957,7 @@ Use #GtkIconTheme instead.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

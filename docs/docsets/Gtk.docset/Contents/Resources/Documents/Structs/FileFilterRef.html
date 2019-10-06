@@ -11527,9 +11527,9 @@ Use <code>FileFilterRef</code> only as an <code>unowned</code> reference to an e
 
 <p>A GtkFileFilter can be used to restrict the files being shown in a
 <code>GtkFileChooser</code>. Files can be filtered based on their name (with
-gtk_file_filter_add_pattern()), on their mime type (with
-gtk_file_filter_add_mime_type()), or by a custom filter function
-(with gtk_file_filter_add_custom()).</p>
+<code>gtk_file_filter_add_pattern()</code>), on their mime type (with
+<code>gtk_file_filter_add_mime_type()</code>), or by a custom filter function
+(with <code>gtk_file_filter_add_custom()</code>).</p>
 
 <p>Filtering by mime types handles aliasing and subclassing of mime
 types; e.g. a filter for text/plain also matches a file with mime
@@ -11538,16 +11538,15 @@ text/plain. Note that <code>GtkFileFilter</code> allows wildcards for the
 subtype of a mime type, so you can e.g. filter for image/*.</p>
 
 <p>Normally, filters are used by adding them to a <code>GtkFileChooser</code>,
-see gtk_file_chooser_add_filter(), but it is also possible
-to manually use a filter on a file with gtk_file_filter_filter().</p>
-
-<p>&ldquo; GtkFileFilter as GtkBuildable</p>
+see <code>gtk_file_chooser_add_filter()</code>, but it is also possible
+to manually use a filter on a file with <code>gtk_file_filter_filter()</code>.</p>
+<h1 id='gtkfilefilter-as-gtkbuildable' class='heading'>GtkFileFilter as GtkBuildable</h1>
 
 <p>The GtkFileFilter implementation of the GtkBuildable interface
 supports adding rules using the <mime-types>, <patterns> and
 <applications> elements and listing the rules within. Specifying
 a <mime-type> or <pattern> has the same effect as as calling
-gtk_file_filter_add_mime_type() or gtk_file_filter_add_pattern().</p>
+<code>gtk_file_filter_add_mime_type()</code> or <code>gtk_file_filter_add_pattern()</code>.</p>
 
 <p>An example of a UI definition fragment specifying GtkFileFilter
 rules:</p>
@@ -11596,7 +11595,7 @@ For type-safe access, use the generated, typed pointer <code>file_filter_ptr</co
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L4107">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L4089">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11637,7 +11636,7 @@ For type-safe access, use the generated, typed pointer <code>file_filter_ptr</co
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L4112-L4113">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L4094-L4095">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11667,7 +11666,7 @@ For type-safe access, use the generated, typed pointer <code>file_filter_ptr</co
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L4116-L4118">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L4098-L4100">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11698,7 +11697,7 @@ For type-safe access, use the generated, typed pointer <code>file_filter_ptr</co
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L4122-L4124">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L4104-L4106">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11729,7 +11728,7 @@ For type-safe access, use the generated, typed pointer <code>file_filter_ptr</co
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L4128-L4130">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L4110-L4112">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11760,7 +11759,7 @@ For type-safe access, use the generated, typed pointer <code>file_filter_ptr</co
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L4134-L4136">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L4116-L4118">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11791,7 +11790,7 @@ For type-safe access, use the generated, typed pointer <code>file_filter_ptr</co
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L4140-L4142">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L4122-L4124">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11822,7 +11821,7 @@ For type-safe access, use the generated, typed pointer <code>file_filter_ptr</co
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L4146-L4148">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L4128-L4130">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11840,13 +11839,13 @@ For type-safe access, use the generated, typed pointer <code>file_filter_ptr</co
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <pre class="highlight swift"><code><span class="kt">Creates</span> <span class="n">a</span> <span class="k">new</span> <span class="err">`</span><span class="kt">GtkFileFilter</span><span class="err">`</span> <span class="n">with</span> <span class="n">no</span> <span class="n">rules</span> <span class="n">added</span> <span class="n">to</span> <span class="n">it</span><span class="o">.</span>
+                        <pre class="highlight swift"><code><span class="kt">Creates</span> <span class="n">a</span> <span class="k">new</span> <span class="p">`</span><span class="nv">GtkFileFilter</span><span class="p">`</span> <span class="n">with</span> <span class="n">no</span> <span class="n">rules</span> <span class="n">added</span> <span class="n">to</span> <span class="n">it</span><span class="o">.</span>
 </code></pre>
 
 <p>Such a filter doesn’t accept any files, so is not
 particularly useful until you add rules with
-gtk_file_filter_add_mime_type(), gtk_file_filter_add_pattern(),
-or gtk_file_filter_add_custom(). To create a filter
+<code>gtk_file_filter_add_mime_type()</code>, <code>gtk_file_filter_add_pattern()</code>,
+or <code>gtk_file_filter_add_custom()</code>. To create a filter
 that accepts any file, use:
 (C Language Example):</p>
 <pre class="highlight plaintext"><code>GtkFileFilter *filter = gtk_file_filter_new ();
@@ -11863,7 +11862,7 @@ gtk_file_filter_add_pattern (filter, "*");
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L4162-L4165">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L4144-L4147">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11882,7 +11881,7 @@ gtk_file_filter_add_pattern (filter, "*");
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Deserialize a file filter from an a{sv} variant in
-the format produced by gtk_file_filter_to_gvariant().</p>
+the format produced by <code>gtk_file_filter_to_gvariant()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -11894,7 +11893,7 @@ the format produced by gtk_file_filter_to_gvariant().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L4169-L4172">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L4151-L4154">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11913,7 +11912,7 @@ the format produced by gtk_file_filter_to_gvariant().</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Deserialize a file filter from an a{sv} variant in
-the format produced by gtk_file_filter_to_gvariant().</p>
+the format produced by <code>gtk_file_filter_to_gvariant()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -11925,7 +11924,7 @@ the format produced by gtk_file_filter_to_gvariant().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L4175-L4178">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L4157-L4160">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11938,7 +11937,7 @@ the format produced by gtk_file_filter_to_gvariant().</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

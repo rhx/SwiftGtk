@@ -11535,24 +11535,25 @@ and activity mode.</p>
 progress, it can use the GtkProgressBar in percentage mode and the
 user sees a growing bar indicating the percentage of the work that
 has been completed. In this mode, the application is required to call
-gtk_progress_bar_set_fraction() periodically to update the progress bar.</p>
+<code>gtk_progress_bar_set_fraction()</code> periodically to update the progress bar.</p>
 
 <p>When an application has no accurate way of knowing the amount of work
 to do, it can use the <code>GtkProgressBar</code> in activity mode, which shows
 activity by a block moving back and forth within the progress area. In
-this mode, the application is required to call gtk_progress_bar_pulse()
+this mode, the application is required to call <code>gtk_progress_bar_pulse()</code>
 periodically to update the progress bar.</p>
 
 <p>There is quite a bit of flexibility provided to control the appearance
 of the <code>GtkProgressBar</code>. Functions are provided to control the orientation
 of the bar, optional text can be displayed along with the bar, and the
 step size used in activity mode can be set.</p>
+<h1 id='css-nodes' class='heading'>CSS nodes</h1>
 
-<p>&ldquo; CSS nodes</p>
-<pre class="highlight swift"><code><span class="n">progressbar</span><span class="p">[</span><span class="o">.</span><span class="n">osd</span><span class="p">]</span>
-<span class="err">├──</span> <span class="p">[</span><span class="n">text</span><span class="p">]</span>
-<span class="err">╰──</span> <span class="n">trough</span><span class="p">[</span><span class="o">.</span><span class="n">empty</span><span class="p">][</span><span class="o">.</span><span class="n">full</span><span class="p">]</span>
-    <span class="err">╰──</span> <span class="n">progress</span><span class="p">[</span><span class="o">.</span><span class="n">pulse</span><span class="p">]</span>
+<p>(plain Language Example):</p>
+<pre class="highlight plaintext"><code>progressbar[.osd]
+├── [text]
+╰── trough[.empty][.full]
+    ╰── progress[.pulse]
 </code></pre>
 
 <p>GtkProgressBar has a main CSS node with name progressbar and subnodes with
@@ -11596,7 +11597,7 @@ For type-safe access, use the generated, typed pointer <code>progress_bar_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L11159">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L11132">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11637,7 +11638,7 @@ For type-safe access, use the generated, typed pointer <code>progress_bar_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L11164-L11165">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L11137-L11138">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11667,7 +11668,7 @@ For type-safe access, use the generated, typed pointer <code>progress_bar_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L11168-L11170">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L11141-L11143">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11698,7 +11699,7 @@ For type-safe access, use the generated, typed pointer <code>progress_bar_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L11174-L11176">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L11147-L11149">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11729,7 +11730,7 @@ For type-safe access, use the generated, typed pointer <code>progress_bar_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L11180-L11182">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L11153-L11155">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11760,7 +11761,7 @@ For type-safe access, use the generated, typed pointer <code>progress_bar_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L11186-L11188">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L11159-L11161">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11791,7 +11792,7 @@ For type-safe access, use the generated, typed pointer <code>progress_bar_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L11192-L11194">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L11165-L11167">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11822,7 +11823,7 @@ For type-safe access, use the generated, typed pointer <code>progress_bar_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L11198-L11200">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L11171-L11173">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11852,7 +11853,7 @@ For type-safe access, use the generated, typed pointer <code>progress_bar_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L11203-L11206">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L11176-L11179">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11865,7 +11866,7 @@ For type-safe access, use the generated, typed pointer <code>progress_bar_ptr</c
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

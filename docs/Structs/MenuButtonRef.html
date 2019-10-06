@@ -11533,13 +11533,13 @@ abstract <code>GMenuModel</code>.</p>
 can hold almost any other standard <code>GtkWidget</code>. The most commonly used
 child is <code>GtkImage</code>. If no widget is explicitely added to the <code>GtkMenuButton</code>,
 a <code>GtkImage</code> is automatically created, using an arrow image oriented
-according to <code>GtkMenuButton</code>:direction or the generic “open-menu-symbolic”
+according to <code>GtkMenuButton:direction</code> or the generic “open-menu-symbolic”
 icon if the direction is not set.</p>
 
-<p>The positioning of the popup is determined by the <code>GtkMenuButton</code>:direction
+<p>The positioning of the popup is determined by the <code>GtkMenuButton:direction</code>
 property of the menu button.</p>
 
-<p>For menus, the <code>GtkWidget</code>:halign and <code>GtkWidget</code>:valign properties of the
+<p>For menus, the <code>GtkWidget:halign</code> and <code>GtkWidget:valign</code> properties of the
 menu are also taken into account. For example, when the direction is
 <code>GTK_ARROW_DOWN</code> and the horizontal alignment is <code>GTK_ALIGN_START</code>, the
 menu will be positioned below the button, with the starting edge
@@ -11547,8 +11547,7 @@ menu will be positioned below the button, with the starting edge
 edge of the button. If there is not enough space below the button, the
 menu is popped up above the button instead. If the alignment would move
 part of the menu offscreen, it is “pushed in”.</p>
-
-<p>&ldquo;` Direction = Down</p>
+<h2 id='direction-down' class='heading'>Direction = Down</h2>
 
 <ul>
 <li><p>halign = start</p>
@@ -11561,8 +11560,7 @@ part of the menu offscreen, it is “pushed in”.</p>
 
 <p><img src="down-end.png" alt=""></p></li>
 </ul>
-
-<p>&rdquo;` Direction = Up</p>
+<h2 id='direction-up' class='heading'>Direction = Up</h2>
 
 <ul>
 <li><p>halign = start</p>
@@ -11575,8 +11573,7 @@ part of the menu offscreen, it is “pushed in”.</p>
 
 <p><img src="up-end.png" alt=""></p></li>
 </ul>
-
-<p>&ldquo;` Direction = Left</p>
+<h2 id='direction-left' class='heading'>Direction = Left</h2>
 
 <ul>
 <li><p>valign = start</p>
@@ -11589,8 +11586,7 @@ part of the menu offscreen, it is “pushed in”.</p>
 
 <p><img src="left-end.png" alt=""></p></li>
 </ul>
-
-<p>&rdquo;` Direction = Right</p>
+<h2 id='direction-right' class='heading'>Direction = Right</h2>
 
 <ul>
 <li><p>valign = start</p>
@@ -11603,8 +11599,7 @@ part of the menu offscreen, it is “pushed in”.</p>
 
 <p><img src="right-end.png" alt=""></p></li>
 </ul>
-
-<p>&ldquo; CSS nodes</p>
+<h1 id='css-nodes' class='heading'>CSS nodes</h1>
 
 <p>GtkMenuButton has a single CSS node with name button. To differentiate
 it from a plain <code>GtkButton</code>, it gets the .popup style class.</p>
@@ -11642,7 +11637,7 @@ For type-safe access, use the generated, typed pointer <code>menu_button_ptr</co
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L1899">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L1897">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11683,7 +11678,7 @@ For type-safe access, use the generated, typed pointer <code>menu_button_ptr</co
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L1904-L1905">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L1902-L1903">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11713,7 +11708,7 @@ For type-safe access, use the generated, typed pointer <code>menu_button_ptr</co
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L1908-L1910">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L1906-L1908">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11744,7 +11739,7 @@ For type-safe access, use the generated, typed pointer <code>menu_button_ptr</co
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L1914-L1916">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L1912-L1914">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11775,7 +11770,7 @@ For type-safe access, use the generated, typed pointer <code>menu_button_ptr</co
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L1920-L1922">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L1918-L1920">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11806,7 +11801,7 @@ For type-safe access, use the generated, typed pointer <code>menu_button_ptr</co
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L1926-L1928">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L1924-L1926">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11837,7 +11832,7 @@ For type-safe access, use the generated, typed pointer <code>menu_button_ptr</co
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L1932-L1934">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L1930-L1932">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11868,7 +11863,7 @@ For type-safe access, use the generated, typed pointer <code>menu_button_ptr</co
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L1938-L1940">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L1936-L1938">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11886,7 +11881,7 @@ For type-safe access, use the generated, typed pointer <code>menu_button_ptr</co
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <pre class="highlight swift"><code><span class="kt">Creates</span> <span class="n">a</span> <span class="k">new</span> <span class="err">`</span><span class="kt">GtkMenuButton</span><span class="err">`</span> <span class="n">widget</span> <span class="n">with</span> <span class="n">downwards</span><span class="o">-</span><span class="n">pointing</span>
+                        <pre class="highlight swift"><code><span class="kt">Creates</span> <span class="n">a</span> <span class="k">new</span> <span class="p">`</span><span class="nv">GtkMenuButton</span><span class="p">`</span> <span class="n">widget</span> <span class="n">with</span> <span class="n">downwards</span><span class="o">-</span><span class="n">pointing</span>
 </code></pre>
 
 <p>arrow as the only child. You can replace the child widget
@@ -11902,7 +11897,7 @@ with another <code>GtkWidget</code> should you wish to.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L1945-L1948">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L1943-L1946">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11915,7 +11910,7 @@ with another <code>GtkWidget</code> should you wish to.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

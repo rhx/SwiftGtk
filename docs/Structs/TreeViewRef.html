@@ -11528,7 +11528,7 @@ Use <code>TreeViewRef</code> only as an <code>unowned</code> reference to an exi
 <p>Widget that displays any object that implements the <code>GtkTreeModel</code> interface.</p>
 
 <p>Please refer to the
-[tree widget conceptual overview][TreeWidget]
+<a href="#TreeWidget">tree widget conceptual overview</a>
 for an overview of all the objects and data types related
 to the tree widget and how they work together.</p>
 
@@ -11549,11 +11549,10 @@ coordinates start at (0, 0) for row 0 of the tree.</p></li>
 <p>Several functions are available for converting between the different
 coordinate systems.  The most common translations are between widget and bin
 window coordinates and between bin window and tree coordinates. For the
-former you can use gtk_tree_view_convert_widget_to_bin_window_coords()
-(and vice versa), for the latter gtk_tree_view_convert_bin_window_to_tree_coords()
+former you can use <code>gtk_tree_view_convert_widget_to_bin_window_coords()</code>
+(and vice versa), for the latter <code>gtk_tree_view_convert_bin_window_to_tree_coords()</code>
 (and vice versa).</p>
-
-<p>&ldquo; GtkTreeView as GtkBuildable</p>
+<h1 id='gtktreeview-as-gtkbuildable' class='heading'>GtkTreeView as GtkBuildable</h1>
 
 <p>The GtkTreeView implementation of the GtkBuildable interface accepts
 <code>GtkTreeViewColumn</code> objects as <child> elements and exposes the internal
@@ -11580,15 +11579,16 @@ former you can use gtk_tree_view_convert_widget_to_bin_window_coords()
   <span class="o">&lt;/</span><span class="n">child</span><span class="o">&gt;</span>
 <span class="o">&lt;/</span><span class="n">object</span><span class="o">&gt;</span>
 </code></pre>
+<h1 id='css-nodes' class='heading'>CSS nodes</h1>
 
-<p>&rdquo; CSS nodes</p>
-<pre class="highlight swift"><code><span class="n">treeview</span><span class="o">.</span><span class="n">view</span>
-<span class="err">├──</span> <span class="n">header</span>
-<span class="err">│</span>   <span class="err">├──</span> <span class="o">&lt;</span><span class="n">column</span> <span class="n">header</span><span class="o">&gt;</span>
-<span class="err">┊</span>   <span class="err">┊</span>
-<span class="err">│</span>   <span class="err">╰──</span> <span class="o">&lt;</span><span class="n">column</span> <span class="n">header</span><span class="o">&gt;</span>
-<span class="err">│</span>
-<span class="err">╰──</span> <span class="p">[</span><span class="n">rubberband</span><span class="p">]</span>
+<p>(plain Language Example):</p>
+<pre class="highlight plaintext"><code>treeview.view
+├── header
+│   ├── &lt;column header&gt;
+┊   ┊
+│   ╰── &lt;column header&gt;
+│
+╰── [rubberband]
 </code></pre>
 
 <p>GtkTreeView has a main CSS node with name treeview and style class .view.
@@ -11629,7 +11629,7 @@ For type-safe access, use the generated, typed pointer <code>tree_view_ptr</code
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L22702">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L22665">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11670,7 +11670,7 @@ For type-safe access, use the generated, typed pointer <code>tree_view_ptr</code
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L22707-L22708">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L22670-L22671">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11700,7 +11700,7 @@ For type-safe access, use the generated, typed pointer <code>tree_view_ptr</code
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L22711-L22713">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L22674-L22676">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11731,7 +11731,7 @@ For type-safe access, use the generated, typed pointer <code>tree_view_ptr</code
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L22717-L22719">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L22680-L22682">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11762,7 +11762,7 @@ For type-safe access, use the generated, typed pointer <code>tree_view_ptr</code
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L22723-L22725">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L22686-L22688">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11793,7 +11793,7 @@ For type-safe access, use the generated, typed pointer <code>tree_view_ptr</code
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L22729-L22731">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L22692-L22694">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11824,7 +11824,7 @@ For type-safe access, use the generated, typed pointer <code>tree_view_ptr</code
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L22735-L22737">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L22698-L22700">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11855,7 +11855,7 @@ For type-safe access, use the generated, typed pointer <code>tree_view_ptr</code
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L22741-L22743">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L22704-L22706">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11885,7 +11885,7 @@ For type-safe access, use the generated, typed pointer <code>tree_view_ptr</code
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L22746-L22749">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L22709-L22712">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11915,7 +11915,7 @@ For type-safe access, use the generated, typed pointer <code>tree_view_ptr</code
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L22752-L22755">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L22715-L22718">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11945,7 +11945,7 @@ For type-safe access, use the generated, typed pointer <code>tree_view_ptr</code
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L22757-L22760">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L22720-L22723">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11958,7 +11958,7 @@ For type-safe access, use the generated, typed pointer <code>tree_view_ptr</code
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

@@ -11558,7 +11558,7 @@ Use #GSimpleAction::activate instead</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L13294">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L13265">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11576,8 +11576,8 @@ Use #GSimpleAction::activate instead</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The ::changed signal is emitted on every member of a radio group when the
-active member is changed. The signal gets emitted after the ::activate signals
+                        <p>The <code>changed</code> signal is emitted on every member of a radio group when the
+active member is changed. The signal gets emitted after the <code><a href="../Enums/RadioActionSignalName.html#/s:3Gtk21RadioActionSignalNameO8activateyA2CmF">activate</a></code> signals
 for the previous and current active members.</p>
 
 <p><strong>changed is deprecated:</strong>
@@ -11593,7 +11593,7 @@ This method is deprecated.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L13301">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L13272">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11612,20 +11612,20 @@ This method is deprecated.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>The notify signal is emitted on an object when one of its properties has
-its value set through g_object_set_property(), g_object_set(), et al.</p>
+its value set through <code>g_object_set_property()</code>, <code>g_object_set()</code>, et al.</p>
 
 <p>Note that getting this signal doesn’t itself guarantee that the value of
 the property has actually changed. When it is emitted is determined by the
 derived GObject class. If the implementor did not create the property with
-<code>G_PARAM_EXPLICIT_NOTIFY</code>, then any call to g_object_set_property() results
-in ::notify being emitted, even if the new value is the same as the old.
+<code>G_PARAM_EXPLICIT_NOTIFY</code>, then any call to <code>g_object_set_property()</code> results
+in <code>notify</code> being emitted, even if the new value is the same as the old.
 If they did pass <code>G_PARAM_EXPLICIT_NOTIFY</code>, then this signal is emitted only
-when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+when they explicitly call <code>g_object_notify()</code> or <code>g_object_notify_by_pspec()</code>,
 and common practice is to do that only when the value has actually changed.</p>
 
 <p>This signal is typically used to obtain change notification for a
 single property, by specifying the property name as a detail in the
-g_signal_connect() call, like this:
+<code>g_signal_connect()</code> call, like this:
 (C Language Example):</p>
 <pre class="highlight plaintext"><code>g_signal_connect (text_view-&gt;buffer, "notify::paste-target-list",
                   G_CALLBACK (gtk_text_view_target_list_notify),
@@ -11633,7 +11633,7 @@ g_signal_connect() call, like this:
 </code></pre>
 
 <p>It is important to note that you must use
-[canonical parameter names][canonical-parameter-names] as
+<a href="#canonical-parameter-names">canonical parameter names</a> as
 detail strings for the notify signal.</p>
 
                       </div>
@@ -11646,7 +11646,7 @@ detail strings for the notify signal.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L13327">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L13297">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11680,7 +11680,7 @@ This method is deprecated.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L13333">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L13303">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11715,7 +11715,7 @@ instead</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L13340">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L13310">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11748,7 +11748,7 @@ This method is deprecated.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L13345">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L13315">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11766,7 +11766,7 @@ This method is deprecated.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>If <code>true</code>, the action&rsquo;s menu item proxies will ignore the <code>GtkSettings</code>:gtk-menu-images
+                        <p>If <code>true</code>, the action&rsquo;s menu item proxies will ignore the <code>GtkSettings:gtk</code>-menu-images
 setting and always show their image, if available.</p>
 
 <p>Use this property if the menu item would be useless or hard to use
@@ -11786,7 +11786,7 @@ There is no corresponding replacement when using</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L13355">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L13325">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11820,7 +11820,7 @@ This method is deprecated.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L13361">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L13331">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11841,7 +11841,7 @@ This method is deprecated.</p>
                         <p>Whether the proxies for this action look like radio action proxies.</p>
 
 <p>This is an appearance property and thus only applies if
-<code>GtkActivatable</code>:use-action-appearance is <code>true</code>.</p>
+<code>GtkActivatable:use</code>-action-appearance is <code>true</code>.</p>
 
 <p><strong>draw-as-radio is deprecated:</strong>
 This method is deprecated.</p>
@@ -11856,7 +11856,7 @@ This method is deprecated.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L13369">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L13339">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11876,11 +11876,11 @@ This method is deprecated.</p>
                       <div class="abstract">
                         <p>The <code>GIcon</code> displayed in the <code>GtkAction</code>.</p>
 
-<p>Note that the stock icon is preferred, if the <code>GtkAction</code>:stock-id
+<p>Note that the stock icon is preferred, if the <code>GtkAction:stock</code>-id
 property holds the id of an existing stock icon.</p>
 
 <p>This is an appearance property and thus only applies if
-<code>GtkActivatable</code>:use-action-appearance is <code>true</code>.</p>
+<code>GtkActivatable:use</code>-action-appearance is <code>true</code>.</p>
 
 <p><strong>gicon is deprecated:</strong>
 Use the <q>icon</q> attribute on a #GMenuItem instead</p>
@@ -11895,7 +11895,7 @@ Use the <q>icon</q> attribute on a #GMenuItem instead</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L13380">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L13350">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11928,7 +11928,7 @@ This method is deprecated.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L13385">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L13355">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11962,7 +11962,7 @@ There is no corresponding replacement when using</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L13391">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L13361">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11982,12 +11982,12 @@ There is no corresponding replacement when using</p>
                       <div class="abstract">
                         <p>The name of the icon from the icon theme.</p>
 
-<p>Note that the stock icon is preferred, if the <code>GtkAction</code>:stock-id
+<p>Note that the stock icon is preferred, if the <code>GtkAction:stock</code>-id
 property holds the id of an existing stock icon, and the <code>GIcon</code> is
-preferred if the <code>GtkAction</code>:gicon property is set.</p>
+preferred if the <code>GtkAction:gicon</code> property is set.</p>
 
 <p>This is an appearance property and thus only applies if
-<code>GtkActivatable</code>:use-action-appearance is <code>true</code>.</p>
+<code>GtkActivatable:use</code>-action-appearance is <code>true</code>.</p>
 
 <p><strong>icon-name is deprecated:</strong>
 Use the <q>icon</q> attribute on a #GMenuItem instead</p>
@@ -12002,7 +12002,7 @@ Use the <q>icon</q> attribute on a #GMenuItem instead</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L13403">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L13373">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12037,7 +12037,7 @@ There is no corresponding replacement when using</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L13410">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L13380">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12060,7 +12060,7 @@ this action. If the label is <code>nil</code>, GTK+ uses the stock
 label specified via the stock-id property.</p>
 
 <p>This is an appearance property and thus only applies if
-<code>GtkActivatable</code>:use-action-appearance is <code>true</code>.</p>
+<code>GtkActivatable:use</code>-action-appearance is <code>true</code>.</p>
 
 <p><strong>label is deprecated:</strong>
 Use the <q>label</q> attribute on #GMenuItem instead</p>
@@ -12075,7 +12075,7 @@ Use the <q>label</q> attribute on #GMenuItem instead</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L13420">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L13390">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12108,7 +12108,7 @@ Use #GAction:name instead</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L13425">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L13395">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12142,7 +12142,7 @@ instead</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L13431">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L13401">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12163,7 +12163,7 @@ instead</p>
                         <p>A shorter label that may be used on toolbar buttons.</p>
 
 <p>This is an appearance property and thus only applies if
-<code>GtkActivatable</code>:use-action-appearance is <code>true</code>.</p>
+<code>GtkActivatable:use</code>-action-appearance is <code>true</code>.</p>
 
 <p><strong>short-label is deprecated:</strong>
 There is no corresponding replacement when using</p>
@@ -12179,7 +12179,7 @@ There is no corresponding replacement when using</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L13440">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L13410">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12200,7 +12200,7 @@ There is no corresponding replacement when using</p>
                         <p>The stock icon displayed in widgets representing this action.</p>
 
 <p>This is an appearance property and thus only applies if
-<code>GtkActivatable</code>:use-action-appearance is <code>true</code>.</p>
+<code>GtkActivatable:use</code>-action-appearance is <code>true</code>.</p>
 
 <p><strong>stock-id is deprecated:</strong>
 There is no corresponding replacement when using</p>
@@ -12216,7 +12216,7 @@ There is no corresponding replacement when using</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L13449">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L13419">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12249,7 +12249,7 @@ Use gtk_widget_set_tooltip_text() instead</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L13454">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L13424">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12269,8 +12269,8 @@ Use gtk_widget_set_tooltip_text() instead</p>
                       <div class="abstract">
                         <p>The value is an arbitrary integer which can be used as a
 convenient way to determine which action in the group is
-currently active in an ::activate or ::changed signal handler.
-See gtk_radio_action_get_current_value() and <code>GtkRadioActionEntry</code>
+currently active in an <code><a href="../Enums/RadioActionSignalName.html#/s:3Gtk21RadioActionSignalNameO8activateyA2CmF">activate</a></code> or <code><a href="../Enums/RadioActionSignalName.html#/s:3Gtk21RadioActionSignalNameO7changedyA2CmF">changed</a></code> signal handler.
+See <code>gtk_radio_action_get_current_value()</code> and <code>GtkRadioActionEntry</code>
 for convenient ways to get and set this property.</p>
 
 <p><strong>value is deprecated:</strong>
@@ -12286,7 +12286,7 @@ This method is deprecated.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L13463">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L13433">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12320,7 +12320,7 @@ There is no corresponding replacement when using</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L13469">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L13439">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12354,7 +12354,7 @@ There is no corresponding replacement when using</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L13475">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L13445">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12389,7 +12389,7 @@ There is no corresponding replacement when using</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L13482">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L13452">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12423,7 +12423,7 @@ There is no corresponding replacement when using</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L13488">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L13458">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12436,7 +12436,7 @@ There is no corresponding replacement when using</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

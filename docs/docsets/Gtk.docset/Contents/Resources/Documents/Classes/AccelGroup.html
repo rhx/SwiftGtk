@@ -11527,7 +11527,7 @@ Use <code>AccelGroup</code> as a strong reference or owner of a <code>GtkAccelGr
 
 <p>A <code>GtkAccelGroup</code> represents a group of keyboard accelerators,
 typically attached to a toplevel <code>GtkWindow</code> (with
-gtk_window_add_accel_group()). Usually you won’t need to create a
+<code>gtk_window_add_accel_group()</code>). Usually you won’t need to create a
 <code>GtkAccelGroup</code> directly; instead, when using <code>GtkUIManager</code>, GTK+
 automatically sets up the accelerators for your menus in the ui
 manager’s <code>GtkAccelGroup</code>.</p>
@@ -11538,7 +11538,7 @@ activating a menu item; they appear alongside the menu item they’re a
 shortcut for. For example “Ctrl+Q” might appear alongside the “Quit”
 menu item. Mnemonics are shortcuts for GUI elements such as text
 entries or buttons; they appear as underlined characters. See
-gtk_label_new_with_mnemonic(). Menu items can have both accelerators
+<code>gtk_label_new_with_mnemonic()</code>. Menu items can have both accelerators
 and mnemonics, of course.</p>
 
           </div>
@@ -11574,7 +11574,7 @@ Ownership is transferred to the <code>AccelGroup</code> instance.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L2267-L2269">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L2261-L2263">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11600,12 +11600,12 @@ Will retain <code>GtkAccelGroup</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">other</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AccelGroupProtocol.html">AccelGroupProtocol</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">other</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AccelGroupProtocol.html">AccelGroupProtocol</a></span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L2273-L2276">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L2267-L2270">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11631,12 +11631,12 @@ Will retain <code>GtkAccelGroup</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">cPointer</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">cPointer</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L2280-L2282">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L2274-L2276">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11662,12 +11662,12 @@ Will retain <code>GtkAccelGroup</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeRawPointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L2286-L2288">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L2280-L2282">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11693,12 +11693,12 @@ Will retain <code>GtkAccelGroup</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L2292-L2294">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L2286-L2288">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11724,12 +11724,12 @@ Will retain <code>GtkAccelGroup</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">opaquePointer</span><span class="p">:</span> <span class="kt">OpaquePointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">opaquePointer</span><span class="p">:</span> <span class="kt">OpaquePointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L2298-L2300">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L2292-L2294">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11754,12 +11754,12 @@ Will retain <code>GtkAccelGroup</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">()</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L2303-L2306">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L2297-L2300">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11778,7 +11778,7 @@ Will retain <code>GtkAccelGroup</code>.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Finds the <code>GtkAccelGroup</code> to which <code>closure</code> is connected;
-see gtk_accel_group_connect().</p>
+see <code>gtk_accel_group_connect()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -11790,7 +11790,7 @@ see gtk_accel_group_connect().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L2310-L2313">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L2304-L2307">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11803,7 +11803,7 @@ see gtk_accel_group_connect().</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

@@ -11531,27 +11531,26 @@ accelerator key on the right of the label text, e.g. “Ctrl+S”.
 It is commonly used in menus to show the keyboard short-cuts for commands.</p>
 
 <p>The accelerator key to display is typically not set explicitly (although it
-can be, with gtk_accel_label_set_accel()). Instead, the <code>GtkAccelLabel</code> displays
+can be, with <code>gtk_accel_label_set_accel()</code>). Instead, the <code>GtkAccelLabel</code> displays
 the accelerators which have been added to a particular widget. This widget is
-set by calling gtk_accel_label_set_accel_widget().</p>
+set by calling <code>gtk_accel_label_set_accel_widget()</code>.</p>
 
 <p>For example, a <code>GtkMenuItem</code> widget may have an accelerator added to emit
 the “activate” signal when the “Ctrl+S” key combination is pressed.
 A <code>GtkAccelLabel</code> is created and added to the <code>GtkMenuItem</code>, and
-gtk_accel_label_set_accel_widget() is called with the <code>GtkMenuItem</code> as the
+<code>gtk_accel_label_set_accel_widget()</code> is called with the <code>GtkMenuItem</code> as the
 second argument. The <code>GtkAccelLabel</code> will now display “Ctrl+S” after its label.</p>
 
-<p>Note that creating a <code>GtkMenuItem</code> with gtk_menu_item_new_with_label() (or
+<p>Note that creating a <code>GtkMenuItem</code> with <code>gtk_menu_item_new_with_label()</code> (or
 one of the similar functions for <code>GtkCheckMenuItem</code> and <code>GtkRadioMenuItem</code>)
 automatically adds a <code>GtkAccelLabel</code> to the <code>GtkMenuItem</code> and calls
-gtk_accel_label_set_accel_widget() to set it up for you.</p>
+<code>gtk_accel_label_set_accel_widget()</code> to set it up for you.</p>
 
 <p>A <code>GtkAccelLabel</code> will only display accelerators which have <code>GTK_ACCEL_VISIBLE</code>
 set (see <code>GtkAccelFlags</code>).
 A <code>GtkAccelLabel</code> can display multiple accelerators and even signal names,
 though it is almost always used to display just one accelerator key.</p>
-
-<p>&ldquo;` Creating a simple menu item with an accelerator key.</p>
+<h2 id='creating-a-simple-menu-item-with-an-accelerator-key' class='heading'>Creating a simple menu item with an accelerator key.</h2>
 
 <p>(C Language Example):</p>
 <pre class="highlight plaintext"><code>  GtkWidget *window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
@@ -11576,10 +11575,11 @@ though it is almost always used to display just one accelerator key.</p>
   gtk_widget_add_accelerator (save_item, "activate", accel_group,
                               GDK_KEY_s, GDK_CONTROL_MASK, GTK_ACCEL_VISIBLE);
 </code></pre>
+<h1 id='css-nodes' class='heading'>CSS nodes</h1>
 
-<p>&rdquo; CSS nodes</p>
-<pre class="highlight swift"><code><span class="n">label</span>
-<span class="err">╰──</span> <span class="n">accelerator</span>
+<p>(plain Language Example):</p>
+<pre class="highlight plaintext"><code>label
+╰── accelerator
 </code></pre>
 
 <p>Like <code>GtkLabel</code>, GtkAccelLabel has a main CSS node with the name label.
@@ -11617,7 +11617,7 @@ It adds a subnode with name accelerator.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L2629">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L2621">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11655,7 +11655,7 @@ It adds a subnode with name accelerator.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L2632">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L2624">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11783,7 +11783,7 @@ It adds a subnode with name accelerator.</p>
                         <p>binding reference or <code>nil</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L3163-L3187">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L3153-L3177">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11875,7 +11875,7 @@ It adds a subnode with name accelerator.</p>
                         <p>positive handler ID, or a value less than or equal to <code>0</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L4124-L4143">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L4113-L4132">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11908,7 +11908,7 @@ It adds a subnode with name accelerator.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Gets the keyval and modifier mask set with
-gtk_accel_label_set_accel().</p>
+<code>gtk_accel_label_set_accel()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -11920,7 +11920,7 @@ gtk_accel_label_set_accel().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L4152-L4155">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L4141-L4144">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11942,7 +11942,7 @@ gtk_accel_label_set_accel().</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Fetches the widget monitored by this accelerator label. See
-gtk_accel_label_set_accel_widget().</p>
+<code>gtk_accel_label_set_accel_widget()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -11954,7 +11954,7 @@ gtk_accel_label_set_accel_widget().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L4159-L4162">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L4148-L4151">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11975,7 +11975,7 @@ gtk_accel_label_set_accel_widget().</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns the width needed to display the accelerator key(s).
+                        <p>Returns the width needed to display the accelerator <code>key(s)</code>.
 This is used by menus to align all of the <code>GtkMenuItem</code> widgets, and shouldn&rsquo;t
 be needed by applications.</p>
 
@@ -11989,7 +11989,7 @@ be needed by applications.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L4167-L4170">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L4156-L4159">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12024,7 +12024,7 @@ accelerators are added or removed from the associated widget.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L4175-L4178">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L4164-L4167">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12064,7 +12064,7 @@ used regardless of any associated accel closure or widget.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L4187-L4190">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L4176-L4179">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12086,7 +12086,7 @@ used regardless of any associated accel closure or widget.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Sets the closure to be monitored by this accelerator label. The closure
-must be connected to an accelerator group; see gtk_accel_group_connect().
+must be connected to an accelerator group; see <code>gtk_accel_group_connect()</code>.
 Passing <code>nil</code> for <code>accel_closure</code> will dissociate <code>accel_label</code> from its
 current closure, if any.</p>
 
@@ -12100,7 +12100,7 @@ current closure, if any.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L4196-L4199">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L4185-L4188">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12134,7 +12134,7 @@ current closure, if any.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L4203-L4206">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L4192-L4195">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12156,7 +12156,7 @@ current closure, if any.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Fetches the widget monitored by this accelerator label. See
-gtk_accel_label_set_accel_widget().</p>
+<code>gtk_accel_label_set_accel_widget()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12168,7 +12168,7 @@ gtk_accel_label_set_accel_widget().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L4209-L4221">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L4198-L4210">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12189,7 +12189,7 @@ gtk_accel_label_set_accel_widget().</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns the width needed to display the accelerator key(s).
+                        <p>Returns the width needed to display the accelerator <code>key(s)</code>.
 This is used by menus to align all of the <code>GtkMenuItem</code> widgets, and shouldn&rsquo;t
 be needed by applications.</p>
 
@@ -12203,7 +12203,7 @@ be needed by applications.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L4226-L4234">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L4215-L4223">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12216,7 +12216,7 @@ be needed by applications.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

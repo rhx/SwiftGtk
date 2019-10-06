@@ -11530,21 +11530,19 @@ Alternatively, use <code><a href="../Structs/ActivatableRef.html">ActivatableRef
 the state of its action. A <code>GtkActivatable</code> can also provide feedback
 through its action, as they are responsible for activating their
 related actions.</p>
-
-<p>&ldquo; Implementing GtkActivatable</p>
+<h1 id='implementing-gtkactivatable' class='heading'>Implementing GtkActivatable</h1>
 
 <p>When extending a class that is already <code>GtkActivatable</code>; it is only
-necessary to implement the <code>GtkActivatable</code>-&gt;sync_action_properties()
-and <code>GtkActivatable</code>-&gt;update() methods and chain up to the parent
+necessary to implement the <code>GtkActivatable</code><code>-&gt;sync_action_properties()</code>
+and <code>GtkActivatable</code><code>-&gt;update()</code> methods and chain up to the parent
 implementation, however when introducing
-a new <code>GtkActivatable</code> class; the <code>GtkActivatable</code>:related-action and
-<code>GtkActivatable</code>:use-action-appearance properties need to be handled by
+a new <code>GtkActivatable</code> class; the <code>GtkActivatable:related</code>-action and
+<code>GtkActivatable:use</code>-action-appearance properties need to be handled by
 the implementor. Handling these properties is mostly a matter of installing
 the action pointer and boolean flag on your instance, and calling
-gtk_activatable_do_set_related_action() and
-gtk_activatable_sync_action_properties() at the appropriate times.</p>
-
-<p>&rdquo;<code>A class fragment implementing</code>GtkActivatable`</p>
+<code>gtk_activatable_do_set_related_action()</code> and
+<code>gtk_activatable_sync_action_properties()</code> at the appropriate times.</p>
+<h2 id='a-class-fragment-implementing-code-gtkactivatable-code' class='heading'>A class fragment implementing <code>GtkActivatable</code></h2>
 
 <p>(C Language Example):</p>
 <pre class="highlight plaintext"><code>
@@ -11793,7 +11791,7 @@ foo_bar_activatable_update (GtkActivatable       *activatable,
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Actionable-Buildable.swift#L1596">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Actionable-Buildable.swift#L1595">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11831,7 +11829,7 @@ foo_bar_activatable_update (GtkActivatable       *activatable,
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Actionable-Buildable.swift#L1599">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Actionable-Buildable.swift#L1598">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11959,7 +11957,7 @@ foo_bar_activatable_update (GtkActivatable       *activatable,
                         <p>binding reference or <code>nil</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Actionable-Buildable.swift#L2216-L2240">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Actionable-Buildable.swift#L2215-L2239">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12051,7 +12049,7 @@ foo_bar_activatable_update (GtkActivatable       *activatable,
                         <p>positive handler ID, or a value less than or equal to <code>0</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Actionable-Buildable.swift#L2276-L2295">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Actionable-Buildable.swift#L2275-L2294">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12086,18 +12084,18 @@ foo_bar_activatable_update (GtkActivatable       *activatable,
                         <p>This is a utility function for <code>GtkActivatable</code> implementors.</p>
 
 <p>When implementing <code>GtkActivatable</code> you must call this when
-handling changes of the <code>GtkActivatable</code>:related-action, and
-you must also use this to break references in <code>GObject</code>-&gt;dispose().</p>
+handling changes of the <code>GtkActivatable:related</code>-action, and
+you must also use this to break references in <code>GObject</code><code>-&gt;dispose()</code>.</p>
 
 <p>This function adds a reference to the currently set related
-action for you, it also makes sure the <code>GtkActivatable</code>-&gt;update()
+action for you, it also makes sure the <code>GtkActivatable</code><code>-&gt;update()</code>
 method is called when the related <code>GtkAction</code> properties change
 and registers to the action’s proxy list.</p>
 
 <blockquote>
 <p>Be careful to call this before setting the local
 copy of the <code>GtkAction</code> property, since this function uses
-gtk_activatable_get_related_action() to retrieve the
+<code>gtk_activatable_get_related_action()</code> to retrieve the
 previous action.</p>
 </blockquote>
 
@@ -12109,13 +12107,13 @@ This method is deprecated.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">doSetRelated</span><span class="p">(</span><span class="nv">action</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ActionProtocol.html">ActionProtocol</a></span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Actionable-Buildable.swift#L2320-L2323">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Actionable-Buildable.swift#L2319-L2322">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12146,13 +12144,13 @@ This method is deprecated.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">getRelatedAction</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">GtkAction</span><span class="o">&gt;!</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Actionable-Buildable.swift#L2329-L2332">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Actionable-Buildable.swift#L2328-L2331">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12185,13 +12183,13 @@ This method is deprecated.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">getUseActionAppearance</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Actionable-Buildable.swift#L2340-L2343">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Actionable-Buildable.swift#L2339-L2342">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12215,8 +12213,8 @@ This method is deprecated.</p>
                         <p>Sets the related action on the <code>activatable</code> object.</p>
 
 <blockquote>
-<p><code>GtkActivatable</code> implementors need to handle the <code>GtkActivatable</code>:related-action
-property and call gtk_activatable_do_set_related_action() when it changes.</p>
+<p><code>GtkActivatable</code> implementors need to handle the <code>GtkActivatable:related</code>-action
+property and call <code>gtk_activatable_do_set_related_action()</code> when it changes.</p>
 </blockquote>
 
 <p><strong>set_related_action is deprecated:</strong>
@@ -12227,13 +12225,13 @@ This method is deprecated.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">setRelated</span><span class="p">(</span><span class="nv">action</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ActionProtocol.html">ActionProtocol</a></span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Actionable-Buildable.swift#L2352-L2355">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Actionable-Buildable.swift#L2351-L2354">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12259,8 +12257,8 @@ when setting the related action or when the action changes appearance</p>
 
 <blockquote>
 <p><code>GtkActivatable</code> implementors need to handle the
-<code>GtkActivatable</code>:use-action-appearance property and call
-gtk_activatable_sync_action_properties() to update <code>activatable</code>
+<code>GtkActivatable:use</code>-action-appearance property and call
+<code>gtk_activatable_sync_action_properties()</code> to update <code>activatable</code>
 if needed.</p>
 </blockquote>
 
@@ -12272,13 +12270,13 @@ This method is deprecated.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">setUseActionAppearance</span><span class="p">(</span><span class="n">useAppearance</span> <span class="nv">use_appearance</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Actionable-Buildable.swift#L2367-L2370">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Actionable-Buildable.swift#L2366-L2369">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12300,9 +12298,9 @@ This method is deprecated.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>This is called to update the activatable completely, this is called
-internally when the <code>GtkActivatable</code>:related-action property is set
+internally when the <code>GtkActivatable:related</code>-action property is set
 or unset and by the implementing class when
-<code>GtkActivatable</code>:use-action-appearance changes.</p>
+<code>GtkActivatable:use</code>-action-appearance changes.</p>
 
 <p><strong>sync_action_properties is deprecated:</strong>
 This method is deprecated.</p>
@@ -12312,13 +12310,13 @@ This method is deprecated.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">syncActionProperties</span><span class="p">(</span><span class="nv">action</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ActionProtocol.html">ActionProtocol</a></span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Actionable-Buildable.swift#L2379-L2382">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Actionable-Buildable.swift#L2378-L2381">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12354,7 +12352,7 @@ This method is deprecated.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Actionable-Buildable.swift#L2387-L2406">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Actionable-Buildable.swift#L2386-L2405">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12392,7 +12390,7 @@ This method is deprecated.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Actionable-Buildable.swift#L2414-L2438">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Actionable-Buildable.swift#L2413-L2437">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12405,7 +12403,7 @@ This method is deprecated.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

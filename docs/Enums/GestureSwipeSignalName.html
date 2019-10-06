@@ -11544,8 +11544,8 @@
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>This signal is emitted when the gesture is recognized. This means the
-number of touch sequences matches <code>GtkGesture</code>:n-points, and the <code>GtkGesture</code>::check
-handler(s) returned <code>TRUE</code>.</p>
+number of touch sequences matches <code>GtkGesture:n</code>-points, and the <code>GtkGesture::check</code>
+<code>handler(s)</code> returned <code>TRUE</code>.</p>
 
 <p>Note: These conditions may also happen when an extra touch (eg. a third touch
 on a 2-touches gesture) is lifted, in that situation <code>sequence</code> won&rsquo;t pertain
@@ -11561,7 +11561,7 @@ to the current set of active touches, so don&rsquo;t rely on this being true.</p
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L3504">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L3495">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11580,9 +11580,9 @@ to the current set of active touches, so don&rsquo;t rely on this being true.</p
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>This signal is emitted whenever a sequence is cancelled. This usually
-happens on active touches when gtk_event_controller_reset() is called
+happens on active touches when <code>gtk_event_controller_reset()</code> is called
 on <code>gesture</code> (manually, due to grabs&hellip;), or the individual <code>sequence</code>
-was claimed by parent widgets&rsquo; controllers (see gtk_gesture_set_sequence_state()).</p>
+was claimed by parent widgets&rsquo; controllers (see <code>gtk_gesture_set_sequence_state()</code>).</p>
 
 <p><code>gesture</code> must forget everything about <code>sequence</code> as a reaction to this signal.</p>
 
@@ -11596,7 +11596,7 @@ was claimed by parent widgets&rsquo; controllers (see gtk_gesture_set_sequence_s
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L3511">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L3502">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11615,14 +11615,14 @@ was claimed by parent widgets&rsquo; controllers (see gtk_gesture_set_sequence_s
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>This signal is emitted when <code>gesture</code> either stopped recognizing the event
-sequences as something to be handled (the <code>GtkGesture</code>::check handler returned
+sequences as something to be handled (the <code>GtkGesture::check</code> handler returned
 <code>false</code>), or the number of touch sequences became higher or lower than
-<code>GtkGesture</code>:n-points.</p>
+<code>GtkGesture:n</code>-points.</p>
 
 <p>Note: <code>sequence</code> might not pertain to the group of sequences that were
 previously triggering recognition on <code>gesture</code> (ie. a just pressed touch
-sequence that exceeds <code>GtkGesture</code>:n-points). This situation may be detected
-by checking through gtk_gesture_handles_sequence().</p>
+sequence that exceeds <code>GtkGesture:n</code>-points). This situation may be detected
+by checking through <code>gtk_gesture_handles_sequence()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -11634,7 +11634,7 @@ by checking through gtk_gesture_handles_sequence().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L3521">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L3512">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11653,20 +11653,20 @@ by checking through gtk_gesture_handles_sequence().</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>The notify signal is emitted on an object when one of its properties has
-its value set through g_object_set_property(), g_object_set(), et al.</p>
+its value set through <code>g_object_set_property()</code>, <code>g_object_set()</code>, et al.</p>
 
 <p>Note that getting this signal doesn’t itself guarantee that the value of
 the property has actually changed. When it is emitted is determined by the
 derived GObject class. If the implementor did not create the property with
-<code>G_PARAM_EXPLICIT_NOTIFY</code>, then any call to g_object_set_property() results
-in ::notify being emitted, even if the new value is the same as the old.
+<code>G_PARAM_EXPLICIT_NOTIFY</code>, then any call to <code>g_object_set_property()</code> results
+in <code>notify</code> being emitted, even if the new value is the same as the old.
 If they did pass <code>G_PARAM_EXPLICIT_NOTIFY</code>, then this signal is emitted only
-when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+when they explicitly call <code>g_object_notify()</code> or <code>g_object_notify_by_pspec()</code>,
 and common practice is to do that only when the value has actually changed.</p>
 
 <p>This signal is typically used to obtain change notification for a
 single property, by specifying the property name as a detail in the
-g_signal_connect() call, like this:
+<code>g_signal_connect()</code> call, like this:
 (C Language Example):</p>
 <pre class="highlight plaintext"><code>g_signal_connect (text_view-&gt;buffer, "notify::paste-target-list",
                   G_CALLBACK (gtk_text_view_target_list_notify),
@@ -11674,7 +11674,7 @@ g_signal_connect() call, like this:
 </code></pre>
 
 <p>It is important to note that you must use
-[canonical parameter names][canonical-parameter-names] as
+<a href="#canonical-parameter-names">canonical parameter names</a> as
 detail strings for the notify signal.</p>
 
                       </div>
@@ -11687,7 +11687,7 @@ detail strings for the notify signal.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L3547">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L3537">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11706,7 +11706,7 @@ detail strings for the notify signal.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>This signal is emitted whenever a sequence state changes. See
-gtk_gesture_set_sequence_state() to know more about the expectable
+<code>gtk_gesture_set_sequence_state()</code> to know more about the expectable
 sequence lifetimes.</p>
 
                       </div>
@@ -11719,7 +11719,7 @@ sequence lifetimes.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L3551">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L3541">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11750,7 +11750,7 @@ and direction are a product of previously recorded events.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L3554">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L3544">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11781,7 +11781,7 @@ recognized. <code>sequence</code> is guaranteed to pertain to the set of active 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L3557">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L3547">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11811,7 +11811,7 @@ recognized. <code>sequence</code> is guaranteed to pertain to the set of active 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L3559">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L3549">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11842,7 +11842,7 @@ and pointer emulated events.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L3562">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L3552">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11872,7 +11872,7 @@ and pointer emulated events.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L3564">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L3554">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11902,7 +11902,7 @@ and pointer emulated events.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L3566">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L3556">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11932,7 +11932,7 @@ and pointer emulated events.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L3568">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L3558">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11962,7 +11962,7 @@ and pointer emulated events.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L3570">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L3560">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11993,7 +11993,7 @@ this <code>GdkWindow</code>, or a child of it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L3573">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L3563">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12006,7 +12006,7 @@ this <code>GdkWindow</code>, or a child of it.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

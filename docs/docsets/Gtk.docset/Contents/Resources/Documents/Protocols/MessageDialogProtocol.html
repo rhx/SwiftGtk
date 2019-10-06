@@ -11531,12 +11531,12 @@ convenience widget; you could construct the equivalent of <code>GtkMessageDialog
 from <code>GtkDialog</code> without too much effort, but <code>GtkMessageDialog</code> saves typing.</p>
 
 <p>One difference from <code>GtkDialog</code> is that <code>GtkMessageDialog</code> sets the
-<code>GtkWindow</code>:skip-taskbar-hint property to <code>true</code>, so that the dialog is hidden
+<code>GtkWindow:skip</code>-taskbar-hint property to <code>true</code>, so that the dialog is hidden
 from the taskbar by default.</p>
 
-<p>The easiest way to do a modal message dialog is to use gtk_dialog_run(), though
-you can also pass in the <code>GTK_DIALOG_MODAL</code> flag, gtk_dialog_run() automatically
-makes the dialog modal and waits for the user to respond to it. gtk_dialog_run()
+<p>The easiest way to do a modal message dialog is to use <code>gtk_dialog_run()</code>, though
+you can also pass in the <code>GTK_DIALOG_MODAL</code> flag, <code>gtk_dialog_run()</code> automatically
+makes the dialog modal and waits for the user to respond to it. <code>gtk_dialog_run()</code>
 returns when any dialog button is clicked.</p>
 
 <p>An example for using a modal dialog:
@@ -11546,7 +11546,7 @@ returns when any dialog button is clicked.</p>
                                   flags,
                                   GTK_MESSAGE_ERROR,
                                   GTK_BUTTONS_CLOSE,
-                                  "Error reading “`s`”: `s`",
+                                  "Error reading “%s”: %s",
                                   filename,
                                   g_strerror (errno));
  gtk_dialog_run (GTK_DIALOG (dialog));
@@ -11562,7 +11562,7 @@ returns when any dialog button is clicked.</p>
                                   flags,
                                   GTK_MESSAGE_ERROR,
                                   GTK_BUTTONS_CLOSE,
-                                  "Error reading “`s`”: `s`",
+                                  "Error reading “%s”: %s",
                                   filename,
                                   g_strerror (errno));
 
@@ -11573,8 +11573,7 @@ returns when any dialog button is clicked.</p>
                            G_CALLBACK (gtk_widget_destroy),
                            dialog);
 </code></pre>
-
-<p>&ldquo; GtkMessageDialog as GtkBuildable</p>
+<h1 id='gtkmessagedialog-as-gtkbuildable' class='heading'>GtkMessageDialog as GtkBuildable</h1>
 
 <p>The GtkMessageDialog implementation of the GtkBuildable interface exposes
 the message area as an internal child with the name “message_area”.</p>
@@ -11611,7 +11610,7 @@ the message area as an internal child with the name “message_area”.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L9217">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L9200">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11649,7 +11648,7 @@ the message area as an internal child with the name “message_area”.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L9220">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L9203">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11777,7 +11776,7 @@ the message area as an internal child with the name “message_area”.</p>
                         <p>binding reference or <code>nil</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L9764-L9788">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L9743-L9767">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11869,7 +11868,7 @@ the message area as an internal child with the name “message_area”.</p>
                         <p>positive handler ID, or a value less than or equal to <code>0</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L10738-L10757">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L10716-L10735">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11911,13 +11910,13 @@ Use #GtkDialog for dialogs with images</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">getImage</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">GtkWidget</span><span class="o">&gt;!</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L10776-L10779">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L10754-L10757">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11941,7 +11940,7 @@ Use #GtkDialog for dialogs with images</p>
                         <p>Returns the message area of the dialog. This is the box where the
 dialog’s primary and secondary labels are packed. You can add your
 own extra content to that box and it will appear below those labels.
-See gtk_dialog_get_content_area() for the corresponding
+See <code>gtk_dialog_get_content_area()</code> for the corresponding
 function in the parent <code>GtkDialog</code>.</p>
 
                       </div>
@@ -11954,7 +11953,7 @@ function in the parent <code>GtkDialog</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L10786-L10789">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L10764-L10767">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11985,13 +11984,13 @@ Use #GtkDialog to create dialogs with images</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">set</span><span class="p">(</span><span class="nv">image</span><span class="p">:</span> <span class="kt"><a href="../Protocols/WidgetProtocol.html">WidgetProtocol</a></span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L10795-L10798">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L10773-L10776">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12013,7 +12012,7 @@ Use #GtkDialog to create dialogs with images</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Sets the text of the message dialog to be <code>str</code>, which is marked
-up with the [Pango text markup language][PangoMarkupFormat].</p>
+up with the <a href="#PangoMarkupFormat">Pango text markup language</a>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12025,7 +12024,7 @@ up with the [Pango text markup language][PangoMarkupFormat].</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L10802-L10805">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L10780-L10783">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12061,7 +12060,7 @@ Use #GtkDialog to create dialogs with images</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L10810-L10826">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L10788-L10804">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12085,7 +12084,7 @@ Use #GtkDialog to create dialogs with images</p>
                         <p>Returns the message area of the dialog. This is the box where the
 dialog’s primary and secondary labels are packed. You can add your
 own extra content to that box and it will appear below those labels.
-See gtk_dialog_get_content_area() for the corresponding
+See <code>gtk_dialog_get_content_area()</code> for the corresponding
 function in the parent <code>GtkDialog</code>.</p>
 
                       </div>
@@ -12098,7 +12097,7 @@ function in the parent <code>GtkDialog</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L10833-L10843">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L10811-L10821">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12219,7 +12218,7 @@ function in the parent <code>GtkDialog</code>.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

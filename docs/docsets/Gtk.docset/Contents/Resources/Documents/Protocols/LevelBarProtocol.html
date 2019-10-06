@@ -11530,8 +11530,8 @@ Alternatively, use <code><a href="../Structs/LevelBarRef.html">LevelBarRef</a></
 as a level indicator. Typical use cases are displaying the strength
 of a password, or showing the charge level of a battery.</p>
 
-<p>Use gtk_level_bar_set_value() to set the current value, and
-gtk_level_bar_add_offset_value() to set the value offsets at which
+<p>Use <code>gtk_level_bar_set_value()</code> to set the current value, and
+<code>gtk_level_bar_add_offset_value()</code> to set the value offsets at which
 the bar will be considered in a different state. GTK will add a few
 offsets by default on the level bar: <code>GTK_LEVEL_BAR_OFFSET_LOW</code>,
 <code>GTK_LEVEL_BAR_OFFSET_HIGH</code> and <code>GTK_LEVEL_BAR_OFFSET_FULL</code>, with
@@ -11540,8 +11540,7 @@ values 0.25, 0.75 and 1.0 respectively.</p>
 <p>Note that it is your responsibility to update preexisting offsets
 when changing the minimum or maximum value. GTK+ will simply clamp
 them to the new range.</p>
-
-<p>&ldquo;` Adding a custom offset on the bar</p>
+<h2 id='adding-a-custom-offset-on-the-bar' class='heading'>Adding a custom offset on the bar</h2>
 
 <p>(C Language Example):</p>
 <pre class="highlight plaintext"><code>
@@ -11577,8 +11576,8 @@ create_level_bar (void)
 </code></pre>
 
 <p>The default interval of values is between zero and one, but it’s possible to
-modify the interval using gtk_level_bar_set_min_value() and
-gtk_level_bar_set_max_value(). The value will be always drawn in proportion to
+modify the interval using <code>gtk_level_bar_set_min_value()</code> and
+<code>gtk_level_bar_set_max_value()</code>. The value will be always drawn in proportion to
 the admissible interval, i.e. a value of 15 with a specified interval between
 10 and 20 is equivalent to a value of 0.5 with an interval between 0 and 1.
 When <code>GTK_LEVEL_BAR_MODE_DISCRETE</code> is used, the bar level is rendered
@@ -11591,20 +11590,20 @@ set the minimum value to 0 and the maximum value to 5 after changing the indicat
 mode to discrete.</p>
 
 <p>GtkLevelBar was introduced in GTK+ 3.6.</p>
-
-<p>&rdquo; GtkLevelBar as GtkBuildable</p>
+<h1 id='gtklevelbar-as-gtkbuildable' class='heading'>GtkLevelBar as GtkBuildable</h1>
 
 <p>The GtkLevelBar implementation of the GtkBuildable interface supports a
 custom <offsets> element, which can contain any number of <offset> elements,
 each of which must have name and value attributes.</p>
+<h1 id='css-nodes' class='heading'>CSS nodes</h1>
 
-<p>&ldquo; CSS nodes</p>
-<pre class="highlight swift"><code><span class="n">levelbar</span><span class="p">[</span><span class="o">.</span><span class="n">discrete</span><span class="p">]</span>
-<span class="err">╰──</span> <span class="n">trough</span>
-    <span class="err">├──</span> <span class="n">block</span><span class="o">.</span><span class="n">filled</span><span class="o">.</span><span class="n">level</span><span class="o">-</span><span class="n">name</span>
-    <span class="err">┊</span>
-    <span class="err">├──</span> <span class="n">block</span><span class="o">.</span><span class="n">empty</span>
-    <span class="err">┊</span>
+<p>(plain Language Example):</p>
+<pre class="highlight plaintext"><code>levelbar[.discrete]
+╰── trough
+    ├── block.filled.level-name
+    ┊
+    ├── block.empty
+    ┊
 </code></pre>
 
 <p>GtkLevelBar has a main CSS node with name levelbar and one of the style
@@ -11650,7 +11649,7 @@ regardless of text direction.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L1871">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L1868">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11688,7 +11687,7 @@ regardless of text direction.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L1874">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L1871">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11816,7 +11815,7 @@ regardless of text direction.</p>
                         <p>binding reference or <code>nil</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L2419-L2443">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L2414-L2438">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11908,7 +11907,7 @@ regardless of text direction.</p>
                         <p>positive handler ID, or a value less than or equal to <code>0</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L3266-L3285">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L3260-L3279">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11942,7 +11941,7 @@ regardless of text direction.</p>
                       <div class="abstract">
                         <p>Adds a new offset marker on <code>self</code> at the position specified by <code><a href="../Protocols/LevelBarProtocol.html#/s:3Gtk16LevelBarProtocolPAAE5valueSdvp">value</a></code>.
 When the bar value is in the interval topped by <code><a href="../Protocols/LevelBarProtocol.html#/s:3Gtk16LevelBarProtocolPAAE5valueSdvp">value</a></code> (or between <code><a href="../Protocols/LevelBarProtocol.html#/s:3Gtk16LevelBarProtocolPAAE5valueSdvp">value</a></code>
-and <code>GtkLevelBar</code>:max-value in case the offset is the last one on the bar)
+and <code>GtkLevelBar:max</code>-value in case the offset is the last one on the bar)
 a style class named <code>level-</code><code>name</code> will be applied
 when rendering the level bar fill.
 If another offset marker named <code>name</code> exists, its value will be
@@ -11958,7 +11957,7 @@ replaced by <code><a href="../Protocols/LevelBarProtocol.html#/s:3Gtk16LevelBarP
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L3299-L3302">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L3293-L3296">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11979,7 +11978,7 @@ replaced by <code><a href="../Protocols/LevelBarProtocol.html#/s:3Gtk16LevelBarP
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Return the value of the <code>GtkLevelBar</code>:inverted property.</p>
+                        <p>Return the value of the <code>GtkLevelBar:inverted</code> property.</p>
 
                       </div>
                       <div class="declaration">
@@ -11991,7 +11990,7 @@ replaced by <code><a href="../Protocols/LevelBarProtocol.html#/s:3Gtk16LevelBarP
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L3305-L3308">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L3299-L3302">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12012,7 +12011,7 @@ replaced by <code><a href="../Protocols/LevelBarProtocol.html#/s:3Gtk16LevelBarP
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns the value of the <code>GtkLevelBar</code>:max-value property.</p>
+                        <p>Returns the value of the <code>GtkLevelBar:max</code>-value property.</p>
 
                       </div>
                       <div class="declaration">
@@ -12024,7 +12023,7 @@ replaced by <code><a href="../Protocols/LevelBarProtocol.html#/s:3Gtk16LevelBarP
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L3311-L3314">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L3305-L3308">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12045,7 +12044,7 @@ replaced by <code><a href="../Protocols/LevelBarProtocol.html#/s:3Gtk16LevelBarP
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns the value of the <code>GtkLevelBar</code>:min-value property.</p>
+                        <p>Returns the value of the <code>GtkLevelBar:min</code>-value property.</p>
 
                       </div>
                       <div class="declaration">
@@ -12057,7 +12056,7 @@ replaced by <code><a href="../Protocols/LevelBarProtocol.html#/s:3Gtk16LevelBarP
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L3317-L3320">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L3311-L3314">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12078,7 +12077,7 @@ replaced by <code><a href="../Protocols/LevelBarProtocol.html#/s:3Gtk16LevelBarP
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns the value of the <code>GtkLevelBar</code>:mode property.</p>
+                        <p>Returns the value of the <code>GtkLevelBar:mode</code> property.</p>
 
                       </div>
                       <div class="declaration">
@@ -12090,7 +12089,7 @@ replaced by <code><a href="../Protocols/LevelBarProtocol.html#/s:3Gtk16LevelBarP
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L3323-L3326">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L3317-L3320">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12124,7 +12123,7 @@ returning <code>true</code> in case an offset named <code>name</code> was found.
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L3330-L3333">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L3324-L3327">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12145,7 +12144,7 @@ returning <code>true</code> in case an offset named <code>name</code> was found.
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns the value of the <code>GtkLevelBar</code>:value property.</p>
+                        <p>Returns the value of the <code>GtkLevelBar:value</code> property.</p>
 
                       </div>
                       <div class="declaration">
@@ -12157,7 +12156,7 @@ returning <code>true</code> in case an offset named <code>name</code> was found.
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L3336-L3339">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L3330-L3333">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12179,7 +12178,7 @@ returning <code>true</code> in case an offset named <code>name</code> was found.
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Removes an offset marker previously added with
-gtk_level_bar_add_offset_value().</p>
+<code>gtk_level_bar_add_offset_value()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12191,7 +12190,7 @@ gtk_level_bar_add_offset_value().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L3343-L3346">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L3337-L3340">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12212,7 +12211,7 @@ gtk_level_bar_add_offset_value().</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Sets the value of the <code>GtkLevelBar</code>:inverted property.</p>
+                        <p>Sets the value of the <code>GtkLevelBar:inverted</code> property.</p>
 
                       </div>
                       <div class="declaration">
@@ -12224,7 +12223,7 @@ gtk_level_bar_add_offset_value().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L3349-L3352">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L3343-L3346">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12245,7 +12244,7 @@ gtk_level_bar_add_offset_value().</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Sets the value of the <code>GtkLevelBar</code>:max-value property.</p>
+                        <p>Sets the value of the <code>GtkLevelBar:max</code>-value property.</p>
 
 <p>You probably want to update preexisting level offsets after calling
 this function.</p>
@@ -12260,7 +12259,7 @@ this function.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L3358-L3361">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L3352-L3355">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12281,7 +12280,7 @@ this function.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Sets the value of the <code>GtkLevelBar</code>:min-value property.</p>
+                        <p>Sets the value of the <code>GtkLevelBar:min</code>-value property.</p>
 
 <p>You probably want to update preexisting level offsets after calling
 this function.</p>
@@ -12296,7 +12295,7 @@ this function.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L3367-L3370">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L3361-L3364">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12317,7 +12316,7 @@ this function.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Sets the value of the <code>GtkLevelBar</code>:mode property.</p>
+                        <p>Sets the value of the <code>GtkLevelBar:mode</code> property.</p>
 
                       </div>
                       <div class="declaration">
@@ -12329,7 +12328,7 @@ this function.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L3373-L3376">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L3367-L3370">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12350,7 +12349,7 @@ this function.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Sets the value of the <code>GtkLevelBar</code>:value property.</p>
+                        <p>Sets the value of the <code>GtkLevelBar:value</code> property.</p>
 
                       </div>
                       <div class="declaration">
@@ -12362,7 +12361,7 @@ this function.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L3379-L3382">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L3373-L3376">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12396,7 +12395,7 @@ Inverted level bars grow in the opposite direction.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L3385-L3395">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L3379-L3389">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12417,7 +12416,7 @@ Inverted level bars grow in the opposite direction.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns the value of the <code>GtkLevelBar</code>:max-value property.</p>
+                        <p>Returns the value of the <code>GtkLevelBar:max</code>-value property.</p>
 
                       </div>
                       <div class="declaration">
@@ -12429,7 +12428,7 @@ Inverted level bars grow in the opposite direction.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L3398-L3411">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L3392-L3405">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12450,7 +12449,7 @@ Inverted level bars grow in the opposite direction.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns the value of the <code>GtkLevelBar</code>:min-value property.</p>
+                        <p>Returns the value of the <code>GtkLevelBar:min</code>-value property.</p>
 
                       </div>
                       <div class="declaration">
@@ -12462,7 +12461,7 @@ Inverted level bars grow in the opposite direction.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L3414-L3427">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L3408-L3421">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12483,14 +12482,14 @@ Inverted level bars grow in the opposite direction.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The <code>GtkLevelBar</code>:mode property determines the way <code>GtkLevelBar</code>
+                        <p>The <code>GtkLevelBar:mode</code> property determines the way <code>GtkLevelBar</code>
 interprets the value properties to draw the level fill area.
 Specifically, when the value is <code>GTK_LEVEL_BAR_MODE_CONTINUOUS</code>,
 <code>GtkLevelBar</code> will draw a single block representing the current value in
 that area; when the value is <code>GTK_LEVEL_BAR_MODE_DISCRETE</code>,
 the widget will draw a succession of separate blocks filling the
 draw area, with the number of blocks being equal to the units separating
-the integral roundings of <code>GtkLevelBar</code>:min-value and <code>GtkLevelBar</code>:max-value.</p>
+the integral roundings of <code>GtkLevelBar:min</code>-value and <code>GtkLevelBar:max</code>-value.</p>
 
                       </div>
                       <div class="declaration">
@@ -12502,7 +12501,7 @@ the integral roundings of <code>GtkLevelBar</code>:min-value and <code>GtkLevelB
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L3437-L3447">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L3431-L3441">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12523,7 +12522,7 @@ the integral roundings of <code>GtkLevelBar</code>:min-value and <code>GtkLevelB
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The <code>GtkLevelBar</code>:value property determines the currently
+                        <p>The <code>GtkLevelBar:value</code> property determines the currently
 filled value of the level bar.</p>
 
                       </div>
@@ -12536,7 +12535,7 @@ filled value of the level bar.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L3451-L3461">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L3445-L3455">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12549,7 +12548,7 @@ filled value of the level bar.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

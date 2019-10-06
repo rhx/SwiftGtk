@@ -11537,25 +11537,25 @@ by a <code>GtkCellRenderer</code>, or when the contents is interactive (i.e. has
 button in it).</p>
 
 <p>Although a <code>GtkListBox</code> must have only <code>GtkListBoxRow</code> children you can
-add any kind of widget to it via gtk_container_add(), and a <code>GtkListBoxRow</code>
+add any kind of widget to it via <code>gtk_container_add()</code>, and a <code>GtkListBoxRow</code>
 widget will automatically be inserted between the list and the widget.</p>
 
 <p><code>GtkListBoxRows</code> can be marked as activatable or selectable. If a row
-is activatable, <code>GtkListBox</code>::row-activated will be emitted for it when
+is activatable, <code>GtkListBox::row</code>-activated will be emitted for it when
 the user tries to activate it. If it is selectable, the row will be marked
 as selected when the user tries to select it.</p>
 
 <p>The GtkListBox widget was added in GTK+ 3.10.</p>
-
-<p>&ldquo; GtkListBox as GtkBuildable</p>
+<h1 id='gtklistbox-as-gtkbuildable' class='heading'>GtkListBox as GtkBuildable</h1>
 
 <p>The GtkListBox implementation of the <code>GtkBuildable</code> interface supports
 setting a child as the placeholder by specifying “placeholder” as the “type”
-attribute of a <child> element. See gtk_list_box_set_placeholder() for info.</p>
+attribute of a <child> element. See <code>gtk_list_box_set_placeholder()</code> for info.</p>
+<h1 id='css-nodes' class='heading'>CSS nodes</h1>
 
-<p>&rdquo; CSS nodes</p>
-<pre class="highlight swift"><code><span class="n">list</span>
-<span class="err">╰──</span> <span class="n">row</span><span class="p">[</span><span class="o">.</span><span class="n">activatable</span><span class="p">]</span>
+<p>(plain Language Example):</p>
+<pre class="highlight plaintext"><code>list
+╰── row[.activatable]
 </code></pre>
 
 <p>GtkListBox uses a single CSS node named list. Each GtkListBoxRow uses
@@ -11595,7 +11595,7 @@ For type-safe access, use the generated, typed pointer <code>list_box_ptr</code>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L5697">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L5688">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11636,7 +11636,7 @@ For type-safe access, use the generated, typed pointer <code>list_box_ptr</code>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L5702-L5703">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L5693-L5694">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11666,7 +11666,7 @@ For type-safe access, use the generated, typed pointer <code>list_box_ptr</code>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L5706-L5708">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L5697-L5699">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11697,7 +11697,7 @@ For type-safe access, use the generated, typed pointer <code>list_box_ptr</code>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L5712-L5714">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L5703-L5705">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11728,7 +11728,7 @@ For type-safe access, use the generated, typed pointer <code>list_box_ptr</code>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L5718-L5720">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L5709-L5711">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11759,7 +11759,7 @@ For type-safe access, use the generated, typed pointer <code>list_box_ptr</code>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L5724-L5726">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L5715-L5717">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11790,7 +11790,7 @@ For type-safe access, use the generated, typed pointer <code>list_box_ptr</code>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L5730-L5732">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L5721-L5723">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11821,7 +11821,7 @@ For type-safe access, use the generated, typed pointer <code>list_box_ptr</code>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L5736-L5738">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L5727-L5729">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11851,7 +11851,7 @@ For type-safe access, use the generated, typed pointer <code>list_box_ptr</code>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L5741-L5744">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L5732-L5735">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11864,7 +11864,7 @@ For type-safe access, use the generated, typed pointer <code>list_box_ptr</code>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

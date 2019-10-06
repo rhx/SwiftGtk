@@ -11535,19 +11535,19 @@ There is a fallback icon theme, named <code>hicolor</code>, where applications
 should install their icons, but additional icon themes can be installed
 as operating system vendors and users choose.</p>
 
-<p>Named icons are similar to the deprecated [Stock Items][gtkstock],
+<p>Named icons are similar to the deprecated <a href="#gtkstock">Stock Items</a>,
 and the distinction between the two may be a bit confusing.
 A few things to keep in mind:</p>
 
 <ul>
 <li><p>Stock images usually are used in conjunction with
-[Stock Items][gtkstock], such as <code>GTK_STOCK_OK</code> or
+<a href="#gtkstock">Stock Items</a>, such as <code>GTK_STOCK_OK</code> or
 <code>GTK_STOCK_OPEN</code>. Named icons are easier to set up and therefore
 are more useful for new icons that an application wants to
 add, such as application icons or window icons.</p></li>
 <li><p>Stock images can only be loaded at the symbolic sizes defined
 by the <code>GtkIconSize</code> enumeration, or by custom sizes defined
-by gtk_icon_size_register(), while named icons are more flexible
+by <code>gtk_icon_size_register()</code>, while named icons are more flexible
 and any pixel size can be specified.</p></li>
 <li><p>Because stock images are closely tied to stock items, and thus
 to actions in the user interface, stock images may come in
@@ -11584,7 +11584,7 @@ pixbuf = gtk_icon_theme_load_icon (icon_theme,
                                    &amp;error);
 if (!pixbuf)
   {
-    g_warning ("Couldn’t load icon: `s`", error-&gt;message);
+    g_warning ("Couldn’t load icon: %s", error-&gt;message);
     g_error_free (error);
   }
 else
@@ -11627,7 +11627,7 @@ Ownership is transferred to the <code>IconTheme</code> instance.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L2025-L2027">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L2021-L2023">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11653,12 +11653,12 @@ Will retain <code>GtkIconTheme</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">other</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/IconThemeProtocol.html">IconThemeProtocol</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">other</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/IconThemeProtocol.html">IconThemeProtocol</a></span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L2031-L2034">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L2027-L2030">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11684,12 +11684,12 @@ Will retain <code>GtkIconTheme</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">cPointer</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">cPointer</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L2038-L2040">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L2034-L2036">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11715,12 +11715,12 @@ Will retain <code>GtkIconTheme</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeRawPointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L2044-L2046">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L2040-L2042">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11746,12 +11746,12 @@ Will retain <code>GtkIconTheme</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L2050-L2052">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L2046-L2048">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11777,12 +11777,12 @@ Will retain <code>GtkIconTheme</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">opaquePointer</span><span class="p">:</span> <span class="kt">OpaquePointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">opaquePointer</span><span class="p">:</span> <span class="kt">OpaquePointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L2056-L2058">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L2052-L2054">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11802,8 +11802,8 @@ Will retain <code>GtkIconTheme</code>.</p>
                       <div class="abstract">
                         <p>Creates a new icon theme object. Icon theme objects are used
 to lookup up an icon by name in a particular icon theme.
-Usually, you’ll want to use gtk_icon_theme_get_default()
-or gtk_icon_theme_get_for_screen() rather than creating
+Usually, you’ll want to use <code>gtk_icon_theme_get_default()</code>
+or <code>gtk_icon_theme_get_for_screen()</code> rather than creating
 a new icon theme object for scratch.</p>
 
                       </div>
@@ -11811,12 +11811,12 @@ a new icon theme object for scratch.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">()</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L2065-L2068">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L2061-L2064">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11835,7 +11835,7 @@ a new icon theme object for scratch.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Gets the icon theme for the default screen. See
-gtk_icon_theme_get_for_screen().</p>
+<code>gtk_icon_theme_get_for_screen()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -11847,7 +11847,7 @@ gtk_icon_theme_get_for_screen().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L2072-L2075">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L2068-L2071">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11870,7 +11870,7 @@ function has not previously been called for the given
 screen, a new icon theme object will be created and
 associated with the screen. Icon theme objects are
 fairly expensive to create, so using this function
-is usually a better choice than calling than gtk_icon_theme_new()
+is usually a better choice than calling than <code>gtk_icon_theme_new()</code>
 and setting the screen yourself; by using this function
 a single icon theme object will be shared between users.</p>
 
@@ -11884,7 +11884,7 @@ a single icon theme object will be shared between users.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L2085-L2088">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L2081-L2084">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11897,7 +11897,7 @@ a single icon theme object will be shared between users.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

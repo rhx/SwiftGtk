@@ -11558,7 +11558,7 @@ signal when the cell in the table which has focus changes.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L2436">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L2419">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11589,7 +11589,7 @@ should be added to the owning cell-layouting widget at <code>cell_area</code>.</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L2439">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L2422">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11619,7 +11619,7 @@ should be added to the owning cell-layouting widget at <code>cell_area</code>.</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L2441">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L2424">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11651,7 +11651,7 @@ removed form an object. It supports two details: <q>add</q> and
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L2445">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L2428">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11688,7 +11688,7 @@ same cell area for a different row of data.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L2454">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L2437">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11722,7 +11722,7 @@ Use the #AtkObject::state-change signal instead.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L2460">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L2443">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11741,20 +11741,20 @@ Use the #AtkObject::state-change signal instead.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>The notify signal is emitted on an object when one of its properties has
-its value set through g_object_set_property(), g_object_set(), et al.</p>
+its value set through <code>g_object_set_property()</code>, <code>g_object_set()</code>, et al.</p>
 
 <p>Note that getting this signal doesn’t itself guarantee that the value of
 the property has actually changed. When it is emitted is determined by the
 derived GObject class. If the implementor did not create the property with
-<code>G_PARAM_EXPLICIT_NOTIFY</code>, then any call to g_object_set_property() results
-in ::notify being emitted, even if the new value is the same as the old.
+<code>G_PARAM_EXPLICIT_NOTIFY</code>, then any call to <code>g_object_set_property()</code> results
+in <code>notify</code> being emitted, even if the new value is the same as the old.
 If they did pass <code>G_PARAM_EXPLICIT_NOTIFY</code>, then this signal is emitted only
-when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+when they explicitly call <code>g_object_notify()</code> or <code>g_object_notify_by_pspec()</code>,
 and common practice is to do that only when the value has actually changed.</p>
 
 <p>This signal is typically used to obtain change notification for a
 single property, by specifying the property name as a detail in the
-g_signal_connect() call, like this:
+<code>g_signal_connect()</code> call, like this:
 (C Language Example):</p>
 <pre class="highlight plaintext"><code>g_signal_connect (text_view-&gt;buffer, "notify::paste-target-list",
                   G_CALLBACK (gtk_text_view_target_list_notify),
@@ -11762,7 +11762,7 @@ g_signal_connect() call, like this:
 </code></pre>
 
 <p>It is important to note that you must use
-[canonical parameter names][canonical-parameter-names] as
+<a href="#canonical-parameter-names">canonical parameter names</a> as
 detail strings for the notify signal.</p>
 
                       </div>
@@ -11775,7 +11775,7 @@ detail strings for the notify signal.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L2486">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L2468">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11802,9 +11802,9 @@ may also be emitted when the setter of the property is called to
 reinstate the previous value.</p>
 
 <p>Toolkit implementor note: ATK implementors should use
-g_object_notify() to emit property-changed
-notifications. <code>AtkObject</code>::property-changed is needed by the
-implementation of atk_add_global_event_listener() because GObject
+<code>g_object_notify()</code> to emit property-changed
+notifications. <code>AtkObject::property</code>-changed is needed by the
+implementation of <code>atk_add_global_event_listener()</code> because GObject
 notify doesn&rsquo;t support emission hooks.</p>
 
                       </div>
@@ -11817,7 +11817,7 @@ notify doesn&rsquo;t support emission hooks.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L2500">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L2482">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11848,7 +11848,7 @@ should be removed from the owning cell-layouting widget.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L2503">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L2485">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11880,7 +11880,7 @@ changed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L2507">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L2489">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11911,7 +11911,7 @@ appearance of the object changed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L2510">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L2492">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12154,7 +12154,7 @@ Since 1.3. Use table-caption-object instead.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L2522">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L2504">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12218,7 +12218,7 @@ and atk_table_set_column_description() instead.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L2529">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L2511">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12252,7 +12252,7 @@ atk_table_set_column_header() instead.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L2535">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L2517">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12286,7 +12286,7 @@ atk_table_set_row_description() instead.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L2541">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L2523">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12320,7 +12320,7 @@ atk_table_set_row_header() instead.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L2547">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L2529">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12385,7 +12385,7 @@ changes.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L2555">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L2537">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12406,7 +12406,7 @@ changes.</p>
                         <p>The widget currently editing the edited cell</p>
 
 <p>This property is read-only and only changes as
-a result of a call gtk_cell_area_activate_cell().</p>
+a result of a call <code>gtk_cell_area_activate_cell()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12418,7 +12418,7 @@ a result of a call gtk_cell_area_activate_cell().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L2560">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L2542">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12439,7 +12439,7 @@ a result of a call gtk_cell_area_activate_cell().</p>
                         <p>The cell in the area that is currently edited</p>
 
 <p>This property is read-only and only changes as
-a result of a call gtk_cell_area_activate_cell().</p>
+a result of a call <code>gtk_cell_area_activate_cell()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12451,7 +12451,7 @@ a result of a call gtk_cell_area_activate_cell().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L2565">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L2547">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12481,7 +12481,7 @@ a result of a call gtk_cell_area_activate_cell().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L2567">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L2549">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12511,7 +12511,7 @@ a result of a call gtk_cell_area_activate_cell().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L2569">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L2551">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12524,7 +12524,7 @@ a result of a call gtk_cell_area_activate_cell().</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

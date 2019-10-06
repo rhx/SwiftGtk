@@ -11528,12 +11528,12 @@ Alternatively, use <code><a href="../Structs/GestureMultiPressRef.html">GestureM
 
 <p><code>GtkGestureMultiPress</code> is a <code>GtkGesture</code> implementation able to recognize
 multiple clicks on a nearby zone, which can be listened for through the
-<code>GtkGestureMultiPress</code>::pressed signal. Whenever time or distance between
-clicks exceed the GTK+ defaults, <code>GtkGestureMultiPress</code>::stopped is emitted,
+<code>GtkGestureMultiPress::pressed</code> signal. Whenever time or distance between
+clicks exceed the GTK+ defaults, <code>GtkGestureMultiPress::stopped</code> is emitted,
 and the click counter is reset.</p>
 
 <p>Callers may also restrict the area that is considered valid for a &gt;1
-touch/button press through gtk_gesture_multi_press_set_area(), so any
+touch/button press through <code>gtk_gesture_multi_press_set_area()</code>, so any
 click happening outside that area is considered to be a first click of
 its own.</p>
 
@@ -11569,7 +11569,7 @@ its own.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L1487">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L1483">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11607,7 +11607,7 @@ its own.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L1490">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L1486">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11735,7 +11735,7 @@ its own.</p>
                         <p>binding reference or <code>nil</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L1651-L1675">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L1647-L1671">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11827,7 +11827,7 @@ its own.</p>
                         <p>positive handler ID, or a value less than or equal to <code>0</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L1771-L1790">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L1766-L1785">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11859,9 +11859,9 @@ its own.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>If an area was set through gtk_gesture_multi_press_set_area(),
+                        <p>If an area was set through <code>gtk_gesture_multi_press_set_area()</code>,
 this function will return <code>true</code> and fill in <code>rect</code> with the
-press area. See gtk_gesture_multi_press_set_area() for more
+press area. See <code>gtk_gesture_multi_press_set_area()</code> for more
 details on what the press area represents.</p>
 
                       </div>
@@ -11874,7 +11874,7 @@ details on what the press area represents.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L1801-L1804">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L1796-L1799">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11915,7 +11915,7 @@ akin to an input shape.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L1815-L1818">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L1810-L1813">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11928,7 +11928,7 @@ akin to an input shape.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

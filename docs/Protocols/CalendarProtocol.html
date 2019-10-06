@@ -11527,21 +11527,21 @@ For a concrete class that implements these methods and properties, see <code><a 
 Alternatively, use <code><a href="../Structs/CalendarRef.html">CalendarRef</a></code> as a lighweight, <code>unowned</code> reference if you already have an instance you just want to use.</p>
 
 <p><code>GtkCalendar</code> is a widget that displays a Gregorian calendar, one month
-at a time. It can be created with gtk_calendar_new().</p>
+at a time. It can be created with <code>gtk_calendar_new()</code>.</p>
 
 <p>The month and year currently displayed can be altered with
-gtk_calendar_select_month(). The exact day can be selected from the
-displayed month using gtk_calendar_select_day().</p>
+<code>gtk_calendar_select_month()</code>. The exact day can be selected from the
+displayed month using <code>gtk_calendar_select_day()</code>.</p>
 
-<p>To place a visual marker on a particular day, use gtk_calendar_mark_day()
-and to remove the marker, gtk_calendar_unmark_day(). Alternative, all
-marks can be cleared with gtk_calendar_clear_marks().</p>
+<p>To place a visual marker on a particular day, use <code>gtk_calendar_mark_day()</code>
+and to remove the marker, <code>gtk_calendar_unmark_day()</code>. Alternative, all
+marks can be cleared with <code>gtk_calendar_clear_marks()</code>.</p>
 
 <p>The way in which the calendar itself is displayed can be altered using
-gtk_calendar_set_display_options().</p>
+<code>gtk_calendar_set_display_options()</code>.</p>
 
 <p>The selected date can be retrieved from a <code>GtkCalendar</code> using
-gtk_calendar_get_date().</p>
+<code>gtk_calendar_get_date()</code>.</p>
 
 <p>Users should be aware that, although the Gregorian calendar is the
 legal calendar in most countries, it was adopted progressively
@@ -11580,7 +11580,7 @@ historically incorrect.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L6673">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L6664">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11618,7 +11618,7 @@ historically incorrect.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L6676">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L6667">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11746,7 +11746,7 @@ historically incorrect.</p>
                         <p>binding reference or <code>nil</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L7052-L7076">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L7043-L7067">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11838,7 +11838,7 @@ historically incorrect.</p>
                         <p>positive handler ID, or a value less than or equal to <code>0</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L7914-L7933">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L7904-L7923">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11882,7 +11882,7 @@ historically incorrect.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L7941-L7944">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L7931-L7934">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11915,7 +11915,7 @@ historically incorrect.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L7947-L7950">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L7937-L7940">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11948,7 +11948,7 @@ historically incorrect.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L7953-L7956">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L7943-L7946">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11970,7 +11970,7 @@ historically incorrect.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Queries the height of detail cells, in rows.
-See <code>GtkCalendar</code>:detail-width-chars.</p>
+See <code>GtkCalendar:detail</code>-width-chars.</p>
 
                       </div>
                       <div class="declaration">
@@ -11982,7 +11982,7 @@ See <code>GtkCalendar</code>:detail-width-chars.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L7960-L7963">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L7950-L7953">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12004,7 +12004,7 @@ See <code>GtkCalendar</code>:detail-width-chars.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Queries the width of detail cells, in characters.
-See <code>GtkCalendar</code>:detail-width-chars.</p>
+See <code>GtkCalendar:detail</code>-width-chars.</p>
 
                       </div>
                       <div class="declaration">
@@ -12016,7 +12016,7 @@ See <code>GtkCalendar</code>:detail-width-chars.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L7967-L7970">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L7957-L7960">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12049,7 +12049,7 @@ See <code>GtkCalendar</code>:detail-width-chars.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L7973-L7976">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L7963-L7966">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12082,7 +12082,7 @@ See <code>GtkCalendar</code>:detail-width-chars.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L7979-L7982">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L7969-L7972">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12115,7 +12115,7 @@ See <code>GtkCalendar</code>:detail-width-chars.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L7985-L7988">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L7975-L7978">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12148,7 +12148,7 @@ See <code>GtkCalendar</code>:detail-width-chars.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L7991-L7994">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L7981-L7984">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12171,13 +12171,13 @@ See <code>GtkCalendar</code>:detail-width-chars.</p>
                       <div class="abstract">
                         <p>Installs a function which provides Pango markup with detail information
 for each day. Examples for such details are holidays or appointments. That
-information is shown below each day when <code>GtkCalendar</code>:show-details is set.
+information is shown below each day when <code>GtkCalendar:show</code>-details is set.
 A tooltip containing with full detail information is provided, if the entire
-text should not fit into the details area, or if <code>GtkCalendar</code>:show-details
+text should not fit into the details area, or if <code>GtkCalendar:show</code>-details
 is not set.</p>
 
 <p>The size of the details area can be restricted by setting the
-<code>GtkCalendar</code>:detail-width-chars and <code>GtkCalendar</code>:detail-height-rows
+<code>GtkCalendar:detail</code>-width-chars and <code>GtkCalendar:detail</code>-height-rows
 properties.</p>
 
                       </div>
@@ -12190,7 +12190,7 @@ properties.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L8006-L8009">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L7996-L7999">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12212,7 +12212,7 @@ properties.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Updates the height of detail cells.
-See <code>GtkCalendar</code>:detail-height-rows.</p>
+See <code>GtkCalendar:detail</code>-height-rows.</p>
 
                       </div>
                       <div class="declaration">
@@ -12224,7 +12224,7 @@ See <code>GtkCalendar</code>:detail-height-rows.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L8013-L8016">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L8003-L8006">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12246,7 +12246,7 @@ See <code>GtkCalendar</code>:detail-height-rows.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Updates the width of detail cells.
-See <code>GtkCalendar</code>:detail-width-chars.</p>
+See <code>GtkCalendar:detail</code>-width-chars.</p>
 
                       </div>
                       <div class="declaration">
@@ -12258,7 +12258,7 @@ See <code>GtkCalendar</code>:detail-width-chars.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L8020-L8023">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L8010-L8013">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12292,7 +12292,7 @@ headings).</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L8027-L8030">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L8017-L8020">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12325,7 +12325,7 @@ headings).</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L8033-L8036">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L8023-L8026">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12347,7 +12347,7 @@ headings).</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Queries the height of detail cells, in rows.
-See <code>GtkCalendar</code>:detail-width-chars.</p>
+See <code>GtkCalendar:detail</code>-width-chars.</p>
 
                       </div>
                       <div class="declaration">
@@ -12359,7 +12359,7 @@ See <code>GtkCalendar</code>:detail-width-chars.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L8039-L8051">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L8029-L8041">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12381,7 +12381,7 @@ See <code>GtkCalendar</code>:detail-width-chars.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Queries the width of detail cells, in characters.
-See <code>GtkCalendar</code>:detail-width-chars.</p>
+See <code>GtkCalendar:detail</code>-width-chars.</p>
 
                       </div>
                       <div class="declaration">
@@ -12393,7 +12393,7 @@ See <code>GtkCalendar</code>:detail-width-chars.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L8055-L8067">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L8045-L8057">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12426,7 +12426,7 @@ See <code>GtkCalendar</code>:detail-width-chars.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L8070-L8081">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L8060-L8071">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12439,7 +12439,7 @@ See <code>GtkCalendar</code>:detail-width-chars.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

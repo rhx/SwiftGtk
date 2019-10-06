@@ -11532,18 +11532,17 @@ creates a custom GL framebuffer that the widget will do GL rendering onto.
 It also ensures that this framebuffer is the default GL rendering target
 when rendering.</p>
 
-<p>In order to draw, you have to connect to the <code>GtkGLArea</code>::render signal,
-or subclass <code>GtkGLArea</code> and override the <code>GtkGLAreaClass</code>.render() virtual
+<p>In order to draw, you have to connect to the <code>GtkGLArea::render</code> signal,
+or subclass <code>GtkGLArea</code> and override the <code>GtkGLAreaClass.render</code><code>()</code> virtual
 function.</p>
 
 <p>The <code>GtkGLArea</code> widget ensures that the <code>GdkGLContext</code> is associated with
 the widget&rsquo;s drawing area, and it is kept updated when the size and
 position of the drawing area changes.</p>
-
-<p><code>Drawing with GtkGLArea</code></p>
+<h2 id='drawing-with-gtkglarea' class='heading'>Drawing with GtkGLArea</h2>
 
 <p>The simplest way to draw using OpenGL commands in a <code>GtkGLArea</code> is to
-create a widget instance and connect to the <code>GtkGLArea</code>::render signal:</p>
+create a widget instance and connect to the <code>GtkGLArea::render</code> signal:</p>
 
 <p>(C Language Example):</p>
 <pre class="highlight plaintext"><code>  // create a GtkGLArea instance
@@ -11561,8 +11560,8 @@ for you to draw its content:</p>
   render (GtkGLArea *area, GdkGLContext *context)
   {
     // inside this function it's safe to use GL; the given
-    // `GdkGLContext` has been made current to the drawable
-    // surface used by the `GtkGLArea` and the viewport has
+    // #GdkGLContext has been made current to the drawable
+    // surface used by the #GtkGLArea and the viewport has
     // already been set to be the size of the allocation
 
     // we can start by clearing the buffer
@@ -11580,10 +11579,10 @@ for you to draw its content:</p>
 </code></pre>
 
 <p>If you need to initialize OpenGL state, e.g. buffer objects or
-shaders, you should use the <code>GtkWidget</code>::realize signal; you
-can use the <code>GtkWidget</code>::unrealize signal to clean up. Since the
+shaders, you should use the <code>GtkWidget::realize</code> signal; you
+can use the <code>GtkWidget::unrealize</code> signal to clean up. Since the
 <code>GdkGLContext</code> creation and initialization may fail, you will
-need to check for errors, using gtk_gl_area_get_error(). An example
+need to check for errors, using <code>gtk_gl_area_get_error()</code>. An example
 of how to safely initialize the GL state is:</p>
 
 <p>(C Language Example):</p>
@@ -11596,7 +11595,7 @@ of how to safely initialize the GL state is:</p>
 
     // If there were errors during the initialization or
     // when trying to make the context current, this
-    // function will return a `GError` for you to catch
+    // function will return a #GError for you to catch
     if (gtk_gl_area_get_error (area) != NULL)
       return;
 
@@ -11623,7 +11622,7 @@ of how to safely initialize the GL state is:</p>
 </code></pre>
 
 <p>If you need to change the options for creating the <code>GdkGLContext</code>
-you should use the <code>GtkGLArea</code>::create-context signal.</p>
+you should use the <code>GtkGLArea::create</code>-context signal.</p>
 
           </div>
         </section>
@@ -11658,7 +11657,7 @@ For type-safe access, use the generated, typed pointer <code>gl_area_ptr</code> 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L18946">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L18906">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11699,7 +11698,7 @@ For type-safe access, use the generated, typed pointer <code>gl_area_ptr</code> 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L18951-L18952">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L18911-L18912">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11729,7 +11728,7 @@ For type-safe access, use the generated, typed pointer <code>gl_area_ptr</code> 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L18955-L18957">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L18915-L18917">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11760,7 +11759,7 @@ For type-safe access, use the generated, typed pointer <code>gl_area_ptr</code> 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L18961-L18963">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L18921-L18923">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11791,7 +11790,7 @@ For type-safe access, use the generated, typed pointer <code>gl_area_ptr</code> 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L18967-L18969">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L18927-L18929">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11822,7 +11821,7 @@ For type-safe access, use the generated, typed pointer <code>gl_area_ptr</code> 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L18973-L18975">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L18933-L18935">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11853,7 +11852,7 @@ For type-safe access, use the generated, typed pointer <code>gl_area_ptr</code> 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L18979-L18981">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L18939-L18941">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11884,7 +11883,7 @@ For type-safe access, use the generated, typed pointer <code>gl_area_ptr</code> 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L18985-L18987">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L18945-L18947">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11914,7 +11913,7 @@ For type-safe access, use the generated, typed pointer <code>gl_area_ptr</code> 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L18990-L18993">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L18950-L18953">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11927,7 +11926,7 @@ For type-safe access, use the generated, typed pointer <code>gl_area_ptr</code> 
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

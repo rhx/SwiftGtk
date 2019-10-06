@@ -11532,13 +11532,12 @@ path abstraction is used in <code>GtkStyleContext</code> on behalf of the real
 widget in order to query style information.</p>
 
 <p>If you are using GTK+ widgets, you probably will not need to use
-this API directly, as there is gtk_widget_get_path(), and the style
-context returned by gtk_widget_get_style_context() will be automatically
+this API directly, as there is <code>gtk_widget_get_path()</code>, and the style
+context returned by <code>gtk_widget_get_style_context()</code> will be automatically
 updated on widget hierarchy changes.</p>
 
 <p>The widget path generation is generally simple:</p>
-
-<p>&ldquo;` Defining a button within a window</p>
+<h2 id='defining-a-button-within-a-window' class='heading'>Defining a button within a window</h2>
 
 <p>(C Language Example):</p>
 <pre class="highlight plaintext"><code>{
@@ -11553,8 +11552,7 @@ updated on widget hierarchy changes.</p>
 <p>Although more complex information, such as widget names, or
 different classes (property that may be used by other widget
 types) and intermediate regions may be included:</p>
-
-<p>&rdquo;` Defining the first tab widget in a notebook</p>
+<h2 id='defining-the-first-tab-widget-in-a-notebook' class='heading'>Defining the first tab widget in a notebook</h2>
 
 <p>(C Language Example):</p>
 <pre class="highlight plaintext"><code>{
@@ -11606,7 +11604,7 @@ that applies to the described widget.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessiblePrivate-_MountOperationHandler.swift#L646">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessiblePrivate-_MountOperationHandler.swift#L644">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11644,7 +11642,7 @@ that applies to the described widget.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessiblePrivate-_MountOperationHandler.swift#L649">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessiblePrivate-_MountOperationHandler.swift#L647">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11691,7 +11689,7 @@ adding the style classes from <code>widget</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessiblePrivate-_MountOperationHandler.swift#L884-L887">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessiblePrivate-_MountOperationHandler.swift#L878-L881">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11724,7 +11722,7 @@ adding the style classes from <code>widget</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessiblePrivate-_MountOperationHandler.swift#L890-L893">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessiblePrivate-_MountOperationHandler.swift#L884-L887">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11747,10 +11745,10 @@ adding the style classes from <code>widget</code>.</p>
                       <div class="abstract">
                         <p>Appends a widget type with all its siblings to the widget hierarchy
 represented by <code>path</code>. Using this function instead of
-gtk_widget_path_append_type() will allow the CSS theming to use
-sibling matches in selectors and apply :nth-child() pseudo classes.
+<code>gtk_widget_path_append_type()</code> will allow the CSS theming to use
+sibling matches in selectors and apply :<code>nth-child()</code> pseudo classes.
 In turn, it requires a lot more care in widget implementations as
-widgets need to make sure to call gtk_widget_reset_style() on all
+widgets need to make sure to call <code>gtk_widget_reset_style()</code> on all
 involved widgets when the <code>siblings</code> path changes.</p>
 
                       </div>
@@ -11763,7 +11761,7 @@ involved widgets when the <code>siblings</code> path changes.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessiblePrivate-_MountOperationHandler.swift#L902-L905">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessiblePrivate-_MountOperationHandler.swift#L896-L899">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11796,7 +11794,7 @@ involved widgets when the <code>siblings</code> path changes.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessiblePrivate-_MountOperationHandler.swift#L908-L911">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessiblePrivate-_MountOperationHandler.swift#L902-L905">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11830,7 +11828,7 @@ if the reference count reaches 0.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessiblePrivate-_MountOperationHandler.swift#L915-L918">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessiblePrivate-_MountOperationHandler.swift#L909-L912">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11864,7 +11862,7 @@ is representing.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessiblePrivate-_MountOperationHandler.swift#L922-L925">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessiblePrivate-_MountOperationHandler.swift#L916-L919">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11898,7 +11896,7 @@ in <code>path</code> is of type <code>type</code>, or any subtype of it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessiblePrivate-_MountOperationHandler.swift#L929-L932">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessiblePrivate-_MountOperationHandler.swift#L923-L926">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11932,7 +11930,7 @@ is <code>type</code>, or a subtype of it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessiblePrivate-_MountOperationHandler.swift#L936-L939">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessiblePrivate-_MountOperationHandler.swift#L930-L933">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11955,7 +11953,7 @@ is <code>type</code>, or a subtype of it.</p>
                       <div class="abstract">
                         <p>Adds the class <code>name</code> to the widget at position <code>pos</code> in
 the hierarchy defined in <code>path</code>. See
-gtk_style_context_add_class().</p>
+<code>gtk_style_context_add_class()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -11967,7 +11965,7 @@ gtk_style_context_add_class().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessiblePrivate-_MountOperationHandler.swift#L944-L947">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessiblePrivate-_MountOperationHandler.swift#L938-L941">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11990,7 +11988,7 @@ gtk_style_context_add_class().</p>
                       <div class="abstract">
                         <p>Adds the region <code>name</code> to the widget at position <code>pos</code> in
 the hierarchy defined in <code>path</code>. See
-gtk_style_context_add_region().</p>
+<code>gtk_style_context_add_region()</code>.</p>
 
 <p>Region names must only contain lowercase letters
 and “-”, starting always with a lowercase letter.</p>
@@ -12003,13 +12001,13 @@ The use of regions is deprecated.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">iterAddRegion</span><span class="p">(</span><span class="nv">pos</span><span class="p">:</span> <span class="kt">CInt</span><span class="p">,</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">,</span> <span class="nv">flags</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:3Gtk11RegionFlagsa">RegionFlags</a></span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessiblePrivate-_MountOperationHandler.swift#L958-L961">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessiblePrivate-_MountOperationHandler.swift#L952-L955">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12043,7 +12041,7 @@ hierarchy defined in <code>path</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessiblePrivate-_MountOperationHandler.swift#L965-L968">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessiblePrivate-_MountOperationHandler.swift#L959-L962">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12075,13 +12073,13 @@ The use of regions is deprecated.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">iterClearRegions</span><span class="p">(</span><span class="nv">pos</span><span class="p">:</span> <span class="kt">CInt</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessiblePrivate-_MountOperationHandler.swift#L975-L978">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessiblePrivate-_MountOperationHandler.swift#L969-L972">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12116,7 +12114,7 @@ the position <code>pos</code> in the widget hierarchy defined by
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessiblePrivate-_MountOperationHandler.swift#L983-L986">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessiblePrivate-_MountOperationHandler.swift#L977-L980">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12150,7 +12148,7 @@ hierarchy defined in <code>path</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessiblePrivate-_MountOperationHandler.swift#L990-L993">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessiblePrivate-_MountOperationHandler.swift#L984-L987">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12184,7 +12182,7 @@ hierarchy defined in <code>path</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessiblePrivate-_MountOperationHandler.swift#L997-L1000">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessiblePrivate-_MountOperationHandler.swift#L991-L994">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12206,7 +12204,7 @@ hierarchy defined in <code>path</code>.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Returns the index into the list of siblings for the element at <code>pos</code> as
-returned by gtk_widget_path_iter_get_siblings(). If that function would
+returned by <code>gtk_widget_path_iter_get_siblings()</code>. If that function would
 return <code>nil</code> because the element at <code>pos</code> has no siblings, this function
 will return 0.</p>
 
@@ -12220,7 +12218,7 @@ will return 0.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessiblePrivate-_MountOperationHandler.swift#L1006-L1009">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessiblePrivate-_MountOperationHandler.swift#L1000-L1003">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12254,7 +12252,7 @@ was not added with siblings, <code>nil</code> is returned.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessiblePrivate-_MountOperationHandler.swift#L1013-L1016">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessiblePrivate-_MountOperationHandler.swift#L1007-L1010">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12289,7 +12287,7 @@ the position <code>pos</code> in the widget hierarchy defined by
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessiblePrivate-_MountOperationHandler.swift#L1021-L1024">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessiblePrivate-_MountOperationHandler.swift#L1015-L1018">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12323,7 +12321,7 @@ defined, <code>false</code> otherwise.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessiblePrivate-_MountOperationHandler.swift#L1028-L1031">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessiblePrivate-_MountOperationHandler.swift#L1022-L1025">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12357,7 +12355,7 @@ defined, <code>false</code> otherwise.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessiblePrivate-_MountOperationHandler.swift#L1035-L1038">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessiblePrivate-_MountOperationHandler.swift#L1029-L1032">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12378,7 +12376,7 @@ defined, <code>false</code> otherwise.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>See gtk_widget_path_iter_has_class(). This is a version that operates
+                        <p>See <code>gtk_widget_path_iter_has_class()</code>. This is a version that operates
 with GQuarks.</p>
 
                       </div>
@@ -12391,7 +12389,7 @@ with GQuarks.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessiblePrivate-_MountOperationHandler.swift#L1042-L1045">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessiblePrivate-_MountOperationHandler.swift#L1036-L1039">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12412,7 +12410,7 @@ with GQuarks.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>See gtk_widget_path_iter_has_name(). This is a version
+                        <p>See <code>gtk_widget_path_iter_has_name()</code>. This is a version
 that operates on <code>GQuarks</code>.</p>
 
                       </div>
@@ -12425,7 +12423,7 @@ that operates on <code>GQuarks</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessiblePrivate-_MountOperationHandler.swift#L1049-L1052">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessiblePrivate-_MountOperationHandler.swift#L1043-L1046">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12446,7 +12444,7 @@ that operates on <code>GQuarks</code>.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>See gtk_widget_path_iter_has_region(). This is a version that operates
+                        <p>See <code>gtk_widget_path_iter_has_region()</code>. This is a version that operates
 with GQuarks.</p>
 
 <p><strong>iter_has_qregion is deprecated:</strong>
@@ -12457,13 +12455,13 @@ The use of regions is deprecated.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">iterHasQregion</span><span class="p">(</span><span class="nv">pos</span><span class="p">:</span> <span class="kt">CInt</span><span class="p">,</span> <span class="nv">qname</span><span class="p">:</span> <span class="kt">GLib</span><span class="o">.</span><span class="kt">Quark</span><span class="p">,</span> <span class="nv">flags</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">GtkRegionFlags</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessiblePrivate-_MountOperationHandler.swift#L1059-L1062">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessiblePrivate-_MountOperationHandler.swift#L1053-L1056">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12495,13 +12493,13 @@ The use of regions is deprecated.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">iterHasRegion</span><span class="p">(</span><span class="nv">pos</span><span class="p">:</span> <span class="kt">CInt</span><span class="p">,</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">,</span> <span class="nv">flags</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">GtkRegionFlags</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessiblePrivate-_MountOperationHandler.swift#L1069-L1072">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessiblePrivate-_MountOperationHandler.swift#L1063-L1066">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12535,7 +12533,7 @@ at position <code>pos</code> in the hierarchy defined in <code>path</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessiblePrivate-_MountOperationHandler.swift#L1076-L1079">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessiblePrivate-_MountOperationHandler.swift#L1070-L1073">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12567,13 +12565,13 @@ The use of regions is deprecated.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">iterListRegions</span><span class="p">(</span><span class="nv">pos</span><span class="p">:</span> <span class="kt">CInt</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">SListRef</span><span class="o">!</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessiblePrivate-_MountOperationHandler.swift#L1086-L1089">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessiblePrivate-_MountOperationHandler.swift#L1080-L1083">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12607,7 +12605,7 @@ the hierarchy defined in <code>path</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessiblePrivate-_MountOperationHandler.swift#L1093-L1096">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessiblePrivate-_MountOperationHandler.swift#L1087-L1090">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12639,13 +12637,13 @@ The use of regions is deprecated.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">iterRemoveRegion</span><span class="p">(</span><span class="nv">pos</span><span class="p">:</span> <span class="kt">CInt</span><span class="p">,</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessiblePrivate-_MountOperationHandler.swift#L1103-L1106">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessiblePrivate-_MountOperationHandler.swift#L1097-L1100">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12679,7 +12677,7 @@ in the widget hierarchy defined by <code>path</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessiblePrivate-_MountOperationHandler.swift#L1110-L1113">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessiblePrivate-_MountOperationHandler.swift#L1104-L1107">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12716,7 +12714,7 @@ CSS.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessiblePrivate-_MountOperationHandler.swift#L1120-L1123">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessiblePrivate-_MountOperationHandler.swift#L1114-L1117">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12750,7 +12748,7 @@ defined by <code>path</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessiblePrivate-_MountOperationHandler.swift#L1127-L1130">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessiblePrivate-_MountOperationHandler.swift#L1121-L1124">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12776,14 +12774,12 @@ in the widget hierarchy defined by <code>path</code>.</p>
 
 <p>If you want to update just a single state flag, you need to do
 this manually, as this function updates all state flags.</p>
-
-<p>&ldquo;` Setting a flag</p>
+<h2 id='setting-a-flag' class='heading'>Setting a flag</h2>
 
 <p>(C Language Example):</p>
 <pre class="highlight plaintext"><code>gtk_widget_path_iter_set_state (path, pos, gtk_widget_path_iter_get_state (path, pos) | flag);
 </code></pre>
-
-<p>&rdquo;` Unsetting a flag</p>
+<h2 id='unsetting-a-flag' class='heading'>Unsetting a flag</h2>
 
 <p>(C Language Example):</p>
 <pre class="highlight plaintext"><code>gtk_widget_path_iter_set_state (path, pos, gtk_widget_path_iter_get_state (path, pos) &amp; ~flag);
@@ -12799,7 +12795,7 @@ this manually, as this function updates all state flags.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessiblePrivate-_MountOperationHandler.swift#L1153-L1156">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessiblePrivate-_MountOperationHandler.swift#L1146-L1149">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12833,7 +12829,7 @@ widget and its topmost container.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessiblePrivate-_MountOperationHandler.swift#L1160-L1163">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessiblePrivate-_MountOperationHandler.swift#L1153-L1156">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12866,7 +12862,7 @@ widget and its topmost container.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessiblePrivate-_MountOperationHandler.swift#L1166-L1169">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessiblePrivate-_MountOperationHandler.swift#L1159-L1162">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12899,7 +12895,7 @@ widget and its topmost container.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessiblePrivate-_MountOperationHandler.swift#L1172-L1175">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessiblePrivate-_MountOperationHandler.swift#L1165-L1168">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12925,7 +12921,7 @@ the CSS style as closely as possible (Note that there might be paths
 that cannot be represented in CSS).</p>
 
 <p>The main use of this code is for debugging purposes, so that you can
-g_print() the path or dump it in a gdb session.</p>
+<code>g_print()</code> the path or dump it in a gdb session.</p>
 
                       </div>
                       <div class="declaration">
@@ -12937,7 +12933,7 @@ g_print() the path or dump it in a gdb session.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessiblePrivate-_MountOperationHandler.swift#L1183-L1186">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessiblePrivate-_MountOperationHandler.swift#L1176-L1179">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12971,7 +12967,7 @@ if the reference count reaches 0.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessiblePrivate-_MountOperationHandler.swift#L1190-L1193">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessiblePrivate-_MountOperationHandler.swift#L1183-L1186">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13005,7 +13001,7 @@ is representing.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessiblePrivate-_MountOperationHandler.swift#L1196-L1203">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessiblePrivate-_MountOperationHandler.swift#L1189-L1196">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13018,7 +13014,7 @@ is representing.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

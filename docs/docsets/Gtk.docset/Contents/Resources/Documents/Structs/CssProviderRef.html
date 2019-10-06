@@ -11526,12 +11526,12 @@ It exposes methods that can operate on this data type through <code><a href="../
 Use <code>CssProviderRef</code> only as an <code>unowned</code> reference to an existing <code>GtkCssProvider</code> instance.</p>
 
 <p>GtkCssProvider is an object implementing the <code>GtkStyleProvider</code> interface.
-It is able to parse [CSS-like][css-overview] input in order to style widgets.</p>
+It is able to parse <a href="#css-overview">CSS-like</a> input in order to style widgets.</p>
 
 <p>An application can make GTK+ parse a specific CSS style sheet by calling
-gtk_css_provider_load_from_file() or gtk_css_provider_load_from_resource()
-and adding the provider with gtk_style_context_add_provider() or
-gtk_style_context_add_provider_for_screen().</p>
+<code>gtk_css_provider_load_from_file()</code> or <code>gtk_css_provider_load_from_resource()</code>
+and adding the provider with <code>gtk_style_context_add_provider()</code> or
+<code>gtk_style_context_add_provider_for_screen()</code>.</p>
 
 <p>In addition, certain files will be read when GTK+ is initialized. First, the
 file <code>$XDG_CONFIG_HOME/gtk-3.0/gtk.css</code> is loaded if it exists. Then, GTK+
@@ -11540,14 +11540,14 @@ loads the first existing file among
 <code>$HOME/.themes/THEME/gtk-VERSION/gtk.css</code>,
 <code>$XDG_DATA_DIRS/themes/THEME/gtk-VERSION/gtk.css</code> and
 <code>DATADIR/share/themes/THEME/gtk-VERSION/gtk.css</code>, where <code>THEME</code> is the name of
-the current theme (see the <code>GtkSettings</code>:gtk-theme-name setting), <code>DATADIR</code>
+the current theme (see the <code>GtkSettings:gtk</code>-theme-name setting), <code>DATADIR</code>
 is the prefix configured when GTK+ was compiled (unless overridden by the
 <code>GTK_DATA_PREFIX</code> environment variable), and <code>VERSION</code> is the GTK+ version number.
 If no file is found for the current version, GTK+ tries older versions all the
 way back to 3.0.</p>
 
 <p>In the same way, GTK+ tries to load a gtk-keys.css file for the current
-key theme, as defined by <code>GtkSettings</code>:gtk-key-theme-name.</p>
+key theme, as defined by <code>GtkSettings:gtk</code>-key-theme-name.</p>
 
           </div>
         </section>
@@ -11582,7 +11582,7 @@ For type-safe access, use the generated, typed pointer <code>css_provider_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L28079">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L28026">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11623,7 +11623,7 @@ For type-safe access, use the generated, typed pointer <code>css_provider_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L28084-L28085">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L28031-L28032">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11653,7 +11653,7 @@ For type-safe access, use the generated, typed pointer <code>css_provider_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L28088-L28090">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L28035-L28037">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11684,7 +11684,7 @@ For type-safe access, use the generated, typed pointer <code>css_provider_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L28094-L28096">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L28041-L28043">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11715,7 +11715,7 @@ For type-safe access, use the generated, typed pointer <code>css_provider_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L28100-L28102">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L28047-L28049">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11746,7 +11746,7 @@ For type-safe access, use the generated, typed pointer <code>css_provider_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L28106-L28108">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L28053-L28055">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11777,7 +11777,7 @@ For type-safe access, use the generated, typed pointer <code>css_provider_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L28112-L28114">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L28059-L28061">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11808,7 +11808,7 @@ For type-safe access, use the generated, typed pointer <code>css_provider_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L28118-L28120">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L28065-L28067">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11838,7 +11838,7 @@ For type-safe access, use the generated, typed pointer <code>css_provider_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L28123-L28126">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L28070-L28073">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11867,13 +11867,13 @@ Use gtk_css_provider_new() instead.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">static</span> <span class="kd">func</span> <span class="nf">getDefault</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">CssProviderRef</span><span class="o">!</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L28132-L28135">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L28079-L28082">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11903,7 +11903,7 @@ Use gtk_css_provider_new() instead.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L28138-L28141">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L28085-L28088">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11916,7 +11916,7 @@ Use gtk_css_provider_new() instead.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

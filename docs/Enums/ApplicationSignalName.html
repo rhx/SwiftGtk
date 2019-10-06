@@ -11543,8 +11543,8 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The ::activate signal is emitted on the primary instance when an
-activation occurs. See g_application_activate().</p>
+                        <p>The <code>activate</code> signal is emitted on the primary instance when an
+activation occurs. See <code>g_application_activate()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -11556,7 +11556,7 @@ activation occurs. See g_application_activate().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L15666">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L15645">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11574,8 +11574,8 @@ activation occurs. See g_application_activate().</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The ::command-line signal is emitted on the primary instance when
-a commandline is not handled locally. See g_application_run() and
+                        <p>The <code>command</code>-line signal is emitted on the primary instance when
+a commandline is not handled locally. See <code>g_application_run()</code> and
 the <code>GApplicationCommandLine</code> documentation for more information.</p>
 
                       </div>
@@ -11588,7 +11588,7 @@ the <code>GApplicationCommandLine</code> documentation for more information.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L15670">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L15649">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11606,12 +11606,12 @@ the <code>GApplicationCommandLine</code> documentation for more information.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The ::handle-local-options signal is emitted on the local instance
+                        <p>The <code>handle</code>-local-options signal is emitted on the local instance
 after the parsing of the commandline options has occurred.</p>
 
 <p>You can add options to be recognised during commandline option
-parsing using g_application_add_main_option_entries() and
-g_application_add_option_group().</p>
+parsing using <code>g_application_add_main_option_entries()</code> and
+<code>g_application_add_option_group()</code>.</p>
 
 <p>Signal handlers can inspect <code>options</code> (along with values pointed to
 from the <code>arg_data</code> of an installed <code>GOptionEntrys</code>) in order to
@@ -11621,30 +11621,30 @@ decide to perform certain actions, including direct local handling
 <p>In the event that the application is marked
 <code>G_APPLICATION_HANDLES_COMMAND_LINE</code> the <q>normal processing</q> will
 send the <code>options</code> dictionary to the primary instance where it can be
-read with g_application_command_line_get_options_dict().  The signal
+read with <code>g_application_command_line_get_options_dict()</code>.  The signal
 handler can modify the dictionary before returning, and the
 modified dictionary will be sent.</p>
 
 <p>In the event that <code>G_APPLICATION_HANDLES_COMMAND_LINE</code> is not set,
 <q>normal processing</q> will treat the remaining uncollected command
 line arguments as filenames or URIs.  If there are no arguments,
-the application is activated by g_application_activate().  One or
-more arguments results in a call to g_application_open().</p>
+the application is activated by <code>g_application_activate()</code>.  One or
+more arguments results in a call to <code>g_application_open()</code>.</p>
 
 <p>If you want to handle the local commandline arguments for yourself
-by converting them to calls to g_application_open() or
-g_action_group_activate_action() then you must be sure to register
+by converting them to calls to <code>g_application_open()</code> or
+<code>g_action_group_activate_action()</code> then you must be sure to register
 the application first.  You should probably not call
-g_application_activate() for yourself, however: just return -1 and
+<code>g_application_activate()</code> for yourself, however: just return -1 and
 allow the default handler to do it for you.  This will ensure that
 the <code>--gapplication-service</code> switch works properly (i.e. no activation
 in that case).</p>
 
 <p>Note that this signal is emitted from the default implementation of
-local_command_line().  If you override that function and don&rsquo;t
+<code>local_command_line()</code>.  If you override that function and don&rsquo;t
 chain up then this signal will never be emitted.</p>
 
-<p>You can override local_command_line() if you need more powerful
+<p>You can override <code>local_command_line()</code> if you need more powerful
 capabilities than what is provided here, but this should not
 normally be required.</p>
 
@@ -11658,7 +11658,7 @@ normally be required.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L15712">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L15691">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11676,11 +11676,11 @@ normally be required.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The ::name-lost signal is emitted only on the registered primary instance
+                        <p>The <code>name</code>-lost signal is emitted only on the registered primary instance
 when a new instance has taken over. This can only happen if the application
 is using the <code>G_APPLICATION_ALLOW_REPLACEMENT</code> flag.</p>
 
-<p>The default handler for this signal calls g_application_quit().</p>
+<p>The default handler for this signal calls <code>g_application_quit()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -11692,7 +11692,7 @@ is using the <code>G_APPLICATION_ALLOW_REPLACEMENT</code> flag.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L15718">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L15697">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11711,20 +11711,20 @@ is using the <code>G_APPLICATION_ALLOW_REPLACEMENT</code> flag.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>The notify signal is emitted on an object when one of its properties has
-its value set through g_object_set_property(), g_object_set(), et al.</p>
+its value set through <code>g_object_set_property()</code>, <code>g_object_set()</code>, et al.</p>
 
 <p>Note that getting this signal doesn’t itself guarantee that the value of
 the property has actually changed. When it is emitted is determined by the
 derived GObject class. If the implementor did not create the property with
-<code>G_PARAM_EXPLICIT_NOTIFY</code>, then any call to g_object_set_property() results
-in ::notify being emitted, even if the new value is the same as the old.
+<code>G_PARAM_EXPLICIT_NOTIFY</code>, then any call to <code>g_object_set_property()</code> results
+in <code>notify</code> being emitted, even if the new value is the same as the old.
 If they did pass <code>G_PARAM_EXPLICIT_NOTIFY</code>, then this signal is emitted only
-when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+when they explicitly call <code>g_object_notify()</code> or <code>g_object_notify_by_pspec()</code>,
 and common practice is to do that only when the value has actually changed.</p>
 
 <p>This signal is typically used to obtain change notification for a
 single property, by specifying the property name as a detail in the
-g_signal_connect() call, like this:
+<code>g_signal_connect()</code> call, like this:
 (C Language Example):</p>
 <pre class="highlight plaintext"><code>g_signal_connect (text_view-&gt;buffer, "notify::paste-target-list",
                   G_CALLBACK (gtk_text_view_target_list_notify),
@@ -11732,7 +11732,7 @@ g_signal_connect() call, like this:
 </code></pre>
 
 <p>It is important to note that you must use
-[canonical parameter names][canonical-parameter-names] as
+<a href="#canonical-parameter-names">canonical parameter names</a> as
 detail strings for the notify signal.</p>
 
                       </div>
@@ -11745,7 +11745,7 @@ detail strings for the notify signal.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L15744">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L15722">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11763,8 +11763,8 @@ detail strings for the notify signal.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The ::open signal is emitted on the primary instance when there are
-files to open. See g_application_open() for more information.</p>
+                        <p>The <code>open</code> signal is emitted on the primary instance when there are
+files to open. See <code>g_application_open()</code> for more information.</p>
 
                       </div>
                       <div class="declaration">
@@ -11776,7 +11776,7 @@ files to open. See g_application_open() for more information.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L15747">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L15725">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11795,8 +11795,8 @@ files to open. See g_application_open() for more information.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Emitted when the session manager is about to end the session, only
-if <code>GtkApplication</code>::register-session is <code>true</code>. Applications can
-connect to this signal and call gtk_application_inhibit() with
+if <code>GtkApplication::register</code>-session is <code>true</code>. Applications can
+connect to this signal and call <code>gtk_application_inhibit()</code> with
 <code>GTK_APPLICATION_INHIBIT_LOGOUT</code> to delay the end of the session
 until state has been saved.</p>
 
@@ -11810,7 +11810,7 @@ until state has been saved.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L15753">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L15731">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11828,7 +11828,7 @@ until state has been saved.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The ::shutdown signal is emitted only on the registered primary instance
+                        <p>The <code>shutdown</code> signal is emitted only on the registered primary instance
 immediately after the main loop terminates.</p>
 
                       </div>
@@ -11841,7 +11841,7 @@ immediately after the main loop terminates.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L15756">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L15734">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11859,8 +11859,8 @@ immediately after the main loop terminates.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The ::startup signal is emitted on the primary instance immediately
-after registration. See g_application_register().</p>
+                        <p>The <code>startup</code> signal is emitted on the primary instance immediately
+after registration. See <code>g_application_register()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -11872,7 +11872,7 @@ after registration. See g_application_register().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L15759">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L15737">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11891,7 +11891,7 @@ after registration. See g_application_register().</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Emitted when a <code>GtkWindow</code> is added to <code>application</code> through
-gtk_application_add_window().</p>
+<code>gtk_application_add_window()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -11903,7 +11903,7 @@ gtk_application_add_window().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L15762">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L15740">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11923,7 +11923,7 @@ gtk_application_add_window().</p>
                       <div class="abstract">
                         <p>Emitted when a <code>GtkWindow</code> is removed from <code>application</code>,
 either as a side-effect of being destroyed or explicitly
-through gtk_application_remove_window().</p>
+through <code>gtk_application_remove_window()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -11935,7 +11935,7 @@ through gtk_application_remove_window().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L15766">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L15744">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12134,7 +12134,7 @@ through gtk_application_remove_window().</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Whether the application is currently marked as busy through
-g_application_mark_busy() or g_application_bind_busy_property().</p>
+<code>g_application_mark_busy()</code> or <code>g_application_bind_busy_property()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12146,7 +12146,7 @@ g_application_mark_busy() or g_application_bind_busy_property().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L15775">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L15753">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12266,7 +12266,7 @@ g_application_mark_busy() or g_application_bind_busy_property().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L15780">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L15758">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12316,7 +12316,7 @@ g_application_mark_busy() or g_application_bind_busy_property().</p>
                       <div class="abstract">
                         <p>This property is <code>true</code> if GTK+ believes that the screensaver is
 currently active. GTK+ only tracks session state (including this)
-when <code>GtkApplication</code>::register-session is set to <code>true</code>.</p>
+when <code>GtkApplication::register</code>-session is set to <code>true</code>.</p>
 
 <p>Tracking the screensaver state is supported on Linux.</p>
 
@@ -12330,7 +12330,7 @@ when <code>GtkApplication</code>::register-session is set to <code>true</code>.<
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L15787">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L15765">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12343,7 +12343,7 @@ when <code>GtkApplication</code>::register-session is set to <code>true</code>.<
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

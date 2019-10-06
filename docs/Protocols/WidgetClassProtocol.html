@@ -11629,10 +11629,10 @@ Alternatively, use <code><a href="../Structs/WidgetClassRef.html">WidgetClassRef
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Declares a <code>callback_symbol</code> to handle <code>callback_name</code> from the template XML
-defined for <code>widget_type</code>. See gtk_builder_add_callback_symbol().</p>
+defined for <code>widget_type</code>. See <code>gtk_builder_add_callback_symbol()</code>.</p>
 
 <p>Note that this must be called from a composite widget classes class
-initializer after calling gtk_widget_class_set_template().</p>
+initializer after calling <code>gtk_widget_class_set_template()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -11666,27 +11666,27 @@ initializer after calling gtk_widget_class_set_template().</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Automatically assign an object declared in the class template XML to be set to a location
-on a freshly built instance’s private data, or alternatively accessible via gtk_widget_get_template_child().</p>
+on a freshly built instance’s private data, or alternatively accessible via <code>gtk_widget_get_template_child()</code>.</p>
 
-<p>The struct can point either into the public instance, then you should use G_STRUCT_OFFSET(WidgetType, member)
-for <code>struct_offset</code>,  or in the private struct, then you should use G_PRIVATE_OFFSET(WidgetType, member).</p>
+<p>The struct can point either into the public instance, then you should use <code>G_STRUCT_OFFSET(WidgetType, member)</code>
+for <code>struct_offset</code>,  or in the private struct, then you should use <code>G_PRIVATE_OFFSET(WidgetType, member)</code>.</p>
 
 <p>An explicit strong reference will be held automatically for the duration of your
-instance’s life cycle, it will be released automatically when <code>GObjectClass</code>.dispose() runs
+instance’s life cycle, it will be released automatically when <code>GObjectClass.dispose</code><code>()</code> runs
 on your instance and if a <code>struct_offset</code> that is != 0 is specified, then the automatic location
 in your instance public or private data will be set to <code>nil</code>. You can however access an automated child
-pointer the first time your classes <code>GObjectClass</code>.dispose() runs, or alternatively in
-<code>GtkWidgetClass</code>.destroy().</p>
+pointer the first time your classes <code>GObjectClass.dispose</code><code>()</code> runs, or alternatively in
+<code>GtkWidgetClass.destroy</code><code>()</code>.</p>
 
-<p>If <code>internal_child</code> is specified, <code>GtkBuildableIface</code>.get_internal_child() will be automatically
+<p>If <code>internal_child</code> is specified, <code>GtkBuildableIface.get_internal_child</code><code>()</code> will be automatically
 implemented by the <code>GtkWidget</code> class so there is no need to implement it manually.</p>
 
-<p>The wrapper macros gtk_widget_class_bind_template_child(), gtk_widget_class_bind_template_child_internal(),
-gtk_widget_class_bind_template_child_private() and gtk_widget_class_bind_template_child_internal_private()
+<p>The wrapper macros <code>gtk_widget_class_bind_template_child()</code>, <code>gtk_widget_class_bind_template_child_internal()</code>,
+<code>gtk_widget_class_bind_template_child_private()</code> and <code>gtk_widget_class_bind_template_child_internal_private()</code>
 might be more convenient to use.</p>
 
 <p>Note that this must be called from a composite widget classes class
-initializer after calling gtk_widget_class_set_template().</p>
+initializer after calling <code>gtk_widget_class_set_template()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -11753,7 +11753,7 @@ initializer after calling gtk_widget_class_set_template().</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Gets the name used by this class for matching in CSS code. See
-gtk_widget_class_set_css_name() for details.</p>
+<code>gtk_widget_class_set_css_name()</code> for details.</p>
 
                       </div>
                       <div class="declaration">
@@ -11889,11 +11889,11 @@ style property is determined by the value type of <code>pspec</code>.</p>
                         <p>Sets the default <code>AtkRole</code> to be set on accessibles created for
 widgets of <code>widget_class</code>. Accessibles may decide to not honor this
 setting if their role reporting is more refined. Calls to
-gtk_widget_class_set_accessible_type() will reset this value.</p>
+<code>gtk_widget_class_set_accessible_type()</code> will reset this value.</p>
 
 <p>In cases where you want more fine-grained control over the role of
 accessibles created for <code>widget_class</code>, you should provide your own
-accessible type and use gtk_widget_class_set_accessible_type()
+accessible type and use <code>gtk_widget_class_set_accessible_type()</code>
 instead.</p>
 
 <p>If <code>role</code> is <code>ATK_ROLE_INVALID</code>, the default role will not be changed
@@ -11973,7 +11973,7 @@ accessibles of the parent class.</p>
 used when parsing GtkBuilder XML from this class’s template data.</p>
 
 <p>Note that this must be called from a composite widget classes class
-initializer after calling gtk_widget_class_set_template().</p>
+initializer after calling <code>gtk_widget_class_set_template()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12045,9 +12045,9 @@ of the parent class is used.</p>
                         <p>This should be called at class initialization time to specify
 the GtkBuilder XML to be used to extend a widget.</p>
 
-<p>For convenience, gtk_widget_class_set_template_from_resource() is also provided.</p>
+<p>For convenience, <code>gtk_widget_class_set_template_from_resource()</code> is also provided.</p>
 
-<p>Note that any class that installs templates must call gtk_widget_init_template()
+<p>Note that any class that installs templates must call <code>gtk_widget_init_template()</code>
 in the widget’s instance initializer.</p>
 
                       </div>
@@ -12081,9 +12081,9 @@ in the widget’s instance initializer.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A convenience function to call gtk_widget_class_set_template().</p>
+                        <p>A convenience function to call <code>gtk_widget_class_set_template()</code>.</p>
 
-<p>Note that any class that installs templates must call gtk_widget_init_template()
+<p>Note that any class that installs templates must call <code>gtk_widget_init_template()</code>
 in the widget’s instance initializer.</p>
 
                       </div>
@@ -12118,7 +12118,7 @@ in the widget’s instance initializer.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Gets the name used by this class for matching in CSS code. See
-gtk_widget_class_set_css_name() for details.</p>
+<code>gtk_widget_class_set_css_name()</code> for details.</p>
 
                       </div>
                       <div class="declaration">
@@ -12143,7 +12143,7 @@ gtk_widget_class_set_css_name() for details.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

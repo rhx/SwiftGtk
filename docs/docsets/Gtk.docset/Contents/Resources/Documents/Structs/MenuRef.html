@@ -11538,18 +11538,16 @@ Other composite widgets such as the <code>GtkNotebook</code> can pop up a
 <code>GtkMenu</code> as well.</p>
 
 <p>Applications can display a <code>GtkMenu</code> as a popup menu by calling the
-gtk_menu_popup() function.  The example below shows how an application
+<code>gtk_menu_popup()</code> function.  The example below shows how an application
 can pop up a menu when the 3rd mouse button is pressed.</p>
-
-<p>&ldquo;` Connecting the popup signal handler.</p>
+<h2 id='connecting-the-popup-signal-handler' class='heading'>Connecting the popup signal handler.</h2>
 
 <p>(C Language Example):</p>
 <pre class="highlight plaintext"><code>  // connect our handler which will popup the menu
   g_signal_connect_swapped (window, "button_press_event",
 G_CALLBACK (my_popup_handler), menu);
 </code></pre>
-
-<p>&rdquo;` Signal handler which displays a popup menu.</p>
+<h2 id='signal-handler-which-displays-a-popup-menu' class='heading'>Signal handler which displays a popup menu.</h2>
 
 <p>(C Language Example):</p>
 <pre class="highlight plaintext"><code>static gint
@@ -11580,14 +11578,15 @@ my_popup_handler (GtkWidget *widget, GdkEvent *event)
   return FALSE;
 }
 </code></pre>
+<h1 id='css-nodes' class='heading'>CSS nodes</h1>
 
-<p>&ldquo; CSS nodes</p>
-<pre class="highlight swift"><code><span class="n">menu</span>
-<span class="err">├──</span> <span class="n">arrow</span><span class="o">.</span><span class="n">top</span>
-<span class="err">├──</span> <span class="o">&lt;</span><span class="n">child</span><span class="o">&gt;</span>
-<span class="err">┊</span>
-<span class="err">├──</span> <span class="o">&lt;</span><span class="n">child</span><span class="o">&gt;</span>
-<span class="err">╰──</span> <span class="n">arrow</span><span class="o">.</span><span class="n">bottom</span>
+<p>(plain Language Example):</p>
+<pre class="highlight plaintext"><code>menu
+├── arrow.top
+├── &lt;child&gt;
+┊
+├── &lt;child&gt;
+╰── arrow.bottom
 </code></pre>
 
 <p>The main CSS node of GtkMenu has name menu, and there are two subnodes
@@ -11627,7 +11626,7 @@ For type-safe access, use the generated, typed pointer <code>menu_ptr</code> pro
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L11962">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L11939">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11668,7 +11667,7 @@ For type-safe access, use the generated, typed pointer <code>menu_ptr</code> pro
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L11967-L11968">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L11944-L11945">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11698,7 +11697,7 @@ For type-safe access, use the generated, typed pointer <code>menu_ptr</code> pro
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L11971-L11973">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L11948-L11950">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11729,7 +11728,7 @@ For type-safe access, use the generated, typed pointer <code>menu_ptr</code> pro
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L11977-L11979">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L11954-L11956">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11760,7 +11759,7 @@ For type-safe access, use the generated, typed pointer <code>menu_ptr</code> pro
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L11983-L11985">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L11960-L11962">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11791,7 +11790,7 @@ For type-safe access, use the generated, typed pointer <code>menu_ptr</code> pro
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L11989-L11991">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L11966-L11968">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11822,7 +11821,7 @@ For type-safe access, use the generated, typed pointer <code>menu_ptr</code> pro
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L11995-L11997">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L11972-L11974">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11853,7 +11852,7 @@ For type-safe access, use the generated, typed pointer <code>menu_ptr</code> pro
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L12001-L12003">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L11978-L11980">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11883,7 +11882,7 @@ For type-safe access, use the generated, typed pointer <code>menu_ptr</code> pro
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L12006-L12009">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L11983-L11986">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11906,10 +11905,10 @@ submenus according to <code>model</code>.</p>
 
 <p>The created menu items are connected to actions found in the
 <code>GtkApplicationWindow</code> to which the menu belongs - typically
-by means of being attached to a widget (see gtk_menu_attach_to_widget())
+by means of being attached to a widget (see <code>gtk_menu_attach_to_widget()</code>)
 that is contained within the <code>GtkApplicationWindows</code> widget hierarchy.</p>
 
-<p>Actions can also be added using gtk_widget_insert_action_group() on the menu&rsquo;s
+<p>Actions can also be added using <code>gtk_widget_insert_action_group()</code> on the menu&rsquo;s
 attach widget or on any of its parent widgets.</p>
 
                       </div>
@@ -11922,7 +11921,7 @@ attach widget or on any of its parent widgets.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L12021-L12024">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L11998-L12001">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11945,10 +11944,10 @@ submenus according to <code>model</code>.</p>
 
 <p>The created menu items are connected to actions found in the
 <code>GtkApplicationWindow</code> to which the menu belongs - typically
-by means of being attached to a widget (see gtk_menu_attach_to_widget())
+by means of being attached to a widget (see <code>gtk_menu_attach_to_widget()</code>)
 that is contained within the <code>GtkApplicationWindows</code> widget hierarchy.</p>
 
-<p>Actions can also be added using gtk_widget_insert_action_group() on the menu&rsquo;s
+<p>Actions can also be added using <code>gtk_widget_insert_action_group()</code> on the menu&rsquo;s
 attach widget or on any of its parent widgets.</p>
 
                       </div>
@@ -11961,7 +11960,7 @@ attach widget or on any of its parent widgets.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L12035-L12038">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L12012-L12015">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11974,7 +11973,7 @@ attach widget or on any of its parent widgets.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

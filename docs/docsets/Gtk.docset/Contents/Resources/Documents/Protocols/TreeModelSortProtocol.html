@@ -11541,8 +11541,7 @@ view of the same data.  As the model is wrapped here by a
 view of the data without affecting the other.  By contrast, if we
 simply put the same model in each widget, then sorting the first would
 sort the second.</p>
-
-<p>&ldquo;<code>Using a</code>GtkTreeModelSort`</p>
+<h2 id='using-a-code-gtktreemodelsort-code' class='heading'>Using a <code>GtkTreeModelSort</code></h2>
 
 <p>(C Language Example):</p>
 <pre class="highlight plaintext"><code>{
@@ -11573,11 +11572,10 @@ sort the second.</p>
 
 <p>To demonstrate how to access the underlying child model from the sort
 model, the next example will be a callback for the <code>GtkTreeSelection</code>
-<code>GtkTreeSelection</code>::changed signal.  In this callback, we get a string
+<code>GtkTreeSelection::changed</code> signal.  In this callback, we get a string
 from COLUMN_1 of the model.  We then modify the string, find the same
 selected row on the child model, and change the row there.</p>
-
-<p>&rdquo;` Accessing the child model of in a selection changed callback</p>
+<h2 id='accessing-the-child-model-of-in-a-selection-changed-callback' class='heading'>Accessing the child model of in a selection changed callback</h2>
 
 <p>(C Language Example):</p>
 <pre class="highlight plaintext"><code>void
@@ -11653,7 +11651,7 @@ selection_changed (GtkTreeSelection *selection, gpointer data)
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L21098">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L21068">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11691,7 +11689,7 @@ selection_changed (GtkTreeSelection *selection, gpointer data)
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L21101">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L21071">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11819,7 +11817,7 @@ selection_changed (GtkTreeSelection *selection, gpointer data)
                         <p>binding reference or <code>nil</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L21411-L21435">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L21379-L21403">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11911,7 +11909,7 @@ selection_changed (GtkTreeSelection *selection, gpointer data)
                         <p>positive handler ID, or a value less than or equal to <code>0</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L21474-L21493">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L21441-L21460">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11945,7 +11943,7 @@ selection_changed (GtkTreeSelection *selection, gpointer data)
                       <div class="abstract">
                         <p>This function should almost never be called.  It clears the <code>tree_model_sort</code>
 of any cached iterators that haven’t been reffed with
-gtk_tree_model_ref_node().  This might be useful if the child model being
+<code>gtk_tree_model_ref_node()</code>.  This might be useful if the child model being
 sorted is static (and doesn’t change often) and there has been a lot of
 unreffed access to nodes.  As a side effect of this function, all unreffed
 iters will be invalid.</p>
@@ -11960,7 +11958,7 @@ iters will be invalid.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L21506-L21509">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L21473-L21476">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11995,7 +11993,7 @@ is returned.  Note: a boolean is only returned since 2.14.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L21514-L21517">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L21481-L21484">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12031,7 +12029,7 @@ path on the child model, then <code>nil</code> is returned.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L21523-L21526">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L21490-L21493">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12064,7 +12062,7 @@ path on the child model, then <code>nil</code> is returned.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L21529-L21532">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L21496-L21499">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12101,7 +12099,7 @@ sorted.  If <code>sorted_path</code> does not point to a location in the child m
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L21539-L21542">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L21506-L21509">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12134,7 +12132,7 @@ sorted.  If <code>sorted_path</code> does not point to a location in the child m
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L21545-L21548">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L21512-L21515">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12172,7 +12170,7 @@ purposes.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L21554-L21557">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L21521-L21524">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12208,7 +12206,7 @@ is in “unsorted” state.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L21563-L21566">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L21530-L21533">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12241,7 +12239,7 @@ is in “unsorted” state.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L21567-L21573">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L21534-L21540">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12254,7 +12252,7 @@ is in “unsorted” state.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

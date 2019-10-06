@@ -11528,7 +11528,7 @@ Use <code>Image</code> as a strong reference or owner of a <code>GtkImage</code>
 <p>The <code>GtkImage</code> widget displays an image. Various kinds of object
 can be displayed as an image; most typically, you would load a
 <code>GdkPixbuf</code> (<q>pixel buffer</q>) from a file, and then display that.
-There’s a convenience function to do this, gtk_image_new_from_file(),
+There’s a convenience function to do this, <code>gtk_image_new_from_file()</code>,
 used as follows:
 (C Language Example):</p>
 <pre class="highlight plaintext"><code>  GtkWidget *image;
@@ -11539,8 +11539,8 @@ used as follows:
 “broken image” icon similar to that used in many web browsers.
 If you want to handle errors in loading the file yourself,
 for example by displaying an error message, then load the image with
-gdk_pixbuf_new_from_file(), then create the <code>GtkImage</code> with
-gtk_image_new_from_pixbuf().</p>
+<code>gdk_pixbuf_new_from_file()</code>, then create the <code>GtkImage</code> with
+<code>gtk_image_new_from_pixbuf()</code>.</p>
 
 <p>The image file may contain an animation, if so the <code>GtkImage</code> will
 display an animation (<code>GdkPixbufAnimation</code>) instead of a static image.</p>
@@ -11553,8 +11553,7 @@ align it (center, left, right) and add padding to it, using
 so by default does not receive events. If you want to receive events
 on the image, such as button clicks, place the image inside a
 <code>GtkEventBox</code>, then connect to the event signals on the event box.</p>
-
-<p>&ldquo;<code>Handling button press events on a</code>GtkImage`.</p>
+<h2 id='handling-button-press-events-on-a-code-gtkimage-code' class='heading'>Handling button press events on a <code>GtkImage</code>.</h2>
 
 <p>(C Language Example):</p>
 <pre class="highlight plaintext"><code>  static gboolean
@@ -11562,7 +11561,7 @@ on the image, such as button clicks, place the image inside a
                          GdkEventButton *event,
                          gpointer        data)
   {
-    g_print ("Event box clicked at coordinates `f`,`f`\n",
+    g_print ("Event box clicked at coordinates %f,%f\n",
              event-&gt;x, event-&gt;y);
 
     // Returning TRUE means we handled the event, so the signal
@@ -11604,9 +11603,8 @@ files, such as image files. GTK+ comes with a program to avoid this,
 called “gdk-pixbuf-csource”. This library
 allows you to convert an image into a C variable declaration, which
 can then be loaded into a <code>GdkPixbuf</code> using
-gdk_pixbuf_new_from_inline().</p>
-
-<p>&rdquo; CSS nodes</p>
+<code>gdk_pixbuf_new_from_inline()</code>.</p>
+<h1 id='css-nodes' class='heading'>CSS nodes</h1>
 
 <p>GtkImage has a single CSS node with the name image. The style classes
 may appear on image CSS nodes: .icon-dropshadow, .lowres-icon.</p>
@@ -11644,7 +11642,7 @@ Ownership is transferred to the <code>Image</code> instance.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L5641-L5643">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L5628-L5630">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11670,12 +11668,12 @@ Will retain <code>GtkImage</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">other</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/ImageProtocol.html">ImageProtocol</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">other</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/ImageProtocol.html">ImageProtocol</a></span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L5647-L5650">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L5634-L5637">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11701,12 +11699,12 @@ Will retain <code>GtkImage</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">cPointer</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">cPointer</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L5654-L5656">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L5641-L5643">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11732,12 +11730,12 @@ Will retain <code>GtkImage</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeRawPointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L5660-L5662">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L5647-L5649">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11763,12 +11761,12 @@ Will retain <code>GtkImage</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L5666-L5668">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L5653-L5655">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11794,12 +11792,12 @@ Will retain <code>GtkImage</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">opaquePointer</span><span class="p">:</span> <span class="kt">OpaquePointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">opaquePointer</span><span class="p">:</span> <span class="kt">OpaquePointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L5672-L5674">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L5659-L5661">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11824,12 +11822,12 @@ Will retain <code>GtkImage</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">()</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L5677-L5680">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L5664-L5667">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11862,12 +11860,12 @@ is not busy with something that has a higher priority.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">animation</span><span class="p">:</span> <span class="kt">PixbufAnimationProtocol</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">animation</span><span class="p">:</span> <span class="kt">PixbufAnimationProtocol</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L5691-L5694">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L5678-L5681">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11894,11 +11892,11 @@ it always returns a valid <code>GtkImage</code> widget.</p>
 animation.</p>
 
 <p>If you need to detect failures to load the file, use
-gdk_pixbuf_new_from_file() to load the file yourself, then create
+<code>gdk_pixbuf_new_from_file()</code> to load the file yourself, then create
 the <code>GtkImage</code> from the pixbuf. (Or for animations, use
-gdk_pixbuf_animation_new_from_file()).</p>
+<code>gdk_pixbuf_animation_new_from_file()</code>).</p>
 
-<p>The storage type (gtk_image_get_storage_type()) of the returned
+<p>The storage type (<code>gtk_image_get_storage_type()</code>) of the returned
 image is not defined, it will be whatever is appropriate for
 displaying the file.</p>
 
@@ -11907,12 +11905,12 @@ displaying the file.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="n">file</span> <span class="kt">String_</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="n">file</span> <span class="kt">String_</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L5712-L5715">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L5699-L5702">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11940,12 +11938,12 @@ will be updated appropriately.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">icon</span><span class="p">:</span> <span class="kt">IconProtocol</span><span class="p">,</span> <span class="nv">size</span><span class="p">:</span> <span class="kt">GtkIconSize</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">icon</span><span class="p">:</span> <span class="kt">IconProtocol</span><span class="p">,</span> <span class="nv">size</span><span class="p">:</span> <span class="kt">GtkIconSize</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L5721-L5724">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L5708-L5711">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11973,12 +11971,12 @@ will be updated appropriately.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="n">iconName</span> <span class="nv">icon_name</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">,</span> <span class="nv">size</span><span class="p">:</span> <span class="kt">GtkIconSize</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="n">iconName</span> <span class="nv">icon_name</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">,</span> <span class="nv">size</span><span class="p">:</span> <span class="kt">GtkIconSize</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L5730-L5733">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L5717-L5720">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12000,8 +11998,8 @@ will be updated appropriately.</p>
 <code>GTK_ICON_SIZE_MENU</code>, <code>GTK_ICON_SIZE_SMALL_TOOLBAR</code>. Instead of using
 this function, usually it’s better to create a <code>GtkIconFactory</code>, put
 your icon sets in the icon factory, add the icon factory to the
-list of default factories with gtk_icon_factory_add_default(), and
-then use gtk_image_new_from_stock(). This will allow themes to
+list of default factories with <code>gtk_icon_factory_add_default()</code>, and
+then use <code>gtk_image_new_from_stock()</code>. This will allow themes to
 override the icon you ship with your application.</p>
 
 <p>The <code>GtkImage</code> does not assume a reference to the
@@ -12016,13 +12014,13 @@ Use gtk_image_new_from_icon_name() instead.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
-<span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="n">iconSet</span> <span class="nv">icon_set</span><span class="p">:</span> <span class="kt"><a href="../Protocols/IconSetProtocol.html">IconSetProtocol</a></span><span class="p">,</span> <span class="nv">size</span><span class="p">:</span> <span class="kt">GtkIconSize</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
+<span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="n">iconSet</span> <span class="nv">icon_set</span><span class="p">:</span> <span class="kt"><a href="../Protocols/IconSetProtocol.html">IconSetProtocol</a></span><span class="p">,</span> <span class="nv">size</span><span class="p">:</span> <span class="kt">GtkIconSize</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L5749-L5752">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L5736-L5739">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12047,19 +12045,19 @@ pixbuf; you still need to unref it if you own references.
 
 <p>Note that this function just creates an <code>GtkImage</code> from the pixbuf. The
 <code>GtkImage</code> created will not react to state changes. Should you want that,
-you should use gtk_image_new_from_icon_name().</p>
+you should use <code>gtk_image_new_from_icon_name()</code>.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">pixbuf</span><span class="p">:</span> <span class="kt">PixbufProtocol</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">pixbuf</span><span class="p">:</span> <span class="kt">PixbufProtocol</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L5762-L5765">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L5749-L5752">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12086,11 +12084,11 @@ it always returns a valid <code>GtkImage</code> widget.</p>
 animation.</p>
 
 <p>If you need to detect failures to load the file, use
-gdk_pixbuf_new_from_file() to load the file yourself, then create
+<code>gdk_pixbuf_new_from_file()</code> to load the file yourself, then create
 the <code>GtkImage</code> from the pixbuf. (Or for animations, use
-gdk_pixbuf_animation_new_from_file()).</p>
+<code>gdk_pixbuf_animation_new_from_file()</code>).</p>
 
-<p>The storage type (gtk_image_get_storage_type()) of the returned
+<p>The storage type (<code>gtk_image_get_storage_type()</code>) of the returned
 image is not defined, it will be whatever is appropriate for
 displaying the file.</p>
 
@@ -12099,12 +12097,12 @@ displaying the file.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="n">resource</span> <span class="nv">resource_path</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="n">resource</span> <span class="nv">resource_path</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L5783-L5786">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L5770-L5773">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12127,7 +12125,7 @@ names are <code>GTK_STOCK_OPEN</code>, <code>GTK_STOCK_QUIT</code>. Sample stock
 are <code>GTK_ICON_SIZE_MENU</code>, <code>GTK_ICON_SIZE_SMALL_TOOLBAR</code>. If the stock
 icon name isn’t known, the image will be empty.
 You can register your own stock icon names, see
-gtk_icon_factory_add_default() and gtk_icon_factory_add().</p>
+<code>gtk_icon_factory_add_default()</code> and <code>gtk_icon_factory_add()</code>.</p>
 
 <p><strong>new_from_stock is deprecated:</strong>
 Use gtk_image_new_from_icon_name() instead.</p>
@@ -12138,13 +12136,13 @@ Use gtk_image_new_from_icon_name() instead.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
-<span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="n">stock</span> <span class="nv">stock_id</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">,</span> <span class="nv">size</span><span class="p">:</span> <span class="kt">GtkIconSize</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
+<span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="n">stock</span> <span class="nv">stock_id</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">,</span> <span class="nv">size</span><span class="p">:</span> <span class="kt">GtkIconSize</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L5797-L5800">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L5784-L5787">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12172,12 +12170,12 @@ surface; you still need to unref it if you own references.
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">surface</span><span class="p">:</span> <span class="kt">SurfaceProtocol</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">surface</span><span class="p">:</span> <span class="kt">SurfaceProtocol</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L5806-L5809">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L5793-L5796">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12215,7 +12213,7 @@ is not busy with something that has a higher priority.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L5820-L5823">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L5807-L5810">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12242,11 +12240,11 @@ it always returns a valid <code>GtkImage</code> widget.</p>
 animation.</p>
 
 <p>If you need to detect failures to load the file, use
-gdk_pixbuf_new_from_file() to load the file yourself, then create
+<code>gdk_pixbuf_new_from_file()</code> to load the file yourself, then create
 the <code>GtkImage</code> from the pixbuf. (Or for animations, use
-gdk_pixbuf_animation_new_from_file()).</p>
+<code>gdk_pixbuf_animation_new_from_file()</code>).</p>
 
-<p>The storage type (gtk_image_get_storage_type()) of the returned
+<p>The storage type (<code>gtk_image_get_storage_type()</code>) of the returned
 image is not defined, it will be whatever is appropriate for
 displaying the file.</p>
 
@@ -12260,7 +12258,7 @@ displaying the file.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L5841-L5844">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L5828-L5831">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12293,7 +12291,7 @@ will be updated appropriately.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L5850-L5853">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L5837-L5840">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12326,7 +12324,7 @@ will be updated appropriately.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L5859-L5862">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L5846-L5849">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12348,8 +12346,8 @@ will be updated appropriately.</p>
 <code>GTK_ICON_SIZE_MENU</code>, <code>GTK_ICON_SIZE_SMALL_TOOLBAR</code>. Instead of using
 this function, usually it’s better to create a <code>GtkIconFactory</code>, put
 your icon sets in the icon factory, add the icon factory to the
-list of default factories with gtk_icon_factory_add_default(), and
-then use gtk_image_new_from_stock(). This will allow themes to
+list of default factories with <code>gtk_icon_factory_add_default()</code>, and
+then use <code>gtk_image_new_from_stock()</code>. This will allow themes to
 override the icon you ship with your application.</p>
 
 <p>The <code>GtkImage</code> does not assume a reference to the
@@ -12364,13 +12362,13 @@ Use gtk_image_new_from_icon_name() instead.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">newFrom</span><span class="p">(</span><span class="n">iconSet</span> <span class="nv">icon_set</span><span class="p">:</span> <span class="kt"><a href="../Protocols/IconSetProtocol.html">IconSetProtocol</a></span><span class="p">,</span> <span class="nv">size</span><span class="p">:</span> <span class="kt">GtkIconSize</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Image</span><span class="o">!</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L5878-L5881">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L5865-L5868">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12395,7 +12393,7 @@ pixbuf; you still need to unref it if you own references.
 
 <p>Note that this function just creates an <code>GtkImage</code> from the pixbuf. The
 <code>GtkImage</code> created will not react to state changes. Should you want that,
-you should use gtk_image_new_from_icon_name().</p>
+you should use <code>gtk_image_new_from_icon_name()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12407,7 +12405,7 @@ you should use gtk_image_new_from_icon_name().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L5891-L5894">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L5878-L5881">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12434,11 +12432,11 @@ it always returns a valid <code>GtkImage</code> widget.</p>
 animation.</p>
 
 <p>If you need to detect failures to load the file, use
-gdk_pixbuf_new_from_file() to load the file yourself, then create
+<code>gdk_pixbuf_new_from_file()</code> to load the file yourself, then create
 the <code>GtkImage</code> from the pixbuf. (Or for animations, use
-gdk_pixbuf_animation_new_from_file()).</p>
+<code>gdk_pixbuf_animation_new_from_file()</code>).</p>
 
-<p>The storage type (gtk_image_get_storage_type()) of the returned
+<p>The storage type (<code>gtk_image_get_storage_type()</code>) of the returned
 image is not defined, it will be whatever is appropriate for
 displaying the file.</p>
 
@@ -12452,7 +12450,7 @@ displaying the file.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L5912-L5915">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L5899-L5902">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12475,7 +12473,7 @@ names are <code>GTK_STOCK_OPEN</code>, <code>GTK_STOCK_QUIT</code>. Sample stock
 are <code>GTK_ICON_SIZE_MENU</code>, <code>GTK_ICON_SIZE_SMALL_TOOLBAR</code>. If the stock
 icon name isn’t known, the image will be empty.
 You can register your own stock icon names, see
-gtk_icon_factory_add_default() and gtk_icon_factory_add().</p>
+<code>gtk_icon_factory_add_default()</code> and <code>gtk_icon_factory_add()</code>.</p>
 
 <p><strong>new_from_stock is deprecated:</strong>
 Use gtk_image_new_from_icon_name() instead.</p>
@@ -12485,13 +12483,13 @@ Use gtk_image_new_from_icon_name() instead.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">newFrom</span><span class="p">(</span><span class="n">stock</span> <span class="nv">stock_id</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">,</span> <span class="nv">size</span><span class="p">:</span> <span class="kt">GtkIconSize</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Image</span><span class="o">!</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L5926-L5929">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L5913-L5916">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12524,7 +12522,7 @@ surface; you still need to unref it if you own references.
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L5935-L5938">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L5922-L5925">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12537,7 +12535,7 @@ surface; you still need to unref it if you own references.
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

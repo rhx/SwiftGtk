@@ -11539,16 +11539,16 @@ icon position for some other purpose.</p>
 <p>To make filtering appear more reactive, it is a good idea to
 not react to every change in the entry text immediately, but
 only after a short delay. To support this, <code>GtkSearchEntry</code>
-emits the <code>GtkSearchEntry</code>::search-changed signal which can
-be used instead of the <code>GtkEditable</code>::changed signal.</p>
+emits the <code>GtkSearchEntry::search</code>-changed signal which can
+be used instead of the <code>GtkEditable::changed</code> signal.</p>
 
-<p>The <code>GtkSearchEntry</code>::previous-match, <code>GtkSearchEntry</code>::next-match
-and <code>GtkSearchEntry</code>::stop-search signals can be used to implement
+<p>The <code>GtkSearchEntry::previous</code>-match, <code>GtkSearchEntry::next</code>-match
+and <code>GtkSearchEntry::stop</code>-search signals can be used to implement
 moving between search results and ending the search.</p>
 
 <p>Often, GtkSearchEntry will be fed events by means of being
 placed inside a <code>GtkSearchBar</code>. If that is not the case,
-you can use gtk_search_entry_handle_event() to pass events.</p>
+you can use <code>gtk_search_entry_handle_event()</code> to pass events.</p>
 
           </div>
         </section>
@@ -11583,7 +11583,7 @@ For type-safe access, use the generated, typed pointer <code>search_entry_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L7363">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L7353">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11624,7 +11624,7 @@ For type-safe access, use the generated, typed pointer <code>search_entry_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L7368-L7369">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L7358-L7359">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11654,7 +11654,7 @@ For type-safe access, use the generated, typed pointer <code>search_entry_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L7372-L7374">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L7362-L7364">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11685,7 +11685,7 @@ For type-safe access, use the generated, typed pointer <code>search_entry_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L7378-L7380">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L7368-L7370">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11716,7 +11716,7 @@ For type-safe access, use the generated, typed pointer <code>search_entry_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L7384-L7386">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L7374-L7376">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11747,7 +11747,7 @@ For type-safe access, use the generated, typed pointer <code>search_entry_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L7390-L7392">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L7380-L7382">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11778,7 +11778,7 @@ For type-safe access, use the generated, typed pointer <code>search_entry_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L7396-L7398">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L7386-L7388">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11809,7 +11809,7 @@ For type-safe access, use the generated, typed pointer <code>search_entry_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L7402-L7404">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L7392-L7394">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11827,7 +11827,7 @@ For type-safe access, use the generated, typed pointer <code>search_entry_ptr</c
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <pre class="highlight swift"><code><span class="kt">Creates</span> <span class="n">a</span> <span class="err">`</span><span class="kt">GtkSearchEntry</span><span class="err">`</span><span class="p">,</span> <span class="n">with</span> <span class="n">a</span> <span class="n">find</span> <span class="n">icon</span> <span class="n">when</span> <span class="n">the</span> <span class="n">search</span> <span class="n">field</span> <span class="k">is</span>
+                        <pre class="highlight swift"><code><span class="kt">Creates</span> <span class="n">a</span> <span class="p">`</span><span class="nv">GtkSearchEntry</span><span class="p">`,</span> <span class="n">with</span> <span class="n">a</span> <span class="n">find</span> <span class="n">icon</span> <span class="n">when</span> <span class="n">the</span> <span class="n">search</span> <span class="n">field</span> <span class="k">is</span>
 </code></pre>
 
 <p>empty, and a clear icon when it isn&rsquo;t.</p>
@@ -11842,7 +11842,7 @@ For type-safe access, use the generated, typed pointer <code>search_entry_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L7408-L7411">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L7398-L7401">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11855,7 +11855,7 @@ For type-safe access, use the generated, typed pointer <code>search_entry_ptr</c
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

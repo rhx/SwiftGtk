@@ -11528,26 +11528,25 @@ Alternatively, use <code><a href="../Structs/PopoverRef.html">PopoverRef</a></co
 
 <p>GtkPopover is a bubble-like context window, primarily meant to
 provide context-dependent information or options. Popovers are
-attached to a widget, passed at construction time on gtk_popover_new(),
-or updated afterwards through gtk_popover_set_relative_to(), by
+attached to a widget, passed at construction time on <code>gtk_popover_new()</code>,
+or updated afterwards through <code>gtk_popover_set_relative_to()</code>, by
 default they will point to the whole widget area, although this
-behavior can be changed through gtk_popover_set_pointing_to().</p>
+behavior can be changed through <code>gtk_popover_set_pointing_to()</code>.</p>
 
 <p>The position of a popover relative to the widget it is attached to
-can also be changed through gtk_popover_set_position().</p>
+can also be changed through <code>gtk_popover_set_position()</code>.</p>
 
 <p>By default, <code>GtkPopover</code> performs a GTK+ grab, in order to ensure
 input events get redirected to it while it is shown, and also so
 the popover is dismissed in the expected situations (clicks outside
 the popover, or the Esc key being pressed). If no such modal behavior
-is desired on a popover, gtk_popover_set_modal() may be called on it
+is desired on a popover, <code>gtk_popover_set_modal()</code> may be called on it
 to tweak its behavior.</p>
-
-<p>&ldquo;` GtkPopover as menu replacement</p>
+<h2 id='gtkpopover-as-menu-replacement' class='heading'>GtkPopover as menu replacement</h2>
 
 <p>GtkPopover is often used to replace menus. To facilitate this, it
 supports being populated from a <code>GMenuModel</code>, using
-gtk_popover_new_from_model(). In addition to all the regular menu
+<code>gtk_popover_new_from_model()</code>. In addition to all the regular menu
 model features, this function supports rendering sections in the
 model in a more compact form, as a row of icon buttons instead of
 menu items.</p>
@@ -11574,12 +11573,11 @@ with the ”verb-icon” attribute.</p>
   <span class="o">&lt;/</span><span class="n">item</span><span class="o">&gt;</span>
 <span class="o">&lt;/</span><span class="n">section</span><span class="o">&gt;</span>
 </code></pre>
-
-<p>&rdquo; CSS nodes</p>
+<h1 id='css-nodes' class='heading'>CSS nodes</h1>
 
 <p>GtkPopover has a single css node called popover. It always gets the
 .background style class and it gets the .menu style class if it is
-menu-like (e.g. <code>GtkPopoverMenu</code> or created using gtk_popover_new_from_model().</p>
+menu-like (e.g. <code>GtkPopoverMenu</code> or created using <code>gtk_popover_new_from_model()</code>.</p>
 
 <p>Particular uses of GtkPopover, such as touch selection popups
 or magnifiers in <code>GtkEntry</code> or <code>GtkTextView</code> get style classes
@@ -11618,7 +11616,7 @@ plain popovers.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4632">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4624">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11656,7 +11654,7 @@ plain popovers.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4635">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4627">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11784,7 +11782,7 @@ plain popovers.</p>
                         <p>binding reference or <code>nil</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L5144-L5168">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L5134-L5158">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11876,7 +11874,7 @@ plain popovers.</p>
                         <p>positive handler ID, or a value less than or equal to <code>0</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L5991-L6010">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L5980-L5999">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11928,7 +11926,7 @@ target values on the created menu items.  If you want to use an
 action group other than “app” and “win”, or if you want to use a
 <code>GtkMenuShell</code> outside of a <code>GtkApplicationWindow</code>, then you will need
 to attach your own action group to the widget hierarchy using
-gtk_widget_insert_action_group().  As an example, if you created a
+<code>gtk_widget_insert_action_group()</code>.  As an example, if you created a
 group with a “quit” action and inserted it with the name “mygroup”
 then you would use the action name “mygroup.quit” in your
 <code>GMenuModel</code>.</p>
@@ -11944,7 +11942,7 @@ then you would use the action name “mygroup.quit” in your
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L6041-L6044">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L6030-L6033">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11966,7 +11964,7 @@ then you would use the action name “mygroup.quit” in your
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Returns the constraint for placing this popover.
-See gtk_popover_set_constrain_to().</p>
+See <code>gtk_popover_set_constrain_to()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -11978,7 +11976,7 @@ See gtk_popover_set_constrain_to().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L6048-L6051">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L6037-L6040">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12012,7 +12010,7 @@ the popover is shown.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L6055-L6058">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L6044-L6047">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12046,7 +12044,7 @@ see the implications of this.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L6062-L6065">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L6051-L6054">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12082,7 +12080,7 @@ widget coordinates.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L6071-L6074">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L6060-L6063">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12115,7 +12113,7 @@ widget coordinates.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L6077-L6080">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L6066-L6069">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12148,7 +12146,7 @@ widget coordinates.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L6083-L6086">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L6072-L6075">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12181,13 +12179,13 @@ You can show or hide the popover without transitions
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">getTransitionsEnabled</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L6094-L6097">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L6083-L6086">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12208,9 +12206,9 @@ You can show or hide the popover without transitions
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Pops <code>popover</code> down.This is different than a gtk_widget_hide() call
+                        <p>Pops <code>popover</code> down.This is different than a <code>gtk_widget_hide()</code> call
 in that it shows the popover with a transition. If you want to hide
-the popover without a transition, use gtk_widget_hide().</p>
+the popover without a transition, use <code>gtk_widget_hide()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12222,7 +12220,7 @@ the popover without a transition, use gtk_widget_hide().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L6102-L6105">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L6091-L6094">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12243,9 +12241,9 @@ the popover without a transition, use gtk_widget_hide().</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Pops <code>popover</code> up. This is different than a gtk_widget_show() call
+                        <p>Pops <code>popover</code> up. This is different than a <code>gtk_widget_show()</code> call
 in that it shows the popover with a transition. If you want to show
-the popover without a transition, use gtk_widget_show().</p>
+the popover without a transition, use <code>gtk_widget_show()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12257,7 +12255,7 @@ the popover without a transition, use gtk_widget_show().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L6110-L6113">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L6099-L6102">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12293,7 +12291,7 @@ and may already impose constraints.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L6119-L6122">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L6108-L6111">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12315,7 +12313,7 @@ and may already impose constraints.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Sets the widget that should be set as default widget while
-the popover is shown (see gtk_window_set_default()). <code>GtkPopover</code>
+the popover is shown (see <code>gtk_window_set_default()</code>). <code>GtkPopover</code>
 remembers the previous default widget and reestablishes it
 when the popover is dismissed.</p>
 
@@ -12329,7 +12327,7 @@ when the popover is dismissed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L6128-L6131">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L6117-L6120">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12365,7 +12363,7 @@ dismiss the popover and ungrab input.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L6137-L6140">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L6126-L6129">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12388,7 +12386,7 @@ dismiss the popover and ungrab input.</p>
                       <div class="abstract">
                         <p>Sets the rectangle that <code>popover</code> will point to, in the
 coordinate space of the widget <code>popover</code> is attached to,
-see gtk_popover_set_relative_to().</p>
+see <code>gtk_popover_set_relative_to()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12400,7 +12398,7 @@ see gtk_popover_set_relative_to().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L6145-L6148">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L6134-L6137">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12438,7 +12436,7 @@ on lack of space (eg. if close to the window edges), the
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L6156-L6159">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L6145-L6148">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12477,7 +12475,7 @@ unless extra references are kept.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L6168-L6171">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L6157-L6160">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12510,13 +12508,13 @@ You can show or hide the popover without transitions
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">set</span><span class="p">(</span><span class="n"><a href="../Protocols/PopoverProtocol.html#/s:3Gtk15PopoverProtocolPAAE18transitionsEnabledSbvp">transitionsEnabled</a></span> <span class="nv">transitions_enabled</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L6179-L6182">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L6168-L6171">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12538,7 +12536,7 @@ You can show or hide the popover without transitions
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Returns the constraint for placing this popover.
-See gtk_popover_set_constrain_to().</p>
+See <code>gtk_popover_set_constrain_to()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12550,7 +12548,7 @@ See gtk_popover_set_constrain_to().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L6185-L6199">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L6174-L6188">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12584,7 +12582,7 @@ the popover is shown.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L6203-L6217">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L6192-L6206">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12618,7 +12616,7 @@ receive input while the popover is visible).</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L6221-L6235">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L6210-L6224">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12651,7 +12649,7 @@ receive input while the popover is visible).</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L6238-L6253">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L6227-L6242">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12684,7 +12682,7 @@ receive input while the popover is visible).</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L6256-L6272">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L6245-L6261">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12722,7 +12720,7 @@ You can show or hide the popover without transitions
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L6280-L6300">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L6269-L6289">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12735,7 +12733,7 @@ You can show or hide the popover without transitions
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

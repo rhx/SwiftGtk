@@ -11544,20 +11544,20 @@
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>The notify signal is emitted on an object when one of its properties has
-its value set through g_object_set_property(), g_object_set(), et al.</p>
+its value set through <code>g_object_set_property()</code>, <code>g_object_set()</code>, et al.</p>
 
 <p>Note that getting this signal doesn’t itself guarantee that the value of
 the property has actually changed. When it is emitted is determined by the
 derived GObject class. If the implementor did not create the property with
-<code>G_PARAM_EXPLICIT_NOTIFY</code>, then any call to g_object_set_property() results
-in ::notify being emitted, even if the new value is the same as the old.
+<code>G_PARAM_EXPLICIT_NOTIFY</code>, then any call to <code>g_object_set_property()</code> results
+in <code>notify</code> being emitted, even if the new value is the same as the old.
 If they did pass <code>G_PARAM_EXPLICIT_NOTIFY</code>, then this signal is emitted only
-when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+when they explicitly call <code>g_object_notify()</code> or <code>g_object_notify_by_pspec()</code>,
 and common practice is to do that only when the value has actually changed.</p>
 
 <p>This signal is typically used to obtain change notification for a
 single property, by specifying the property name as a detail in the
-g_signal_connect() call, like this:
+<code>g_signal_connect()</code> call, like this:
 (C Language Example):</p>
 <pre class="highlight plaintext"><code>g_signal_connect (text_view-&gt;buffer, "notify::paste-target-list",
                   G_CALLBACK (gtk_text_view_target_list_notify),
@@ -11565,7 +11565,7 @@ g_signal_connect() call, like this:
 </code></pre>
 
 <p>It is important to note that you must use
-[canonical parameter names][canonical-parameter-names] as
+<a href="#canonical-parameter-names">canonical parameter names</a> as
 detail strings for the notify signal.</p>
 
                       </div>
@@ -11578,7 +11578,7 @@ detail strings for the notify signal.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13491">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13472">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11596,7 +11596,7 @@ detail strings for the notify signal.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Holds a hash table representation of the <code>GtkSettings</code>:gtk-color-scheme
+                        <p>Holds a hash table representation of the <code>GtkSettings:gtk</code>-color-scheme
 setting, mapping color names to <code>GdkColors</code>.</p>
 
 <p><strong>color-hash is deprecated:</strong>
@@ -11612,7 +11612,7 @@ Will always return an empty hash table.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13497">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13478">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11674,7 +11674,7 @@ in ascending order. When set to <code>true</code>, this order will be inverted.<
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13502">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13483">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11714,7 +11714,7 @@ and the dark chrome creates too much contrast (web browser, text editor&hellip;)
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13514">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13495">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11748,7 +11748,7 @@ This setting is ignored</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13520">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13501">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11785,7 +11785,7 @@ This setting is deprecated. Application developers
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13529">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13510">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11818,7 +11818,7 @@ This setting is ignored.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13534">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13515">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11851,7 +11851,7 @@ Only used by the deprecated color selector widget.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13539">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13520">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11876,9 +11876,9 @@ Only used by the deprecated color selector widget.</p>
 </code></pre>
 
 <p>Color names must be acceptable as identifiers in the
-[gtkrc][gtk3-Resource-Files] syntax, and
+<a href="#gtk3-Resource-Files">gtkrc</a> syntax, and
 color specifications must be in the format accepted by
-gdk_color_parse().</p>
+<code>gdk_color_parse()</code>.</p>
 
 <p>Note that due to the way the color tables from different sources are
 merged, color specifications will be converted to hexadecimal form
@@ -11903,7 +11903,7 @@ Color scheme support was dropped and is no longer supported.
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13566">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13546">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11923,7 +11923,7 @@ Color scheme support was dropped and is no longer supported.
                       <div class="abstract">
                         <p>Whether the cursor should blink.</p>
 
-<p>Also see the <code>GtkSettings</code>:gtk-cursor-blink-timeout setting,
+<p>Also see the <code>GtkSettings:gtk</code>-cursor-blink-timeout setting,
 which allows more flexible control over cursor blinking.</p>
 
                       </div>
@@ -11936,7 +11936,7 @@ which allows more flexible control over cursor blinking.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13571">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13551">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11988,7 +11988,7 @@ which allows more flexible control over cursor blinking.</p>
 The timer is reset after each user interaction.</p>
 
 <p>Setting this to zero has the same effect as setting
-<code>GtkSettings</code>:gtk-cursor-blink to <code>false</code>.</p>
+<code>GtkSettings:gtk</code>-cursor-blink to <code>false</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12000,7 +12000,7 @@ The timer is reset after each user interaction.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13578">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13558">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12097,7 +12097,7 @@ show the app menu, and a close button only appears on a window
 that can be closed.</p>
 
 <p>Also note that the setting can be overridden with the
-<code>GtkHeaderBar</code>:decoration-layout property.</p>
+<code>GtkHeaderBar:decoration</code>-layout property.</p>
 
                       </div>
                       <div class="declaration">
@@ -12109,7 +12109,7 @@ that can be closed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13601">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13581">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12144,7 +12144,7 @@ directly, or message dialogs.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13608">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13588">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12265,7 +12265,7 @@ activated.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13614">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13594">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12331,7 +12331,7 @@ module like the one that comes with libcanberra.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13623">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13603">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12367,7 +12367,7 @@ module like the one that comes with libcanberra.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13631">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13611">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12402,7 +12402,7 @@ This setting can still be used for application
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13638">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13618">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12433,7 +12433,7 @@ This setting can still be used for application
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13641">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13621">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12466,7 +12466,7 @@ This setting is ignored.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13646">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13626">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12498,7 +12498,7 @@ last char. 600 is a good value for enabling it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13650">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13630">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12548,7 +12548,7 @@ last char. 600 is a good value for enabling it.</p>
                       <div class="abstract">
                         <p>When <code>true</code>, keyboard navigation and other input-related errors
 will cause a beep. Since the error bell is implemented using
-gdk_window_beep(), the windowing system may offer ways to
+<code>gdk_window_beep()</code>, the windowing system may offer ways to
 configure the error bell in many ways, such as flashing the
 window or similar visual effects.</p>
 
@@ -12562,7 +12562,7 @@ window or similar visual effects.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13657">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13637">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12595,7 +12595,7 @@ This setting is ignored.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13662">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13642">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12628,7 +12628,7 @@ This setting is ignored. #GtkFileChooser uses GIO by default.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13667">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13647">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12658,7 +12658,7 @@ This setting is ignored. #GtkFileChooser uses GIO by default.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13669">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13649">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12715,7 +12715,7 @@ item has the form:</p>
 GTK+ itself use the following named icon sizes: gtk-menu,
 gtk-button, gtk-small-toolbar, gtk-large-toolbar, gtk-dnd,
 gtk-dialog. Applications can register their own named icon
-sizes with gtk_icon_size_register().</p>
+sizes with <code>gtk_icon_size_register()</code>.</p>
 
 <p><strong>gtk-icon-sizes is deprecated:</strong>
 This setting is ignored.</p>
@@ -12730,7 +12730,7 @@ This setting is ignored.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13684">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13664">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12796,7 +12796,7 @@ will try in turn until it finds one available on the system.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13693">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13673">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12829,7 +12829,7 @@ This setting is ignored.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13698">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13678">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12862,7 +12862,7 @@ This setting is ignored.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13703">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13683">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12928,7 +12928,7 @@ Generally, the behavior for touchscreen input should be
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13712">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13692">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12960,7 +12960,7 @@ a screen reader.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13716">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13696">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12994,7 +12994,7 @@ This setting is ignored.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13722">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13702">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13054,7 +13054,7 @@ This setting is ignored.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13725">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13705">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13088,7 +13088,7 @@ This setting can still be used for application
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13731">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13711">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13121,7 +13121,7 @@ This setting is ignored.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13736">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13716">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13158,7 +13158,7 @@ This setting is deprecated. Application developers
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13745">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13725">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13191,7 +13191,7 @@ This setting is ignored.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13750">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13730">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13224,7 +13224,7 @@ This setting is ignored.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13755">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13735">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13286,7 +13286,7 @@ scrollbars.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13760">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13740">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13323,7 +13323,7 @@ clicking the middle mouse button.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13769">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13749">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13355,7 +13355,7 @@ and may include <q>file</q>, <q>cups</q>, <q>lpr</q> or <q>papi</q>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13773">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13753">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13378,7 +13378,7 @@ should contain a <code>f</code> placeholder, which will get replaced by
 the path to the pdf file. The command may also contain a <code>s</code>
 placeholder, which will get replaced by the path to a file
 containing the print settings in the format produced by
-gtk_print_settings_to_file().</p>
+<code>gtk_print_settings_to_file()</code>.</p>
 
 <p>The preview application is responsible for removing the pdf file
 and the print settings file when it is done.</p>
@@ -13393,7 +13393,7 @@ and the print settings file when it is done.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13783">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13763">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13424,7 +13424,7 @@ resources list. If set to <code>false</code>, the list will always be empty.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13786">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13766">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13459,7 +13459,7 @@ This setting is ignored</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13793">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13773">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13492,7 +13492,7 @@ set to -1, no item will be removed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13798">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13778">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13526,7 +13526,7 @@ This setting is ignored.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13804">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13784">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13647,7 +13647,7 @@ This setting is ignored.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13812">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13792">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13678,7 +13678,7 @@ This setting is ignored.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13817">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13797">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13714,7 +13714,7 @@ module like the one that comes with libcanberra.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13825">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13805">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13805,7 +13805,7 @@ This setting is ignored.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13832">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13812">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13836,7 +13836,7 @@ This setting is ignored.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13837">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13817">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13867,7 +13867,7 @@ This setting is ignored.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13842">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13822">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13901,7 +13901,7 @@ or none.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13848">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13828">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13935,7 +13935,7 @@ or none.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13854">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13834">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13969,7 +13969,7 @@ or none.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13860">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13840">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14002,7 +14002,7 @@ This setting is ignored.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13865">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13845">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14035,7 +14035,7 @@ This setting is ignored.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13870">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13850">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14056,7 +14056,7 @@ This setting is ignored.</p>
                         <p>Amount of time, in milliseconds, after which the browse mode
 will be disabled.</p>
 
-<p>See <code>GtkSettings</code>:gtk-tooltip-browse-timeout for more information
+<p>See <code>GtkSettings:gtk</code>-tooltip-browse-timeout for more information
 about browse mode.</p>
 
 <p><strong>gtk-tooltip-browse-mode-timeout is deprecated:</strong>
@@ -14072,7 +14072,7 @@ This setting is ignored.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13879">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13859">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14096,7 +14096,7 @@ browse mode is enabled, in milliseconds.</p>
 <p>Browse mode is enabled when the mouse pointer moves off an object
 where a tooltip was currently being displayed. If the mouse pointer
 hits another object before the browse mode timeout expires (see
-<code>GtkSettings</code>:gtk-tooltip-browse-mode-timeout), it will take the
+<code>GtkSettings:gtk</code>-tooltip-browse-mode-timeout), it will take the
 amount of milliseconds specified by this setting to popup the tooltip
 for the new object.</p>
 
@@ -14113,7 +14113,7 @@ This setting is ignored.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13892">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13872">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14147,7 +14147,7 @@ This setting is ignored.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13898">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13878">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14183,7 +14183,7 @@ Generally, the behavior for touchscreen input should be
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13906">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13886">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14217,7 +14217,7 @@ This setting is ignored</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13912">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L13892">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14380,7 +14380,7 @@ This setting is ignored</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

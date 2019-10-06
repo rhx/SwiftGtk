@@ -11638,7 +11638,7 @@
                         <p>A <code>GtkAllocation</code>-struct of a widget represents region
 which has been allocated to the widget by its parent. It is a subregion
 of its parents allocation. See
-[GtkWidget’s geometry management section][geometry-management] for
+<a href="#geometry-management">GtkWidget’s geometry management section</a> for
 more information.</p>
 
                       </div>
@@ -11703,7 +11703,7 @@ more information.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Accelerator flags used with gtk_accel_group_connect().</p>
+                        <p>Accelerator flags used with <code>gtk_accel_group_connect()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -11733,7 +11733,7 @@ more information.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Types of user actions that may be blocked by gtk_application_inhibit().</p>
+                        <p>Types of user actions that may be blocked by <code>gtk_application_inhibit()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12041,7 +12041,7 @@ ignore unknown values.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Used to specify options for gtk_icon_theme_lookup_icon()</p>
+                        <p>Used to specify options for <code>gtk_icon_theme_lookup_icon()</code></p>
 
                       </div>
                       <div class="declaration">
@@ -12139,19 +12139,19 @@ ignore unknown values.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>These flags serve two purposes.  First, the application can call gtk_places_sidebar_set_open_flags()
+                        <p>These flags serve two purposes.  First, the application can call <code>gtk_places_sidebar_set_open_flags()</code>
 using these flags as a bitmask.  This tells the sidebar that the application is able to open
 folders selected from the sidebar in various ways, for example, in new tabs or in new windows in
 addition to the normal mode.</p>
 
 <p>Second, when one of these values gets passed back to the application in the
-<code>GtkPlacesSidebar</code>::open-location signal, it means that the application should
+<code>GtkPlacesSidebar::open</code>-location signal, it means that the application should
 open the selected location in the normal way, in a new tab, or in a new
 window.  The sidebar takes care of determining the desired way to open the location,
 based on the modifier keys that the user is pressing at the time the selection is made.</p>
 
-<p>If the application never calls gtk_places_sidebar_set_open_flags(), then the sidebar will only
-use <code>GTK_PLACES_OPEN_NORMAL</code> in the <code>GtkPlacesSidebar</code>::open-location signal.  This is the
+<p>If the application never calls <code>gtk_places_sidebar_set_open_flags()</code>, then the sidebar will only
+use <code>GTK_PLACES_OPEN_NORMAL</code> in the <code>GtkPlacesSidebar::open</code>-location signal.  This is the
 default mode of operation.</p>
 
                       </div>
@@ -12305,7 +12305,7 @@ classes and sometimes uses different names.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Flags that modify the behavior of gtk_style_context_to_string().
+                        <p>Flags that modify the behavior of <code>gtk_style_context_to_string()</code>.
 New values may be added to this enumeration.</p>
 
                       </div>
@@ -12433,7 +12433,7 @@ embedded pixbufs or child widgets.</p>
                       <div class="abstract">
                         <p>These flags indicate various properties of a <code>GtkTreeModel</code>.</p>
 
-<p>They are returned by gtk_tree_model_get_flags(), and must be
+<p>They are returned by <code>gtk_tree_model_get_flags()</code>, and must be
 static for the lifetime of the object. A more complete description
 of <code>GTK_TREE_MODEL_ITERS_PERSIST</code> can be found in the overview of
 this section.</p>
@@ -12466,7 +12466,7 @@ this section.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>These enumeration values are used by gtk_ui_manager_add_ui() to determine
+                        <p>These enumeration values are used by <code>gtk_ui_manager_add_ui()</code> to determine
 what UI element to create.</p>
 
 <p><strong>UIManagerItemType is deprecated:</strong>
@@ -12594,7 +12594,7 @@ This method is deprecated.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A function used by gtk_assistant_set_forward_page_func() to know which
+                        <p>A function used by <code>gtk_assistant_set_forward_page_func()</code> to know which
 is the next page given a current one. It’s called both for computing the
 next page when the user presses the “forward” button and for handling
 the behavior of the “last” button.</p>
@@ -12628,7 +12628,7 @@ the behavior of the “last” button.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>This is the signature of a function used to connect signals.  It is used
-by the gtk_builder_connect_signals() and gtk_builder_connect_signals_full()
+by the <code>gtk_builder_connect_signals()</code> and <code>gtk_builder_connect_signals_full()</code>
 methods.  It is mainly intended for interpreted language bindings, but
 could be useful where the programmer wants more control over the signal
 connection process. Note that this function can only be called once,
@@ -12695,7 +12695,7 @@ function returns <code>nil</code> when no information is available.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>The type of the callback functions used for e.g. iterating over
-the children of a container, see gtk_container_foreach().</p>
+the children of a container, see <code>gtk_container_foreach()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12727,7 +12727,7 @@ the children of a container, see gtk_container_foreach().</p>
                       <div class="abstract">
                         <p>The type of the callback functions used for iterating over the
 cell renderers and their allocated areas inside a <code>GtkCellArea</code>,
-see gtk_cell_area_foreach_alloc().</p>
+see <code>gtk_cell_area_foreach_alloc()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12758,7 +12758,7 @@ see gtk_cell_area_foreach_alloc().</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>The type of the callback functions used for iterating over
-the cell renderers of a <code>GtkCellArea</code>, see gtk_cell_area_foreach().</p>
+the cell renderers of a <code>GtkCellArea</code>, see <code>gtk_cell_area_foreach()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12788,7 +12788,7 @@ the cell renderers of a <code>GtkCellArea</code>, see gtk_cell_area_foreach().</
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A function which should set the value of <code>cell_layout</code>’s cell renderer(s)
+                        <p>A function which should set the value of <code>cell_layout</code>’s cell <code>renderer(s)</code>
 as appropriate.</p>
 
                       </div>
@@ -12856,8 +12856,8 @@ If multiple types of data were advertised, the requested type can
 be determined from the <code>info</code> parameter or by checking the target field
 of <code>selection_data</code>. If the data could successfully be converted into
 then it should be stored into the <code>selection_data</code> object by
-calling gtk_selection_data_set() (or related functions such
-as gtk_selection_data_set_text()). If no data is set, the requestor
+calling <code>gtk_selection_data_set()</code> (or related functions such
+as <code>gtk_selection_data_set_text()</code>). If no data is set, the requestor
 will be informed that the attempt to get the data failed.</p>
 
                       </div>
@@ -12888,7 +12888,7 @@ will be informed that the attempt to get the data failed.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A function to be called when the results of gtk_clipboard_request_image()
+                        <p>A function to be called when the results of <code>gtk_clipboard_request_image()</code>
 are received, or when the request fails.</p>
 
                       </div>
@@ -12919,7 +12919,7 @@ are received, or when the request fails.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A function to be called when the results of gtk_clipboard_request_contents()
+                        <p>A function to be called when the results of <code>gtk_clipboard_request_contents()</code>
 are received, or when the request fails.</p>
 
                       </div>
@@ -12951,7 +12951,7 @@ are received, or when the request fails.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>A function to be called when the results of
-gtk_clipboard_request_rich_text() are received, or when the request
+<code>gtk_clipboard_request_rich_text()</code> are received, or when the request
 fails.</p>
 
                       </div>
@@ -12982,7 +12982,7 @@ fails.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A function to be called when the results of gtk_clipboard_request_targets()
+                        <p>A function to be called when the results of <code>gtk_clipboard_request_targets()</code>
 are received, or when the request fails.</p>
 
                       </div>
@@ -13013,7 +13013,7 @@ are received, or when the request fails.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A function to be called when the results of gtk_clipboard_request_text()
+                        <p>A function to be called when the results of <code>gtk_clipboard_request_text()</code>
 are received, or when the request fails.</p>
 
                       </div>
@@ -13045,7 +13045,7 @@ are received, or when the request fails.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>A function to be called when the results of
-gtk_clipboard_request_uris() are received, or when the request
+<code>gtk_clipboard_request_uris()</code> are received, or when the request
 fails.</p>
 
                       </div>
@@ -13140,8 +13140,8 @@ This method is deprecated.</p>
                       <div class="abstract">
                         <p>A function which decides whether the row indicated by <code>iter</code> matches
 a given <code>key</code>, and should be displayed as a possible completion for <code>key</code>.
-Note that <code>key</code> is normalized and case-folded (see g_utf8_normalize()
-and g_utf8_casefold()). If this is not appropriate, match functions
+Note that <code>key</code> is normalized and case-folded (see <code>g_utf8_normalize()</code>
+and <code>g_utf8_casefold()</code>). If this is not appropriate, match functions
 have access to the unmodified key via
 <code>gtk_entry_get_text (GTK_ENTRY (gtk_entry_completion_get_entry ()))</code>.</p>
 
@@ -13174,7 +13174,7 @@ have access to the unmodified key via
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>The type of function that is used with custom filters, see
-gtk_file_filter_add_custom().</p>
+<code>gtk_file_filter_add_custom()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -13205,7 +13205,7 @@ gtk_file_filter_add_custom().</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Called for flow boxes that are bound to a <code>GListModel</code> with
-gtk_flow_box_bind_model() for each item that gets added to the model.</p>
+<code>gtk_flow_box_bind_model()</code> for each item that gets added to the model.</p>
 
                       </div>
                       <div class="declaration">
@@ -13267,7 +13267,7 @@ visible or not.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A function used by gtk_flow_box_selected_foreach().
+                        <p>A function used by <code>gtk_flow_box_selected_foreach()</code>.
 It will be called on every selected child of the <code>box</code>.</p>
 
                       </div>
@@ -13330,7 +13330,7 @@ should come first.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>The type of function that is used for deciding what fonts get
-shown in a <code>GtkFontChooser</code>. See gtk_font_chooser_set_filter_func().</p>
+shown in a <code>GtkFontChooser</code>. See <code>gtk_font_chooser_set_filter_func()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -13360,7 +13360,7 @@ shown in a <code>GtkFontChooser</code>. See gtk_font_chooser_set_filter_func().<
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A function used by gtk_icon_view_selected_foreach() to map all
+                        <p>A function used by <code>gtk_icon_view_selected_foreach()</code> to map all
 selected rows.  It will be called on every selected row in the view.</p>
 
                       </div>
@@ -13423,9 +13423,9 @@ They can be used to implement custom key event handling.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Called for list boxes that are bound to a <code>GListModel</code> with
-gtk_list_box_bind_model() for each item that gets added to the model.</p>
+<code>gtk_list_box_bind_model()</code> for each item that gets added to the model.</p>
 
-<p>Versions of GTK+ prior to 3.18 called gtk_widget_show_all() on the rows
+<p>Versions of GTK+ prior to 3.18 called <code>gtk_widget_show_all()</code> on the rows
 created by the GtkListBoxCreateWidgetFunc, but this forced all widgets
 inside the row to be shown, and is no longer the case. Applications should
 be updated to show the desired row widgets.</p>
@@ -13489,7 +13489,7 @@ if the row should be visible or not.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A function used by gtk_list_box_selected_foreach().
+                        <p>A function used by <code>gtk_list_box_selected_foreach()</code>.
 It will be called on every selected child of the <code>box</code>.</p>
 
                       </div>
@@ -13552,7 +13552,7 @@ It will be called on every selected child of the <code>box</code>.</p>
                       <div class="abstract">
                         <p>Whenever <code>row</code> changes or which row is before <code>row</code> changes this
 is called, which lets you update the header on <code>row</code>. You may
-remove or set a new one via gtk_list_box_row_set_header() or
+remove or set a new one via <code>gtk_list_box_row_set_header()</code> or
 just change the state of the current header widget.</p>
 
                       </div>
@@ -13583,7 +13583,7 @@ just change the state of the current header widget.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A user function supplied when calling gtk_menu_attach_to_widget() which
+                        <p>A user function supplied when calling <code>gtk_menu_attach_to_widget()</code> which
 will be called when the menu is later detached from the widget.</p>
 
                       </div>
@@ -13614,11 +13614,11 @@ will be called when the menu is later detached from the widget.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A user function supplied when calling gtk_menu_popup() which
+                        <p>A user function supplied when calling <code>gtk_menu_popup()</code> which
 controls the positioning of the menu when it is displayed.  The
 function sets the <code>x</code> and <code>y</code> parameters to the coordinates where the
 menu is to be drawn.  To make the menu appear on a different
-monitor than the mouse pointer, gtk_menu_set_monitor() must be
+monitor than the mouse pointer, <code>gtk_menu_set_monitor()</code> must be
 called.</p>
 
                       </div>
@@ -13649,7 +13649,7 @@ called.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A multihead-aware GTK+ module may have a gtk_module_display_init() function
+                        <p>A multihead-aware GTK+ module may have a <code>gtk_module_display_init()</code> function
 with this prototype. GTK+ calls this function for each opened display.</p>
 
                       </div>
@@ -13680,7 +13680,7 @@ with this prototype. GTK+ calls this function for each opened display.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Each GTK+ module must have a function gtk_module_init() with this prototype.
+                        <p>Each GTK+ module must have a function <code>gtk_module_init()</code> with this prototype.
 This function is called after loading the module.</p>
 
                       </div>
@@ -13712,7 +13712,7 @@ This function is called after loading the module.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>The type of function that is passed to
-gtk_print_run_page_setup_dialog_async().</p>
+<code>gtk_print_run_page_setup_dialog_async()</code>.</p>
 
 <p>This function will be called when the page setup dialog
 is dismissed, and also serves as destroy notify for <code>data</code>.</p>
@@ -13806,7 +13806,7 @@ is dismissed, and also serves as destroy notify for <code>data</code>.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>The type of function that is used with custom filters,
-see gtk_recent_filter_add_custom().</p>
+see <code>gtk_recent_filter_add_custom()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -13897,7 +13897,7 @@ see gtk_recent_filter_add_custom().</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>A function that is called to deserialize rich text that has been
-serialized with gtk_text_buffer_serialize(), and insert it at <code>iter</code>.</p>
+serialized with <code>gtk_text_buffer_serialize()</code>, and insert it at <code>iter</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -14018,7 +14018,7 @@ It must return the serialized form of the content.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>GCallback type for adding a function to update animations. See gtk_widget_add_tick_callback().</p>
+                        <p>GCallback type for adding a function to update animations. See <code>gtk_widget_add_tick_callback()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -14087,7 +14087,7 @@ straight mapping between the cell and the model.  This is useful for
 customizing the cell renderer.  For example, a function might get an
 integer from the <code>tree_model</code>, and render it to the “text” attribute of
 “cell” by converting it to its written equivalent.  This is set by
-calling gtk_tree_view_column_set_cell_data_func()</p>
+calling <code>gtk_tree_view_column_set_cell_data_func()</code></p>
 
                       </div>
                       <div class="declaration">
@@ -14156,7 +14156,7 @@ the model, i.e. it must be reflexive, antisymmetric and transitive.</p>
 
 <p>For example, if <code>model</code> is a product catalogue, then a compare function
 for the “price” column could be one which returns
-<code>price_of(</code>a<code>) - price_of(</code>b<code>)</code>.</p>
+<code>price_of(@a)` - `price_of(@b)</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -14251,7 +14251,7 @@ particularly efficient operation.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Type of the callback passed to gtk_tree_model_foreach() to
+                        <p>Type of the callback passed to <code>gtk_tree_model_foreach()</code> to
 iterate over the rows in a tree model.</p>
 
                       </div>
@@ -14282,7 +14282,7 @@ iterate over the rows in a tree model.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A function used by gtk_tree_selection_selected_foreach() to map all
+                        <p>A function used by <code>gtk_tree_selection_selected_foreach()</code> to map all
 selected rows.  It will be called on every selected row in the view.</p>
 
                       </div>
@@ -14313,7 +14313,7 @@ selected rows.  It will be called on every selected row in the view.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A function used by gtk_tree_selection_set_select_function() to filter
+                        <p>A function used by <code>gtk_tree_selection_set_select_function()</code> to filter
 whether or not a row may be selected.  It is called whenever a row&rsquo;s
 state might change.  A return value of <code>true</code> indicates to <code>selection</code>
 that it is okay to change the selection.</p>
@@ -14383,7 +14383,7 @@ spot to the user.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Function used for gtk_tree_view_map_expanded_rows().</p>
+                        <p>Function used for <code>gtk_tree_view_map_expanded_rows()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -14449,7 +14449,7 @@ returns.</p>
                         <p>A function used for checking whether a row in <code>model</code> matches
 a search key string entered by the user. Note the return value
 is reversed from what you would normally expect, though it
-has some similarity to strcmp() returning 0 for equal strings.</p>
+has some similarity to <code>strcmp()</code> returning 0 for equal strings.</p>
 
                       </div>
                       <div class="declaration">
@@ -14517,7 +14517,7 @@ has some similarity to strcmp() returning 0 for equal strings.</p>
 dimension.</p>
 
 <p>Alignment only matters if the widget receives a “too large” allocation,
-for example if you packed the widget with the <code>GtkWidget</code>:expand
+for example if you packed the widget with the <code>GtkWidget:expand</code>
 flag inside a <code>GtkBox</code>, then the widget might get extra space.  If
 you have for example a 16x16 icon inside a 32x32 space, the icon
 could be scaled and stretched, it could be centered, or it could be
@@ -14626,7 +14626,7 @@ used to handle buttons sensitivity and visibility.</p>
 <code>GTK_ASSISTANT_PAGE_PROGRESS</code> to be correct.</p>
 
 <p>The Cancel button will only be shown if the page isn’t “committed”.
-See gtk_assistant_commit() for details.</p>
+See <code>gtk_assistant_commit()</code> for details.</p>
 
                       </div>
                       <div class="declaration">
@@ -14815,7 +14815,7 @@ contains.</p>
                       <div class="abstract">
                         <p>Prebuilt sets of buttons for the dialog. If
 none of these choices are appropriate, simply use <code>GTK_BUTTONS_NONE</code>
-then call gtk_dialog_add_buttons().</p>
+then call <code>gtk_dialog_add_buttons()</code>.</p>
 
 <blockquote>
 <p>Please note that <code>GTK_BUTTONS_OK</code>, <code>GTK_BUTTONS_YES_NO</code>
@@ -15012,7 +15012,7 @@ more features.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>See also: <code>GtkEntry</code>::delete-from-cursor.</p>
+                        <p>See also: <code>GtkEntry::delete</code>-from-cursor.</p>
 
                       </div>
                       <div class="declaration">
@@ -15074,7 +15074,7 @@ more features.</p>
                       <div class="abstract">
                         <p>Gives an indication why a drag operation failed.
 The value can by obtained by connecting to the
-<code>GtkWidget</code>::drag-failed signal.</p>
+<code>GtkWidget::drag</code>-failed signal.</p>
 
                       </div>
                       <div class="declaration">
@@ -15226,7 +15226,7 @@ or to save to a possibly new file.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Used as a return value of handlers for the
-<code>GtkFileChooser</code>::confirm-overwrite signal of a <code>GtkFileChooser</code>. This
+<code>GtkFileChooser::confirm</code>-overwrite signal of a <code>GtkFileChooser</code>. This
 value determines whether the file chooser will present the stock
 confirmation dialog, accept the user’s choice of a filename, or
 let the user choose another filename.</p>
@@ -15291,7 +15291,7 @@ let the user choose another filename.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Style for input method preedit. See also
-<code>GtkSettings</code>:gtk-im-preedit-style</p>
+<code>GtkSettings:gtk</code>-im-preedit-style</p>
 
 <p><strong>IMPreeditStyle is deprecated:</strong>
 This method is deprecated.</p>
@@ -15325,7 +15325,7 @@ This method is deprecated.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Style for input method status. See also
-<code>GtkSettings</code>:gtk-im-status-style</p>
+<code>GtkSettings:gtk</code>-im-status-style</p>
 
 <p><strong>IMStatusStyle is deprecated:</strong>
 This method is deprecated.</p>
@@ -15451,8 +15451,8 @@ This method is deprecated.</p>
                         <p>Describes the image data representation used by a <code>GtkImage</code>. If you
 want to get the image from the widget, you can only get the
 currently-stored representation. e.g.  if the
-gtk_image_get_storage_type() returns <code>GTK_IMAGE_PIXBUF</code>, then you can
-call gtk_image_get_pixbuf() but not gtk_image_get_stock().  For empty
+<code>gtk_image_get_storage_type()</code> returns <code>GTK_IMAGE_PIXBUF</code>, then you can
+call <code>gtk_image_get_pixbuf()</code> but not <code>gtk_image_get_stock()</code>.  For empty
 images, you can request any storage type (call any of the <q>get</q>
 functions), but they will all return <code>nil</code> values.</p>
 
@@ -15901,7 +15901,7 @@ and menuitems contained in menubars.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>See also gtk_print_settings_set_orientation().</p>
+                        <p>See also <code>gtk_print_settings_set_orientation()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -15931,7 +15931,7 @@ and menuitems contained in menubars.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>See also gtk_print_job_set_page_set().</p>
+                        <p>See also <code>gtk_print_job_set_page_set()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -15992,7 +15992,7 @@ and menuitems contained in menubars.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Priorities for path lookups.
-See also gtk_binding_set_add_path().</p>
+See also <code>gtk_binding_set_add_path()</code>.</p>
 
 <p><strong>PathPriorityType is deprecated:</strong>
 This method is deprecated.</p>
@@ -16026,7 +16026,7 @@ This method is deprecated.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Widget path types.
-See also gtk_binding_set_add_path().</p>
+See also <code>gtk_binding_set_add_path()</code>.</p>
 
 <p><strong>PathType is deprecated:</strong>
 This method is deprecated.</p>
@@ -16153,7 +16153,7 @@ tabs of a <code>GtkNotebook</code>, the handle of a <code>GtkHandleBox</code> or
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>See also gtk_print_settings_set_duplex().</p>
+                        <p>See also <code>gtk_print_settings_set_duplex()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -16214,7 +16214,7 @@ using the GTK+ printing support.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The <code>action</code> parameter to gtk_print_operation_run()
+                        <p>The <code>action</code> parameter to <code>gtk_print_operation_run()</code>
 determines what action the print operation should perform.</p>
 
                       </div>
@@ -16245,7 +16245,7 @@ determines what action the print operation should perform.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A value of this type is returned by gtk_print_operation_run().</p>
+                        <p>A value of this type is returned by <code>gtk_print_operation_run()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -16275,7 +16275,7 @@ determines what action the print operation should perform.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>See also gtk_print_job_set_pages()</p>
+                        <p>See also <code>gtk_print_job_set_pages()</code></p>
 
                       </div>
                       <div class="declaration">
@@ -16305,7 +16305,7 @@ determines what action the print operation should perform.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>See also gtk_print_settings_set_quality().</p>
+                        <p>See also <code>gtk_print_settings_set_quality()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -16584,7 +16584,7 @@ used resource list.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Predefined values for use as response ids in gtk_dialog_add_button().
+                        <p>Predefined values for use as response ids in <code>gtk_dialog_add_button()</code>.
 All predefined values are negative; GTK+ leaves values of 0 or greater for
 application-defined response ids.</p>
 
@@ -16958,7 +16958,7 @@ width-for-height geometry management.</p>
                       <div class="abstract">
                         <p>The spin button update policy determines whether the spin button displays
 values even if they are outside the bounds of its adjustment.
-See gtk_spin_button_set_update_policy().</p>
+See <code>gtk_spin_button_set_update_policy()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -16989,7 +16989,7 @@ See gtk_spin_button_set_update_policy().</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>The values of the GtkSpinType enumeration are used to specify the
-change to make in gtk_spin_button_spin().</p>
+change to make in <code>gtk_spin_button_spin()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -17090,8 +17090,8 @@ All APIs that are using this enumeration have been deprecated
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>These values are used as “info” for the targets contained in the
-lists returned by gtk_text_buffer_get_copy_target_list() and
-gtk_text_buffer_get_paste_target_list().</p>
+lists returned by <code>gtk_text_buffer_get_copy_target_list()</code> and
+<code>gtk_text_buffer_get_paste_target_list()</code>.</p>
 
 <p>The values counts down from <code>-1</code> to avoid clashes
 with application added drag destinations which usually start at 0.</p>
@@ -17155,7 +17155,7 @@ with application added drag destinations which usually start at 0.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Granularity types that extend the text selection. Use the
-<code>GtkTextView</code>::extend-selection signal to customize the selection.</p>
+<code>GtkTextView::extend</code>-selection signal to customize the selection.</p>
 
                       </div>
                       <div class="declaration">
@@ -17186,7 +17186,7 @@ with application added drag destinations which usually start at 0.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Used to reference the layers of <code>GtkTextView</code> for the purpose of customized
-drawing with the ::draw_layer vfunc.</p>
+drawing with the <code>draw_layer</code> vfunc.</p>
 
                       </div>
                       <div class="declaration">
@@ -17405,7 +17405,7 @@ can make columns appear choppy.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>See also gtk_print_settings_set_paper_width().</p>
+                        <p>See also <code>gtk_print_settings_set_paper_width()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -17435,7 +17435,7 @@ can make columns appear choppy.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Kinds of widget-specific help. Used by the ::show-help signal.</p>
+                        <p>Kinds of widget-specific help. Used by the <code>show</code>-help signal.</p>
 
                       </div>
                       <div class="declaration">
@@ -17500,7 +17500,7 @@ It won’t necessarily work well with all window managers or on all windowing sy
                         <p>A <code>GtkWindow</code> can be one of these types. Most things you’d consider a
 “window” should have type <code>GTK_WINDOW_TOPLEVEL</code>; windows with this type
 are managed by the window manager and have a frame by default (call
-gtk_window_set_decorated() to toggle the frame).  Windows with type
+<code>gtk_window_set_decorated()</code> to toggle the frame).  Windows with type
 <code>GTK_WINDOW_POPUP</code> are ignored by the window manager; window manager
 keybindings won’t work on them, the window manager won’t decorate the
 window with a frame, many GTK+ features that rely on the window
@@ -17509,7 +17509,7 @@ maximization/minimization). <code>GTK_WINDOW_POPUP</code> is used to implement
 widgets such as <code>GtkMenu</code> or tooltips that you normally don’t think of
 as windows per se. Nearly all windows should be <code>GTK_WINDOW_TOPLEVEL</code>.
 In particular, do not use <code>GTK_WINDOW_POPUP</code> just to turn off
-the window borders; use gtk_window_set_decorated() for that.</p>
+the window borders; use <code>gtk_window_set_decorated()</code> for that.</p>
 
                       </div>
                       <div class="declaration">
@@ -21450,7 +21450,7 @@ the window borders; use gtk_window_set_decorated() for that.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">GtkCallback</span> <span class="o">=</span> <span class="kd">@convention(c)</span> <span class="p">(</span><span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="n">_GtkWidget</span><span class="o">&gt;</span><span class="p">?,</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="p">()</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">GtkCallback</span> <span class="o">=</span> <span class="kd">@convention</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="p">(</span><span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="n">_GtkWidget</span><span class="o">&gt;</span><span class="p">?,</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="p">()</span></code></pre>
 
                         </div>
                       </div>
@@ -21746,7 +21746,7 @@ the window borders; use gtk_window_set_decorated() for that.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

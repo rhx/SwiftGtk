@@ -11533,18 +11533,18 @@ has a action area at the bottom, <code>GtkInfoBar</code> has an action area
 at the side.</p>
 
 <p>The API of <code>GtkInfoBar</code> is very similar to <code>GtkDialog</code>, allowing you
-to add buttons to the action area with gtk_info_bar_add_button() or
-gtk_info_bar_new_with_buttons(). The sensitivity of action widgets
-can be controlled with gtk_info_bar_set_response_sensitive().
+to add buttons to the action area with <code>gtk_info_bar_add_button()</code> or
+<code>gtk_info_bar_new_with_buttons()</code>. The sensitivity of action widgets
+can be controlled with <code>gtk_info_bar_set_response_sensitive()</code>.
 To add widgets to the main content area of a <code>GtkInfoBar</code>, use
-gtk_info_bar_get_content_area() and add your widgets to the container.</p>
+<code>gtk_info_bar_get_content_area()</code> and add your widgets to the container.</p>
 
 <p>Similar to <code>GtkMessageDialog</code>, the contents of a <code>GtkInfoBar</code> can by
 classified as error message, warning, informational message, etc,
-by using gtk_info_bar_set_message_type(). GTK+ may use the message type
+by using <code>gtk_info_bar_set_message_type()</code>. GTK+ may use the message type
 to determine how the message is displayed.</p>
 
-<p>A simple example for using a <code>GtkInfoBar</code>:
+<p>A simple example for using a <code>GtkInfoBar:</code>
 (C Language Example):</p>
 <pre class="highlight plaintext"><code>GtkWidget *widget, *message_label, *content_area;
 GtkWidget *grid;
@@ -11579,8 +11579,7 @@ gtk_info_bar_set_message_type (bar,
                                GTK_MESSAGE_ERROR);
 gtk_widget_show (bar);
 </code></pre>
-
-<p>&ldquo; GtkInfoBar as GtkBuildable</p>
+<h1 id='gtkinfobar-as-gtkbuildable' class='heading'>GtkInfoBar as GtkBuildable</h1>
 
 <p>The GtkInfoBar implementation of the GtkBuildable interface exposes
 the content area and action area as internal children with the names
@@ -11590,8 +11589,7 @@ the content area and action area as internal children with the names
 multiple <action-widget> elements. The “response” attribute specifies a
 numeric response, and the content of the element is the id of widget
 (which should be a child of the dialogs <code>action_area</code>).</p>
-
-<p>&rdquo; CSS nodes</p>
+<h1 id='css-nodes' class='heading'>CSS nodes</h1>
 
 <p>GtkInfoBar has a single CSS node with name infobar. The node may get
 one of the style classes .info, .warning, .error or .question, depending
@@ -11629,7 +11627,7 @@ on the message type.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L9867">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L9846">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11667,7 +11665,7 @@ on the message type.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L9870">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L9849">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11795,7 +11793,7 @@ on the message type.</p>
                         <p>binding reference or <code>nil</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L10347-L10371">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L10324-L10348">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11887,7 +11885,7 @@ on the message type.</p>
                         <p>positive handler ID, or a value less than or equal to <code>0</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L11194-L11213">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L11170-L11189">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11920,7 +11918,7 @@ on the message type.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Add an activatable widget to the action area of a <code>GtkInfoBar</code>,
-connecting a signal handler that will emit the <code>GtkInfoBar</code>::response
+connecting a signal handler that will emit the <code>GtkInfoBar::response</code>
 signal on the message area when the widget is activated. The widget
 is appended to the end of the message areas action area.</p>
 
@@ -11934,7 +11932,7 @@ is appended to the end of the message areas action area.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L11224-L11227">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L11200-L11203">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11971,7 +11969,7 @@ need it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L11234-L11237">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L11210-L11213">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12004,7 +12002,7 @@ need it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L11244-L11247">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L11220-L11223">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12037,7 +12035,7 @@ need it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L11250-L11253">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L11226-L11229">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12070,7 +12068,7 @@ need it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L11256-L11259">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L11232-L11235">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12103,7 +12101,7 @@ need it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L11261-L11264">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L11237-L11240">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12136,7 +12134,7 @@ need it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L11267-L11270">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L11243-L11246">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12169,7 +12167,7 @@ need it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L11273-L11276">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L11249-L11252">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12207,7 +12205,7 @@ be added to a widget hierarchy.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L11284-L11287">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L11260-L11263">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12242,7 +12240,7 @@ be added to a widget hierarchy.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L11292-L11295">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L11268-L11271">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12277,7 +12275,7 @@ A convenient way to sensitize/desensitize dialog buttons.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L11300-L11303">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L11276-L11279">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12314,7 +12312,7 @@ have any effect if it is invisible.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L11310-L11313">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L11286-L11289">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12348,7 +12346,7 @@ the response <code>GTK_RESPONSE_CLOSE</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L11317-L11320">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L11293-L11296">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12381,7 +12379,7 @@ the response <code>GTK_RESPONSE_CLOSE</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L11322-L11328">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L11298-L11304">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12414,7 +12412,7 @@ the response <code>GTK_RESPONSE_CLOSE</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L11331-L11337">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L11307-L11313">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12447,7 +12445,7 @@ the response <code>GTK_RESPONSE_CLOSE</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L11340-L11352">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L11316-L11328">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12480,7 +12478,7 @@ the response <code>GTK_RESPONSE_CLOSE</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L11354-L11367">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L11330-L11343">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12513,7 +12511,7 @@ the response <code>GTK_RESPONSE_CLOSE</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L11370-L11381">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L11346-L11357">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12526,7 +12524,7 @@ the response <code>GTK_RESPONSE_CLOSE</code>.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

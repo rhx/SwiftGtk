@@ -11548,17 +11548,16 @@ sizes and positions to their children. For example, a <code>GtkHBox</code> arran
 children in a horizontal row, and a <code>GtkGrid</code> arranges the widgets it contains
 in a two-dimensional grid.</p>
 
-<p>For implementations of <code>GtkContainer</code> the virtual method <code>GtkContainerClass</code>.forall()
+<p>For implementations of <code>GtkContainer</code> the virtual method <code>GtkContainerClass.forall</code><code>()</code>
 is always required, since it&rsquo;s used for drawing and other internal operations
 on the children.
 If the <code>GtkContainer</code> implementation expect to have non internal children
-it&rsquo;s needed to implement both <code>GtkContainerClass</code>.add() and <code>GtkContainerClass</code>.remove().
+it&rsquo;s needed to implement both <code>GtkContainerClass.add</code><code>()</code> and <code>GtkContainerClass.remove</code><code>()</code>.
 If the GtkContainer implementation has internal children, they should be added
-with gtk_widget_set_parent() on init() and removed with gtk_widget_unparent()
-in the <code>GtkWidgetClass</code>.destroy() implementation.
+with <code>gtk_widget_set_parent()</code> on <code>init()</code> and removed with <code>gtk_widget_unparent()</code>
+in the <code>GtkWidgetClass.destroy</code><code>()</code> implementation.
 See more about implementing custom widgets at <a href="https://wiki.gnome.org/HowDoI/CustomWidgets">https://wiki.gnome.org/HowDoI/CustomWidgets</a></p>
-
-<p>&ldquo; Height for width geometry management</p>
+<h1 id='height-for-width-geometry-management' class='heading'>Height for width geometry management</h1>
 
 <p>GTK+ uses a height-for-width (and width-for-height) geometry management system.
 Height-for-width means that a widget can change how much vertical space it needs,
@@ -11579,11 +11578,11 @@ its parent will request its sizes using the width-for-height APIs.</p>
 when implementing height-for-width (or width-for-height) containers.</p>
 
 <p>Each request mode involves 2 virtual methods. Height-for-width apis run
-through gtk_widget_get_preferred_width() and then through gtk_widget_get_preferred_height_for_width().
+through <code>gtk_widget_get_preferred_width()</code> and then through <code>gtk_widget_get_preferred_height_for_width()</code>.
 When handling requests in the opposite <code>GtkSizeRequestMode</code> it is important that
 every widget request at least enough space to display all of its content at all times.</p>
 
-<p>When gtk_widget_get_preferred_height() is called on a container that is height-for-width,
+<p>When <code>gtk_widget_get_preferred_height()</code> is called on a container that is height-for-width,
 the container must return the height for its minimum width. This is easily achieved by
 simply calling the reverse apis implemented for itself as follows:</p>
 
@@ -11617,7 +11616,7 @@ foo_container_get_preferred_height (GtkWidget *widget,
 }
 </code></pre>
 
-<p>Similarly, when gtk_widget_get_preferred_width_for_height() is called for a container or widget
+<p>Similarly, when <code>gtk_widget_get_preferred_width_for_height()</code> is called for a container or widget
 that is height-for-width, it then only needs to return the base minimum width like so:</p>
 
 <p>(C Language Example):</p>
@@ -11644,21 +11643,21 @@ foo_container_get_preferred_width_for_height (GtkWidget *widget,
 
 <p>Height for width requests are generally implemented in terms of a virtual allocation
 of widgets in the input orientation. Assuming an height-for-width request mode, a container
-would implement the get_preferred_height_for_width() virtual function by first calling
-gtk_widget_get_preferred_width() for each of its children.</p>
+would implement the <code>get_preferred_height_for_width()</code> virtual function by first calling
+<code>gtk_widget_get_preferred_width()</code> for each of its children.</p>
 
 <p>For each potential group of children that are lined up horizontally, the values returned by
-gtk_widget_get_preferred_width() should be collected in an array of <code>GtkRequestedSize</code> structures.
+<code>gtk_widget_get_preferred_width()</code> should be collected in an array of <code>GtkRequestedSize</code> structures.
 Any child spacing should be removed from the input <code>for_width</code> and then the collective size should be
-allocated using the gtk_distribute_natural_allocation() convenience function.</p>
+allocated using the <code>gtk_distribute_natural_allocation()</code> convenience function.</p>
 
 <p>The container will then move on to request the preferred height for each child by using
-gtk_widget_get_preferred_height_for_width() and using the sizes stored in the <code>GtkRequestedSize</code> array.</p>
+<code>gtk_widget_get_preferred_height_for_width()</code> and using the sizes stored in the <code>GtkRequestedSize</code> array.</p>
 
 <p>To allocate a height-for-width container, it’s again important
 to consider that a container must prioritize one dimension over the other. So if
 a container is a height-for-width container it must first allocate all widgets horizontally
-using a <code>GtkRequestedSize</code> array and gtk_distribute_natural_allocation() and then add any
+using a <code>GtkRequestedSize</code> array and <code>gtk_distribute_natural_allocation()</code> and then add any
 extra space (if and where appropriate) for the widget to expand.</p>
 
 <p>After adding all the expand space, the container assumes it was allocated sufficient
@@ -11666,15 +11665,14 @@ height to fit all of its content. At this time, the container must use the total
 of each widget to request the height-for-width of each of its children and store the requests in a
 <code>GtkRequestedSize</code> array for any widgets that stack vertically (for tabular containers this can
 be generalized into the heights and widths of rows and columns).
-The vertical space must then again be distributed using gtk_distribute_natural_allocation()
+The vertical space must then again be distributed using <code>gtk_distribute_natural_allocation()</code>
 while this time considering the allocated height of the widget minus any vertical spacing
 that the container adds. Then vertical expand space should be added where appropriate and available
 and the container should go on to actually allocating the child widgets.</p>
 
-<p>See [GtkWidget’s geometry management section][geometry-management]
+<p>See <a href="#geometry-management">GtkWidget’s geometry management section</a>
 to learn more about implementing height-for-width geometry management for widgets.</p>
-
-<p>&rdquo; Child properties</p>
+<h1 id='child-properties' class='heading'>Child properties</h1>
 
 <p>GtkContainer introduces child properties.
 These are object properties that are not specific
@@ -11682,19 +11680,18 @@ to either the container or the contained widget, but rather to their relation.
 Typical examples of child properties are the position or pack-type of a widget
 which is contained in a <code>GtkBox</code>.</p>
 
-<p>Use gtk_container_class_install_child_property() to install child properties
-for a container class and gtk_container_class_find_child_property() or
-gtk_container_class_list_child_properties() to get information about existing
+<p>Use <code>gtk_container_class_install_child_property()</code> to install child properties
+for a container class and <code>gtk_container_class_find_child_property()</code> or
+<code>gtk_container_class_list_child_properties()</code> to get information about existing
 child properties.</p>
 
-<p>To set the value of a child property, use gtk_container_child_set_property(),
-gtk_container_child_set() or gtk_container_child_set_valist().
+<p>To set the value of a child property, use <code>gtk_container_child_set_property()</code>,
+<code>gtk_container_child_set()</code> or <code>gtk_container_child_set_valist()</code>.
 To obtain the value of a child property, use
-gtk_container_child_get_property(), gtk_container_child_get() or
-gtk_container_child_get_valist(). To emit notification about child property
-changes, use gtk_widget_child_notify().</p>
-
-<p>&ldquo; GtkContainer as GtkBuildable</p>
+<code>gtk_container_child_get_property()</code>, <code>gtk_container_child_get()</code> or
+<code>gtk_container_child_get_valist()</code>. To emit notification about child property
+changes, use <code>gtk_widget_child_notify()</code>.</p>
+<h1 id='gtkcontainer-as-gtkbuildable' class='heading'>GtkContainer as GtkBuildable</h1>
 
 <p>The GtkContainer implementation of the GtkBuildable interface supports
 a <packing> element for children, which can contain multiple <property>
@@ -11758,7 +11755,7 @@ chain. The ”name” attribute gives the id of the widget.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L25241">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L25195">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11796,7 +11793,7 @@ chain. The ”name” attribute gives the id of the widget.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L25244">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L25198">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12457,7 +12454,7 @@ chain. The ”name” attribute gives the id of the widget.</p>
                         <p>binding reference or <code>nil</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L25953-L25977">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L25903-L25927">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12549,7 +12546,7 @@ chain. The ”name” attribute gives the id of the widget.</p>
                         <p>positive handler ID, or a value less than or equal to <code>0</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L26779-L26798">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L26728-L26747">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12585,8 +12582,8 @@ chain. The ”name” attribute gives the id of the widget.</p>
 such as <code>GtkWindow</code>, <code>GtkFrame</code>, or <code>GtkButton</code>; for more complicated
 layout containers such as <code>GtkBox</code> or <code>GtkGrid</code>, this function will
 pick default packing parameters that may not be correct.  So
-consider functions such as gtk_box_pack_start() and
-gtk_grid_attach() as an alternative to gtk_container_add() in
+consider functions such as <code>gtk_box_pack_start()</code> and
+<code>gtk_grid_attach()</code> as an alternative to <code>gtk_container_add()</code> in
 those cases. A widget may be added to only one container at a time;
 you can’t place the same widget inside two different containers.</p>
 
@@ -12604,7 +12601,7 @@ container.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L26817-L26820">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L26766-L26769">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12637,7 +12634,7 @@ container.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L26826-L26829">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L26775-L26778">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12670,7 +12667,7 @@ container.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L26836-L26839">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L26785-L26788">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12703,7 +12700,7 @@ container.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L26842-L26845">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L26791-L26794">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12724,13 +12721,13 @@ container.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Emits a <code>GtkWidget</code>::child-notify signal for the
-[child property][child-properties]
+                        <p>Emits a <code>GtkWidget::child</code>-notify signal for the
+<a href="#child-properties">child property</a>
 <code>child_property</code> on the child.</p>
 
-<p>This is an analogue of g_object_notify() for child properties.</p>
+<p>This is an analogue of <code>g_object_notify()</code> for child properties.</p>
 
-<p>Also see gtk_widget_child_notify().</p>
+<p>Also see <code>gtk_widget_child_notify()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12742,7 +12739,7 @@ container.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L26854-L26857">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L26803-L26806">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12763,11 +12760,11 @@ container.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Emits a <code>GtkWidget</code>::child-notify signal for the
-[child property][child-properties] specified by
+                        <p>Emits a <code>GtkWidget::child</code>-notify signal for the
+<a href="#child-properties">child property</a> specified by
 <code>pspec</code> on the child.</p>
 
-<p>This is an analogue of g_object_notify_by_pspec() for child properties.</p>
+<p>This is an analogue of <code>g_object_notify_by_pspec()</code> for child properties.</p>
 
                       </div>
                       <div class="declaration">
@@ -12779,7 +12776,7 @@ container.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L26864-L26867">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L26813-L26816">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12813,7 +12810,7 @@ container.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L26874-L26877">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L26823-L26826">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12846,7 +12843,7 @@ container.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L26880-L26883">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L26829-L26832">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12883,7 +12880,7 @@ children.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L26890-L26893">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L26839-L26842">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12910,8 +12907,8 @@ of the container). “Internal” children generally weren’t added
 by the user of the container, but were added by the container
 implementation itself.</p>
 
-<p>Most applications should use gtk_container_foreach(), rather
-than gtk_container_forall().</p>
+<p>Most applications should use <code>gtk_container_foreach()</code>, rather
+than <code>gtk_container_forall()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12923,7 +12920,7 @@ than gtk_container_forall().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L26903-L26906">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L26852-L26855">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12945,16 +12942,16 @@ than gtk_container_forall().</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Invokes <code>callback</code> on each non-internal child of <code>container</code>.
-See gtk_container_forall() for details on what constitutes
+See <code>gtk_container_forall()</code> for details on what constitutes
 an “internal” child. For all practical purposes, this function
 should iterate over precisely those child widgets that were
-added to the container by the application with explicit add()
+added to the container by the application with explicit <code>add()</code>
 calls.</p>
 
 <p>It is permissible to remove the child from the <code>callback</code> handler.</p>
 
-<p>Most applications should use gtk_container_foreach(),
-rather than gtk_container_forall().</p>
+<p>Most applications should use <code>gtk_container_foreach()</code>,
+rather than <code>gtk_container_forall()</code>.</p>
 
                         <a href="../Protocols/ContainerProtocol/foreach%28callback%3AcallbackData%3A%29.html" class="slightly-smaller">See more</a>
                       </div>
@@ -12967,7 +12964,7 @@ rather than gtk_container_forall().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L26919-L26922">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L26868-L26871">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12989,7 +12986,7 @@ rather than gtk_container_forall().</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Retrieves the border width of the container. See
-gtk_container_set_border_width().</p>
+<code>gtk_container_set_border_width()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -13001,7 +12998,7 @@ gtk_container_set_border_width().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L26926-L26929">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L26875-L26878">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13023,7 +13020,7 @@ gtk_container_set_border_width().</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Returns the container’s non-internal children. See
-gtk_container_forall() for details on what constitutes an <q>internal</q> child.</p>
+<code>gtk_container_forall()</code> for details on what constitutes an <q>internal</q> child.</p>
 
                       </div>
                       <div class="declaration">
@@ -13035,7 +13032,7 @@ gtk_container_forall() for details on what constitutes an <q>internal</q> child.
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L26933-L26936">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L26882-L26885">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13071,13 +13068,13 @@ For overriding focus behavior, use the
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">getFocusChain</span><span class="p">(</span><span class="n">focusableWidgets</span> <span class="nv">focusable_widgets</span><span class="p">:</span> <span class="kt">ListProtocol</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L26947-L26950">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L26896-L26899">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13100,7 +13097,7 @@ For overriding focus behavior, use the
                       <div class="abstract">
                         <p>Returns the current focus child widget inside <code>container</code>. This is not the
 currently focused widget. That can be obtained by calling
-gtk_window_get_focus().</p>
+<code>gtk_window_get_focus()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -13112,7 +13109,7 @@ gtk_window_get_focus().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L26955-L26958">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L26904-L26907">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13146,7 +13143,7 @@ gtk_container_set_focus_hadjustment ().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L26962-L26965">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L26911-L26914">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13168,7 +13165,7 @@ gtk_container_set_focus_hadjustment ().</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Retrieves the vertical focus adjustment for the container. See
-gtk_container_set_focus_vadjustment().</p>
+<code>gtk_container_set_focus_vadjustment()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -13180,7 +13177,7 @@ gtk_container_set_focus_vadjustment().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L26969-L26972">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L26918-L26921">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13214,7 +13211,7 @@ from the toplevel down to and including <code>child</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L26976-L26979">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L26925-L26928">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13248,13 +13245,13 @@ Resize modes are deprecated. They aren’t necessary
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">getResizeMode</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">GtkResizeMode</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L26988-L26991">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L26937-L26940">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13276,20 +13273,20 @@ Resize modes are deprecated. They aren’t necessary
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>When a container receives a call to the draw function, it must send
-synthetic <code>GtkWidget</code>::draw calls to all children that don’t have their
+synthetic <code>GtkWidget::draw</code> calls to all children that don’t have their
 own <code>GdkWindows</code>. This function provides a convenient way of doing this.
-A container, when it receives a call to its <code>GtkWidget</code>::draw function,
-calls gtk_container_propagate_draw() once for each child, passing in
+A container, when it receives a call to its <code>GtkWidget::draw</code> function,
+calls <code>gtk_container_propagate_draw()</code> once for each child, passing in
 the <code>cr</code> the container received.</p>
 
-<p>gtk_container_propagate_draw() takes care of translating the origin of <code>cr</code>,
+<p><code>gtk_container_propagate_draw()</code> takes care of translating the origin of <code>cr</code>,
 and deciding whether the draw needs to be sent to the child. It is a
 convenient and optimized way of getting the same effect as calling
-gtk_widget_draw() on the child directly.</p>
+<code>gtk_widget_draw()</code> on the child directly.</p>
 
 <p>In most cases, a container can simply either inherit the
-<code>GtkWidget</code>::draw implementation from <code>GtkContainer</code>, or do some drawing
-and then chain to the ::draw implementation from <code>GtkContainer</code>.</p>
+<code>GtkWidget::draw</code> implementation from <code>GtkContainer</code>, or do some drawing
+and then chain to the <code>draw</code> implementation from <code>GtkContainer</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -13301,7 +13298,7 @@ and then chain to the ::draw implementation from <code>GtkContainer</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L27008-L27011">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L26957-L26960">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13327,9 +13324,9 @@ Note that <code>container</code> will own a reference to <code>widget</code>, an
 may be the last reference held; so removing a widget from its
 container can destroy that widget. If you want to use <code>widget</code>
 again, you need to add a reference to it before removing it from
-a container, using g_object_ref(). If you don’t want to use <code>widget</code>
+a container, using <code>g_object_ref()</code>. If you don’t want to use <code>widget</code>
 again it’s usually more efficient to simply destroy it directly
-using gtk_widget_destroy() since this will remove it from the
+using <code>gtk_widget_destroy()</code> since this will remove it from the
 container and help break any circular reference count cycles.</p>
 
                       </div>
@@ -13342,7 +13339,7 @@ container and help break any circular reference count cycles.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L27022-L27025">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L26971-L26974">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13371,13 +13368,13 @@ This method is deprecated.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">resizeChildren</span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L27031-L27034">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L26980-L26983">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13405,8 +13402,8 @@ around the outside of the container. The only exception to this is
 <code>GtkWindow</code>; because toplevel windows can’t leave space outside,
 they leave the space inside. The border is added on all sides of
 the container. To add space to only one side, use a specific
-<code>GtkWidget</code>:margin property on the child widget, for example
-<code>GtkWidget</code>:margin-top.</p>
+<code>GtkWidget:margin</code> property on the child widget, for example
+<code>GtkWidget:margin</code>-top.</p>
 
                       </div>
                       <div class="declaration">
@@ -13418,7 +13415,7 @@ the container. To add space to only one side, use a specific
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L27045-L27048">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L26994-L26997">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13456,13 +13453,13 @@ For overriding focus behavior, use the
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">setFocusChain</span><span class="p">(</span><span class="n">focusableWidgets</span> <span class="nv">focusable_widgets</span><span class="p">:</span> <span class="kt">ListProtocol</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L27061-L27064">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L27010-L27013">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13485,12 +13482,12 @@ For overriding focus behavior, use the
                       <div class="abstract">
                         <p>Sets, or unsets if <code>child</code> is <code>nil</code>, the focused child of <code>container</code>.</p>
 
-<p>This function emits the GtkContainer::set_focus_child signal of
+<p>This function emits the GtkContainer<code>set_focus_child</code> signal of
 <code>container</code>. Implementations of <code>GtkContainer</code> can override the
 default behaviour by overriding the class closure of this signal.</p>
 
 <p>This is function is mostly meant to be used by widgets. Applications can use
-gtk_widget_grab_focus() to manually set the focus to a specific widget.</p>
+<code>gtk_widget_grab_focus()</code> to manually set the focus to a specific widget.</p>
 
                       </div>
                       <div class="declaration">
@@ -13502,7 +13499,7 @@ gtk_widget_grab_focus() to manually set the focus to a specific widget.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L27074-L27077">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L27023-L27026">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13526,8 +13523,8 @@ gtk_widget_grab_focus() to manually set the focus to a specific widget.</p>
                         <p>Hooks up an adjustment to focus handling in a container, so when a child
 of the container is focused, the adjustment is scrolled to show that
 widget. This function sets the horizontal alignment.
-See gtk_scrolled_window_get_hadjustment() for a typical way of obtaining
-the adjustment and gtk_container_set_focus_vadjustment() for setting
+See <code>gtk_scrolled_window_get_hadjustment()</code> for a typical way of obtaining
+the adjustment and <code>gtk_container_set_focus_vadjustment()</code> for setting
 the vertical adjustment.</p>
 
 <p>The adjustments have to be in pixel units and in the same coordinate
@@ -13543,7 +13540,7 @@ system as the allocation for immediate children of the container.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L27088-L27091">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L27037-L27040">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13567,8 +13564,8 @@ system as the allocation for immediate children of the container.</p>
                         <p>Hooks up an adjustment to focus handling in a container, so when a
 child of the container is focused, the adjustment is scrolled to
 show that widget. This function sets the vertical alignment. See
-gtk_scrolled_window_get_vadjustment() for a typical way of obtaining
-the adjustment and gtk_container_set_focus_hadjustment() for setting
+<code>gtk_scrolled_window_get_vadjustment()</code> for a typical way of obtaining
+the adjustment and <code>gtk_container_set_focus_hadjustment()</code> for setting
 the horizontal adjustment.</p>
 
 <p>The adjustments have to be in pixel units and in the same coordinate
@@ -13584,7 +13581,7 @@ system as the allocation for immediate children of the container.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L27102-L27105">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L27051-L27054">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13618,13 +13615,13 @@ Call gtk_widget_queue_draw() in your size_allocate handler.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">setReallocateRedraws</span><span class="p">(</span><span class="n">needsRedraws</span> <span class="nv">needs_redraws</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L27114-L27117">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L27063-L27066">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13661,13 +13658,13 @@ Resize modes are deprecated. They aren’t necessary
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">set</span><span class="p">(</span><span class="n"><a href="../Protocols/ContainerProtocol.html#/s:3Gtk17ContainerProtocolPAAE10resizeModeSo0a6ResizeE0avp">resizeMode</a></span> <span class="nv">resize_mode</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:3Gtk10ResizeModea">ResizeMode</a></span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L27129-L27132">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L27078-L27081">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13688,7 +13685,7 @@ Resize modes are deprecated. They aren’t necessary
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Removes a focus chain explicitly set with gtk_container_set_focus_chain().</p>
+                        <p>Removes a focus chain explicitly set with <code>gtk_container_set_focus_chain()</code>.</p>
 
 <p><strong>unset_focus_chain is deprecated:</strong>
 For overriding focus behavior, use the
@@ -13699,13 +13696,13 @@ For overriding focus behavior, use the
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">unsetFocusChain</span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L27139-L27142">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L27088-L27091">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13727,7 +13724,7 @@ For overriding focus behavior, use the
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Retrieves the border width of the container. See
-gtk_container_set_border_width().</p>
+<code>gtk_container_set_border_width()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -13739,7 +13736,7 @@ gtk_container_set_border_width().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L27145-L27164">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L27094-L27113">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13761,7 +13758,7 @@ gtk_container_set_border_width().</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Returns the container’s non-internal children. See
-gtk_container_forall() for details on what constitutes an <q>internal</q> child.</p>
+<code>gtk_container_forall()</code> for details on what constitutes an <q>internal</q> child.</p>
 
                       </div>
                       <div class="declaration">
@@ -13773,7 +13770,7 @@ gtk_container_forall() for details on what constitutes an <q>internal</q> child.
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L27168-L27175">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L27117-L27124">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13796,7 +13793,7 @@ gtk_container_forall() for details on what constitutes an <q>internal</q> child.
                       <div class="abstract">
                         <p>Returns the current focus child widget inside <code>container</code>. This is not the
 currently focused widget. That can be obtained by calling
-gtk_window_get_focus().</p>
+<code>gtk_window_get_focus()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -13808,7 +13805,7 @@ gtk_window_get_focus().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L27180-L27199">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L27129-L27148">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13842,7 +13839,7 @@ gtk_container_set_focus_hadjustment ().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L27203-L27222">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L27152-L27171">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13864,7 +13861,7 @@ gtk_container_set_focus_hadjustment ().</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Retrieves the vertical focus adjustment for the container. See
-gtk_container_set_focus_vadjustment().</p>
+<code>gtk_container_set_focus_vadjustment()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -13876,7 +13873,7 @@ gtk_container_set_focus_vadjustment().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L27226-L27245">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L27175-L27194">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13915,7 +13912,7 @@ Resize modes are deprecated. They aren’t necessary
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L27254-L27279">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L27203-L27228">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13928,7 +13925,7 @@ Resize modes are deprecated. They aren’t necessary
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

@@ -11527,34 +11527,33 @@ Use <code>ModelButton</code> as a strong reference or owner of a <code>GtkModelB
 
 <p>GtkModelButton is a button class that can use a <code>GAction</code> as its model.
 In contrast to <code>GtkToggleButton</code> or <code>GtkRadioButton</code>, which can also
-be backed by a <code>GAction</code> via the <code>GtkActionable</code>:action-name property,
+be backed by a <code>GAction</code> via the <code>GtkActionable:action</code>-name property,
 GtkModelButton will adapt its appearance according to the kind of
 action it is backed by, and appear either as a plain, check or
 radio button.</p>
 
 <p>Model buttons are used when popovers from a menu model with
-gtk_popover_new_from_model(); they can also be used manually in
+<code>gtk_popover_new_from_model()</code>; they can also be used manually in
 a <code>GtkPopoverMenu</code>.</p>
 
-<p>When the action is specified via the <code>GtkActionable</code>:action-name
-and <code>GtkActionable</code>:action-target properties, the role of the button
+<p>When the action is specified via the <code>GtkActionable:action</code>-name
+and <code>GtkActionable:action</code>-target properties, the role of the button
 (i.e. whether it is a plain, check or radio button) is determined by
 the type of the action and doesn&rsquo;t have to be explicitly specified
-with the <code>GtkModelButton</code>:role property.</p>
+with the <code>GtkModelButton:role</code> property.</p>
 
-<p>The content of the button is specified by the <code>GtkModelButton</code>:text
-and <code>GtkModelButton</code>:icon properties.</p>
+<p>The content of the button is specified by the <code>GtkModelButton:text</code>
+and <code>GtkModelButton:icon</code> properties.</p>
 
 <p>The appearance of model buttons can be influenced with the
-<code>GtkModelButton</code>:centered and <code>GtkModelButton</code>:iconic properties.</p>
+<code>GtkModelButton:centered</code> and <code>GtkModelButton:iconic</code> properties.</p>
 
 <p>Model buttons have built-in support for submenus in <code>GtkPopoverMenu</code>.
 To make a GtkModelButton that opens a submenu when activated, set
-the <code>GtkModelButton</code>:menu-name property. To make a button that goes
-back to the parent menu, you should set the <code>GtkModelButton</code>:inverted
+the <code>GtkModelButton:menu</code>-name property. To make a button that goes
+back to the parent menu, you should set the <code>GtkModelButton:inverted</code>
 property to place the submenu indicator at the opposite side.</p>
-
-<p>&ldquo; Example</p>
+<h1 id='example' class='heading'>Example</h1>
 <pre class="highlight swift"><code><span class="o">&lt;</span><span class="n">object</span> <span class="kd">class</span><span class="o">=</span><span class="s">"GtkPopoverMenu"</span><span class="o">&gt;</span>
   <span class="o">&lt;</span><span class="n">child</span><span class="o">&gt;</span>
     <span class="o">&lt;</span><span class="n">object</span> <span class="kd">class</span><span class="o">=</span><span class="s">"GtkBox"</span><span class="o">&gt;</span>
@@ -11585,19 +11584,24 @@ property to place the submenu indicator at the opposite side.</p>
   <span class="o">&lt;/</span><span class="n">child</span><span class="o">&gt;</span>
 <span class="o">&lt;/</span><span class="n">object</span><span class="o">&gt;</span>
 </code></pre>
+<h1 id='css-nodes' class='heading'>CSS nodes</h1>
 
-<p>&rdquo; CSS nodes</p>
-<pre class="highlight swift"><code><span class="n">modelbutton</span>
-<span class="err">├──</span> <span class="o">&lt;</span><span class="n">child</span><span class="o">&gt;</span>
-<span class="err">╰──</span> <span class="n">check</span>
+<p>(plain Language Example):</p>
+<pre class="highlight plaintext"><code>modelbutton
+├── &lt;child&gt;
+╰── check
 </code></pre>
-<pre class="highlight swift"><code><span class="n">modelbutton</span>
-<span class="err">├──</span> <span class="o">&lt;</span><span class="n">child</span><span class="o">&gt;</span>
-<span class="err">╰──</span> <span class="n">radio</span>
+
+<p>(plain Language Example):</p>
+<pre class="highlight plaintext"><code>modelbutton
+├── &lt;child&gt;
+╰── radio
 </code></pre>
-<pre class="highlight swift"><code><span class="n">modelbutton</span>
-<span class="err">├──</span> <span class="o">&lt;</span><span class="n">child</span><span class="o">&gt;</span>
-<span class="err">╰──</span> <span class="n">arrow</span>
+
+<p>(plain Language Example):</p>
+<pre class="highlight plaintext"><code>modelbutton
+├── &lt;child&gt;
+╰── arrow
 </code></pre>
 
 <p>GtkModelButton has a main CSS node with name modelbutton, and a subnode,
@@ -11606,12 +11610,14 @@ of the button and whether it has a menu name set.</p>
 
 <p>The subnode is positioned before or after the content nodes and gets the
 .left or .right style class, depending on where it is located.</p>
-<pre class="highlight swift"><code><span class="n">button</span><span class="o">.</span><span class="n">model</span>
-<span class="err">├──</span> <span class="o">&lt;</span><span class="n">child</span><span class="o">&gt;</span>
-<span class="err">╰──</span> <span class="n">check</span>
+
+<p>(plain Language Example):</p>
+<pre class="highlight plaintext"><code>button.model
+├── &lt;child&gt;
+╰── check
 </code></pre>
 
-<p>Iconic model buttons (see <code>GtkModelButton</code>:iconic) change the name of
+<p>Iconic model buttons (see <code>GtkModelButton:iconic</code>) change the name of
 their main node to button and add a .model style class to it. The indicator
 subnode is invisible in this case.</p>
 
@@ -11648,7 +11654,7 @@ Ownership is transferred to the <code>ModelButton</code> instance.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L12536-L12538">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L12510-L12512">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11674,12 +11680,12 @@ Will retain <code>GtkModelButton</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">other</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/ModelButtonProtocol.html">ModelButtonProtocol</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">other</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/ModelButtonProtocol.html">ModelButtonProtocol</a></span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L12542-L12545">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L12516-L12519">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11705,12 +11711,12 @@ Will retain <code>GtkModelButton</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">cPointer</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">cPointer</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L12549-L12551">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L12523-L12525">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11736,12 +11742,12 @@ Will retain <code>GtkModelButton</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeRawPointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L12555-L12557">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L12529-L12531">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11767,12 +11773,12 @@ Will retain <code>GtkModelButton</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L12561-L12563">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L12535-L12537">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11798,12 +11804,12 @@ Will retain <code>GtkModelButton</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">opaquePointer</span><span class="p">:</span> <span class="kt">OpaquePointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">opaquePointer</span><span class="p">:</span> <span class="kt">OpaquePointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L12567-L12569">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L12541-L12543">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11828,12 +11834,12 @@ Will retain <code>GtkModelButton</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">()</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L12572-L12575">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L12546-L12549">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11846,7 +11852,7 @@ Will retain <code>GtkModelButton</code>.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

@@ -11534,44 +11534,46 @@ interface component in their own right.</p>
 selected, all other radio buttons in the same group are deselected. A
 <code>GtkRadioButton</code> is one way of giving the user a choice from many options.</p>
 
-<p>Radio button widgets are created with gtk_radio_button_new(), passing <code>nil</code>
+<p>Radio button widgets are created with <code>gtk_radio_button_new()</code>, passing <code>nil</code>
 as the argument if this is the first radio button in a group. In subsequent
 calls, the group you wish to add this button to should be passed as an
-argument. Optionally, gtk_radio_button_new_with_label() can be used if you
+argument. Optionally, <code>gtk_radio_button_new_with_label()</code> can be used if you
 want a text label on the radio button.</p>
 
 <p>Alternatively, when adding widgets to an existing group of radio buttons,
-use gtk_radio_button_new_from_widget() with a <code>GtkRadioButton</code> that already
+use <code>gtk_radio_button_new_from_widget()</code> with a <code>GtkRadioButton</code> that already
 has a group assigned to it. The convenience function
-gtk_radio_button_new_with_label_from_widget() is also provided.</p>
+<code>gtk_radio_button_new_with_label_from_widget()</code> is also provided.</p>
 
 <p>To retrieve the group a <code>GtkRadioButton</code> is assigned to, use
-gtk_radio_button_get_group().</p>
+<code>gtk_radio_button_get_group()</code>.</p>
 
 <p>To remove a <code>GtkRadioButton</code> from one group and make it part of a new one,
-use gtk_radio_button_set_group().</p>
+use <code>gtk_radio_button_set_group()</code>.</p>
 
 <p>The group list does not need to be freed, as each <code>GtkRadioButton</code> will remove
 itself and its list item when it is destroyed.</p>
+<h1 id='css-nodes' class='heading'>CSS nodes</h1>
 
-<p>&ldquo; CSS nodes</p>
-<pre class="highlight swift"><code><span class="n">radiobutton</span>
-<span class="err">├──</span> <span class="n">radio</span>
-<span class="err">╰──</span> <span class="o">&lt;</span><span class="n">child</span><span class="o">&gt;</span>
+<p>(plain Language Example):</p>
+<pre class="highlight plaintext"><code>radiobutton
+├── radio
+╰── &lt;child&gt;
 </code></pre>
 
-<p>A GtkRadioButton with indicator (see gtk_toggle_button_set_mode()) has a
+<p>A GtkRadioButton with indicator (see <code>gtk_toggle_button_set_mode()</code>) has a
 main CSS node with name radiobutton and a subnode with name radio.</p>
-<pre class="highlight swift"><code><span class="n">button</span><span class="o">.</span><span class="n">radio</span>
-<span class="err">├──</span> <span class="n">radio</span>
-<span class="err">╰──</span> <span class="o">&lt;</span><span class="n">child</span><span class="o">&gt;</span>
+
+<p>(plain Language Example):</p>
+<pre class="highlight plaintext"><code>button.radio
+├── radio
+╰── &lt;child&gt;
 </code></pre>
 
 <p>A GtkRadioButton without indicator changes the name of its main node
 to button and adds a .radio style class to it. The subnode is invisible
 in this case.</p>
-
-<p>&rdquo;` How to create a group of two radio buttons.</p>
+<h2 id='how-to-create-a-group-of-two-radio-buttons' class='heading'>How to create a group of two radio buttons.</h2>
 
 <p>(C Language Example):</p>
 <pre class="highlight plaintext"><code>void create_radio_buttons (void) {
@@ -11601,9 +11603,9 @@ in this case.</p>
 </code></pre>
 
 <p>When an unselected button in the group is clicked the clicked button
-receives the <code>GtkToggleButton</code>::toggled signal, as does the previously
+receives the <code>GtkToggleButton::toggled</code> signal, as does the previously
 selected button.
-Inside the <code>GtkToggleButton</code>::toggled handler, gtk_toggle_button_get_active()
+Inside the <code>GtkToggleButton::toggled</code> handler, <code>gtk_toggle_button_get_active()</code>
 can be used to determine if the button has been selected or deselected.</p>
 
           </div>
@@ -11639,7 +11641,7 @@ For type-safe access, use the generated, typed pointer <code>radio_button_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L216">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L214">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11680,7 +11682,7 @@ For type-safe access, use the generated, typed pointer <code>radio_button_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L221-L222">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L219-L220">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11710,7 +11712,7 @@ For type-safe access, use the generated, typed pointer <code>radio_button_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L225-L227">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L223-L225">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11741,7 +11743,7 @@ For type-safe access, use the generated, typed pointer <code>radio_button_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L231-L233">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L229-L231">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11772,7 +11774,7 @@ For type-safe access, use the generated, typed pointer <code>radio_button_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L237-L239">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L235-L237">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11803,7 +11805,7 @@ For type-safe access, use the generated, typed pointer <code>radio_button_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L243-L245">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L241-L243">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11834,7 +11836,7 @@ For type-safe access, use the generated, typed pointer <code>radio_button_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L249-L251">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L247-L249">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11865,7 +11867,7 @@ For type-safe access, use the generated, typed pointer <code>radio_button_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L255-L257">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L253-L255">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11883,7 +11885,7 @@ For type-safe access, use the generated, typed pointer <code>radio_button_ptr</c
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <pre class="highlight swift"><code><span class="kt">Creates</span> <span class="n">a</span> <span class="k">new</span> <span class="err">`</span><span class="kt">GtkRadioButton</span><span class="err">`</span><span class="o">.</span> <span class="kt">To</span> <span class="n">be</span> <span class="n">of</span> <span class="n">any</span> <span class="n">practical</span> <span class="n">value</span><span class="p">,</span> <span class="n">a</span> <span class="n">widget</span> <span class="n">should</span>
+                        <pre class="highlight swift"><code><span class="kt">Creates</span> <span class="n">a</span> <span class="k">new</span> <span class="p">`</span><span class="nv">GtkRadioButton</span><span class="p">`</span><span class="o">.</span> <span class="kt">To</span> <span class="n">be</span> <span class="n">of</span> <span class="n">any</span> <span class="n">practical</span> <span class="n">value</span><span class="p">,</span> <span class="n">a</span> <span class="n">widget</span> <span class="n">should</span>
 </code></pre>
 
 <p>then be packed into the radio button.</p>
@@ -11898,7 +11900,7 @@ For type-safe access, use the generated, typed pointer <code>radio_button_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L261-L264">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L259-L262">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11928,7 +11930,7 @@ For type-safe access, use the generated, typed pointer <code>radio_button_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L267-L270">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L265-L268">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11948,7 +11950,7 @@ For type-safe access, use the generated, typed pointer <code>radio_button_ptr</c
                       <div class="abstract">
                         <p>Creates a new <code>GtkRadioButton</code> containing a label, adding it to the same
 group as <code>group</code>. The label will be created using
-gtk_label_new_with_mnemonic(), so underscores in <code>label</code> indicate the
+<code>gtk_label_new_with_mnemonic()</code>, so underscores in <code>label</code> indicate the
 mnemonic for the button.</p>
 
                       </div>
@@ -11961,7 +11963,7 @@ mnemonic for the button.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L276-L279">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L274-L277">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11991,7 +11993,7 @@ mnemonic for the button.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L281-L284">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L279-L282">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12011,7 +12013,7 @@ mnemonic for the button.</p>
                       <div class="abstract">
                         <p>Creates a new <code>GtkRadioButton</code> containing a label, adding it to the same
 group as <code>group</code>. The label will be created using
-gtk_label_new_with_mnemonic(), so underscores in <code>label</code> indicate the
+<code>gtk_label_new_with_mnemonic()</code>, so underscores in <code>label</code> indicate the
 mnemonic for the button.</p>
 
                       </div>
@@ -12024,7 +12026,7 @@ mnemonic for the button.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L290-L293">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L288-L291">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12037,7 +12039,7 @@ mnemonic for the button.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

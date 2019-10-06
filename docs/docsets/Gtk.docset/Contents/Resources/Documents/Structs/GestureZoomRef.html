@@ -11527,7 +11527,7 @@ Use <code>GestureZoomRef</code> only as an <code>unowned</code> reference to an 
 
 <p><code>GtkGestureZoom</code> is a <code>GtkGesture</code> implementation able to recognize
 pinch/zoom gestures, whenever the distance between both tracked
-sequences changes, the <code>GtkGestureZoom</code>::scale-changed signal is
+sequences changes, the <code>GtkGestureZoom::scale</code>-changed signal is
 emitted to report the scale factor.</p>
 
           </div>
@@ -11563,7 +11563,7 @@ For type-safe access, use the generated, typed pointer <code>gesture_zoom_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L3649">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L3639">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11604,7 +11604,7 @@ For type-safe access, use the generated, typed pointer <code>gesture_zoom_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L3654-L3655">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L3644-L3645">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11634,7 +11634,7 @@ For type-safe access, use the generated, typed pointer <code>gesture_zoom_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L3658-L3660">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L3648-L3650">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11665,7 +11665,7 @@ For type-safe access, use the generated, typed pointer <code>gesture_zoom_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L3664-L3666">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L3654-L3656">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11696,7 +11696,7 @@ For type-safe access, use the generated, typed pointer <code>gesture_zoom_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L3670-L3672">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L3660-L3662">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11727,7 +11727,7 @@ For type-safe access, use the generated, typed pointer <code>gesture_zoom_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L3676-L3678">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L3666-L3668">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11758,7 +11758,7 @@ For type-safe access, use the generated, typed pointer <code>gesture_zoom_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L3682-L3684">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L3672-L3674">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11789,7 +11789,7 @@ For type-safe access, use the generated, typed pointer <code>gesture_zoom_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L3688-L3690">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L3678-L3680">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11807,7 +11807,7 @@ For type-safe access, use the generated, typed pointer <code>gesture_zoom_ptr</c
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <pre class="highlight swift"><code><span class="kt">Returns</span> <span class="n">a</span> <span class="n">newly</span> <span class="n">created</span> <span class="err">`</span><span class="kt">GtkGesture</span><span class="err">`</span> <span class="n">that</span> <span class="n">recognizes</span> <span class="n">zoom</span>
+                        <pre class="highlight swift"><code><span class="kt">Returns</span> <span class="n">a</span> <span class="n">newly</span> <span class="n">created</span> <span class="p">`</span><span class="nv">GtkGesture</span><span class="p">`</span> <span class="n">that</span> <span class="n">recognizes</span> <span class="n">zoom</span>
 </code></pre>
 
 <p>in/out gestures (usually known as pinch/zoom).</p>
@@ -11822,7 +11822,7 @@ For type-safe access, use the generated, typed pointer <code>gesture_zoom_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L3694-L3697">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L3684-L3687">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11835,7 +11835,7 @@ For type-safe access, use the generated, typed pointer <code>gesture_zoom_ptr</c
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

@@ -11542,7 +11542,7 @@ for settings by installing a <code>settings.ini</code> file
 next to their <code>gtk.css</code> file.</p>
 
 <p>Applications can override system-wide settings by setting the property
-of the GtkSettings object with g_object_set(). This should be restricted
+of the GtkSettings object with <code>g_object_set()</code>. This should be restricted
 to special cases though; GtkSettings are not meant as an application
 configuration facility. When doing so, you need to be aware that settings
 that are specific to individual widgets may not be available before the
@@ -11558,8 +11558,8 @@ demonstrates a way to do this:
 </code></pre>
 
 <p>There is one GtkSettings instance per screen. It can be obtained with
-gtk_settings_get_for_screen(), but in many cases, it is more convenient
-to use gtk_widget_get_settings(). gtk_settings_get_default() returns the
+<code>gtk_settings_get_for_screen()</code>, but in many cases, it is more convenient
+to use <code>gtk_widget_get_settings()</code>. <code>gtk_settings_get_default()</code> returns the
 GtkSettings instance for the default screen.</p>
 
           </div>
@@ -11595,7 +11595,7 @@ For type-safe access, use the generated, typed pointer <code>settings_ptr</code>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L12847">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L12831">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11636,7 +11636,7 @@ For type-safe access, use the generated, typed pointer <code>settings_ptr</code>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L12852-L12853">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L12836-L12837">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11666,7 +11666,7 @@ For type-safe access, use the generated, typed pointer <code>settings_ptr</code>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L12856-L12858">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L12840-L12842">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11697,7 +11697,7 @@ For type-safe access, use the generated, typed pointer <code>settings_ptr</code>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L12862-L12864">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L12846-L12848">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11728,7 +11728,7 @@ For type-safe access, use the generated, typed pointer <code>settings_ptr</code>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L12868-L12870">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L12852-L12854">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11759,7 +11759,7 @@ For type-safe access, use the generated, typed pointer <code>settings_ptr</code>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L12874-L12876">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L12858-L12860">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11790,7 +11790,7 @@ For type-safe access, use the generated, typed pointer <code>settings_ptr</code>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L12880-L12882">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L12864-L12866">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11821,7 +11821,7 @@ For type-safe access, use the generated, typed pointer <code>settings_ptr</code>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L12886-L12888">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L12870-L12872">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11839,10 +11839,10 @@ For type-safe access, use the generated, typed pointer <code>settings_ptr</code>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <pre class="highlight swift"><code><span class="kt">Gets</span> <span class="n">the</span> <span class="err">`</span><span class="kt">GtkSettings</span><span class="err">`</span> <span class="n">object</span> <span class="k">for</span> <span class="n">the</span> <span class="k">default</span> <span class="kt">GDK</span> <span class="n">screen</span><span class="p">,</span> <span class="n">creating</span>
+                        <pre class="highlight swift"><code><span class="kt">Gets</span> <span class="n">the</span> <span class="p">`</span><span class="nv">GtkSettings</span><span class="p">`</span> <span class="n">object</span> <span class="k">for</span> <span class="n">the</span> <span class="k">default</span> <span class="kt">GDK</span> <span class="n">screen</span><span class="p">,</span> <span class="n">creating</span>
 </code></pre>
 
-<p>it if necessary. See gtk_settings_get_for_screen().</p>
+<p>it if necessary. See <code>gtk_settings_get_for_screen()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -11854,7 +11854,7 @@ For type-safe access, use the generated, typed pointer <code>settings_ptr</code>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L12892-L12895">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L12876-L12879">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11884,7 +11884,7 @@ For type-safe access, use the generated, typed pointer <code>settings_ptr</code>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L12898-L12901">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L12882-L12885">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11897,7 +11897,7 @@ For type-safe access, use the generated, typed pointer <code>settings_ptr</code>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

@@ -11527,7 +11527,7 @@ Use <code>GestureRotateRef</code> only as an <code>unowned</code> reference to a
 
 <p><code>GtkGestureRotate</code> is a <code>GtkGesture</code> implementation able to recognize
 2-finger rotations, whenever the angle between both handled sequences
-changes, the <code>GtkGestureRotate</code>::angle-changed signal is emitted.</p>
+changes, the <code>GtkGestureRotate::angle</code>-changed signal is emitted.</p>
 
           </div>
         </section>
@@ -11562,7 +11562,7 @@ For type-safe access, use the generated, typed pointer <code>gesture_rotate_ptr<
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L2220">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L2214">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11603,7 +11603,7 @@ For type-safe access, use the generated, typed pointer <code>gesture_rotate_ptr<
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L2225-L2226">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L2219-L2220">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11633,7 +11633,7 @@ For type-safe access, use the generated, typed pointer <code>gesture_rotate_ptr<
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L2229-L2231">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L2223-L2225">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11664,7 +11664,7 @@ For type-safe access, use the generated, typed pointer <code>gesture_rotate_ptr<
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L2235-L2237">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L2229-L2231">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11695,7 +11695,7 @@ For type-safe access, use the generated, typed pointer <code>gesture_rotate_ptr<
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L2241-L2243">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L2235-L2237">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11726,7 +11726,7 @@ For type-safe access, use the generated, typed pointer <code>gesture_rotate_ptr<
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L2247-L2249">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L2241-L2243">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11757,7 +11757,7 @@ For type-safe access, use the generated, typed pointer <code>gesture_rotate_ptr<
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L2253-L2255">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L2247-L2249">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11788,7 +11788,7 @@ For type-safe access, use the generated, typed pointer <code>gesture_rotate_ptr<
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L2259-L2261">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L2253-L2255">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11806,7 +11806,7 @@ For type-safe access, use the generated, typed pointer <code>gesture_rotate_ptr<
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <pre class="highlight swift"><code><span class="kt">Returns</span> <span class="n">a</span> <span class="n">newly</span> <span class="n">created</span> <span class="err">`</span><span class="kt">GtkGesture</span><span class="err">`</span> <span class="n">that</span> <span class="n">recognizes</span> <span class="mi">2</span><span class="o">-</span><span class="n">touch</span>
+                        <pre class="highlight swift"><code><span class="kt">Returns</span> <span class="n">a</span> <span class="n">newly</span> <span class="n">created</span> <span class="p">`</span><span class="nv">GtkGesture</span><span class="p">`</span> <span class="n">that</span> <span class="n">recognizes</span> <span class="mi">2</span><span class="o">-</span><span class="n">touch</span>
 </code></pre>
 
 <p>rotation gestures.</p>
@@ -11821,7 +11821,7 @@ For type-safe access, use the generated, typed pointer <code>gesture_rotate_ptr<
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L2265-L2268">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L2259-L2262">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11834,7 +11834,7 @@ For type-safe access, use the generated, typed pointer <code>gesture_rotate_ptr<
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

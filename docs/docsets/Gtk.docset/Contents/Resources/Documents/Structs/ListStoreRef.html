@@ -11530,7 +11530,7 @@ widget.  It implements the <code>GtkTreeModel</code> interface, and consequentia
 can use all of the methods available there.  It also implements the
 <code>GtkTreeSortable</code> interface so it can be sorted by the view.
 Finally, it also implements the tree
-[drag and drop][gtk3-GtkTreeView-drag-and-drop]
+<a href="#gtk3-GtkTreeView-drag-and-drop">drag and drop</a>
 interfaces.</p>
 
 <p>The <code>GtkListStore</code> can accept most GObject types as a column type, though
@@ -11539,8 +11539,8 @@ data passed in (such as a string or a boxed pointer).  Columns that
 accept <code>GObjects</code> are handled a little differently.  The
 <code>GtkListStore</code> will keep a reference to the object instead of copying the
 value.  As a result, if the object is modified, it is up to the
-application writer to call gtk_tree_model_row_changed() to emit the
-<code>GtkTreeModel</code>::row_changed signal.  This most commonly affects lists with
+application writer to call <code>gtk_tree_model_row_changed()</code> to emit the
+<code>GtkTreeModel::row_changed</code> signal.  This most commonly affects lists with
 <code>GdkPixbufs</code> stored.</p>
 
 <p>An example for creating a simple list store:
@@ -11593,8 +11593,7 @@ application writer to call gtk_tree_model_row_changed() to emit the
                       -1);
 }
 </code></pre>
-
-<p>&ldquo; Performance Considerations</p>
+<h1 id='performance-considerations' class='heading'>Performance Considerations</h1>
 
 <p>Internally, the <code>GtkListStore</code> was implemented with a linked list with
 a tail pointer prior to GTK+ 2.6.  As a result, it was fast at data
@@ -11603,25 +11602,23 @@ insertion and deletion, and not fast at random data access.  The
 that <code>GtkTreeIters</code> can be cached while the row exists.  Thus, if
 access to a particular row is needed often and your code is expected to
 run on older versions of GTK+, it is worth keeping the iter around.</p>
-
-<p>&rdquo; Atomic Operations</p>
+<h1 id='atomic-operations' class='heading'>Atomic Operations</h1>
 
 <p>It is important to note that only the methods
-gtk_list_store_insert_with_values() and gtk_list_store_insert_with_valuesv()
+<code>gtk_list_store_insert_with_values()</code> and <code>gtk_list_store_insert_with_valuesv()</code>
 are atomic, in the sense that the row is being appended to the store and the
 values filled in in a single operation with regard to <code>GtkTreeModel</code> signaling.
-In contrast, using e.g. gtk_list_store_append() and then gtk_list_store_set()
-will first create a row, which triggers the <code>GtkTreeModel</code>::row-inserted signal
+In contrast, using e.g. <code>gtk_list_store_append()</code> and then <code>gtk_list_store_set()</code>
+will first create a row, which triggers the <code>GtkTreeModel::row</code>-inserted signal
 on <code>GtkListStore</code>. The row, however, is still empty, and any signal handler
-connecting to <code>GtkTreeModel</code>::row-inserted on this particular store should be prepared
+connecting to <code>GtkTreeModel::row</code>-inserted on this particular store should be prepared
 for the situation that the row might be empty. This is especially important
 if you are wrapping the <code>GtkListStore</code> inside a <code>GtkTreeModelFilter</code> and are
 using a <code>GtkTreeModelFilterVisibleFunc</code>. Using any of the non-atomic operations
 to append rows to the <code>GtkListStore</code> will cause the
 <code>GtkTreeModelFilterVisibleFunc</code> to be visited with an empty row first; the
 function must be prepared for that.</p>
-
-<p>&ldquo; GtkListStore as GtkBuildable</p>
+<h1 id='gtkliststore-as-gtkbuildable' class='heading'>GtkListStore as GtkBuildable</h1>
 
 <p>The GtkListStore implementation of the GtkBuildable interface allows
 to specify the model columns with a <columns> element that may contain
@@ -11694,7 +11691,7 @@ For type-safe access, use the generated, typed pointer <code>list_store_ptr</cod
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L9573">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L9558">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11735,7 +11732,7 @@ For type-safe access, use the generated, typed pointer <code>list_store_ptr</cod
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L9578-L9579">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L9563-L9564">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11765,7 +11762,7 @@ For type-safe access, use the generated, typed pointer <code>list_store_ptr</cod
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L9582-L9584">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L9567-L9569">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11796,7 +11793,7 @@ For type-safe access, use the generated, typed pointer <code>list_store_ptr</cod
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L9588-L9590">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L9573-L9575">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11827,7 +11824,7 @@ For type-safe access, use the generated, typed pointer <code>list_store_ptr</cod
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L9594-L9596">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L9579-L9581">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11858,7 +11855,7 @@ For type-safe access, use the generated, typed pointer <code>list_store_ptr</cod
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L9600-L9602">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L9585-L9587">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11889,7 +11886,7 @@ For type-safe access, use the generated, typed pointer <code>list_store_ptr</cod
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L9606-L9608">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L9591-L9593">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11920,7 +11917,7 @@ For type-safe access, use the generated, typed pointer <code>list_store_ptr</cod
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L9612-L9614">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L9597-L9599">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11950,7 +11947,7 @@ For type-safe access, use the generated, typed pointer <code>list_store_ptr</cod
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L9621-L9624">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L9606-L9609">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11980,7 +11977,7 @@ For type-safe access, use the generated, typed pointer <code>list_store_ptr</cod
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L9626-L9629">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L9611-L9614">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11993,7 +11990,7 @@ For type-safe access, use the generated, typed pointer <code>list_store_ptr</cod
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

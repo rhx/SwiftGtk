@@ -11529,21 +11529,19 @@ Use <code>ActivatableRef</code> only as an <code>unowned</code> reference to an 
 the state of its action. A <code>GtkActivatable</code> can also provide feedback
 through its action, as they are responsible for activating their
 related actions.</p>
-
-<p>&ldquo; Implementing GtkActivatable</p>
+<h1 id='implementing-gtkactivatable' class='heading'>Implementing GtkActivatable</h1>
 
 <p>When extending a class that is already <code>GtkActivatable</code>; it is only
-necessary to implement the <code>GtkActivatable</code>-&gt;sync_action_properties()
-and <code>GtkActivatable</code>-&gt;update() methods and chain up to the parent
+necessary to implement the <code>GtkActivatable</code><code>-&gt;sync_action_properties()</code>
+and <code>GtkActivatable</code><code>-&gt;update()</code> methods and chain up to the parent
 implementation, however when introducing
-a new <code>GtkActivatable</code> class; the <code>GtkActivatable</code>:related-action and
-<code>GtkActivatable</code>:use-action-appearance properties need to be handled by
+a new <code>GtkActivatable</code> class; the <code>GtkActivatable:related</code>-action and
+<code>GtkActivatable:use</code>-action-appearance properties need to be handled by
 the implementor. Handling these properties is mostly a matter of installing
 the action pointer and boolean flag on your instance, and calling
-gtk_activatable_do_set_related_action() and
-gtk_activatable_sync_action_properties() at the appropriate times.</p>
-
-<p>&rdquo;<code>A class fragment implementing</code>GtkActivatable`</p>
+<code>gtk_activatable_do_set_related_action()</code> and
+<code>gtk_activatable_sync_action_properties()</code> at the appropriate times.</p>
+<h2 id='a-class-fragment-implementing-code-gtkactivatable-code' class='heading'>A class fragment implementing <code>GtkActivatable</code></h2>
 
 <p>(C Language Example):</p>
 <pre class="highlight plaintext"><code>
@@ -11793,7 +11791,7 @@ For type-safe access, use the generated, typed pointer <code>activatable_ptr</co
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Actionable-Buildable.swift#L1845">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Actionable-Buildable.swift#L1844">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11834,7 +11832,7 @@ For type-safe access, use the generated, typed pointer <code>activatable_ptr</co
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Actionable-Buildable.swift#L1850-L1851">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Actionable-Buildable.swift#L1849-L1850">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11864,7 +11862,7 @@ For type-safe access, use the generated, typed pointer <code>activatable_ptr</co
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Actionable-Buildable.swift#L1854-L1856">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Actionable-Buildable.swift#L1853-L1855">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11895,7 +11893,7 @@ For type-safe access, use the generated, typed pointer <code>activatable_ptr</co
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Actionable-Buildable.swift#L1860-L1862">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Actionable-Buildable.swift#L1859-L1861">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11926,7 +11924,7 @@ For type-safe access, use the generated, typed pointer <code>activatable_ptr</co
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Actionable-Buildable.swift#L1866-L1868">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Actionable-Buildable.swift#L1865-L1867">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11957,7 +11955,7 @@ For type-safe access, use the generated, typed pointer <code>activatable_ptr</co
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Actionable-Buildable.swift#L1872-L1874">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Actionable-Buildable.swift#L1871-L1873">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11988,7 +11986,7 @@ For type-safe access, use the generated, typed pointer <code>activatable_ptr</co
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Actionable-Buildable.swift#L1878-L1880">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Actionable-Buildable.swift#L1877-L1879">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12019,7 +12017,7 @@ For type-safe access, use the generated, typed pointer <code>activatable_ptr</co
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Actionable-Buildable.swift#L1884-L1886">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Actionable-Buildable.swift#L1883-L1885">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12032,7 +12030,7 @@ For type-safe access, use the generated, typed pointer <code>activatable_ptr</co
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

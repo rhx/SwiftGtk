@@ -11527,7 +11527,7 @@ For a concrete class that implements these methods and properties, see <code><a 
 Alternatively, use <code><a href="../Structs/CssSectionRef.html">CssSectionRef</a></code> as a lighweight, <code>unowned</code> reference if you already have an instance you just want to use.</p>
 
 <p>Defines a part of a CSS document. Because sections are nested into
-one another, you can use gtk_css_section_get_parent() to get the
+one another, you can use <code>gtk_css_section_get_parent()</code> to get the
 containing region.</p>
 
           </div>
@@ -11637,7 +11637,7 @@ The line number is 0-indexed, so the first line of the document
 will return 0.
 This value may change in future invocations of this function if
 <code>section</code> is not yet parsed completely. This will for example
-happen in the GtkCssProvider::parsing-error signal.
+happen in the GtkCssProvider<code>parsing</code>-error signal.
 The end position and line may be identical to the start
 position and line for sections which failed to parse anything
 successfully.</p>
@@ -11674,10 +11674,10 @@ successfully.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Returns the offset in bytes from the start of the current line
-returned via gtk_css_section_get_end_line().
+returned via <code>gtk_css_section_get_end_line()</code>.
 This value may change in future invocations of this function if
 <code>section</code> is not yet parsed completely. This will for example
-happen in the GtkCssProvider::parsing-error signal.
+happen in the GtkCssProvider<code>parsing</code>-error signal.
 The end position and line may be identical to the start
 position and line for sections which failed to parse anything
 successfully.</p>
@@ -11715,7 +11715,7 @@ successfully.</p>
                       <div class="abstract">
                         <p>Gets the file that <code>section</code> was parsed from. If no such file exists,
 for example because the CSS was loaded via
-<code>gtk_css_provider_load_from_data</code>(), then <code>nil</code> is returned.</p>
+<code>gtk_css_provider_load_from_data</code><code>()</code>, then <code>nil</code> is returned.</p>
 
                       </div>
                       <div class="declaration">
@@ -11752,7 +11752,7 @@ for example because the CSS was loaded via
 the section that contains this <code>section</code>. A special case are sections of
 type <code>GTK_CSS_SECTION_DOCUMENT</code>. Their parent will either be <code>nil</code>
 if they are the original CSS document that was loaded by
-gtk_css_provider_load_from_file() or a section of type
+<code>gtk_css_provider_load_from_file()</code> or a section of type
 <code>GTK_CSS_SECTION_IMPORT</code> if it was loaded with an import rule from
 a different file.</p>
 
@@ -11856,7 +11856,7 @@ will return 0.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Returns the offset in bytes from the start of the current line
-returned via gtk_css_section_get_start_line().</p>
+returned via <code>gtk_css_section_get_start_line()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -11961,7 +11961,7 @@ The line number is 0-indexed, so the first line of the document
 will return 0.
 This value may change in future invocations of this function if
 <code>section</code> is not yet parsed completely. This will for example
-happen in the GtkCssProvider::parsing-error signal.
+happen in the GtkCssProvider<code>parsing</code>-error signal.
 The end position and line may be identical to the start
 position and line for sections which failed to parse anything
 successfully.</p>
@@ -11998,10 +11998,10 @@ successfully.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Returns the offset in bytes from the start of the current line
-returned via gtk_css_section_get_end_line().
+returned via <code>gtk_css_section_get_end_line()</code>.
 This value may change in future invocations of this function if
 <code>section</code> is not yet parsed completely. This will for example
-happen in the GtkCssProvider::parsing-error signal.
+happen in the GtkCssProvider<code>parsing</code>-error signal.
 The end position and line may be identical to the start
 position and line for sections which failed to parse anything
 successfully.</p>
@@ -12039,7 +12039,7 @@ successfully.</p>
                       <div class="abstract">
                         <p>Gets the file that <code>section</code> was parsed from. If no such file exists,
 for example because the CSS was loaded via
-<code>gtk_css_provider_load_from_data</code>(), then <code>nil</code> is returned.</p>
+<code>gtk_css_provider_load_from_data</code><code>()</code>, then <code>nil</code> is returned.</p>
 
                       </div>
                       <div class="declaration">
@@ -12076,7 +12076,7 @@ for example because the CSS was loaded via
 the section that contains this <code>section</code>. A special case are sections of
 type <code>GTK_CSS_SECTION_DOCUMENT</code>. Their parent will either be <code>nil</code>
 if they are the original CSS document that was loaded by
-gtk_css_provider_load_from_file() or a section of type
+<code>gtk_css_provider_load_from_file()</code> or a section of type
 <code>GTK_CSS_SECTION_IMPORT</code> if it was loaded with an import rule from
 a different file.</p>
 
@@ -12180,7 +12180,7 @@ will return 0.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Returns the offset in bytes from the start of the current line
-returned via gtk_css_section_get_start_line().</p>
+returned via <code>gtk_css_section_get_start_line()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12205,7 +12205,7 @@ returned via gtk_css_section_get_start_line().</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

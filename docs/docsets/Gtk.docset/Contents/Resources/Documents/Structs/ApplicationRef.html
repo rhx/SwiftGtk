@@ -11543,35 +11543,34 @@ lock when invoking actions that arrive from other processes.  The GDK
 lock is not touched for local action invocations.  In order to have
 actions invoked in a predictable context it is therefore recommended
 that the GDK lock be held while invoking actions locally with
-g_action_group_activate_action().  The same applies to actions
+<code>g_action_group_activate_action()</code>.  The same applies to actions
 associated with <code>GtkApplicationWindow</code> and to the “activate” and
 “open” <code>GApplication</code> methods.</p>
-
-<p><code>Automatic resources</code> {<code>automatic</code>-resources}</p>
+<h2 id='automatic-resources-a-name-automatic-resources-a' class='heading'>Automatic resources ## <a name="automatic-resources"></a></h2>
 
 <p><code>GtkApplication</code> will automatically load menus from the <code>GtkBuilder</code>
 resource located at <q>gtk/menus.ui</q>, relative to the application&rsquo;s
-resource base path (see g_application_set_resource_base_path()).  The
+resource base path (see <code>g_application_set_resource_base_path()</code>).  The
 menu with the ID <q>app-menu</q> is taken as the application&rsquo;s app menu
 and the menu with the ID <q>menubar</q> is taken as the application&rsquo;s
 menubar.  Additional menus (most interesting submenus) can be named
-and accessed via gtk_application_get_menu_by_id() which allows for
+and accessed via <code>gtk_application_get_menu_by_id()</code> which allows for
 dynamic population of a part of the menu structure.</p>
 
 <p>If the resources <q>gtk/menus-appmenu.ui</q> or <q>gtk/menus-traditional.ui</q> are
 present then these files will be used in preference, depending on the value
-of gtk_application_prefers_app_menu(). If the resource <q>gtk/menus-common.ui</q>
+of <code>gtk_application_prefers_app_menu()</code>. If the resource <q>gtk/menus-common.ui</q>
 is present it will be loaded as well. This is useful for storing items that
 are referenced from both <q>gtk/menus-appmenu.ui</q> and
 <q>gtk/menus-traditional.ui</q>.</p>
 
 <p>It is also possible to provide the menus manually using
-gtk_application_set_app_menu() and gtk_application_set_menubar().</p>
+<code>gtk_application_set_app_menu()</code> and <code>gtk_application_set_menubar()</code>.</p>
 
 <p><code>GtkApplication</code> will also automatically setup an icon search path for
 the default icon theme by appending <q>icons</q> to the resource base
 path.  This allows your application to easily store its icons as
-resources.  See gtk_icon_theme_add_resource_path() for more
+resources.  See <code>gtk_icon_theme_add_resource_path()</code> for more
 information.</p>
 
 <p>If there is a resource located at <q>gtk/help-overlay.ui</q> which
@@ -11580,26 +11579,25 @@ associates an instance of this shortcuts window with each
 <code>GtkApplicationWindow</code> and sets up keyboard accelerators (Control-F1
 and Control-?) to open it. To create a menu item that displays the
 shortcuts window, associate the item with the action win.show-help-overlay.</p>
-
-<p><code>A simple application</code> {<code>gtkapplication</code>}</p>
+<h2 id='a-simple-application-a-name-gtkapplication-a' class='heading'>A simple application ## <a name="gtkapplication"></a></h2>
 
 <p><a href="https://git.gnome.org/browse/gtk+/tree/examples/bp/bloatpad.c">A simple example</a></p>
 
 <p>GtkApplication optionally registers with a session manager
-of the users session (if you set the <code>GtkApplication</code>:register-session
+of the users session (if you set the <code>GtkApplication:register</code>-session
 property) and offers various functionality related to the session
 life-cycle.</p>
 
 <p>An application can block various ways to end the session with
-the gtk_application_inhibit() function. Typical use cases for
+the <code>gtk_application_inhibit()</code> function. Typical use cases for
 this kind of inhibiting are long-running, uninterruptible operations,
 such as burning a CD or performing a disk backup. The session
 manager may not honor the inhibitor, but it can be expected to
 inform the user about the negative consequences of ending the
 session while inhibitors are present.</p>
+<h2 id='see-also-a-name-seealso-a' class='heading'>See Also ## <a name="seealso"></a></h2>
 
-<p><code>See Also</code> {<code>seealso</code>}
-<a href="https://wiki.gnome.org/HowDoI/GtkApplication">HowDoI: Using GtkApplication</a>,
+<p><a href="https://wiki.gnome.org/HowDoI/GtkApplication">HowDoI: Using GtkApplication</a>,
 <a href="https://developer.gnome.org/gtk3/stable/gtk-getting-started.html%60id%60-1.2.3.3">Getting Started with GTK+: Basics</a></p>
 
           </div>
@@ -11635,7 +11633,7 @@ For type-safe access, use the generated, typed pointer <code>application_ptr</co
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L15380">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L15359">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11676,7 +11674,7 @@ For type-safe access, use the generated, typed pointer <code>application_ptr</co
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L15385-L15386">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L15364-L15365">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11706,7 +11704,7 @@ For type-safe access, use the generated, typed pointer <code>application_ptr</co
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L15389-L15391">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L15368-L15370">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11737,7 +11735,7 @@ For type-safe access, use the generated, typed pointer <code>application_ptr</co
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L15395-L15397">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L15374-L15376">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11768,7 +11766,7 @@ For type-safe access, use the generated, typed pointer <code>application_ptr</co
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L15401-L15403">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L15380-L15382">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11799,7 +11797,7 @@ For type-safe access, use the generated, typed pointer <code>application_ptr</co
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L15407-L15409">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L15386-L15388">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11830,7 +11828,7 @@ For type-safe access, use the generated, typed pointer <code>application_ptr</co
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L15413-L15415">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L15392-L15394">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11861,7 +11859,7 @@ For type-safe access, use the generated, typed pointer <code>application_ptr</co
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L15419-L15421">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L15398-L15400">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11879,27 +11877,27 @@ For type-safe access, use the generated, typed pointer <code>application_ptr</co
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <pre class="highlight swift"><code><span class="kt">Creates</span> <span class="n">a</span> <span class="k">new</span> <span class="err">`</span><span class="kt">GtkApplication</span><span class="err">`</span> <span class="n">instance</span><span class="o">.</span>
+                        <pre class="highlight swift"><code><span class="kt">Creates</span> <span class="n">a</span> <span class="k">new</span> <span class="p">`</span><span class="nv">GtkApplication</span><span class="p">`</span> <span class="n">instance</span><span class="o">.</span>
 </code></pre>
 
-<p>When using <code>GtkApplication</code>, it is not necessary to call gtk_init()
+<p>When using <code>GtkApplication</code>, it is not necessary to call <code>gtk_init()</code>
 manually. It is called as soon as the application gets registered as
 the primary instance.</p>
 
-<p>Concretely, gtk_init() is called in the default handler for the
-<code>GApplication</code>::startup signal. Therefore, <code>GtkApplication</code> subclasses should
-chain up in their <code>GApplication</code>::startup handler before using any GTK+ API.</p>
+<p>Concretely, <code>gtk_init()</code> is called in the default handler for the
+<code>GApplication::startup</code> signal. Therefore, <code>GtkApplication</code> subclasses should
+chain up in their <code>GApplication::startup</code> handler before using any GTK+ API.</p>
 
-<p>Note that commandline arguments are not passed to gtk_init().
+<p>Note that commandline arguments are not passed to <code>gtk_init()</code>.
 All GTK+ functionality that is available via commandline arguments
 can also be achieved by setting suitable environment variables
 such as <code>G_DEBUG</code>, so this should not be a big
 problem. If you absolutely must support GTK+ commandline arguments,
-you can explicitly call gtk_init() before creating the application
+you can explicitly call <code>gtk_init()</code> before creating the application
 instance.</p>
 
 <p>If non-<code>nil</code>, the application ID must be valid.  See
-g_application_id_is_valid().</p>
+<code>g_application_id_is_valid()</code>.</p>
 
 <p>If no application ID is given then some features (most notably application
 uniqueness) will be disabled. A null application ID is only allowed with
@@ -11915,7 +11913,7 @@ GTK+ 3.6 or later.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L15447-L15450">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L15426-L15429">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11928,7 +11926,7 @@ GTK+ 3.6 or later.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

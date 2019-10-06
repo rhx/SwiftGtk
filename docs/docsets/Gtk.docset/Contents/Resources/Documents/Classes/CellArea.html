@@ -11535,11 +11535,10 @@ size requests and allocations for a given row of data.</p>
 
 <p>Usually users dont have to interact with the <code>GtkCellArea</code> directly
 unless they are implementing a cell-layouting widget themselves.</p>
-
-<p>&ldquo; Requesting area sizes</p>
+<h1 id='requesting-area-sizes' class='heading'>Requesting area sizes</h1>
 
 <p>As outlined in
-[GtkWidget’s geometry management section][geometry-management],
+<a href="#geometry-management">GtkWidget’s geometry management section</a>,
 GTK+ uses a height-for-width
 geometry management system to compute the sizes of widgets and user
 interfaces. <code>GtkCellArea</code> uses the same semantics to calculate the
@@ -11563,7 +11562,7 @@ and natural size for all the rows which have been calculated
 with the said context).</p>
 
 <p>The <code>GtkCellAreaContext</code> is an opaque object specific to the
-<code>GtkCellArea</code> which created it (see gtk_cell_area_create_context()).
+<code>GtkCellArea</code> which created it (see <code>gtk_cell_area_create_context()</code>).
 The owning cell-layouting widget can create as many contexts as
 it wishes to calculate sizes of rows which should receive the
 same size in at least one orientation (horizontally or vertically),
@@ -11601,8 +11600,8 @@ at any time.</p>
 support requesting and rendering rows in treemodels with an
 exceedingly large amount of rows. The <code>GtkCellLayout</code> widget in
 that case would calculate the required width of the rows in an
-idle or timeout source (see g_timeout_add()) and when the widget
-is requested its actual width in <code>GtkWidgetClass</code>.get_preferred_width()
+idle or timeout source (see <code>g_timeout_add()</code>) and when the widget
+is requested its actual width in <code>GtkWidgetClass.get_preferred_width</code><code>()</code>
 it can simply consult the width accumulated so far in the
 <code>GtkCellAreaContext</code> object.</p>
 
@@ -11678,18 +11677,17 @@ one reasonably sized chunk of rows and return that height
 synchronously. The reasoning here is that any layouting widget is
 at least capable of synchronously calculating enough height to fill
 the screen height (or scrolled window height) in response to a single
-call to <code>GtkWidgetClass</code>.get_preferred_height_for_width(). Returning
+call to <code>GtkWidgetClass.get_preferred_height_for_width</code><code>()</code>. Returning
 a perfect height for width that is larger than the screen area is
 inconsequential since after the layouting receives an allocation
 from a scrolled window it simply continues to drive the scrollbar
 values while more and more height is required for the row heights
 that are calculated in the background.</p>
-
-<p>&rdquo; Rendering Areas</p>
+<h1 id='rendering-areas' class='heading'>Rendering Areas</h1>
 
 <p>Once area sizes have been aquired at least for the rows in the
 visible area of the layouting widget they can be rendered at
-<code>GtkWidgetClass</code>.draw() time.</p>
+<code>GtkWidgetClass.draw</code><code>()</code> time.</p>
 
 <p>A crude example of how to render all the rows at the root level
 runs as follows:</p>
@@ -11724,19 +11722,18 @@ the layouting widget works. The layouting widget might decide to
 give every row its minimum or natural height or, if the model content
 is expected to fit inside the layouting widget without scrolling, it
 would make sense to calculate the allocation for each row at
-<code>GtkWidget</code>::size-allocate time using gtk_distribute_natural_allocation().</p>
-
-<p>&ldquo; Handling Events and Driving Keyboard Focus</p>
+<code>GtkWidget::size</code>-allocate time using <code>gtk_distribute_natural_allocation()</code>.</p>
+<h1 id='handling-events-and-driving-keyboard-focus' class='heading'>Handling Events and Driving Keyboard Focus</h1>
 
 <p>Passing events to the area is as simple as handling events on any
-normal widget and then passing them to the gtk_cell_area_event()
+normal widget and then passing them to the <code>gtk_cell_area_event()</code>
 API as they come in. Usually <code>GtkCellArea</code> is only interested in
 button events, however some customized derived areas can be implemented
 who are interested in handling other events. Handling an event can
-trigger the <code>GtkCellArea</code>::focus-changed signal to fire; as well as
-<code>GtkCellArea</code>::add-editable in the case that an editable cell was
+trigger the <code>GtkCellArea::focus</code>-changed signal to fire; as well as
+<code>GtkCellArea::add</code>-editable in the case that an editable cell was
 clicked and needs to start editing. You can call
-gtk_cell_area_stop_editing() at any time to cancel any cell editing
+<code>gtk_cell_area_stop_editing()</code> at any time to cancel any cell editing
 that is currently in progress.</p>
 
 <p>The <code>GtkCellArea</code> drives keyboard focus from cell to cell in a way
@@ -11746,14 +11743,14 @@ to the area functions for the row that has focus and to tell the
 area to paint the focus at render time.</p>
 
 <p>Layouting widgets that accept focus on cells should implement the
-<code>GtkWidgetClass</code>.focus() virtual method. The layouting widget is always
+<code>GtkWidgetClass.focus</code><code>()</code> virtual method. The layouting widget is always
 responsible for knowing where <code>GtkTreeModel</code> rows are rendered inside
-the widget, so at <code>GtkWidgetClass</code>.focus() time the layouting widget
+the widget, so at <code>GtkWidgetClass.focus</code><code>()</code> time the layouting widget
 should use the <code>GtkCellArea</code> methods to navigate focus inside the area
 and then observe the GtkDirectionType to pass the focus to adjacent
 rows and areas.</p>
 
-<p>A basic example of how the <code>GtkWidgetClass</code>.focus() virtual method
+<p>A basic example of how the <code>GtkWidgetClass.focus</code><code>()</code> virtual method
 should be implemented:</p>
 
 <p>(C Language Example):</p>
@@ -11816,12 +11813,11 @@ foo_focus (GtkWidget       *widget,
 
 <p>Note that the layouting widget is responsible for matching the
 GtkDirectionType values to the way it lays out its cells.</p>
-
-<p>&rdquo; Cell Properties</p>
+<h1 id='cell-properties' class='heading'>Cell Properties</h1>
 
 <p>The <code>GtkCellArea</code> introduces cell properties for <code>GtkCellRenderers</code>
 in very much the same way that <code>GtkContainer</code> introduces
-[child properties][child-properties]
+<a href="#child-properties">child properties</a>
 for <code>GtkWidgets</code>. This provides some general interfaces for defining
 the relationship cell areas have with their cells. For instance in a
 <code>GtkCellAreaBox</code> a cell might “expand” and receive extra space when
@@ -11829,15 +11825,15 @@ the area is allocated more than its full natural request, or a cell
 might be configured to “align” with adjacent rows which were requested
 and rendered with the same <code>GtkCellAreaContext</code>.</p>
 
-<p>Use gtk_cell_area_class_install_cell_property() to install cell
-properties for a cell area class and gtk_cell_area_class_find_cell_property()
-or gtk_cell_area_class_list_cell_properties() to get information about
+<p>Use <code>gtk_cell_area_class_install_cell_property()</code> to install cell
+properties for a cell area class and <code>gtk_cell_area_class_find_cell_property()</code>
+or <code>gtk_cell_area_class_list_cell_properties()</code> to get information about
 existing cell properties.</p>
 
-<p>To set the value of a cell property, use gtk_cell_area_cell_set_property(),
-gtk_cell_area_cell_set() or gtk_cell_area_cell_set_valist(). To obtain
-the value of a cell property, use gtk_cell_area_cell_get_property(),
-gtk_cell_area_cell_get() or gtk_cell_area_cell_get_valist().</p>
+<p>To set the value of a cell property, use <code>gtk_cell_area_cell_set_property()</code>,
+<code>gtk_cell_area_cell_set()</code> or <code>gtk_cell_area_cell_set_valist()</code>. To obtain
+the value of a cell property, use <code>gtk_cell_area_cell_get_property()</code>,
+<code>gtk_cell_area_cell_get()</code> or <code>gtk_cell_area_cell_get_valist()</code>.</p>
 
           </div>
         </section>
@@ -11872,7 +11868,7 @@ Ownership is transferred to the <code>CellArea</code> instance.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L1409-L1411">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L1393-L1395">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11898,12 +11894,12 @@ Will retain <code>GtkCellArea</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">other</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/CellAreaProtocol.html">CellAreaProtocol</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">other</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/CellAreaProtocol.html">CellAreaProtocol</a></span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L1415-L1418">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L1399-L1402">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11929,12 +11925,12 @@ Will retain <code>GtkCellArea</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">cPointer</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">cPointer</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L1422-L1424">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L1406-L1408">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11960,12 +11956,12 @@ Will retain <code>GtkCellArea</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeRawPointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L1428-L1430">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L1412-L1414">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11991,12 +11987,12 @@ Will retain <code>GtkCellArea</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L1434-L1436">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L1418-L1420">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12022,12 +12018,12 @@ Will retain <code>GtkCellArea</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">opaquePointer</span><span class="p">:</span> <span class="kt">OpaquePointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">opaquePointer</span><span class="p">:</span> <span class="kt">OpaquePointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L1440-L1442">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L1424-L1426">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12040,7 +12036,7 @@ Will retain <code>GtkCellArea</code>.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

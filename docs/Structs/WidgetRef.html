@@ -11527,8 +11527,7 @@ Use <code>WidgetRef</code> only as an <code>unowned</code> reference to an exist
 
 <p>GtkWidget is the base class all widgets in GTK+ derive from. It manages the
 widget lifecycle, states and style.</p>
-
-<p><code>Height-for-width Geometry Management</code> {<code>geometry</code>-management}</p>
+<h1 id='height-for-width-geometry-management-a-name-geometry-management-a' class='heading'>Height-for-width Geometry Management # <a name="geometry-management"></a></h1>
 
 <p>GTK+ uses a height-for-width (and width-for-height) geometry management
 system. Height-for-width means that a widget can change how much
@@ -11541,12 +11540,12 @@ to fewer lines, and therefore needs less height.</p>
 of five virtual methods:</p>
 
 <ul>
-<li><code>GtkWidgetClass</code>.get_request_mode()</li>
-<li><code>GtkWidgetClass</code>.get_preferred_width()</li>
-<li><code>GtkWidgetClass</code>.get_preferred_height()</li>
-<li><code>GtkWidgetClass</code>.get_preferred_height_for_width()</li>
-<li><code>GtkWidgetClass</code>.get_preferred_width_for_height()</li>
-<li><code>GtkWidgetClass</code>.get_preferred_height_and_baseline_for_width()</li>
+<li><code>GtkWidgetClass.get_request_mode</code><code>()</code></li>
+<li><code>GtkWidgetClass.get_preferred_width</code><code>()</code></li>
+<li><code>GtkWidgetClass.get_preferred_height</code><code>()</code></li>
+<li><code>GtkWidgetClass.get_preferred_height_for_width</code><code>()</code></li>
+<li><code>GtkWidgetClass.get_preferred_width_for_height</code><code>()</code></li>
+<li><code>GtkWidgetClass.get_preferred_height_and_baseline_for_width</code><code>()</code></li>
 </ul>
 
 <p>There are some important things to keep in mind when implementing
@@ -11560,20 +11559,20 @@ in the <code>GtkSizeRequestMode</code> chosen by the toplevel.</p>
 <p>For example, when queried in the normal
 <code>GTK_SIZE_REQUEST_HEIGHT_FOR_WIDTH</code> mode:
 First, the default minimum and natural width for each widget
-in the interface will be computed using gtk_widget_get_preferred_width().
+in the interface will be computed using <code>gtk_widget_get_preferred_width()</code>.
 Because the preferred widths for each container depend on the preferred
 widths of their children, this information propagates up the hierarchy,
 and finally a minimum and natural width is determined for the entire
 toplevel. Next, the toplevel will use the minimum width to query for the
 minimum height contextual to that width using
-gtk_widget_get_preferred_height_for_width(), which will also be a highly
+<code>gtk_widget_get_preferred_height_for_width()</code>, which will also be a highly
 recursive operation. The minimum height for the minimum width is normally
 used to set the minimum size constraint on the toplevel
-(unless gtk_window_set_geometry_hints() is explicitly used instead).</p>
+(unless <code>gtk_window_set_geometry_hints()</code> is explicitly used instead).</p>
 
 <p>After the toplevel window has initially requested its size in both
 dimensions it can go on to allocate itself a reasonable size (or a size
-previously specified with gtk_window_set_default_size()). During the
+previously specified with <code>gtk_window_set_default_size()</code>). During the
 recursive allocation process it’s important to note that request cycles
 will be recursively executed while container widgets allocate their children.
 Each container widget, once allocated a size, will go on to first share the
@@ -11586,7 +11585,7 @@ requested. For this reason, <code>GtkWidget</code> caches a  small number of res
 to avoid re-querying for the same sizes in one allocation cycle.</p>
 
 <p>See
-[GtkContainer’s geometry management section][container-geometry-management]
+<a href="#container-geometry-management">GtkContainer’s geometry management section</a>
 to learn more about how height-for-width allocations are performed
 by container widgets.</p>
 
@@ -11596,7 +11595,7 @@ allocated size then it must support the request in both
 trades sizes in a single orientation.</p>
 
 <p>For instance, a <code>GtkLabel</code> that does height-for-width word wrapping
-will not expect to have <code>GtkWidgetClass</code>.get_preferred_height() called
+will not expect to have <code>GtkWidgetClass.get_preferred_height</code><code>()</code> called
 because that call is specific to a width-for-height request. In this
 case the label must return the height required for its own minimum
 possible width. By following this rule any widget that handles
@@ -11604,7 +11603,7 @@ height-for-width or width-for-height requests will always be allocated
 at least enough space to fit its own content.</p>
 
 <p>Here are some examples of how a <code>GTK_SIZE_REQUEST_HEIGHT_FOR_WIDTH</code> widget
-generally deals with width-for-height requests, for <code>GtkWidgetClass</code>.get_preferred_height()
+generally deals with width-for-height requests, for <code>GtkWidgetClass.get_preferred_height</code><code>()</code>
 it will do:</p>
 
 <p>(C Language Example):</p>
@@ -11635,7 +11634,7 @@ foo_widget_get_preferred_height (GtkWidget *widget,
 }
 </code></pre>
 
-<p>And in <code>GtkWidgetClass</code>.get_preferred_width_for_height() it will simply return
+<p>And in <code>GtkWidgetClass.get_preferred_width_for_height</code><code>()</code> it will simply return
 the minimum and natural width:
 (C Language Example):</p>
 <pre class="highlight plaintext"><code>static void
@@ -11672,9 +11671,9 @@ be careful to call its virtual methods directly, like this:</p>
 </code></pre>
 
 <p>It will not work to use the wrapper functions, such as
-gtk_widget_get_preferred_width() inside your own size request
+<code>gtk_widget_get_preferred_width()</code> inside your own size request
 implementation. These return a request adjusted by <code>GtkSizeGroup</code>
-and by the <code>GtkWidgetClass</code>.adjust_size_request() virtual method. If a
+and by the <code>GtkWidgetClass.adjust_size_request</code><code>()</code> virtual method. If a
 widget used the wrappers inside its virtual method implementations,
 then the adjustments (such as widget margins) would be applied
 twice. GTK+ therefore does not allow this and will warn if you try
@@ -11693,35 +11692,33 @@ has a vertical alignment of <code>GTK_ALIGN_BASELINE</code>, and is inside a con
 that supports baselines and has a natural “row” that it aligns to the baseline,
 or a baseline assigned to it by the grandparent.</p>
 
-<p>Baseline alignment support for a widget is done by the <code>GtkWidgetClass</code>.get_preferred_height_and_baseline_for_width()
+<p>Baseline alignment support for a widget is done by the <code>GtkWidgetClass.get_preferred_height_and_baseline_for_width</code><code>()</code>
 virtual function. It allows you to report a baseline in combination with the
 minimum and natural height. If there is no baseline you can return -1 to indicate
 this. The default implementation of this virtual function calls into the
-<code>GtkWidgetClass</code>.get_preferred_height() and <code>GtkWidgetClass</code>.get_preferred_height_for_width(),
+<code>GtkWidgetClass.get_preferred_height</code><code>()</code> and <code>GtkWidgetClass.get_preferred_height_for_width</code><code>()</code>,
 so if baselines are not supported it doesn’t need to be implemented.</p>
 
 <p>If a widget ends up baseline aligned it will be allocated all the space in the parent
-as if it was <code>GTK_ALIGN_FILL</code>, but the selected baseline can be found via gtk_widget_get_allocated_baseline().
+as if it was <code>GTK_ALIGN_FILL</code>, but the selected baseline can be found via <code>gtk_widget_get_allocated_baseline()</code>.
 If this has a value other than -1 you need to align the widget such that the baseline
 appears at the position.</p>
-
-<p>&ldquo; Style Properties</p>
+<h1 id='style-properties' class='heading'>Style Properties</h1>
 
 <p><code>GtkWidget</code> introduces “style
 properties” - these are basically object properties that are stored
 not on the object, but in the style object associated to the widget. Style
-properties are set in [resource files][gtk3-Resource-Files].
+properties are set in <a href="#gtk3-Resource-Files">resource files</a>.
 This mechanism is used for configuring such things as the location of the
 scrollbar arrows through the theme, giving theme authors more control over the
 look of applications without the need to write a theme engine in C.</p>
 
-<p>Use gtk_widget_class_install_style_property() to install style properties for
-a widget class, gtk_widget_class_find_style_property() or
-gtk_widget_class_list_style_properties() to get information about existing
-style properties and gtk_widget_style_get_property(), gtk_widget_style_get() or
-gtk_widget_style_get_valist() to obtain the value of a style property.</p>
-
-<p>&rdquo; GtkWidget as GtkBuildable</p>
+<p>Use <code>gtk_widget_class_install_style_property()</code> to install style properties for
+a widget class, <code>gtk_widget_class_find_style_property()</code> or
+<code>gtk_widget_class_list_style_properties()</code> to get information about existing
+style properties and <code>gtk_widget_style_get_property()</code>, <code>gtk_widget_style_get()</code> or
+<code>gtk_widget_style_get_valist()</code> to obtain the value of a style property.</p>
+<h1 id='gtkwidget-as-gtkbuildable' class='heading'>GtkWidget as GtkBuildable</h1>
 
 <p>The GtkWidget implementation of the GtkBuildable interface supports a
 custom <accelerator> element, which has attributes named ”key”, ”modifiers”
@@ -11764,8 +11761,7 @@ be associated with widgets, using the custom <style> element:</p>
   <span class="o">&lt;/</span><span class="n">style</span><span class="o">&gt;</span>
 <span class="o">&lt;/</span><span class="n">object</span><span class="o">&gt;</span>
 </code></pre>
-
-<p><code>Building composite widgets from template XML</code><code>{</code>composite`-templates}</p>
+<h1 id='building-composite-widgets-from-template-xml-a-name-composite-templates-a' class='heading'>Building composite widgets from template XML ## <a name="composite-templates"></a></h1>
 
 <p>GtkWidget exposes some facilities to automate the procedure
 of creating composite widgets using <code>GtkBuilder</code> interface description
@@ -11773,12 +11769,12 @@ language.</p>
 
 <p>To create composite widgets with <code>GtkBuilder</code> XML, one must associate
 the interface description with the widget class at class initialization
-time using gtk_widget_class_set_template().</p>
+time using <code>gtk_widget_class_set_template()</code>.</p>
 
 <p>The interface description semantics expected in composite template descriptions
 is slightly different from regular <code>GtkBuilder</code> XML.</p>
 
-<p>Unlike regular interface descriptions, gtk_widget_class_set_template() will
+<p>Unlike regular interface descriptions, <code>gtk_widget_class_set_template()</code> will
 expect a <template> tag as a direct child of the toplevel <interface>
 tag. The <template> tag must specify the “class” attribute which must be
 the type name of the widget. Optionally, the “parent” attribute may be
@@ -11820,7 +11816,7 @@ which might be referenced by other widgets declared as children of the
 
 <p>Typically, you&#39;ll place the template fragment into a file that is
 bundled with your project, using <code>GResource</code>. In order to load the
-template, you need to call gtk_widget_class_set_template_from_resource()
+template, you need to call <code>gtk_widget_class_set_template_from_resource()</code>
 from the class initialization of your <code>GtkWidget</code> type:</p>
 
 <p>(C Language Example):</p>
@@ -11834,7 +11830,7 @@ foo_widget_class_init (FooWidgetClass *klass)
 }
 </code></pre>
 
-<p>You will also need to call gtk_widget_init_template() from the instance
+<p>You will also need to call <code>gtk_widget_init_template()</code> from the instance
 initialization function:</p>
 
 <p>(C Language Example):</p>
@@ -11847,10 +11843,10 @@ foo_widget_init (FooWidget *self)
 </code></pre>
 
 <p>You can access widgets defined in the template using the
-gtk_widget_get_template_child() function, but you will typically declare
+<code>gtk_widget_get_template_child()</code> function, but you will typically declare
 a pointer in the instance private data structure of your type using the same
 name as the widget in the template definition, and call
-gtk_widget_class_bind_template_child_private() with that name, e.g.</p>
+<code>gtk_widget_class_bind_template_child_private()</code> with that name, e.g.</p>
 
 <p>(C Language Example):</p>
 <pre class="highlight plaintext"><code>typedef struct {
@@ -11879,7 +11875,7 @@ foo_widget_init (FooWidget *widget)
 }
 </code></pre>
 
-<p>You can also use gtk_widget_class_bind_template_callback() to connect a signal
+<p>You can also use <code>gtk_widget_class_bind_template_callback()</code> to connect a signal
 callback defined in the template with a function visible in the scope of the
 class, e.g.</p>
 
@@ -11936,7 +11932,7 @@ For type-safe access, use the generated, typed pointer <code>widget_ptr</code> p
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-VBox-Widget.swift#L11065">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-VBox-Widget.swift#L11034">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11977,7 +11973,7 @@ For type-safe access, use the generated, typed pointer <code>widget_ptr</code> p
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-VBox-Widget.swift#L11070-L11071">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-VBox-Widget.swift#L11039-L11040">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12007,7 +12003,7 @@ For type-safe access, use the generated, typed pointer <code>widget_ptr</code> p
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-VBox-Widget.swift#L11074-L11076">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-VBox-Widget.swift#L11043-L11045">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12038,7 +12034,7 @@ For type-safe access, use the generated, typed pointer <code>widget_ptr</code> p
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-VBox-Widget.swift#L11080-L11082">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-VBox-Widget.swift#L11049-L11051">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12069,7 +12065,7 @@ For type-safe access, use the generated, typed pointer <code>widget_ptr</code> p
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-VBox-Widget.swift#L11086-L11088">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-VBox-Widget.swift#L11055-L11057">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12100,7 +12096,7 @@ For type-safe access, use the generated, typed pointer <code>widget_ptr</code> p
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-VBox-Widget.swift#L11092-L11094">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-VBox-Widget.swift#L11061-L11063">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12131,7 +12127,7 @@ For type-safe access, use the generated, typed pointer <code>widget_ptr</code> p
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-VBox-Widget.swift#L11098-L11100">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-VBox-Widget.swift#L11067-L11069">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12162,7 +12158,7 @@ For type-safe access, use the generated, typed pointer <code>widget_ptr</code> p
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-VBox-Widget.swift#L11104-L11106">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-VBox-Widget.swift#L11073-L11075">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12209,7 +12205,7 @@ For type-safe access, use the generated, typed pointer <code>widget_ptr</code> p
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

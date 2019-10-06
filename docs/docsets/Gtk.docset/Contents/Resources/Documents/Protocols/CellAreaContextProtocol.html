@@ -11527,7 +11527,7 @@ For a concrete class that implements these methods and properties, see <code><a 
 Alternatively, use <code><a href="../Structs/CellAreaContextRef.html">CellAreaContextRef</a></code> as a lighweight, <code>unowned</code> reference if you already have an instance you just want to use.</p>
 
 <p>The <code>GtkCellAreaContext</code> object is created by a given <code>GtkCellArea</code>
-implementation via its <code>GtkCellAreaClass</code>.create_context() virtual
+implementation via its <code>GtkCellAreaClass.create_context</code><code>()</code> virtual
 method and is used to store cell sizes and alignments for a series of
 <code>GtkTreeModel</code> rows that are requested and rendered in the same context.</p>
 
@@ -11535,7 +11535,7 @@ method and is used to store cell sizes and alignments for a series of
 request and render groups of data rows. However, it’s important that the
 same context which was used to request sizes for a given <code>GtkTreeModel</code>
 row also be used for the same row when calling other <code>GtkCellArea</code> APIs
-such as gtk_cell_area_render() and gtk_cell_area_event().</p>
+such as <code>gtk_cell_area_render()</code> and <code>gtk_cell_area_event()</code>.</p>
 
           </div>
         </section>
@@ -11569,7 +11569,7 @@ such as gtk_cell_area_render() and gtk_cell_area_event().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L2668">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L2650">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11607,7 +11607,7 @@ such as gtk_cell_area_render() and gtk_cell_area_event().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L2671">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L2653">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11735,7 +11735,7 @@ such as gtk_cell_area_render() and gtk_cell_area_event().</p>
                         <p>binding reference or <code>nil</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L2822-L2846">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L2804-L2828">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11827,7 +11827,7 @@ such as gtk_cell_area_render() and gtk_cell_area_event().</p>
                         <p>positive handler ID, or a value less than or equal to <code>0</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L2902-L2921">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L2883-L2902">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11868,7 +11868,7 @@ side vertically or horizontally and share either the same width
 or the same height. Sometimes they are allocated in both horizontal
 and vertical orientations producing a homogeneous effect of the
 rows. This is generally the case for <code>GtkTreeView</code> when
-<code>GtkTreeView</code>:fixed-height-mode is enabled.</p>
+<code>GtkTreeView:fixed</code>-height-mode is enabled.</p>
 
 <p>Since 3.0</p>
 
@@ -11882,7 +11882,7 @@ rows. This is generally the case for <code>GtkTreeView</code> when
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L2940-L2943">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L2921-L2924">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11906,7 +11906,7 @@ rows. This is generally the case for <code>GtkTreeView</code> when
                         <p>Fetches the current allocation size for <code>context</code>.</p>
 
 <p>If the context was not allocated in width or height, or if the
-context was recently reset with gtk_cell_area_context_reset(),
+context was recently reset with <code>gtk_cell_area_context_reset()</code>,
 the returned value will be -1.</p>
 
                       </div>
@@ -11919,7 +11919,7 @@ the returned value will be -1.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L2950-L2953">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L2931-L2934">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11946,7 +11946,7 @@ the returned value will be -1.</p>
 it is important for the context implementation itself to
 fetch information about the area it is being used for.</p>
 
-<p>For instance at <code>GtkCellAreaContextClass</code>.allocate() time
+<p>For instance at <code>GtkCellAreaContextClass.allocate</code><code>()</code> time
 it’s important to know details about any cell spacing
 that the <code>GtkCellArea</code> is configured with in order to
 compute a proper allocation.</p>
@@ -11961,7 +11961,7 @@ compute a proper allocation.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L2965-L2968">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L2946-L2949">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11985,7 +11985,7 @@ compute a proper allocation.</p>
                         <p>Gets the accumulative preferred height for all rows which have been
 requested with this context.</p>
 
-<p>After gtk_cell_area_context_reset() is called and/or before ever
+<p>After <code>gtk_cell_area_context_reset()</code> is called and/or before ever
 requesting the size of a <code>GtkCellArea</code>, the returned values are 0.</p>
 
                       </div>
@@ -11998,7 +11998,7 @@ requesting the size of a <code>GtkCellArea</code>, the returned values are 0.</p
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L2975-L2978">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L2956-L2959">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12022,7 +12022,7 @@ requesting the size of a <code>GtkCellArea</code>, the returned values are 0.</p
                         <p>Gets the accumulative preferred height for <code>width</code> for all rows
 which have been requested for the same said <code>width</code> with this context.</p>
 
-<p>After gtk_cell_area_context_reset() is called and/or before ever
+<p>After <code>gtk_cell_area_context_reset()</code> is called and/or before ever
 requesting the size of a <code>GtkCellArea</code>, the returned values are -1.</p>
 
                       </div>
@@ -12035,7 +12035,7 @@ requesting the size of a <code>GtkCellArea</code>, the returned values are -1.</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L2985-L2988">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L2966-L2969">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12059,7 +12059,7 @@ requesting the size of a <code>GtkCellArea</code>, the returned values are -1.</
                         <p>Gets the accumulative preferred width for all rows which have been
 requested with this context.</p>
 
-<p>After gtk_cell_area_context_reset() is called and/or before ever
+<p>After <code>gtk_cell_area_context_reset()</code> is called and/or before ever
 requesting the size of a <code>GtkCellArea</code>, the returned values are 0.</p>
 
                       </div>
@@ -12072,7 +12072,7 @@ requesting the size of a <code>GtkCellArea</code>, the returned values are 0.</p
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L2995-L2998">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L2976-L2979">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12096,7 +12096,7 @@ requesting the size of a <code>GtkCellArea</code>, the returned values are 0.</p
                         <p>Gets the accumulative preferred width for <code>height</code> for all rows which
 have been requested for the same said <code>height</code> with this context.</p>
 
-<p>After gtk_cell_area_context_reset() is called and/or before ever
+<p>After <code>gtk_cell_area_context_reset()</code> is called and/or before ever
 requesting the size of a <code>GtkCellArea</code>, the returned values are -1.</p>
 
                       </div>
@@ -12109,7 +12109,7 @@ requesting the size of a <code>GtkCellArea</code>, the returned values are -1.</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L3005-L3008">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L2986-L2989">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12136,7 +12136,7 @@ proposed sizes exceed the current minimum and natural height.</p>
 <p>This is used by <code>GtkCellAreaContext</code> implementations during
 the request process over a series of <code>GtkTreeModel</code> rows to
 progressively push the requested height over a series of
-gtk_cell_area_get_preferred_height() requests.</p>
+<code>gtk_cell_area_get_preferred_height()</code> requests.</p>
 
                       </div>
                       <div class="declaration">
@@ -12148,7 +12148,7 @@ gtk_cell_area_get_preferred_height() requests.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L3017-L3020">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L2998-L3001">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12175,7 +12175,7 @@ proposed sizes exceed the current minimum and natural width.</p>
 <p>This is used by <code>GtkCellAreaContext</code> implementations during
 the request process over a series of <code>GtkTreeModel</code> rows to
 progressively push the requested width over a series of
-gtk_cell_area_get_preferred_width() requests.</p>
+<code>gtk_cell_area_get_preferred_width()</code> requests.</p>
 
                       </div>
                       <div class="declaration">
@@ -12187,7 +12187,7 @@ gtk_cell_area_get_preferred_width() requests.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L3029-L3032">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L3010-L3013">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12218,7 +12218,7 @@ is only allowed to grow (this is usually an option
 for views rendering large data stores as a measure
 of optimization), then only the row that changed
 or was inserted needs to be (re)requested with
-gtk_cell_area_get_preferred_width().</p>
+<code>gtk_cell_area_get_preferred_width()</code>.</p>
 
 <p>When the new overall size of the context requires
 that the allocated size changes (or whenever this
@@ -12229,7 +12229,7 @@ sizes need to be re-requested for every row.</p>
 the same width from top to bottom then a change
 in the allocated width necessitates a recalculation
 of all the displayed row heights using
-gtk_cell_area_get_preferred_height_for_width().</p>
+<code>gtk_cell_area_get_preferred_height_for_width()</code>.</p>
 
 <p>Since 3.0</p>
 
@@ -12243,7 +12243,7 @@ gtk_cell_area_get_preferred_height_for_width().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L3058-L3061">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L3039-L3042">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12276,7 +12276,7 @@ gtk_cell_area_get_preferred_height_for_width().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L3063-L3078">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L3044-L3059">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12289,7 +12289,7 @@ gtk_cell_area_get_preferred_height_for_width().</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

@@ -11531,8 +11531,8 @@ the two panes is adjustable by the user by dragging
 a handle.</p>
 
 <p>Child widgets are
-added to the panes of the widget with gtk_paned_pack1() and
-gtk_paned_pack2(). The division between the two children is set by default
+added to the panes of the widget with <code>gtk_paned_pack1()</code> and
+<code>gtk_paned_pack2()</code>. The division between the two children is set by default
 from the size requests of the children, but it can be adjusted by the
 user.</p>
 
@@ -11553,13 +11553,14 @@ If <code>resize</code> is false for both children, then this is treated as if
 <code>resize</code> is true for both children.</p>
 
 <p>The application can set the position of the slider as if it were set
-by the user, by calling gtk_paned_set_position().</p>
+by the user, by calling <code>gtk_paned_set_position()</code>.</p>
+<h1 id='css-nodes' class='heading'>CSS nodes</h1>
 
-<p>&ldquo; CSS nodes</p>
-<pre class="highlight swift"><code><span class="n">paned</span>
-<span class="err">├──</span> <span class="o">&lt;</span><span class="n">child</span><span class="o">&gt;</span>
-<span class="err">├──</span> <span class="n">separator</span><span class="p">[</span><span class="o">.</span><span class="n">wide</span><span class="p">]</span>
-<span class="err">╰──</span> <span class="o">&lt;</span><span class="n">child</span><span class="o">&gt;</span>
+<p>(plain Language Example):</p>
+<pre class="highlight plaintext"><code>paned
+├── &lt;child&gt;
+├── separator[.wide]
+╰── &lt;child&gt;
 </code></pre>
 
 <p>GtkPaned has a main CSS node with name paned, and a subnode for
@@ -11569,8 +11570,7 @@ class when the paned is supposed to be wide.</p>
 <p>In horizontal orientation, the nodes of the children are always arranged
 from left to right. So :first-child will always select the leftmost child,
 regardless of text direction.</p>
-
-<p>&rdquo;` Creating a paned widget with minimum sizes.</p>
+<h2 id='creating-a-paned-widget-with-minimum-sizes' class='heading'>Creating a paned widget with minimum sizes.</h2>
 
 <p>(C Language Example):</p>
 <pre class="highlight plaintext"><code>GtkWidget *hpaned = gtk_paned_new (GTK_ORIENTATION_HORIZONTAL);
@@ -11621,7 +11621,7 @@ For type-safe access, use the generated, typed pointer <code>paned_ptr</code> pr
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L842">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L838">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11662,7 +11662,7 @@ For type-safe access, use the generated, typed pointer <code>paned_ptr</code> pr
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L847-L848">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L843-L844">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11692,7 +11692,7 @@ For type-safe access, use the generated, typed pointer <code>paned_ptr</code> pr
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L851-L853">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L847-L849">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11723,7 +11723,7 @@ For type-safe access, use the generated, typed pointer <code>paned_ptr</code> pr
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L857-L859">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L853-L855">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11754,7 +11754,7 @@ For type-safe access, use the generated, typed pointer <code>paned_ptr</code> pr
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L863-L865">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L859-L861">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11785,7 +11785,7 @@ For type-safe access, use the generated, typed pointer <code>paned_ptr</code> pr
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L869-L871">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L865-L867">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11816,7 +11816,7 @@ For type-safe access, use the generated, typed pointer <code>paned_ptr</code> pr
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L875-L877">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L871-L873">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11847,7 +11847,7 @@ For type-safe access, use the generated, typed pointer <code>paned_ptr</code> pr
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L881-L883">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L877-L879">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11877,7 +11877,7 @@ For type-safe access, use the generated, typed pointer <code>paned_ptr</code> pr
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L886-L889">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L882-L885">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11890,7 +11890,7 @@ For type-safe access, use the generated, typed pointer <code>paned_ptr</code> pr
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

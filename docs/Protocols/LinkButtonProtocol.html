@@ -11530,19 +11530,18 @@ Alternatively, use <code><a href="../Structs/LinkButtonRef.html">LinkButtonRef</
 used by web browsers, which triggers an action when clicked. It is useful
 to show quick links to resources.</p>
 
-<p>A link button is created by calling either gtk_link_button_new() or
-gtk_link_button_new_with_label(). If using the former, the URI you pass
+<p>A link button is created by calling either <code>gtk_link_button_new()</code> or
+<code>gtk_link_button_new_with_label()</code>. If using the former, the URI you pass
 to the constructor is used as a label for the widget.</p>
 
 <p>The URI bound to a GtkLinkButton can be set specifically using
-gtk_link_button_set_uri(), and retrieved using gtk_link_button_get_uri().</p>
+<code>gtk_link_button_set_uri()</code>, and retrieved using <code>gtk_link_button_get_uri()</code>.</p>
 
-<p>By default, GtkLinkButton calls gtk_show_uri_on_window() when the button is
+<p>By default, GtkLinkButton calls <code>gtk_show_uri_on_window()</code> when the button is
 clicked. This behaviour can be overridden by connecting to the
-<code>GtkLinkButton</code>::activate-link signal and returning <code>true</code> from the
+<code>GtkLinkButton::activate</code>-link signal and returning <code>true</code> from the
 signal handler.</p>
-
-<p>&ldquo; CSS nodes</p>
+<h1 id='css-nodes' class='heading'>CSS nodes</h1>
 
 <p>GtkLinkButton has a single CSS node with name button. To differentiate
 it from a plain <code>GtkButton</code>, it gets the .link style class.</p>
@@ -11579,7 +11578,7 @@ it from a plain <code>GtkButton</code>, it gets the .link style class.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L3843">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L3836">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11617,7 +11616,7 @@ it from a plain <code>GtkButton</code>, it gets the .link style class.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L3846">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L3839">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11745,7 +11744,7 @@ it from a plain <code>GtkButton</code>, it gets the .link style class.</p>
                         <p>binding reference or <code>nil</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L4256-L4280">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L4249-L4273">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11837,7 +11836,7 @@ it from a plain <code>GtkButton</code>, it gets the .link style class.</p>
                         <p>positive handler ID, or a value less than or equal to <code>0</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L5158-L5177">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L5150-L5169">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11869,7 +11868,7 @@ it from a plain <code>GtkButton</code>, it gets the .link style class.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Retrieves the URI set using gtk_link_button_set_uri().</p>
+                        <p>Retrieves the URI set using <code>gtk_link_button_set_uri()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -11881,7 +11880,7 @@ it from a plain <code>GtkButton</code>, it gets the .link style class.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L5185-L5188">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L5177-L5180">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11906,7 +11905,7 @@ it from a plain <code>GtkButton</code>, it gets the .link style class.</p>
 points. The button becomes visited when it is clicked. If the URI
 is changed on the button, the “visited” state is unset again.</p>
 
-<p>The state may also be changed using gtk_link_button_set_visited().</p>
+<p>The state may also be changed using <code>gtk_link_button_set_visited()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -11918,7 +11917,7 @@ is changed on the button, the “visited” state is unset again.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L5195-L5198">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L5187-L5190">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11952,7 +11951,7 @@ this unsets the “visited” state of the button.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L5202-L5205">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L5194-L5197">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11974,7 +11973,7 @@ this unsets the “visited” state of the button.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Sets the “visited” state of the URI where the <code>GtkLinkButton</code>
-points.  See gtk_link_button_get_visited() for more details.</p>
+points.  See <code>gtk_link_button_get_visited()</code> for more details.</p>
 
                       </div>
                       <div class="declaration">
@@ -11986,7 +11985,7 @@ points.  See gtk_link_button_get_visited() for more details.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L5209-L5212">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L5201-L5204">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12019,7 +12018,7 @@ points.  See gtk_link_button_get_visited() for more details.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L5214-L5225">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L5206-L5217">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12053,7 +12052,7 @@ different color.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L5229-L5244">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L5221-L5236">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12066,7 +12065,7 @@ different color.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

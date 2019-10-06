@@ -11529,20 +11529,23 @@ Use <code>CheckButtonRef</code> only as an <code>unowned</code> reference to an 
 (usually a <code>GtkLabel</code>). See the section on <code>GtkToggleButton</code> widgets for
 more information about toggle/check buttons.</p>
 
-<p>The important signal ( <code>GtkToggleButton</code>::toggled ) is also inherited from
+<p>The important signal ( <code>GtkToggleButton::toggled</code> ) is also inherited from
 <code>GtkToggleButton</code>.</p>
+<h1 id='css-nodes' class='heading'>CSS nodes</h1>
 
-<p>&ldquo; CSS nodes</p>
-<pre class="highlight swift"><code><span class="n">checkbutton</span>
-<span class="err">├──</span> <span class="n">check</span>
-<span class="err">╰──</span> <span class="o">&lt;</span><span class="n">child</span><span class="o">&gt;</span>
+<p>(plain Language Example):</p>
+<pre class="highlight plaintext"><code>checkbutton
+├── check
+╰── &lt;child&gt;
 </code></pre>
 
-<p>A GtkCheckButton with indicator (see gtk_toggle_button_set_mode()) has a
+<p>A GtkCheckButton with indicator (see <code>gtk_toggle_button_set_mode()</code>) has a
 main CSS node with name checkbutton and a subnode with name check.</p>
-<pre class="highlight swift"><code><span class="n">button</span><span class="o">.</span><span class="n">check</span>
-<span class="err">├──</span> <span class="n">check</span>
-<span class="err">╰──</span> <span class="o">&lt;</span><span class="n">child</span><span class="o">&gt;</span>
+
+<p>(plain Language Example):</p>
+<pre class="highlight plaintext"><code>button.check
+├── check
+╰── &lt;child&gt;
 </code></pre>
 
 <p>A GtkCheckButton without indicator changes the name of its main node
@@ -11582,7 +11585,7 @@ For type-safe access, use the generated, typed pointer <code>check_button_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L10279">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L10250">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11623,7 +11626,7 @@ For type-safe access, use the generated, typed pointer <code>check_button_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L10284-L10285">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L10255-L10256">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11653,7 +11656,7 @@ For type-safe access, use the generated, typed pointer <code>check_button_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L10288-L10290">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L10259-L10261">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11684,7 +11687,7 @@ For type-safe access, use the generated, typed pointer <code>check_button_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L10294-L10296">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L10265-L10267">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11715,7 +11718,7 @@ For type-safe access, use the generated, typed pointer <code>check_button_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L10300-L10302">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L10271-L10273">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11746,7 +11749,7 @@ For type-safe access, use the generated, typed pointer <code>check_button_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L10306-L10308">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L10277-L10279">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11777,7 +11780,7 @@ For type-safe access, use the generated, typed pointer <code>check_button_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L10312-L10314">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L10283-L10285">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11808,7 +11811,7 @@ For type-safe access, use the generated, typed pointer <code>check_button_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L10318-L10320">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L10289-L10291">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11838,7 +11841,7 @@ For type-safe access, use the generated, typed pointer <code>check_button_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L10323-L10326">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L10294-L10297">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11868,7 +11871,7 @@ For type-safe access, use the generated, typed pointer <code>check_button_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L10329-L10332">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L10300-L10303">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11887,7 +11890,7 @@ For type-safe access, use the generated, typed pointer <code>check_button_ptr</c
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Creates a new <code>GtkCheckButton</code> containing a label. The label
-will be created using gtk_label_new_with_mnemonic(), so underscores
+will be created using <code>gtk_label_new_with_mnemonic()</code>, so underscores
 in <code>label</code> indicate the mnemonic for the check button.</p>
 
                       </div>
@@ -11900,7 +11903,7 @@ in <code>label</code> indicate the mnemonic for the check button.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L10337-L10340">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L10308-L10311">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11930,7 +11933,7 @@ in <code>label</code> indicate the mnemonic for the check button.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L10342-L10345">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L10313-L10316">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11949,7 +11952,7 @@ in <code>label</code> indicate the mnemonic for the check button.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Creates a new <code>GtkCheckButton</code> containing a label. The label
-will be created using gtk_label_new_with_mnemonic(), so underscores
+will be created using <code>gtk_label_new_with_mnemonic()</code>, so underscores
 in <code>label</code> indicate the mnemonic for the check button.</p>
 
                         <a href="../Structs/CheckButtonRef/checkButtonNewWith%28mnemonic%3A%29.html" class="slightly-smaller">See more</a>
@@ -11963,7 +11966,7 @@ in <code>label</code> indicate the mnemonic for the check button.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L10350-L10353">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L10321-L10324">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11976,7 +11979,7 @@ in <code>label</code> indicate the mnemonic for the check button.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

@@ -11547,17 +11547,16 @@ sizes and positions to their children. For example, a <code>GtkHBox</code> arran
 children in a horizontal row, and a <code>GtkGrid</code> arranges the widgets it contains
 in a two-dimensional grid.</p>
 
-<p>For implementations of <code>GtkContainer</code> the virtual method <code>GtkContainerClass</code>.forall()
+<p>For implementations of <code>GtkContainer</code> the virtual method <code>GtkContainerClass.forall</code><code>()</code>
 is always required, since it&rsquo;s used for drawing and other internal operations
 on the children.
 If the <code>GtkContainer</code> implementation expect to have non internal children
-it&rsquo;s needed to implement both <code>GtkContainerClass</code>.add() and <code>GtkContainerClass</code>.remove().
+it&rsquo;s needed to implement both <code>GtkContainerClass.add</code><code>()</code> and <code>GtkContainerClass.remove</code><code>()</code>.
 If the GtkContainer implementation has internal children, they should be added
-with gtk_widget_set_parent() on init() and removed with gtk_widget_unparent()
-in the <code>GtkWidgetClass</code>.destroy() implementation.
+with <code>gtk_widget_set_parent()</code> on <code>init()</code> and removed with <code>gtk_widget_unparent()</code>
+in the <code>GtkWidgetClass.destroy</code><code>()</code> implementation.
 See more about implementing custom widgets at <a href="https://wiki.gnome.org/HowDoI/CustomWidgets">https://wiki.gnome.org/HowDoI/CustomWidgets</a></p>
-
-<p>&ldquo; Height for width geometry management</p>
+<h1 id='height-for-width-geometry-management' class='heading'>Height for width geometry management</h1>
 
 <p>GTK+ uses a height-for-width (and width-for-height) geometry management system.
 Height-for-width means that a widget can change how much vertical space it needs,
@@ -11578,11 +11577,11 @@ its parent will request its sizes using the width-for-height APIs.</p>
 when implementing height-for-width (or width-for-height) containers.</p>
 
 <p>Each request mode involves 2 virtual methods. Height-for-width apis run
-through gtk_widget_get_preferred_width() and then through gtk_widget_get_preferred_height_for_width().
+through <code>gtk_widget_get_preferred_width()</code> and then through <code>gtk_widget_get_preferred_height_for_width()</code>.
 When handling requests in the opposite <code>GtkSizeRequestMode</code> it is important that
 every widget request at least enough space to display all of its content at all times.</p>
 
-<p>When gtk_widget_get_preferred_height() is called on a container that is height-for-width,
+<p>When <code>gtk_widget_get_preferred_height()</code> is called on a container that is height-for-width,
 the container must return the height for its minimum width. This is easily achieved by
 simply calling the reverse apis implemented for itself as follows:</p>
 
@@ -11616,7 +11615,7 @@ foo_container_get_preferred_height (GtkWidget *widget,
 }
 </code></pre>
 
-<p>Similarly, when gtk_widget_get_preferred_width_for_height() is called for a container or widget
+<p>Similarly, when <code>gtk_widget_get_preferred_width_for_height()</code> is called for a container or widget
 that is height-for-width, it then only needs to return the base minimum width like so:</p>
 
 <p>(C Language Example):</p>
@@ -11643,21 +11642,21 @@ foo_container_get_preferred_width_for_height (GtkWidget *widget,
 
 <p>Height for width requests are generally implemented in terms of a virtual allocation
 of widgets in the input orientation. Assuming an height-for-width request mode, a container
-would implement the get_preferred_height_for_width() virtual function by first calling
-gtk_widget_get_preferred_width() for each of its children.</p>
+would implement the <code>get_preferred_height_for_width()</code> virtual function by first calling
+<code>gtk_widget_get_preferred_width()</code> for each of its children.</p>
 
 <p>For each potential group of children that are lined up horizontally, the values returned by
-gtk_widget_get_preferred_width() should be collected in an array of <code>GtkRequestedSize</code> structures.
+<code>gtk_widget_get_preferred_width()</code> should be collected in an array of <code>GtkRequestedSize</code> structures.
 Any child spacing should be removed from the input <code>for_width</code> and then the collective size should be
-allocated using the gtk_distribute_natural_allocation() convenience function.</p>
+allocated using the <code>gtk_distribute_natural_allocation()</code> convenience function.</p>
 
 <p>The container will then move on to request the preferred height for each child by using
-gtk_widget_get_preferred_height_for_width() and using the sizes stored in the <code>GtkRequestedSize</code> array.</p>
+<code>gtk_widget_get_preferred_height_for_width()</code> and using the sizes stored in the <code>GtkRequestedSize</code> array.</p>
 
 <p>To allocate a height-for-width container, it’s again important
 to consider that a container must prioritize one dimension over the other. So if
 a container is a height-for-width container it must first allocate all widgets horizontally
-using a <code>GtkRequestedSize</code> array and gtk_distribute_natural_allocation() and then add any
+using a <code>GtkRequestedSize</code> array and <code>gtk_distribute_natural_allocation()</code> and then add any
 extra space (if and where appropriate) for the widget to expand.</p>
 
 <p>After adding all the expand space, the container assumes it was allocated sufficient
@@ -11665,15 +11664,14 @@ height to fit all of its content. At this time, the container must use the total
 of each widget to request the height-for-width of each of its children and store the requests in a
 <code>GtkRequestedSize</code> array for any widgets that stack vertically (for tabular containers this can
 be generalized into the heights and widths of rows and columns).
-The vertical space must then again be distributed using gtk_distribute_natural_allocation()
+The vertical space must then again be distributed using <code>gtk_distribute_natural_allocation()</code>
 while this time considering the allocated height of the widget minus any vertical spacing
 that the container adds. Then vertical expand space should be added where appropriate and available
 and the container should go on to actually allocating the child widgets.</p>
 
-<p>See [GtkWidget’s geometry management section][geometry-management]
+<p>See <a href="#geometry-management">GtkWidget’s geometry management section</a>
 to learn more about implementing height-for-width geometry management for widgets.</p>
-
-<p>&rdquo; Child properties</p>
+<h1 id='child-properties' class='heading'>Child properties</h1>
 
 <p>GtkContainer introduces child properties.
 These are object properties that are not specific
@@ -11681,19 +11679,18 @@ to either the container or the contained widget, but rather to their relation.
 Typical examples of child properties are the position or pack-type of a widget
 which is contained in a <code>GtkBox</code>.</p>
 
-<p>Use gtk_container_class_install_child_property() to install child properties
-for a container class and gtk_container_class_find_child_property() or
-gtk_container_class_list_child_properties() to get information about existing
+<p>Use <code>gtk_container_class_install_child_property()</code> to install child properties
+for a container class and <code>gtk_container_class_find_child_property()</code> or
+<code>gtk_container_class_list_child_properties()</code> to get information about existing
 child properties.</p>
 
-<p>To set the value of a child property, use gtk_container_child_set_property(),
-gtk_container_child_set() or gtk_container_child_set_valist().
+<p>To set the value of a child property, use <code>gtk_container_child_set_property()</code>,
+<code>gtk_container_child_set()</code> or <code>gtk_container_child_set_valist()</code>.
 To obtain the value of a child property, use
-gtk_container_child_get_property(), gtk_container_child_get() or
-gtk_container_child_get_valist(). To emit notification about child property
-changes, use gtk_widget_child_notify().</p>
-
-<p>&ldquo; GtkContainer as GtkBuildable</p>
+<code>gtk_container_child_get_property()</code>, <code>gtk_container_child_get()</code> or
+<code>gtk_container_child_get_valist()</code>. To emit notification about child property
+changes, use <code>gtk_widget_child_notify()</code>.</p>
+<h1 id='gtkcontainer-as-gtkbuildable' class='heading'>GtkContainer as GtkBuildable</h1>
 
 <p>The GtkContainer implementation of the GtkBuildable interface supports
 a <packing> element for children, which can contain multiple <property>
@@ -11758,7 +11755,7 @@ Ownership is transferred to the <code>Container</code> instance.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L25716-L25718">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L25666-L25668">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11784,12 +11781,12 @@ Will retain <code>GtkContainer</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">other</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/ContainerProtocol.html">ContainerProtocol</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">other</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/ContainerProtocol.html">ContainerProtocol</a></span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L25722-L25725">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L25672-L25675">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11815,12 +11812,12 @@ Will retain <code>GtkContainer</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">cPointer</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">cPointer</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L25729-L25731">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L25679-L25681">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11846,12 +11843,12 @@ Will retain <code>GtkContainer</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeRawPointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L25735-L25737">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L25685-L25687">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11877,12 +11874,12 @@ Will retain <code>GtkContainer</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L25741-L25743">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L25691-L25693">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11908,12 +11905,12 @@ Will retain <code>GtkContainer</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">opaquePointer</span><span class="p">:</span> <span class="kt">OpaquePointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">opaquePointer</span><span class="p">:</span> <span class="kt">OpaquePointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L25747-L25749">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L25697-L25699">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11926,7 +11923,7 @@ Will retain <code>GtkContainer</code>.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

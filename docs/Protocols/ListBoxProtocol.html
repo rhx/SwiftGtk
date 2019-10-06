@@ -11538,25 +11538,25 @@ by a <code>GtkCellRenderer</code>, or when the contents is interactive (i.e. has
 button in it).</p>
 
 <p>Although a <code>GtkListBox</code> must have only <code>GtkListBoxRow</code> children you can
-add any kind of widget to it via gtk_container_add(), and a <code>GtkListBoxRow</code>
+add any kind of widget to it via <code>gtk_container_add()</code>, and a <code>GtkListBoxRow</code>
 widget will automatically be inserted between the list and the widget.</p>
 
 <p><code>GtkListBoxRows</code> can be marked as activatable or selectable. If a row
-is activatable, <code>GtkListBox</code>::row-activated will be emitted for it when
+is activatable, <code>GtkListBox::row</code>-activated will be emitted for it when
 the user tries to activate it. If it is selectable, the row will be marked
 as selected when the user tries to select it.</p>
 
 <p>The GtkListBox widget was added in GTK+ 3.10.</p>
-
-<p>&ldquo; GtkListBox as GtkBuildable</p>
+<h1 id='gtklistbox-as-gtkbuildable' class='heading'>GtkListBox as GtkBuildable</h1>
 
 <p>The GtkListBox implementation of the <code>GtkBuildable</code> interface supports
 setting a child as the placeholder by specifying “placeholder” as the “type”
-attribute of a <child> element. See gtk_list_box_set_placeholder() for info.</p>
+attribute of a <child> element. See <code>gtk_list_box_set_placeholder()</code> for info.</p>
+<h1 id='css-nodes' class='heading'>CSS nodes</h1>
 
-<p>&rdquo; CSS nodes</p>
-<pre class="highlight swift"><code><span class="n">list</span>
-<span class="err">╰──</span> <span class="n">row</span><span class="p">[</span><span class="o">.</span><span class="n">activatable</span><span class="p">]</span>
+<p>(plain Language Example):</p>
+<pre class="highlight plaintext"><code>list
+╰── row[.activatable]
 </code></pre>
 
 <p>GtkListBox uses a single CSS node named list. Each GtkListBoxRow uses
@@ -11595,7 +11595,7 @@ style class added when appropriate.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L5645">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L5636">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11633,7 +11633,7 @@ style class added when appropriate.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L5648">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L5639">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11761,7 +11761,7 @@ style class added when appropriate.</p>
                         <p>binding reference or <code>nil</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L6037-L6061">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L6028-L6052">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11853,7 +11853,7 @@ style class added when appropriate.</p>
                         <p>positive handler ID, or a value less than or equal to <code>0</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L6892-L6911">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L6882-L6901">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11895,7 +11895,7 @@ represent items from <code>model</code>. <code>box</code> is updated whenever <c
 If <code>model</code> is <code>nil</code>, <code>box</code> is left empty.</p>
 
 <p>It is undefined to add or remove widgets directly (for example, with
-gtk_list_box_insert() or gtk_container_add()) while <code>box</code> is bound to a
+<code>gtk_list_box_insert()</code> or <code>gtk_container_add()</code>) while <code>box</code> is bound to a
 model.</p>
 
 <p>Note that using a model is incompatible with the filtering and sorting
@@ -11913,7 +11913,7 @@ should be implemented by the model.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L6934-L6937">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L6924-L6927">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11935,7 +11935,7 @@ should be implemented by the model.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>This is a helper function for implementing DnD onto a <code>GtkListBox</code>.
-The passed in <code>row</code> will be highlighted via gtk_drag_highlight(),
+The passed in <code>row</code> will be highlighted via <code>gtk_drag_highlight()</code>,
 and any previously highlighted row will be unhighlighted.</p>
 
 <p>The row will also be unhighlighted when the widget gets
@@ -11951,7 +11951,7 @@ a drag leave event.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L6945-L6948">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L6935-L6938">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11972,7 +11972,7 @@ a drag leave event.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>If a row has previously been highlighted via gtk_list_box_drag_highlight_row()
+                        <p>If a row has previously been highlighted via <code>gtk_list_box_drag_highlight_row()</code>
 it will have the highlight removed.</p>
 
                       </div>
@@ -11985,7 +11985,7 @@ it will have the highlight removed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L6952-L6955">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L6942-L6945">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12018,7 +12018,7 @@ it will have the highlight removed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L6958-L6961">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L6948-L6951">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12052,7 +12052,7 @@ for vertical scrolling.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L6965-L6968">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L6955-L6958">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12087,7 +12087,7 @@ list, <code>nil</code> is returned.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L6973-L6976">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L6963-L6966">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12120,7 +12120,7 @@ list, <code>nil</code> is returned.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L6979-L6982">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L6969-L6972">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12144,7 +12144,7 @@ list, <code>nil</code> is returned.</p>
                         <p>Gets the selected row.</p>
 
 <p>Note that the box may allow multiple selection, in which
-case you should use gtk_list_box_selected_foreach() to
+case you should use <code>gtk_list_box_selected_foreach()</code> to
 find all selected rows.</p>
 
                       </div>
@@ -12157,7 +12157,7 @@ find all selected rows.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L6989-L6992">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L6979-L6982">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12190,7 +12190,7 @@ find all selected rows.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L6995-L6998">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L6985-L6988">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12223,7 +12223,7 @@ find all selected rows.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L7001-L7004">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L6991-L6994">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12246,7 +12246,7 @@ find all selected rows.</p>
                       <div class="abstract">
                         <p>Insert the <code>child</code> into the <code>box</code> at <code>position</code>. If a sort function is
 set, the widget will actually be inserted at the calculated position and
-this function has the same effect of gtk_container_add().</p>
+this function has the same effect of <code>gtk_container_add()</code>.</p>
 
 <p>If <code>position</code> is -1, or larger than the total number of items in the
 <code>box</code>, then the <code>child</code> will be appended to the end.</p>
@@ -12261,7 +12261,7 @@ this function has the same effect of gtk_container_add().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L7012-L7015">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L7002-L7005">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12298,7 +12298,7 @@ string and the entry with the search string has changed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L7022-L7025">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L7012-L7015">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12333,7 +12333,7 @@ to an external factor.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L7030-L7033">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L7020-L7023">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12368,7 +12368,7 @@ to an external factor.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L7038-L7041">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L7028-L7031">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12391,7 +12391,7 @@ to an external factor.</p>
                       <div class="abstract">
                         <p>Prepend a widget to the list. If a sort function is set, the widget will
 actually be inserted at the calculated position and this function has the
-same effect of gtk_container_add().</p>
+same effect of <code>gtk_container_add()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12403,7 +12403,7 @@ same effect of gtk_container_add().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L7046-L7049">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L7036-L7039">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12436,7 +12436,7 @@ same effect of gtk_container_add().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L7052-L7055">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L7042-L7045">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12469,7 +12469,7 @@ same effect of gtk_container_add().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L7058-L7061">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L7048-L7051">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12504,7 +12504,7 @@ same effect of gtk_container_add().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L7066-L7069">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L7056-L7059">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12538,7 +12538,7 @@ otherwise you need to double-click.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L7073-L7076">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L7063-L7066">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12578,7 +12578,7 @@ to manually do that.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L7086-L7089">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L7076-L7079">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12604,11 +12604,11 @@ of the rows to show. For instance, to implement a search function on a list that
 filters the original list to only show the matching rows.</p>
 
 <p>The <code>filter_func</code> will be called for each row after the call, and it will
-continue to be called each time a row changes (via gtk_list_box_row_changed()) or
-when gtk_list_box_invalidate_filter() is called.</p>
+continue to be called each time a row changes (via <code>gtk_list_box_row_changed()</code>) or
+when <code>gtk_list_box_invalidate_filter()</code> is called.</p>
 
 <p>Note that using a filter function is incompatible with using a model
-(see gtk_list_box_bind_model()).</p>
+(see <code>gtk_list_box_bind_model()</code>).</p>
 
                         <a href="../Protocols/ListBoxProtocol/set%28filterFunc%3AuserData%3Adestroy%3A%29.html" class="slightly-smaller">See more</a>
                       </div>
@@ -12621,7 +12621,7 @@ when gtk_list_box_invalidate_filter() is called.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L7101-L7104">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L7091-L7094">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12647,19 +12647,19 @@ in front of rows, depending on the contents of the row and its position in the l
 For instance, one could use it to add headers in front of the first item of a
 new kind, in a list sorted by the kind.</p>
 
-<p>The <code>update_header</code> can look at the current header widget using gtk_list_box_row_get_header()
+<p>The <code>update_header</code> can look at the current header widget using <code>gtk_list_box_row_get_header()</code>
 and either update the state of the widget as needed, or set a new one using
-gtk_list_box_row_set_header(). If no header is needed, set the header to <code>nil</code>.</p>
+<code>gtk_list_box_row_set_header()</code>. If no header is needed, set the header to <code>nil</code>.</p>
 
 <p>Note that you may get many calls <code>update_header</code> to this for a particular row when e.g.
 changing things that don’t affect the header. In this case it is important for performance
 to not blindly replace an existing header with an identical one.</p>
 
 <p>The <code>update_header</code> function will be called for each row after the call, and it will
-continue to be called each time a row changes (via gtk_list_box_row_changed()) and when
-the row before changes (either by gtk_list_box_row_changed() on the previous row, or when
+continue to be called each time a row changes (via <code>gtk_list_box_row_changed()</code>) and when
+the row before changes (either by <code>gtk_list_box_row_changed()</code> on the previous row, or when
 the previous row becomes a different row). It is also called for all rows when
-gtk_list_box_invalidate_headers() is called.</p>
+<code>gtk_list_box_invalidate_headers()</code> is called.</p>
 
                         <a href="../Protocols/ListBoxProtocol/setHeaderFunc%28updateHeader%3AuserData%3Adestroy%3A%29.html" class="slightly-smaller">See more</a>
                       </div>
@@ -12672,7 +12672,7 @@ gtk_list_box_invalidate_headers() is called.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L7124-L7127">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L7114-L7117">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12706,7 +12706,7 @@ it doesn&rsquo;t display any visible children.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L7131-L7134">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L7121-L7124">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12740,7 +12740,7 @@ See <code>GtkSelectionMode</code> for details.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L7138-L7141">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L7128-L7131">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12765,11 +12765,11 @@ See <code>GtkSelectionMode</code> for details.</p>
 of the list, based on the contents of the rows.</p>
 
 <p>The <code>sort_func</code> will be called for each row after the call, and will continue to
-be called each time a row changes (via gtk_list_box_row_changed()) and when
-gtk_list_box_invalidate_sort() is called.</p>
+be called each time a row changes (via <code>gtk_list_box_row_changed()</code>) and when
+<code>gtk_list_box_invalidate_sort()</code> is called.</p>
 
 <p>Note that using a sort function is incompatible with using a model
-(see gtk_list_box_bind_model()).</p>
+(see <code>gtk_list_box_bind_model()</code>).</p>
 
                         <a href="../Protocols/ListBoxProtocol/set%28sortFunc%3AuserData%3Adestroy%3A%29.html" class="slightly-smaller">See more</a>
                       </div>
@@ -12782,7 +12782,7 @@ gtk_list_box_invalidate_sort() is called.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L7152-L7155">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L7142-L7145">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12815,7 +12815,7 @@ gtk_list_box_invalidate_sort() is called.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L7158-L7161">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L7148-L7151">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12848,7 +12848,7 @@ gtk_list_box_invalidate_sort() is called.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L7164-L7167">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L7154-L7157">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12881,7 +12881,7 @@ gtk_list_box_invalidate_sort() is called.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L7169-L7180">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L7159-L7170">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12915,7 +12915,7 @@ for vertical scrolling.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L7184-L7202">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L7174-L7192">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12939,7 +12939,7 @@ for vertical scrolling.</p>
                         <p>Gets the selected row.</p>
 
 <p>Note that the box may allow multiple selection, in which
-case you should use gtk_list_box_selected_foreach() to
+case you should use <code>gtk_list_box_selected_foreach()</code> to
 find all selected rows.</p>
 
                       </div>
@@ -12952,7 +12952,7 @@ find all selected rows.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L7209-L7219">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L7199-L7209">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12985,7 +12985,7 @@ find all selected rows.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L7222-L7228">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L7212-L7218">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13018,7 +13018,7 @@ find all selected rows.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L7231-L7242">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L7221-L7232">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13031,7 +13031,7 @@ find all selected rows.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
