@@ -11528,7 +11528,7 @@ Alternatively, use <code><a href="../Structs/OverlayRef.html">OverlayRef</a></co
 
 <p>GtkOverlay is a container which contains a single main child, on top
 of which it can place “overlay” widgets. The position of each overlay
-widget is determined by its <code>GtkWidget</code>:halign and <code>GtkWidget</code>:valign
+widget is determined by its <code>GtkWidget:halign</code> and <code>GtkWidget:valign</code>
 properties. E.g. a widget with both alignments set to <code>GTK_ALIGN_START</code>
 will be placed at the top left corner of the GtkOverlay container,
 whereas an overlay with halign set to <code>GTK_ALIGN_CENTER</code> and valign set
@@ -11537,18 +11537,16 @@ horizontally centered. The position can be adjusted by setting the margin
 properties of the child to non-zero values.</p>
 
 <p>More complicated placement of overlays is possible by connecting
-to the <code>GtkOverlay</code>::get-child-position signal.</p>
+to the <code>GtkOverlay::get</code>-child-position signal.</p>
 
 <p>An overlay’s minimum and natural sizes are those of its main child. The sizes
 of overlay children are not considered when measuring these preferred sizes.</p>
-
-<p>&ldquo; GtkOverlay as GtkBuildable</p>
+<h1 id='gtkoverlay-as-gtkbuildable' class='heading'>GtkOverlay as GtkBuildable</h1>
 
 <p>The GtkOverlay implementation of the GtkBuildable interface
 supports placing a child as an overlay by specifying “overlay” as
 the “type” attribute of a <code>&lt;child&gt;</code> element.</p>
-
-<p>&rdquo; CSS nodes</p>
+<h1 id='css-nodes' class='heading'>CSS nodes</h1>
 
 <p>GtkOverlay has a single CSS node with the name “overlay”. Overlay children
 whose alignments cause them to be positioned at an edge get the style classes
@@ -11844,7 +11842,7 @@ whose alignments cause them to be positioned at an edge get the style classes
                         <p>positive handler ID, or a value less than or equal to <code>0</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Overlay-PadController.swift#L1260-L1279">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Overlay-PadController.swift#L1259-L1278">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11879,10 +11877,10 @@ whose alignments cause them to be positioned at an edge get the style classes
                         <p>Adds <code>widget</code> to <code>overlay</code>.</p>
 
 <p>The widget will be stacked on top of the main widget
-added with gtk_container_add().</p>
+added with <code>gtk_container_add()</code>.</p>
 
 <p>The position at which <code>widget</code> is placed is determined
-from its <code>GtkWidget</code>:halign and <code>GtkWidget</code>:valign properties.</p>
+from its <code>GtkWidget:halign</code> and <code>GtkWidget:valign</code> properties.</p>
 
                       </div>
                       <div class="declaration">
@@ -11894,7 +11892,7 @@ from its <code>GtkWidget</code>:halign and <code>GtkWidget</code>:valign propert
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Overlay-PadController.swift#L1293-L1296">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Overlay-PadController.swift#L1292-L1295">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11915,7 +11913,7 @@ from its <code>GtkWidget</code>:halign and <code>GtkWidget</code>:valign propert
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Convenience function to get the value of the <code>GtkOverlay</code>:pass-through
+                        <p>Convenience function to get the value of the <code>GtkOverlay:pass</code>-through
 child property for <code>widget</code>.</p>
 
                       </div>
@@ -11928,7 +11926,7 @@ child property for <code>widget</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Overlay-PadController.swift#L1300-L1303">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Overlay-PadController.swift#L1299-L1302">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11951,7 +11949,7 @@ child property for <code>widget</code>.</p>
                       <div class="abstract">
                         <p>Moves <code>child</code> to a new <code>index</code> in the list of <code>overlay</code> children.
 The list contains overlays in the order that these were
-added to <code>overlay</code> by default. See also <code>GtkOverlay</code>:index.</p>
+added to <code>overlay</code> by default. See also <code>GtkOverlay:index</code>.</p>
 
 <p>A widget’s index in the <code>overlay</code> children list determines which order
 the children are drawn if they overlap. The first child is drawn at
@@ -11967,7 +11965,7 @@ the bottom. It also affects the default focus chain order.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Overlay-PadController.swift#L1312-L1315">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Overlay-PadController.swift#L1311-L1314">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11988,7 +11986,7 @@ the bottom. It also affects the default focus chain order.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Convenience function to set the value of the <code>GtkOverlay</code>:pass-through
+                        <p>Convenience function to set the value of the <code>GtkOverlay:pass</code>-through
 child property for <code>widget</code>.</p>
 
                       </div>
@@ -12001,7 +11999,7 @@ child property for <code>widget</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Overlay-PadController.swift#L1319-L1322">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Overlay-PadController.swift#L1318-L1321">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12014,7 +12012,7 @@ child property for <code>widget</code>.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

@@ -11528,19 +11528,19 @@ Alternatively, use <code><a href="../Structs/RecentChooserMenuRef.html">RecentCh
 
 <p><code>GtkRecentChooserMenu</code> is a widget suitable for displaying recently used files
 inside a menu.  It can be used to set a sub-menu of a <code>GtkMenuItem</code> using
-gtk_menu_item_set_submenu(), or as the menu of a <code>GtkMenuToolButton</code>.</p>
+<code>gtk_menu_item_set_submenu()</code>, or as the menu of a <code>GtkMenuToolButton</code>.</p>
 
 <p>Note that <code>GtkRecentChooserMenu</code> does not have any methods of its own. Instead,
 you should use the functions that work on a <code>GtkRecentChooser</code>.</p>
 
 <p>Note also that <code>GtkRecentChooserMenu</code> does not support multiple filters, as it
 has no way to let the user choose between them as the <code>GtkRecentChooserWidget</code>
-and <code>GtkRecentChooserDialog</code> widgets do. Thus using gtk_recent_chooser_add_filter()
+and <code>GtkRecentChooserDialog</code> widgets do. Thus using <code>gtk_recent_chooser_add_filter()</code>
 on a <code>GtkRecentChooserMenu</code> widget will yield the same effects as using
-gtk_recent_chooser_set_filter(), replacing any currently set filter
-with the supplied filter; gtk_recent_chooser_remove_filter() will remove
+<code>gtk_recent_chooser_set_filter()</code>, replacing any currently set filter
+with the supplied filter; <code>gtk_recent_chooser_remove_filter()</code> will remove
 any currently set <code>GtkRecentFilter</code> object and will unset the current filter;
-gtk_recent_chooser_list_filters() will return a list containing a single
+<code>gtk_recent_chooser_list_filters()</code> will return a list containing a single
 <code>GtkRecentFilter</code> object.</p>
 
 <p>Recently used files are supported since GTK+ 2.10.</p>
@@ -11577,7 +11577,7 @@ gtk_recent_chooser_list_filters() will return a list containing a single
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L9672">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L9653">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11615,7 +11615,7 @@ gtk_recent_chooser_list_filters() will return a list containing a single
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L9675">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L9656">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11743,7 +11743,7 @@ gtk_recent_chooser_list_filters() will return a list containing a single
                         <p>binding reference or <code>nil</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L10161-L10185">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L10142-L10166">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11835,7 +11835,7 @@ gtk_recent_chooser_list_filters() will return a list containing a single
                         <p>positive handler ID, or a value less than or equal to <code>0</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L11111-L11130">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L11091-L11110">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11867,7 +11867,7 @@ gtk_recent_chooser_list_filters() will return a list containing a single
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns the value set by gtk_recent_chooser_menu_set_show_numbers().</p>
+                        <p>Returns the value set by <code>gtk_recent_chooser_menu_set_show_numbers()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -11879,7 +11879,7 @@ gtk_recent_chooser_list_filters() will return a list containing a single
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L11138-L11141">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L11118-L11121">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11915,7 +11915,7 @@ get a number to avoid clashes.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L11147-L11150">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L11127-L11130">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11936,7 +11936,7 @@ get a number to avoid clashes.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns the value set by gtk_recent_chooser_menu_set_show_numbers().</p>
+                        <p>Returns the value set by <code>gtk_recent_chooser_menu_set_show_numbers()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -11948,7 +11948,7 @@ get a number to avoid clashes.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L11152-L11165">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L11132-L11145">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11961,7 +11961,7 @@ get a number to avoid clashes.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

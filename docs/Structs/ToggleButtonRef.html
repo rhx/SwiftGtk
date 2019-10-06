@@ -11529,27 +11529,25 @@ Use <code>ToggleButtonRef</code> only as an <code>unowned</code> reference to an
 clicked. Clicking again will cause the toggle button to return to its
 normal state.</p>
 
-<p>A toggle button is created by calling either gtk_toggle_button_new() or
-gtk_toggle_button_new_with_label(). If using the former, it is advisable to
+<p>A toggle button is created by calling either <code>gtk_toggle_button_new()</code> or
+<code>gtk_toggle_button_new_with_label()</code>. If using the former, it is advisable to
 pack a widget, (such as a <code>GtkLabel</code> and/or a <code>GtkImage</code>), into the toggle
 button’s container. (See <code>GtkButton</code> for more information).</p>
 
 <p>The state of a <code>GtkToggleButton</code> can be set specifically using
-gtk_toggle_button_set_active(), and retrieved using
-gtk_toggle_button_get_active().</p>
+<code>gtk_toggle_button_set_active()</code>, and retrieved using
+<code>gtk_toggle_button_get_active()</code>.</p>
 
-<p>To simply switch the state of a toggle button, use gtk_toggle_button_toggled().</p>
-
-<p>&ldquo; CSS nodes</p>
+<p>To simply switch the state of a toggle button, use <code>gtk_toggle_button_toggled()</code>.</p>
+<h1 id='css-nodes' class='heading'>CSS nodes</h1>
 
 <p>GtkToggleButton has a single CSS node with name button. To differentiate
 it from a plain <code>GtkButton</code>, it gets the .toggle style class.</p>
-
-<p>&rdquo;<code>Creating two</code>GtkToggleButton` widgets.</p>
+<h2 id='creating-two-code-gtktogglebutton-code-widgets' class='heading'>Creating two <code>GtkToggleButton</code> widgets.</h2>
 
 <p>(C Language Example):</p>
 <pre class="highlight plaintext"><code>static void output_state (GtkToggleButton *source, gpointer user_data) {
-  printf ("Active: `d`\n", gtk_toggle_button_get_active (source));
+  printf ("Active: %d\n", gtk_toggle_button_get_active (source));
 }
 
 void make_toggles (void) {
@@ -11619,7 +11617,7 @@ For type-safe access, use the generated, typed pointer <code>toggle_button_ptr</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L8759">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L8748">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11660,7 +11658,7 @@ For type-safe access, use the generated, typed pointer <code>toggle_button_ptr</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L8764-L8765">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L8753-L8754">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11690,7 +11688,7 @@ For type-safe access, use the generated, typed pointer <code>toggle_button_ptr</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L8768-L8770">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L8757-L8759">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11721,7 +11719,7 @@ For type-safe access, use the generated, typed pointer <code>toggle_button_ptr</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L8774-L8776">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L8763-L8765">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11752,7 +11750,7 @@ For type-safe access, use the generated, typed pointer <code>toggle_button_ptr</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L8780-L8782">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L8769-L8771">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11783,7 +11781,7 @@ For type-safe access, use the generated, typed pointer <code>toggle_button_ptr</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L8786-L8788">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L8775-L8777">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11814,7 +11812,7 @@ For type-safe access, use the generated, typed pointer <code>toggle_button_ptr</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L8792-L8794">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L8781-L8783">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11845,7 +11843,7 @@ For type-safe access, use the generated, typed pointer <code>toggle_button_ptr</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L8798-L8800">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L8787-L8789">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11863,7 +11861,7 @@ For type-safe access, use the generated, typed pointer <code>toggle_button_ptr</
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Creates a new toggle button. A widget should be packed into the button, as in gtk_button_new().</p>
+                        <p>Creates a new toggle button. A widget should be packed into the button, as in <code>gtk_button_new()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -11875,7 +11873,7 @@ For type-safe access, use the generated, typed pointer <code>toggle_button_ptr</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L8803-L8806">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L8792-L8795">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11905,7 +11903,7 @@ For type-safe access, use the generated, typed pointer <code>toggle_button_ptr</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L8809-L8812">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L8798-L8801">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11924,7 +11922,7 @@ For type-safe access, use the generated, typed pointer <code>toggle_button_ptr</
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Creates a new <code>GtkToggleButton</code> containing a label. The label
-will be created using gtk_label_new_with_mnemonic(), so underscores
+will be created using <code>gtk_label_new_with_mnemonic()</code>, so underscores
 in <code>label</code> indicate the mnemonic for the button.</p>
 
                       </div>
@@ -11937,7 +11935,7 @@ in <code>label</code> indicate the mnemonic for the button.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L8817-L8820">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L8806-L8809">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11967,7 +11965,7 @@ in <code>label</code> indicate the mnemonic for the button.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L8822-L8825">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L8811-L8814">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11986,7 +11984,7 @@ in <code>label</code> indicate the mnemonic for the button.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Creates a new <code>GtkToggleButton</code> containing a label. The label
-will be created using gtk_label_new_with_mnemonic(), so underscores
+will be created using <code>gtk_label_new_with_mnemonic()</code>, so underscores
 in <code>label</code> indicate the mnemonic for the button.</p>
 
                       </div>
@@ -11999,7 +11997,7 @@ in <code>label</code> indicate the mnemonic for the button.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L8830-L8833">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L8819-L8822">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12012,7 +12010,7 @@ in <code>label</code> indicate the mnemonic for the button.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

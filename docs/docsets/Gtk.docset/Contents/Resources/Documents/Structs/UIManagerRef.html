@@ -11536,18 +11536,16 @@ It should be possible to migrate most/all functionality from GtkUIManager.</p>
 <p>A <code>GtkUIManager</code> constructs a user interface (menus and toolbars) from
 one or more UI definitions, which reference actions from one or more
 action groups.</p>
-
-<p><code>UI Definitions</code> {<code>XML</code>-UI}</p>
+<h1 id='ui-definitions-a-name-xml-ui-a' class='heading'>UI Definitions # <a name="XML-UI"></a></h1>
 
 <p>The UI definitions are specified in an XML format which can be
 roughly described by the following DTD.</p>
 
 <blockquote>
 <p>Do not confuse the GtkUIManager UI Definitions described here with
-the similarly named [GtkBuilder UI Definitions][BUILDER-UI].</p>
+the similarly named <a href="#BUILDER-UI">GtkBuilder UI Definitions</a>.</p>
 </blockquote>
-<pre class="highlight swift"><code><span class="o">&lt;!</span><span class="kt">ELEMENT</span> <span class="nf">ui</span>          <span class="p">(</span><span class="n">menubar</span><span class="o">|</span><span class="n">toolbar</span><span class="o">|</span><span class="n">popup</span><span class="o">|</span><span class="n">accelerator</span><span class="p">)</span><span class="o">*</span> <span class="o">&gt;</span>
-<span class="o">&lt;!</span><span class="kt">ELEMENT</span> <span class="nf">menubar</span>     <span class="p">(</span><span class="n">menuitem</span><span class="o">|</span><span class="n">separator</span><span class="o">|</span><span class="n">placeholder</span><span class="o">|</span><span class="n">menu</span><span class="p">)</span><span class="o">*</span> <span class="o">&gt;</span>
+<pre class="highlight swift"><code><span class="o">&lt;!</span><span class="kt">ELEMENT</span> <span class="nf">menubar</span>     <span class="p">(</span><span class="n">menuitem</span><span class="o">|</span><span class="n">separator</span><span class="o">|</span><span class="n">placeholder</span><span class="o">|</span><span class="n">menu</span><span class="p">)</span><span class="o">*</span> <span class="o">&gt;</span>
 <span class="o">&lt;!</span><span class="kt">ELEMENT</span> <span class="nf">menu</span>        <span class="p">(</span><span class="n">menuitem</span><span class="o">|</span><span class="n">separator</span><span class="o">|</span><span class="n">placeholder</span><span class="o">|</span><span class="n">menu</span><span class="p">)</span><span class="o">*</span> <span class="o">&gt;</span>
 <span class="o">&lt;!</span><span class="kt">ELEMENT</span> <span class="nf">popup</span>       <span class="p">(</span><span class="n">menuitem</span><span class="o">|</span><span class="n">separator</span><span class="o">|</span><span class="n">placeholder</span><span class="o">|</span><span class="n">menu</span><span class="p">)</span><span class="o">*</span> <span class="o">&gt;</span>
 <span class="o">&lt;!</span><span class="kt">ELEMENT</span> <span class="nf">toolbar</span>     <span class="p">(</span><span class="n">toolitem</span><span class="o">|</span><span class="n">separator</span><span class="o">|</span><span class="n">placeholder</span><span class="p">)</span><span class="o">*</span> <span class="o">&gt;</span>
@@ -11556,30 +11554,30 @@ the similarly named [GtkBuilder UI Definitions][BUILDER-UI].</p>
 <span class="o">&lt;!</span><span class="kt">ELEMENT</span> <span class="nf">toolitem</span>     <span class="p">(</span><span class="n">menu</span><span class="p">?)</span> <span class="o">&gt;</span>
 <span class="o">&lt;!</span><span class="kt">ELEMENT</span> <span class="n">separator</span>    <span class="kt">EMPTY</span> <span class="o">&gt;</span>
 <span class="o">&lt;!</span><span class="kt">ELEMENT</span> <span class="n">accelerator</span>  <span class="kt">EMPTY</span> <span class="o">&gt;</span>
-<span class="o">&lt;!</span><span class="kt">ATTLIST</span> <span class="n">menubar</span>      <span class="n">name</span>                      <span class="err">`</span><span class="kt">IMPLIED</span><span class="err">`</span>
-                       <span class="n">action</span>                    <span class="err">`</span><span class="kt">IMPLIED</span><span class="err">`</span> <span class="o">&gt;</span>
-<span class="o">&lt;!</span><span class="kt">ATTLIST</span> <span class="n">toolbar</span>      <span class="n">name</span>                      <span class="err">`</span><span class="kt">IMPLIED</span><span class="err">`</span>
-                       <span class="n">action</span>                    <span class="err">`</span><span class="kt">IMPLIED</span><span class="err">`</span> <span class="o">&gt;</span>
-<span class="o">&lt;!</span><span class="kt">ATTLIST</span> <span class="n">popup</span>        <span class="n">name</span>                      <span class="err">`</span><span class="kt">IMPLIED</span><span class="err">`</span>
-                       <span class="n">action</span>                    <span class="err">`</span><span class="kt">IMPLIED</span><span class="err">`</span>
-                       <span class="nf">accelerators</span> <span class="p">(</span><span class="kc">true</span><span class="o">|</span><span class="kc">false</span><span class="p">)</span> <span class="err">`</span><span class="kt">IMPLIED</span><span class="err">`</span> <span class="o">&gt;</span>
-<span class="o">&lt;!</span><span class="kt">ATTLIST</span> <span class="n">placeholder</span>  <span class="n">name</span>                      <span class="err">`</span><span class="kt">IMPLIED</span><span class="err">`</span>
-                       <span class="n">action</span>                    <span class="err">`</span><span class="kt">IMPLIED</span><span class="err">`</span> <span class="o">&gt;</span>
-<span class="o">&lt;!</span><span class="kt">ATTLIST</span> <span class="n">separator</span>    <span class="n">name</span>                      <span class="err">`</span><span class="kt">IMPLIED</span><span class="err">`</span>
-                       <span class="n">action</span>                    <span class="err">`</span><span class="kt">IMPLIED</span><span class="err">`</span>
-                       <span class="nf">expand</span>       <span class="p">(</span><span class="kc">true</span><span class="o">|</span><span class="kc">false</span><span class="p">)</span> <span class="err">`</span><span class="kt">IMPLIED</span><span class="err">`</span> <span class="o">&gt;</span>
-<span class="o">&lt;!</span><span class="kt">ATTLIST</span> <span class="n">menu</span>         <span class="n">name</span>                      <span class="err">`</span><span class="kt">IMPLIED</span><span class="err">`</span>
-                       <span class="n">action</span>                    <span class="err">`</span><span class="kt">REQUIRED</span><span class="err">`</span>
-                       <span class="nf">position</span>     <span class="p">(</span><span class="n">top</span><span class="o">|</span><span class="n">bot</span><span class="p">)</span>    <span class="err">`</span><span class="kt">IMPLIED</span><span class="err">`</span> <span class="o">&gt;</span>
-<span class="o">&lt;!</span><span class="kt">ATTLIST</span> <span class="n">menuitem</span>     <span class="n">name</span>                      <span class="err">`</span><span class="kt">IMPLIED</span><span class="err">`</span>
-                       <span class="n">action</span>                    <span class="err">`</span><span class="kt">REQUIRED</span><span class="err">`</span>
-                       <span class="nf">position</span>     <span class="p">(</span><span class="n">top</span><span class="o">|</span><span class="n">bot</span><span class="p">)</span>    <span class="err">`</span><span class="kt">IMPLIED</span><span class="err">`</span>
-                       <span class="n">always</span><span class="o">-</span><span class="n">show</span><span class="o">-</span><span class="nf">image</span> <span class="p">(</span><span class="kc">true</span><span class="o">|</span><span class="kc">false</span><span class="p">)</span> <span class="err">`</span><span class="kt">IMPLIED</span><span class="err">`</span> <span class="o">&gt;</span>
-<span class="o">&lt;!</span><span class="kt">ATTLIST</span> <span class="n">toolitem</span>     <span class="n">name</span>                      <span class="err">`</span><span class="kt">IMPLIED</span><span class="err">`</span>
-                       <span class="n">action</span>                    <span class="err">`</span><span class="kt">REQUIRED</span><span class="err">`</span>
-                       <span class="nf">position</span>     <span class="p">(</span><span class="n">top</span><span class="o">|</span><span class="n">bot</span><span class="p">)</span>    <span class="err">`</span><span class="kt">IMPLIED</span><span class="err">`</span> <span class="o">&gt;</span>
-<span class="o">&lt;!</span><span class="kt">ATTLIST</span> <span class="n">accelerator</span>  <span class="n">name</span>                      <span class="err">`</span><span class="kt">IMPLIED</span><span class="err">`</span>
-                       <span class="n">action</span>                    <span class="err">`</span><span class="kt">REQUIRED</span><span class="err">`</span> <span class="o">&gt;</span>
+<span class="o">&lt;!</span><span class="kt">ATTLIST</span> <span class="n">menubar</span>      <span class="n">name</span>                      <span class="err">#</span><span class="kt">IMPLIED</span>
+                       <span class="n">action</span>                    <span class="err">#</span><span class="kt">IMPLIED</span> <span class="o">&gt;</span>
+<span class="o">&lt;!</span><span class="kt">ATTLIST</span> <span class="n">toolbar</span>      <span class="n">name</span>                      <span class="err">#</span><span class="kt">IMPLIED</span>
+                       <span class="n">action</span>                    <span class="err">#</span><span class="kt">IMPLIED</span> <span class="o">&gt;</span>
+<span class="o">&lt;!</span><span class="kt">ATTLIST</span> <span class="n">popup</span>        <span class="n">name</span>                      <span class="err">#</span><span class="kt">IMPLIED</span>
+                       <span class="n">action</span>                    <span class="err">#</span><span class="kt">IMPLIED</span>
+                       <span class="nf">accelerators</span> <span class="p">(</span><span class="kc">true</span><span class="o">|</span><span class="kc">false</span><span class="p">)</span> <span class="err">#</span><span class="kt">IMPLIED</span> <span class="o">&gt;</span>
+<span class="o">&lt;!</span><span class="kt">ATTLIST</span> <span class="n">placeholder</span>  <span class="n">name</span>                      <span class="err">#</span><span class="kt">IMPLIED</span>
+                       <span class="n">action</span>                    <span class="err">#</span><span class="kt">IMPLIED</span> <span class="o">&gt;</span>
+<span class="o">&lt;!</span><span class="kt">ATTLIST</span> <span class="n">separator</span>    <span class="n">name</span>                      <span class="err">#</span><span class="kt">IMPLIED</span>
+                       <span class="n">action</span>                    <span class="err">#</span><span class="kt">IMPLIED</span>
+                       <span class="nf">expand</span>       <span class="p">(</span><span class="kc">true</span><span class="o">|</span><span class="kc">false</span><span class="p">)</span> <span class="err">#</span><span class="kt">IMPLIED</span> <span class="o">&gt;</span>
+<span class="o">&lt;!</span><span class="kt">ATTLIST</span> <span class="n">menu</span>         <span class="n">name</span>                      <span class="err">#</span><span class="kt">IMPLIED</span>
+                       <span class="n">action</span>                    <span class="err">#</span><span class="kt">REQUIRED</span>
+                       <span class="nf">position</span>     <span class="p">(</span><span class="n">top</span><span class="o">|</span><span class="n">bot</span><span class="p">)</span>    <span class="err">#</span><span class="kt">IMPLIED</span> <span class="o">&gt;</span>
+<span class="o">&lt;!</span><span class="kt">ATTLIST</span> <span class="n">menuitem</span>     <span class="n">name</span>                      <span class="err">#</span><span class="kt">IMPLIED</span>
+                       <span class="n">action</span>                    <span class="err">#</span><span class="kt">REQUIRED</span>
+                       <span class="nf">position</span>     <span class="p">(</span><span class="n">top</span><span class="o">|</span><span class="n">bot</span><span class="p">)</span>    <span class="err">#</span><span class="kt">IMPLIED</span>
+                       <span class="n">always</span><span class="o">-</span><span class="n">show</span><span class="o">-</span><span class="nf">image</span> <span class="p">(</span><span class="kc">true</span><span class="o">|</span><span class="kc">false</span><span class="p">)</span> <span class="err">#</span><span class="kt">IMPLIED</span> <span class="o">&gt;</span>
+<span class="o">&lt;!</span><span class="kt">ATTLIST</span> <span class="n">toolitem</span>     <span class="n">name</span>                      <span class="err">#</span><span class="kt">IMPLIED</span>
+                       <span class="n">action</span>                    <span class="err">#</span><span class="kt">REQUIRED</span>
+                       <span class="nf">position</span>     <span class="p">(</span><span class="n">top</span><span class="o">|</span><span class="n">bot</span><span class="p">)</span>    <span class="err">#</span><span class="kt">IMPLIED</span> <span class="o">&gt;</span>
+<span class="o">&lt;!</span><span class="kt">ATTLIST</span> <span class="n">accelerator</span>  <span class="n">name</span>                      <span class="err">#</span><span class="kt">IMPLIED</span>
+                       <span class="n">action</span>                    <span class="err">#</span><span class="kt">REQUIRED</span> <span class="o">&gt;</span>
 </code></pre>
 
 <p>There are some additional restrictions beyond those specified in the
@@ -11594,8 +11592,7 @@ attributes must not contain “/” characters after parsing (since that
 would mess up path lookup) and must be usable as XML attributes when
 enclosed in doublequotes, thus they must not “&quot;” characters or references
 to the &ldquo; entity.</p>
-
-<p><code>A UI definition</code></p>
+<h1 id='a-ui-definition' class='heading'>A UI definition</h1>
 <pre class="highlight swift"><code><span class="o">&lt;</span><span class="n">ui</span><span class="o">&gt;</span>
   <span class="o">&lt;</span><span class="n">menubar</span><span class="o">&gt;</span>
     <span class="o">&lt;</span><span class="n">menu</span> <span class="n">name</span><span class="o">=</span><span class="s">"FileMenu"</span> <span class="n">action</span><span class="o">=</span><span class="s">"FileMenuAction"</span><span class="o">&gt;</span>
@@ -11681,8 +11678,7 @@ almost obvious:</p>
 <p>The “position” attribute determines where a constructed widget is positioned
 wrt. to its siblings in the partially constructed tree. If it is
 “top”, the widget is prepended, otherwise it is appended.</p>
-
-<p><code>UI Merging</code> {<code>UI</code>-Merging}</p>
+<h1 id='ui-merging-a-name-ui-merging-a' class='heading'>UI Merging # <a name="UI-Merging"></a></h1>
 
 <p>The most remarkable feature of <code>GtkUIManager</code> is that it can overlay a set
 of menuitems and toolitems over another one, and demerge them later.</p>
@@ -11693,15 +11689,13 @@ by slashes. For example, the menuitem named “Left” in the example above
 has the path <code>/ui/menubar/JustifyMenu/Left</code> and the
 toolitem with the same name has path
 <code>/ui/toolbar1/JustifyToolItems/Left</code>.</p>
-
-<p><code>Accelerators</code></p>
+<h1 id='accelerators' class='heading'>Accelerators</h1>
 
 <p>Every action has an accelerator path. Accelerators are installed together
 with menuitem proxies, but they can also be explicitly added with
 <accelerator> elements in the UI definition. This makes it possible to
 have accelerators for actions even if they have no visible proxies.</p>
-
-<p><code>Smart Separators</code> {<code>Smart</code>-Separators}</p>
+<h1 id='smart-separators-a-name-smart-separators-a' class='heading'>Smart Separators # <a name="Smart-Separators"></a></h1>
 
 <p>The separators created by <code>GtkUIManager</code> are “smart”, i.e. they do not show up
 in the UI unless they end up between two visible menu or tool items. Separators
@@ -11714,8 +11708,7 @@ will end up in such an unfortunate position.</p>
 <p>For separators in toolbars, you can set <code>expand=&quot;true&quot;</code> to
 turn them from a small, visible separator to an expanding, invisible one.
 Toolitems following an expanding separator are effectively right-aligned.</p>
-
-<p>&rdquo; Empty Menus</p>
+<h1 id='empty-menus' class='heading'>Empty Menus</h1>
 
 <p>Submenus pose similar problems to separators inconnection with merging. It is
 impossible to know in advance whether they will end up empty after merging.
@@ -11728,8 +11721,7 @@ impossible to know in advance whether they will end up empty after merging.
 
 <p>The behaviour is chosen based on the “hide_if_empty” property of the action
 to which the submenu is associated.</p>
-
-<p><code>GtkUIManager as GtkBuildable</code> {<code>GtkUIManager</code>-BUILDER-UI}</p>
+<h1 id='gtkuimanager-as-gtkbuildable-a-name-gtkuimanager-builder-ui-a' class='heading'>GtkUIManager as GtkBuildable # <a name="GtkUIManager-BUILDER-UI"></a></h1>
 
 <p>The GtkUIManager implementation of the GtkBuildable interface accepts
 GtkActionGroup objects as <child> elements in UI definitions.</p>
@@ -11740,8 +11732,7 @@ an GtkUIManager <object> element in a GtkBuilder UI definition.</p>
 <p>The widgets that are constructed by a GtkUIManager can be embedded in
 other parts of the constructed user interface with the help of the
 “constructor” attribute. See the example below.</p>
-
-<p>&ldquo;` An embedded GtkUIManager UI definition</p>
+<h2 id='an-embedded-gtkuimanager-ui-definition' class='heading'>An embedded GtkUIManager UI definition</h2>
 <pre class="highlight swift"><code><span class="o">&lt;</span><span class="n">object</span> <span class="kd">class</span><span class="o">=</span><span class="s">"GtkUIManager"</span> <span class="n">id</span><span class="o">=</span><span class="s">"uiman"</span><span class="o">&gt;</span>
   <span class="o">&lt;</span><span class="n">child</span><span class="o">&gt;</span>
     <span class="o">&lt;</span><span class="n">object</span> <span class="kd">class</span><span class="o">=</span><span class="s">"GtkActionGroup"</span> <span class="n">id</span><span class="o">=</span><span class="s">"actiongroup"</span><span class="o">&gt;</span>
@@ -11799,7 +11790,7 @@ For type-safe access, use the generated, typed pointer <code>ui_manager_ptr</cod
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L27391">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L27344">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11840,7 +11831,7 @@ For type-safe access, use the generated, typed pointer <code>ui_manager_ptr</cod
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L27396-L27397">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L27349-L27350">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11870,7 +11861,7 @@ For type-safe access, use the generated, typed pointer <code>ui_manager_ptr</cod
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L27400-L27402">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L27353-L27355">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11901,7 +11892,7 @@ For type-safe access, use the generated, typed pointer <code>ui_manager_ptr</cod
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L27406-L27408">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L27359-L27361">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11932,7 +11923,7 @@ For type-safe access, use the generated, typed pointer <code>ui_manager_ptr</cod
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L27412-L27414">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L27365-L27367">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11963,7 +11954,7 @@ For type-safe access, use the generated, typed pointer <code>ui_manager_ptr</cod
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L27418-L27420">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L27371-L27373">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11994,7 +11985,7 @@ For type-safe access, use the generated, typed pointer <code>ui_manager_ptr</cod
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L27424-L27426">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L27377-L27379">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12025,7 +12016,7 @@ For type-safe access, use the generated, typed pointer <code>ui_manager_ptr</cod
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L27430-L27432">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L27383-L27385">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12054,13 +12045,13 @@ This method is deprecated.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="nf">init</span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L27438-L27441">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L27391-L27394">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12073,7 +12064,7 @@ This method is deprecated.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

@@ -11533,13 +11533,12 @@ setting attributes and data funcs.</p>
 GtkCellLayout are attributes. Attributes let you set the properties
 in flexible ways. They can just be set to constant values like regular
 properties. But they can also be mapped to a column of the underlying
-tree model with gtk_cell_layout_set_attributes(), which means that the value
+tree model with <code>gtk_cell_layout_set_attributes()</code>, which means that the value
 of the attribute can change from cell to cell as they are rendered by
 the cell renderer. Finally, it is possible to specify a function with
-gtk_cell_layout_set_cell_data_func() that is called to determine the
+<code>gtk_cell_layout_set_cell_data_func()</code> that is called to determine the
 value of the attribute for each cell that is rendered.</p>
-
-<p>&ldquo; GtkCellLayouts as GtkBuildable</p>
+<h1 id='gtkcelllayouts-as-gtkbuildable' class='heading'>GtkCellLayouts as GtkBuildable</h1>
 
 <p>Implementations of GtkCellLayout which also implement the GtkBuildable
 interface (<code>GtkCellView</code>, <code>GtkIconView</code>, <code>GtkComboBox</code>,
@@ -11563,7 +11562,7 @@ attribute value.</p>
 
 <p>Furthermore for implementations of GtkCellLayout that use a <code>GtkCellArea</code>
 to lay out cells (all GtkCellLayouts in GTK+ use a GtkCellArea)
-[cell properties][cell-properties] can also be defined in the format by
+<a href="#cell-properties">cell properties</a> can also be defined in the format by
 specifying the custom <cell-packing> attribute which can contain multiple
 <property> elements defined in the normal way.</p>
 
@@ -11578,8 +11577,7 @@ specifying the custom <cell-packing> attribute which can contain multiple
   <span class="o">&lt;/</span><span class="n">child</span><span class="o">&gt;</span><span class="s">"
 &lt;/object&gt;
 </span></code></pre>
-
-<p>&rdquo; Subclassing GtkCellLayout implementations</p>
+<h1 id='subclassing-gtkcelllayout-implementations' class='heading'>Subclassing GtkCellLayout implementations</h1>
 
 <p>When subclassing a widget that implements <code>GtkCellLayout</code> like
 <code>GtkIconView</code> or <code>GtkComboBox</code>, there are some considerations related
@@ -11592,9 +11590,9 @@ widgets. This means that it is possible to e.g. do</p>
 </code></pre>
 
 <p>to use a custom cell area with a combo box. But construct properties
-are only initialized after instance init()
+are only initialized after instance <code>init()</code>
 functions have run, which means that using functions which rely on
-the existence of the cell area in your subclass’ init() function will
+the existence of the cell area in your subclass’ <code>init()</code> function will
 cause the default cell area to be instantiated. In this case, a provided
 construct property value will be ignored (with a warning, to alert
 you to the problem).</p>
@@ -11623,7 +11621,7 @@ my_combo_box_new (GtkCellArea *area)
 <p>If supporting alternative cell areas with your derived widget is
 not important, then this does not have to concern you. If you want
 to support alternative cell areas, you can do so by moving the
-problematic calls out of init() and into a constructor()
+problematic calls out of <code>init()</code> and into a <code>constructor()</code>
 for your class.</p>
 
           </div>
@@ -11659,7 +11657,7 @@ For type-safe access, use the generated, typed pointer <code>cell_layout_ptr</co
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessibleParent-Editable.swift#L1837">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessibleParent-Editable.swift#L1824">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11690,7 +11688,7 @@ Ownership is transferred to the <code>CellLayout</code> instance.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessibleParent-Editable.swift#L1841-L1843">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessibleParent-Editable.swift#L1828-L1830">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11716,12 +11714,12 @@ Ownership is transferred to the <code>CellLayout</code> instance.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">other</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/CellLayoutProtocol.html">CellLayoutProtocol</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">other</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/CellLayoutProtocol.html">CellLayoutProtocol</a></span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessibleParent-Editable.swift#L1847-L1850">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessibleParent-Editable.swift#L1834-L1837">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11747,12 +11745,12 @@ Ownership is transferred to the <code>CellLayout</code> instance.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">cPointer</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">cPointer</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessibleParent-Editable.swift#L1859-L1861">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessibleParent-Editable.swift#L1846-L1848">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11778,12 +11776,12 @@ Ownership is transferred to the <code>CellLayout</code> instance.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeRawPointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessibleParent-Editable.swift#L1865-L1867">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessibleParent-Editable.swift#L1852-L1854">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11809,12 +11807,12 @@ Ownership is transferred to the <code>CellLayout</code> instance.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessibleParent-Editable.swift#L1871-L1873">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessibleParent-Editable.swift#L1858-L1860">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11840,12 +11838,12 @@ Ownership is transferred to the <code>CellLayout</code> instance.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">opaquePointer</span><span class="p">:</span> <span class="kt">OpaquePointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">opaquePointer</span><span class="p">:</span> <span class="kt">OpaquePointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessibleParent-Editable.swift#L1877-L1879">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessibleParent-Editable.swift#L1864-L1866">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11858,7 +11856,7 @@ Ownership is transferred to the <code>CellLayout</code> instance.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

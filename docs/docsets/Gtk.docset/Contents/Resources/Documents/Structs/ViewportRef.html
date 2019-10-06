@@ -11532,16 +11532,15 @@ capabilities. Use GtkViewport to scroll child widgets such as
 
 <p>If a widget has native scrolling abilities, such as <code>GtkTextView</code>,
 <code>GtkTreeView</code> or <code>GtkIconView</code>, it can be added to a <code>GtkScrolledWindow</code>
-with gtk_container_add(). If a widget does not, you must first add the
+with <code>gtk_container_add()</code>. If a widget does not, you must first add the
 widget to a <code>GtkViewport</code>, then add the viewport to the scrolled window.
-gtk_container_add() does this automatically if a child that does not
+<code>gtk_container_add()</code> does this automatically if a child that does not
 implement <code>GtkScrollable</code> is added to a <code>GtkScrolledWindow</code>, so you can
 ignore the presence of the viewport.</p>
 
 <p>The GtkViewport will start scrolling content only if allocated less
 than the child widget’s minimum size in a given orientation.</p>
-
-<p>&ldquo; CSS nodes</p>
+<h1 id='css-nodes' class='heading'>CSS nodes</h1>
 
 <p>GtkViewport has a single CSS node with name viewport.</p>
 
@@ -11578,7 +11577,7 @@ For type-safe access, use the generated, typed pointer <code>viewport_ptr</code>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-VBox-Widget.swift#L7587">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-VBox-Widget.swift#L7578">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11619,7 +11618,7 @@ For type-safe access, use the generated, typed pointer <code>viewport_ptr</code>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-VBox-Widget.swift#L7592-L7593">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-VBox-Widget.swift#L7583-L7584">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11649,7 +11648,7 @@ For type-safe access, use the generated, typed pointer <code>viewport_ptr</code>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-VBox-Widget.swift#L7596-L7598">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-VBox-Widget.swift#L7587-L7589">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11680,7 +11679,7 @@ For type-safe access, use the generated, typed pointer <code>viewport_ptr</code>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-VBox-Widget.swift#L7602-L7604">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-VBox-Widget.swift#L7593-L7595">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11711,7 +11710,7 @@ For type-safe access, use the generated, typed pointer <code>viewport_ptr</code>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-VBox-Widget.swift#L7608-L7610">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-VBox-Widget.swift#L7599-L7601">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11742,7 +11741,7 @@ For type-safe access, use the generated, typed pointer <code>viewport_ptr</code>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-VBox-Widget.swift#L7614-L7616">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-VBox-Widget.swift#L7605-L7607">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11773,7 +11772,7 @@ For type-safe access, use the generated, typed pointer <code>viewport_ptr</code>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-VBox-Widget.swift#L7620-L7622">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-VBox-Widget.swift#L7611-L7613">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11804,7 +11803,7 @@ For type-safe access, use the generated, typed pointer <code>viewport_ptr</code>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-VBox-Widget.swift#L7626-L7628">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-VBox-Widget.swift#L7617-L7619">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11822,7 +11821,7 @@ For type-safe access, use the generated, typed pointer <code>viewport_ptr</code>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <pre class="highlight swift"><code><span class="kt">Creates</span> <span class="n">a</span> <span class="k">new</span> <span class="err">`</span><span class="kt">GtkViewport</span><span class="err">`</span> <span class="n">with</span> <span class="n">the</span> <span class="n">given</span> <span class="n">adjustments</span><span class="p">,</span> <span class="n">or</span> <span class="n">with</span> <span class="k">default</span>
+                        <pre class="highlight swift"><code><span class="kt">Creates</span> <span class="n">a</span> <span class="k">new</span> <span class="p">`</span><span class="nv">GtkViewport</span><span class="p">`</span> <span class="n">with</span> <span class="n">the</span> <span class="n">given</span> <span class="n">adjustments</span><span class="p">,</span> <span class="n">or</span> <span class="n">with</span> <span class="k">default</span>
 </code></pre>
 
 <p>adjustments if none are given.</p>
@@ -11837,7 +11836,7 @@ For type-safe access, use the generated, typed pointer <code>viewport_ptr</code>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-VBox-Widget.swift#L7632-L7635">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-VBox-Widget.swift#L7623-L7626">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11850,7 +11849,7 @@ For type-safe access, use the generated, typed pointer <code>viewport_ptr</code>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

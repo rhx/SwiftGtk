@@ -11532,8 +11532,8 @@ the two panes is adjustable by the user by dragging
 a handle.</p>
 
 <p>Child widgets are
-added to the panes of the widget with gtk_paned_pack1() and
-gtk_paned_pack2(). The division between the two children is set by default
+added to the panes of the widget with <code>gtk_paned_pack1()</code> and
+<code>gtk_paned_pack2()</code>. The division between the two children is set by default
 from the size requests of the children, but it can be adjusted by the
 user.</p>
 
@@ -11554,13 +11554,14 @@ If <code>resize</code> is false for both children, then this is treated as if
 <code>resize</code> is true for both children.</p>
 
 <p>The application can set the position of the slider as if it were set
-by the user, by calling gtk_paned_set_position().</p>
+by the user, by calling <code>gtk_paned_set_position()</code>.</p>
+<h1 id='css-nodes' class='heading'>CSS nodes</h1>
 
-<p>&ldquo; CSS nodes</p>
-<pre class="highlight swift"><code><span class="n">paned</span>
-<span class="err">├──</span> <span class="o">&lt;</span><span class="n">child</span><span class="o">&gt;</span>
-<span class="err">├──</span> <span class="n">separator</span><span class="p">[</span><span class="o">.</span><span class="n">wide</span><span class="p">]</span>
-<span class="err">╰──</span> <span class="o">&lt;</span><span class="n">child</span><span class="o">&gt;</span>
+<p>(plain Language Example):</p>
+<pre class="highlight plaintext"><code>paned
+├── &lt;child&gt;
+├── separator[.wide]
+╰── &lt;child&gt;
 </code></pre>
 
 <p>GtkPaned has a main CSS node with name paned, and a subnode for
@@ -11570,8 +11571,7 @@ class when the paned is supposed to be wide.</p>
 <p>In horizontal orientation, the nodes of the children are always arranged
 from left to right. So :first-child will always select the leftmost child,
 regardless of text direction.</p>
-
-<p>&rdquo;` Creating a paned widget with minimum sizes.</p>
+<h2 id='creating-a-paned-widget-with-minimum-sizes' class='heading'>Creating a paned widget with minimum sizes.</h2>
 
 <p>(C Language Example):</p>
 <pre class="highlight plaintext"><code>GtkWidget *hpaned = gtk_paned_new (GTK_ORIENTATION_HORIZONTAL);
@@ -11621,7 +11621,7 @@ gtk_widget_set_size_request (frame2, 50, -1);
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L762">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L758">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11659,7 +11659,7 @@ gtk_widget_set_size_request (frame2, 50, -1);
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L765">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L761">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11787,7 +11787,7 @@ gtk_widget_set_size_request (frame2, 50, -1);
                         <p>binding reference or <code>nil</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L1222-L1246">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L1218-L1242">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11879,7 +11879,7 @@ gtk_widget_set_size_request (frame2, 50, -1);
                         <p>positive handler ID, or a value less than or equal to <code>0</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L2102-L2121">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L2097-L2116">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11925,7 +11925,7 @@ equivalent to
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L2131-L2134">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L2126-L2129">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11960,7 +11960,7 @@ is equivalent to
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L2139-L2142">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L2134-L2137">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11993,7 +11993,7 @@ is equivalent to
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L2145-L2148">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L2140-L2143">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12026,7 +12026,7 @@ is equivalent to
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L2151-L2154">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L2146-L2149">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12062,7 +12062,7 @@ of the paned, a child and the handle.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L2160-L2163">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L2155-L2158">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12095,7 +12095,7 @@ of the paned, a child and the handle.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L2166-L2169">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L2161-L2164">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12116,7 +12116,7 @@ of the paned, a child and the handle.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets the <code>GtkPaned</code>:wide-handle property.</p>
+                        <p>Gets the <code>GtkPaned:wide</code>-handle property.</p>
 
                       </div>
                       <div class="declaration">
@@ -12128,7 +12128,7 @@ of the paned, a child and the handle.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L2172-L2175">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L2167-L2170">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12161,7 +12161,7 @@ of the paned, a child and the handle.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L2178-L2181">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L2173-L2176">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12194,7 +12194,7 @@ of the paned, a child and the handle.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L2184-L2187">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L2179-L2182">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12227,7 +12227,7 @@ of the paned, a child and the handle.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L2190-L2193">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L2185-L2188">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12248,7 +12248,7 @@ of the paned, a child and the handle.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Sets the <code>GtkPaned</code>:wide-handle property.</p>
+                        <p>Sets the <code>GtkPaned:wide</code>-handle property.</p>
 
                       </div>
                       <div class="declaration">
@@ -12260,7 +12260,7 @@ of the paned, a child and the handle.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L2196-L2199">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L2191-L2194">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12293,7 +12293,7 @@ of the paned, a child and the handle.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L2201-L2207">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L2196-L2202">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12326,7 +12326,7 @@ of the paned, a child and the handle.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L2210-L2216">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L2205-L2211">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12362,7 +12362,7 @@ of the paned, a child and the handle.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L2222-L2231">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L2217-L2226">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12395,7 +12395,7 @@ of the paned, a child and the handle.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L2233-L2243">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L2228-L2238">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12416,7 +12416,7 @@ of the paned, a child and the handle.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets the <code>GtkPaned</code>:wide-handle property.</p>
+                        <p>Gets the <code>GtkPaned:wide</code>-handle property.</p>
 
                       </div>
                       <div class="declaration">
@@ -12428,7 +12428,7 @@ of the paned, a child and the handle.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L2246-L2256">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L2241-L2251">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12441,7 +12441,7 @@ of the paned, a child and the handle.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

@@ -11534,8 +11534,7 @@ remove itself and its list item when it is destroyed.</p>
 
 <p>The correct way to create a group of radio menu items is approximatively
 this:</p>
-
-<p>&ldquo;` How to create a group of radio menu items.</p>
+<h2 id='how-to-create-a-group-of-radio-menu-items' class='heading'>How to create a group of radio menu items.</h2>
 
 <p>(C Language Example):</p>
 <pre class="highlight plaintext"><code>GSList *group = NULL;
@@ -11550,11 +11549,12 @@ for (i = 0; i &lt; 5; i++)
     gtk_check_menu_item_set_active (GTK_CHECK_MENU_ITEM (item), TRUE);
 }
 </code></pre>
+<h1 id='css-nodes' class='heading'>CSS nodes</h1>
 
-<p>&rdquo; CSS nodes</p>
-<pre class="highlight swift"><code><span class="n">menuitem</span>
-<span class="err">├──</span> <span class="n">radio</span><span class="o">.</span><span class="n">left</span>
-<span class="err">╰──</span> <span class="o">&lt;</span><span class="n">child</span><span class="o">&gt;</span>
+<p>(plain Language Example):</p>
+<pre class="highlight plaintext"><code>menuitem
+├── radio.left
+╰── &lt;child&gt;
 </code></pre>
 
 <p>GtkRadioMenuItem has a main CSS node with name menuitem, and a subnode
@@ -11592,7 +11592,7 @@ with name radio, which gets the .left or .right style class.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L2102">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L2096">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11630,7 +11630,7 @@ with name radio, which gets the .left or .right style class.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L2105">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L2099">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11758,7 +11758,7 @@ with name radio, which gets the .left or .right style class.</p>
                         <p>binding reference or <code>nil</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L2581-L2605">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L2573-L2597">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11850,7 +11850,7 @@ with name radio, which gets the .left or .right style class.</p>
                         <p>positive handler ID, or a value less than or equal to <code>0</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L3441-L3460">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L3432-L3451">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11895,7 +11895,7 @@ with name radio, which gets the .left or .right style class.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L3469-L3472">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L3460-L3463">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11920,8 +11920,8 @@ with name radio, which gets the .left or .right style class.</p>
 object.</p>
 
 <p>This function should be used by language bindings to avoid the memory
-manangement of the opaque <code>GSList</code> of gtk_radio_menu_item_get_group()
-and gtk_radio_menu_item_set_group().</p>
+manangement of the opaque <code>GSList</code> of <code>gtk_radio_menu_item_get_group()</code>
+and <code>gtk_radio_menu_item_set_group()</code>.</p>
 
 <p>A common way to set up a group of <code>GtkRadioMenuItem</code> instances is:</p>
 <pre class="highlight swift"><code>  <span class="kt">GtkRadioMenuItem</span> <span class="o">*</span><span class="n">last_item</span> <span class="o">=</span> <span class="kt">NULL</span><span class="p">;</span>
@@ -11947,7 +11947,7 @@ and gtk_radio_menu_item_set_group().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L3497-L3500">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L3488-L3491">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11980,7 +11980,7 @@ and gtk_radio_menu_item_set_group().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L3503-L3506">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L3494-L3497">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12013,7 +12013,7 @@ and gtk_radio_menu_item_set_group().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L3508-L3519">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L3499-L3510">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12026,7 +12026,7 @@ and gtk_radio_menu_item_set_group().</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

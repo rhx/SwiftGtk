@@ -11528,43 +11528,43 @@ Use <code>ScaleRef</code> only as an <code>unowned</code> reference to an existi
 <p>A GtkScale is a slider control used to select a numeric value.
 To use it, you’ll probably want to investigate the methods on
 its base class, <code>GtkRange</code>, in addition to the methods for GtkScale itself.
-To set the value of a scale, you would normally use gtk_range_set_value().
+To set the value of a scale, you would normally use <code>gtk_range_set_value()</code>.
 To detect changes to the value, you would normally use the
-<code>GtkRange</code>::value-changed signal.</p>
+<code>GtkRange::value</code>-changed signal.</p>
 
 <p>Note that using the same upper and lower bounds for the <code>GtkScale</code> (through
 the <code>GtkRange</code> methods) will hide the slider itself. This is useful for
 applications that want to show an undeterminate value on the scale, without
 changing the layout of the application (such as movie or music players).</p>
-
-<p>&ldquo; GtkScale as GtkBuildable</p>
+<h1 id='gtkscale-as-gtkbuildable' class='heading'>GtkScale as GtkBuildable</h1>
 
 <p>GtkScale supports a custom <marks> element, which can contain multiple
 <mark> elements. The “value” and “position” attributes have the same
-meaning as gtk_scale_add_mark() parameters of the same name. If the
+meaning as <code>gtk_scale_add_mark()</code> parameters of the same name. If the
 element is not empty, its content is taken as the markup to show at
 the mark. It can be translated with the usual ”translatable” and
 “context” attributes.</p>
+<h1 id='css-nodes' class='heading'>CSS nodes</h1>
 
-<p>&rdquo; CSS nodes</p>
-<pre class="highlight swift"><code><span class="n">scale</span><span class="p">[</span><span class="o">.</span><span class="n">fine</span><span class="o">-</span><span class="n">tune</span><span class="p">][</span><span class="o">.</span><span class="n">marks</span><span class="o">-</span><span class="n">before</span><span class="p">][</span><span class="o">.</span><span class="n">marks</span><span class="o">-</span><span class="n">after</span><span class="p">]</span>
-<span class="err">├──</span> <span class="n">marks</span><span class="o">.</span><span class="n">top</span>
-<span class="err">│</span>   <span class="err">├──</span> <span class="n">mark</span>
-<span class="err">│</span>   <span class="err">┊</span>    <span class="err">├──</span> <span class="p">[</span><span class="n">label</span><span class="p">]</span>
-<span class="err">│</span>   <span class="err">┊</span>    <span class="err">╰──</span> <span class="n">indicator</span>
-<span class="err">┊</span>   <span class="err">┊</span>
-<span class="err">│</span>   <span class="err">╰──</span> <span class="n">mark</span>
-<span class="err">├──</span> <span class="p">[</span><span class="n">value</span><span class="p">]</span>
-<span class="err">├──</span> <span class="n">contents</span>
-<span class="err">│</span>   <span class="err">╰──</span> <span class="n">trough</span>
-<span class="err">│</span>       <span class="err">├──</span> <span class="n">slider</span>
-<span class="err">│</span>       <span class="err">├──</span> <span class="p">[</span><span class="n">highlight</span><span class="p">]</span>
-<span class="err">│</span>       <span class="err">╰──</span> <span class="p">[</span><span class="n">fill</span><span class="p">]</span>
-<span class="err">╰──</span> <span class="n">marks</span><span class="o">.</span><span class="n">bottom</span>
-    <span class="err">├──</span> <span class="n">mark</span>
-    <span class="err">┊</span>    <span class="err">├──</span> <span class="n">indicator</span>
-    <span class="err">┊</span>    <span class="err">╰──</span> <span class="p">[</span><span class="n">label</span><span class="p">]</span>
-    <span class="err">╰──</span> <span class="n">mark</span>
+<p>(plain Language Example):</p>
+<pre class="highlight plaintext"><code>scale[.fine-tune][.marks-before][.marks-after]
+├── marks.top
+│   ├── mark
+│   ┊    ├── [label]
+│   ┊    ╰── indicator
+┊   ┊
+│   ╰── mark
+├── [value]
+├── contents
+│   ╰── trough
+│       ├── slider
+│       ├── [highlight]
+│       ╰── [fill]
+╰── marks.bottom
+    ├── mark
+    ┊    ├── indicator
+    ┊    ╰── [label]
+    ╰── mark
 </code></pre>
 
 <p>GtkScale has a main CSS node with name scale and a subnode for its contents,
@@ -11573,11 +11573,11 @@ with subnodes named trough and slider.</p>
 <p>The main node gets the style class .fine-tune added when the scale is in
 &lsquo;fine-tuning&rsquo; mode.</p>
 
-<p>If the scale has an origin (see gtk_scale_set_has_origin()), there is a
+<p>If the scale has an origin (see <code>gtk_scale_set_has_origin()</code>), there is a
 subnode with name highlight below the trough node that is used for rendering
 the highlighted part of the trough.</p>
 
-<p>If the scale is showing a fill level (see gtk_range_set_show_fill_level()),
+<p>If the scale is showing a fill level (see <code>gtk_range_set_show_fill_level()</code>),
 there is a subnode with name fill below the trough node that is used for
 rendering the filled in part of the trough.</p>
 
@@ -11593,7 +11593,7 @@ subnode is the first.</p>
 <p>The main CSS node gets the &lsquo;marks-before&rsquo; and/or &lsquo;marks-after&rsquo; style classes
 added depending on what marks are present.</p>
 
-<p>If the scale is displaying the value (see <code>GtkScale</code>:draw-value), there is
+<p>If the scale is displaying the value (see <code>GtkScale:draw</code>-value), there is
 subnode with name value.</p>
 
           </div>
@@ -11629,7 +11629,7 @@ For type-safe access, use the generated, typed pointer <code>scale_ptr</code> pr
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L15496">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L15465">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11670,7 +11670,7 @@ For type-safe access, use the generated, typed pointer <code>scale_ptr</code> pr
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L15501-L15502">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L15470-L15471">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11700,7 +11700,7 @@ For type-safe access, use the generated, typed pointer <code>scale_ptr</code> pr
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L15505-L15507">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L15474-L15476">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11731,7 +11731,7 @@ For type-safe access, use the generated, typed pointer <code>scale_ptr</code> pr
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L15511-L15513">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L15480-L15482">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11762,7 +11762,7 @@ For type-safe access, use the generated, typed pointer <code>scale_ptr</code> pr
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L15517-L15519">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L15486-L15488">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11793,7 +11793,7 @@ For type-safe access, use the generated, typed pointer <code>scale_ptr</code> pr
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L15523-L15525">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L15492-L15494">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11824,7 +11824,7 @@ For type-safe access, use the generated, typed pointer <code>scale_ptr</code> pr
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L15529-L15531">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L15498-L15500">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11855,7 +11855,7 @@ For type-safe access, use the generated, typed pointer <code>scale_ptr</code> pr
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L15535-L15537">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L15504-L15506">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11885,7 +11885,7 @@ For type-safe access, use the generated, typed pointer <code>scale_ptr</code> pr
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L15540-L15543">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L15509-L15512">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11911,7 +11911,7 @@ value.</p>
 
 <p>Note that the way in which the precision is derived works best if <code>step</code>
 is a power of ten. If the resulting precision is not suitable for your
-needs, use gtk_scale_set_digits() to correct it.</p>
+needs, use <code>gtk_scale_set_digits()</code> to correct it.</p>
 
                       </div>
                       <div class="declaration">
@@ -11923,7 +11923,7 @@ needs, use gtk_scale_set_digits() to correct it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L15554-L15557">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L15523-L15526">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11949,7 +11949,7 @@ value.</p>
 
 <p>Note that the way in which the precision is derived works best if <code>step</code>
 is a power of ten. If the resulting precision is not suitable for your
-needs, use gtk_scale_set_digits() to correct it.</p>
+needs, use <code>gtk_scale_set_digits()</code> to correct it.</p>
 
                       </div>
                       <div class="declaration">
@@ -11961,7 +11961,7 @@ needs, use gtk_scale_set_digits() to correct it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L15567-L15570">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L15536-L15539">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11974,7 +11974,7 @@ needs, use gtk_scale_set_digits() to correct it.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

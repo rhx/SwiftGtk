@@ -11533,7 +11533,7 @@ size, but you can’t use a <code>GtkGrid</code> widget.</p>
 <p>In detail, the size requested for each widget in a <code>GtkSizeGroup</code> is
 the maximum of the sizes that would have been requested for each
 widget in the size group if they were not in the size group. The mode
-of the size group (see gtk_size_group_set_mode()) determines whether
+of the size group (see <code>gtk_size_group_set_mode()</code>) determines whether
 this applies to the horizontal size, the vertical size, or both sizes.</p>
 
 <p>Note that size groups only affect the amount of space requested, not
@@ -11545,7 +11545,7 @@ include the <code>GTK_FILL</code> flag.</p>
 
 <p><code>GtkSizeGroup</code> objects are referenced by each widget in the size group,
 so once you have added all widgets to a <code>GtkSizeGroup</code>, you can drop
-the initial reference to the size group with g_object_unref(). If the
+the initial reference to the size group with <code>g_object_unref()</code>. If the
 widgets in the size group are subsequently destroyed, then they will
 be removed from the size group and drop their references on the size
 group; when all widgets have been removed, the size group will be
@@ -11563,16 +11563,15 @@ reached from the widget by a chain of size groups of type
 by size groups (since size groups have no knowledge of what size a widget
 will be allocated in one dimension, it cannot derive how much height
 a widget will receive for a given width). When grouping widgets that
-trade height for width in mode <code>GTK_SIZE_GROUP_VERTICAL</code> or <code>GTK_SIZE_GROUP_BOTH</code>:
+trade height for width in mode <code>GTK_SIZE_GROUP_VERTICAL</code> or <code>GTK_SIZE_GROUP_BOTH:</code>
 the height for the minimum width will be the requested height for all
 widgets in the group. The same is of course true when horizontally grouping
 width for height widgets.</p>
 
 <p>Widgets that trade height-for-width should set a reasonably large minimum width
-by way of <code>GtkLabel</code>:width-chars for instance. Widgets with static sizes as well
+by way of <code>GtkLabel:width</code>-chars for instance. Widgets with static sizes as well
 as widgets that grow (such as ellipsizing text) need no such considerations.</p>
-
-<p>&ldquo; GtkSizeGroup as GtkBuildable</p>
+<h1 id='gtksizegroup-as-gtkbuildable' class='heading'>GtkSizeGroup as GtkBuildable</h1>
 
 <p>Size groups can be specified in a UI definition by placing an <object>
 element with <code>class=&quot;GtkSizeGroup&quot;</code> somewhere in the UI definition. The
@@ -11623,7 +11622,7 @@ Ownership is transferred to the <code>SizeGroup</code> instance.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L20894-L20896">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L20869-L20871">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11649,12 +11648,12 @@ Will retain <code>GtkSizeGroup</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">other</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/SizeGroupProtocol.html">SizeGroupProtocol</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">other</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/SizeGroupProtocol.html">SizeGroupProtocol</a></span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L20900-L20903">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L20875-L20878">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11680,12 +11679,12 @@ Will retain <code>GtkSizeGroup</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">cPointer</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">cPointer</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L20907-L20909">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L20882-L20884">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11711,12 +11710,12 @@ Will retain <code>GtkSizeGroup</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeRawPointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L20913-L20915">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L20888-L20890">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11742,12 +11741,12 @@ Will retain <code>GtkSizeGroup</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L20919-L20921">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L20894-L20896">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11773,12 +11772,12 @@ Will retain <code>GtkSizeGroup</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">opaquePointer</span><span class="p">:</span> <span class="kt">OpaquePointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">opaquePointer</span><span class="p">:</span> <span class="kt">OpaquePointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L20925-L20927">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L20900-L20902">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11803,12 +11802,12 @@ Will retain <code>GtkSizeGroup</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">mode</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:3Gtk13SizeGroupModea">SizeGroupMode</a></span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">mode</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:3Gtk13SizeGroupModea">SizeGroupMode</a></span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L20930-L20933">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L20905-L20908">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11821,7 +11820,7 @@ Will retain <code>GtkSizeGroup</code>.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

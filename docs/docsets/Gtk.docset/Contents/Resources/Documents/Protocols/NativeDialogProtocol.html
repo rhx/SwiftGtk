@@ -11535,12 +11535,12 @@ supporting platform specific features.</p>
 need a similar API in order to drive them. The <code>GtkNativeDialog</code>
 object is an API that allows you to do this. It allows you to set
 various common properties on the dialog, as well as show and hide
-it and get a <code>GtkNativeDialog</code>::response signal when the user finished
+it and get a <code>GtkNativeDialog::response</code> signal when the user finished
 with the dialog.</p>
 
-<p>There is also a gtk_native_dialog_run() helper that makes it easy
+<p>There is also a <code>gtk_native_dialog_run()</code> helper that makes it easy
 to run any native dialog in a modal way with a recursive mainloop,
-similar to gtk_dialog_run().</p>
+similar to <code>gtk_dialog_run()</code>.</p>
 
           </div>
         </section>
@@ -11574,7 +11574,7 @@ similar to gtk_dialog_run().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L14215">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L14187">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11612,7 +11612,7 @@ similar to gtk_dialog_run().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L14218">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L14190">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11740,7 +11740,7 @@ similar to gtk_dialog_run().</p>
                         <p>binding reference or <code>nil</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L14369-L14393">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L14341-L14365">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11832,7 +11832,7 @@ similar to gtk_dialog_run().</p>
                         <p>positive handler ID, or a value less than or equal to <code>0</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L14446-L14465">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L14417-L14436">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11884,7 +11884,7 @@ system to the <code>GtkNativeDialog</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L14481-L14484">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L14452-L14455">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11905,7 +11905,7 @@ system to the <code>GtkNativeDialog</code>.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns whether the dialog is modal. See gtk_native_dialog_set_modal().</p>
+                        <p>Returns whether the dialog is modal. See <code>gtk_native_dialog_set_modal()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -11917,7 +11917,7 @@ system to the <code>GtkNativeDialog</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L14487-L14490">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L14458-L14461">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11950,7 +11950,7 @@ system to the <code>GtkNativeDialog</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L14493-L14496">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L14464-L14467">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11972,7 +11972,7 @@ system to the <code>GtkNativeDialog</code>.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Fetches the transient parent for this window. See
-gtk_native_dialog_set_transient_for().</p>
+<code>gtk_native_dialog_set_transient_for()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -11984,7 +11984,7 @@ gtk_native_dialog_set_transient_for().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L14500-L14503">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L14471-L14474">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12017,7 +12017,7 @@ gtk_native_dialog_set_transient_for().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L14506-L14509">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L14477-L14480">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12039,8 +12039,8 @@ gtk_native_dialog_set_transient_for().</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Hides the dialog if it is visilbe, aborting any interaction. Once this
-is called the  <code>GtkNativeDialog</code>::response signal will not be emitted
-until after the next call to gtk_native_dialog_show().</p>
+is called the  <code>GtkNativeDialog::response</code> signal will not be emitted
+until after the next call to <code>gtk_native_dialog_show()</code>.</p>
 
 <p>If the dialog is not visible this does nothing.</p>
 
@@ -12054,7 +12054,7 @@ until after the next call to gtk_native_dialog_show().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L14516-L14519">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L14487-L14490">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12076,13 +12076,13 @@ until after the next call to gtk_native_dialog_show().</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Blocks in a recursive main loop until <code>self</code> emits the
-<code>GtkNativeDialog</code>::response signal. It then returns the response ID
-from the ::response signal emission.</p>
+<code>GtkNativeDialog::response</code> signal. It then returns the response ID
+from the <code>response</code> signal emission.</p>
 
-<p>Before entering the recursive main loop, gtk_native_dialog_run()
-calls gtk_native_dialog_show() on the dialog for you.</p>
+<p>Before entering the recursive main loop, <code>gtk_native_dialog_run()</code>
+calls <code>gtk_native_dialog_show()</code> on the dialog for you.</p>
 
-<p>After gtk_native_dialog_run() returns, then dialog will be hidden.</p>
+<p>After <code>gtk_native_dialog_run()</code> returns, then dialog will be hidden.</p>
 
 <p>Typical usage of this function might be:
 (C Language Example):</p>
@@ -12103,7 +12103,7 @@ calls gtk_native_dialog_show() on the dialog for you.</p>
 modal dialog (it prevents the user from interacting with other
 windows in the same window group while the dialog is run), callbacks
 such as timeouts, IO channel watches, DND drops, etc, will
-be triggered during a gtk_nautilus_dialog_run() call.</p>
+be triggered during a <code>gtk_nautilus_dialog_run()</code> call.</p>
 
                       </div>
                       <div class="declaration">
@@ -12115,7 +12115,7 @@ be triggered during a gtk_nautilus_dialog_run() call.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L14552-L14555">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L14522-L14525">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12139,8 +12139,8 @@ be triggered during a gtk_nautilus_dialog_run() call.</p>
                         <p>Sets a dialog modal or non-modal. Modal dialogs prevent interaction
 with other windows in the same application. To keep modal dialogs
 on top of main application windows, use
-gtk_native_dialog_set_transient_for() to make the dialog transient for the
-parent; most [window managers][gtk-X11-arch]
+<code>gtk_native_dialog_set_transient_for()</code> to make the dialog transient for the
+parent; most <a href="#gtk-X11-arch">window managers</a>
 will then disallow lowering the dialog below the parent.</p>
 
                       </div>
@@ -12153,7 +12153,7 @@ will then disallow lowering the dialog below the parent.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L14563-L14566">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L14533-L14536">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12186,7 +12186,7 @@ will then disallow lowering the dialog below the parent.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L14569-L14572">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L14539-L14542">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12209,7 +12209,7 @@ will then disallow lowering the dialog below the parent.</p>
                       <div class="abstract">
                         <p>Dialog windows should be set transient for the main application
 window they were spawned from. This allows
-[window managers][gtk-X11-arch] to e.g. keep the
+<a href="#gtk-X11-arch">window managers</a> to e.g. keep the
 dialog on top of the main window, or center the dialog over the
 main window.</p>
 
@@ -12225,7 +12225,7 @@ main window.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L14581-L14584">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L14551-L14554">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12248,7 +12248,7 @@ main window.</p>
                       <div class="abstract">
                         <p>Shows the dialog on the display, allowing the user to interact with
 it. When the user accepts the state of the dialog the dialog will
-be automatically hidden and the <code>GtkNativeDialog</code>::response signal
+be automatically hidden and the <code>GtkNativeDialog::response</code> signal
 will be emitted.</p>
 
 <p>Multiple calls while the dialog is visible will be ignored.</p>
@@ -12263,7 +12263,7 @@ will be emitted.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L14592-L14595">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L14562-L14565">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12296,7 +12296,7 @@ will be emitted.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L14597-L14612">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L14567-L14582">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12329,7 +12329,7 @@ will be emitted.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L14615-L14625">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L14585-L14595">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12351,7 +12351,7 @@ will be emitted.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Fetches the transient parent for this window. See
-gtk_native_dialog_set_transient_for().</p>
+<code>gtk_native_dialog_set_transient_for()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12363,7 +12363,7 @@ gtk_native_dialog_set_transient_for().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L14629-L14646">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L14599-L14616">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12396,7 +12396,7 @@ gtk_native_dialog_set_transient_for().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L14649-L14655">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L14619-L14625">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12409,7 +12409,7 @@ gtk_native_dialog_set_transient_for().</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

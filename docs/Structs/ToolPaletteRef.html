@@ -11528,12 +11528,12 @@ Use <code>ToolPaletteRef</code> only as an <code>unowned</code> reference to an 
 <p>A <code>GtkToolPalette</code> allows you to add <code>GtkToolItems</code> to a palette-like
 container with different categories and drag and drop support.</p>
 
-<p>A <code>GtkToolPalette</code> is created with a call to gtk_tool_palette_new().</p>
+<p>A <code>GtkToolPalette</code> is created with a call to <code>gtk_tool_palette_new()</code>.</p>
 
 <p><code>GtkToolItems</code> cannot be added directly to a <code>GtkToolPalette</code> -
 instead they are added to a <code>GtkToolItemGroup</code> which can than be added
 to a <code>GtkToolPalette</code>. To add a <code>GtkToolItemGroup</code> to a <code>GtkToolPalette</code>,
-use gtk_container_add().</p>
+use <code>gtk_container_add()</code>.</p>
 
 <p>(C Language Example):</p>
 <pre class="highlight plaintext"><code>GtkWidget *palette, *group;
@@ -11549,9 +11549,9 @@ gtk_tool_item_group_insert (GTK_TOOL_ITEM_GROUP (group), item, -1);
 </code></pre>
 
 <p>The easiest way to use drag and drop with <code>GtkToolPalette</code> is to call
-gtk_tool_palette_add_drag_dest() with the desired drag source <code>palette</code>
-and the desired drag target <code>widget</code>. Then gtk_tool_palette_get_drag_item()
-can be used to get the dragged item in the <code>GtkWidget</code>::drag-data-received
+<code>gtk_tool_palette_add_drag_dest()</code> with the desired drag source <code>palette</code>
+and the desired drag target <code>widget</code>. Then <code>gtk_tool_palette_get_drag_item()</code>
+can be used to get the dragged item in the <code>GtkWidget::drag</code>-data-received
 signal handler of the drag target.</p>
 
 <p>(C Language Example):</p>
@@ -11590,8 +11590,7 @@ gtk_tool_palette_add_drag_dest (GTK_TOOL_PALETTE (palette), target,
                                 GTK_TOOL_PALETTE_DRAG_ITEMS,
                                 GDK_ACTION_COPY);
 </code></pre>
-
-<p>&ldquo; CSS nodes</p>
+<h1 id='css-nodes' class='heading'>CSS nodes</h1>
 
 <p>GtkToolPalette has a single CSS node named toolpalette.</p>
 
@@ -11628,7 +11627,7 @@ For type-safe access, use the generated, typed pointer <code>tool_palette_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L16805">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L16784">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11669,7 +11668,7 @@ For type-safe access, use the generated, typed pointer <code>tool_palette_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L16810-L16811">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L16789-L16790">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11699,7 +11698,7 @@ For type-safe access, use the generated, typed pointer <code>tool_palette_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L16814-L16816">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L16793-L16795">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11730,7 +11729,7 @@ For type-safe access, use the generated, typed pointer <code>tool_palette_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L16820-L16822">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L16799-L16801">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11761,7 +11760,7 @@ For type-safe access, use the generated, typed pointer <code>tool_palette_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L16826-L16828">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L16805-L16807">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11792,7 +11791,7 @@ For type-safe access, use the generated, typed pointer <code>tool_palette_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L16832-L16834">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L16811-L16813">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11823,7 +11822,7 @@ For type-safe access, use the generated, typed pointer <code>tool_palette_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L16838-L16840">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L16817-L16819">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11854,7 +11853,7 @@ For type-safe access, use the generated, typed pointer <code>tool_palette_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L16844-L16846">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L16823-L16825">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11884,7 +11883,7 @@ For type-safe access, use the generated, typed pointer <code>tool_palette_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L16849-L16852">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L16828-L16831">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11897,7 +11896,7 @@ For type-safe access, use the generated, typed pointer <code>tool_palette_ptr</c
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

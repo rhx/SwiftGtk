@@ -11536,33 +11536,33 @@ be packed. The bottom area is known as the
 packing buttons into the dialog which may perform functions such as
 cancel, ok, or apply.</p>
 
-<p><code>GtkDialog</code> boxes are created with a call to gtk_dialog_new() or
-gtk_dialog_new_with_buttons(). gtk_dialog_new_with_buttons() is
+<p><code>GtkDialog</code> boxes are created with a call to <code>gtk_dialog_new()</code> or
+<code>gtk_dialog_new_with_buttons()</code>. <code>gtk_dialog_new_with_buttons()</code> is
 recommended; it allows you to set the dialog title, some convenient
 flags, and add simple buttons.</p>
 
 <p>If “dialog” is a newly created dialog, the two primary areas of the
-window can be accessed through gtk_dialog_get_content_area() and
-gtk_dialog_get_action_area(), as can be seen from the example below.</p>
+window can be accessed through <code>gtk_dialog_get_content_area()</code> and
+<code>gtk_dialog_get_action_area()</code>, as can be seen from the example below.</p>
 
 <p>A “modal” dialog (that is, one which freezes the rest of the application
-from user input), can be created by calling gtk_window_set_modal() on the
-dialog. Use the GTK_WINDOW() macro to cast the widget returned from
-gtk_dialog_new() into a <code>GtkWindow</code>. When using gtk_dialog_new_with_buttons()
+from user input), can be created by calling <code>gtk_window_set_modal()</code> on the
+dialog. Use the <code>GTK_WINDOW()</code> macro to cast the widget returned from
+<code>gtk_dialog_new()</code> into a <code>GtkWindow</code>. When using <code>gtk_dialog_new_with_buttons()</code>
 you can also pass the <code>GTK_DIALOG_MODAL</code> flag to make a dialog modal.</p>
 
-<p>If you add buttons to <code>GtkDialog</code> using gtk_dialog_new_with_buttons(),
-gtk_dialog_add_button(), gtk_dialog_add_buttons(), or
-gtk_dialog_add_action_widget(), clicking the button will emit a signal
-called <code>GtkDialog</code>::response with a response ID that you specified. GTK+
+<p>If you add buttons to <code>GtkDialog</code> using <code>gtk_dialog_new_with_buttons()</code>,
+<code>gtk_dialog_add_button()</code>, <code>gtk_dialog_add_buttons()</code>, or
+<code>gtk_dialog_add_action_widget()</code>, clicking the button will emit a signal
+called <code>GtkDialog::response</code> with a response ID that you specified. GTK+
 will never assign a meaning to positive response IDs; these are entirely
 user-defined. But for convenience, you can use the response IDs in the
 <code>GtkResponseType</code> enumeration (these all have values less than zero). If
-a dialog receives a delete event, the <code>GtkDialog</code>::response signal will
+a dialog receives a delete event, the <code>GtkDialog::response</code> signal will
 be emitted with a response ID of <code>GTK_RESPONSE_DELETE_EVENT</code>.</p>
 
 <p>If you want to block waiting for a dialog to return before returning
-control flow to your code, you can call gtk_dialog_run(). This function
+control flow to your code, you can call <code>gtk_dialog_run()</code>. This function
 enters a recursive main loop and waits for the user to respond to the
 dialog, returning the response ID corresponding to the button the user
 clicked.</p>
@@ -11605,8 +11605,7 @@ quick_message (GtkWindow *parent, gchar *message)
  gtk_widget_show_all (dialog);
 }
 </code></pre>
-
-<p>&ldquo; GtkDialog as GtkBuildable</p>
+<h1 id='gtkdialog-as-gtkbuildable' class='heading'>GtkDialog as GtkBuildable</h1>
 
 <p>The GtkDialog implementation of the <code>GtkBuildable</code> interface exposes the
 <code>vbox</code> and <code>action_area</code> as internal children with the names “vbox” and
@@ -11675,7 +11674,7 @@ For type-safe access, use the generated, typed pointer <code>dialog_ptr</code> p
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L28629">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L28573">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11716,7 +11715,7 @@ For type-safe access, use the generated, typed pointer <code>dialog_ptr</code> p
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L28634-L28635">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L28578-L28579">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11746,7 +11745,7 @@ For type-safe access, use the generated, typed pointer <code>dialog_ptr</code> p
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L28638-L28640">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L28582-L28584">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11777,7 +11776,7 @@ For type-safe access, use the generated, typed pointer <code>dialog_ptr</code> p
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L28644-L28646">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L28588-L28590">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11808,7 +11807,7 @@ For type-safe access, use the generated, typed pointer <code>dialog_ptr</code> p
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L28650-L28652">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L28594-L28596">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11839,7 +11838,7 @@ For type-safe access, use the generated, typed pointer <code>dialog_ptr</code> p
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L28656-L28658">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L28600-L28602">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11870,7 +11869,7 @@ For type-safe access, use the generated, typed pointer <code>dialog_ptr</code> p
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L28662-L28664">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L28606-L28608">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11901,7 +11900,7 @@ For type-safe access, use the generated, typed pointer <code>dialog_ptr</code> p
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L28668-L28670">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L28612-L28614">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11935,7 +11934,7 @@ directly, but into the <code>vbox</code> and <code>action_area</code>, as descri
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L28676-L28679">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L28620-L28623">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11948,7 +11947,7 @@ directly, but into the <code>vbox</code> and <code>action_area</code>, as descri
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

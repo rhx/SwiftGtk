@@ -11538,25 +11538,28 @@ See the <code>GtkAdjustment</code> section for more details about an adjustment&
 properties. Note that GtkSpinButton will by default make its entry
 large enough to accomodate the lower and upper bounds of the adjustment,
 which can lead to surprising results. Best practice is to set both
-the <code>GtkEntry</code>:width-chars and <code>GtkEntry</code>:max-width-chars poperties
+the <code>GtkEntry:width</code>-chars and <code>GtkEntry:max</code>-width-chars poperties
 to the desired number of characters to display in the entry.</p>
+<h1 id='css-nodes' class='heading'>CSS nodes</h1>
 
-<p>&ldquo; CSS nodes</p>
-<pre class="highlight swift"><code><span class="n">spinbutton</span><span class="o">.</span><span class="n">horizontal</span>
-<span class="err">├──</span> <span class="n">undershoot</span><span class="o">.</span><span class="n">left</span>
-<span class="err">├──</span> <span class="n">undershoot</span><span class="o">.</span><span class="n">right</span>
-<span class="err">├──</span> <span class="n">entry</span>
-<span class="err">│</span>   <span class="err">╰──</span> <span class="o">...</span>
-<span class="err">├──</span> <span class="n">button</span><span class="o">.</span><span class="n">down</span>
-<span class="err">╰──</span> <span class="n">button</span><span class="o">.</span><span class="n">up</span>
+<p>(plain Language Example):</p>
+<pre class="highlight plaintext"><code>spinbutton.horizontal
+├── undershoot.left
+├── undershoot.right
+├── entry
+│   ╰── ...
+├── button.down
+╰── button.up
 </code></pre>
-<pre class="highlight swift"><code><span class="n">spinbutton</span><span class="o">.</span><span class="n">vertical</span>
-<span class="err">├──</span> <span class="n">undershoot</span><span class="o">.</span><span class="n">left</span>
-<span class="err">├──</span> <span class="n">undershoot</span><span class="o">.</span><span class="n">right</span>
-<span class="err">├──</span> <span class="n">button</span><span class="o">.</span><span class="n">up</span>
-<span class="err">├──</span> <span class="n">entry</span>
-<span class="err">│</span>   <span class="err">╰──</span> <span class="o">...</span>
-<span class="err">╰──</span> <span class="n">button</span><span class="o">.</span><span class="n">down</span>
+
+<p>(plain Language Example):</p>
+<pre class="highlight plaintext"><code>spinbutton.vertical
+├── undershoot.left
+├── undershoot.right
+├── button.up
+├── entry
+│   ╰── ...
+╰── button.down
 </code></pre>
 
 <p>GtkSpinButtons main CSS node has the name spinbutton. It creates subnodes
@@ -11564,8 +11567,7 @@ for the entry and the two buttons, with these names. The button nodes have
 the style classes .up and .down. The GtkEntry subnodes (if present) are put
 below the entry node. The orientation of the spin button is reflected in
 the .vertical or .horizontal style class on the main node.</p>
-
-<p>&rdquo;` Using a GtkSpinButton to get an integer</p>
+<h2 id='using-a-gtkspinbutton-to-get-an-integer' class='heading'>Using a GtkSpinButton to get an integer</h2>
 
 <p>(C Language Example):</p>
 <pre class="highlight plaintext"><code>// Provides a function to retrieve an integer value from a GtkSpinButton
@@ -11597,8 +11599,7 @@ create_integer_spin_button (void)
   gtk_widget_show_all (window);
 }
 </code></pre>
-
-<p>&ldquo;` Using a GtkSpinButton to get a floating point value</p>
+<h2 id='using-a-gtkspinbutton-to-get-a-floating-point-value' class='heading'>Using a GtkSpinButton to get a floating point value</h2>
 
 <p>(C Language Example):</p>
 <pre class="highlight plaintext"><code>// Provides a function to retrieve a floating point value from a
@@ -11662,7 +11663,7 @@ create_floating_spin_button (void)
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L21321">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L21294">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11700,7 +11701,7 @@ create_floating_spin_button (void)
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L21324">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L21297">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11828,7 +11829,7 @@ create_floating_spin_button (void)
                         <p>binding reference or <code>nil</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L22093-L22117">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L22064-L22088">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11920,7 +11921,7 @@ create_floating_spin_button (void)
                         <p>positive handler ID, or a value less than or equal to <code>0</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L23252-L23271">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L23222-L23241">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11965,7 +11966,7 @@ climb rate, and number of decimal places are updated accordingly.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L23280-L23283">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L23250-L23253">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11998,7 +11999,7 @@ climb rate, and number of decimal places are updated accordingly.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L23286-L23289">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L23256-L23259">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12019,7 +12020,7 @@ climb rate, and number of decimal places are updated accordingly.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Fetches the precision of <code>spin_button</code>. See gtk_spin_button_set_digits().</p>
+                        <p>Fetches the precision of <code>spin_button</code>. See <code>gtk_spin_button_set_digits()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12031,7 +12032,7 @@ climb rate, and number of decimal places are updated accordingly.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L23292-L23295">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L23262-L23265">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12053,7 +12054,7 @@ climb rate, and number of decimal places are updated accordingly.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Gets the current step and page the increments used by <code>spin_button</code>. See
-gtk_spin_button_set_increments().</p>
+<code>gtk_spin_button_set_increments()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12065,7 +12066,7 @@ gtk_spin_button_set_increments().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L23299-L23302">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L23269-L23272">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12087,7 +12088,7 @@ gtk_spin_button_set_increments().</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Returns whether non-numeric text can be typed into the spin button.
-See gtk_spin_button_set_numeric().</p>
+See <code>gtk_spin_button_set_numeric()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12099,7 +12100,7 @@ See gtk_spin_button_set_numeric().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L23306-L23309">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L23276-L23279">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12121,7 +12122,7 @@ See gtk_spin_button_set_numeric().</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Gets the range allowed for <code>spin_button</code>.
-See gtk_spin_button_set_range().</p>
+See <code>gtk_spin_button_set_range()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12133,7 +12134,7 @@ See gtk_spin_button_set_range().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L23313-L23316">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L23283-L23286">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12155,7 +12156,7 @@ See gtk_spin_button_set_range().</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Returns whether the values are corrected to the nearest step.
-See gtk_spin_button_set_snap_to_ticks().</p>
+See <code>gtk_spin_button_set_snap_to_ticks()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12167,7 +12168,7 @@ See gtk_spin_button_set_snap_to_ticks().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L23320-L23323">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L23290-L23293">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12189,7 +12190,7 @@ See gtk_spin_button_set_snap_to_ticks().</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Gets the update behavior of a spin button.
-See gtk_spin_button_set_update_policy().</p>
+See <code>gtk_spin_button_set_update_policy()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12201,7 +12202,7 @@ See gtk_spin_button_set_update_policy().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L23327-L23330">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L23297-L23300">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12234,7 +12235,7 @@ See gtk_spin_button_set_update_policy().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L23333-L23336">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L23303-L23306">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12267,7 +12268,7 @@ See gtk_spin_button_set_update_policy().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L23339-L23342">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L23309-L23312">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12290,7 +12291,7 @@ See gtk_spin_button_set_update_policy().</p>
                       <div class="abstract">
                         <p>Returns whether the spin button’s value wraps around to the
 opposite limit when the upper or lower limit of the range is
-exceeded. See gtk_spin_button_set_wrap().</p>
+exceeded. See <code>gtk_spin_button_set_wrap()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12302,7 +12303,7 @@ exceeded. See gtk_spin_button_set_wrap().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L23347-L23350">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L23317-L23320">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12335,7 +12336,7 @@ exceeded. See gtk_spin_button_set_wrap().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L23353-L23356">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L23323-L23326">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12369,7 +12370,7 @@ is allowed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L23360-L23363">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L23330-L23333">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12403,7 +12404,7 @@ quickly the value changes when the spin button’s arrows are activated.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L23367-L23370">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L23337-L23340">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12437,7 +12438,7 @@ into the spin button.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L23374-L23377">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L23344-L23347">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12473,7 +12474,7 @@ to fit within the range, otherwise it will remain unchanged.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L23383-L23386">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L23353-L23356">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12508,7 +12509,7 @@ providing an invalid value.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L23391-L23394">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L23361-L23364">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12543,7 +12544,7 @@ or only when a valid value is set.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L23399-L23402">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L23369-L23372">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12576,7 +12577,7 @@ or only when a valid value is set.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L23405-L23408">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L23375-L23378">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12611,7 +12612,7 @@ of the range is exceeded.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L23413-L23416">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L23383-L23386">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12645,7 +12646,7 @@ direction by a specified amount.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L23420-L23423">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L23390-L23393">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12678,7 +12679,7 @@ direction by a specified amount.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L23426-L23429">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L23396-L23399">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12711,13 +12712,13 @@ This testing infrastructure is phased out in favor of reftests.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">testSpinButtonClick</span><span class="p">(</span><span class="nv">button</span><span class="p">:</span> <span class="kt">CUnsignedInt</span><span class="p">,</span> <span class="nv">upwards</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L23437-L23440">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L23407-L23410">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12750,7 +12751,7 @@ This testing infrastructure is phased out in favor of reftests.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L23441-L23451">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L23411-L23421">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12783,7 +12784,7 @@ This testing infrastructure is phased out in favor of reftests.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L23453-L23464">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L23423-L23434">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12816,7 +12817,7 @@ This testing infrastructure is phased out in favor of reftests.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L23466-L23478">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L23436-L23448">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12838,7 +12839,7 @@ This testing infrastructure is phased out in favor of reftests.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Returns whether the values are corrected to the nearest step.
-See gtk_spin_button_set_snap_to_ticks().</p>
+See <code>gtk_spin_button_set_snap_to_ticks()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12850,7 +12851,7 @@ See gtk_spin_button_set_snap_to_ticks().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L23482-L23495">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L23452-L23465">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12872,7 +12873,7 @@ See gtk_spin_button_set_snap_to_ticks().</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Gets the update behavior of a spin button.
-See gtk_spin_button_set_update_policy().</p>
+See <code>gtk_spin_button_set_update_policy()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12884,7 +12885,7 @@ See gtk_spin_button_set_update_policy().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L23499-L23512">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L23469-L23482">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12917,7 +12918,7 @@ See gtk_spin_button_set_update_policy().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L23514-L23524">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L23484-L23494">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12950,7 +12951,7 @@ See gtk_spin_button_set_update_policy().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L23527-L23533">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L23497-L23503">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12983,7 +12984,7 @@ See gtk_spin_button_set_update_policy().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L23535-L23549">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L23505-L23519">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12996,7 +12997,7 @@ See gtk_spin_button_set_update_policy().</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

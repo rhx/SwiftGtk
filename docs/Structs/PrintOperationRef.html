@@ -11534,19 +11534,18 @@ On platforms which do not provide a native print dialog, GTK+
 uses its own, see <code>GtkPrintUnixDialog</code>.</p>
 
 <p>The typical way to use the high-level printing API is to create
-a GtkPrintOperation object with gtk_print_operation_new() when
+a GtkPrintOperation object with <code>gtk_print_operation_new()</code> when
 the user selects to print. Then you set some properties on it,
 e.g. the page size, any <code>GtkPrintSettings</code> from previous print
 operations, the number of pages, the current page, etc.</p>
 
-<p>Then you start the print operation by calling gtk_print_operation_run().
+<p>Then you start the print operation by calling <code>gtk_print_operation_run()</code>.
 It will then show a dialog, let the user select a printer and
 options. When the user finished the dialog various signals will
 be emitted on the <code>GtkPrintOperation</code>, the main one being
-<code>GtkPrintOperation</code>::draw-page, which you are supposed to catch
+<code>GtkPrintOperation::draw</code>-page, which you are supposed to catch
 and render the page on the provided <code>GtkPrintContext</code> using Cairo.</p>
-
-<p>&ldquo; The high-level printing API</p>
+<h1 id='the-high-level-printing-api' class='heading'>The high-level printing API</h1>
 
 <p>(C Language Example):</p>
 <pre class="highlight plaintext"><code>static GtkPrintSettings *settings = NULL;
@@ -11582,9 +11581,9 @@ do_print (void)
 <p>By default GtkPrintOperation uses an external application to do
 print preview. To implement a custom print preview, an application
 must connect to the preview signal. The functions
-gtk_print_operation_preview_render_page(),
-gtk_print_operation_preview_end_preview() and
-gtk_print_operation_preview_is_selected()
+<code>gtk_print_operation_preview_render_page()</code>,
+<code>gtk_print_operation_preview_end_preview()</code> and
+<code>gtk_print_operation_preview_is_selected()</code>
 are useful when implementing a print preview.</p>
 
           </div>
@@ -11620,7 +11619,7 @@ For type-safe access, use the generated, typed pointer <code>print_operation_ptr
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L8788">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L8766">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11661,7 +11660,7 @@ For type-safe access, use the generated, typed pointer <code>print_operation_ptr
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L8793-L8794">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L8771-L8772">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11691,7 +11690,7 @@ For type-safe access, use the generated, typed pointer <code>print_operation_ptr
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L8797-L8799">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L8775-L8777">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11722,7 +11721,7 @@ For type-safe access, use the generated, typed pointer <code>print_operation_ptr
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L8803-L8805">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L8781-L8783">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11753,7 +11752,7 @@ For type-safe access, use the generated, typed pointer <code>print_operation_ptr
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L8809-L8811">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L8787-L8789">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11784,7 +11783,7 @@ For type-safe access, use the generated, typed pointer <code>print_operation_ptr
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L8815-L8817">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L8793-L8795">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11815,7 +11814,7 @@ For type-safe access, use the generated, typed pointer <code>print_operation_ptr
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L8821-L8823">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L8799-L8801">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11846,7 +11845,7 @@ For type-safe access, use the generated, typed pointer <code>print_operation_ptr
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L8827-L8829">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L8805-L8807">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11876,7 +11875,7 @@ For type-safe access, use the generated, typed pointer <code>print_operation_ptr
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L8832-L8835">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L8810-L8813">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11889,7 +11888,7 @@ For type-safe access, use the generated, typed pointer <code>print_operation_ptr
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

@@ -11528,13 +11528,14 @@ Use <code>Label</code> as a strong reference or owner of a <code>GtkLabel</code>
 <p>The <code>GtkLabel</code> widget displays a small amount of text. As the name
 implies, most labels are used to label another widget such as a
 <code>GtkButton</code>, a <code>GtkMenuItem</code>, or a <code>GtkComboBox</code>.</p>
+<h1 id='css-nodes' class='heading'>CSS nodes</h1>
 
-<p>&ldquo; CSS nodes</p>
-<pre class="highlight swift"><code><span class="n">label</span>
-<span class="err">├──</span> <span class="p">[</span><span class="n">selection</span><span class="p">]</span>
-<span class="err">├──</span> <span class="p">[</span><span class="n">link</span><span class="p">]</span>
-<span class="err">┊</span>
-<span class="err">╰──</span> <span class="p">[</span><span class="n">link</span><span class="p">]</span>
+<p>(plain Language Example):</p>
+<pre class="highlight plaintext"><code>label
+├── [selection]
+├── [link]
+┊
+╰── [link]
 </code></pre>
 
 <p>GtkLabel has a single CSS node with the name label. A wide variety
@@ -11547,8 +11548,7 @@ of style classes may be applied to labels, such as .title, .subtitle,
 <p>If the label has links, there is one subnode per link. These subnodes
 carry the link or visited state depending on whether they have been
 visited.</p>
-
-<p>&rdquo; GtkLabel as GtkBuildable</p>
+<h1 id='gtklabel-as-gtkbuildable' class='heading'>GtkLabel as GtkBuildable</h1>
 
 <p>The GtkLabel implementation of the GtkBuildable interface supports a
 custom <attributes> element, which supports any number of <attribute>
@@ -11570,20 +11570,19 @@ Pango attribute applies. If start and end are not specified, the attribute is
 applied to the whole text. Note that specifying ranges does not make much
 sense with translatable attributes. Use markup embedded in the translatable
 content instead.</p>
-
-<p>&ldquo; Mnemonics</p>
+<h1 id='mnemonics' class='heading'>Mnemonics</h1>
 
 <p>Labels may contain “mnemonics”. Mnemonics are
 underlined characters in the label, used for keyboard navigation.
 Mnemonics are created by providing a string with an underscore before
 the mnemonic character, such as <code>&quot;_File&quot;</code>, to the
-functions gtk_label_new_with_mnemonic() or
-gtk_label_set_text_with_mnemonic().</p>
+functions <code>gtk_label_new_with_mnemonic()</code> or
+<code>gtk_label_set_text_with_mnemonic()</code>.</p>
 
 <p>Mnemonics automatically activate any activatable widget the label is
 inside, such as a <code>GtkButton</code>; if the label is not inside the
 mnemonic’s target widget, you have to tell the label about the target
-using gtk_label_set_mnemonic_widget(). Here’s a simple example where
+using <code>gtk_label_set_mnemonic_widget()</code>. Here’s a simple example where
 the label is inside a button:</p>
 
 <p>(C Language Example):</p>
@@ -11603,7 +11602,7 @@ already inside:</p>
 
 <p>To create a mnemonic for a widget alongside the label, such as a
 <code>GtkEntry</code>, you have to point the label at the entry with
-gtk_label_set_mnemonic_widget():</p>
+<code>gtk_label_set_mnemonic_widget()</code>:</p>
 
 <p>(C Language Example):</p>
 <pre class="highlight plaintext"><code>  // Pressing Alt+H will focus the entry
@@ -11611,12 +11610,11 @@ gtk_label_set_mnemonic_widget():</p>
   GtkWidget *label = gtk_label_new_with_mnemonic ("_Hello");
   gtk_label_set_mnemonic_widget (GTK_LABEL (label), entry);
 </code></pre>
-
-<p>&rdquo; Markup (styled text)</p>
+<h1 id='markup-styled-text' class='heading'>Markup (styled text)</h1>
 
 <p>To make it easy to format text in a label (changing colors,
 fonts, etc.), label text can be provided in a simple
-[markup format][PangoMarkupFormat].</p>
+<a href="#PangoMarkupFormat">markup format</a>.</p>
 
 <p>Here’s how to create a label with a small font:
 (C Language Example):</p>
@@ -11624,32 +11622,30 @@ fonts, etc.), label text can be provided in a simple
   gtk_label_set_markup (GTK_LABEL (label), "&lt;small&gt;Small text&lt;/small&gt;");
 </code></pre>
 
-<p>(See [complete documentation][PangoMarkupFormat] of available
+<p>(See <a href="#PangoMarkupFormat">complete documentation</a> of available
 tags in the Pango manual.)</p>
 
-<p>The markup passed to gtk_label_set_markup() must be valid; for example,
+<p>The markup passed to <code>gtk_label_set_markup()</code> must be valid; for example,
 literal &lt;, &gt; and &amp; characters must be escaped as &lt;, &gt;, and &amp;.
 If you pass text obtained from the user, file, or a network to
-gtk_label_set_markup(), you’ll want to escape it with
-g_markup_escape_text() or g_markup_printf_escaped().</p>
+<code>gtk_label_set_markup()</code>, you’ll want to escape it with
+<code>g_markup_escape_text()</code> or <code>g_markup_printf_escaped()</code>.</p>
 
 <p>Markup strings are just a convenient way to set the <code>PangoAttrList</code> on
-a label; gtk_label_set_attributes() may be a simpler way to set
+a label; <code>gtk_label_set_attributes()</code> may be a simpler way to set
 attributes in some cases. Be careful though; <code>PangoAttrList</code> tends to
 cause internationalization problems, unless you’re applying attributes
 to the entire string (i.e. unless you set the range of each attribute
 to [0, <code>G_MAXINT</code>)). The reason is that specifying the start_index and
 end_index for a <code>PangoAttribute</code> requires knowledge of the exact string
 being displayed, so translations will cause problems.</p>
+<h1 id='selectable-labels' class='heading'>Selectable labels</h1>
 
-<p>&ldquo; Selectable labels</p>
-
-<p>Labels can be made selectable with gtk_label_set_selectable().
+<p>Labels can be made selectable with <code>gtk_label_set_selectable()</code>.
 Selectable labels allow the user to copy the label contents to
 the clipboard. Only labels that contain useful-to-copy information
 — such as error messages — should be made selectable.</p>
-
-<p><code>Text layout</code> {<code>label</code>-text-layout}</p>
+<h1 id='text-layout-a-name-label-text-layout-a' class='heading'>Text layout # <a name="label-text-layout"></a></h1>
 
 <p>A label can contain any number of paragraphs, but will have
 performance problems if it contains more than a small number.
@@ -11657,14 +11653,14 @@ Paragraphs are separated by newlines or other paragraph separators
 understood by Pango.</p>
 
 <p>Labels can automatically wrap text if you call
-gtk_label_set_line_wrap().</p>
+<code>gtk_label_set_line_wrap()</code>.</p>
 
-<p>gtk_label_set_justify() sets how the lines in a label align
+<p><code>gtk_label_set_justify()</code> sets how the lines in a label align
 with one another. If you want to set how the label as a whole
-aligns in its available space, see the <code>GtkWidget</code>:halign and
-<code>GtkWidget</code>:valign properties.</p>
+aligns in its available space, see the <code>GtkWidget:halign</code> and
+<code>GtkWidget:valign</code> properties.</p>
 
-<p>The <code>GtkLabel</code>:width-chars and <code>GtkLabel</code>:max-width-chars properties
+<p>The <code>GtkLabel:width</code>-chars and <code>GtkLabel:max</code>-width-chars properties
 can be used to control the size allocation of ellipsized or wrapped
 labels. For ellipsizing labels, if either is specified (and less
 than the actual text size), it is used as the minimum width, and the actual
@@ -11673,11 +11669,10 @@ width-chars is used as the minimum width, if specified, and max-width-chars
 is used as the natural width. Even if max-width-chars specified, wrapping
 labels will be rewrapped to use all of the available width.</p>
 
-<p>Note that the interpretation of <code>GtkLabel</code>:width-chars and
-<code>GtkLabel</code>:max-width-chars has changed a bit with the introduction of
-[width-for-height geometry management.][geometry-management]</p>
-
-<p>&rdquo; Links</p>
+<p>Note that the interpretation of <code>GtkLabel:width</code>-chars and
+<code>GtkLabel:max</code>-width-chars has changed a bit with the introduction of
+<a href="#geometry-management">width-for-height geometry management.</a></p>
+<h1 id='links' class='heading'>Links</h1>
 
 <p>Since 2.18, GTK+ supports markup for clickable hyperlinks in addition
 to regular Pango markup. The markup for links is borrowed from HTML,
@@ -11697,7 +11692,7 @@ gtk_label_set_markup (GTK_LABEL (label), text);
 </code></pre>
 
 <p>It is possible to implement custom handling for links and their tooltips with
-the <code>GtkLabel</code>::activate-link signal and the gtk_label_get_current_uri() function.</p>
+the <code>GtkLabel::activate</code>-link signal and the <code>gtk_label_get_current_uri()</code> function.</p>
 
           </div>
         </section>
@@ -11732,7 +11727,7 @@ Ownership is transferred to the <code>Label</code> instance.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L13295-L13297">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L13252-L13254">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11758,12 +11753,12 @@ Will retain <code>GtkLabel</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">other</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/LabelProtocol.html">LabelProtocol</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">other</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/LabelProtocol.html">LabelProtocol</a></span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L13301-L13304">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L13258-L13261">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11789,12 +11784,12 @@ Will retain <code>GtkLabel</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">cPointer</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">cPointer</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L13308-L13310">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L13265-L13267">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11820,12 +11815,12 @@ Will retain <code>GtkLabel</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeRawPointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L13314-L13316">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L13271-L13273">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11851,12 +11846,12 @@ Will retain <code>GtkLabel</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L13320-L13322">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L13277-L13279">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11882,12 +11877,12 @@ Will retain <code>GtkLabel</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">opaquePointer</span><span class="p">:</span> <span class="kt">OpaquePointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">opaquePointer</span><span class="p">:</span> <span class="kt">OpaquePointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L13326-L13328">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L13283-L13285">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11913,12 +11908,12 @@ pass <code>nil</code> to get an empty label widget.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">str</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">str</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L13332-L13335">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L13289-L13292">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11943,9 +11938,9 @@ underlined. If you need a literal underscore character in a label, use
 &lsquo;__&rsquo; (two underscores). The first underlined character represents a
 keyboard accelerator called a mnemonic. The mnemonic key can be used
 to activate another widget, chosen automatically, or explicitly using
-gtk_label_set_mnemonic_widget().</p>
+<code>gtk_label_set_mnemonic_widget()</code>.</p>
 
-<p>If gtk_label_set_mnemonic_widget() is not called, then the first
+<p>If <code>gtk_label_set_mnemonic_widget()</code> is not called, then the first
 activatable ancestor of the <code>GtkLabel</code> will be chosen as the mnemonic
 widget. For instance, if the label is inside a button or menu item,
 the button or menu item will automatically become the mnemonic widget
@@ -11956,12 +11951,12 @@ and be activated by the mnemonic.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="n">mnemonic</span> <span class="nv">str</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="n">mnemonic</span> <span class="nv">str</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L13351-L13354">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L13308-L13311">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11986,9 +11981,9 @@ underlined. If you need a literal underscore character in a label, use
 &lsquo;__&rsquo; (two underscores). The first underlined character represents a
 keyboard accelerator called a mnemonic. The mnemonic key can be used
 to activate another widget, chosen automatically, or explicitly using
-gtk_label_set_mnemonic_widget().</p>
+<code>gtk_label_set_mnemonic_widget()</code>.</p>
 
-<p>If gtk_label_set_mnemonic_widget() is not called, then the first
+<p>If <code>gtk_label_set_mnemonic_widget()</code> is not called, then the first
 activatable ancestor of the <code>GtkLabel</code> will be chosen as the mnemonic
 widget. For instance, if the label is inside a button or menu item,
 the button or menu item will automatically become the mnemonic widget
@@ -12004,7 +11999,7 @@ and be activated by the mnemonic.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L13370-L13373">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L13327-L13330">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12050,7 +12045,7 @@ and be activated by the mnemonic.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">text</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">text</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -12087,7 +12082,7 @@ and be activated by the mnemonic.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

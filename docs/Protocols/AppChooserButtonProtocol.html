@@ -11531,23 +11531,23 @@ an application. It implements the <code>GtkAppChooser</code> interface.</p>
 
 <p>Initially, a <code>GtkAppChooserButton</code> selects the first application
 in its list, which will either be the most-recently used application
-or, if <code>GtkAppChooserButton</code>:show-default-item is <code>true</code>, the
+or, if <code>GtkAppChooserButton:show</code>-default-item is <code>true</code>, the
 default application.</p>
 
 <p>The list of applications shown in a <code>GtkAppChooserButton</code> includes
 the recommended applications for the given content type. When
-<code>GtkAppChooserButton</code>:show-default-item is set, the default application
+<code>GtkAppChooserButton:show</code>-default-item is set, the default application
 is also included. To let the user chooser other applications,
-you can set the <code>GtkAppChooserButton</code>:show-dialog-item property,
+you can set the <code>GtkAppChooserButton:show</code>-dialog-item property,
 which allows to open a full <code>GtkAppChooserDialog</code>.</p>
 
 <p>It is possible to add custom items to the list, using
-gtk_app_chooser_button_append_custom_item(). These items cause
-the <code>GtkAppChooserButton</code>::custom-item-activated signal to be
+<code>gtk_app_chooser_button_append_custom_item()</code>. These items cause
+the <code>GtkAppChooserButton::custom</code>-item-activated signal to be
 emitted when they are selected.</p>
 
 <p>To track changes in the selected application, use the
-<code>GtkComboBox</code>::changed signal.</p>
+<code>GtkComboBox::changed</code> signal.</p>
 
           </div>
         </section>
@@ -11581,7 +11581,7 @@ emitted when they are selected.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L10669">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L10651">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11619,7 +11619,7 @@ emitted when they are selected.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L10672">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L10654">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11747,7 +11747,7 @@ emitted when they are selected.</p>
                         <p>binding reference or <code>nil</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L11103-L11127">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L11085-L11109">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11839,7 +11839,7 @@ emitted when they are selected.</p>
                         <p>positive handler ID, or a value less than or equal to <code>0</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L12067-L12086">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L12048-L12067">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11874,9 +11874,9 @@ emitted when they are selected.</p>
                         <p>Appends a custom item to the list of applications that is shown
 in the popup; the item name must be unique per-widget.
 Clients can use the provided name as a detail for the
-<code>GtkAppChooserButton</code>::custom-item-activated signal, to add a
+<code>GtkAppChooserButton::custom</code>-item-activated signal, to add a
 callback for the activation of a particular custom item in the list.
-See also gtk_app_chooser_button_append_separator().</p>
+See also <code>gtk_app_chooser_button_append_separator()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -11888,7 +11888,7 @@ See also gtk_app_chooser_button_append_separator().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L12099-L12102">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L12080-L12083">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11922,7 +11922,7 @@ in the popup.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L12106-L12109">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L12087-L12090">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11955,7 +11955,7 @@ in the popup.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L12112-L12115">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L12093-L12096">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11976,7 +11976,7 @@ in the popup.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns the current value of the <code>GtkAppChooserButton</code>:show-default-item
+                        <p>Returns the current value of the <code>GtkAppChooserButton:show</code>-default-item
 property.</p>
 
                       </div>
@@ -11989,7 +11989,7 @@ property.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L12119-L12122">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L12100-L12103">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12010,7 +12010,7 @@ property.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns the current value of the <code>GtkAppChooserButton</code>:show-dialog-item
+                        <p>Returns the current value of the <code>GtkAppChooserButton:show</code>-dialog-item
 property.</p>
 
                       </div>
@@ -12023,7 +12023,7 @@ property.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L12126-L12129">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L12107-L12110">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12045,9 +12045,9 @@ property.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Selects a custom item previously added with
-gtk_app_chooser_button_append_custom_item().</p>
+<code>gtk_app_chooser_button_append_custom_item()</code>.</p>
 
-<p>Use gtk_app_chooser_refresh() to bring the selection
+<p>Use <code>gtk_app_chooser_refresh()</code> to bring the selection
 to its initial state.</p>
 
                       </div>
@@ -12060,7 +12060,7 @@ to its initial state.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L12136-L12139">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L12117-L12120">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12094,7 +12094,7 @@ If the heading is not set, the dialog displays a default text.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L12143-L12146">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L12124-L12127">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12128,7 +12128,7 @@ default application for the given content type at top.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L12150-L12153">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L12131-L12134">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12162,7 +12162,7 @@ entry to trigger a <code>GtkAppChooserDialog</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L12157-L12160">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L12138-L12141">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12196,7 +12196,7 @@ opened from the button. The string may contain Pango markup.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L12163-L12174">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L12144-L12155">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12217,7 +12217,7 @@ opened from the button. The string may contain Pango markup.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns the current value of the <code>GtkAppChooserButton</code>:show-default-item
+                        <p>Returns the current value of the <code>GtkAppChooserButton:show</code>-default-item
 property.</p>
 
                       </div>
@@ -12230,7 +12230,7 @@ property.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L12178-L12190">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L12159-L12171">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12251,7 +12251,7 @@ property.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns the current value of the <code>GtkAppChooserButton</code>:show-dialog-item
+                        <p>Returns the current value of the <code>GtkAppChooserButton:show</code>-dialog-item
 property.</p>
 
                       </div>
@@ -12264,7 +12264,7 @@ property.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L12194-L12206">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L12175-L12187">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12277,7 +12277,7 @@ property.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

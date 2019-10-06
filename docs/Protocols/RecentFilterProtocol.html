@@ -11528,10 +11528,10 @@ Alternatively, use <code><a href="../Structs/RecentFilterRef.html">RecentFilterR
 
 <p>A <code>GtkRecentFilter</code> can be used to restrict the files being shown
 in a <code>GtkRecentChooser</code>.  Files can be filtered based on their name
-(with gtk_recent_filter_add_pattern()), on their mime type (with
-gtk_file_filter_add_mime_type()), on the application that has
-registered them (with gtk_recent_filter_add_application()), or by
-a custom filter function (with gtk_recent_filter_add_custom()).</p>
+(with <code>gtk_recent_filter_add_pattern()</code>), on their mime type (with
+<code>gtk_file_filter_add_mime_type()</code>), on the application that has
+registered them (with <code>gtk_recent_filter_add_application()</code>), or by
+a custom filter function (with <code>gtk_recent_filter_add_custom()</code>).</p>
 
 <p>Filtering by mime type handles aliasing and subclassing of mime
 types; e.g. a filter for text/plain also matches a file with mime
@@ -11540,19 +11540,18 @@ Note that <code>GtkRecentFilter</code> allows wildcards for the subtype of a
 mime type, so you can e.g. filter for image/*.</p>
 
 <p>Normally, filters are used by adding them to a <code>GtkRecentChooser</code>,
-see gtk_recent_chooser_add_filter(), but it is also possible to
-manually use a filter on a file with gtk_recent_filter_filter().</p>
+see <code>gtk_recent_chooser_add_filter()</code>, but it is also possible to
+manually use a filter on a file with <code>gtk_recent_filter_filter()</code>.</p>
 
 <p>Recently used files are supported since GTK+ 2.10.</p>
-
-<p>&ldquo;` GtkRecentFilter as GtkBuildable</p>
+<h2 id='gtkrecentfilter-as-gtkbuildable' class='heading'>GtkRecentFilter as GtkBuildable</h2>
 
 <p>The GtkRecentFilter implementation of the GtkBuildable interface
 supports adding rules using the <mime-types>, <patterns> and
 <applications> elements and listing the rules within. Specifying
 a <mime-type>, <pattern> or <application> has the same effect as
-calling gtk_recent_filter_add_mime_type(),
-gtk_recent_filter_add_pattern() or gtk_recent_filter_add_application().</p>
+calling <code>gtk_recent_filter_add_mime_type()</code>,
+<code>gtk_recent_filter_add_pattern()</code> or <code>gtk_recent_filter_add_application()</code>.</p>
 
 <p>An example of a UI definition fragment specifying GtkRecentFilter rules:</p>
 <pre class="highlight swift"><code><span class="o">&lt;</span><span class="n">object</span> <span class="kd">class</span><span class="o">=</span><span class="s">"GtkRecentFilter"</span><span class="o">&gt;</span>
@@ -11604,7 +11603,7 @@ gtk_recent_filter_add_pattern() or gtk_recent_filter_add_application().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L12472">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L12451">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11642,7 +11641,7 @@ gtk_recent_filter_add_pattern() or gtk_recent_filter_add_application().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L12475">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L12454">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11770,7 +11769,7 @@ gtk_recent_filter_add_pattern() or gtk_recent_filter_add_application().</p>
                         <p>binding reference or <code>nil</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L12759-L12783">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L12738-L12762">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11862,7 +11861,7 @@ gtk_recent_filter_add_pattern() or gtk_recent_filter_add_application().</p>
                         <p>positive handler ID, or a value less than or equal to <code>0</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L12902-L12921">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L12880-L12899">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11907,7 +11906,7 @@ of days elapsed since they were last modified.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L12930-L12933">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L12908-L12911">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11941,7 +11940,7 @@ that has registered them.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L12937-L12940">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L12915-L12918">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11979,7 +11978,7 @@ it isn’t needed by the filter.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L12947-L12950">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L12925-L12928">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12013,7 +12012,7 @@ to which they belong</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L12954-L12957">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L12932-L12935">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12046,7 +12045,7 @@ to which they belong</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L12960-L12963">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L12938-L12941">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12080,7 +12079,7 @@ display name.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L12967-L12970">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L12945-L12948">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12114,7 +12113,7 @@ by GdkPixbuf.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L12974-L12977">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L12952-L12955">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12137,8 +12136,8 @@ by GdkPixbuf.</p>
                       <div class="abstract">
                         <p>Tests whether a file should be displayed according to <code>filter</code>.
 The <code>GtkRecentFilterInfo</code> <code>filter_info</code> should include
-the fields returned from gtk_recent_filter_get_needed(), and
-must set the <code>GtkRecentFilterInfo</code>.contains field of <code>filter_info</code>
+the fields returned from <code>gtk_recent_filter_get_needed()</code>, and
+must set the <code>GtkRecentFilterInfo.contains</code> field of <code>filter_info</code>
 to indicate which fields have been set.</p>
 
 <p>This function will not typically be used by applications; it
@@ -12155,7 +12154,7 @@ is intended principally for use in the implementation of
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L12988-L12991">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L12966-L12969">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12177,7 +12176,7 @@ is intended principally for use in the implementation of
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Gets the human-readable name for the filter.
-See gtk_recent_filter_set_name().</p>
+See <code>gtk_recent_filter_set_name()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12189,7 +12188,7 @@ See gtk_recent_filter_set_name().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L12995-L12998">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L12973-L12976">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12211,7 +12210,7 @@ See gtk_recent_filter_set_name().</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Gets the fields that need to be filled in for the <code>GtkRecentFilterInfo</code>
-passed to gtk_recent_filter_filter()</p>
+passed to <code>gtk_recent_filter_filter()</code></p>
 
 <p>This function will not typically be used by applications; it
 is intended principally for use in the implementation of
@@ -12227,7 +12226,7 @@ is intended principally for use in the implementation of
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L13006-L13009">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L12984-L12987">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12262,7 +12261,7 @@ user interface if there is a selectable list of filters.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L13014-L13017">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L12992-L12995">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12284,7 +12283,7 @@ user interface if there is a selectable list of filters.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Gets the human-readable name for the filter.
-See gtk_recent_filter_set_name().</p>
+See <code>gtk_recent_filter_set_name()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12296,7 +12295,7 @@ See gtk_recent_filter_set_name().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L13020-L13033">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L12998-L13011">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12318,7 +12317,7 @@ See gtk_recent_filter_set_name().</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Gets the fields that need to be filled in for the <code>GtkRecentFilterInfo</code>
-passed to gtk_recent_filter_filter()</p>
+passed to <code>gtk_recent_filter_filter()</code></p>
 
 <p>This function will not typically be used by applications; it
 is intended principally for use in the implementation of
@@ -12334,7 +12333,7 @@ is intended principally for use in the implementation of
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L13041-L13052">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L13019-L13030">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12347,7 +12346,7 @@ is intended principally for use in the implementation of
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

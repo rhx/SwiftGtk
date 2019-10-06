@@ -11532,17 +11532,16 @@ stock ID, which is a simple string identifying the icon. Each <code>GtkStyle</co
 list of <code>GtkIconFactory</code> derived from the current theme; those icon factories
 are consulted first when searching for an icon. If the theme doesn’t set a
 particular icon, GTK+ looks for the icon in a list of default icon factories,
-maintained by gtk_icon_factory_add_default() and
-gtk_icon_factory_remove_default(). Applications with icons should add a default
+maintained by <code>gtk_icon_factory_add_default()</code> and
+<code>gtk_icon_factory_remove_default()</code>. Applications with icons should add a default
 icon factory with their icons, which will allow themes to override the icons
 for the application.</p>
 
-<p>To display an icon, always use gtk_style_lookup_icon_set() on the widget that
+<p>To display an icon, always use <code>gtk_style_lookup_icon_set()</code> on the widget that
 will display the icon, or the convenience function
-gtk_widget_render_icon(). These functions take the theme into account when
+<code>gtk_widget_render_icon()</code>. These functions take the theme into account when
 looking up the icon to use for a given stock ID.</p>
-
-<p><code>GtkIconFactory as GtkBuildable</code> {<code>GtkIconFactory</code>-BUILDER-UI}</p>
+<h1 id='gtkiconfactory-as-gtkbuildable-a-name-gtkiconfactory-builder-ui-a' class='heading'>GtkIconFactory as GtkBuildable # <a name="GtkIconFactory-BUILDER-UI"></a></h1>
 
 <p>GtkIconFactory supports a custom <sources> element, which can contain
 multiple <source> elements. The following attributes are allowed:</p>
@@ -11573,8 +11572,7 @@ attribute is optional.</p></li>
 <p>State of the source, a <code>GtkStateType</code> enum value.  This
 attribute is optional.</p></li>
 </ul>
-
-<p><code>A `GtkIconFactory` UI definition fragment.</code></p>
+<h2 id='a-code-gtkiconfactory-code-ui-definition-fragment' class='heading'>A <code>GtkIconFactory</code> UI definition fragment.</h2>
 <pre class="highlight swift"><code><span class="o">&lt;</span><span class="n">object</span> <span class="kd">class</span><span class="o">=</span><span class="s">"GtkIconFactory"</span> <span class="n">id</span><span class="o">=</span><span class="s">"iconfactory1"</span><span class="o">&gt;</span>
   <span class="o">&lt;</span><span class="n">sources</span><span class="o">&gt;</span>
     <span class="o">&lt;</span><span class="n">source</span> <span class="n">stock</span><span class="o">-</span><span class="n">id</span><span class="o">=</span><span class="s">"apple-red"</span> <span class="n">filename</span><span class="o">=</span><span class="s">"apple-red.png"</span><span class="o">/&gt;</span>
@@ -11623,7 +11621,7 @@ For type-safe access, use the generated, typed pointer <code>icon_factory_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L796">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L794">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11664,7 +11662,7 @@ For type-safe access, use the generated, typed pointer <code>icon_factory_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L801-L802">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L799-L800">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11694,7 +11692,7 @@ For type-safe access, use the generated, typed pointer <code>icon_factory_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L805-L807">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L803-L805">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11725,7 +11723,7 @@ For type-safe access, use the generated, typed pointer <code>icon_factory_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L811-L813">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L809-L811">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11756,7 +11754,7 @@ For type-safe access, use the generated, typed pointer <code>icon_factory_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L817-L819">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L815-L817">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11787,7 +11785,7 @@ For type-safe access, use the generated, typed pointer <code>icon_factory_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L823-L825">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L821-L823">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11818,7 +11816,7 @@ For type-safe access, use the generated, typed pointer <code>icon_factory_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L829-L831">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L827-L829">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11849,7 +11847,7 @@ For type-safe access, use the generated, typed pointer <code>icon_factory_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L835-L837">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L833-L835">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11867,7 +11865,7 @@ For type-safe access, use the generated, typed pointer <code>icon_factory_ptr</c
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <pre class="highlight swift"><code><span class="kt">Creates</span> <span class="n">a</span> <span class="k">new</span> <span class="err">`</span><span class="kt">GtkIconFactory</span><span class="err">`</span><span class="o">.</span> <span class="kt">An</span> <span class="n">icon</span> <span class="n">factory</span> <span class="n">manages</span> <span class="n">a</span> <span class="n">collection</span>
+                        <pre class="highlight swift"><code><span class="kt">Creates</span> <span class="n">a</span> <span class="k">new</span> <span class="p">`</span><span class="nv">GtkIconFactory</span><span class="p">`</span><span class="o">.</span> <span class="kt">An</span> <span class="n">icon</span> <span class="n">factory</span> <span class="n">manages</span> <span class="n">a</span> <span class="n">collection</span>
 </code></pre>
 
 <p>of <code>GtkIconSets</code>; a <code>GtkIconSet</code> manages a set of variants of a
@@ -11878,8 +11876,8 @@ stock ID, which is a simple string identifying the icon. Each
 theme; those icon factories are consulted first when searching for
 an icon. If the theme doesn’t set a particular icon, GTK+ looks for
 the icon in a list of default icon factories, maintained by
-gtk_icon_factory_add_default() and
-gtk_icon_factory_remove_default(). Applications with icons should
+<code>gtk_icon_factory_add_default()</code> and
+<code>gtk_icon_factory_remove_default()</code>. Applications with icons should
 add a default icon factory with their icons, which will allow
 themes to override the icons for the application.</p>
 
@@ -11891,13 +11889,13 @@ Use #GtkIconTheme instead.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="nf">init</span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L855-L858">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L853-L856">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11910,7 +11908,7 @@ Use #GtkIconTheme instead.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

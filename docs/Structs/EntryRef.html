@@ -11532,27 +11532,27 @@ of the widget, the widget will scroll so that the cursor
 position is visible.</p>
 
 <p>When using an entry for passwords and other sensitive information,
-it can be put into “password mode” using gtk_entry_set_visibility().
+it can be put into “password mode” using <code>gtk_entry_set_visibility()</code>.
 In this mode, entered text is displayed using a “invisible” character.
 By default, GTK+ picks the best invisible character that is available
 in the current font, but it can be changed with
-gtk_entry_set_invisible_char(). Since 2.16, GTK+ displays a warning
+<code>gtk_entry_set_invisible_char()</code>. Since 2.16, GTK+ displays a warning
 when Caps Lock or input methods might interfere with entering text in
 a password entry. The warning can be turned off with the
-<code>GtkEntry</code>:caps-lock-warning property.</p>
+<code>GtkEntry:caps</code>-lock-warning property.</p>
 
 <p>Since 2.16, GtkEntry has the ability to display progress or activity
 information behind the text. To make an entry display such information,
-use gtk_entry_set_progress_fraction() or gtk_entry_set_progress_pulse_step().</p>
+use <code>gtk_entry_set_progress_fraction()</code> or <code>gtk_entry_set_progress_pulse_step()</code>.</p>
 
 <p>Additionally, GtkEntry can show icons at either side of the entry. These
 icons can be activatable by clicking, can be set up as drag source and
-can have tooltips. To add an icon, use gtk_entry_set_icon_from_gicon() or
+can have tooltips. To add an icon, use <code>gtk_entry_set_icon_from_gicon()</code> or
 one of the various other functions that set an icon from a stock id, an
 icon name or a pixbuf. To trigger an action when the user clicks an icon,
-connect to the <code>GtkEntry</code>::icon-press signal. To allow DND operations
-from an icon, use gtk_entry_set_icon_drag_source(). To set a tooltip on
-an icon, use gtk_entry_set_icon_tooltip_text() or the corresponding function
+connect to the <code>GtkEntry::icon</code>-press signal. To allow DND operations
+from an icon, use <code>gtk_entry_set_icon_drag_source()</code>. To set a tooltip on
+an icon, use <code>gtk_entry_set_icon_tooltip_text()</code> or the corresponding function
 for markup.</p>
 
 <p>Note that functionality or information that is only available by clicking
@@ -11560,16 +11560,17 @@ on an icon in an entry may not be accessible at all to users which are not
 able to use a mouse or other pointing device. It is therefore recommended
 that any such functionality should also be available by other means, e.g.
 via the context menu of the entry.</p>
+<h1 id='css-nodes' class='heading'>CSS nodes</h1>
 
-<p>&ldquo; CSS nodes</p>
-<pre class="highlight swift"><code><span class="n">entry</span><span class="p">[</span><span class="o">.</span><span class="n">read</span><span class="o">-</span><span class="n">only</span><span class="p">][</span><span class="o">.</span><span class="n">flat</span><span class="p">][</span><span class="o">.</span><span class="n">warning</span><span class="p">][</span><span class="o">.</span><span class="n">error</span><span class="p">]</span>
-<span class="err">├──</span> <span class="n">image</span><span class="o">.</span><span class="n">left</span>
-<span class="err">├──</span> <span class="n">image</span><span class="o">.</span><span class="n">right</span>
-<span class="err">├──</span> <span class="n">undershoot</span><span class="o">.</span><span class="n">left</span>
-<span class="err">├──</span> <span class="n">undershoot</span><span class="o">.</span><span class="n">right</span>
-<span class="err">├──</span> <span class="p">[</span><span class="n">selection</span><span class="p">]</span>
-<span class="err">├──</span> <span class="p">[</span><span class="n">progress</span><span class="p">[</span><span class="o">.</span><span class="n">pulse</span><span class="p">]]</span>
-<span class="err">╰──</span> <span class="p">[</span><span class="n">window</span><span class="o">.</span><span class="n">popup</span><span class="p">]</span>
+<p>(plain Language Example):</p>
+<pre class="highlight plaintext"><code>entry[.read-only][.flat][.warning][.error]
+├── image.left
+├── image.right
+├── undershoot.left
+├── undershoot.right
+├── [selection]
+├── [progress[.pulse]]
+╰── [window.popup]
 </code></pre>
 
 <p>GtkEntry has a main node with the name entry. Depending on the properties
@@ -11629,7 +11630,7 @@ For type-safe access, use the generated, typed pointer <code>entry_ptr</code> pr
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L1608">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L1604">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11670,7 +11671,7 @@ For type-safe access, use the generated, typed pointer <code>entry_ptr</code> pr
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L1613-L1614">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L1609-L1610">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11700,7 +11701,7 @@ For type-safe access, use the generated, typed pointer <code>entry_ptr</code> pr
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L1617-L1619">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L1613-L1615">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11731,7 +11732,7 @@ For type-safe access, use the generated, typed pointer <code>entry_ptr</code> pr
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L1623-L1625">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L1619-L1621">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11762,7 +11763,7 @@ For type-safe access, use the generated, typed pointer <code>entry_ptr</code> pr
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L1629-L1631">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L1625-L1627">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11793,7 +11794,7 @@ For type-safe access, use the generated, typed pointer <code>entry_ptr</code> pr
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L1635-L1637">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L1631-L1633">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11824,7 +11825,7 @@ For type-safe access, use the generated, typed pointer <code>entry_ptr</code> pr
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L1641-L1643">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L1637-L1639">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11855,7 +11856,7 @@ For type-safe access, use the generated, typed pointer <code>entry_ptr</code> pr
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L1647-L1649">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L1643-L1645">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11885,7 +11886,7 @@ For type-safe access, use the generated, typed pointer <code>entry_ptr</code> pr
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L1652-L1655">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L1648-L1651">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11915,7 +11916,7 @@ For type-safe access, use the generated, typed pointer <code>entry_ptr</code> pr
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L1658-L1661">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L1654-L1657">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11945,7 +11946,7 @@ For type-safe access, use the generated, typed pointer <code>entry_ptr</code> pr
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L1663-L1666">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L1659-L1662">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11958,7 +11959,7 @@ For type-safe access, use the generated, typed pointer <code>entry_ptr</code> pr
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

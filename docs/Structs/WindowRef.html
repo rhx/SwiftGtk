@@ -11529,13 +11529,12 @@ Use <code>WindowRef</code> only as an <code>unowned</code> reference to an exist
 Windows normally have decorations that are under the control
 of the windowing system and allow the user to manipulate the window
 (resize it, move it, close it,&hellip;).</p>
-
-<p>&ldquo; GtkWindow as GtkBuildable</p>
+<h1 id='gtkwindow-as-gtkbuildable' class='heading'>GtkWindow as GtkBuildable</h1>
 
 <p>The GtkWindow implementation of the <code>GtkBuildable</code> interface supports a
 custom <accel-groups> element, which supports any number of <group>
 elements representing the <code>GtkAccelGroup</code> objects you want to add to
-your window (synonymous with gtk_window_add_accel_group().</p>
+your window (synonymous with <code>gtk_window_add_accel_group()</code>.</p>
 
 <p>It also supports the <initial-focus> element, whose name property names
 the widget to receive the focus when the window is mapped.</p>
@@ -11556,12 +11555,13 @@ the widget to receive the focus when the window is mapped.</p>
 <p>The GtkWindow implementation of the <code>GtkBuildable</code> interface supports
 setting a child as the titlebar by specifying “titlebar” as the “type”
 attribute of a <child> element.</p>
+<h1 id='css-nodes' class='heading'>CSS nodes</h1>
 
-<p>&rdquo; CSS nodes</p>
-<pre class="highlight swift"><code><span class="n">window</span><span class="o">.</span><span class="n">background</span>
-<span class="err">├──</span> <span class="n">decoration</span>
-<span class="err">├──</span> <span class="o">&lt;</span><span class="n">titlebar</span> <span class="n">child</span><span class="o">&gt;.</span><span class="n">titlebar</span> <span class="p">[</span><span class="o">.</span><span class="k">default</span><span class="o">-</span><span class="n">decoration</span><span class="p">]</span>
-<span class="err">╰──</span> <span class="o">&lt;</span><span class="n">child</span><span class="o">&gt;</span>
+<p>(plain Language Example):</p>
+<pre class="highlight plaintext"><code>window.background
+├── decoration
+├── &lt;titlebar child&gt;.titlebar [.default-decoration]
+╰── &lt;child&gt;
 </code></pre>
 
 <p>GtkWindow has a main CSS node with name window and style class .background,
@@ -11611,7 +11611,7 @@ For type-safe access, use the generated, typed pointer <code>window_ptr</code> p
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessible-WindowGroup.swift#L502">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessible-WindowGroup.swift#L499">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11652,7 +11652,7 @@ For type-safe access, use the generated, typed pointer <code>window_ptr</code> p
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessible-WindowGroup.swift#L507-L508">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessible-WindowGroup.swift#L504-L505">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11682,7 +11682,7 @@ For type-safe access, use the generated, typed pointer <code>window_ptr</code> p
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessible-WindowGroup.swift#L511-L513">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessible-WindowGroup.swift#L508-L510">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11713,7 +11713,7 @@ For type-safe access, use the generated, typed pointer <code>window_ptr</code> p
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessible-WindowGroup.swift#L517-L519">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessible-WindowGroup.swift#L514-L516">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11744,7 +11744,7 @@ For type-safe access, use the generated, typed pointer <code>window_ptr</code> p
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessible-WindowGroup.swift#L523-L525">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessible-WindowGroup.swift#L520-L522">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11775,7 +11775,7 @@ For type-safe access, use the generated, typed pointer <code>window_ptr</code> p
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessible-WindowGroup.swift#L529-L531">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessible-WindowGroup.swift#L526-L528">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11806,7 +11806,7 @@ For type-safe access, use the generated, typed pointer <code>window_ptr</code> p
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessible-WindowGroup.swift#L535-L537">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessible-WindowGroup.swift#L532-L534">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11837,7 +11837,7 @@ For type-safe access, use the generated, typed pointer <code>window_ptr</code> p
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessible-WindowGroup.swift#L541-L543">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessible-WindowGroup.swift#L538-L540">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11855,7 +11855,7 @@ For type-safe access, use the generated, typed pointer <code>window_ptr</code> p
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <pre class="highlight swift"><code><span class="kt">Creates</span> <span class="n">a</span> <span class="k">new</span> <span class="err">`</span><span class="kt">GtkWindow</span><span class="err">`</span><span class="p">,</span> <span class="n">which</span> <span class="k">is</span> <span class="n">a</span> <span class="n">toplevel</span> <span class="n">window</span> <span class="n">that</span> <span class="n">can</span>
+                        <pre class="highlight swift"><code><span class="kt">Creates</span> <span class="n">a</span> <span class="k">new</span> <span class="p">`</span><span class="nv">GtkWindow</span><span class="p">`,</span> <span class="n">which</span> <span class="k">is</span> <span class="n">a</span> <span class="n">toplevel</span> <span class="n">window</span> <span class="n">that</span> <span class="n">can</span>
 </code></pre>
 
 <p>contain other widgets. Nearly always, the type of the window should
@@ -11865,18 +11865,18 @@ you might use <code>GTK_WINDOW_POPUP</code>. <code>GTK_WINDOW_POPUP</code> is no
 dialogs, though in some other toolkits dialogs are called “popups”.
 In GTK+, <code>GTK_WINDOW_POPUP</code> means a pop-up menu or pop-up tooltip.
 On X11, popup windows are not controlled by the
-[window manager][gtk-X11-arch].</p>
+<a href="#gtk-X11-arch">window manager</a>.</p>
 
 <p>If you simply want an undecorated window (no window borders), use
-gtk_window_set_decorated(), don’t use <code>GTK_WINDOW_POPUP</code>.</p>
+<code>gtk_window_set_decorated()</code>, don’t use <code>GTK_WINDOW_POPUP</code>.</p>
 
-<p>All top-level windows created by gtk_window_new() are stored in
+<p>All top-level windows created by <code>gtk_window_new()</code> are stored in
 an internal top-level window list.  This list can be obtained from
-gtk_window_list_toplevels().  Due to Gtk+ keeping a reference to
-the window internally, gtk_window_new() does not return a reference
+<code>gtk_window_list_toplevels()</code>.  Due to Gtk+ keeping a reference to
+the window internally, <code>gtk_window_new()</code> does not return a reference
 to the caller.</p>
 
-<p>To delete a <code>GtkWindow</code>, call gtk_widget_destroy().</p>
+<p>To delete a <code>GtkWindow</code>, call <code>gtk_widget_destroy()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -11888,7 +11888,7 @@ to the caller.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessible-WindowGroup.swift#L565-L568">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessible-WindowGroup.swift#L562-L565">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11901,7 +11901,7 @@ to the caller.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

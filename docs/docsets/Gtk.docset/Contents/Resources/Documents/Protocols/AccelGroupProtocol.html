@@ -11528,7 +11528,7 @@ Alternatively, use <code><a href="../Structs/AccelGroupRef.html">AccelGroupRef</
 
 <p>A <code>GtkAccelGroup</code> represents a group of keyboard accelerators,
 typically attached to a toplevel <code>GtkWindow</code> (with
-gtk_window_add_accel_group()). Usually you won’t need to create a
+<code>gtk_window_add_accel_group()</code>). Usually you won’t need to create a
 <code>GtkAccelGroup</code> directly; instead, when using <code>GtkUIManager</code>, GTK+
 automatically sets up the accelerators for your menus in the ui
 manager’s <code>GtkAccelGroup</code>.</p>
@@ -11539,7 +11539,7 @@ activating a menu item; they appear alongside the menu item they’re a
 shortcut for. For example “Ctrl+Q” might appear alongside the “Quit”
 menu item. Mnemonics are shortcuts for GUI elements such as text
 entries or buttons; they appear as underlined characters. See
-gtk_label_new_with_mnemonic(). Menu items can have both accelerators
+<code>gtk_label_new_with_mnemonic()</code>. Menu items can have both accelerators
 and mnemonics, of course.</p>
 
           </div>
@@ -11574,7 +11574,7 @@ and mnemonics, of course.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L2161">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L2155">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11612,7 +11612,7 @@ and mnemonics, of course.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L2164">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L2158">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11740,7 +11740,7 @@ and mnemonics, of course.</p>
                         <p>binding reference or <code>nil</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L2331-L2355">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L2325-L2349">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11832,7 +11832,7 @@ and mnemonics, of course.</p>
                         <p>positive handler ID, or a value less than or equal to <code>0</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L2405-L2424">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L2398-L2417">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11877,7 +11877,7 @@ and mnemonics, of course.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L2433-L2436">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L2426-L2429">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11899,9 +11899,9 @@ and mnemonics, of course.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Installs an accelerator in this group. When <code>accel_group</code> is being
-activated in response to a call to gtk_accel_groups_activate(),
+activated in response to a call to <code>gtk_accel_groups_activate()</code>,
 <code>closure</code> will be invoked if the <code>accel_key</code> and <code>accel_mods</code> from
-gtk_accel_groups_activate() match those of this connection.</p>
+<code>gtk_accel_groups_activate()</code> match those of this connection.</p>
 
 <p>The signature used for the <code>closure</code> is that of <code>GtkAccelGroupActivate</code>.</p>
 
@@ -11918,7 +11918,7 @@ only be connected to one accelerator group.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L2447-L2450">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L2440-L2443">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11941,16 +11941,16 @@ only be connected to one accelerator group.</p>
                       <div class="abstract">
                         <p>Installs an accelerator in this group, using an accelerator path
 to look up the appropriate key and modifiers (see
-gtk_accel_map_add_entry()). When <code>accel_group</code> is being activated
-in response to a call to gtk_accel_groups_activate(), <code>closure</code> will
+<code>gtk_accel_map_add_entry()</code>). When <code>accel_group</code> is being activated
+in response to a call to <code>gtk_accel_groups_activate()</code>, <code>closure</code> will
 be invoked if the <code>accel_key</code> and <code>accel_mods</code> from
-gtk_accel_groups_activate() match the key and modifiers for the path.</p>
+<code>gtk_accel_groups_activate()</code> match the key and modifiers for the path.</p>
 
 <p>The signature used for the <code>closure</code> is that of <code>GtkAccelGroupActivate</code>.</p>
 
 <p>Note that <code>accel_path</code> string will be stored in a <code>GQuark</code>. Therefore,
 if you pass a static string, you can save some memory by interning it
-first with g_intern_static_string().</p>
+first with <code>g_intern_static_string()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -11962,7 +11962,7 @@ first with g_intern_static_string().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L2464-L2467">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L2457-L2460">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11984,7 +11984,7 @@ first with g_intern_static_string().</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Removes an accelerator previously installed through
-gtk_accel_group_connect().</p>
+<code>gtk_accel_group_connect()</code>.</p>
 
 <p>Since 2.20 <code>closure</code> can be <code>nil</code>.</p>
 
@@ -11998,7 +11998,7 @@ gtk_accel_group_connect().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L2473-L2476">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L2466-L2469">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12020,7 +12020,7 @@ gtk_accel_group_connect().</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Removes an accelerator previously installed through
-gtk_accel_group_connect().</p>
+<code>gtk_accel_group_connect()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12032,7 +12032,7 @@ gtk_accel_group_connect().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L2480-L2483">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L2473-L2476">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12066,7 +12066,7 @@ gtk_accel_group_connect().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L2487-L2490">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L2480-L2483">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12087,8 +12087,8 @@ gtk_accel_group_connect().</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Locks are added and removed using gtk_accel_group_lock() and
-gtk_accel_group_unlock().</p>
+                        <p>Locks are added and removed using <code>gtk_accel_group_lock()</code> and
+<code>gtk_accel_group_unlock()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12100,7 +12100,7 @@ gtk_accel_group_unlock().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L2494-L2497">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L2487-L2490">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12134,7 +12134,7 @@ gtk_accel_group_unlock().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L2501-L2504">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L2494-L2497">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12159,10 +12159,10 @@ gtk_accel_group_unlock().</p>
 
 <p>Locking an acelerator group prevents the accelerators contained
 within it to be changed during runtime. Refer to
-gtk_accel_map_change_entry() about runtime accelerator changes.</p>
+<code>gtk_accel_map_change_entry()</code> about runtime accelerator changes.</p>
 
 <p>If called more than once, <code>accel_group</code> remains locked until
-gtk_accel_group_unlock() has been called an equivalent number
+<code>gtk_accel_group_unlock()</code> has been called an equivalent number
 of times.</p>
 
                       </div>
@@ -12175,7 +12175,7 @@ of times.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L2515-L2518">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L2508-L2511">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12209,7 +12209,7 @@ and <code>accel_mods</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L2522-L2525">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L2515-L2518">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12230,7 +12230,7 @@ and <code>accel_mods</code>.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undoes the last call to gtk_accel_group_lock() on this <code>accel_group</code>.</p>
+                        <p>Undoes the last call to <code>gtk_accel_group_lock()</code> on this <code>accel_group</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12242,7 +12242,7 @@ and <code>accel_mods</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L2528-L2531">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L2521-L2524">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12263,8 +12263,8 @@ and <code>accel_mods</code>.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Locks are added and removed using gtk_accel_group_lock() and
-gtk_accel_group_unlock().</p>
+                        <p>Locks are added and removed using <code>gtk_accel_group_lock()</code> and
+<code>gtk_accel_group_unlock()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12276,7 +12276,7 @@ gtk_accel_group_unlock().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L2534-L2541">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L2527-L2534">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12310,7 +12310,7 @@ gtk_accel_group_unlock().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L2545-L2552">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L2538-L2545">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12323,7 +12323,7 @@ gtk_accel_group_unlock().</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

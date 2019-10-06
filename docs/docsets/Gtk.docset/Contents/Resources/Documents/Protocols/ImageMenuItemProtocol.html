@@ -11545,7 +11545,7 @@ Alternatively, use <code><a href="../Structs/ImageMenuItemRef.html">ImageMenuIte
 </code></pre>
 
 <p>Note that the user may disable display of menu icons using
-the <code>GtkSettings</code>:gtk-menu-images setting, so make sure to still
+the <code>GtkSettings:gtk</code>-menu-images setting, so make sure to still
 fill in the text label. If you want to ensure that your menu items
 show an icon you are strongly encouraged to use a <code>GtkMenuItem</code>
 with a <code>GtkImage</code> instead.</p>
@@ -11554,13 +11554,13 @@ with a <code>GtkImage</code> instead.</p>
 display an icon in a menu item, you should use <code>GtkMenuItem</code> and pack a
 <code>GtkBox</code> with a <code>GtkImage</code> and a <code>GtkLabel</code> instead. You should also consider
 using <code>GtkBuilder</code> and the XML <code>GMenu</code> description for creating menus, by
-following the [GMenu guide][<a href="https://developer.gnome.org/GMenu/">https://developer.gnome.org/GMenu/</a>]. You should
+following the <a href="#https://developer.gnome.org/GMenu/">GMenu guide</a>. You should
 consider using icons in menu items only sparingly, and for <q>objects</q> (or
 <q>nouns</q>) elements only, like bookmarks, files, and links; <q>actions</q> (or
 <q>verbs</q>) should not have icons.</p>
 
 <p>Furthermore, if you would like to display keyboard accelerator, you must
-pack the accel label into the box using gtk_box_pack_end() and align the
+pack the accel label into the box using <code>gtk_box_pack_end()</code> and align the
 label, otherwise the accelerator will not display correctly. The following
 code snippet adds a keyboard accelerator to the menu item, with a key
 binding of Ctrl+M:</p>
@@ -11620,7 +11620,7 @@ binding of Ctrl+M:</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L8092">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L8075">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11658,7 +11658,7 @@ binding of Ctrl+M:</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L8095">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L8078">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11786,7 +11786,7 @@ binding of Ctrl+M:</p>
                         <p>binding reference or <code>nil</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L8725-L8749">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L8706-L8730">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11878,7 +11878,7 @@ binding of Ctrl+M:</p>
                         <p>positive handler ID, or a value less than or equal to <code>0</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L9600-L9619">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L9580-L9599">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11910,7 +11910,7 @@ binding of Ctrl+M:</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns whether the menu item will ignore the <code>GtkSettings</code>:gtk-menu-images
+                        <p>Returns whether the menu item will ignore the <code>GtkSettings:gtk</code>-menu-images
 setting and always show the image, if available.</p>
 
 <p><strong>get_always_show_image is deprecated:</strong>
@@ -11921,13 +11921,13 @@ This method is deprecated.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">getAlwaysShowImage</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L9631-L9634">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L9611-L9614">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11949,7 +11949,7 @@ This method is deprecated.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Gets the widget that is currently set as the image of <code>image_menu_item</code>.
-See gtk_image_menu_item_set_image().</p>
+See <code>gtk_image_menu_item_set_image()</code>.</p>
 
 <p><strong>get_image is deprecated:</strong>
 This method is deprecated.</p>
@@ -11959,13 +11959,13 @@ This method is deprecated.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">getImage</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">GtkWidget</span><span class="o">&gt;!</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L9641-L9644">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L9621-L9624">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11997,13 +11997,13 @@ This method is deprecated.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">getUseStock</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L9651-L9654">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L9631-L9634">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12026,11 +12026,11 @@ This method is deprecated.</p>
                       <div class="abstract">
                         <p>Specifies an <code>accel_group</code> to add the menu items accelerator to
 (this only applies to stock items so a stock item must already
-be set, make sure to call gtk_image_menu_item_set_use_stock()
-and gtk_menu_item_set_label() with a valid stock item first).</p>
+be set, make sure to call <code>gtk_image_menu_item_set_use_stock()</code>
+and <code>gtk_menu_item_set_label()</code> with a valid stock item first).</p>
 
 <p>If you want this menu item to have changeable accelerators then
-you shouldnt need this (see gtk_image_menu_item_new_from_stock()).</p>
+you shouldnt need this (see <code>gtk_image_menu_item_new_from_stock()</code>).</p>
 
 <p><strong>set_accel_group is deprecated:</strong>
 This method is deprecated.</p>
@@ -12040,13 +12040,13 @@ This method is deprecated.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">set</span><span class="p">(</span><span class="n">accelGroup</span> <span class="nv">accel_group</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AccelGroupProtocol.html">AccelGroupProtocol</a></span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L9666-L9669">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L9646-L9649">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12067,7 +12067,7 @@ This method is deprecated.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>If <code>true</code>, the menu item will ignore the <code>GtkSettings</code>:gtk-menu-images
+                        <p>If <code>true</code>, the menu item will ignore the <code>GtkSettings:gtk</code>-menu-images
 setting and always show the image, if available.</p>
 
 <p>Use this property if the menuitem would be useless or hard to use
@@ -12082,13 +12082,13 @@ This method is deprecated.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">setAlwaysShowImage</span><span class="p">(</span><span class="n">alwaysShow</span> <span class="nv">always_show</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L9679-L9682">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L9659-L9662">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12121,13 +12121,13 @@ This method is deprecated.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">set</span><span class="p">(</span><span class="nv">image</span><span class="p">:</span> <span class="kt"><a href="../Protocols/WidgetProtocol.html">WidgetProtocol</a></span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L9690-L9693">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L9670-L9673">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12159,13 +12159,13 @@ This method is deprecated.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">set</span><span class="p">(</span><span class="n"><a href="../Protocols/ImageMenuItemProtocol.html#/s:3Gtk21ImageMenuItemProtocolPAAE8useStockSbvp">useStock</a></span> <span class="nv">use_stock</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L9700-L9703">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L9680-L9683">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12186,7 +12186,7 @@ This method is deprecated.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns whether the menu item will ignore the <code>GtkSettings</code>:gtk-menu-images
+                        <p>Returns whether the menu item will ignore the <code>GtkSettings:gtk</code>-menu-images
 setting and always show the image, if available.</p>
 
 <p><strong>get_always_show_image is deprecated:</strong>
@@ -12202,7 +12202,7 @@ This method is deprecated.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L9709-L9730">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L9689-L9710">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12239,7 +12239,7 @@ Use a #GtkMenuItem containing a #GtkBox with
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L9737-L9756">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L9717-L9736">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12276,7 +12276,7 @@ This method is deprecated.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L9763-L9781">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L9743-L9761">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12289,7 +12289,7 @@ This method is deprecated.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

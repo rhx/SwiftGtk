@@ -11531,9 +11531,8 @@ file.  It implements the <code>GtkFileChooser</code> interface.  Visually, it is
 file name with a button to bring up a <code>GtkFileChooserDialog</code>.
 The user can then use that dialog to change the file associated with
 that button.  This widget does not support setting the
-<code>GtkFileChooser</code>:select-multiple property to <code>true</code>.</p>
-
-<p>&ldquo;` Create a button to let the user select a file in /etc</p>
+<code>GtkFileChooser:select</code>-multiple property to <code>true</code>.</p>
+<h2 id='create-a-button-to-let-the-user-select-a-file-in-etc' class='heading'>Create a button to let the user select a file in /etc</h2>
 
 <p>(C Language Example):</p>
 <pre class="highlight plaintext"><code>{
@@ -11552,13 +11551,12 @@ that button.  This widget does not support setting the
 <blockquote>
 <p>The <code>GtkFileChooserButton</code> will ellipsize the label, and will thus
 request little horizontal space.  To give the button more space,
-you should call gtk_widget_get_preferred_size(),
-gtk_file_chooser_button_set_width_chars(), or pack the button in
+you should call <code>gtk_widget_get_preferred_size()</code>,
+<code>gtk_file_chooser_button_set_width_chars()</code>, or pack the button in
 such a way that other interface elements give space to the
 widget.</p>
 </blockquote>
-
-<p>&rdquo; CSS nodes</p>
+<h1 id='css-nodes' class='heading'>CSS nodes</h1>
 
 <p>GtkFileChooserButton has a CSS node with name “filechooserbutton”, containing
 a subnode for the internal button with name “button” and style class “.file”.</p>
@@ -11595,7 +11593,7 @@ a subnode for the internal button with name “button” and style class “.fil
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L6653">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L6635">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11633,7 +11631,7 @@ a subnode for the internal button with name “button” and style class “.fil
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L6656">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L6638">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11761,7 +11759,7 @@ a subnode for the internal button with name “button” and style class “.fil
                         <p>binding reference or <code>nil</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L7104-L7128">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L7084-L7108">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11853,7 +11851,7 @@ a subnode for the internal button with name “button” and style class “.fil
                         <p>positive handler ID, or a value less than or equal to <code>0</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L7944-L7963">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L7923-L7942">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11886,7 +11884,7 @@ a subnode for the internal button with name “button” and style class “.fil
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Returns whether the button grabs focus when it is clicked with the mouse.
-See gtk_file_chooser_button_set_focus_on_click().</p>
+See <code>gtk_file_chooser_button_set_focus_on_click()</code>.</p>
 
 <p><strong>get_focus_on_click is deprecated:</strong>
 Use gtk_widget_get_focus_on_click() instead</p>
@@ -11896,14 +11894,14 @@ Use gtk_widget_get_focus_on_click() instead</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
-<span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
+<span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">getFocusOnClick</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L7975-L7978">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L7954-L7957">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11937,7 +11935,7 @@ should not be modified or freed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L7982-L7985">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L7961-L7964">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11970,7 +11968,7 @@ should not be modified or freed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L7988-L7991">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L7967-L7970">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12004,14 +12002,14 @@ Use gtk_widget_set_focus_on_click() instead</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
-<span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
+<span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">set</span><span class="p">(</span><span class="n"><a href="../Protocols/FileChooserButtonProtocol.html#/s:3Gtk25FileChooserButtonProtocolPAAE12focusOnClickSbvp">focusOnClick</a></span> <span class="nv">focus_on_click</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L8000-L8003">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L7979-L7982">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12044,7 +12042,7 @@ Use gtk_widget_set_focus_on_click() instead</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L8006-L8009">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L7985-L7988">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12067,7 +12065,6 @@ Use gtk_widget_set_focus_on_click() instead</p>
                       <div class="abstract">
                         <p>Sets the width (in characters) that <code>button</code> will use to <code>n_chars</code>.</p>
 
-                        <a href="../Protocols/FileChooserButtonProtocol/setWidth%28nChars%3A%29.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
@@ -12078,7 +12075,7 @@ Use gtk_widget_set_focus_on_click() instead</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L8012-L8015">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L7991-L7994">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12100,7 +12097,7 @@ Use gtk_widget_set_focus_on_click() instead</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Returns whether the button grabs focus when it is clicked with the mouse.
-See gtk_file_chooser_button_set_focus_on_click().</p>
+See <code>gtk_file_chooser_button_set_focus_on_click()</code>.</p>
 
 <p><strong>get_focus_on_click is deprecated:</strong>
 Use gtk_widget_get_focus_on_click() instead</p>
@@ -12110,13 +12107,13 @@ Use gtk_widget_get_focus_on_click() instead</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="k">var</span> <span class="nv">focusOnClick</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="k">nonmutating</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L8021-L8041">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L8000-L8020">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12149,7 +12146,7 @@ Use gtk_widget_get_focus_on_click() instead</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L8044-L8055">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L8023-L8034">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12182,7 +12179,7 @@ Use gtk_widget_get_focus_on_click() instead</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L8058-L8068">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L8037-L8047">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12195,7 +12192,7 @@ Use gtk_widget_get_focus_on_click() instead</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

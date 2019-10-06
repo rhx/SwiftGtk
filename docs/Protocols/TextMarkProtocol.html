@@ -11527,13 +11527,13 @@ For a concrete class that implements these methods and properties, see <code><a 
 Alternatively, use <code><a href="../Structs/TextMarkRef.html">TextMarkRef</a></code> as a lighweight, <code>unowned</code> reference if you already have an instance you just want to use.</p>
 
 <p>You may wish to begin by reading the
-[text widget conceptual overview][TextWidget]
+<a href="#TextWidget">text widget conceptual overview</a>
 which gives an overview of all the objects and data
 types related to the text widget and how they work together.</p>
 
 <p>A <code>GtkTextMark</code> is like a bookmark in a text buffer; it preserves a position in
 the text. You can convert the mark to an iterator using
-gtk_text_buffer_get_iter_at_mark(). Unlike iterators, marks remain valid across
+<code>gtk_text_buffer_get_iter_at_mark()</code>. Unlike iterators, marks remain valid across
 buffer mutations, because their behavior is defined when text is inserted or
 deleted. When text containing a mark is deleted, the mark remains in the
 position originally occupied by the deleted text. When text is inserted at a
@@ -11548,13 +11548,13 @@ displayed.</p>
 
 <p>Marks are reference counted, but the reference count only controls the validity
 of the memory; marks can be deleted from the buffer at any time with
-gtk_text_buffer_delete_mark(). Once deleted from the buffer, a mark is
+<code>gtk_text_buffer_delete_mark()</code>. Once deleted from the buffer, a mark is
 essentially useless.</p>
 
 <p>Marks optionally have names; these can be convenient to avoid passing the
 <code>GtkTextMark</code> object around.</p>
 
-<p>Marks are typically created using the gtk_text_buffer_create_mark() function.</p>
+<p>Marks are typically created using the <code>gtk_text_buffer_create_mark()</code> function.</p>
 
           </div>
         </section>
@@ -11588,7 +11588,7 @@ essentially useless.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L3191">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L3187">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11626,7 +11626,7 @@ essentially useless.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L3194">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L3190">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11754,7 +11754,7 @@ essentially useless.</p>
                         <p>binding reference or <code>nil</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L3397-L3421">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L3393-L3417">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11846,7 +11846,7 @@ essentially useless.</p>
                         <p>positive handler ID, or a value less than or equal to <code>0</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L3465-L3484">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L3460-L3479">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11891,7 +11891,7 @@ or <code>nil</code> if the mark is deleted.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L3493-L3496">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L3488-L3491">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11913,7 +11913,7 @@ or <code>nil</code> if the mark is deleted.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Returns <code>true</code> if the mark has been removed from its buffer
-with gtk_text_buffer_delete_mark(). See gtk_text_buffer_add_mark()
+with <code>gtk_text_buffer_delete_mark()</code>. See <code>gtk_text_buffer_add_mark()</code>
 for a way to add it to a buffer again.</p>
 
                       </div>
@@ -11926,7 +11926,7 @@ for a way to add it to a buffer again.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L3501-L3504">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L3496-L3499">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11959,7 +11959,7 @@ for a way to add it to a buffer again.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L3507-L3510">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L3502-L3505">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11992,7 +11992,7 @@ for a way to add it to a buffer again.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L3513-L3516">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L3508-L3511">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12026,7 +12026,7 @@ for it).</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L3520-L3523">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L3515-L3518">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12063,7 +12063,7 @@ Marks are not visible by default.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L3530-L3533">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L3525-L3528">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12097,7 +12097,7 @@ or <code>nil</code> if the mark is deleted.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L3536-L3543">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L3531-L3538">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12119,7 +12119,7 @@ or <code>nil</code> if the mark is deleted.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Returns <code>true</code> if the mark has been removed from its buffer
-with gtk_text_buffer_delete_mark(). See gtk_text_buffer_add_mark()
+with <code>gtk_text_buffer_delete_mark()</code>. See <code>gtk_text_buffer_add_mark()</code>
 for a way to add it to a buffer again.</p>
 
                       </div>
@@ -12132,7 +12132,7 @@ for a way to add it to a buffer again.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L3548-L3556">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L3543-L3551">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12165,7 +12165,7 @@ for a way to add it to a buffer again.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L3559-L3565">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L3554-L3560">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12198,7 +12198,7 @@ for a way to add it to a buffer again.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L3568-L3574">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L3563-L3569">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12232,7 +12232,7 @@ for it).</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L3578-L3593">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L3573-L3588">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12245,7 +12245,7 @@ for it).</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

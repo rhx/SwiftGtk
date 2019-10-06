@@ -11533,7 +11533,7 @@ size, but you can’t use a <code>GtkGrid</code> widget.</p>
 <p>In detail, the size requested for each widget in a <code>GtkSizeGroup</code> is
 the maximum of the sizes that would have been requested for each
 widget in the size group if they were not in the size group. The mode
-of the size group (see gtk_size_group_set_mode()) determines whether
+of the size group (see <code>gtk_size_group_set_mode()</code>) determines whether
 this applies to the horizontal size, the vertical size, or both sizes.</p>
 
 <p>Note that size groups only affect the amount of space requested, not
@@ -11545,7 +11545,7 @@ include the <code>GTK_FILL</code> flag.</p>
 
 <p><code>GtkSizeGroup</code> objects are referenced by each widget in the size group,
 so once you have added all widgets to a <code>GtkSizeGroup</code>, you can drop
-the initial reference to the size group with g_object_unref(). If the
+the initial reference to the size group with <code>g_object_unref()</code>. If the
 widgets in the size group are subsequently destroyed, then they will
 be removed from the size group and drop their references on the size
 group; when all widgets have been removed, the size group will be
@@ -11563,16 +11563,15 @@ reached from the widget by a chain of size groups of type
 by size groups (since size groups have no knowledge of what size a widget
 will be allocated in one dimension, it cannot derive how much height
 a widget will receive for a given width). When grouping widgets that
-trade height for width in mode <code>GTK_SIZE_GROUP_VERTICAL</code> or <code>GTK_SIZE_GROUP_BOTH</code>:
+trade height for width in mode <code>GTK_SIZE_GROUP_VERTICAL</code> or <code>GTK_SIZE_GROUP_BOTH:</code>
 the height for the minimum width will be the requested height for all
 widgets in the group. The same is of course true when horizontally grouping
 width for height widgets.</p>
 
 <p>Widgets that trade height-for-width should set a reasonably large minimum width
-by way of <code>GtkLabel</code>:width-chars for instance. Widgets with static sizes as well
+by way of <code>GtkLabel:width</code>-chars for instance. Widgets with static sizes as well
 as widgets that grow (such as ellipsizing text) need no such considerations.</p>
-
-<p>&ldquo; GtkSizeGroup as GtkBuildable</p>
+<h1 id='gtksizegroup-as-gtkbuildable' class='heading'>GtkSizeGroup as GtkBuildable</h1>
 
 <p>Size groups can be specified in a UI definition by placing an <object>
 element with <code>class=&quot;GtkSizeGroup&quot;</code> somewhere in the UI definition. The
@@ -11623,7 +11622,7 @@ For type-safe access, use the generated, typed pointer <code>size_group_ptr</cod
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L20771">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L20746">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11664,7 +11663,7 @@ For type-safe access, use the generated, typed pointer <code>size_group_ptr</cod
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L20776-L20777">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L20751-L20752">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11694,7 +11693,7 @@ For type-safe access, use the generated, typed pointer <code>size_group_ptr</cod
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L20780-L20782">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L20755-L20757">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11725,7 +11724,7 @@ For type-safe access, use the generated, typed pointer <code>size_group_ptr</cod
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L20786-L20788">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L20761-L20763">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11756,7 +11755,7 @@ For type-safe access, use the generated, typed pointer <code>size_group_ptr</cod
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L20792-L20794">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L20767-L20769">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11787,7 +11786,7 @@ For type-safe access, use the generated, typed pointer <code>size_group_ptr</cod
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L20798-L20800">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L20773-L20775">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11818,7 +11817,7 @@ For type-safe access, use the generated, typed pointer <code>size_group_ptr</cod
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L20804-L20806">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L20779-L20781">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11849,7 +11848,7 @@ For type-safe access, use the generated, typed pointer <code>size_group_ptr</cod
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L20810-L20812">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L20785-L20787">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11879,7 +11878,7 @@ For type-safe access, use the generated, typed pointer <code>size_group_ptr</cod
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L20815-L20818">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L20790-L20793">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11892,7 +11891,7 @@ For type-safe access, use the generated, typed pointer <code>size_group_ptr</cod
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

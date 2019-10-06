@@ -11536,19 +11536,19 @@ There is a fallback icon theme, named <code>hicolor</code>, where applications
 should install their icons, but additional icon themes can be installed
 as operating system vendors and users choose.</p>
 
-<p>Named icons are similar to the deprecated [Stock Items][gtkstock],
+<p>Named icons are similar to the deprecated <a href="#gtkstock">Stock Items</a>,
 and the distinction between the two may be a bit confusing.
 A few things to keep in mind:</p>
 
 <ul>
 <li><p>Stock images usually are used in conjunction with
-[Stock Items][gtkstock], such as <code>GTK_STOCK_OK</code> or
+<a href="#gtkstock">Stock Items</a>, such as <code>GTK_STOCK_OK</code> or
 <code>GTK_STOCK_OPEN</code>. Named icons are easier to set up and therefore
 are more useful for new icons that an application wants to
 add, such as application icons or window icons.</p></li>
 <li><p>Stock images can only be loaded at the symbolic sizes defined
 by the <code>GtkIconSize</code> enumeration, or by custom sizes defined
-by gtk_icon_size_register(), while named icons are more flexible
+by <code>gtk_icon_size_register()</code>, while named icons are more flexible
 and any pixel size can be specified.</p></li>
 <li><p>Because stock images are closely tied to stock items, and thus
 to actions in the user interface, stock images may come in
@@ -11585,7 +11585,7 @@ pixbuf = gtk_icon_theme_load_icon (icon_theme,
                                    &amp;error);
 if (!pixbuf)
   {
-    g_warning ("Couldn’t load icon: `s`", error-&gt;message);
+    g_warning ("Couldn’t load icon: %s", error-&gt;message);
     g_error_free (error);
   }
 else
@@ -11627,7 +11627,7 @@ else
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L1792">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L1788">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11665,7 +11665,7 @@ else
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L1795">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L1791">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11757,7 +11757,7 @@ else
                         <p>positive handler ID, or a value less than or equal to <code>0</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L2134-L2153">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L2129-L2148">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11811,7 +11811,7 @@ of a subdirectory are also considered as ultimate fallback.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L2171-L2174">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L2166-L2169">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11833,7 +11833,7 @@ of a subdirectory are also considered as ultimate fallback.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Appends a directory to the search path.
-See gtk_icon_theme_set_search_path().</p>
+See <code>gtk_icon_theme_set_search_path()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -11845,7 +11845,7 @@ See gtk_icon_theme_set_search_path().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L2178-L2181">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L2173-L2176">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11869,7 +11869,7 @@ See gtk_icon_theme_set_search_path().</p>
                         <p>Looks up a named icon and returns a <code>GtkIconInfo</code> containing
 information such as the filename of the icon. The icon
 can then be rendered into a pixbuf using
-gtk_icon_info_load_icon(). (gtk_icon_theme_load_icon()
+<code>gtk_icon_info_load_icon()</code>. (<code>gtk_icon_theme_load_icon()</code>
 combines these two steps if all you need is the pixbuf.)</p>
 
 <p>If <code>icon_names</code> contains more than one name, this function
@@ -11886,7 +11886,7 @@ inherited icon themes.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L2192-L2195">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L2187-L2190">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11910,7 +11910,7 @@ inherited icon themes.</p>
                         <p>Looks up a named icon for a particular window scale and returns
 a <code>GtkIconInfo</code> containing information such as the filename of the
 icon. The icon can then be rendered into a pixbuf using
-gtk_icon_info_load_icon(). (gtk_icon_theme_load_icon()
+<code>gtk_icon_info_load_icon()</code>. (<code>gtk_icon_theme_load_icon()</code>
 combines these two steps if all you need is the pixbuf.)</p>
 
 <p>If <code>icon_names</code> contains more than one name, this function
@@ -11927,7 +11927,7 @@ inherited icon themes.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L2206-L2209">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L2201-L2204">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11962,7 +11962,7 @@ a list of themes to the user.)</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L2214-L2217">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L2209-L2212">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11998,7 +11998,7 @@ is zero-terminated.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L2223-L2226">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L2218-L2221">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12019,7 +12019,7 @@ is zero-terminated.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets the current search path. See gtk_icon_theme_set_search_path().</p>
+                        <p>Gets the current search path. See <code>gtk_icon_theme_set_search_path()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12031,7 +12031,7 @@ is zero-terminated.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L2229-L2232">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L2224-L2227">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12065,7 +12065,7 @@ for a particular name.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L2236-L2239">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L2231-L2234">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12088,7 +12088,7 @@ for a particular name.</p>
                       <div class="abstract">
                         <p>Gets the list of contexts available within the current
 hierarchy of icon themes.
-See gtk_icon_theme_list_icons() for details about contexts.</p>
+See <code>gtk_icon_theme_list_icons()</code> for details about contexts.</p>
 
                       </div>
                       <div class="declaration">
@@ -12100,7 +12100,7 @@ See gtk_icon_theme_list_icons() for details about contexts.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L2244-L2247">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L2239-L2242">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12129,7 +12129,7 @@ but will typically include such values as “Applications” and
 <a href="http://www.freedesktop.org/wiki/Specifications/icon-theme-spec">Icon Theme Specification</a>.
 The standard contexts are listed in the
 <a href="http://www.freedesktop.org/wiki/Specifications/icon-naming-spec">Icon Naming Specification</a>.
-Also see gtk_icon_theme_list_contexts().</p>
+Also see <code>gtk_icon_theme_list_contexts()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12141,7 +12141,7 @@ Also see gtk_icon_theme_list_contexts().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L2258-L2261">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L2253-L2256">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12165,13 +12165,13 @@ Also see gtk_icon_theme_list_contexts().</p>
                         <p>Looks up an icon in an icon theme, scales it to the given size
 and renders it into a pixbuf. This is a convenience function;
 if more details about the icon are needed, use
-gtk_icon_theme_lookup_icon() followed by gtk_icon_info_load_icon().</p>
+<code>gtk_icon_theme_lookup_icon()</code> followed by <code>gtk_icon_info_load_icon()</code>.</p>
 
 <p>Note that you probably want to listen for icon theme changes and
 update the icon. This is usually done by connecting to the
-GtkWidget::style-set signal. If for some reason you do not want to
+GtkWidget<code>style</code>-set signal. If for some reason you do not want to
 update the icon when the icon theme changes, you should consider
-using gdk_pixbuf_copy() to make a private copy of the pixbuf
+using <code>gdk_pixbuf_copy()</code> to make a private copy of the pixbuf
 returned by this function. Otherwise GTK+ may need to keep the old
 icon theme loaded, which would be a waste of memory.</p>
 
@@ -12185,7 +12185,7 @@ icon theme loaded, which would be a waste of memory.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L2275-L2282">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L2270-L2277">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12209,14 +12209,14 @@ icon theme loaded, which would be a waste of memory.</p>
                         <p>Looks up an icon in an icon theme for a particular window scale,
 scales it to the given size and renders it into a pixbuf. This is a
 convenience function; if more details about the icon are needed,
-use gtk_icon_theme_lookup_icon() followed by
-gtk_icon_info_load_icon().</p>
+use <code>gtk_icon_theme_lookup_icon()</code> followed by
+<code>gtk_icon_info_load_icon()</code>.</p>
 
 <p>Note that you probably want to listen for icon theme changes and
 update the icon. This is usually done by connecting to the
-GtkWidget::style-set signal. If for some reason you do not want to
+GtkWidget<code>style</code>-set signal. If for some reason you do not want to
 update the icon when the icon theme changes, you should consider
-using gdk_pixbuf_copy() to make a private copy of the pixbuf
+using <code>gdk_pixbuf_copy()</code> to make a private copy of the pixbuf
 returned by this function. Otherwise GTK+ may need to keep the old
 icon theme loaded, which would be a waste of memory.</p>
 
@@ -12230,7 +12230,7 @@ icon theme loaded, which would be a waste of memory.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L2297-L2304">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L2292-L2299">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12254,12 +12254,12 @@ icon theme loaded, which would be a waste of memory.</p>
                         <p>Looks up an icon in an icon theme for a particular window scale,
 scales it to the given size and renders it into a cairo surface. This is a
 convenience function; if more details about the icon are needed,
-use gtk_icon_theme_lookup_icon() followed by
-gtk_icon_info_load_surface().</p>
+use <code>gtk_icon_theme_lookup_icon()</code> followed by
+<code>gtk_icon_info_load_surface()</code>.</p>
 
 <p>Note that you probably want to listen for icon theme changes and
 update the icon. This is usually done by connecting to the
-GtkWidget::style-set signal.</p>
+GtkWidget<code>style</code>-set signal.</p>
 
                       </div>
                       <div class="declaration">
@@ -12271,7 +12271,7 @@ GtkWidget::style-set signal.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L2315-L2322">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L2310-L2317">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12294,12 +12294,12 @@ GtkWidget::style-set signal.</p>
                       <div class="abstract">
                         <p>Looks up an icon and returns a <code>GtkIconInfo</code> containing information
 such as the filename of the icon. The icon can then be rendered
-into a pixbuf using gtk_icon_info_load_icon().</p>
+into a pixbuf using <code>gtk_icon_info_load_icon()</code>.</p>
 
 <p>When rendering on displays with high pixel densities you should not
 use a <code>size</code> multiplied by the scaling factor returned by functions
-like gdk_window_get_scale_factor(). Instead, you should use
-gtk_icon_theme_lookup_by_gicon_for_scale(), as the assets loaded
+like <code>gdk_window_get_scale_factor()</code>. Instead, you should use
+<code>gtk_icon_theme_lookup_by_gicon_for_scale()</code>, as the assets loaded
 for a given scaling factor may be different.</p>
 
                       </div>
@@ -12312,7 +12312,7 @@ for a given scaling factor may be different.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L2333-L2336">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L2328-L2331">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12335,7 +12335,7 @@ for a given scaling factor may be different.</p>
                       <div class="abstract">
                         <p>Looks up an icon and returns a <code>GtkIconInfo</code> containing information
 such as the filename of the icon. The icon can then be rendered into
-a pixbuf using gtk_icon_info_load_icon().</p>
+a pixbuf using <code>gtk_icon_info_load_icon()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12347,7 +12347,7 @@ a pixbuf using gtk_icon_info_load_icon().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L2341-L2344">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L2336-L2339">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12371,13 +12371,13 @@ a pixbuf using gtk_icon_info_load_icon().</p>
                         <p>Looks up a named icon and returns a <code>GtkIconInfo</code> containing
 information such as the filename of the icon. The icon
 can then be rendered into a pixbuf using
-gtk_icon_info_load_icon(). (gtk_icon_theme_load_icon()
+<code>gtk_icon_info_load_icon()</code>. (<code>gtk_icon_theme_load_icon()</code>
 combines these two steps if all you need is the pixbuf.)</p>
 
 <p>When rendering on displays with high pixel densities you should not
 use a <code>size</code> multiplied by the scaling factor returned by functions
-like gdk_window_get_scale_factor(). Instead, you should use
-gtk_icon_theme_lookup_icon_for_scale(), as the assets loaded
+like <code>gdk_window_get_scale_factor()</code>. Instead, you should use
+<code>gtk_icon_theme_lookup_icon_for_scale()</code>, as the assets loaded
 for a given scaling factor may be different.</p>
 
                       </div>
@@ -12390,7 +12390,7 @@ for a given scaling factor may be different.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L2357-L2360">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L2352-L2355">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12414,7 +12414,7 @@ for a given scaling factor may be different.</p>
                         <p>Looks up a named icon for a particular window scale and returns a
 <code>GtkIconInfo</code> containing information such as the filename of the
 icon. The icon can then be rendered into a pixbuf using
-gtk_icon_info_load_icon(). (gtk_icon_theme_load_icon() combines
+<code>gtk_icon_info_load_icon()</code>. (<code>gtk_icon_theme_load_icon()</code> combines
 these two steps if all you need is the pixbuf.)</p>
 
                       </div>
@@ -12427,7 +12427,7 @@ these two steps if all you need is the pixbuf.)</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L2367-L2370">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L2362-L2365">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12449,7 +12449,7 @@ these two steps if all you need is the pixbuf.)</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Prepends a directory to the search path.
-See gtk_icon_theme_set_search_path().</p>
+See <code>gtk_icon_theme_set_search_path()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12461,7 +12461,7 @@ See gtk_icon_theme_set_search_path().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L2374-L2377">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L2369-L2372">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12496,7 +12496,7 @@ next time <code>icon_theme</code> is accessed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L2382-L2385">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L2377-L2380">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12519,8 +12519,8 @@ next time <code>icon_theme</code> is accessed.</p>
                       <div class="abstract">
                         <p>Sets the name of the icon theme that the <code>GtkIconTheme</code> object uses
 overriding system configuration. This function cannot be called
-on the icon theme objects returned from gtk_icon_theme_get_default()
-and gtk_icon_theme_get_for_screen().</p>
+on the icon theme objects returned from <code>gtk_icon_theme_get_default()</code>
+and <code>gtk_icon_theme_get_for_screen()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12532,7 +12532,7 @@ and gtk_icon_theme_get_for_screen().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L2391-L2394">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L2386-L2389">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12567,7 +12567,7 @@ which might be different for different screens.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L2399-L2402">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L2394-L2397">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12613,7 +12613,7 @@ rather than directly on the icon path.)</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L2418-L2421">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L2413-L2416">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12648,7 +12648,7 @@ a list of themes to the user.)</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L2425-L2433">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L2420-L2428">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12661,7 +12661,7 @@ a list of themes to the user.)</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

@@ -11529,17 +11529,16 @@ Use <code>ExpanderRef</code> only as an <code>unowned</code> reference to an exi
 on an expander triangle similar to the triangles used in a <code>GtkTreeView</code>.</p>
 
 <p>Normally you use an expander as you would use any other descendant
-of <code>GtkBin</code>; you create the child widget and use gtk_container_add()
+of <code>GtkBin</code>; you create the child widget and use <code>gtk_container_add()</code>
 to add it to the expander. When the expander is toggled, it will take
 care of showing and hiding the child automatically.</p>
-
-<p>&ldquo; Special Usage</p>
+<h1 id='special-usage' class='heading'>Special Usage</h1>
 
 <p>There are situations in which you may prefer to show and hide the
 expanded widget yourself, such as when you want to actually create
 the widget at expansion time. In this case, create a <code>GtkExpander</code>
 but do not add a child to it. The expander widget has an
-<code>GtkExpander</code>:expanded property which can be used to monitor
+<code>GtkExpander:expanded</code> property which can be used to monitor
 its expansion state. You should watch this property with a signal
 connection as follows:</p>
 
@@ -11573,8 +11572,7 @@ create_expander (void)
   // ...
 }
 </code></pre>
-
-<p>&rdquo; GtkExpander as GtkBuildable</p>
+<h1 id='gtkexpander-as-gtkbuildable' class='heading'>GtkExpander as GtkBuildable</h1>
 
 <p>The GtkExpander implementation of the GtkBuildable interface supports
 placing a child in the label position by specifying “label” as the
@@ -11591,13 +11589,14 @@ specified without specifying a <child> type attribute.</p>
   <span class="o">&lt;/</span><span class="n">child</span><span class="o">&gt;</span>
 <span class="o">&lt;/</span><span class="n">object</span><span class="o">&gt;</span>
 </code></pre>
+<h1 id='css-nodes' class='heading'>CSS nodes</h1>
 
-<p>&ldquo; CSS nodes</p>
-<pre class="highlight swift"><code><span class="n">expander</span>
-<span class="err">├──</span> <span class="n">title</span>
-<span class="err">│</span>   <span class="err">├──</span> <span class="n">arrow</span>
-<span class="err">│</span>   <span class="err">╰──</span> <span class="o">&lt;</span><span class="n">label</span> <span class="n">widget</span><span class="o">&gt;</span>
-<span class="err">╰──</span> <span class="o">&lt;</span><span class="n">child</span><span class="o">&gt;</span>
+<p>(plain Language Example):</p>
+<pre class="highlight plaintext"><code>expander
+├── title
+│   ├── arrow
+│   ╰── &lt;label widget&gt;
+╰── &lt;child&gt;
 </code></pre>
 
 <p>GtkExpander has three CSS nodes, the main node with the name expander,
@@ -11637,7 +11636,7 @@ For type-safe access, use the generated, typed pointer <code>expander_ptr</code>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L4666">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L4653">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11678,7 +11677,7 @@ For type-safe access, use the generated, typed pointer <code>expander_ptr</code>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L4671-L4672">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L4658-L4659">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11708,7 +11707,7 @@ For type-safe access, use the generated, typed pointer <code>expander_ptr</code>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L4675-L4677">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L4662-L4664">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11739,7 +11738,7 @@ For type-safe access, use the generated, typed pointer <code>expander_ptr</code>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L4681-L4683">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L4668-L4670">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11770,7 +11769,7 @@ For type-safe access, use the generated, typed pointer <code>expander_ptr</code>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L4687-L4689">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L4674-L4676">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11801,7 +11800,7 @@ For type-safe access, use the generated, typed pointer <code>expander_ptr</code>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L4693-L4695">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L4680-L4682">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11832,7 +11831,7 @@ For type-safe access, use the generated, typed pointer <code>expander_ptr</code>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L4699-L4701">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L4686-L4688">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11863,7 +11862,7 @@ For type-safe access, use the generated, typed pointer <code>expander_ptr</code>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L4705-L4707">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L4692-L4694">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11893,7 +11892,7 @@ For type-safe access, use the generated, typed pointer <code>expander_ptr</code>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L4710-L4713">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L4697-L4700">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11928,7 +11927,7 @@ Pressing Alt and that key activates the button.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L4721-L4724">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L4708-L4711">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11963,7 +11962,7 @@ Pressing Alt and that key activates the button.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L4731-L4734">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L4718-L4721">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11976,7 +11975,7 @@ Pressing Alt and that key activates the button.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

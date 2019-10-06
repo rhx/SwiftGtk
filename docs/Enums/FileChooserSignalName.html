@@ -11549,11 +11549,11 @@ already exists.  The signal only gets emitted when the file
 chooser is in <code>GTK_FILE_CHOOSER_ACTION_SAVE</code> mode.</p>
 
 <p>Most applications just need to turn on the
-<code>GtkFileChooser</code>:do-overwrite-confirmation property (or call the
-gtk_file_chooser_set_do_overwrite_confirmation() function), and
+<code>GtkFileChooser:do</code>-overwrite-confirmation property (or call the
+<code>gtk_file_chooser_set_do_overwrite_confirmation()</code> function), and
 they will automatically get a stock confirmation dialog.
 Applications which need to customize this behavior should do
-that, and also connect to the <code>GtkFileChooser</code>::confirm-overwrite
+that, and also connect to the <code>GtkFileChooser::confirm</code>-overwrite
 signal.</p>
 
 <p>A signal handler for this signal must return a
@@ -11567,8 +11567,7 @@ On the other hand, if it determines that the stock confirmation
 dialog should be used, it should return
 <code>GTK_FILE_CHOOSER_CONFIRMATION_CONFIRM</code>. The following example
 illustrates this.</p>
-
-<p><code>Custom confirmation</code> {<code>gtkfilechooser</code>-confirmation}</p>
+<h2 id='custom-confirmation-a-name-gtkfilechooser-confirmation-a' class='heading'>Custom confirmation ## <a name="gtkfilechooser-confirmation"></a></h2>
 
 <p>(C Language Example):</p>
 <pre class="highlight plaintext"><code>static GtkFileChooserConfirmation
@@ -11612,7 +11611,7 @@ gtk_widget_destroy (chooser);
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooser-Orientable.swift#L640">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooser-Orientable.swift#L634">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11639,10 +11638,10 @@ explicitly change the current folder in a file chooser.</p>
 <p>Normally you do not need to connect to this signal, unless you need to keep
 track of which folder a file chooser is showing.</p>
 
-<p>See also:  gtk_file_chooser_set_current_folder(),
-gtk_file_chooser_get_current_folder(),
-gtk_file_chooser_set_current_folder_uri(),
-gtk_file_chooser_get_current_folder_uri().</p>
+<p>See also:  <code>gtk_file_chooser_set_current_folder()</code>,
+<code>gtk_file_chooser_get_current_folder()</code>,
+<code>gtk_file_chooser_set_current_folder_uri()</code>,
+<code>gtk_file_chooser_get_current_folder_uri()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -11654,7 +11653,7 @@ gtk_file_chooser_get_current_folder_uri().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooser-Orientable.swift#L654">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooser-Orientable.swift#L648">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11680,9 +11679,9 @@ by pressing <code>Enter</code>.</p>
 by <code>GtkFileChooserDialog</code> to know when to activate the default button in the
 dialog.</p>
 
-<p>See also: gtk_file_chooser_get_filename(),
-gtk_file_chooser_get_filenames(), gtk_file_chooser_get_uri(),
-gtk_file_chooser_get_uris().</p>
+<p>See also: <code>gtk_file_chooser_get_filename()</code>,
+<code>gtk_file_chooser_get_filenames()</code>, <code>gtk_file_chooser_get_uri()</code>,
+<code>gtk_file_chooser_get_uris()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -11694,7 +11693,7 @@ gtk_file_chooser_get_uris().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooser-Orientable.swift#L666">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooser-Orientable.swift#L660">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11721,11 +11720,11 @@ change the selection.</p>
 for the file chooser to finish running, and then to get the list of
 selected files using the functions mentioned below.</p>
 
-<p>See also: gtk_file_chooser_select_filename(),
-gtk_file_chooser_unselect_filename(), gtk_file_chooser_get_filename(),
-gtk_file_chooser_get_filenames(), gtk_file_chooser_select_uri(),
-gtk_file_chooser_unselect_uri(), gtk_file_chooser_get_uri(),
-gtk_file_chooser_get_uris().</p>
+<p>See also: <code>gtk_file_chooser_select_filename()</code>,
+<code>gtk_file_chooser_unselect_filename()</code>, <code>gtk_file_chooser_get_filename()</code>,
+<code>gtk_file_chooser_get_filenames()</code>, <code>gtk_file_chooser_select_uri()</code>,
+<code>gtk_file_chooser_unselect_uri()</code>, <code>gtk_file_chooser_get_uri()</code>,
+<code>gtk_file_chooser_get_uris()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -11737,7 +11736,7 @@ gtk_file_chooser_get_uris().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooser-Orientable.swift#L681">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooser-Orientable.swift#L675">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11761,22 +11760,22 @@ changes.  You should use this signal if you want your file chooser to have
 a preview widget.</p>
 
 <p>Once you have installed a preview widget with
-gtk_file_chooser_set_preview_widget(), you should update it when this
+<code>gtk_file_chooser_set_preview_widget()</code>, you should update it when this
 signal is emitted.  You can use the functions
-gtk_file_chooser_get_preview_filename() or
-gtk_file_chooser_get_preview_uri() to get the name of the file to preview.
+<code>gtk_file_chooser_get_preview_filename()</code> or
+<code>gtk_file_chooser_get_preview_uri()</code> to get the name of the file to preview.
 Your widget may not be able to preview all kinds of files; your callback
-must call gtk_file_chooser_set_preview_widget_active() to inform the file
+must call <code>gtk_file_chooser_set_preview_widget_active()</code> to inform the file
 chooser about whether the preview was generated successfully or not.</p>
 
 <p>Please see the example code in
-[Using a Preview Widget][gtkfilechooser-preview].</p>
+<a href="#gtkfilechooser-preview">Using a Preview Widget</a>.</p>
 
-<p>See also: gtk_file_chooser_set_preview_widget(),
-gtk_file_chooser_set_preview_widget_active(),
-gtk_file_chooser_set_use_preview_label(),
-gtk_file_chooser_get_preview_filename(),
-gtk_file_chooser_get_preview_uri().</p>
+<p>See also: <code>gtk_file_chooser_set_preview_widget()</code>,
+<code>gtk_file_chooser_set_preview_widget_active()</code>,
+<code>gtk_file_chooser_set_use_preview_label()</code>,
+<code>gtk_file_chooser_get_preview_filename()</code>,
+<code>gtk_file_chooser_get_preview_uri()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -11788,7 +11787,7 @@ gtk_file_chooser_get_preview_uri().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooser-Orientable.swift#L704">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooser-Orientable.swift#L698">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11849,7 +11848,7 @@ will offer the user to create new folders.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooser-Orientable.swift#L708">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooser-Orientable.swift#L702">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11881,7 +11880,7 @@ selects a file name that already exists.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooser-Orientable.swift#L712">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooser-Orientable.swift#L706">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12134,7 +12133,7 @@ selects a file name that already exists.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

@@ -11532,18 +11532,17 @@ creates a custom GL framebuffer that the widget will do GL rendering onto.
 It also ensures that this framebuffer is the default GL rendering target
 when rendering.</p>
 
-<p>In order to draw, you have to connect to the <code>GtkGLArea</code>::render signal,
-or subclass <code>GtkGLArea</code> and override the <code>GtkGLAreaClass</code>.render() virtual
+<p>In order to draw, you have to connect to the <code>GtkGLArea::render</code> signal,
+or subclass <code>GtkGLArea</code> and override the <code>GtkGLAreaClass.render</code><code>()</code> virtual
 function.</p>
 
 <p>The <code>GtkGLArea</code> widget ensures that the <code>GdkGLContext</code> is associated with
 the widget&rsquo;s drawing area, and it is kept updated when the size and
 position of the drawing area changes.</p>
-
-<p><code>Drawing with GtkGLArea</code></p>
+<h2 id='drawing-with-gtkglarea' class='heading'>Drawing with GtkGLArea</h2>
 
 <p>The simplest way to draw using OpenGL commands in a <code>GtkGLArea</code> is to
-create a widget instance and connect to the <code>GtkGLArea</code>::render signal:</p>
+create a widget instance and connect to the <code>GtkGLArea::render</code> signal:</p>
 
 <p>(C Language Example):</p>
 <pre class="highlight plaintext"><code>  // create a GtkGLArea instance
@@ -11561,8 +11560,8 @@ for you to draw its content:</p>
   render (GtkGLArea *area, GdkGLContext *context)
   {
     // inside this function it's safe to use GL; the given
-    // `GdkGLContext` has been made current to the drawable
-    // surface used by the `GtkGLArea` and the viewport has
+    // #GdkGLContext has been made current to the drawable
+    // surface used by the #GtkGLArea and the viewport has
     // already been set to be the size of the allocation
 
     // we can start by clearing the buffer
@@ -11580,10 +11579,10 @@ for you to draw its content:</p>
 </code></pre>
 
 <p>If you need to initialize OpenGL state, e.g. buffer objects or
-shaders, you should use the <code>GtkWidget</code>::realize signal; you
-can use the <code>GtkWidget</code>::unrealize signal to clean up. Since the
+shaders, you should use the <code>GtkWidget::realize</code> signal; you
+can use the <code>GtkWidget::unrealize</code> signal to clean up. Since the
 <code>GdkGLContext</code> creation and initialization may fail, you will
-need to check for errors, using gtk_gl_area_get_error(). An example
+need to check for errors, using <code>gtk_gl_area_get_error()</code>. An example
 of how to safely initialize the GL state is:</p>
 
 <p>(C Language Example):</p>
@@ -11596,7 +11595,7 @@ of how to safely initialize the GL state is:</p>
 
     // If there were errors during the initialization or
     // when trying to make the context current, this
-    // function will return a `GError` for you to catch
+    // function will return a #GError for you to catch
     if (gtk_gl_area_get_error (area) != NULL)
       return;
 
@@ -11623,7 +11622,7 @@ of how to safely initialize the GL state is:</p>
 </code></pre>
 
 <p>If you need to change the options for creating the <code>GdkGLContext</code>
-you should use the <code>GtkGLArea</code>::create-context signal.</p>
+you should use the <code>GtkGLArea::create</code>-context signal.</p>
 
           </div>
         </section>
@@ -11658,7 +11657,7 @@ Ownership is transferred to the <code>GLArea</code> instance.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L19108-L19110">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L19065-L19067">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11684,12 +11683,12 @@ Will retain <code>GtkGLArea</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">other</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/GLAreaProtocol.html">GLAreaProtocol</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">other</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/GLAreaProtocol.html">GLAreaProtocol</a></span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L19114-L19117">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L19071-L19074">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11715,12 +11714,12 @@ Will retain <code>GtkGLArea</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">cPointer</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">cPointer</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L19121-L19123">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L19078-L19080">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11746,12 +11745,12 @@ Will retain <code>GtkGLArea</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeRawPointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L19127-L19129">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L19084-L19086">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11777,12 +11776,12 @@ Will retain <code>GtkGLArea</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L19133-L19135">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L19090-L19092">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11808,12 +11807,12 @@ Will retain <code>GtkGLArea</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">opaquePointer</span><span class="p">:</span> <span class="kt">OpaquePointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">opaquePointer</span><span class="p">:</span> <span class="kt">OpaquePointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L19139-L19141">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L19096-L19098">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11838,12 +11837,12 @@ Will retain <code>GtkGLArea</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">()</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L19144-L19147">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L19101-L19104">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11856,7 +11855,7 @@ Will retain <code>GtkGLArea</code>.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

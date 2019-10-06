@@ -11529,15 +11529,15 @@ Alternatively, use <code><a href="../Structs/GestureSingleRef.html">GestureSingl
 <p><code>GtkGestureSingle</code> is a subclass of <code>GtkGesture</code>, optimized (although
 not restricted) for dealing with mouse and single-touch gestures. Under
 interaction, these gestures stick to the first interacting sequence, which
-is accessible through gtk_gesture_single_get_current_sequence() while the
+is accessible through <code>gtk_gesture_single_get_current_sequence()</code> while the
 gesture is being interacted with.</p>
 
 <p>By default gestures react to both <code>GDK_BUTTON_PRIMARY</code> and touch
-events, gtk_gesture_single_set_touch_only() can be used to change the
+events, <code>gtk_gesture_single_set_touch_only()</code> can be used to change the
 touch behavior. Callers may also specify a different mouse button number
-to interact with through gtk_gesture_single_set_button(), or react to any
+to interact with through <code>gtk_gesture_single_set_button()</code>, or react to any
 mouse button by setting 0. While the gesture is active, the button being
-currently pressed can be known through gtk_gesture_single_get_current_button().</p>
+currently pressed can be known through <code>gtk_gesture_single_get_current_button()</code>.</p>
 
           </div>
         </section>
@@ -11571,7 +11571,7 @@ currently pressed can be known through gtk_gesture_single_get_current_button().<
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L2523">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L2516">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11609,7 +11609,7 @@ currently pressed can be known through gtk_gesture_single_get_current_button().<
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L2526">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L2519">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11737,7 +11737,7 @@ currently pressed can be known through gtk_gesture_single_get_current_button().<
                         <p>binding reference or <code>nil</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L2679-L2703">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L2672-L2696">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11829,7 +11829,7 @@ currently pressed can be known through gtk_gesture_single_get_current_button().<
                         <p>positive handler ID, or a value less than or equal to <code>0</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L2789-L2808">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L2781-L2800">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11874,7 +11874,7 @@ reacts to any button press.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L2817-L2820">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L2809-L2812">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11908,7 +11908,7 @@ is none.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L2824-L2827">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L2816-L2819">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11930,7 +11930,7 @@ is none.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Returns the event sequence currently interacting with <code>gesture</code>.
-This is only meaningful if gtk_gesture_is_active() returns <code>true</code>.</p>
+This is only meaningful if <code>gtk_gesture_is_active()</code> returns <code>true</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -11942,7 +11942,7 @@ This is only meaningful if gtk_gesture_is_active() returns <code>true</code>.</p
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L2831-L2834">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L2823-L2826">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11964,7 +11964,7 @@ This is only meaningful if gtk_gesture_is_active() returns <code>true</code>.</p
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Gets whether a gesture is exclusive. For more information, see
-gtk_gesture_single_set_exclusive().</p>
+<code>gtk_gesture_single_set_exclusive()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -11976,7 +11976,7 @@ gtk_gesture_single_set_exclusive().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L2838-L2841">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L2830-L2833">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12009,7 +12009,7 @@ gtk_gesture_single_set_exclusive().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L2844-L2847">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L2836-L2839">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12044,7 +12044,7 @@ Touch events implicitly match with button 1.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L2852-L2855">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L2844-L2847">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12080,7 +12080,7 @@ those.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L2861-L2864">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L2853-L2856">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12115,7 +12115,7 @@ mouse events will be handled too.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L2869-L2872">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L2861-L2864">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12148,7 +12148,7 @@ mouse events will be handled too.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L2874-L2887">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L2866-L2879">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12182,7 +12182,7 @@ is none.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L2891-L2898">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L2883-L2890">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12204,7 +12204,7 @@ is none.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Returns the event sequence currently interacting with <code>gesture</code>.
-This is only meaningful if gtk_gesture_is_active() returns <code>true</code>.</p>
+This is only meaningful if <code>gtk_gesture_is_active()</code> returns <code>true</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12216,7 +12216,7 @@ This is only meaningful if gtk_gesture_is_active() returns <code>true</code>.</p
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L2902-L2909">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L2894-L2901">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12250,7 +12250,7 @@ and pointer emulated events.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L2913-L2927">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L2905-L2919">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12283,7 +12283,7 @@ and pointer emulated events.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L2930-L2942">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L2922-L2934">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12296,7 +12296,7 @@ and pointer emulated events.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

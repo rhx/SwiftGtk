@@ -11540,16 +11540,16 @@ icon position for some other purpose.</p>
 <p>To make filtering appear more reactive, it is a good idea to
 not react to every change in the entry text immediately, but
 only after a short delay. To support this, <code>GtkSearchEntry</code>
-emits the <code>GtkSearchEntry</code>::search-changed signal which can
-be used instead of the <code>GtkEditable</code>::changed signal.</p>
+emits the <code>GtkSearchEntry::search</code>-changed signal which can
+be used instead of the <code>GtkEditable::changed</code> signal.</p>
 
-<p>The <code>GtkSearchEntry</code>::previous-match, <code>GtkSearchEntry</code>::next-match
-and <code>GtkSearchEntry</code>::stop-search signals can be used to implement
+<p>The <code>GtkSearchEntry::previous</code>-match, <code>GtkSearchEntry::next</code>-match
+and <code>GtkSearchEntry::stop</code>-search signals can be used to implement
 moving between search results and ending the search.</p>
 
 <p>Often, GtkSearchEntry will be fed events by means of being
 placed inside a <code>GtkSearchBar</code>. If that is not the case,
-you can use gtk_search_entry_handle_event() to pass events.</p>
+you can use <code>gtk_search_entry_handle_event()</code> to pass events.</p>
 
           </div>
         </section>
@@ -11583,7 +11583,7 @@ you can use gtk_search_entry_handle_event() to pass events.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L7326">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L7316">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11621,7 +11621,7 @@ you can use gtk_search_entry_handle_event() to pass events.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L7329">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L7319">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11749,7 +11749,7 @@ you can use gtk_search_entry_handle_event() to pass events.</p>
                         <p>binding reference or <code>nil</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L7860-L7884">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L7850-L7874">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11841,7 +11841,7 @@ you can use gtk_search_entry_handle_event() to pass events.</p>
                         <p>positive handler ID, or a value less than or equal to <code>0</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L8994-L9013">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L8983-L9002">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11876,7 +11876,7 @@ you can use gtk_search_entry_handle_event() to pass events.</p>
                         <p>This function should be called when the top-level window
 which contains the search entry received a key event. If
 the entry is part of a <code>GtkSearchBar</code>, it is preferable
-to call gtk_search_bar_handle_event() instead, which will
+to call <code>gtk_search_bar_handle_event()</code> instead, which will
 reveal the entry in addition to passing the event to this
 function.</p>
 
@@ -11895,7 +11895,7 @@ case, and not propagate the event further.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L9031-L9034">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L9020-L9023">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11908,7 +11908,7 @@ case, and not propagate the event further.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

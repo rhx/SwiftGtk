@@ -11526,7 +11526,7 @@ It exposes methods that can operate on this data type through <code><a href="../
 Use <code>CellAreaContextRef</code> only as an <code>unowned</code> reference to an existing <code>GtkCellAreaContext</code> instance.</p>
 
 <p>The <code>GtkCellAreaContext</code> object is created by a given <code>GtkCellArea</code>
-implementation via its <code>GtkCellAreaClass</code>.create_context() virtual
+implementation via its <code>GtkCellAreaClass.create_context</code><code>()</code> virtual
 method and is used to store cell sizes and alignments for a series of
 <code>GtkTreeModel</code> rows that are requested and rendered in the same context.</p>
 
@@ -11534,7 +11534,7 @@ method and is used to store cell sizes and alignments for a series of
 request and render groups of data rows. However, it’s important that the
 same context which was used to request sizes for a given <code>GtkTreeModel</code>
 row also be used for the same row when calling other <code>GtkCellArea</code> APIs
-such as gtk_cell_area_render() and gtk_cell_area_event().</p>
+such as <code>gtk_cell_area_render()</code> and <code>gtk_cell_area_event()</code>.</p>
 
           </div>
         </section>
@@ -11569,7 +11569,7 @@ For type-safe access, use the generated, typed pointer <code>cell_area_context_p
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L2691">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L2673">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11610,7 +11610,7 @@ For type-safe access, use the generated, typed pointer <code>cell_area_context_p
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L2696-L2697">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L2678-L2679">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11640,7 +11640,7 @@ For type-safe access, use the generated, typed pointer <code>cell_area_context_p
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L2700-L2702">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L2682-L2684">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11671,7 +11671,7 @@ For type-safe access, use the generated, typed pointer <code>cell_area_context_p
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L2706-L2708">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L2688-L2690">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11702,7 +11702,7 @@ For type-safe access, use the generated, typed pointer <code>cell_area_context_p
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L2712-L2714">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L2694-L2696">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11733,7 +11733,7 @@ For type-safe access, use the generated, typed pointer <code>cell_area_context_p
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L2718-L2720">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L2700-L2702">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11764,7 +11764,7 @@ For type-safe access, use the generated, typed pointer <code>cell_area_context_p
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L2724-L2726">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L2706-L2708">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11795,7 +11795,7 @@ For type-safe access, use the generated, typed pointer <code>cell_area_context_p
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L2730-L2732">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L2712-L2714">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11808,7 +11808,7 @@ For type-safe access, use the generated, typed pointer <code>cell_area_context_p
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

@@ -11533,27 +11533,27 @@ of the widget, the widget will scroll so that the cursor
 position is visible.</p>
 
 <p>When using an entry for passwords and other sensitive information,
-it can be put into “password mode” using gtk_entry_set_visibility().
+it can be put into “password mode” using <code>gtk_entry_set_visibility()</code>.
 In this mode, entered text is displayed using a “invisible” character.
 By default, GTK+ picks the best invisible character that is available
 in the current font, but it can be changed with
-gtk_entry_set_invisible_char(). Since 2.16, GTK+ displays a warning
+<code>gtk_entry_set_invisible_char()</code>. Since 2.16, GTK+ displays a warning
 when Caps Lock or input methods might interfere with entering text in
 a password entry. The warning can be turned off with the
-<code>GtkEntry</code>:caps-lock-warning property.</p>
+<code>GtkEntry:caps</code>-lock-warning property.</p>
 
 <p>Since 2.16, GtkEntry has the ability to display progress or activity
 information behind the text. To make an entry display such information,
-use gtk_entry_set_progress_fraction() or gtk_entry_set_progress_pulse_step().</p>
+use <code>gtk_entry_set_progress_fraction()</code> or <code>gtk_entry_set_progress_pulse_step()</code>.</p>
 
 <p>Additionally, GtkEntry can show icons at either side of the entry. These
 icons can be activatable by clicking, can be set up as drag source and
-can have tooltips. To add an icon, use gtk_entry_set_icon_from_gicon() or
+can have tooltips. To add an icon, use <code>gtk_entry_set_icon_from_gicon()</code> or
 one of the various other functions that set an icon from a stock id, an
 icon name or a pixbuf. To trigger an action when the user clicks an icon,
-connect to the <code>GtkEntry</code>::icon-press signal. To allow DND operations
-from an icon, use gtk_entry_set_icon_drag_source(). To set a tooltip on
-an icon, use gtk_entry_set_icon_tooltip_text() or the corresponding function
+connect to the <code>GtkEntry::icon</code>-press signal. To allow DND operations
+from an icon, use <code>gtk_entry_set_icon_drag_source()</code>. To set a tooltip on
+an icon, use <code>gtk_entry_set_icon_tooltip_text()</code> or the corresponding function
 for markup.</p>
 
 <p>Note that functionality or information that is only available by clicking
@@ -11561,16 +11561,17 @@ on an icon in an entry may not be accessible at all to users which are not
 able to use a mouse or other pointing device. It is therefore recommended
 that any such functionality should also be available by other means, e.g.
 via the context menu of the entry.</p>
+<h1 id='css-nodes' class='heading'>CSS nodes</h1>
 
-<p>&ldquo; CSS nodes</p>
-<pre class="highlight swift"><code><span class="n">entry</span><span class="p">[</span><span class="o">.</span><span class="n">read</span><span class="o">-</span><span class="n">only</span><span class="p">][</span><span class="o">.</span><span class="n">flat</span><span class="p">][</span><span class="o">.</span><span class="n">warning</span><span class="p">][</span><span class="o">.</span><span class="n">error</span><span class="p">]</span>
-<span class="err">├──</span> <span class="n">image</span><span class="o">.</span><span class="n">left</span>
-<span class="err">├──</span> <span class="n">image</span><span class="o">.</span><span class="n">right</span>
-<span class="err">├──</span> <span class="n">undershoot</span><span class="o">.</span><span class="n">left</span>
-<span class="err">├──</span> <span class="n">undershoot</span><span class="o">.</span><span class="n">right</span>
-<span class="err">├──</span> <span class="p">[</span><span class="n">selection</span><span class="p">]</span>
-<span class="err">├──</span> <span class="p">[</span><span class="n">progress</span><span class="p">[</span><span class="o">.</span><span class="n">pulse</span><span class="p">]]</span>
-<span class="err">╰──</span> <span class="p">[</span><span class="n">window</span><span class="o">.</span><span class="n">popup</span><span class="p">]</span>
+<p>(plain Language Example):</p>
+<pre class="highlight plaintext"><code>entry[.read-only][.flat][.warning][.error]
+├── image.left
+├── image.right
+├── undershoot.left
+├── undershoot.right
+├── [selection]
+├── [progress[.pulse]]
+╰── [window.popup]
 </code></pre>
 
 <p>GtkEntry has a main node with the name entry. Depending on the properties
@@ -11629,7 +11630,7 @@ just a single handle for the text cursor, it gets the style class
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L1522">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L1518">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11667,7 +11668,7 @@ just a single handle for the text cursor, it gets the style class
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L1525">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L1521">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11795,7 +11796,7 @@ just a single handle for the text cursor, it gets the style class
                         <p>binding reference or <code>nil</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L2174-L2198">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L2170-L2194">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11887,7 +11888,7 @@ just a single handle for the text cursor, it gets the style class
                         <p>positive handler ID, or a value less than or equal to <code>0</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3279-L3298">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3274-L3293">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11919,7 +11920,7 @@ just a single handle for the text cursor, it gets the style class
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Retrieves the value set by gtk_entry_set_activates_default().</p>
+                        <p>Retrieves the value set by <code>gtk_entry_set_activates_default()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -11931,7 +11932,7 @@ just a single handle for the text cursor, it gets the style class
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3306-L3309">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3301-L3304">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11952,7 +11953,7 @@ just a single handle for the text cursor, it gets the style class
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets the value set by gtk_entry_set_alignment().</p>
+                        <p>Gets the value set by <code>gtk_entry_set_alignment()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -11964,7 +11965,7 @@ just a single handle for the text cursor, it gets the style class
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3312-L3315">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3307-L3310">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11986,7 +11987,7 @@ just a single handle for the text cursor, it gets the style class
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Gets the attribute list that was set on the entry using
-gtk_entry_set_attributes(), if any.</p>
+<code>gtk_entry_set_attributes()</code>, if any.</p>
 
                       </div>
                       <div class="declaration">
@@ -11998,7 +11999,7 @@ gtk_entry_set_attributes(), if any.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3319-L3322">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3314-L3317">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12032,7 +12033,7 @@ this widget.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3326-L3329">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3321-L3324">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12065,7 +12066,7 @@ this widget.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3332-L3335">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3327-L3330">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12089,7 +12090,7 @@ this widget.</p>
                         <p>Returns the index of the icon which is the source of the current
 DND operation, or -1.</p>
 
-<p>This function is meant to be used in a <code>GtkWidget</code>::drag-data-get
+<p>This function is meant to be used in a <code>GtkWidget::drag</code>-data-get
 callback.</p>
 
                       </div>
@@ -12102,7 +12103,7 @@ callback.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3342-L3345">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3337-L3340">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12124,7 +12125,7 @@ callback.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Retrieves the horizontal cursor adjustment for the entry.
-See gtk_entry_set_cursor_hadjustment().</p>
+See <code>gtk_entry_set_cursor_hadjustment()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12136,7 +12137,7 @@ See gtk_entry_set_cursor_hadjustment().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3349-L3352">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3344-L3347">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12157,7 +12158,7 @@ See gtk_entry_set_cursor_hadjustment().</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets the value set by gtk_entry_set_has_frame().</p>
+                        <p>Gets the value set by <code>gtk_entry_set_has_frame()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12169,7 +12170,7 @@ See gtk_entry_set_cursor_hadjustment().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3355-L3358">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3350-L3353">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12202,7 +12203,7 @@ See gtk_entry_set_cursor_hadjustment().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3361-L3364">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3356-L3359">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12231,7 +12232,7 @@ entry in a draw callback.</p>
 <code>icon_area</code> is filled with zeros. Otherwise, <code>icon_area</code> will be filled
 with the icon’s allocation, relative to <code>entry</code>’s allocation.</p>
 
-<p>See also gtk_entry_get_text_area()</p>
+<p>See also <code>gtk_entry_get_text_area()</code></p>
 
                         <a href="../Protocols/EntryProtocol/getIconArea%28iconPos%3AiconArea%3A%29.html" class="slightly-smaller">See more</a>
                       </div>
@@ -12244,7 +12245,7 @@ with the icon’s allocation, relative to <code>entry</code>’s allocation.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3375-L3378">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3370-L3373">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12268,7 +12269,7 @@ with the icon’s allocation, relative to <code>entry</code>’s allocation.</p>
                         <p>Finds the icon at the given position and return its index. The
 position’s coordinates are relative to the <code>entry</code>’s top left corner.
 If <code>x</code>, <code>y</code> doesn’t lie inside an icon, -1 is returned.
-This function is intended for use in a <code>GtkWidget</code>::query-tooltip
+This function is intended for use in a <code>GtkWidget::query</code>-tooltip
 signal handler.</p>
 
                       </div>
@@ -12281,7 +12282,7 @@ signal handler.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3385-L3388">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3380-L3383">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12316,7 +12317,7 @@ stock, pixbuf, or icon name).</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3393-L3396">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3388-L3391">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12351,7 +12352,7 @@ pixbuf, stock or gicon).</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3401-L3404">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3396-L3399">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12388,7 +12389,7 @@ method will work regardless of whether the icon was set using a
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3411-L3414">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3406-L3409">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12421,7 +12422,7 @@ method will work regardless of whether the icon was set using a
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3417-L3420">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3412-L3415">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12454,13 +12455,13 @@ Use gtk_entry_get_icon_name() instead.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">getIconStock</span><span class="p">(</span><span class="n">iconPos</span> <span class="nv">icon_pos</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:3Gtk17EntryIconPositiona">EntryIconPosition</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span><span class="o">!</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3428-L3431">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3423-L3426">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12495,7 +12496,7 @@ the return value will be <code>GTK_IMAGE_EMPTY</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3436-L3439">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3431-L3434">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12530,7 +12531,7 @@ position in <code>entry</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3443-L3446">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3438-L3441">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12565,7 +12566,7 @@ position in <code>entry</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3450-L3453">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3445-L3448">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12586,8 +12587,8 @@ position in <code>entry</code>.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>This function returns the entry’s <code>GtkEntry</code>:inner-border property. See
-gtk_entry_set_inner_border() for more information.</p>
+                        <p>This function returns the entry’s <code>GtkEntry:inner</code>-border property. See
+<code>gtk_entry_set_inner_border()</code> for more information.</p>
 
 <p><strong>get_inner_border is deprecated:</strong>
 Use the standard border and padding CSS properties (through
@@ -12599,13 +12600,13 @@ Use the standard border and padding CSS properties (through
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">getInnerBorder</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="kt">GtkBorder</span><span class="o">&gt;!</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3462-L3465">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3457-L3460">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12626,7 +12627,7 @@ Use the standard border and padding CSS properties (through
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets the value of the <code>GtkEntry</code>:input-hints property.</p>
+                        <p>Gets the value of the <code>GtkEntry:input</code>-hints property.</p>
 
                       </div>
                       <div class="declaration">
@@ -12638,7 +12639,7 @@ Use the standard border and padding CSS properties (through
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3468-L3471">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3463-L3466">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12659,7 +12660,7 @@ Use the standard border and padding CSS properties (through
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets the value of the <code>GtkEntry</code>:input-purpose property.</p>
+                        <p>Gets the value of the <code>GtkEntry:input</code>-purpose property.</p>
 
                       </div>
                       <div class="declaration">
@@ -12671,7 +12672,7 @@ Use the standard border and padding CSS properties (through
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3474-L3477">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3469-L3472">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12693,7 +12694,7 @@ Use the standard border and padding CSS properties (through
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Retrieves the character displayed in place of the real characters
-for entries with visibility set to false. See gtk_entry_set_invisible_char().</p>
+for entries with visibility set to false. See <code>gtk_entry_set_invisible_char()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12705,7 +12706,7 @@ for entries with visibility set to false. See gtk_entry_set_invisible_char().</p
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3481-L3484">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3476-L3479">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12728,13 +12729,13 @@ for entries with visibility set to false. See gtk_entry_set_invisible_char().</p
                       <div class="abstract">
                         <p>Gets the <code>PangoLayout</code> used to display the entry.
 The layout is useful to e.g. convert text positions to
-pixel positions, in combination with gtk_entry_get_layout_offsets().
+pixel positions, in combination with <code>gtk_entry_get_layout_offsets()</code>.
 The returned layout is owned by the entry and must not be
 modified or freed by the caller.</p>
 
 <p>Keep in mind that the layout text may contain a preedit string, so
-gtk_entry_layout_index_to_text_index() and
-gtk_entry_text_index_to_layout_index() are needed to convert byte
+<code>gtk_entry_layout_index_to_text_index()</code> and
+<code>gtk_entry_text_index_to_layout_index()</code> are needed to convert byte
 indices in the layout to byte indices in the entry contents.</p>
 
                       </div>
@@ -12747,7 +12748,7 @@ indices in the layout to byte indices in the entry contents.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3496-L3499">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3491-L3494">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12778,14 +12779,14 @@ entry to implement editable cells in a sheet widget.</p>
 is clicked.</p>
 
 <p>Note that as the user scrolls around in the entry the offsets will
-change; you’ll need to connect to the “notify::scroll-offset”
+change; you’ll need to connect to the “notify<code>scroll</code>-offset”
 signal to track this. Remember when using the <code>PangoLayout</code>
 functions you need to convert to and from pixels using
-PANGO_PIXELS() or <code>PANGO_SCALE</code>.</p>
+<code>PANGO_PIXELS()</code> or <code>PANGO_SCALE</code>.</p>
 
 <p>Keep in mind that the layout text may contain a preedit string, so
-gtk_entry_layout_index_to_text_index() and
-gtk_entry_text_index_to_layout_index() are needed to convert byte
+<code>gtk_entry_layout_index_to_text_index()</code> and
+<code>gtk_entry_text_index_to_layout_index()</code> are needed to convert byte
 indices in the layout to byte indices in the entry contents.</p>
 
                       </div>
@@ -12798,7 +12799,7 @@ indices in the layout to byte indices in the entry contents.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3520-L3523">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3515-L3518">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12820,10 +12821,10 @@ indices in the layout to byte indices in the entry contents.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Retrieves the maximum allowed length of the text in
-<code>entry</code>. See gtk_entry_set_max_length().</p>
+<code>entry</code>. See <code>gtk_entry_set_max_length()</code>.</p>
 
 <p>This is equivalent to getting <code>entry</code>&lsquo;s <code>GtkEntryBuffer</code> and
-calling gtk_entry_buffer_get_max_length() on it.</p>
+calling <code>gtk_entry_buffer_get_max_length()</code> on it.</p>
 
                       </div>
                       <div class="declaration">
@@ -12835,7 +12836,7 @@ calling gtk_entry_buffer_get_max_length() on it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3530-L3533">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3525-L3528">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12857,7 +12858,7 @@ calling gtk_entry_buffer_get_max_length() on it.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Retrieves the desired maximum width of <code>entry</code>, in characters.
-See gtk_entry_set_max_width_chars().</p>
+See <code>gtk_entry_set_max_width_chars()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12869,7 +12870,7 @@ See gtk_entry_set_max_width_chars().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3537-L3540">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3532-L3535">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12890,7 +12891,7 @@ See gtk_entry_set_max_width_chars().</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets the value set by gtk_entry_set_overwrite_mode().</p>
+                        <p>Gets the value set by <code>gtk_entry_set_overwrite_mode()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12902,7 +12903,7 @@ See gtk_entry_set_max_width_chars().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3543-L3546">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3538-L3541">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12935,7 +12936,7 @@ See gtk_entry_set_max_width_chars().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3549-L3552">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3544-L3547">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12957,7 +12958,7 @@ See gtk_entry_set_max_width_chars().</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Returns the current fraction of the task that’s been completed.
-See gtk_entry_set_progress_fraction().</p>
+See <code>gtk_entry_set_progress_fraction()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12969,7 +12970,7 @@ See gtk_entry_set_progress_fraction().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3556-L3559">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3551-L3554">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12990,7 +12991,7 @@ See gtk_entry_set_progress_fraction().</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Retrieves the pulse step set with gtk_entry_set_progress_pulse_step().</p>
+                        <p>Retrieves the pulse step set with <code>gtk_entry_set_progress_pulse_step()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -13002,7 +13003,7 @@ See gtk_entry_set_progress_fraction().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3562-L3565">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3557-L3560">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13023,7 +13024,7 @@ See gtk_entry_set_progress_fraction().</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets the tabstops that were set on the entry using gtk_entry_set_tabs(), if
+                        <p>Gets the tabstops that were set on the entry using <code>gtk_entry_set_tabs()</code>, if
 any.</p>
 
                       </div>
@@ -13036,7 +13037,7 @@ any.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3569-L3572">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3564-L3567">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13058,10 +13059,10 @@ any.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Retrieves the contents of the entry widget.
-See also gtk_editable_get_chars().</p>
+See also <code>gtk_editable_get_chars()</code>.</p>
 
 <p>This is equivalent to getting <code>entry</code>&lsquo;s <code>GtkEntryBuffer</code> and calling
-gtk_entry_buffer_get_text() on it.</p>
+<code>gtk_entry_buffer_get_text()</code> on it.</p>
 
                       </div>
                       <div class="declaration">
@@ -13073,7 +13074,7 @@ gtk_entry_buffer_get_text() on it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3579-L3582">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3574-L3577">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13099,7 +13100,7 @@ useful when drawing something to the entry in a draw callback.</p>
 
 <p>If the entry is not realized, <code>text_area</code> is filled with zeros.</p>
 
-<p>See also gtk_entry_get_icon_area().</p>
+<p>See also <code>gtk_entry_get_icon_area()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -13111,7 +13112,7 @@ useful when drawing something to the entry in a draw callback.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3590-L3593">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3585-L3588">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13136,7 +13137,7 @@ useful when drawing something to the entry in a draw callback.</p>
 <code>entry</code>.</p>
 
 <p>This is equivalent to getting <code>entry</code>&lsquo;s <code>GtkEntryBuffer</code> and
-calling gtk_entry_buffer_get_length() on it.</p>
+calling <code>gtk_entry_buffer_get_length()</code> on it.</p>
 
                       </div>
                       <div class="declaration">
@@ -13148,7 +13149,7 @@ calling gtk_entry_buffer_get_length() on it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3600-L3603">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3595-L3598">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13170,7 +13171,7 @@ calling gtk_entry_buffer_get_length() on it.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Retrieves whether the text in <code>entry</code> is visible. See
-gtk_entry_set_visibility().</p>
+<code>gtk_entry_set_visibility()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -13182,7 +13183,7 @@ gtk_entry_set_visibility().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3607-L3610">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3602-L3605">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13203,7 +13204,7 @@ gtk_entry_set_visibility().</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets the value set by gtk_entry_set_width_chars().</p>
+                        <p>Gets the value set by <code>gtk_entry_set_width_chars()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -13215,7 +13216,7 @@ gtk_entry_set_visibility().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3613-L3616">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3608-L3611">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13238,7 +13239,7 @@ gtk_entry_set_visibility().</p>
                       <div class="abstract">
                         <p>Causes <code>entry</code> to have keyboard focus.</p>
 
-<p>It behaves like gtk_widget_grab_focus(),
+<p>It behaves like <code>gtk_widget_grab_focus()</code>,
 except that it doesn&rsquo;t select the contents of the entry.
 You only want to call this on some special entries
 which the user usually doesn&rsquo;t want to replace all text in,
@@ -13254,7 +13255,7 @@ such as search-as-you-type entries.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3625-L3628">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3620-L3623">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13278,13 +13279,13 @@ such as search-as-you-type entries.</p>
                         <p>Allow the <code>GtkEntry</code> input method to internally handle key press
 and release events. If this function returns <code>true</code>, then no further
 processing should be done for this key event. See
-gtk_im_context_filter_keypress().</p>
+<code>gtk_im_context_filter_keypress()</code>.</p>
 
 <p>Note that you are expected to call this function from your handler
 when overriding key event handling. This is needed in the case when
 you need to insert your own key handling between the input method
 and the default key event handling of the <code>GtkEntry</code>.
-See gtk_text_view_reset_im_context() for an example of use.</p>
+See <code>gtk_text_view_reset_im_context()</code> for an example of use.</p>
 
                       </div>
                       <div class="declaration">
@@ -13296,7 +13297,7 @@ See gtk_text_view_reset_im_context() for an example of use.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3640-L3643">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3635-L3638">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13318,8 +13319,8 @@ See gtk_text_view_reset_im_context() for an example of use.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Converts from a position in the entry’s <code>PangoLayout</code> (returned by
-gtk_entry_get_layout()) to a position in the entry contents
-(returned by gtk_entry_get_text()).</p>
+<code>gtk_entry_get_layout()</code>) to a position in the entry contents
+(returned by <code>gtk_entry_get_text()</code>).</p>
 
                       </div>
                       <div class="declaration">
@@ -13331,7 +13332,7 @@ gtk_entry_get_layout()) to a position in the entry contents
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3648-L3651">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3643-L3646">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13355,9 +13356,9 @@ gtk_entry_get_layout()) to a position in the entry contents
                         <p>Indicates that some progress is made, but you don’t know how much.
 Causes the entry’s progress indicator to enter “activity mode,”
 where a block bounces back and forth. Each call to
-gtk_entry_progress_pulse() causes the block to move by a little bit
+<code>gtk_entry_progress_pulse()</code> causes the block to move by a little bit
 (the amount of movement per pulse is determined by
-gtk_entry_set_progress_pulse_step()).</p>
+<code>gtk_entry_set_progress_pulse_step()</code>).</p>
 
                       </div>
                       <div class="declaration">
@@ -13369,7 +13370,7 @@ gtk_entry_set_progress_pulse_step()).</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3659-L3662">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3654-L3657">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13405,7 +13406,7 @@ would confuse on-going input method behavior.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3668-L3671">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3663-L3666">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13432,8 +13433,8 @@ the dialog box containing the entry will be closed, since the default
 widget is usually one of the dialog buttons.</p>
 
 <p>(For experts: if <code>setting</code> is <code>true</code>, the entry calls
-gtk_window_activate_default() on the window containing the entry, in
-the default handler for the <code>GtkEntry</code>::activate signal.)</p>
+<code>gtk_window_activate_default()</code> on the window containing the entry, in
+the default handler for the <code>GtkEntry::activate</code> signal.)</p>
 
                       </div>
                       <div class="declaration">
@@ -13445,7 +13446,7 @@ the default handler for the <code>GtkEntry</code>::activate signal.)</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3681-L3684">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3676-L3679">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13480,7 +13481,7 @@ text is shorter than the width of the entry.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3689-L3692">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3684-L3687">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13514,7 +13515,7 @@ entry text.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3696-L3699">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3691-L3694">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13548,7 +13549,7 @@ this widget.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3703-L3706">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3698-L3701">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13584,7 +13585,7 @@ All further configuration of the completion mechanism is done on
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3712-L3715">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3707-L3710">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13607,7 +13608,7 @@ All further configuration of the completion mechanism is done on
                       <div class="abstract">
                         <p>Hooks up an adjustment to the cursor position in an entry, so that when
 the cursor is moved, the adjustment is scrolled to show that position.
-See gtk_scrolled_window_get_hadjustment() for a typical way of obtaining
+See <code>gtk_scrolled_window_get_hadjustment()</code> for a typical way of obtaining
 the adjustment.</p>
 
 <p>The adjustment has to be in pixel units and in the same coordinate system
@@ -13623,7 +13624,7 @@ as the entry.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3724-L3727">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3719-L3722">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13656,7 +13657,7 @@ as the entry.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3730-L3733">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3725-L3728">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13689,7 +13690,7 @@ as the entry.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3736-L3739">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3731-L3734">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13714,14 +13715,14 @@ as the entry.</p>
 operation when the user clicks and drags the icon.</p>
 
 <p>To handle the drag operation, you need to connect to the usual
-<code>GtkWidget</code>::drag-data-get (or possibly <code>GtkWidget</code>::drag-data-delete)
-signal, and use gtk_entry_get_current_icon_drag_source() in
+<code>GtkWidget::drag</code>-data-get (or possibly <code>GtkWidget::drag</code>-data-delete)
+signal, and use <code>gtk_entry_get_current_icon_drag_source()</code> in
 your signal handler to find out if the drag was started from
 an icon.</p>
 
 <p>By default, GTK+ uses the icon as the drag icon. You can use the
-<code>GtkWidget</code>::drag-begin signal to set a different icon. Note that you
-have to use g_signal_connect_after() to ensure that your signal handler
+<code>GtkWidget::drag</code>-begin signal to set a different icon. Note that you
+have to use <code>g_signal_connect_after()</code> to ensure that your signal handler
 gets executed after the default handler.</p>
 
                       </div>
@@ -13734,7 +13735,7 @@ gets executed after the default handler.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3754-L3757">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3749-L3752">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13772,7 +13773,7 @@ instead.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3765-L3768">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3760-L3763">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13812,7 +13813,7 @@ instead.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3777-L3780">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3772-L3775">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13847,7 +13848,7 @@ instead.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3785-L3788">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3780-L3783">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13881,13 +13882,13 @@ Use gtk_entry_set_icon_from_icon_name() instead.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">setIconFromStock</span><span class="p">(</span><span class="n">iconPos</span> <span class="nv">icon_pos</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:3Gtk17EntryIconPositiona">EntryIconPosition</a></span><span class="p">,</span> <span class="n">stockID</span> <span class="nv">stock_id</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3797-L3800">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3792-L3795">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13920,7 +13921,7 @@ Use gtk_entry_set_icon_from_icon_name() instead.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3803-L3806">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3798-L3801">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13943,12 +13944,12 @@ Use gtk_entry_set_icon_from_icon_name() instead.</p>
                       <div class="abstract">
                         <p>Sets <code>tooltip</code> as the contents of the tooltip for the icon at
 the specified position. <code>tooltip</code> is assumed to be marked up with
-the [Pango text markup language][PangoMarkupFormat].</p>
+the <a href="#PangoMarkupFormat">Pango text markup language</a>.</p>
 
 <p>Use <code>nil</code> for <code>tooltip</code> to remove an existing tooltip.</p>
 
-<p>See also gtk_widget_set_tooltip_markup() and
-gtk_entry_set_icon_tooltip_text().</p>
+<p>See also <code>gtk_widget_set_tooltip_markup()</code> and
+<code>gtk_entry_set_icon_tooltip_text()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -13960,7 +13961,7 @@ gtk_entry_set_icon_tooltip_text().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3816-L3819">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3811-L3814">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13986,13 +13987,13 @@ at the specified position.</p>
 
 <p>Use <code>nil</code> for <code>tooltip</code> to remove an existing tooltip.</p>
 
-<p>See also gtk_widget_set_tooltip_text() and
-gtk_entry_set_icon_tooltip_markup().</p>
+<p>See also <code>gtk_widget_set_tooltip_text()</code> and
+<code>gtk_entry_set_icon_tooltip_markup()</code>.</p>
 
-<p>If you unset the widget tooltip via gtk_widget_set_tooltip_text() or
-gtk_widget_set_tooltip_markup(), this sets GtkWidget:has-tooltip to <code>false</code>,
+<p>If you unset the widget tooltip via <code>gtk_widget_set_tooltip_text()</code> or
+<code>gtk_widget_set_tooltip_markup()</code>, this sets GtkWidget:has-tooltip to <code>false</code>,
 which suppresses icon tooltips too. You can resolve this by then calling
-gtk_widget_set_has_tooltip() to set GtkWidget:has-tooltip back to <code>true</code>, or
+<code>gtk_widget_set_has_tooltip()</code> to set GtkWidget:has-tooltip back to <code>true</code>, or
 setting at least one non-empty tooltip on any icon achieves the same result.</p>
 
                         <a href="../Protocols/EntryProtocol/setIconTooltipText%28iconPos%3Atooltip%3A%29.html" class="slightly-smaller">See more</a>
@@ -14006,7 +14007,7 @@ setting at least one non-empty tooltip on any icon achieves the same result.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3834-L3837">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3829-L3832">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14046,13 +14047,13 @@ Use the standard border and padding CSS properties (through
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">setInner</span><span class="p">(</span><span class="nv">border</span><span class="p">:</span> <span class="kt"><a href="../Protocols/BorderProtocol.html">BorderProtocol</a></span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3852-L3855">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3847-L3850">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14073,7 +14074,7 @@ Use the standard border and padding CSS properties (through
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Sets the <code>GtkEntry</code>:input-hints property, which
+                        <p>Sets the <code>GtkEntry:input</code>-hints property, which
 allows input methods to fine-tune their behaviour.</p>
 
                       </div>
@@ -14086,7 +14087,7 @@ allows input methods to fine-tune their behaviour.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3859-L3862">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3854-L3857">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14107,7 +14108,7 @@ allows input methods to fine-tune their behaviour.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Sets the <code>GtkEntry</code>:input-purpose property which
+                        <p>Sets the <code>GtkEntry:input</code>-purpose property which
 can be used by on-screen keyboards and other input
 methods to adjust their behaviour.</p>
 
@@ -14121,7 +14122,7 @@ methods to adjust their behaviour.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3867-L3870">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3862-L3865">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14143,7 +14144,7 @@ methods to adjust their behaviour.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Sets the character to use in place of the actual text when
-gtk_entry_set_visibility() has been called to set text visibility
+<code>gtk_entry_set_visibility()</code> has been called to set text visibility
 to <code>false</code>. i.e. this is the character used in “password mode” to
 show the user how many characters have been typed. By default, GTK+
 picks the best invisible char available in the current font. If you
@@ -14160,7 +14161,7 @@ at all; there will be no text on the screen as they type.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3879-L3882">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3874-L3877">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14186,8 +14187,8 @@ the current contents are longer than the given length, then they
 will be truncated to fit.</p>
 
 <p>This is equivalent to getting <code>entry</code>&lsquo;s <code>GtkEntryBuffer</code> and
-calling gtk_entry_buffer_set_max_length() on it.</p>
-<pre class="highlight swift"><code></code></pre>
+calling <code>gtk_entry_buffer_set_max_length()</code> on it.
+]|</p>
 
                       </div>
                       <div class="declaration">
@@ -14199,7 +14200,7 @@ calling gtk_entry_buffer_set_max_length() on it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3892-L3895">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3886-L3889">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14232,7 +14233,7 @@ calling gtk_entry_buffer_set_max_length() on it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3898-L3901">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3892-L3895">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14265,7 +14266,7 @@ calling gtk_entry_buffer_set_max_length() on it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3904-L3907">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3898-L3901">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14306,7 +14307,7 @@ first key event arrives.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3918-L3921">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3912-L3915">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14341,7 +14342,7 @@ inclusive.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3926-L3929">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3920-L3923">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14363,7 +14364,7 @@ inclusive.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Sets the fraction of total entry width to move the progress
-bouncing block for each call to gtk_entry_progress_pulse().</p>
+bouncing block for each call to <code>gtk_entry_progress_pulse()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -14375,7 +14376,7 @@ bouncing block for each call to gtk_entry_progress_pulse().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3933-L3936">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3927-L3930">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14409,7 +14410,7 @@ text.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3940-L3943">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3934-L3937">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14433,7 +14434,7 @@ text.</p>
                         <p>Sets the text in the widget to the given
 value, replacing the current contents.</p>
 
-<p>See gtk_entry_buffer_set_text().</p>
+<p>See <code>gtk_entry_buffer_set_text()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -14445,7 +14446,7 @@ value, replacing the current contents.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3949-L3952">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3943-L3946">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14473,9 +14474,9 @@ the text in the entry widget is copied elsewhere.</p>
 
 <p>By default, GTK+ picks the best invisible character available
 in the current font, but it can be changed with
-gtk_entry_set_invisible_char().</p>
+<code>gtk_entry_set_invisible_char()</code>.</p>
 
-<p>Note that you probably want to set <code>GtkEntry</code>:input-purpose
+<p>Note that you probably want to set <code>GtkEntry:input</code>-purpose
 to <code>GTK_INPUT_PURPOSE_PASSWORD</code> or <code>GTK_INPUT_PURPOSE_PIN</code> to
 inform input methods about the purpose of this entry,
 in addition to setting visibility to <code>false</code>.</p>
@@ -14490,7 +14491,7 @@ in addition to setting visibility to <code>false</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3967-L3970">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3961-L3964">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14527,7 +14528,7 @@ size reverts to the default entry size.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3977-L3980">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3971-L3974">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14549,9 +14550,9 @@ size reverts to the default entry size.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Converts from a position in the entry contents (returned
-by gtk_entry_get_text()) to a position in the
-entry’s <code>PangoLayout</code> (returned by gtk_entry_get_layout(),
-with text retrieved via pango_layout_get_text()).</p>
+by <code>gtk_entry_get_text()</code>) to a position in the
+entry’s <code>PangoLayout</code> (returned by <code>gtk_entry_get_layout()</code>,
+with text retrieved via <code>pango_layout_get_text()</code>).</p>
 
                         <a href="../Protocols/EntryProtocol/textIndexToLayoutIndex%28textIndex%3A%29.html" class="slightly-smaller">See more</a>
                       </div>
@@ -14564,7 +14565,7 @@ with text retrieved via pango_layout_get_text()).</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3986-L3989">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3980-L3983">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14586,7 +14587,7 @@ with text retrieved via pango_layout_get_text()).</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Unsets the invisible char previously set with
-gtk_entry_set_invisible_char(). So that the
+<code>gtk_entry_set_invisible_char()</code>. So that the
 default invisible char is used again.</p>
 
                       </div>
@@ -14599,7 +14600,7 @@ default invisible char is used again.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3994-L3997">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3988-L3991">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14620,7 +14621,7 @@ default invisible char is used again.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Retrieves the value set by gtk_entry_set_activates_default().</p>
+                        <p>Retrieves the value set by <code>gtk_entry_set_activates_default()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -14632,7 +14633,7 @@ default invisible char is used again.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3999-L4016">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L3993-L4010">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14653,7 +14654,7 @@ default invisible char is used again.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets the value set by gtk_entry_set_alignment().</p>
+                        <p>Gets the value set by <code>gtk_entry_set_alignment()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -14665,7 +14666,7 @@ default invisible char is used again.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L4019-L4031">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L4013-L4025">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14703,7 +14704,7 @@ default invisible char is used again.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L4039-L4051">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L4033-L4045">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14736,7 +14737,7 @@ default invisible char is used again.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L4053-L4065">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L4047-L4059">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14769,7 +14770,7 @@ default invisible char is used again.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L4068-L4081">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L4062-L4075">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14793,7 +14794,7 @@ default invisible char is used again.</p>
                         <p>Returns the index of the icon which is the source of the current
 DND operation, or -1.</p>
 
-<p>This function is meant to be used in a <code>GtkWidget</code>::drag-data-get
+<p>This function is meant to be used in a <code>GtkWidget::drag</code>-data-get
 callback.</p>
 
                       </div>
@@ -14806,7 +14807,7 @@ callback.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L4088-L4098">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L4082-L4092">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14828,7 +14829,7 @@ callback.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Retrieves the horizontal cursor adjustment for the entry.
-See gtk_entry_set_cursor_hadjustment().</p>
+See <code>gtk_entry_set_cursor_hadjustment()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -14840,7 +14841,7 @@ See gtk_entry_set_cursor_hadjustment().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L4102-L4119">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L4096-L4113">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14861,7 +14862,7 @@ See gtk_entry_set_cursor_hadjustment().</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets the value set by gtk_entry_set_has_frame().</p>
+                        <p>Gets the value set by <code>gtk_entry_set_has_frame()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -14873,7 +14874,7 @@ See gtk_entry_set_cursor_hadjustment().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L4122-L4132">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L4116-L4126">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14894,8 +14895,8 @@ See gtk_entry_set_cursor_hadjustment().</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>This function returns the entry’s <code>GtkEntry</code>:inner-border property. See
-gtk_entry_set_inner_border() for more information.</p>
+                        <p>This function returns the entry’s <code>GtkEntry:inner</code>-border property. See
+<code>gtk_entry_set_inner_border()</code> for more information.</p>
 
 <p><strong>get_inner_border is deprecated:</strong>
 Use the standard border and padding CSS properties (through
@@ -14912,7 +14913,7 @@ Use the standard border and padding CSS properties (through
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L4141-L4169">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L4135-L4163">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14933,7 +14934,7 @@ Use the standard border and padding CSS properties (through
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets the value of the <code>GtkEntry</code>:input-hints property.</p>
+                        <p>Gets the value of the <code>GtkEntry:input</code>-hints property.</p>
 
                       </div>
                       <div class="declaration">
@@ -14945,7 +14946,7 @@ Use the standard border and padding CSS properties (through
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L4172-L4183">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L4166-L4177">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14966,7 +14967,7 @@ Use the standard border and padding CSS properties (through
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets the value of the <code>GtkEntry</code>:input-purpose property.</p>
+                        <p>Gets the value of the <code>GtkEntry:input</code>-purpose property.</p>
 
                       </div>
                       <div class="declaration">
@@ -14978,7 +14979,7 @@ Use the standard border and padding CSS properties (through
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L4186-L4198">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L4180-L4192">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -15000,7 +15001,7 @@ Use the standard border and padding CSS properties (through
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Retrieves the character displayed in place of the real characters
-for entries with visibility set to false. See gtk_entry_set_invisible_char().</p>
+for entries with visibility set to false. See <code>gtk_entry_set_invisible_char()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -15012,7 +15013,7 @@ for entries with visibility set to false. See gtk_entry_set_invisible_char().</p
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L4202-L4219">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L4196-L4213">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -15035,13 +15036,13 @@ for entries with visibility set to false. See gtk_entry_set_invisible_char().</p
                       <div class="abstract">
                         <p>Gets the <code>PangoLayout</code> used to display the entry.
 The layout is useful to e.g. convert text positions to
-pixel positions, in combination with gtk_entry_get_layout_offsets().
+pixel positions, in combination with <code>gtk_entry_get_layout_offsets()</code>.
 The returned layout is owned by the entry and must not be
 modified or freed by the caller.</p>
 
 <p>Keep in mind that the layout text may contain a preedit string, so
-gtk_entry_layout_index_to_text_index() and
-gtk_entry_text_index_to_layout_index() are needed to convert byte
+<code>gtk_entry_layout_index_to_text_index()</code> and
+<code>gtk_entry_text_index_to_layout_index()</code> are needed to convert byte
 indices in the layout to byte indices in the entry contents.</p>
 
                       </div>
@@ -15054,7 +15055,7 @@ indices in the layout to byte indices in the entry contents.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L4231-L4246">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L4225-L4240">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -15076,10 +15077,10 @@ indices in the layout to byte indices in the entry contents.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Retrieves the maximum allowed length of the text in
-<code>entry</code>. See gtk_entry_set_max_length().</p>
+<code>entry</code>. See <code>gtk_entry_set_max_length()</code>.</p>
 
 <p>This is equivalent to getting <code>entry</code>&lsquo;s <code>GtkEntryBuffer</code> and
-calling gtk_entry_buffer_get_max_length() on it.</p>
+calling <code>gtk_entry_buffer_get_max_length()</code> on it.</p>
 
                       </div>
                       <div class="declaration">
@@ -15091,7 +15092,7 @@ calling gtk_entry_buffer_get_max_length() on it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L4253-L4274">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L4247-L4267">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -15113,7 +15114,7 @@ calling gtk_entry_buffer_get_max_length() on it.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Retrieves the desired maximum width of <code>entry</code>, in characters.
-See gtk_entry_set_max_width_chars().</p>
+See <code>gtk_entry_set_max_width_chars()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -15125,7 +15126,7 @@ See gtk_entry_set_max_width_chars().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L4278-L4289">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L4271-L4282">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -15146,7 +15147,7 @@ See gtk_entry_set_max_width_chars().</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets the value set by gtk_entry_set_overwrite_mode().</p>
+                        <p>Gets the value set by <code>gtk_entry_set_overwrite_mode()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -15158,7 +15159,7 @@ See gtk_entry_set_max_width_chars().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L4292-L4302">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L4285-L4295">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -15191,7 +15192,7 @@ See gtk_entry_set_max_width_chars().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L4305-L4323">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L4298-L4316">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -15213,7 +15214,7 @@ See gtk_entry_set_max_width_chars().</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Returns the current fraction of the task that’s been completed.
-See gtk_entry_set_progress_fraction().</p>
+See <code>gtk_entry_set_progress_fraction()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -15225,7 +15226,7 @@ See gtk_entry_set_progress_fraction().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L4327-L4340">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L4320-L4333">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -15246,7 +15247,7 @@ See gtk_entry_set_progress_fraction().</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Retrieves the pulse step set with gtk_entry_set_progress_pulse_step().</p>
+                        <p>Retrieves the pulse step set with <code>gtk_entry_set_progress_pulse_step()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -15258,7 +15259,7 @@ See gtk_entry_set_progress_fraction().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L4343-L4354">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L4336-L4347">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -15291,7 +15292,7 @@ See gtk_entry_set_progress_fraction().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L4356-L4368">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L4349-L4361">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -15324,7 +15325,7 @@ See gtk_entry_set_progress_fraction().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L4370-L4387">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L4363-L4380">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -15349,7 +15350,7 @@ See gtk_entry_set_progress_fraction().</p>
 <code>entry</code>.</p>
 
 <p>This is equivalent to getting <code>entry</code>&lsquo;s <code>GtkEntryBuffer</code> and
-calling gtk_entry_buffer_get_length() on it.</p>
+calling <code>gtk_entry_buffer_get_length()</code> on it.</p>
 
                       </div>
                       <div class="declaration">
@@ -15361,7 +15362,7 @@ calling gtk_entry_buffer_get_length() on it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L4394-L4404">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L4387-L4397">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -15394,7 +15395,7 @@ calling gtk_entry_buffer_get_length() on it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L4406-L4429">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L4399-L4422">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -15415,7 +15416,7 @@ calling gtk_entry_buffer_get_length() on it.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets the value set by gtk_entry_set_width_chars().</p>
+                        <p>Gets the value set by <code>gtk_entry_set_width_chars()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -15427,7 +15428,7 @@ calling gtk_entry_buffer_get_length() on it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L4432-L4446">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-DrawingArea-Entry.swift#L4425-L4439">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -15440,7 +15441,7 @@ calling gtk_entry_buffer_get_length() on it.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

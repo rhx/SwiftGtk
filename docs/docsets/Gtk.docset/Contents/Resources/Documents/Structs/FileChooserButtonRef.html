@@ -11530,9 +11530,8 @@ file.  It implements the <code>GtkFileChooser</code> interface.  Visually, it is
 file name with a button to bring up a <code>GtkFileChooserDialog</code>.
 The user can then use that dialog to change the file associated with
 that button.  This widget does not support setting the
-<code>GtkFileChooser</code>:select-multiple property to <code>true</code>.</p>
-
-<p>&ldquo;` Create a button to let the user select a file in /etc</p>
+<code>GtkFileChooser:select</code>-multiple property to <code>true</code>.</p>
+<h2 id='create-a-button-to-let-the-user-select-a-file-in-etc' class='heading'>Create a button to let the user select a file in /etc</h2>
 
 <p>(C Language Example):</p>
 <pre class="highlight plaintext"><code>{
@@ -11551,13 +11550,12 @@ that button.  This widget does not support setting the
 <blockquote>
 <p>The <code>GtkFileChooserButton</code> will ellipsize the label, and will thus
 request little horizontal space.  To give the button more space,
-you should call gtk_widget_get_preferred_size(),
-gtk_file_chooser_button_set_width_chars(), or pack the button in
+you should call <code>gtk_widget_get_preferred_size()</code>,
+<code>gtk_file_chooser_button_set_width_chars()</code>, or pack the button in
 such a way that other interface elements give space to the
 widget.</p>
 </blockquote>
-
-<p>&rdquo; CSS nodes</p>
+<h1 id='css-nodes' class='heading'>CSS nodes</h1>
 
 <p>GtkFileChooserButton has a CSS node with name “filechooserbutton”, containing
 a subnode for the internal button with name “button” and style class “.file”.</p>
@@ -11595,7 +11593,7 @@ For type-safe access, use the generated, typed pointer <code>file_chooser_button
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L6702">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L6683">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11636,7 +11634,7 @@ For type-safe access, use the generated, typed pointer <code>file_chooser_button
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L6707-L6708">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L6688-L6689">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11666,7 +11664,7 @@ For type-safe access, use the generated, typed pointer <code>file_chooser_button
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L6711-L6713">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L6692-L6694">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11697,7 +11695,7 @@ For type-safe access, use the generated, typed pointer <code>file_chooser_button
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L6717-L6719">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L6698-L6700">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11728,7 +11726,7 @@ For type-safe access, use the generated, typed pointer <code>file_chooser_button
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L6723-L6725">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L6704-L6706">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11759,7 +11757,7 @@ For type-safe access, use the generated, typed pointer <code>file_chooser_button
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L6729-L6731">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L6710-L6712">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11790,7 +11788,7 @@ For type-safe access, use the generated, typed pointer <code>file_chooser_button
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L6735-L6737">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L6716-L6718">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11821,7 +11819,7 @@ For type-safe access, use the generated, typed pointer <code>file_chooser_button
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L6741-L6743">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L6722-L6724">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11851,7 +11849,7 @@ For type-safe access, use the generated, typed pointer <code>file_chooser_button
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L6746-L6749">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L6727-L6730">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11890,7 +11888,7 @@ order for the button to take over the file selected in the dialog.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L6761-L6764">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L6742-L6745">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11929,7 +11927,7 @@ order for the button to take over the file selected in the dialog.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L6775-L6778">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L6756-L6759">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11942,7 +11940,7 @@ order for the button to take over the file selected in the dialog.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

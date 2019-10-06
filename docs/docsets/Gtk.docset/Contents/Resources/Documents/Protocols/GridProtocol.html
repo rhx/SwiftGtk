@@ -11529,17 +11529,16 @@ Alternatively, use <code><a href="../Structs/GridRef.html">GridRef</a></code> as
 <p>GtkGrid is a container which arranges its child widgets in
 rows and columns, with arbitrary positions and horizontal/vertical spans.</p>
 
-<p>Children are added using gtk_grid_attach(). They can span multiple
+<p>Children are added using <code>gtk_grid_attach()</code>. They can span multiple
 rows or columns. It is also possible to add a child next to an
-existing child, using gtk_grid_attach_next_to(). The behaviour of
+existing child, using <code>gtk_grid_attach_next_to()</code>. The behaviour of
 GtkGrid when several children occupy the same grid cell is undefined.</p>
 
-<p>GtkGrid can be used like a <code>GtkBox</code> by just using gtk_container_add(),
+<p>GtkGrid can be used like a <code>GtkBox</code> by just using <code>gtk_container_add()</code>,
 which will place children next to each other in the direction determined
-by the <code>GtkOrientable</code>:orientation property. However, if all you want is a
+by the <code>GtkOrientable:orientation</code> property. However, if all you want is a
 single row or column, then <code>GtkBox</code> is the preferred widget.</p>
-
-<p>&ldquo; CSS nodes</p>
+<h1 id='css-nodes' class='heading'>CSS nodes</h1>
 
 <p>GtkGrid uses a single CSS node with name grid.</p>
 
@@ -11575,7 +11574,7 @@ single row or column, then <code>GtkBox</code> is the preferred widget.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L3957">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L3946">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11613,7 +11612,7 @@ single row or column, then <code>GtkBox</code> is the preferred widget.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L3960">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L3949">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11741,7 +11740,7 @@ single row or column, then <code>GtkBox</code> is the preferred widget.</p>
                         <p>binding reference or <code>nil</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L4306-L4330">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L4295-L4319">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11833,7 +11832,7 @@ single row or column, then <code>GtkBox</code> is the preferred widget.</p>
                         <p>positive handler ID, or a value less than or equal to <code>0</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L5137-L5156">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L5125-L5144">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11881,7 +11880,7 @@ number of “cells” that <code>child</code> will occupy is determined by
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L5168-L5171">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L5156-L5159">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11910,7 +11909,7 @@ left or right placement) or column 0 (for top or bottom placement),
 at the end indicated by <code>side</code>.</p>
 
 <p>Attaching widgets labeled [1], [2], [3] with <code>sibling</code> == <code>nil</code> and
-<code>side</code> == <code>GTK_POS_LEFT</code> yields a layout of [3][2][1].</p>
+<code>side</code> == <code>GTK_POS_LEFT</code> yields a layout of <a href="#2">3</a>(#1).</p>
 
                       </div>
                       <div class="declaration">
@@ -11922,7 +11921,7 @@ at the end indicated by <code>side</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L5182-L5185">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L5170-L5173">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11955,7 +11954,7 @@ at the end indicated by <code>side</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L5188-L5191">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L5176-L5179">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11989,7 +11988,7 @@ cell whose upper left corner is at <code>left</code>, <code>top</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L5195-L5198">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L5183-L5186">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12022,7 +12021,7 @@ cell whose upper left corner is at <code>left</code>, <code>top</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L5201-L5204">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L5189-L5192">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12055,7 +12054,7 @@ cell whose upper left corner is at <code>left</code>, <code>top</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L5207-L5210">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L5195-L5198">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12077,7 +12076,7 @@ cell whose upper left corner is at <code>left</code>, <code>top</code>.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Returns the baseline position of <code>row</code> as set
-by gtk_grid_set_row_baseline_position() or the default value
+by <code>gtk_grid_set_row_baseline_position()</code> or the default value
 <code>GTK_BASELINE_POSITION_CENTER</code>.</p>
 
                       </div>
@@ -12090,7 +12089,7 @@ by gtk_grid_set_row_baseline_position() or the default value
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L5215-L5218">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L5203-L5206">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12123,7 +12122,7 @@ by gtk_grid_set_row_baseline_position() or the default value
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L5221-L5224">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L5209-L5212">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12156,7 +12155,7 @@ by gtk_grid_set_row_baseline_position() or the default value
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L5227-L5230">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L5215-L5218">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12193,7 +12192,7 @@ position are grown to span the new column.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L5237-L5240">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L5225-L5228">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12231,7 +12230,7 @@ a column is inserted.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L5248-L5251">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L5236-L5239">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12268,7 +12267,7 @@ position are grown to span the new row.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L5258-L5261">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L5246-L5249">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12306,7 +12305,7 @@ are moved to the left.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L5269-L5272">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L5257-L5260">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12344,7 +12343,7 @@ are moved up.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L5280-L5283">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L5268-L5271">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12380,7 +12379,7 @@ parent of the <code>grid</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L5289-L5292">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L5277-L5280">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12413,7 +12412,7 @@ parent of the <code>grid</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L5295-L5298">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L5283-L5286">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12446,7 +12445,7 @@ parent of the <code>grid</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L5301-L5304">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L5289-L5292">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12480,7 +12479,7 @@ grid, in case that row is assigned more space than is requested.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L5308-L5311">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L5296-L5299">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12513,7 +12512,7 @@ grid, in case that row is assigned more space than is requested.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L5314-L5317">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L5302-L5305">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12546,7 +12545,7 @@ grid, in case that row is assigned more space than is requested.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L5320-L5323">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L5308-L5311">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12579,7 +12578,7 @@ grid, in case that row is assigned more space than is requested.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L5325-L5338">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L5313-L5326">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12612,7 +12611,7 @@ grid, in case that row is assigned more space than is requested.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L5341-L5351">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L5329-L5339">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12645,7 +12644,7 @@ grid, in case that row is assigned more space than is requested.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L5354-L5364">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L5342-L5352">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12678,7 +12677,7 @@ grid, in case that row is assigned more space than is requested.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L5367-L5377">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L5355-L5365">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12711,7 +12710,7 @@ grid, in case that row is assigned more space than is requested.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L5380-L5390">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L5368-L5378">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12724,7 +12723,7 @@ grid, in case that row is assigned more space than is requested.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

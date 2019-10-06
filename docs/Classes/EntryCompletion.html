@@ -11535,35 +11535,35 @@ in the entry, <code>GtkEntryCompletion</code> checks which rows in the model mat
 the current content of the entry, and displays a list of matches.
 By default, the matching is done by comparing the entry text
 case-insensitively against the text column of the model (see
-gtk_entry_completion_set_text_column()), but this can be overridden
-with a custom match function (see gtk_entry_completion_set_match_func()).</p>
+<code>gtk_entry_completion_set_text_column()</code>), but this can be overridden
+with a custom match function (see <code>gtk_entry_completion_set_match_func()</code>).</p>
 
 <p>When the user selects a completion, the content of the entry is
 updated. By default, the content of the entry is replaced by the
 text column of the model, but this can be overridden by connecting
-to the <code>GtkEntryCompletion</code>::match-selected signal and updating the
+to the <code>GtkEntryCompletion::match</code>-selected signal and updating the
 entry in the signal handler. Note that you should return <code>true</code> from
 the signal handler to suppress the default behaviour.</p>
 
-<p>To add completion functionality to an entry, use gtk_entry_set_completion().</p>
+<p>To add completion functionality to an entry, use <code>gtk_entry_set_completion()</code>.</p>
 
 <p>In addition to regular completion matches, which will be inserted into the
 entry when they are selected, <code>GtkEntryCompletion</code> also allows to display
 “actions” in the popup window. Their appearance is similar to menuitems,
 to differentiate them clearly from completion strings. When an action is
-selected, the <code>GtkEntryCompletion</code>::action-activated signal is emitted.</p>
+selected, the <code>GtkEntryCompletion::action</code>-activated signal is emitted.</p>
 
 <p>GtkEntryCompletion uses a <code>GtkTreeModelFilter</code> model to represent the
 subset of the entire model that is currently matching. While the
-GtkEntryCompletion signals <code>GtkEntryCompletion</code>::match-selected and
-<code>GtkEntryCompletion</code>::cursor-on-match take the original model and an
+GtkEntryCompletion signals <code>GtkEntryCompletion::match</code>-selected and
+<code>GtkEntryCompletion::cursor</code>-on-match take the original model and an
 iter pointing to that model as arguments, other callbacks and signals
-(such as <code>GtkCellLayoutDataFuncs</code> or <code>GtkCellArea</code>::apply-attributes)
+(such as <code>GtkCellLayoutDataFuncs</code> or <code>GtkCellArea::apply</code>-attributes)
 will generally take the filter model as argument. As long as you are
-only calling gtk_tree_model_get(), this will make no difference to
+only calling <code>gtk_tree_model_get()</code>, this will make no difference to
 you. If for some reason, you need the original model, use
-gtk_tree_model_filter_get_model(). Don’t forget to use
-gtk_tree_model_filter_convert_iter_to_child_iter() to obtain a
+<code>gtk_tree_model_filter_get_model()</code>. Don’t forget to use
+<code>gtk_tree_model_filter_convert_iter_to_child_iter()</code> to obtain a
 matching iter.</p>
 
           </div>
@@ -11599,7 +11599,7 @@ Ownership is transferred to the <code>EntryCompletion</code> instance.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L994-L996">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L992-L994">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11625,12 +11625,12 @@ Will retain <code>GtkEntryCompletion</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">other</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/EntryCompletionProtocol.html">EntryCompletionProtocol</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">other</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/EntryCompletionProtocol.html">EntryCompletionProtocol</a></span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L1000-L1003">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L998-L1001">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11656,12 +11656,12 @@ Will retain <code>GtkEntryCompletion</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">cPointer</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">cPointer</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L1007-L1009">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L1005-L1007">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11687,12 +11687,12 @@ Will retain <code>GtkEntryCompletion</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeRawPointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L1013-L1015">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L1011-L1013">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11718,12 +11718,12 @@ Will retain <code>GtkEntryCompletion</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L1019-L1021">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L1017-L1019">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11749,12 +11749,12 @@ Will retain <code>GtkEntryCompletion</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">opaquePointer</span><span class="p">:</span> <span class="kt">OpaquePointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">opaquePointer</span><span class="p">:</span> <span class="kt">OpaquePointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L1025-L1027">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L1023-L1025">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11779,12 +11779,12 @@ Will retain <code>GtkEntryCompletion</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">()</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L1030-L1033">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L1028-L1031">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11811,12 +11811,12 @@ specified <code>area</code> to layout cells in the underlying
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">area</span><span class="p">:</span> <span class="kt"><a href="../Protocols/CellAreaProtocol.html">CellAreaProtocol</a></span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">area</span><span class="p">:</span> <span class="kt"><a href="../Protocols/CellAreaProtocol.html">CellAreaProtocol</a></span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L1038-L1041">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L1036-L1039">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11848,7 +11848,7 @@ specified <code>area</code> to layout cells in the underlying
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L1046-L1049">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-EntryAccessible-FileChooserButton.swift#L1044-L1047">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11861,7 +11861,7 @@ specified <code>area</code> to layout cells in the underlying
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

@@ -11535,7 +11535,7 @@ implicitly treated like windows of the default window group.</p>
 
 <p>GtkWindowGroup objects are referenced by each window in the group,
 so once you have added all windows to a GtkWindowGroup, you can drop
-the initial reference to the window group with g_object_unref(). If the
+the initial reference to the window group with <code>g_object_unref()</code>. If the
 windows in the window group are subsequently destroyed, then they will
 be removed from the window group and drop their references on the window
 group; when all window have been removed, the window group will be
@@ -11574,7 +11574,7 @@ For type-safe access, use the generated, typed pointer <code>window_group_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessible-WindowGroup.swift#L4504">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessible-WindowGroup.swift#L4496">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11615,7 +11615,7 @@ For type-safe access, use the generated, typed pointer <code>window_group_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessible-WindowGroup.swift#L4509-L4510">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessible-WindowGroup.swift#L4501-L4502">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11645,7 +11645,7 @@ For type-safe access, use the generated, typed pointer <code>window_group_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessible-WindowGroup.swift#L4513-L4515">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessible-WindowGroup.swift#L4505-L4507">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11676,7 +11676,7 @@ For type-safe access, use the generated, typed pointer <code>window_group_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessible-WindowGroup.swift#L4519-L4521">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessible-WindowGroup.swift#L4511-L4513">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11707,7 +11707,7 @@ For type-safe access, use the generated, typed pointer <code>window_group_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessible-WindowGroup.swift#L4525-L4527">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessible-WindowGroup.swift#L4517-L4519">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11738,7 +11738,7 @@ For type-safe access, use the generated, typed pointer <code>window_group_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessible-WindowGroup.swift#L4531-L4533">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessible-WindowGroup.swift#L4523-L4525">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11769,7 +11769,7 @@ For type-safe access, use the generated, typed pointer <code>window_group_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessible-WindowGroup.swift#L4537-L4539">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessible-WindowGroup.swift#L4529-L4531">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11800,7 +11800,7 @@ For type-safe access, use the generated, typed pointer <code>window_group_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessible-WindowGroup.swift#L4543-L4545">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessible-WindowGroup.swift#L4535-L4537">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11818,10 +11818,10 @@ For type-safe access, use the generated, typed pointer <code>window_group_ptr</c
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <pre class="highlight swift"><code><span class="kt">Creates</span> <span class="n">a</span> <span class="k">new</span> <span class="err">`</span><span class="kt">GtkWindowGroup</span><span class="err">`</span> <span class="n">object</span><span class="o">.</span> <span class="kt">Grabs</span> <span class="n">added</span> <span class="n">with</span>
+                        <pre class="highlight swift"><code><span class="kt">Creates</span> <span class="n">a</span> <span class="k">new</span> <span class="p">`</span><span class="nv">GtkWindowGroup</span><span class="p">`</span> <span class="n">object</span><span class="o">.</span> <span class="kt">Grabs</span> <span class="n">added</span> <span class="n">with</span>
 </code></pre>
 
-<p>gtk_grab_add() only affect windows within the same <code>GtkWindowGroup</code>.</p>
+<p><code>gtk_grab_add()</code> only affect windows within the same <code>GtkWindowGroup</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -11833,7 +11833,7 @@ For type-safe access, use the generated, typed pointer <code>window_group_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessible-WindowGroup.swift#L4549-L4552">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-WidgetAccessible-WindowGroup.swift#L4541-L4544">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11846,7 +11846,7 @@ For type-safe access, use the generated, typed pointer <code>window_group_ptr</c
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

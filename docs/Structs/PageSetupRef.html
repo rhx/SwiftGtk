@@ -11531,19 +11531,18 @@ and then pass it to the <code>GtkPrintOperation</code> when printing.
 The benefit of splitting this out of the <code>GtkPrintSettings</code> is that
 these affect the actual layout of the page, and thus need to be set
 long before user prints.</p>
+<h2 id='margins-a-name-print-margins-a' class='heading'>Margins ## <a name="print-margins"></a></h2>
 
-<p><code>Margins</code> {<code>print</code>-margins}
-The margins specified in this object are the “print margins”, i.e. the
+<p>The margins specified in this object are the “print margins”, i.e. the
 parts of the page that the printer cannot print on. These are different
 from the layout margins that a word processor uses; they are typically
 used to determine the minimal size for the layout
 margins.</p>
 
-<p>To obtain a <code>GtkPageSetup</code> use gtk_page_setup_new() to get the defaults,
-or use gtk_print_run_page_setup_dialog() to show the page setup dialog
+<p>To obtain a <code>GtkPageSetup</code> use <code>gtk_page_setup_new()</code> to get the defaults,
+or use <code>gtk_print_run_page_setup_dialog()</code> to show the page setup dialog
 and receive the resulting page setup.</p>
-
-<p>&ldquo;` A page setup dialog</p>
+<h2 id='a-page-setup-dialog' class='heading'>A page setup dialog</h2>
 
 <p>(C Language Example):</p>
 <pre class="highlight plaintext"><code>static GtkPrintSettings *settings = NULL;
@@ -11602,7 +11601,7 @@ For type-safe access, use the generated, typed pointer <code>page_setup_ptr</cod
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L130">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L128">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11643,7 +11642,7 @@ For type-safe access, use the generated, typed pointer <code>page_setup_ptr</cod
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L135-L136">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L133-L134">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11673,7 +11672,7 @@ For type-safe access, use the generated, typed pointer <code>page_setup_ptr</cod
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L139-L141">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L137-L139">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11704,7 +11703,7 @@ For type-safe access, use the generated, typed pointer <code>page_setup_ptr</cod
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L145-L147">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L143-L145">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11735,7 +11734,7 @@ For type-safe access, use the generated, typed pointer <code>page_setup_ptr</cod
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L151-L153">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L149-L151">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11766,7 +11765,7 @@ For type-safe access, use the generated, typed pointer <code>page_setup_ptr</cod
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L157-L159">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L155-L157">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11797,7 +11796,7 @@ For type-safe access, use the generated, typed pointer <code>page_setup_ptr</cod
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L163-L165">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L161-L163">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11828,7 +11827,7 @@ For type-safe access, use the generated, typed pointer <code>page_setup_ptr</cod
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L169-L171">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L167-L169">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11858,7 +11857,7 @@ For type-safe access, use the generated, typed pointer <code>page_setup_ptr</cod
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L174-L177">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L172-L175">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11878,7 +11877,7 @@ For type-safe access, use the generated, typed pointer <code>page_setup_ptr</cod
                       <div class="abstract">
                         <p>Reads the page setup from the file <code>file_name</code>. Returns a
 new <code>GtkPageSetup</code> object with the restored page setup,
-or <code>nil</code> if an error occurred. See gtk_page_setup_to_file().</p>
+or <code>nil</code> if an error occurred. See <code>gtk_page_setup_to_file()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -11890,7 +11889,7 @@ or <code>nil</code> if an error occurred. See gtk_page_setup_to_file().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L182-L189">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L180-L187">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11909,7 +11908,7 @@ or <code>nil</code> if an error occurred. See gtk_page_setup_to_file().</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Desrialize a page setup from an a{sv} variant in
-the format produced by gtk_page_setup_to_gvariant().</p>
+the format produced by <code>gtk_page_setup_to_gvariant()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -11921,7 +11920,7 @@ the format produced by gtk_page_setup_to_gvariant().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L193-L196">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L191-L194">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11953,7 +11952,7 @@ page setup, or <code>nil</code> if an error occurred.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L201-L208">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L199-L206">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11973,7 +11972,7 @@ page setup, or <code>nil</code> if an error occurred.</p>
                       <div class="abstract">
                         <p>Reads the page setup from the file <code>file_name</code>. Returns a
 new <code>GtkPageSetup</code> object with the restored page setup,
-or <code>nil</code> if an error occurred. See gtk_page_setup_to_file().</p>
+or <code>nil</code> if an error occurred. See <code>gtk_page_setup_to_file()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -11985,7 +11984,7 @@ or <code>nil</code> if an error occurred. See gtk_page_setup_to_file().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L212-L219">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L210-L217">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12004,7 +12003,7 @@ or <code>nil</code> if an error occurred. See gtk_page_setup_to_file().</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Desrialize a page setup from an a{sv} variant in
-the format produced by gtk_page_setup_to_gvariant().</p>
+the format produced by <code>gtk_page_setup_to_gvariant()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12016,7 +12015,7 @@ the format produced by gtk_page_setup_to_gvariant().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L223-L226">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L221-L224">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12048,7 +12047,7 @@ page setup, or <code>nil</code> if an error occurred.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L231-L238">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L229-L236">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12061,7 +12060,7 @@ page setup, or <code>nil</code> if an error occurred.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

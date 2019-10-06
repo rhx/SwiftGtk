@@ -11529,27 +11529,25 @@ Use <code>ToggleButton</code> as a strong reference or owner of a <code>GtkToggl
 clicked. Clicking again will cause the toggle button to return to its
 normal state.</p>
 
-<p>A toggle button is created by calling either gtk_toggle_button_new() or
-gtk_toggle_button_new_with_label(). If using the former, it is advisable to
+<p>A toggle button is created by calling either <code>gtk_toggle_button_new()</code> or
+<code>gtk_toggle_button_new_with_label()</code>. If using the former, it is advisable to
 pack a widget, (such as a <code>GtkLabel</code> and/or a <code>GtkImage</code>), into the toggle
 button’s container. (See <code>GtkButton</code> for more information).</p>
 
 <p>The state of a <code>GtkToggleButton</code> can be set specifically using
-gtk_toggle_button_set_active(), and retrieved using
-gtk_toggle_button_get_active().</p>
+<code>gtk_toggle_button_set_active()</code>, and retrieved using
+<code>gtk_toggle_button_get_active()</code>.</p>
 
-<p>To simply switch the state of a toggle button, use gtk_toggle_button_toggled().</p>
-
-<p>&ldquo; CSS nodes</p>
+<p>To simply switch the state of a toggle button, use <code>gtk_toggle_button_toggled()</code>.</p>
+<h1 id='css-nodes' class='heading'>CSS nodes</h1>
 
 <p>GtkToggleButton has a single CSS node with name button. To differentiate
 it from a plain <code>GtkButton</code>, it gets the .toggle style class.</p>
-
-<p>&rdquo;<code>Creating two</code>GtkToggleButton` widgets.</p>
+<h2 id='creating-two-code-gtktogglebutton-code-widgets' class='heading'>Creating two <code>GtkToggleButton</code> widgets.</h2>
 
 <p>(C Language Example):</p>
 <pre class="highlight plaintext"><code>static void output_state (GtkToggleButton *source, gpointer user_data) {
-  printf ("Active: `d`\n", gtk_toggle_button_get_active (source));
+  printf ("Active: %d\n", gtk_toggle_button_get_active (source));
 }
 
 void make_toggles (void) {
@@ -11619,7 +11617,7 @@ Ownership is transferred to the <code>ToggleButton</code> instance.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L8905-L8907">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L8894-L8896">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11645,12 +11643,12 @@ Will retain <code>GtkToggleButton</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">other</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/ToggleButtonProtocol.html">ToggleButtonProtocol</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">other</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/ToggleButtonProtocol.html">ToggleButtonProtocol</a></span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L8911-L8914">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L8900-L8903">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11676,12 +11674,12 @@ Will retain <code>GtkToggleButton</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">cPointer</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">cPointer</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L8918-L8920">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L8907-L8909">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11707,12 +11705,12 @@ Will retain <code>GtkToggleButton</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeRawPointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L8924-L8926">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L8913-L8915">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11738,12 +11736,12 @@ Will retain <code>GtkToggleButton</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L8930-L8932">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L8919-L8921">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11769,12 +11767,12 @@ Will retain <code>GtkToggleButton</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">opaquePointer</span><span class="p">:</span> <span class="kt">OpaquePointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">opaquePointer</span><span class="p">:</span> <span class="kt">OpaquePointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L8936-L8938">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L8925-L8927">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11792,19 +11790,19 @@ Will retain <code>GtkToggleButton</code>.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Creates a new toggle button. A widget should be packed into the button, as in gtk_button_new().</p>
+                        <p>Creates a new toggle button. A widget should be packed into the button, as in <code>gtk_button_new()</code>.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">()</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L8941-L8944">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L8930-L8933">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11829,12 +11827,12 @@ Will retain <code>GtkToggleButton</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">label</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">label</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L8947-L8950">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L8936-L8939">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11853,7 +11851,7 @@ Will retain <code>GtkToggleButton</code>.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Creates a new <code>GtkToggleButton</code> containing a label. The label
-will be created using gtk_label_new_with_mnemonic(), so underscores
+will be created using <code>gtk_label_new_with_mnemonic()</code>, so underscores
 in <code>label</code> indicate the mnemonic for the button.</p>
 
                       </div>
@@ -11861,12 +11859,12 @@ in <code>label</code> indicate the mnemonic for the button.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="n">mnemonic</span> <span class="nv">label</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="n">mnemonic</span> <span class="nv">label</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L8955-L8958">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L8944-L8947">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11896,7 +11894,7 @@ in <code>label</code> indicate the mnemonic for the button.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L8961-L8964">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L8950-L8953">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11915,7 +11913,7 @@ in <code>label</code> indicate the mnemonic for the button.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Creates a new <code>GtkToggleButton</code> containing a label. The label
-will be created using gtk_label_new_with_mnemonic(), so underscores
+will be created using <code>gtk_label_new_with_mnemonic()</code>, so underscores
 in <code>label</code> indicate the mnemonic for the button.</p>
 
                       </div>
@@ -11928,7 +11926,7 @@ in <code>label</code> indicate the mnemonic for the button.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L8969-L8972">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L8958-L8961">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11941,7 +11939,7 @@ in <code>label</code> indicate the mnemonic for the button.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

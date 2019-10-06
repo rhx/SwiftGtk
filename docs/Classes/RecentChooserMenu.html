@@ -11527,19 +11527,19 @@ Use <code>RecentChooserMenu</code> as a strong reference or owner of a <code>Gtk
 
 <p><code>GtkRecentChooserMenu</code> is a widget suitable for displaying recently used files
 inside a menu.  It can be used to set a sub-menu of a <code>GtkMenuItem</code> using
-gtk_menu_item_set_submenu(), or as the menu of a <code>GtkMenuToolButton</code>.</p>
+<code>gtk_menu_item_set_submenu()</code>, or as the menu of a <code>GtkMenuToolButton</code>.</p>
 
 <p>Note that <code>GtkRecentChooserMenu</code> does not have any methods of its own. Instead,
 you should use the functions that work on a <code>GtkRecentChooser</code>.</p>
 
 <p>Note also that <code>GtkRecentChooserMenu</code> does not support multiple filters, as it
 has no way to let the user choose between them as the <code>GtkRecentChooserWidget</code>
-and <code>GtkRecentChooserDialog</code> widgets do. Thus using gtk_recent_chooser_add_filter()
+and <code>GtkRecentChooserDialog</code> widgets do. Thus using <code>gtk_recent_chooser_add_filter()</code>
 on a <code>GtkRecentChooserMenu</code> widget will yield the same effects as using
-gtk_recent_chooser_set_filter(), replacing any currently set filter
-with the supplied filter; gtk_recent_chooser_remove_filter() will remove
+<code>gtk_recent_chooser_set_filter()</code>, replacing any currently set filter
+with the supplied filter; <code>gtk_recent_chooser_remove_filter()</code> will remove
 any currently set <code>GtkRecentFilter</code> object and will unset the current filter;
-gtk_recent_chooser_list_filters() will return a list containing a single
+<code>gtk_recent_chooser_list_filters()</code> will return a list containing a single
 <code>GtkRecentFilter</code> object.</p>
 
 <p>Recently used files are supported since GTK+ 2.10.</p>
@@ -11577,7 +11577,7 @@ Ownership is transferred to the <code>RecentChooserMenu</code> instance.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L9812-L9814">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L9793-L9795">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11603,12 +11603,12 @@ Will retain <code>GtkRecentChooserMenu</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">other</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/RecentChooserMenuProtocol.html">RecentChooserMenuProtocol</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">other</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/RecentChooserMenuProtocol.html">RecentChooserMenuProtocol</a></span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L9818-L9821">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L9799-L9802">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11634,12 +11634,12 @@ Will retain <code>GtkRecentChooserMenu</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">cPointer</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">cPointer</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L9825-L9827">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L9806-L9808">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11665,12 +11665,12 @@ Will retain <code>GtkRecentChooserMenu</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeRawPointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L9831-L9833">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L9812-L9814">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11696,12 +11696,12 @@ Will retain <code>GtkRecentChooserMenu</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L9837-L9839">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L9818-L9820">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11727,12 +11727,12 @@ Will retain <code>GtkRecentChooserMenu</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">opaquePointer</span><span class="p">:</span> <span class="kt">OpaquePointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">opaquePointer</span><span class="p">:</span> <span class="kt">OpaquePointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L9843-L9845">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L9824-L9826">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11760,7 +11760,7 @@ access.</p>
 <p>This widget implements the <code>GtkRecentChooser</code> interface.</p>
 
 <p>This widget creates its own <code>GtkRecentManager</code> object.  See the
-gtk_recent_chooser_menu_new_for_manager() function to know how to create
+<code>gtk_recent_chooser_menu_new_for_manager()</code> function to know how to create
 a <code>GtkRecentChooserMenu</code> widget bound to another <code>GtkRecentManager</code> object.</p>
 
                       </div>
@@ -11768,12 +11768,12 @@ a <code>GtkRecentChooserMenu</code> widget bound to another <code>GtkRecentManag
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">()</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L9859-L9862">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L9840-L9843">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11804,12 +11804,12 @@ among multiple <code>GtkRecentChooser</code> widgets.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">manager</span><span class="p">:</span> <span class="kt"><a href="../Protocols/RecentManagerProtocol.html">RecentManagerProtocol</a></span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">manager</span><span class="p">:</span> <span class="kt"><a href="../Protocols/RecentManagerProtocol.html">RecentManagerProtocol</a></span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L9871-L9874">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L9852-L9855">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11845,7 +11845,7 @@ among multiple <code>GtkRecentChooser</code> widgets.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L9883-L9886">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L9864-L9867">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11858,7 +11858,7 @@ among multiple <code>GtkRecentChooser</code> widgets.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

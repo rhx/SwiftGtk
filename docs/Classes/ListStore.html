@@ -11530,7 +11530,7 @@ widget.  It implements the <code>GtkTreeModel</code> interface, and consequentia
 can use all of the methods available there.  It also implements the
 <code>GtkTreeSortable</code> interface so it can be sorted by the view.
 Finally, it also implements the tree
-[drag and drop][gtk3-GtkTreeView-drag-and-drop]
+<a href="#gtk3-GtkTreeView-drag-and-drop">drag and drop</a>
 interfaces.</p>
 
 <p>The <code>GtkListStore</code> can accept most GObject types as a column type, though
@@ -11539,8 +11539,8 @@ data passed in (such as a string or a boxed pointer).  Columns that
 accept <code>GObjects</code> are handled a little differently.  The
 <code>GtkListStore</code> will keep a reference to the object instead of copying the
 value.  As a result, if the object is modified, it is up to the
-application writer to call gtk_tree_model_row_changed() to emit the
-<code>GtkTreeModel</code>::row_changed signal.  This most commonly affects lists with
+application writer to call <code>gtk_tree_model_row_changed()</code> to emit the
+<code>GtkTreeModel::row_changed</code> signal.  This most commonly affects lists with
 <code>GdkPixbufs</code> stored.</p>
 
 <p>An example for creating a simple list store:
@@ -11593,8 +11593,7 @@ application writer to call gtk_tree_model_row_changed() to emit the
                       -1);
 }
 </code></pre>
-
-<p>&ldquo; Performance Considerations</p>
+<h1 id='performance-considerations' class='heading'>Performance Considerations</h1>
 
 <p>Internally, the <code>GtkListStore</code> was implemented with a linked list with
 a tail pointer prior to GTK+ 2.6.  As a result, it was fast at data
@@ -11603,25 +11602,23 @@ insertion and deletion, and not fast at random data access.  The
 that <code>GtkTreeIters</code> can be cached while the row exists.  Thus, if
 access to a particular row is needed often and your code is expected to
 run on older versions of GTK+, it is worth keeping the iter around.</p>
-
-<p>&rdquo; Atomic Operations</p>
+<h1 id='atomic-operations' class='heading'>Atomic Operations</h1>
 
 <p>It is important to note that only the methods
-gtk_list_store_insert_with_values() and gtk_list_store_insert_with_valuesv()
+<code>gtk_list_store_insert_with_values()</code> and <code>gtk_list_store_insert_with_valuesv()</code>
 are atomic, in the sense that the row is being appended to the store and the
 values filled in in a single operation with regard to <code>GtkTreeModel</code> signaling.
-In contrast, using e.g. gtk_list_store_append() and then gtk_list_store_set()
-will first create a row, which triggers the <code>GtkTreeModel</code>::row-inserted signal
+In contrast, using e.g. <code>gtk_list_store_append()</code> and then <code>gtk_list_store_set()</code>
+will first create a row, which triggers the <code>GtkTreeModel::row</code>-inserted signal
 on <code>GtkListStore</code>. The row, however, is still empty, and any signal handler
-connecting to <code>GtkTreeModel</code>::row-inserted on this particular store should be prepared
+connecting to <code>GtkTreeModel::row</code>-inserted on this particular store should be prepared
 for the situation that the row might be empty. This is especially important
 if you are wrapping the <code>GtkListStore</code> inside a <code>GtkTreeModelFilter</code> and are
 using a <code>GtkTreeModelFilterVisibleFunc</code>. Using any of the non-atomic operations
 to append rows to the <code>GtkListStore</code> will cause the
 <code>GtkTreeModelFilterVisibleFunc</code> to be visited with an empty row first; the
 function must be prepared for that.</p>
-
-<p>&ldquo; GtkListStore as GtkBuildable</p>
+<h1 id='gtkliststore-as-gtkbuildable' class='heading'>GtkListStore as GtkBuildable</h1>
 
 <p>The GtkListStore implementation of the GtkBuildable interface allows
 to specify the model columns with a <columns> element that may contain
@@ -11694,7 +11691,7 @@ Ownership is transferred to the <code>ListStore</code> instance.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L9778-L9780">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L9762-L9764">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11720,12 +11717,12 @@ Will retain <code>GtkListStore</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">other</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/ListStoreProtocol.html">ListStoreProtocol</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">other</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/ListStoreProtocol.html">ListStoreProtocol</a></span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L9784-L9787">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L9768-L9771">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11751,12 +11748,12 @@ Will retain <code>GtkListStore</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">cPointer</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">cPointer</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L9791-L9793">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L9775-L9777">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11782,12 +11779,12 @@ Will retain <code>GtkListStore</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeRawPointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L9797-L9799">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L9781-L9783">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11813,12 +11810,12 @@ Will retain <code>GtkListStore</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L9803-L9805">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L9787-L9789">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11844,12 +11841,12 @@ Will retain <code>GtkListStore</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">opaquePointer</span><span class="p">:</span> <span class="kt">OpaquePointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">opaquePointer</span><span class="p">:</span> <span class="kt">OpaquePointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L9809-L9811">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L9793-L9795">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11874,12 +11871,12 @@ Will retain <code>GtkListStore</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="n">nColumns</span> <span class="nv">n_columns</span><span class="p">:</span> <span class="kt">CInt</span><span class="p">,</span> <span class="nv">types</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">GType</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="n">nColumns</span> <span class="nv">n_columns</span><span class="p">:</span> <span class="kt">CInt</span><span class="p">,</span> <span class="nv">types</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">GType</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L9818-L9821">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L9802-L9805">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11909,7 +11906,7 @@ Will retain <code>GtkListStore</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L9824-L9827">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L9808-L9811">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11968,7 +11965,7 @@ Will retain <code>GtkListStore</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">types</span><span class="p">:</span> <span class="p">[</span><span class="kt">GType</span><span class="p">])</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">types</span><span class="p">:</span> <span class="p">[</span><span class="kt">GType</span><span class="p">])</span></code></pre>
 
                         </div>
                       </div>
@@ -12017,7 +12014,7 @@ Will retain <code>GtkListStore</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="n">_</span> <span class="nv">types</span><span class="p">:</span> <span class="kt">GType</span><span class="o">...</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="n">_</span> <span class="nv">types</span><span class="p">:</span> <span class="kt">GType</span><span class="o">...</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -12273,7 +12270,7 @@ Will retain <code>GtkListStore</code>.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

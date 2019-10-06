@@ -11533,20 +11533,18 @@ typing on the keyboard, or the application’s search mode is toggled on.</p>
 
 <p>For keyboard presses to start a search, events will need to be
 forwarded from the top-level window that contains the search bar.
-See gtk_search_bar_handle_event() for example code. Common shortcuts
+See <code>gtk_search_bar_handle_event()</code> for example code. Common shortcuts
 such as Ctrl+F should be handled as an application action, or through
 the menu items.</p>
 
 <p>You will also need to tell the search bar about which entry you
-are using as your search entry using gtk_search_bar_connect_entry().
+are using as your search entry using <code>gtk_search_bar_connect_entry()</code>.
 The following example shows you how to create a more complex search
 entry.</p>
-
-<p>&ldquo; CSS nodes</p>
+<h1 id='css-nodes' class='heading'>CSS nodes</h1>
 
 <p>GtkSearchBar has a single CSS node with name searchbar.</p>
-
-<p>&rdquo;` Creating a search bar</p>
+<h2 id='creating-a-search-bar' class='heading'>Creating a search bar</h2>
 
 <p><a href="https://gitlab.gnome.org/GNOME/gtk/blob/gtk-3-24/examples/search-bar.c">A simple example</a></p>
 
@@ -11582,7 +11580,7 @@ entry.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L5963">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L5954">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11620,7 +11618,7 @@ entry.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L5966">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L5957">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11748,7 +11746,7 @@ entry.</p>
                         <p>binding reference or <code>nil</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L6327-L6351">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L6318-L6342">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11840,7 +11838,7 @@ entry.</p>
                         <p>positive handler ID, or a value less than or equal to <code>0</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L7155-L7174">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L7145-L7164">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11887,7 +11885,7 @@ search bar (as in our main example).</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L7185-L7188">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L7175-L7178">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11920,7 +11918,7 @@ search bar (as in our main example).</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L7191-L7194">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L7181-L7184">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11953,7 +11951,7 @@ search bar (as in our main example).</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L7197-L7200">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L7187-L7190">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11983,10 +11981,9 @@ will be returned. The caller should ensure that events are
 not propagated further.</p>
 
 <p>If no entry has been connected to the search bar, using
-gtk_search_bar_connect_entry(), this function will return
+<code>gtk_search_bar_connect_entry()</code>, this function will return
 immediately with a warning.</p>
-
-<p>&ldquo;` Showing the search bar on key presses</p>
+<h2 id='showing-the-search-bar-on-key-presses' class='heading'>Showing the search bar on key presses</h2>
 
 <p>(C Language Example):</p>
 <pre class="highlight plaintext"><code>static gboolean
@@ -12023,7 +12020,7 @@ create_toplevel (void)
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L7242-L7245">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L7232-L7235">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12056,7 +12053,7 @@ create_toplevel (void)
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L7248-L7251">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L7238-L7241">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12092,7 +12089,7 @@ toggle button.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L7257-L7260">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L7247-L7250">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12125,7 +12122,7 @@ toggle button.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L7262-L7272">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L7252-L7262">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12158,7 +12155,7 @@ toggle button.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L7275-L7288">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L7265-L7278">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12171,7 +12168,7 @@ toggle button.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

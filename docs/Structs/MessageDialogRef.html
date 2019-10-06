@@ -11530,12 +11530,12 @@ convenience widget; you could construct the equivalent of <code>GtkMessageDialog
 from <code>GtkDialog</code> without too much effort, but <code>GtkMessageDialog</code> saves typing.</p>
 
 <p>One difference from <code>GtkDialog</code> is that <code>GtkMessageDialog</code> sets the
-<code>GtkWindow</code>:skip-taskbar-hint property to <code>true</code>, so that the dialog is hidden
+<code>GtkWindow:skip</code>-taskbar-hint property to <code>true</code>, so that the dialog is hidden
 from the taskbar by default.</p>
 
-<p>The easiest way to do a modal message dialog is to use gtk_dialog_run(), though
-you can also pass in the <code>GTK_DIALOG_MODAL</code> flag, gtk_dialog_run() automatically
-makes the dialog modal and waits for the user to respond to it. gtk_dialog_run()
+<p>The easiest way to do a modal message dialog is to use <code>gtk_dialog_run()</code>, though
+you can also pass in the <code>GTK_DIALOG_MODAL</code> flag, <code>gtk_dialog_run()</code> automatically
+makes the dialog modal and waits for the user to respond to it. <code>gtk_dialog_run()</code>
 returns when any dialog button is clicked.</p>
 
 <p>An example for using a modal dialog:
@@ -11545,7 +11545,7 @@ returns when any dialog button is clicked.</p>
                                   flags,
                                   GTK_MESSAGE_ERROR,
                                   GTK_BUTTONS_CLOSE,
-                                  "Error reading “`s`”: `s`",
+                                  "Error reading “%s”: %s",
                                   filename,
                                   g_strerror (errno));
  gtk_dialog_run (GTK_DIALOG (dialog));
@@ -11561,7 +11561,7 @@ returns when any dialog button is clicked.</p>
                                   flags,
                                   GTK_MESSAGE_ERROR,
                                   GTK_BUTTONS_CLOSE,
-                                  "Error reading “`s`”: `s`",
+                                  "Error reading “%s”: %s",
                                   filename,
                                   g_strerror (errno));
 
@@ -11572,8 +11572,7 @@ returns when any dialog button is clicked.</p>
                            G_CALLBACK (gtk_widget_destroy),
                            dialog);
 </code></pre>
-
-<p>&ldquo; GtkMessageDialog as GtkBuildable</p>
+<h1 id='gtkmessagedialog-as-gtkbuildable' class='heading'>GtkMessageDialog as GtkBuildable</h1>
 
 <p>The GtkMessageDialog implementation of the GtkBuildable interface exposes
 the message area as an internal child with the name “message_area”.</p>
@@ -11611,7 +11610,7 @@ For type-safe access, use the generated, typed pointer <code>message_dialog_ptr<
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L9286">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L9267">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11652,7 +11651,7 @@ For type-safe access, use the generated, typed pointer <code>message_dialog_ptr<
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L9291-L9292">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L9272-L9273">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11682,7 +11681,7 @@ For type-safe access, use the generated, typed pointer <code>message_dialog_ptr<
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L9295-L9297">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L9276-L9278">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11713,7 +11712,7 @@ For type-safe access, use the generated, typed pointer <code>message_dialog_ptr<
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L9301-L9303">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L9282-L9284">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11744,7 +11743,7 @@ For type-safe access, use the generated, typed pointer <code>message_dialog_ptr<
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L9307-L9309">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L9288-L9290">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11775,7 +11774,7 @@ For type-safe access, use the generated, typed pointer <code>message_dialog_ptr<
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L9313-L9315">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L9294-L9296">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11806,7 +11805,7 @@ For type-safe access, use the generated, typed pointer <code>message_dialog_ptr<
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L9319-L9321">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L9300-L9302">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11837,7 +11836,7 @@ For type-safe access, use the generated, typed pointer <code>message_dialog_ptr<
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L9325-L9327">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L9306-L9308">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11850,7 +11849,7 @@ For type-safe access, use the generated, typed pointer <code>message_dialog_ptr<
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

@@ -11541,15 +11541,14 @@ of the sidebar.</p>
 <p>While bookmarks are completely in control of the user, the places sidebar also
 allows individual applications to provide extra shortcut folders that are unique
 to each application.  For example, a Paint program may want to add a shortcut
-for a Clipart folder.  You can do this with gtk_places_sidebar_add_shortcut().</p>
+for a Clipart folder.  You can do this with <code>gtk_places_sidebar_add_shortcut()</code>.</p>
 
 <p>To make use of the places sidebar, an application at least needs to connect
-to the <code>GtkPlacesSidebar</code>::open-location signal.  This is emitted when the
+to the <code>GtkPlacesSidebar::open</code>-location signal.  This is emitted when the
 user selects in the sidebar a location to open.  The application should also
-call gtk_places_sidebar_set_location() when it changes the currently-viewed
+call <code>gtk_places_sidebar_set_location()</code> when it changes the currently-viewed
 location.</p>
-
-<p>&ldquo; CSS nodes</p>
+<h1 id='css-nodes' class='heading'>CSS nodes</h1>
 
 <p>GtkPlacesSidebar uses a single CSS node with name placessidebar and style
 class .sidebar.</p>
@@ -11595,7 +11594,7 @@ be used:</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L2651">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L2645">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11633,7 +11632,7 @@ be used:</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L2654">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L2648">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11761,7 +11760,7 @@ be used:</p>
                         <p>binding reference or <code>nil</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L3094-L3118">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L3088-L3112">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11853,7 +11852,7 @@ be used:</p>
                         <p>positive handler ID, or a value less than or equal to <code>0</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4113-L4132">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4106-L4125">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11906,7 +11905,7 @@ to the sidebar’s list in the same order as the function is called.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4149-L4152">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4142-L4145">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11927,7 +11926,7 @@ to the sidebar’s list in the same order as the function is called.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns the value previously set with gtk_places_sidebar_set_local_only().</p>
+                        <p>Returns the value previously set with <code>gtk_places_sidebar_set_local_only()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -11939,7 +11938,7 @@ to the sidebar’s list in the same order as the function is called.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4155-L4158">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4148-L4151">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11961,12 +11960,12 @@ to the sidebar’s list in the same order as the function is called.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Gets the currently selected location in the <code>sidebar</code>. This can be <code>nil</code> when
-nothing is selected, for example, when gtk_places_sidebar_set_location() has
+nothing is selected, for example, when <code>gtk_places_sidebar_set_location()</code> has
 been called with a location that is not among the sidebar’s list of places to
 show.</p>
 
 <p>You can use this function to get the selection in the <code>sidebar</code>.  Also, if you
-connect to the <code>GtkPlacesSidebar</code>::populate-popup signal, you can use this
+connect to the <code>GtkPlacesSidebar::populate</code>-popup signal, you can use this
 function to get the location that is being referred to during the callbacks
 for your menu items.</p>
 
@@ -11980,7 +11979,7 @@ for your menu items.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4169-L4172">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4162-L4165">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12015,7 +12014,7 @@ the “Alt-1”, “Alt-2”, etc. shortcuts, which activate the cooresponding b
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4177-L4180">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4170-L4173">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12048,7 +12047,7 @@ the “Alt-1”, “Alt-2”, etc. shortcuts, which activate the cooresponding b
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4183-L4186">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4176-L4179">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12069,7 +12068,7 @@ the “Alt-1”, “Alt-2”, etc. shortcuts, which activate the cooresponding b
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns the value previously set with gtk_places_sidebar_set_show_connect_to_server()</p>
+                        <p>Returns the value previously set with <code>gtk_places_sidebar_set_show_connect_to_server()</code></p>
 
 <p><strong>get_show_connect_to_server is deprecated:</strong>
 It is recommended to group this functionality with the drives
@@ -12080,13 +12079,13 @@ It is recommended to group this functionality with the drives
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">getShowConnectToServer</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4193-L4196">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4186-L4189">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12107,7 +12106,7 @@ It is recommended to group this functionality with the drives
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns the value previously set with gtk_places_sidebar_set_show_desktop()</p>
+                        <p>Returns the value previously set with <code>gtk_places_sidebar_set_show_desktop()</code></p>
 
                       </div>
                       <div class="declaration">
@@ -12119,7 +12118,7 @@ It is recommended to group this functionality with the drives
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4199-L4202">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4192-L4195">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12140,7 +12139,7 @@ It is recommended to group this functionality with the drives
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns the value previously set with gtk_places_sidebar_set_show_enter_location()</p>
+                        <p>Returns the value previously set with <code>gtk_places_sidebar_set_show_enter_location()</code></p>
 
                       </div>
                       <div class="declaration">
@@ -12152,7 +12151,7 @@ It is recommended to group this functionality with the drives
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4205-L4208">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4198-L4201">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12173,7 +12172,7 @@ It is recommended to group this functionality with the drives
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns the value previously set with gtk_places_sidebar_set_show_other_locations()</p>
+                        <p>Returns the value previously set with <code>gtk_places_sidebar_set_show_other_locations()</code></p>
 
                       </div>
                       <div class="declaration">
@@ -12185,7 +12184,7 @@ It is recommended to group this functionality with the drives
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4211-L4214">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4204-L4207">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12206,7 +12205,7 @@ It is recommended to group this functionality with the drives
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns the value previously set with gtk_places_sidebar_set_show_recent()</p>
+                        <p>Returns the value previously set with <code>gtk_places_sidebar_set_show_recent()</code></p>
 
                       </div>
                       <div class="declaration">
@@ -12218,7 +12217,7 @@ It is recommended to group this functionality with the drives
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4217-L4220">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4210-L4213">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12239,7 +12238,7 @@ It is recommended to group this functionality with the drives
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns the value previously set with gtk_places_sidebar_set_show_starred_location()</p>
+                        <p>Returns the value previously set with <code>gtk_places_sidebar_set_show_starred_location()</code></p>
 
                       </div>
                       <div class="declaration">
@@ -12251,7 +12250,7 @@ It is recommended to group this functionality with the drives
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4223-L4226">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4216-L4219">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12272,7 +12271,7 @@ It is recommended to group this functionality with the drives
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns the value previously set with gtk_places_sidebar_set_show_trash()</p>
+                        <p>Returns the value previously set with <code>gtk_places_sidebar_set_show_trash()</code></p>
 
                       </div>
                       <div class="declaration">
@@ -12284,7 +12283,7 @@ It is recommended to group this functionality with the drives
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4229-L4232">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4222-L4225">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12317,7 +12316,7 @@ It is recommended to group this functionality with the drives
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4235-L4238">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4228-L4231">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12339,7 +12338,7 @@ It is recommended to group this functionality with the drives
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Removes an application-specific shortcut that has been previously been
-inserted with gtk_places_sidebar_add_shortcut().  If the <code><a href="../Protocols/PlacesSidebarProtocol.html#/s:3Gtk21PlacesSidebarProtocolPAAE8locationSpySo6_GFileVGSgvp">location</a></code> is not a
+inserted with <code>gtk_places_sidebar_add_shortcut()</code>.  If the <code><a href="../Protocols/PlacesSidebarProtocol.html#/s:3Gtk21PlacesSidebarProtocolPAAE8locationSpySo6_GFileVGSgvp">location</a></code> is not a
 shortcut in the sidebar, then nothing is done.</p>
 
                       </div>
@@ -12352,7 +12351,7 @@ shortcut in the sidebar, then nothing is done.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4243-L4246">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4236-L4239">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12393,7 +12392,7 @@ to unset the state when the drag ends on some other widget on your application.<
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4257-L4260">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4250-L4253">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12426,7 +12425,7 @@ to unset the state when the drag ends on some other widget on your application.<
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4263-L4266">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4256-L4259">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12463,7 +12462,7 @@ places in the list.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4273-L4276">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4266-L4269">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12493,9 +12492,9 @@ in a new notebook tab or a new window.</p>
 application can open new locations, so that the sidebar can display (or not)
 the “Open in new tab” and “Open in new window” menu items as appropriate.</p>
 
-<p>When the <code>GtkPlacesSidebar</code>::open-location signal is emitted, its flags
+<p>When the <code>GtkPlacesSidebar::open</code>-location signal is emitted, its flags
 argument will be set to one of the <code>flags</code> that was passed in
-gtk_places_sidebar_set_open_flags().</p>
+<code>gtk_places_sidebar_set_open_flags()</code>.</p>
 
 <p>Passing 0 for <code>flags</code> will cause <code>GTK_PLACES_OPEN_NORMAL</code> to always be sent
 to callbacks for the “open-location” signal.</p>
@@ -12510,7 +12509,7 @@ to callbacks for the “open-location” signal.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4293-L4296">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4286-L4289">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12536,7 +12535,7 @@ this is off by default. An application may want to turn this on if it implements
 a way for the user to connect to network servers directly.</p>
 
 <p>If you enable this, you should connect to the
-<code>GtkPlacesSidebar</code>::show-connect-to-server signal.</p>
+<code>GtkPlacesSidebar::show</code>-connect-to-server signal.</p>
 
 <p><strong>set_show_connect_to_server is deprecated:</strong>
 It is recommended to group this functionality with the drives
@@ -12547,13 +12546,13 @@ It is recommended to group this functionality with the drives
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">set</span><span class="p">(</span><span class="n"><a href="../Protocols/PlacesSidebarProtocol.html#/s:3Gtk21PlacesSidebarProtocolPAAE19showConnectToServerSbvp">showConnectToServer</a></span> <span class="nv">show_connect_to_server</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4308-L4311">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4301-L4304">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12589,7 +12588,7 @@ used to override it on a per-application basis.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4317-L4320">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4310-L4313">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12615,7 +12614,7 @@ this is off by default. An application may want to turn this on if manually
 entering URLs is an expected user action.</p>
 
 <p>If you enable this, you should connect to the
-<code>GtkPlacesSidebar</code>::show-enter-location signal.</p>
+<code>GtkPlacesSidebar::show</code>-enter-location signal.</p>
 
                       </div>
                       <div class="declaration">
@@ -12627,7 +12626,7 @@ entering URLs is an expected user action.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4328-L4331">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4321-L4324">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12655,7 +12654,7 @@ An application may want to turn this on if it implements a way for the user to
 see and interact with drives and network servers directly.</p>
 
 <p>If you enable this, you should connect to the
-<code>GtkPlacesSidebar</code>::show-other-locations signal.</p>
+<code>GtkPlacesSidebar::show</code>-other-locations signal.</p>
 
                       </div>
                       <div class="declaration">
@@ -12667,7 +12666,7 @@ see and interact with drives and network servers directly.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4341-L4344">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4334-L4337">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12703,7 +12702,7 @@ per-application basis.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4350-L4353">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4343-L4346">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12725,7 +12724,7 @@ per-application basis.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>If you enable this, you should connect to the
-<code>GtkPlacesSidebar</code>::show-starred-location signal.</p>
+<code>GtkPlacesSidebar::show</code>-starred-location signal.</p>
 
                       </div>
                       <div class="declaration">
@@ -12737,7 +12736,7 @@ per-application basis.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4357-L4360">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4350-L4353">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12771,7 +12770,7 @@ per-application basis.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4363-L4366">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4356-L4359">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12792,7 +12791,7 @@ per-application basis.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns the value previously set with gtk_places_sidebar_set_local_only().</p>
+                        <p>Returns the value previously set with <code>gtk_places_sidebar_set_local_only()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12804,7 +12803,7 @@ per-application basis.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4368-L4378">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4361-L4371">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12837,7 +12836,7 @@ per-application basis.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4380-L4402">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4373-L4395">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12870,7 +12869,7 @@ per-application basis.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4405-L4429">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4398-L4422">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12891,7 +12890,7 @@ per-application basis.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns the value previously set with gtk_places_sidebar_set_show_connect_to_server()</p>
+                        <p>Returns the value previously set with <code>gtk_places_sidebar_set_show_connect_to_server()</code></p>
 
 <p><strong>get_show_connect_to_server is deprecated:</strong>
 It is recommended to group this functionality with the drives
@@ -12907,7 +12906,7 @@ It is recommended to group this functionality with the drives
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4436-L4459">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4429-L4452">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12928,7 +12927,7 @@ It is recommended to group this functionality with the drives
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns the value previously set with gtk_places_sidebar_set_show_desktop()</p>
+                        <p>Returns the value previously set with <code>gtk_places_sidebar_set_show_desktop()</code></p>
 
                       </div>
                       <div class="declaration">
@@ -12940,7 +12939,7 @@ It is recommended to group this functionality with the drives
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4462-L4475">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4455-L4468">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12961,7 +12960,7 @@ It is recommended to group this functionality with the drives
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns the value previously set with gtk_places_sidebar_set_show_enter_location()</p>
+                        <p>Returns the value previously set with <code>gtk_places_sidebar_set_show_enter_location()</code></p>
 
                       </div>
                       <div class="declaration">
@@ -12973,7 +12972,7 @@ It is recommended to group this functionality with the drives
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4478-L4493">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4471-L4486">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12994,7 +12993,7 @@ It is recommended to group this functionality with the drives
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns the value previously set with gtk_places_sidebar_set_show_other_locations()</p>
+                        <p>Returns the value previously set with <code>gtk_places_sidebar_set_show_other_locations()</code></p>
 
                       </div>
                       <div class="declaration">
@@ -13006,7 +13005,7 @@ It is recommended to group this functionality with the drives
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4496-L4513">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4489-L4506">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13027,7 +13026,7 @@ It is recommended to group this functionality with the drives
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns the value previously set with gtk_places_sidebar_set_show_recent()</p>
+                        <p>Returns the value previously set with <code>gtk_places_sidebar_set_show_recent()</code></p>
 
                       </div>
                       <div class="declaration">
@@ -13039,7 +13038,7 @@ It is recommended to group this functionality with the drives
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4516-L4529">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4509-L4522">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13060,7 +13059,7 @@ It is recommended to group this functionality with the drives
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns the value previously set with gtk_places_sidebar_set_show_starred_location()</p>
+                        <p>Returns the value previously set with <code>gtk_places_sidebar_set_show_starred_location()</code></p>
 
                       </div>
                       <div class="declaration">
@@ -13072,7 +13071,7 @@ It is recommended to group this functionality with the drives
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4532-L4543">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4525-L4536">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13093,7 +13092,7 @@ It is recommended to group this functionality with the drives
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns the value previously set with gtk_places_sidebar_set_show_trash()</p>
+                        <p>Returns the value previously set with <code>gtk_places_sidebar_set_show_trash()</code></p>
 
                       </div>
                       <div class="declaration">
@@ -13105,7 +13104,7 @@ It is recommended to group this functionality with the drives
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4546-L4556">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4539-L4549">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13118,7 +13117,7 @@ It is recommended to group this functionality with the drives
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

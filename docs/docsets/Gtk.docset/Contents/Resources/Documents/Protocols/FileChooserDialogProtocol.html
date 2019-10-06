@@ -11541,8 +11541,7 @@ own.  Instead, you should use the functions that work on a
 <code>GtkFileChooserNative</code> API, which will use a platform-specific
 dialog if available and fall back to GtkFileChooserDialog
 otherwise.</p>
-
-<p><code>Typical usage</code> {<code>gtkfilechooser</code>-typical-usage}</p>
+<h2 id='typical-usage-a-name-gtkfilechooser-typical-usage-a' class='heading'>Typical usage ## <a name="gtkfilechooser-typical-usage"></a></h2>
 
 <p>In the simplest of cases, you can the following code to use
 <code>GtkFileChooserDialog</code> to select a file for opening:</p>
@@ -11609,37 +11608,35 @@ otherwise.</p>
 
 <span class="nf">gtk_widget_destroy</span> <span class="p">(</span><span class="n">dialog</span><span class="p">);</span>
 </code></pre>
+<h2 id='setting-up-a-file-chooser-dialog-a-name-gtkfilechooserdialog-setting-up-a' class='heading'>Setting up a file chooser dialog ## <a name="gtkfilechooserdialog-setting-up"></a></h2>
 
-<p><code>Setting up a file chooser dialog</code> {<code>gtkfilechooserdialog</code>-setting-up}</p>
-
-<p>There are various cases in which you may need to use a <code>GtkFileChooserDialog</code>:</p>
+<p>There are various cases in which you may need to use a <code>GtkFileChooserDialog:</code></p>
 
 <ul>
 <li><p>To select a file for opening. Use <code>GTK_FILE_CHOOSER_ACTION_OPEN</code>.</p></li>
 <li><p>To save a file for the first time. Use <code>GTK_FILE_CHOOSER_ACTION_SAVE</code>,
-and suggest a name such as “Untitled” with gtk_file_chooser_set_current_name().</p></li>
+and suggest a name such as “Untitled” with <code>gtk_file_chooser_set_current_name()</code>.</p></li>
 <li><p>To save a file under a different name. Use <code>GTK_FILE_CHOOSER_ACTION_SAVE</code>,
-and set the existing filename with gtk_file_chooser_set_filename().</p></li>
+and set the existing filename with <code>gtk_file_chooser_set_filename()</code>.</p></li>
 <li><p>To choose a folder instead of a file. Use <code>GTK_FILE_CHOOSER_ACTION_SELECT_FOLDER</code>.</p></li>
 </ul>
 
 <p>Note that old versions of the file chooser’s documentation suggested
-using gtk_file_chooser_set_current_folder() in various
+using <code>gtk_file_chooser_set_current_folder()</code> in various
 situations, with the intention of letting the application
 suggest a reasonable default folder.  This is no longer
 considered to be a good policy, as now the file chooser is
 able to make good suggestions on its own.  In general, you
 should only cause the file chooser to show a specific folder
-when it is appropriate to use gtk_file_chooser_set_filename(),
+when it is appropriate to use <code>gtk_file_chooser_set_filename()</code>,
 i.e. when you are doing a Save As command and you already
 have a file saved somewhere.</p>
-
-<p><code>Response Codes</code> {<code>gtkfilechooserdialog</code>-responses}</p>
+<h2 id='response-codes-a-name-gtkfilechooserdialog-responses-a' class='heading'>Response Codes ## <a name="gtkfilechooserdialog-responses"></a></h2>
 
 <p><code>GtkFileChooserDialog</code> inherits from <code>GtkDialog</code>, so buttons that
 go in its action area have response codes such as
 <code>GTK_RESPONSE_ACCEPT</code> and <code>GTK_RESPONSE_CANCEL</code>.  For example, you
-could call gtk_file_chooser_dialog_new() as follows:</p>
+could call <code>gtk_file_chooser_dialog_new()</code> as follows:</p>
 <pre class="highlight swift"><code><span class="kt">GtkWidget</span> <span class="o">*</span><span class="n">dialog</span><span class="p">;</span>
 <span class="kt">GtkFileChooserAction</span> <span class="n">action</span> <span class="o">=</span> <span class="kt">GTK_FILE_CHOOSER_ACTION_OPEN</span><span class="p">;</span>
 
@@ -11674,7 +11671,7 @@ response codes to know which responses can be blocked if
 appropriate.</p>
 
 <p>To summarize, make sure you use a
-[stock response code][gtkfilechooserdialog-responses]
+<a href="#gtkfilechooserdialog-responses">stock response code</a>
 when you use <code>GtkFileChooserDialog</code> to ensure proper operation.</p>
 
           </div>
@@ -11709,7 +11706,7 @@ when you use <code>GtkFileChooserDialog</code> to ensure proper operation.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L185">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L182">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11747,7 +11744,7 @@ when you use <code>GtkFileChooserDialog</code> to ensure proper operation.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L188">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L185">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11875,7 +11872,7 @@ when you use <code>GtkFileChooserDialog</code> to ensure proper operation.</p>
                         <p>binding reference or <code>nil</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L899-L923">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L890-L914">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11967,7 +11964,7 @@ when you use <code>GtkFileChooserDialog</code> to ensure proper operation.</p>
                         <p>positive handler ID, or a value less than or equal to <code>0</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L1850-L1869">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L1840-L1859">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11980,7 +11977,7 @@ when you use <code>GtkFileChooserDialog</code> to ensure proper operation.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

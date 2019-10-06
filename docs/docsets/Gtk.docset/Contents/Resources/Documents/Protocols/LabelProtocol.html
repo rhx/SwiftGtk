@@ -11529,13 +11529,14 @@ Alternatively, use <code><a href="../Structs/LabelRef.html">LabelRef</a></code> 
 <p>The <code>GtkLabel</code> widget displays a small amount of text. As the name
 implies, most labels are used to label another widget such as a
 <code>GtkButton</code>, a <code>GtkMenuItem</code>, or a <code>GtkComboBox</code>.</p>
+<h1 id='css-nodes' class='heading'>CSS nodes</h1>
 
-<p>&ldquo; CSS nodes</p>
-<pre class="highlight swift"><code><span class="n">label</span>
-<span class="err">├──</span> <span class="p">[</span><span class="n">selection</span><span class="p">]</span>
-<span class="err">├──</span> <span class="p">[</span><span class="n">link</span><span class="p">]</span>
-<span class="err">┊</span>
-<span class="err">╰──</span> <span class="p">[</span><span class="n">link</span><span class="p">]</span>
+<p>(plain Language Example):</p>
+<pre class="highlight plaintext"><code>label
+├── [selection]
+├── [link]
+┊
+╰── [link]
 </code></pre>
 
 <p>GtkLabel has a single CSS node with the name label. A wide variety
@@ -11548,8 +11549,7 @@ of style classes may be applied to labels, such as .title, .subtitle,
 <p>If the label has links, there is one subnode per link. These subnodes
 carry the link or visited state depending on whether they have been
 visited.</p>
-
-<p>&rdquo; GtkLabel as GtkBuildable</p>
+<h1 id='gtklabel-as-gtkbuildable' class='heading'>GtkLabel as GtkBuildable</h1>
 
 <p>The GtkLabel implementation of the GtkBuildable interface supports a
 custom <attributes> element, which supports any number of <attribute>
@@ -11571,20 +11571,19 @@ Pango attribute applies. If start and end are not specified, the attribute is
 applied to the whole text. Note that specifying ranges does not make much
 sense with translatable attributes. Use markup embedded in the translatable
 content instead.</p>
-
-<p>&ldquo; Mnemonics</p>
+<h1 id='mnemonics' class='heading'>Mnemonics</h1>
 
 <p>Labels may contain “mnemonics”. Mnemonics are
 underlined characters in the label, used for keyboard navigation.
 Mnemonics are created by providing a string with an underscore before
 the mnemonic character, such as <code>&quot;_File&quot;</code>, to the
-functions gtk_label_new_with_mnemonic() or
-gtk_label_set_text_with_mnemonic().</p>
+functions <code>gtk_label_new_with_mnemonic()</code> or
+<code>gtk_label_set_text_with_mnemonic()</code>.</p>
 
 <p>Mnemonics automatically activate any activatable widget the label is
 inside, such as a <code>GtkButton</code>; if the label is not inside the
 mnemonic’s target widget, you have to tell the label about the target
-using gtk_label_set_mnemonic_widget(). Here’s a simple example where
+using <code>gtk_label_set_mnemonic_widget()</code>. Here’s a simple example where
 the label is inside a button:</p>
 
 <p>(C Language Example):</p>
@@ -11604,7 +11603,7 @@ already inside:</p>
 
 <p>To create a mnemonic for a widget alongside the label, such as a
 <code>GtkEntry</code>, you have to point the label at the entry with
-gtk_label_set_mnemonic_widget():</p>
+<code>gtk_label_set_mnemonic_widget()</code>:</p>
 
 <p>(C Language Example):</p>
 <pre class="highlight plaintext"><code>  // Pressing Alt+H will focus the entry
@@ -11612,12 +11611,11 @@ gtk_label_set_mnemonic_widget():</p>
   GtkWidget *label = gtk_label_new_with_mnemonic ("_Hello");
   gtk_label_set_mnemonic_widget (GTK_LABEL (label), entry);
 </code></pre>
-
-<p>&rdquo; Markup (styled text)</p>
+<h1 id='markup-styled-text' class='heading'>Markup (styled text)</h1>
 
 <p>To make it easy to format text in a label (changing colors,
 fonts, etc.), label text can be provided in a simple
-[markup format][PangoMarkupFormat].</p>
+<a href="#PangoMarkupFormat">markup format</a>.</p>
 
 <p>Here’s how to create a label with a small font:
 (C Language Example):</p>
@@ -11625,32 +11623,30 @@ fonts, etc.), label text can be provided in a simple
   gtk_label_set_markup (GTK_LABEL (label), "&lt;small&gt;Small text&lt;/small&gt;");
 </code></pre>
 
-<p>(See [complete documentation][PangoMarkupFormat] of available
+<p>(See <a href="#PangoMarkupFormat">complete documentation</a> of available
 tags in the Pango manual.)</p>
 
-<p>The markup passed to gtk_label_set_markup() must be valid; for example,
+<p>The markup passed to <code>gtk_label_set_markup()</code> must be valid; for example,
 literal &lt;, &gt; and &amp; characters must be escaped as &lt;, &gt;, and &amp;.
 If you pass text obtained from the user, file, or a network to
-gtk_label_set_markup(), you’ll want to escape it with
-g_markup_escape_text() or g_markup_printf_escaped().</p>
+<code>gtk_label_set_markup()</code>, you’ll want to escape it with
+<code>g_markup_escape_text()</code> or <code>g_markup_printf_escaped()</code>.</p>
 
 <p>Markup strings are just a convenient way to set the <code>PangoAttrList</code> on
-a label; gtk_label_set_attributes() may be a simpler way to set
+a label; <code>gtk_label_set_attributes()</code> may be a simpler way to set
 attributes in some cases. Be careful though; <code>PangoAttrList</code> tends to
 cause internationalization problems, unless you’re applying attributes
 to the entire string (i.e. unless you set the range of each attribute
 to [0, <code>G_MAXINT</code>)). The reason is that specifying the start_index and
 end_index for a <code>PangoAttribute</code> requires knowledge of the exact string
 being displayed, so translations will cause problems.</p>
+<h1 id='selectable-labels' class='heading'>Selectable labels</h1>
 
-<p>&ldquo; Selectable labels</p>
-
-<p>Labels can be made selectable with gtk_label_set_selectable().
+<p>Labels can be made selectable with <code>gtk_label_set_selectable()</code>.
 Selectable labels allow the user to copy the label contents to
 the clipboard. Only labels that contain useful-to-copy information
 — such as error messages — should be made selectable.</p>
-
-<p><code>Text layout</code> {<code>label</code>-text-layout}</p>
+<h1 id='text-layout-a-name-label-text-layout-a' class='heading'>Text layout # <a name="label-text-layout"></a></h1>
 
 <p>A label can contain any number of paragraphs, but will have
 performance problems if it contains more than a small number.
@@ -11658,14 +11654,14 @@ Paragraphs are separated by newlines or other paragraph separators
 understood by Pango.</p>
 
 <p>Labels can automatically wrap text if you call
-gtk_label_set_line_wrap().</p>
+<code>gtk_label_set_line_wrap()</code>.</p>
 
-<p>gtk_label_set_justify() sets how the lines in a label align
+<p><code>gtk_label_set_justify()</code> sets how the lines in a label align
 with one another. If you want to set how the label as a whole
-aligns in its available space, see the <code>GtkWidget</code>:halign and
-<code>GtkWidget</code>:valign properties.</p>
+aligns in its available space, see the <code>GtkWidget:halign</code> and
+<code>GtkWidget:valign</code> properties.</p>
 
-<p>The <code>GtkLabel</code>:width-chars and <code>GtkLabel</code>:max-width-chars properties
+<p>The <code>GtkLabel:width</code>-chars and <code>GtkLabel:max</code>-width-chars properties
 can be used to control the size allocation of ellipsized or wrapped
 labels. For ellipsizing labels, if either is specified (and less
 than the actual text size), it is used as the minimum width, and the actual
@@ -11674,11 +11670,10 @@ width-chars is used as the minimum width, if specified, and max-width-chars
 is used as the natural width. Even if max-width-chars specified, wrapping
 labels will be rewrapped to use all of the available width.</p>
 
-<p>Note that the interpretation of <code>GtkLabel</code>:width-chars and
-<code>GtkLabel</code>:max-width-chars has changed a bit with the introduction of
-[width-for-height geometry management.][geometry-management]</p>
-
-<p>&rdquo; Links</p>
+<p>Note that the interpretation of <code>GtkLabel:width</code>-chars and
+<code>GtkLabel:max</code>-width-chars has changed a bit with the introduction of
+<a href="#geometry-management">width-for-height geometry management.</a></p>
+<h1 id='links' class='heading'>Links</h1>
 
 <p>Since 2.18, GTK+ supports markup for clickable hyperlinks in addition
 to regular Pango markup. The markup for links is borrowed from HTML,
@@ -11698,7 +11693,7 @@ gtk_label_set_markup (GTK_LABEL (label), text);
 </code></pre>
 
 <p>It is possible to implement custom handling for links and their tooltips with
-the <code>GtkLabel</code>::activate-link signal and the gtk_label_get_current_uri() function.</p>
+the <code>GtkLabel::activate</code>-link signal and the <code>gtk_label_get_current_uri()</code> function.</p>
 
           </div>
         </section>
@@ -11732,7 +11727,7 @@ the <code>GtkLabel</code>::activate-link signal and the gtk_label_get_current_ur
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L12811">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L12780">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11770,7 +11765,7 @@ the <code>GtkLabel</code>::activate-link signal and the gtk_label_get_current_ur
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L12814">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L12783">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11898,7 +11893,7 @@ the <code>GtkLabel</code>::activate-link signal and the gtk_label_get_current_ur
                         <p>binding reference or <code>nil</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L13669-L13693">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L13626-L13650">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11990,7 +11985,7 @@ the <code>GtkLabel</code>::activate-link signal and the gtk_label_get_current_ur
                         <p>positive handler ID, or a value less than or equal to <code>0</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L14628-L14647">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L14584-L14603">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12023,7 +12018,7 @@ the <code>GtkLabel</code>::activate-link signal and the gtk_label_get_current_ur
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Gets the angle of rotation for the label. See
-gtk_label_set_angle().</p>
+<code>gtk_label_set_angle()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12035,7 +12030,7 @@ gtk_label_set_angle().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L14656-L14659">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L14612-L14615">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12057,9 +12052,9 @@ gtk_label_set_angle().</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Gets the attribute list that was set on the label using
-gtk_label_set_attributes(), if any. This function does
+<code>gtk_label_set_attributes()</code>, if any. This function does
 not reflect attributes that come from the labels markup
-(see gtk_label_set_markup()). If you want to get the
+(see <code>gtk_label_set_markup()</code>). If you want to get the
 effective attributes for the label, use
 pango_layout_get_attribute (gtk_label_get_layout (label)).</p>
 
@@ -12073,7 +12068,7 @@ pango_layout_get_attribute (gtk_label_get_layout (label)).</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L14667-L14670">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L14623-L14626">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12099,8 +12094,8 @@ The active link is the one under the mouse pointer or, in a
 selectable label, the link in which the text cursor is currently
 positioned.</p>
 
-<p>This function is intended for use in a <code>GtkLabel</code>::activate-link handler
-or for use in a <code>GtkWidget</code>::query-tooltip handler.</p>
+<p>This function is intended for use in a <code>GtkLabel::activate</code>-link handler
+or for use in a <code>GtkWidget::query</code>-tooltip handler.</p>
 
                       </div>
                       <div class="declaration">
@@ -12112,7 +12107,7 @@ or for use in a <code>GtkWidget</code>::query-tooltip handler.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L14679-L14682">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L14635-L14638">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12133,7 +12128,7 @@ or for use in a <code>GtkWidget</code>::query-tooltip handler.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns the ellipsizing position of the label. See gtk_label_set_ellipsize().</p>
+                        <p>Returns the ellipsizing position of the label. See <code>gtk_label_set_ellipsize()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12145,7 +12140,7 @@ or for use in a <code>GtkWidget</code>::query-tooltip handler.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L14685-L14688">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L14641-L14644">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12166,7 +12161,7 @@ or for use in a <code>GtkWidget</code>::query-tooltip handler.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns the justification of the label. See gtk_label_set_justify().</p>
+                        <p>Returns the justification of the label. See <code>gtk_label_set_justify()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12178,7 +12173,7 @@ or for use in a <code>GtkWidget</code>::query-tooltip handler.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L14691-L14694">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L14647-L14650">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12201,7 +12196,7 @@ or for use in a <code>GtkWidget</code>::query-tooltip handler.</p>
                       <div class="abstract">
                         <p>Fetches the text from a label widget including any embedded
 underlines indicating mnemonics and Pango markup. (See
-gtk_label_get_text()).</p>
+<code>gtk_label_get_text()</code>).</p>
 
                       </div>
                       <div class="declaration">
@@ -12213,7 +12208,7 @@ gtk_label_get_text()).</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L14699-L14702">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L14655-L14658">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12236,7 +12231,7 @@ gtk_label_get_text()).</p>
                       <div class="abstract">
                         <p>Gets the <code>PangoLayout</code> used to display the label.
 The layout is useful to e.g. convert text positions to
-pixel positions, in combination with gtk_label_get_layout_offsets().
+pixel positions, in combination with <code>gtk_label_get_layout_offsets()</code>.
 The returned layout is owned by the <code><a href="../Protocols/LabelProtocol.html#/s:3Gtk13LabelProtocolPAAE5labelSSSgvp">label</a></code> so need not be
 freed by the caller. The <code><a href="../Protocols/LabelProtocol.html#/s:3Gtk13LabelProtocolPAAE5labelSSSgvp">label</a></code> is free to recreate its layout at
 any time, so it should be considered read-only.</p>
@@ -12251,7 +12246,7 @@ any time, so it should be considered read-only.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L14710-L14713">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L14666-L14669">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12278,9 +12273,9 @@ into coordinates inside the <code>PangoLayout</code>, e.g. to take some action
 if some part of the label is clicked. Of course you will need to
 create a <code>GtkEventBox</code> to receive the events, and pack the label
 inside it, since labels are windowless (they return <code>false</code> from
-gtk_widget_get_has_window()). Remember
+<code>gtk_widget_get_has_window()</code>). Remember
 when using the <code>PangoLayout</code> functions you need to convert to
-and from pixels using PANGO_PIXELS() or <code>PANGO_SCALE</code>.</p>
+and from pixels using <code>PANGO_PIXELS()</code> or <code>PANGO_SCALE</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12292,7 +12287,7 @@ and from pixels using PANGO_PIXELS() or <code>PANGO_SCALE</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L14724-L14727">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L14680-L14683">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12314,7 +12309,7 @@ and from pixels using PANGO_PIXELS() or <code>PANGO_SCALE</code>.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Returns whether lines in the label are automatically wrapped.
-See gtk_label_set_line_wrap().</p>
+See <code>gtk_label_set_line_wrap()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12326,7 +12321,7 @@ See gtk_label_set_line_wrap().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L14731-L14734">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L14687-L14690">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12347,7 +12342,7 @@ See gtk_label_set_line_wrap().</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns line wrap mode used by the label. See gtk_label_set_line_wrap_mode().</p>
+                        <p>Returns line wrap mode used by the label. See <code>gtk_label_set_line_wrap_mode()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12359,7 +12354,7 @@ See gtk_label_set_line_wrap().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L14737-L14740">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L14693-L14696">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12381,7 +12376,7 @@ See gtk_label_set_line_wrap().</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Gets the number of lines to which an ellipsized, wrapping
-label should be limited. See gtk_label_set_lines().</p>
+label should be limited. See <code>gtk_label_set_lines()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12393,7 +12388,7 @@ label should be limited. See gtk_label_set_lines().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L14744-L14747">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L14700-L14703">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12415,7 +12410,7 @@ label should be limited. See gtk_label_set_lines().</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Retrieves the desired maximum width of <code><a href="../Protocols/LabelProtocol.html#/s:3Gtk13LabelProtocolPAAE5labelSSSgvp">label</a></code>, in characters. See
-gtk_label_set_width_chars().</p>
+<code>gtk_label_set_width_chars()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12427,7 +12422,7 @@ gtk_label_set_width_chars().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L14751-L14754">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L14707-L14710">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12462,7 +12457,7 @@ mnemonic set up it returns <code>GDK_KEY_VoidSymbol</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L14759-L14762">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L14715-L14718">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12484,7 +12479,7 @@ mnemonic set up it returns <code>GDK_KEY_VoidSymbol</code>.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Retrieves the target of the mnemonic (keyboard shortcut) of this
-label. See gtk_label_set_mnemonic_widget().</p>
+label. See <code>gtk_label_set_mnemonic_widget()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12496,7 +12491,7 @@ label. See gtk_label_set_mnemonic_widget().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L14766-L14769">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L14722-L14725">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12517,7 +12512,7 @@ label. See gtk_label_set_mnemonic_widget().</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets the value set by gtk_label_set_selectable().</p>
+                        <p>Gets the value set by <code>gtk_label_set_selectable()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12529,7 +12524,7 @@ label. See gtk_label_set_mnemonic_widget().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L14772-L14775">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L14728-L14731">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12563,7 +12558,7 @@ if there’s a selection.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L14779-L14782">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L14735-L14738">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12596,7 +12591,7 @@ if there’s a selection.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L14785-L14788">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L14741-L14744">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12619,7 +12614,7 @@ if there’s a selection.</p>
                       <div class="abstract">
                         <p>Fetches the text from a label widget, as displayed on the
 screen. This does not include any embedded underlines
-indicating mnemonics or Pango markup. (See gtk_label_get_label())</p>
+indicating mnemonics or Pango markup. (See <code>gtk_label_get_label()</code>)</p>
 
                       </div>
                       <div class="declaration">
@@ -12631,7 +12626,7 @@ indicating mnemonics or Pango markup. (See gtk_label_get_label())</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L14793-L14796">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L14749-L14752">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12665,7 +12660,7 @@ of clicked links.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L14800-L14803">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L14756-L14759">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12687,7 +12682,7 @@ of clicked links.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Returns whether the label’s text is interpreted as marked up with
-the [Pango text markup language][PangoMarkupFormat].
+the <a href="#PangoMarkupFormat">Pango text markup language</a>.
 See gtk_label_set_use_markup ().</p>
 
                       </div>
@@ -12700,7 +12695,7 @@ See gtk_label_set_use_markup ().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L14808-L14811">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L14764-L14767">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12722,7 +12717,7 @@ See gtk_label_set_use_markup ().</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Returns whether an embedded underline in the label indicates a
-mnemonic. See gtk_label_set_use_underline().</p>
+mnemonic. See <code>gtk_label_set_use_underline()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12734,7 +12729,7 @@ mnemonic. See gtk_label_set_use_underline().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L14815-L14818">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L14771-L14774">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12756,7 +12751,7 @@ mnemonic. See gtk_label_set_use_underline().</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Retrieves the desired width of <code><a href="../Protocols/LabelProtocol.html#/s:3Gtk13LabelProtocolPAAE5labelSSSgvp">label</a></code>, in characters. See
-gtk_label_set_width_chars().</p>
+<code>gtk_label_set_width_chars()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12768,7 +12763,7 @@ gtk_label_set_width_chars().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L14822-L14825">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L14778-L14781">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12789,7 +12784,7 @@ gtk_label_set_width_chars().</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets the <code>GtkLabel</code>:xalign property for <code><a href="../Protocols/LabelProtocol.html#/s:3Gtk13LabelProtocolPAAE5labelSSSgvp">label</a></code>.</p>
+                        <p>Gets the <code>GtkLabel:xalign</code> property for <code><a href="../Protocols/LabelProtocol.html#/s:3Gtk13LabelProtocolPAAE5labelSSSgvp">label</a></code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12801,7 +12796,7 @@ gtk_label_set_width_chars().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L14828-L14831">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L14784-L14787">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12822,7 +12817,7 @@ gtk_label_set_width_chars().</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets the <code>GtkLabel</code>:yalign property for <code><a href="../Protocols/LabelProtocol.html#/s:3Gtk13LabelProtocolPAAE5labelSSSgvp">label</a></code>.</p>
+                        <p>Gets the <code>GtkLabel:yalign</code> property for <code><a href="../Protocols/LabelProtocol.html#/s:3Gtk13LabelProtocolPAAE5labelSSSgvp">label</a></code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12834,7 +12829,7 @@ gtk_label_set_width_chars().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L14834-L14837">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L14790-L14793">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12856,7 +12851,7 @@ gtk_label_set_width_chars().</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Selects a range of characters in the label, if the label is selectable.
-See gtk_label_set_selectable(). If the label is not selectable,
+See <code>gtk_label_set_selectable()</code>. If the label is not selectable,
 this function has no effect. If <code>start_offset</code> or
 <code>end_offset</code> are -1, then the end of the label will be substituted.</p>
 
@@ -12870,7 +12865,7 @@ this function has no effect. If <code>start_offset</code> or
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L14843-L14846">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L14799-L14802">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12906,7 +12901,7 @@ wrapped, or ellipsized.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L14852-L14855">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L14808-L14811">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12932,7 +12927,7 @@ label text.</p>
 
 <p>The attributes set with this function will be applied
 and merged with any other attributes previously effected by way
-of the <code>GtkLabel</code>:use-underline or <code>GtkLabel</code>:use-markup properties.
+of the <code>GtkLabel:use</code>-underline or <code>GtkLabel:use</code>-markup properties.
 While it is not recommended to mix markup strings with manually set
 attributes, if you must; know that the attributes will be applied
 to the label after the markup string is parsed.</p>
@@ -12947,7 +12942,7 @@ to the label after the markup string is parsed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L14866-L14869">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L14822-L14825">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12981,7 +12976,7 @@ if there is not enough space to render the entire string.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L14873-L14876">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L14829-L14832">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13004,9 +12999,9 @@ if there is not enough space to render the entire string.</p>
                       <div class="abstract">
                         <p>Sets the alignment of the lines in the text of the label relative to
 each other. <code>GTK_JUSTIFY_LEFT</code> is the default value when the widget is
-first created with gtk_label_new(). If you instead want to set the
-alignment of the label as a whole, use gtk_widget_set_halign() instead.
-gtk_label_set_justify() has no effect on labels containing only a
+first created with <code>gtk_label_new()</code>. If you instead want to set the
+alignment of the label as a whole, use <code>gtk_widget_set_halign()</code> instead.
+<code>gtk_label_set_justify()</code> has no effect on labels containing only a
 single line.</p>
 
                       </div>
@@ -13019,7 +13014,7 @@ single line.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L14884-L14887">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L14840-L14843">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13042,8 +13037,8 @@ single line.</p>
                       <div class="abstract">
                         <p>Sets the text of the label. The label is interpreted as
 including embedded underlines and/or Pango markup depending
-on the values of the <code>GtkLabel</code>:use-underline and
-<code>GtkLabel</code>:use-markup properties.</p>
+on the values of the <code>GtkLabel:use</code>-underline and
+<code>GtkLabel:use</code>-markup properties.</p>
 
                       </div>
                       <div class="declaration">
@@ -13055,7 +13050,7 @@ on the values of the <code>GtkLabel</code>:use-underline and
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L14893-L14896">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L14849-L14852">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13084,7 +13079,7 @@ by the edge of the widget if it exceeds the widget size.</p>
 wrap at its parent container’s width, because GTK+ widgets
 conceptually can’t make their requisition depend on the parent
 container’s size. For a label that wraps at a specific position,
-set the label’s width using gtk_widget_set_size_request().</p>
+set the label’s width using <code>gtk_widget_set_size_request()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -13096,7 +13091,7 @@ set the label’s width using gtk_widget_set_size_request().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L14907-L14910">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L14863-L14866">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13117,7 +13112,7 @@ set the label’s width using gtk_widget_set_size_request().</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>If line wrapping is on (see gtk_label_set_line_wrap()) this controls how
+                        <p>If line wrapping is on (see <code>gtk_label_set_line_wrap()</code>) this controls how
 the line wrapping is done. The default is <code>PANGO_WRAP_WORD</code> which means
 wrap on word boundaries.</p>
 
@@ -13131,7 +13126,7 @@ wrap on word boundaries.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L14915-L14918">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L14871-L14874">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13167,7 +13162,7 @@ number of lines.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L14924-L14927">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L14880-L14883">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13189,16 +13184,16 @@ number of lines.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Parses <code>str</code> which is marked up with the
-[Pango text markup language][PangoMarkupFormat], setting the
+<a href="#PangoMarkupFormat">Pango text markup language</a>, setting the
 label’s text and attribute list based on the parse results.</p>
 
 <p>If the <code>str</code> is external data, you may need to escape it with
-g_markup_escape_text() or g_markup_printf_escaped():</p>
+<code>g_markup_escape_text()</code> or <code>g_markup_printf_escaped()</code>:</p>
 
 <p>(C Language Example):</p>
 <pre class="highlight plaintext"><code>GtkWidget *label = gtk_label_new (NULL);
 const char *str = "some text";
-const char *format = "&lt;span style=\"italic\"&gt;\`s`&lt;/span&gt;";
+const char *format = "&lt;span style=\"italic\"&gt;\%s&lt;/span&gt;";
 char *markup;
 
 markup = g_markup_printf_escaped (format, str);
@@ -13206,14 +13201,14 @@ gtk_label_set_markup (GTK_LABEL (label), markup);
 g_free (markup);
 </code></pre>
 
-<p>This function will set the <code>GtkLabel</code>:use-markup property to <code>true</code> as
+<p>This function will set the <code>GtkLabel:use</code>-markup property to <code>true</code> as
 a side effect.</p>
 
-<p>If you set the label contents using the <code>GtkLabel</code>:label property you
-should also ensure that you set the <code>GtkLabel</code>:use-markup property
+<p>If you set the label contents using the <code>GtkLabel:label</code> property you
+should also ensure that you set the <code>GtkLabel:use</code>-markup property
 accordingly.</p>
 
-<p>See also: gtk_label_set_text()</p>
+<p>See also: <code>gtk_label_set_text()</code></p>
 
                       </div>
                       <div class="declaration">
@@ -13225,7 +13220,7 @@ accordingly.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L14957-L14960">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L14912-L14915">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13247,13 +13242,13 @@ accordingly.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Parses <code>str</code> which is marked up with the
-[Pango text markup language][PangoMarkupFormat],
+<a href="#PangoMarkupFormat">Pango text markup language</a>,
 setting the label’s text and attribute list based on the parse results.
 If characters in <code>str</code> are preceded by an underscore, they are underlined
 indicating that they represent a keyboard accelerator called a mnemonic.</p>
 
 <p>The mnemonic key can be used to activate another widget, chosen
-automatically, or explicitly using gtk_label_set_mnemonic_widget().</p>
+automatically, or explicitly using <code>gtk_label_set_mnemonic_widget()</code>.</p>
 
                         <a href="../Protocols/LabelProtocol/setMarkupWith%28mnemonic%3A%29.html" class="slightly-smaller">See more</a>
                       </div>
@@ -13266,7 +13261,7 @@ automatically, or explicitly using gtk_label_set_mnemonic_widget().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L14970-L14973">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L14925-L14928">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13300,7 +13295,7 @@ automatically, or explicitly using gtk_label_set_mnemonic_widget().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L14976-L14979">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L14931-L14934">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13322,8 +13317,8 @@ automatically, or explicitly using gtk_label_set_mnemonic_widget().</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>If the label has been set so that it has an mnemonic key (using
-i.e. gtk_label_set_markup_with_mnemonic(),
-gtk_label_set_text_with_mnemonic(), gtk_label_new_with_mnemonic()
+i.e. <code>gtk_label_set_markup_with_mnemonic()</code>,
+<code>gtk_label_set_text_with_mnemonic()</code>, <code>gtk_label_new_with_mnemonic()</code>
 or the “use_underline” property) the label can be associated with a
 widget that is the target of the mnemonic. When the label is inside
 a widget (like a <code>GtkButton</code> or a <code>GtkNotebook</code> tab) it is
@@ -13332,7 +13327,7 @@ automatically associated with the correct widget, but sometimes
 set it explicitly using this function.</p>
 
 <p>The target widget will be accelerated by emitting the
-GtkWidget::mnemonic-activate signal on it. The default handler for
+GtkWidget<code>mnemonic</code>-activate signal on it. The default handler for
 this signal will activate the widget if there are no mnemonic collisions
 and toggle focus between the colliding widgets otherwise.</p>
 
@@ -13346,7 +13341,7 @@ and toggle focus between the colliding widgets otherwise.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L14995-L14998">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L14950-L14953">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13382,7 +13377,7 @@ and toggle focus between the colliding widgets otherwise.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L15004-L15007">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L14959-L14962">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13416,7 +13411,7 @@ copy-and-paste.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L15011-L15014">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L14966-L14969">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13449,7 +13444,7 @@ copy-and-paste.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L15017-L15020">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L14972-L14975">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13474,12 +13469,12 @@ copy-and-paste.</p>
 was there before.</p>
 
 <p>This function will clear any previously set mnemonic accelerators, and
-set the <code>GtkLabel</code>:use-underline property to <code>false</code> as a side effect.</p>
+set the <code>GtkLabel:use</code>-underline property to <code>false</code> as a side effect.</p>
 
-<p>This function will set the <code>GtkLabel</code>:use-markup property to <code>false</code>
+<p>This function will set the <code>GtkLabel:use</code>-markup property to <code>false</code>
 as a side effect.</p>
 
-<p>See also: gtk_label_set_markup()</p>
+<p>See also: <code>gtk_label_set_markup()</code></p>
 
                       </div>
                       <div class="declaration">
@@ -13491,7 +13486,7 @@ as a side effect.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L15032-L15035">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L14987-L14990">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13516,7 +13511,7 @@ as a side effect.</p>
 If characters in <code>str</code> are preceded by an underscore, they are underlined
 indicating that they represent a keyboard accelerator called a mnemonic.
 The mnemonic key can be used to activate another widget, chosen
-automatically, or explicitly using gtk_label_set_mnemonic_widget().</p>
+automatically, or explicitly using <code>gtk_label_set_mnemonic_widget()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -13528,7 +13523,7 @@ automatically, or explicitly using gtk_label_set_mnemonic_widget().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L15042-L15045">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L14997-L15000">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13562,7 +13557,7 @@ links (and use a different color for them).</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L15049-L15052">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L15004-L15007">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13584,8 +13579,8 @@ links (and use a different color for them).</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Sets whether the text of the label contains markup in
-[Pango’s text markup language][PangoMarkupFormat].
-See gtk_label_set_markup().</p>
+<a href="#PangoMarkupFormat">Pango’s text markup language</a>.
+See <code>gtk_label_set_markup()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -13597,7 +13592,7 @@ See gtk_label_set_markup().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L15057-L15060">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L15012-L15015">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13631,7 +13626,7 @@ used for the mnemonic accelerator key.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L15064-L15067">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L15019-L15022">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13664,7 +13659,7 @@ used for the mnemonic accelerator key.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L15070-L15073">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L15025-L15028">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13685,7 +13680,7 @@ used for the mnemonic accelerator key.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Sets the <code>GtkLabel</code>:xalign property for <code><a href="../Protocols/LabelProtocol.html#/s:3Gtk13LabelProtocolPAAE5labelSSSgvp">label</a></code>.</p>
+                        <p>Sets the <code>GtkLabel:xalign</code> property for <code><a href="../Protocols/LabelProtocol.html#/s:3Gtk13LabelProtocolPAAE5labelSSSgvp">label</a></code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -13697,7 +13692,7 @@ used for the mnemonic accelerator key.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L15076-L15079">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L15031-L15034">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13718,7 +13713,7 @@ used for the mnemonic accelerator key.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Sets the <code>GtkLabel</code>:yalign property for <code><a href="../Protocols/LabelProtocol.html#/s:3Gtk13LabelProtocolPAAE5labelSSSgvp">label</a></code>.</p>
+                        <p>Sets the <code>GtkLabel:yalign</code> property for <code><a href="../Protocols/LabelProtocol.html#/s:3Gtk13LabelProtocolPAAE5labelSSSgvp">label</a></code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -13730,7 +13725,7 @@ used for the mnemonic accelerator key.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L15082-L15085">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L15037-L15040">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13766,7 +13761,7 @@ if the label is selectable.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L15090-L15104">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L15045-L15059">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13799,7 +13794,7 @@ if the label is selectable.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L15106-L15129">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L15061-L15084">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13825,8 +13820,8 @@ The active link is the one under the mouse pointer or, in a
 selectable label, the link in which the text cursor is currently
 positioned.</p>
 
-<p>This function is intended for use in a <code>GtkLabel</code>::activate-link handler
-or for use in a <code>GtkWidget</code>::query-tooltip handler.</p>
+<p>This function is intended for use in a <code>GtkLabel::activate</code>-link handler
+or for use in a <code>GtkWidget::query</code>-tooltip handler.</p>
 
                       </div>
                       <div class="declaration">
@@ -13838,7 +13833,7 @@ or for use in a <code>GtkWidget</code>::query-tooltip handler.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L15138-L15150">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L15093-L15105">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13868,8 +13863,8 @@ not have enough room to display the entire string, specified as a
 only enough space to display the ellipsis <q>&hellip;</q>. In particular, this
 means that ellipsizing labels do not work well in notebook tabs, unless
 the <code>GtkNotebook</code> tab-expand child property is set to <code>true</code>. Other ways
-to set a label&rsquo;s width are gtk_widget_set_size_request() and
-gtk_label_set_width_chars().</p>
+to set a label&rsquo;s width are <code>gtk_widget_set_size_request()</code> and
+<code>gtk_label_set_width_chars()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -13881,7 +13876,7 @@ gtk_label_set_width_chars().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L15163-L15174">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L15118-L15129">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13914,7 +13909,7 @@ gtk_label_set_width_chars().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L15176-L15191">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L15131-L15146">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13937,14 +13932,14 @@ gtk_label_set_width_chars().</p>
                       <div class="abstract">
                         <p>The contents of the label.</p>
 
-<p>If the string contains [Pango XML markup][PangoMarkupFormat], you will
-have to set the <code>GtkLabel</code>:use-markup property to <code>true</code> in order for the
-label to display the markup attributes. See also gtk_label_set_markup()
+<p>If the string contains <a href="#PangoMarkupFormat">Pango XML markup</a>, you will
+have to set the <code>GtkLabel:use</code>-markup property to <code>true</code> in order for the
+label to display the markup attributes. See also <code>gtk_label_set_markup()</code>
 for a convenience function that sets both this property and the
-<code>GtkLabel</code>:use-markup property at the same time.</p>
+<code>GtkLabel:use</code>-markup property at the same time.</p>
 
 <p>If the string contains underlines acting as mnemonics, you will have to
-set the <code>GtkLabel</code>:use-underline property to <code>true</code> in order for the label
+set the <code>GtkLabel:use</code>-underline property to <code>true</code> in order for the label
 to display them.</p>
 
                       </div>
@@ -13957,7 +13952,7 @@ to display them.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L15204-L15219">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L15159-L15174">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13980,7 +13975,7 @@ to display them.</p>
                       <div class="abstract">
                         <p>Gets the <code>PangoLayout</code> used to display the label.
 The layout is useful to e.g. convert text positions to
-pixel positions, in combination with gtk_label_get_layout_offsets().
+pixel positions, in combination with <code>gtk_label_get_layout_offsets()</code>.
 The returned layout is owned by the <code><a href="../Protocols/LabelProtocol.html#/s:3Gtk13LabelProtocolPAAE5labelSSSgvp">label</a></code> so need not be
 freed by the caller. The <code><a href="../Protocols/LabelProtocol.html#/s:3Gtk13LabelProtocolPAAE5labelSSSgvp">label</a></code> is free to recreate its layout at
 any time, so it should be considered read-only.</p>
@@ -13995,7 +13990,7 @@ any time, so it should be considered read-only.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L15227-L15238">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L15182-L15193">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14017,7 +14012,7 @@ any time, so it should be considered read-only.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Returns whether lines in the label are automatically wrapped.
-See gtk_label_set_line_wrap().</p>
+See <code>gtk_label_set_line_wrap()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -14029,7 +14024,7 @@ See gtk_label_set_line_wrap().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L15242-L15261">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L15197-L15216">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14050,7 +14045,7 @@ See gtk_label_set_line_wrap().</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns line wrap mode used by the label. See gtk_label_set_line_wrap_mode().</p>
+                        <p>Returns line wrap mode used by the label. See <code>gtk_label_set_line_wrap_mode()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -14062,7 +14057,7 @@ See gtk_label_set_line_wrap().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L15264-L15276">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L15219-L15231">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14098,7 +14093,7 @@ label is not wrapping or ellipsized. Set this property to
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L15282-L15296">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L15237-L15251">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14120,7 +14115,7 @@ label is not wrapping or ellipsized. Set this property to
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Retrieves the desired maximum width of <code><a href="../Protocols/LabelProtocol.html#/s:3Gtk13LabelProtocolPAAE5labelSSSgvp">label</a></code>, in characters. See
-gtk_label_set_width_chars().</p>
+<code>gtk_label_set_width_chars()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -14132,7 +14127,7 @@ gtk_label_set_width_chars().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L15300-L15311">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L15255-L15266">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14167,7 +14162,7 @@ mnemonic set up it returns <code>GDK_KEY_VoidSymbol</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L15316-L15324">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L15271-L15279">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14189,7 +14184,7 @@ mnemonic set up it returns <code>GDK_KEY_VoidSymbol</code>.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Retrieves the target of the mnemonic (keyboard shortcut) of this
-label. See gtk_label_set_mnemonic_widget().</p>
+label. See <code>gtk_label_set_mnemonic_widget()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -14201,7 +14196,7 @@ label. See gtk_label_set_mnemonic_widget().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L15328-L15352">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L15283-L15307">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14234,7 +14229,7 @@ label. See gtk_label_set_mnemonic_widget().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L15354-L15365">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L15309-L15320">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14267,7 +14262,7 @@ label. See gtk_label_set_mnemonic_widget().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L15368-L15378">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L15323-L15333">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14290,7 +14285,7 @@ label. See gtk_label_set_mnemonic_widget().</p>
                       <div class="abstract">
                         <p>Fetches the text from a label widget, as displayed on the
 screen. This does not include any embedded underlines
-indicating mnemonics or Pango markup. (See gtk_label_get_label())</p>
+indicating mnemonics or Pango markup. (See <code>gtk_label_get_label()</code>)</p>
 
                       </div>
                       <div class="declaration">
@@ -14302,7 +14297,7 @@ indicating mnemonics or Pango markup. (See gtk_label_get_label())</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L15383-L15404">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L15338-L15359">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14336,7 +14331,7 @@ of clicked links.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L15408-L15420">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L15363-L15375">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14358,7 +14353,7 @@ of clicked links.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Returns whether the label’s text is interpreted as marked up with
-the [Pango text markup language][PangoMarkupFormat].
+the <a href="#PangoMarkupFormat">Pango text markup language</a>.
 See gtk_label_set_use_markup ().</p>
 
                       </div>
@@ -14371,7 +14366,7 @@ See gtk_label_set_use_markup ().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L15425-L15439">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L15380-L15394">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14393,7 +14388,7 @@ See gtk_label_set_use_markup ().</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Returns whether an embedded underline in the label indicates a
-mnemonic. See gtk_label_set_use_underline().</p>
+mnemonic. See <code>gtk_label_set_use_underline()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -14405,7 +14400,7 @@ mnemonic. See gtk_label_set_use_underline().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L15443-L15455">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L15398-L15410">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14427,7 +14422,7 @@ mnemonic. See gtk_label_set_use_underline().</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Retrieves the desired width of <code><a href="../Protocols/LabelProtocol.html#/s:3Gtk13LabelProtocolPAAE5labelSSSgvp">label</a></code>, in characters. See
-gtk_label_set_width_chars().</p>
+<code>gtk_label_set_width_chars()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -14439,7 +14434,7 @@ gtk_label_set_width_chars().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L15459-L15470">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L15414-L15425">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14461,7 +14456,7 @@ gtk_label_set_width_chars().</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>The xalign property determines the horizontal aligment of the label text
-inside the labels size allocation. Compare this to <code>GtkWidget</code>:halign,
+inside the labels size allocation. Compare this to <code>GtkWidget:halign</code>,
 which determines how the labels size allocation is positioned in the
 space available for the label.</p>
 
@@ -14475,7 +14470,7 @@ space available for the label.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L15476-L15486">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L15431-L15441">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14497,7 +14492,7 @@ space available for the label.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>The yalign property determines the vertical aligment of the label text
-inside the labels size allocation. Compare this to <code>GtkWidget</code>:valign,
+inside the labels size allocation. Compare this to <code>GtkWidget:valign</code>,
 which determines how the labels size allocation is positioned in the
 space available for the label.</p>
 
@@ -14511,7 +14506,7 @@ space available for the label.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L15492-L15502">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-IMContextSimple-Label.swift#L15447-L15457">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14524,7 +14519,7 @@ space available for the label.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

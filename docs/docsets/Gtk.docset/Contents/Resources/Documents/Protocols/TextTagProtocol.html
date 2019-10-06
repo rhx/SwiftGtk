@@ -11527,14 +11527,14 @@ For a concrete class that implements these methods and properties, see <code><a 
 Alternatively, use <code><a href="../Structs/TextTagRef.html">TextTagRef</a></code> as a lighweight, <code>unowned</code> reference if you already have an instance you just want to use.</p>
 
 <p>You may wish to begin by reading the
-[text widget conceptual overview][TextWidget]
+<a href="#TextWidget">text widget conceptual overview</a>
 which gives an overview of all the objects and
 data types related to the text widget and how they work together.</p>
 
 <p>Tags should be in the <code>GtkTextTagTable</code> for a given <code>GtkTextBuffer</code>
 before using them with that buffer.</p>
 
-<p>gtk_text_buffer_create_tag() is the best way to create tags.
+<p><code>gtk_text_buffer_create_tag()</code> is the best way to create tags.
 See “gtk3-demo” for numerous examples.</p>
 
 <p>For each property of <code>GtkTextTag</code>, there is a “set” property, e.g.
@@ -11574,7 +11574,7 @@ They are maintained by GTK+ and you should not set them independently.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L3622">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L3617">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11612,7 +11612,7 @@ They are maintained by GTK+ and you should not set them independently.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L3625">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L3620">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11740,7 +11740,7 @@ They are maintained by GTK+ and you should not set them independently.</p>
                         <p>binding reference or <code>nil</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L3906-L3930">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L3901-L3925">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11832,7 +11832,7 @@ They are maintained by GTK+ and you should not set them independently.</p>
                         <p>positive handler ID, or a value less than or equal to <code>0</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L4097-L4116">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L4091-L4110">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11864,7 +11864,7 @@ They are maintained by GTK+ and you should not set them independently.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Emits the <code>GtkTextTagTable</code>::tag-changed signal on the <code>GtkTextTagTable</code> where
+                        <p>Emits the <code>GtkTextTagTable::tag</code>-changed signal on the <code>GtkTextTagTable</code> where
 the tag is included.</p>
 
 <p>The signal is already emitted when setting a <code>GtkTextTag</code> property. This
@@ -11880,7 +11880,7 @@ function is useful for a <code>GtkTextTag</code> subclass.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L4128-L4131">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L4122-L4125">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11913,7 +11913,7 @@ function is useful for a <code>GtkTextTag</code> subclass.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L4134-L4137">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L4128-L4131">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11946,7 +11946,7 @@ function is useful for a <code>GtkTextTag</code> subclass.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L4140-L4143">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L4134-L4137">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11968,7 +11968,7 @@ function is useful for a <code>GtkTextTag</code> subclass.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Sets the priority of a <code>GtkTextTag</code>. Valid priorities
-start at 0 and go to one less than gtk_text_tag_table_get_size().
+start at 0 and go to one less than <code>gtk_text_tag_table_get_size()</code>.
 Each tag in a table has a unique priority; setting the priority
 of one tag shifts the priorities of all the other tags in the
 table to maintain a unique priority for each tag. Higher priority
@@ -11976,7 +11976,7 @@ tags “win” if two tags both set the same text attribute. When adding
 a tag to a tag table, it will be assigned the highest priority in
 the table by default; so normally the precedence of a set of tags
 is the order in which they were added to the table, or created with
-gtk_text_buffer_create_tag(), which adds the tag to the buffer’s table
+<code>gtk_text_buffer_create_tag()</code>, which adds the tag to the buffer’s table
 automatically.</p>
 
                       </div>
@@ -11989,7 +11989,7 @@ automatically.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L4156-L4159">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L4150-L4153">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12022,7 +12022,7 @@ automatically.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L4161-L4181">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L4155-L4175">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12035,7 +12035,7 @@ automatically.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

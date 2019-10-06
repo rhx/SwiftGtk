@@ -11533,18 +11533,17 @@ creates a custom GL framebuffer that the widget will do GL rendering onto.
 It also ensures that this framebuffer is the default GL rendering target
 when rendering.</p>
 
-<p>In order to draw, you have to connect to the <code>GtkGLArea</code>::render signal,
-or subclass <code>GtkGLArea</code> and override the <code>GtkGLAreaClass</code>.render() virtual
+<p>In order to draw, you have to connect to the <code>GtkGLArea::render</code> signal,
+or subclass <code>GtkGLArea</code> and override the <code>GtkGLAreaClass.render</code><code>()</code> virtual
 function.</p>
 
 <p>The <code>GtkGLArea</code> widget ensures that the <code>GdkGLContext</code> is associated with
 the widget&rsquo;s drawing area, and it is kept updated when the size and
 position of the drawing area changes.</p>
-
-<p><code>Drawing with GtkGLArea</code></p>
+<h2 id='drawing-with-gtkglarea' class='heading'>Drawing with GtkGLArea</h2>
 
 <p>The simplest way to draw using OpenGL commands in a <code>GtkGLArea</code> is to
-create a widget instance and connect to the <code>GtkGLArea</code>::render signal:</p>
+create a widget instance and connect to the <code>GtkGLArea::render</code> signal:</p>
 
 <p>(C Language Example):</p>
 <pre class="highlight plaintext"><code>  // create a GtkGLArea instance
@@ -11562,8 +11561,8 @@ for you to draw its content:</p>
   render (GtkGLArea *area, GdkGLContext *context)
   {
     // inside this function it's safe to use GL; the given
-    // `GdkGLContext` has been made current to the drawable
-    // surface used by the `GtkGLArea` and the viewport has
+    // #GdkGLContext has been made current to the drawable
+    // surface used by the #GtkGLArea and the viewport has
     // already been set to be the size of the allocation
 
     // we can start by clearing the buffer
@@ -11581,10 +11580,10 @@ for you to draw its content:</p>
 </code></pre>
 
 <p>If you need to initialize OpenGL state, e.g. buffer objects or
-shaders, you should use the <code>GtkWidget</code>::realize signal; you
-can use the <code>GtkWidget</code>::unrealize signal to clean up. Since the
+shaders, you should use the <code>GtkWidget::realize</code> signal; you
+can use the <code>GtkWidget::unrealize</code> signal to clean up. Since the
 <code>GdkGLContext</code> creation and initialization may fail, you will
-need to check for errors, using gtk_gl_area_get_error(). An example
+need to check for errors, using <code>gtk_gl_area_get_error()</code>. An example
 of how to safely initialize the GL state is:</p>
 
 <p>(C Language Example):</p>
@@ -11597,7 +11596,7 @@ of how to safely initialize the GL state is:</p>
 
     // If there were errors during the initialization or
     // when trying to make the context current, this
-    // function will return a `GError` for you to catch
+    // function will return a #GError for you to catch
     if (gtk_gl_area_get_error (area) != NULL)
       return;
 
@@ -11624,7 +11623,7 @@ of how to safely initialize the GL state is:</p>
 </code></pre>
 
 <p>If you need to change the options for creating the <code>GdkGLContext</code>
-you should use the <code>GtkGLArea</code>::create-context signal.</p>
+you should use the <code>GtkGLArea::create</code>-context signal.</p>
 
           </div>
         </section>
@@ -11658,7 +11657,7 @@ you should use the <code>GtkGLArea</code>::create-context signal.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L18828">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L18791">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11696,7 +11695,7 @@ you should use the <code>GtkGLArea</code>::create-context signal.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L18831">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L18794">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11824,7 +11823,7 @@ you should use the <code>GtkGLArea</code>::create-context signal.</p>
                         <p>binding reference or <code>nil</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L19381-L19405">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L19338-L19362">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11916,7 +11915,7 @@ you should use the <code>GtkGLArea</code>::create-context signal.</p>
                         <p>positive handler ID, or a value less than or equal to <code>0</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L20260-L20279">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L20216-L20235">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11953,7 +11952,7 @@ and read target, and that all the required buffers for the <code>area</code>
 are created and bound to the frambuffer.</p>
 
 <p>This function is automatically called before emitting the
-<code>GtkGLArea</code>::render signal, and doesn&rsquo;t normally need to be called
+<code>GtkGLArea::render</code> signal, and doesn&rsquo;t normally need to be called
 by application code.</p>
 
                       </div>
@@ -11966,7 +11965,7 @@ by application code.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L20293-L20296">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L20249-L20252">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11999,7 +11998,7 @@ by application code.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L20299-L20302">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L20255-L20258">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12032,7 +12031,7 @@ by application code.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L20305-L20308">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L20261-L20264">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12065,7 +12064,7 @@ by application code.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L20311-L20314">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L20267-L20270">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12098,7 +12097,7 @@ by application code.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L20317-L20320">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L20273-L20276">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12131,7 +12130,7 @@ by application code.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L20323-L20326">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L20279-L20282">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12164,7 +12163,7 @@ by application code.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L20329-L20332">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L20285-L20288">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12186,7 +12185,7 @@ by application code.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Retrieves the required version of OpenGL set
-using gtk_gl_area_set_required_version().</p>
+using <code>gtk_gl_area_set_required_version()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12198,7 +12197,7 @@ using gtk_gl_area_set_required_version().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L20336-L20339">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L20292-L20295">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12219,7 +12218,7 @@ using gtk_gl_area_set_required_version().</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Retrieves the value set by gtk_gl_area_set_use_es().</p>
+                        <p>Retrieves the value set by <code>gtk_gl_area_set_use_es()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12231,7 +12230,7 @@ using gtk_gl_area_set_required_version().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L20342-L20345">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L20298-L20301">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12256,7 +12255,7 @@ using gtk_gl_area_set_required_version().</p>
 the <code>GtkGLArea</code>.</p>
 
 <p>This function is automatically called before emitting the
-<code>GtkGLArea</code>::render signal, and doesn&rsquo;t normally need to be called
+<code>GtkGLArea::render</code> signal, and doesn&rsquo;t normally need to be called
 by application code.</p>
 
                       </div>
@@ -12269,7 +12268,7 @@ by application code.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L20353-L20356">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L20309-L20312">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12291,12 +12290,12 @@ by application code.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Marks the currently rendered data (if any) as invalid, and queues
-a redraw of the widget, ensuring that the <code>GtkGLArea</code>::render signal
+a redraw of the widget, ensuring that the <code>GtkGLArea::render</code> signal
 is emitted during the draw.</p>
 
-<p>This is only needed when the gtk_gl_area_set_auto_render() has
+<p>This is only needed when the <code>gtk_gl_area_set_auto_render()</code> has
 been called with a <code>false</code> value. The default behaviour is to
-emit <code>GtkGLArea</code>::render on each draw.</p>
+emit <code>GtkGLArea::render</code> on each draw.</p>
 
                       </div>
                       <div class="declaration">
@@ -12308,7 +12307,7 @@ emit <code>GtkGLArea</code>::render on each draw.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L20365-L20368">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L20321-L20324">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12329,14 +12328,14 @@ emit <code>GtkGLArea</code>::render on each draw.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>If <code>auto_render</code> is <code>true</code> the <code>GtkGLArea</code>::render signal will be
+                        <p>If <code>auto_render</code> is <code>true</code> the <code>GtkGLArea::render</code> signal will be
 emitted every time the widget draws. This is the default and is
 useful if drawing the widget is faster.</p>
 
 <p>If <code>auto_render</code> is <code>false</code> the data from previous rendering is kept
 around and will be used for drawing the widget the next time,
 unless the window is resized. In order to force a rendering
-gtk_gl_area_queue_render() must be called. This mode is useful when
+<code>gtk_gl_area_queue_render()</code> must be called. This mode is useful when
 the scene changes seldomly, but takes a long time to redraw.</p>
 
                       </div>
@@ -12349,7 +12348,7 @@ the scene changes seldomly, but takes a long time to redraw.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L20379-L20382">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L20335-L20338">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12371,7 +12370,7 @@ the scene changes seldomly, but takes a long time to redraw.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Sets an error on the area which will be shown instead of the
-GL rendering. This is useful in the <code>GtkGLArea</code>::create-context
+GL rendering. This is useful in the <code>GtkGLArea::create</code>-context
 signal if GL context creation fails.</p>
 
                       </div>
@@ -12384,7 +12383,7 @@ signal if GL context creation fails.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L20387-L20390">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L20343-L20346">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12422,7 +12421,7 @@ buffer will fully replace anything below the widget.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L20398-L20401">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L20354-L20357">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12457,7 +12456,7 @@ there will be none.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L20406-L20409">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L20362-L20365">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12492,7 +12491,7 @@ there will be none.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L20414-L20417">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L20370-L20373">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12528,7 +12527,7 @@ for the widget.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L20423-L20426">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L20379-L20382">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12564,7 +12563,7 @@ with either API.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L20432-L20435">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L20388-L20391">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12597,7 +12596,7 @@ with either API.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L20437-L20455">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L20393-L20411">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12634,7 +12633,7 @@ depth, etc), use render buffers.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L20462-L20468">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L20418-L20424">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12667,7 +12666,7 @@ depth, etc), use render buffers.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L20471-L20483">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L20427-L20439">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12700,7 +12699,7 @@ depth, etc), use render buffers.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L20486-L20501">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L20442-L20457">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12733,7 +12732,7 @@ depth, etc), use render buffers.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L20504-L20516">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L20460-L20472">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12766,7 +12765,7 @@ depth, etc), use render buffers.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L20519-L20531">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L20475-L20487">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12787,7 +12786,7 @@ depth, etc), use render buffers.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Retrieves the value set by gtk_gl_area_set_use_es().</p>
+                        <p>Retrieves the value set by <code>gtk_gl_area_set_use_es()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12799,7 +12798,7 @@ depth, etc), use render buffers.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L20534-L20547">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L20490-L20503">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12812,7 +12811,7 @@ depth, etc), use render buffers.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

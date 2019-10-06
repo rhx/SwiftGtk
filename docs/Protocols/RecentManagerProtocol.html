@@ -11554,7 +11554,7 @@ gtk_recent_manager_add_item (manager, file_uri);
 from the file itself through GIO.</p>
 
 <p>Looking up the meta-data associated with a recently used file
-given its URI requires calling gtk_recent_manager_lookup_item():</p>
+given its URI requires calling <code>gtk_recent_manager_lookup_item()</code>:</p>
 
 <p>(C Language Example):</p>
 <pre class="highlight plaintext"><code>GtkRecentManager *manager;
@@ -11565,7 +11565,7 @@ manager = gtk_recent_manager_get_default ();
 info = gtk_recent_manager_lookup_item (manager, file_uri, &amp;error);
 if (error)
   {
-    g_warning ("Could not find the file: `s`", error-&gt;message);
+    g_warning ("Could not find the file: %s", error-&gt;message);
     g_error_free (error);
   }
 else
@@ -11576,13 +11576,13 @@ else
 </code></pre>
 
 <p>In order to retrieve the list of recently used files, you can use
-gtk_recent_manager_get_items(), which returns a list of <code>GtkRecentInfo</code>-structs.</p>
+<code>gtk_recent_manager_get_items()</code>, which returns a list of <code>GtkRecentInfo</code>-structs.</p>
 
 <p>A <code>GtkRecentManager</code> is the model used to populate the contents of
 one, or more <code>GtkRecentChooser</code> implementations.</p>
 
 <p>Note that the maximum age of the recently used files list is
-controllable through the <code>GtkSettings</code>:gtk-recent-files-max-age
+controllable through the <code>GtkSettings:gtk</code>-recent-files-max-age
 property.</p>
 
 <p>Recently used files are supported since GTK+ 2.10.</p>
@@ -11619,7 +11619,7 @@ property.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L13130">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L13106">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11657,7 +11657,7 @@ property.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L13133">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L13109">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11785,7 +11785,7 @@ property.</p>
                         <p>binding reference or <code>nil</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L13413-L13437">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L13385-L13409">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11877,7 +11877,7 @@ property.</p>
                         <p>positive handler ID, or a value less than or equal to <code>0</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L13484-L13503">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L13455-L13474">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11940,7 +11940,7 @@ applications that have registered it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L13529-L13532">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L13500-L13503">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11966,9 +11966,9 @@ resources list.</p>
 
 <p>This function automatically retrieves some of the needed
 metadata and setting other metadata to common default values;
-it then feeds the data to gtk_recent_manager_add_full().</p>
+it then feeds the data to <code>gtk_recent_manager_add_full()</code>.</p>
 
-<p>See gtk_recent_manager_add_full() if you want to explicitly
+<p>See <code>gtk_recent_manager_add_full()</code> if you want to explicitly
 define the metadata for the resource pointed by <code>uri</code>.</p>
 
                       </div>
@@ -11981,7 +11981,7 @@ define the metadata for the resource pointed by <code>uri</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L13543-L13546">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L13514-L13517">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12014,7 +12014,7 @@ define the metadata for the resource pointed by <code>uri</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L13549-L13552">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L13520-L13523">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12048,7 +12048,7 @@ with <code>uri</code> inside the recent manager.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L13556-L13559">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L13527-L13530">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12083,7 +12083,7 @@ like its MIME type, or its display name.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L13564-L13571">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L13535-L13542">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12119,7 +12119,7 @@ by the URIs, but only the URI used in the recently used resources list.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L13577-L13584">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L13548-L13555">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12152,7 +12152,7 @@ by the URIs, but only the URI used in the recently used resources list.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L13587-L13594">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L13558-L13565">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12186,7 +12186,7 @@ list handled by a recent manager.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L13598-L13605">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L13569-L13576">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12219,7 +12219,7 @@ list handled by a recent manager.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L13607-L13613">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-RadioButton-Scale.swift#L13578-L13584">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12232,7 +12232,7 @@ list handled by a recent manager.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

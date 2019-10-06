@@ -11529,8 +11529,8 @@ Alternatively, use <code><a href="../Structs/ApplicationWindowRef.html">Applicat
 <p><code>GtkApplicationWindow</code> is a <code>GtkWindow</code> subclass that offers some
 extra functionality for better integration with <code>GtkApplication</code>
 features.  Notably, it can handle both the application menu as well
-as the menubar. See gtk_application_set_app_menu() and
-gtk_application_set_menubar().</p>
+as the menubar. See <code>gtk_application_set_app_menu()</code> and
+<code>gtk_application_set_menubar()</code>.</p>
 
 <p>This class implements the <code>GActionGroup</code> and <code>GActionMap</code> interfaces,
 to let you add window-specific actions that will be exported by the
@@ -11548,8 +11548,8 @@ can also activate these actions, if they implement the
 processing actions arriving from other processes and should therefore
 be held when activating actions locally (if GDK threads are enabled).</p>
 
-<p>The settings <code>GtkSettings</code>:gtk-shell-shows-app-menu and
-<code>GtkSettings</code>:gtk-shell-shows-menubar tell GTK+ whether the
+<p>The settings <code>GtkSettings:gtk</code>-shell-shows-app-menu and
+<code>GtkSettings:gtk</code>-shell-shows-menubar tell GTK+ whether the
 desktop environment is showing the application menu and menubar
 models outside the application as part of the desktop shell.
 For instance, on OS X, both menus will be displayed remotely;
@@ -11558,12 +11558,11 @@ will display the application menu, but not the menubar.</p>
 
 <p>If the desktop environment does not display the menubar, then
 <code>GtkApplicationWindow</code> will automatically show a <code>GtkMenuBar</code> for it.
-This behaviour can be overridden with the <code>GtkApplicationWindow</code>:show-menubar
+This behaviour can be overridden with the <code>GtkApplicationWindow:show</code>-menubar
 property. If the desktop environment does not display the application
 menu, then it will automatically be included in the menubar or in the
 windows client-side decorations.</p>
-
-<p>&ldquo;` A GtkApplicationWindow with a menubar</p>
+<h2 id='a-gtkapplicationwindow-with-a-menubar' class='heading'>A GtkApplicationWindow with a menubar</h2>
 
 <p>(C Language Example):</p>
 <pre class="highlight plaintext"><code>GtkApplication *app = gtk_application_new ("org.gtk.test", 0);
@@ -11588,8 +11587,7 @@ g_object_unref (builder);
 
 GtkWidget *window = gtk_application_window_new (app);
 </code></pre>
-
-<p>&rdquo;` Handling fallback yourself</p>
+<h2 id='handling-fallback-yourself' class='heading'>Handling fallback yourself</h2>
 
 <p><a href="https://git.gnome.org/browse/gtk+/tree/examples/sunny.c">A simple example</a></p>
 
@@ -11671,7 +11669,7 @@ include <q>rtl</q>, <q>ltr</q>, and <q>none</q>.</li>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L16341">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L16318">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11709,7 +11707,7 @@ include <q>rtl</q>, <q>ltr</q>, and <q>none</q>.</li>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L16344">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L16321">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11837,7 +11835,7 @@ include <q>rtl</q>, <q>ltr</q>, and <q>none</q>.</li>
                         <p>binding reference or <code>nil</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L16955-L16979">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L16930-L16954">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11929,7 +11927,7 @@ include <q>rtl</q>, <q>ltr</q>, and <q>none</q>.</li>
                         <p>positive handler ID, or a value less than or equal to <code>0</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L17896-L17915">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L17870-L17889">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11962,7 +11960,7 @@ include <q>rtl</q>, <q>ltr</q>, and <q>none</q>.</li>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Gets the <code>GtkShortcutsWindow</code> that has been set up with
-a prior call to gtk_application_window_set_help_overlay().</p>
+a prior call to <code>gtk_application_window_set_help_overlay()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -11974,7 +11972,7 @@ a prior call to gtk_application_window_set_help_overlay().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L17924-L17927">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L17898-L17901">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12008,7 +12006,7 @@ a <code>GtkApplication</code>, returns <code>0</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L17931-L17934">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L17905-L17908">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12042,7 +12040,7 @@ and menubar as needed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L17938-L17941">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L17912-L17915">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12079,7 +12077,7 @@ it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L17948-L17951">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L17922-L17925">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12113,7 +12111,7 @@ and menubar as needed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L17955-L17958">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L17929-L17932">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12135,7 +12133,7 @@ and menubar as needed.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Gets the <code>GtkShortcutsWindow</code> that has been set up with
-a prior call to gtk_application_window_set_help_overlay().</p>
+a prior call to <code>gtk_application_window_set_help_overlay()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12147,7 +12145,7 @@ a prior call to gtk_application_window_set_help_overlay().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L17961-L17976">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L17935-L17950">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12181,7 +12179,7 @@ a <code>GtkApplication</code>, returns <code>0</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L17980-L17987">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L17954-L17961">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12215,7 +12213,7 @@ and menubar as needed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L17991-L18003">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L17965-L17977">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12228,7 +12226,7 @@ and menubar as needed.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

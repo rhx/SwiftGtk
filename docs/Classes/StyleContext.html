@@ -11531,21 +11531,20 @@ a widget defined by <code>GtkWidgetPath</code>.</p>
 <p>In order to construct the final style information, <code>GtkStyleContext</code>
 queries information from all attached <code>GtkStyleProviders</code>. Style providers
 can be either attached explicitly to the context through
-gtk_style_context_add_provider(), or to the screen through
-gtk_style_context_add_provider_for_screen(). The resulting style is a
+<code>gtk_style_context_add_provider()</code>, or to the screen through
+<code>gtk_style_context_add_provider_for_screen()</code>. The resulting style is a
 combination of all providers’ information in priority order.</p>
 
 <p>For GTK+ widgets, any <code>GtkStyleContext</code> returned by
-gtk_widget_get_style_context() will already have a <code>GtkWidgetPath</code>, a
+<code>gtk_widget_get_style_context()</code> will already have a <code>GtkWidgetPath</code>, a
 <code>GdkScreen</code> and RTL/LTR information set. The style context will also be
 updated automatically if any of these settings change on the widget.</p>
 
 <p>If you are using the theming layer standalone, you will need to set a
 widget path and a screen yourself to the created style context through
-gtk_style_context_set_path() and possibly gtk_style_context_set_screen(). See
+<code>gtk_style_context_set_path()</code> and possibly <code>gtk_style_context_set_screen()</code>. See
 the “Foreign drawing“ example in gtk3-demo.</p>
-
-<p><code>Style Classes</code> {<code>gtkstylecontext</code>-classes}</p>
+<h1 id='style-classes-a-name-gtkstylecontext-classes-a' class='heading'>Style Classes # <a name="gtkstylecontext-classes"></a></h1>
 
 <p>Widgets can add style classes to their context, which can be used to associate
 different styles by class. The documentation for individual widgets lists
@@ -11553,16 +11552,14 @@ which style classes it uses itself, and which style classes may be added by
 applications to affect their appearance.</p>
 
 <p>GTK+ defines macros for a number of style classes.</p>
-
-<p>&ldquo; Style Regions</p>
+<h1 id='style-regions' class='heading'>Style Regions</h1>
 
 <p>Widgets can also add regions with flags to their context. This feature is
 deprecated and will be removed in a future GTK+ update. Please use style
 classes instead.</p>
 
 <p>GTK+ defines macros for a number of style regions.</p>
-
-<p>&rdquo; Custom styling in UI libraries and applications</p>
+<h1 id='custom-styling-in-ui-libraries-and-applications' class='heading'>Custom styling in UI libraries and applications</h1>
 
 <p>If you are developing a library with custom <code>GtkWidgets</code> that
 render differently than standard components, you may need to add a
@@ -11612,7 +11609,7 @@ Ownership is transferred to the <code>StyleContext</code> instance.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L34000-L34002">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L33959-L33961">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11638,12 +11635,12 @@ Will retain <code>GtkStyleContext</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">other</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/StyleContextProtocol.html">StyleContextProtocol</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">other</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/StyleContextProtocol.html">StyleContextProtocol</a></span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L34006-L34009">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L33965-L33968">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11669,12 +11666,12 @@ Will retain <code>GtkStyleContext</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">cPointer</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">cPointer</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L34013-L34015">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L33972-L33974">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11700,12 +11697,12 @@ Will retain <code>GtkStyleContext</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeRawPointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L34019-L34021">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L33978-L33980">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11731,12 +11728,12 @@ Will retain <code>GtkStyleContext</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L34025-L34027">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L33984-L33986">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11762,12 +11759,12 @@ Will retain <code>GtkStyleContext</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">opaquePointer</span><span class="p">:</span> <span class="kt">OpaquePointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">opaquePointer</span><span class="p">:</span> <span class="kt">OpaquePointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L34031-L34033">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L33990-L33992">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11787,11 +11784,11 @@ Will retain <code>GtkStyleContext</code>.</p>
                       <div class="abstract">
                         <p>Creates a standalone <code>GtkStyleContext</code>, this style context
 won’t be attached to any widget, so you may want
-to call gtk_style_context_set_path() yourself.</p>
+to call <code>gtk_style_context_set_path()</code> yourself.</p>
 
 <p>This function is only useful when using the theming layer
 separated from GTK+, if you are using <code>GtkStyleContext</code> to
-theme <code>GtkWidgets</code>, use gtk_widget_get_style_context()
+theme <code>GtkWidgets</code>, use <code>gtk_widget_get_style_context()</code>
 in order to get a style context ready to theme the widget.</p>
 
                       </div>
@@ -11799,12 +11796,12 @@ in order to get a style context ready to theme the widget.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">()</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L34043-L34046">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L34002-L34005">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11817,7 +11814,7 @@ in order to get a style context ready to theme the widget.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

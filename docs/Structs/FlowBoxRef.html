@@ -11545,22 +11545,23 @@ children, you may have to wrap it in a <code>GtkScrolledWindow</code> to enable 
 <p>The children of a GtkFlowBox can be dynamically sorted and filtered.</p>
 
 <p>Although a GtkFlowBox must have only <code>GtkFlowBoxChild</code> children,
-you can add any kind of widget to it via gtk_container_add(), and
+you can add any kind of widget to it via <code>gtk_container_add()</code>, and
 a GtkFlowBoxChild widget will automatically be inserted between
 the box and the widget.</p>
 
 <p>Also see <code>GtkListBox</code>.</p>
 
 <p>GtkFlowBox was added in GTK+ 3.12.</p>
+<h1 id='css-nodes' class='heading'>CSS nodes</h1>
 
-<p>&ldquo; CSS nodes</p>
-<pre class="highlight swift"><code><span class="n">flowbox</span>
-<span class="err">├──</span> <span class="n">flowboxchild</span>
-<span class="err">│</span>   <span class="err">╰──</span> <span class="o">&lt;</span><span class="n">child</span><span class="o">&gt;</span>
-<span class="err">├──</span> <span class="n">flowboxchild</span>
-<span class="err">│</span>   <span class="err">╰──</span> <span class="o">&lt;</span><span class="n">child</span><span class="o">&gt;</span>
-<span class="err">┊</span>
-<span class="err">╰──</span> <span class="p">[</span><span class="n">rubberband</span><span class="p">]</span>
+<p>(plain Language Example):</p>
+<pre class="highlight plaintext"><code>flowbox
+├── flowboxchild
+│   ╰── &lt;child&gt;
+├── flowboxchild
+│   ╰── &lt;child&gt;
+┊
+╰── [rubberband]
 </code></pre>
 
 <p>GtkFlowBox uses a single CSS node with name flowbox. GtkFlowBoxChild
@@ -11600,7 +11601,7 @@ For type-safe access, use the generated, typed pointer <code>flow_box_ptr</code>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L6047">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L6027">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11641,7 +11642,7 @@ For type-safe access, use the generated, typed pointer <code>flow_box_ptr</code>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L6052-L6053">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L6032-L6033">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11671,7 +11672,7 @@ For type-safe access, use the generated, typed pointer <code>flow_box_ptr</code>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L6056-L6058">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L6036-L6038">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11702,7 +11703,7 @@ For type-safe access, use the generated, typed pointer <code>flow_box_ptr</code>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L6062-L6064">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L6042-L6044">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11733,7 +11734,7 @@ For type-safe access, use the generated, typed pointer <code>flow_box_ptr</code>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L6068-L6070">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L6048-L6050">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11764,7 +11765,7 @@ For type-safe access, use the generated, typed pointer <code>flow_box_ptr</code>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L6074-L6076">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L6054-L6056">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11795,7 +11796,7 @@ For type-safe access, use the generated, typed pointer <code>flow_box_ptr</code>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L6080-L6082">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L6060-L6062">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11826,7 +11827,7 @@ For type-safe access, use the generated, typed pointer <code>flow_box_ptr</code>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L6086-L6088">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L6066-L6068">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11856,7 +11857,7 @@ For type-safe access, use the generated, typed pointer <code>flow_box_ptr</code>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L6091-L6094">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L6071-L6074">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11869,7 +11870,7 @@ For type-safe access, use the generated, typed pointer <code>flow_box_ptr</code>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

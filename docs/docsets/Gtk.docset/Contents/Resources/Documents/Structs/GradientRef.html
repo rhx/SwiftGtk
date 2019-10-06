@@ -11527,9 +11527,9 @@ Use <code>GradientRef</code> only as an <code>unowned</code> reference to an exi
 
 <p>GtkGradient is a boxed type that represents a gradient.
 It is the result of parsing a
-[gradient expression][gtkcssprovider-gradients].
+<a href="#gtkcssprovider-gradients">gradient expression</a>.
 To obtain the gradient represented by a GtkGradient, it has to
-be resolved with gtk_gradient_resolve(), which replaces all
+be resolved with <code>gtk_gradient_resolve()</code>, which replaces all
 symbolic color references by the colors they refer to (in a given
 context) and constructs a <code>cairo_pattern_t</code> value.</p>
 
@@ -11822,7 +11822,7 @@ For type-safe access, use the generated, typed pointer <code>gradient_ptr</code>
                         <pre class="highlight swift"><code><span class="kt">Creates</span> <span class="n">a</span> <span class="k">new</span> <span class="n">linear</span> <span class="n">gradient</span> <span class="n">along</span> <span class="n">the</span> <span class="n">line</span> <span class="n">defined</span> <span class="nf">by</span> <span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">y0</span><span class="p">)</span> <span class="nf">and</span> <span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">)</span><span class="o">.</span> <span class="kt">Before</span> <span class="n">using</span> <span class="n">the</span> <span class="n">gradient</span>
 </code></pre>
 
-<p>a number of stop colors must be added through gtk_gradient_add_color_stop().</p>
+<p>a number of stop colors must be added through <code>gtk_gradient_add_color_stop()</code>.</p>
 
 <p><strong>new_linear is deprecated:</strong></p>
 <h1 id='gtkgradient-is-deprecated' class='heading'>GtkGradient is deprecated.</h1>
@@ -11832,7 +11832,7 @@ For type-safe access, use the generated, typed pointer <code>gradient_ptr</code>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="nf">init</span><span class="p">(</span><span class="n">linear</span> <span class="nv">x0</span><span class="p">:</span> <span class="n">gdouble</span><span class="p">,</span> <span class="nv">y0</span><span class="p">:</span> <span class="n">gdouble</span><span class="p">,</span> <span class="nv">x1</span><span class="p">:</span> <span class="n">gdouble</span><span class="p">,</span> <span class="nv">y1</span><span class="p">:</span> <span class="n">gdouble</span><span class="p">)</span></code></pre>
 
                         </div>
@@ -11858,7 +11858,7 @@ For type-safe access, use the generated, typed pointer <code>gradient_ptr</code>
                       <div class="abstract">
                         <p>Creates a new radial gradient along the two circles defined by (x0, y0, radius0) and
 (x1, y1, radius1). Before using the gradient a number of stop colors must be added
-through gtk_gradient_add_color_stop().</p>
+through <code>gtk_gradient_add_color_stop()</code>.</p>
 
 <p><strong>new_radial is deprecated:</strong></p>
 <h1 id='gtkgradient-is-deprecated' class='heading'>GtkGradient is deprecated.</h1>
@@ -11868,7 +11868,7 @@ through gtk_gradient_add_color_stop().</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="nf">init</span><span class="p">(</span><span class="n">radial</span> <span class="nv">x0</span><span class="p">:</span> <span class="n">gdouble</span><span class="p">,</span> <span class="nv">y0</span><span class="p">:</span> <span class="n">gdouble</span><span class="p">,</span> <span class="nv">radius0</span><span class="p">:</span> <span class="n">gdouble</span><span class="p">,</span> <span class="nv">x1</span><span class="p">:</span> <span class="n">gdouble</span><span class="p">,</span> <span class="nv">y1</span><span class="p">:</span> <span class="n">gdouble</span><span class="p">,</span> <span class="nv">radius1</span><span class="p">:</span> <span class="n">gdouble</span><span class="p">)</span></code></pre>
 
                         </div>
@@ -11893,7 +11893,7 @@ through gtk_gradient_add_color_stop().</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Creates a new linear gradient along the line defined by (x0, y0) and (x1, y1). Before using the gradient
-a number of stop colors must be added through gtk_gradient_add_color_stop().</p>
+a number of stop colors must be added through <code>gtk_gradient_add_color_stop()</code>.</p>
 
 <p><strong>new_linear is deprecated:</strong></p>
 <h1 id='gtkgradient-is-deprecated' class='heading'>GtkGradient is deprecated.</h1>
@@ -11903,7 +11903,7 @@ a number of stop colors must be added through gtk_gradient_add_color_stop().</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">static</span> <span class="kd">func</span> <span class="nf">new</span><span class="p">(</span><span class="n">linear</span> <span class="nv">x0</span><span class="p">:</span> <span class="n">gdouble</span><span class="p">,</span> <span class="nv">y0</span><span class="p">:</span> <span class="n">gdouble</span><span class="p">,</span> <span class="nv">x1</span><span class="p">:</span> <span class="n">gdouble</span><span class="p">,</span> <span class="nv">y1</span><span class="p">:</span> <span class="n">gdouble</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">GradientRef</span><span class="o">!</span></code></pre>
 
                         </div>
@@ -11929,7 +11929,7 @@ a number of stop colors must be added through gtk_gradient_add_color_stop().</p>
                       <div class="abstract">
                         <p>Creates a new radial gradient along the two circles defined by (x0, y0, radius0) and
 (x1, y1, radius1). Before using the gradient a number of stop colors must be added
-through gtk_gradient_add_color_stop().</p>
+through <code>gtk_gradient_add_color_stop()</code>.</p>
 
 <p><strong>new_radial is deprecated:</strong></p>
 <h1 id='gtkgradient-is-deprecated' class='heading'>GtkGradient is deprecated.</h1>
@@ -11939,7 +11939,7 @@ through gtk_gradient_add_color_stop().</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">static</span> <span class="kd">func</span> <span class="nf">new</span><span class="p">(</span><span class="n">radial</span> <span class="nv">x0</span><span class="p">:</span> <span class="n">gdouble</span><span class="p">,</span> <span class="nv">y0</span><span class="p">:</span> <span class="n">gdouble</span><span class="p">,</span> <span class="nv">radius0</span><span class="p">:</span> <span class="n">gdouble</span><span class="p">,</span> <span class="nv">x1</span><span class="p">:</span> <span class="n">gdouble</span><span class="p">,</span> <span class="nv">y1</span><span class="p">:</span> <span class="n">gdouble</span><span class="p">,</span> <span class="nv">radius1</span><span class="p">:</span> <span class="n">gdouble</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">GradientRef</span><span class="o">!</span></code></pre>
 
                         </div>
@@ -11958,7 +11958,7 @@ through gtk_gradient_add_color_stop().</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

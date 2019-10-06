@@ -11526,22 +11526,22 @@ The default implementation of these can be found in the protocol extension below
 For a concrete class that implements these methods and properties, see <code><a href="../Classes/Tooltip.html">Tooltip</a></code>.
 Alternatively, use <code><a href="../Structs/TooltipRef.html">TooltipRef</a></code> as a lighweight, <code>unowned</code> reference if you already have an instance you just want to use.</p>
 
-<p>Basic tooltips can be realized simply by using gtk_widget_set_tooltip_text()
-or gtk_widget_set_tooltip_markup() without any explicit tooltip object.</p>
+<p>Basic tooltips can be realized simply by using <code>gtk_widget_set_tooltip_text()</code>
+or <code>gtk_widget_set_tooltip_markup()</code> without any explicit tooltip object.</p>
 
 <p>When you need a tooltip with a little more fancy contents, like adding an
 image, or you want the tooltip to have different contents per <code>GtkTreeView</code>
 row or cell, you will have to do a little more work:</p>
 
 <ul>
-<li><p>Set the <code>GtkWidget</code>:has-tooltip property to <code>true</code>, this will make GTK+
+<li><p>Set the <code>GtkWidget:has</code>-tooltip property to <code>true</code>, this will make GTK+
 monitor the widget for motion and related events which are needed to
 determine when and where to show a tooltip.</p></li>
-<li><p>Connect to the <code>GtkWidget</code>::query-tooltip signal.  This signal will be
+<li><p>Connect to the <code>GtkWidget::query</code>-tooltip signal.  This signal will be
 emitted when a tooltip is supposed to be shown. One of the arguments passed
 to the signal handler is a GtkTooltip object. This is the object that we
 are about to display as a tooltip, and can be manipulated in your callback
-using functions like gtk_tooltip_set_icon(). There are functions for setting
+using functions like <code>gtk_tooltip_set_icon()</code>. There are functions for setting
 the tooltip’s markup, setting an image from a named icon, or even putting in
 a custom widget.</p></li>
 </ul>
@@ -11554,11 +11554,11 @@ tooltip that is about to be shown, you can set your own <code>GtkWindow</code> w
 will be used as tooltip window.  This works as follows:</p>
 
 <ul>
-<li><p>Set <code>GtkWidget</code>:has-tooltip and connect to <code>GtkWidget</code>::query-tooltip as before.
-Use gtk_widget_set_tooltip_window() to set a <code>GtkWindow</code> created by you as
+<li><p>Set <code>GtkWidget:has</code>-tooltip and connect to <code>GtkWidget::query</code>-tooltip as before.
+Use <code>gtk_widget_set_tooltip_window()</code> to set a <code>GtkWindow</code> created by you as
 tooltip window.</p></li>
-<li><p>In the <code>GtkWidget</code>::query-tooltip callback you can access your window using
-gtk_widget_get_tooltip_window() and manipulate as you wish. The semantics of
+<li><p>In the <code>GtkWidget::query</code>-tooltip callback you can access your window using
+<code>gtk_widget_get_tooltip_window()</code> and manipulate as you wish. The semantics of
 the return value are exactly as before, return <code>true</code> to show the window,
 <code>false</code> to not show it.</p></li>
 </ul>
@@ -11595,7 +11595,7 @@ the return value are exactly as before, return <code>true</code> to show the win
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L19773">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L19748">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11633,7 +11633,7 @@ the return value are exactly as before, return <code>true</code> to show the win
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L19776">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L19751">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11725,7 +11725,7 @@ the return value are exactly as before, return <code>true</code> to show the win
                         <p>positive handler ID, or a value less than or equal to <code>0</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L19983-L20002">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L19957-L19976">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11761,8 +11761,8 @@ the return value are exactly as before, return <code>true</code> to show the win
 <code>custom_widget</code>. <code>custom_widget</code> does not get destroyed when the tooltip goes
 away.
 By default a box with a <code>GtkImage</code> and <code>GtkLabel</code> is embedded in
-the tooltip, which can be configured using gtk_tooltip_set_markup()
-and gtk_tooltip_set_icon().</p>
+the tooltip, which can be configured using <code>gtk_tooltip_set_markup()</code>
+and <code>gtk_tooltip_set_icon()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -11774,7 +11774,7 @@ and gtk_tooltip_set_icon().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L20015-L20018">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L19989-L19992">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11808,7 +11808,7 @@ and gtk_tooltip_set_icon().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L20022-L20025">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L19996-L19999">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11843,7 +11843,7 @@ by <code>size</code>. If <code>gicon</code> is <code>nil</code>, the image will 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L20030-L20033">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L20004-L20007">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11878,7 +11878,7 @@ by <code>size</code>.  If <code>icon_name</code> is <code>nil</code>, the image 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L20038-L20041">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L20012-L20015">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11911,13 +11911,13 @@ Use gtk_tooltip_set_icon_from_icon_name() instead.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">setFrom</span><span class="p">(</span><span class="n">stock</span> <span class="nv">stock_id</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">,</span> <span class="nv">size</span><span class="p">:</span> <span class="kt">GtkIconSize</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L20049-L20052">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L20023-L20026">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11939,7 +11939,7 @@ Use gtk_tooltip_set_icon_from_icon_name() instead.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Sets the text of the tooltip to be <code>markup</code>, which is marked up
-with the [Pango text markup language][PangoMarkupFormat].
+with the <a href="#PangoMarkupFormat">Pango text markup language</a>.
 If <code>markup</code> is <code>nil</code>, the label will be hidden.</p>
 
                       </div>
@@ -11952,7 +11952,7 @@ If <code>markup</code> is <code>nil</code>, the label will be hidden.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L20057-L20060">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L20031-L20034">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11974,7 +11974,7 @@ If <code>markup</code> is <code>nil</code>, the label will be hidden.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Sets the text of the tooltip to be <code>text</code>. If <code>text</code> is <code>nil</code>, the label
-will be hidden. See also gtk_tooltip_set_markup().</p>
+will be hidden. See also <code>gtk_tooltip_set_markup()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -11986,7 +11986,7 @@ will be hidden. See also gtk_tooltip_set_markup().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L20064-L20067">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L20038-L20041">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12013,8 +12013,8 @@ properly setting tooltips on <code>GtkTreeView</code> rows and cells, <code>GtkI
 etc.</p>
 
 <p>For setting tooltips on <code>GtkTreeView</code>, please refer to the convenience
-functions for this: gtk_tree_view_set_tooltip_row() and
-gtk_tree_view_set_tooltip_cell().</p>
+functions for this: <code>gtk_tree_view_set_tooltip_row()</code> and
+<code>gtk_tree_view_set_tooltip_cell()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12026,7 +12026,7 @@ gtk_tree_view_set_tooltip_cell().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L20077-L20080">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L20051-L20054">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12039,7 +12039,7 @@ gtk_tree_view_set_tooltip_cell().</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

@@ -11559,7 +11559,7 @@ be used by applications and should be wrapped by language bindings.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L30535">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L30498">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11577,11 +11577,11 @@ be used by applications and should be wrapped by language bindings.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The ::button-press-event signal will be emitted when a button
+                        <p>The <code>button</code>-press-event signal will be emitted when a button
 (typically from a mouse) is pressed.</p>
 
-<p>Whether this event is emitted is platform-dependent.  Use the ::activate
-and ::popup-menu signals in preference.</p>
+<p>Whether this event is emitted is platform-dependent.  Use the <code><a href="../Enums/StatusIconSignalName.html#/s:3Gtk20StatusIconSignalNameO8activateyA2CmF">activate</a></code>
+and <code>popup</code>-menu signals in preference.</p>
 
                       </div>
                       <div class="declaration">
@@ -11593,7 +11593,7 @@ and ::popup-menu signals in preference.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L30541">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L30504">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11611,11 +11611,11 @@ and ::popup-menu signals in preference.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The ::button-release-event signal will be emitted when a button
+                        <p>The <code>button</code>-release-event signal will be emitted when a button
 (typically from a mouse) is released.</p>
 
-<p>Whether this event is emitted is platform-dependent.  Use the ::activate
-and ::popup-menu signals in preference.</p>
+<p>Whether this event is emitted is platform-dependent.  Use the <code><a href="../Enums/StatusIconSignalName.html#/s:3Gtk20StatusIconSignalNameO8activateyA2CmF">activate</a></code>
+and <code>popup</code>-menu signals in preference.</p>
 
                       </div>
                       <div class="declaration">
@@ -11627,7 +11627,7 @@ and ::popup-menu signals in preference.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L30547">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L30510">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11646,20 +11646,20 @@ and ::popup-menu signals in preference.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>The notify signal is emitted on an object when one of its properties has
-its value set through g_object_set_property(), g_object_set(), et al.</p>
+its value set through <code>g_object_set_property()</code>, <code>g_object_set()</code>, et al.</p>
 
 <p>Note that getting this signal doesn’t itself guarantee that the value of
 the property has actually changed. When it is emitted is determined by the
 derived GObject class. If the implementor did not create the property with
-<code>G_PARAM_EXPLICIT_NOTIFY</code>, then any call to g_object_set_property() results
-in ::notify being emitted, even if the new value is the same as the old.
+<code>G_PARAM_EXPLICIT_NOTIFY</code>, then any call to <code>g_object_set_property()</code> results
+in <code>notify</code> being emitted, even if the new value is the same as the old.
 If they did pass <code>G_PARAM_EXPLICIT_NOTIFY</code>, then this signal is emitted only
-when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+when they explicitly call <code>g_object_notify()</code> or <code>g_object_notify_by_pspec()</code>,
 and common practice is to do that only when the value has actually changed.</p>
 
 <p>This signal is typically used to obtain change notification for a
 single property, by specifying the property name as a detail in the
-g_signal_connect() call, like this:
+<code>g_signal_connect()</code> call, like this:
 (C Language Example):</p>
 <pre class="highlight plaintext"><code>g_signal_connect (text_view-&gt;buffer, "notify::paste-target-list",
                   G_CALLBACK (gtk_text_view_target_list_notify),
@@ -11667,7 +11667,7 @@ g_signal_connect() call, like this:
 </code></pre>
 
 <p>It is important to note that you must use
-[canonical parameter names][canonical-parameter-names] as
+<a href="#canonical-parameter-names">canonical parameter names</a> as
 detail strings for the notify signal.</p>
 
                       </div>
@@ -11680,7 +11680,7 @@ detail strings for the notify signal.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L30573">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L30535">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11703,7 +11703,7 @@ of the status icon. Whether status icons can have context
 menus and how these are activated is platform-dependent.</p>
 
 <p>The <code>button</code> and <code>activate_time</code> parameters should be
-passed as the last to arguments to gtk_menu_popup().</p>
+passed as the last to arguments to <code>gtk_menu_popup()</code>.</p>
 
 <p>Unlike most G_SIGNAL_ACTION signals, this signal is meant to
 be used by applications and should be wrapped by language bindings.</p>
@@ -11718,7 +11718,7 @@ be used by applications and should be wrapped by language bindings.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L30583">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L30545">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11750,7 +11750,7 @@ should not be used.</p>
 destined function calls.</p>
 
 <p>Whether this signal is emitted is platform-dependent.
-For plain text tooltips, use <code>GtkStatusIcon</code>:tooltip-text in preference.</p>
+For plain text tooltips, use <code>GtkStatusIcon:tooltip</code>-text in preference.</p>
 
                       </div>
                       <div class="declaration">
@@ -11762,7 +11762,7 @@ For plain text tooltips, use <code>GtkStatusIcon</code>:tooltip-text in preferen
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L30599">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L30561">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11780,7 +11780,7 @@ For plain text tooltips, use <code>GtkStatusIcon</code>:tooltip-text in preferen
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The ::scroll-event signal is emitted when a button in the 4 to 7
+                        <p>The <code>scroll</code>-event signal is emitted when a button in the 4 to 7
 range is pressed. Wheel mice are usually configured to generate
 button press events for buttons 4 and 5 when the wheel is turned.</p>
 
@@ -11796,7 +11796,7 @@ button press events for buttons 4 and 5 when the wheel is turned.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L30605">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L30567">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11827,7 +11827,7 @@ changes, e.g. because the notification area got resized.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L30608">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L30570">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11857,7 +11857,7 @@ changes, e.g. because the notification area got resized.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L30610">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L30572">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11918,7 +11918,7 @@ the image will be updated automatically if the theme changes.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L30614">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L30576">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11936,10 +11936,10 @@ the image will be updated automatically if the theme changes.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Enables or disables the emission of <code>GtkStatusIcon</code>::query-tooltip on
+                        <p>Enables or disables the emission of <code>GtkStatusIcon::query</code>-tooltip on
 <code>status_icon</code>.  A value of <code>true</code> indicates that <code>status_icon</code> can have a
 tooltip, in this case the status icon will be queried using
-<code>GtkStatusIcon</code>::query-tooltip to determine whether it will provide a
+<code>GtkStatusIcon::query</code>-tooltip to determine whether it will provide a
 tooltip or not.</p>
 
 <p>Note that setting this property to <code>true</code> for the first time will change
@@ -11948,7 +11948,7 @@ and motion-notify events. This will not be undone when the property is set
 to <code>false</code> again.</p>
 
 <p>Whether this property is respected is platform dependent.
-For plain text tooltips, use <code>GtkStatusIcon</code>:tooltip-text in preference.</p>
+For plain text tooltips, use <code>GtkStatusIcon:tooltip</code>-text in preference.</p>
 
                       </div>
                       <div class="declaration">
@@ -11960,7 +11960,7 @@ For plain text tooltips, use <code>GtkStatusIcon</code>:tooltip-text in preferen
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L30628">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L30590">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12021,7 +12021,7 @@ is embedded.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L30632">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L30594">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12142,7 +12142,7 @@ Use #GtkStatusIcon:icon-name instead.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L30640">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L30602">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12204,7 +12204,7 @@ like screen readers to render the tray icon.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L30645">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L30607">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12223,13 +12223,13 @@ like screen readers to render the tray icon.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Sets the text of tooltip to be the given string, which is marked up
-with the [Pango text markup language][PangoMarkupFormat].
-Also see gtk_tooltip_set_markup().</p>
+with the <a href="#PangoMarkupFormat">Pango text markup language</a>.
+Also see <code>gtk_tooltip_set_markup()</code>.</p>
 
 <p>This is a convenience property which will take care of getting the
 tooltip shown if the given string is not <code>nil</code>.
-<code>GtkStatusIcon</code>:has-tooltip will automatically be set to <code>true</code> and
-the default handler for the <code>GtkStatusIcon</code>::query-tooltip signal
+<code>GtkStatusIcon:has</code>-tooltip will automatically be set to <code>true</code> and
+the default handler for the <code>GtkStatusIcon::query</code>-tooltip signal
 will take care of displaying the tooltip.</p>
 
 <p>On some platforms, embedded markup will be ignored.</p>
@@ -12244,7 +12244,7 @@ will take care of displaying the tooltip.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L30657">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L30619">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12264,12 +12264,12 @@ will take care of displaying the tooltip.</p>
                       <div class="abstract">
                         <p>Sets the text of tooltip to be the given string.</p>
 
-<p>Also see gtk_tooltip_set_text().</p>
+<p>Also see <code>gtk_tooltip_set_text()</code>.</p>
 
 <p>This is a convenience property which will take care of getting the
 tooltip shown if the given string is not <code>nil</code>.
-<code>GtkStatusIcon</code>:has-tooltip will automatically be set to <code>true</code> and
-the default handler for the <code>GtkStatusIcon</code>::query-tooltip signal
+<code>GtkStatusIcon:has</code>-tooltip will automatically be set to <code>true</code> and
+the default handler for the <code>GtkStatusIcon::query</code>-tooltip signal
 will take care of displaying the tooltip.</p>
 
 <p>Note that some platforms have limitations on the length of tooltips
@@ -12286,7 +12286,7 @@ that they allow on status icons, e.g. Windows only shows the first
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L30671">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L30633">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12329,7 +12329,7 @@ that they allow on status icons, e.g. Windows only shows the first
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

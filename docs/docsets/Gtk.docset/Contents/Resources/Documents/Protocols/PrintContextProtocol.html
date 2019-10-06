@@ -11532,11 +11532,10 @@ parameters like page size and resolution. It also lets you easily
 create <code>PangoLayout</code> and <code>PangoContext</code> objects that match the font metrics
 of the cairo surface.</p>
 
-<p>GtkPrintContext objects gets passed to the <code>GtkPrintOperation</code>::begin-print,
-<code>GtkPrintOperation</code>::end-print, <code>GtkPrintOperation</code>::request-page-setup and
-<code>GtkPrintOperation</code>::draw-page signals on the <code>GtkPrintOperation</code>.</p>
-
-<p>&ldquo;<code>Using GtkPrintContext in a</code>GtkPrintOperation`::draw-page callback</p>
+<p>GtkPrintContext objects gets passed to the <code>GtkPrintOperation::begin</code>-print,
+<code>GtkPrintOperation::end</code>-print, <code>GtkPrintOperation::request</code>-page-setup and
+<code>GtkPrintOperation::draw</code>-page signals on the <code>GtkPrintOperation</code>.</p>
+<h2 id='using-gtkprintcontext-in-a-code-gtkprintoperation-draw-code-page-callback' class='heading'>Using GtkPrintContext in a <code>GtkPrintOperation::draw</code>-page callback</h2>
 
 <p>(C Language Example):</p>
 <pre class="highlight plaintext"><code>static void
@@ -11626,7 +11625,7 @@ draw_page (GtkPrintOperation *operation,
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L8181">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L8164">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11664,7 +11663,7 @@ draw_page (GtkPrintOperation *operation,
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L8184">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L8167">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11756,7 +11755,7 @@ draw_page (GtkPrintOperation *operation,
                         <p>positive handler ID, or a value less than or equal to <code>0</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L8461-L8480">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L8441-L8460">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11801,7 +11800,7 @@ draw_page (GtkPrintOperation *operation,
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L8489-L8492">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L8469-L8472">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11835,7 +11834,7 @@ with the <code>GtkPrintContext</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L8496-L8499">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L8476-L8479">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11869,7 +11868,7 @@ with the <code>GtkPrintContext</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L8503-L8506">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L8483-L8486">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11903,7 +11902,7 @@ in dots per inch.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L8510-L8513">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L8490-L8493">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11937,7 +11936,7 @@ in dots per inch.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L8517-L8520">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L8497-L8500">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11970,7 +11969,7 @@ in dots per inch.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L8523-L8526">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L8503-L8506">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12003,7 +12002,7 @@ in dots per inch.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L8529-L8532">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L8509-L8512">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12037,7 +12036,7 @@ dimensions of the <code>GtkPrintContext</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L8536-L8539">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L8516-L8519">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12071,7 +12070,7 @@ with the <code>GtkPrintContext</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L8543-L8546">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L8523-L8526">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12104,7 +12103,7 @@ with the <code>GtkPrintContext</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L8549-L8552">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L8529-L8532">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12142,7 +12141,7 @@ case.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L8560-L8563">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L8540-L8543">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12176,7 +12175,7 @@ case.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L8566-L8573">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L8546-L8553">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12210,7 +12209,7 @@ in dots per inch.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L8577-L8584">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L8557-L8564">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12244,7 +12243,7 @@ in dots per inch.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L8588-L8595">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L8568-L8575">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12277,7 +12276,7 @@ in dots per inch.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L8598-L8604">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L8578-L8584">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12311,7 +12310,7 @@ dimensions of the <code>GtkPrintContext</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L8608-L8615">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L8588-L8595">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12345,7 +12344,7 @@ with the <code>GtkPrintContext</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L8619-L8626">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L8599-L8606">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12378,7 +12377,7 @@ with the <code>GtkPrintContext</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L8629-L8635">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L8609-L8615">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12391,7 +12390,7 @@ with the <code>GtkPrintContext</code>.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

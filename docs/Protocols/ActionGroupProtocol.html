@@ -11538,8 +11538,7 @@ actions (e.g. quit, about, new), and one group per document holding
 actions that act on that document (eg. save, cut/copy/paste, etc). Each
 window’s menus would be constructed from a combination of two action
 groups.</p>
-
-<p><code>Accelerators</code> {<code><a href="../Classes/Action.html">Action</a></code>-Accel}</p>
+<h2 id='accelerators-a-name-action-accel-a' class='heading'>Accelerators ## <a name="Action-Accel"></a></h2>
 
 <p>Accelerators are handled by the GTK+ accelerator map. All actions are
 assigned an accelerator path (which normally has the form
@@ -11547,8 +11546,7 @@ assigned an accelerator path (which normally has the form
 this accelerator path. All menuitems and toolitems take on this accelerator
 path. The GTK+ accelerator map code makes sure that the correct shortcut
 is displayed next to the menu item.</p>
-
-<p><code>GtkActionGroup as GtkBuildable</code> {<code>GtkActionGroup</code>-BUILDER-UI}</p>
+<h1 id='gtkactiongroup-as-gtkbuildable-a-name-gtkactiongroup-builder-ui-a' class='heading'>GtkActionGroup as GtkBuildable # <a name="GtkActionGroup-BUILDER-UI"></a></h1>
 
 <p>The <code>GtkActionGroup</code> implementation of the <code>GtkBuildable</code> interface accepts
 <code>GtkAction</code> objects as <child> elements in UI definitions.</p>
@@ -11561,8 +11559,7 @@ a custom <accelerator> element, which has attributes named “key“ and
 “modifiers“ and allows to specify accelerators. This is similar to the
 <accelerator> element of <code>GtkWidget</code>, the main difference is that
 it doesn’t allow you to specify a signal.</p>
-
-<p><code>A `GtkDialog` UI definition fragment.</code></p>
+<h2 id='a-code-gtkdialog-code-ui-definition-fragment' class='heading'>A <code>GtkDialog</code> UI definition fragment.</h2>
 <pre class="highlight swift"><code><span class="o">&lt;</span><span class="n">object</span> <span class="kd">class</span><span class="o">=</span><span class="s">"GtkActionGroup"</span> <span class="n">id</span><span class="o">=</span><span class="s">"actiongroup"</span><span class="o">&gt;</span>
   <span class="o">&lt;</span><span class="n">child</span><span class="o">&gt;</span>
       <span class="o">&lt;</span><span class="n">object</span> <span class="kd">class</span><span class="o">=</span><span class="s">"GtkAction"</span> <span class="n">id</span><span class="o">=</span><span class="s">"About"</span><span class="o">&gt;</span>
@@ -11607,7 +11604,7 @@ it doesn’t allow you to specify a signal.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L7848">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L7833">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11645,7 +11642,7 @@ it doesn’t allow you to specify a signal.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L7851">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L7836">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11773,7 +11770,7 @@ it doesn’t allow you to specify a signal.</p>
                         <p>binding reference or <code>nil</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L8104-L8128">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L8089-L8113">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11865,7 +11862,7 @@ it doesn’t allow you to specify a signal.</p>
                         <p>positive handler ID, or a value less than or equal to <code>0</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L8229-L8248">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L8213-L8232">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11901,7 +11898,7 @@ it doesn’t allow you to specify a signal.</p>
 does not set up the accel path of the action, which can lead to problems
 if a user tries to modify the accelerator of a menuitem associated with
 the action. Therefore you must either set the accel path yourself with
-gtk_action_set_accel_path(), or use
+<code>gtk_action_set_accel_path()</code>, or use
 <code>gtk_action_group_add_action_with_accel (..., NULL)</code>.</p>
 
 <p><strong>add_action is deprecated:</strong>
@@ -11912,13 +11909,13 @@ This method is deprecated.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">add</span><span class="p">(</span><span class="nv">action</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ActionProtocol.html">ActionProtocol</a></span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L8264-L8267">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L8248-L8251">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11954,13 +11951,13 @@ This method is deprecated.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">addActionWithAccel</span><span class="p">(</span><span class="nv">action</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ActionProtocol.html">ActionProtocol</a></span><span class="p">,</span> <span class="nv">accelerator</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L8278-L8281">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L8262-L8265">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11990,18 +11987,19 @@ and their accel paths are set to <code>&lt;Actions&gt;/group-name/action-name</c
 <p><strong>add_actions is deprecated:</strong>
 This method is deprecated.</p>
 
+                        <a href="../Protocols/ActionGroupProtocol/addActions%28entries%3AnEntries%3AuserData%3A%29.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">addActions</span><span class="p">(</span><span class="nv">entries</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="kt">GtkActionEntry</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">nEntries</span> <span class="nv">n_entries</span><span class="p">:</span> <span class="kt">CUnsignedInt</span><span class="p">,</span> <span class="n">userData</span> <span class="nv">user_data</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L8291-L8294">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L8275-L8278">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12022,7 +12020,7 @@ This method is deprecated.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>This variant of gtk_action_group_add_actions() adds a <code>GDestroyNotify</code>
+                        <p>This variant of <code>gtk_action_group_add_actions()</code> adds a <code>GDestroyNotify</code>
 callback for <code>user_data</code>.</p>
 
 <p><strong>add_actions_full is deprecated:</strong>
@@ -12034,13 +12032,13 @@ This method is deprecated.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">addActionsFull</span><span class="p">(</span><span class="nv">entries</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="kt">GtkActionEntry</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">nEntries</span> <span class="nv">n_entries</span><span class="p">:</span> <span class="kt">CUnsignedInt</span><span class="p">,</span> <span class="n">userData</span> <span class="nv">user_data</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">,</span> <span class="nv">destroy</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">GLib</span><span class="o">.</span><span class="kt">DestroyNotify</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L8301-L8304">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L8285-L8288">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12077,13 +12075,13 @@ This method is deprecated.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">addRadioActions</span><span class="p">(</span><span class="nv">entries</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="kt">GtkRadioActionEntry</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">nEntries</span> <span class="nv">n_entries</span><span class="p">:</span> <span class="kt">CUnsignedInt</span><span class="p">,</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">CInt</span><span class="p">,</span> <span class="n">onChange</span> <span class="nv">on_change</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">GLibObject</span><span class="o">.</span><span class="kt">Callback</span><span class="p">,</span> <span class="n">userData</span> <span class="nv">user_data</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L8315-L8318">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L8299-L8302">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12104,7 +12102,7 @@ This method is deprecated.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>This variant of gtk_action_group_add_radio_actions() adds a
+                        <p>This variant of <code>gtk_action_group_add_radio_actions()</code> adds a
 <code>GDestroyNotify</code> callback for <code>user_data</code>.</p>
 
 <p><strong>add_radio_actions_full is deprecated:</strong>
@@ -12116,13 +12114,13 @@ This method is deprecated.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">addRadioActionsFull</span><span class="p">(</span><span class="nv">entries</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="kt">GtkRadioActionEntry</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">nEntries</span> <span class="nv">n_entries</span><span class="p">:</span> <span class="kt">CUnsignedInt</span><span class="p">,</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">CInt</span><span class="p">,</span> <span class="n">onChange</span> <span class="nv">on_change</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">GLibObject</span><span class="o">.</span><span class="kt">Callback</span><span class="p">,</span> <span class="n">userData</span> <span class="nv">user_data</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">,</span> <span class="nv">destroy</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">GLib</span><span class="o">.</span><span class="kt">DestroyNotify</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L8325-L8328">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L8309-L8312">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12158,13 +12156,13 @@ This method is deprecated.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">addToggleActions</span><span class="p">(</span><span class="nv">entries</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="kt">GtkToggleActionEntry</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">nEntries</span> <span class="nv">n_entries</span><span class="p">:</span> <span class="kt">CUnsignedInt</span><span class="p">,</span> <span class="n">userData</span> <span class="nv">user_data</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L8338-L8341">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L8322-L8325">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12185,7 +12183,7 @@ This method is deprecated.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>This variant of gtk_action_group_add_toggle_actions() adds a
+                        <p>This variant of <code>gtk_action_group_add_toggle_actions()</code> adds a
 <code>GDestroyNotify</code> callback for <code>user_data</code>.</p>
 
 <p><strong>add_toggle_actions_full is deprecated:</strong>
@@ -12196,13 +12194,13 @@ This method is deprecated.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">addToggleActionsFull</span><span class="p">(</span><span class="nv">entries</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="kt">GtkToggleActionEntry</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">nEntries</span> <span class="nv">n_entries</span><span class="p">:</span> <span class="kt">CUnsignedInt</span><span class="p">,</span> <span class="n">userData</span> <span class="nv">user_data</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">,</span> <span class="nv">destroy</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">GLib</span><span class="o">.</span><span class="kt">DestroyNotify</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L8348-L8351">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L8332-L8335">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12233,13 +12231,13 @@ This method is deprecated.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">getAccelGroup</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">GtkAccelGroup</span><span class="o">&gt;!</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L8357-L8360">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L8341-L8344">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12270,13 +12268,13 @@ This method is deprecated.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">getAction</span><span class="p">(</span><span class="n">actionName</span> <span class="nv">action_name</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">GtkAction</span><span class="o">&gt;!</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L8366-L8369">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L8350-L8353">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12307,13 +12305,13 @@ This method is deprecated.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">getName</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">String</span><span class="o">!</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L8375-L8378">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L8359-L8362">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12335,8 +12333,8 @@ This method is deprecated.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Returns <code>true</code> if the group is sensitive.  The constituent actions
-can only be logically sensitive (see gtk_action_is_sensitive()) if
-they are sensitive (see gtk_action_get_sensitive()) and their group
+can only be logically sensitive (see <code>gtk_action_is_sensitive()</code>) if
+they are sensitive (see <code>gtk_action_get_sensitive()</code>) and their group
 is sensitive.</p>
 
 <p><strong>get_sensitive is deprecated:</strong>
@@ -12347,13 +12345,13 @@ This method is deprecated.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">getSensitive</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L8387-L8390">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L8371-L8374">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12375,8 +12373,8 @@ This method is deprecated.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Returns <code>true</code> if the group is visible.  The constituent actions
-can only be logically visible (see gtk_action_is_visible()) if
-they are visible (see gtk_action_get_visible()) and their group
+can only be logically visible (see <code>gtk_action_is_visible()</code>) if
+they are visible (see <code>gtk_action_get_visible()</code>) and their group
 is visible.</p>
 
 <p><strong>get_visible is deprecated:</strong>
@@ -12387,13 +12385,13 @@ This method is deprecated.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">getVisible</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L8399-L8402">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L8383-L8386">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12424,13 +12422,13 @@ This method is deprecated.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">listActions</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">GList</span><span class="o">&gt;!</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L8408-L8411">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L8392-L8395">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12461,13 +12459,13 @@ This method is deprecated.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">remove</span><span class="p">(</span><span class="nv">action</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ActionProtocol.html">ActionProtocol</a></span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L8417-L8420">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L8401-L8404">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12498,13 +12496,13 @@ This method is deprecated.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">set</span><span class="p">(</span><span class="n"><a href="../Protocols/ActionGroupProtocol.html#/s:3Gtk19ActionGroupProtocolPAAE05accelC0SpySo01_a5AccelC0VGSgvp">accelGroup</a></span> <span class="nv">accel_group</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AccelGroupProtocol.html">AccelGroupProtocol</a></span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L8426-L8429">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L8410-L8413">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12535,13 +12533,13 @@ This method is deprecated.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">set</span><span class="p">(</span><span class="nv">sensitive</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L8435-L8438">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L8419-L8422">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12563,10 +12561,10 @@ This method is deprecated.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Sets a function to be used for translating the <code>label</code> and <code>tooltip</code> of
-<code>GtkActionEntrys</code> added by gtk_action_group_add_actions().</p>
+<code>GtkActionEntrys</code> added by <code>gtk_action_group_add_actions()</code>.</p>
 
-<p>If you’re using gettext(), it is enough to set the translation domain
-with gtk_action_group_set_translation_domain().</p>
+<p>If you’re using <code>gettext()</code>, it is enough to set the translation domain
+with <code>gtk_action_group_set_translation_domain()</code>.</p>
 
 <p><strong>set_translate_func is deprecated:</strong>
 This method is deprecated.</p>
@@ -12576,13 +12574,13 @@ This method is deprecated.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">setTranslateFunc</span><span class="p">(</span><span class="n">_</span> <span class="nv">func_</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Typealiases.html#/s:3Gtk13TranslateFunca">TranslateFunc</a></span><span class="p">,</span> <span class="nv">data</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">,</span> <span class="nv">notify</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">GLib</span><span class="o">.</span><span class="kt">DestroyNotify</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L8448-L8451">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L8432-L8435">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12603,12 +12601,12 @@ This method is deprecated.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Sets the translation domain and uses g_dgettext() for translating the
+                        <p>Sets the translation domain and uses <code>g_dgettext()</code> for translating the
 <code>label</code> and <code>tooltip</code> of <code>GtkActionEntrys</code> added by
-gtk_action_group_add_actions().</p>
+<code>gtk_action_group_add_actions()</code>.</p>
 
-<p>If you’re not using gettext() for localization, see
-gtk_action_group_set_translate_func().</p>
+<p>If you’re not using <code>gettext()</code> for localization, see
+<code>gtk_action_group_set_translate_func()</code>.</p>
 
 <p><strong>set_translation_domain is deprecated:</strong>
 This method is deprecated.</p>
@@ -12618,13 +12616,13 @@ This method is deprecated.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">setTranslation</span><span class="p">(</span><span class="nv">domain</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L8462-L8465">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L8446-L8449">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12655,13 +12653,13 @@ This method is deprecated.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">set</span><span class="p">(</span><span class="nv">visible</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L8471-L8474">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L8455-L8458">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12683,7 +12681,7 @@ This method is deprecated.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Translates a string using the function set with
-gtk_action_group_set_translate_func(). This
+<code>gtk_action_group_set_translate_func()</code>. This
 is mainly intended for language bindings.</p>
 
 <p><strong>translate_string is deprecated:</strong>
@@ -12694,13 +12692,13 @@ This method is deprecated.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">translate</span><span class="p">(</span><span class="nv">string</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span><span class="o">!</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L8482-L8485">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L8466-L8469">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12736,7 +12734,7 @@ This method is deprecated.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L8490-L8506">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L8474-L8490">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12772,7 +12770,7 @@ This method is deprecated.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L8512-L8521">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L8496-L8505">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12808,7 +12806,7 @@ This method is deprecated.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L8527-L8546">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L8511-L8530">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12844,7 +12842,7 @@ This method is deprecated.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L8552-L8571">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L8536-L8555">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12857,7 +12855,7 @@ This method is deprecated.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

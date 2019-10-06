@@ -11529,23 +11529,22 @@ Alternatively, use <code><a href="../Structs/ComboBoxTextRef.html">ComboBoxTextR
 <p>A GtkComboBoxText is a simple variant of <code>GtkComboBox</code> that hides
 the model-view complexity for simple text-only use cases.</p>
 
-<p>To create a GtkComboBoxText, use gtk_combo_box_text_new() or
-gtk_combo_box_text_new_with_entry().</p>
+<p>To create a GtkComboBoxText, use <code>gtk_combo_box_text_new()</code> or
+<code>gtk_combo_box_text_new_with_entry()</code>.</p>
 
 <p>You can add items to a GtkComboBoxText with
-gtk_combo_box_text_append_text(), gtk_combo_box_text_insert_text()
-or gtk_combo_box_text_prepend_text() and remove options with
-gtk_combo_box_text_remove().</p>
+<code>gtk_combo_box_text_append_text()</code>, <code>gtk_combo_box_text_insert_text()</code>
+or <code>gtk_combo_box_text_prepend_text()</code> and remove options with
+<code>gtk_combo_box_text_remove()</code>.</p>
 
 <p>If the GtkComboBoxText contains an entry (via the “has-entry” property),
-its contents can be retrieved using gtk_combo_box_text_get_active_text().
-The entry itself can be accessed by calling gtk_bin_get_child() on the
+its contents can be retrieved using <code>gtk_combo_box_text_get_active_text()</code>.
+The entry itself can be accessed by calling <code>gtk_bin_get_child()</code> on the
 combo box.</p>
 
-<p>You should not call gtk_combo_box_set_model() or attempt to pack more cells
+<p>You should not call <code>gtk_combo_box_set_model()</code> or attempt to pack more cells
 into this combo box via its GtkCellLayout interface.</p>
-
-<p>&ldquo; GtkComboBoxText as GtkBuildable</p>
+<h1 id='gtkcomboboxtext-as-gtkbuildable' class='heading'>GtkComboBoxText as GtkBuildable</h1>
 
 <p>The GtkComboBoxText implementation of the GtkBuildable interface supports
 adding items directly using the <items> element and specifying <item>
@@ -11562,13 +11561,14 @@ translation attributes “translatable”, “context” and “comments”.</p>
   <span class="o">&lt;/</span><span class="n">items</span><span class="o">&gt;</span>
 <span class="o">&lt;/</span><span class="n">object</span><span class="o">&gt;</span>
 </code></pre>
+<h1 id='css-nodes' class='heading'>CSS nodes</h1>
 
-<p>&rdquo; CSS nodes</p>
-<pre class="highlight swift"><code><span class="n">combobox</span>
-<span class="err">╰──</span> <span class="n">box</span><span class="o">.</span><span class="n">linked</span>
-    <span class="err">├──</span> <span class="n">entry</span><span class="o">.</span><span class="n">combo</span>
-    <span class="err">├──</span> <span class="n">button</span><span class="o">.</span><span class="n">combo</span>
-    <span class="err">╰──</span> <span class="n">window</span><span class="o">.</span><span class="n">popup</span>
+<p>(plain Language Example):</p>
+<pre class="highlight plaintext"><code>combobox
+╰── box.linked
+    ├── entry.combo
+    ├── button.combo
+    ╰── window.popup
 </code></pre>
 
 <p>GtkComboBoxText has a single CSS node with name combobox. It adds
@@ -11607,7 +11607,7 @@ children, and the .linked class to the node of its internal box.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L23458">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L23417">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11645,7 +11645,7 @@ children, and the .linked class to the node of its internal box.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L23461">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L23420">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11773,7 +11773,7 @@ children, and the .linked class to the node of its internal box.</p>
                         <p>binding reference or <code>nil</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L23955-L23979">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L23912-L23936">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11865,7 +11865,7 @@ children, and the .linked class to the node of its internal box.</p>
                         <p>positive handler ID, or a value less than or equal to <code>0</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L24904-L24923">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L24860-L24879">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11900,7 +11900,7 @@ children, and the .linked class to the node of its internal box.</p>
                         <p>Appends <code>text</code> to the list of strings stored in <code>combo_box</code>.
 If <code>id</code> is non-<code>nil</code> then it is used as the ID of the row.</p>
 
-<p>This is the same as calling gtk_combo_box_text_insert() with a
+<p>This is the same as calling <code>gtk_combo_box_text_insert()</code> with a
 position of -1.</p>
 
                       </div>
@@ -11913,7 +11913,7 @@ position of -1.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L24935-L24938">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L24891-L24894">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11936,7 +11936,7 @@ position of -1.</p>
                       <div class="abstract">
                         <p>Appends <code>text</code> to the list of strings stored in <code>combo_box</code>.</p>
 
-<p>This is the same as calling gtk_combo_box_text_insert_text() with a
+<p>This is the same as calling <code>gtk_combo_box_text_insert_text()</code> with a
 position of -1.</p>
 
                       </div>
@@ -11949,7 +11949,7 @@ position of -1.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L24944-L24947">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L24900-L24903">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11985,7 +11985,7 @@ be an item from the list).</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L24953-L24956">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L24909-L24912">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12008,7 +12008,7 @@ be an item from the list).</p>
                       <div class="abstract">
                         <p>Inserts <code>text</code> at <code>position</code> in the list of strings stored in <code>combo_box</code>.
 If <code>id</code> is non-<code>nil</code> then it is used as the ID of the row.  See
-<code>GtkComboBox</code>:id-column.</p>
+<code>GtkComboBox:id</code>-column.</p>
 
 <p>If <code>position</code> is negative then <code>text</code> is appended.</p>
 
@@ -12022,7 +12022,7 @@ If <code>id</code> is non-<code>nil</code> then it is used as the ID of the row.
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L24963-L24966">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L24919-L24922">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12047,7 +12047,7 @@ If <code>id</code> is non-<code>nil</code> then it is used as the ID of the row.
 
 <p>If <code>position</code> is negative then <code>text</code> is appended.</p>
 
-<p>This is the same as calling gtk_combo_box_text_insert() with a <code>nil</code>
+<p>This is the same as calling <code>gtk_combo_box_text_insert()</code> with a <code>nil</code>
 ID string.</p>
 
                       </div>
@@ -12060,7 +12060,7 @@ ID string.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L24974-L24977">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L24930-L24933">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12084,7 +12084,7 @@ ID string.</p>
                         <p>Prepends <code>text</code> to the list of strings stored in <code>combo_box</code>.
 If <code>id</code> is non-<code>nil</code> then it is used as the ID of the row.</p>
 
-<p>This is the same as calling gtk_combo_box_text_insert() with a
+<p>This is the same as calling <code>gtk_combo_box_text_insert()</code> with a
 position of 0.</p>
 
                       </div>
@@ -12097,7 +12097,7 @@ position of 0.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L24984-L24987">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L24940-L24943">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12120,7 +12120,7 @@ position of 0.</p>
                       <div class="abstract">
                         <p>Prepends <code>text</code> to the list of strings stored in <code>combo_box</code>.</p>
 
-<p>This is the same as calling gtk_combo_box_text_insert_text() with a
+<p>This is the same as calling <code>gtk_combo_box_text_insert_text()</code> with a
 position of 0.</p>
 
                       </div>
@@ -12133,7 +12133,7 @@ position of 0.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L24993-L24996">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L24949-L24952">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12166,7 +12166,7 @@ position of 0.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L24999-L25002">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L24955-L24958">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12199,7 +12199,7 @@ position of 0.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L25005-L25008">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L24961-L24964">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12235,7 +12235,7 @@ be an item from the list).</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L25013-L25022">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L24969-L24978">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12248,7 +12248,7 @@ be an item from the list).</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

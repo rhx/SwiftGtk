@@ -11534,19 +11534,19 @@ opened when the user selects the <code>About</code> option from the <code>Help</
 All parts of the dialog are optional.</p>
 
 <p>About dialogs often contain links and email addresses. GtkAboutDialog
-displays these as clickable links. By default, it calls gtk_show_uri_on_window()
+displays these as clickable links. By default, it calls <code>gtk_show_uri_on_window()</code>
 when a user clicks one. The behaviour can be overridden with the
-<code>GtkAboutDialog</code>::activate-link signal.</p>
+<code>GtkAboutDialog::activate</code>-link signal.</p>
 
 <p>To specify a person with an email address, use a string like
-<q>Edgar Allan Poe <edgar\`poe`.com></q>. To specify a website with a title,
+<q>Edgar Allan Poe <edgar\`poe.com`></q>. To specify a website with a title,
 use a string like <q>GTK+ team http://www.gtk.org</q>.</p>
 
 <p>To make constructing a GtkAboutDialog as convenient as possible, you can
-use the function gtk_show_about_dialog() which constructs and shows a dialog
+use the function <code>gtk_show_about_dialog()</code> which constructs and shows a dialog
 and keeps it around so that it can be shown again.</p>
 
-<p>Note that GTK+ sets a default title of <code>_(&quot;About</code>s<code>&quot;)</code> on the dialog
+<p>Note that GTK+ sets a default title of <code>_(&quot;About %s&quot;)</code> on the dialog
 window (where `s` is replaced by the name of the application, but in
 order to ensure proper translation of the title, applications should
 set the title property explicitly when constructing a GtkAboutDialog,
@@ -11561,7 +11561,7 @@ gtk_show_about_dialog (NULL,
 </code></pre>
 
 <p>It is also possible to show a <code>GtkAboutDialog</code> like any other <code>GtkDialog</code>,
-e.g. using gtk_dialog_run(). In this case, you might need to know that
+e.g. using <code>gtk_dialog_run()</code>. In this case, you might need to know that
 the “Close” button returns the <code>GTK_RESPONSE_CANCEL</code> response id.</p>
 
           </div>
@@ -11596,7 +11596,7 @@ the “Close” button returns the <code>GTK_RESPONSE_CANCEL</code> response id.
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L66">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L65">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11634,7 +11634,7 @@ the “Close” button returns the <code>GTK_RESPONSE_CANCEL</code> response id.
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L69">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L68">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11762,7 +11762,7 @@ the “Close” button returns the <code>GTK_RESPONSE_CANCEL</code> response id.
                         <p>binding reference or <code>nil</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L611-L635">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L608-L632">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11854,7 +11854,7 @@ the “Close” button returns the <code>GTK_RESPONSE_CANCEL</code> response id.
                         <p>positive handler ID, or a value less than or equal to <code>0</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L1631-L1650">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L1627-L1646">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11898,7 +11898,7 @@ the “Close” button returns the <code>GTK_RESPONSE_CANCEL</code> response id.
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L1658-L1661">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L1654-L1657">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11932,7 +11932,7 @@ of the secondary credits dialog.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L1665-L1668">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L1661-L1664">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11966,7 +11966,7 @@ of the secondary credits dialog.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L1672-L1675">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L1668-L1671">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11999,7 +11999,7 @@ of the secondary credits dialog.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L1678-L1681">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L1674-L1677">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12032,7 +12032,7 @@ of the secondary credits dialog.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L1684-L1687">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L1680-L1683">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12066,7 +12066,7 @@ tab of the secondary credits dialog.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L1691-L1694">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L1687-L1690">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12099,7 +12099,7 @@ tab of the secondary credits dialog.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L1697-L1700">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L1693-L1696">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12120,7 +12120,7 @@ tab of the secondary credits dialog.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Retrieves the license set using gtk_about_dialog_set_license_type()</p>
+                        <p>Retrieves the license set using <code>gtk_about_dialog_set_license_type()</code></p>
 
                       </div>
                       <div class="declaration">
@@ -12132,7 +12132,7 @@ tab of the secondary credits dialog.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L1703-L1706">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L1699-L1702">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12165,7 +12165,7 @@ tab of the secondary credits dialog.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L1709-L1712">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L1705-L1708">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12198,7 +12198,7 @@ tab of the secondary credits dialog.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L1715-L1718">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L1711-L1714">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12231,7 +12231,7 @@ tab of the secondary credits dialog.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L1721-L1724">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L1717-L1720">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12265,7 +12265,7 @@ in the translators tab of the secondary credits dialog.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L1728-L1731">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L1724-L1727">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12298,7 +12298,7 @@ in the translators tab of the secondary credits dialog.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L1734-L1737">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L1730-L1733">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12331,7 +12331,7 @@ in the translators tab of the secondary credits dialog.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L1740-L1743">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L1736-L1739">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12364,7 +12364,7 @@ in the translators tab of the secondary credits dialog.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L1746-L1749">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L1742-L1745">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12398,7 +12398,7 @@ automatically wrapped.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L1753-L1756">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L1749-L1752">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12432,7 +12432,7 @@ of the secondary credits dialog.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L1760-L1763">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L1756-L1759">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12466,7 +12466,7 @@ of the secondary credits dialog.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L1767-L1770">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L1763-L1766">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12500,7 +12500,7 @@ This should be a short string of one or two lines.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L1774-L1777">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L1770-L1773">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12534,7 +12534,7 @@ This should be a short string of one or two lines.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L1781-L1784">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L1777-L1780">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12568,7 +12568,7 @@ of the secondary credits dialog.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L1788-L1791">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L1784-L1787">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12603,7 +12603,7 @@ hidden.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L1796-L1799">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L1792-L1795">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12628,7 +12628,7 @@ hidden.</p>
 list of known licenses.</p>
 
 <p>This function overrides the license set using
-gtk_about_dialog_set_license().</p>
+<code>gtk_about_dialog_set_license()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12640,7 +12640,7 @@ gtk_about_dialog_set_license().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L1806-L1809">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L1802-L1805">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12663,7 +12663,7 @@ gtk_about_dialog_set_license().</p>
                       <div class="abstract">
                         <p>Sets the pixbuf to be displayed as logo in the about dialog.
 If it is <code>nil</code>, the default window icon set with
-gtk_window_set_default_icon() will be used.</p>
+<code>gtk_window_set_default_icon()</code> will be used.</p>
 
                       </div>
                       <div class="declaration">
@@ -12675,7 +12675,7 @@ gtk_window_set_default_icon() will be used.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L1814-L1817">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L1810-L1813">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12698,7 +12698,7 @@ gtk_window_set_default_icon() will be used.</p>
                       <div class="abstract">
                         <p>Sets the pixbuf to be displayed as logo in the about dialog.
 If it is <code>nil</code>, the default window icon set with
-gtk_window_set_default_icon() will be used.</p>
+<code>gtk_window_set_default_icon()</code> will be used.</p>
 
                       </div>
                       <div class="declaration">
@@ -12710,7 +12710,7 @@ gtk_window_set_default_icon() will be used.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L1822-L1825">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L1818-L1821">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12732,7 +12732,7 @@ gtk_window_set_default_icon() will be used.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Sets the name to display in the about dialog.
-If this is not set, it defaults to g_get_application_name().</p>
+If this is not set, it defaults to <code>g_get_application_name()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12744,7 +12744,7 @@ If this is not set, it defaults to g_get_application_name().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L1829-L1832">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L1825-L1828">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12770,7 +12770,7 @@ the translators tab of the secondary credits dialog.</p>
 
 <p>The intended use for this string is to display the translator
 of the language which is currently used in the user interface.
-Using gettext(), a simple way to achieve that is to mark the
+Using <code>gettext()</code>, a simple way to achieve that is to mark the
 string for translation:
 (C Language Example):</p>
 <pre class="highlight plaintext"><code>GtkWidget *about = gtk_about_dialog_new ();
@@ -12793,7 +12793,7 @@ and hide the tab.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L1852-L1855">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L1847-L1850">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12826,7 +12826,7 @@ and hide the tab.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L1858-L1861">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L1853-L1856">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12859,7 +12859,7 @@ and hide the tab.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L1864-L1867">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L1859-L1862">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12892,7 +12892,7 @@ and hide the tab.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L1870-L1873">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L1865-L1868">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12926,7 +12926,7 @@ automatically wrapped.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L1877-L1880">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L1872-L1875">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12961,7 +12961,7 @@ will be displayed as links, see the introduction for more details.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L1884-L1896">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L1879-L1891">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12996,7 +12996,7 @@ as links, see the introduction for more details.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L1901-L1913">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L1896-L1908">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13031,7 +13031,7 @@ the main purpose of the program, not a detailed list of features.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L1918-L1929">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L1913-L1924">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13064,7 +13064,7 @@ the main purpose of the program, not a detailed list of features.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L1932-L1943">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L1927-L1938">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13099,7 +13099,7 @@ as links, see the introduction for more details.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L1948-L1960">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L1943-L1955">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13126,7 +13126,7 @@ a long multi-paragraph text. Note that the text is only wrapped
 in the text view if the <q>wrap-license</q> property is set to <code>true</code>;
 otherwise the text itself must contain the intended linebreaks.
 When setting this property to a non-<code>nil</code> value, the
-<code>GtkAboutDialog</code>:license-type property is set to <code>GTK_LICENSE_CUSTOM</code>
+<code>GtkAboutDialog:license</code>-type property is set to <code>GTK_LICENSE_CUSTOM</code>
 as a side effect.</p>
 
                       </div>
@@ -13139,7 +13139,7 @@ as a side effect.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L1970-L1982">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L1965-L1977">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13160,7 +13160,7 @@ as a side effect.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Retrieves the license set using gtk_about_dialog_set_license_type()</p>
+                        <p>Retrieves the license set using <code>gtk_about_dialog_set_license_type()</code></p>
 
                       </div>
                       <div class="declaration">
@@ -13172,7 +13172,7 @@ as a side effect.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L1985-L1999">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L1980-L1994">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13194,7 +13194,7 @@ as a side effect.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>A logo for the about box. If it is <code>nil</code>, the default window icon
-set with gtk_window_set_default_icon() will be used.</p>
+set with <code>gtk_window_set_default_icon()</code> will be used.</p>
 
                       </div>
                       <div class="declaration">
@@ -13206,7 +13206,7 @@ set with gtk_window_set_default_icon() will be used.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L2003-L2015">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L1998-L2010">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13239,7 +13239,7 @@ set with gtk_window_set_default_icon() will be used.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L2018-L2030">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L2013-L2025">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13272,7 +13272,7 @@ set with gtk_window_set_default_icon() will be used.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L2033-L2044">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L2028-L2039">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13306,7 +13306,7 @@ in the translators tab of the secondary credits dialog.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L2048-L2076">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L2043-L2070">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13339,7 +13339,7 @@ in the translators tab of the secondary credits dialog.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L2079-L2089">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L2073-L2083">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13373,7 +13373,7 @@ This should be a string starting with &ldquo;http://.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L2093-L2103">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L2087-L2097">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13406,7 +13406,7 @@ This should be a string starting with &ldquo;http://.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L2106-L2116">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L2100-L2110">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13440,7 +13440,7 @@ automatically wrapped.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L2120-L2132">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L2114-L2126">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13453,7 +13453,7 @@ automatically wrapped.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

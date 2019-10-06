@@ -11570,7 +11570,7 @@ the third node.</p>
 a specific model. It is a generic struct with an integer and three
 generic pointers. These are filled in by the model in a model-specific
 way. One can convert a path to an iterator by calling
-gtk_tree_model_get_iter(). These iterators are the primary way
+<code>gtk_tree_model_get_iter()</code>. These iterators are the primary way
 of accessing a model and are similar to the iterators used by
 <code>GtkTextBuffer</code>. They are generally statically allocated on the
 stack and only used for a short time. The model interface defines
@@ -11602,8 +11602,7 @@ provided. The first example shows three ways of getting the iter at
 the location <code>3:2:5</code>. While the first method shown is
 easier, the second is much more common, as you often get paths from
 callbacks.</p>
-
-<p>&ldquo;<code>Acquiring a</code>GtkTreeIter`-struct</p>
+<h2 id='acquiring-a-code-gtktreeiter-code-struct' class='heading'>Acquiring a <code>GtkTreeIter</code>-struct</h2>
 
 <p>(C Language Example):</p>
 <pre class="highlight plaintext"><code>// Three ways of getting the iter pointing to the location
@@ -11634,11 +11633,10 @@ gtk_tree_model_iter_nth_child (model, &amp;iter,
 
 <p>This second example shows a quick way of iterating through a list
 and getting a string and an integer from each row. The
-populate_model() function used below is not
+<code>populate_model()</code> function used below is not
 shown, as it is specific to the <code>GtkListStore</code>. For information on
 how to write such a function, see the <code>GtkListStore</code> documentation.</p>
-
-<p>&rdquo;<code>Reading data from a</code>GtkTreeModel`</p>
+<h2 id='reading-data-from-a-code-gtktreemodel-code' class='heading'>Reading data from a <code>GtkTreeModel</code></h2>
 
 <p>(C Language Example):</p>
 <pre class="highlight plaintext"><code>enum
@@ -11680,7 +11678,7 @@ while (valid)
                        -1);
 
    // Do something with the data
-   g_print ("Row `d`: (`s`,`d`)\n",
+   g_print ("Row %d: (%s,%d)\n",
             row_count, str_data, int_data);
    g_free (str_data);
 
@@ -11691,7 +11689,7 @@ while (valid)
 </code></pre>
 
 <p>The <code>GtkTreeModel</code> interface contains two methods for reference
-counting: gtk_tree_model_ref_node() and gtk_tree_model_unref_node().
+counting: <code>gtk_tree_model_ref_node()</code> and <code>gtk_tree_model_unref_node()</code>.
 These two methods are optional to implement. The reference counting
 is meant as a way for views to let models know when nodes are being
 displayed. <code>GtkTreeView</code> will take a reference on a node when it is
@@ -11753,7 +11751,7 @@ For type-safe access, use the generated, typed pointer <code>tree_model_ptr</cod
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TreeDragDest-TreeSortable.swift#L1008">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TreeDragDest-TreeSortable.swift#L1002">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11784,7 +11782,7 @@ Ownership is transferred to the <code>TreeModel</code> instance.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TreeDragDest-TreeSortable.swift#L1012-L1014">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TreeDragDest-TreeSortable.swift#L1006-L1008">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11810,12 +11808,12 @@ Ownership is transferred to the <code>TreeModel</code> instance.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">other</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/TreeModelProtocol.html">TreeModelProtocol</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">other</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/TreeModelProtocol.html">TreeModelProtocol</a></span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TreeDragDest-TreeSortable.swift#L1018-L1021">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TreeDragDest-TreeSortable.swift#L1012-L1015">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11841,12 +11839,12 @@ Ownership is transferred to the <code>TreeModel</code> instance.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">cPointer</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">cPointer</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TreeDragDest-TreeSortable.swift#L1030-L1032">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TreeDragDest-TreeSortable.swift#L1024-L1026">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11872,12 +11870,12 @@ Ownership is transferred to the <code>TreeModel</code> instance.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeRawPointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TreeDragDest-TreeSortable.swift#L1036-L1038">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TreeDragDest-TreeSortable.swift#L1030-L1032">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11903,12 +11901,12 @@ Ownership is transferred to the <code>TreeModel</code> instance.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TreeDragDest-TreeSortable.swift#L1042-L1044">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TreeDragDest-TreeSortable.swift#L1036-L1038">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11934,12 +11932,12 @@ Ownership is transferred to the <code>TreeModel</code> instance.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">opaquePointer</span><span class="p">:</span> <span class="kt">OpaquePointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">opaquePointer</span><span class="p">:</span> <span class="kt">OpaquePointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TreeDragDest-TreeSortable.swift#L1048-L1050">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TreeDragDest-TreeSortable.swift#L1042-L1044">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11952,7 +11950,7 @@ Ownership is transferred to the <code>TreeModel</code> instance.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

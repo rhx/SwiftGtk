@@ -11529,15 +11529,15 @@ Alternatively, use <code><a href="../Structs/ActionableRef.html">ActionableRef</
 <p>This interface provides a convenient way of associating widgets with
 actions on a <code>GtkApplicationWindow</code> or <code>GtkApplication</code>.</p>
 
-<p>It primarily consists of two properties: <code>GtkActionable</code>:action-name
-and <code>GtkActionable</code>:action-target. There are also some convenience APIs
+<p>It primarily consists of two properties: <code>GtkActionable:action</code>-name
+and <code>GtkActionable:action</code>-target. There are also some convenience APIs
 for setting these properties.</p>
 
 <p>The action will be looked up in action groups that are found among
 the widgets ancestors. Most commonly, these will be the actions with
 the “win.” or “app.” prefix that are associated with the <code>GtkApplicationWindow</code>
 or <code>GtkApplication</code>, but other action groups that are added with
-gtk_widget_insert_action_group() will be consulted as well.</p>
+<code>gtk_widget_insert_action_group()</code> will be consulted as well.</p>
 
           </div>
         </section>
@@ -11829,7 +11829,7 @@ gtk_widget_insert_action_group() will be consulted as well.</p>
                         <p>positive handler ID, or a value less than or equal to <code>0</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Actionable-Buildable.swift#L1185-L1204">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Actionable-Buildable.swift#L1184-L1203">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11863,7 +11863,7 @@ gtk_widget_insert_action_group() will be consulted as well.</p>
                       <div class="abstract">
                         <p>Gets the action name for <code>actionable</code>.</p>
 
-<p>See gtk_actionable_set_action_name() for more information.</p>
+<p>See <code>gtk_actionable_set_action_name()</code> for more information.</p>
 
                       </div>
                       <div class="declaration">
@@ -11875,7 +11875,7 @@ gtk_widget_insert_action_group() will be consulted as well.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Actionable-Buildable.swift#L1214-L1217">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Actionable-Buildable.swift#L1213-L1216">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11898,7 +11898,7 @@ gtk_widget_insert_action_group() will be consulted as well.</p>
                       <div class="abstract">
                         <p>Gets the current target value of <code>actionable</code>.</p>
 
-<p>See gtk_actionable_set_action_target_value() for more information.</p>
+<p>See <code>gtk_actionable_set_action_target_value()</code> for more information.</p>
 
                       </div>
                       <div class="declaration">
@@ -11910,7 +11910,7 @@ gtk_widget_insert_action_group() will be consulted as well.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Actionable-Buildable.swift#L1222-L1225">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Actionable-Buildable.swift#L1221-L1224">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11953,7 +11953,7 @@ associated with the window.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Actionable-Buildable.swift#L1238-L1241">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Actionable-Buildable.swift#L1237-L1240">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12004,7 +12004,7 @@ rendered inactive).</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Actionable-Buildable.swift#L1266-L1269">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Actionable-Buildable.swift#L1265-L1268">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12029,11 +12029,11 @@ rendered inactive).</p>
 actionable widget.</p>
 
 <p><code>detailed_action_name</code> is a string in the format accepted by
-g_action_parse_detailed_name().</p>
+<code>g_action_parse_detailed_name()</code>.</p>
 
 <p>(Note that prior to version 3.22.25,
 this function is only usable for actions with a simple <q>s</q> target, and
-<code>detailed_action_name</code> must be of the form <code>&quot;action::target&quot;</code> where
+<code>detailed_action_name</code> must be of the form <code>&quot;action</code>target<code>&quot;</code> where
 <code>action</code> is the action name and <code>target</code> is the string to use
 as the target.)</p>
 
@@ -12047,7 +12047,7 @@ as the target.)</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Actionable-Buildable.swift#L1282-L1285">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Actionable-Buildable.swift#L1281-L1284">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12070,7 +12070,7 @@ as the target.)</p>
                       <div class="abstract">
                         <p>Gets the action name for <code>actionable</code>.</p>
 
-<p>See gtk_actionable_set_action_name() for more information.</p>
+<p>See <code>gtk_actionable_set_action_name()</code> for more information.</p>
 
                       </div>
                       <div class="declaration">
@@ -12082,7 +12082,7 @@ as the target.)</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Actionable-Buildable.swift#L1289-L1311">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Actionable-Buildable.swift#L1288-L1310">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12105,7 +12105,7 @@ as the target.)</p>
                       <div class="abstract">
                         <p>Gets the current target value of <code>actionable</code>.</p>
 
-<p>See gtk_actionable_set_action_target_value() for more information.</p>
+<p>See <code>gtk_actionable_set_action_target_value()</code> for more information.</p>
 
                       </div>
                       <div class="declaration">
@@ -12117,7 +12117,7 @@ as the target.)</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Actionable-Buildable.swift#L1316-L1346">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Actionable-Buildable.swift#L1315-L1345">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12130,7 +12130,7 @@ as the target.)</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

@@ -11531,21 +11531,20 @@ a widget defined by <code>GtkWidgetPath</code>.</p>
 <p>In order to construct the final style information, <code>GtkStyleContext</code>
 queries information from all attached <code>GtkStyleProviders</code>. Style providers
 can be either attached explicitly to the context through
-gtk_style_context_add_provider(), or to the screen through
-gtk_style_context_add_provider_for_screen(). The resulting style is a
+<code>gtk_style_context_add_provider()</code>, or to the screen through
+<code>gtk_style_context_add_provider_for_screen()</code>. The resulting style is a
 combination of all providers’ information in priority order.</p>
 
 <p>For GTK+ widgets, any <code>GtkStyleContext</code> returned by
-gtk_widget_get_style_context() will already have a <code>GtkWidgetPath</code>, a
+<code>gtk_widget_get_style_context()</code> will already have a <code>GtkWidgetPath</code>, a
 <code>GdkScreen</code> and RTL/LTR information set. The style context will also be
 updated automatically if any of these settings change on the widget.</p>
 
 <p>If you are using the theming layer standalone, you will need to set a
 widget path and a screen yourself to the created style context through
-gtk_style_context_set_path() and possibly gtk_style_context_set_screen(). See
+<code>gtk_style_context_set_path()</code> and possibly <code>gtk_style_context_set_screen()</code>. See
 the “Foreign drawing“ example in gtk3-demo.</p>
-
-<p><code>Style Classes</code> {<code>gtkstylecontext</code>-classes}</p>
+<h1 id='style-classes-a-name-gtkstylecontext-classes-a' class='heading'>Style Classes # <a name="gtkstylecontext-classes"></a></h1>
 
 <p>Widgets can add style classes to their context, which can be used to associate
 different styles by class. The documentation for individual widgets lists
@@ -11553,16 +11552,14 @@ which style classes it uses itself, and which style classes may be added by
 applications to affect their appearance.</p>
 
 <p>GTK+ defines macros for a number of style classes.</p>
-
-<p>&ldquo; Style Regions</p>
+<h1 id='style-regions' class='heading'>Style Regions</h1>
 
 <p>Widgets can also add regions with flags to their context. This feature is
 deprecated and will be removed in a future GTK+ update. Please use style
 classes instead.</p>
 
 <p>GTK+ defines macros for a number of style regions.</p>
-
-<p>&rdquo; Custom styling in UI libraries and applications</p>
+<h1 id='custom-styling-in-ui-libraries-and-applications' class='heading'>Custom styling in UI libraries and applications</h1>
 
 <p>If you are developing a library with custom <code>GtkWidgets</code> that
 render differently than standard components, you may need to add a
@@ -11612,7 +11609,7 @@ For type-safe access, use the generated, typed pointer <code>style_context_ptr</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L33883">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L33842">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11653,7 +11650,7 @@ For type-safe access, use the generated, typed pointer <code>style_context_ptr</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L33888-L33889">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L33847-L33848">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11683,7 +11680,7 @@ For type-safe access, use the generated, typed pointer <code>style_context_ptr</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L33892-L33894">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L33851-L33853">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11714,7 +11711,7 @@ For type-safe access, use the generated, typed pointer <code>style_context_ptr</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L33898-L33900">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L33857-L33859">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11745,7 +11742,7 @@ For type-safe access, use the generated, typed pointer <code>style_context_ptr</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L33904-L33906">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L33863-L33865">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11776,7 +11773,7 @@ For type-safe access, use the generated, typed pointer <code>style_context_ptr</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L33910-L33912">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L33869-L33871">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11807,7 +11804,7 @@ For type-safe access, use the generated, typed pointer <code>style_context_ptr</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L33916-L33918">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L33875-L33877">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11838,7 +11835,7 @@ For type-safe access, use the generated, typed pointer <code>style_context_ptr</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L33922-L33924">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L33881-L33883">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11856,15 +11853,15 @@ For type-safe access, use the generated, typed pointer <code>style_context_ptr</
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <pre class="highlight swift"><code><span class="kt">Creates</span> <span class="n">a</span> <span class="n">standalone</span> <span class="err">`</span><span class="kt">GtkStyleContext</span><span class="err">`</span><span class="p">,</span> <span class="n">this</span> <span class="n">style</span> <span class="n">context</span>
+                        <pre class="highlight swift"><code><span class="kt">Creates</span> <span class="n">a</span> <span class="n">standalone</span> <span class="p">`</span><span class="nv">GtkStyleContext</span><span class="p">`,</span> <span class="n">this</span> <span class="n">style</span> <span class="n">context</span>
 </code></pre>
 
 <p>won’t be attached to any widget, so you may want
-to call gtk_style_context_set_path() yourself.</p>
+to call <code>gtk_style_context_set_path()</code> yourself.</p>
 
 <p>This function is only useful when using the theming layer
 separated from GTK+, if you are using <code>GtkStyleContext</code> to
-theme <code>GtkWidgets</code>, use gtk_widget_get_style_context()
+theme <code>GtkWidgets</code>, use <code>gtk_widget_get_style_context()</code>
 in order to get a style context ready to theme the widget.</p>
 
                       </div>
@@ -11877,7 +11874,7 @@ in order to get a style context ready to theme the widget.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L33934-L33937">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L33893-L33896">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11890,7 +11887,7 @@ in order to get a style context ready to theme the widget.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

@@ -11531,43 +11531,41 @@ it is suitable to implement single-touch and pointer-based gestures (using
 the special <code>nil</code> <code>GdkEventSequence</code> value for these).</p>
 
 <p>The number of touches that a <code>GtkGesture</code> need to be recognized is controlled
-by the <code>GtkGesture</code>:n-points property, if a gesture is keeping track of less
+by the <code>GtkGesture:n</code>-points property, if a gesture is keeping track of less
 or more than that number of sequences, it won&rsquo;t check wether the gesture
 is recognized.</p>
 
 <p>As soon as the gesture has the expected number of touches, the gesture will
-run the <code>GtkGesture</code>::check signal regularly on input events until the gesture
+run the <code>GtkGesture::check</code> signal regularly on input events until the gesture
 is recognized, the criteria to consider a gesture as <q>recognized</q> is left to
 <code>GtkGesture</code> subclasses.</p>
 
 <p>A recognized gesture will then emit the following signals:</p>
 
 <ul>
-<li><code>GtkGesture</code>::begin when the gesture is recognized.</li>
-<li>A number of <code>GtkGesture</code>::update, whenever an input event is processed.</li>
-<li><code>GtkGesture</code>::end when the gesture is no longer recognized.</li>
+<li><code>GtkGesture::begin</code> when the gesture is recognized.</li>
+<li>A number of <code>GtkGesture::update</code>, whenever an input event is processed.</li>
+<li><code>GtkGesture::end</code> when the gesture is no longer recognized.</li>
 </ul>
-
-<p>&ldquo;` Event propagation</p>
+<h2 id='event-propagation' class='heading'>Event propagation</h2>
 
 <p>In order to receive events, a gesture needs to either set a propagation phase
-through gtk_event_controller_set_propagation_phase(), or feed those manually
-through gtk_event_controller_handle_event().</p>
+through <code>gtk_event_controller_set_propagation_phase()</code>, or feed those manually
+through <code>gtk_event_controller_handle_event()</code>.</p>
 
 <p>In the capture phase, events are propagated from the toplevel down to the
 target widget, and gestures that are attached to containers above the widget
 get a chance to interact with the event before it reaches the target.</p>
 
-<p>After the capture phase, GTK+ emits the traditional <code>GtkWidget</code>::button-press-event,
-<code>GtkWidget</code>::button-release-event, <code>GtkWidget</code>::touch-event, etc signals. Gestures
-with the <code>GTK_PHASE_TARGET</code> phase are fed events from the default <code>GtkWidget</code>::event
+<p>After the capture phase, GTK+ emits the traditional <code>GtkWidget::button</code>-press-event,
+<code>GtkWidget::button</code>-release-event, <code>GtkWidget::touch</code>-event, etc signals. Gestures
+with the <code>GTK_PHASE_TARGET</code> phase are fed events from the default <code>GtkWidget::event</code>
 handlers.</p>
 
 <p>In the bubble phase, events are propagated up from the target widget to the
 toplevel, and gestures that are attached to containers above the widget get
 a chance to interact with events that have not been handled yet.</p>
-
-<p>`<code>States of a sequence</code> {<code>touch</code>-sequence-states}</p>
+<h2 id='states-of-a-sequence-a-name-touch-sequence-states-a' class='heading'>States of a sequence # <a name="touch-sequence-states"></a></h2>
 
 <p>Whenever input interaction happens, a single event may trigger a cascade of
 <code>GtkGestures</code>, both across the parents of the widget receiving the event and
@@ -11576,9 +11574,9 @@ widgets using those gestures to set the state of touch sequences accordingly
 in order to enable cooperation of gestures around the <code>GdkEventSequences</code>
 triggering those.</p>
 
-<p>Within a widget, gestures can be grouped through gtk_gesture_group(),
+<p>Within a widget, gestures can be grouped through <code>gtk_gesture_group()</code>,
 grouped gestures synchronize the state of sequences, so calling
-gtk_gesture_set_sequence_state() on one will effectively propagate
+<code>gtk_gesture_set_sequence_state()</code> on one will effectively propagate
 the state throughout the group.</p>
 
 <p>By default, all sequences start out in the <code>GTK_EVENT_SEQUENCE_NONE</code> state,
@@ -11597,7 +11595,7 @@ group will grab all interaction on the sequence, by:</p>
 <li>Setting the same sequence to <code>GTK_EVENT_SEQUENCE_DENIED</code> on every other gesture
 group within the widget, and every gesture on parent widgets in the propagation
 chain.</li>
-<li>calling <code>GtkGesture</code>::cancel on every gesture in widgets underneath in the
+<li>calling <code>GtkGesture::cancel</code> on every gesture in widgets underneath in the
 propagation chain.</li>
 <li>Stopping event propagation after the gesture group handles the event.</li>
 </ul>
@@ -11609,10 +11607,9 @@ event will emulated if the sequence changes to <code>GTK_EVENT_SEQUENCE_DENIED</
 This way event coherence is preserved before event propagation is unstopped
 again.</p>
 
-<p>Sequence states can&rsquo;t be changed freely, see gtk_gesture_set_sequence_state()
+<p>Sequence states can&rsquo;t be changed freely, see <code>gtk_gesture_set_sequence_state()</code>
 to know about the possible lifetimes of a <code>GdkEventSequence</code>.</p>
-
-<p>&rdquo;` Touchpad gestures</p>
+<h2 id='touchpad-gestures' class='heading'>Touchpad gestures</h2>
 
 <p>On the platforms that support it, <code>GtkGesture</code> will handle transparently
 touchpad gesture events. The only precautions users of <code>GtkGesture</code> should do
@@ -11683,7 +11680,7 @@ Will retain <code>GtkGesture</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">other</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/GestureProtocol.html">GestureProtocol</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">other</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/GestureProtocol.html">GestureProtocol</a></span></code></pre>
 
                         </div>
                       </div>
@@ -11714,7 +11711,7 @@ Will retain <code>GtkGesture</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">cPointer</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">cPointer</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -11745,7 +11742,7 @@ Will retain <code>GtkGesture</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeRawPointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -11776,7 +11773,7 @@ Will retain <code>GtkGesture</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -11807,7 +11804,7 @@ Will retain <code>GtkGesture</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">opaquePointer</span><span class="p">:</span> <span class="kt">OpaquePointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">opaquePointer</span><span class="p">:</span> <span class="kt">OpaquePointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -11825,7 +11822,7 @@ Will retain <code>GtkGesture</code>.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

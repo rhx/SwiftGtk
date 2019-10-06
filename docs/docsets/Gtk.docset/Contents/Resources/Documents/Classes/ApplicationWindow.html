@@ -11528,8 +11528,8 @@ Use <code>ApplicationWindow</code> as a strong reference or owner of a <code>Gtk
 <p><code>GtkApplicationWindow</code> is a <code>GtkWindow</code> subclass that offers some
 extra functionality for better integration with <code>GtkApplication</code>
 features.  Notably, it can handle both the application menu as well
-as the menubar. See gtk_application_set_app_menu() and
-gtk_application_set_menubar().</p>
+as the menubar. See <code>gtk_application_set_app_menu()</code> and
+<code>gtk_application_set_menubar()</code>.</p>
 
 <p>This class implements the <code>GActionGroup</code> and <code>GActionMap</code> interfaces,
 to let you add window-specific actions that will be exported by the
@@ -11547,8 +11547,8 @@ can also activate these actions, if they implement the
 processing actions arriving from other processes and should therefore
 be held when activating actions locally (if GDK threads are enabled).</p>
 
-<p>The settings <code>GtkSettings</code>:gtk-shell-shows-app-menu and
-<code>GtkSettings</code>:gtk-shell-shows-menubar tell GTK+ whether the
+<p>The settings <code>GtkSettings:gtk</code>-shell-shows-app-menu and
+<code>GtkSettings:gtk</code>-shell-shows-menubar tell GTK+ whether the
 desktop environment is showing the application menu and menubar
 models outside the application as part of the desktop shell.
 For instance, on OS X, both menus will be displayed remotely;
@@ -11557,12 +11557,11 @@ will display the application menu, but not the menubar.</p>
 
 <p>If the desktop environment does not display the menubar, then
 <code>GtkApplicationWindow</code> will automatically show a <code>GtkMenuBar</code> for it.
-This behaviour can be overridden with the <code>GtkApplicationWindow</code>:show-menubar
+This behaviour can be overridden with the <code>GtkApplicationWindow:show</code>-menubar
 property. If the desktop environment does not display the application
 menu, then it will automatically be included in the menubar or in the
 windows client-side decorations.</p>
-
-<p>&ldquo;` A GtkApplicationWindow with a menubar</p>
+<h2 id='a-gtkapplicationwindow-with-a-menubar' class='heading'>A GtkApplicationWindow with a menubar</h2>
 
 <p>(C Language Example):</p>
 <pre class="highlight plaintext"><code>GtkApplication *app = gtk_application_new ("org.gtk.test", 0);
@@ -11587,8 +11586,7 @@ g_object_unref (builder);
 
 GtkWidget *window = gtk_application_window_new (app);
 </code></pre>
-
-<p>&rdquo;` Handling fallback yourself</p>
+<h2 id='handling-fallback-yourself' class='heading'>Handling fallback yourself</h2>
 
 <p><a href="https://git.gnome.org/browse/gtk+/tree/examples/sunny.c">A simple example</a></p>
 
@@ -11671,7 +11669,7 @@ Ownership is transferred to the <code>ApplicationWindow</code> instance.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L16621-L16623">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L16596-L16598">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11697,12 +11695,12 @@ Will retain <code>GtkApplicationWindow</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">other</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/ApplicationWindowProtocol.html">ApplicationWindowProtocol</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">other</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/ApplicationWindowProtocol.html">ApplicationWindowProtocol</a></span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L16627-L16630">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L16602-L16605">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11728,12 +11726,12 @@ Will retain <code>GtkApplicationWindow</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">cPointer</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">cPointer</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L16634-L16636">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L16609-L16611">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11759,12 +11757,12 @@ Will retain <code>GtkApplicationWindow</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeRawPointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L16640-L16642">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L16615-L16617">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11790,12 +11788,12 @@ Will retain <code>GtkApplicationWindow</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L16646-L16648">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L16621-L16623">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11821,12 +11819,12 @@ Will retain <code>GtkApplicationWindow</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">opaquePointer</span><span class="p">:</span> <span class="kt">OpaquePointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">opaquePointer</span><span class="p">:</span> <span class="kt">OpaquePointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L16652-L16654">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L16627-L16629">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11851,12 +11849,12 @@ Will retain <code>GtkApplicationWindow</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">application</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ApplicationProtocol.html">ApplicationProtocol</a></span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">application</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ApplicationProtocol.html">ApplicationProtocol</a></span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L16657-L16660">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L16632-L16635">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11869,7 +11867,7 @@ Will retain <code>GtkApplicationWindow</code>.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

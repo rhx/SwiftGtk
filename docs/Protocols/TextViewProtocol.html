@@ -11527,19 +11527,20 @@ For a concrete class that implements these methods and properties, see <code><a 
 Alternatively, use <code><a href="../Structs/TextViewRef.html">TextViewRef</a></code> as a lighweight, <code>unowned</code> reference if you already have an instance you just want to use.</p>
 
 <p>You may wish to begin by reading the
-[text widget conceptual overview][TextWidget]
+<a href="#TextWidget">text widget conceptual overview</a>
 which gives an overview of all the objects and data
 types related to the text widget and how they work together.</p>
+<h1 id='css-nodes' class='heading'>CSS nodes</h1>
 
-<p>&ldquo; CSS nodes</p>
-<pre class="highlight swift"><code><span class="n">textview</span><span class="o">.</span><span class="n">view</span>
-<span class="err">├──</span> <span class="n">border</span><span class="o">.</span><span class="n">top</span>
-<span class="err">├──</span> <span class="n">border</span><span class="o">.</span><span class="n">left</span>
-<span class="err">├──</span> <span class="n">text</span>
-<span class="err">│</span>   <span class="err">╰──</span> <span class="p">[</span><span class="n">selection</span><span class="p">]</span>
-<span class="err">├──</span> <span class="n">border</span><span class="o">.</span><span class="n">right</span>
-<span class="err">├──</span> <span class="n">border</span><span class="o">.</span><span class="n">bottom</span>
-<span class="err">╰──</span> <span class="p">[</span><span class="n">window</span><span class="o">.</span><span class="n">popup</span><span class="p">]</span>
+<p>(plain Language Example):</p>
+<pre class="highlight plaintext"><code>textview.view
+├── border.top
+├── border.left
+├── text
+│   ╰── [selection]
+├── border.right
+├── border.bottom
+╰── [window.popup]
 </code></pre>
 
 <p>GtkTextView has a main css node with name textview and style class .view,
@@ -11584,7 +11585,7 @@ of the main node.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L4525">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L4518">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11622,7 +11623,7 @@ of the main node.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L4528">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L4521">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11750,7 +11751,7 @@ of the main node.</p>
                         <p>binding reference or <code>nil</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L5006-L5030">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L4999-L5023">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11842,7 +11843,7 @@ of the main node.</p>
                         <p>positive handler ID, or a value less than or equal to <code>0</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6034-L6053">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6026-L6045">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11886,7 +11887,7 @@ of the main node.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6061-L6064">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6053-L6056">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11911,7 +11912,7 @@ of the main node.</p>
 windows.</p>
 
 <p>The window must have nonzero size (see
-gtk_text_view_set_border_window_size()). Note that the child
+<code>gtk_text_view_set_border_window_size()</code>). Note that the child
 coordinates are given relative to scrolling. When
 placing a child in <code>GTK_TEXT_WINDOW_WIDGET</code>, scrolling is
 irrelevant, the child floats above all scrollable areas. But when
@@ -11929,7 +11930,7 @@ text window) it will move with the scrolling as needed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6076-L6079">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6068-L6071">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11969,7 +11970,7 @@ views, since they depend on the contents of the <code>GtkTextBuffer</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6089-L6092">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6081-L6084">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12009,7 +12010,7 @@ views, since they depend on the contents of the <code>GtkTextBuffer</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6102-L6105">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6094-L6097">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12034,7 +12035,7 @@ views, since they depend on the contents of the <code>GtkTextBuffer</code>.</p>
 <code>win</code>, and stores the result in (<code>window_x</code>, <code>window_y</code>).</p>
 
 <p>Note that you can’t convert coordinates for a nonexisting window (see
-gtk_text_view_set_border_window_size()).</p>
+<code>gtk_text_view_set_border_window_size()</code>).</p>
 
                         <a href="../Protocols/TextViewProtocol/bufferToWindowCoords%28win%3AbufferX%3AbufferY%3AwindowX%3AwindowY%3A%29.html" class="slightly-smaller">See more</a>
                       </div>
@@ -12047,7 +12048,7 @@ gtk_text_view_set_border_window_size()).</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6112-L6115">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6104-L6107">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12087,7 +12088,7 @@ views, since they depend on the contents of the <code>GtkTextBuffer</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6125-L6128">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6117-L6120">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12127,7 +12128,7 @@ views, since they depend on the contents of the <code>GtkTextBuffer</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6138-L6141">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6130-L6133">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12149,7 +12150,7 @@ views, since they depend on the contents of the <code>GtkTextBuffer</code>.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Returns whether pressing the Tab key inserts a tab characters.
-gtk_text_view_set_accepts_tab().</p>
+<code>gtk_text_view_set_accepts_tab()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12161,7 +12162,7 @@ gtk_text_view_set_accepts_tab().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6145-L6148">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6137-L6140">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12183,7 +12184,7 @@ gtk_text_view_set_accepts_tab().</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Gets the width of the specified border window. See
-gtk_text_view_set_border_window_size().</p>
+<code>gtk_text_view_set_border_window_size()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12195,7 +12196,7 @@ gtk_text_view_set_border_window_size().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6152-L6155">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6144-L6147">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12228,7 +12229,7 @@ gtk_text_view_set_border_window_size().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6158-L6161">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6150-L6153">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12263,7 +12264,7 @@ of this function won’t own a new reference.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6166-L6169">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6158-L6161">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12301,7 +12302,7 @@ returned locations will be adjusted to account for the preedit
 cursor’s offset within the preedit sequence.</p>
 
 <p>The rectangle position is in buffer coordinates; use
-gtk_text_view_buffer_to_window_coords() to convert these
+<code>gtk_text_view_buffer_to_window_coords()</code> to convert these
 coordinates to coordinates for one of the windows in the text view.</p>
 
                       </div>
@@ -12314,7 +12315,7 @@ coordinates to coordinates for one of the windows in the text view.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6190-L6193">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6182-L6185">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12347,7 +12348,7 @@ coordinates to coordinates for one of the windows in the text view.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6196-L6199">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6188-L6191">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12371,11 +12372,11 @@ coordinates to coordinates for one of the windows in the text view.</p>
                         <p>Obtains a copy of the default text attributes. These are the
 attributes used for text unless a tag overrides them.
 You’d typically pass the default attributes in to
-gtk_text_iter_get_attributes() in order to get the
+<code>gtk_text_iter_get_attributes()</code> in order to get the
 attributes in effect at a given text position.</p>
 
 <p>The return value is a copy owned by the caller of this function,
-and should be freed with gtk_text_attributes_unref().</p>
+and should be freed with <code>gtk_text_attributes_unref()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12387,7 +12388,7 @@ and should be freed with gtk_text_attributes_unref().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6209-L6212">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6201-L6204">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12421,7 +12422,7 @@ buffer may override this setting for some ranges of text.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6216-L6219">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6208-L6211">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12452,13 +12453,13 @@ Use gtk_scrollable_get_hadjustment()</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">getHadjustment</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">GtkAdjustment</span><span class="o">&gt;!</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6225-L6228">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6217-L6220">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12493,7 +12494,7 @@ The indentation may be negative.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6233-L6236">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6225-L6228">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12514,7 +12515,7 @@ The indentation may be negative.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets the value of the <code>GtkTextView</code>:input-hints property.</p>
+                        <p>Gets the value of the <code>GtkTextView:input</code>-hints property.</p>
 
                       </div>
                       <div class="declaration">
@@ -12526,7 +12527,7 @@ The indentation may be negative.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6239-L6242">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6231-L6234">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12547,7 +12548,7 @@ The indentation may be negative.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets the value of the <code>GtkTextView</code>:input-purpose property.</p>
+                        <p>Gets the value of the <code>GtkTextView:input</code>-purpose property.</p>
 
                       </div>
                       <div class="declaration">
@@ -12559,7 +12560,7 @@ The indentation may be negative.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6245-L6248">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6237-L6240">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12584,7 +12585,7 @@ The indentation may be negative.</p>
 coordinates are coordinates for the entire buffer, not just the
 currently-displayed portion.  If you have coordinates from an
 event, you have to convert those to buffer coordinates with
-gtk_text_view_window_to_buffer_coords().</p>
+<code>gtk_text_view_window_to_buffer_coords()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12596,7 +12597,7 @@ gtk_text_view_window_to_buffer_coords().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6255-L6258">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6247-L6250">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12622,9 +12623,9 @@ coordinates <code>x</code> and <code>y</code>. Buffer coordinates are coordinate
 the entire buffer, not just the currently-displayed portion.
 If you have coordinates from an event, you have to convert
 those to buffer coordinates with
-gtk_text_view_window_to_buffer_coords().</p>
+<code>gtk_text_view_window_to_buffer_coords()</code>.</p>
 
-<p>Note that this is different from gtk_text_view_get_iter_at_location(),
+<p>Note that this is different from <code>gtk_text_view_get_iter_at_location()</code>,
 which returns cursor locations, i.e. positions between
 characters.</p>
 
@@ -12638,7 +12639,7 @@ characters.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6270-L6273">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6262-L6265">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12661,7 +12662,7 @@ characters.</p>
                       <div class="abstract">
                         <p>Gets a rectangle which roughly contains the character at <code>iter</code>.
 The rectangle position is in buffer coordinates; use
-gtk_text_view_buffer_to_window_coords() to convert these
+<code>gtk_text_view_buffer_to_window_coords()</code> to convert these
 coordinates to coordinates for one of the windows in the text view.</p>
 
                       </div>
@@ -12674,7 +12675,7 @@ coordinates to coordinates for one of the windows in the text view.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6279-L6282">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6271-L6274">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12708,7 +12709,7 @@ Tags in the buffer may override the default.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6286-L6289">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6278-L6281">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12742,7 +12743,7 @@ Tags in the buffer may override the default.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6293-L6296">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6285-L6288">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12765,7 +12766,7 @@ Tags in the buffer may override the default.</p>
                       <div class="abstract">
                         <p>Gets the <code>GtkTextIter</code> at the start of the line containing
 the coordinate <code>y</code>. <code>y</code> is in buffer coordinates, convert from
-window coordinates with gtk_text_view_window_to_buffer_coords().
+window coordinates with <code>gtk_text_view_window_to_buffer_coords()</code>.
 If non-<code>nil</code>, <code>line_top</code> will be filled with the coordinate of the top
 edge of the line.</p>
 
@@ -12779,7 +12780,7 @@ edge of the line.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6303-L6306">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6295-L6298">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12802,7 +12803,7 @@ edge of the line.</p>
                       <div class="abstract">
                         <p>Gets the y coordinate of the top of the line containing <code>iter</code>,
 and the height of the line. The coordinate is a buffer coordinate;
-convert to window coordinates with gtk_text_view_buffer_to_window_coords().</p>
+convert to window coordinates with <code>gtk_text_view_buffer_to_window_coords()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12814,7 +12815,7 @@ convert to window coordinates with gtk_text_view_buffer_to_window_coords().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6311-L6314">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6303-L6306">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12835,7 +12836,7 @@ convert to window coordinates with gtk_text_view_buffer_to_window_coords().</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets the value of the <code>GtkTextView</code>:monospace property.</p>
+                        <p>Gets the value of the <code>GtkTextView:monospace</code> property.</p>
 
                       </div>
                       <div class="declaration">
@@ -12847,7 +12848,7 @@ convert to window coordinates with gtk_text_view_buffer_to_window_coords().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6317-L6320">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6309-L6312">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12880,7 +12881,7 @@ convert to window coordinates with gtk_text_view_buffer_to_window_coords().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6323-L6326">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6315-L6318">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12902,7 +12903,7 @@ convert to window coordinates with gtk_text_view_buffer_to_window_coords().</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Gets the default number of pixels to put above paragraphs.
-Adding this function with gtk_text_view_get_pixels_below_lines()
+Adding this function with <code>gtk_text_view_get_pixels_below_lines()</code>
 is equal to the line space between each paragraph.</p>
 
                       </div>
@@ -12915,7 +12916,7 @@ is equal to the line space between each paragraph.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6331-L6334">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6323-L6326">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12936,10 +12937,10 @@ is equal to the line space between each paragraph.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets the value set by gtk_text_view_set_pixels_below_lines().</p>
+                        <p>Gets the value set by <code>gtk_text_view_set_pixels_below_lines()</code>.</p>
 
 <p>The line space is the sum of the value returned by this function and the
-value returned by gtk_text_view_get_pixels_above_lines().</p>
+value returned by <code>gtk_text_view_get_pixels_above_lines()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12951,7 +12952,7 @@ value returned by gtk_text_view_get_pixels_above_lines().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6340-L6343">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6332-L6335">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12972,7 +12973,7 @@ value returned by gtk_text_view_get_pixels_above_lines().</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets the value set by gtk_text_view_set_pixels_inside_wrap().</p>
+                        <p>Gets the value set by <code>gtk_text_view_set_pixels_inside_wrap()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12984,7 +12985,7 @@ value returned by gtk_text_view_get_pixels_above_lines().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6346-L6349">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6338-L6341">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13018,7 +13019,7 @@ in the buffer may override the default.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6353-L6356">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6345-L6348">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13042,7 +13043,7 @@ in the buffer may override the default.</p>
                         <p>Gets the default tabs for <code>text_view</code>. Tags in the buffer may
 override the defaults. The returned array will be <code>nil</code> if
 “standard” (8-space) tabs are used. Free the return value
-with pango_tab_array_free().</p>
+with <code>pango_tab_array_free()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -13054,7 +13055,7 @@ with pango_tab_array_free().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6362-L6365">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6354-L6357">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13087,7 +13088,7 @@ with pango_tab_array_free().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6368-L6371">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6360-L6363">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13118,13 +13119,13 @@ Use gtk_scrollable_get_vadjustment()</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">getVadjustment</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">GtkAdjustment</span><span class="o">&gt;!</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6377-L6380">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6369-L6372">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13147,7 +13148,7 @@ Use gtk_scrollable_get_vadjustment()</p>
                       <div class="abstract">
                         <p>Fills <code>visible_rect</code> with the currently-visible
 region of the buffer, in buffer coordinates. Convert to window coordinates
-with gtk_text_view_buffer_to_window_coords().</p>
+with <code>gtk_text_view_buffer_to_window_coords()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -13159,7 +13160,7 @@ with gtk_text_view_buffer_to_window_coords().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6385-L6388">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6377-L6380">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13197,7 +13198,7 @@ realized.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6396-L6399">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6388-L6391">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13233,7 +13234,7 @@ should be called on <code>event-&gt;window</code> to see which window it was.</p
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6405-L6408">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6397-L6400">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13266,7 +13267,7 @@ should be called on <code>event-&gt;window</code> to see which window it was.</p
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6411-L6414">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6403-L6406">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13290,7 +13291,7 @@ should be called on <code>event-&gt;window</code> to see which window it was.</p
                         <p>Allow the <code>GtkTextView</code> input method to internally handle key press
 and release events. If this function returns <code>true</code>, then no further
 processing should be done for this key event. See
-gtk_im_context_filter_keypress().</p>
+<code>gtk_im_context_filter_keypress()</code>.</p>
 
 <p>Note that you are expected to call this function from your handler
 when overriding key event handling. This is needed in the case when
@@ -13328,7 +13329,7 @@ gtk_foo_bar_key_press_event (GtkWidget   *widget,
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6448-L6451">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6440-L6443">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13349,7 +13350,7 @@ gtk_foo_bar_key_press_event (GtkWidget   *widget,
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Updates the position of a child, as for gtk_text_view_add_child_in_window().</p>
+                        <p>Updates the position of a child, as for <code>gtk_text_view_add_child_in_window()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -13361,7 +13362,7 @@ gtk_foo_bar_key_press_event (GtkWidget   *widget,
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6454-L6457">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6446-L6449">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13395,7 +13396,7 @@ located within the currently-visible text area.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6461-L6464">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6453-L6456">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13438,7 +13439,7 @@ is moved off of the end of a run.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6477-L6480">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6469-L6472">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13472,7 +13473,7 @@ buffer, it it isn’t there already.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6484-L6487">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6476-L6479">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13499,7 +13500,7 @@ visible, in case blinking is disabled).</p>
 
 <p>This function should be called in response to user input
 (e.g. from derived classes that override the textview&rsquo;s
-<code>GtkWidget</code>::key-press-event handler).</p>
+<code>GtkWidget::key</code>-press-event handler).</p>
 
                       </div>
                       <div class="declaration">
@@ -13511,7 +13512,7 @@ visible, in case blinking is disabled).</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6496-L6499">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6488-L6491">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13547,7 +13548,7 @@ would confuse on-going input method behavior.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6505-L6508">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6497-L6500">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13581,7 +13582,7 @@ within the visible area of the widget.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6512-L6515">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6504-L6507">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13614,7 +13615,7 @@ screen for purposes of this function is reduced by a margin of size
 lines in the text buffer. Line heights are computed in an idle
 handler; so this function may not have the desired effect if it’s
 called before the height computations. To avoid oddness, consider
-using gtk_text_view_scroll_to_mark() which saves a point to be
+using <code>gtk_text_view_scroll_to_mark()</code> which saves a point to be
 scrolled to after line validation.</p>
 
                         <a href="../Protocols/TextViewProtocol/scrollTo%28iter%3AwithinMargin%3AuseAlign%3Axalign%3Ayalign%3A%29.html" class="slightly-smaller">See more</a>
@@ -13628,7 +13629,7 @@ scrolled to after line validation.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6531-L6534">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6523-L6526">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13667,7 +13668,7 @@ screen for purposes of this function is reduced by a margin of size
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6543-L6546">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6535-L6538">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13703,7 +13704,7 @@ chain.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6552-L6555">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6544-L6547">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13742,7 +13743,7 @@ work with <code>GTK_TEXT_WINDOW_WIDGET</code>, <code>GTK_TEXT_WINDOW_TEXT</code>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6564-L6567">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6556-L6559">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13778,7 +13779,7 @@ In CSS terms, the value set here is padding.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6573-L6576">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6565-L6568">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13815,7 +13816,7 @@ will not “adopt” it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6583-L6586">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6575-L6578">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13841,7 +13842,7 @@ no editable text probably shouldn’t have a visible cursor, so you may
 want to turn the cursor off.</p>
 
 <p>Note that this property may be overridden by the
-<code>GtkSettings</code>:gtk-keynave-use-caret settings.</p>
+<code>GtkSettings:gtk</code>-keynave-use-caret settings.</p>
 
                       </div>
                       <div class="declaration">
@@ -13853,7 +13854,7 @@ want to turn the cursor off.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6594-L6597">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6586-L6589">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13888,7 +13889,7 @@ attribute of tags.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6602-L6605">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6594-L6597">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13922,7 +13923,7 @@ Tags in the buffer may override the default.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6609-L6612">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6601-L6604">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13943,7 +13944,7 @@ Tags in the buffer may override the default.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Sets the <code>GtkTextView</code>:input-hints property, which
+                        <p>Sets the <code>GtkTextView:input</code>-hints property, which
 allows input methods to fine-tune their behaviour.</p>
 
                       </div>
@@ -13956,7 +13957,7 @@ allows input methods to fine-tune their behaviour.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6616-L6619">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6608-L6611">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13977,7 +13978,7 @@ allows input methods to fine-tune their behaviour.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Sets the <code>GtkTextView</code>:input-purpose property which
+                        <p>Sets the <code>GtkTextView:input</code>-purpose property which
 can be used by on-screen keyboards and other input
 methods to adjust their behaviour.</p>
 
@@ -13991,7 +13992,7 @@ methods to adjust their behaviour.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6624-L6627">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6616-L6619">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14025,7 +14026,7 @@ Tags in the view’s buffer may override the default.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6631-L6634">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6623-L6626">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14062,7 +14063,7 @@ In CSS terms, the value set here is padding.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6641-L6644">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6633-L6636">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14083,7 +14084,7 @@ In CSS terms, the value set here is padding.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Sets the <code>GtkTextView</code>:monospace property, which
+                        <p>Sets the <code>GtkTextView:monospace</code> property, which
 indicates that the text view should use monospace
 fonts.</p>
 
@@ -14097,7 +14098,7 @@ fonts.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6649-L6652">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6641-L6644">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14130,7 +14131,7 @@ fonts.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6655-L6658">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6647-L6650">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14164,7 +14165,7 @@ Tags in the buffer for <code>text_view</code> may override the defaults.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6662-L6665">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6654-L6657">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14199,7 +14200,7 @@ by tags applied to <code>text_view</code>’s buffer.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6670-L6673">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6662-L6665">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14234,7 +14235,7 @@ tags in <code>text_view</code>’s buffer.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6678-L6681">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6670-L6673">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14271,7 +14272,7 @@ In CSS terms, the value set here is padding.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6688-L6691">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6680-L6683">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14305,7 +14306,7 @@ Tags in the buffer may override the default.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6695-L6698">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6687-L6690">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14341,7 +14342,7 @@ In CSS terms, the value set here is padding.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6704-L6707">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6696-L6699">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14374,7 +14375,7 @@ In CSS terms, the value set here is padding.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6710-L6713">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6702-L6705">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14396,7 +14397,7 @@ In CSS terms, the value set here is padding.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Determines whether <code>iter</code> is at the start of a display line.
-See gtk_text_view_forward_display_line() for an explanation of
+See <code>gtk_text_view_forward_display_line()</code> for an explanation of
 display lines vs. paragraphs.</p>
 
                       </div>
@@ -14409,7 +14410,7 @@ display lines vs. paragraphs.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6718-L6721">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6710-L6713">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14434,7 +14435,7 @@ display lines vs. paragraphs.</p>
 coordinates, storing the result in (<code>buffer_x</code>,<code>buffer_y</code>).</p>
 
 <p>Note that you can’t convert coordinates for a nonexisting window (see
-gtk_text_view_set_border_window_size()).</p>
+<code>gtk_text_view_set_border_window_size()</code>).</p>
 
                         <a href="../Protocols/TextViewProtocol/windowToBufferCoords%28win%3AwindowX%3AwindowY%3AbufferX%3AbufferY%3A%29.html" class="slightly-smaller">See more</a>
                       </div>
@@ -14447,7 +14448,7 @@ gtk_text_view_set_border_window_size()).</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6728-L6731">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6720-L6723">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14469,7 +14470,7 @@ gtk_text_view_set_border_window_size()).</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Returns whether pressing the Tab key inserts a tab characters.
-gtk_text_view_set_accepts_tab().</p>
+<code>gtk_text_view_set_accepts_tab()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -14481,7 +14482,7 @@ gtk_text_view_set_accepts_tab().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6734-L6748">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6726-L6740">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14514,7 +14515,7 @@ gtk_text_view_set_accepts_tab().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6751-L6764">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6743-L6756">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14547,7 +14548,7 @@ gtk_text_view_set_accepts_tab().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6766-L6782">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6758-L6774">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14580,7 +14581,7 @@ gtk_text_view_set_accepts_tab().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6785-L6800">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6777-L6792">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14604,11 +14605,11 @@ gtk_text_view_set_accepts_tab().</p>
                         <p>Obtains a copy of the default text attributes. These are the
 attributes used for text unless a tag overrides them.
 You’d typically pass the default attributes in to
-gtk_text_iter_get_attributes() in order to get the
+<code>gtk_text_iter_get_attributes()</code> in order to get the
 attributes in effect at a given text position.</p>
 
 <p>The return value is a copy owned by the caller of this function,
-and should be freed with gtk_text_attributes_unref().</p>
+and should be freed with <code>gtk_text_attributes_unref()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -14620,7 +14621,7 @@ and should be freed with gtk_text_attributes_unref().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6810-L6823">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6802-L6815">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14653,7 +14654,7 @@ and should be freed with gtk_text_attributes_unref().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6825-L6838">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6817-L6830">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14689,7 +14690,7 @@ Use gtk_scrollable_get_hadjustment()</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6844-L6853">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6836-L6845">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14722,7 +14723,7 @@ Use gtk_scrollable_get_hadjustment()</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6855-L6868">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6847-L6860">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14743,7 +14744,7 @@ Use gtk_scrollable_get_hadjustment()</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets the value of the <code>GtkTextView</code>:input-hints property.</p>
+                        <p>Gets the value of the <code>GtkTextView:input</code>-hints property.</p>
 
                       </div>
                       <div class="declaration">
@@ -14755,7 +14756,7 @@ Use gtk_scrollable_get_hadjustment()</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6871-L6882">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6863-L6874">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14776,7 +14777,7 @@ Use gtk_scrollable_get_hadjustment()</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets the value of the <code>GtkTextView</code>:input-purpose property.</p>
+                        <p>Gets the value of the <code>GtkTextView:input</code>-purpose property.</p>
 
                       </div>
                       <div class="declaration">
@@ -14788,7 +14789,7 @@ Use gtk_scrollable_get_hadjustment()</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6885-L6897">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6877-L6889">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14821,7 +14822,7 @@ Use gtk_scrollable_get_hadjustment()</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6899-L6911">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6891-L6903">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14855,7 +14856,7 @@ Tags in the buffer may override the default.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6915-L6930">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6907-L6922">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14888,7 +14889,7 @@ Tags in the buffer may override the default.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6932-L6944">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6924-L6936">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14921,7 +14922,7 @@ Tags in the buffer may override the default.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6946-L6956">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6938-L6948">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14943,7 +14944,7 @@ Tags in the buffer may override the default.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Gets the default number of pixels to put above paragraphs.
-Adding this function with gtk_text_view_get_pixels_below_lines()
+Adding this function with <code>gtk_text_view_get_pixels_below_lines()</code>
 is equal to the line space between each paragraph.</p>
 
                       </div>
@@ -14956,7 +14957,7 @@ is equal to the line space between each paragraph.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6961-L6974">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6953-L6966">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14977,10 +14978,10 @@ is equal to the line space between each paragraph.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets the value set by gtk_text_view_set_pixels_below_lines().</p>
+                        <p>Gets the value set by <code>gtk_text_view_set_pixels_below_lines()</code>.</p>
 
 <p>The line space is the sum of the value returned by this function and the
-value returned by gtk_text_view_get_pixels_above_lines().</p>
+value returned by <code>gtk_text_view_get_pixels_above_lines()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -14992,7 +14993,7 @@ value returned by gtk_text_view_get_pixels_above_lines().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6980-L6995">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6972-L6987">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -15013,7 +15014,7 @@ value returned by gtk_text_view_get_pixels_above_lines().</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets the value set by gtk_text_view_set_pixels_inside_wrap().</p>
+                        <p>Gets the value set by <code>gtk_text_view_set_pixels_inside_wrap()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -15025,7 +15026,7 @@ value returned by gtk_text_view_get_pixels_above_lines().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6998-L7010">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L6990-L7002">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -15059,7 +15060,7 @@ in the buffer may override the default.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L7014-L7029">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L7006-L7021">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -15092,7 +15093,7 @@ in the buffer may override the default.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L7031-L7045">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L7023-L7037">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -15125,7 +15126,7 @@ in the buffer may override the default.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L7048-L7061">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L7040-L7053">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -15161,7 +15162,7 @@ Use gtk_scrollable_get_vadjustment()</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L7067-L7076">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L7059-L7068">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -15194,7 +15195,7 @@ Use gtk_scrollable_get_vadjustment()</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L7079-L7089">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L7071-L7081">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -15244,7 +15245,7 @@ Use gtk_scrollable_get_vadjustment()</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

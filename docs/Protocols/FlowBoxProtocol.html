@@ -11546,22 +11546,23 @@ children, you may have to wrap it in a <code>GtkScrolledWindow</code> to enable 
 <p>The children of a GtkFlowBox can be dynamically sorted and filtered.</p>
 
 <p>Although a GtkFlowBox must have only <code>GtkFlowBoxChild</code> children,
-you can add any kind of widget to it via gtk_container_add(), and
+you can add any kind of widget to it via <code>gtk_container_add()</code>, and
 a GtkFlowBoxChild widget will automatically be inserted between
 the box and the widget.</p>
 
 <p>Also see <code>GtkListBox</code>.</p>
 
 <p>GtkFlowBox was added in GTK+ 3.12.</p>
+<h1 id='css-nodes' class='heading'>CSS nodes</h1>
 
-<p>&ldquo; CSS nodes</p>
-<pre class="highlight swift"><code><span class="n">flowbox</span>
-<span class="err">├──</span> <span class="n">flowboxchild</span>
-<span class="err">│</span>   <span class="err">╰──</span> <span class="o">&lt;</span><span class="n">child</span><span class="o">&gt;</span>
-<span class="err">├──</span> <span class="n">flowboxchild</span>
-<span class="err">│</span>   <span class="err">╰──</span> <span class="o">&lt;</span><span class="n">child</span><span class="o">&gt;</span>
-<span class="err">┊</span>
-<span class="err">╰──</span> <span class="p">[</span><span class="n">rubberband</span><span class="p">]</span>
+<p>(plain Language Example):</p>
+<pre class="highlight plaintext"><code>flowbox
+├── flowboxchild
+│   ╰── &lt;child&gt;
+├── flowboxchild
+│   ╰── &lt;child&gt;
+┊
+╰── [rubberband]
 </code></pre>
 
 <p>GtkFlowBox uses a single CSS node with name flowbox. GtkFlowBoxChild
@@ -11600,7 +11601,7 @@ For rubberband selection, a subnode with name rubberband is used.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L5990">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L5970">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11638,7 +11639,7 @@ For rubberband selection, a subnode with name rubberband is used.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L5993">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L5973">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11766,7 +11767,7 @@ For rubberband selection, a subnode with name rubberband is used.</p>
                         <p>binding reference or <code>nil</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L6412-L6436">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L6392-L6416">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11858,7 +11859,7 @@ For rubberband selection, a subnode with name rubberband is used.</p>
                         <p>positive handler ID, or a value less than or equal to <code>0</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L7310-L7329">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L7289-L7308">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11900,7 +11901,7 @@ represent items from <code>model</code>. <code>box</code> is updated whenever <c
 If <code>model</code> is <code>nil</code>, <code>box</code> is left empty.</p>
 
 <p>It is undefined to add or remove widgets directly (for example, with
-gtk_flow_box_insert() or gtk_container_add()) while <code>box</code> is bound to a
+<code>gtk_flow_box_insert()</code> or <code>gtk_container_add()</code>) while <code>box</code> is bound to a
 model.</p>
 
 <p>Note that using a model is incompatible with the filtering and sorting
@@ -11918,7 +11919,7 @@ should be implemented by the model.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L7352-L7355">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L7331-L7334">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11951,7 +11952,7 @@ should be implemented by the model.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L7358-L7361">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L7337-L7340">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11984,7 +11985,7 @@ should be implemented by the model.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L7364-L7367">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L7343-L7346">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12017,7 +12018,7 @@ should be implemented by the model.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L7370-L7373">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L7349-L7352">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12050,7 +12051,7 @@ should be implemented by the model.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L7376-L7379">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L7355-L7358">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12072,7 +12073,7 @@ should be implemented by the model.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Returns whether the box is homogeneous (all children are the
-same size). See gtk_box_set_homogeneous().</p>
+same size). See <code>gtk_box_set_homogeneous()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12084,7 +12085,7 @@ same size). See gtk_box_set_homogeneous().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L7383-L7386">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L7362-L7365">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12117,7 +12118,7 @@ same size). See gtk_box_set_homogeneous().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L7389-L7392">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L7368-L7371">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12150,7 +12151,7 @@ same size). See gtk_box_set_homogeneous().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L7395-L7398">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L7374-L7377">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12183,7 +12184,7 @@ same size). See gtk_box_set_homogeneous().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L7401-L7404">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L7380-L7383">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12216,7 +12217,7 @@ same size). See gtk_box_set_homogeneous().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L7407-L7410">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L7386-L7389">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12249,7 +12250,7 @@ same size). See gtk_box_set_homogeneous().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L7413-L7416">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L7392-L7395">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12274,7 +12275,7 @@ same size). See gtk_box_set_homogeneous().</p>
 
 <p>If a sort function is set, the widget will actually be inserted
 at the calculated position and this function has the same effect
-as gtk_container_add().</p>
+as <code>gtk_container_add()</code>.</p>
 
 <p>If <code>position</code> is -1, or larger than the total number of children
 in the <code>box</code>, then the <code>widget</code> will be appended to the end.</p>
@@ -12289,7 +12290,7 @@ in the <code>box</code>, then the <code>widget</code> will be appended to the en
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L7426-L7429">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L7405-L7408">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12328,7 +12329,7 @@ term, and the entry with the string has changed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L7438-L7441">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L7417-L7420">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12364,7 +12365,7 @@ term, and the entry with the string has changed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L7447-L7450">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L7426-L7429">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12398,7 +12399,7 @@ mode allows it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L7454-L7457">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L7433-L7436">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12432,7 +12433,7 @@ mode allows it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L7461-L7464">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L7440-L7443">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12468,7 +12469,7 @@ this function.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L7470-L7473">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L7449-L7452">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12502,7 +12503,7 @@ on them, otherwise you need to double-click.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L7477-L7480">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L7456-L7459">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12524,7 +12525,7 @@ on them, otherwise you need to double-click.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Sets the horizontal space to add between children.
-See the <code>GtkFlowBox</code>:column-spacing property.</p>
+See the <code>GtkFlowBox:column</code>-spacing property.</p>
 
                       </div>
                       <div class="declaration">
@@ -12536,7 +12537,7 @@ See the <code>GtkFlowBox</code>:column-spacing property.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L7484-L7487">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L7463-L7466">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12563,11 +12564,11 @@ function that only shows the children matching the search terms.</p>
 
 <p>The <code>filter_func</code> will be called for each child after the call, and
 it will continue to be called each time a child changes (via
-gtk_flow_box_child_changed()) or when gtk_flow_box_invalidate_filter()
+<code>gtk_flow_box_child_changed()</code>) or when <code>gtk_flow_box_invalidate_filter()</code>
 is called.</p>
 
 <p>Note that using a filter function is incompatible with using a model
-(see gtk_flow_box_bind_model()).</p>
+(see <code>gtk_flow_box_bind_model()</code>).</p>
 
                         <a href="../Protocols/FlowBoxProtocol/set%28filterFunc%3AuserData%3Adestroy%3A%29.html" class="slightly-smaller">See more</a>
                       </div>
@@ -12580,7 +12581,7 @@ is called.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L7500-L7503">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L7479-L7482">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12603,9 +12604,9 @@ is called.</p>
                       <div class="abstract">
                         <p>Hooks up an adjustment to focus handling in <code>box</code>.
 The adjustment is also used for autoscrolling during
-rubberband selection. See gtk_scrolled_window_get_hadjustment()
+rubberband selection. See <code>gtk_scrolled_window_get_hadjustment()</code>
 for a typical way of obtaining the adjustment, and
-gtk_flow_box_set_vadjustment()for setting the vertical
+<code>gtk_flow_box_set_vadjustment()</code>for setting the vertical
 adjustment.</p>
 
 <p>The adjustments have to be in pixel units and in the same
@@ -12622,7 +12623,7 @@ of the box.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L7515-L7518">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L7494-L7497">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12643,7 +12644,7 @@ of the box.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Sets the <code>GtkFlowBox</code>:homogeneous property of <code>box</code>, controlling
+                        <p>Sets the <code>GtkFlowBox:homogeneous</code> property of <code>box</code>, controlling
 whether or not all children of <code>box</code> are given equal space
 in the box.</p>
 
@@ -12657,7 +12658,7 @@ in the box.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L7523-L7526">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L7502-L7505">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12695,7 +12696,7 @@ than <code>n_children</code> children long in the given orientation.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L7534-L7537">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L7513-L7516">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12729,7 +12730,7 @@ in <code>box</code>’s orientation before flowing.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L7541-L7544">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L7520-L7523">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12751,7 +12752,7 @@ in <code>box</code>’s orientation before flowing.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Sets the vertical space to add between children.
-See the <code>GtkFlowBox</code>:row-spacing property.</p>
+See the <code>GtkFlowBox:row</code>-spacing property.</p>
 
                       </div>
                       <div class="declaration">
@@ -12763,7 +12764,7 @@ See the <code>GtkFlowBox</code>:row-spacing property.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L7548-L7551">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L7527-L7530">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12797,7 +12798,7 @@ See <code>GtkSelectionMode</code> for details.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L7555-L7558">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L7534-L7537">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12824,11 +12825,11 @@ the children.</p>
 
 <p>The <code>sort_func</code> will be called for each child after the call,
 and will continue to be called each time a child changes (via
-gtk_flow_box_child_changed()) and when gtk_flow_box_invalidate_sort()
+<code>gtk_flow_box_child_changed()</code>) and when <code>gtk_flow_box_invalidate_sort()</code>
 is called.</p>
 
 <p>Note that using a sort function is incompatible with using a model
-(see gtk_flow_box_bind_model()).</p>
+(see <code>gtk_flow_box_bind_model()</code>).</p>
 
                         <a href="../Protocols/FlowBoxProtocol/set%28sortFunc%3AuserData%3Adestroy%3A%29.html" class="slightly-smaller">See more</a>
                       </div>
@@ -12841,7 +12842,7 @@ is called.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L7571-L7574">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L7550-L7553">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12864,9 +12865,9 @@ is called.</p>
                       <div class="abstract">
                         <p>Hooks up an adjustment to focus handling in <code>box</code>.
 The adjustment is also used for autoscrolling during
-rubberband selection. See gtk_scrolled_window_get_vadjustment()
+rubberband selection. See <code>gtk_scrolled_window_get_vadjustment()</code>
 for a typical way of obtaining the adjustment, and
-gtk_flow_box_set_hadjustment()for setting the horizontal
+<code>gtk_flow_box_set_hadjustment()</code>for setting the horizontal
 adjustment.</p>
 
 <p>The adjustments have to be in pixel units and in the same
@@ -12883,7 +12884,7 @@ of the box.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L7586-L7589">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L7565-L7568">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12917,7 +12918,7 @@ mode allows it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L7593-L7596">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L7572-L7575">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12951,7 +12952,7 @@ mode allows it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L7600-L7603">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L7579-L7582">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12984,7 +12985,7 @@ mode allows it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L7605-L7616">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L7584-L7595">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13017,7 +13018,7 @@ mode allows it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L7619-L7630">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L7598-L7609">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13051,7 +13052,7 @@ same size.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L7634-L7647">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L7613-L7626">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13084,7 +13085,7 @@ same size.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L7650-L7665">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L7629-L7644">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13117,7 +13118,7 @@ same size.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L7668-L7679">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L7647-L7658">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13150,7 +13151,7 @@ same size.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L7682-L7693">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L7661-L7672">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13183,7 +13184,7 @@ same size.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L7696-L7702">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L7675-L7681">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13216,7 +13217,7 @@ same size.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L7705-L7716">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L7684-L7695">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13229,7 +13230,7 @@ same size.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

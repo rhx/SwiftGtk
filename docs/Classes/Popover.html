@@ -11527,26 +11527,25 @@ Use <code>Popover</code> as a strong reference or owner of a <code>GtkPopover</c
 
 <p>GtkPopover is a bubble-like context window, primarily meant to
 provide context-dependent information or options. Popovers are
-attached to a widget, passed at construction time on gtk_popover_new(),
-or updated afterwards through gtk_popover_set_relative_to(), by
+attached to a widget, passed at construction time on <code>gtk_popover_new()</code>,
+or updated afterwards through <code>gtk_popover_set_relative_to()</code>, by
 default they will point to the whole widget area, although this
-behavior can be changed through gtk_popover_set_pointing_to().</p>
+behavior can be changed through <code>gtk_popover_set_pointing_to()</code>.</p>
 
 <p>The position of a popover relative to the widget it is attached to
-can also be changed through gtk_popover_set_position().</p>
+can also be changed through <code>gtk_popover_set_position()</code>.</p>
 
 <p>By default, <code>GtkPopover</code> performs a GTK+ grab, in order to ensure
 input events get redirected to it while it is shown, and also so
 the popover is dismissed in the expected situations (clicks outside
 the popover, or the Esc key being pressed). If no such modal behavior
-is desired on a popover, gtk_popover_set_modal() may be called on it
+is desired on a popover, <code>gtk_popover_set_modal()</code> may be called on it
 to tweak its behavior.</p>
-
-<p>&ldquo;` GtkPopover as menu replacement</p>
+<h2 id='gtkpopover-as-menu-replacement' class='heading'>GtkPopover as menu replacement</h2>
 
 <p>GtkPopover is often used to replace menus. To facilitate this, it
 supports being populated from a <code>GMenuModel</code>, using
-gtk_popover_new_from_model(). In addition to all the regular menu
+<code>gtk_popover_new_from_model()</code>. In addition to all the regular menu
 model features, this function supports rendering sections in the
 model in a more compact form, as a row of icon buttons instead of
 menu items.</p>
@@ -11573,12 +11572,11 @@ with the ”verb-icon” attribute.</p>
   <span class="o">&lt;/</span><span class="n">item</span><span class="o">&gt;</span>
 <span class="o">&lt;/</span><span class="n">section</span><span class="o">&gt;</span>
 </code></pre>
-
-<p>&rdquo; CSS nodes</p>
+<h1 id='css-nodes' class='heading'>CSS nodes</h1>
 
 <p>GtkPopover has a single css node called popover. It always gets the
 .background style class and it gets the .menu style class if it is
-menu-like (e.g. <code>GtkPopoverMenu</code> or created using gtk_popover_new_from_model().</p>
+menu-like (e.g. <code>GtkPopoverMenu</code> or created using <code>gtk_popover_new_from_model()</code>.</p>
 
 <p>Particular uses of GtkPopover, such as touch selection popups
 or magnifiers in <code>GtkEntry</code> or <code>GtkTextView</code> get style classes
@@ -11618,7 +11616,7 @@ Ownership is transferred to the <code>Popover</code> instance.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4855-L4857">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4845-L4847">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11644,12 +11642,12 @@ Will retain <code>GtkPopover</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">other</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/PopoverProtocol.html">PopoverProtocol</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">other</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/PopoverProtocol.html">PopoverProtocol</a></span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4861-L4864">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4851-L4854">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11675,12 +11673,12 @@ Will retain <code>GtkPopover</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">cPointer</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">cPointer</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4868-L4870">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4858-L4860">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11706,12 +11704,12 @@ Will retain <code>GtkPopover</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeRawPointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4874-L4876">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4864-L4866">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11737,12 +11735,12 @@ Will retain <code>GtkPopover</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4880-L4882">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4870-L4872">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11768,12 +11766,12 @@ Will retain <code>GtkPopover</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">opaquePointer</span><span class="p">:</span> <span class="kt">OpaquePointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">opaquePointer</span><span class="p">:</span> <span class="kt">OpaquePointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4886-L4888">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4876-L4878">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11798,12 +11796,12 @@ Will retain <code>GtkPopover</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">relative_to</span><span class="p">:</span> <span class="kt"><a href="../Protocols/WidgetProtocol.html">WidgetProtocol</a></span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">relative_to</span><span class="p">:</span> <span class="kt"><a href="../Protocols/WidgetProtocol.html">WidgetProtocol</a></span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4891-L4894">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4881-L4884">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11829,7 +11827,7 @@ Will retain <code>GtkPopover</code>.</p>
 by means of being attached to a widget that is contained within
 the <code>GtkApplicationWindows</code> widget hierarchy.</p>
 
-<p>Actions can also be added using gtk_widget_insert_action_group()
+<p>Actions can also be added using <code>gtk_widget_insert_action_group()</code>
 on the menus attach widget or on any of its parent widgets.</p>
 
                       </div>
@@ -11837,12 +11835,12 @@ on the menus attach widget or on any of its parent widgets.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="n">model</span> <span class="nv">relative_to</span><span class="p">:</span> <span class="kt"><a href="../Protocols/WidgetProtocol.html">WidgetProtocol</a></span><span class="p">,</span> <span class="nv">model</span><span class="p">:</span> <span class="kt">MenuModelProtocol</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="n">model</span> <span class="nv">relative_to</span><span class="p">:</span> <span class="kt"><a href="../Protocols/WidgetProtocol.html">WidgetProtocol</a></span><span class="p">,</span> <span class="nv">model</span><span class="p">:</span> <span class="kt">MenuModelProtocol</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4906-L4909">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4896-L4899">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11868,7 +11866,7 @@ on the menus attach widget or on any of its parent widgets.</p>
 by means of being attached to a widget that is contained within
 the <code>GtkApplicationWindows</code> widget hierarchy.</p>
 
-<p>Actions can also be added using gtk_widget_insert_action_group()
+<p>Actions can also be added using <code>gtk_widget_insert_action_group()</code>
 on the menus attach widget or on any of its parent widgets.</p>
 
                       </div>
@@ -11881,7 +11879,7 @@ on the menus attach widget or on any of its parent widgets.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4921-L4924">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L4911-L4914">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11894,7 +11892,7 @@ on the menus attach widget or on any of its parent widgets.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

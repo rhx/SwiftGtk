@@ -11529,44 +11529,43 @@ Alternatively, use <code><a href="../Structs/BuilderRef.html">BuilderRef</a></co
 <p>A GtkBuilder is an auxiliary object that reads textual descriptions
 of a user interface and instantiates the described objects. To create
 a GtkBuilder from a user interface description, call
-gtk_builder_new_from_file(), gtk_builder_new_from_resource() or
-gtk_builder_new_from_string().</p>
+<code>gtk_builder_new_from_file()</code>, <code>gtk_builder_new_from_resource()</code> or
+<code>gtk_builder_new_from_string()</code>.</p>
 
 <p>In the (unusual) case that you want to add user interface
 descriptions from multiple sources to the same GtkBuilder you can
-call gtk_builder_new() to get an empty builder and populate it by
-(multiple) calls to gtk_builder_add_from_file(),
-gtk_builder_add_from_resource() or gtk_builder_add_from_string().</p>
+call <code>gtk_builder_new()</code> to get an empty builder and populate it by
+(multiple) calls to <code>gtk_builder_add_from_file()</code>,
+<code>gtk_builder_add_from_resource()</code> or <code>gtk_builder_add_from_string()</code>.</p>
 
 <p>A GtkBuilder holds a reference to all objects that it has constructed
 and drops these references when it is finalized. This finalization can
 cause the destruction of non-widget objects or widgets which are not
 contained in a toplevel window. For toplevel windows constructed by a
-builder, it is the responsibility of the user to call gtk_widget_destroy()
+builder, it is the responsibility of the user to call <code>gtk_widget_destroy()</code>
 to get rid of them and all the widgets they contain.</p>
 
-<p>The functions gtk_builder_get_object() and gtk_builder_get_objects()
+<p>The functions <code>gtk_builder_get_object()</code> and <code>gtk_builder_get_objects()</code>
 can be used to access the widgets in the interface by the names assigned
 to them inside the UI description. Toplevel windows returned by these
 functions will stay around until the user explicitly destroys them
-with gtk_widget_destroy(). Other widgets will either be part of a
+with <code>gtk_widget_destroy()</code>. Other widgets will either be part of a
 larger hierarchy constructed by the builder (in which case you should
 not have to worry about their lifecycle), or without a parent, in which
 case they have to be added to some container to make use of them.
-Non-widget objects need to be reffed with g_object_ref() to keep them
+Non-widget objects need to be reffed with <code>g_object_ref()</code> to keep them
 beyond the lifespan of the builder.</p>
 
-<p>The function gtk_builder_connect_signals() and variants thereof can be
+<p>The function <code>gtk_builder_connect_signals()</code> and variants thereof can be
 used to connect handlers to the named signals in the description.</p>
-
-<p><code>GtkBuilder UI Definitions</code> {<code>BUILDER</code>-UI}</p>
+<h1 id='gtkbuilder-ui-definitions-a-name-builder-ui-a' class='heading'>GtkBuilder UI Definitions # <a name="BUILDER-UI"></a></h1>
 
 <p>GtkBuilder parses textual descriptions of user interfaces which are
 specified in an XML format which can be roughly described by the
 RELAX NG schema below. We refer to these descriptions as “GtkBuilder
 UI definitions” or just “UI definitions” if the context is clear.
 Do not confuse GtkBuilder UI Definitions with
-[GtkUIManager UI Definitions][XML-UI], which are more limited in scope.
+<a href="#XML-UI">GtkUIManager UI Definitions</a>, which are more limited in scope.
 It is common to use <code>.ui</code> as the filename extension for files containing
 GtkBuilder UI definitions.</p>
 
@@ -11574,15 +11573,15 @@ GtkBuilder UI definitions.</p>
 
 <p>The toplevel element is <interface>. It optionally takes a “domain”
 attribute, which will make the builder look for translated strings
-using dgettext() in the domain specified. This can also be done by
-calling gtk_builder_set_translation_domain() on the builder.
+using <code>dgettext()</code> in the domain specified. This can also be done by
+calling <code>gtk_builder_set_translation_domain()</code> on the builder.
 Objects are described by <object> elements, which can contain
 <property> elements to set properties, <signal> elements which
 connect signals to handlers, and <child> elements, which describe
 child objects (most often widgets inside a container, but also e.g.
 actions in an action group, or columns in a tree model). A <child>
 element contains an <object> element which describes the child object.
-The target toolkit version(s) are described by <requires> elements,
+The target toolkit <code>version(s)</code> are described by <requires> elements,
 the “lib” attribute specifies the widget library in question (currently
 the only supported value is “gtk+”) and the “version” attribute specifies
 the target version in the form “<major>.<minor>”. The builder will error
@@ -11590,9 +11589,9 @@ out if the version requirements are not met.</p>
 
 <p>Typically, the specific kind of object represented by an <object>
 element is specified by the “class” attribute. If the type has not
-been loaded yet, GTK+ tries to find the get_type() function from the
+been loaded yet, GTK+ tries to find the <code>get_type()</code> function from the
 class name by applying heuristics. This works in most cases, but if
-necessary, it is possible to specify the name of the get_type() function
+necessary, it is possible to specify the name of the <code>get_type()</code> function
 explictly with the <q>type-func</q> attribute. As a special case, GtkBuilder
 allows to use an object that has been constructed by a <code>GtkUIManager</code> in
 another part of the UI definition by specifying the id of the <code>GtkUIManager</code>
@@ -11600,7 +11599,7 @@ in the “constructor” attribute and the name of the object in the “id”
 attribute.</p>
 
 <p>Objects may be given a name with the “id” attribute, which allows the
-application to retrieve them from the builder with gtk_builder_get_object().
+application to retrieve them from the builder with <code>gtk_builder_get_object()</code>.
 An id is also necessary to use the object as property value in other
 parts of the UI definition. GTK+ reserves ids starting and ending
 with ___ (3 underscores) for its own purposes.</p>
@@ -11609,7 +11608,7 @@ with ___ (3 underscores) for its own purposes.</p>
 <property> element: the “name” attribute specifies the name of the
 property, and the content of the element specifies the value.
 If the “translatable” attribute is set to a true value, GTK+ uses
-gettext() (or dgettext() if the builder has a translation domain set)
+<code>gettext()</code> (or <code>dgettext()</code> if the builder has a translation domain set)
 to find a translation for the value. This happens before the value
 is parsed, so it can be used for properties of any type, but it is
 probably most useful for string properties. It is also possible to
@@ -11623,14 +11622,14 @@ as <code>true</code>, strings like “FALSE”, “f”, “no”, “n”, “0
 as <code>false</code>), enumerations (can be specified by their name, nick or
 integer value), flags (can be specified by their name, nick, integer
 value, optionally combined with “|”, e.g. “GTK_VISIBLE|GTK_REALIZED”)
-and colors (in a format understood by gdk_rgba_parse()).</p>
+and colors (in a format understood by <code>gdk_rgba_parse()</code>).</p>
 
-<p>GVariants can be specified in the format understood by g_variant_parse(),
+<p>GVariants can be specified in the format understood by <code>g_variant_parse()</code>,
 and pixbufs can be specified as a filename of an image file to load.</p>
 
 <p>Objects can be referred to by their name and by default refer to
 objects declared in the local xml fragment and objects exposed via
-gtk_builder_expose_object(). In general, GtkBuilder allows forward
+<code>gtk_builder_expose_object()</code>. In general, GtkBuilder allows forward
 references to objects — declared in the local xml; an object doesn’t
 have to be constructed before it can be referred to. The exception
 to this rule is that an object has to be constructed before it can
@@ -11642,17 +11641,17 @@ property value using the attributes
 <q>bind-property</q> to specify the source property and optionally
 <q>bind-flags</q> to specify the binding flags
 Internally builder implement this using GBinding objects.
-For more information see g_object_bind_property()</p>
+For more information see <code>g_object_bind_property()</code></p>
 
 <p>Signal handlers are set up with the <signal> element. The “name”
 attribute specifies the name of the signal, and the “handler” attribute
 specifies the function to connect to the signal. By default, GTK+ tries
-to find the handler using g_module_symbol(), but this can be changed by
+to find the handler using <code>g_module_symbol()</code>, but this can be changed by
 passing a custom <code>GtkBuilderConnectFunc</code> to
-gtk_builder_connect_signals_full(). The remaining attributes, “after”,
+<code>gtk_builder_connect_signals_full()</code>. The remaining attributes, “after”,
 “swapped” and “object”, have the same meaning as the corresponding
-parameters of the g_signal_connect_object() or
-g_signal_connect_data() functions. A “last_modification_time”
+parameters of the <code>g_signal_connect_object()</code> or
+<code>g_signal_connect_data()</code> functions. A “last_modification_time”
 attribute is also allowed, but it does not have a meaning to the
 builder.</p>
 
@@ -11669,8 +11668,7 @@ has already been constructed.</p>
 a UI definition by specifying the “type” attribute on a <child>
 The possible values for the “type” attribute are described in the
 sections describing the widget-specific portions of UI definitions.</p>
-
-<p>&ldquo; A GtkBuilder UI Definition</p>
+<h1 id='a-gtkbuilder-ui-definition' class='heading'>A GtkBuilder UI Definition</h1>
 <pre class="highlight swift"><code><span class="o">&lt;</span><span class="n">interface</span><span class="o">&gt;</span>
   <span class="o">&lt;</span><span class="n">object</span> <span class="kd">class</span><span class="o">=</span><span class="s">"GtkDialog"</span> <span class="n">id</span><span class="o">=</span><span class="s">"dialog1"</span><span class="o">&gt;</span>
     <span class="o">&lt;</span><span class="n">child</span> <span class="kd">internal</span><span class="o">-</span><span class="n">child</span><span class="o">=</span><span class="s">"vbox"</span><span class="o">&gt;</span>
@@ -11705,7 +11703,7 @@ respective objects.</p>
 
 <p>Additionally, since 3.10 a special <template> tag has been added
 to the format allowing one to define a widget class’s components.
-See the [GtkWidget documentation][composite-templates] for details.</p>
+See the <a href="#composite-templates">GtkWidget documentation</a> for details.</p>
 
           </div>
         </section>
@@ -11739,7 +11737,7 @@ See the [GtkWidget documentation][composite-templates] for details.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L2046">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L2043">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11777,7 +11775,7 @@ See the [GtkWidget documentation][composite-templates] for details.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L2049">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L2046">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11905,7 +11903,7 @@ See the [GtkWidget documentation][composite-templates] for details.</p>
                         <p>binding reference or <code>nil</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L2697-L2721">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L2692-L2716">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11997,7 +11995,7 @@ See the [GtkWidget documentation][composite-templates] for details.</p>
                         <p>positive handler ID, or a value less than or equal to <code>0</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L2764-L2783">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L2758-L2777">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12031,7 +12029,7 @@ See the [GtkWidget documentation][composite-templates] for details.</p>
                       <div class="abstract">
                         <p>Adds the <code>callback_symbol</code> to the scope of <code>builder</code> under the given <code>callback_name</code>.</p>
 
-<p>Using this function overrides the behavior of gtk_builder_connect_signals()
+<p>Using this function overrides the behavior of <code>gtk_builder_connect_signals()</code>
 for any callback symbols that are added. Using this method allows for better
 encapsulation as it does not require that callback symbols be declared in
 the global namespace.</p>
@@ -12047,7 +12045,7 @@ the global namespace.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L2796-L2799">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L2790-L2793">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12068,10 +12066,10 @@ the global namespace.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Parses a file containing a [GtkBuilder UI definition][BUILDER-UI]
+                        <p>Parses a file containing a <a href="#BUILDER-UI">GtkBuilder UI definition</a>
 and merges it with the current contents of <code>builder</code>.</p>
 
-<p>Most users will probably want to use gtk_builder_new_from_file().</p>
+<p>Most users will probably want to use <code>gtk_builder_new_from_file()</code>.</p>
 
 <p>If an error occurs, 0 will be returned and <code>error</code> will be assigned a
 <code>GError</code> from the <code>GTK_BUILDER_ERROR</code>, <code>G_MARKUP_ERROR</code> or <code>G_FILE_ERROR</code>
@@ -12082,7 +12080,7 @@ call. You should not use this function with untrusted files (ie:
 files that are not part of your application). Broken <code>GtkBuilder</code>
 files can easily crash your program, and it’s possible that memory
 was leaked leading up to the reported failure. The only reasonable
-thing to do when an error is detected is to call g_error().</p>
+thing to do when an error is detected is to call <code>g_error()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12094,7 +12092,7 @@ thing to do when an error is detected is to call g_error().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L2820-L2827">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L2814-L2821">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12115,10 +12113,10 @@ thing to do when an error is detected is to call g_error().</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Parses a resource file containing a [GtkBuilder UI definition][BUILDER-UI]
+                        <p>Parses a resource file containing a <a href="#BUILDER-UI">GtkBuilder UI definition</a>
 and merges it with the current contents of <code>builder</code>.</p>
 
-<p>Most users will probably want to use gtk_builder_new_from_resource().</p>
+<p>Most users will probably want to use <code>gtk_builder_new_from_resource()</code>.</p>
 
 <p>If an error occurs, 0 will be returned and <code>error</code> will be assigned a
 <code>GError</code> from the <code>GTK_BUILDER_ERROR</code>, <code>G_MARKUP_ERROR</code> or <code>G_RESOURCE_ERROR</code>
@@ -12126,7 +12124,7 @@ domain.</p>
 
 <p>It’s not really reasonable to attempt to handle failures of this
 call.  The only reasonable thing to do when an error is detected is
-to call g_error().</p>
+to call <code>g_error()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12138,7 +12136,7 @@ to call g_error().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L2841-L2848">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L2835-L2842">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12159,10 +12157,10 @@ to call g_error().</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Parses a string containing a [GtkBuilder UI definition][BUILDER-UI]
+                        <p>Parses a string containing a <a href="#BUILDER-UI">GtkBuilder UI definition</a>
 and merges it with the current contents of <code>builder</code>.</p>
 
-<p>Most users will probably want to use gtk_builder_new_from_string().</p>
+<p>Most users will probably want to use <code>gtk_builder_new_from_string()</code>.</p>
 
 <p>Upon errors 0 will be returned and <code>error</code> will be assigned a
 <code>GError</code> from the <code>GTK_BUILDER_ERROR</code>, <code>G_MARKUP_ERROR</code> or
@@ -12170,7 +12168,7 @@ and merges it with the current contents of <code>builder</code>.</p>
 
 <p>It’s not really reasonable to attempt to handle failures of this
 call.  The only reasonable thing to do when an error is detected is
-to call g_error().</p>
+to call <code>g_error()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12182,7 +12180,7 @@ to call g_error().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L2862-L2869">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L2856-L2863">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12203,7 +12201,7 @@ to call g_error().</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Parses a file containing a [GtkBuilder UI definition][BUILDER-UI]
+                        <p>Parses a file containing a <a href="#BUILDER-UI">GtkBuilder UI definition</a>
 building only the requested objects and merges
 them with the current contents of <code>builder</code>.</p>
 
@@ -12225,7 +12223,7 @@ its child (for instance a <code>GtkTreeView</code> that depends on its
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L2882-L2889">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L2876-L2883">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12246,7 +12244,7 @@ its child (for instance a <code>GtkTreeView</code> that depends on its
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Parses a resource file containing a [GtkBuilder UI definition][BUILDER-UI]
+                        <p>Parses a resource file containing a <a href="#BUILDER-UI">GtkBuilder UI definition</a>
 building only the requested objects and merges
 them with the current contents of <code>builder</code>.</p>
 
@@ -12269,7 +12267,7 @@ its child (for instance a <code>GtkTreeView</code> that depends on its
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L2902-L2909">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L2896-L2903">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12290,7 +12288,7 @@ its child (for instance a <code>GtkTreeView</code> that depends on its
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Parses a string containing a [GtkBuilder UI definition][BUILDER-UI]
+                        <p>Parses a string containing a <a href="#BUILDER-UI">GtkBuilder UI definition</a>
 building only the requested objects and merges
 them with the current contents of <code>builder</code>.</p>
 
@@ -12311,7 +12309,7 @@ its child (for instance a <code>GtkTreeView</code> that depends on its
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L2921-L2928">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L2915-L2922">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12332,16 +12330,16 @@ its child (for instance a <code>GtkTreeView</code> that depends on its
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>This method is a simpler variation of gtk_builder_connect_signals_full().
+                        <p>This method is a simpler variation of <code>gtk_builder_connect_signals_full()</code>.
 It uses symbols explicitly added to <code>builder</code> with prior calls to
-gtk_builder_add_callback_symbol(). In the case that symbols are not
+<code>gtk_builder_add_callback_symbol()</code>. In the case that symbols are not
 explicitly added; it uses <code>GModule</code>’s introspective features (by opening the module <code>nil</code>)
 to look at the application’s symbol table. From here it tries to match
 the signal handler names given in the interface description with
 symbols in the application and connects the signals. Note that this
 function can only be called once, subsequent calls will do nothing.</p>
 
-<p>Note that unless gtk_builder_add_callback_symbol() is called for
+<p>Note that unless <code>gtk_builder_add_callback_symbol()</code> is called for
 all signal callbacks which are referenced by the loaded XML, this
 function will require that <code>GModule</code> be supported on the platform.</p>
 
@@ -12364,7 +12362,7 @@ gmodule-export-2.0.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L2951-L2954">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L2945-L2948">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12386,7 +12384,7 @@ gmodule-export-2.0.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>This function can be thought of the interpreted language binding
-version of gtk_builder_connect_signals(), except that it does not
+version of <code>gtk_builder_connect_signals()</code>, except that it does not
 require GModule to function correctly.</p>
 
                         <a href="../Protocols/BuilderProtocol/connectSignalsFull%28_%3AuserData%3A%29.html" class="slightly-smaller">See more</a>
@@ -12400,7 +12398,7 @@ require GModule to function correctly.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L2959-L2962">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L2953-L2956">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12434,7 +12432,7 @@ other object built by builder.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L2966-L2969">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L2960-L2963">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12471,7 +12469,7 @@ templates, applications have no need to call this function.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L2976-L2983">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L2970-L2977">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12498,8 +12496,8 @@ templates, applications have no need to call this function.</p>
 from XML that the builder is loading.</p>
 
 <p>By default, the builder uses the default application: the one from
-g_application_get_default(). If you want to use another application
-for constructing proxies, use gtk_builder_set_application().</p>
+<code>g_application_get_default()</code>. If you want to use another application
+for constructing proxies, use <code>gtk_builder_set_application()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12511,7 +12509,7 @@ for constructing proxies, use gtk_builder_set_application().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L2993-L2996">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L2987-L2990">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12545,7 +12543,7 @@ increment the reference count of the returned object.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L3000-L3003">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L2994-L2997">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12580,7 +12578,7 @@ objects.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L3008-L3011">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L3002-L3005">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12613,7 +12611,7 @@ objects.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L3014-L3017">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L3008-L3011">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12648,7 +12646,7 @@ implementing the <code>GtkBuildable</code> interface on a type.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L3022-L3025">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L3016-L3019">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12670,11 +12668,11 @@ implementing the <code>GtkBuildable</code> interface on a type.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Fetches a symbol previously added to <code>builder</code>
-with gtk_builder_add_callback_symbols()</p>
+with <code>gtk_builder_add_callback_symbols()</code></p>
 
 <p>This function is intended for possible use in language bindings
 or for any case that one might be cusomizing signal connections
-using gtk_builder_connect_signals_full()</p>
+using <code>gtk_builder_connect_signals_full()</code></p>
 
                       </div>
                       <div class="declaration">
@@ -12686,7 +12684,7 @@ using gtk_builder_connect_signals_full()</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L3033-L3036">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L3027-L3030">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12722,7 +12720,7 @@ in your process. <code><a href="../Protocols/BuilderProtocol.html#/s:3Gtk15Build
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L3042-L3045">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L3036-L3039">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12744,7 +12742,7 @@ in your process. <code><a href="../Protocols/BuilderProtocol.html#/s:3Gtk15Build
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Sets the translation domain of <code>builder</code>.
-See <code>GtkBuilder</code>:translation-domain.</p>
+See <code>GtkBuilder:translation</code>-domain.</p>
 
                       </div>
                       <div class="declaration">
@@ -12756,7 +12754,7 @@ See <code>GtkBuilder</code>:translation-domain.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L3049-L3052">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L3043-L3046">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12778,7 +12776,7 @@ See <code>GtkBuilder</code>:translation-domain.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>This function demarshals a value from a string. This function
-calls g_value_init() on the <code>value</code> argument, so it need not be
+calls <code>g_value_init()</code> on the <code>value</code> argument, so it need not be
 initialised beforehand.</p>
 
 <p>This function can handle char, uchar, boolean, int, uint, long,
@@ -12799,7 +12797,7 @@ still to come.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L3065-L3072">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L3059-L3066">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12820,9 +12818,9 @@ still to come.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Like gtk_builder_value_from_string(), this function demarshals
+                        <p>Like <code>gtk_builder_value_from_string()</code>, this function demarshals
 a value from a string, but takes a <code>GType</code> instead of <code>GParamSpec</code>.
-This function calls g_value_init() on the <code>value</code> argument, so it
+This function calls <code>g_value_init()</code> on the <code>value</code> argument, so it
 need not be initialised beforehand.</p>
 
 <p>Upon errors <code>false</code> will be returned and <code>error</code> will be assigned a
@@ -12838,7 +12836,7 @@ need not be initialised beforehand.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L3081-L3088">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L3075-L3082">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12865,8 +12863,8 @@ need not be initialised beforehand.</p>
 from XML that the builder is loading.</p>
 
 <p>By default, the builder uses the default application: the one from
-g_application_get_default(). If you want to use another application
-for constructing proxies, use gtk_builder_set_application().</p>
+<code>g_application_get_default()</code>. If you want to use another application
+for constructing proxies, use <code>gtk_builder_set_application()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12878,7 +12876,7 @@ for constructing proxies, use gtk_builder_set_application().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L3097-L3117">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L3091-L3111">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12913,7 +12911,7 @@ objects.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L3122-L3130">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L3116-L3124">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12946,7 +12944,7 @@ objects.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L3133-L3144">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-BooleanCellAccessible-Calendar.swift#L3127-L3138">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12959,7 +12957,7 @@ objects.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

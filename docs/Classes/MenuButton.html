@@ -11533,13 +11533,13 @@ abstract <code>GMenuModel</code>.</p>
 can hold almost any other standard <code>GtkWidget</code>. The most commonly used
 child is <code>GtkImage</code>. If no widget is explicitely added to the <code>GtkMenuButton</code>,
 a <code>GtkImage</code> is automatically created, using an arrow image oriented
-according to <code>GtkMenuButton</code>:direction or the generic “open-menu-symbolic”
+according to <code>GtkMenuButton:direction</code> or the generic “open-menu-symbolic”
 icon if the direction is not set.</p>
 
-<p>The positioning of the popup is determined by the <code>GtkMenuButton</code>:direction
+<p>The positioning of the popup is determined by the <code>GtkMenuButton:direction</code>
 property of the menu button.</p>
 
-<p>For menus, the <code>GtkWidget</code>:halign and <code>GtkWidget</code>:valign properties of the
+<p>For menus, the <code>GtkWidget:halign</code> and <code>GtkWidget:valign</code> properties of the
 menu are also taken into account. For example, when the direction is
 <code>GTK_ARROW_DOWN</code> and the horizontal alignment is <code>GTK_ALIGN_START</code>, the
 menu will be positioned below the button, with the starting edge
@@ -11547,8 +11547,7 @@ menu will be positioned below the button, with the starting edge
 edge of the button. If there is not enough space below the button, the
 menu is popped up above the button instead. If the alignment would move
 part of the menu offscreen, it is “pushed in”.</p>
-
-<p>&ldquo;` Direction = Down</p>
+<h2 id='direction-down' class='heading'>Direction = Down</h2>
 
 <ul>
 <li><p>halign = start</p>
@@ -11561,8 +11560,7 @@ part of the menu offscreen, it is “pushed in”.</p>
 
 <p><img src="down-end.png" alt=""></p></li>
 </ul>
-
-<p>&rdquo;` Direction = Up</p>
+<h2 id='direction-up' class='heading'>Direction = Up</h2>
 
 <ul>
 <li><p>halign = start</p>
@@ -11575,8 +11573,7 @@ part of the menu offscreen, it is “pushed in”.</p>
 
 <p><img src="up-end.png" alt=""></p></li>
 </ul>
-
-<p>&ldquo;` Direction = Left</p>
+<h2 id='direction-left' class='heading'>Direction = Left</h2>
 
 <ul>
 <li><p>valign = start</p>
@@ -11589,8 +11586,7 @@ part of the menu offscreen, it is “pushed in”.</p>
 
 <p><img src="left-end.png" alt=""></p></li>
 </ul>
-
-<p>&rdquo;` Direction = Right</p>
+<h2 id='direction-right' class='heading'>Direction = Right</h2>
 
 <ul>
 <li><p>valign = start</p>
@@ -11603,8 +11599,7 @@ part of the menu offscreen, it is “pushed in”.</p>
 
 <p><img src="right-end.png" alt=""></p></li>
 </ul>
-
-<p>&ldquo; CSS nodes</p>
+<h1 id='css-nodes' class='heading'>CSS nodes</h1>
 
 <p>GtkMenuButton has a single CSS node with name button. To differentiate
 it from a plain <code>GtkButton</code>, it gets the .popup style class.</p>
@@ -11642,7 +11637,7 @@ Ownership is transferred to the <code>MenuButton</code> instance.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L2041-L2043">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L2039-L2041">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11668,12 +11663,12 @@ Will retain <code>GtkMenuButton</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">other</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/MenuButtonProtocol.html">MenuButtonProtocol</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">other</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/MenuButtonProtocol.html">MenuButtonProtocol</a></span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L2047-L2050">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L2045-L2048">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11699,12 +11694,12 @@ Will retain <code>GtkMenuButton</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">cPointer</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">cPointer</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L2054-L2056">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L2052-L2054">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11730,12 +11725,12 @@ Will retain <code>GtkMenuButton</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeRawPointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L2060-L2062">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L2058-L2060">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11761,12 +11756,12 @@ Will retain <code>GtkMenuButton</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L2066-L2068">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L2064-L2066">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11792,12 +11787,12 @@ Will retain <code>GtkMenuButton</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">opaquePointer</span><span class="p">:</span> <span class="kt">OpaquePointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">opaquePointer</span><span class="p">:</span> <span class="kt">OpaquePointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L2072-L2074">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L2070-L2072">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11824,12 +11819,12 @@ with another <code>GtkWidget</code> should you wish to.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">()</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L2079-L2082">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L2077-L2080">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11842,7 +11837,7 @@ with another <code>GtkWidget</code> should you wish to.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

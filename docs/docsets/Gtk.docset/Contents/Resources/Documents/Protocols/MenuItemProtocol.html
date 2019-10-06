@@ -11545,8 +11545,7 @@ GtkWidget *child = gtk_bin_get_child (GTK_BIN (menu_item));
 gtk_label_set_markup (GTK_LABEL (child), "&lt;i&gt;new label&lt;/i&gt; with &lt;b&gt;markup&lt;/b&gt;");
 gtk_accel_label_set_accel (GTK_ACCEL_LABEL (child), GDK_KEY_1, 0);
 </code></pre>
-
-<p>&ldquo; GtkMenuItem as GtkBuildable</p>
+<h1 id='gtkmenuitem-as-gtkbuildable' class='heading'>GtkMenuItem as GtkBuildable</h1>
 
 <p>The GtkMenuItem implementation of the <code>GtkBuildable</code> interface supports
 adding a submenu by specifying “submenu” as the “type” attribute of
@@ -11559,11 +11558,12 @@ a <child> element.</p>
   <span class="o">&lt;/</span><span class="n">child</span><span class="o">&gt;</span>
 <span class="o">&lt;/</span><span class="n">object</span><span class="o">&gt;</span>
 </code></pre>
+<h1 id='css-nodes' class='heading'>CSS nodes</h1>
 
-<p>&rdquo; CSS nodes</p>
-<pre class="highlight swift"><code><span class="n">menuitem</span>
-<span class="err">├──</span> <span class="o">&lt;</span><span class="n">child</span><span class="o">&gt;</span>
-<span class="err">╰──</span> <span class="p">[</span><span class="n">arrow</span><span class="o">.</span><span class="n">right</span><span class="p">]</span>
+<p>(plain Language Example):</p>
+<pre class="highlight plaintext"><code>menuitem
+├── &lt;child&gt;
+╰── [arrow.right]
 </code></pre>
 
 <p>GtkMenuItem has a single CSS node with name menuitem. If the menuitem
@@ -11602,7 +11602,7 @@ the .left or .right style class.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L3920">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L3914">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11640,7 +11640,7 @@ the .left or .right style class.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L3923">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L3917">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11768,7 +11768,7 @@ the .left or .right style class.</p>
                         <p>binding reference or <code>nil</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L4403-L4427">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L4393-L4417">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11860,7 +11860,7 @@ the .left or .right style class.</p>
                         <p>positive handler ID, or a value less than or equal to <code>0</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L5252-L5271">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L5241-L5260">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11892,7 +11892,7 @@ the .left or .right style class.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Emits the <code>GtkMenuItem</code>::activate signal on the given item</p>
+                        <p>Emits the <code>GtkMenuItem::activate</code> signal on the given item</p>
 
                       </div>
                       <div class="declaration">
@@ -11904,7 +11904,7 @@ the .left or .right style class.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L5279-L5282">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L5268-L5271">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11925,7 +11925,7 @@ the .left or .right style class.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Emits the <code>GtkMenuItem</code>::deselect signal on the given item.</p>
+                        <p>Emits the <code>GtkMenuItem::deselect</code> signal on the given item.</p>
 
                       </div>
                       <div class="declaration">
@@ -11937,7 +11937,7 @@ the .left or .right style class.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L5285-L5288">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L5274-L5277">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11960,7 +11960,7 @@ the .left or .right style class.</p>
                       <div class="abstract">
                         <p>Retrieve the accelerator path that was previously set on <code>menu_item</code>.</p>
 
-<p>See gtk_menu_item_set_accel_path() for details.</p>
+<p>See <code>gtk_menu_item_set_accel_path()</code> for details.</p>
 
                       </div>
                       <div class="declaration">
@@ -11972,7 +11972,7 @@ the .left or .right style class.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L5293-L5296">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L5282-L5285">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12005,7 +12005,7 @@ the .left or .right style class.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L5299-L5302">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L5288-L5291">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12040,7 +12040,7 @@ or not.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L5307-L5310">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L5296-L5299">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12072,13 +12072,13 @@ See gtk_menu_item_set_right_justified()</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">getRightJustified</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L5317-L5320">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L5306-L5309">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12100,7 +12100,7 @@ See gtk_menu_item_set_right_justified()</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Gets the submenu underneath this menu item, if any.
-See gtk_menu_item_set_submenu().</p>
+See <code>gtk_menu_item_set_submenu()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12112,7 +12112,7 @@ See gtk_menu_item_set_submenu().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L5324-L5327">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L5313-L5316">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12146,7 +12146,7 @@ should be used for the mnemonic accelerator key.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L5331-L5334">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L5320-L5323">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12167,7 +12167,7 @@ should be used for the mnemonic accelerator key.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Emits the <code>GtkMenuItem</code>::select signal on the given item.</p>
+                        <p>Emits the <code>GtkMenuItem::select</code> signal on the given item.</p>
 
                       </div>
                       <div class="declaration">
@@ -12179,7 +12179,7 @@ should be used for the mnemonic accelerator key.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L5337-L5340">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L5326-L5329">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12202,23 +12202,23 @@ should be used for the mnemonic accelerator key.</p>
                       <div class="abstract">
                         <p>Set the accelerator path on <code>menu_item</code>, through which runtime
 changes of the menu item’s accelerator caused by the user can be
-identified and saved to persistent storage (see gtk_accel_map_save()
+identified and saved to persistent storage (see <code>gtk_accel_map_save()</code>
 on this). To set up a default accelerator for this menu item, call
-gtk_accel_map_add_entry() with the same <code>accel_path</code>. See also
-gtk_accel_map_add_entry() on the specifics of accelerator paths,
-and gtk_menu_set_accel_path() for a more convenient variant of
+<code>gtk_accel_map_add_entry()</code> with the same <code>accel_path</code>. See also
+<code>gtk_accel_map_add_entry()</code> on the specifics of accelerator paths,
+and <code>gtk_menu_set_accel_path()</code> for a more convenient variant of
 this function.</p>
 
 <p>This function is basically a convenience wrapper that handles
-calling gtk_widget_set_accel_path() with the appropriate accelerator
+calling <code>gtk_widget_set_accel_path()</code> with the appropriate accelerator
 group for the menu item.</p>
 
 <p>Note that you do need to set an accelerator on the parent menu with
-gtk_menu_set_accel_group() for this to work.</p>
+<code>gtk_menu_set_accel_group()</code> for this to work.</p>
 
 <p>Note that <code>accel_path</code> string will be stored in a <code>GQuark</code>.
 Therefore, if you pass a static string, you can save some memory
-by interning it first with g_intern_static_string().</p>
+by interning it first with <code>g_intern_static_string()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12230,7 +12230,7 @@ by interning it first with g_intern_static_string().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L5361-L5364">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L5350-L5353">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12263,7 +12263,7 @@ by interning it first with g_intern_static_string().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L5367-L5370">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L5356-L5359">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12301,7 +12301,7 @@ this functions.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L5378-L5381">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L5367-L5370">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12337,13 +12337,13 @@ If you insist on using it, use
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">set</span><span class="p">(</span><span class="n"><a href="../Protocols/MenuItemProtocol.html#/s:3Gtk16MenuItemProtocolPAAE14rightJustifiedSbvp">rightJustified</a></span> <span class="nv">right_justified</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L5392-L5395">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L5381-L5384">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12377,7 +12377,7 @@ submenu is passed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L5399-L5402">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L5388-L5391">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12411,7 +12411,7 @@ should be used for the mnemonic accelerator key.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L5406-L5409">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L5395-L5398">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12432,7 +12432,7 @@ should be used for the mnemonic accelerator key.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Emits the <code>GtkMenuItem</code>::toggle-size-allocate signal on the given item.</p>
+                        <p>Emits the <code>GtkMenuItem::toggle</code>-size-allocate signal on the given item.</p>
 
                       </div>
                       <div class="declaration">
@@ -12444,7 +12444,7 @@ should be used for the mnemonic accelerator key.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L5412-L5415">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L5401-L5404">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12465,7 +12465,7 @@ should be used for the mnemonic accelerator key.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Emits the <code>GtkMenuItem</code>::toggle-size-request signal on the given item.</p>
+                        <p>Emits the <code>GtkMenuItem::toggle</code>-size-request signal on the given item.</p>
 
                       </div>
                       <div class="declaration">
@@ -12477,7 +12477,7 @@ should be used for the mnemonic accelerator key.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L5418-L5421">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L5407-L5410">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12500,7 +12500,7 @@ should be used for the mnemonic accelerator key.</p>
                       <div class="abstract">
                         <p>Retrieve the accelerator path that was previously set on <code>menu_item</code>.</p>
 
-<p>See gtk_menu_item_set_accel_path() for details.</p>
+<p>See <code>gtk_menu_item_set_accel_path()</code> for details.</p>
 
                       </div>
                       <div class="declaration">
@@ -12512,7 +12512,7 @@ should be used for the mnemonic accelerator key.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L5425-L5455">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L5414-L5444">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12545,7 +12545,7 @@ should be used for the mnemonic accelerator key.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L5458-L5468">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L5447-L5457">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12580,7 +12580,7 @@ or not.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L5473-L5490">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L5462-L5479">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12617,7 +12617,7 @@ See gtk_menu_item_set_right_justified()</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L5497-L5519">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L5486-L5508">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12650,7 +12650,7 @@ See gtk_menu_item_set_right_justified()</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L5522-L5534">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L5511-L5523">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12684,7 +12684,7 @@ should be used for the mnemonic accelerator key.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L5538-L5550">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L5527-L5539">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12697,7 +12697,7 @@ should be used for the mnemonic accelerator key.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

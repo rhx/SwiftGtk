@@ -11531,10 +11531,9 @@ widget.  It implements the <code>GtkTreeModel</code> interface, and consequentia
 can use all of the methods available there.  It also implements the
 <code>GtkTreeSortable</code> interface so it can be sorted by the view.  Finally,
 it also implements the tree
-[drag and drop][gtk3-GtkTreeView-drag-and-drop]
+<a href="#gtk3-GtkTreeView-drag-and-drop">drag and drop</a>
 interfaces.</p>
-
-<p>&ldquo; GtkTreeStore as GtkBuildable</p>
+<h1 id='gtktreestore-as-gtkbuildable' class='heading'>GtkTreeStore as GtkBuildable</h1>
 
 <p>The GtkTreeStore implementation of the <code>GtkBuildable</code> interface allows
 to specify the model columns with a <columns> element that may contain
@@ -11583,7 +11582,7 @@ attribute specifies the data type for the column.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L22100">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L22066">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11621,7 +11620,7 @@ attribute specifies the data type for the column.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L22103">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L22069">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11713,7 +11712,7 @@ attribute specifies the data type for the column.</p>
                         <p>positive handler ID, or a value less than or equal to <code>0</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L22322-L22341">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L22287-L22306">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11749,7 +11748,7 @@ attribute specifies the data type for the column.</p>
 new row after the last child of <code>parent</code>, otherwise it will append a row to
 the top level.  <code>iter</code> will be changed to point to this new row.  The row will
 be empty after this function is called.  To fill in values, you need to call
-gtk_tree_store_set() or gtk_tree_store_set_value().</p>
+<code>gtk_tree_store_set()</code> or <code>gtk_tree_store_set_value()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -11761,7 +11760,7 @@ gtk_tree_store_set() or gtk_tree_store_set_value().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L22353-L22356">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L22318-L22321">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11794,7 +11793,7 @@ gtk_tree_store_set() or gtk_tree_store_set_value().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L22359-L22362">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L22324-L22327">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11820,8 +11819,8 @@ made a child of <code>parent</code>.  Otherwise, the row will be created at the 
 If <code>position</code> is -1 or is larger than the number of rows at that level, then
 the new row will be inserted to the end of the list.  <code>iter</code> will be changed
 to point to this new row.  The row will be empty after this function is
-called.  To fill in values, you need to call gtk_tree_store_set() or
-gtk_tree_store_set_value().</p>
+called.  To fill in values, you need to call <code>gtk_tree_store_set()</code> or
+<code>gtk_tree_store_set_value()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -11833,7 +11832,7 @@ gtk_tree_store_set_value().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L22371-L22374">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L22336-L22339">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11862,7 +11861,7 @@ set, then <code>parent</code> must be the parent of <code>sibling</code>.  When 
 
 <p><code>iter</code> will be changed to point to this new row.  The row will be empty after
 this function is called.  To fill in values, you need to call
-gtk_tree_store_set() or gtk_tree_store_set_value().</p>
+<code>gtk_tree_store_set()</code> or <code>gtk_tree_store_set_value()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -11874,7 +11873,7 @@ gtk_tree_store_set() or gtk_tree_store_set_value().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L22385-L22388">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L22350-L22353">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11903,7 +11902,7 @@ set, then <code>parent</code> must be the parent of <code>sibling</code>.  When 
 
 <p><code>iter</code> will be changed to point to this new row.  The row will be empty after
 this function is called.  To fill in values, you need to call
-gtk_tree_store_set() or gtk_tree_store_set_value().</p>
+<code>gtk_tree_store_set()</code> or <code>gtk_tree_store_set_value()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -11915,7 +11914,7 @@ gtk_tree_store_set() or gtk_tree_store_set_value().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L22399-L22402">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L22364-L22367">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11936,7 +11935,7 @@ gtk_tree_store_set() or gtk_tree_store_set_value().</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A variant of gtk_tree_store_insert_with_values() which takes
+                        <p>A variant of <code>gtk_tree_store_insert_with_values()</code> which takes
 the columns and values as two arrays, instead of varargs.  This
 function is mainly intended for language bindings.</p>
 
@@ -11951,7 +11950,7 @@ function is mainly intended for language bindings.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L22411-L22414">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L22376-L22379">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11985,7 +11984,7 @@ parent (or grandparent or great-grandparent) of <code>descendant</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L22418-L22421">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L22383-L22386">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12019,7 +12018,7 @@ for anything down a level, etc.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L22425-L22428">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L22390-L22393">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12055,7 +12054,7 @@ purposes.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L22434-L22437">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L22399-L22402">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12091,7 +12090,7 @@ to the start of the level.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L22443-L22446">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L22408-L22411">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12127,7 +12126,7 @@ moved to the end of the level.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L22452-L22455">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L22417-L22420">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12152,7 +12151,7 @@ moved to the end of the level.</p>
 the new row before the first child of <code>parent</code>, otherwise it will prepend a row
 to the top level.  <code>iter</code> will be changed to point to this new row.  The row
 will be empty after this function is called.  To fill in values, you need to
-call gtk_tree_store_set() or gtk_tree_store_set_value().</p>
+call <code>gtk_tree_store_set()</code> or <code>gtk_tree_store_set_value()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12164,7 +12163,7 @@ call gtk_tree_store_set() or gtk_tree_store_set_value().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L22462-L22465">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L22427-L22430">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12199,7 +12198,7 @@ last one.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L22470-L22473">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L22435-L22438">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12234,7 +12233,7 @@ unsorted stores.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L22478-L22481">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L22443-L22446">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12270,7 +12269,7 @@ or a method on the <code>GtkTreeModel</code> interface is called.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L22491-L22494">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L22456-L22459">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12291,7 +12290,7 @@ or a method on the <code>GtkTreeModel</code> interface is called.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>See gtk_tree_store_set(); this version takes a va_list for
+                        <p>See <code>gtk_tree_store_set()</code>; this version takes a va_list for
 use by language bindings.</p>
 
                       </div>
@@ -12304,7 +12303,7 @@ use by language bindings.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L22498-L22501">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L22463-L22466">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12339,7 +12338,7 @@ column.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L22506-L22509">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L22471-L22474">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12360,7 +12359,7 @@ column.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A variant of gtk_tree_store_set_valist() which takes
+                        <p>A variant of <code>gtk_tree_store_set_valist()</code> which takes
 the columns and values as two arrays, instead of varargs.  This
 function is mainly intended for language bindings or in case
 the number of columns to change is not known until run-time.</p>
@@ -12376,7 +12375,7 @@ the number of columns to change is not known until run-time.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L22515-L22518">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L22480-L22483">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12410,7 +12409,7 @@ only works with unsorted stores.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L22522-L22525">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L22487-L22490">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12423,7 +12422,7 @@ only works with unsorted stores.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

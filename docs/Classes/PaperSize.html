@@ -11533,7 +11533,7 @@ construct custom paper sizes with arbitrary dimensions.</p>
 
 <p>The <code>GtkPaperSize</code> object stores not only the dimensions (width
 and height) of a paper size and its name, it also provides
-default [print margins][print-margins].</p>
+default <a href="#print-margins">print margins</a>.</p>
 
 <p>Printing support has been added in GTK+ 2.10.</p>
 
@@ -11627,7 +11627,7 @@ Ownership is transferred to the <code>PaperSize</code> instance.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">other</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/PaperSizeProtocol.html">PaperSizeProtocol</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">other</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/PaperSizeProtocol.html">PaperSizeProtocol</a></span></code></pre>
 
                         </div>
                       </div>
@@ -11658,7 +11658,7 @@ Ownership is transferred to the <code>PaperSize</code> instance.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">cPointer</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">cPointer</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -11689,7 +11689,7 @@ Ownership is transferred to the <code>PaperSize</code> instance.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeRawPointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -11720,7 +11720,7 @@ Ownership is transferred to the <code>PaperSize</code> instance.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -11751,7 +11751,7 @@ Ownership is transferred to the <code>PaperSize</code> instance.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">opaquePointer</span><span class="p">:</span> <span class="kt">OpaquePointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">opaquePointer</span><span class="p">:</span> <span class="kt">OpaquePointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -11779,14 +11779,14 @@ Ownership is transferred to the <code>PaperSize</code> instance.</p>
 paper name.</p>
 
 <p>If <code>name</code> is <code>nil</code>, the default paper size is returned,
-see gtk_paper_size_get_default().</p>
+see <code>gtk_paper_size_get_default()</code>.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -11817,7 +11817,7 @@ given parameters.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="n">custom</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">displayName</span> <span class="nv">display_name</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">,</span> <span class="nv">width</span><span class="p">:</span> <span class="n">gdouble</span><span class="p">,</span> <span class="nv">height</span><span class="p">:</span> <span class="n">gdouble</span><span class="p">,</span> <span class="nv">unit</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:3Gtk4Unita">Unit</a></span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="n">custom</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">displayName</span> <span class="nv">display_name</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">,</span> <span class="nv">width</span><span class="p">:</span> <span class="n">gdouble</span><span class="p">,</span> <span class="nv">height</span><span class="p">:</span> <span class="n">gdouble</span><span class="p">,</span> <span class="nv">unit</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:3Gtk4Unita">Unit</a></span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -11841,14 +11841,14 @@ given parameters.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Deserialize a paper size from an a{sv} variant in
-the format produced by gtk_paper_size_to_gvariant().</p>
+the format produced by <code>gtk_paper_size_to_gvariant()</code>.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="n">gvariant</span> <span class="nv">variant</span><span class="p">:</span> <span class="kt">VariantProtocol</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="n">gvariant</span> <span class="nv">variant</span><span class="p">:</span> <span class="kt">VariantProtocol</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -11883,7 +11883,7 @@ construct a custom <code>GtkPaperSize</code> object.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="n">ipp</span> <span class="nv">ipp_name</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">,</span> <span class="nv">width</span><span class="p">:</span> <span class="n">gdouble</span><span class="p">,</span> <span class="nv">height</span><span class="p">:</span> <span class="n">gdouble</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="n">ipp</span> <span class="nv">ipp_name</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">,</span> <span class="nv">width</span><span class="p">:</span> <span class="n">gdouble</span><span class="p">,</span> <span class="nv">height</span><span class="p">:</span> <span class="n">gdouble</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -11914,7 +11914,7 @@ construct a custom <code>GtkPaperSize</code> object.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="n">keyFile</span> <span class="nv">key_file</span><span class="p">:</span> <span class="kt">KeyFileProtocol</span><span class="p">,</span> <span class="n">groupName</span> <span class="nv">group_name</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">)</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="n">keyFile</span> <span class="nv">key_file</span><span class="p">:</span> <span class="kt">KeyFileProtocol</span><span class="p">,</span> <span class="n">groupName</span> <span class="nv">group_name</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">)</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -11949,7 +11949,7 @@ construct a custom <code>GtkPaperSize</code> object.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="n">ppd</span> <span class="nv">ppd_name</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">ppdDisplayName</span> <span class="nv">ppd_display_name</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">,</span> <span class="nv">width</span><span class="p">:</span> <span class="n">gdouble</span><span class="p">,</span> <span class="nv">height</span><span class="p">:</span> <span class="n">gdouble</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="n">ppd</span> <span class="nv">ppd_name</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">ppdDisplayName</span> <span class="nv">ppd_display_name</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">,</span> <span class="nv">width</span><span class="p">:</span> <span class="n">gdouble</span><span class="p">,</span> <span class="nv">height</span><span class="p">:</span> <span class="n">gdouble</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -12004,7 +12004,7 @@ given parameters.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Deserialize a paper size from an a{sv} variant in
-the format produced by gtk_paper_size_to_gvariant().</p>
+the format produced by <code>gtk_paper_size_to_gvariant()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12130,7 +12130,7 @@ construct a custom <code>GtkPaperSize</code> object.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

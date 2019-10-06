@@ -11535,19 +11535,18 @@ On platforms which do not provide a native print dialog, GTK+
 uses its own, see <code>GtkPrintUnixDialog</code>.</p>
 
 <p>The typical way to use the high-level printing API is to create
-a GtkPrintOperation object with gtk_print_operation_new() when
+a GtkPrintOperation object with <code>gtk_print_operation_new()</code> when
 the user selects to print. Then you set some properties on it,
 e.g. the page size, any <code>GtkPrintSettings</code> from previous print
 operations, the number of pages, the current page, etc.</p>
 
-<p>Then you start the print operation by calling gtk_print_operation_run().
+<p>Then you start the print operation by calling <code>gtk_print_operation_run()</code>.
 It will then show a dialog, let the user select a printer and
 options. When the user finished the dialog various signals will
 be emitted on the <code>GtkPrintOperation</code>, the main one being
-<code>GtkPrintOperation</code>::draw-page, which you are supposed to catch
+<code>GtkPrintOperation::draw</code>-page, which you are supposed to catch
 and render the page on the provided <code>GtkPrintContext</code> using Cairo.</p>
-
-<p>&ldquo; The high-level printing API</p>
+<h1 id='the-high-level-printing-api' class='heading'>The high-level printing API</h1>
 
 <p>(C Language Example):</p>
 <pre class="highlight plaintext"><code>static GtkPrintSettings *settings = NULL;
@@ -11583,9 +11582,9 @@ do_print (void)
 <p>By default GtkPrintOperation uses an external application to do
 print preview. To implement a custom print preview, an application
 must connect to the preview signal. The functions
-gtk_print_operation_preview_render_page(),
-gtk_print_operation_preview_end_preview() and
-gtk_print_operation_preview_is_selected()
+<code>gtk_print_operation_preview_render_page()</code>,
+<code>gtk_print_operation_preview_end_preview()</code> and
+<code>gtk_print_operation_preview_is_selected()</code>
 are useful when implementing a print preview.</p>
 
           </div>
@@ -11620,7 +11619,7 @@ are useful when implementing a print preview.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L8712">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L8691">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11658,7 +11657,7 @@ are useful when implementing a print preview.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L8715">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L8694">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11786,7 +11785,7 @@ are useful when implementing a print preview.</p>
                         <p>binding reference or <code>nil</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L9076-L9100">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L9053-L9077">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11878,7 +11877,7 @@ are useful when implementing a print preview.</p>
                         <p>positive handler ID, or a value less than or equal to <code>0</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L9384-L9403">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L9359-L9378">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11911,8 +11910,8 @@ are useful when implementing a print preview.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Cancels a running print operation. This function may
-be called from a <code>GtkPrintOperation</code>::begin-print,
-<code>GtkPrintOperation</code>::paginate or <code>GtkPrintOperation</code>::draw-page
+be called from a <code>GtkPrintOperation::begin</code>-print,
+<code>GtkPrintOperation::paginate</code> or <code>GtkPrintOperation::draw</code>-page
 signal handler to stop the currently running print
 operation.</p>
 
@@ -11926,7 +11925,7 @@ operation.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L9415-L9418">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L9390-L9393">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11951,7 +11950,7 @@ operation.</p>
 
 <p>It is called after completion of page drawing (e.g. drawing in another
 thread).
-If gtk_print_operation_set_defer_drawing() was called before, then this function
+If <code>gtk_print_operation_set_defer_drawing()</code> was called before, then this function
 has to be called by application. In another case it is called by the library
 itself.</p>
 
@@ -11965,7 +11964,7 @@ itself.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L9427-L9430">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L9402-L9405">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11987,7 +11986,7 @@ itself.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Returns the default page setup, see
-gtk_print_operation_set_default_page_setup().</p>
+<code>gtk_print_operation_set_default_page_setup()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -11999,7 +11998,7 @@ gtk_print_operation_set_default_page_setup().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L9434-L9437">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L9409-L9412">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12020,7 +12019,7 @@ gtk_print_operation_set_default_page_setup().</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets the value of <code>GtkPrintOperation</code>:embed-page-setup property.</p>
+                        <p>Gets the value of <code>GtkPrintOperation:embed</code>-page-setup property.</p>
 
                       </div>
                       <div class="declaration">
@@ -12032,7 +12031,7 @@ gtk_print_operation_set_default_page_setup().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L9440-L9443">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L9415-L9418">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12055,7 +12054,7 @@ gtk_print_operation_set_default_page_setup().</p>
                       <div class="abstract">
                         <p>Call this when the result of a print operation is
 <code>GTK_PRINT_OPERATION_RESULT_ERROR</code>, either as returned by
-gtk_print_operation_run(), or in the <code>GtkPrintOperation</code>::done signal
+<code>gtk_print_operation_run()</code>, or in the <code>GtkPrintOperation::done</code> signal
 handler. The returned <code>GError</code> will contain more details on what went wrong.</p>
 
                       </div>
@@ -12068,7 +12067,7 @@ handler. The returned <code>GError</code> will contain more details on what went
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L9449-L9456">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L9424-L9431">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12089,7 +12088,7 @@ handler. The returned <code>GError</code> will contain more details on what went
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets the value of <code>GtkPrintOperation</code>:has-selection property.</p>
+                        <p>Gets the value of <code>GtkPrintOperation:has</code>-selection property.</p>
 
                       </div>
                       <div class="declaration">
@@ -12101,7 +12100,7 @@ handler. The returned <code>GError</code> will contain more details on what went
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L9459-L9462">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L9434-L9437">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12127,8 +12126,8 @@ handler. The returned <code>GError</code> will contain more details on what went
 <p>Note that this value is set during print preparation phase
 (<code>GTK_PRINT_STATUS_PREPARING</code>), so this function should never be
 called before the data generation phase (<code>GTK_PRINT_STATUS_GENERATING_DATA</code>).
-You can connect to the <code>GtkPrintOperation</code>::status-changed signal
-and call gtk_print_operation_get_n_pages_to_print() when
+You can connect to the <code>GtkPrintOperation::status</code>-changed signal
+and call <code>gtk_print_operation_get_n_pages_to_print()</code> when
 print status is <code>GTK_PRINT_STATUS_GENERATING_DATA</code>.
 This is typically used to track the progress of print operation.</p>
 
@@ -12142,7 +12141,7 @@ This is typically used to track the progress of print operation.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L9473-L9476">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L9448-L9451">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12166,8 +12165,8 @@ This is typically used to track the progress of print operation.</p>
                         <p>Returns the current print settings.</p>
 
 <p>Note that the return value is <code>nil</code> until either
-gtk_print_operation_set_print_settings() or
-gtk_print_operation_run() have been called.</p>
+<code>gtk_print_operation_set_print_settings()</code> or
+<code>gtk_print_operation_run()</code> have been called.</p>
 
                       </div>
                       <div class="declaration">
@@ -12179,7 +12178,7 @@ gtk_print_operation_run() have been called.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L9483-L9486">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L9458-L9461">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12201,7 +12200,7 @@ gtk_print_operation_run() have been called.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Returns the status of the print operation.
-Also see gtk_print_operation_get_status_string().</p>
+Also see <code>gtk_print_operation_get_status_string()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12213,7 +12212,7 @@ Also see gtk_print_operation_get_status_string().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L9490-L9493">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L9465-L9468">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12238,7 +12237,7 @@ Also see gtk_print_operation_get_status_string().</p>
 print operation. The string is translated and suitable
 for displaying the print status e.g. in a <code>GtkStatusbar</code>.</p>
 
-<p>Use gtk_print_operation_get_status() to obtain a status
+<p>Use <code>gtk_print_operation_get_status()</code> to obtain a status
 value that is suitable for programmatic use.</p>
 
                       </div>
@@ -12251,7 +12250,7 @@ value that is suitable for programmatic use.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L9501-L9504">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L9476-L9479">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12272,7 +12271,7 @@ value that is suitable for programmatic use.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets the value of <code>GtkPrintOperation</code>:support-selection property.</p>
+                        <p>Gets the value of <code>GtkPrintOperation:support</code>-selection property.</p>
 
                       </div>
                       <div class="declaration">
@@ -12284,7 +12283,7 @@ value that is suitable for programmatic use.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L9507-L9510">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L9482-L9485">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12310,14 +12309,14 @@ print settings in the print dialog, and then print the document.</p>
 
 <p>Normally that this function does not return until the rendering of all
 pages is complete. You can connect to the
-<code>GtkPrintOperation</code>::status-changed signal on <code>op</code> to obtain some
+<code>GtkPrintOperation::status</code>-changed signal on <code>op</code> to obtain some
 information about the progress of the print operation.
 Furthermore, it may use a recursive mainloop to show the print dialog.</p>
 
-<p>If you call gtk_print_operation_set_allow_async() or set the
-<code>GtkPrintOperation</code>:allow-async property the operation will run
+<p>If you call <code>gtk_print_operation_set_allow_async()</code> or set the
+<code>GtkPrintOperation:allow</code>-async property the operation will run
 asynchronously if this is supported on the platform. The
-<code>GtkPrintOperation</code>::done signal will be emitted with the result of the
+<code>GtkPrintOperation::done</code> signal will be emitted with the result of the
 operation when the it is done (i.e. when the dialog is canceled, or when
 the print succeeds or fails).
 (C Language Example):</p>
@@ -12343,7 +12342,7 @@ if (res == GTK_PRINT_OPERATION_RESULT_ERROR)
                                  GTK_DIALOG_DESTROY_WITH_PARENT,
                          GTK_MESSAGE_ERROR,
                          GTK_BUTTONS_CLOSE,
-                         "Error printing file:\n`s`",
+                         "Error printing file:\n%s",
                          error-&gt;message);
    g_signal_connect (error_dialog, "response",
                      G_CALLBACK (gtk_widget_destroy), NULL);
@@ -12358,7 +12357,7 @@ g_object_unref (settings);
  }
 </code></pre>
 
-<p>Note that gtk_print_operation_run() can only be called once on a
+<p>Note that <code>gtk_print_operation_run()</code> can only be called once on a
 given <code>GtkPrintOperation</code>.</p>
 
                       </div>
@@ -12371,7 +12370,7 @@ given <code>GtkPrintOperation</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L9569-L9576">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L9543-L9550">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12392,7 +12391,7 @@ given <code>GtkPrintOperation</code>.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Sets whether the gtk_print_operation_run() may return
+                        <p>Sets whether the <code>gtk_print_operation_run()</code> may return
 before the print operation is completed. Note that
 some platforms may not allow asynchronous operation.</p>
 
@@ -12406,7 +12405,7 @@ some platforms may not allow asynchronous operation.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L9581-L9584">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L9555-L9558">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12429,7 +12428,7 @@ some platforms may not allow asynchronous operation.</p>
                       <div class="abstract">
                         <p>Sets the current page.</p>
 
-<p>If this is called before gtk_print_operation_run(),
+<p>If this is called before <code>gtk_print_operation_run()</code>,
 the user will be able to select to print only the current page.</p>
 
 <p>Note that this only makes sense for pre-paginated documents.</p>
@@ -12444,7 +12443,7 @@ the user will be able to select to print only the current page.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L9592-L9595">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L9566-L9569">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12477,7 +12476,7 @@ the user will be able to select to print only the current page.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L9598-L9601">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L9572-L9575">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12500,9 +12499,9 @@ the user will be able to select to print only the current page.</p>
                       <div class="abstract">
                         <p>Makes <code>default_page_setup</code> the default page setup for <code>op</code>.</p>
 
-<p>This page setup will be used by gtk_print_operation_run(),
+<p>This page setup will be used by <code>gtk_print_operation_run()</code>,
 but it can be overridden on a per-page basis by connecting
-to the <code>GtkPrintOperation</code>::request-page-setup signal.</p>
+to the <code>GtkPrintOperation::request</code>-page-setup signal.</p>
 
                       </div>
                       <div class="declaration">
@@ -12514,7 +12513,7 @@ to the <code>GtkPrintOperation</code>::request-page-setup signal.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L9608-L9611">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L9582-L9585">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12536,7 +12535,7 @@ to the <code>GtkPrintOperation</code>::request-page-setup signal.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Sets up the <code>GtkPrintOperation</code> to wait for calling of
-gtk_print_operation_draw_page_finish() from application. It can
+<code>gtk_print_operation_draw_page_finish()</code> from application. It can
 be used for drawing page in another thread.</p>
 
 <p>This function must be called in the callback of “draw-page” signal.</p>
@@ -12551,7 +12550,7 @@ be used for drawing page in another thread.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L9618-L9621">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L9592-L9595">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12585,7 +12584,7 @@ Selected page setup is stored as default page setup in <code>GtkPrintOperation</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L9625-L9628">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L9599-L9602">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12625,7 +12624,7 @@ of printers in the print dialog.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L9638-L9641">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L9612-L9615">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12649,8 +12648,8 @@ of printers in the print dialog.</p>
                         <p>Sets whether there is a selection to print.</p>
 
 <p>Application has to set number of pages to which the selection
-will draw by gtk_print_operation_set_n_pages() in a callback of
-<code>GtkPrintOperation</code>::begin-print.</p>
+will draw by <code>gtk_print_operation_set_n_pages()</code> in a callback of
+<code>GtkPrintOperation::begin</code>-print.</p>
 
                       </div>
                       <div class="declaration">
@@ -12662,7 +12661,7 @@ will draw by gtk_print_operation_set_n_pages() in a callback of
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L9648-L9651">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L9622-L9625">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12699,7 +12698,7 @@ numbering successive print jobs.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L9658-L9661">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L9632-L9635">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12724,12 +12723,12 @@ numbering successive print jobs.</p>
 
 <p>This must be set to a positive number
 before the rendering starts. It may be set in a
-<code>GtkPrintOperation</code>::begin-print signal hander.</p>
+<code>GtkPrintOperation::begin</code>-print signal hander.</p>
 
 <p>Note that the page numbers passed to the
-<code>GtkPrintOperation</code>::request-page-setup
-and <code>GtkPrintOperation</code>::draw-page signals are 0-based, i.e. if
-the user chooses to print all pages, the last ::draw-page signal
+<code>GtkPrintOperation::request</code>-page-setup
+and <code>GtkPrintOperation::draw</code>-page signals are 0-based, i.e. if
+the user chooses to print all pages, the last <code>draw</code>-page signal
 will be for page <code>n_pages</code> - 1.</p>
 
                       </div>
@@ -12742,7 +12741,7 @@ will be for page <code>n_pages</code> - 1.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L9674-L9677">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L9648-L9651">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12765,7 +12764,7 @@ will be for page <code>n_pages</code> - 1.</p>
                       <div class="abstract">
                         <p>Sets the print settings for <code>op</code>. This is typically used to
 re-establish print settings from a previous print operation,
-see gtk_print_operation_run().</p>
+see <code>gtk_print_operation_run()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12777,7 +12776,7 @@ see gtk_print_operation_run().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L9682-L9685">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L9656-L9659">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12811,7 +12810,7 @@ progress dialog during the print operation.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L9689-L9692">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L9663-L9666">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12844,7 +12843,7 @@ progress dialog during the print operation.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L9695-L9698">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L9669-L9672">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12884,7 +12883,7 @@ not be enabled unless needed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L9707-L9710">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L9681-L9684">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12919,7 +12918,7 @@ units of <code>unit</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L9715-L9718">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L9689-L9692">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12957,7 +12956,7 @@ imageable area (i.e. inside the margins).</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L9726-L9729">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L9700-L9703">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12979,7 +12978,7 @@ imageable area (i.e. inside the margins).</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Returns the default page setup, see
-gtk_print_operation_set_default_page_setup().</p>
+<code>gtk_print_operation_set_default_page_setup()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12991,7 +12990,7 @@ gtk_print_operation_set_default_page_setup().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L9732-L9747">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L9706-L9721">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13012,7 +13011,7 @@ gtk_print_operation_set_default_page_setup().</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets the value of <code>GtkPrintOperation</code>:embed-page-setup property.</p>
+                        <p>Gets the value of <code>GtkPrintOperation:embed</code>-page-setup property.</p>
 
                       </div>
                       <div class="declaration">
@@ -13024,7 +13023,7 @@ gtk_print_operation_set_default_page_setup().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L9750-L9761">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L9724-L9735">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13045,7 +13044,7 @@ gtk_print_operation_set_default_page_setup().</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets the value of <code>GtkPrintOperation</code>:has-selection property.</p>
+                        <p>Gets the value of <code>GtkPrintOperation:has</code>-selection property.</p>
 
                       </div>
                       <div class="declaration">
@@ -13057,7 +13056,7 @@ gtk_print_operation_set_default_page_setup().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L9764-L9778">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L9738-L9752">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13096,7 +13095,7 @@ the operation status then tracks the print job status on the printer.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L9787-L9799">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L9761-L9773">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13122,8 +13121,8 @@ the operation status then tracks the print job status on the printer.</p>
 <p>Note that this value is set during print preparation phase
 (<code>GTK_PRINT_STATUS_PREPARING</code>), so this function should never be
 called before the data generation phase (<code>GTK_PRINT_STATUS_GENERATING_DATA</code>).
-You can connect to the <code>GtkPrintOperation</code>::status-changed signal
-and call gtk_print_operation_get_n_pages_to_print() when
+You can connect to the <code>GtkPrintOperation::status</code>-changed signal
+and call <code>gtk_print_operation_get_n_pages_to_print()</code> when
 print status is <code>GTK_PRINT_STATUS_GENERATING_DATA</code>.
 This is typically used to track the progress of print operation.</p>
 
@@ -13137,7 +13136,7 @@ This is typically used to track the progress of print operation.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L9810-L9824">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L9784-L9798">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13161,8 +13160,8 @@ This is typically used to track the progress of print operation.</p>
                         <p>Returns the current print settings.</p>
 
 <p>Note that the return value is <code>nil</code> until either
-gtk_print_operation_set_print_settings() or
-gtk_print_operation_run() have been called.</p>
+<code>gtk_print_operation_set_print_settings()</code> or
+<code>gtk_print_operation_run()</code> have been called.</p>
 
                       </div>
                       <div class="declaration">
@@ -13174,7 +13173,7 @@ gtk_print_operation_run() have been called.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L9831-L9847">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L9805-L9821">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13207,7 +13206,7 @@ gtk_print_operation_run() have been called.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L9850-L9857">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L9824-L9831">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13232,7 +13231,7 @@ gtk_print_operation_run() have been called.</p>
 print operation. The string is translated and suitable
 for displaying the print status e.g. in a <code>GtkStatusbar</code>.</p>
 
-<p>Use gtk_print_operation_get_status() to obtain a status
+<p>Use <code>gtk_print_operation_get_status()</code> to obtain a status
 value that is suitable for programmatic use.</p>
 
                       </div>
@@ -13245,7 +13244,7 @@ value that is suitable for programmatic use.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L9865-L9876">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L9839-L9850">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13266,7 +13265,7 @@ value that is suitable for programmatic use.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets the value of <code>GtkPrintOperation</code>:support-selection property.</p>
+                        <p>Gets the value of <code>GtkPrintOperation:support</code>-selection property.</p>
 
                       </div>
                       <div class="declaration">
@@ -13278,7 +13277,7 @@ value that is suitable for programmatic use.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L9879-L9889">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L9853-L9863">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13291,7 +13290,7 @@ value that is suitable for programmatic use.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

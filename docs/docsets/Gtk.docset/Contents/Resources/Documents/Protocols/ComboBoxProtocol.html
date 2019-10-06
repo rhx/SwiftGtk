@@ -11543,33 +11543,36 @@ reflect the tree structure.</p>
 
 <p>To allow the user to enter values not in the model, the “has-entry”
 property allows the GtkComboBox to contain a <code>GtkEntry</code>. This entry
-can be accessed by calling gtk_bin_get_child() on the combo box.</p>
+can be accessed by calling <code>gtk_bin_get_child()</code> on the combo box.</p>
 
 <p>For a simple list of textual choices, the model-view API of GtkComboBox
 can be a bit overwhelming. In this case, <code>GtkComboBoxText</code> offers a
 simple alternative. Both GtkComboBox and <code>GtkComboBoxText</code> can contain
 an entry.</p>
+<h1 id='css-nodes' class='heading'>CSS nodes</h1>
 
-<p>&ldquo; CSS nodes</p>
-<pre class="highlight swift"><code><span class="n">combobox</span>
-<span class="err">├──</span> <span class="n">box</span><span class="o">.</span><span class="n">linked</span>
-<span class="err">│</span>   <span class="err">╰──</span> <span class="n">button</span><span class="o">.</span><span class="n">combo</span>
-<span class="err">│</span>       <span class="err">╰──</span> <span class="n">box</span>
-<span class="err">│</span>           <span class="err">├──</span> <span class="n">cellview</span>
-<span class="err">│</span>           <span class="err">╰──</span> <span class="n">arrow</span>
-<span class="err">╰──</span> <span class="n">window</span><span class="o">.</span><span class="n">popup</span>
+<p>(plain Language Example):</p>
+<pre class="highlight plaintext"><code>combobox
+├── box.linked
+│   ╰── button.combo
+│       ╰── box
+│           ├── cellview
+│           ╰── arrow
+╰── window.popup
 </code></pre>
 
 <p>A normal combobox contains a box with the .linked class, a button
 with the .combo class and inside those buttons, there are a cellview and
 an arrow.</p>
-<pre class="highlight swift"><code><span class="n">combobox</span>
-<span class="err">├──</span> <span class="n">box</span><span class="o">.</span><span class="n">linked</span>
-<span class="err">│</span>   <span class="err">├──</span> <span class="n">entry</span><span class="o">.</span><span class="n">combo</span>
-<span class="err">│</span>   <span class="err">╰──</span> <span class="n">button</span><span class="o">.</span><span class="n">combo</span>
-<span class="err">│</span>       <span class="err">╰──</span> <span class="n">box</span>
-<span class="err">│</span>           <span class="err">╰──</span> <span class="n">arrow</span>
-<span class="err">╰──</span> <span class="n">window</span><span class="o">.</span><span class="n">popup</span>
+
+<p>(plain Language Example):</p>
+<pre class="highlight plaintext"><code>combobox
+├── box.linked
+│   ├── entry.combo
+│   ╰── button.combo
+│       ╰── box
+│           ╰── arrow
+╰── window.popup
 </code></pre>
 
 <p>A GtkComboBox with an entry has a single CSS node with name combobox. It
@@ -11609,7 +11612,7 @@ The button also contains another node with name arrow.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L20863">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L20825">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11647,7 +11650,7 @@ The button also contains another node with name arrow.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L20866">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L20828">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11775,7 +11778,7 @@ The button also contains another node with name arrow.</p>
                         <p>binding reference or <code>nil</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L21470-L21494">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L21432-L21456">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11867,7 +11870,7 @@ The button also contains another node with name arrow.</p>
                         <p>positive handler ID, or a value less than or equal to <code>0</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22419-L22438">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22380-L22399">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11915,7 +11918,7 @@ is not an immediate child of the root of the tree, this function returns
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22450-L22453">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22411-L22414">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11937,14 +11940,14 @@ is not an immediate child of the root of the tree, this function returns
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Returns the ID of the active row of <code>combo_box</code>.  This value is taken
-from the active row and the column specified by the <code>GtkComboBox</code>:id-column
-property of <code>combo_box</code> (see gtk_combo_box_set_id_column()).</p>
+from the active row and the column specified by the <code>GtkComboBox:id</code>-column
+property of <code>combo_box</code> (see <code>gtk_combo_box_set_id_column()</code>).</p>
 
 <p>The returned value is an interned string which means that you can
 compare the pointer by value to other interned strings and that you
 must not free it.</p>
 
-<p>If the <code>GtkComboBox</code>:id-column property of <code>combo_box</code> is not set, or if
+<p>If the <code>GtkComboBox:id</code>-column property of <code>combo_box</code> is not set, or if
 no row is active, or if the active row has a <code>nil</code> ID value, then <code>nil</code>
 is returned.</p>
 
@@ -11958,7 +11961,7 @@ is returned.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22466-L22469">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22427-L22430">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11992,7 +11995,7 @@ Otherwise, <code>iter</code> is left unchanged.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22473-L22476">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22434-L22437">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12023,13 +12026,13 @@ This method is deprecated.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">getAddTearoffs</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22482-L22485">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22443-L22446">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12063,7 +12066,7 @@ sensitive or not when there are no items in the model.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22489-L22492">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22450-L22453">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12096,7 +12099,7 @@ sensitive or not when there are no items in the model.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22495-L22498">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22456-L22459">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12130,7 +12133,7 @@ from to display in the internal entry.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22502-L22505">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22463-L22466">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12152,7 +12155,7 @@ from to display in the internal entry.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Returns whether the combo box grabs focus when it is clicked
-with the mouse. See gtk_combo_box_set_focus_on_click().</p>
+with the mouse. See <code>gtk_combo_box_set_focus_on_click()</code>.</p>
 
 <p><strong>get_focus_on_click is deprecated:</strong>
 Use gtk_widget_get_focus_on_click() instead</p>
@@ -12162,14 +12165,14 @@ Use gtk_widget_get_focus_on_click() instead</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
-<span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
+<span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">getFocusOnClick</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22512-L22515">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22473-L22476">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12202,7 +12205,7 @@ Use gtk_widget_get_focus_on_click() instead</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22518-L22521">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22479-L22482">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12236,7 +12239,7 @@ for values from.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22525-L22528">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22486-L22489">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12269,7 +12272,7 @@ for values from.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22531-L22534">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22492-L22495">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12305,7 +12308,7 @@ applications should have little use for it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22540-L22543">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22501-L22504">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12339,7 +12342,7 @@ the allocated width of the combo box.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22547-L22550">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22508-L22511">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12372,7 +12375,7 @@ the allocated width of the combo box.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22553-L22556">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22514-L22517">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12405,7 +12408,7 @@ the allocated width of the combo box.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22559-L22562">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22520-L22523">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12427,7 +12430,7 @@ the allocated width of the combo box.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Gets the current title of the menu in tearoff mode. See
-gtk_combo_box_set_add_tearoffs().</p>
+<code>gtk_combo_box_set_add_tearoffs()</code>.</p>
 
 <p><strong>get_title is deprecated:</strong>
 This method is deprecated.</p>
@@ -12437,13 +12440,13 @@ This method is deprecated.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">getTitle</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">String</span><span class="o">!</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22569-L22572">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22530-L22533">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12478,7 +12481,7 @@ is in table mode.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22577-L22580">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22538-L22541">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12514,7 +12517,7 @@ applications should have little use for it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22586-L22589">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22547-L22550">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12552,7 +12555,7 @@ applications should have little use for it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22597-L22600">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22558-L22561">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12587,7 +12590,7 @@ are the only <code>GdkDevices</code> able to send events to it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22605-L22608">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22566-L22569">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12620,7 +12623,7 @@ are the only <code>GdkDevices</code> able to send events to it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22611-L22614">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22572-L22575">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12645,7 +12648,7 @@ are the only <code>GdkDevices</code> able to send events to it.</p>
 <code>active_id</code>, or unsets the active row if <code>active_id</code> is <code>nil</code>.  Rows having
 a <code>nil</code> ID string cannot be made active by this function.</p>
 
-<p>If the <code>GtkComboBox</code>:id-column property of <code>combo_box</code> is unset or if no
+<p>If the <code>GtkComboBox:id</code>-column property of <code>combo_box</code> is unset or if no
 row has the given ID then the function does nothing and returns <code>false</code>.</p>
 
                       </div>
@@ -12658,7 +12661,7 @@ row has the given ID then the function does nothing and returns <code>false</cod
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22622-L22625">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22583-L22586">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12692,7 +12695,7 @@ unsets the active item if <code>iter</code> is <code>nil</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22629-L22632">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22590-L22593">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12724,13 +12727,13 @@ This method is deprecated.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">set</span><span class="p">(</span><span class="n"><a href="../Protocols/ComboBoxProtocol.html#/s:3Gtk16ComboBoxProtocolPAAE11addTearoffsSbvp">addTearoffs</a></span> <span class="nv">add_tearoffs</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22639-L22642">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22600-L22603">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12765,7 +12768,7 @@ or only if there is at least one item to display (<code>GTK_SENSITIVITY_AUTO</co
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22647-L22650">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22608-L22611">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12801,7 +12804,7 @@ how many columns an item should span.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22655-L22658">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22616-L22619">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12827,7 +12830,7 @@ to be <code>text_column</code>. The column <code>text_column</code> in the model
 must be of type <code>G_TYPE_STRING</code>.</p>
 
 <p>This is only relevant if <code>combo_box</code> has been created with
-<code>GtkComboBox</code>:has-entry as <code>true</code>.</p>
+<code>GtkComboBox:has</code>-entry as <code>true</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12839,7 +12842,7 @@ must be of type <code>G_TYPE_STRING</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22666-L22669">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22627-L22630">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12873,14 +12876,14 @@ Use gtk_widget_set_focus_on_click() instead</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
-<span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
+<span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">set</span><span class="p">(</span><span class="n"><a href="../Protocols/ComboBoxProtocol.html#/s:3Gtk16ComboBoxProtocolPAAE12focusOnClickSbvp">focusOnClick</a></span> <span class="nv">focus_on_click</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22678-L22681">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22639-L22642">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12915,7 +12918,7 @@ must be of type <code>G_TYPE_STRING</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22686-L22689">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22647-L22650">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12940,7 +12943,7 @@ must be of type <code>G_TYPE_STRING</code>.</p>
 model (if applicable). If model is <code>nil</code>, then it will unset the model.</p>
 
 <p>Note that this function does not clear the cell renderers, you have to
-call gtk_cell_layout_clear() yourself if you need to set up different
+call <code>gtk_cell_layout_clear()</code> yourself if you need to set up different
 cell renderers for the new model.</p>
 
                       </div>
@@ -12953,7 +12956,7 @@ cell renderers for the new model.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22697-L22700">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22658-L22661">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12987,7 +12990,7 @@ matching the allocated width of the combo box.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22704-L22707">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22665-L22668">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13022,7 +13025,7 @@ function is <code>nil</code>, no separators are drawn. This is the default value
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22712-L22715">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22673-L22676">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13057,7 +13060,7 @@ an item should span.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22720-L22723">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22681-L22684">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13088,13 +13091,13 @@ This method is deprecated.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">set</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22729-L22732">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22690-L22693">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13129,7 +13132,7 @@ in a table.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22737-L22740">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22698-L22701">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13166,7 +13169,7 @@ where <code>path</code> is the <code>GtkTreePath</code> of the active item.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22746-L22760">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22707-L22721">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13188,14 +13191,14 @@ where <code>path</code> is the <code>GtkTreePath</code> of the active item.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Returns the ID of the active row of <code>combo_box</code>.  This value is taken
-from the active row and the column specified by the <code>GtkComboBox</code>:id-column
-property of <code>combo_box</code> (see gtk_combo_box_set_id_column()).</p>
+from the active row and the column specified by the <code>GtkComboBox:id</code>-column
+property of <code>combo_box</code> (see <code>gtk_combo_box_set_id_column()</code>).</p>
 
 <p>The returned value is an interned string which means that you can
 compare the pointer by value to other interned strings and that you
 must not free it.</p>
 
-<p>If the <code>GtkComboBox</code>:id-column property of <code>combo_box</code> is not set, or if
+<p>If the <code>GtkComboBox:id</code>-column property of <code>combo_box</code> is not set, or if
 no row is active, or if the active row has a <code>nil</code> ID value, then <code>nil</code>
 is returned.</p>
 
@@ -13209,7 +13212,7 @@ is returned.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22773-L22798">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22734-L22759">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13245,7 +13248,7 @@ This method is deprecated.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22804-L22821">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22765-L22782">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13279,7 +13282,7 @@ sensitive or not when there are no items in the model.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22825-L22838">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22786-L22799">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13312,7 +13315,7 @@ sensitive or not when there are no items in the model.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22841-L22853">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22802-L22814">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13346,7 +13349,7 @@ from to display in the internal entry.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22857-L22873">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22818-L22834">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13368,7 +13371,7 @@ from to display in the internal entry.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Returns whether the combo box grabs focus when it is clicked
-with the mouse. See gtk_combo_box_set_focus_on_click().</p>
+with the mouse. See <code>gtk_combo_box_set_focus_on_click()</code>.</p>
 
 <p><strong>get_focus_on_click is deprecated:</strong>
 Use gtk_widget_get_focus_on_click() instead</p>
@@ -13378,13 +13381,13 @@ Use gtk_widget_get_focus_on_click() instead</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="k">var</span> <span class="nv">focusOnClick</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="k">nonmutating</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22880-L22900">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22841-L22861">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13417,7 +13420,7 @@ Use gtk_widget_get_focus_on_click() instead</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22903-L22909">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22864-L22870">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13451,7 +13454,7 @@ for values from.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22913-L22926">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22874-L22887">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13485,7 +13488,7 @@ in the list.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22930-L22945">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22891-L22906">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13521,7 +13524,7 @@ applications should have little use for it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22951-L22960">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22912-L22921">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13555,7 +13558,7 @@ the allocated width of the combo box.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22964-L22976">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22925-L22937">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13588,7 +13591,7 @@ the allocated width of the combo box.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22979-L22985">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22940-L22946">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13621,7 +13624,7 @@ the allocated width of the combo box.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22988-L23000">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22949-L22961">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13643,7 +13646,7 @@ the allocated width of the combo box.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Gets the current title of the menu in tearoff mode. See
-gtk_combo_box_set_add_tearoffs().</p>
+<code>gtk_combo_box_set_add_tearoffs()</code>.</p>
 
 <p><strong>get_title is deprecated:</strong>
 This method is deprecated.</p>
@@ -13658,7 +13661,7 @@ This method is deprecated.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L23007-L23024">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22968-L22985">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13693,7 +13696,7 @@ is in table mode.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L23029-L23043">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L22990-L23004">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13706,7 +13709,7 @@ is in table mode.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

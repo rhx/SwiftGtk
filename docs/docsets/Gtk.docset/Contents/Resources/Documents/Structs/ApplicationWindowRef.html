@@ -11528,8 +11528,8 @@ Use <code>ApplicationWindowRef</code> only as an <code>unowned</code> reference 
 <p><code>GtkApplicationWindow</code> is a <code>GtkWindow</code> subclass that offers some
 extra functionality for better integration with <code>GtkApplication</code>
 features.  Notably, it can handle both the application menu as well
-as the menubar. See gtk_application_set_app_menu() and
-gtk_application_set_menubar().</p>
+as the menubar. See <code>gtk_application_set_app_menu()</code> and
+<code>gtk_application_set_menubar()</code>.</p>
 
 <p>This class implements the <code>GActionGroup</code> and <code>GActionMap</code> interfaces,
 to let you add window-specific actions that will be exported by the
@@ -11547,8 +11547,8 @@ can also activate these actions, if they implement the
 processing actions arriving from other processes and should therefore
 be held when activating actions locally (if GDK threads are enabled).</p>
 
-<p>The settings <code>GtkSettings</code>:gtk-shell-shows-app-menu and
-<code>GtkSettings</code>:gtk-shell-shows-menubar tell GTK+ whether the
+<p>The settings <code>GtkSettings:gtk</code>-shell-shows-app-menu and
+<code>GtkSettings:gtk</code>-shell-shows-menubar tell GTK+ whether the
 desktop environment is showing the application menu and menubar
 models outside the application as part of the desktop shell.
 For instance, on OS X, both menus will be displayed remotely;
@@ -11557,12 +11557,11 @@ will display the application menu, but not the menubar.</p>
 
 <p>If the desktop environment does not display the menubar, then
 <code>GtkApplicationWindow</code> will automatically show a <code>GtkMenuBar</code> for it.
-This behaviour can be overridden with the <code>GtkApplicationWindow</code>:show-menubar
+This behaviour can be overridden with the <code>GtkApplicationWindow:show</code>-menubar
 property. If the desktop environment does not display the application
 menu, then it will automatically be included in the menubar or in the
 windows client-side decorations.</p>
-
-<p>&ldquo;` A GtkApplicationWindow with a menubar</p>
+<h2 id='a-gtkapplicationwindow-with-a-menubar' class='heading'>A GtkApplicationWindow with a menubar</h2>
 
 <p>(C Language Example):</p>
 <pre class="highlight plaintext"><code>GtkApplication *app = gtk_application_new ("org.gtk.test", 0);
@@ -11587,8 +11586,7 @@ g_object_unref (builder);
 
 GtkWidget *window = gtk_application_window_new (app);
 </code></pre>
-
-<p>&rdquo;` Handling fallback yourself</p>
+<h2 id='handling-fallback-yourself' class='heading'>Handling fallback yourself</h2>
 
 <p><a href="https://git.gnome.org/browse/gtk+/tree/examples/sunny.c">A simple example</a></p>
 
@@ -11671,7 +11669,7 @@ For type-safe access, use the generated, typed pointer <code>application_window_
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L16459">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L16435">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11712,7 +11710,7 @@ For type-safe access, use the generated, typed pointer <code>application_window_
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L16464-L16465">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L16440-L16441">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11742,7 +11740,7 @@ For type-safe access, use the generated, typed pointer <code>application_window_
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L16468-L16470">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L16444-L16446">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11773,7 +11771,7 @@ For type-safe access, use the generated, typed pointer <code>application_window_
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L16474-L16476">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L16450-L16452">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11804,7 +11802,7 @@ For type-safe access, use the generated, typed pointer <code>application_window_
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L16480-L16482">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L16456-L16458">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11835,7 +11833,7 @@ For type-safe access, use the generated, typed pointer <code>application_window_
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L16486-L16488">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L16462-L16464">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11866,7 +11864,7 @@ For type-safe access, use the generated, typed pointer <code>application_window_
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L16492-L16494">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L16468-L16470">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11897,7 +11895,7 @@ For type-safe access, use the generated, typed pointer <code>application_window_
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L16498-L16500">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L16474-L16476">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11927,7 +11925,7 @@ For type-safe access, use the generated, typed pointer <code>application_window_
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L16503-L16506">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-AboutDialog-Bin.swift#L16479-L16482">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11940,7 +11938,7 @@ For type-safe access, use the generated, typed pointer <code>application_window_
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

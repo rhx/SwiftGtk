@@ -11527,12 +11527,12 @@ Use <code>GestureSwipeRef</code> only as an <code>unowned</code> reference to an
 
 <p><code>GtkGestureSwipe</code> is a <code>GtkGesture</code> implementation able to recognize
 swipes, after a press/move/&hellip;/move/release sequence happens, the
-<code>GtkGestureSwipe</code>::swipe signal will be emitted, providing the velocity
+<code>GtkGestureSwipe::swipe</code> signal will be emitted, providing the velocity
 and directionality of the sequence at the time it was lifted.</p>
 
 <p>If the velocity is desired in intermediate points,
-gtk_gesture_swipe_get_velocity() can be called on eg. a
-<code>GtkGesture</code>::update handler.</p>
+<code>gtk_gesture_swipe_get_velocity()</code> can be called on eg. a
+<code>GtkGesture::update</code> handler.</p>
 
 <p>All velocities are reported in pixels/sec units.</p>
 
@@ -11569,7 +11569,7 @@ For type-safe access, use the generated, typed pointer <code>gesture_swipe_ptr</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L3330">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L3321">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11610,7 +11610,7 @@ For type-safe access, use the generated, typed pointer <code>gesture_swipe_ptr</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L3335-L3336">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L3326-L3327">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11640,7 +11640,7 @@ For type-safe access, use the generated, typed pointer <code>gesture_swipe_ptr</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L3339-L3341">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L3330-L3332">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11671,7 +11671,7 @@ For type-safe access, use the generated, typed pointer <code>gesture_swipe_ptr</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L3345-L3347">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L3336-L3338">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11702,7 +11702,7 @@ For type-safe access, use the generated, typed pointer <code>gesture_swipe_ptr</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L3351-L3353">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L3342-L3344">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11733,7 +11733,7 @@ For type-safe access, use the generated, typed pointer <code>gesture_swipe_ptr</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L3357-L3359">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L3348-L3350">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11764,7 +11764,7 @@ For type-safe access, use the generated, typed pointer <code>gesture_swipe_ptr</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L3363-L3365">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L3354-L3356">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11795,7 +11795,7 @@ For type-safe access, use the generated, typed pointer <code>gesture_swipe_ptr</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L3369-L3371">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L3360-L3362">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11825,7 +11825,7 @@ For type-safe access, use the generated, typed pointer <code>gesture_swipe_ptr</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L3374-L3377">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-Gesture-HBox.swift#L3365-L3368">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11838,7 +11838,7 @@ For type-safe access, use the generated, typed pointer <code>gesture_swipe_ptr</
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

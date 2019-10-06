@@ -11536,8 +11536,8 @@ elements on a <code>cairo_t</code>. Typically, one cell renderer is used to
 draw many cells on the screen.  To this extent, it isn’t expected that a
 CellRenderer keep any permanent state around.  Instead, any state is set
 just prior to use using <code>GObjects</code> property system.  Then, the
-cell is measured using gtk_cell_renderer_get_size(). Finally, the cell
-is rendered in the correct location using gtk_cell_renderer_render().</p>
+cell is measured using <code>gtk_cell_renderer_get_size()</code>. Finally, the cell
+is rendered in the correct location using <code>gtk_cell_renderer_render()</code>.</p>
 
 <p>There are a number of rules that must be followed when writing a new
 <code>GtkCellRenderer</code>.  First and foremost, it’s important that a certain set
@@ -11553,8 +11553,8 @@ which toggles when it gets activated by a mouse click, or it can be
 allows the user to edit the text using a widget implementing the
 <code>GtkCellEditable</code> interface, e.g. <code>GtkEntry</code>.
 To make a cell renderer activatable or editable, you have to
-implement the <code>GtkCellRendererClass</code>.activate or
-<code>GtkCellRendererClass</code>.start_editing virtual functions, respectively.</p>
+implement the <code>GtkCellRendererClass.activate</code> or
+<code>GtkCellRendererClass.start_editing</code> virtual functions, respectively.</p>
 
 <p>Many properties of <code>GtkCellRenderer</code> and its subclasses have a
 corresponding “set” property, e.g. “cell-background-set” corresponds
@@ -11594,7 +11594,7 @@ For type-safe access, use the generated, typed pointer <code>cell_renderer_ptr</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L3175">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L3156">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11635,7 +11635,7 @@ For type-safe access, use the generated, typed pointer <code>cell_renderer_ptr</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L3180-L3181">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L3161-L3162">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11665,7 +11665,7 @@ For type-safe access, use the generated, typed pointer <code>cell_renderer_ptr</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L3184-L3186">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L3165-L3167">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11696,7 +11696,7 @@ For type-safe access, use the generated, typed pointer <code>cell_renderer_ptr</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L3190-L3192">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L3171-L3173">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11727,7 +11727,7 @@ For type-safe access, use the generated, typed pointer <code>cell_renderer_ptr</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L3196-L3198">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L3177-L3179">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11758,7 +11758,7 @@ For type-safe access, use the generated, typed pointer <code>cell_renderer_ptr</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L3202-L3204">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L3183-L3185">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11789,7 +11789,7 @@ For type-safe access, use the generated, typed pointer <code>cell_renderer_ptr</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L3208-L3210">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L3189-L3191">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11820,7 +11820,7 @@ For type-safe access, use the generated, typed pointer <code>cell_renderer_ptr</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L3214-L3216">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-CellAccessible-Dialog.swift#L3195-L3197">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11833,7 +11833,7 @@ For type-safe access, use the generated, typed pointer <code>cell_renderer_ptr</
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

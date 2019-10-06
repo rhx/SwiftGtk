@@ -11534,13 +11534,13 @@ abstract <code>GMenuModel</code>.</p>
 can hold almost any other standard <code>GtkWidget</code>. The most commonly used
 child is <code>GtkImage</code>. If no widget is explicitely added to the <code>GtkMenuButton</code>,
 a <code>GtkImage</code> is automatically created, using an arrow image oriented
-according to <code>GtkMenuButton</code>:direction or the generic “open-menu-symbolic”
+according to <code>GtkMenuButton:direction</code> or the generic “open-menu-symbolic”
 icon if the direction is not set.</p>
 
-<p>The positioning of the popup is determined by the <code>GtkMenuButton</code>:direction
+<p>The positioning of the popup is determined by the <code>GtkMenuButton:direction</code>
 property of the menu button.</p>
 
-<p>For menus, the <code>GtkWidget</code>:halign and <code>GtkWidget</code>:valign properties of the
+<p>For menus, the <code>GtkWidget:halign</code> and <code>GtkWidget:valign</code> properties of the
 menu are also taken into account. For example, when the direction is
 <code>GTK_ARROW_DOWN</code> and the horizontal alignment is <code>GTK_ALIGN_START</code>, the
 menu will be positioned below the button, with the starting edge
@@ -11548,8 +11548,7 @@ menu will be positioned below the button, with the starting edge
 edge of the button. If there is not enough space below the button, the
 menu is popped up above the button instead. If the alignment would move
 part of the menu offscreen, it is “pushed in”.</p>
-
-<p>&ldquo;` Direction = Down</p>
+<h2 id='direction-down' class='heading'>Direction = Down</h2>
 
 <ul>
 <li><p>halign = start</p>
@@ -11562,8 +11561,7 @@ part of the menu offscreen, it is “pushed in”.</p>
 
 <p><img src="down-end.png" alt=""></p></li>
 </ul>
-
-<p>&rdquo;` Direction = Up</p>
+<h2 id='direction-up' class='heading'>Direction = Up</h2>
 
 <ul>
 <li><p>halign = start</p>
@@ -11576,8 +11574,7 @@ part of the menu offscreen, it is “pushed in”.</p>
 
 <p><img src="up-end.png" alt=""></p></li>
 </ul>
-
-<p>&ldquo;` Direction = Left</p>
+<h2 id='direction-left' class='heading'>Direction = Left</h2>
 
 <ul>
 <li><p>valign = start</p>
@@ -11590,8 +11587,7 @@ part of the menu offscreen, it is “pushed in”.</p>
 
 <p><img src="left-end.png" alt=""></p></li>
 </ul>
-
-<p>&rdquo;` Direction = Right</p>
+<h2 id='direction-right' class='heading'>Direction = Right</h2>
 
 <ul>
 <li><p>valign = start</p>
@@ -11604,8 +11600,7 @@ part of the menu offscreen, it is “pushed in”.</p>
 
 <p><img src="right-end.png" alt=""></p></li>
 </ul>
-
-<p>&ldquo; CSS nodes</p>
+<h1 id='css-nodes' class='heading'>CSS nodes</h1>
 
 <p>GtkMenuButton has a single CSS node with name button. To differentiate
 it from a plain <code>GtkButton</code>, it gets the .popup style class.</p>
@@ -11642,7 +11637,7 @@ it from a plain <code>GtkButton</code>, it gets the .popup style class.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L1803">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L1801">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11680,7 +11675,7 @@ it from a plain <code>GtkButton</code>, it gets the .popup style class.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L1806">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L1804">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11808,7 +11803,7 @@ it from a plain <code>GtkButton</code>, it gets the .popup style class.</p>
                         <p>binding reference or <code>nil</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L2341-L2365">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L2339-L2363">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11900,7 +11895,7 @@ it from a plain <code>GtkButton</code>, it gets the .popup style class.</p>
                         <p>positive handler ID, or a value less than or equal to <code>0</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L3253-L3272">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L3250-L3269">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11944,7 +11939,7 @@ it from a plain <code>GtkButton</code>, it gets the .popup style class.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L3280-L3283">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L3277-L3280">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11977,7 +11972,7 @@ it from a plain <code>GtkButton</code>, it gets the .popup style class.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L3286-L3289">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L3283-L3286">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12010,7 +12005,7 @@ it from a plain <code>GtkButton</code>, it gets the .popup style class.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L3292-L3295">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L3289-L3292">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12045,7 +12040,7 @@ returns <code>nil</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L3300-L3303">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L3297-L3300">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12080,7 +12075,7 @@ returns <code>nil</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L3308-L3311">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L3305-L3308">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12114,7 +12109,7 @@ from the menu model.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L3315-L3318">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L3312-L3315">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12154,7 +12149,7 @@ and not for popovers.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L3328-L3331">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L3325-L3328">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12195,7 +12190,7 @@ as if you passed <code>GTK_ARROW_DOWN</code> (although you won’t see any arrow
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L3342-L3345">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L3339-L3342">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12219,12 +12214,12 @@ as if you passed <code>GTK_ARROW_DOWN</code> (although you won’t see any arrow
                         <p>Sets the <code>GMenuModel</code> from which the popup will be constructed,
 or <code>nil</code> to dissociate any existing menu model and disable the button.</p>
 
-<p>Depending on the value of <code>GtkMenuButton</code>:use-popover, either a
-<code>GtkMenu</code> will be created with gtk_menu_new_from_model(), or a
-<code>GtkPopover</code> with gtk_popover_new_from_model(). In either case,
+<p>Depending on the value of <code>GtkMenuButton:use</code>-popover, either a
+<code>GtkMenu</code> will be created with <code>gtk_menu_new_from_model()</code>, or a
+<code>GtkPopover</code> with <code>gtk_popover_new_from_model()</code>. In either case,
 actions will be connected as documented for these functions.</p>
 
-<p>If <code>GtkMenuButton</code>:popup or <code>GtkMenuButton</code>:popover are already set, those
+<p>If <code>GtkMenuButton:popup</code> or <code>GtkMenuButton:popover</code> are already set, those
 widgets are dissociated from the <code>menu_button</code>, and those properties are set
 to <code>nil</code>.</p>
 
@@ -12238,7 +12233,7 @@ to <code>nil</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L3358-L3361">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L3355-L3358">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12262,7 +12257,7 @@ to <code>nil</code>.</p>
                         <p>Sets the <code>GtkPopover</code> that will be popped up when the <code>menu_button</code> is clicked,
 or <code>nil</code> to dissociate any existing popover and disable the button.</p>
 
-<p>If <code>GtkMenuButton</code>:menu-model or <code>GtkMenuButton</code>:popup are set, those objects
+<p>If <code>GtkMenuButton:menu</code>-model or <code>GtkMenuButton:popup</code> are set, those objects
 are dissociated from the <code>menu_button</code>, and those properties are set to <code>nil</code>.</p>
 
                       </div>
@@ -12275,7 +12270,7 @@ are dissociated from the <code>menu_button</code>, and those properties are set 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L3368-L3371">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L3365-L3368">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12299,7 +12294,7 @@ are dissociated from the <code>menu_button</code>, and those properties are set 
                         <p>Sets the <code>GtkMenu</code> that will be popped up when the <code>menu_button</code> is clicked, or
 <code>nil</code> to dissociate any existing menu and disable the button.</p>
 
-<p>If <code>GtkMenuButton</code>:menu-model or <code>GtkMenuButton</code>:popover are set, those objects
+<p>If <code>GtkMenuButton:menu</code>-model or <code>GtkMenuButton:popover</code> are set, those objects
 are dissociated from the <code>menu_button</code>, and those properties are set to <code>nil</code>.</p>
 
                       </div>
@@ -12312,7 +12307,7 @@ are dissociated from the <code>menu_button</code>, and those properties are set 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L3378-L3381">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L3375-L3378">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12334,7 +12329,7 @@ are dissociated from the <code>menu_button</code>, and those properties are set 
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Sets whether to construct a <code>GtkPopover</code> instead of <code>GtkMenu</code>
-when gtk_menu_button_set_menu_model() is called. Note that
+when <code>gtk_menu_button_set_menu_model()</code> is called. Note that
 this property is only consulted when a new menu model is set.</p>
 
                       </div>
@@ -12347,7 +12342,7 @@ this property is only consulted when a new menu model is set.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L3386-L3389">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L3383-L3386">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12380,7 +12375,7 @@ this property is only consulted when a new menu model is set.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L3391-L3408">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L3388-L3405">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12414,7 +12409,7 @@ menu or popover will be popped out.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L3412-L3430">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L3409-L3427">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12447,7 +12442,7 @@ menu or popover will be popped out.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L3433-L3453">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L3430-L3450">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12480,7 +12475,7 @@ menu or popover will be popped out.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L3456-L3472">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L3453-L3469">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12513,7 +12508,7 @@ menu or popover will be popped out.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L3475-L3491">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L3472-L3488">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12547,7 +12542,7 @@ from the menu model.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L3495-L3508">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L3492-L3505">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12560,7 +12555,7 @@ from the menu model.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

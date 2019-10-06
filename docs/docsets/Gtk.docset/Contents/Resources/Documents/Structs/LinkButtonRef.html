@@ -11529,19 +11529,18 @@ Use <code>LinkButtonRef</code> only as an <code>unowned</code> reference to an e
 used by web browsers, which triggers an action when clicked. It is useful
 to show quick links to resources.</p>
 
-<p>A link button is created by calling either gtk_link_button_new() or
-gtk_link_button_new_with_label(). If using the former, the URI you pass
+<p>A link button is created by calling either <code>gtk_link_button_new()</code> or
+<code>gtk_link_button_new_with_label()</code>. If using the former, the URI you pass
 to the constructor is used as a label for the widget.</p>
 
 <p>The URI bound to a GtkLinkButton can be set specifically using
-gtk_link_button_set_uri(), and retrieved using gtk_link_button_get_uri().</p>
+<code>gtk_link_button_set_uri()</code>, and retrieved using <code>gtk_link_button_get_uri()</code>.</p>
 
-<p>By default, GtkLinkButton calls gtk_show_uri_on_window() when the button is
+<p>By default, GtkLinkButton calls <code>gtk_show_uri_on_window()</code> when the button is
 clicked. This behaviour can be overridden by connecting to the
-<code>GtkLinkButton</code>::activate-link signal and returning <code>true</code> from the
+<code>GtkLinkButton::activate</code>-link signal and returning <code>true</code> from the
 signal handler.</p>
-
-<p>&ldquo; CSS nodes</p>
+<h1 id='css-nodes' class='heading'>CSS nodes</h1>
 
 <p>GtkLinkButton has a single CSS node with name button. To differentiate
 it from a plain <code>GtkButton</code>, it gets the .link style class.</p>
@@ -11579,7 +11578,7 @@ For type-safe access, use the generated, typed pointer <code>link_button_ptr</co
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L3876">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L3869">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11620,7 +11619,7 @@ For type-safe access, use the generated, typed pointer <code>link_button_ptr</co
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L3881-L3882">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L3874-L3875">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11650,7 +11649,7 @@ For type-safe access, use the generated, typed pointer <code>link_button_ptr</co
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L3885-L3887">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L3878-L3880">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11681,7 +11680,7 @@ For type-safe access, use the generated, typed pointer <code>link_button_ptr</co
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L3891-L3893">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L3884-L3886">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11712,7 +11711,7 @@ For type-safe access, use the generated, typed pointer <code>link_button_ptr</co
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L3897-L3899">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L3890-L3892">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11743,7 +11742,7 @@ For type-safe access, use the generated, typed pointer <code>link_button_ptr</co
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L3903-L3905">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L3896-L3898">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11774,7 +11773,7 @@ For type-safe access, use the generated, typed pointer <code>link_button_ptr</co
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L3909-L3911">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L3902-L3904">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11805,7 +11804,7 @@ For type-safe access, use the generated, typed pointer <code>link_button_ptr</co
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L3915-L3917">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L3908-L3910">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11835,7 +11834,7 @@ For type-safe access, use the generated, typed pointer <code>link_button_ptr</co
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L3920-L3923">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L3913-L3916">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11865,7 +11864,7 @@ For type-safe access, use the generated, typed pointer <code>link_button_ptr</co
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L3926-L3929">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L3919-L3922">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11895,7 +11894,7 @@ For type-safe access, use the generated, typed pointer <code>link_button_ptr</co
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L3931-L3934">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-LabelAccessible-Menu.swift#L3924-L3927">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11908,7 +11907,7 @@ For type-safe access, use the generated, typed pointer <code>link_button_ptr</co
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

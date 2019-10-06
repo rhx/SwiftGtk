@@ -11530,12 +11530,12 @@ convenience widget; you could construct the equivalent of <code>GtkMessageDialog
 from <code>GtkDialog</code> without too much effort, but <code>GtkMessageDialog</code> saves typing.</p>
 
 <p>One difference from <code>GtkDialog</code> is that <code>GtkMessageDialog</code> sets the
-<code>GtkWindow</code>:skip-taskbar-hint property to <code>true</code>, so that the dialog is hidden
+<code>GtkWindow:skip</code>-taskbar-hint property to <code>true</code>, so that the dialog is hidden
 from the taskbar by default.</p>
 
-<p>The easiest way to do a modal message dialog is to use gtk_dialog_run(), though
-you can also pass in the <code>GTK_DIALOG_MODAL</code> flag, gtk_dialog_run() automatically
-makes the dialog modal and waits for the user to respond to it. gtk_dialog_run()
+<p>The easiest way to do a modal message dialog is to use <code>gtk_dialog_run()</code>, though
+you can also pass in the <code>GTK_DIALOG_MODAL</code> flag, <code>gtk_dialog_run()</code> automatically
+makes the dialog modal and waits for the user to respond to it. <code>gtk_dialog_run()</code>
 returns when any dialog button is clicked.</p>
 
 <p>An example for using a modal dialog:
@@ -11545,7 +11545,7 @@ returns when any dialog button is clicked.</p>
                                   flags,
                                   GTK_MESSAGE_ERROR,
                                   GTK_BUTTONS_CLOSE,
-                                  "Error reading “`s`”: `s`",
+                                  "Error reading “%s”: %s",
                                   filename,
                                   g_strerror (errno));
  gtk_dialog_run (GTK_DIALOG (dialog));
@@ -11561,7 +11561,7 @@ returns when any dialog button is clicked.</p>
                                   flags,
                                   GTK_MESSAGE_ERROR,
                                   GTK_BUTTONS_CLOSE,
-                                  "Error reading “`s`”: `s`",
+                                  "Error reading “%s”: %s",
                                   filename,
                                   g_strerror (errno));
 
@@ -11572,8 +11572,7 @@ returns when any dialog button is clicked.</p>
                            G_CALLBACK (gtk_widget_destroy),
                            dialog);
 </code></pre>
-
-<p>&ldquo; GtkMessageDialog as GtkBuildable</p>
+<h1 id='gtkmessagedialog-as-gtkbuildable' class='heading'>GtkMessageDialog as GtkBuildable</h1>
 
 <p>The GtkMessageDialog implementation of the GtkBuildable interface exposes
 the message area as an internal child with the name “message_area”.</p>
@@ -11611,7 +11610,7 @@ Ownership is transferred to the <code>MessageDialog</code> instance.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L9404-L9406">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L9383-L9385">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11637,12 +11636,12 @@ Will retain <code>GtkMessageDialog</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">other</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/MessageDialogProtocol.html">MessageDialogProtocol</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">other</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/MessageDialogProtocol.html">MessageDialogProtocol</a></span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L9410-L9413">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L9389-L9392">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11668,12 +11667,12 @@ Will retain <code>GtkMessageDialog</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">cPointer</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">cPointer</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L9417-L9419">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L9396-L9398">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11699,12 +11698,12 @@ Will retain <code>GtkMessageDialog</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeRawPointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L9423-L9425">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L9402-L9404">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11730,12 +11729,12 @@ Will retain <code>GtkMessageDialog</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L9429-L9431">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L9408-L9410">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11761,12 +11760,12 @@ Will retain <code>GtkMessageDialog</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">opaquePointer</span><span class="p">:</span> <span class="kt">OpaquePointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">opaquePointer</span><span class="p">:</span> <span class="kt">OpaquePointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L9435-L9437">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-MenuAccessible-NativeDialog.swift#L9414-L9416">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11799,7 +11798,7 @@ See <code><a href="../Classes/Dialog.html">Dialog</a></code> for more details.</
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">flags</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:3Gtk11DialogFlagsa">DialogFlags</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">modal</span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:3Gtk11MessageTypea">MessageType</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">info</span><span class="p">,</span> <span class="nv">buttons</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:3Gtk11ButtonsTypea">ButtonsType</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">ok</span><span class="p">,</span> <span class="nv">text</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">secondaryText</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">flags</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:3Gtk11DialogFlagsa">DialogFlags</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">modal</span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:3Gtk11MessageTypea">MessageType</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">info</span><span class="p">,</span> <span class="nv">buttons</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:3Gtk11ButtonsTypea">ButtonsType</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">ok</span><span class="p">,</span> <span class="nv">text</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">secondaryText</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -11912,7 +11911,7 @@ See <code><a href="../Classes/Dialog.html">Dialog</a></code> for more details.</
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="n">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">W</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">parent</span><span class="p">:</span> <span class="kt">W</span><span class="p">,</span> <span class="nv">flags</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:3Gtk11DialogFlagsa">DialogFlags</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">modal</span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:3Gtk11MessageTypea">MessageType</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">info</span><span class="p">,</span> <span class="nv">buttons</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:3Gtk11ButtonsTypea">ButtonsType</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">ok</span><span class="p">,</span> <span class="nv">text</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">secondaryText</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="k">where</span> <span class="kt">W</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/WindowProtocol.html">WindowProtocol</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">W</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">parent</span><span class="p">:</span> <span class="kt">W</span><span class="p">,</span> <span class="nv">flags</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:3Gtk11DialogFlagsa">DialogFlags</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">modal</span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:3Gtk11MessageTypea">MessageType</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">info</span><span class="p">,</span> <span class="nv">buttons</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:3Gtk11ButtonsTypea">ButtonsType</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">ok</span><span class="p">,</span> <span class="nv">text</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">secondaryText</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="k">where</span> <span class="kt">W</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/WindowProtocol.html">WindowProtocol</a></span></code></pre>
 
                         </div>
                       </div>
@@ -12025,7 +12024,7 @@ See <code><a href="../Classes/Dialog.html">Dialog</a></code> for more details.</
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">flags</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:3Gtk11DialogFlagsa">DialogFlags</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">modal</span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:3Gtk11MessageTypea">MessageType</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">info</span><span class="p">,</span> <span class="nv">buttons</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:3Gtk11ButtonsTypea">ButtonsType</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">ok</span><span class="p">,</span> <span class="nv">markup</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">secondaryMarkup</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">flags</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:3Gtk11DialogFlagsa">DialogFlags</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">modal</span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:3Gtk11MessageTypea">MessageType</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">info</span><span class="p">,</span> <span class="nv">buttons</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:3Gtk11ButtonsTypea">ButtonsType</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">ok</span><span class="p">,</span> <span class="nv">markup</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">secondaryMarkup</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -12138,7 +12137,7 @@ See <code><a href="../Classes/Dialog.html">Dialog</a></code> for more details.</
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="n">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">W</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">parent</span><span class="p">:</span> <span class="kt">W</span><span class="p">,</span> <span class="nv">flags</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:3Gtk11DialogFlagsa">DialogFlags</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">modal</span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:3Gtk11MessageTypea">MessageType</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">info</span><span class="p">,</span> <span class="nv">buttons</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:3Gtk11ButtonsTypea">ButtonsType</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">ok</span><span class="p">,</span> <span class="nv">markup</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">secondaryMarkup</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="k">where</span> <span class="kt">W</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/WindowProtocol.html">WindowProtocol</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">W</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">parent</span><span class="p">:</span> <span class="kt">W</span><span class="p">,</span> <span class="nv">flags</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:3Gtk11DialogFlagsa">DialogFlags</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">modal</span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:3Gtk11MessageTypea">MessageType</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">info</span><span class="p">,</span> <span class="nv">buttons</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:3Gtk11ButtonsTypea">ButtonsType</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">ok</span><span class="p">,</span> <span class="nv">markup</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">secondaryMarkup</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="k">where</span> <span class="kt">W</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/WindowProtocol.html">WindowProtocol</a></span></code></pre>
 
                         </div>
                       </div>
@@ -12247,7 +12246,7 @@ See <code><a href="../Classes/Dialog.html">Dialog</a></code> for more details.</
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

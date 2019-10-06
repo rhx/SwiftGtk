@@ -11526,27 +11526,28 @@ It exposes methods that can operate on this data type through <code><a href="../
 Use <code>ScrollbarRef</code> only as an <code>unowned</code> reference to an existing <code>GtkScrollbar</code> instance.</p>
 
 <p>The <code>GtkScrollbar</code> widget is a horizontal or vertical scrollbar,
-depending on the value of the <code>GtkOrientable</code>:orientation property.</p>
+depending on the value of the <code>GtkOrientable:orientation</code> property.</p>
 
 <p>Its position and movement are controlled by the adjustment that is passed to
-or created by gtk_scrollbar_new(). See <code>GtkAdjustment</code> for more details. The
-<code>GtkAdjustment</code>:value field sets the position of the thumb and must be between
-<code>GtkAdjustment</code>:lower and <code>GtkAdjustment</code>:upper - <code>GtkAdjustment</code>:page-size. The
-<code>GtkAdjustment</code>:page-size represents the size of the visible scrollable area.
-The fields <code>GtkAdjustment</code>:step-increment and <code>GtkAdjustment</code>:page-increment
-fields are added to or subtracted from the <code>GtkAdjustment</code>:value when the user
+or created by <code>gtk_scrollbar_new()</code>. See <code>GtkAdjustment</code> for more details. The
+<code>GtkAdjustment:value</code> field sets the position of the thumb and must be between
+<code>GtkAdjustment:lower</code> and <code>GtkAdjustment:upper</code> - <code>GtkAdjustment:page</code>-size. The
+<code>GtkAdjustment:page</code>-size represents the size of the visible scrollable area.
+The fields <code>GtkAdjustment:step</code>-increment and <code>GtkAdjustment:page</code>-increment
+fields are added to or subtracted from the <code>GtkAdjustment:value</code> when the user
 asks to move by a step (using e.g. the cursor arrow keys or, if present, the
 stepper buttons) or by a page (using e.g. the Page Down/Up keys).</p>
+<h1 id='css-nodes' class='heading'>CSS nodes</h1>
 
-<p>&ldquo; CSS nodes</p>
-<pre class="highlight swift"><code><span class="n">scrollbar</span><span class="p">[</span><span class="o">.</span><span class="n">fine</span><span class="o">-</span><span class="n">tune</span><span class="p">]</span>
-<span class="err">╰──</span> <span class="n">contents</span>
-    <span class="err">├──</span> <span class="p">[</span><span class="n">button</span><span class="o">.</span><span class="n">up</span><span class="p">]</span>
-    <span class="err">├──</span> <span class="p">[</span><span class="n">button</span><span class="o">.</span><span class="n">down</span><span class="p">]</span>
-    <span class="err">├──</span> <span class="n">trough</span>
-    <span class="err">│</span>   <span class="err">╰──</span> <span class="n">slider</span>
-    <span class="err">├──</span> <span class="p">[</span><span class="n">button</span><span class="o">.</span><span class="n">up</span><span class="p">]</span>
-    <span class="err">╰──</span> <span class="p">[</span><span class="n">button</span><span class="o">.</span><span class="n">down</span><span class="p">]</span>
+<p>(plain Language Example):</p>
+<pre class="highlight plaintext"><code>scrollbar[.fine-tune]
+╰── contents
+    ├── [button.up]
+    ├── [button.down]
+    ├── trough
+    │   ╰── slider
+    ├── [button.up]
+    ╰── [button.down]
 </code></pre>
 
 <p>GtkScrollbar has a main CSS node with name scrollbar and a subnode for its
@@ -11596,7 +11597,7 @@ For type-safe access, use the generated, typed pointer <code>scrollbar_ptr</code
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L2280">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L2277">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11637,7 +11638,7 @@ For type-safe access, use the generated, typed pointer <code>scrollbar_ptr</code
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L2285-L2286">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L2282-L2283">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11667,7 +11668,7 @@ For type-safe access, use the generated, typed pointer <code>scrollbar_ptr</code
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L2289-L2291">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L2286-L2288">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11698,7 +11699,7 @@ For type-safe access, use the generated, typed pointer <code>scrollbar_ptr</code
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L2295-L2297">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L2292-L2294">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11729,7 +11730,7 @@ For type-safe access, use the generated, typed pointer <code>scrollbar_ptr</code
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L2301-L2303">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L2298-L2300">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11760,7 +11761,7 @@ For type-safe access, use the generated, typed pointer <code>scrollbar_ptr</code
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L2307-L2309">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L2304-L2306">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11791,7 +11792,7 @@ For type-safe access, use the generated, typed pointer <code>scrollbar_ptr</code
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L2313-L2315">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L2310-L2312">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11822,7 +11823,7 @@ For type-safe access, use the generated, typed pointer <code>scrollbar_ptr</code
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L2319-L2321">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L2316-L2318">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11852,7 +11853,7 @@ For type-safe access, use the generated, typed pointer <code>scrollbar_ptr</code
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L2324-L2327">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L2321-L2324">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11865,7 +11866,7 @@ For type-safe access, use the generated, typed pointer <code>scrollbar_ptr</code
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

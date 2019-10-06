@@ -11537,25 +11537,28 @@ See the <code>GtkAdjustment</code> section for more details about an adjustment&
 properties. Note that GtkSpinButton will by default make its entry
 large enough to accomodate the lower and upper bounds of the adjustment,
 which can lead to surprising results. Best practice is to set both
-the <code>GtkEntry</code>:width-chars and <code>GtkEntry</code>:max-width-chars poperties
+the <code>GtkEntry:width</code>-chars and <code>GtkEntry:max</code>-width-chars poperties
 to the desired number of characters to display in the entry.</p>
+<h1 id='css-nodes' class='heading'>CSS nodes</h1>
 
-<p>&ldquo; CSS nodes</p>
-<pre class="highlight swift"><code><span class="n">spinbutton</span><span class="o">.</span><span class="n">horizontal</span>
-<span class="err">├──</span> <span class="n">undershoot</span><span class="o">.</span><span class="n">left</span>
-<span class="err">├──</span> <span class="n">undershoot</span><span class="o">.</span><span class="n">right</span>
-<span class="err">├──</span> <span class="n">entry</span>
-<span class="err">│</span>   <span class="err">╰──</span> <span class="o">...</span>
-<span class="err">├──</span> <span class="n">button</span><span class="o">.</span><span class="n">down</span>
-<span class="err">╰──</span> <span class="n">button</span><span class="o">.</span><span class="n">up</span>
+<p>(plain Language Example):</p>
+<pre class="highlight plaintext"><code>spinbutton.horizontal
+├── undershoot.left
+├── undershoot.right
+├── entry
+│   ╰── ...
+├── button.down
+╰── button.up
 </code></pre>
-<pre class="highlight swift"><code><span class="n">spinbutton</span><span class="o">.</span><span class="n">vertical</span>
-<span class="err">├──</span> <span class="n">undershoot</span><span class="o">.</span><span class="n">left</span>
-<span class="err">├──</span> <span class="n">undershoot</span><span class="o">.</span><span class="n">right</span>
-<span class="err">├──</span> <span class="n">button</span><span class="o">.</span><span class="n">up</span>
-<span class="err">├──</span> <span class="n">entry</span>
-<span class="err">│</span>   <span class="err">╰──</span> <span class="o">...</span>
-<span class="err">╰──</span> <span class="n">button</span><span class="o">.</span><span class="n">down</span>
+
+<p>(plain Language Example):</p>
+<pre class="highlight plaintext"><code>spinbutton.vertical
+├── undershoot.left
+├── undershoot.right
+├── button.up
+├── entry
+│   ╰── ...
+╰── button.down
 </code></pre>
 
 <p>GtkSpinButtons main CSS node has the name spinbutton. It creates subnodes
@@ -11563,8 +11566,7 @@ for the entry and the two buttons, with these names. The button nodes have
 the style classes .up and .down. The GtkEntry subnodes (if present) are put
 below the entry node. The orientation of the spin button is reflected in
 the .vertical or .horizontal style class on the main node.</p>
-
-<p>&rdquo;` Using a GtkSpinButton to get an integer</p>
+<h2 id='using-a-gtkspinbutton-to-get-an-integer' class='heading'>Using a GtkSpinButton to get an integer</h2>
 
 <p>(C Language Example):</p>
 <pre class="highlight plaintext"><code>// Provides a function to retrieve an integer value from a GtkSpinButton
@@ -11596,8 +11598,7 @@ create_integer_spin_button (void)
   gtk_widget_show_all (window);
 }
 </code></pre>
-
-<p>&ldquo;` Using a GtkSpinButton to get a floating point value</p>
+<h2 id='using-a-gtkspinbutton-to-get-a-floating-point-value' class='heading'>Using a GtkSpinButton to get a floating point value</h2>
 
 <p>(C Language Example):</p>
 <pre class="highlight plaintext"><code>// Provides a function to retrieve a floating point value from a
@@ -11662,7 +11663,7 @@ For type-safe access, use the generated, typed pointer <code>spin_button_ptr</co
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L21447">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L21419">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11703,7 +11704,7 @@ For type-safe access, use the generated, typed pointer <code>spin_button_ptr</co
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L21452-L21453">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L21424-L21425">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11733,7 +11734,7 @@ For type-safe access, use the generated, typed pointer <code>spin_button_ptr</co
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L21456-L21458">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L21428-L21430">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11764,7 +11765,7 @@ For type-safe access, use the generated, typed pointer <code>spin_button_ptr</co
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L21462-L21464">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L21434-L21436">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11795,7 +11796,7 @@ For type-safe access, use the generated, typed pointer <code>spin_button_ptr</co
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L21468-L21470">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L21440-L21442">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11826,7 +11827,7 @@ For type-safe access, use the generated, typed pointer <code>spin_button_ptr</co
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L21474-L21476">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L21446-L21448">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11857,7 +11858,7 @@ For type-safe access, use the generated, typed pointer <code>spin_button_ptr</co
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L21480-L21482">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L21452-L21454">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11888,7 +11889,7 @@ For type-safe access, use the generated, typed pointer <code>spin_button_ptr</co
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L21486-L21488">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L21458-L21460">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11918,7 +11919,7 @@ For type-safe access, use the generated, typed pointer <code>spin_button_ptr</co
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L21491-L21494">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L21463-L21466">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11944,7 +11945,7 @@ precision of <code>step</code>.</p>
 
 <p>Note that the way in which the precision is derived works best if <code>step</code>
 is a power of ten. If the resulting precision is not suitable for your
-needs, use gtk_spin_button_set_digits() to correct it.</p>
+needs, use <code>gtk_spin_button_set_digits()</code> to correct it.</p>
 
                       </div>
                       <div class="declaration">
@@ -11956,7 +11957,7 @@ needs, use gtk_spin_button_set_digits() to correct it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L21505-L21508">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L21477-L21480">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11982,7 +11983,7 @@ precision of <code>step</code>.</p>
 
 <p>Note that the way in which the precision is derived works best if <code>step</code>
 is a power of ten. If the resulting precision is not suitable for your
-needs, use gtk_spin_button_set_digits() to correct it.</p>
+needs, use <code>gtk_spin_button_set_digits()</code> to correct it.</p>
 
                       </div>
                       <div class="declaration">
@@ -11994,7 +11995,7 @@ needs, use gtk_spin_button_set_digits() to correct it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L21518-L21521">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L21490-L21493">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12007,7 +12008,7 @@ needs, use gtk_spin_button_set_digits() to correct it.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

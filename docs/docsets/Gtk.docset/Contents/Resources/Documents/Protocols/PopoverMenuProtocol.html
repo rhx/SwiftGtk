@@ -11531,21 +11531,20 @@ children like menus and allows switching between them. It is
 meant to be used primarily together with <code>GtkModelButton</code>, but
 any widget can be used, such as <code>GtkSpinButton</code> or <code>GtkScale</code>.
 In this respect, GtkPopoverMenu is more flexible than popovers
-that are created from a <code>GMenuModel</code> with gtk_popover_new_from_model().</p>
+that are created from a <code>GMenuModel</code> with <code>gtk_popover_new_from_model()</code>.</p>
 
-<p>To add a child as a submenu, set the <code>GtkPopoverMenu</code>:submenu
+<p>To add a child as a submenu, set the <code>GtkPopoverMenu:submenu</code>
 child property to the name of the submenu. To let the user open
-this submenu, add a <code>GtkModelButton</code> whose <code>GtkModelButton</code>:menu-name
+this submenu, add a <code>GtkModelButton</code> whose <code>GtkModelButton:menu</code>-name
 property is set to the name you&rsquo;ve given to the submenu.</p>
 
 <p>By convention, the first child of a submenu should be a <code>GtkModelButton</code>
 to switch back to the parent menu. Such a button should use the
-<code>GtkModelButton</code>:inverted and <code>GtkModelButton</code>:centered properties
+<code>GtkModelButton:inverted</code> and <code>GtkModelButton:centered</code> properties
 to achieve a title-like appearance and place the submenu indicator
 at the opposite side. To switch back to the main menu, use <q>main</q>
 as the menu name.</p>
-
-<p>&ldquo; Example</p>
+<h1 id='example' class='heading'>Example</h1>
 <pre class="highlight swift"><code><span class="o">&lt;</span><span class="n">object</span> <span class="kd">class</span><span class="o">=</span><span class="s">"GtkPopoverMenu"</span><span class="o">&gt;</span>
   <span class="o">&lt;</span><span class="n">child</span><span class="o">&gt;</span>
     <span class="o">&lt;</span><span class="n">object</span> <span class="kd">class</span><span class="o">=</span><span class="s">"GtkBox"</span><span class="o">&gt;</span>
@@ -11629,7 +11628,7 @@ and get the .menu style class.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L6735">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L6722">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11667,7 +11666,7 @@ and get the .menu style class.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L6738">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L6725">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11795,7 +11794,7 @@ and get the .menu style class.</p>
                         <p>binding reference or <code>nil</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L7212-L7236">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L7197-L7221">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11887,7 +11886,7 @@ and get the .menu style class.</p>
                         <p>positive handler ID, or a value less than or equal to <code>0</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L8060-L8079">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L8044-L8063">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11921,11 +11920,11 @@ and get the .menu style class.</p>
                       <div class="abstract">
                         <p>Opens a submenu of the <code>popover</code>. The <code>name</code>
 must be one of the names given to the submenus
-of <code>popover</code> with <code>GtkPopoverMenu</code>:submenu, or
+of <code>popover</code> with <code>GtkPopoverMenu:submenu</code>, or
 <q>main</q> to switch back to the main menu.</p>
 
 <p><code>GtkModelButton</code> will open submenus automatically
-when the <code>GtkModelButton</code>:menu-name property is set,
+when the <code>GtkModelButton:menu</code>-name property is set,
 so this function is only needed when you are using
 other kinds of widgets to initiate menu changes.</p>
 
@@ -11939,7 +11938,7 @@ other kinds of widgets to initiate menu changes.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L8095-L8098">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-PageSetup-RadioAction.swift#L8079-L8082">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11952,7 +11951,7 @@ other kinds of widgets to initiate menu changes.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
