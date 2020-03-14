@@ -1970,8 +1970,8 @@ public extension BoxProtocol {
 /// property value using the attributes
 /// "bind-source" to specify the source object of the binding,
 /// "bind-property" to specify the source property and optionally
-/// "bind-flags" to specify the binding flags
-/// Internally builder implement this using GBinding objects.
+/// "bind-flags" to specify the binding flags.
+/// Internally builder implements this using GBinding objects.
 /// For more information see `g_object_bind_property()`
 /// 
 /// Signal handlers are set up with the <signal> element. The “name”
@@ -1990,7 +1990,7 @@ public extension BoxProtocol {
 /// been constructed by GTK+ as part of a composite widget, to set
 /// properties on them or to add further children (e.g. the `vbox` of
 /// a `GtkDialog`). This can be achieved by setting the “internal-child”
-/// propery of the <child> element to a true value. Note that GtkBuilder
+/// property of the <child> element to a true value. Note that GtkBuilder
 /// still requires an <object> element for the internal child, even if it
 /// has already been constructed.
 /// 
@@ -2164,8 +2164,8 @@ public protocol BuilderProtocol: GLibObject.ObjectProtocol {
 /// property value using the attributes
 /// "bind-source" to specify the source object of the binding,
 /// "bind-property" to specify the source property and optionally
-/// "bind-flags" to specify the binding flags
-/// Internally builder implement this using GBinding objects.
+/// "bind-flags" to specify the binding flags.
+/// Internally builder implements this using GBinding objects.
 /// For more information see `g_object_bind_property()`
 /// 
 /// Signal handlers are set up with the <signal> element. The “name”
@@ -2184,7 +2184,7 @@ public protocol BuilderProtocol: GLibObject.ObjectProtocol {
 /// been constructed by GTK+ as part of a composite widget, to set
 /// properties on them or to add further children (e.g. the `vbox` of
 /// a `GtkDialog`). This can be achieved by setting the “internal-child”
-/// propery of the <child> element to a true value. Note that GtkBuilder
+/// property of the <child> element to a true value. Note that GtkBuilder
 /// still requires an <object> element for the internal child, even if it
 /// has already been constructed.
 /// 
@@ -2480,8 +2480,8 @@ public extension BuilderRef {
 /// property value using the attributes
 /// "bind-source" to specify the source object of the binding,
 /// "bind-property" to specify the source property and optionally
-/// "bind-flags" to specify the binding flags
-/// Internally builder implement this using GBinding objects.
+/// "bind-flags" to specify the binding flags.
+/// Internally builder implements this using GBinding objects.
 /// For more information see `g_object_bind_property()`
 /// 
 /// Signal handlers are set up with the <signal> element. The “name”
@@ -2500,7 +2500,7 @@ public extension BuilderRef {
 /// been constructed by GTK+ as part of a composite widget, to set
 /// properties on them or to add further children (e.g. the `vbox` of
 /// a `GtkDialog`). This can be achieved by setting the “internal-child”
-/// propery of the <child> element to a true value. Note that GtkBuilder
+/// property of the <child> element to a true value. Note that GtkBuilder
 /// still requires an <object> element for the internal child, even if it
 /// has already been constructed.
 /// 

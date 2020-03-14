@@ -378,6 +378,8 @@ public extension ScaleAccessibleProtocol {
 /// 
 /// GtkScaleButton has a single CSS node with name button. To differentiate
 /// it from a plain `GtkButton`, it gets the .scale style class.
+/// 
+/// The popup widget that contains the scale has a .scale-popup style class.
 public protocol ScaleButtonProtocol: ButtonProtocol, OrientableProtocol {
     /// Untyped pointer to the underlying `GtkScaleButton` instance.
     var ptr: UnsafeMutableRawPointer { get }
@@ -399,6 +401,8 @@ public protocol ScaleButtonProtocol: ButtonProtocol, OrientableProtocol {
 /// 
 /// GtkScaleButton has a single CSS node with name button. To differentiate
 /// it from a plain `GtkButton`, it gets the .scale style class.
+/// 
+/// The popup widget that contains the scale has a .scale-popup style class.
 public struct ScaleButtonRef: ScaleButtonProtocol {
     /// Untyped pointer to the underlying `GtkScaleButton` instance.
     /// For type-safe access, use the generated, typed pointer `scale_button_ptr` property instead.
@@ -466,6 +470,8 @@ public extension ScaleButtonRef {
 /// 
 /// GtkScaleButton has a single CSS node with name button. To differentiate
 /// it from a plain `GtkButton`, it gets the .scale style class.
+/// 
+/// The popup widget that contains the scale has a .scale-popup style class.
 open class ScaleButton: Button, ScaleButtonProtocol {
     /// Designated initialiser from the underlying `C` data type.
     /// Ownership is transferred to the `ScaleButton` instance.

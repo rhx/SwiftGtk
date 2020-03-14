@@ -21218,7 +21218,17 @@ public extension TreeModelSortRef {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
+        /// Creates a new `GtkTreeModelSort`, with `child_model` as the child model.
+    init(model child_model: TreeModelProtocol) {
+        let rv = gtk_tree_model_sort_new_with_model(cast(child_model.ptr))
+        self.init(cast(rv))
     }
+    /// Creates a new `GtkTreeModelSort`, with `child_model` as the child model.
+    static func newWith(model child_model: TreeModelProtocol) -> TreeModelSortRef! {
+        let rv = gtk_tree_model_sort_new_with_model(cast(child_model.ptr))
+        return rv.map { TreeModelSortRef(cast($0)) }
+    }
+}
 
 /// The `TreeModelSort` type acts as a reference-counted owner of an underlying `GtkTreeModelSort` instance.
 /// It provides the methods that can operate on this data type through `TreeModelSortProtocol` conformance.
@@ -21359,7 +21369,17 @@ open class TreeModelSort: GLibObject.Object, TreeModelSortProtocol {
         self.init(UnsafeMutablePointer<GtkTreeModelSort>(opaquePointer))
     }
 
+    /// Creates a new `GtkTreeModelSort`, with `child_model` as the child model.
+    public convenience init(model child_model: TreeModelProtocol) {
+        let rv = gtk_tree_model_sort_new_with_model(cast(child_model.ptr))
+        self.init(cast(rv))
+    }
 
+    /// Creates a new `GtkTreeModelSort`, with `child_model` as the child model.
+    public static func newWith(model child_model: TreeModelProtocol) -> TreeModelSort! {
+        let rv = gtk_tree_model_sort_new_with_model(cast(child_model.ptr))
+        return rv.map { TreeModelSort(cast($0)) }
+    }
 
 }
 

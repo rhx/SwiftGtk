@@ -18,7 +18,7 @@ import Atk
 /// Like `gtk_get_binary_age()`, but from the headers used at
 /// application compile time, rather than from the library linked
 /// against at application run time.
-public let BINARY_AGE = GTK_BINARY_AGE /* gint 2412 */
+public let BINARY_AGE = GTK_BINARY_AGE /* gint 2414 */
 
 /// Constant to return from a signal handler for the `GtkSpinButton::input`
 /// signal in case of conversion failure.
@@ -49,7 +49,7 @@ public let MAX_COMPOSE_LEN = GTK_MAX_COMPOSE_LEN /* gint 7 */
 /// Like `gtk_get_micro_version()`, but from the headers used at
 /// application compile time, rather than from the library linked
 /// against at application run time.
-public let MICRO_VERSION = GTK_MICRO_VERSION /* gint 12 */
+public let MICRO_VERSION = GTK_MICRO_VERSION /* gint 14 */
 
 /// Like `gtk_get_minor_version()`, but from the headers used at
 /// application compile time, rather than from the library linked

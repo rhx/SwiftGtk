@@ -675,6 +675,8 @@ public extension InputPurpose {
     static let password = GTK_INPUT_PURPOSE_PASSWORD /* 8 */
     /// Like `GTK_INPUT_PURPOSE_DIGITS`, but characters are hidden
     static let pin = GTK_INPUT_PURPOSE_PIN /* 9 */
+    /// Allow any character, in addition to control codes
+    static let terminal = GTK_INPUT_PURPOSE_TERMINAL /* 10 */
 }
 
 /// Used for justifying the text inside a `GtkLabel` widget. (See also

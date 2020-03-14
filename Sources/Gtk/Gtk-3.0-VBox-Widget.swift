@@ -29,21 +29,25 @@ import Atk
 /// 
 /// All children are allocated the same width.
 /// 
-/// GtkVBox has been deprecated. You can use `GtkBox` instead, which is a
-/// very quick and easy change. If you have derived your own classes from
-/// GtkVBox, you can simply change the inheritance to derive directly
-/// from `GtkBox`, and set the `GtkOrientable:orientation` property to
-/// `GTK_ORIENTATION_VERTICAL` in your instance init function, with a
-/// call like:
+/// GtkVBox has been deprecated. You can use `GtkBox` with a `GtkOrientable:orientation`
+/// set to `GTK_ORIENTATION_VERTICAL` instead when calling `gtk_box_new()`,
+/// which is a very quick and easy change.
+/// 
+/// If you have derived your own classes from GtkVBox, you can change the
+/// inheritance to derive directly from `GtkBox`, and set the `GtkOrientable:orientation`
+/// property to `GTK_ORIENTATION_VERTICAL` in your instance init function,
+/// with a call like:
+/// 
 /// (C Language Example):
 /// ```C
 ///   gtk_orientable_set_orientation (GTK_ORIENTABLE (object),
 ///                                   GTK_ORIENTATION_VERTICAL);
 /// ```
-/// If you don’t need first-child or last-child styling and want your code
-/// to be future-proof, the recommendation is to switch to `GtkGrid` instead
-/// of nested boxes. For more information about migrating to `GtkGrid`,
-/// see [Migrating from other containers to GtkGrid](#gtk-migrating-GtkGrid).
+/// 
+/// If you have a grid-like layout composed of nested boxes, and you don’t
+/// need first-child or last-child styling, the recommendation is to switch
+/// to `GtkGrid`. For more information about migrating to `GtkGrid`, see
+/// [Migrating from other containers to GtkGrid](#gtk-migrating-GtkGrid).
 public protocol VBoxProtocol: BoxProtocol {
     /// Untyped pointer to the underlying `GtkVBox` instance.
     var ptr: UnsafeMutableRawPointer { get }
@@ -63,21 +67,25 @@ public protocol VBoxProtocol: BoxProtocol {
 /// 
 /// All children are allocated the same width.
 /// 
-/// GtkVBox has been deprecated. You can use `GtkBox` instead, which is a
-/// very quick and easy change. If you have derived your own classes from
-/// GtkVBox, you can simply change the inheritance to derive directly
-/// from `GtkBox`, and set the `GtkOrientable:orientation` property to
-/// `GTK_ORIENTATION_VERTICAL` in your instance init function, with a
-/// call like:
+/// GtkVBox has been deprecated. You can use `GtkBox` with a `GtkOrientable:orientation`
+/// set to `GTK_ORIENTATION_VERTICAL` instead when calling `gtk_box_new()`,
+/// which is a very quick and easy change.
+/// 
+/// If you have derived your own classes from GtkVBox, you can change the
+/// inheritance to derive directly from `GtkBox`, and set the `GtkOrientable:orientation`
+/// property to `GTK_ORIENTATION_VERTICAL` in your instance init function,
+/// with a call like:
+/// 
 /// (C Language Example):
 /// ```C
 ///   gtk_orientable_set_orientation (GTK_ORIENTABLE (object),
 ///                                   GTK_ORIENTATION_VERTICAL);
 /// ```
-/// If you don’t need first-child or last-child styling and want your code
-/// to be future-proof, the recommendation is to switch to `GtkGrid` instead
-/// of nested boxes. For more information about migrating to `GtkGrid`,
-/// see [Migrating from other containers to GtkGrid](#gtk-migrating-GtkGrid).
+/// 
+/// If you have a grid-like layout composed of nested boxes, and you don’t
+/// need first-child or last-child styling, the recommendation is to switch
+/// to `GtkGrid`. For more information about migrating to `GtkGrid`, see
+/// [Migrating from other containers to GtkGrid](#gtk-migrating-GtkGrid).
 public struct VBoxRef: VBoxProtocol {
     /// Untyped pointer to the underlying `GtkVBox` instance.
     /// For type-safe access, use the generated, typed pointer `vbox_ptr` property instead.
@@ -148,21 +156,25 @@ public extension VBoxRef {
 /// 
 /// All children are allocated the same width.
 /// 
-/// GtkVBox has been deprecated. You can use `GtkBox` instead, which is a
-/// very quick and easy change. If you have derived your own classes from
-/// GtkVBox, you can simply change the inheritance to derive directly
-/// from `GtkBox`, and set the `GtkOrientable:orientation` property to
-/// `GTK_ORIENTATION_VERTICAL` in your instance init function, with a
-/// call like:
+/// GtkVBox has been deprecated. You can use `GtkBox` with a `GtkOrientable:orientation`
+/// set to `GTK_ORIENTATION_VERTICAL` instead when calling `gtk_box_new()`,
+/// which is a very quick and easy change.
+/// 
+/// If you have derived your own classes from GtkVBox, you can change the
+/// inheritance to derive directly from `GtkBox`, and set the `GtkOrientable:orientation`
+/// property to `GTK_ORIENTATION_VERTICAL` in your instance init function,
+/// with a call like:
+/// 
 /// (C Language Example):
 /// ```C
 ///   gtk_orientable_set_orientation (GTK_ORIENTABLE (object),
 ///                                   GTK_ORIENTATION_VERTICAL);
 /// ```
-/// If you don’t need first-child or last-child styling and want your code
-/// to be future-proof, the recommendation is to switch to `GtkGrid` instead
-/// of nested boxes. For more information about migrating to `GtkGrid`,
-/// see [Migrating from other containers to GtkGrid](#gtk-migrating-GtkGrid).
+/// 
+/// If you have a grid-like layout composed of nested boxes, and you don’t
+/// need first-child or last-child styling, the recommendation is to switch
+/// to `GtkGrid`. For more information about migrating to `GtkGrid`, see
+/// [Migrating from other containers to GtkGrid](#gtk-migrating-GtkGrid).
 open class VBox: Box, VBoxProtocol {
     /// Designated initialiser from the underlying `C` data type.
     /// Ownership is transferred to the `VBox` instance.

@@ -1356,12 +1356,6 @@ public extension TreeModelProtocol {
     
     }
 
-    /// Creates a new `GtkTreeModel`, with `child_model` as the child model.
-    func sortNewWithModel() -> UnsafeMutablePointer<GtkTreeModel>! {
-        let rv = gtk_tree_model_sort_new_with_model(cast(tree_model_ptr))
-        return cast(rv)
-    }
-
     /// Lets the tree unref the node.
     /// 
     /// This is an optional method for models to implement.
