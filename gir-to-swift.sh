@@ -35,4 +35,8 @@ else
 	mv ${src}.out ${src}
     done
 fi
+if ! pkg-config --atleast-version=3.24 $module ; then
+	rm -f Sources/${Mod}/EventControllerSignal.swift
+	rm -f Sources/${Mod}/GestureSignal.swift
+fi
 touch Sources/${Mod}/${Module}.swift
