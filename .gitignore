@@ -6,4 +6,5 @@
 Package.pins
 Package.resolved
 Gtk.tgz
+*-*.swift
 *-*.swift.out
