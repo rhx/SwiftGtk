@@ -2,7 +2,32 @@
 #
 # Patch the generated wrapper Swift code to handle special cases
 #
-BEGIN { depr_init = 0 ; comment = 0 ; slist = 0 }
+BEGIN { depr_init = 0 ; comment = 0 ; slist = 0 ; overr = 0 ; ostock = 0 }
+/Creates a new `GtkRecentChooserMenu` widget\.$/ { overr = 1 }
+/a swatch representing the current selected color. When the button/ { overr = 1 }
+#/Creates a new dialog box/ { overr = 1 }
+/Creates a new font picker widget/ { overr = 1 }
+/Creates a new toggle button/ { overr = 1 }
+/Creates a new GtkModelButton/ { overr = 1 ; sub("GtkModelButton", "`GtkModelButton`") }
+/Creates a new `GtkAboutDialog`\.$/ { overr = 1 }
+/Creates a new `GtkCellRendererAccel`/ { overr = 1 }
+/Creates a new `GtkCellRendererCombo`/ { overr = 1 }
+/Creates a new `GtkCellRendererSpin`/ { overr = 1 }
+/Creates a new `GtkCheckButton`/ { overr = 1 }
+/Creates a new `GtkCheckMenuItem`/ { overr = 1 }
+/Creates a new `GtkComboBoxText`/ { overr = 1 }
+/Creates a new `GtkImageMenuItem` with an empty label/ { overr = 1 }
+/Creates a new `GtkImageMenuItem` containing a label/ { overr = 1 }
+/Creates a new `GtkMenuButton`/ { overr = 1 }
+/Creates a new `GtkMenuToolButton`/ { overr = 1 }
+/Creates a `GtkSearchEntry`/ { overr = 1 }
+/Creates a new `GtkSeparatorMenuItem`/ { overr = 1 }
+/Create a new `GtkSeparatorToolItem`/ { overr = 1 }
+/Creates a new `GtkTearoffMenuItem`/ { overr = 1 }
+/Creates a new `GtkToggleAction`/ { overr = 1 }
+/Creates a new `GtkToggleButton`/ { overr = 1 }
+/Creates a new `GtkToggleToolButton`/ { overr = 1 }
+/Creates a new `GtkRecentAction`/ { ostock = 1 }
 /open .* ColorSelection/ { depr_init = 1 }
 /public .* ColorSelection/ { depr_init = 1 }
 /public .* HSV/ { depr_init = 1 }
@@ -27,60 +52,72 @@ BEGIN { depr_init = 0 ; comment = 0 ; slist = 0 }
 	}
 }
 /^    }$/ { slist = 0 }
+/^    public init[(]/ {
+	if (overr) {
+		printf("override ")
+		overr = 0
+	}
+}
+/^    public init.*stock_id: UnsafePointer<gchar>[)]/ {
+	if (ostock) {
+		printf("override ")
+		ostock = 0
+	}
+}
 / init.. {/ {
 	if (depr_init) {
-		printf("@available(*, deprecated) ")
+		printf("    @available(*, deprecated)\n")
 		depr_init = 0
 	}
 }
 / init. title:/ {
 	if (depr_init) {
-		printf("@available(*, deprecated) ")
+		printf("    @available(*, deprecated)\n")
 		depr_init = 0
 	}
 }
 /^open class RadioButton:/ {
 	print
-	print "    /// Convenience constructor for creating a RadioButton with a text label,"
+	print "    /// Constructor for creating a RadioButton with a text label,"
 	print "    /// creating a new group."
 	print "    ///"
 	print "    /// - Parameter label: the label to use for the button"
-	print "    public convenience init(label: UnsafePointer<gchar>) {"
+	print "    public override init(label: UnsafePointer<gchar>) {"
 	print "        let rv = gtk_radio_button_new_with_label(nil, label)"
-	print "        self.init(cast(rv))"
+	print "        super.init(cast(rv))"
 	print "    }"
 	print ""
-	print "    /// Convenience constructor for creating a RadioButton with a text label"
+	print "    /// Constructor for creating a RadioButton with a text label"
 	print "    /// that contains menomics creates a new group.  Underscores in `label`"
 	print "    /// indicate the mnemonic for the button."
 	print "    ///"
 	print "    /// - Parameter label: the label (including mnemonic) to use for the button"
-	print "    public convenience init(mnemonic label: UnsafePointer<gchar>) {"
+	print "    public override init(mnemonic label: UnsafePointer<gchar>) {"
 	print "        let rv = gtk_radio_button_new_with_mnemonic(nil, label)"
-	print "        self.init(cast(rv))"
+	print "        super.init(cast(rv))"
 	print "    }"
 	print ""
 	next
 }
 /^open class RadioMenuItem:/ {
 	print
-	print "    /// Convenience constructor for creating a RadioMenuItem with a text label,"
+	print "    /// Constructor for creating a RadioMenuItem with a text label,"
 	print "    /// creating a new group."
 	print "    ///"
 	print "    /// - Parameter label: the label to use for the button"
-	print "    public convenience init(label: UnsafePointer<gchar>) {"
+	print "    public override init(label: UnsafePointer<gchar>) {"
 	print "        let rv = gtk_radio_menu_item_new_with_label(nil, label)"
-	print "        self.init(cast(rv))"
+	print "        super.init(cast(rv))"
 	print "    }"
 	print ""
-	print "    /// Convenience constructor for creating a RadioMenuItem with a text label"
+	print "    /// Constructor for creating a RadioMenuItem with a text label"
 	print "    /// that contains menomics and creates a new group.  Underscores in `label`"
 	print "    /// indicate the mnemonic for the button."
 	print "    ///"
 	print "    /// - Parameter label: the label (including mnemonic) to use for the button"
-	print "    public convenience init(mnemonic label: UnsafePointer<gchar>) {"
+	print "    public override init(mnemonic label: UnsafePointer<gchar>) {"
 	print "        let rv = gtk_radio_menu_item_new_with_mnemonic(nil, label)"
-	print "        self.init(cast(rv))"
+	print "        super.init(cast(rv))"
 	print "    }"
 	print ""
 	next
@@ -88,9 +125,9 @@ BEGIN { depr_init = 0 ; comment = 0 ; slist = 0 }
 /^open class RadioToolButton:/ {
 	print
 	print "    /// Convenience constructor for creating a RadioToolButton group."
-	print "    public convenience init() {"
+	print "    public override init() {"
 	print "        let rv = gtk_radio_tool_button_new(nil)"
-	print "        self.init(cast(rv))"
+	print "        super.init(cast(rv))"
 	print "    }"
 	print ""
 	next
@@ -101,4 +138,4 @@ BEGIN { depr_init = 0 ; comment = 0 ; slist = 0 }
 	}
 	print
 }
-/^    }$/ { comment = 0 }
+/^    }$/ { comment = 0 ; overr = 0 ; ostock = 0 }

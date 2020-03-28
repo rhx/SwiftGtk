@@ -10,6 +10,7 @@ s/open class TreeIter: TreeIterProtocol/open class TreeIterBase: TreeIterProtoco
 s/setApplicationName(applicationName:/set(applicationName:/
 s/static func newWith(with_label label/static func newWith(label/g
 s/  public static func newWith(with_label label: UnsafePointer<gchar>) -> ToggleButton/  override public static func newWith(with_label label: UnsafePointer<gchar>) -> ToggleButton/
+s/\(public init(font fontname: UnsafePointer<gchar>)\)/ \1/
 s/\(public typealias Stock = GtkStock\)/@available(*, deprecated) \1/
 s/\(func getCurrentAlpha.. -> UInt16\)/@available(*, deprecated) \1/
 s/\(func getPreviousAlpha.. -> UInt16\)/@available(*, deprecated) \1/
@@ -51,6 +52,8 @@ s/\(public func showURI.screen:\)/@available(*, deprecated) \1/
 s/\(  func showURI.screen:\)/@available(*, deprecated)\1/
 s/\(public func dragDestSetProxy.proxyWindow\)/@available(*, deprecated) \1/
 s/\(func dragDestSetProxy.proxyWindow\)/@available(*, deprecated) \1/
+s/\(@available(., deprecated)\) /\1\
+    /
 s/gtk_gradient_ref/g_object_ref/
 s/gtk_gradient_unref/g_object_unref/
 s/gtk_icon_set_ref/g_object_ref/
@@ -105,7 +108,7 @@ s/gtk_drag_set_icon_gicon/\/\/ gtk_drag_set_icon_gicon/
 s/gtk_drag_source_set_icon_gicon/\/\/ gtk_drag_source_set_icon_gicon/
 s/init.icon_name: UnsafePointer<gchar>, size: CInt/init(iconName icon_name: UnsafePointer<gchar>, size: GtkIconSize/
 s/static func newFromIconName.icon_name: UnsafePointer<gchar>, size: CInt/static func newFrom(iconName icon_name: UnsafePointer<gchar>, size: GtkIconSize/
-s/convenience init.icon_name: UnsafePointer<gchar>, size: CInt/convenience init(icon_name: UnsafePointer<gchar>, size: GtkIconSize/
+s/init.icon_name: UnsafePointer<gchar>, size: CInt/init(icon_name: UnsafePointer<gchar>, size: GtkIconSize/
 s/static func newFrom.iconName icon_name: UnsafePointer<gchar>, size: CInt/static func newFrom(iconName icon_name: UnsafePointer<gchar>, size: GtkIconSize/
 s/init.gicon icon: IconProtocol, size: CInt/init(icon: IconProtocol, size: GtkIconSize/
 s/init.icon_name: UnsafePointer<gchar>, size: CInt/init(iconName icon_name: UnsafePointer<gchar>, size: GtkIconSize/
