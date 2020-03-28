@@ -68,6 +68,8 @@ s/: GdkAtom {/: GdkAtom! {/
 s/ Callback/ GCallback/
 s/ApplicationProtocol: ApplicationProtocol/ApplicationProtocol: Gio.ApplicationProtocol/
 s/Application: Application/Application: Gio.Application/
+s/(application other: T)/(gtkApplication other: T)/
+s/(mountOperation other: T)/(gtkMountOperation other: T)/
 s/: DeviceProtocol/: Gdk.DeviceProtocol/
 s/MountOperationProtocol: MountOperationProtocol/MountOperationProtocol: Gio.MountOperationProtocol/
 s/MountOperation: MountOperation/MountOperation: Gio.MountOperation/

@@ -61,13 +61,13 @@ After that, use the (usual) Build and Test buttons to build/test this package.  
 To build, you need at least Swift 4.2 (Swift 5.x should work fine), download from https://swift.org/download/ -- if you are using macOS, make sure you have the command line tools installed as well).  Test that your compiler works using `swift --version`, which should give you something like
 
 	$ swift --version
-	Apple Swift version 5.1.3 (swiftlang-1100.0.282.1 clang-1100.0.33.15)
+	Apple Swift version 5.2 (swiftlang-1103.0.32.1 clang-1103.0.32.29)
 	Target: x86_64-apple-darwin19.4.0
 
 on macOS, or on Linux you should get something like:
 
 	$ swift --version
-	Swift version 5.1.5 (swift-5.1.5-RELEASE)
+	Swift version 5.2 (swift-5.2-RELEASE)
 	Target: x86_64-unknown-linux-gnu
 
 ### Gtk 3.18 or higher
