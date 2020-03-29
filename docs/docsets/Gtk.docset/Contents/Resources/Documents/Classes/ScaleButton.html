@@ -23,7 +23,7 @@
         <a class="header-link" href="../index.html">
           Gtk 3.24.14 Docs
         </a>
-         (77% documented)
+         (78% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -11635,7 +11635,8 @@ it from a plain <code>GtkButton</code>, it gets the .scale style class.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Designated initialiser from the underlying <code>C</code> data type.
-Ownership is transferred to the <code>ScaleButton</code> instance.</p>
+This creates an instance without performing an unbalanced retain
+i.e., ownership is transferred to the <code>ScaleButton</code> instance.</p>
 
                       </div>
                       <div class="declaration">
@@ -11646,8 +11647,27 @@ Ownership is transferred to the <code>ScaleButton</code> instance.</p>
 
                         </div>
                       </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>op</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>pointer to the underlying object</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L478-L480">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L521-L523">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11655,9 +11675,9 @@ Ownership is transferred to the <code>ScaleButton</code> instance.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:3Gtk11ScaleButtonCyACxcAA0bC8ProtocolRzlufc"></a>
-                    <a name="//apple_ref/swift/Method/init(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:3Gtk11ScaleButtonCyACxcAA0bC8ProtocolRzlufc">init(_:)</a>
+                    <a name="/s:3Gtk11ScaleButtonC9retainingACSpySo01_abC0VG_tcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(retaining:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3Gtk11ScaleButtonC9retainingACSpySo01_abC0VG_tcfc">init(retaining:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -11665,7 +11685,58 @@ Ownership is transferred to the <code>ScaleButton</code> instance.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Reference convenience intialiser for a related type that implements <code><a href="../Protocols/ScaleButtonProtocol.html">ScaleButtonProtocol</a></code>
+                        <p>Designated initialiser from the underlying <code>C</code> data type.
+Will retain <code>GtkScaleButton</code>.
+i.e., ownership is transferred to the <code>ScaleButton</code> instance.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">retaining</span> <span class="nv">op</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">GtkScaleButton</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>op</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>pointer to the underlying object</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L529-L531">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3Gtk11ScaleButtonC05scaleC0ACx_tcAA0bC8ProtocolRzlufc"></a>
+                    <a name="//apple_ref/swift/Method/init(scaleButton:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3Gtk11ScaleButtonC05scaleC0ACx_tcAA0bC8ProtocolRzlufc">init(scaleButton:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Reference intialiser for a related type that implements <code><a href="../Protocols/ScaleButtonProtocol.html">ScaleButtonProtocol</a></code>
 Will retain <code>GtkScaleButton</code>.</p>
 
                       </div>
@@ -11673,12 +11744,31 @@ Will retain <code>GtkScaleButton</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">other</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/ScaleButtonProtocol.html">ScaleButtonProtocol</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">scaleButton</span> <span class="nv">other</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/ScaleButtonProtocol.html">ScaleButtonProtocol</a></span></code></pre>
 
                         </div>
                       </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>other</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>an instance of a related type that implements <code><a href="../Protocols/ScaleButtonProtocol.html">ScaleButtonProtocol</a></code></p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L484-L487">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L536-L538">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11704,12 +11794,81 @@ Will retain <code>GtkScaleButton</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">cPointer</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">public</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">cPointer</span> <span class="nv">p</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>cPointer</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>pointer to the underlying object</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L491-L493">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L543-L545">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3Gtk11ScaleButtonC17retainingCPointerACSpyxG_tclufc"></a>
+                    <a name="//apple_ref/swift/Method/init(retainingCPointer:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3Gtk11ScaleButtonC17retainingCPointerACSpyxG_tclufc">init(retainingCPointer:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Unsafe typed, retaining initialiser.
+<strong>Do not use unless you know the underlying data type the pointer points to conforms to <code><a href="../Protocols/ScaleButtonProtocol.html">ScaleButtonProtocol</a></code>.</strong></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">public</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">retainingCPointer</span> <span class="nv">cPointer</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>cPointer</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>pointer to the underlying object</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L550-L552">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11735,12 +11894,62 @@ Will retain <code>GtkScaleButton</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeRawPointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">raw</span> <span class="nv">p</span><span class="p">:</span> <span class="kt">UnsafeRawPointer</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>p</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>raw pointer to the underlying object</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L557-L559">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3Gtk11ScaleButtonC12retainingRawACSV_tcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(retainingRaw:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3Gtk11ScaleButtonC12retainingRawACSV_tcfc">init(retainingRaw:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Unsafe untyped, retaining initialiser.
+<strong>Do not use unless you know the underlying data type the pointer points to conforms to <code><a href="../Protocols/ScaleButtonProtocol.html">ScaleButtonProtocol</a></code>.</strong></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">retainingRaw</span> <span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L497-L499">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L563-L565">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11766,12 +11975,81 @@ Will retain <code>GtkScaleButton</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">raw</span> <span class="nv">p</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>p</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>mutable raw pointer to the underlying object</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L503-L505">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L570-L572">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3Gtk11ScaleButtonC12retainingRawACSv_tcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(retainingRaw:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3Gtk11ScaleButtonC12retainingRawACSv_tcfc">init(retainingRaw:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Unsafe untyped, retaining initialiser.
+<strong>Do not use unless you know the underlying data type the pointer points to conforms to <code><a href="../Protocols/ScaleButtonProtocol.html">ScaleButtonProtocol</a></code>.</strong></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">retainingRaw</span> <span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>raw</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>mutable raw pointer to the underlying object</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L577-L579">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11797,12 +12075,81 @@ Will retain <code>GtkScaleButton</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">opaquePointer</span><span class="p">:</span> <span class="kt">OpaquePointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">opaquePointer</span> <span class="nv">p</span><span class="p">:</span> <span class="kt">OpaquePointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>p</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>opaque pointer to the underlying object</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L509-L511">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L584-L586">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3Gtk11ScaleButtonC22retainingOpaquePointerACs0eF0V_tcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(retainingOpaquePointer:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3Gtk11ScaleButtonC22retainingOpaquePointerACs0eF0V_tcfc">init(retainingOpaquePointer:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Unsafe untyped, retaining initialiser.
+<strong>Do not use unless you know the underlying data type the pointer points to conforms to <code><a href="../Protocols/ScaleButtonProtocol.html">ScaleButtonProtocol</a></code>.</strong></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">retainingOpaquePointer</span> <span class="nv">p</span><span class="p">:</span> <span class="kt">OpaquePointer</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>p</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>opaque pointer to the underlying object</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L591-L593">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11828,12 +12175,12 @@ a stepping of <code>step</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">size</span><span class="p">:</span> <span class="kt">GtkIconSize</span><span class="p">,</span> <span class="nv">min</span><span class="p">:</span> <span class="n">gdouble</span><span class="p">,</span> <span class="nv">max</span><span class="p">:</span> <span class="n">gdouble</span><span class="p">,</span> <span class="nv">step</span><span class="p">:</span> <span class="n">gdouble</span><span class="p">,</span> <span class="nv">icons</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;&gt;</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">size</span><span class="p">:</span> <span class="kt">GtkIconSize</span><span class="p">,</span> <span class="nv">min</span><span class="p">:</span> <span class="n">gdouble</span><span class="p">,</span> <span class="nv">max</span><span class="p">:</span> <span class="n">gdouble</span><span class="p">,</span> <span class="nv">step</span><span class="p">:</span> <span class="n">gdouble</span><span class="p">,</span> <span class="nv">icons</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;&gt;</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L515-L518">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessible-Table.swift#L597-L600">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11846,7 +12193,7 @@ a stepping of <code>step</code>.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2020 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2020-03-14)</p>
+      <p>&copy; 2020 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2020-03-29)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

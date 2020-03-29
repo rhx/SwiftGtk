@@ -23,7 +23,7 @@
         <a class="header-link" href="../index.html">
           Gtk 3.24.14 Docs
         </a>
-         (77% documented)
+         (78% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -11636,7 +11636,7 @@ For type-safe access, use the generated, typed pointer <code>tree_path_ptr</code
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TableClass-UIManagerClass.swift#L9659">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TableClass-UIManagerClass.swift#L12433">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11655,7 +11655,8 @@ For type-safe access, use the generated, typed pointer <code>tree_path_ptr</code
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Designated initialiser from the underlying <code>C</code> data type.
-Ownership is transferred to the <code>TreePath</code> instance.</p>
+This creates an instance without performing an unbalanced retain
+i.e., ownership is transferred to the <code>TreePath</code> instance.</p>
 
                       </div>
                       <div class="declaration">
@@ -11666,8 +11667,78 @@ Ownership is transferred to the <code>TreePath</code> instance.</p>
 
                         </div>
                       </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>op</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>pointer to the underlying object</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TableClass-UIManagerClass.swift#L9663-L9665">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TableClass-UIManagerClass.swift#L12439-L12441">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3Gtk8TreePathC9retainingACSpySo01_abC0VG_tcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(retaining:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3Gtk8TreePathC9retainingACSpySo01_abC0VG_tcfc">init(retaining:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Designated initialiser from the underlying <code>C</code> data type.
+<code>GtkTreePath</code> does not allow reference counting, so despite the name no actual retaining will occur.
+i.e., ownership is transferred to the <code>TreePath</code> instance.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">retaining</span> <span class="nv">op</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">GtkTreePath</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>op</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>pointer to the underlying object</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TableClass-UIManagerClass.swift#L12447-L12450">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11685,7 +11756,7 @@ Ownership is transferred to the <code>TreePath</code> instance.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Reference convenience intialiser for a related type that implements <code><a href="../Protocols/TreePathProtocol.html">TreePathProtocol</a></code>
+                        <p>Reference intialiser for a related type that implements <code><a href="../Protocols/TreePathProtocol.html">TreePathProtocol</a></code>
 <code>GtkTreePath</code> does not allow reference counting.</p>
 
                       </div>
@@ -11693,12 +11764,31 @@ Ownership is transferred to the <code>TreePath</code> instance.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">other</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/TreePathProtocol.html">TreePathProtocol</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">other</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/TreePathProtocol.html">TreePathProtocol</a></span></code></pre>
 
                         </div>
                       </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>other</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>an instance of a related type that implements <code><a href="../Protocols/TreePathProtocol.html">TreePathProtocol</a></code></p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TableClass-UIManagerClass.swift#L9669-L9672">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TableClass-UIManagerClass.swift#L12455-L12458">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11724,12 +11814,81 @@ Ownership is transferred to the <code>TreePath</code> instance.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">cPointer</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">cPointer</span> <span class="nv">p</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>cPointer</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>pointer to the underlying object</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TableClass-UIManagerClass.swift#L9681-L9683">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TableClass-UIManagerClass.swift#L12468-L12470">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3Gtk8TreePathC17retainingCPointerACSpyxG_tclufc"></a>
+                    <a name="//apple_ref/swift/Method/init(retainingCPointer:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3Gtk8TreePathC17retainingCPointerACSpyxG_tclufc">init(retainingCPointer:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Unsafe typed, retaining initialiser.
+<strong>Do not use unless you know the underlying data type the pointer points to conforms to <code><a href="../Protocols/TreePathProtocol.html">TreePathProtocol</a></code>.</strong></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">retainingCPointer</span> <span class="nv">cPointer</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>cPointer</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>pointer to the underlying object</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TableClass-UIManagerClass.swift#L12475-L12478">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11755,12 +11914,62 @@ Ownership is transferred to the <code>TreePath</code> instance.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeRawPointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">raw</span> <span class="nv">p</span><span class="p">:</span> <span class="kt">UnsafeRawPointer</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>p</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>raw pointer to the underlying object</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TableClass-UIManagerClass.swift#L12483-L12485">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3Gtk8TreePathC12retainingRawACSV_tcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(retainingRaw:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3Gtk8TreePathC12retainingRawACSV_tcfc">init(retainingRaw:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Unsafe untyped, retaining initialiser.
+<strong>Do not use unless you know the underlying data type the pointer points to conforms to <code><a href="../Protocols/TreePathProtocol.html">TreePathProtocol</a></code>.</strong></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">retainingRaw</span> <span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TableClass-UIManagerClass.swift#L9687-L9689">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TableClass-UIManagerClass.swift#L12489-L12492">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11786,12 +11995,81 @@ Ownership is transferred to the <code>TreePath</code> instance.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">raw</span> <span class="nv">p</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>p</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>mutable raw pointer to the underlying object</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TableClass-UIManagerClass.swift#L9693-L9695">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TableClass-UIManagerClass.swift#L12497-L12499">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3Gtk8TreePathC12retainingRawACSv_tcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(retainingRaw:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3Gtk8TreePathC12retainingRawACSv_tcfc">init(retainingRaw:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Unsafe untyped, retaining initialiser.
+<strong>Do not use unless you know the underlying data type the pointer points to conforms to <code><a href="../Protocols/TreePathProtocol.html">TreePathProtocol</a></code>.</strong></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">retainingRaw</span> <span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>raw</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>mutable raw pointer to the underlying object</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TableClass-UIManagerClass.swift#L12504-L12507">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11817,12 +12095,81 @@ Ownership is transferred to the <code>TreePath</code> instance.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">opaquePointer</span><span class="p">:</span> <span class="kt">OpaquePointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">opaquePointer</span> <span class="nv">p</span><span class="p">:</span> <span class="kt">OpaquePointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>p</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>opaque pointer to the underlying object</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TableClass-UIManagerClass.swift#L9699-L9701">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TableClass-UIManagerClass.swift#L12512-L12514">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3Gtk8TreePathC22retainingOpaquePointerACs0eF0V_tcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(retainingOpaquePointer:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3Gtk8TreePathC22retainingOpaquePointerACs0eF0V_tcfc">init(retainingOpaquePointer:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Unsafe untyped, retaining initialiser.
+<strong>Do not use unless you know the underlying data type the pointer points to conforms to <code><a href="../Protocols/TreePathProtocol.html">TreePathProtocol</a></code>.</strong></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">retainingOpaquePointer</span> <span class="nv">p</span><span class="p">:</span> <span class="kt">OpaquePointer</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>p</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>opaque pointer to the underlying object</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TableClass-UIManagerClass.swift#L12519-L12522">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11848,12 +12195,12 @@ This refers to a row.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">()</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TableClass-UIManagerClass.swift#L9705-L9708">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TableClass-UIManagerClass.swift#L12526-L12529">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11878,12 +12225,12 @@ This refers to a row.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="n">indicesv</span> <span class="nv">indices</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">CInt</span><span class="o">&gt;</span><span class="p">,</span> <span class="nv">length</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">indicesv</span> <span class="nv">indices</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">CInt</span><span class="o">&gt;</span><span class="p">,</span> <span class="nv">length</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TableClass-UIManagerClass.swift#L9715-L9718">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TableClass-UIManagerClass.swift#L12536-L12539">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11914,12 +12261,12 @@ If an invalid path string is passed in, <code>nil</code> is returned.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="n">string</span> <span class="nv">path</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">string</span> <span class="nv">path</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TableClass-UIManagerClass.swift#L9727-L9730">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TableClass-UIManagerClass.swift#L12548-L12551">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11951,7 +12298,7 @@ If an invalid path string is passed in, <code>nil</code> is returned.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TableClass-UIManagerClass.swift#L9735-L9738">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TableClass-UIManagerClass.swift#L12556-L12559">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11981,7 +12328,7 @@ If an invalid path string is passed in, <code>nil</code> is returned.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TableClass-UIManagerClass.swift#L9745-L9748">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TableClass-UIManagerClass.swift#L12566-L12569">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12017,7 +12364,7 @@ If an invalid path string is passed in, <code>nil</code> is returned.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TableClass-UIManagerClass.swift#L9757-L9760">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TableClass-UIManagerClass.swift#L12578-L12581">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12030,7 +12377,7 @@ If an invalid path string is passed in, <code>nil</code> is returned.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2020 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2020-03-14)</p>
+      <p>&copy; 2020 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2020-03-29)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

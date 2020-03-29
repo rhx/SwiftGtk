@@ -23,7 +23,7 @@
         <a class="header-link" href="../index.html">
           Gtk 3.24.14 Docs
         </a>
-         (77% documented)
+         (78% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -11663,7 +11663,8 @@ any other shadow type to remove it.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Designated initialiser from the underlying <code>C</code> data type.
-Ownership is transferred to the <code>Frame</code> instance.</p>
+This creates an instance without performing an unbalanced retain
+i.e., ownership is transferred to the <code>Frame</code> instance.</p>
 
                       </div>
                       <div class="declaration">
@@ -11674,8 +11675,27 @@ Ownership is transferred to the <code>Frame</code> instance.</p>
 
                         </div>
                       </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>op</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>pointer to the underlying object</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L17117-L17119">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L17739-L17741">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11683,9 +11703,9 @@ Ownership is transferred to the <code>Frame</code> instance.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:3Gtk5FrameCyACxcAA0B8ProtocolRzlufc"></a>
-                    <a name="//apple_ref/swift/Method/init(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:3Gtk5FrameCyACxcAA0B8ProtocolRzlufc">init(_:)</a>
+                    <a name="/s:3Gtk5FrameC9retainingACSpySo01_aB0VG_tcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(retaining:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3Gtk5FrameC9retainingACSpySo01_aB0VG_tcfc">init(retaining:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -11693,7 +11713,58 @@ Ownership is transferred to the <code>Frame</code> instance.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Reference convenience intialiser for a related type that implements <code><a href="../Protocols/FrameProtocol.html">FrameProtocol</a></code>
+                        <p>Designated initialiser from the underlying <code>C</code> data type.
+Will retain <code>GtkFrame</code>.
+i.e., ownership is transferred to the <code>Frame</code> instance.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">retaining</span> <span class="nv">op</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">GtkFrame</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>op</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>pointer to the underlying object</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L17747-L17749">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3Gtk5FrameC5frameACx_tcAA0B8ProtocolRzlufc"></a>
+                    <a name="//apple_ref/swift/Method/init(frame:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3Gtk5FrameC5frameACx_tcAA0B8ProtocolRzlufc">init(frame:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Reference intialiser for a related type that implements <code><a href="../Protocols/FrameProtocol.html">FrameProtocol</a></code>
 Will retain <code>GtkFrame</code>.</p>
 
                       </div>
@@ -11701,12 +11772,31 @@ Will retain <code>GtkFrame</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">other</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/FrameProtocol.html">FrameProtocol</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">frame</span> <span class="nv">other</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/FrameProtocol.html">FrameProtocol</a></span></code></pre>
 
                         </div>
                       </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>other</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>an instance of a related type that implements <code><a href="../Protocols/FrameProtocol.html">FrameProtocol</a></code></p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L17123-L17126">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L17754-L17756">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11732,12 +11822,81 @@ Will retain <code>GtkFrame</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">cPointer</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">public</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">cPointer</span> <span class="nv">p</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>cPointer</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>pointer to the underlying object</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L17130-L17132">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L17761-L17763">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3Gtk5FrameC17retainingCPointerACSpyxG_tclufc"></a>
+                    <a name="//apple_ref/swift/Method/init(retainingCPointer:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3Gtk5FrameC17retainingCPointerACSpyxG_tclufc">init(retainingCPointer:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Unsafe typed, retaining initialiser.
+<strong>Do not use unless you know the underlying data type the pointer points to conforms to <code><a href="../Protocols/FrameProtocol.html">FrameProtocol</a></code>.</strong></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">public</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">retainingCPointer</span> <span class="nv">cPointer</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>cPointer</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>pointer to the underlying object</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L17768-L17770">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11763,12 +11922,62 @@ Will retain <code>GtkFrame</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeRawPointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">raw</span> <span class="nv">p</span><span class="p">:</span> <span class="kt">UnsafeRawPointer</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>p</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>raw pointer to the underlying object</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L17775-L17777">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3Gtk5FrameC12retainingRawACSV_tcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(retainingRaw:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3Gtk5FrameC12retainingRawACSV_tcfc">init(retainingRaw:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Unsafe untyped, retaining initialiser.
+<strong>Do not use unless you know the underlying data type the pointer points to conforms to <code><a href="../Protocols/FrameProtocol.html">FrameProtocol</a></code>.</strong></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">retainingRaw</span> <span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L17136-L17138">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L17781-L17783">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11794,12 +12003,81 @@ Will retain <code>GtkFrame</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">raw</span> <span class="nv">p</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>p</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>mutable raw pointer to the underlying object</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L17142-L17144">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L17788-L17790">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3Gtk5FrameC12retainingRawACSv_tcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(retainingRaw:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3Gtk5FrameC12retainingRawACSv_tcfc">init(retainingRaw:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Unsafe untyped, retaining initialiser.
+<strong>Do not use unless you know the underlying data type the pointer points to conforms to <code><a href="../Protocols/FrameProtocol.html">FrameProtocol</a></code>.</strong></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">retainingRaw</span> <span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>raw</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>mutable raw pointer to the underlying object</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L17795-L17797">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11825,12 +12103,81 @@ Will retain <code>GtkFrame</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">opaquePointer</span><span class="p">:</span> <span class="kt">OpaquePointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">opaquePointer</span> <span class="nv">p</span><span class="p">:</span> <span class="kt">OpaquePointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>p</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>opaque pointer to the underlying object</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L17148-L17150">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L17802-L17804">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3Gtk5FrameC22retainingOpaquePointerACs0dE0V_tcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(retainingOpaquePointer:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3Gtk5FrameC22retainingOpaquePointerACs0dE0V_tcfc">init(retainingOpaquePointer:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Unsafe untyped, retaining initialiser.
+<strong>Do not use unless you know the underlying data type the pointer points to conforms to <code><a href="../Protocols/FrameProtocol.html">FrameProtocol</a></code>.</strong></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">retainingOpaquePointer</span> <span class="nv">p</span><span class="p">:</span> <span class="kt">OpaquePointer</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>p</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>opaque pointer to the underlying object</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L17809-L17811">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11856,12 +12203,12 @@ If <code>label</code> is <code>nil</code>, the label is omitted.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">label</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">label</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L17154-L17157">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-FileChooserDialog-GLArea.swift#L17815-L17818">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11874,7 +12221,7 @@ If <code>label</code> is <code>nil</code>, the label is omitted.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2020 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2020-03-14)</p>
+      <p>&copy; 2020 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2020-03-29)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

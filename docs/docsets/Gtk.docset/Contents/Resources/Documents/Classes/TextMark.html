@@ -23,7 +23,7 @@
         <a class="header-link" href="../index.html">
           Gtk 3.24.14 Docs
         </a>
-         (77% documented)
+         (78% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -11654,7 +11654,8 @@ essentially useless.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Designated initialiser from the underlying <code>C</code> data type.
-Ownership is transferred to the <code>TextMark</code> instance.</p>
+This creates an instance without performing an unbalanced retain
+i.e., ownership is transferred to the <code>TextMark</code> instance.</p>
 
                       </div>
                       <div class="declaration">
@@ -11665,8 +11666,27 @@ Ownership is transferred to the <code>TextMark</code> instance.</p>
 
                         </div>
                       </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>op</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>pointer to the underlying object</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L3323-L3325">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L3491-L3493">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11674,9 +11694,9 @@ Ownership is transferred to the <code>TextMark</code> instance.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:3Gtk8TextMarkCyACxcAA0bC8ProtocolRzlufc"></a>
-                    <a name="//apple_ref/swift/Method/init(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:3Gtk8TextMarkCyACxcAA0bC8ProtocolRzlufc">init(_:)</a>
+                    <a name="/s:3Gtk8TextMarkC9retainingACSpySo01_abC0VG_tcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(retaining:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3Gtk8TextMarkC9retainingACSpySo01_abC0VG_tcfc">init(retaining:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -11684,7 +11704,58 @@ Ownership is transferred to the <code>TextMark</code> instance.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Reference convenience intialiser for a related type that implements <code><a href="../Protocols/TextMarkProtocol.html">TextMarkProtocol</a></code>
+                        <p>Designated initialiser from the underlying <code>C</code> data type.
+Will retain <code>GtkTextMark</code>.
+i.e., ownership is transferred to the <code>TextMark</code> instance.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">retaining</span> <span class="nv">op</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">GtkTextMark</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>op</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>pointer to the underlying object</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L3499-L3501">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3Gtk8TextMarkC04textC0ACx_tcAA0bC8ProtocolRzlufc"></a>
+                    <a name="//apple_ref/swift/Method/init(textMark:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3Gtk8TextMarkC04textC0ACx_tcAA0bC8ProtocolRzlufc">init(textMark:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Reference intialiser for a related type that implements <code><a href="../Protocols/TextMarkProtocol.html">TextMarkProtocol</a></code>
 Will retain <code>GtkTextMark</code>.</p>
 
                       </div>
@@ -11692,12 +11763,31 @@ Will retain <code>GtkTextMark</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">other</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/TextMarkProtocol.html">TextMarkProtocol</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">textMark</span> <span class="nv">other</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/TextMarkProtocol.html">TextMarkProtocol</a></span></code></pre>
 
                         </div>
                       </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>other</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>an instance of a related type that implements <code><a href="../Protocols/TextMarkProtocol.html">TextMarkProtocol</a></code></p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L3329-L3332">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L3506-L3508">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11723,12 +11813,81 @@ Will retain <code>GtkTextMark</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">cPointer</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">public</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">cPointer</span> <span class="nv">p</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>cPointer</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>pointer to the underlying object</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L3336-L3338">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L3513-L3515">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3Gtk8TextMarkC17retainingCPointerACSpyxG_tclufc"></a>
+                    <a name="//apple_ref/swift/Method/init(retainingCPointer:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3Gtk8TextMarkC17retainingCPointerACSpyxG_tclufc">init(retainingCPointer:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Unsafe typed, retaining initialiser.
+<strong>Do not use unless you know the underlying data type the pointer points to conforms to <code><a href="../Protocols/TextMarkProtocol.html">TextMarkProtocol</a></code>.</strong></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">public</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">retainingCPointer</span> <span class="nv">cPointer</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>cPointer</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>pointer to the underlying object</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L3520-L3522">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11754,12 +11913,62 @@ Will retain <code>GtkTextMark</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeRawPointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">raw</span> <span class="nv">p</span><span class="p">:</span> <span class="kt">UnsafeRawPointer</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>p</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>raw pointer to the underlying object</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L3527-L3529">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3Gtk8TextMarkC12retainingRawACSV_tcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(retainingRaw:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3Gtk8TextMarkC12retainingRawACSV_tcfc">init(retainingRaw:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Unsafe untyped, retaining initialiser.
+<strong>Do not use unless you know the underlying data type the pointer points to conforms to <code><a href="../Protocols/TextMarkProtocol.html">TextMarkProtocol</a></code>.</strong></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">retainingRaw</span> <span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L3342-L3344">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L3533-L3535">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11785,12 +11994,81 @@ Will retain <code>GtkTextMark</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">raw</span> <span class="nv">p</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>p</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>mutable raw pointer to the underlying object</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L3348-L3350">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L3540-L3542">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3Gtk8TextMarkC12retainingRawACSv_tcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(retainingRaw:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3Gtk8TextMarkC12retainingRawACSv_tcfc">init(retainingRaw:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Unsafe untyped, retaining initialiser.
+<strong>Do not use unless you know the underlying data type the pointer points to conforms to <code><a href="../Protocols/TextMarkProtocol.html">TextMarkProtocol</a></code>.</strong></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">retainingRaw</span> <span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>raw</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>mutable raw pointer to the underlying object</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L3547-L3549">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11816,12 +12094,81 @@ Will retain <code>GtkTextMark</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">opaquePointer</span><span class="p">:</span> <span class="kt">OpaquePointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">opaquePointer</span> <span class="nv">p</span><span class="p">:</span> <span class="kt">OpaquePointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>p</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>opaque pointer to the underlying object</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L3354-L3356">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L3554-L3556">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3Gtk8TextMarkC22retainingOpaquePointerACs0eF0V_tcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(retainingOpaquePointer:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3Gtk8TextMarkC22retainingOpaquePointerACs0eF0V_tcfc">init(retainingOpaquePointer:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Unsafe untyped, retaining initialiser.
+<strong>Do not use unless you know the underlying data type the pointer points to conforms to <code><a href="../Protocols/TextMarkProtocol.html">TextMarkProtocol</a></code>.</strong></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">retainingOpaquePointer</span> <span class="nv">p</span><span class="p">:</span> <span class="kt">OpaquePointer</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>p</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>opaque pointer to the underlying object</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L3561-L3563">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11854,12 +12201,12 @@ side of the text you’re typing).</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">leftGravity</span> <span class="nv">left_gravity</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">leftGravity</span> <span class="nv">left_gravity</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L3367-L3370">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-TearoffMenuItem-UIManager.swift#L3574-L3577">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11872,7 +12219,7 @@ side of the text you’re typing).</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2020 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2020-03-14)</p>
+      <p>&copy; 2020 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2020-03-29)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

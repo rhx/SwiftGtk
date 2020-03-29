@@ -23,7 +23,7 @@
         <a class="header-link" href="../index.html">
           Gtk 3.24.14 Docs
         </a>
-         (77% documented)
+         (78% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -11652,7 +11652,7 @@ For type-safe access, use the generated, typed pointer <code>symbolic_color_ptr<
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessiblePrivate-TableChild.swift#L8923">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessiblePrivate-TableChild.swift#L11799">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11671,7 +11671,8 @@ For type-safe access, use the generated, typed pointer <code>symbolic_color_ptr<
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Designated initialiser from the underlying <code>C</code> data type.
-Ownership is transferred to the <code>SymbolicColor</code> instance.</p>
+This creates an instance without performing an unbalanced retain
+i.e., ownership is transferred to the <code>SymbolicColor</code> instance.</p>
 
                       </div>
                       <div class="declaration">
@@ -11682,8 +11683,78 @@ Ownership is transferred to the <code>SymbolicColor</code> instance.</p>
 
                         </div>
                       </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>op</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>pointer to the underlying object</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessiblePrivate-TableChild.swift#L8927-L8929">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessiblePrivate-TableChild.swift#L11805-L11807">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3Gtk13SymbolicColorC9retainingACSpySo01_abC0VG_tcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(retaining:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3Gtk13SymbolicColorC9retainingACSpySo01_abC0VG_tcfc">init(retaining:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Designated initialiser from the underlying <code>C</code> data type.
+Will retain <code>GtkSymbolicColor</code>.
+i.e., ownership is transferred to the <code>SymbolicColor</code> instance.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">retaining</span> <span class="nv">op</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">GtkSymbolicColor</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>op</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>pointer to the underlying object</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessiblePrivate-TableChild.swift#L11813-L11816">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11701,7 +11772,7 @@ Ownership is transferred to the <code>SymbolicColor</code> instance.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Reference convenience intialiser for a related type that implements <code><a href="../Protocols/SymbolicColorProtocol.html">SymbolicColorProtocol</a></code>
+                        <p>Reference intialiser for a related type that implements <code><a href="../Protocols/SymbolicColorProtocol.html">SymbolicColorProtocol</a></code>
 Will retain <code>GtkSymbolicColor</code>.</p>
 
                       </div>
@@ -11709,12 +11780,31 @@ Will retain <code>GtkSymbolicColor</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">other</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/SymbolicColorProtocol.html">SymbolicColorProtocol</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">other</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/SymbolicColorProtocol.html">SymbolicColorProtocol</a></span></code></pre>
 
                         </div>
                       </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>other</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>an instance of a related type that implements <code><a href="../Protocols/SymbolicColorProtocol.html">SymbolicColorProtocol</a></code></p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessiblePrivate-TableChild.swift#L8933-L8936">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessiblePrivate-TableChild.swift#L11821-L11824">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11740,12 +11830,81 @@ Will retain <code>GtkSymbolicColor</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">cPointer</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">cPointer</span> <span class="nv">p</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>cPointer</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>pointer to the underlying object</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessiblePrivate-TableChild.swift#L8945-L8947">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessiblePrivate-TableChild.swift#L11834-L11836">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3Gtk13SymbolicColorC17retainingCPointerACSpyxG_tclufc"></a>
+                    <a name="//apple_ref/swift/Method/init(retainingCPointer:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3Gtk13SymbolicColorC17retainingCPointerACSpyxG_tclufc">init(retainingCPointer:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Unsafe typed, retaining initialiser.
+<strong>Do not use unless you know the underlying data type the pointer points to conforms to <code><a href="../Protocols/SymbolicColorProtocol.html">SymbolicColorProtocol</a></code>.</strong></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">retainingCPointer</span> <span class="nv">cPointer</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>cPointer</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>pointer to the underlying object</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessiblePrivate-TableChild.swift#L11841-L11844">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11771,12 +11930,62 @@ Will retain <code>GtkSymbolicColor</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeRawPointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">raw</span> <span class="nv">p</span><span class="p">:</span> <span class="kt">UnsafeRawPointer</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>p</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>raw pointer to the underlying object</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessiblePrivate-TableChild.swift#L11849-L11851">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3Gtk13SymbolicColorC12retainingRawACSV_tcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(retainingRaw:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3Gtk13SymbolicColorC12retainingRawACSV_tcfc">init(retainingRaw:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Unsafe untyped, retaining initialiser.
+<strong>Do not use unless you know the underlying data type the pointer points to conforms to <code><a href="../Protocols/SymbolicColorProtocol.html">SymbolicColorProtocol</a></code>.</strong></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">retainingRaw</span> <span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessiblePrivate-TableChild.swift#L8951-L8953">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessiblePrivate-TableChild.swift#L11855-L11858">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11802,12 +12011,81 @@ Will retain <code>GtkSymbolicColor</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">raw</span> <span class="nv">p</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>p</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>mutable raw pointer to the underlying object</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessiblePrivate-TableChild.swift#L8957-L8959">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessiblePrivate-TableChild.swift#L11863-L11865">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3Gtk13SymbolicColorC12retainingRawACSv_tcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(retainingRaw:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3Gtk13SymbolicColorC12retainingRawACSv_tcfc">init(retainingRaw:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Unsafe untyped, retaining initialiser.
+<strong>Do not use unless you know the underlying data type the pointer points to conforms to <code><a href="../Protocols/SymbolicColorProtocol.html">SymbolicColorProtocol</a></code>.</strong></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">retainingRaw</span> <span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>raw</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>mutable raw pointer to the underlying object</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessiblePrivate-TableChild.swift#L11870-L11873">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11833,12 +12111,81 @@ Will retain <code>GtkSymbolicColor</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">opaquePointer</span><span class="p">:</span> <span class="kt">OpaquePointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">opaquePointer</span> <span class="nv">p</span><span class="p">:</span> <span class="kt">OpaquePointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>p</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>opaque pointer to the underlying object</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessiblePrivate-TableChild.swift#L8963-L8965">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessiblePrivate-TableChild.swift#L11878-L11880">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3Gtk13SymbolicColorC22retainingOpaquePointerACs0eF0V_tcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(retainingOpaquePointer:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3Gtk13SymbolicColorC22retainingOpaquePointerACs0eF0V_tcfc">init(retainingOpaquePointer:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Unsafe untyped, retaining initialiser.
+<strong>Do not use unless you know the underlying data type the pointer points to conforms to <code><a href="../Protocols/SymbolicColorProtocol.html">SymbolicColorProtocol</a></code>.</strong></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">retainingOpaquePointer</span> <span class="nv">p</span><span class="p">:</span> <span class="kt">OpaquePointer</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>p</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>opaque pointer to the underlying object</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessiblePrivate-TableChild.swift#L11885-L11888">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11867,12 +12214,12 @@ Will retain <code>GtkSymbolicColor</code>.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
-<span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="n">literal</span> <span class="nv">color</span><span class="p">:</span> <span class="kt">RGBAProtocol</span><span class="p">)</span></code></pre>
+<span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">literal</span> <span class="nv">color</span><span class="p">:</span> <span class="kt">RGBAProtocol</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessiblePrivate-TableChild.swift#L8971-L8974">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessiblePrivate-TableChild.swift#L11895-L11898">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11903,12 +12250,12 @@ color. See <code>gtk_style_context_lookup_color()</code> and
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
-<span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
+<span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessiblePrivate-TableChild.swift#L8982-L8985">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessiblePrivate-TableChild.swift#L11907-L11910">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11942,12 +12289,12 @@ platforms.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
-<span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="n">win32</span> <span class="nv">theme_class</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">,</span> <span class="nv">id</span><span class="p">:</span> <span class="kt">CInt</span><span class="p">)</span></code></pre>
+<span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">win32</span> <span class="nv">theme_class</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">,</span> <span class="nv">id</span><span class="p">:</span> <span class="kt">CInt</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessiblePrivate-TableChild.swift#L8996-L8999">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessiblePrivate-TableChild.swift#L11922-L11925">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11981,7 +12328,7 @@ platforms.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessiblePrivate-TableChild.swift#L9005-L9008">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessiblePrivate-TableChild.swift#L11932-L11935">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12017,7 +12364,7 @@ color. See <code>gtk_style_context_lookup_color()</code> and
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessiblePrivate-TableChild.swift#L9016-L9019">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessiblePrivate-TableChild.swift#L11944-L11947">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12056,7 +12403,7 @@ platforms.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessiblePrivate-TableChild.swift#L9030-L9033">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGtk/tree/generated/Sources/Gtk/Gtk-3.0-ScaleAccessiblePrivate-TableChild.swift#L11959-L11962">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12069,7 +12416,7 @@ platforms.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2020 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2020-03-14)</p>
+      <p>&copy; 2020 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2020-03-29)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
