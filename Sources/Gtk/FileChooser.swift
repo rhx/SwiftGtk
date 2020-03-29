@@ -20,7 +20,7 @@ public extension FileChooserDialog {
     /// - Parameter secondText: title of the second button
     /// - Parameter secondResponseType: response type of the second button
     convenience init(title: UnsafePointer<gchar>? = nil, action: FileChooserAction = .open, firstText: String, firstResponseType: ResponseType = .cancel, secondText: String, secondResponseType: ResponseType = .ok) {
-        self.init(cPointer: gtk_c_helper_file_chooser_dialog_new_with_two_buttons(title, nil, action, firstText, firstResponseType, secondText, secondResponseType))
+        self.init(retainingCPointer: gtk_c_helper_file_chooser_dialog_new_with_two_buttons(title, nil, action, firstText, firstResponseType, secondText, secondResponseType))
     }
 
     /// Convenience constructor to create a file chooser dialog with two buttons.
@@ -35,7 +35,7 @@ public extension FileChooserDialog {
         let dialog = parent.window_ptr.withMemoryRebound(to: GtkWindow.self, capacity: 1) {
             gtk_c_helper_file_chooser_dialog_new_with_two_buttons(title, $0, action, firstText, firstResponseType, secondText, secondResponseType)!
         }
-        self.init(cPointer: dialog)
+        self.init(retainingCPointer: dialog)
     }
 }
 
