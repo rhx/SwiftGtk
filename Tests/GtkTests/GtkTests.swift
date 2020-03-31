@@ -39,6 +39,16 @@ class GtkTests: XCTestCase {
         XCTAssertEqual(status, 0)
         XCTAssertTrue(appWasRunning)
     }
+    
+    // test file chooser
+    func testFileChooser() {
+        XCTAssertNotNil(FileChooserDialog(firstText: "Cancel", secondText: "Okay").ptr)
+    }
+    
+    // test native file chooser
+    func testFileChooserNative() {
+        XCTAssertNotNil(FileChooserNative(title: "Native", acceptLabel: "OK", cancelLabel: "Nope").ptr)
+    }
 
     /// text text buffers
     func testTextBuffer() {
@@ -63,16 +73,6 @@ class GtkTests: XCTestCase {
         let dialog2 = MessageDialog(markup: "Dialog <b>with markup</b>", secondaryMarkup: "and secondary markup")
         dialog2.set(secondaryText: "Change secondary text")
         XCTAssertNotNil(dialog2.ptr)
-    }
-    
-    // test file chooser
-    func testFileChooser() {
-        XCTAssertNotNil(FileChooserDialog(firstText: "Cancel", secondText: "Okay").ptr)
-    }
-    
-    // test native file chooser
-    func testFileChooserNative() {
-        XCTAssertNotNil(FileChooserNative(title: "Native", acceptLabel: "OK", cancelLabel: "Nope").ptr)
     }
 }
 
