@@ -39,12 +39,12 @@ class GtkTests: XCTestCase {
         XCTAssertEqual(status, 0)
         XCTAssertTrue(appWasRunning)
     }
-    
+
     // test file chooser
     func testFileChooser() {
         XCTAssertNotNil(FileChooserDialog(firstText: "Cancel", secondText: "Okay").ptr)
     }
-    
+
     // test native file chooser
     func testFileChooserNative() {
         XCTAssertNotNil(FileChooserNative(title: "Native", acceptLabel: "OK", cancelLabel: "Nope").ptr)
@@ -56,7 +56,7 @@ class GtkTests: XCTestCase {
         XCTAssertNotNil(Dialog(firstText: "OK", secondText: "Cancel").ptr)
         XCTAssertNotNil(Dialog(firstText: "OK", secondText: "Cancel", thirdText: "Review Windows").ptr)
     }
-    
+
     // test message dialog convenience methods
     func testMessageDialog() {
         let dialog1 = MessageDialog(text: "A simple message dialog")
@@ -65,6 +65,17 @@ class GtkTests: XCTestCase {
         let dialog2 = MessageDialog(markup: "Dialog <b>with markup</b>", secondaryMarkup: "and secondary markup")
         dialog2.set(secondaryText: "Change secondary text")
         XCTAssertNotNil(dialog2.ptr)
+    }
+
+    // test Scrolled Window convenience methods
+    func testScrolledWindow() {
+        let vadj = Adjustment(value: 0, lower: 0, upper: 1, stepIncrement: 1, pageIncrement: 1, pageSize: 1)
+        let window1 = ScrolledWindow(vAdjustment: nil)
+        let window2 = ScrolledWindow(vAdjustment: vadj)
+        XCTAssertNotNil(window1.ptr)
+        XCTAssertNotNil(window2.ptr)
+        XCTAssertEqual(window1.allocatedHeight, 1)
+        XCTAssertEqual(window2.allocatedHeight, 1)
     }
 
     /// text text buffers
@@ -85,6 +96,7 @@ extension GtkTests {
             ("testFileChooserNative",   testFileChooserNative),
             ("testMessageDialog",       testMessageDialog),
             ("testTextBuffer",          testTextBuffer),
+            ("testScrolledWindow",      testScrolledWindow),
             ("testMajorVersion",        testMajorVersion),
             ("testMinorVersion",        testMinorVersion),
             ("testMicroVersion",        testMicroVersion),
