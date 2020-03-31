@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Gtk
 import Gdk
 import GLibObject
 import CGtk
@@ -44,7 +43,7 @@ public extension EventControllerScrollProtocol {
 		}, connectFlags: flags);
 	}
 	
-	public func connectScrollController(name: UnsafePointer<gchar>, flags: ConnectFlags = ConnectFlags(0), handler: @escaping ScrollControllerHandler) -> CUnsignedLong {
+	func connectScrollController(name: UnsafePointer<gchar>, flags: ConnectFlags = ConnectFlags(0), handler: @escaping ScrollControllerHandler) -> CUnsignedLong {
 		// The handler is stored in a holder, which is stored as a user data object with the signal.
 		return _connect(signal: name, flags: flags, data: ClosureHolder(handler)) { (controller, data) in
 			let holder = Unmanaged<ScrollControllerHandlerClosureHolder>.fromOpaque(data).takeUnretainedValue();
@@ -52,7 +51,7 @@ public extension EventControllerScrollProtocol {
 		}
 	}
 	
-	public func connectScroll(name: UnsafePointer<gchar>, flags: ConnectFlags = ConnectFlags(0), handler: @escaping ScrollHandler) -> CUnsignedLong {
+	func connectScroll(name: UnsafePointer<gchar>, flags: ConnectFlags = ConnectFlags(0), handler: @escaping ScrollHandler) -> CUnsignedLong {
 		// The handler is stored in a holder, which is stored as a user data object with the signal.
 		return _connect(signal: name, flags: flags, data: Closure3Holder(handler)) { (controller, dx, dy, data) in
 			let holder = Unmanaged<ScrollHandlerClosureHolder>.fromOpaque(data).takeUnretainedValue();
@@ -65,7 +64,7 @@ public extension EventControllerScrollProtocol {
 	/// - Parameter controller: The controller that emitted the signal
 	/// - Parameter dx: The X delta
 	/// - Parameter dy: The Y delta
-	public func onScroll(_ handler: @escaping ScrollHandler) -> CUnsignedLong {
+	func onScroll(_ handler: @escaping ScrollHandler) -> CUnsignedLong {
 		return connectScroll(name: EventControllerScrollSignalName.scroll.rawValue, handler: handler);
 	}
 	
@@ -73,20 +72,20 @@ public extension EventControllerScrollProtocol {
 	/// - Parameter controller: The controller that emitted the signal
 	/// - Parameter velocityX: The velocity along the X axis
 	/// - Parameter velocityY: The velocity along the Y axis
-	public func onDecelerate(_ handler: @escaping ScrollHandler) -> CUnsignedLong {
+	func onDecelerate(_ handler: @escaping ScrollHandler) -> CUnsignedLong {
 		return connectScroll(name: EventControllerScrollSignalName.decelerate.rawValue, handler: handler);
 	}
 	
 	/// Signals that a new scrolling operation has begun. It will only be emitted on devices capable of it.
 	/// - Parameter controller: The controller that emitted the signal
-	public func onBeginScroll(_ handler: @escaping ScrollControllerHandler) -> CUnsignedLong {
+	func onBeginScroll(_ handler: @escaping ScrollControllerHandler) -> CUnsignedLong {
 		return connectScrollController(name: EventControllerScrollSignalName.scrollBegin.rawValue, handler: handler);
 		
 	}
 	
 	/// Signals that a new scrolling operation has finished. It will only be emitted on devices capable of it.
 	/// - Parameter controller: The controller that emitted the signal
-	public func onEndScroll(_ handler: @escaping ScrollControllerHandler) -> CUnsignedLong {
+	func onEndScroll(_ handler: @escaping ScrollControllerHandler) -> CUnsignedLong {
 		return connectScrollController(name: EventControllerScrollSignalName.scrollEnd.rawValue, handler: handler);
 	}
 	
