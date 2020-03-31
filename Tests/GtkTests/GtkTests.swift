@@ -50,21 +50,13 @@ class GtkTests: XCTestCase {
         XCTAssertNotNil(FileChooserNative(title: "Native", acceptLabel: "OK", cancelLabel: "Nope").ptr)
     }
 
-    /// text text buffers
-    func testTextBuffer() {
-        guard let buffer = TextBuffer() else { XCTFail() ; return }
-        let text = "Hello, world!\n"
-        buffer.text = text
-        XCTAssertEqual(buffer.text, text)
-    }
-
     // test dialog convenience constructors
     func testDialog() {
         XCTAssertNotNil(Dialog(text: "Test").ptr)
         XCTAssertNotNil(Dialog(firstText: "OK", secondText: "Cancel").ptr)
         XCTAssertNotNil(Dialog(firstText: "OK", secondText: "Cancel", thirdText: "Review Windows").ptr)
     }
-
+    
     // test message dialog convenience methods
     func testMessageDialog() {
         let dialog1 = MessageDialog(text: "A simple message dialog")
@@ -73,6 +65,14 @@ class GtkTests: XCTestCase {
         let dialog2 = MessageDialog(markup: "Dialog <b>with markup</b>", secondaryMarkup: "and secondary markup")
         dialog2.set(secondaryText: "Change secondary text")
         XCTAssertNotNil(dialog2.ptr)
+    }
+
+    /// text text buffers
+    func testTextBuffer() {
+        guard let buffer = TextBuffer() else { XCTFail() ; return }
+        let text = "Hello, world!\n"
+        buffer.text = text
+        XCTAssertEqual(buffer.text, text)
     }
 }
 
