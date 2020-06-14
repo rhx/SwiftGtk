@@ -3,7 +3,7 @@
 //  SwiftGtk
 //
 //  Created by Rene Hexel on 23/4/17.
-//  Copyright © 2017, 2018, 2019 Rene Hexel.  All rights reserved.
+//  Copyright © 2017, 2018, 2019, 2020 Rene Hexel.  All rights reserved.
 //
 import CGLib
 import CGdk
@@ -58,6 +58,13 @@ typealias DragDataReceivedSignalHandlerClosureHolder = Closure7Holder<WidgetRef,
 
 /// Widget protocol convenience methods
 public extension WidgetProtocol {
+    /// Adds the events in the `events` OptionSet to the event mask for
+    /// `widget`. See `gtk_widget_set_events()` and the
+    /// [input handling overview](#event-masks) for details.
+    func add(events: EventMask) {
+        gtk_widget_add_events(cast(widget_ptr), events.int)
+    }
+
     /// Return a reference to the style context
     var styleContextRef: StyleContextRef {
         return StyleContextRef(styleContext)
@@ -272,7 +279,7 @@ public extension WidgetProtocol {
 
     /// Connect a `(WidgetRef, Gdk.EventKeyRef) -> Void` closure or function to a button event signal for the receiver.
     /// Before calling this, you need to call `add(events:)`, e.g.
-    /// widget.add(events: CInt(GDK_KEY_PRESS_MASK.rawValue)
+    /// `widget.add(events: .keyPressMask)`
     ///
     /// - Parameters:
     ///   - event: widget signal name (defaults to `.keyPressEvent`)
@@ -285,7 +292,7 @@ public extension WidgetProtocol {
     }
 
     /// Connect a `(WidgetRef, Gdk.EventKeyRef) -> Void` closure or function to the `.keyPressEvent` signal for the receiver.
-    /// This method adds the `GDK_KEY_PRESS_MASK` to the widget prior to connecting the closure.
+    /// This method adds the `.keyPressMask` event to the widget prior to connecting the closure.
     ///
     /// - Parameters:
     ///   - f: connection flags (defaults to `0`)
@@ -293,12 +300,12 @@ public extension WidgetProtocol {
     /// - Returns: the corresponding return value of `g_signal_connect()`
     @discardableResult
     func onKeyPress(flags f: ConnectFlags = ConnectFlags(0), handler h: @escaping KeySignalHandler) -> CUnsignedLong {
-        add(events: CInt(CGdk.GDK_KEY_PRESS_MASK.rawValue))
+        add(events: .keyPressMask)
         return onKey(event: .keyPressEvent, flags: f, handler: h)
     }
 
     /// Connect a `(WidgetRef, Gdk.EventKeyRef) -> Void` closure or function to the `.keyReleaseEvent` signal for the receiver.
-    /// This method adds the `GDK_KEY_RELEASE_MASK` to the widget prior to connecting the closure.
+    /// This method adds the `.keyPressMask` to the widget prior to connecting the closure.
     ///
     /// - Parameters:
     ///   - f: connection flags (defaults to `0`)
@@ -306,13 +313,13 @@ public extension WidgetProtocol {
     /// - Returns: the corresponding return value of `g_signal_connect()`
     @discardableResult
     func onKeyRelease(flags f: ConnectFlags = ConnectFlags(0), handler h: @escaping KeySignalHandler) -> CUnsignedLong {
-        add(events: CInt(CGdk.GDK_KEY_RELEASE_MASK.rawValue))
+        add(events: .keyReleaseMask)
         return onKey(event: .keyReleaseEvent, flags: f, handler: h)
     }
 
     /// Connect a `(WidgetRef, Gdk.EventButtonRef) -> Void` closure or function to a button event signal for the receiver.
     /// Before calling this, you need to call `add(events:)`, e.g.
-    /// widget.add(events: CInt(GDK_BUTTON_PRESS_MASK.rawValue)
+    /// `widget.add(events: .buttonPressMask)`
     ///
     /// - Parameters:
     ///   - event: widget signal name (defaults to `.buttonPressEvent`)
@@ -325,7 +332,7 @@ public extension WidgetProtocol {
     }
 
     /// Connect a `(WidgetRef, Gdk.EventButtonRef) -> Void` closure or function to the `.buttonPressEvent` signal for the receiver.
-    /// This method adds the `GDK_BUTTON_PRESS_MASK` to the widget prior to connecting the closure.
+    /// This method adds the `.buttonPressMask` to the widget prior to connecting the closure.
     ///
     /// - Parameters:
     ///   - f: connection flags (defaults to `0`)
@@ -333,11 +340,11 @@ public extension WidgetProtocol {
     /// - Returns: the corresponding return value of `g_signal_connect()`
     @discardableResult
     func onButtonPress(flags f: ConnectFlags = ConnectFlags(0), handler h: @escaping ButtonSignalHandler) -> CUnsignedLong {
-        add(events: CInt(CGdk.GDK_BUTTON_PRESS_MASK.rawValue))
+        add(events: .buttonPressMask)
         return onButton(event: .buttonPressEvent, flags: f, handler: h)
     }
 
-    /// Connect a `(WidgetRef, Gdk.EventButtonRef) -> Void` closure or function to the `.buttonPressEvent` signal for the receiver.
+    /// Connect a `(WidgetRef, Gdk.EventButtonRef) -> Void` closure or function to the `.buttonReleaseEvent` signal for the receiver.
     ///
     /// - Parameters:
     ///   - f: connection flags (defaults to `0`)
@@ -345,12 +352,12 @@ public extension WidgetProtocol {
     /// - Returns: the corresponding return value of `g_signal_connect()`
     @discardableResult
     func onButtonRelease(flags f: ConnectFlags = ConnectFlags(0), handler h: @escaping ButtonSignalHandler) -> CUnsignedLong {
-        add(events: CInt(CGdk.GDK_BUTTON_RELEASE_MASK.rawValue))
+        add(events: .buttonReleaseMask)
         return onButton(event: .buttonReleaseEvent, flags: f, handler: h)
     }
 
     /// Connect a `(WidgetRef, Gdk.EventMotionRef) -> Void` closure or function to the motion signal for the receiver.
-    /// This method adds the `GDK_POINTER_MOTION_MASK` to the widget prior to connecting the closure.
+    /// This method adds the `.pointerMotionMask` to the widget prior to connecting the closure.
     ///
     /// - Parameters:
     ///   - event: widget signal name (defaults to `.motionNotifyEvent`)
@@ -359,7 +366,7 @@ public extension WidgetProtocol {
     /// - Returns: the corresponding return value of `g_signal_connect()`
     @discardableResult
     func onMotion(event: WidgetSignalName = .motionNotifyEvent, flags f: ConnectFlags = ConnectFlags(0), handler h: @escaping MotionSignalHandler) -> CUnsignedLong {
-        add(events: CInt(CGdk.GDK_POINTER_MOTION_MASK.rawValue))
+        add(events: .pointerMotionMask)
         return connectMotion(signal: event.rawValue, flags: f, handler: h)
     }
 

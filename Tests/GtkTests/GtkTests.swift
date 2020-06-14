@@ -79,14 +79,6 @@ class GtkTests: XCTestCase {
         XCTAssertEqual(window2.allocatedHeight, 1)
     }
 
-    func testWidget() {
-        let widget = Widget(UnsafeMutablePointer.allocate(capacity: 1))
-        widget.onKey {
-            let event = EventKeyRef($1)
-            debugPrint(event._ptr.pointee.keyval)
-        }
-    }
-
     /// text text buffers
     func testTextBuffer() {
         guard let buffer = TextBuffer() else { XCTFail() ; return }

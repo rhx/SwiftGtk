@@ -91,13 +91,13 @@ public extension Application {
     /// If no application ID is given then some features (most notably application
     /// uniqueness) will be disabled. A null application ID is only allowed with
     /// GTK+ 3.6 or later.
-    convenience init?(id: UnsafePointer<gchar>? = nil, flags: ApplicationFlags = .flags_none) {
+    convenience init?(id: UnsafePointer<gchar>? = nil, flags: ApplicationFlags = []) {
         let rv: UnsafeMutablePointer<GtkApplication>?
         if let application_id = id {
             GLib.set(applicationName: application_id)
-            rv = gtk_application_new(id, flags)
+            rv = gtk_application_new(id, flags.value)
         } else {
-            rv = gtk_application_new(nil, flags)
+            rv = gtk_application_new(nil, flags.value)
         }
         guard let app = rv else { return nil }
         self.init(app)

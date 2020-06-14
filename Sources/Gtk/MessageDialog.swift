@@ -21,7 +21,7 @@ public extension MessageDialog {
     /// - Parameter text: text to display in the dialog box
     /// - Parameter secondaryText: optional secondary text to display
     convenience init(flags: DialogFlags = .modal, type: MessageType = .info, buttons: ButtonsType = .ok, text: String, secondaryText: String? = nil) {
-        self.init(retainingCPointer: gtk_c_helper_message_dialog_new_with_button(nil, flags, type, buttons, text))
+        self.init(retainingCPointer: gtk_c_helper_message_dialog_new_with_button(nil, flags.value, type, buttons, text))
         guard let secondaryText = secondaryText else { return }
         gtk_c_helper_message_dialog_set_secondary_text(cast(ptr), secondaryText)
     }
@@ -39,7 +39,7 @@ public extension MessageDialog {
     /// - Parameter secondaryText: optional secondary text to display
     convenience init<W: WindowProtocol>(parent: W, flags: DialogFlags = .modal, type: MessageType = .info, buttons: ButtonsType = .ok, text: String, secondaryText: String? = nil) {
         let dialog = parent.window_ptr.withMemoryRebound(to: GtkWindow.self, capacity: 1) {
-            gtk_c_helper_message_dialog_new_with_button($0, flags, type, buttons, text)!
+            gtk_c_helper_message_dialog_new_with_button($0, flags.value, type, buttons, text)!
         }
         self.init(retainingCPointer: dialog)
         guard let secondaryText = secondaryText else { return }
@@ -58,7 +58,7 @@ public extension MessageDialog {
     /// - Parameter markup: markup text to display in the dialog box
     /// - Parameter secondaryMarkup: optional secondary markup to display
     convenience init(flags: DialogFlags = .modal, type: MessageType = .info, buttons: ButtonsType = .ok, markup: String, secondaryMarkup: String? = nil) {
-        self.init(retainingCPointer: gtk_c_helper_message_dialog_new_with_button(nil, flags, type, buttons, markup))
+        self.init(retainingCPointer: gtk_c_helper_message_dialog_new_with_button(nil, flags.value, type, buttons, markup))
         guard let markup = secondaryMarkup else { return }
         gtk_c_helper_message_dialog_set_secondary_markup(cast(ptr), markup)
     }
@@ -77,7 +77,7 @@ public extension MessageDialog {
     /// - Parameter secondaryMarkup: optional secondary text to display
     convenience init<W: WindowProtocol>(parent: W, flags: DialogFlags = .modal, type: MessageType = .info, buttons: ButtonsType = .ok, markup: String, secondaryMarkup: String? = nil) {
         let dialog = parent.window_ptr.withMemoryRebound(to: GtkWindow.self, capacity: 1) {
-            gtk_c_helper_message_dialog_new_with_button($0, flags, type, buttons, markup)!
+            gtk_c_helper_message_dialog_new_with_button($0, flags.value, type, buttons, markup)!
         }
         self.init(retainingCPointer: dialog)
         guard let markup = secondaryMarkup else { return }

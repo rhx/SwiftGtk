@@ -5,4 +5,4 @@
 #
 . ./config.sh
 [ -e Sources/${Mod}/${Module}.swift ] || ./generate-wrapper.sh
-exec swift build $CCFLAGS $LINKFLAGS "$@"
+exec swift build --build-path "$BUILD_DIR" $CCFLAGS $LINKFLAGS "$@"

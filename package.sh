@@ -4,4 +4,4 @@
 # to pass compiler and linker flags.
 #
 . ./config.sh
-exec swift package $CCFLAGS $LINKFLAGS "$@"
+exec swift package --build-path "$BUILD_DIR" $CCFLAGS $LINKFLAGS "$@"
