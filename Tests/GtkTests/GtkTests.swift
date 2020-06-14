@@ -2,6 +2,7 @@ import XCTest
 import CGtk
 import Dispatch
 @testable import Gtk
+import Gdk
 
 var cstring = strdup("Test")
 var args = [cstring]
@@ -76,6 +77,14 @@ class GtkTests: XCTestCase {
         XCTAssertNotNil(window2.ptr)
         XCTAssertEqual(window1.allocatedHeight, 1)
         XCTAssertEqual(window2.allocatedHeight, 1)
+    }
+
+    func testWidget() {
+        let widget = Widget(UnsafeMutablePointer.allocate(capacity: 1))
+        widget.onKey {
+            let event = EventKeyRef($1)
+            debugPrint(event._ptr.pointee.keyval)
+        }
     }
 
     /// text text buffers
