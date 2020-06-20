@@ -3,7 +3,7 @@
 //  SwiftGtk
 //
 //  Created by Rene Hexel on 4/8/19.
-//  Copyright © 2019 Rene Hexel.  All rights reserved.
+//  Copyright © 2019, 2020 Rene Hexel.  All rights reserved.
 //
 import CGtk
 import GtkCHelpers
@@ -37,11 +37,4 @@ public extension FileChooserDialog {
         }
         self.init(retainingCPointer: dialog)
     }
-}
-
-public extension FileChooserAction {
-    /// convenience alias for `.select_folder`
-    static let selectFolder = FileChooserAction.select_folder
-    /// convenience alias for `.create_folder`
-    static let createFolder = FileChooserAction.create_folder
 }

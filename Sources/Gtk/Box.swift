@@ -3,7 +3,7 @@
 //  SwiftGtk
 //
 //  Created by Rene Hexel on 23/4/17.
-//  Copyright © 2017, 2018 Rene Hexel.  All rights reserved.
+//  Copyright © 2017, 2018, 2020 Rene Hexel.  All rights reserved.
 //
 import CGLib
 import CGtk
@@ -26,7 +26,7 @@ public extension BoxProtocol {
     func set(marginEnd: Int) { setMarginStart(margin: CInt(marginEnd)) }
 
     /// Connection helper function
-    private func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: BoxSignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer, gpointer) -> gboolean) -> CUnsignedLong {
+    private func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: BoxSignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer, gpointer) -> gboolean) -> Int {
         let opaqueHolder = Unmanaged.passRetained(data).toOpaque()
         let callback = unsafeBitCast(handler, to: Callback.self)
         let rv = signalConnectData(detailedSignal: name, cHandler: callback, data: opaqueHolder, destroyData: {
@@ -43,7 +43,7 @@ public extension BoxProtocol {
     /// the receiver object.  Similar to g_signal_connect(), but allows
     /// to provide a Swift closure that can capture its surrounding context.
     @discardableResult
-    func connectSignal(name: UnsafePointer<gchar>, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping BoxSignalHandler) -> CUnsignedLong {
+    func connectSignal(name: UnsafePointer<gchar>, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping BoxSignalHandler) -> Int {
         let rv = _connect(signal: name, flags: f, data: DualClosureHolder(handler)) {
             let holder = Unmanaged<BoxSignalHandlerClosureHolder>.fromOpaque($2).takeUnretainedValue()
             let rv: gboolean = holder.call(BoxRef(raw: $0), Cairo.ContextRef(raw: $1)) ? 1 : 0
@@ -56,7 +56,7 @@ public extension BoxProtocol {
     /// the receiver object.  Similar to g_signal_connect(), but allows
     /// to provide a Swift closure that can capture its surrounding context.
     @discardableResult
-    func connect<T>(signal s: T, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping BoxSignalHandler) -> CUnsignedLong where T: SignalNameProtocol {
+    func connect<T>(signal s: T, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping BoxSignalHandler) -> Int where T: SignalNameProtocol {
         return connectSignal(name: s.rawValue, flags: f, handler: handler)
     }
 
@@ -64,7 +64,7 @@ public extension BoxProtocol {
     /// the receiver object.  Similar to g_signal_connect(), but allows
     /// to provide a Swift closure that can capture its surrounding context.
     @discardableResult
-    func connect(signal: BoxSignalName, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping BoxSignalHandler) -> CUnsignedLong {
+    func connect(signal: BoxSignalName, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping BoxSignalHandler) -> Int {
         return connectSignal(name: signal.rawValue, flags: f, handler: handler)
     }
 
@@ -72,7 +72,7 @@ public extension BoxProtocol {
     /// signal of the receiver object.  Similar to g_signal_connect(), but allows
     /// to provide a Swift closure that can capture its surrounding context.
     @discardableResult
-    func onDraw(flags f: ConnectFlags = ConnectFlags(0), handler: @escaping BoxSignalHandler) -> CUnsignedLong {
+    func onDraw(flags f: ConnectFlags = ConnectFlags(0), handler: @escaping BoxSignalHandler) -> Int {
         return connectSignal(name: BoxSignalName.draw.rawValue, flags: f, handler: handler)
     }
 

@@ -168,3 +168,9 @@ s/NewWith(mnemonic group: SListProtocol, label:/NewWith(group: SListProtocol, mn
 s/radio.*NewWith/newWith/
 s/init(mnemonic group: SListProtocol, label:/init(group: SListProtocol, mnemonic label:/
 s/, GObject.TypePluginProtocol//
+s/Int\( = cast.gtk_icon.*_size\)/GtkIconSize\1/
+s/\(var callback: \)GCallback {/\1CGLib.GCallback {/
+s/\(GCallback = cast._ptr.pointee.callback.\)/CGLib.\1/
+s/\(func getBaseSize() ->\) Int/\1 GtkIconSize/
+s/^\(    var baseSize:\) Int/\1 GtkIconSize/
+s/\(func getItemIndex.item: ToolItemProtocol. ->\) Int/\1 GtkIconSize/

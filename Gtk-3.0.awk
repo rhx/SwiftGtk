@@ -2,7 +2,9 @@
 #
 # Patch the generated wrapper Swift code to handle special cases
 #
-BEGIN { depr_init = 0 ; comment = 0 ; slist = 0 ; overr = 0 ; ostock = 0 }
+BEGIN { depr_init = 0 ; comment = 0 ; slist = 0 ; overr = 0 ; ostock = 0 ;
+        no_fields = 0 ; close_comment = 0; icon_size = 0 ;
+}
 /Creates a new `GtkRecentChooserMenu` widget\.$/ { overr = 1 }
 /a swatch representing the current selected color. When the button/ { overr = 1 }
 #/Creates a new dialog box/ { overr = 1 }
@@ -35,6 +37,39 @@ BEGIN { depr_init = 0 ; comment = 0 ; slist = 0 ; overr = 0 ; ostock = 0 }
 /open .* HSV/ { depr_init = 1 }
 /func getColumnHeaderCells/ { comment = 1 }
 /func getRowHeaderCells/ { comment = 1 }
+/get.* -> GtkIconSize {$/ { icon_size = 1; }
+/: GtkIconSize {$/ { icon_size = 1; }
+/let rv = / { icon_size = 0; }
+/let rv: Int / {
+	if (icon_size) {
+		gsub("Int", "GtkIconSize")
+	}
+}
+/    return Int.rv.$/ {
+	if (icon_size) {
+		icon_size = 0;
+		gsub("Int.rv.", "rv")
+	}
+}
+/return/ { icon_size = 0; }
+/extension _MountOperationHandlerIfaceProtocol/ { no_fields = 1; }
+/extension _MountOperationHandlerProxyClassProtocol/ { no_fields = 1; }
+/extension _MountOperationHandlerSkeletonClassProtocol/ { no_fields = 1; }
+/^    var [a-z]/ {
+	if (no_fields) {
+		print "#if false"
+		no_fields = 0;
+		close_comment = 1;
+	}
+}
+/^    }$/ {
+	if (close_comment) {
+		print
+		print "#endif"
+		close_comment = 0;
+		next
+	}
+}
 /^[^ ]/ { slist = 0 }
 / UnsafeMutablePointer<GSList>! {/ {
 	slist = 1

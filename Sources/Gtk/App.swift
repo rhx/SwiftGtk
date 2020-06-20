@@ -3,7 +3,7 @@
 //  SwiftGtk
 //
 //  Created by Rene Hexel on 23/4/17.
-//  Copyright © 2017, 2018, 2019 Rene Hexel.  All rights reserved.
+//  Copyright © 2017, 2018, 2019, 2020 Rene Hexel.  All rights reserved.
 //
 import CGLib
 import GLib
@@ -22,7 +22,7 @@ public func App(_ p: gpointer!) -> ApplicationRef {
 /// Application protocol convenience methods
 public extension ApplicationProtocol {
     /// Connection helper function
-    private func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: ApplicationSignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    private func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: ApplicationSignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
         let opaqueHolder = Unmanaged.passRetained(data).toOpaque()
         let callback = unsafeBitCast(handler, to: Callback.self)
         let rv = signalConnectData(detailedSignal: name, cHandler: callback, data: opaqueHolder, destroyData: {
@@ -39,7 +39,7 @@ public extension ApplicationProtocol {
     /// the receiver object.  Similar to g_signal_connect(), but allows
     /// to provide a Swift closure that can capture its surrounding context.
     @discardableResult
-    func connectSignal(name: UnsafePointer<gchar>, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping ApplicationSignalHandler) -> CUnsignedLong {
+    func connectSignal(name: UnsafePointer<gchar>, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping ApplicationSignalHandler) -> Int {
         let rv = _connect(signal: name, flags: f, data: ClosureHolder(handler)) {
             let holder = Unmanaged<ApplicationSignalHandlerClosureHolder>.fromOpaque($1).takeUnretainedValue()
             holder.call(App($0))
@@ -51,7 +51,7 @@ public extension ApplicationProtocol {
     /// the receiver object.  Similar to g_signal_connect(), but allows
     /// to provide a Swift closure that can capture its surrounding context.
     @discardableResult
-    func connect<T>(signal s: T, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping ApplicationSignalHandler) -> CUnsignedLong where T: SignalNameProtocol {
+    func connect<T>(signal s: T, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping ApplicationSignalHandler) -> Int where T: SignalNameProtocol {
         return connectSignal(name: s.rawValue, flags: f, handler: handler)
     }
 
@@ -59,7 +59,7 @@ public extension ApplicationProtocol {
     /// the receiver object.  Similar to g_signal_connect(), but allows
     /// to provide a Swift closure that can capture its surrounding context.
     @discardableResult
-    func connect(signal: ApplicationSignalName, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping ApplicationSignalHandler) -> CUnsignedLong {
+    func connect(signal: ApplicationSignalName, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping ApplicationSignalHandler) -> Int {
         return connectSignal(name: signal.rawValue, flags: f, handler: handler)
     }
 }
