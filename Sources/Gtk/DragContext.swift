@@ -3,7 +3,7 @@
 //  SwiftGtk
 //
 //  Created by Rene Hexel on 29/4/17.
-//  Copyright © 2017, 2018 Rene Hexel.  All rights reserved.
+//  Copyright © 2017, 2018, 2020 Rene Hexel.  All rights reserved.
 //
 import CCairo
 import CGtk
@@ -27,20 +27,20 @@ public extension WidgetProtocol {
     /// Set a drag source
     ///
     /// - Parameters:
-    ///   - startButton: button to start dragging from (defaults to `.button1_mask`)
+    ///   - startButton: button to start dragging from (defaults to `.button1Mask`)
     ///   - action: drag action to perform (defaults to `.copy`)
     ///   - targets: array of targets to target
-    func dragSourceSet(startButton: Gdk.ModifierType = .button1_mask, action: Gdk.DragAction = .copy, targets: [String]) {
+    func dragSourceSet(startButton: Gdk.ModifierType = .button1Mask, action: Gdk.DragAction = .copy, targets: [String]) {
         var t = targets.map { GtkTargetEntry(target: $0) }
         dragSourceSet(startButtonMask: startButton, targets: &t, nTargets: CInt(t.count), actions: action)
     }
     /// Set a drag source
     ///
     /// - Parameters:
-    ///   - startButton: button to start dragging from (defaults to `.button1_mask`)
+    ///   - startButton: button to start dragging from (defaults to `.button1Mask`)
     ///   - action: drag action to perform (defaults to `.copy`)
     ///   - targets: array of targets to target
-    func dragSourceSet(startButton: Gdk.ModifierType = .button1_mask, action: Gdk.DragAction = .copy, targets: [GtkTargetEntry]) {
+    func dragSourceSet(startButton: Gdk.ModifierType = .button1Mask, action: Gdk.DragAction = .copy, targets: [GtkTargetEntry]) {
         var t = targets
         t.withUnsafeMutableBufferPointer {
             dragSourceSet(startButtonMask: startButton, targets: $0.baseAddress!, nTargets: CInt($0.count), actions: action)
@@ -49,19 +49,19 @@ public extension WidgetProtocol {
     /// Set a drag source
     ///
     /// - Parameters:
-    ///   - startButton: button to start dragging from (defaults to `.button1_mask`)
+    ///   - startButton: button to start dragging from (defaults to `.button1Mask`)
     ///   - action: drag action to perform (defaults to `.copy`)
     ///   - targets: list of targets to target
-    func dragSourceSet(startButton b: Gdk.ModifierType = .button1_mask, action a: Gdk.DragAction = .copy, targets t: String...) {
+    func dragSourceSet(startButton b: Gdk.ModifierType = .button1Mask, action a: Gdk.DragAction = .copy, targets t: String...) {
         dragSourceSet(startButton: b, action: a, targets: t)
     }
     /// Set a drag source
     ///
     /// - Parameters:
-    ///   - startButton: button to start dragging from (defaults to `.button1_mask`)
+    ///   - startButton: button to start dragging from (defaults to `.button1Mask`)
     ///   - action: drag action to perform (defaults to `.copy`)
     ///   - targets: list of targets to target
-    func dragSourceSet(startButton b: Gdk.ModifierType = .button1_mask, action a: Gdk.DragAction = .copy, targets t: GtkTargetEntry...) {
+    func dragSourceSet(startButton b: Gdk.ModifierType = .button1Mask, action a: Gdk.DragAction = .copy, targets t: GtkTargetEntry...) {
         dragSourceSet(startButton: b, action: a, targets: t)
     }
 
