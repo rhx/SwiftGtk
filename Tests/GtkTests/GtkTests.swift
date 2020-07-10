@@ -17,11 +17,11 @@ class GtkTests: XCTestCase {
     override class func setUp() {
         usleep(100000) // FIXME: ensure gtk is initialised
     }
-    func testMajorVersion() { XCTAssertEqual(getMajorVersion(), gtk_get_major_version()) }
-    func testMinorVersion() { XCTAssertEqual(getMinorVersion(), gtk_get_minor_version()) }
-    func testMicroVersion() { XCTAssertEqual(getMicroVersion(), gtk_get_micro_version()) }
-    func testInterfaceAge() { XCTAssertEqual(getInterfaceAge(), gtk_get_interface_age()) }
-    func testBinaryAge()    { XCTAssertEqual(getBinaryAge(),    gtk_get_binary_age())    }
+    func testMajorVersion() { XCTAssertEqual(getMajorVersion(), Int(gtk_get_major_version())) }
+    func testMinorVersion() { XCTAssertEqual(getMinorVersion(), Int(gtk_get_minor_version())) }
+    func testMicroVersion() { XCTAssertEqual(getMicroVersion(), Int(gtk_get_micro_version())) }
+    func testInterfaceAge() { XCTAssertEqual(getInterfaceAge(), Int(gtk_get_interface_age())) }
+    func testBinaryAge()    { XCTAssertEqual(getBinaryAge(),    Int(gtk_get_binary_age()))    }
 
     /// test that we can run and quit an app
     func testApp() {
