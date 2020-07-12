@@ -86,6 +86,36 @@ class GtkTests: XCTestCase {
         buffer.text = text
         XCTAssertEqual(buffer.text, text)
     }
+
+    /// test tree view row-activated signal handler
+    func testTreeViewRowActivated() {
+        var columnTypes = [GType.string]
+        let treeStore = TreeStore(nColumns: 1, types: &columnTypes)
+        let treeView = TreeView(model: treeStore)
+        let treeColumn = TreeViewColumn(0)
+        let treePath = TreePath(string: "0")
+        treeView.append([treeColumn])
+        var isTV = false
+        var isTC = false
+        var isTP = false
+        var activated = false
+        treeView.onRowActivated { (tv, tp, tc) in
+            isTV = tv.ptr == treeView.ptr
+            isTC = tc.ptr == treeColumn.ptr
+            isTP = tp.compare(b: treePath) == 0
+            activated = true
+        }
+        XCTAssertFalse(activated)
+        XCTAssertFalse(isTV)
+        XCTAssertFalse(isTP)
+        XCTAssertFalse(isTC)
+        treeView.rowActivated(path: treePath, column: treeColumn)
+//        RunLoop.current.run(until: Date(timeIntervalSinceNow: 0.25))
+        XCTAssertTrue(activated)
+        XCTAssertTrue(isTV)
+        XCTAssertTrue(isTP)
+        XCTAssertTrue(isTC)
+    }
 }
 
 extension GtkTests {
