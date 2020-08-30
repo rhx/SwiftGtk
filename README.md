@@ -3,18 +3,37 @@ A Swift wrapper around gtk-3.x that is largely auto-generated from gobject-intro
 This project tries to make gtk more "swifty" than using the plain C language interface.
 For up to date (auto-generated) reference documentation, see https://rhx.github.io/SwiftGtk/
 
+## What is new?
+
+Version 11 introduces a new type system into `gir2swift`,
+to ensure it has a representation of the underlying types.
+This is necessary for Swift 5.3 onwards, which requires more stringent casts.
+As a consequence, accessors can accept and return idiomatic Swift rather than
+underlying types or pointers.
+This means that a lot of the changes will be source-breaking for code that
+was compiled against libraries built with earlier versions of `gir2swift`.
+
+### Notable changes
+
+ * Requires Swift 5.2 or later
+ * Wrapper code is now `@inlinable` to enable the compiler to optimise away most of the wrappers
+ * Parameters and return types use more idiomatic Swift (e.g. `Ref` wrappers instead of pointers, `Int` instead of `gint`, etc.)
+ * Functions that take or return records now are templated instead of using the type-erased Protocol
+ * `ErrorType` has been renamed `GLibError` to ensure it neither clashes with `Swift.Error` nor the `GLib.ErrorType`  scanner enum
+ * Parameters or return types for records/classes now use the corresponding, lightweight Swift `Ref` wrapper instead of the underlying pointer
+
 ## Usage
 
 Normally, you don't build this package directly (but for testing you can - see 'Building' below), but you embed it into your own project.  To use SwiftGtk, you need to use the [Swift Package Manager](https://swift.org/package-manager/).  After installing the prerequisites (see 'Prerequisites' below), add `SwiftGtk` as a dependency to your `Package.swift` file, e.g.:
 
 ```Swift
-// swift-tools-version:4.2
+// swift-tools-version:5.2
 
 import PackageDescription
 
 let package = Package(name: "MyPackage",
     dependencies: [
-        .package(url: "https://github.com/rhx/SwiftGtk.git", .branch("master")),
+        .package(name: "Gtk", url: "https://github.com/rhx/SwiftGtk.git", .branch("master")),
     ],
     targets: [.target(name: "MyPackage", dependencies: ["Gtk"])]
 )
@@ -58,16 +77,16 @@ After that, use the (usual) Build and Test buttons to build/test this package.  
 
 ### Swift
 
-To build, you need at least Swift 4.2 (Swift 5.x should work fine), download from https://swift.org/download/ -- if you are using macOS, make sure you have the command line tools installed as well).  Test that your compiler works using `swift --version`, which should give you something like
+To build, you need at least Swift 5.2 (Swift 5.3+ should work fine), download from https://swift.org/download/ -- if you are using macOS, make sure you have the command line tools installed as well).  Test that your compiler works using `swift --version`, which should give you something like
 
 	$ swift --version
-	Apple Swift version 5.2 (swiftlang-1103.0.32.1 clang-1103.0.32.29)
+	Apple Swift version 5.2.4 (swiftlang-1103.0.32.1 clang-1103.0.32.29)
 	Target: x86_64-apple-darwin19.4.0
 
 on macOS, or on Linux you should get something like:
 
 	$ swift --version
-	Swift version 5.2 (swift-5.2-RELEASE)
+	Swift version 5.2.5 (swift-5.2.5-RELEASE)
 	Target: x86_64-unknown-linux-gnu
 
 ### Gtk 3.18 or higher
