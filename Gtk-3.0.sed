@@ -245,3 +245,5 @@ s|\(waitForRichText<\)AtomT: AtomProtocol, \(.*format: \)AtomT|\1\2UnsafeMutable
 s|\(gtk_clipboard_wait_for_rich_text(.*format\)._ptr|\1|
 s|\(gtk_menu_item_set_submenu(.*\.\)menu_ptr|\1widget_ptr|
 s|\(gtk_menu_shell_append(.*\.\)menu_item_ptr|\1widget_ptr|
+s|bgPixmapName: (UnsafeMutablePointer<gchar>!, UnsafeMutablePointer<gchar>!, UnsafeMutablePointer<gchar>!, UnsafeMutablePointer<gchar>!, UnsafeMutablePointer<gchar>!)|bgPixmapName: (UnsafeMutablePointer<gchar>?, UnsafeMutablePointer<gchar>?, UnsafeMutablePointer<gchar>?, UnsafeMutablePointer<gchar>?, UnsafeMutablePointer<gchar>?)|
+s|background: (UnsafeMutablePointer<cairo_pattern_t>!, UnsafeMutablePointer<cairo_pattern_t>!, UnsafeMutablePointer<cairo_pattern_t>!, UnsafeMutablePointer<cairo_pattern_t>!, UnsafeMutablePointer<cairo_pattern_t>!)|background: (UnsafeMutablePointer<cairo_pattern_t>?, UnsafeMutablePointer<cairo_pattern_t>?, UnsafeMutablePointer<cairo_pattern_t>?, UnsafeMutablePointer<cairo_pattern_t>?, UnsafeMutablePointer<cairo_pattern_t>?)|
