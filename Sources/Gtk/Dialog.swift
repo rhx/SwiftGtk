@@ -31,7 +31,7 @@ public extension Dialog {
     /// - Parameter flags: flags to use such as `.modal` (default) or `.destroy_with_parent`
     /// - Parameter text: title of the  button
     /// - Parameter responseType: response type for the button (default: `.accept`)
-    convenience init(title: UnsafePointer<gchar>? = nil, flags: DialogFlags = .modal, text: String, responseType: ResponseType = .ok) {
+    @inlinable convenience init(title: UnsafePointer<gchar>! = nil, flags: DialogFlags = .modal, text: String, responseType: ResponseType = .ok) {
         self.init(retainingCPointer: gtk_c_helper_dialog_new_with_button(title, nil, flags.value, text, responseType))
     }
 
@@ -59,7 +59,7 @@ public extension Dialog {
     /// - Parameter flags: flags to use such as `.modal` (default) or `.destroy_with_parent`
     /// - Parameter text: title of the  button
     /// - Parameter responseType: response type for the button
-    convenience init<W: WindowProtocol>(title: UnsafePointer<gchar>? = nil, parent: W, flags: DialogFlags = .modal, text: String, responseType: ResponseType = .ok) {
+    @inlinable convenience init<W: WindowProtocol>(title: UnsafePointer<gchar>! = nil, parent: W, flags: DialogFlags = .modal, text: String, responseType: ResponseType = .ok) {
         let dialog = parent.window_ptr.withMemoryRebound(to: GtkWindow.self, capacity: 1) {
             gtk_c_helper_dialog_new_with_button(title, $0, flags.value, text, responseType)!
         }
@@ -86,7 +86,7 @@ public extension Dialog {
     /// - Parameter firstResponseType: response type for the first button
     /// - Parameter secondText: title of the second button
     /// - Parameter secondResponseType: response type for the second button
-    convenience init(title: UnsafePointer<gchar>? = nil, flags: DialogFlags = .modal, firstText: String, firstResponseType: ResponseType = .cancel, secondText: String, secondResponseType: ResponseType = .ok) {
+    @inlinable convenience init(title: UnsafePointer<gchar>! = nil, flags: DialogFlags = .modal, firstText: String, firstResponseType: ResponseType = .cancel, secondText: String, secondResponseType: ResponseType = .ok) {
         self.init(retainingCPointer: gtk_c_helper_dialog_new_with_two_buttons(title, nil, flags.value, firstText, firstResponseType, secondText, secondResponseType))
     }
 
@@ -111,7 +111,7 @@ public extension Dialog {
     /// - Parameter firstResponseType: response type for the first button
     /// - Parameter secondText: title of the second button
     /// - Parameter secondResponseType: response type for the second button
-    convenience init<W: WindowProtocol>(title: UnsafePointer<gchar>? = nil, parent: W, flags: DialogFlags = .modal, firstText: String, firstResponseType: ResponseType = .cancel, secondText: String, secondResponseType: ResponseType = .ok) {
+    @inlinable convenience init<W: WindowProtocol>(title: UnsafePointer<gchar>! = nil, parent: W, flags: DialogFlags = .modal, firstText: String, firstResponseType: ResponseType = .cancel, secondText: String, secondResponseType: ResponseType = .ok) {
         let dialog = parent.window_ptr.withMemoryRebound(to: GtkWindow.self, capacity: 1) {
             gtk_c_helper_dialog_new_with_two_buttons(title, $0, flags.value, firstText, firstResponseType, secondText, secondResponseType)!
         }
@@ -140,7 +140,7 @@ public extension Dialog {
     /// - Parameter secondResponseType: response type for the second button
     /// - Parameter thirdText: title of the third button
     /// - Parameter thirdResponseType: response type for the third button
-    convenience init(title: UnsafePointer<gchar>? = nil, flags: DialogFlags = .modal, firstText: String, firstResponseType: ResponseType = .help, secondText: String, secondResponseType: ResponseType = .cancel, thirdText: String, thirdResponseType: ResponseType = .ok) {
+    @inlinable convenience init(title: UnsafePointer<gchar>! = nil, flags: DialogFlags = .modal, firstText: String, firstResponseType: ResponseType = .help, secondText: String, secondResponseType: ResponseType = .cancel, thirdText: String, thirdResponseType: ResponseType = .ok) {
         self.init(retainingCPointer: gtk_c_helper_dialog_new_with_three_buttons(title, nil, flags.value, firstText, firstResponseType, secondText, secondResponseType, thirdText, thirdResponseType))
     }
 
@@ -167,7 +167,7 @@ public extension Dialog {
     /// - Parameter secondResponseType: response type for the second button
     /// - Parameter thirdText: title of the third button
     /// - Parameter thirdResponseType: response type for the third button
-    convenience init<W: WindowProtocol>(title: UnsafePointer<gchar>? = nil, parent: W, flags: DialogFlags = .modal, firstText: String, firstResponseType: ResponseType = .help, secondText: String, secondResponseType: ResponseType = .cancel, thirdText: String, thirdResponseType: ResponseType = .ok) {
+    @inlinable convenience init<W: WindowProtocol>(title: UnsafePointer<gchar>! = nil, parent: W, flags: DialogFlags = .modal, firstText: String, firstResponseType: ResponseType = .help, secondText: String, secondResponseType: ResponseType = .cancel, thirdText: String, thirdResponseType: ResponseType = .ok) {
         let dialog = parent.window_ptr.withMemoryRebound(to: GtkWindow.self, capacity: 1) {
             gtk_c_helper_dialog_new_with_three_buttons(title, $0, flags.value, firstText, firstResponseType, secondText, secondResponseType, thirdText, thirdResponseType)!
         }

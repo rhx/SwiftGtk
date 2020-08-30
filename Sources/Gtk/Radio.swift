@@ -3,10 +3,11 @@
 //  Gtk
 //
 //  Created by Rene Hexel on 17/3/19.
-//  Copyright © 2019 Rene Hexel.  All rights reserved.
+//  Copyright © 2019, 2020 Rene Hexel.  All rights reserved.
 //
 import CGdk
 import CGtk
+import GLib
 import Gdk
 
 public extension RadioButton {
@@ -14,7 +15,7 @@ public extension RadioButton {
     ///
     /// - Parameter labels: array of labels for the radio buttons
     /// - Returns: grouped array of radio buttons
-    static func groupWith(labels: [String]) -> [RadioButton] {
+    @inlinable static func groupWith(labels: [String]) -> [RadioButton] {
         var previousButton: RadioButton?
         return labels.map {
             let button: RadioButton
@@ -32,7 +33,7 @@ public extension RadioButton {
     ///
     /// - Parameter ls: labels to use for the radio buttons
     /// - Returns: grouped array of radio buttons
-    static func groupLabeled(_ ls: String...)  -> [RadioButton] {
+    @inlinable static func groupLabeled(_ ls: String...)  -> [RadioButton] {
         return groupWith(labels: ls)
     }
 
@@ -41,7 +42,7 @@ public extension RadioButton {
     ///
     /// - Parameter mnemonics: labels to use for the buttons
     /// - Returns: grouped array of radio buttons
-    static func groupWith(mnemonics: [String]) -> [RadioButton] {
+    @inlinable static func groupWith(mnemonics: [String]) -> [RadioButton] {
         var previousButton: RadioButton?
         return mnemonics.map {
             let button: RadioButton
@@ -60,7 +61,7 @@ public extension RadioButton {
     ///
     /// - Parameter ms: labels to use for the buttons
     /// - Returns: grouped array of radio buttons
-    static func groupWithMnemonics(_ ms: String...)  -> [RadioButton] {
+    @inlinable static func groupWithMnemonics(_ ms: String...)  -> [RadioButton] {
         return groupWith(mnemonics: ms)
     }
 }

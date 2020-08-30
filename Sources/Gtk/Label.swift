@@ -3,7 +3,7 @@
 //  Gtk
 //
 //  Created by Rene Hexel on 3/10/19.
-//  Copyright © 2019 Rene Hexel.  All rights reserved.
+//  Copyright © 2019, 2020 Rene Hexel.  All rights reserved.
 //
 public extension Label {
     /// Creates a new label with the given text.
@@ -13,7 +13,7 @@ public extension Label {
     /// - SeeAlso: `init(mnemonic:)`
     /// - Parameter text: the text to display.
     /// - Note: For a constructor that allows underlined mnemonics and keyboard shortcuts, see `init(mnemonic:)`
-    convenience init(text: String) {
+    @inlinable convenience init(text: String) {
         self.init(str: text)
     }
 }

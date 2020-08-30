@@ -71,7 +71,7 @@ class GtkTests: XCTestCase {
     // test Scrolled Window convenience methods
     func testScrolledWindow() {
         let vadj = Adjustment(value: 0, lower: 0, upper: 1, stepIncrement: 1, pageIncrement: 1, pageSize: 1)
-        let window1 = ScrolledWindow(vAdjustment: nil)
+        let window1 = ScrolledWindow(vAdjustment: AdjustmentRef?.none)
         let window2 = ScrolledWindow(vAdjustment: vadj)
         XCTAssertNotNil(window1.ptr)
         XCTAssertNotNil(window2.ptr)
