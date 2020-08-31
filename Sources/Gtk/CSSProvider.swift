@@ -45,6 +45,7 @@ public extension CSSProvider {
     /// - Throws: an `ErrorType` if there is an issue with the CSS
     @inlinable convenience init(from data: String) throws {
         self.init()
+        _ = refSink()
         try load(from: data)
     }
 }
