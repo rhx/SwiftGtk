@@ -9,5 +9,5 @@ import CGtk
 
 public extension ActionGroupProtocol {
     /// Typed pointer to the underlying `GActionGroup` instance.
-    var gActionGroupPointer: UnsafeMutablePointer<GActionGroup>! { ptr.assumingMemoryBound(to: GActionGroup.self) }
+    @inlinable var gActionGroupPointer: UnsafeMutablePointer<GActionGroup>! { ptr.assumingMemoryBound(to: GActionGroup.self) }
 }

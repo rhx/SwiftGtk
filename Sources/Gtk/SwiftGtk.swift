@@ -95,7 +95,7 @@ public typealias BoxSignalHandler = (BoxRef, Cairo.ContextRef) -> Bool
  * Use with caution: the returned pointer is not really mutable, but many
  * C APIs fail to declare them `const'
  */
-func cstring(_ arg: UnsafePointer<CChar>) -> UnsafeMutablePointer<CChar> {
+@usableFromInline func cstring(_ arg: UnsafePointer<CChar>) -> UnsafeMutablePointer<CChar> {
     return UnsafeMutablePointer<CChar>(mutating: arg)
 }
 
@@ -104,6 +104,6 @@ func cstring(_ arg: UnsafePointer<CChar>) -> UnsafeMutablePointer<CChar> {
  * Convert an array of strings into a null-terminated array of
  * C strings (argument vector)
  */
-func argv(_ arguments: [String]) -> [UnsafeMutablePointer<CChar>?] {
+@usableFromInline func argv(_ arguments: [String]) -> [UnsafeMutablePointer<CChar>?] {
     return arguments.map { let s = cstring($0); return s } + [nil]
 }
