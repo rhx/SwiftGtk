@@ -72,14 +72,16 @@ public extension ListStore {
 }
 
 
-public extension TreeView {
+/// TreeView subclass for displaying lists that retain their model
+open class ListView: TreeView {
+    /// The underlying list store
+    public var listStore: ListStore
+
     /// Convenience List View constructor
     ///
     /// - Parameter store: list view store description
-    @inlinable convenience init(model store: ListStore) {
-        self.init(model: store.treeModel)
+    @inlinable public init(model store: ListStore) {
+        listStore = store
+        super.init(model: store.treeModel)
     }
 }
-
-/// TreeView subclass for displaying lists
-open class ListView: TreeView {}
