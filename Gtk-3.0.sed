@@ -255,7 +255,7 @@ s|socket_id: Window|socket_id: XID|
 s|options: UnsafeMutablePointer<UnsafeMutablePointer<CChar>|options: UnsafeMutablePointer<UnsafePointer<CChar>|
 s|option_labels: UnsafeMutablePointer<UnsafeMutablePointer<CChar>|option_labels: UnsafeMutablePointer<UnsafePointer<CChar>|
 s|icon_names: UnsafeMutablePointer<gchar>|icon_names: UnsafeMutablePointer<UnsafePointer<gchar>?>|
-s|icons: UnsafeMutablePointer<gchar>|icons: UnsafeMutablePointer<UnsafePointer<gchar>?>|
+s|icons: UnsafeMutablePointer<UnsafeMutablePointer<gchar>|icons: UnsafeMutablePointer<UnsafePointer<gchar>|
 s|people: UnsafeMutablePointer<UnsafeMutablePointer<gchar>|people: UnsafeMutablePointer<UnsafePointer<gchar>|
 s|accels: UnsafeMutablePointer<UnsafeMutablePointer<gchar>|accels: UnsafeMutablePointer<UnsafePointer<gchar>|
 s|var applications: UnsafeMutablePointer<UnsafeMutablePointer<gchar>|var applications: UnsafeMutablePointer<UnsafePointer<gchar>|
