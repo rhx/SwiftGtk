@@ -248,3 +248,14 @@ s|\(gtk_menu_shell_append(.*\.\)menu_item_ptr|\1widget_ptr|
 s|bgPixmapName: (UnsafeMutablePointer<gchar>!, UnsafeMutablePointer<gchar>!, UnsafeMutablePointer<gchar>!, UnsafeMutablePointer<gchar>!, UnsafeMutablePointer<gchar>!)|bgPixmapName: (UnsafeMutablePointer<gchar>?, UnsafeMutablePointer<gchar>?, UnsafeMutablePointer<gchar>?, UnsafeMutablePointer<gchar>?, UnsafeMutablePointer<gchar>?)|
 s|background: (UnsafeMutablePointer<cairo_pattern_t>!, UnsafeMutablePointer<cairo_pattern_t>!, UnsafeMutablePointer<cairo_pattern_t>!, UnsafeMutablePointer<cairo_pattern_t>!, UnsafeMutablePointer<cairo_pattern_t>!)|background: (UnsafeMutablePointer<cairo_pattern_t>?, UnsafeMutablePointer<cairo_pattern_t>?, UnsafeMutablePointer<cairo_pattern_t>?, UnsafeMutablePointer<cairo_pattern_t>?, UnsafeMutablePointer<cairo_pattern_t>?)|
 s|\(super.init(gpointer: (rv))\)|\1 ; _ = refSink()|
+s|\(func testListAllTypes(.* -> Unsafe\)MutablePointer<GType>|\1Pointer<GType>|
+s|\(gtk_widget_insert_action_group(widget_ptr, name, group.\).action_group_ptr|\1.gActionGroupPointer|
+s|addID(window: Window)|addID(window: XID)|
+s|socket_id: Window|socket_id: XID|
+s|people: UnsafeMutablePointer<UnsafeMutablePointer<gchar>|people: UnsafeMutablePointer<UnsafePointer<gchar>|
+s|artists: UnsafeMutablePointer<UnsafeMutablePointer<gchar|artists: UnsafeMutablePointer<UnsafePointer<gchar|
+s|authors: UnsafeMutablePointer<UnsafeMutablePointer<gchar|authors: UnsafeMutablePointer<UnsafePointer<gchar|
+s|documenters: UnsafeMutablePointer<UnsafeMutablePointer<gchar|documenters: UnsafeMutablePointer<UnsafePointer<gchar|
+s|getArtists() -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>|getArtists() -> UnsafePointer<UnsafePointer<gchar>|
+s|getAuthors() -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>|getAuthors() -> UnsafePointer<UnsafePointer<gchar>|
+s|getDocumenters() -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>|getDocumenters() -> UnsafePointer<UnsafePointer<gchar>|
