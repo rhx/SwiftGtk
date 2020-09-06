@@ -3,7 +3,8 @@
 # Patch the generated wrapper Swift code to handle special cases
 #
 BEGIN { depr_init = 0 ; comment = 0 ; slist = 0 ; overr = 0 ; ostock = 0 ;
-        no_fields = 0 ; close_comment = 0; icon_size = 0 ;
+        no_fields = 0 ; close_comment = 0; icon_size = 0 ; gdk = 0 ; gtk = 0 ;
+        grp = 0
 }
 /Creates a new `GtkRecentChooserMenu` widget\.$/ { overr = 1 }
 /a swatch representing the current selected color. When the button/ { overr = 1 }
@@ -30,6 +31,10 @@ BEGIN { depr_init = 0 ; comment = 0 ; slist = 0 ; overr = 0 ; ostock = 0 ;
 /Creates a new `GtkToggleButton`/ { overr = 1 }
 /Creates a new `GtkToggleToolButton`/ { overr = 1 }
 /Creates a new `GtkRecentAction`/ { ostock = 1 }
+/   the file belongs to/ { grp = 1 }
+/The widget's window if it is realized/ { gdk = 1 }
+/`GdkWindow`/ { gdk = 1 }
+/`GtkWindow`/ { gtk = 1 }
 /open .* ColorSelection/ { depr_init = 1 }
 /public .* ColorSelection/ { depr_init = 1 }
 /public .* HSV/ { depr_init = 1 }
@@ -37,9 +42,9 @@ BEGIN { depr_init = 0 ; comment = 0 ; slist = 0 ; overr = 0 ; ostock = 0 ;
 /open .* HSV/ { depr_init = 1 }
 /func getColumnHeaderCells/ { comment = 1 }
 /func getRowHeaderCells/ { comment = 1 }
-/get.* -> GtkIconSize {$/ { icon_size = 1; }
-/: GtkIconSize {$/ { icon_size = 1; }
-/let rv = / { icon_size = 0; }
+/get.* -> GtkIconSize {$/ { icon_size = 1 }
+/: GtkIconSize {$/ { icon_size = 1 }
+/let rv = / { icon_size = 0 }
 /let rv: Int / {
 	if (icon_size) {
 		gsub("Int", "GtkIconSize")
@@ -55,7 +60,18 @@ BEGIN { depr_init = 0 ; comment = 0 ; slist = 0 ; overr = 0 ; ostock = 0 ;
 /extension _MountOperationHandlerIfaceProtocol/ { no_fields = 1; }
 /extension _MountOperationHandlerProxyClassProtocol/ { no_fields = 1; }
 /extension _MountOperationHandlerSkeletonClassProtocol/ { no_fields = 1; }
-/^    var [a-z]/ {
+/ WindowRef[!(]/ {
+	if (gdk) {
+		gsub(" WindowRef", " Gdk.WindowRef")
+	}
+}
+/ Gdk.WindowRef[!(]/ {
+	if (gtk) {
+		gdk = 0;
+		gsub(" Gdk.WindowRef", " WindowRef")
+	}
+}
+/^    @inlinable var [a-z]/ {
 	if (no_fields) {
 		print "#if false"
 		no_fields = 0;
@@ -70,14 +86,21 @@ BEGIN { depr_init = 0 ; comment = 0 ; slist = 0 ; overr = 0 ; ostock = 0 ;
 		next
 	}
 }
-/^[^ ]/ { slist = 0 }
+/var groups: UnsafeMutablePointer<UnsafeMutablePointer<gchar>/ {
+    if (grp) {
+        grp = 0
+        print "    @inlinable var groups: UnsafeMutablePointer<UnsafePointer<gchar>?>! {"
+        next
+    }
+}
+/^[^ ]/ { slist = 0 ; gdk = 0 ; gtk = 0 ; grp = 0 }
 / UnsafeMutablePointer<GSList>! {/ {
 	slist = 1
 	gsub("UnsafeMutablePointer.GSList..", "SListRef!")
 }
 /return cast.rv.$/ {
 	if (slist) {
-		gsub("cast.rv.", "cast(rv.map { SListRef($0) })")
+		gsub("cast.rv.", "rv.map { SListRef($0) }")
 	}
 }
 /cast.newValue./ {
@@ -86,16 +109,19 @@ BEGIN { depr_init = 0 ; comment = 0 ; slist = 0 ; overr = 0 ; ostock = 0 ;
 		slist = 0
 	}
 }
-/^    }$/ { slist = 0 }
-/^    public init[(]/ {
+/^    }$/ { slist = 0 ; gdk = 0 ; gtk = 0 }
+/^    @inlinable public init[(]font fontname:/ {
+	overr = 0
+}
+/^    @inlinable public init[<(]/ {
 	if (overr) {
-		printf("override ")
+		gsub("public", "override public")
 		overr = 0
 	}
 }
-/^    public init.*stock_id: UnsafePointer<gchar>[)]/ {
+/^    @inlinable public init.*stock_id: UnsafePointer<gchar>. = nil[)]/ {
 	if (ostock) {
-		printf("override ")
+		gsub("public", "override public")
 		ostock = 0
 	}
 }
@@ -117,9 +143,9 @@ BEGIN { depr_init = 0 ; comment = 0 ; slist = 0 ; overr = 0 ; ostock = 0 ;
 	print "    /// creating a new group."
 	print "    ///"
 	print "    /// - Parameter label: the label to use for the button"
-	print "    public override init(label: UnsafePointer<gchar>) {"
+	print "    @inlinable public override init(label: UnsafePointer<gchar>!) {"
 	print "        let rv = gtk_radio_button_new_with_label(nil, label)"
-	print "        super.init(cast(rv))"
+	print "        super.init(gpointer: gpointer(rv))"
 	print "    }"
 	print ""
 	print "    /// Constructor for creating a RadioButton with a text label"
@@ -127,9 +153,9 @@ BEGIN { depr_init = 0 ; comment = 0 ; slist = 0 ; overr = 0 ; ostock = 0 ;
 	print "    /// indicate the mnemonic for the button."
 	print "    ///"
 	print "    /// - Parameter label: the label (including mnemonic) to use for the button"
-	print "    public override init(mnemonic label: UnsafePointer<gchar>) {"
+	print "    @inlinable public override init(mnemonic label: UnsafePointer<gchar>!) {"
 	print "        let rv = gtk_radio_button_new_with_mnemonic(nil, label)"
-	print "        super.init(cast(rv))"
+	print "        super.init(gpointer: gpointer(rv))"
 	print "    }"
 	print ""
 	next
@@ -140,9 +166,9 @@ BEGIN { depr_init = 0 ; comment = 0 ; slist = 0 ; overr = 0 ; ostock = 0 ;
 	print "    /// creating a new group."
 	print "    ///"
 	print "    /// - Parameter label: the label to use for the button"
-	print "    public override init(label: UnsafePointer<gchar>) {"
+	print "    @inlinable public override init(label: UnsafePointer<gchar>!) {"
 	print "        let rv = gtk_radio_menu_item_new_with_label(nil, label)"
-	print "        super.init(cast(rv))"
+	print "        super.init(gpointer: gpointer(rv))"
 	print "    }"
 	print ""
 	print "    /// Constructor for creating a RadioMenuItem with a text label"
@@ -150,9 +176,9 @@ BEGIN { depr_init = 0 ; comment = 0 ; slist = 0 ; overr = 0 ; ostock = 0 ;
 	print "    /// indicate the mnemonic for the button."
 	print "    ///"
 	print "    /// - Parameter label: the label (including mnemonic) to use for the button"
-	print "    public override init(mnemonic label: UnsafePointer<gchar>) {"
+	print "    @inlinable public override init(mnemonic label: UnsafePointer<gchar>!) {"
 	print "        let rv = gtk_radio_menu_item_new_with_mnemonic(nil, label)"
-	print "        super.init(cast(rv))"
+	print "        super.init(gpointer: gpointer(rv))"
 	print "    }"
 	print ""
 	next
@@ -160,9 +186,9 @@ BEGIN { depr_init = 0 ; comment = 0 ; slist = 0 ; overr = 0 ; ostock = 0 ;
 /^open class RadioToolButton:/ {
 	print
 	print "    /// Convenience constructor for creating a RadioToolButton group."
-	print "    public override init() {"
+	print "    @inlinable public override init() {"
 	print "        let rv = gtk_radio_tool_button_new(nil)"
-	print "        super.init(cast(rv))"
+	print "        super.init(gpointer: gpointer(rv))"
 	print "    }"
 	print ""
 	next

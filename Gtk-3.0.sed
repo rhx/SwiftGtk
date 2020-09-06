@@ -65,10 +65,24 @@ s/\(renderIcon.*\), size: CInt/\1, size: GtkIconSize/
 s/\(icon_source.*\)size: CInt/\1size: GtkIconSize/
 s/set(size: CInt)/set(size: GtkIconSize)/
 s/icon_size: CInt/icon_size: GtkIconSize/
+s/UnsafeMutablePointer<GdkAtom>/UnsafeMutablePointer<GdkAtom?>/
 s/-> GdkAtom {/-> GdkAtom! {/
 s/-> GCallback {/-> CGLib.GCallback? {/
 s/: GdkAtom {/: GdkAtom! {/
-s/ Callback/ GCallback/
+s/-> ListRef/-> GLib.ListRef/
+s/: ListRef/: GLib.ListRef/
+s/-> IconRef/-> GIO.IconRef/
+s/: IconRef/: GIO.IconRef/
+s/-> FontFaceRef/-> Pango.FontFaceRef/
+s/: FontFaceRef/: Pango.FontFaceRef/
+s/-> FontMapRef/-> Pango.FontMapRef/
+s/: FontMapRef/: Pango.FontMapRef/
+s/-> DeviceRef/-> Gdk.DeviceRef/
+s/: DeviceRef/: Gdk.DeviceRef/
+s/-> EventRef/-> Gdk.EventRef/
+s/: EventRef/: Gdk.EventRef/
+s/EventMask/Gdk.EventMask/
+s/ XCallback/ GCallback/
 s/ApplicationProtocol: ApplicationProtocol/ApplicationProtocol: Gio.ApplicationProtocol/
 s/Application: Application/Application: Gio.Application/
 s/(application other: T)/(gtkApplication other: T)/
@@ -79,15 +93,58 @@ s/MountOperation: MountOperation/MountOperation: Gio.MountOperation/
 s/AccessibleProtocol: ObjectProtocol/AccessibleProtocol: Atk.ObjectProtocol/
 s/Accessible: Object/Accessible: Atk.Object/
 s/Protocol: ObjectProtocol/Protocol: GLibObject.ObjectProtocol/
+s/ \(ColorProtocol.*ColorT\)/ Gdk.\1/g
+s/: Color\([^A-Z]\)/: Gdk.Color\1/g
+s/ \(RectangleProtocol.*RectangleT\)/Gdk.\1/g
+s/ \(ContextProtocol.*cr:\)/Cairo.\1/g
+s/\(airo.*\) \(Context\)/\1 Cairo.\2/
+s/\(airo.*\) \(LayoutProtocol\)/\1 Pango.\2/
+s/\(airo.*\) \(WindowProtocol\)/\1 Gdk.\2/
+s/\( attach<WindowT:\) \(WindowProtocol>(window: WindowT\)/\1 Gdk.\2/
+s/\( set<WindowT:\) \(WindowProtocol>(window: WindowT\)/\1 Gdk.\2/
+s/\( set<WindowT:\) \(WindowProtocol>(parentWindow parent_window: WindowT\)/\1 Gdk.\2/
+s/\( setBackground<WindowT:\) \(WindowProtocol>(window: WindowT\)/\1 Gdk.\2/
+s/\( setClient<WindowT:\) \(WindowProtocol>(window: WindowT\)/\1 Gdk.\2/
+s/\( unregister<WindowT:\) \(WindowProtocol>(window: WindowT\)/\1 Gdk.\2/
+s/\( getWindowType<WindowT:\) \(WindowProtocol.*: WindowT\)/\1 Gdk.\2/
+s/\( dragDestSetProxy<WindowT:\) \(WindowProtocol.*: WindowT\)/\1 Gdk.\2/
+s/\( notifyStateChange<WindowT:\) \(WindowProtocol.*: WindowT\)/\1 Gdk.\2/
+s/\( register<WindowT:\) \(WindowProtocol.*: WindowT\)/\1 Gdk.\2/
+s/\( scrollAnimations<WindowT:\) \(WindowProtocol.*: WindowT\)/\1 Gdk.\2/
+s/\(urface.*WindowT:\) \(WindowProtocol.*: WindowT\)/\1 Gdk.\2/
+s/\( popupAtRect.*WindowT:\) \(WindowProtocol.*: WindowT\)/\1 Gdk.\2/
+s/\(var [a-z]*Window:\) WindowRef/\1 Gdk.WindowRef/
+s/ activeWindow: Gdk.WindowRef/ activeWindow: WindowRef/
+s/ tooltipWindow: Gdk.WindowRef/ tooltipWindow: WindowRef/
+s/\(func get[a-zA-Z]*Window()\) -> WindowRef/\1 -> Gdk.WindowRef/
+s/getActiveWindow() -> Gdk.WindowRef/getActiveWindow() -> WindowRef/
+s/\(Accessible.*\) \(ObjectRef\)/\1 Atk.\2/
+s/\(ango.*\) \(Context\)/\1 Pango.\2/
+s/\(rv = \)\(ContextRef(.*cairo.*)\)/\1Cairo.\2/
+s/\(rv = \)\(ContextRef(.*pango.*)\)/\1Pango.\2/
+s/\(rv = \)\(FontMapRef(.*pango.*)\)/\1Pango.\2/
+s/\(rv = \)\(FontMapRef(.*widget.*)\)/\1Pango.\2/
+s/\(rv = \)\(FontMapRef(.*font_chooser.*)\)/\1Pango.\2/
+s/\(rv = \)\(FontFaceRef(.*font_chooser.*)\)/\1Pango.\2/
+s/\(rv = \)\(FontFaceRef(.*get_face.*)\)/\1Pango.\2/
+s/\(rv = \)\(DeviceRef(.*device.*)\)/\1Gdk.\2/
+s/\(rv = \)\(WindowRef(.*gdk.*)\)/\1Gdk.\2/
+s/\(rv = \)\(WindowRef(.*get.*_window.*)\)/\1Gdk.\2/
+s/\(rv = \)Gdk.\(WindowRef(.*application_get.*_window.*)\)/\1\2/
+s/\(rv = \)Gdk\(WindowRef(.*get_tooltip_window.*)\)/\1Gdk.\2/
+s/\(rv = \)\(WindowRef(.*gesture.*)\)/\1Gdk.\2/
+s/\(rv = \)\(ObjectRef(.*accessible.*)\)/\1Atk.\2/
+s/\(FontMapProtocol.*map: FontMapT\)/Pango.\1/g
 s/GObject\./GLibObject./g
 s/GLibObject.self/GObject.self/g
+s/accessible: ObjectRef/accessible: Atk.ObjectRef/g
 s/: Object/: GLibObject.Object/
+s/: GLibObject.ObjectT/: ObjectT/
 s/: Value/: GLibObject.Value/g
-s/: ColorProtocol/: Gdk.ColorProtocol/g
-s/: Color\([^A-Z]\)/: Gdk.Color\1/g
-s/: Rectangle/: Gdk.Rectangle/g
-s/cr: Context/cr: cairo.Context/g
-s/map: FontMap/map: Pango.FontMap/g
+s/: GLibObject.ValueT/: ValueT/g
+s/: Cairo.ContextT/: ContextT/g
+s/: Pango.ContextT/: ContextT/g
+s/ ObjectRef/ GLibObject.ObjectRef/g
 s/func setFromIcon(icon: IconProtocol, size: CInt)/func setFrom(icon: IconProtocol, size: GtkIconSize)/
 s/func setFromIconName(iconName icon_name: UnsafePointer<gchar>, size: CInt)/func setFrom(iconName icon_name: UnsafePointer<gchar>, size: GtkIconSize)/
 s/setFromStock(stockID stock_id: UnsafePointer<gchar>, size: CInt)/setFrom(stock stock_id: UnsafePointer<gchar>, size: GtkIconSize)/
@@ -163,10 +220,9 @@ s/: \([A-Za-z.]*ListenerInit[,)]\)/: @escaping \1/g
 s/: \([A-Za-z.]*Predicate[,)]\)/: @escaping \1/g
 s/: \([A-Za-z.]*Foreach[,)]\)/: @escaping \1/g
 s/: \([A-Za-z.]*Parser[,)]\)/: @escaping \1/g
-s/ *label group: SListProtocol/group: SListProtocol/
-s/NewWith(mnemonic group: SListProtocol, label:/NewWith(group: SListProtocol, mnemonic label:/
+s/label group: SListT/group: SListT/
+s/mnemonic group: SListT\(.*\)label:/group: SListT\1mnemonic label:/
 s/radio.*NewWith/newWith/
-s/init(mnemonic group: SListProtocol, label:/init(group: SListProtocol, mnemonic label:/
 s/, GObject.TypePluginProtocol//
 s/Int\( = cast.gtk_icon.*_size\)/GtkIconSize\1/
 s/\(var callback: \)GCallback {/\1CGLib.GCallback {/
@@ -174,3 +230,43 @@ s/\(GCallback = cast._ptr.pointee.callback.\)/CGLib.\1/
 s/\(func getBaseSize() ->\) Int/\1 GtkIconSize/
 s/^\(    var baseSize:\) Int/\1 GtkIconSize/
 s/\(func getItemIndex.item: ToolItemProtocol. ->\) Int/\1 GtkIconSize/
+s/dialog.dialog_ptr/dialog.ptr.assumingMemoryBound(to: GtkWidget.self)/
+s/group\.action_group_ptr/group.gActionGroupPointer/
+s/group\?\.action_group_ptr/group?.gActionGroupPointer/
+s/\(ui_manager_.*_action_group.*action_group\).gActionGroupPointer/\1.action_group_ptr/
+s/\(set_artists.*\)newValue/\1UnsafeMutablePointer(mutating: newValue)/
+s/\(set_authors.*\)newValue/\1UnsafeMutablePointer(mutating: newValue)/
+s/\(set_documenters.*\)newValue/\1UnsafeMutablePointer(mutating: newValue)/
+s/getBaseSize() -> GtkIconSize/getBaseSize() -> Int/
+s|\(gtk_menu_set_active(menu_ptr, guint(newValue))\)|// \1|
+s|\(gtk_container_class_find.*(\)_ptr|\1ptr.assumingMemoryBound(to: GObjectClass.self)|
+s|\(gtk_container_class_list.*(\)_ptr|\1ptr.assumingMemoryBound(to: GObjectClass.self)|
+s|\(waitForRichText<\)AtomT: AtomProtocol, \(.*format: \)AtomT|\1\2UnsafeMutablePointer<GdkAtom?>|
+s|\(gtk_clipboard_wait_for_rich_text(.*format\)._ptr|\1|
+s|\(gtk_menu_item_set_submenu(.*\.\)menu_ptr|\1widget_ptr|
+s|\(gtk_menu_shell_append(.*\.\)menu_item_ptr|\1widget_ptr|
+s|bgPixmapName: (UnsafeMutablePointer<gchar>!, UnsafeMutablePointer<gchar>!, UnsafeMutablePointer<gchar>!, UnsafeMutablePointer<gchar>!, UnsafeMutablePointer<gchar>!)|bgPixmapName: (UnsafeMutablePointer<gchar>?, UnsafeMutablePointer<gchar>?, UnsafeMutablePointer<gchar>?, UnsafeMutablePointer<gchar>?, UnsafeMutablePointer<gchar>?)|
+s|background: (UnsafeMutablePointer<cairo_pattern_t>!, UnsafeMutablePointer<cairo_pattern_t>!, UnsafeMutablePointer<cairo_pattern_t>!, UnsafeMutablePointer<cairo_pattern_t>!, UnsafeMutablePointer<cairo_pattern_t>!)|background: (UnsafeMutablePointer<cairo_pattern_t>?, UnsafeMutablePointer<cairo_pattern_t>?, UnsafeMutablePointer<cairo_pattern_t>?, UnsafeMutablePointer<cairo_pattern_t>?, UnsafeMutablePointer<cairo_pattern_t>?)|
+s|\(super.init(gpointer: (rv))\)|\1 ; _ = refSink()|
+s|\(func testListAllTypes(.* -> Unsafe\)MutablePointer<GType>|\1Pointer<GType>|
+s|\(gtk_widget_insert_action_group(widget_ptr, name, group.\).action_group_ptr|\1.gActionGroupPointer|
+s|addID(window: Window)|addID(window: XID)|
+s|socket_id: Window|socket_id: XID|
+s|options: UnsafeMutablePointer<UnsafeMutablePointer<CChar>|options: UnsafeMutablePointer<UnsafePointer<CChar>|
+s|option_labels: UnsafeMutablePointer<UnsafeMutablePointer<CChar>|option_labels: UnsafeMutablePointer<UnsafePointer<CChar>|
+s|icon_names: UnsafeMutablePointer<gchar>|icon_names: UnsafeMutablePointer<UnsafePointer<gchar>?>|
+s|icons: UnsafeMutablePointer<UnsafeMutablePointer<gchar>|icons: UnsafeMutablePointer<UnsafePointer<gchar>|
+s|people: UnsafeMutablePointer<UnsafeMutablePointer<gchar>|people: UnsafeMutablePointer<UnsafePointer<gchar>|
+s|accels: UnsafeMutablePointer<UnsafeMutablePointer<gchar>|accels: UnsafeMutablePointer<UnsafePointer<gchar>|
+s|var applications: UnsafeMutablePointer<UnsafeMutablePointer<gchar>|var applications: UnsafeMutablePointer<UnsafePointer<gchar>|
+s|var artists: UnsafeMutablePointer<UnsafeMutablePointer<gchar|var artists: UnsafePointer<UnsafePointer<gchar|
+s|var authors: UnsafeMutablePointer<UnsafeMutablePointer<gchar|var authors: UnsafePointer<UnsafePointer<gchar|
+s|var documenters: UnsafeMutablePointer<UnsafeMutablePointer<gchar|var documenters: UnsafePointer<UnsafePointer<gchar|
+s|set(artists: UnsafeMutablePointer<UnsafeMutablePointer<gchar|set(artists: UnsafeMutablePointer<UnsafePointer<gchar|
+s|set(authors: UnsafeMutablePointer<UnsafeMutablePointer<gchar|set(authors: UnsafeMutablePointer<UnsafePointer<gchar|
+s|set(documenters: UnsafeMutablePointer<UnsafeMutablePointer<gchar|set(documenters: UnsafeMutablePointer<UnsafePointer<gchar|
+s|getArtists() -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>|getArtists() -> UnsafePointer<UnsafePointer<gchar>|
+s|getAuthors() -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>|getAuthors() -> UnsafePointer<UnsafePointer<gchar>|
+s|getDocumenters() -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>|getDocumenters() -> UnsafePointer<UnsafePointer<gchar>|
+s|getSearch(path: UnsafeMutablePointer<UnsafeMutablePointer<gchar>|getSearch(path: UnsafeMutablePointer<UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>|
+s|setSearch(path: UnsafeMutablePointer<gchar>|setSearch(path: UnsafeMutablePointer<UnsafePointer<gchar>?>|
