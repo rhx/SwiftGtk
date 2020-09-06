@@ -3,29 +3,29 @@
 //  Gtk
 //
 //  Created by Rene Hexel on 22/4/17.
-//  Copyright © 2017, 2018, 2019 Rene Hexel.  All rights reserved.
+//  Copyright © 2017, 2018, 2019, 2020 Rene Hexel.  All rights reserved.
 //
 import GLibObject
 import CGtk
 
 public extension ListStore {
     /// Return a tree model reference for the list store
-    var treeModel: TreeModelRef { return TreeModelRef(cPointer: list_store_ptr) }
+    @inlinable var treeModel: TreeModelRef { return TreeModelRef(cPointer: list_store_ptr) }
 
     /// Convenience constructor specifying the column types
     ///
     /// - Parameter types: array of column types for this list model
-    convenience init(types: [GType]) {
+    @inlinable convenience init(types: [GType]) {
         var ts = types
-        self.init(nColumns: CInt(types.count), types: &ts)
+        self.init(nColumns: types.count, types: &ts)
     }
 
     /// Convenience constructor specifying the list column types
     ///
     /// - Parameter types: column types for this list model
-    convenience init(_ types: GType...) {
+    @inlinable convenience init(_ types: GType...) {
         var ts = types
-        self.init(nColumns: CInt(types.count), types: &ts)
+        self.init(nColumns: types.count, types: &ts)
     }
 
     /// Set the given values for the current row
@@ -34,7 +34,7 @@ public extension ListStore {
     ///   - i: iterator representing the current row
     ///   - values: array of values to add
     ///   - startColumn: column to start from (defaults to `0`)
-    func set<I: TreeIterProtocol, V: ValueProtocol>(iter i: I, values: [V], startColumn: Int = 0) {
+    @inlinable func set<I: TreeIterProtocol, V: ValueProtocol>(iter i: I, values: [V], startColumn: Int = 0) {
         list_store_ptr.withMemoryRebound(to: GtkListStore.self, capacity: 1) {
             var c = gint(startColumn)
             for v in values {
@@ -50,7 +50,7 @@ public extension ListStore {
     ///   - i: iterator representing the current row (updated to next row)
     ///   - v: array of values to add
     ///   - startColumn: column to start from (defaults to `0`)
-    func append<I: TreeIterProtocol, V: ValueProtocol>(asNextRow i: I, values v: [V], startColumn s: Int = 0) {
+    @inlinable func append<I: TreeIterProtocol, V: ValueProtocol>(asNextRow i: I, values v: [V], startColumn s: Int = 0) {
         list_store_ptr.withMemoryRebound(to: GtkListStore.self, capacity: 1) {
             gtk_list_store_append($0, i.tree_iter_ptr)
         }
@@ -63,7 +63,7 @@ public extension ListStore {
     ///   - i: tree iterator representing the current row (updated to next row)
     ///   - values: array of values to add
     ///   - startColumn: column to start from (defaults to `0`)
-    func append<I: TreeIterProtocol>(asNextRow i: I, startColumn s: Int = 0, _ values: Value...) {
+    @inlinable func append<I: TreeIterProtocol>(asNextRow i: I, startColumn s: Int = 0, _ values: Value...) {
         list_store_ptr.withMemoryRebound(to: GtkListStore.self, capacity: 1) {
             gtk_list_store_append($0, i.tree_iter_ptr)
         }
@@ -72,14 +72,16 @@ public extension ListStore {
 }
 
 
-public extension TreeView {
+/// TreeView subclass for displaying lists that retain their model
+open class ListView: TreeView {
+    /// The underlying list store
+    public var listStore: ListStore
+
     /// Convenience List View constructor
     ///
     /// - Parameter store: list view store description
-    convenience init(model store: ListStore) {
-        self.init(model: store.treeModel)
+    @inlinable public init(model store: ListStore) {
+        listStore = store
+        super.init(model: store.treeModel)
     }
 }
-
-/// TreeView subclass for displaying lists
-open class ListView: TreeView {}

@@ -8,7 +8,7 @@
 import Foundation
 import CGtk
 
-fileprivate func with<T>(gString: UnsafePointer<CChar>, perform: (UnsafeMutablePointer<gchar>) throws -> T) throws -> T {
+@usableFromInline func with<T>(gString: UnsafePointer<CChar>, perform: (UnsafeMutablePointer<gchar>) throws -> T) throws -> T {
     return try perform(UnsafeMutablePointer(mutating: gString))
 }
 
@@ -19,7 +19,7 @@ public typealias CSSProvider = CssProvider
 
 public extension CssProviderProtocol {
     /// Return the CSS provider as a style provider
-    var styleProvider: StyleProviderRef {
+    @inlinable var styleProvider: StyleProviderRef {
         return StyleProviderRef(cPointer: css_provider_ptr.withMemoryRebound(to: GTypeInstance.self, capacity: 1) {
             g_type_check_instance_cast($0, gtk_style_provider_get_type())
         })
@@ -31,7 +31,7 @@ public extension CssProviderProtocol {
     /// - Returns: `true` iff successful
     /// - Throws: an `ErrorType` if there is an issue with the CSS
     @discardableResult
-    func load(from data: String) throws -> Bool {
+    @inlinable func load(from data: String) throws -> Bool {
         return try with(gString: data) {
             return try loadFrom(data: $0, length: -1)
         }
@@ -43,8 +43,9 @@ public extension CSSProvider {
     ///
     /// - Parameter data: String providing the CSS data
     /// - Throws: an `ErrorType` if there is an issue with the CSS
-    convenience init(from data: String) throws {
+    @inlinable convenience init(from data: String) throws {
         self.init()
+        _ = refSink()
         try load(from: data)
     }
 }

@@ -131,5 +131,5 @@ public typealias GtkWindowAccessible = _GtkWindowAccessible
 public typealias GtkWindowAccessibleClass = _GtkWindowAccessibleClass
 public typealias GtkWindowAccessiblePrivate = _GtkWindowAccessiblePrivate
 
-public typealias GtkCallback = @convention(c) (UnsafeMutablePointer<_GtkWidget>?, UnsafeMutableRawPointer?) -> ()
-
+// @convention(c) (UnsafeMutablePointer<_GtkWidget>?, UnsafeMutableRawPointer?) -> ()
+//public typealias GtkCallback = CGtk.GtkCallback

@@ -19,16 +19,16 @@ public extension BoxProtocol {
     ///
     /// - Parameter marginStart: start margin
 
-    func set(marginStart: Int) { setMarginStart(margin: CInt(marginStart)) }
+    @inlinable func set(marginStart: Int) { setMarginStart(margin: marginStart) }
     /// Set the end margin of the box
     ///
     /// - Parameter marginEnd: end margin
-    func set(marginEnd: Int) { setMarginStart(margin: CInt(marginEnd)) }
+    @inlinable func set(marginEnd: Int) { setMarginEnd(margin: marginEnd) }
 
     /// Connection helper function
-    private func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: BoxSignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer, gpointer) -> gboolean) -> Int {
+    @usableFromInline internal func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: BoxSignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer, gpointer) -> gboolean) -> Int {
         let opaqueHolder = Unmanaged.passRetained(data).toOpaque()
-        let callback = unsafeBitCast(handler, to: Callback.self)
+        let callback = unsafeBitCast(handler, to: GCallback.self)
         let rv = signalConnectData(detailedSignal: name, cHandler: callback, data: opaqueHolder, destroyData: {
             if let swift = $0 {
                 let holder = Unmanaged<BoxSignalHandlerClosureHolder>.fromOpaque(swift)
@@ -43,7 +43,7 @@ public extension BoxProtocol {
     /// the receiver object.  Similar to g_signal_connect(), but allows
     /// to provide a Swift closure that can capture its surrounding context.
     @discardableResult
-    func connectSignal(name: UnsafePointer<gchar>, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping BoxSignalHandler) -> Int {
+    @inlinable func connectSignal(name: UnsafePointer<gchar>, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping BoxSignalHandler) -> Int {
         let rv = _connect(signal: name, flags: f, data: DualClosureHolder(handler)) {
             let holder = Unmanaged<BoxSignalHandlerClosureHolder>.fromOpaque($2).takeUnretainedValue()
             let rv: gboolean = holder.call(BoxRef(raw: $0), Cairo.ContextRef(raw: $1)) ? 1 : 0
@@ -56,7 +56,7 @@ public extension BoxProtocol {
     /// the receiver object.  Similar to g_signal_connect(), but allows
     /// to provide a Swift closure that can capture its surrounding context.
     @discardableResult
-    func connect<T>(signal s: T, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping BoxSignalHandler) -> Int where T: SignalNameProtocol {
+    @inlinable func connect<S: SignalNameProtocol>(signal s: S, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping BoxSignalHandler) -> Int {
         return connectSignal(name: s.rawValue, flags: f, handler: handler)
     }
 
@@ -64,7 +64,7 @@ public extension BoxProtocol {
     /// the receiver object.  Similar to g_signal_connect(), but allows
     /// to provide a Swift closure that can capture its surrounding context.
     @discardableResult
-    func connect(signal: BoxSignalName, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping BoxSignalHandler) -> Int {
+    @inlinable func connect(signal: BoxSignalName, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping BoxSignalHandler) -> Int {
         return connectSignal(name: signal.rawValue, flags: f, handler: handler)
     }
 
@@ -72,7 +72,7 @@ public extension BoxProtocol {
     /// signal of the receiver object.  Similar to g_signal_connect(), but allows
     /// to provide a Swift closure that can capture its surrounding context.
     @discardableResult
-    func onDraw(flags f: ConnectFlags = ConnectFlags(0), handler: @escaping BoxSignalHandler) -> Int {
+    @inlinable func onDraw(flags f: ConnectFlags = ConnectFlags(0), handler: @escaping BoxSignalHandler) -> Int {
         return connectSignal(name: BoxSignalName.draw.rawValue, flags: f, handler: handler)
     }
 
@@ -82,7 +82,7 @@ public extension BoxProtocol {
     ///   - child: widget to set property for
     ///   - property: name of the property
     ///   - value: value to set
-    func set<W: WidgetProtocol>(child widget: W, properties: [(BoxPropertyName, Any)]) {
+    @inlinable func set<W: WidgetProtocol>(child widget: W, properties: [(BoxPropertyName, Any)]) {
         widget.freezeChildNotify() ; defer { widget.thawChildNotify() }
         for (p, v) in properties {
             set(child: widget, property: p, value: v)
@@ -94,7 +94,7 @@ public extension BoxProtocol {
     /// - Parameters:
     ///   - widget: child widget to set properties for
     ///   - properties: `PropertyName` / value pairs to set
-    func set<W: WidgetProtocol>(child widget: W, properties ps: (BoxPropertyName, Any)...) {
+    @inlinable func set<W: WidgetProtocol>(child widget: W, properties ps: (BoxPropertyName, Any)...) {
         set(child: widget, properties: ps)
     }
 
@@ -103,7 +103,7 @@ public extension BoxProtocol {
     /// - Parameters:
     ///   - widget: child widget to add
     ///   - properties: `PropertyName` / value pairs of properties to set
-    func add<W: WidgetProtocol>(_ widget: W, properties ps: (BoxPropertyName, Any)...) {
+    @inlinable func add<W: WidgetProtocol>(_ widget: W, properties ps: (BoxPropertyName, Any)...) {
         widget.freezeChildNotify() ; defer { widget.thawChildNotify() }
         emit(ContainerSignalName.add, widget.widget_ptr)
         set(child: widget, properties: ps)
@@ -115,7 +115,7 @@ public extension BoxProtocol {
     ///   - widget: child widget to add
     ///   - property: name of the property to set
     ///   - value: value of the property to set
-    func add<W: WidgetProtocol, V>(_ widget: W, property p: BoxPropertyName, value v: V) {
+    @inlinable func add<W: WidgetProtocol, V>(_ widget: W, property p: BoxPropertyName, value v: V) {
         widget.freezeChildNotify() ; defer { widget.thawChildNotify() }
         emit(ContainerSignalName.add, widget.widget_ptr)
         set(child: widget, property: p, value: v)

@@ -23,10 +23,9 @@ public typealias GestureSequenceHandlerClosureHolder = DualClosureHolder<Gesture
 public typealias GestureSequenceStateHandlerClosureHolder = Closure3Holder<GestureRef, EventSequenceRef, EventSequenceState, Void>;
 
 public extension GestureProtocol {
-	
-	internal func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GestureSequenceHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer, gpointer) -> Void) -> Int {
+	@usableFromInline internal func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GestureSequenceHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer, gpointer) -> Void) -> Int {
 		let opaqueHolder = Unmanaged.passRetained(data).toOpaque();
-		let callback = unsafeBitCast(handler, to: Callback.self);
+		let callback = unsafeBitCast(handler, to: GCallback.self);
 		return signalConnectData(detailedSignal: name, cHandler: callback, data: opaqueHolder, destroyData: { (holderPointer, _) in
 			if let holderPointer = holderPointer {
 				let holder = Unmanaged<GestureSequenceHandlerClosureHolder>.fromOpaque(holderPointer);
@@ -35,9 +34,9 @@ public extension GestureProtocol {
 		}, connectFlags: flags);
 	}
 
-	internal func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GestureSequenceStateHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer, gint, gpointer) -> Void) -> Int {
+	@usableFromInline internal func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GestureSequenceStateHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer, gint, gpointer) -> Void) -> Int {
 		let opaqueHolder = Unmanaged.passRetained(data).toOpaque();
-		let callback = unsafeBitCast(handler, to: Callback.self);
+		let callback = unsafeBitCast(handler, to: GCallback.self);
 		return signalConnectData(detailedSignal: name, cHandler: callback, data: opaqueHolder, destroyData: { (holderPointer, _) in
 			if let holderPointer = holderPointer {
 				let holder = Unmanaged<GestureSequenceStateHandlerClosureHolder>.fromOpaque(holderPointer);
@@ -46,7 +45,7 @@ public extension GestureProtocol {
 		}, connectFlags: flags);
 	}
 	
-	@discardableResult func connectGestureSequence(name: UnsafePointer<gchar>, flags: ConnectFlags = ConnectFlags(0), handler: @escaping GestureSequenceHandler) -> Int {
+	@discardableResult @inlinable func connectGestureSequence(name: UnsafePointer<gchar>, flags: ConnectFlags = ConnectFlags(0), handler: @escaping GestureSequenceHandler) -> Int {
 		// The handler is stored in a holder, which is stored as a user data object with the signal.
 		return _connect(signal: name, flags: flags, data: DualClosureHolder(handler)) { (gesture, sequence, data) in
 			let holder = Unmanaged<GestureSequenceHandlerClosureHolder>.fromOpaque(data).takeUnretainedValue();
@@ -54,7 +53,7 @@ public extension GestureProtocol {
 		}
 	}
 	
-	@discardableResult func connectGestureSequenceState(name: UnsafePointer<gchar>, flags: ConnectFlags = ConnectFlags(0), handler: @escaping GestureSequenceStateHandler) -> Int {
+	@discardableResult @inlinable func connectGestureSequenceState(name: UnsafePointer<gchar>, flags: ConnectFlags = ConnectFlags(0), handler: @escaping GestureSequenceStateHandler) -> Int {
 		// The handler is stored in a holder, which is stored as a user data object with the signal.
 		return _connect(signal: name, flags: flags, data: Closure3Holder(handler)) { (gesture, sequence, state,  data) in
 			let holder = Unmanaged<GestureSequenceStateHandlerClosureHolder>.fromOpaque(data).takeUnretainedValue();
@@ -66,7 +65,7 @@ public extension GestureProtocol {
 	/// Note: These conditions may also happen when an extra touch (eg. a third touch on a 2-touches gesture) is lifted, in that situation sequence won't pertain to the current set of active touches, so don't rely on this being true.
 	/// - Parameter gesture: The gesture that emitted the signal
 	/// - Parameter sequence: The EventSequence that caused the gesture to be recognized
-	@discardableResult func onBegin(_ handler: @escaping GestureSequenceHandler) -> Int {
+	@discardableResult @inlinable func onBegin(_ handler: @escaping GestureSequenceHandler) -> Int {
 		return connectGestureSequence(name: GestureSignalName.begin.rawValue, handler: handler);
 	}
 	
@@ -74,7 +73,7 @@ public extension GestureProtocol {
 	/// Note: These conditions may also happen when an extra touch (eg. a third touch on a 2-touches gesture) is lifted, in that situation sequence won't pertain to the current set of active touches, so don't rely on this being true.
 	/// - Parameter gesture: The gesture that emitted the signal
 	/// - Parameter sequence: the EventSequence that was cancelled
-	@discardableResult func onCancel(_ handler: @escaping GestureSequenceHandler) -> Int {
+	@discardableResult @inlinable func onCancel(_ handler: @escaping GestureSequenceHandler) -> Int {
 		return connectGestureSequence(name: GestureSignalName.cancel.rawValue, handler: handler);
 	}
 	
@@ -82,7 +81,7 @@ public extension GestureProtocol {
 	/// Note: sequence might not pertain to the group of sequences that were previously triggering recognition on gesture (ie. a just pressed touch sequence that exceeds “n-points”). This situation may be detected by checking through gtk_gesture_handles_sequence().
 	/// - Parameter gesture: The gesture that emitted the signal
 	/// - Parameter sequence: The EventSequence that caused gesture recognition to finish
-	@discardableResult func onEnd(_ handler: @escaping GestureSequenceHandler) -> Int {
+	@discardableResult @inlinable func onEnd(_ handler: @escaping GestureSequenceHandler) -> Int {
 		return connectGestureSequence(name: GestureSignalName.end.rawValue, handler: handler);
 	}
 	
@@ -90,14 +89,14 @@ public extension GestureProtocol {
 	/// - Parameter gesture: The gesture that emitted the signal
 	/// - Parameter sequence: The EventSequence for which the state was changed
 	/// - Parameter state: The new sequence state
-	@discardableResult func onSequenceStateChanged(_ handler: @escaping GestureSequenceStateHandler) -> Int {
+	@discardableResult @inlinable func onSequenceStateChanged(_ handler: @escaping GestureSequenceStateHandler) -> Int {
 		return connectGestureSequenceState(name: GestureSignalName.sequenceStateChanged.rawValue, handler: handler);
 	}
 	
 	/// This signal is emitted whenever an event is handled while the gesture is recognized. sequence is guaranteed to pertain to the set of active touches.
 	/// - Parameter gesture : The gesture that emitted the signal
 	/// - Parameter sequence: The EventSequence that was updated
-	@discardableResult func onUpdate(_ handler: @escaping GestureSequenceHandler) -> Int {
+	@discardableResult @inlinable func onUpdate(_ handler: @escaping GestureSequenceHandler) -> Int {
 		return connectGestureSequence(name: GestureSignalName.update.rawValue, handler: handler);
 	}
 	
@@ -112,13 +111,12 @@ public typealias PressSignalHandlerClosureHolder = Closure4Holder<GestureMultiPr
 public typealias StoppedSignalHandlerClosureHolder = ClosureHolder<GestureMultiPressRef, Void>
 
 public extension GestureMultiPressProtocol {
-	
-	internal func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: PressSignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gint, gdouble, gdouble, gpointer) -> Void) -> Int {
+	@usableFromInline internal func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: PressSignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gint, gdouble, gdouble, gpointer) -> Void) -> Int {
 
 		// Data contains the swift function to be called in response to the signal. It is registered as user data with the signal, while handler that receives data and the parameters, translate the parameters c types to expected swift types, and invokes the function with translated parameters
 		// This translates the data and callback parameters to c compatible types.
 		let opaqueHolder = Unmanaged.passRetained(data).toOpaque();
-		let callback = unsafeBitCast(handler, to: Callback.self);
+		let callback = unsafeBitCast(handler, to: GCallback.self);
 		return signalConnectData(detailedSignal: name, cHandler: callback, data: opaqueHolder, destroyData: { (holderPointer, _) in
 			// This simply releases the data.
 			if let holderPointer = holderPointer {
@@ -128,9 +126,9 @@ public extension GestureMultiPressProtocol {
 		}, connectFlags: flags);
 	}
 	
-	internal func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: StoppedSignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
+	@usableFromInline internal func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: StoppedSignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
 		let opaqueHolder = Unmanaged.passRetained(data).toOpaque();
-		let callback = unsafeBitCast(handler, to: Callback.self);
+		let callback = unsafeBitCast(handler, to: GCallback.self);
 		return signalConnectData(detailedSignal: name, cHandler: callback, data: opaqueHolder, destroyData: { (holderPointer, _) in
 			if let holderPointer = holderPointer {
 				let holder = Unmanaged<SignalHandlerClosureHolder>.fromOpaque(holderPointer);
@@ -139,7 +137,7 @@ public extension GestureMultiPressProtocol {
 		}, connectFlags: flags);
 	}
 	
-	@discardableResult func connect(name: UnsafePointer<gchar>, flags: ConnectFlags = ConnectFlags(0), handler: @escaping PressSignalHandler) -> Int {
+	@discardableResult @inlinable func connect(name: UnsafePointer<gchar>, flags: ConnectFlags = ConnectFlags(0), handler: @escaping PressSignalHandler) -> Int {
 		// The handler is stored in a holder, which is stored as a user data object with the signal.
 		return _connect(signal: name, flags: flags, data: Closure4Holder(handler)) { (gesture, n, x, y, data) in
 			let holder = Unmanaged<PressSignalHandlerClosureHolder>.fromOpaque(data).takeUnretainedValue();
@@ -147,7 +145,7 @@ public extension GestureMultiPressProtocol {
 		}
 	}
 	
-	@discardableResult func connect(name: UnsafePointer<gchar>, flags: ConnectFlags = ConnectFlags(0), handler: @escaping StoppedSignalHandler) -> Int {
+	@discardableResult @inlinable func connect(name: UnsafePointer<gchar>, flags: ConnectFlags = ConnectFlags(0), handler: @escaping StoppedSignalHandler) -> Int {
 		return _connect(signal: name, flags: flags, data: ClosureHolder(handler)) { (gesture, data) in
 			let holder = Unmanaged<StoppedSignalHandlerClosureHolder>.fromOpaque(data).takeUnretainedValue();
 			holder.call(GestureMultiPressRef(raw: gesture));
@@ -159,7 +157,7 @@ public extension GestureMultiPressProtocol {
 	/// - Parameter presses: The number of touch/button presses that have happened in the current gesture
 	/// - Parameter x: The X coordinate of the press, relative to the widget origin
 	/// - Parameter y: The Y coordinate of the press, relative to the widget origin
-	@discardableResult func onPressed(_ handler: @escaping PressSignalHandler) -> Int {
+	@discardableResult @inlinable func onPressed(_ handler: @escaping PressSignalHandler) -> Int {
 		return connect(name: GestureMultiPressSignalName.pressed.rawValue, handler: handler);
 	}
 
@@ -168,13 +166,13 @@ public extension GestureMultiPressProtocol {
 	/// - Parameter presses: The number of touch/button presses that have happened in the current gesture
 	/// - Parameter x: The X coordinate of the press, relative to the widget origin
 	/// - Parameter y: The Y coordinate of the press, relative to the widget origin
-	@discardableResult func onReleased(_ handler: @escaping PressSignalHandler) -> Int {
+	@discardableResult @inlinable func onReleased(_ handler: @escaping PressSignalHandler) -> Int {
 		return connect(name: GestureMultiPressSignalName.released.rawValue, handler: handler);
 	}
 
 	/// This signal is emitted whenever any time/distance threshold has been exceeded.
 	/// - Parameter gesture: The gesture that emitted the signal
-	@discardableResult func onStopped(_ handler: @escaping StoppedSignalHandler) -> Int {
+	@discardableResult @inlinable func onStopped(_ handler: @escaping StoppedSignalHandler) -> Int {
 		return connect(name: GestureMultiPressSignalName.stopped.rawValue, handler: handler);
 	}
 	
@@ -189,10 +187,9 @@ public typealias CancelHandlerClosureHolder = ClosureHolder<GestureLongPressRef,
 public typealias LongPressHandlerClosureHolder = Closure3Holder<GestureLongPressRef, Double, Double, Void>;
 
 public extension GestureLongPressProtocol {
-	
-	internal func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: CancelHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
+	@usableFromInline internal func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: CancelHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
 		let opaqueHolder = Unmanaged.passRetained(data).toOpaque();
-		let callback = unsafeBitCast(handler, to: Callback.self);
+		let callback = unsafeBitCast(handler, to: GCallback.self);
 		return signalConnectData(detailedSignal: name, cHandler: callback, data: opaqueHolder, destroyData: { (holderPointer, _) in
 			if let holderPointer = holderPointer {
 				let holder = Unmanaged<CancelHandlerClosureHolder>.fromOpaque(holderPointer);
@@ -201,9 +198,9 @@ public extension GestureLongPressProtocol {
 		}, connectFlags: flags);
 	}
 	
-	internal func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: LongPressHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gdouble, gdouble, gpointer) -> Void) -> Int {
+	@usableFromInline internal func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: LongPressHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gdouble, gdouble, gpointer) -> Void) -> Int {
 		let opaqueHolder = Unmanaged.passRetained(data).toOpaque();
-		let callback = unsafeBitCast(handler, to: Callback.self);
+		let callback = unsafeBitCast(handler, to: GCallback.self);
 		return signalConnectData(detailedSignal: name, cHandler: callback, data: opaqueHolder, destroyData: { (holderPointer, _) in
 			if let holderPointer = holderPointer {
 				let holder = Unmanaged<LongPressHandlerClosureHolder>.fromOpaque(holderPointer);
@@ -212,7 +209,7 @@ public extension GestureLongPressProtocol {
 		}, connectFlags: flags);
 	}
 	
-	@discardableResult func connectLongPress(name: UnsafePointer<gchar>, flags: ConnectFlags = ConnectFlags(0), handler: @escaping LongPressHandler) -> Int {
+	@discardableResult @inlinable func connectLongPress(name: UnsafePointer<gchar>, flags: ConnectFlags = ConnectFlags(0), handler: @escaping LongPressHandler) -> Int {
 		// The handler is stored in a holder, which is stored as a user data object with the signal.
 		return _connect(signal: name, flags: flags, data: Closure3Holder(handler)) { (gesture, x, y, data) in
 			let holder = Unmanaged<LongPressHandlerClosureHolder>.fromOpaque(data).takeUnretainedValue();
@@ -220,7 +217,7 @@ public extension GestureLongPressProtocol {
 		}
 	}
 	
-	@discardableResult func connectCancel(name: UnsafePointer<gchar>, flags: ConnectFlags = ConnectFlags(0), handler: @escaping CancelHandler) -> Int {
+	@discardableResult @inlinable func connectCancel(name: UnsafePointer<gchar>, flags: ConnectFlags = ConnectFlags(0), handler: @escaping CancelHandler) -> Int {
 		// The handler is stored in a holder, which is stored as a user data object with the signal.
 		return _connect(signal: name, flags: flags, data: ClosureHolder(handler)) { (gesture, data) in
 			let holder = Unmanaged<CancelHandlerClosureHolder>.fromOpaque(data).takeUnretainedValue();
@@ -230,7 +227,7 @@ public extension GestureLongPressProtocol {
 	
 	/// This signal is emitted whenever a press moved too far, or was released before “pressed” happened.
 	/// - Parameter gesture: The number of touch/button presses that have happened in the current click sequence
-	@discardableResult func onCancelled(_ handler: @escaping CancelHandler) -> Int {
+	@discardableResult @inlinable func onCancelled(_ handler: @escaping CancelHandler) -> Int {
 		return connectCancel(name: GestureLongPressSignalName.cancelled.rawValue, handler: handler);
 	}
 	
@@ -238,7 +235,7 @@ public extension GestureLongPressProtocol {
 	/// - Parameter gesture: The gesture that emitted the signal
 	/// - Parameter x: The X coordinate where the press happened, relative to the widget origin
 	/// - Parameter y: The Y coordinate where the press happend, relative to the widget origin
-	@discardableResult func onPressed(_ handler: @escaping LongPressHandler) -> Int {
+	@discardableResult @inlinable func onPressed(_ handler: @escaping LongPressHandler) -> Int {
 		return connectLongPress(name: GestureLongPressSignalName.pressed.rawValue, handler: handler);
 	}
 	
@@ -249,10 +246,9 @@ public typealias DragHandler = (GestureDragRef, Double, Double) -> Void;
 public typealias DragHandlerClosureHolder = Closure3Holder<GestureDragRef, Double, Double, Void>;
 
 public extension GestureDragProtocol {
-	
-	internal func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: DragHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gdouble, gdouble, gpointer) -> Void) -> Int {
+	@usableFromInline internal func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: DragHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gdouble, gdouble, gpointer) -> Void) -> Int {
 		let opaqueHolder = Unmanaged.passRetained(data).toOpaque();
-		let callback = unsafeBitCast(handler, to: Callback.self);
+		let callback = unsafeBitCast(handler, to: GCallback.self);
 		return signalConnectData(detailedSignal: name, cHandler: callback, data: opaqueHolder, destroyData: { (holderPointer, _) in
 			if let holderPointer = holderPointer {
 				let holder = Unmanaged<DragHandlerClosureHolder>.fromOpaque(holderPointer);
@@ -261,7 +257,7 @@ public extension GestureDragProtocol {
 		}, connectFlags: flags);
 	}
 	
-	@discardableResult func connectDrag(name: UnsafePointer<gchar>, flags: ConnectFlags = ConnectFlags(0), handler: @escaping DragHandler) -> Int {
+	@discardableResult @inlinable func connectDrag(name: UnsafePointer<gchar>, flags: ConnectFlags = ConnectFlags(0), handler: @escaping DragHandler) -> Int {
 		// The handler is stored in a holder, which is stored as a user data object with the signal.
 		return _connect(signal: name, flags: flags, data: Closure3Holder(handler)) { (gesture, x, y, data) in
 			let holder = Unmanaged<DragHandlerClosureHolder>.fromOpaque(data).takeUnretainedValue();
@@ -273,7 +269,7 @@ public extension GestureDragProtocol {
 	/// - Parameter gesture: The gesture that emitted the signal
 	/// - Parameter startX: The initial X coordinate of the drag, relative to the widget origin
 	/// - Parameter startY: The initial Y coordinate of the drag. relative to the widget origin
-	@discardableResult func onDragBegin(_ handler: @escaping DragHandler) -> Int {
+	@discardableResult @inlinable func onDragBegin(_ handler: @escaping DragHandler) -> Int {
 		return connectDrag(name: GestureDragSignalName.dragBegin.rawValue, handler: handler);
 	}
 	
@@ -281,7 +277,7 @@ public extension GestureDragProtocol {
 	/// - Parameter gesture: The gesture that emitted the signal
 	/// - Parameter offsetX: The X offset at which the drag ended, relative to the widget origin
 	/// - Parameter offsetY: The Y offset at which the drag ended, relative to widget origin
-	@discardableResult func onDragUpdate(_ handler: @escaping DragHandler) -> Int {
+	@discardableResult @inlinable func onDragUpdate(_ handler: @escaping DragHandler) -> Int {
 		return connectDrag(name: GestureDragSignalName.dragUpdate.rawValue, handler: handler);
 	}
 	
@@ -289,7 +285,7 @@ public extension GestureDragProtocol {
 	/// - Parameter gesture: The gesture that emitted the signal
 	/// - Parameter offsetX: The current X offset of the drag, relative to the widget origin
 	/// - Parameter offsetY: The current Y offset of the drag, relative to the widget origin
-	@discardableResult func onDragEnd(_ handler: @escaping DragHandler) -> Int {
+	@discardableResult @inlinable func onDragEnd(_ handler: @escaping DragHandler) -> Int {
 		return connectDrag(name: GestureDragSignalName.dragEnd.rawValue, handler: handler);
 	}
 	
@@ -300,10 +296,9 @@ public typealias PanHandler = (GesturePanRef, PanDirection, Double) -> Void;
 public typealias PanHandlerClosureHolder = Closure3Holder<GesturePanRef, PanDirection, Double, Void>
 
 public extension GesturePanProtocol {
-	
-	internal func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: PanHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gint, gdouble, gpointer) -> Void) -> Int {
+	@usableFromInline internal func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: PanHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gint, gdouble, gpointer) -> Void) -> Int {
 		let opaqueHolder = Unmanaged.passRetained(data).toOpaque();
-		let callback = unsafeBitCast(handler, to: Callback.self);
+		let callback = unsafeBitCast(handler, to: GCallback.self);
 		return signalConnectData(detailedSignal: name, cHandler: callback, data: opaqueHolder, destroyData: { (holderPointer, _) in
 			if let holderPointer = holderPointer {
 				let holder = Unmanaged<PanHandlerClosureHolder>.fromOpaque(holderPointer);
@@ -312,7 +307,7 @@ public extension GesturePanProtocol {
 		}, connectFlags: flags);
 	}
 	
-	@discardableResult func connectPan(name: UnsafePointer<gchar>, flags: ConnectFlags = ConnectFlags(0), handler: @escaping PanHandler) -> Int {
+	@discardableResult @inlinable func connectPan(name: UnsafePointer<gchar>, flags: ConnectFlags = ConnectFlags(0), handler: @escaping PanHandler) -> Int {
 		// The handler is stored in a holder, which is stored as a user data object with the signal.
 		return _connect(signal: name, flags: flags, data: Closure3Holder(handler)) { (gesture, direction, y, data) in
 			let holder = Unmanaged<PanHandlerClosureHolder>.fromOpaque(data).takeUnretainedValue();
@@ -324,7 +319,7 @@ public extension GesturePanProtocol {
 	/// - Parameter gesture: The gesture that emitted the signal
 	/// - Parameter direction: The current direction of the pan
 	/// - Parameter offset: The offset along the gesture's orientation
-	@discardableResult func onPan(_ handler: @escaping PanHandler) -> Int {
+	@discardableResult @inlinable func onPan(_ handler: @escaping PanHandler) -> Int {
 		return connectPan(name: GesturePanSignalName.pan.rawValue, handler: handler);
 	}
 	
@@ -335,10 +330,9 @@ public typealias SwipeHandler = (GestureSwipeRef, Double, Double) -> Void;
 public typealias SwipeHandlerClosureHolder = Closure3Holder<GestureSwipeRef, Double, Double, Void>;
 
 public extension GestureSwipeProtocol {
-	
-	internal func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: SwipeHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gdouble, gdouble, gpointer) -> Void) -> Int {
+	@usableFromInline internal func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: SwipeHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gdouble, gdouble, gpointer) -> Void) -> Int {
 		let opaqueHolder = Unmanaged.passRetained(data).toOpaque();
-		let callback = unsafeBitCast(handler, to: Callback.self);
+		let callback = unsafeBitCast(handler, to: GCallback.self);
 		return signalConnectData(detailedSignal: name, cHandler: callback, data: opaqueHolder, destroyData: { (holderPointer, _) in
 			if let holderPointer = holderPointer {
 				let holder = Unmanaged<SwipeHandlerClosureHolder>.fromOpaque(holderPointer);
@@ -347,7 +341,7 @@ public extension GestureSwipeProtocol {
 		}, connectFlags: flags);
 	}
 	
-	@discardableResult func connectSwipe(name: UnsafePointer<gchar>, flags: ConnectFlags = ConnectFlags(0), handler: @escaping SwipeHandler) -> Int {
+	@discardableResult @inlinable func connectSwipe(name: UnsafePointer<gchar>, flags: ConnectFlags = ConnectFlags(0), handler: @escaping SwipeHandler) -> Int {
 		// The handler is stored in a holder, which is stored as a user data object with the signal.
 		return _connect(signal: name, flags: flags, data: Closure3Holder(handler)) { (gesture, x, y, data) in
 			let holder = Unmanaged<SwipeHandlerClosureHolder>.fromOpaque(data).takeUnretainedValue();
@@ -370,10 +364,9 @@ public typealias RotateHandler = (GestureRotateRef, Double, Double) -> Void;
 public typealias RotateHandlerClosureHolder = Closure3Holder<GestureRotateRef, Double, Double, Void>;
 
 public extension GestureRotateProtocol {
-	
-	internal func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: RotateHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gdouble, gdouble, gpointer) -> Void) -> Int {
+	@usableFromInline internal func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: RotateHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gdouble, gdouble, gpointer) -> Void) -> Int {
 		let opaqueHolder = Unmanaged.passRetained(data).toOpaque();
-		let callback = unsafeBitCast(handler, to: Callback.self);
+		let callback = unsafeBitCast(handler, to: GCallback.self);
 		return signalConnectData(detailedSignal: name, cHandler: callback, data: opaqueHolder, destroyData: { (holderPointer, _) in
 			if let holderPointer = holderPointer {
 				let holder = Unmanaged<RotateHandlerClosureHolder>.fromOpaque(holderPointer);
@@ -382,7 +375,7 @@ public extension GestureRotateProtocol {
 		}, connectFlags: flags);
 	}
 
-	@discardableResult func connectRotate(name: UnsafePointer<gchar>, flags: ConnectFlags = ConnectFlags(0), handler: @escaping RotateHandler) -> Int {
+	@discardableResult @inlinable func connectRotate(name: UnsafePointer<gchar>, flags: ConnectFlags = ConnectFlags(0), handler: @escaping RotateHandler) -> Int {
 		// The handler is stored in a holder, which is stored as a user data object with the signal.
 		return _connect(signal: name, flags: flags, data: Closure3Holder(handler)) { (gesture, x, y, data) in
 			let holder = Unmanaged<RotateHandlerClosureHolder>.fromOpaque(data).takeUnretainedValue();
@@ -394,7 +387,7 @@ public extension GestureRotateProtocol {
 	/// - Parameter gesture: The gesture that emitted the signal
 	/// - Parameter angle: The current angle, in radians
 	/// - Parameter angleDelta: Difference of the current angle from the starting angle, in radians
-	@discardableResult func onRotate(_ handler: @escaping RotateHandler) -> Int {
+	@discardableResult @inlinable func onRotate(_ handler: @escaping RotateHandler) -> Int {
 		return connectRotate(name: GestureRotateSignalName.angleChanged.rawValue, handler: handler);
 	}
 	
@@ -405,10 +398,9 @@ public typealias ZoomHandler = (GestureZoomRef, Double) -> Void;
 public typealias ZoomHandlerClosureHolder = DualClosureHolder<GestureZoomRef, Double, Void>;
 
 public extension GestureZoomProtocol {
-	
-	internal func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: ZoomHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gdouble, gpointer) -> Void) -> Int {
+	@usableFromInline internal func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: ZoomHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gdouble, gpointer) -> Void) -> Int {
 		let opaqueHolder = Unmanaged.passRetained(data).toOpaque();
-		let callback = unsafeBitCast(handler, to: Callback.self);
+		let callback = unsafeBitCast(handler, to: GCallback.self);
 		return signalConnectData(detailedSignal: name, cHandler: callback, data: opaqueHolder, destroyData: { (holderPointer, _) in
 			if let holderPointer = holderPointer {
 				let holder = Unmanaged<ZoomHandlerClosureHolder>.fromOpaque(holderPointer);
@@ -417,7 +409,7 @@ public extension GestureZoomProtocol {
 		}, connectFlags: flags);
 	}
 	
-	@discardableResult func connectZoom(name: UnsafePointer<gchar>, flags: ConnectFlags = ConnectFlags(0), handler: @escaping ZoomHandler) -> Int {
+	@discardableResult @inlinable func connectZoom(name: UnsafePointer<gchar>, flags: ConnectFlags = ConnectFlags(0), handler: @escaping ZoomHandler) -> Int {
 		// The handler is stored in a holder, which is stored as a user data object with the signal.
 		return _connect(signal: name, flags: flags, data: DualClosureHolder(handler)) { (gesture, scale, data) in
 			let holder = Unmanaged<ZoomHandlerClosureHolder>.fromOpaque(data).takeUnretainedValue();
@@ -428,7 +420,7 @@ public extension GestureZoomProtocol {
 	/// This signal is emitted whenever the distance between both tracked sequences changes.
 	/// - Parameter gesture: The gesture that emitted the signal
 	/// - Parameter scale: The scale delta, taking the initial state as 1:1
-	@discardableResult func onScaleChanged(_ handler: @escaping ZoomHandler) -> Int {
+	@discardableResult @inlinable func onScaleChanged(_ handler: @escaping ZoomHandler) -> Int {
 		return connectZoom(name: GestureZoomSignalName.scaleChanged.rawValue, handler: handler);
 	}
 	

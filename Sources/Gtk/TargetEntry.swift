@@ -3,7 +3,7 @@
 //  SwiftGtk
 //
 //  Created by Rene Hexel on 25/4/17.
-//  Copyright © 2017, 2018, 2019 Rene Hexel.  All rights reserved.
+//  Copyright © 2017, 2018, 2019, 2020 Rene Hexel.  All rights reserved.
 //
 import Foundation
 import CGtk
@@ -15,7 +15,7 @@ public extension GtkTargetEntry {
     ///   - target: name of the target
     ///   - flags: target restrictions (defaults to `.same_app`)
     ///   - info: target information
-    init(target: String, flags: TargetFlags = .same_app, info: Int = 0) {
+    @inlinable init(target: String, flags: TargetFlags = .sameApp, info: Int = 0) {
         self.init()
         self.target = strdup(target)
         self.flags = flags.rawValue
@@ -27,6 +27,6 @@ public extension GtkTargetEntry {
 /// - Parameter f: flags to use for all entries
 /// - Parameter i: information to record for all entries
 /// - Parameter names: names of the target entries
-public func GtkTargetEntries(flags f: TargetFlags = .same_app, info i: Int = 0, _ names: String...) -> [GtkTargetEntry] {
+@inlinable public func GtkTargetEntries(flags f: TargetFlags = .sameApp, info i: Int = 0, _ names: String...) -> [GtkTargetEntry] {
     return names.map { GtkTargetEntry(target: $0, flags: f, info: i) }
 }

@@ -3,7 +3,7 @@
 //  Gtk
 //
 //  Created by Rene Hexel on 29/4/17.
-//  Copyright © 2017, 2019 Rene Hexel.  All rights reserved.
+//  Copyright © 2017, 2019, 2020 Rene Hexel.  All rights reserved.
 //
 import CGLib
 import CGtk
@@ -21,7 +21,7 @@ public extension ContainerProtocol {
     ///   - value: value to set
     /// - Returns: `true` if successful, `false` if value cannot be transformed
     @discardableResult
-    func set<W: WidgetProtocol, P: ParamSpecProtocol, V: ValueProtocol>(child: W, property: P, value: V) -> Bool {
+    @inlinable func set<W: WidgetProtocol, P: ParamSpecProtocol, V: ValueProtocol>(child: W, property: P, value: V) -> Bool {
         let ptype = property.param_spec_ptr.pointee.value_type
         let tmpValue = Value()
         _ = tmpValue.init_(gType: ptype)
@@ -39,7 +39,7 @@ public extension ContainerProtocol {
         }
         container_ptr.withMemoryRebound(to: GtkContainer.self, capacity: 1) { container in
             child.widget_ptr.withMemoryRebound(to: GtkWidget.self, capacity: 1) { widget in
-                let typeClass = ContainerClassRef(raw: p)
+                let typeClass = ContainerClassRef(raw: p.ptr)
                 typeClass._ptr.pointee.set_child_property(container, widget, paramID, tmpValue.value_ptr, property.param_spec_ptr)
             }
         }
@@ -52,7 +52,7 @@ public extension ContainerProtocol {
     ///   - widget: child widget to set the property for
     ///   - property: name of the property
     ///   - value: the value to set the property to
-    func set<W: WidgetProtocol, P: PropertyNameProtocol, V>(child widget: W, property: P, value: V) {
+    @inlinable func set<W: WidgetProtocol, P: PropertyNameProtocol, V>(child widget: W, property: P, value: V) {
         let v = Value(value)
         childSetProperty(child: widget, propertyName: property.rawValue, value: v)
     }
@@ -62,7 +62,7 @@ public extension ContainerProtocol {
     /// - Parameters:
     ///   - child: widget to set property for
     ///   - properties: array of `PropertyName`/value pairs for the properties to set
-    func set<W: WidgetProtocol, P: PropertyNameProtocol>(child widget: W, properties: [(P, Any)]) {
+    @inlinable func set<W: WidgetProtocol, P: PropertyNameProtocol>(child widget: W, properties: [(P, Any)]) {
         widget.freezeChildNotify() ; defer { widget.thawChildNotify() }
         for (p, v) in properties {
             set(child: widget, property: p, value: v)
@@ -74,7 +74,7 @@ public extension ContainerProtocol {
     /// - Parameters:
     ///   - widget: child widget to set properties for
     ///   - properties: `PropertyName` / value pairs to set
-    func set<W: WidgetProtocol, P: PropertyNameProtocol>(child widget: W, properties ps: (P, Any)...) {
+    @inlinable func set<W: WidgetProtocol, P: PropertyNameProtocol>(child widget: W, properties ps: (P, Any)...) {
         set(child: widget, properties: ps)
     }
 
@@ -83,7 +83,7 @@ public extension ContainerProtocol {
     /// - Parameters:
     ///   - widget: child widget to add
     ///   - properties: `PropertyName` / value pairs of properties to set
-    func add<W: WidgetProtocol, P: PropertyNameProtocol>(_ widget: W, properties ps: (P, Any)...) {
+    @inlinable func add<W: WidgetProtocol, P: PropertyNameProtocol>(_ widget: W, properties ps: (P, Any)...) {
         widget.freezeChildNotify() ; defer { widget.thawChildNotify() }
         emit(ContainerSignalName.add, widget.widget_ptr)
         set(child: widget, properties: ps)
@@ -95,7 +95,7 @@ public extension ContainerProtocol {
     ///   - widget: child widget to add
     ///   - property: name of the property to set
     ///   - value: value of the property to set
-    func add<W: WidgetProtocol, P: PropertyNameProtocol, V>(_ widget: W, property p: P, value v: V) {
+    @inlinable func add<W: WidgetProtocol, P: PropertyNameProtocol, V>(_ widget: W, property p: P, value v: V) {
         widget.freezeChildNotify() ; defer { widget.thawChildNotify() }
         emit(ContainerSignalName.add, widget.widget_ptr)
         set(child: widget, property: p, value: v)
@@ -104,7 +104,7 @@ public extension ContainerProtocol {
     /// Add an array of widgets to the container
     ///
     /// - Parameter widgets: the widgets to add
-    func add(widgets: [WidgetProtocol]) {
+    @inlinable func add<W: WidgetProtocol>(widgets: [W]) {
         for w in widgets {
             add(widget: w)
         }
@@ -113,7 +113,7 @@ public extension ContainerProtocol {
     /// Add widgets to the container
     ///
     /// - Parameter widgets: the widgets to add
-    func add(_ widgets: WidgetProtocol...) {
+    @inlinable func add<W: WidgetProtocol>(_ widgets: W...) {
         add(widgets: widgets)
     }
 }

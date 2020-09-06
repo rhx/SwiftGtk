@@ -81,13 +81,13 @@ public class Closure7Holder<S, T, U, V, W, X, Y, Z> {
 public typealias ApplicationSignalHandler = (ApplicationRef) -> Void
 
 /// Internal type for Application SignalHandler closure holder
-typealias ApplicationSignalHandlerClosureHolder = ClosureHolder<ApplicationRef,Void>
+@usableFromInline typealias ApplicationSignalHandlerClosureHolder = ClosureHolder<ApplicationRef,Void>
 
 /// A closure taking a reference to the current box and cairo_t as an argument
 public typealias BoxSignalHandler = (BoxRef, Cairo.ContextRef) -> Bool
 
 /// Internal type for Drawing SignalHandler closure holder
-typealias BoxSignalHandlerClosureHolder = DualClosureHolder<BoxRef,Cairo.ContextRef, Bool>
+@usableFromInline typealias BoxSignalHandlerClosureHolder = DualClosureHolder<BoxRef,Cairo.ContextRef, Bool>
 
 /**
  * Convert a swift string (or UnsafePointer<Char>) into
@@ -95,7 +95,7 @@ typealias BoxSignalHandlerClosureHolder = DualClosureHolder<BoxRef,Cairo.Context
  * Use with caution: the returned pointer is not really mutable, but many
  * C APIs fail to declare them `const'
  */
-func cstring(_ arg: UnsafePointer<CChar>) -> UnsafeMutablePointer<CChar> {
+@usableFromInline func cstring(_ arg: UnsafePointer<CChar>) -> UnsafeMutablePointer<CChar> {
     return UnsafeMutablePointer<CChar>(mutating: arg)
 }
 
@@ -104,6 +104,6 @@ func cstring(_ arg: UnsafePointer<CChar>) -> UnsafeMutablePointer<CChar> {
  * Convert an array of strings into a null-terminated array of
  * C strings (argument vector)
  */
-func argv(_ arguments: [String]) -> [UnsafeMutablePointer<CChar>?] {
+@usableFromInline func argv(_ arguments: [String]) -> [UnsafeMutablePointer<CChar>?] {
     return arguments.map { let s = cstring($0); return s } + [nil]
 }
