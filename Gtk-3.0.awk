@@ -4,6 +4,7 @@
 #
 BEGIN { depr_init = 0 ; comment = 0 ; slist = 0 ; overr = 0 ; ostock = 0 ;
         no_fields = 0 ; close_comment = 0; icon_size = 0 ; gdk = 0 ; gtk = 0 ;
+        grp = 0
 }
 /Creates a new `GtkRecentChooserMenu` widget\.$/ { overr = 1 }
 /a swatch representing the current selected color. When the button/ { overr = 1 }
@@ -30,6 +31,7 @@ BEGIN { depr_init = 0 ; comment = 0 ; slist = 0 ; overr = 0 ; ostock = 0 ;
 /Creates a new `GtkToggleButton`/ { overr = 1 }
 /Creates a new `GtkToggleToolButton`/ { overr = 1 }
 /Creates a new `GtkRecentAction`/ { ostock = 1 }
+/   the file belongs to/ { grp = 1 }
 /The widget's window if it is realized/ { gdk = 1 }
 /`GdkWindow`/ { gdk = 1 }
 /`GtkWindow`/ { gtk = 1 }
@@ -84,7 +86,14 @@ BEGIN { depr_init = 0 ; comment = 0 ; slist = 0 ; overr = 0 ; ostock = 0 ;
 		next
 	}
 }
-/^[^ ]/ { slist = 0 ; gdk = 0 ; gtk = 0 }
+/var groups: UnsafeMutablePointer<UnsafeMutablePointer<gchar>/ {
+    if (grp) {
+        grp = 0
+        print "    @inlinable var groups: UnsafeMutablePointer<UnsafePointer<gchar>?>! {"
+        next
+    }
+}
+/^[^ ]/ { slist = 0 ; gdk = 0 ; gtk = 0 ; grp = 0 }
 / UnsafeMutablePointer<GSList>! {/ {
 	slist = 1
 	gsub("UnsafeMutablePointer.GSList..", "SListRef!")
