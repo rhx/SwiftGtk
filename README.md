@@ -97,7 +97,7 @@ The Swift wrappers have been tested with glib-2.56, 2.58, 2.60, 2.62, and 2.64, 
 
 ##### Ubuntu
 
-On Ubuntu 18.04 and 16.04, you can use the gtk that comes with the distribution.  Just install with the `apt` package manager:
+On Ubuntu 20.04 and 18.04, you can use the gtk that comes with the distribution.  Just install with the `apt` package manager:
 
 	sudo apt update
 	sudo apt install libgtk-3-dev gir1.2-gtksource-3.0 gobject-introspection libgirepository1.0-dev libxml2-dev
