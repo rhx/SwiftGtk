@@ -89,9 +89,9 @@ on macOS, or on Linux you should get something like:
 	Swift version 5.2.5 (swift-5.2.5-RELEASE)
 	Target: x86_64-unknown-linux-gnu
 
-### Gtk 3.18 or higher
+### Gtk 3.22 or higher
 
-The Swift wrappers have been tested with glib-2.46, 2.48, 2.52, 2.54, 2.56, 2.58, 2.60, 2.62, and 2.64, and gdk/gtk 3.18, 3.20, 3.22, and 3.24.  They should work with higher versions, but YMMV.  Also make sure you have `gobject-introspection` and its `.gir` files installed.
+The Swift wrappers have been tested with glib-2.56, 2.58, 2.60, 2.62, and 2.64, and gdk/gtk 3.22, and 3.24.  They should work with higher versions, but YMMV.  Also make sure you have `gobject-introspection` and its `.gir` files installed.
 
 #### Linux
 
