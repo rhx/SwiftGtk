@@ -112,6 +112,7 @@ s/\( notifyStateChange<WindowT:\) \(WindowProtocol.*: WindowT\)/\1 Gdk.\2/
 s/\( register<WindowT:\) \(WindowProtocol.*: WindowT\)/\1 Gdk.\2/
 s/\( scrollAnimations<WindowT:\) \(WindowProtocol.*: WindowT\)/\1 Gdk.\2/
 s/\(urface.*WindowT:\) \(WindowProtocol.*: WindowT\)/\1 Gdk.\2/
+s/\(urface.*:\) \(WindowRef\)/\1 Gdk.\2/
 s/\( popupAtRect.*WindowT:\) \(WindowProtocol.*: WindowT\)/\1 Gdk.\2/
 s/\(var [a-z]*Window:\) WindowRef/\1 Gdk.WindowRef/
 s/ activeWindow: Gdk.WindowRef/ activeWindow: WindowRef/
@@ -134,7 +135,7 @@ s/\(rv = \)Gdk.\(WindowRef(.*application_get.*_window.*)\)/\1\2/
 s/\(rv = \)Gdk\(WindowRef(.*get_tooltip_window.*)\)/\1Gdk.\2/
 s/\(rv = \)\(WindowRef(.*gesture.*)\)/\1Gdk.\2/
 s/\(rv = \)\(ObjectRef(.*accessible.*)\)/\1Atk.\2/
-s/\(FontMapProtocol.*map: FontMapT\)/Pango.\1/g
+s/ \(FontMapProtocol.*map: FontMapT\)/ Pango.\1/g
 s/GObject\./GLibObject./g
 s/GLibObject.self/GObject.self/g
 s/accessible: ObjectRef/accessible: Atk.ObjectRef/g
