@@ -157,8 +157,6 @@ s/\(func getBaseSize() ->\) Int/\1 GtkIconSize/
 s/^\(    var baseSize:\) Int/\1 GtkIconSize/
 s/\(func getItemIndex.item: ToolItemProtocol. ->\) Int/\1 GtkIconSize/
 s/dialog.dialog_ptr/dialog.ptr.assumingMemoryBound(to: GtkWidget.self)/
-s/#group\.action_group_ptr/group.gActionGroupPointer/
-s/#group\?\.action_group_ptr/group?.gActionGroupPointer/
 s/\(ui_manager_.*_action_group.*action_group\).gActionGroupPointer/\1.action_group_ptr/
 s/\(set_artists.*\)newValue/\1UnsafeMutablePointer(mutating: newValue)/
 s/\(set_authors.*\)newValue/\1UnsafeMutablePointer(mutating: newValue)/
@@ -173,9 +171,7 @@ s|\(gtk_menu_item_set_submenu(.*\.\)menu_ptr|\1widget_ptr|
 s|\(gtk_menu_shell_append(.*\.\)menu_item_ptr|\1widget_ptr|
 s|bgPixmapName: (UnsafeMutablePointer<gchar>!, UnsafeMutablePointer<gchar>!, UnsafeMutablePointer<gchar>!, UnsafeMutablePointer<gchar>!, UnsafeMutablePointer<gchar>!)|bgPixmapName: (UnsafeMutablePointer<gchar>?, UnsafeMutablePointer<gchar>?, UnsafeMutablePointer<gchar>?, UnsafeMutablePointer<gchar>?, UnsafeMutablePointer<gchar>?)|
 s|background: (UnsafeMutablePointer<cairo_pattern_t>!, UnsafeMutablePointer<cairo_pattern_t>!, UnsafeMutablePointer<cairo_pattern_t>!, UnsafeMutablePointer<cairo_pattern_t>!, UnsafeMutablePointer<cairo_pattern_t>!)|background: (UnsafeMutablePointer<cairo_pattern_t>?, UnsafeMutablePointer<cairo_pattern_t>?, UnsafeMutablePointer<cairo_pattern_t>?, UnsafeMutablePointer<cairo_pattern_t>?, UnsafeMutablePointer<cairo_pattern_t>?)|
-s|#\(super.init(gpointer: (rv))\)|\1 ; _ = refSink()|
 s|\(func testListAllTypes(.* -> Unsafe\)MutablePointer<GType>|\1Pointer<GType>|
-s|#\(gtk_widget_insert_action_group(widget_ptr, name, group.\).action_group_ptr|\1.gActionGroupPointer|
 s|addID(window: Window)|addID(window: XID)|
 s|socketID: Window|socketID: XID|
 s|options: UnsafeMutablePointer<UnsafeMutablePointer<CChar>|options: UnsafeMutablePointer<UnsafePointer<CChar>|
