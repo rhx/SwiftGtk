@@ -177,7 +177,7 @@ s|#\(super.init(gpointer: (rv))\)|\1 ; _ = refSink()|
 s|\(func testListAllTypes(.* -> Unsafe\)MutablePointer<GType>|\1Pointer<GType>|
 s|#\(gtk_widget_insert_action_group(widget_ptr, name, group.\).action_group_ptr|\1.gActionGroupPointer|
 s|addID(window: Window)|addID(window: XID)|
-s|socket_id: Window|socket_id: XID|
+s|socketID: Window|socketID: XID|
 s|options: UnsafeMutablePointer<UnsafeMutablePointer<CChar>|options: UnsafeMutablePointer<UnsafePointer<CChar>|
 s|option_labels: UnsafeMutablePointer<UnsafeMutablePointer<CChar>|option_labels: UnsafeMutablePointer<UnsafePointer<CChar>|
 s|icon_names: UnsafeMutablePointer<gchar>|icon_names: UnsafeMutablePointer<UnsafePointer<gchar>?>|
