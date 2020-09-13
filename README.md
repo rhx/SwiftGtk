@@ -16,6 +16,7 @@ was compiled against libraries built with earlier versions of `gir2swift`.
 ### Notable changes
 
  * Requires Swift 5.2 or later
+ * Uses the namespace referenced in the `gir` file
  * Wrapper code is now `@inlinable` to enable the compiler to optimise away most of the wrappers
  * Parameters and return types use more idiomatic Swift (e.g. `Ref` wrappers instead of pointers, `Int` instead of `gint`, etc.)
  * Functions that take or return records now are templated instead of using the type-erased Protocol
