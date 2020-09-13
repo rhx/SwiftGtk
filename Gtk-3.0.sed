@@ -108,9 +108,9 @@ s/xlib.Window/gulong/g
 s/getID() -> Window/getID() -> gulong/
 s/var id: Window/var id: gulong/
 s/gtk_widget_path_iter_add_qclass/\/\/ gtk_widget_path_iter_add_qclass/
-s/CallbackSymbol(callbackName/(callback/
+s/CallbackSymbol(callback/(callback/
 s/FromFile(String_:/From(file String_:/
-s/FromResource(resourcePath/From(resource/
+s/FromResource(resource/From(resource/
 s/Layout(layoutStyle/(layoutStyle/
 s/FromString(buffer:/From(stringBuffer buffer:/
 s/FromString(pspec:/From(pspec:/

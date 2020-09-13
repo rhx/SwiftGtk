@@ -104,7 +104,7 @@ BEGIN { depr_init = 0 ; comment = 0 ; slist = 0 ; overr = 0 ; ostock = 0 ;
 		overr = 0
 	}
 }
-/^    @inlinable public init.*stock_id: UnsafePointer<gchar>. = nil[)]/ {
+/^    @inlinable public init.*stockID: UnsafePointer<gchar>. = nil[)]/ {
 	if (ostock) {
 		gsub("public", "override public")
 		ostock = 0
