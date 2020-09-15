@@ -10,9 +10,6 @@ s/open class TreeIter: TreeIterProtocol/open class TreeIterBase: TreeIterProtoco
 s/setApplicationName(applicationName:/set(applicationName:/
 s/\(public init<T: ApplicationProtocol>(\)application \(other: T)\)/\1_ \2/
 s/\(public init<T: MountOperationProtocol>(\)mountOperation \(other: T)\)/\1_ \2/
-s/static func newWith(with_label label/static func newWith(label/g
-s/  public static func newWith(with_label label: UnsafePointer<gchar>) -> ToggleButton/  override public static func newWith(with_label label: UnsafePointer<gchar>) -> ToggleButton/
-s/\(public init(font fontname: UnsafePointer<gchar>)\)/ \1/
 s/\(public typealias Stock = GtkStock\)/@available(*, deprecated) \1/
 s/\(func getCurrentAlpha.. -> UInt16\)/@available(*, deprecated) \1/
 s/\(func getPreviousAlpha.. -> UInt16\)/@available(*, deprecated) \1/
@@ -48,7 +45,7 @@ s/\(var doubleBuffered: Bool\)/@available(*, deprecated) \1/
 s/\(func setColor.h:\)/@available(*, deprecated) \1/
 s/\(func resolveFor.context:\)/@available(*, deprecated) \1/
 s/\(func getFocusOnClick.. -> Bool\)/@available(*, deprecated) \1/
-s/\(func set.focusOnClick focus_on_click: Bool\)/@available(*, deprecated) \1/
+s/\(func set.focusOnClick.* Bool\)/@available(*, deprecated) \1/
 s/\(var focusOnClick: Bool\)/@available(*, deprecated) \1/
 s/\(public func showURI.screen:\)/@available(*, deprecated) \1/
 s/\(  func showURI.screen:\)/@available(*, deprecated)\1/
@@ -64,9 +61,9 @@ s/gtk_symbolic_color_ref/g_object_ref/
 s/gtk_symbolic_color_unref/g_object_unref/
 s/public func resolve_for_context/@available(*, deprecated) public func resolve_for_context/
 s/\(renderIcon.*\), size: CInt/\1, size: GtkIconSize/
-s/\(icon_source.*\)size: CInt/\1size: GtkIconSize/
+s/\(iconSource.*\)size: CInt/\1size: GtkIconSize/
 s/set(size: CInt)/set(size: GtkIconSize)/
-s/icon_size: CInt/icon_size: GtkIconSize/
+s/iconSize: CInt/iconSize: GtkIconSize/
 s/UnsafeMutablePointer<GdkAtom>/UnsafeMutablePointer<GdkAtom?>/
 s/-> GdkAtom {/-> GdkAtom! {/
 s/: GdkAtom {/: GdkAtom! {/
@@ -74,30 +71,30 @@ s/ XCallback/ GCallback/
 s/GObject\./GLibObject./g
 s/GLibObject.self/GObject.self/g
 s/func setFromIcon(icon: IconProtocol, size: CInt)/func setFrom(icon: IconProtocol, size: GtkIconSize)/
-s/func setFromIconName(iconName icon_name: UnsafePointer<gchar>, size: CInt)/func setFrom(iconName icon_name: UnsafePointer<gchar>, size: GtkIconSize)/
-s/setFromStock(stockID stock_id: UnsafePointer<gchar>, size: CInt)/setFrom(stock stock_id: UnsafePointer<gchar>, size: GtkIconSize)/
-s/setIconFromStock(stockID stock_id: UnsafePointer<gchar>, size: CInt)/setFrom(stock stock_id: UnsafePointer<gchar>, size: GtkIconSize)/
+s/func setFromIconName(iconName: UnsafePointer<gchar>, size: CInt)/func setFrom(iconName: UnsafePointer<gchar>, size: GtkIconSize)/
+s/setFromStock(stockID: UnsafePointer<gchar>, size: CInt)/setFrom(stock stockID: UnsafePointer<gchar>, size: GtkIconSize)/
+s/setIconFromStock(stockID: UnsafePointer<gchar>, size: CInt)/setFrom(stock stockID: UnsafePointer<gchar>, size: GtkIconSize)/
 s/\(gtk_menu_set_active.cast.menu_ptr., guint.newValue..\)/\/\/ \1/
 s/func setIconFrom(gicon: IconProtocol, size: CInt)/func setIconFrom(gicon: IconProtocol, size: GtkIconSize)/
-s/func setFrom(iconName icon_name: UnsafePointer<gchar>, size: CInt)/func setFrom(iconName icon_name: UnsafePointer<gchar>, size: GtkIconSize)/
-s/func setIconFrom(iconName icon_name: UnsafePointer<gchar>, size: CInt)/func setIconFrom(iconName icon_name: UnsafePointer<gchar>, size: GtkIconSize)/
-s/func setIconFromStock(stock_id: UnsafePointer<gchar>, size: CInt)/func setIconFrom(stock stock_id: UnsafePointer<gchar>, size: GtkIconSize)/
+s/func setFrom(iconName: UnsafePointer<gchar>, size: CInt)/func setFrom(iconName: UnsafePointer<gchar>, size: GtkIconSize)/
+s/func setIconFrom(iconName: UnsafePointer<gchar>, size: CInt)/func setIconFrom(iconName: UnsafePointer<gchar>, size: GtkIconSize)/
+s/func setIconFromStock(s.*tockID: UnsafePointer<gchar>, size: CInt)/func setIconFrom(stock stockID: UnsafePointer<gchar>, size: GtkIconSize)/
 s/func iconSizeGetName(size: CInt)/func iconSizeGetName(size: GtkIconSize)/
 s/func iconSizeLookup(size: CInt/func iconSizeLookup(size: GtkIconSize/
 s/func iconSizeLookupForSettings(size: CInt/func iconSizeLookupForSettings(size: GtkIconSize/
 s/func iconSizeLookupFor(settings: SettingsProtocol, size: CInt/func iconSizeLookupFor(settings: SettingsProtocol, size: GtkIconSize/
 s/func iconSizeRegister(alias: UnsafePointer<gchar>, target: CInt/func iconSizeRegister(alias: UnsafePointer<gchar>, target: GtkIconSize/
-s/func setFrom(iconSet icon_set: IconSetProtocol, size: CInt/func setFrom(iconSet icon_set: IconSetProtocol, size: GtkIconSize/
+s/func setFrom(iconSet: IconSetProtocol, size: CInt/func setFrom(iconSet: IconSetProtocol, size: GtkIconSize/
 s/rv = gtk_clipboard_get_default/rv: UnsafeMutablePointer<GtkClipboard>? = nil \/\/ gtk_clipboard_get_default/
 s/gtk_drag_set_icon_gicon/\/\/ gtk_drag_set_icon_gicon/
 s/gtk_drag_source_set_icon_gicon/\/\/ gtk_drag_source_set_icon_gicon/
-s/init.icon_name: UnsafePointer<gchar>, size: CInt/init(iconName icon_name: UnsafePointer<gchar>, size: GtkIconSize/
-s/static func newFromIconName.icon_name: UnsafePointer<gchar>, size: CInt/static func newFrom(iconName icon_name: UnsafePointer<gchar>, size: GtkIconSize/
-s/init.icon_name: UnsafePointer<gchar>, size: CInt/init(icon_name: UnsafePointer<gchar>, size: GtkIconSize/
-s/static func newFrom.iconName icon_name: UnsafePointer<gchar>, size: CInt/static func newFrom(iconName icon_name: UnsafePointer<gchar>, size: GtkIconSize/
+s/init.i.*conName: UnsafePointer<gchar>, size: CInt/init(iconName: UnsafePointer<gchar>, size: GtkIconSize/
+s/static func newFrom.*iconName: UnsafePointer<gchar>, size: CInt/static func newFrom(iconName icon_name: UnsafePointer<gchar>, size: GtkIconSize/
+s/init.iconName: UnsafePointer<gchar>, size: CInt/init(iconName: UnsafePointer<gchar>, size: GtkIconSize/
+s/static func newFrom.i.*conName: UnsafePointer<gchar>, size: CInt/static func newFrom(iconName: UnsafePointer<gchar>, size: GtkIconSize/
 s/init.gicon icon: IconProtocol, size: CInt/init(icon: IconProtocol, size: GtkIconSize/
-s/init.icon_name: UnsafePointer<gchar>, size: CInt/init(iconName icon_name: UnsafePointer<gchar>, size: GtkIconSize/
-s/init.icon_set: IconSetProtocol, size: CInt/init(iconSet icon_set: IconSetProtocol, size: GtkIconSize/
+s/init.i.*conName: UnsafePointer<gchar>, size: CInt/init(iconName: UnsafePointer<gchar>, size: GtkIconSize/
+s/init.i.*conSet: IconSetProtocol, size: CInt/init(iconSet: IconSetProtocol, size: GtkIconSize/
 s/\(.*init.*icon.*size:\)\( *CInt\)/\1 GtkIconSize/
 s/\(.*newFrom.*icon.*size:\)\( *CInt\)/\1 GtkIconSize/
 s/\(.*init.*stock.*size:\)\( *CInt\)/\1 GtkIconSize/
@@ -125,7 +122,7 @@ s/Chars(nChars /(nChars /
 s/Selectable(setting:/(selectable setting:/
 s/Use\([A-Z][A-Za-z]*\)(setting:/(use\1 setting:/
 s/TrackVisitedLinks(trackLinks /(trackVisitedLinks /
-s/init(with_\([^ :]*\) \([^ :]*\):/init(\1 \2:/
+s/init(with\([_A-Z0-9][^ :]*\) \([^ :]*\):/init(\1 \2:/
 s/[gs]etChild\([a-zA-Z_]\)*(child:/get\1(child:/
 s/let rv = gtk_clipboard_get_selection.*/let rv: GdkAtom! = nil/
 s/(func_:/(_ func_:/
@@ -175,8 +172,8 @@ s|\(func testListAllTypes(.* -> Unsafe\)MutablePointer<GType>|\1Pointer<GType>|
 s|addID(window: Window)|addID(window: XID)|
 s|socketID: Window|socketID: XID|
 s|options: UnsafeMutablePointer<UnsafeMutablePointer<CChar>|options: UnsafeMutablePointer<UnsafePointer<CChar>|
-s|option_labels: UnsafeMutablePointer<UnsafeMutablePointer<CChar>|option_labels: UnsafeMutablePointer<UnsafePointer<CChar>|
-s|icon_names: UnsafeMutablePointer<gchar>|icon_names: UnsafeMutablePointer<UnsafePointer<gchar>?>|
+s|optionLabels: UnsafeMutablePointer<UnsafeMutablePointer<CChar>|optionLabels: UnsafeMutablePointer<UnsafePointer<CChar>|
+s|iconNames: UnsafeMutablePointer<gchar>|iconNames: UnsafeMutablePointer<UnsafePointer<gchar>?>|
 s|icons: UnsafeMutablePointer<UnsafeMutablePointer<gchar>|icons: UnsafeMutablePointer<UnsafePointer<gchar>|
 s|people: UnsafeMutablePointer<UnsafeMutablePointer<gchar>|people: UnsafeMutablePointer<UnsafePointer<gchar>|
 s|accels: UnsafeMutablePointer<UnsafeMutablePointer<gchar>|accels: UnsafeMutablePointer<UnsafePointer<gchar>|
