@@ -22,10 +22,10 @@ export PKG_CONFIG_PATH=/usr/local/opt/libffi/lib/pkgconfig:${PKG_CONFIG_PATH}
 LINKFLAGS=`pkg-config --libs $module gdk-$ver pangocairo pangoft2 pango gobject-$GLIB_VER gio-unix-$GLIB_VER glib-$GLIB_VER | sed -e 's/ *--export-dynamic */ /g' -e 's/ *-Wl, */ /g' -e 's/,/ -Xlinker /g' -e 's/-pthread/-lpthread/g' -e 's/  */ /g' -e 's/^ *//' -e 's/ *$//' | tr ' ' '\n' | tr '	' '\n' | sed -e 's/^/-Xlinker /' | tr '\n' ' ' | sed -e 's/-Xlinker *-Xlinker/-Xlinker/g' -e 's/-Xlinker[  ]*-Xlinker/-Xlinker/g' -e 's/-Xlinker *$//'`
 CCFLAGS=`pkg-config --cflags $module gdk-$ver pangocairo pangoft2 pango gobject-$GLIB_VER gio-unix-$GLIB_VER glib-$GLIB_VER | sed -e 's/ *-Wl, */ /g' -e 's/,/ -Xlinker /g' -e 's/ *-pthread */ /g' -e 's/ *--export-dynamic */ /g' -e 's/  */ /g' -e 's/^ *//' -e 's/ *$//' | tr ' ' '\n' | tr '	' '\n' | sed 's/^/-Xcc /' | tr '\n' ' ' | sed -e 's/-Xcc *-Xcc/-Xcc/g' -e 's/-Xlinker[  ]*-Xlinker/-Xlinker/g' -e 's/-Xcc *$//'`
 TAC="tail -r"
-if which tac >/dev/null ; then
+if which tac >/dev/null 2>&1 ; then
    TAC=tac
-   else if which gtac >/dev/null ; then
-	TAC=gtac
-   fi
+ else if which gtac >/dev/null 2>&1 ; then
+   TAC=gtac
+ fi
 fi
 JAZZY_B=`echo $CCFLAGS $LINKFLAGS | sed 's/  */,/g'`
