@@ -16,7 +16,7 @@ function generate_arg-path_arg-g2s-exec_arg-gir-pre_arg-gir-path {
     local PKG_CONFIG_ARG=$(package_pkg_config_arguments)
     local GIR_PRE_ARGS=`for FILE in ${GIR_PRE}; do echo -n "-p ${GIR_PATH}/${FILE}.gir "; done`
     
-    bash -c "${G2S_EXEC} -o Sources/${NAME} -s -m ${GIR_NAME}.module ${GIR_PATH}/${GIR_NAME}.gir ${GIR_PRE_ARGS}"
+    bash -c "${G2S_EXEC} -o Sources/${NAME} -s -m ${GIR_NAME}.module ${GIR_PRE_ARGS} ${GIR_PATH}/${GIR_NAME}.gir"
 
     if which parallel >/dev/null ; then
         for src in Sources/${NAME}/*-*.swift ; do \
