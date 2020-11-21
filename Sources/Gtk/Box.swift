@@ -12,6 +12,9 @@ import GLibObject
 import GIO
 import Cairo
 
+@usableFromInline enum ContainerSignalName: String, GLibObject.SignalNameProtocol {
+    case add = "add"
+}
 
 /// Box protocol convenience methods
 public extension BoxProtocol {
@@ -47,8 +50,6 @@ public extension BoxProtocol {
         set(child: widget, properties: ps)
     }
 
-// TODO!
-/*
     /// Add a child widget to this box with a given list of properties
     ///
     /// - Parameters:
@@ -71,6 +72,6 @@ public extension BoxProtocol {
         emit(ContainerSignalName.add, widget.widget_ptr)
         set(child: widget, property: p, value: v)
     }
-*/
+
 }
 

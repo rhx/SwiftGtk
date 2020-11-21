@@ -77,8 +77,7 @@ public extension ContainerProtocol {
     @inlinable func set<W: WidgetProtocol, P: PropertyNameProtocol>(child widget: W, properties ps: (P, Any)...) {
         set(child: widget, properties: ps)
     }
-// TODO!
-/*
+    
     /// Add a child widget with a given list of properties
     ///
     /// - Parameters:
@@ -101,7 +100,7 @@ public extension ContainerProtocol {
         emit(ContainerSignalName.add, widget.widget_ptr)
         set(child: widget, property: p, value: v)
     }
-*/
+
     /// Add an array of widgets to the container
     ///
     /// - Parameter widgets: the widgets to add
