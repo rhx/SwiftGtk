@@ -25,57 +25,6 @@ public extension BoxProtocol {
     /// - Parameter marginEnd: end margin
     @inlinable func set(marginEnd: Int) { setMarginEnd(margin: marginEnd) }
 
-    /// Connection helper function
-    @usableFromInline internal func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: BoxSignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer, gpointer) -> gboolean) -> Int {
-        let opaqueHolder = Unmanaged.passRetained(data).toOpaque()
-        let callback = unsafeBitCast(handler, to: GCallback.self)
-        let rv = signalConnectData(detailedSignal: name, cHandler: callback, data: opaqueHolder, destroyData: {
-            if let swift = $0 {
-                let holder = Unmanaged<BoxSignalHandlerClosureHolder>.fromOpaque(swift)
-                holder.release()
-            }
-            let _ = $1
-        }, connectFlags: flags)
-        return rv
-    }
-
-    /// Connects a (Box,Cairo.Context) -> Void closure or function to a signal for
-    /// the receiver object.  Similar to g_signal_connect(), but allows
-    /// to provide a Swift closure that can capture its surrounding context.
-    @discardableResult
-    @inlinable func connectSignal(name: UnsafePointer<gchar>, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping BoxSignalHandler) -> Int {
-        let rv = _connect(signal: name, flags: f, data: DualClosureHolder(handler)) {
-            let holder = Unmanaged<BoxSignalHandlerClosureHolder>.fromOpaque($2).takeUnretainedValue()
-            let rv: gboolean = holder.call(BoxRef(raw: $0), Cairo.ContextRef(raw: $1)) ? 1 : 0
-            return rv
-        }
-        return rv
-    }
-
-    /// Connects a (Box,Cairo.Context)) -> Void closure or function to a box signal for
-    /// the receiver object.  Similar to g_signal_connect(), but allows
-    /// to provide a Swift closure that can capture its surrounding context.
-    @discardableResult
-    @inlinable func connect<S: SignalNameProtocol>(signal s: S, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping BoxSignalHandler) -> Int {
-        return connectSignal(name: s.rawValue, flags: f, handler: handler)
-    }
-
-    /// Connects a (Box,Cairo.Context) -> Bool closure or function to a box signal for
-    /// the receiver object.  Similar to g_signal_connect(), but allows
-    /// to provide a Swift closure that can capture its surrounding context.
-    @discardableResult
-    @inlinable func connect(signal: BoxSignalName, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping BoxSignalHandler) -> Int {
-        return connectSignal(name: signal.rawValue, flags: f, handler: handler)
-    }
-
-    /// Connects a (Box,Cairo.Context) -> Bool closure or function to the "draw"
-    /// signal of the receiver object.  Similar to g_signal_connect(), but allows
-    /// to provide a Swift closure that can capture its surrounding context.
-    @discardableResult
-    @inlinable func onDraw(flags f: ConnectFlags = ConnectFlags(0), handler: @escaping BoxSignalHandler) -> Int {
-        return connectSignal(name: BoxSignalName.draw.rawValue, flags: f, handler: handler)
-    }
-
     /// Set the property of a child widget of this box
     ///
     /// - Parameters:
@@ -98,6 +47,8 @@ public extension BoxProtocol {
         set(child: widget, properties: ps)
     }
 
+// TODO!
+/*
     /// Add a child widget to this box with a given list of properties
     ///
     /// - Parameters:
@@ -120,5 +71,6 @@ public extension BoxProtocol {
         emit(ContainerSignalName.add, widget.widget_ptr)
         set(child: widget, property: p, value: v)
     }
+*/
 }
 
