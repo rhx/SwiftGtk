@@ -28,13 +28,9 @@ public extension CssProviderProtocol {
     /// Loads the data provided in the given string into the CSS Provider
     ///
     /// - Parameter data: the CSS data represented as a String
-    /// - Returns: `true` iff successful
     /// - Throws: an `ErrorType` if there is an issue with the CSS
-    @discardableResult
-    @inlinable func load(from data: String) throws -> Bool {
-        return try with(gString: data) {
-            return try loadFrom(data: $0, length: -1)
-        }
+    @inlinable func load(from data: String) {
+        return load(from: data, length: -1)
     }
 }
 
@@ -42,10 +38,9 @@ public extension CSSProvider {
     /// Convenience initialiser from a given string
     ///
     /// - Parameter data: String providing the CSS data
-    /// - Throws: an `ErrorType` if there is an issue with the CSS
-    @inlinable convenience init(from data: String) throws {
+    @inlinable convenience init(from data: String) {
         self.init()
         _ = refSink()
-        try load(from: data)
+        load(from: data)
     }
 }

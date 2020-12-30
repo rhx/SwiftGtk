@@ -9,7 +9,7 @@ var args = [cstring]
 var numArgs: Int32 = args.withUnsafeMutableBufferPointer {
     var n = Int32(args.count)
     var argv = $0.baseAddress
-    gtk_init(&n, &argv)
+    gtk_init()
     return n
 }
 

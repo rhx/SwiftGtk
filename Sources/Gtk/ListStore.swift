@@ -70,18 +70,3 @@ public extension ListStore {
         set(iter: i, values: values, startColumn: s)
     }
 }
-
-
-/// TreeView subclass for displaying lists that retain their model
-open class ListView: TreeView {
-    /// The underlying list store
-    public var listStore: ListStore
-
-    /// Convenience List View constructor
-    ///
-    /// - Parameter store: list view store description
-    @inlinable public init(model store: ListStore) {
-        listStore = store
-        super.init(model: store.treeModel)
-    }
-}

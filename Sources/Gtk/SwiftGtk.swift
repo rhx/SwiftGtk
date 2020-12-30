@@ -3,7 +3,6 @@ import CCairo
 import CPango
 import CGdkPixbuf
 import CGdk
-import CAtk
 import CGtk
 import GLib
 import GLibObject

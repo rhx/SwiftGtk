@@ -67,58 +67,5 @@ public extension BoxProtocol {
     @inlinable func connect(signal: BoxSignalName, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping BoxSignalHandler) -> Int {
         return connectSignal(name: signal.rawValue, flags: f, handler: handler)
     }
-
-    /// Connects a (Box,Cairo.Context) -> Bool closure or function to the "draw"
-    /// signal of the receiver object.  Similar to g_signal_connect(), but allows
-    /// to provide a Swift closure that can capture its surrounding context.
-    @discardableResult
-    @inlinable func onDraw(flags f: ConnectFlags = ConnectFlags(0), handler: @escaping BoxSignalHandler) -> Int {
-        return connectSignal(name: BoxSignalName.draw.rawValue, flags: f, handler: handler)
-    }
-
-    /// Set the property of a child widget of this box
-    ///
-    /// - Parameters:
-    ///   - child: widget to set property for
-    ///   - property: name of the property
-    ///   - value: value to set
-    @inlinable func set<W: WidgetProtocol>(child widget: W, properties: [(BoxPropertyName, Any)]) {
-        widget.freezeChildNotify() ; defer { widget.thawChildNotify() }
-        for (p, v) in properties {
-            set(child: widget, property: p, value: v)
-        }
-    }
-
-    /// Set up a child widget of this box with the given list of properties
-    ///
-    /// - Parameters:
-    ///   - widget: child widget to set properties for
-    ///   - properties: `PropertyName` / value pairs to set
-    @inlinable func set<W: WidgetProtocol>(child widget: W, properties ps: (BoxPropertyName, Any)...) {
-        set(child: widget, properties: ps)
-    }
-
-    /// Add a child widget to this box with a given list of properties
-    ///
-    /// - Parameters:
-    ///   - widget: child widget to add
-    ///   - properties: `PropertyName` / value pairs of properties to set
-    @inlinable func add<W: WidgetProtocol>(_ widget: W, properties ps: (BoxPropertyName, Any)...) {
-        widget.freezeChildNotify() ; defer { widget.thawChildNotify() }
-        emit(ContainerSignalName.add, widget.widget_ptr)
-        set(child: widget, properties: ps)
-    }
-
-    /// Add a child widget to this box with a given property
-    ///
-    /// - Parameters:
-    ///   - widget: child widget to add
-    ///   - property: name of the property to set
-    ///   - value: value of the property to set
-    @inlinable func add<W: WidgetProtocol, V>(_ widget: W, property p: BoxPropertyName, value v: V) {
-        widget.freezeChildNotify() ; defer { widget.thawChildNotify() }
-        emit(ContainerSignalName.add, widget.widget_ptr)
-        set(child: widget, property: p, value: v)
-    }
 }
 

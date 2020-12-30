@@ -1,5 +1,5 @@
 # SwiftGtk
-A Swift wrapper around gtk-3.x that is largely auto-generated from gobject-introspection.
+A Swift wrapper around gtk-3.x and gtk-4.x that is largely auto-generated from gobject-introspection.
 This project tries to make gtk more "swifty" than using the plain C language interface.
 For up to date (auto-generated) reference documentation, see https://rhx.github.io/SwiftGtk/
 
@@ -16,7 +16,7 @@ was compiled against libraries built with earlier versions of `gir2swift`.
 ### Notable changes
 
  * Parameters use idiomatic Swift names (e.g. camel case instead of snake case, splitting out of "for", "from", etc.)
- * Requires Swift 5.2 or later
+ * Requires Swift 5.2 or later (Swift 5.3 is required for the `gtk4` branch)
  * Uses the namespace referenced in the `gir` file
  * Wrapper code is now `@inlinable` to enable the compiler to optimise away most of the wrappers
  * Parameters and return types use more idiomatic Swift (e.g. `Ref` wrappers instead of pointers, `Int` instead of `gint`, etc.)
@@ -79,21 +79,21 @@ After that, use the (usual) Build and Test buttons to build/test this package.  
 
 ### Swift
 
-To build, you need at least Swift 5.2 (Swift 5.3+ should work fine), download from https://swift.org/download/ -- if you are using macOS, make sure you have the command line tools installed as well).  Test that your compiler works using `swift --version`, which should give you something like
+To build, you need at least Swift 5.2 (Swift 5.3 is required for `gtk4`), download from https://swift.org/download/ -- if you are using macOS, make sure you have the command line tools installed as well).  Test that your compiler works using `swift --version`, which should give you something like
 
 	$ swift --version
-	Apple Swift version 5.2.4 (swiftlang-1103.0.32.1 clang-1103.0.32.29)
-	Target: x86_64-apple-darwin19.4.0
+	Apple Swift version 5.3.2 (swiftlang-1200.0.45 clang-1200.0.32.28)
+    Target: x86_64-apple-darwin20.3.0
 
 on macOS, or on Linux you should get something like:
 
 	$ swift --version
-	Swift version 5.2.5 (swift-5.2.5-RELEASE)
+	Swift version 5.3.2 (swift-5.3.2-RELEASE)
 	Target: x86_64-unknown-linux-gnu
 
 ### Gtk 3.22 or higher
 
-The Swift wrappers have been tested with glib-2.56, 2.58, 2.60, 2.62, and 2.64, and gdk/gtk 3.22, and 3.24.  They should work with higher versions, but YMMV.  Also make sure you have `gobject-introspection` and its `.gir` files installed.
+The Swift wrappers have been tested with glib-2.56, 2.58, 2.60, 2.62, and 2.64, and gdk/gtk 3.22, 3.24, and 4.0 on the `gtk4` branch.  They should work with higher versions, but YMMV.  Also make sure you have `gobject-introspection` and its `.gir` files installed.
 
 #### Linux
 
