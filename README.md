@@ -5,6 +5,12 @@ For up to date (auto-generated) reference documentation, see https://rhx.github.
 
 ## What is new?
 
+### Support for gtk 4.x
+
+There now is a `gtk4` branch supporting the latest version of gtk.
+
+### Other notable changes
+
 Version 11 introduces a new type system into `gir2swift`,
 to ensure it has a representation of the underlying types.
 This is necessary for Swift 5.3 onwards, which requires more stringent casts.
@@ -12,8 +18,6 @@ As a consequence, accessors can accept and return idiomatic Swift rather than
 underlying types or pointers.
 This means that a lot of the changes will be source-breaking for code that
 was compiled against libraries built with earlier versions of `gir2swift`.
-
-### Notable changes
 
  * Parameters use idiomatic Swift names (e.g. camel case instead of snake case, splitting out of "for", "from", etc.)
  * Requires Swift 5.2 or later (Swift 5.3 is required for the `gtk4` branch)
@@ -29,7 +33,7 @@ was compiled against libraries built with earlier versions of `gir2swift`.
 Normally, you don't build this package directly (but for testing you can - see 'Building' below), but you embed it into your own project.  To use SwiftGtk, you need to use the [Swift Package Manager](https://swift.org/package-manager/).  After installing the prerequisites (see 'Prerequisites' below), add `SwiftGtk` as a dependency to your `Package.swift` file, e.g.:
 
 ```Swift
-// swift-tools-version:5.2
+// swift-tools-version:5.3
 
 import PackageDescription
 
