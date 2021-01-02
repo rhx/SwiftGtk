@@ -3,7 +3,7 @@
 //  SwiftGtk
 //
 //  Created by Rene Hexel on 23/4/17.
-//  Copyright © 2017, 2018, 2020 Rene Hexel.  All rights reserved.
+//  Copyright © 2017, 2018, 2020, 2021 Rene Hexel.  All rights reserved.
 //
 import CGLib
 import CGtk
@@ -15,6 +15,12 @@ import Cairo
 
 /// Box protocol convenience methods
 public extension BoxProtocol {
+    /// Append a list of children
+    /// - Parameter children: sequence of widgets to append
+    @inlinable func append<S: Swift.Sequence>(children: S) where S.Element: WidgetProtocol {
+        children.forEach(append)
+    }
+
     /// Set the start margin of the box
     ///
     /// - Parameter marginStart: start margin
