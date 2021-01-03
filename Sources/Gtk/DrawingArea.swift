@@ -11,7 +11,7 @@ import Cairo
 public extension DrawingAreaProtocol {
     /// Set the drawing function for this drawing area
     /// - Parameter drawFunction: a function or closure that takes a reference to this drawing area, a Cairo context reference, the width, and the height of the area for drawing
-    func setDrawFunc(_ drawFunction: @escaping (DrawingAreaRef, Cairo.ContextRef, Int, Int) -> Void) {
+    @inlinable func setDrawFunc(_ drawFunction: @escaping (DrawingAreaRef, Cairo.ContextRef, Int, Int) -> Void) {
         _connect(drawFunc: DrawFuncClosureHolder(drawFunction)) {
             guard let drawingArea = $0,
                   let cr = $1,
