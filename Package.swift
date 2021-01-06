@@ -7,7 +7,7 @@ let package = Package(
     products: [ .library(name: "Gtk", targets: ["Gtk"]) ],
     dependencies: [
 	.package(name: "Gdk", url: "https://github.com/rhx/SwiftGdk.git", .branch("gtk4")),
-	.package(name: "PangoCairo", url: "https://github.com/rhx/SwiftPangoCairo.git", .branch("master")),
+	.package(name: "PangoCairo", url: "https://github.com/rhx/SwiftPangoCairo.git", .branch("main")),
     ],
     targets: [
 	.systemLibrary(name: "CGtk", pkgConfig: "gtk4",
