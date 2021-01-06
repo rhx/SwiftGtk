@@ -1,7 +1,6 @@
 .DS_Store
 /.build
 /.docs.old
-/docs
 /Packages
 /*.xcodeproj
 Package.pins
