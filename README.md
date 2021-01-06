@@ -30,7 +30,7 @@ was compiled against libraries built with earlier versions of `gir2swift`.
 
 ## Usage
 
-Normally, you don't build this package directly (but for testing you can - see 'Building' below), but you embed it into your own project.  To use SwiftGtk, you need to use the [Swift Package Manager](https://swift.org/package-manager/).  After installing the prerequisites (see 'Prerequisites' below), add `SwiftGtk` as a dependency to your `Package.swift` file, e.g.:
+Normally, you don't build this package directly (but for testing you can - see 'Building' below). Instead you need to embed SwiftGtk into your own project using the [Swift Package Manager](https://swift.org/package-manager/).  After installing the prerequisites (see 'Prerequisites' below), add `SwiftGtk` as a dependency to your `Package.swift` file, e.g.:
 
 ```Swift
 // swift-tools-version:5.3
