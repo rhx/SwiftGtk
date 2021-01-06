@@ -1,6 +1,8 @@
 .DS_Store
 /.build
 /.docs.old
+/gtk3/undocumented.json
+/gtk4/undocumented.json
 /Packages
 /*.xcodeproj
 Package.pins
