@@ -9,6 +9,8 @@ For up to date (auto-generated) reference documentation, see https://rhx.github.
 
 There now is a `gtk4` branch supporting the latest version of gtk.
 
+The current version introduces a new build system and signal generation code contributed by Mikoláš Stuchlík (see the **Building** Section below).
+
 ### Other notable changes
 
 Version 11 introduces a new type system into `gir2swift`,
@@ -39,13 +41,13 @@ import PackageDescription
 
 let package = Package(name: "MyPackage",
     dependencies: [
-        .package(name: "Gtk", url: "https://github.com/rhx/SwiftGtk.git", .branch("main")),
+        .package(name: "Gtk", url: "https://github.com/rhx/SwiftGtk.git", .branch("gtk3")),
     ],
     targets: [.target(name: "MyPackage", dependencies: ["Gtk"])]
 )
 ```
 
-At this stage, the Swift Package manager does not (yet) know how to run external programs such as `gir2swift`.  Therefore the easiest way to compile your project with SwiftGtk is to use build scripts that do this for you and pass the necessary flags to the Swift Package manager (see the following section).
+For gtk4 replace `.branch("gtk3")` with `.branch("gtk4")`.
 
 ### Examples
 
@@ -135,8 +137,15 @@ As pointed out in the 'Usage' section above, you don't normally build this packa
 
 	git clone https://github.com/rhx/SwiftGtk.git
 	cd SwiftGtk
-	./build.sh
-	./test.sh
+    ./run-gir2swift.sh
+    swift build
+    swift test
+
+Please note that on macOS, due to a bug currently in the Swift Package Manager,
+you need to pass in the build flags manually, i.e. instead of `swift build` and `swift test` you can run
+
+    swift build `./run-gir2swift.sh flags -noUpdate`
+    swift test  `./run-gir2swift.sh flags -noUpdate`
 
 ### Xcode
 
@@ -178,3 +187,9 @@ this probably means that your Swift toolchain is too old.  Make sure the latest 
 	sudo xcode-select -s /Applications/Xcode.app
 	xcode-select --install
 
+### Known Issues
+
+ * The current build system does not support directory paths with spaces (e.g. the `My Drive` directory used by Google Drive File Stream).
+ * BUILD_DIR is not supported in the current build system.
+ 
+As a workaround, you can use the old build scripts, e.g. `./build.sh` (instead of `run-gir2swift.sh` and `swift build`) to build a package.
