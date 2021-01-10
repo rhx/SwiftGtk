@@ -96,11 +96,11 @@ jobs:
           swift build
           cd ..
 
-      - name: Test SwiftGtk
-        run: |
-          cd SwiftGtk
-          swift test
-          cd ..
+#      - name: Test SwiftGtk
+#        run: |
+#          cd SwiftGtk
+#          swift test
+#          cd ..
 
       - name: Remove unneeded files and archive artifacts
         run: | 
@@ -144,11 +144,11 @@ jobs:
           swift build
           cd ..
 
-      - name: Test SwiftGtk
-        run: |
-          cd SwiftGtk
-          swift test
-          cd ..
+#      - name: Test SwiftGtk
+#        run: |
+#          cd SwiftGtk
+#          swift test
+#          cd ..
 
       - name: Remove unneeded files and archive artifacts
         run: |
