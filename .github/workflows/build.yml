@@ -1,0 +1,25 @@
+name: Build Glib
+
+# Dependencies of Glib package
+env:
+  UBUNTU_APT: ${{ 'glib-networking libgdk-pixbuf2.0-dev gobject-introspection libgirepository1.0-dev libgtk-3-dev libglib2.0-dev libpango1.0-dev libcairo2-dev libatk1.0-dev' }}
+
+on:
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  # Ubuntu 20.04 tasks
+  build-ubuntu-20_04-swift-latest:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Print Swift version to confirm
+        run: swift --version
+      - name: Fetch dependencies for general repository
+        run: sudo apt-get install $UBUNTU_APT
+      - name: Build using scripts
+        run: |
+          ./run-gir2swift.sh
+          swift build
