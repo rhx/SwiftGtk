@@ -1,6 +1,6 @@
 #!/bin/bash
 
-GIR_NAME="Gtk-3.0"
+GIR_NAME="Gtk-4.0"
 
 function generate_arg-path_arg-g2s-exec_arg-gir-pre_arg-gir-path {
     local PACKAGE_PATH=$1
@@ -30,10 +30,6 @@ function generate_arg-path_arg-g2s-exec_arg-gir-pre_arg-gir-path {
 	    sed -f ${GIR_NAME}.sed < ${src} | awk -f ${GIR_NAME}.awk > ${src}.out
 	    mv ${src}.out ${src}
         done
-    fi
-    if ! pkg-config --atleast-version=3.24 $PKG_CONFIG_ARG ; then
-	    rm -f Sources/${NAME}/EventControllerSignal.swift
-	    rm -f Sources/${NAME}/GestureSignal.swift
     fi
     touch Sources/${NAME}/${GIR_NAME}.swift
 
