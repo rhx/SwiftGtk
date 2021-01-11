@@ -45,7 +45,7 @@ jobs:
       - name: Build SwiftGtk
         run: |
           cd SwiftGtk
-          swift build `./run-gir2swift.sh flags -noUpdate`
+          swift build -Xswiftc -suppress-warnings `./run-gir2swift.sh flags -noUpdate`
           cd ..
 
       - name: Test SwiftGtk
@@ -93,7 +93,7 @@ jobs:
       - name: Build SwiftGtk
         run: |
           cd SwiftGtk
-          swift build
+          swift build -Xswiftc -suppress-warnings
           cd ..
 
 #      - name: Test SwiftGtk
@@ -141,7 +141,7 @@ jobs:
       - name: Build SwiftGtk
         run: |
           cd SwiftGtk
-          swift build
+          swift build -Xswiftc -suppress-warnings
           cd ..
 
 #      - name: Test SwiftGtk
