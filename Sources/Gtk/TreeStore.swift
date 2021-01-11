@@ -3,7 +3,7 @@
 //  Gtk
 //
 //  Created by Rene Hexel on 22/4/17.
-//  Copyright © 2017, 2018, 2019, 2020 Rene Hexel.  All rights reserved.
+//  Copyright © 2017, 2018, 2019, 2020, 2021 Rene Hexel.  All rights reserved.
 //
 import GLibObject
 import CGtk
@@ -161,53 +161,5 @@ public extension TreeViewColumn {
     ///   - rendererAttributes: array of attribute name/value pairs to set on the renderer
     @inlinable convenience init(_ column: Int, title t: String? = nil, renderer r: CellRenderer = CellRendererText(), attribute a: PropertyName = "text", expand e: Bool = true, rendererAttributes ras: (PropertyName, Value)...) {
         self.init(column, title: t, renderer: r, attribute: a, expand: e, rendererAttributes: ras)
-    }
-}
-
-public extension TreeViewProtocol {
-    /// Helper for connecting the row activations signal
-    /// - Parameters:
-    ///   - name: Name of the signal
-    ///   - flags: Connection flags
-    ///   - data: Closure holder to use
-    ///   - handler: C language handler that unwraps the closure holder
-    /// - Returns: The handler ID (always greater than 0 for successful connections)
-    @usableFromInline internal func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: TreeViewRowActivatedSignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> ()) -> Int {
-        let opaqueHolder = Unmanaged.passRetained(data).toOpaque()
-        let callback = unsafeBitCast(handler, to: GCallback.self)
-        let rv = signalConnectData(detailedSignal: name, cHandler: callback, data: opaqueHolder, destroyData: {
-            if let swift = $0 {
-                let holder = Unmanaged<TreeViewRowActivatedSignalHandlerClosureHolder>.fromOpaque(swift)
-                holder.release()
-            }
-            let _ = $1
-        }, connectFlags: flags)
-        return rv
-    }
-
-    /// Connect a signal to a row activation handler.
-    /// - Parameters:
-    ///   - name: Name of the signal (e.g. `"row-activated"`)
-    ///   - flags: The connection flags to use
-    ///   - handler: The signal handler to execute when a row is activated
-    /// - Returns: The handler ID (always greater than 0 for successful connections)
-    @discardableResult
-    @inlinable func connectRowActivated(name: UnsafePointer<gchar>, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping TreeViewRowActivatedSignalHandler) -> Int {
-        let rv = _connect(signal: name, flags: f, data: Closure3Holder(handler)) {
-            let holder = Unmanaged<TreeViewRowActivatedSignalHandlerClosureHolder>.fromOpaque($3).takeUnretainedValue()
-            holder.call(TreeViewRef(raw: $0), TreePathRef(raw: $1), TreeViewColumnRef(raw: $2))
-        }
-        return rv
-    }
-
-    /// Connect a row activation handler to the tree view.
-    /// - Parameters:
-    ///   - flags: The connection flags to use
-    ///   - handler: The signal handler to execute when a row is activated
-    /// - Returns: The handler ID (always greater than 0 for successful connections)
-    @discardableResult
-    @inlinable func onRowActivated(flags f: ConnectFlags = ConnectFlags(0), handler h: @escaping TreeViewRowActivatedSignalHandler) -> Int  {
-        let rv = connectRowActivated(name: TreeViewSignalName.rowActivated.rawValue, flags: f, handler: h)
-        return rv
     }
 }
