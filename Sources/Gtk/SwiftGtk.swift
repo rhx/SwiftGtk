@@ -10,6 +10,9 @@ import GLibObject
 import GIO
 import Cairo
 
+/// A closure taking a reference to the current application as an argument
+public typealias ApplicationSignalHandler = (ApplicationRef) -> Void
+
 /**
  * Convert a swift string (or UnsafePointer<Char>) into
  * an UnsafeMutablePointer<CChar> as used by many POSIX functions.
