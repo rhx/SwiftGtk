@@ -60,13 +60,13 @@ import PackageDescription
 
 let package = Package(name: "MyPackage",
     dependencies: [
-        .package(name: "Gtk", url: "https://github.com/rhx/SwiftGtk.git", .branch("main")),
+        .package(name: "Gtk", url: "https://github.com/rhx/SwiftGtk.git", .branch("gtk4")),
     ],
     targets: [.target(name: "MyPackage", dependencies: ["Gtk"])]
 )
 ```
 
-At this stage, the Swift Package manager does not (yet) know how to run external programs such as `gir2swift`.  Therefore the easiest way to compile your project with SwiftGtk is to use build scripts that do this for you and pass the necessary flags to the Swift Package manager (see the following section).
+For gtk3 replace `.branch("gtk3")` with `.branch("gtk3")`.
 
 ### Examples
 
@@ -156,8 +156,15 @@ As pointed out in the 'Usage' section above, you don't normally build this packa
 
 	git clone https://github.com/rhx/SwiftGtk.git
 	cd SwiftGtk
-	./build.sh
-	./test.sh
+    ./run-gir2swift.sh
+    swift build
+    swift test
+
+Please note that on macOS, due to a bug currently in the Swift Package Manager,
+you need to pass in the build flags manually, i.e. instead of `swift build` and `swift test` you can run
+
+    swift build `./run-gir2swift.sh flags -noUpdate`
+    swift test  `./run-gir2swift.sh flags -noUpdate`
 
 ### Xcode
 
