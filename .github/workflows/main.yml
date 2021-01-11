@@ -69,53 +69,53 @@ jobs:
             SwiftGtk/
           retention-days: 1
 
-  # Ubuntu 20.04 tasks
-  build-ubuntu-20_04-swift-latest:
-    runs-on: ubuntu-20.04
-    steps:
-      - name: Print Swift version to confirm
-        run: swift --version
-      - name: Fetch dependencies for general repository
-        run: sudo apt-get install $UBUNTU_APT
-
-      - name: Checkout SwiftGtk
-        uses: actions/checkout@v2
-        with:
-          path: SwiftGtk
-
-      - name: Build current SwiftGtk
-        run: |
-          cd SwiftGtk
-          ./run-gir2swift.sh
-          echo "GIR2SWIFT_PATH=${PWD}/checkouts/gir2swift/.build/release/gir2swift" >> $GITHUB_ENV
-          cd ..
-
-      - name: Build SwiftGtk
-        run: |
-          cd SwiftGtk
-          swift build -Xswiftc -suppress-warnings
-          cd ..
-
-#      - name: Test SwiftGtk
+#  # Ubuntu 20.04 tasks
+#  build-ubuntu-20_04-swift-latest:
+#    runs-on: ubuntu-20.04
+#    steps:
+#      - name: Print Swift version to confirm
+#        run: swift --version
+#      - name: Fetch dependencies for general repository
+#        run: sudo apt-get install $UBUNTU_APT
+#
+#      - name: Checkout SwiftGtk
+#        uses: actions/checkout@v2
+#        with:
+#          path: SwiftGtk
+#
+#      - name: Build current SwiftGtk
 #        run: |
 #          cd SwiftGtk
-#          swift test
+#          ./run-gir2swift.sh
+#          echo "GIR2SWIFT_PATH=${PWD}/checkouts/gir2swift/.build/release/gir2swift" >> $GITHUB_ENV
 #          cd ..
-
-      - name: Remove unneeded files and archive artifacts
-        run: | 
-          cd SwiftGtk
-          swift package clean
-          rm -rf .build/repositories
-          cd ..
-
-      - name: 'Upload Artifact'
-        uses: actions/upload-artifact@v2
-        with:
-          name: build-artifact-20.04-5.3
-          path: |
-            SwiftGtk/
-          retention-days: 1
+#
+#      - name: Build SwiftGtk
+#        run: |
+#          cd SwiftGtk
+#          swift build -Xswiftc -suppress-warnings
+#          cd ..
+#
+##      - name: Test SwiftGtk
+##        run: |
+##          cd SwiftGtk
+##          swift test
+##          cd ..
+#
+#      - name: Remove unneeded files and archive artifacts
+#        run: | 
+#          cd SwiftGtk
+#          swift package clean
+#          rm -rf .build/repositories
+#          cd ..
+#
+#      - name: 'Upload Artifact'
+#        uses: actions/upload-artifact@v2
+#        with:
+#          name: build-artifact-20.04-5.3
+#          path: |
+#            SwiftGtk/
+#          retention-days: 1
 
   # Ubuntu 18.04 tasks
   build-ubuntu-18_04-swift-latest:
