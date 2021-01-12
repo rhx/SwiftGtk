@@ -32,10 +32,12 @@ jobs:
         run: brew update
 
       - name: Upgrade installed packages to current version
-        run: brew upgrade ; true
+        run: brew upgrade
+        continue-on-error: true
 
       - name: Fetch dependencies for general repository
         run: brew install $MACOS_BREW
+        if: ${{ success() || failure() }}
 
       - name: Checkout SwiftGtk
         uses: actions/checkout@v2
