@@ -32,7 +32,7 @@ jobs:
         run: brew update
 
       - name: Upgrade installed packages to current version
-        run: brew upgrade
+        run: brew upgrade ; true
 
       - name: Fetch dependencies for general repository
         run: brew install $MACOS_BREW
