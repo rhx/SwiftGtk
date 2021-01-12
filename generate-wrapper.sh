@@ -5,14 +5,19 @@
 #
 . ./config.sh
 ./package.sh update
-if [ ! -x "${GIR2SWIFT_PATH}/gir2swift" ] &&
-   ! pushd "$BUILD_DIR/gir2swift" >/dev/null 2>&1 ; then
-	mkdir -p "$BUILD_DIR"
-	pushd "$BUILD_DIR" >/dev/null
+if [ ! -x "${GIR2SWIFT_PATH}/gir2swift" -a \
+     ! -e "$BUILD_DIR/checkouts/gir2swift" ] ; then
+	mkdir -p "$BUILD_DIR/checkouts" 2>/dev/null
+	pushd "$BUILD_DIR/checkouts" >/dev/null
 	git clone https://github.com/rhx/gir2swift.git
-	cd gir2swift && ./build.sh
+	popd >/dev/null 2>&1
 fi
-export PATH=`pwd`/.build/debug:${PATH}
+if [ ! -x "${GIR2SWIFT_PATH}/gir2swift" ] &&
+     ! -e "$BUILD_DIR/checkouts/gir2swift/.build/release/gir2swift" >/dev/null 2>&1 ; then
+	pushd "$BUILD_DIR/checkouts/gir2swift" >/dev/null
+	./build.sh
+fi
+export PATH="$PWD/.build/release:${PATH}"
 popd >/dev/null 2>&1
 export PACKAGES="$BUILD_DIR/checkouts"
 [ -e $PACKAGES ] || export PACKAGES=Packages
