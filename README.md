@@ -89,11 +89,18 @@ The demo applications come with build scripts that configure some environment va
  * [SwiftHelloGtk](https://github.com/rhx/SwiftHelloGtk): this is a quick starting point for a simple gtk app that does not need any resources.
  * [SwiftHelloGtkBuilder](https://github.com/rhx/SwiftHelloGtkBuilder): this is a good starting point for a more complex app that has user interface files (`*.ui`) for GtkBuilder in its `Resources` folder.
  
-To build your project, you then simply run
+You first need to create the Swift Wrappers using
 ```
-./build.sh
+./run-gir2swift.sh
 ```
-from within your project folder.  On macOS, you can also build the project using Xcode instead.  To do this, you need to create an Xcode project first, then open the project in the Xcode IDE:
+After that, you can build, test, or run your project using the usual Swift compiler commands:
+```
+swift build
+swift test
+swift run
+```
+
+On macOS, there is an issue that requires you to pass in the required flags manually (see [Building](#Building) below).  You can also build the project using Xcode on macOS instead.  To do this, you need to create an Xcode project first, then open the project in the Xcode IDE:
 
 	./xcodegen.sh
 	open MyPackage.xcodeproj
