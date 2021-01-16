@@ -75,8 +75,8 @@ class GtkTests: XCTestCase {
         let window2 = ScrolledWindow(vAdjustment: vadj)
         XCTAssertNotNil(window1.ptr)
         XCTAssertNotNil(window2.ptr)
-        XCTAssertEqual(window1.allocatedHeight, 1)
-        XCTAssertEqual(window2.allocatedHeight, 1)
+        XCTAssertEqual(window1.allocatedHeight, 0)
+        XCTAssertEqual(window2.allocatedHeight, 0)
     }
 
     /// text text buffers

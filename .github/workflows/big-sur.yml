@@ -1,0 +1,71 @@
+name: macOS 11
+
+# Dependencies of this package
+env:
+  MACOS_BREW: ${{ 'gtk+3 pango glib glib-networking gobject-introspection pkg-config jq' }}
+
+on:
+  push:
+    branches:
+      - development
+      - main
+  pull_request:
+    branches:
+      - development
+      - main
+
+jobs:
+  # macOS tasks
+  build-mac-big-sur-swift-latest:
+    runs-on: macos-11.0
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: '12.3'
+
+      - name: Print Swift version to confirm
+        run: swift --version
+
+      - name: Fetch dependencies for general repository
+        run: brew install $MACOS_BREW
+
+      - name: Checkout SwiftGtk
+        uses: actions/checkout@v2
+        with:
+          path: SwiftGtk
+
+      - name: Build Swift Wrappers
+        run: |
+          cd SwiftGtk
+          ./run-gir2swift.sh
+          echo "GIR2SWIFT_PATH=${PWD}/checkouts/gir2swift/.build/release/gir2swift" >> $GITHUB_ENV
+          cd ..
+
+      - name: Build SwiftGtk
+        run: |
+          cd SwiftGtk
+          swift build -Xswiftc -suppress-warnings `./run-gir2swift.sh flags -noUpdate`
+          cd ..
+
+      - name: Test SwiftGtk
+        run: |
+          cd SwiftGtk
+          swift test `./run-gir2swift.sh flags -noUpdate`
+          cd ..
+
+      - name: Remove unneeded files and archive artefacts
+        run: | 
+          cd SwiftGtk
+          swift package clean
+          rm -rf .build/repositories
+          cd ..
+
+      - name: 'Upload Artefact'
+        uses: actions/upload-artifact@v2
+        with:
+          name: build-artefact-big-sur
+          path: |
+            SwiftGtk/
+          retention-days: 1

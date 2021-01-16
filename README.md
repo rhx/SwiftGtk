@@ -1,15 +1,36 @@
 # SwiftGtk
+
 A Swift wrapper around gtk-3.x and gtk-4.x that is largely auto-generated from gobject-introspection.
 This project tries to make gtk more "swifty" than using the plain C language interface.
 For up to date (auto-generated) reference documentation, see https://rhx.github.io/SwiftGtk/
 
+![macOS 11 build](https://github.com/rhx/SwiftGtk/workflows/macOS%2011/badge.svg)
+![macOS 10.15 build](https://github.com/rhx/SwiftGtk/workflows/macOS%2010.15/badge.svg)
+![macOS gtk4 build](https://github.com/rhx/SwiftGtk/workflows/macOS%20gtk4/badge.svg)
+![Ubuntu 20.04 build](https://github.com/rhx/SwiftGtk/workflows/Ubuntu%2020.04/badge.svg)
+![Ubuntu 18.04 build](https://github.com/rhx/SwiftGtk/workflows/Ubuntu%2018.04/badge.svg)
+
 ## What is new?
 
-### Support for gtk 4.x
+Experimental support for gtk 4 was added via the `gtk4` branch.
 
-There now is a `gtk4` branch supporting the latest version of gtk.
+Version 12 of gir2swift pulls in [PR#10](https://github.com/rhx/gir2swift/pull/10), addressing several issues:
 
-### Other notable changes
+- Improvements to the Build experience and LSP [rhx/SwiftGtk#34](https://github.com/rhx/SwiftGtk/issues/34)
+- Fix issues with LLDB [rhx/SwiftGtk#39](https://github.com/rhx/SwiftGtk/issues/39)
+- **Controversial:** Implicitly marks all declarations named "priv" as if they had attribute `private=1`
+- Prevents all "Private" records from generating unless generated in their instance record
+  - `-a` option generates all records
+- Introduces CI
+- For Class metadata types no longer generates class wrappers. Ref structs now contain static method which returnes the GType of the class and instance of the Class metatype wrapped in the Ref struct.
+- Adds final class GWeak<T> where T could be any Ref struct of a type which supports ARC. This class is a property wrapper which contains weak reference to any instance of T. This is especially beneficial for capture lists.
+- Adds support for weak observation.
+- Constructors and factories of GObjectInitiallyUnowned classes now consume floating reference upon initialisation as advised by [the GObject documentation](https://developer.gnome.org/gobject/stable/gobject-The-Base-Object-Type.html)
+
+Partially implemented:
+- Typed signal generation. Issues shown in [rhx/SwiftGtk#35](https://github.com/rhx/SwiftGtk/issues/35) hat remain to be addressed are listed here: [mikolasstuchlik/gir2swift#2](https://github.com/mikolasstuchlik/gir2swift/pull/2).
+
+### Other Notable changes
 
 Version 11 introduces a new type system into `gir2swift`,
 to ensure it has a representation of the underlying types.
@@ -39,13 +60,14 @@ import PackageDescription
 
 let package = Package(name: "MyPackage",
     dependencies: [
-        .package(name: "Gtk", url: "https://github.com/rhx/SwiftGtk.git", .branch("main")),
+        .package(name: "gir2swift", url: "https://github.com/rhx/gir2swift.git", .branch("main")),
+        .package(name: "Gtk", url: "https://github.com/rhx/SwiftGtk.git", .branch("gtk4")),
     ],
     targets: [.target(name: "MyPackage", dependencies: ["Gtk"])]
 )
 ```
 
-At this stage, the Swift Package manager does not (yet) know how to run external programs such as `gir2swift`.  Therefore the easiest way to compile your project with SwiftGtk is to use build scripts that do this for you and pass the necessary flags to the Swift Package manager (see the following section).
+For gtk3 replace `.branch("gtk3")` with `.branch("gtk3")`.
 
 ### Examples
 
@@ -135,8 +157,15 @@ As pointed out in the 'Usage' section above, you don't normally build this packa
 
 	git clone https://github.com/rhx/SwiftGtk.git
 	cd SwiftGtk
-	./build.sh
-	./test.sh
+    ./run-gir2swift.sh
+    swift build
+    swift test
+
+Please note that on macOS, due to a bug currently in the Swift Package Manager,
+you need to pass in the build flags manually, i.e. instead of `swift build` and `swift test` you can run
+
+    swift build `./run-gir2swift.sh flags -noUpdate`
+    swift test  `./run-gir2swift.sh flags -noUpdate`
 
 ### Xcode
 
@@ -178,3 +207,11 @@ this probably means that your Swift toolchain is too old.  Make sure the latest 
 	sudo xcode-select -s /Applications/Xcode.app
 	xcode-select --install
 
+### Known Issues
+
+ * When building, a lot of warnings appear.  This is largely an issue with automatic `RawRepresentable` conformance in the Swift Standard library.  As a workaround, you can turn this off by passing the `-Xswiftc -suppress-warnings` parameter when building.
+ 
+ * The current build system does not support directory paths with spaces (e.g. the `My Drive` directory used by Google Drive File Stream).
+ * BUILD_DIR is not supported in the current build system.
+ 
+As a workaround, you can use the old build scripts, e.g. `./build.sh` (instead of `run-gir2swift.sh` and `swift build`) to build a package.

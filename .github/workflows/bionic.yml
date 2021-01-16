@@ -1,0 +1,68 @@
+name: Ubuntu 18.04
+
+# Dependencies of this package
+env:
+  UBUNTU_APT: ${{ 'libgtk-3-dev gir1.2-gtk-3.0 gir1.2-gtksource-3.0 libpango1.0-dev gir1.2-pango-1.0 libgdk-pixbuf2.0-dev gir1.2-gdkpixbuf-2.0 libglib2.0-dev glib-networking gobject-introspection libgirepository1.0-dev libxml2-dev jq' }}
+
+on:
+  push:
+    branches:
+      - development
+      - main
+  pull_request:
+    branches:
+      - development
+      - main
+
+jobs:
+  # Ubuntu 18.04 tasks
+  build-ubuntu-18_04-swift-latest:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Print Swift version to confirm
+        run: swift --version
+
+      - name: Update package repository
+        run: sudo apt-get update
+
+      - name: Fetch dependencies for general repository
+        run: sudo apt-get install $UBUNTU_APT
+
+      - name: Checkout SwiftGtk
+        uses: actions/checkout@v2
+        with:
+          path: SwiftGtk
+
+      - name: Build Swift Wrappers
+        run: |
+          cd SwiftGtk
+          ./run-gir2swift.sh
+          echo "GIR2SWIFT_PATH=${PWD}/checkouts/gir2swift/.build/release/gir2swift" >> $GITHUB_ENV
+          cd ..
+
+      - name: Build SwiftGtk
+        run: |
+          cd SwiftGtk
+          swift build -Xswiftc -suppress-warnings
+          cd ..
+
+#      - name: Test SwiftGtk
+#        run: |
+#          cd SwiftGtk
+#          swift test
+#          cd ..
+
+      - name: Remove unneeded files and archive artefacts
+        run: |
+          cd SwiftGtk
+          swift package clean
+          rm -rf .build/repositories
+          cd ..
+
+      - name: 'Upload Artefact'
+        uses: actions/upload-artifact@v2
+        with:
+          name: build-artefact-18.04-5.3
+          path: |
+            SwiftGtk/
+          retention-days: 1
