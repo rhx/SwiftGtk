@@ -3,7 +3,7 @@
 //  SwiftGtk
 //
 //  Created by Rene Hexel on 23/4/17.
-//  Copyright © 2017, 2018, 2019, 2020 Rene Hexel.  All rights reserved.
+//  Copyright © 2017, 2018, 2019, 2020, 2021 Rene Hexel.  All rights reserved.
 //
 import CGLib
 import GLib
@@ -21,46 +21,26 @@ import CGtk
 
 /// Application protocol convenience methods
 public extension ApplicationProtocol {
-    /// Connection helper function
-    @usableFromInline internal func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: ApplicationSignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
-        let opaqueHolder = Unmanaged.passRetained(data).toOpaque()
-        let callback = unsafeBitCast(handler, to: GCallback.self)
-        let rv = signalConnectData(detailedSignal: name, cHandler: callback, data: opaqueHolder, destroyData: {
-            if let swift = $0 {
-                let holder = Unmanaged<ApplicationSignalHandlerClosureHolder>.fromOpaque(swift)
-                holder.release()
-            }
-            let _ = $1
-        }, connectFlags: flags)
-        return rv
-    }
-
-    /// Connects a (Void) -> Void closure or function to a signal for
-    /// the receiver object.  Similar to g_signal_connect(), but allows
-    /// to provide a Swift closure that can capture its surrounding context.
-    @discardableResult
-    @inlinable func connectSignal(name: UnsafePointer<gchar>, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping ApplicationSignalHandler) -> Int {
-        let rv = _connect(signal: name, flags: f, data: ClosureHolder(handler)) {
-            let holder = Unmanaged<ApplicationSignalHandlerClosureHolder>.fromOpaque($1).takeUnretainedValue()
-            holder.call(App($0))
+    /// Hook in a Gtk application startup handler.
+    /// - Parameters:
+    ///   - flags: The connection flags to use
+    ///   - handler: The startup handler, taking in an application reference
+    /// - Returns: The handler ID of the startup handler
+    @inlinable @discardableResult func onStartup(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ApplicationSignalHandler) -> Int {
+        return onStartup(flags: flags) { (gioApp: GIO.ApplicationRef) in
+            handler(ApplicationRef(raw: gioApp.ptr))
         }
-        return rv
     }
 
-    /// Connects a (Void) -> Void closure or function to a signal for
-    /// the receiver object.  Similar to g_signal_connect(), but allows
-    /// to provide a Swift closure that can capture its surrounding context.
-    @discardableResult
-    @inlinable func connect<T>(signal s: T, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping ApplicationSignalHandler) -> Int where T: SignalNameProtocol {
-        return connectSignal(name: s.rawValue, flags: f, handler: handler)
-    }
-
-    /// Connects a (Void) -> Void closure or function to an application signal for
-    /// the receiver object.  Similar to g_signal_connect(), but allows
-    /// to provide a Swift closure that can capture its surrounding context.
-    @discardableResult
-    @inlinable func connect(signal: ApplicationSignalName, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping ApplicationSignalHandler) -> Int {
-        return connectSignal(name: signal.rawValue, flags: f, handler: handler)
+    /// Hook in a Gtk application activation handler.
+    /// - Parameters:
+    ///   - flags: The connection flags to use
+    ///   - handler: The activation handler, taking in an application reference
+    /// - Returns: The handler ID of the startup handler
+    @inlinable @discardableResult func onActivation(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ApplicationSignalHandler) -> Int {
+        return onActivate(flags: flags) {
+            handler(ApplicationRef(raw: $0.ptr))
+        }
     }
 }
 
@@ -145,10 +125,10 @@ public extension Application {
     ///    Since 2.40, applications that are not explicitly flagged as services or launchers (ie: neither G_APPLICATION_IS_SERVICE or G_APPLICATION_IS_LAUNCHER are given as flags) will check (from the default handler for local_command_line) if "--gapplication-service" was given in the command line. If this flag is present then normal commandline processing is interrupted and the G_APPLICATION_IS_SERVICE flag is set. This provides a "compromise" solution whereby running an application directly from the commandline will invoke it in the normal way (which can be useful for debugging) while still allowing applications to be D-Bus activated in service mode. The D-Bus service file should invoke the executable with "--gapplication-service" as the sole commandline argument. This approach is suitable for use by most graphical applications but should not be used from applications like editors that need precise control over when processes invoked via the commandline will exit and what their exit status will be.
     @inlinable func run(arguments: [String]? = nil, startupHandler: ApplicationSignalHandler?, activationHandler: ApplicationSignalHandler?) -> Int {
         if let s = startupHandler {
-            connect(signal:.startup, handler: s)
+            onStartup(handler: s)
         }
         if let a = activationHandler {
-            connect(signal:.activate, handler: a)
+            onActivation(handler: a)
         }
         return application_ptr.withMemoryRebound(to: GApplication.self, capacity: 1) {
             let rv: Int32
