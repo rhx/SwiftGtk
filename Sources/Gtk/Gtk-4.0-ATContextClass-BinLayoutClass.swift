@@ -13,6 +13,21 @@ import PangoCairo
 import GdkPixbuf
 import Gdk
 
+/// Metatype/GType declaration for ATContext
+public extension ATContextClassRef {
+    
+    /// This getter returns type identifier in the GLib type system registry
+    static var metatypeReference: GType { gtk_at_context_get_type() }
+    
+    private static var metatypePointer: UnsafeMutablePointer<GtkATContextClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkATContextClass.self) }
+    
+    static var metatype: GtkATContextClass? { metatypePointer?.pointee } 
+    
+    static var wrapper: ATContextClassRef? { ATContextClassRef(metatypePointer) }
+    
+    
+}
+
 // MARK: - ATContextClass Record
 
 /// The `ATContextClassProtocol` protocol exposes the methods and properties of an underlying `GtkATContextClass` instance.
@@ -113,160 +128,6 @@ public extension ATContextClassRef {
 
     }
 
-/// The `ATContextClass` type acts as an owner of an underlying `GtkATContextClass` instance.
-/// It provides the methods that can operate on this data type through `ATContextClassProtocol` conformance.
-/// Use `ATContextClass` as a strong reference or owner of a `GtkATContextClass` instance.
-///
-
-open class ATContextClass: ATContextClassProtocol {
-        /// Untyped pointer to the underlying `GtkATContextClass` instance.
-    /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer!
-
-    /// Designated initialiser from the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `ATContextClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(_ op: UnsafeMutablePointer<GtkATContextClass>) {
-        ptr = UnsafeMutableRawPointer(op)
-    }
-
-    /// Designated initialiser from a constant pointer to the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `ATContextClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(_ op: UnsafePointer<GtkATContextClass>) {
-        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
-    }
-
-    /// Optional initialiser from a non-mutating `gpointer` to
-    /// the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `ATContextClass` instance.
-    /// - Parameter op: gpointer to the underlying object
-    @inlinable public init!(gpointer op: gpointer?) {
-        guard let p = UnsafeMutableRawPointer(op) else { return nil }
-        ptr = p
-    }
-
-    /// Optional initialiser from a non-mutating `gconstpointer` to
-    /// the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `ATContextClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(gconstpointer op: gconstpointer?) {
-        guard let p = op else { return nil }
-        ptr = UnsafeMutableRawPointer(mutating: p)
-    }
-
-    /// Optional initialiser from a constant pointer to the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `ATContextClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(_ op: UnsafePointer<GtkATContextClass>?) {
-        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Optional initialiser from the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `ATContextClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(_ op: UnsafeMutablePointer<GtkATContextClass>?) {
-        guard let p = op else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Designated initialiser from the underlying `C` data type.
-    /// `GtkATContextClass` does not allow reference counting, so despite the name no actual retaining will occur.
-    /// i.e., ownership is transferred to the `ATContextClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(retaining op: UnsafeMutablePointer<GtkATContextClass>) {
-        ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GtkATContextClass, cannot ref(_ptr)
-    }
-
-    /// Reference intialiser for a related type that implements `ATContextClassProtocol`
-    /// `GtkATContextClass` does not allow reference counting.
-    /// - Parameter other: an instance of a related type that implements `ATContextClassProtocol`
-    @inlinable public init<T: ATContextClassProtocol>(_ other: T) {
-        ptr = other.ptr
-        // no reference counting for GtkATContextClass, cannot ref(_ptr)
-    }
-
-    /// Do-nothing destructor for `GtkATContextClass`.
-    deinit {
-        // no reference counting for GtkATContextClass, cannot unref(_ptr)
-    }
-
-    /// Unsafe typed initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ATContextClassProtocol`.**
-    /// - Parameter cPointer: pointer to the underlying object
-    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Unsafe typed, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ATContextClassProtocol`.**
-    /// - Parameter cPointer: pointer to the underlying object
-    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GtkATContextClass, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ATContextClassProtocol`.**
-    /// - Parameter p: raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: p)
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ATContextClassProtocol`.**
-    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GtkATContextClass, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ATContextClassProtocol`.**
-    /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
-        ptr = p
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ATContextClassProtocol`.**
-    /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
-        ptr = raw
-        // no reference counting for GtkATContextClass, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ATContextClassProtocol`.**
-    /// - Parameter p: opaque pointer to the underlying object
-    @inlinable public init(opaquePointer p: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ATContextClassProtocol`.**
-    /// - Parameter p: opaque pointer to the underlying object
-    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GtkATContextClass, cannot ref(_ptr)
-    }
-
-
-
-}
-
-// MARK: no ATContextClass properties
-
-// MARK: no ATContextClass signals
-
-
 // MARK: ATContextClass Record: ATContextClassProtocol extension (methods and fields)
 public extension ATContextClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkATContextClass` instance.
@@ -277,6 +138,21 @@ public extension ATContextClassProtocol {
 }
 
 
+
+/// Metatype/GType declaration for Accessible
+public extension AccessibleInterfaceRef {
+    
+    /// This getter returns type identifier in the GLib type system registry
+    static var metatypeReference: GType { gtk_accessible_get_type() }
+    
+    private static var metatypePointer: UnsafeMutablePointer<GtkAccessibleInterface>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkAccessibleInterface.self) }
+    
+    static var metatype: GtkAccessibleInterface? { metatypePointer?.pointee } 
+    
+    static var wrapper: AccessibleInterfaceRef? { AccessibleInterfaceRef(metatypePointer) }
+    
+    
+}
 
 // MARK: - AccessibleInterface Record
 
@@ -378,160 +254,6 @@ public extension AccessibleInterfaceRef {
 
     }
 
-/// The `AccessibleInterface` type acts as an owner of an underlying `GtkAccessibleInterface` instance.
-/// It provides the methods that can operate on this data type through `AccessibleInterfaceProtocol` conformance.
-/// Use `AccessibleInterface` as a strong reference or owner of a `GtkAccessibleInterface` instance.
-///
-
-open class AccessibleInterface: AccessibleInterfaceProtocol {
-        /// Untyped pointer to the underlying `GtkAccessibleInterface` instance.
-    /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer!
-
-    /// Designated initialiser from the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `AccessibleInterface` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(_ op: UnsafeMutablePointer<GtkAccessibleInterface>) {
-        ptr = UnsafeMutableRawPointer(op)
-    }
-
-    /// Designated initialiser from a constant pointer to the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `AccessibleInterface` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(_ op: UnsafePointer<GtkAccessibleInterface>) {
-        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
-    }
-
-    /// Optional initialiser from a non-mutating `gpointer` to
-    /// the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `AccessibleInterface` instance.
-    /// - Parameter op: gpointer to the underlying object
-    @inlinable public init!(gpointer op: gpointer?) {
-        guard let p = UnsafeMutableRawPointer(op) else { return nil }
-        ptr = p
-    }
-
-    /// Optional initialiser from a non-mutating `gconstpointer` to
-    /// the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `AccessibleInterface` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(gconstpointer op: gconstpointer?) {
-        guard let p = op else { return nil }
-        ptr = UnsafeMutableRawPointer(mutating: p)
-    }
-
-    /// Optional initialiser from a constant pointer to the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `AccessibleInterface` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(_ op: UnsafePointer<GtkAccessibleInterface>?) {
-        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Optional initialiser from the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `AccessibleInterface` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(_ op: UnsafeMutablePointer<GtkAccessibleInterface>?) {
-        guard let p = op else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Designated initialiser from the underlying `C` data type.
-    /// `GtkAccessibleInterface` does not allow reference counting, so despite the name no actual retaining will occur.
-    /// i.e., ownership is transferred to the `AccessibleInterface` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(retaining op: UnsafeMutablePointer<GtkAccessibleInterface>) {
-        ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GtkAccessibleInterface, cannot ref(_ptr)
-    }
-
-    /// Reference intialiser for a related type that implements `AccessibleInterfaceProtocol`
-    /// `GtkAccessibleInterface` does not allow reference counting.
-    /// - Parameter other: an instance of a related type that implements `AccessibleInterfaceProtocol`
-    @inlinable public init<T: AccessibleInterfaceProtocol>(_ other: T) {
-        ptr = other.ptr
-        // no reference counting for GtkAccessibleInterface, cannot ref(_ptr)
-    }
-
-    /// Do-nothing destructor for `GtkAccessibleInterface`.
-    deinit {
-        // no reference counting for GtkAccessibleInterface, cannot unref(_ptr)
-    }
-
-    /// Unsafe typed initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `AccessibleInterfaceProtocol`.**
-    /// - Parameter cPointer: pointer to the underlying object
-    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Unsafe typed, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `AccessibleInterfaceProtocol`.**
-    /// - Parameter cPointer: pointer to the underlying object
-    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GtkAccessibleInterface, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `AccessibleInterfaceProtocol`.**
-    /// - Parameter p: raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: p)
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `AccessibleInterfaceProtocol`.**
-    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GtkAccessibleInterface, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `AccessibleInterfaceProtocol`.**
-    /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
-        ptr = p
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `AccessibleInterfaceProtocol`.**
-    /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
-        ptr = raw
-        // no reference counting for GtkAccessibleInterface, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `AccessibleInterfaceProtocol`.**
-    /// - Parameter p: opaque pointer to the underlying object
-    @inlinable public init(opaquePointer p: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `AccessibleInterfaceProtocol`.**
-    /// - Parameter p: opaque pointer to the underlying object
-    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GtkAccessibleInterface, cannot ref(_ptr)
-    }
-
-
-
-}
-
-// MARK: no AccessibleInterface properties
-
-// MARK: no AccessibleInterface signals
-
-
 // MARK: AccessibleInterface Record: AccessibleInterfaceProtocol extension (methods and fields)
 public extension AccessibleInterfaceProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkAccessibleInterface` instance.
@@ -542,6 +264,21 @@ public extension AccessibleInterfaceProtocol {
 }
 
 
+
+/// Metatype/GType declaration for Actionable
+public extension ActionableInterfaceRef {
+    
+    /// This getter returns type identifier in the GLib type system registry
+    static var metatypeReference: GType { gtk_actionable_get_type() }
+    
+    private static var metatypePointer: UnsafeMutablePointer<GtkActionableInterface>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkActionableInterface.self) }
+    
+    static var metatype: GtkActionableInterface? { metatypePointer?.pointee } 
+    
+    static var wrapper: ActionableInterfaceRef? { ActionableInterfaceRef(metatypePointer) }
+    
+    
+}
 
 // MARK: - ActionableInterface Record
 
@@ -643,160 +380,6 @@ public extension ActionableInterfaceRef {
 
     }
 
-/// The `ActionableInterface` type acts as an owner of an underlying `GtkActionableInterface` instance.
-/// It provides the methods that can operate on this data type through `ActionableInterfaceProtocol` conformance.
-/// Use `ActionableInterface` as a strong reference or owner of a `GtkActionableInterface` instance.
-///
-/// The interface vtable for `GtkActionable`.
-open class ActionableInterface: ActionableInterfaceProtocol {
-        /// Untyped pointer to the underlying `GtkActionableInterface` instance.
-    /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer!
-
-    /// Designated initialiser from the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `ActionableInterface` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(_ op: UnsafeMutablePointer<GtkActionableInterface>) {
-        ptr = UnsafeMutableRawPointer(op)
-    }
-
-    /// Designated initialiser from a constant pointer to the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `ActionableInterface` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(_ op: UnsafePointer<GtkActionableInterface>) {
-        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
-    }
-
-    /// Optional initialiser from a non-mutating `gpointer` to
-    /// the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `ActionableInterface` instance.
-    /// - Parameter op: gpointer to the underlying object
-    @inlinable public init!(gpointer op: gpointer?) {
-        guard let p = UnsafeMutableRawPointer(op) else { return nil }
-        ptr = p
-    }
-
-    /// Optional initialiser from a non-mutating `gconstpointer` to
-    /// the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `ActionableInterface` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(gconstpointer op: gconstpointer?) {
-        guard let p = op else { return nil }
-        ptr = UnsafeMutableRawPointer(mutating: p)
-    }
-
-    /// Optional initialiser from a constant pointer to the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `ActionableInterface` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(_ op: UnsafePointer<GtkActionableInterface>?) {
-        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Optional initialiser from the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `ActionableInterface` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(_ op: UnsafeMutablePointer<GtkActionableInterface>?) {
-        guard let p = op else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Designated initialiser from the underlying `C` data type.
-    /// `GtkActionableInterface` does not allow reference counting, so despite the name no actual retaining will occur.
-    /// i.e., ownership is transferred to the `ActionableInterface` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(retaining op: UnsafeMutablePointer<GtkActionableInterface>) {
-        ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GtkActionableInterface, cannot ref(_ptr)
-    }
-
-    /// Reference intialiser for a related type that implements `ActionableInterfaceProtocol`
-    /// `GtkActionableInterface` does not allow reference counting.
-    /// - Parameter other: an instance of a related type that implements `ActionableInterfaceProtocol`
-    @inlinable public init<T: ActionableInterfaceProtocol>(_ other: T) {
-        ptr = other.ptr
-        // no reference counting for GtkActionableInterface, cannot ref(_ptr)
-    }
-
-    /// Do-nothing destructor for `GtkActionableInterface`.
-    deinit {
-        // no reference counting for GtkActionableInterface, cannot unref(_ptr)
-    }
-
-    /// Unsafe typed initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActionableInterfaceProtocol`.**
-    /// - Parameter cPointer: pointer to the underlying object
-    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Unsafe typed, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActionableInterfaceProtocol`.**
-    /// - Parameter cPointer: pointer to the underlying object
-    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GtkActionableInterface, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActionableInterfaceProtocol`.**
-    /// - Parameter p: raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: p)
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActionableInterfaceProtocol`.**
-    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GtkActionableInterface, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActionableInterfaceProtocol`.**
-    /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
-        ptr = p
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActionableInterfaceProtocol`.**
-    /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
-        ptr = raw
-        // no reference counting for GtkActionableInterface, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActionableInterfaceProtocol`.**
-    /// - Parameter p: opaque pointer to the underlying object
-    @inlinable public init(opaquePointer p: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActionableInterfaceProtocol`.**
-    /// - Parameter p: opaque pointer to the underlying object
-    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GtkActionableInterface, cannot ref(_ptr)
-    }
-
-
-
-}
-
-// MARK: no ActionableInterface properties
-
-// MARK: no ActionableInterface signals
-
-
 // MARK: ActionableInterface Record: ActionableInterfaceProtocol extension (methods and fields)
 public extension ActionableInterfaceProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkActionableInterface` instance.
@@ -816,6 +399,21 @@ public extension ActionableInterfaceProtocol {
 }
 
 
+
+/// Metatype/GType declaration for ActivateAction
+public extension ActivateActionClassRef {
+    
+    /// This getter returns type identifier in the GLib type system registry
+    static var metatypeReference: GType { gtk_activate_action_get_type() }
+    
+    private static var metatypePointer: UnsafeMutablePointer<GtkActivateActionClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkActivateActionClass.self) }
+    
+    static var metatype: GtkActivateActionClass? { metatypePointer?.pointee } 
+    
+    static var wrapper: ActivateActionClassRef? { ActivateActionClassRef(metatypePointer) }
+    
+    
+}
 
 // MARK: - ActivateActionClass Record
 
@@ -917,160 +515,6 @@ public extension ActivateActionClassRef {
 
     }
 
-/// The `ActivateActionClass` type acts as an owner of an underlying `GtkActivateActionClass` instance.
-/// It provides the methods that can operate on this data type through `ActivateActionClassProtocol` conformance.
-/// Use `ActivateActionClass` as a strong reference or owner of a `GtkActivateActionClass` instance.
-///
-
-open class ActivateActionClass: ActivateActionClassProtocol {
-        /// Untyped pointer to the underlying `GtkActivateActionClass` instance.
-    /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer!
-
-    /// Designated initialiser from the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `ActivateActionClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(_ op: UnsafeMutablePointer<GtkActivateActionClass>) {
-        ptr = UnsafeMutableRawPointer(op)
-    }
-
-    /// Designated initialiser from a constant pointer to the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `ActivateActionClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(_ op: UnsafePointer<GtkActivateActionClass>) {
-        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
-    }
-
-    /// Optional initialiser from a non-mutating `gpointer` to
-    /// the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `ActivateActionClass` instance.
-    /// - Parameter op: gpointer to the underlying object
-    @inlinable public init!(gpointer op: gpointer?) {
-        guard let p = UnsafeMutableRawPointer(op) else { return nil }
-        ptr = p
-    }
-
-    /// Optional initialiser from a non-mutating `gconstpointer` to
-    /// the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `ActivateActionClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(gconstpointer op: gconstpointer?) {
-        guard let p = op else { return nil }
-        ptr = UnsafeMutableRawPointer(mutating: p)
-    }
-
-    /// Optional initialiser from a constant pointer to the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `ActivateActionClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(_ op: UnsafePointer<GtkActivateActionClass>?) {
-        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Optional initialiser from the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `ActivateActionClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(_ op: UnsafeMutablePointer<GtkActivateActionClass>?) {
-        guard let p = op else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Designated initialiser from the underlying `C` data type.
-    /// `GtkActivateActionClass` does not allow reference counting, so despite the name no actual retaining will occur.
-    /// i.e., ownership is transferred to the `ActivateActionClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(retaining op: UnsafeMutablePointer<GtkActivateActionClass>) {
-        ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GtkActivateActionClass, cannot ref(_ptr)
-    }
-
-    /// Reference intialiser for a related type that implements `ActivateActionClassProtocol`
-    /// `GtkActivateActionClass` does not allow reference counting.
-    /// - Parameter other: an instance of a related type that implements `ActivateActionClassProtocol`
-    @inlinable public init<T: ActivateActionClassProtocol>(_ other: T) {
-        ptr = other.ptr
-        // no reference counting for GtkActivateActionClass, cannot ref(_ptr)
-    }
-
-    /// Do-nothing destructor for `GtkActivateActionClass`.
-    deinit {
-        // no reference counting for GtkActivateActionClass, cannot unref(_ptr)
-    }
-
-    /// Unsafe typed initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActivateActionClassProtocol`.**
-    /// - Parameter cPointer: pointer to the underlying object
-    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Unsafe typed, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActivateActionClassProtocol`.**
-    /// - Parameter cPointer: pointer to the underlying object
-    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GtkActivateActionClass, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActivateActionClassProtocol`.**
-    /// - Parameter p: raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: p)
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActivateActionClassProtocol`.**
-    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GtkActivateActionClass, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActivateActionClassProtocol`.**
-    /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
-        ptr = p
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActivateActionClassProtocol`.**
-    /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
-        ptr = raw
-        // no reference counting for GtkActivateActionClass, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActivateActionClassProtocol`.**
-    /// - Parameter p: opaque pointer to the underlying object
-    @inlinable public init(opaquePointer p: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActivateActionClassProtocol`.**
-    /// - Parameter p: opaque pointer to the underlying object
-    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GtkActivateActionClass, cannot ref(_ptr)
-    }
-
-
-
-}
-
-// MARK: no ActivateActionClass properties
-
-// MARK: no ActivateActionClass signals
-
-
 // MARK: ActivateActionClass Record: ActivateActionClassProtocol extension (methods and fields)
 public extension ActivateActionClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkActivateActionClass` instance.
@@ -1081,6 +525,21 @@ public extension ActivateActionClassProtocol {
 }
 
 
+
+/// Metatype/GType declaration for Adjustment
+public extension AdjustmentClassRef {
+    
+    /// This getter returns type identifier in the GLib type system registry
+    static var metatypeReference: GType { gtk_adjustment_get_type() }
+    
+    private static var metatypePointer: UnsafeMutablePointer<GtkAdjustmentClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkAdjustmentClass.self) }
+    
+    static var metatype: GtkAdjustmentClass? { metatypePointer?.pointee } 
+    
+    static var wrapper: AdjustmentClassRef? { AdjustmentClassRef(metatypePointer) }
+    
+    
+}
 
 // MARK: - AdjustmentClass Record
 
@@ -1182,160 +641,6 @@ public extension AdjustmentClassRef {
 
     }
 
-/// The `AdjustmentClass` type acts as an owner of an underlying `GtkAdjustmentClass` instance.
-/// It provides the methods that can operate on this data type through `AdjustmentClassProtocol` conformance.
-/// Use `AdjustmentClass` as a strong reference or owner of a `GtkAdjustmentClass` instance.
-///
-
-open class AdjustmentClass: AdjustmentClassProtocol {
-        /// Untyped pointer to the underlying `GtkAdjustmentClass` instance.
-    /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer!
-
-    /// Designated initialiser from the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `AdjustmentClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(_ op: UnsafeMutablePointer<GtkAdjustmentClass>) {
-        ptr = UnsafeMutableRawPointer(op)
-    }
-
-    /// Designated initialiser from a constant pointer to the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `AdjustmentClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(_ op: UnsafePointer<GtkAdjustmentClass>) {
-        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
-    }
-
-    /// Optional initialiser from a non-mutating `gpointer` to
-    /// the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `AdjustmentClass` instance.
-    /// - Parameter op: gpointer to the underlying object
-    @inlinable public init!(gpointer op: gpointer?) {
-        guard let p = UnsafeMutableRawPointer(op) else { return nil }
-        ptr = p
-    }
-
-    /// Optional initialiser from a non-mutating `gconstpointer` to
-    /// the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `AdjustmentClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(gconstpointer op: gconstpointer?) {
-        guard let p = op else { return nil }
-        ptr = UnsafeMutableRawPointer(mutating: p)
-    }
-
-    /// Optional initialiser from a constant pointer to the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `AdjustmentClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(_ op: UnsafePointer<GtkAdjustmentClass>?) {
-        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Optional initialiser from the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `AdjustmentClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(_ op: UnsafeMutablePointer<GtkAdjustmentClass>?) {
-        guard let p = op else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Designated initialiser from the underlying `C` data type.
-    /// `GtkAdjustmentClass` does not allow reference counting, so despite the name no actual retaining will occur.
-    /// i.e., ownership is transferred to the `AdjustmentClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(retaining op: UnsafeMutablePointer<GtkAdjustmentClass>) {
-        ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GtkAdjustmentClass, cannot ref(_ptr)
-    }
-
-    /// Reference intialiser for a related type that implements `AdjustmentClassProtocol`
-    /// `GtkAdjustmentClass` does not allow reference counting.
-    /// - Parameter other: an instance of a related type that implements `AdjustmentClassProtocol`
-    @inlinable public init<T: AdjustmentClassProtocol>(_ other: T) {
-        ptr = other.ptr
-        // no reference counting for GtkAdjustmentClass, cannot ref(_ptr)
-    }
-
-    /// Do-nothing destructor for `GtkAdjustmentClass`.
-    deinit {
-        // no reference counting for GtkAdjustmentClass, cannot unref(_ptr)
-    }
-
-    /// Unsafe typed initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `AdjustmentClassProtocol`.**
-    /// - Parameter cPointer: pointer to the underlying object
-    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Unsafe typed, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `AdjustmentClassProtocol`.**
-    /// - Parameter cPointer: pointer to the underlying object
-    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GtkAdjustmentClass, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `AdjustmentClassProtocol`.**
-    /// - Parameter p: raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: p)
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `AdjustmentClassProtocol`.**
-    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GtkAdjustmentClass, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `AdjustmentClassProtocol`.**
-    /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
-        ptr = p
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `AdjustmentClassProtocol`.**
-    /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
-        ptr = raw
-        // no reference counting for GtkAdjustmentClass, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `AdjustmentClassProtocol`.**
-    /// - Parameter p: opaque pointer to the underlying object
-    @inlinable public init(opaquePointer p: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `AdjustmentClassProtocol`.**
-    /// - Parameter p: opaque pointer to the underlying object
-    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GtkAdjustmentClass, cannot ref(_ptr)
-    }
-
-
-
-}
-
-// MARK: no AdjustmentClass properties
-
-// MARK: no AdjustmentClass signals
-
-
 // MARK: AdjustmentClass Record: AdjustmentClassProtocol extension (methods and fields)
 public extension AdjustmentClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkAdjustmentClass` instance.
@@ -1364,6 +669,21 @@ public extension AdjustmentClassProtocol {
 }
 
 
+
+/// Metatype/GType declaration for AlternativeTrigger
+public extension AlternativeTriggerClassRef {
+    
+    /// This getter returns type identifier in the GLib type system registry
+    static var metatypeReference: GType { gtk_alternative_trigger_get_type() }
+    
+    private static var metatypePointer: UnsafeMutablePointer<GtkAlternativeTriggerClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkAlternativeTriggerClass.self) }
+    
+    static var metatype: GtkAlternativeTriggerClass? { metatypePointer?.pointee } 
+    
+    static var wrapper: AlternativeTriggerClassRef? { AlternativeTriggerClassRef(metatypePointer) }
+    
+    
+}
 
 // MARK: - AlternativeTriggerClass Record
 
@@ -1465,160 +785,6 @@ public extension AlternativeTriggerClassRef {
 
     }
 
-/// The `AlternativeTriggerClass` type acts as an owner of an underlying `GtkAlternativeTriggerClass` instance.
-/// It provides the methods that can operate on this data type through `AlternativeTriggerClassProtocol` conformance.
-/// Use `AlternativeTriggerClass` as a strong reference or owner of a `GtkAlternativeTriggerClass` instance.
-///
-
-open class AlternativeTriggerClass: AlternativeTriggerClassProtocol {
-        /// Untyped pointer to the underlying `GtkAlternativeTriggerClass` instance.
-    /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer!
-
-    /// Designated initialiser from the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `AlternativeTriggerClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(_ op: UnsafeMutablePointer<GtkAlternativeTriggerClass>) {
-        ptr = UnsafeMutableRawPointer(op)
-    }
-
-    /// Designated initialiser from a constant pointer to the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `AlternativeTriggerClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(_ op: UnsafePointer<GtkAlternativeTriggerClass>) {
-        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
-    }
-
-    /// Optional initialiser from a non-mutating `gpointer` to
-    /// the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `AlternativeTriggerClass` instance.
-    /// - Parameter op: gpointer to the underlying object
-    @inlinable public init!(gpointer op: gpointer?) {
-        guard let p = UnsafeMutableRawPointer(op) else { return nil }
-        ptr = p
-    }
-
-    /// Optional initialiser from a non-mutating `gconstpointer` to
-    /// the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `AlternativeTriggerClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(gconstpointer op: gconstpointer?) {
-        guard let p = op else { return nil }
-        ptr = UnsafeMutableRawPointer(mutating: p)
-    }
-
-    /// Optional initialiser from a constant pointer to the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `AlternativeTriggerClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(_ op: UnsafePointer<GtkAlternativeTriggerClass>?) {
-        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Optional initialiser from the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `AlternativeTriggerClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(_ op: UnsafeMutablePointer<GtkAlternativeTriggerClass>?) {
-        guard let p = op else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Designated initialiser from the underlying `C` data type.
-    /// `GtkAlternativeTriggerClass` does not allow reference counting, so despite the name no actual retaining will occur.
-    /// i.e., ownership is transferred to the `AlternativeTriggerClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(retaining op: UnsafeMutablePointer<GtkAlternativeTriggerClass>) {
-        ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GtkAlternativeTriggerClass, cannot ref(_ptr)
-    }
-
-    /// Reference intialiser for a related type that implements `AlternativeTriggerClassProtocol`
-    /// `GtkAlternativeTriggerClass` does not allow reference counting.
-    /// - Parameter other: an instance of a related type that implements `AlternativeTriggerClassProtocol`
-    @inlinable public init<T: AlternativeTriggerClassProtocol>(_ other: T) {
-        ptr = other.ptr
-        // no reference counting for GtkAlternativeTriggerClass, cannot ref(_ptr)
-    }
-
-    /// Do-nothing destructor for `GtkAlternativeTriggerClass`.
-    deinit {
-        // no reference counting for GtkAlternativeTriggerClass, cannot unref(_ptr)
-    }
-
-    /// Unsafe typed initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `AlternativeTriggerClassProtocol`.**
-    /// - Parameter cPointer: pointer to the underlying object
-    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Unsafe typed, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `AlternativeTriggerClassProtocol`.**
-    /// - Parameter cPointer: pointer to the underlying object
-    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GtkAlternativeTriggerClass, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `AlternativeTriggerClassProtocol`.**
-    /// - Parameter p: raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: p)
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `AlternativeTriggerClassProtocol`.**
-    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GtkAlternativeTriggerClass, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `AlternativeTriggerClassProtocol`.**
-    /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
-        ptr = p
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `AlternativeTriggerClassProtocol`.**
-    /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
-        ptr = raw
-        // no reference counting for GtkAlternativeTriggerClass, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `AlternativeTriggerClassProtocol`.**
-    /// - Parameter p: opaque pointer to the underlying object
-    @inlinable public init(opaquePointer p: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `AlternativeTriggerClassProtocol`.**
-    /// - Parameter p: opaque pointer to the underlying object
-    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GtkAlternativeTriggerClass, cannot ref(_ptr)
-    }
-
-
-
-}
-
-// MARK: no AlternativeTriggerClass properties
-
-// MARK: no AlternativeTriggerClass signals
-
-
 // MARK: AlternativeTriggerClass Record: AlternativeTriggerClassProtocol extension (methods and fields)
 public extension AlternativeTriggerClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkAlternativeTriggerClass` instance.
@@ -1629,6 +795,21 @@ public extension AlternativeTriggerClassProtocol {
 }
 
 
+
+/// Metatype/GType declaration for AnyFilter
+public extension AnyFilterClassRef {
+    
+    /// This getter returns type identifier in the GLib type system registry
+    static var metatypeReference: GType { gtk_any_filter_get_type() }
+    
+    private static var metatypePointer: UnsafeMutablePointer<GtkAnyFilterClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkAnyFilterClass.self) }
+    
+    static var metatype: GtkAnyFilterClass? { metatypePointer?.pointee } 
+    
+    static var wrapper: AnyFilterClassRef? { AnyFilterClassRef(metatypePointer) }
+    
+    
+}
 
 // MARK: - AnyFilterClass Record
 
@@ -1730,160 +911,6 @@ public extension AnyFilterClassRef {
 
     }
 
-/// The `AnyFilterClass` type acts as an owner of an underlying `GtkAnyFilterClass` instance.
-/// It provides the methods that can operate on this data type through `AnyFilterClassProtocol` conformance.
-/// Use `AnyFilterClass` as a strong reference or owner of a `GtkAnyFilterClass` instance.
-///
-
-open class AnyFilterClass: AnyFilterClassProtocol {
-        /// Untyped pointer to the underlying `GtkAnyFilterClass` instance.
-    /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer!
-
-    /// Designated initialiser from the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `AnyFilterClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(_ op: UnsafeMutablePointer<GtkAnyFilterClass>) {
-        ptr = UnsafeMutableRawPointer(op)
-    }
-
-    /// Designated initialiser from a constant pointer to the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `AnyFilterClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(_ op: UnsafePointer<GtkAnyFilterClass>) {
-        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
-    }
-
-    /// Optional initialiser from a non-mutating `gpointer` to
-    /// the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `AnyFilterClass` instance.
-    /// - Parameter op: gpointer to the underlying object
-    @inlinable public init!(gpointer op: gpointer?) {
-        guard let p = UnsafeMutableRawPointer(op) else { return nil }
-        ptr = p
-    }
-
-    /// Optional initialiser from a non-mutating `gconstpointer` to
-    /// the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `AnyFilterClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(gconstpointer op: gconstpointer?) {
-        guard let p = op else { return nil }
-        ptr = UnsafeMutableRawPointer(mutating: p)
-    }
-
-    /// Optional initialiser from a constant pointer to the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `AnyFilterClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(_ op: UnsafePointer<GtkAnyFilterClass>?) {
-        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Optional initialiser from the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `AnyFilterClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(_ op: UnsafeMutablePointer<GtkAnyFilterClass>?) {
-        guard let p = op else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Designated initialiser from the underlying `C` data type.
-    /// `GtkAnyFilterClass` does not allow reference counting, so despite the name no actual retaining will occur.
-    /// i.e., ownership is transferred to the `AnyFilterClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(retaining op: UnsafeMutablePointer<GtkAnyFilterClass>) {
-        ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GtkAnyFilterClass, cannot ref(_ptr)
-    }
-
-    /// Reference intialiser for a related type that implements `AnyFilterClassProtocol`
-    /// `GtkAnyFilterClass` does not allow reference counting.
-    /// - Parameter other: an instance of a related type that implements `AnyFilterClassProtocol`
-    @inlinable public init<T: AnyFilterClassProtocol>(_ other: T) {
-        ptr = other.ptr
-        // no reference counting for GtkAnyFilterClass, cannot ref(_ptr)
-    }
-
-    /// Do-nothing destructor for `GtkAnyFilterClass`.
-    deinit {
-        // no reference counting for GtkAnyFilterClass, cannot unref(_ptr)
-    }
-
-    /// Unsafe typed initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `AnyFilterClassProtocol`.**
-    /// - Parameter cPointer: pointer to the underlying object
-    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Unsafe typed, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `AnyFilterClassProtocol`.**
-    /// - Parameter cPointer: pointer to the underlying object
-    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GtkAnyFilterClass, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `AnyFilterClassProtocol`.**
-    /// - Parameter p: raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: p)
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `AnyFilterClassProtocol`.**
-    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GtkAnyFilterClass, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `AnyFilterClassProtocol`.**
-    /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
-        ptr = p
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `AnyFilterClassProtocol`.**
-    /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
-        ptr = raw
-        // no reference counting for GtkAnyFilterClass, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `AnyFilterClassProtocol`.**
-    /// - Parameter p: opaque pointer to the underlying object
-    @inlinable public init(opaquePointer p: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `AnyFilterClassProtocol`.**
-    /// - Parameter p: opaque pointer to the underlying object
-    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GtkAnyFilterClass, cannot ref(_ptr)
-    }
-
-
-
-}
-
-// MARK: no AnyFilterClass properties
-
-// MARK: no AnyFilterClass signals
-
-
 // MARK: AnyFilterClass Record: AnyFilterClassProtocol extension (methods and fields)
 public extension AnyFilterClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkAnyFilterClass` instance.
@@ -1894,6 +921,21 @@ public extension AnyFilterClassProtocol {
 }
 
 
+
+/// Metatype/GType declaration for Application
+public extension ApplicationClassRef {
+    
+    /// This getter returns type identifier in the GLib type system registry
+    static var metatypeReference: GType { gtk_application_get_type() }
+    
+    private static var metatypePointer: UnsafeMutablePointer<GtkApplicationClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkApplicationClass.self) }
+    
+    static var metatype: GtkApplicationClass? { metatypePointer?.pointee } 
+    
+    static var wrapper: ApplicationClassRef? { ApplicationClassRef(metatypePointer) }
+    
+    
+}
 
 // MARK: - ApplicationClass Record
 
@@ -1995,160 +1037,6 @@ public extension ApplicationClassRef {
 
     }
 
-/// The `ApplicationClass` type acts as an owner of an underlying `GtkApplicationClass` instance.
-/// It provides the methods that can operate on this data type through `ApplicationClassProtocol` conformance.
-/// Use `ApplicationClass` as a strong reference or owner of a `GtkApplicationClass` instance.
-///
-
-open class ApplicationClass: ApplicationClassProtocol {
-        /// Untyped pointer to the underlying `GtkApplicationClass` instance.
-    /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer!
-
-    /// Designated initialiser from the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `ApplicationClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(_ op: UnsafeMutablePointer<GtkApplicationClass>) {
-        ptr = UnsafeMutableRawPointer(op)
-    }
-
-    /// Designated initialiser from a constant pointer to the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `ApplicationClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(_ op: UnsafePointer<GtkApplicationClass>) {
-        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
-    }
-
-    /// Optional initialiser from a non-mutating `gpointer` to
-    /// the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `ApplicationClass` instance.
-    /// - Parameter op: gpointer to the underlying object
-    @inlinable public init!(gpointer op: gpointer?) {
-        guard let p = UnsafeMutableRawPointer(op) else { return nil }
-        ptr = p
-    }
-
-    /// Optional initialiser from a non-mutating `gconstpointer` to
-    /// the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `ApplicationClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(gconstpointer op: gconstpointer?) {
-        guard let p = op else { return nil }
-        ptr = UnsafeMutableRawPointer(mutating: p)
-    }
-
-    /// Optional initialiser from a constant pointer to the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `ApplicationClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(_ op: UnsafePointer<GtkApplicationClass>?) {
-        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Optional initialiser from the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `ApplicationClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(_ op: UnsafeMutablePointer<GtkApplicationClass>?) {
-        guard let p = op else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Designated initialiser from the underlying `C` data type.
-    /// `GtkApplicationClass` does not allow reference counting, so despite the name no actual retaining will occur.
-    /// i.e., ownership is transferred to the `ApplicationClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(retaining op: UnsafeMutablePointer<GtkApplicationClass>) {
-        ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GtkApplicationClass, cannot ref(_ptr)
-    }
-
-    /// Reference intialiser for a related type that implements `ApplicationClassProtocol`
-    /// `GtkApplicationClass` does not allow reference counting.
-    /// - Parameter other: an instance of a related type that implements `ApplicationClassProtocol`
-    @inlinable public init<T: ApplicationClassProtocol>(_ other: T) {
-        ptr = other.ptr
-        // no reference counting for GtkApplicationClass, cannot ref(_ptr)
-    }
-
-    /// Do-nothing destructor for `GtkApplicationClass`.
-    deinit {
-        // no reference counting for GtkApplicationClass, cannot unref(_ptr)
-    }
-
-    /// Unsafe typed initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ApplicationClassProtocol`.**
-    /// - Parameter cPointer: pointer to the underlying object
-    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Unsafe typed, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ApplicationClassProtocol`.**
-    /// - Parameter cPointer: pointer to the underlying object
-    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GtkApplicationClass, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ApplicationClassProtocol`.**
-    /// - Parameter p: raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: p)
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ApplicationClassProtocol`.**
-    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GtkApplicationClass, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ApplicationClassProtocol`.**
-    /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
-        ptr = p
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ApplicationClassProtocol`.**
-    /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
-        ptr = raw
-        // no reference counting for GtkApplicationClass, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ApplicationClassProtocol`.**
-    /// - Parameter p: opaque pointer to the underlying object
-    @inlinable public init(opaquePointer p: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ApplicationClassProtocol`.**
-    /// - Parameter p: opaque pointer to the underlying object
-    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GtkApplicationClass, cannot ref(_ptr)
-    }
-
-
-
-}
-
-// MARK: no ApplicationClass properties
-
-// MARK: no ApplicationClass signals
-
-
 // MARK: ApplicationClass Record: ApplicationClassProtocol extension (methods and fields)
 public extension ApplicationClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkApplicationClass` instance.
@@ -2173,6 +1061,21 @@ public extension ApplicationClassProtocol {
 }
 
 
+
+/// Metatype/GType declaration for ApplicationWindow
+public extension ApplicationWindowClassRef {
+    
+    /// This getter returns type identifier in the GLib type system registry
+    static var metatypeReference: GType { gtk_application_window_get_type() }
+    
+    private static var metatypePointer: UnsafeMutablePointer<GtkApplicationWindowClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkApplicationWindowClass.self) }
+    
+    static var metatype: GtkApplicationWindowClass? { metatypePointer?.pointee } 
+    
+    static var wrapper: ApplicationWindowClassRef? { ApplicationWindowClassRef(metatypePointer) }
+    
+    
+}
 
 // MARK: - ApplicationWindowClass Record
 
@@ -2274,160 +1177,6 @@ public extension ApplicationWindowClassRef {
 
     }
 
-/// The `ApplicationWindowClass` type acts as an owner of an underlying `GtkApplicationWindowClass` instance.
-/// It provides the methods that can operate on this data type through `ApplicationWindowClassProtocol` conformance.
-/// Use `ApplicationWindowClass` as a strong reference or owner of a `GtkApplicationWindowClass` instance.
-///
-
-open class ApplicationWindowClass: ApplicationWindowClassProtocol {
-        /// Untyped pointer to the underlying `GtkApplicationWindowClass` instance.
-    /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer!
-
-    /// Designated initialiser from the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `ApplicationWindowClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(_ op: UnsafeMutablePointer<GtkApplicationWindowClass>) {
-        ptr = UnsafeMutableRawPointer(op)
-    }
-
-    /// Designated initialiser from a constant pointer to the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `ApplicationWindowClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(_ op: UnsafePointer<GtkApplicationWindowClass>) {
-        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
-    }
-
-    /// Optional initialiser from a non-mutating `gpointer` to
-    /// the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `ApplicationWindowClass` instance.
-    /// - Parameter op: gpointer to the underlying object
-    @inlinable public init!(gpointer op: gpointer?) {
-        guard let p = UnsafeMutableRawPointer(op) else { return nil }
-        ptr = p
-    }
-
-    /// Optional initialiser from a non-mutating `gconstpointer` to
-    /// the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `ApplicationWindowClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(gconstpointer op: gconstpointer?) {
-        guard let p = op else { return nil }
-        ptr = UnsafeMutableRawPointer(mutating: p)
-    }
-
-    /// Optional initialiser from a constant pointer to the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `ApplicationWindowClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(_ op: UnsafePointer<GtkApplicationWindowClass>?) {
-        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Optional initialiser from the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `ApplicationWindowClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(_ op: UnsafeMutablePointer<GtkApplicationWindowClass>?) {
-        guard let p = op else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Designated initialiser from the underlying `C` data type.
-    /// `GtkApplicationWindowClass` does not allow reference counting, so despite the name no actual retaining will occur.
-    /// i.e., ownership is transferred to the `ApplicationWindowClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(retaining op: UnsafeMutablePointer<GtkApplicationWindowClass>) {
-        ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GtkApplicationWindowClass, cannot ref(_ptr)
-    }
-
-    /// Reference intialiser for a related type that implements `ApplicationWindowClassProtocol`
-    /// `GtkApplicationWindowClass` does not allow reference counting.
-    /// - Parameter other: an instance of a related type that implements `ApplicationWindowClassProtocol`
-    @inlinable public init<T: ApplicationWindowClassProtocol>(_ other: T) {
-        ptr = other.ptr
-        // no reference counting for GtkApplicationWindowClass, cannot ref(_ptr)
-    }
-
-    /// Do-nothing destructor for `GtkApplicationWindowClass`.
-    deinit {
-        // no reference counting for GtkApplicationWindowClass, cannot unref(_ptr)
-    }
-
-    /// Unsafe typed initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ApplicationWindowClassProtocol`.**
-    /// - Parameter cPointer: pointer to the underlying object
-    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Unsafe typed, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ApplicationWindowClassProtocol`.**
-    /// - Parameter cPointer: pointer to the underlying object
-    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GtkApplicationWindowClass, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ApplicationWindowClassProtocol`.**
-    /// - Parameter p: raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: p)
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ApplicationWindowClassProtocol`.**
-    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GtkApplicationWindowClass, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ApplicationWindowClassProtocol`.**
-    /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
-        ptr = p
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ApplicationWindowClassProtocol`.**
-    /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
-        ptr = raw
-        // no reference counting for GtkApplicationWindowClass, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ApplicationWindowClassProtocol`.**
-    /// - Parameter p: opaque pointer to the underlying object
-    @inlinable public init(opaquePointer p: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ApplicationWindowClassProtocol`.**
-    /// - Parameter p: opaque pointer to the underlying object
-    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GtkApplicationWindowClass, cannot ref(_ptr)
-    }
-
-
-
-}
-
-// MARK: no ApplicationWindowClass properties
-
-// MARK: no ApplicationWindowClass signals
-
-
 // MARK: ApplicationWindowClass Record: ApplicationWindowClassProtocol extension (methods and fields)
 public extension ApplicationWindowClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkApplicationWindowClass` instance.
@@ -2448,6 +1197,21 @@ public extension ApplicationWindowClassProtocol {
 }
 
 
+
+/// Metatype/GType declaration for BinLayout
+public extension BinLayoutClassRef {
+    
+    /// This getter returns type identifier in the GLib type system registry
+    static var metatypeReference: GType { gtk_bin_layout_get_type() }
+    
+    private static var metatypePointer: UnsafeMutablePointer<GtkBinLayoutClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkBinLayoutClass.self) }
+    
+    static var metatype: GtkBinLayoutClass? { metatypePointer?.pointee } 
+    
+    static var wrapper: BinLayoutClassRef? { BinLayoutClassRef(metatypePointer) }
+    
+    
+}
 
 // MARK: - BinLayoutClass Record
 
@@ -2548,160 +1312,6 @@ public extension BinLayoutClassRef {
     }
 
     }
-
-/// The `BinLayoutClass` type acts as an owner of an underlying `GtkBinLayoutClass` instance.
-/// It provides the methods that can operate on this data type through `BinLayoutClassProtocol` conformance.
-/// Use `BinLayoutClass` as a strong reference or owner of a `GtkBinLayoutClass` instance.
-///
-
-open class BinLayoutClass: BinLayoutClassProtocol {
-        /// Untyped pointer to the underlying `GtkBinLayoutClass` instance.
-    /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer!
-
-    /// Designated initialiser from the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `BinLayoutClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(_ op: UnsafeMutablePointer<GtkBinLayoutClass>) {
-        ptr = UnsafeMutableRawPointer(op)
-    }
-
-    /// Designated initialiser from a constant pointer to the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `BinLayoutClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(_ op: UnsafePointer<GtkBinLayoutClass>) {
-        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
-    }
-
-    /// Optional initialiser from a non-mutating `gpointer` to
-    /// the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `BinLayoutClass` instance.
-    /// - Parameter op: gpointer to the underlying object
-    @inlinable public init!(gpointer op: gpointer?) {
-        guard let p = UnsafeMutableRawPointer(op) else { return nil }
-        ptr = p
-    }
-
-    /// Optional initialiser from a non-mutating `gconstpointer` to
-    /// the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `BinLayoutClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(gconstpointer op: gconstpointer?) {
-        guard let p = op else { return nil }
-        ptr = UnsafeMutableRawPointer(mutating: p)
-    }
-
-    /// Optional initialiser from a constant pointer to the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `BinLayoutClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(_ op: UnsafePointer<GtkBinLayoutClass>?) {
-        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Optional initialiser from the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `BinLayoutClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(_ op: UnsafeMutablePointer<GtkBinLayoutClass>?) {
-        guard let p = op else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Designated initialiser from the underlying `C` data type.
-    /// `GtkBinLayoutClass` does not allow reference counting, so despite the name no actual retaining will occur.
-    /// i.e., ownership is transferred to the `BinLayoutClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(retaining op: UnsafeMutablePointer<GtkBinLayoutClass>) {
-        ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GtkBinLayoutClass, cannot ref(_ptr)
-    }
-
-    /// Reference intialiser for a related type that implements `BinLayoutClassProtocol`
-    /// `GtkBinLayoutClass` does not allow reference counting.
-    /// - Parameter other: an instance of a related type that implements `BinLayoutClassProtocol`
-    @inlinable public init<T: BinLayoutClassProtocol>(_ other: T) {
-        ptr = other.ptr
-        // no reference counting for GtkBinLayoutClass, cannot ref(_ptr)
-    }
-
-    /// Do-nothing destructor for `GtkBinLayoutClass`.
-    deinit {
-        // no reference counting for GtkBinLayoutClass, cannot unref(_ptr)
-    }
-
-    /// Unsafe typed initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `BinLayoutClassProtocol`.**
-    /// - Parameter cPointer: pointer to the underlying object
-    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Unsafe typed, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `BinLayoutClassProtocol`.**
-    /// - Parameter cPointer: pointer to the underlying object
-    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GtkBinLayoutClass, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `BinLayoutClassProtocol`.**
-    /// - Parameter p: raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: p)
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `BinLayoutClassProtocol`.**
-    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GtkBinLayoutClass, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `BinLayoutClassProtocol`.**
-    /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
-        ptr = p
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `BinLayoutClassProtocol`.**
-    /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
-        ptr = raw
-        // no reference counting for GtkBinLayoutClass, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `BinLayoutClassProtocol`.**
-    /// - Parameter p: opaque pointer to the underlying object
-    @inlinable public init(opaquePointer p: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `BinLayoutClassProtocol`.**
-    /// - Parameter p: opaque pointer to the underlying object
-    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GtkBinLayoutClass, cannot ref(_ptr)
-    }
-
-
-
-}
-
-// MARK: no BinLayoutClass properties
-
-// MARK: no BinLayoutClass signals
-
 
 // MARK: BinLayoutClass Record: BinLayoutClassProtocol extension (methods and fields)
 public extension BinLayoutClassProtocol {

@@ -45,7 +45,7 @@ public protocol ATContextProtocol: GLibObject.ObjectProtocol {
 /// Each platform supported by GTK implements a `GtkATContext` subclass, and
 /// is responsible for updating the accessible state in response to state
 /// changes in `GtkAccessible`.
-public struct ATContextRef: ATContextProtocol {
+public struct ATContextRef: ATContextProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkATContext` instance.
     /// For type-safe access, use the generated, typed pointer `at_context_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer!
@@ -90,6 +90,9 @@ public extension ATContextRef {
     @inlinable init<T: ATContextProtocol>(_ other: T) {
         ptr = other.ptr
     }
+
+    /// This factory is syntactic sugar for setting weak pointers wrapped in `GWeak<T>`
+    @inlinable static func unowned<T: ATContextProtocol>(_ other: T) -> ATContextRef { ATContextRef(other) }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ATContextProtocol`.**
@@ -284,6 +287,7 @@ open class ATContext: GLibObject.Object, ATContextProtocol {
     @inlinable public init<AccessibleT: AccessibleProtocol, DisplayT: Gdk.DisplayProtocol>(accessibleRole: GtkAccessibleRole, accessible: AccessibleT, display: DisplayT) {
         let rv = gtk_at_context_create(accessibleRole, accessible.accessible_ptr, display.display_ptr)
         super.init(gpointer: gpointer(rv))
+        if typeIsA(type: self.type, isAType: InitiallyUnownedClassRef.metatypeReference) { _ = self.refSink() } 
     }
 
     /// Creates a new `GtkATContext` instance for the given accessible role,
@@ -293,6 +297,7 @@ open class ATContext: GLibObject.Object, ATContextProtocol {
     /// platform.
     @inlinable public static func create<AccessibleT: AccessibleProtocol, DisplayT: Gdk.DisplayProtocol>(accessibleRole: GtkAccessibleRole, accessible: AccessibleT, display: DisplayT) -> ATContext! {
         guard let rv = ATContext(gconstpointer: gconstpointer(gtk_at_context_create(accessibleRole, accessible.accessible_ptr, display.display_ptr))) else { return nil }
+        if typeIsA(type: rv.type, isAType: InitiallyUnownedClassRef.metatypeReference) { _ = rv.refSink() } 
         return rv
     }
 
@@ -363,7 +368,30 @@ public extension ATContextProtocol {
     }
 }
 
-public enum ATContextSignalName: String, SignalNameProtocol {
+// MARK: Signals of ATContext
+public extension ATContextProtocol {
+    /// Emitted when the attributes of the accessible for the
+    /// `GtkATContext` instance change.
+    /// - Note: Representation of signal named `state-change`
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    @discardableResult
+    func onStateChange(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ATContextRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder<ATContextRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer) -> Void = { unownedSelf, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(ATContextRef(raw: unownedSelf))
+            return output
+        }
+        return signalConnectData(
+            detailedSignal: "state-change", 
+            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            connectFlags: flags
+        )
+    }
+    
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
@@ -388,47 +416,117 @@ public enum ATContextSignalName: String, SignalNameProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    case notify = "notify"
-    /// Emitted when the attributes of the accessible for the
-    /// `GtkATContext` instance change.
-    case stateChange = "state-change"
-    /// The `GtkAccessible` that created the `GtkATContext` instance.
-    case notifyAccessible = "notify::accessible"
-    /// The accessible role used by the AT context.
-    /// 
-    /// Depending on the given role, different states and properties can be
-    /// set or retrieved.
-    case notifyAccessibleRole = "notify::accessible-role"
-    /// The `GdkDisplay` for the `GtkATContext`.
-    case notifyDisplay = "notify::display"
-}
-
-public extension ATContextProtocol {
-    /// Connect a `ATContextSignalName` signal to a given signal handler.
-    /// - Parameter signal: the signal to connect
-    /// - Parameter flags: signal connection flags
-    /// - Parameter handler: signal handler to use
-    /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @inlinable @discardableResult func connect(signal kind: ATContextSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
-            let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
-            let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
-                if let swift = UnsafeRawPointer($0) {
-                    let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
-                    holder.release()
-                }
-                let _ = $1
-            }, connectFlags: flags)
-            return rv
+    /// - Note: Representation of signal named `notify::accessible`
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter pspec: the `GParamSpec` of the property which changed.
+    @discardableResult
+    func onNotifyAccessible(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ATContextRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder2<ATContextRef, ParamSpecRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(ATContextRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
+            return output
         }
-        let rv = _connect(signal: kind.name, flags: f, data: ClosureHolder(handler)) {
-            let ptr = UnsafeRawPointer($1)
-            let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(ptr).takeUnretainedValue()
-            holder.call(())
-        }
-        return rv
+        return signalConnectData(
+            detailedSignal: "notify::accessible", 
+            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            connectFlags: flags
+        )
     }
+    
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    /// - Note: Representation of signal named `notify::accessible-role`
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter pspec: the `GParamSpec` of the property which changed.
+    @discardableResult
+    func onNotifyAccessibleRole(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ATContextRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder2<ATContextRef, ParamSpecRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(ATContextRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
+            return output
+        }
+        return signalConnectData(
+            detailedSignal: "notify::accessible-role", 
+            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            connectFlags: flags
+        )
+    }
+    
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    /// - Note: Representation of signal named `notify::display`
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter pspec: the `GParamSpec` of the property which changed.
+    @discardableResult
+    func onNotifyDisplay(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ATContextRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder2<ATContextRef, ParamSpecRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(ATContextRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
+            return output
+        }
+        return signalConnectData(
+            detailedSignal: "notify::display", 
+            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            connectFlags: flags
+        )
+    }
+    
 }
 
 // MARK: ATContext Class: ATContextProtocol extension (methods and fields)
@@ -566,7 +664,7 @@ public protocol AboutDialogProtocol: WindowProtocol {
 ///                        NULL);
 /// ```
 /// 
-public struct AboutDialogRef: AboutDialogProtocol {
+public struct AboutDialogRef: AboutDialogProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkAboutDialog` instance.
     /// For type-safe access, use the generated, typed pointer `about_dialog_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer!
@@ -611,6 +709,9 @@ public extension AboutDialogRef {
     @inlinable init<T: AboutDialogProtocol>(_ other: T) {
         ptr = other.ptr
     }
+
+    /// This factory is syntactic sugar for setting weak pointers wrapped in `GWeak<T>`
+    @inlinable static func unowned<T: AboutDialogProtocol>(_ other: T) -> AboutDialogRef { AboutDialogRef(other) }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AboutDialogProtocol`.**
@@ -820,57 +921,13 @@ open class AboutDialog: Window, AboutDialogProtocol {
     @inlinable override public init() {
         let rv = gtk_about_dialog_new()
         super.init(gpointer: gpointer(rv))
+        if typeIsA(type: self.type, isAType: InitiallyUnownedClassRef.metatypeReference) { _ = self.refSink() } 
     }
 
 
 }
 
 public enum AboutDialogPropertyName: String, PropertyNameProtocol {
-    case accessibleComponentLayer = "accessible-component-layer"
-    case accessibleComponentMdiZorder = "accessible-component-mdi-zorder"
-    case accessibleDescription = "accessible-description"
-    case accessibleHypertextNlinks = "accessible-hypertext-nlinks"
-    case accessibleName = "accessible-name"
-    case accessibleParent = "accessible-parent"
-    case accessibleRole = "accessible-role"
-    /// Table caption.
-    ///
-    /// **accessible-table-caption is deprecated:**
-    /// Since 1.3. Use table-caption-object instead.
-    case accessibleTableCaption = "accessible-table-caption"
-    case accessibleTableCaptionObject = "accessible-table-caption-object"
-    /// Accessible table column description.
-    ///
-    /// **accessible-table-column-description is deprecated:**
-    /// Since 2.12. Use atk_table_get_column_description()
-    /// and atk_table_set_column_description() instead.
-    case accessibleTableColumnDescription = "accessible-table-column-description"
-    /// Accessible table column header.
-    ///
-    /// **accessible-table-column-header is deprecated:**
-    /// Since 2.12. Use atk_table_get_column_header() and
-    /// atk_table_set_column_header() instead.
-    case accessibleTableColumnHeader = "accessible-table-column-header"
-    /// Accessible table row description.
-    ///
-    /// **accessible-table-row-description is deprecated:**
-    /// Since 2.12. Use atk_table_get_row_description() and
-    /// atk_table_set_row_description() instead.
-    case accessibleTableRowDescription = "accessible-table-row-description"
-    /// Accessible table row header.
-    ///
-    /// **accessible-table-row-header is deprecated:**
-    /// Since 2.12. Use atk_table_get_row_header() and
-    /// atk_table_set_row_header() instead.
-    case accessibleTableRowHeader = "accessible-table-row-header"
-    case accessibleTableSummary = "accessible-table-summary"
-    /// Numeric value of this object, in case being and AtkValue.
-    ///
-    /// **accessible-value is deprecated:**
-    /// Since 2.12. Use atk_value_get_value_and_text() to get
-    /// the value, and value-changed signal to be notified on their value
-    /// changes.
-    case accessibleValue = "accessible-value"
     /// The `GtkApplication` associated with the window.
     /// 
     /// The application will be kept alive for at least as long as it
@@ -1182,80 +1239,33 @@ public extension AboutDialogProtocol {
     }
 }
 
-public enum AboutDialogSignalName: String, SignalNameProtocol {
-    /// The `activate`-default signal is a
-    /// [keybinding signal](#GtkSignalAction)
-    /// which gets emitted when the user activates the default widget
-    /// of `window`.
-    case activateDefault = "activate-default"
-    /// The `activate`-focus signal is a
-    /// [keybinding signal](#GtkSignalAction)
-    /// which gets emitted when the user activates the currently
-    /// focused widget of `window`.
-    case activateFocus = "activate-focus"
+// MARK: Signals of AboutDialog
+public extension AboutDialogProtocol {
     /// The signal which gets emitted to activate a URI.
     /// Applications may connect to it to override the default behaviour,
     /// which is to call `gtk_show_uri()`.
-    case activateLink = "activate-link"
-    /// The "active-descendant-changed" signal is emitted by an object
-    /// which has the state ATK_STATE_MANAGES_DESCENDANTS when the focus
-    /// object in the object changes. For instance, a table will emit the
-    /// signal when the cell in the table which has focus changes.
-    case activeDescendantChanged = "active-descendant-changed"
-    /// The signal "children-changed" is emitted when a child is added or
-    /// removed form an object. It supports two details: "add" and
-    /// "remove"
-    case childrenChanged = "children-changed"
-    /// The `close`-request signal is emitted when the user clicks on the close
-    /// button of the window.
-    case closeRequest = "close-request"
-    /// Signals that all holders of a reference to the widget should release
-    /// the reference that they hold. May result in finalization of the widget
-    /// if all references are released.
-    /// 
-    /// This signal is not suitable for saving widget state.
-    case destroy = "destroy"
-    /// The `direction`-changed signal is emitted when the text direction
-    /// of a widget changes.
-    case directionChanged = "direction-changed"
-    /// The `enable`-debugging signal is a [keybinding signal](#GtkSignalAction)
-    /// which gets emitted when the user enables or disables interactive
-    /// debugging. When `toggle` is `true`, interactive debugging is toggled
-    /// on or off, when it is `false`, the debugger will be pointed at the
-    /// widget under the pointer.
-    /// 
-    /// The default bindings for this signal are Ctrl-Shift-I
-    /// and Ctrl-Shift-D.
-    case enableDebugging = "enable-debugging"
-    /// The signal "focus-event" is emitted when an object gained or lost
-    /// focus.
-    ///
-    /// **focus-event is deprecated:**
-    /// Use the #AtkObject::state-change signal instead.
-    case focusEvent = "focus-event"
-    /// The `hide` signal is emitted when `widget` is hidden, for example with
-    /// `gtk_widget_hide()`.
-    case hide = "hide"
-    /// Gets emitted if keyboard navigation fails.
-    /// See `gtk_widget_keynav_failed()` for details.
-    case keynavFailed = "keynav-failed"
-    /// The `keys`-changed signal gets emitted when the set of accelerators
-    /// or mnemonics that are associated with `window` changes.
-    case keysChanged = "keys-changed"
-    /// The `map` signal is emitted when `widget` is going to be mapped, that is
-    /// when the widget is visible (which is controlled with
-    /// `gtk_widget_set_visible()`) and all its parents up to the toplevel widget
-    /// are also visible.
-    /// 
-    /// The `map` signal can be used to determine whether a widget will be drawn,
-    /// for instance it can resume an animation that was stopped during the
-    /// emission of `GtkWidget::unmap`.
-    case map = "map"
-    /// The default handler for this signal activates `widget` if `group_cycling`
-    /// is `false`, or just makes `widget` grab focus if `group_cycling` is `true`.
-    case mnemonicActivate = "mnemonic-activate"
-    /// Emitted when the focus is moved.
-    case moveFocus = "move-focus"
+    /// - Note: Representation of signal named `activate-link`
+    /// - Parameter flags: Flags
+    /// - Parameter handler: `true` if the link has been activated
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter uri: the URI that is activated
+    @discardableResult
+    func onActivateLink(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: AboutDialogRef, _ uri: String) -> Bool ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder2<AboutDialogRef, String, Bool>
+        let cCallback: @convention(c) (gpointer, UnsafeMutablePointer<gchar>?, gpointer) -> gboolean = { unownedSelf, arg1, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output = holder.call(AboutDialogRef(raw: unownedSelf), arg1.map({ String(cString: $0) })!)
+            return gboolean((output) ? 1 : 0)
+        }
+        return signalConnectData(
+            detailedSignal: "activate-link", 
+            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            connectFlags: flags
+        )
+    }
+    
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
@@ -1280,392 +1290,702 @@ public enum AboutDialogSignalName: String, SignalNameProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    case notify = "notify"
-    /// The signal "property-change" is emitted when an object's property
-    /// value changes. `arg1` contains an `AtkPropertyValues` with the name
-    /// and the new value of the property whose value has changed. Note
-    /// that, as with GObject notify, getting this signal does not
-    /// guarantee that the value of the property has actually changed; it
-    /// may also be emitted when the setter of the property is called to
-    /// reinstate the previous value.
-    /// 
-    /// Toolkit implementor note: ATK implementors should use
-    /// `g_object_notify()` to emit property-changed
-    /// notifications. `AtkObject::property`-changed is needed by the
-    /// implementation of `atk_add_global_event_listener()` because GObject
-    /// notify doesn't support emission hooks.
-    case propertyChange = "property-change"
-    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
-    /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
-    /// focus in keyboard mode.
-    /// 
-    /// Using the given coordinates, the signal handler should determine
-    /// whether a tooltip should be shown for `widget`. If this is the case
-    /// `true` should be returned, `false` otherwise.  Note that if
-    /// `keyboard_mode` is `true`, the values of `x` and `y` are undefined and
-    /// should not be used.
-    /// 
-    /// The signal handler is free to manipulate `tooltip` with the therefore
-    /// destined function calls.
-    case queryTooltip = "query-tooltip"
-    /// The `realize` signal is emitted when `widget` is associated with a
-    /// `GdkSurface`, which means that `gtk_widget_realize()` has been called or the
-    /// widget has been mapped (that is, it is going to be drawn).
-    case realize = "realize"
-    /// The `show` signal is emitted when `widget` is shown, for example with
-    /// `gtk_widget_show()`.
-    case show = "show"
-    /// The "state-change" signal is emitted when an object's state
-    /// changes.  The detail value identifies the state type which has
-    /// changed.
-    case stateChange = "state-change"
-    /// The `state`-flags-changed signal is emitted when the widget state
-    /// changes, see `gtk_widget_get_state_flags()`.
-    case stateFlagsChanged = "state-flags-changed"
-    /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
-    /// means that either it or any of its parents up to the toplevel widget have
-    /// been set as hidden.
-    /// 
-    /// As `unmap` indicates that a widget will not be shown any longer, it can be
-    /// used to, for example, stop an animation on the widget.
-    case unmap = "unmap"
-    /// The `unrealize` signal is emitted when the `GdkSurface` associated with
-    /// `widget` is destroyed, which means that `gtk_widget_unrealize()` has been
-    /// called or the widget has been unmapped (that is, it is going to be
-    /// hidden).
-    case unrealize = "unrealize"
-    /// The "visible-data-changed" signal is emitted when the visual
-    /// appearance of the object changed.
-    case visibleDataChanged = "visible-data-changed"
-    case notifyAccessibleComponentLayer = "notify::accessible-component-layer"
-    case notifyAccessibleComponentMdiZorder = "notify::accessible-component-mdi-zorder"
-    case notifyAccessibleDescription = "notify::accessible-description"
-    case notifyAccessibleHypertextNlinks = "notify::accessible-hypertext-nlinks"
-    case notifyAccessibleName = "notify::accessible-name"
-    case notifyAccessibleParent = "notify::accessible-parent"
-    case notifyAccessibleRole = "notify::accessible-role"
-    /// Table caption.
-    ///
-    /// **accessible-table-caption is deprecated:**
-    /// Since 1.3. Use table-caption-object instead.
-    case notifyAccessibleTableCaption = "notify::accessible-table-caption"
-    case notifyAccessibleTableCaptionObject = "notify::accessible-table-caption-object"
-    /// Accessible table column description.
-    ///
-    /// **accessible-table-column-description is deprecated:**
-    /// Since 2.12. Use atk_table_get_column_description()
-    /// and atk_table_set_column_description() instead.
-    case notifyAccessibleTableColumnDescription = "notify::accessible-table-column-description"
-    /// Accessible table column header.
-    ///
-    /// **accessible-table-column-header is deprecated:**
-    /// Since 2.12. Use atk_table_get_column_header() and
-    /// atk_table_set_column_header() instead.
-    case notifyAccessibleTableColumnHeader = "notify::accessible-table-column-header"
-    /// Accessible table row description.
-    ///
-    /// **accessible-table-row-description is deprecated:**
-    /// Since 2.12. Use atk_table_get_row_description() and
-    /// atk_table_set_row_description() instead.
-    case notifyAccessibleTableRowDescription = "notify::accessible-table-row-description"
-    /// Accessible table row header.
-    ///
-    /// **accessible-table-row-header is deprecated:**
-    /// Since 2.12. Use atk_table_get_row_header() and
-    /// atk_table_set_row_header() instead.
-    case notifyAccessibleTableRowHeader = "notify::accessible-table-row-header"
-    case notifyAccessibleTableSummary = "notify::accessible-table-summary"
-    /// Numeric value of this object, in case being and AtkValue.
-    ///
-    /// **accessible-value is deprecated:**
-    /// Since 2.12. Use atk_value_get_value_and_text() to get
-    /// the value, and value-changed signal to be notified on their value
-    /// changes.
-    case notifyAccessibleValue = "notify::accessible-value"
-    /// The `GtkApplication` associated with the window.
-    /// 
-    /// The application will be kept alive for at least as long as it
-    /// has any windows associated with it (see `g_application_hold()`
-    /// for a way to keep it alive without windows).
-    /// 
-    /// Normally, the connection between the application and the window
-    /// will remain until the window is destroyed, but you can explicitly
-    /// remove it by setting the :application property to `nil`.
-    case notifyApplication = "notify::application"
-    /// The people who contributed artwork to the program, as a `nil`-terminated
-    /// array of strings. Each string may contain email addresses and URLs, which
-    /// will be displayed as links, see the introduction for more details.
-    case notifyArtists = "notify::artists"
-    /// The authors of the program, as a `nil`-terminated array of strings.
-    /// Each string may contain email addresses and URLs, which will be displayed
-    /// as links, see the introduction for more details.
-    case notifyAuthors = "notify::authors"
-    /// Whether the widget or any of its descendents can accept
-    /// the input focus.
-    /// 
-    /// This property is meant to be set by widget implementations,
-    /// typically in their instance init function.
-    case notifyCanFocus = "notify::can-focus"
-    case notifyCanTarget = "notify::can-target"
-    case notifyChild = "notify::child"
-    /// Comments about the program. This string is displayed in a label
-    /// in the main dialog, thus it should be a short explanation of
-    /// the main purpose of the program, not a detailed list of features.
-    case notifyComments = "notify::comments"
-    /// Copyright information for the program.
-    case notifyCopyright = "notify::copyright"
-    /// A list of css classes applied to this widget.
-    case notifyCssClasses = "notify::css-classes"
-    /// The name of this widget in the CSS tree.
-    /// 
-    /// This property is meant to be set by widget implementations,
-    /// typically in their instance init function.
-    case notifyCssName = "notify::css-name"
-    /// The cursor used by `widget`. See `gtk_widget_set_cursor()` for details.
-    case notifyCursor = "notify::cursor"
-    /// Whether the window should be decorated by the window manager.
-    case notifyDecorated = "notify::decorated"
-    case notifyDefaultHeight = "notify::default-height"
-    case notifyDefaultWidget = "notify::default-widget"
-    case notifyDefaultWidth = "notify::default-width"
-    /// Whether the window frame should have a close button.
-    case notifyDeletable = "notify::deletable"
-    case notifyDestroyWithParent = "notify::destroy-with-parent"
-    case notifyDisplay = "notify::display"
-    /// The people documenting the program, as a `nil`-terminated array of strings.
-    /// Each string may contain email addresses and URLs, which will be displayed
-    /// as links, see the introduction for more details.
-    case notifyDocumenters = "notify::documenters"
-    /// Whether the widget should grab focus when it is clicked with the mouse.
-    /// 
-    /// This property is only relevant for widgets that can take focus.
-    case notifyFocusOnClick = "notify::focus-on-click"
-    /// Whether 'focus rectangles' are currently visible in this window.
-    /// 
-    /// This property is maintained by GTK based on user input
-    /// and should not be set by applications.
-    case notifyFocusVisible = "notify::focus-visible"
-    case notifyFocusWidget = "notify::focus-widget"
-    /// Whether this widget itself will accept the input focus.
-    case notifyFocusable = "notify::focusable"
-    /// Whether the window is fullscreen.
-    /// 
-    /// Setting this property is the equivalent of calling `gtk_window_fullscreen()`
-    /// and `gtk_window_unfullscreen()`; either operation is asynchronous, which
-    /// means you will need to connect to the `GObject::notify` signal in order to
-    /// know whether the operation was successful.
-    case notifyFullscreened = "notify::fullscreened"
-    /// How to distribute horizontal space if widget gets extra space, see `GtkAlign`
-    case notifyHalign = "notify::halign"
-    case notifyHasDefault = "notify::has-default"
-    case notifyHasFocus = "notify::has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
-    /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
-    /// whether it will provide a tooltip or not.
-    case notifyHasTooltip = "notify::has-tooltip"
-    case notifyHeightRequest = "notify::height-request"
-    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
-    case notifyHexpand = "notify::hexpand"
-    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
-    case notifyHexpandSet = "notify::hexpand-set"
-    case notifyHideOnClose = "notify::hide-on-close"
-    /// The :icon-name property specifies the name of the themed icon to
-    /// use as the window icon. See `GtkIconTheme` for more details.
-    case notifyIconName = "notify::icon-name"
-    case notifyIsActive = "notify::is-active"
-    /// The `GtkLayoutManager` instance to use to compute the preferred size
-    /// of the widget, and allocate its children.
-    /// 
-    /// This property is meant to be set by widget implementations,
-    /// typically in their instance init function.
-    case notifyLayoutManager = "notify::layout-manager"
-    /// The license of the program. This string is displayed in a
-    /// text view in a secondary dialog, therefore it is fine to use
-    /// a long multi-paragraph text. Note that the text is only wrapped
-    /// in the text view if the "wrap-license" property is set to `true`;
-    /// otherwise the text itself must contain the intended linebreaks.
-    /// When setting this property to a non-`nil` value, the
-    /// `GtkAboutDialog:license`-type property is set to `GTK_LICENSE_CUSTOM`
-    /// as a side effect.
-    /// 
-    /// The text may contain links in this format <http://www.some.place/>
-    /// and email references in the form <mail-to`some.body`>, and these will
-    /// be converted into clickable links.
-    case notifyLicense = "notify::license"
-    /// The license of the program, as a value of the `GtkLicense` enumeration.
-    /// 
-    /// The `GtkAboutDialog` will automatically fill out a standard disclaimer
-    /// and link the user to the appropriate online resource for the license
-    /// text.
-    /// 
-    /// If `GTK_LICENSE_UNKNOWN` is used, the link used will be the same
-    /// specified in the `GtkAboutDialog:website` property.
-    /// 
-    /// If `GTK_LICENSE_CUSTOM` is used, the current contents of the
-    /// `GtkAboutDialog:license` property are used.
-    /// 
-    /// For any other `GtkLicense` value, the contents of the
-    /// `GtkAboutDialog:license` property are also set by this property as
-    /// a side effect.
-    case notifyLicenseType = "notify::license-type"
-    /// A logo for the about box. If it is `nil`, the default window icon
-    /// set with `gtk_window_set_default_icon_name()` will be used.
-    case notifyLogo = "notify::logo"
-    /// A named icon to use as the logo for the about box. This property
-    /// overrides the `GtkAboutDialog:logo` property.
-    case notifyLogoIconName = "notify::logo-icon-name"
-    /// Margin on bottom side of widget.
-    /// 
-    /// This property adds margin outside of the widget's normal size
-    /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
-    case notifyMarginBottom = "notify::margin-bottom"
-    /// Margin on end of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
-    /// 
-    /// This property adds margin outside of the widget's normal size
-    /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
-    case notifyMarginEnd = "notify::margin-end"
-    /// Margin on start of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
-    /// 
-    /// This property adds margin outside of the widget's normal size
-    /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
-    case notifyMarginStart = "notify::margin-start"
-    /// Margin on top side of widget.
-    /// 
-    /// This property adds margin outside of the widget's normal size
-    /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
-    case notifyMarginTop = "notify::margin-top"
-    /// Whether the window is maximized.
-    /// 
-    /// Setting this property is the equivalent of calling `gtk_window_maximize()`
-    /// and `gtk_window_unmaximize()`; either operation is asynchronous, which
-    /// means you will need to connect to the `GObject::notify` signal in order to
-    /// know whether the operation was successful.
-    case notifyMaximized = "notify::maximized"
-    /// Whether mnemonics are currently visible in this window.
-    /// 
-    /// This property is maintained by GTK based on user input,
-    /// and should not be set by applications.
-    case notifyMnemonicsVisible = "notify::mnemonics-visible"
-    case notifyModal = "notify::modal"
-    case notifyName = "notify::name"
-    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
-    /// more details about window opacity.
-    case notifyOpacity = "notify::opacity"
-    /// How content outside the widget's content area is treated.
-    /// 
-    /// This property is meant to be set by widget implementations,
-    /// typically in their instance init function.
-    case notifyOverflow = "notify::overflow"
-    case notifyParent = "notify::parent"
-    /// The name of the program.
-    /// If this is not set, it defaults to `g_get_application_name()`.
-    case notifyProgramName = "notify::program-name"
-    case notifyReceivesDefault = "notify::receives-default"
-    case notifyResizable = "notify::resizable"
-    /// The `GtkRoot` widget of the widget tree containing this widget or `nil` if
-    /// the widget is not contained in a root widget.
-    case notifyRoot = "notify::root"
-    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
-    /// more details about widget scaling.
-    case notifyScaleFactor = "notify::scale-factor"
-    case notifySensitive = "notify::sensitive"
-    /// The :startup-id is a write-only property for setting window's
-    /// startup notification identifier. See `gtk_window_set_startup_id()`
-    /// for more details.
-    case notifyStartupId = "notify::startup-id"
-    /// Information about the system on which the program is running.
-    /// This is displayed in a separate tab, therefore it is fine to use
-    /// a long multi-paragraph text. Note that the text should contain
-    /// the intended linebreaks.
-    /// 
-    /// The text may contain links in this format <http://www.some.place/>
-    /// and email references in the form <mail-to`some.body`>, and these will
-    /// be converted into clickable links.
-    case notifySystemInformation = "notify::system-information"
-    case notifyTitle = "notify::title"
-    /// Sets the text of tooltip to be the given string, which is marked up
-    /// with the [Pango text markup language](#PangoMarkupFormat).
-    /// Also see `gtk_tooltip_set_markup()`.
-    /// 
-    /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
-    /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
-    /// are set, the last one wins.
-    case notifyTooltipMarkup = "notify::tooltip-markup"
-    /// Sets the text of tooltip to be the given string.
-    /// 
-    /// Also see `gtk_tooltip_set_text()`.
-    /// 
-    /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
-    /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
-    /// are set, the last one wins.
-    case notifyTooltipText = "notify::tooltip-text"
-    /// The transient parent of the window. See `gtk_window_set_transient_for()` for
-    /// more details about transient windows.
-    case notifyTransientFor = "notify::transient-for"
-    /// Credits to the translators. This string should be marked as translatable.
-    /// The string may contain email addresses and URLs, which will be displayed
-    /// as links, see the introduction for more details.
-    case notifyTranslatorCredits = "notify::translator-credits"
-    /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
-    case notifyValign = "notify::valign"
-    /// The version of the program.
-    case notifyVersion = "notify::version"
-    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
-    case notifyVexpand = "notify::vexpand"
-    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
-    case notifyVexpandSet = "notify::vexpand-set"
-    case notifyVisible = "notify::visible"
-    /// The URL for the link to the website of the program.
-    /// This should be a string starting with "http://.
-    case notifyWebsite = "notify::website"
-    /// The label for the link to the website of the program.
-    case notifyWebsiteLabel = "notify::website-label"
-    case notifyWidthRequest = "notify::width-request"
-    /// Whether to wrap the text in the license dialog.
-    case notifyWrapLicense = "notify::wrap-license"
-}
-
-public extension AboutDialogProtocol {
-    /// Connect a `AboutDialogSignalName` signal to a given signal handler.
-    /// - Parameter signal: the signal to connect
-    /// - Parameter flags: signal connection flags
-    /// - Parameter handler: signal handler to use
-    /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @inlinable @discardableResult func connect(signal kind: AboutDialogSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
-            let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
-            let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
-                if let swift = UnsafeRawPointer($0) {
-                    let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
-                    holder.release()
-                }
-                let _ = $1
-            }, connectFlags: flags)
-            return rv
+    /// - Note: Representation of signal named `notify::artists`
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter pspec: the `GParamSpec` of the property which changed.
+    @discardableResult
+    func onNotifyArtists(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: AboutDialogRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder2<AboutDialogRef, ParamSpecRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(AboutDialogRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
+            return output
         }
-        let rv = _connect(signal: kind.name, flags: f, data: ClosureHolder(handler)) {
-            let ptr = UnsafeRawPointer($1)
-            let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(ptr).takeUnretainedValue()
-            holder.call(())
-        }
-        return rv
+        return signalConnectData(
+            detailedSignal: "notify::artists", 
+            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            connectFlags: flags
+        )
     }
+    
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    /// - Note: Representation of signal named `notify::authors`
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter pspec: the `GParamSpec` of the property which changed.
+    @discardableResult
+    func onNotifyAuthors(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: AboutDialogRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder2<AboutDialogRef, ParamSpecRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(AboutDialogRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
+            return output
+        }
+        return signalConnectData(
+            detailedSignal: "notify::authors", 
+            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            connectFlags: flags
+        )
+    }
+    
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    /// - Note: Representation of signal named `notify::comments`
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter pspec: the `GParamSpec` of the property which changed.
+    @discardableResult
+    func onNotifyComments(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: AboutDialogRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder2<AboutDialogRef, ParamSpecRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(AboutDialogRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
+            return output
+        }
+        return signalConnectData(
+            detailedSignal: "notify::comments", 
+            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            connectFlags: flags
+        )
+    }
+    
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    /// - Note: Representation of signal named `notify::copyright`
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter pspec: the `GParamSpec` of the property which changed.
+    @discardableResult
+    func onNotifyCopyright(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: AboutDialogRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder2<AboutDialogRef, ParamSpecRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(AboutDialogRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
+            return output
+        }
+        return signalConnectData(
+            detailedSignal: "notify::copyright", 
+            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            connectFlags: flags
+        )
+    }
+    
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    /// - Note: Representation of signal named `notify::documenters`
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter pspec: the `GParamSpec` of the property which changed.
+    @discardableResult
+    func onNotifyDocumenters(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: AboutDialogRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder2<AboutDialogRef, ParamSpecRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(AboutDialogRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
+            return output
+        }
+        return signalConnectData(
+            detailedSignal: "notify::documenters", 
+            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            connectFlags: flags
+        )
+    }
+    
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    /// - Note: Representation of signal named `notify::license`
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter pspec: the `GParamSpec` of the property which changed.
+    @discardableResult
+    func onNotifyLicense(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: AboutDialogRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder2<AboutDialogRef, ParamSpecRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(AboutDialogRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
+            return output
+        }
+        return signalConnectData(
+            detailedSignal: "notify::license", 
+            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            connectFlags: flags
+        )
+    }
+    
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    /// - Note: Representation of signal named `notify::license-type`
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter pspec: the `GParamSpec` of the property which changed.
+    @discardableResult
+    func onNotifyLicenseType(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: AboutDialogRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder2<AboutDialogRef, ParamSpecRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(AboutDialogRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
+            return output
+        }
+        return signalConnectData(
+            detailedSignal: "notify::license-type", 
+            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            connectFlags: flags
+        )
+    }
+    
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    /// - Note: Representation of signal named `notify::logo`
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter pspec: the `GParamSpec` of the property which changed.
+    @discardableResult
+    func onNotifyLogo(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: AboutDialogRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder2<AboutDialogRef, ParamSpecRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(AboutDialogRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
+            return output
+        }
+        return signalConnectData(
+            detailedSignal: "notify::logo", 
+            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            connectFlags: flags
+        )
+    }
+    
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    /// - Note: Representation of signal named `notify::logo-icon-name`
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter pspec: the `GParamSpec` of the property which changed.
+    @discardableResult
+    func onNotifyLogoIconName(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: AboutDialogRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder2<AboutDialogRef, ParamSpecRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(AboutDialogRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
+            return output
+        }
+        return signalConnectData(
+            detailedSignal: "notify::logo-icon-name", 
+            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            connectFlags: flags
+        )
+    }
+    
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    /// - Note: Representation of signal named `notify::program-name`
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter pspec: the `GParamSpec` of the property which changed.
+    @discardableResult
+    func onNotifyProgramName(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: AboutDialogRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder2<AboutDialogRef, ParamSpecRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(AboutDialogRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
+            return output
+        }
+        return signalConnectData(
+            detailedSignal: "notify::program-name", 
+            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            connectFlags: flags
+        )
+    }
+    
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    /// - Note: Representation of signal named `notify::system-information`
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter pspec: the `GParamSpec` of the property which changed.
+    @discardableResult
+    func onNotifySystemInformation(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: AboutDialogRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder2<AboutDialogRef, ParamSpecRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(AboutDialogRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
+            return output
+        }
+        return signalConnectData(
+            detailedSignal: "notify::system-information", 
+            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            connectFlags: flags
+        )
+    }
+    
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    /// - Note: Representation of signal named `notify::translator-credits`
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter pspec: the `GParamSpec` of the property which changed.
+    @discardableResult
+    func onNotifyTranslatorCredits(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: AboutDialogRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder2<AboutDialogRef, ParamSpecRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(AboutDialogRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
+            return output
+        }
+        return signalConnectData(
+            detailedSignal: "notify::translator-credits", 
+            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            connectFlags: flags
+        )
+    }
+    
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    /// - Note: Representation of signal named `notify::version`
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter pspec: the `GParamSpec` of the property which changed.
+    @discardableResult
+    func onNotifyVersion(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: AboutDialogRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder2<AboutDialogRef, ParamSpecRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(AboutDialogRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
+            return output
+        }
+        return signalConnectData(
+            detailedSignal: "notify::version", 
+            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            connectFlags: flags
+        )
+    }
+    
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    /// - Note: Representation of signal named `notify::website`
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter pspec: the `GParamSpec` of the property which changed.
+    @discardableResult
+    func onNotifyWebsite(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: AboutDialogRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder2<AboutDialogRef, ParamSpecRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(AboutDialogRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
+            return output
+        }
+        return signalConnectData(
+            detailedSignal: "notify::website", 
+            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            connectFlags: flags
+        )
+    }
+    
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    /// - Note: Representation of signal named `notify::website-label`
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter pspec: the `GParamSpec` of the property which changed.
+    @discardableResult
+    func onNotifyWebsiteLabel(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: AboutDialogRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder2<AboutDialogRef, ParamSpecRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(AboutDialogRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
+            return output
+        }
+        return signalConnectData(
+            detailedSignal: "notify::website-label", 
+            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            connectFlags: flags
+        )
+    }
+    
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    /// - Note: Representation of signal named `notify::wrap-license`
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter pspec: the `GParamSpec` of the property which changed.
+    @discardableResult
+    func onNotifyWrapLicense(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: AboutDialogRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder2<AboutDialogRef, ParamSpecRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(AboutDialogRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
+            return output
+        }
+        return signalConnectData(
+            detailedSignal: "notify::wrap-license", 
+            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            connectFlags: flags
+        )
+    }
+    
 }
 
 // MARK: AboutDialog Class: AboutDialogProtocol extension (methods and fields)
@@ -1725,8 +2045,8 @@ public extension AboutDialogProtocol {
     }
 
     /// Returns the paintable displayed as logo in the about dialog.
-    @inlinable func getLogo() -> UnsafeMutablePointer<GdkPaintable>? {
-        let rv = gtk_about_dialog_get_logo(about_dialog_ptr)
+    @inlinable func getLogo() -> Gdk.PaintableRef! {
+        let rv = Gdk.PaintableRef(gtk_about_dialog_get_logo(about_dialog_ptr))
         return rv
     }
 
@@ -1834,8 +2154,13 @@ public extension AboutDialogProtocol {
     }
 
     /// Sets the logo in the about dialog.
-    @inlinable func set(logo: UnsafeMutablePointer<GdkPaintable>? = nil) {
-        gtk_about_dialog_set_logo(about_dialog_ptr, logo)
+    @inlinable func set(logo: Gdk.PaintableRef? = nil) {
+        gtk_about_dialog_set_logo(about_dialog_ptr, logo?.paintable_ptr)
+    
+    }
+    /// Sets the logo in the about dialog.
+    @inlinable func set<PaintableT: Gdk.PaintableProtocol>(logo: PaintableT?) {
+        gtk_about_dialog_set_logo(about_dialog_ptr, logo?.paintable_ptr)
     
     }
 
@@ -2034,15 +2359,15 @@ public extension AboutDialogProtocol {
 
     /// A logo for the about box. If it is `nil`, the default window icon
     /// set with `gtk_window_set_default_icon_name()` will be used.
-    @inlinable var logo: UnsafeMutablePointer<GdkPaintable>? {
+    @inlinable var logo: Gdk.PaintableRef! {
         /// Returns the paintable displayed as logo in the about dialog.
         get {
-            let rv = gtk_about_dialog_get_logo(about_dialog_ptr)
+            let rv = Gdk.PaintableRef(gtk_about_dialog_get_logo(about_dialog_ptr))
             return rv
         }
         /// Sets the logo in the about dialog.
         nonmutating set {
-            gtk_about_dialog_set_logo(about_dialog_ptr, newValue)
+            gtk_about_dialog_set_logo(about_dialog_ptr, UnsafeMutablePointer<GdkPaintable>(newValue?.paintable_ptr))
         }
     }
 
@@ -2226,7 +2551,7 @@ public protocol ActionBarProtocol: WidgetProtocol {
 /// # CSS nodes
 /// 
 /// GtkActionBar has a single CSS node with name actionbar.
-public struct ActionBarRef: ActionBarProtocol {
+public struct ActionBarRef: ActionBarProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkActionBar` instance.
     /// For type-safe access, use the generated, typed pointer `action_bar_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer!
@@ -2271,6 +2596,9 @@ public extension ActionBarRef {
     @inlinable init<T: ActionBarProtocol>(_ other: T) {
         ptr = other.ptr
     }
+
+    /// This factory is syntactic sugar for setting weak pointers wrapped in `GWeak<T>`
+    @inlinable static func unowned<T: ActionBarProtocol>(_ other: T) -> ActionBarRef { ActionBarRef(other) }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActionBarProtocol`.**
@@ -2454,57 +2782,13 @@ open class ActionBar: Widget, ActionBarProtocol {
     @inlinable public init() {
         let rv = gtk_action_bar_new()
         super.init(gpointer: gpointer(rv))
+        if typeIsA(type: self.type, isAType: InitiallyUnownedClassRef.metatypeReference) { _ = self.refSink() } 
     }
 
 
 }
 
 public enum ActionBarPropertyName: String, PropertyNameProtocol {
-    case accessibleComponentLayer = "accessible-component-layer"
-    case accessibleComponentMdiZorder = "accessible-component-mdi-zorder"
-    case accessibleDescription = "accessible-description"
-    case accessibleHypertextNlinks = "accessible-hypertext-nlinks"
-    case accessibleName = "accessible-name"
-    case accessibleParent = "accessible-parent"
-    case accessibleRole = "accessible-role"
-    /// Table caption.
-    ///
-    /// **accessible-table-caption is deprecated:**
-    /// Since 1.3. Use table-caption-object instead.
-    case accessibleTableCaption = "accessible-table-caption"
-    case accessibleTableCaptionObject = "accessible-table-caption-object"
-    /// Accessible table column description.
-    ///
-    /// **accessible-table-column-description is deprecated:**
-    /// Since 2.12. Use atk_table_get_column_description()
-    /// and atk_table_set_column_description() instead.
-    case accessibleTableColumnDescription = "accessible-table-column-description"
-    /// Accessible table column header.
-    ///
-    /// **accessible-table-column-header is deprecated:**
-    /// Since 2.12. Use atk_table_get_column_header() and
-    /// atk_table_set_column_header() instead.
-    case accessibleTableColumnHeader = "accessible-table-column-header"
-    /// Accessible table row description.
-    ///
-    /// **accessible-table-row-description is deprecated:**
-    /// Since 2.12. Use atk_table_get_row_description() and
-    /// atk_table_set_row_description() instead.
-    case accessibleTableRowDescription = "accessible-table-row-description"
-    /// Accessible table row header.
-    ///
-    /// **accessible-table-row-header is deprecated:**
-    /// Since 2.12. Use atk_table_get_row_header() and
-    /// atk_table_set_row_header() instead.
-    case accessibleTableRowHeader = "accessible-table-row-header"
-    case accessibleTableSummary = "accessible-table-summary"
-    /// Numeric value of this object, in case being and AtkValue.
-    ///
-    /// **accessible-value is deprecated:**
-    /// Since 2.12. Use atk_value_get_value_and_text() to get
-    /// the value, and value-changed signal to be notified on their value
-    /// changes.
-    case accessibleValue = "accessible-value"
     /// Whether the widget or any of its descendents can accept
     /// the input focus.
     /// 
@@ -2679,327 +2963,7 @@ public extension ActionBarProtocol {
     }
 }
 
-public enum ActionBarSignalName: String, SignalNameProtocol {
-    /// The "active-descendant-changed" signal is emitted by an object
-    /// which has the state ATK_STATE_MANAGES_DESCENDANTS when the focus
-    /// object in the object changes. For instance, a table will emit the
-    /// signal when the cell in the table which has focus changes.
-    case activeDescendantChanged = "active-descendant-changed"
-    /// The signal "children-changed" is emitted when a child is added or
-    /// removed form an object. It supports two details: "add" and
-    /// "remove"
-    case childrenChanged = "children-changed"
-    /// Signals that all holders of a reference to the widget should release
-    /// the reference that they hold. May result in finalization of the widget
-    /// if all references are released.
-    /// 
-    /// This signal is not suitable for saving widget state.
-    case destroy = "destroy"
-    /// The `direction`-changed signal is emitted when the text direction
-    /// of a widget changes.
-    case directionChanged = "direction-changed"
-    /// The signal "focus-event" is emitted when an object gained or lost
-    /// focus.
-    ///
-    /// **focus-event is deprecated:**
-    /// Use the #AtkObject::state-change signal instead.
-    case focusEvent = "focus-event"
-    /// The `hide` signal is emitted when `widget` is hidden, for example with
-    /// `gtk_widget_hide()`.
-    case hide = "hide"
-    /// Gets emitted if keyboard navigation fails.
-    /// See `gtk_widget_keynav_failed()` for details.
-    case keynavFailed = "keynav-failed"
-    /// The `map` signal is emitted when `widget` is going to be mapped, that is
-    /// when the widget is visible (which is controlled with
-    /// `gtk_widget_set_visible()`) and all its parents up to the toplevel widget
-    /// are also visible.
-    /// 
-    /// The `map` signal can be used to determine whether a widget will be drawn,
-    /// for instance it can resume an animation that was stopped during the
-    /// emission of `GtkWidget::unmap`.
-    case map = "map"
-    /// The default handler for this signal activates `widget` if `group_cycling`
-    /// is `false`, or just makes `widget` grab focus if `group_cycling` is `true`.
-    case mnemonicActivate = "mnemonic-activate"
-    /// Emitted when the focus is moved.
-    case moveFocus = "move-focus"
-    /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
-    /// 
-    /// Note that getting this signal doesn’t itself guarantee that the value of
-    /// the property has actually changed. When it is emitted is determined by the
-    /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
-    /// in `notify` being emitted, even if the new value is the same as the old.
-    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
-    /// and common practice is to do that only when the value has actually changed.
-    /// 
-    /// This signal is typically used to obtain change notification for a
-    /// single property, by specifying the property name as a detail in the
-    /// `g_signal_connect()` call, like this:
-    /// (C Language Example):
-    /// ```C
-    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
-    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
-    ///                   text_view)
-    /// ```
-    /// It is important to note that you must use
-    /// [canonical parameter names](#canonical-parameter-names) as
-    /// detail strings for the notify signal.
-    case notify = "notify"
-    /// The signal "property-change" is emitted when an object's property
-    /// value changes. `arg1` contains an `AtkPropertyValues` with the name
-    /// and the new value of the property whose value has changed. Note
-    /// that, as with GObject notify, getting this signal does not
-    /// guarantee that the value of the property has actually changed; it
-    /// may also be emitted when the setter of the property is called to
-    /// reinstate the previous value.
-    /// 
-    /// Toolkit implementor note: ATK implementors should use
-    /// `g_object_notify()` to emit property-changed
-    /// notifications. `AtkObject::property`-changed is needed by the
-    /// implementation of `atk_add_global_event_listener()` because GObject
-    /// notify doesn't support emission hooks.
-    case propertyChange = "property-change"
-    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
-    /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
-    /// focus in keyboard mode.
-    /// 
-    /// Using the given coordinates, the signal handler should determine
-    /// whether a tooltip should be shown for `widget`. If this is the case
-    /// `true` should be returned, `false` otherwise.  Note that if
-    /// `keyboard_mode` is `true`, the values of `x` and `y` are undefined and
-    /// should not be used.
-    /// 
-    /// The signal handler is free to manipulate `tooltip` with the therefore
-    /// destined function calls.
-    case queryTooltip = "query-tooltip"
-    /// The `realize` signal is emitted when `widget` is associated with a
-    /// `GdkSurface`, which means that `gtk_widget_realize()` has been called or the
-    /// widget has been mapped (that is, it is going to be drawn).
-    case realize = "realize"
-    /// The `show` signal is emitted when `widget` is shown, for example with
-    /// `gtk_widget_show()`.
-    case show = "show"
-    /// The "state-change" signal is emitted when an object's state
-    /// changes.  The detail value identifies the state type which has
-    /// changed.
-    case stateChange = "state-change"
-    /// The `state`-flags-changed signal is emitted when the widget state
-    /// changes, see `gtk_widget_get_state_flags()`.
-    case stateFlagsChanged = "state-flags-changed"
-    /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
-    /// means that either it or any of its parents up to the toplevel widget have
-    /// been set as hidden.
-    /// 
-    /// As `unmap` indicates that a widget will not be shown any longer, it can be
-    /// used to, for example, stop an animation on the widget.
-    case unmap = "unmap"
-    /// The `unrealize` signal is emitted when the `GdkSurface` associated with
-    /// `widget` is destroyed, which means that `gtk_widget_unrealize()` has been
-    /// called or the widget has been unmapped (that is, it is going to be
-    /// hidden).
-    case unrealize = "unrealize"
-    /// The "visible-data-changed" signal is emitted when the visual
-    /// appearance of the object changed.
-    case visibleDataChanged = "visible-data-changed"
-    case notifyAccessibleComponentLayer = "notify::accessible-component-layer"
-    case notifyAccessibleComponentMdiZorder = "notify::accessible-component-mdi-zorder"
-    case notifyAccessibleDescription = "notify::accessible-description"
-    case notifyAccessibleHypertextNlinks = "notify::accessible-hypertext-nlinks"
-    case notifyAccessibleName = "notify::accessible-name"
-    case notifyAccessibleParent = "notify::accessible-parent"
-    case notifyAccessibleRole = "notify::accessible-role"
-    /// Table caption.
-    ///
-    /// **accessible-table-caption is deprecated:**
-    /// Since 1.3. Use table-caption-object instead.
-    case notifyAccessibleTableCaption = "notify::accessible-table-caption"
-    case notifyAccessibleTableCaptionObject = "notify::accessible-table-caption-object"
-    /// Accessible table column description.
-    ///
-    /// **accessible-table-column-description is deprecated:**
-    /// Since 2.12. Use atk_table_get_column_description()
-    /// and atk_table_set_column_description() instead.
-    case notifyAccessibleTableColumnDescription = "notify::accessible-table-column-description"
-    /// Accessible table column header.
-    ///
-    /// **accessible-table-column-header is deprecated:**
-    /// Since 2.12. Use atk_table_get_column_header() and
-    /// atk_table_set_column_header() instead.
-    case notifyAccessibleTableColumnHeader = "notify::accessible-table-column-header"
-    /// Accessible table row description.
-    ///
-    /// **accessible-table-row-description is deprecated:**
-    /// Since 2.12. Use atk_table_get_row_description() and
-    /// atk_table_set_row_description() instead.
-    case notifyAccessibleTableRowDescription = "notify::accessible-table-row-description"
-    /// Accessible table row header.
-    ///
-    /// **accessible-table-row-header is deprecated:**
-    /// Since 2.12. Use atk_table_get_row_header() and
-    /// atk_table_set_row_header() instead.
-    case notifyAccessibleTableRowHeader = "notify::accessible-table-row-header"
-    case notifyAccessibleTableSummary = "notify::accessible-table-summary"
-    /// Numeric value of this object, in case being and AtkValue.
-    ///
-    /// **accessible-value is deprecated:**
-    /// Since 2.12. Use atk_value_get_value_and_text() to get
-    /// the value, and value-changed signal to be notified on their value
-    /// changes.
-    case notifyAccessibleValue = "notify::accessible-value"
-    /// Whether the widget or any of its descendents can accept
-    /// the input focus.
-    /// 
-    /// This property is meant to be set by widget implementations,
-    /// typically in their instance init function.
-    case notifyCanFocus = "notify::can-focus"
-    case notifyCanTarget = "notify::can-target"
-    /// A list of css classes applied to this widget.
-    case notifyCssClasses = "notify::css-classes"
-    /// The name of this widget in the CSS tree.
-    /// 
-    /// This property is meant to be set by widget implementations,
-    /// typically in their instance init function.
-    case notifyCssName = "notify::css-name"
-    /// The cursor used by `widget`. See `gtk_widget_set_cursor()` for details.
-    case notifyCursor = "notify::cursor"
-    /// Whether the widget should grab focus when it is clicked with the mouse.
-    /// 
-    /// This property is only relevant for widgets that can take focus.
-    case notifyFocusOnClick = "notify::focus-on-click"
-    /// Whether this widget itself will accept the input focus.
-    case notifyFocusable = "notify::focusable"
-    /// How to distribute horizontal space if widget gets extra space, see `GtkAlign`
-    case notifyHalign = "notify::halign"
-    case notifyHasDefault = "notify::has-default"
-    case notifyHasFocus = "notify::has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
-    /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
-    /// whether it will provide a tooltip or not.
-    case notifyHasTooltip = "notify::has-tooltip"
-    case notifyHeightRequest = "notify::height-request"
-    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
-    case notifyHexpand = "notify::hexpand"
-    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
-    case notifyHexpandSet = "notify::hexpand-set"
-    /// The `GtkLayoutManager` instance to use to compute the preferred size
-    /// of the widget, and allocate its children.
-    /// 
-    /// This property is meant to be set by widget implementations,
-    /// typically in their instance init function.
-    case notifyLayoutManager = "notify::layout-manager"
-    /// Margin on bottom side of widget.
-    /// 
-    /// This property adds margin outside of the widget's normal size
-    /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
-    case notifyMarginBottom = "notify::margin-bottom"
-    /// Margin on end of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
-    /// 
-    /// This property adds margin outside of the widget's normal size
-    /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
-    case notifyMarginEnd = "notify::margin-end"
-    /// Margin on start of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
-    /// 
-    /// This property adds margin outside of the widget's normal size
-    /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
-    case notifyMarginStart = "notify::margin-start"
-    /// Margin on top side of widget.
-    /// 
-    /// This property adds margin outside of the widget's normal size
-    /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
-    case notifyMarginTop = "notify::margin-top"
-    case notifyName = "notify::name"
-    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
-    /// more details about window opacity.
-    case notifyOpacity = "notify::opacity"
-    /// How content outside the widget's content area is treated.
-    /// 
-    /// This property is meant to be set by widget implementations,
-    /// typically in their instance init function.
-    case notifyOverflow = "notify::overflow"
-    case notifyParent = "notify::parent"
-    case notifyReceivesDefault = "notify::receives-default"
-    case notifyRevealed = "notify::revealed"
-    /// The `GtkRoot` widget of the widget tree containing this widget or `nil` if
-    /// the widget is not contained in a root widget.
-    case notifyRoot = "notify::root"
-    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
-    /// more details about widget scaling.
-    case notifyScaleFactor = "notify::scale-factor"
-    case notifySensitive = "notify::sensitive"
-    /// Sets the text of tooltip to be the given string, which is marked up
-    /// with the [Pango text markup language](#PangoMarkupFormat).
-    /// Also see `gtk_tooltip_set_markup()`.
-    /// 
-    /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
-    /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
-    /// are set, the last one wins.
-    case notifyTooltipMarkup = "notify::tooltip-markup"
-    /// Sets the text of tooltip to be the given string.
-    /// 
-    /// Also see `gtk_tooltip_set_text()`.
-    /// 
-    /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
-    /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
-    /// are set, the last one wins.
-    case notifyTooltipText = "notify::tooltip-text"
-    /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
-    case notifyValign = "notify::valign"
-    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
-    case notifyVexpand = "notify::vexpand"
-    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
-    case notifyVexpandSet = "notify::vexpand-set"
-    case notifyVisible = "notify::visible"
-    case notifyWidthRequest = "notify::width-request"
-}
-
-public extension ActionBarProtocol {
-    /// Connect a `ActionBarSignalName` signal to a given signal handler.
-    /// - Parameter signal: the signal to connect
-    /// - Parameter flags: signal connection flags
-    /// - Parameter handler: signal handler to use
-    /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @inlinable @discardableResult func connect(signal kind: ActionBarSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
-            let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
-            let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
-                if let swift = UnsafeRawPointer($0) {
-                    let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
-                    holder.release()
-                }
-                let _ = $1
-            }, connectFlags: flags)
-            return rv
-        }
-        let rv = _connect(signal: kind.name, flags: f, data: ClosureHolder(handler)) {
-            let ptr = UnsafeRawPointer($1)
-            let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(ptr).takeUnretainedValue()
-            holder.call(())
-        }
-        return rv
-    }
-}
-
-// MARK: ActionBar Class: ActionBarProtocol extension (methods and fields)
+// MARK: ActionBar has no signals// MARK: ActionBar Class: ActionBarProtocol extension (methods and fields)
 public extension ActionBarProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkActionBar` instance.
     @inlinable var action_bar_ptr: UnsafeMutablePointer<GtkActionBar>! { return ptr?.assumingMemoryBound(to: GtkActionBar.self) }
@@ -3114,7 +3078,7 @@ public protocol ActivateActionProtocol: ShortcutActionProtocol {
 /// Use `ActivateActionRef` only as an `unowned` reference to an existing `GtkActivateAction` instance.
 ///
 /// A `GtkShortcutAction` that calls `gtk_widget_activate()`.
-public struct ActivateActionRef: ActivateActionProtocol {
+public struct ActivateActionRef: ActivateActionProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkActivateAction` instance.
     /// For type-safe access, use the generated, typed pointer `activate_action_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer!
@@ -3159,6 +3123,9 @@ public extension ActivateActionRef {
     @inlinable init<T: ActivateActionProtocol>(_ other: T) {
         ptr = other.ptr
     }
+
+    /// This factory is syntactic sugar for setting weak pointers wrapped in `GWeak<T>`
+    @inlinable static func unowned<T: ActivateActionProtocol>(_ other: T) -> ActivateActionRef { ActivateActionRef(other) }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActivateActionProtocol`.**
@@ -3328,64 +3295,7 @@ open class ActivateAction: ShortcutAction, ActivateActionProtocol {
 
 // MARK: no ActivateAction properties
 
-public enum ActivateActionSignalName: String, SignalNameProtocol {
-    /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
-    /// 
-    /// Note that getting this signal doesn’t itself guarantee that the value of
-    /// the property has actually changed. When it is emitted is determined by the
-    /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
-    /// in `notify` being emitted, even if the new value is the same as the old.
-    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
-    /// and common practice is to do that only when the value has actually changed.
-    /// 
-    /// This signal is typically used to obtain change notification for a
-    /// single property, by specifying the property name as a detail in the
-    /// `g_signal_connect()` call, like this:
-    /// (C Language Example):
-    /// ```C
-    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
-    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
-    ///                   text_view)
-    /// ```
-    /// It is important to note that you must use
-    /// [canonical parameter names](#canonical-parameter-names) as
-    /// detail strings for the notify signal.
-    case notify = "notify"
-
-}
-
-public extension ActivateActionProtocol {
-    /// Connect a `ActivateActionSignalName` signal to a given signal handler.
-    /// - Parameter signal: the signal to connect
-    /// - Parameter flags: signal connection flags
-    /// - Parameter handler: signal handler to use
-    /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @inlinable @discardableResult func connect(signal kind: ActivateActionSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
-            let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
-            let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
-                if let swift = UnsafeRawPointer($0) {
-                    let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
-                    holder.release()
-                }
-                let _ = $1
-            }, connectFlags: flags)
-            return rv
-        }
-        let rv = _connect(signal: kind.name, flags: f, data: ClosureHolder(handler)) {
-            let ptr = UnsafeRawPointer($1)
-            let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(ptr).takeUnretainedValue()
-            holder.call(())
-        }
-        return rv
-    }
-}
-
-// MARK: ActivateAction Class: ActivateActionProtocol extension (methods and fields)
+// MARK: ActivateAction has no signals// MARK: ActivateAction Class: ActivateActionProtocol extension (methods and fields)
 public extension ActivateActionProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkActivateAction` instance.
     @inlinable var activate_action_ptr: UnsafeMutablePointer<GtkActivateAction>! { return ptr?.assumingMemoryBound(to: GtkActivateAction.self) }
@@ -3430,7 +3340,7 @@ public protocol AdjustmentProtocol: GLibObject.InitiallyUnownedProtocol {
 /// 
 /// The `GtkAdjustment` object does not update the value itself. Instead
 /// it is left up to the owner of the `GtkAdjustment` to control the value.
-public struct AdjustmentRef: AdjustmentProtocol {
+public struct AdjustmentRef: AdjustmentProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkAdjustment` instance.
     /// For type-safe access, use the generated, typed pointer `adjustment_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer!
@@ -3475,6 +3385,9 @@ public extension AdjustmentRef {
     @inlinable init<T: AdjustmentProtocol>(_ other: T) {
         ptr = other.ptr
     }
+
+    /// This factory is syntactic sugar for setting weak pointers wrapped in `GWeak<T>`
+    @inlinable static func unowned<T: AdjustmentProtocol>(_ other: T) -> AdjustmentRef { AdjustmentRef(other) }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AdjustmentProtocol`.**
@@ -3653,57 +3566,13 @@ open class Adjustment: GLibObject.InitiallyUnowned, AdjustmentProtocol {
     @inlinable public init( value: CDouble, lower: CDouble, upper: CDouble, stepIncrement: CDouble, pageIncrement: CDouble, pageSize: CDouble) {
         let rv = gtk_adjustment_new(value, lower, upper, stepIncrement, pageIncrement, pageSize)
         super.init(gpointer: gpointer(rv))
+        if typeIsA(type: self.type, isAType: InitiallyUnownedClassRef.metatypeReference) { _ = self.refSink() } 
     }
 
 
 }
 
 public enum AdjustmentPropertyName: String, PropertyNameProtocol {
-    case accessibleComponentLayer = "accessible-component-layer"
-    case accessibleComponentMdiZorder = "accessible-component-mdi-zorder"
-    case accessibleDescription = "accessible-description"
-    case accessibleHypertextNlinks = "accessible-hypertext-nlinks"
-    case accessibleName = "accessible-name"
-    case accessibleParent = "accessible-parent"
-    case accessibleRole = "accessible-role"
-    /// Table caption.
-    ///
-    /// **accessible-table-caption is deprecated:**
-    /// Since 1.3. Use table-caption-object instead.
-    case accessibleTableCaption = "accessible-table-caption"
-    case accessibleTableCaptionObject = "accessible-table-caption-object"
-    /// Accessible table column description.
-    ///
-    /// **accessible-table-column-description is deprecated:**
-    /// Since 2.12. Use atk_table_get_column_description()
-    /// and atk_table_set_column_description() instead.
-    case accessibleTableColumnDescription = "accessible-table-column-description"
-    /// Accessible table column header.
-    ///
-    /// **accessible-table-column-header is deprecated:**
-    /// Since 2.12. Use atk_table_get_column_header() and
-    /// atk_table_set_column_header() instead.
-    case accessibleTableColumnHeader = "accessible-table-column-header"
-    /// Accessible table row description.
-    ///
-    /// **accessible-table-row-description is deprecated:**
-    /// Since 2.12. Use atk_table_get_row_description() and
-    /// atk_table_set_row_description() instead.
-    case accessibleTableRowDescription = "accessible-table-row-description"
-    /// Accessible table row header.
-    ///
-    /// **accessible-table-row-header is deprecated:**
-    /// Since 2.12. Use atk_table_get_row_header() and
-    /// atk_table_set_row_header() instead.
-    case accessibleTableRowHeader = "accessible-table-row-header"
-    case accessibleTableSummary = "accessible-table-summary"
-    /// Numeric value of this object, in case being and AtkValue.
-    ///
-    /// **accessible-value is deprecated:**
-    /// Since 2.12. Use atk_value_get_value_and_text() to get
-    /// the value, and value-changed signal to be notified on their value
-    /// changes.
-    case accessibleValue = "accessible-value"
     /// The minimum value of the adjustment.
     case lower = "lower"
     /// The page increment of the adjustment.
@@ -3777,25 +3646,51 @@ public extension AdjustmentProtocol {
     }
 }
 
-public enum AdjustmentSignalName: String, SignalNameProtocol {
-    /// The "active-descendant-changed" signal is emitted by an object
-    /// which has the state ATK_STATE_MANAGES_DESCENDANTS when the focus
-    /// object in the object changes. For instance, a table will emit the
-    /// signal when the cell in the table which has focus changes.
-    case activeDescendantChanged = "active-descendant-changed"
+// MARK: Signals of Adjustment
+public extension AdjustmentProtocol {
     /// Emitted when one or more of the `GtkAdjustment` properties have been
     /// changed, other than the `GtkAdjustment:value` property.
-    case changed = "changed"
-    /// The signal "children-changed" is emitted when a child is added or
-    /// removed form an object. It supports two details: "add" and
-    /// "remove"
-    case childrenChanged = "children-changed"
-    /// The signal "focus-event" is emitted when an object gained or lost
-    /// focus.
-    ///
-    /// **focus-event is deprecated:**
-    /// Use the #AtkObject::state-change signal instead.
-    case focusEvent = "focus-event"
+    /// - Note: Representation of signal named `changed`
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    @discardableResult
+    func onChanged(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: AdjustmentRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder<AdjustmentRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer) -> Void = { unownedSelf, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(AdjustmentRef(raw: unownedSelf))
+            return output
+        }
+        return signalConnectData(
+            detailedSignal: "changed", 
+            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            connectFlags: flags
+        )
+    }
+    
+    /// Emitted when the `GtkAdjustment:value` property has been changed.
+    /// - Note: Representation of signal named `value-changed`
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    @discardableResult
+    func onValueChanged(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: AdjustmentRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder<AdjustmentRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer) -> Void = { unownedSelf, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(AdjustmentRef(raw: unownedSelf))
+            return output
+        }
+        return signalConnectData(
+            detailedSignal: "value-changed", 
+            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            connectFlags: flags
+        )
+    }
+    
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
@@ -3820,121 +3715,252 @@ public enum AdjustmentSignalName: String, SignalNameProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    case notify = "notify"
-    /// The signal "property-change" is emitted when an object's property
-    /// value changes. `arg1` contains an `AtkPropertyValues` with the name
-    /// and the new value of the property whose value has changed. Note
-    /// that, as with GObject notify, getting this signal does not
-    /// guarantee that the value of the property has actually changed; it
-    /// may also be emitted when the setter of the property is called to
-    /// reinstate the previous value.
-    /// 
-    /// Toolkit implementor note: ATK implementors should use
-    /// `g_object_notify()` to emit property-changed
-    /// notifications. `AtkObject::property`-changed is needed by the
-    /// implementation of `atk_add_global_event_listener()` because GObject
-    /// notify doesn't support emission hooks.
-    case propertyChange = "property-change"
-    /// The "state-change" signal is emitted when an object's state
-    /// changes.  The detail value identifies the state type which has
-    /// changed.
-    case stateChange = "state-change"
-    /// Emitted when the `GtkAdjustment:value` property has been changed.
-    case valueChanged = "value-changed"
-    /// The "visible-data-changed" signal is emitted when the visual
-    /// appearance of the object changed.
-    case visibleDataChanged = "visible-data-changed"
-    case notifyAccessibleComponentLayer = "notify::accessible-component-layer"
-    case notifyAccessibleComponentMdiZorder = "notify::accessible-component-mdi-zorder"
-    case notifyAccessibleDescription = "notify::accessible-description"
-    case notifyAccessibleHypertextNlinks = "notify::accessible-hypertext-nlinks"
-    case notifyAccessibleName = "notify::accessible-name"
-    case notifyAccessibleParent = "notify::accessible-parent"
-    case notifyAccessibleRole = "notify::accessible-role"
-    /// Table caption.
-    ///
-    /// **accessible-table-caption is deprecated:**
-    /// Since 1.3. Use table-caption-object instead.
-    case notifyAccessibleTableCaption = "notify::accessible-table-caption"
-    case notifyAccessibleTableCaptionObject = "notify::accessible-table-caption-object"
-    /// Accessible table column description.
-    ///
-    /// **accessible-table-column-description is deprecated:**
-    /// Since 2.12. Use atk_table_get_column_description()
-    /// and atk_table_set_column_description() instead.
-    case notifyAccessibleTableColumnDescription = "notify::accessible-table-column-description"
-    /// Accessible table column header.
-    ///
-    /// **accessible-table-column-header is deprecated:**
-    /// Since 2.12. Use atk_table_get_column_header() and
-    /// atk_table_set_column_header() instead.
-    case notifyAccessibleTableColumnHeader = "notify::accessible-table-column-header"
-    /// Accessible table row description.
-    ///
-    /// **accessible-table-row-description is deprecated:**
-    /// Since 2.12. Use atk_table_get_row_description() and
-    /// atk_table_set_row_description() instead.
-    case notifyAccessibleTableRowDescription = "notify::accessible-table-row-description"
-    /// Accessible table row header.
-    ///
-    /// **accessible-table-row-header is deprecated:**
-    /// Since 2.12. Use atk_table_get_row_header() and
-    /// atk_table_set_row_header() instead.
-    case notifyAccessibleTableRowHeader = "notify::accessible-table-row-header"
-    case notifyAccessibleTableSummary = "notify::accessible-table-summary"
-    /// Numeric value of this object, in case being and AtkValue.
-    ///
-    /// **accessible-value is deprecated:**
-    /// Since 2.12. Use atk_value_get_value_and_text() to get
-    /// the value, and value-changed signal to be notified on their value
-    /// changes.
-    case notifyAccessibleValue = "notify::accessible-value"
-    /// The minimum value of the adjustment.
-    case notifyLower = "notify::lower"
-    /// The page increment of the adjustment.
-    case notifyPageIncrement = "notify::page-increment"
-    /// The page size of the adjustment.
-    /// Note that the page-size is irrelevant and should be set to zero
-    /// if the adjustment is used for a simple scalar value, e.g. in a
-    /// `GtkSpinButton`.
-    case notifyPageSize = "notify::page-size"
-    /// The step increment of the adjustment.
-    case notifyStepIncrement = "notify::step-increment"
-    /// The maximum value of the adjustment.
-    /// Note that values will be restricted by
-    /// `upper - page-size` if the page-size
-    /// property is nonzero.
-    case notifyUpper = "notify::upper"
-    /// The value of the adjustment.
-    case notifyValue = "notify::value"
-}
-
-public extension AdjustmentProtocol {
-    /// Connect a `AdjustmentSignalName` signal to a given signal handler.
-    /// - Parameter signal: the signal to connect
-    /// - Parameter flags: signal connection flags
-    /// - Parameter handler: signal handler to use
-    /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @inlinable @discardableResult func connect(signal kind: AdjustmentSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
-            let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
-            let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
-                if let swift = UnsafeRawPointer($0) {
-                    let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
-                    holder.release()
-                }
-                let _ = $1
-            }, connectFlags: flags)
-            return rv
+    /// - Note: Representation of signal named `notify::lower`
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter pspec: the `GParamSpec` of the property which changed.
+    @discardableResult
+    func onNotifyLower(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: AdjustmentRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder2<AdjustmentRef, ParamSpecRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(AdjustmentRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
+            return output
         }
-        let rv = _connect(signal: kind.name, flags: f, data: ClosureHolder(handler)) {
-            let ptr = UnsafeRawPointer($1)
-            let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(ptr).takeUnretainedValue()
-            holder.call(())
-        }
-        return rv
+        return signalConnectData(
+            detailedSignal: "notify::lower", 
+            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            connectFlags: flags
+        )
     }
+    
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    /// - Note: Representation of signal named `notify::page-increment`
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter pspec: the `GParamSpec` of the property which changed.
+    @discardableResult
+    func onNotifyPageIncrement(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: AdjustmentRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder2<AdjustmentRef, ParamSpecRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(AdjustmentRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
+            return output
+        }
+        return signalConnectData(
+            detailedSignal: "notify::page-increment", 
+            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            connectFlags: flags
+        )
+    }
+    
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    /// - Note: Representation of signal named `notify::page-size`
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter pspec: the `GParamSpec` of the property which changed.
+    @discardableResult
+    func onNotifyPageSize(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: AdjustmentRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder2<AdjustmentRef, ParamSpecRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(AdjustmentRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
+            return output
+        }
+        return signalConnectData(
+            detailedSignal: "notify::page-size", 
+            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            connectFlags: flags
+        )
+    }
+    
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    /// - Note: Representation of signal named `notify::step-increment`
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter pspec: the `GParamSpec` of the property which changed.
+    @discardableResult
+    func onNotifyStepIncrement(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: AdjustmentRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder2<AdjustmentRef, ParamSpecRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(AdjustmentRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
+            return output
+        }
+        return signalConnectData(
+            detailedSignal: "notify::step-increment", 
+            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            connectFlags: flags
+        )
+    }
+    
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    /// - Note: Representation of signal named `notify::upper`
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter pspec: the `GParamSpec` of the property which changed.
+    @discardableResult
+    func onNotifyUpper(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: AdjustmentRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder2<AdjustmentRef, ParamSpecRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(AdjustmentRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
+            return output
+        }
+        return signalConnectData(
+            detailedSignal: "notify::upper", 
+            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            connectFlags: flags
+        )
+    }
+    
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    /// - Note: Representation of signal named `notify::value`
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter pspec: the `GParamSpec` of the property which changed.
+    @discardableResult
+    func onNotifyValue(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: AdjustmentRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder2<AdjustmentRef, ParamSpecRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(AdjustmentRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
+            return output
+        }
+        return signalConnectData(
+            detailedSignal: "notify::value", 
+            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            connectFlags: flags
+        )
+    }
+    
 }
 
 // MARK: Adjustment Class: AdjustmentProtocol extension (methods and fields)
@@ -4241,7 +4267,7 @@ public protocol AlternativeTriggerProtocol: ShortcutTriggerProtocol {
 ///
 /// A `GtkShortcutTrigger` that triggers when either of two
 /// `GtkShortcutTriggers` trigger.
-public struct AlternativeTriggerRef: AlternativeTriggerProtocol {
+public struct AlternativeTriggerRef: AlternativeTriggerProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkAlternativeTrigger` instance.
     /// For type-safe access, use the generated, typed pointer `alternative_trigger_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer!
@@ -4286,6 +4312,9 @@ public extension AlternativeTriggerRef {
     @inlinable init<T: AlternativeTriggerProtocol>(_ other: T) {
         ptr = other.ptr
     }
+
+    /// This factory is syntactic sugar for setting weak pointers wrapped in `GWeak<T>`
+    @inlinable static func unowned<T: AlternativeTriggerProtocol>(_ other: T) -> AlternativeTriggerRef { AlternativeTriggerRef(other) }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AlternativeTriggerProtocol`.**
@@ -4467,6 +4496,7 @@ open class AlternativeTrigger: ShortcutTrigger, AlternativeTriggerProtocol {
     @inlinable public init<ShortcutTriggerT: ShortcutTriggerProtocol>( first: ShortcutTriggerT, second: ShortcutTriggerT) {
         let rv = gtk_alternative_trigger_new(first.shortcut_trigger_ptr, second.shortcut_trigger_ptr)
         super.init(gpointer: gpointer(rv))
+        if typeIsA(type: self.type, isAType: InitiallyUnownedClassRef.metatypeReference) { _ = self.refSink() } 
     }
 
 
@@ -4532,67 +4562,7 @@ public extension AlternativeTriggerProtocol {
     }
 }
 
-public enum AlternativeTriggerSignalName: String, SignalNameProtocol {
-    /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
-    /// 
-    /// Note that getting this signal doesn’t itself guarantee that the value of
-    /// the property has actually changed. When it is emitted is determined by the
-    /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
-    /// in `notify` being emitted, even if the new value is the same as the old.
-    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
-    /// and common practice is to do that only when the value has actually changed.
-    /// 
-    /// This signal is typically used to obtain change notification for a
-    /// single property, by specifying the property name as a detail in the
-    /// `g_signal_connect()` call, like this:
-    /// (C Language Example):
-    /// ```C
-    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
-    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
-    ///                   text_view)
-    /// ```
-    /// It is important to note that you must use
-    /// [canonical parameter names](#canonical-parameter-names) as
-    /// detail strings for the notify signal.
-    case notify = "notify"
-    /// The first `GtkShortcutTrigger` to check.
-    case notifyFirst = "notify::first"
-    /// The second `GtkShortcutTrigger` to check.
-    case notifySecond = "notify::second"
-}
-
-public extension AlternativeTriggerProtocol {
-    /// Connect a `AlternativeTriggerSignalName` signal to a given signal handler.
-    /// - Parameter signal: the signal to connect
-    /// - Parameter flags: signal connection flags
-    /// - Parameter handler: signal handler to use
-    /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @inlinable @discardableResult func connect(signal kind: AlternativeTriggerSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
-            let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
-            let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
-                if let swift = UnsafeRawPointer($0) {
-                    let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
-                    holder.release()
-                }
-                let _ = $1
-            }, connectFlags: flags)
-            return rv
-        }
-        let rv = _connect(signal: kind.name, flags: f, data: ClosureHolder(handler)) {
-            let ptr = UnsafeRawPointer($1)
-            let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(ptr).takeUnretainedValue()
-            holder.call(())
-        }
-        return rv
-    }
-}
-
-// MARK: AlternativeTrigger Class: AlternativeTriggerProtocol extension (methods and fields)
+// MARK: AlternativeTrigger has no signals// MARK: AlternativeTrigger Class: AlternativeTriggerProtocol extension (methods and fields)
 public extension AlternativeTriggerProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkAlternativeTrigger` instance.
     @inlinable var alternative_trigger_ptr: UnsafeMutablePointer<GtkAlternativeTrigger>! { return ptr?.assumingMemoryBound(to: GtkAlternativeTrigger.self) }
@@ -4661,7 +4631,7 @@ public protocol AnyFilterProtocol: MultiFilterProtocol {
 /// Use `AnyFilterRef` only as an `unowned` reference to an existing `GtkAnyFilter` instance.
 ///
 
-public struct AnyFilterRef: AnyFilterProtocol {
+public struct AnyFilterRef: AnyFilterProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkAnyFilter` instance.
     /// For type-safe access, use the generated, typed pointer `any_filter_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer!
@@ -4706,6 +4676,9 @@ public extension AnyFilterRef {
     @inlinable init<T: AnyFilterProtocol>(_ other: T) {
         ptr = other.ptr
     }
+
+    /// This factory is syntactic sugar for setting weak pointers wrapped in `GWeak<T>`
+    @inlinable static func unowned<T: AnyFilterProtocol>(_ other: T) -> AnyFilterRef { AnyFilterRef(other) }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AnyFilterProtocol`.**
@@ -4890,6 +4863,7 @@ open class AnyFilter: MultiFilter, AnyFilterProtocol {
     @inlinable public init() {
         let rv = gtk_any_filter_new()
         super.init(gpointer: gpointer(rv))
+        if typeIsA(type: self.type, isAType: InitiallyUnownedClassRef.metatypeReference) { _ = self.refSink() } 
     }
 
 
@@ -4897,72 +4871,7 @@ open class AnyFilter: MultiFilter, AnyFilterProtocol {
 
 // MARK: no AnyFilter properties
 
-public enum AnyFilterSignalName: String, SignalNameProtocol {
-    /// This signal is emitted whenever the filter changed. Users of the filter
-    /// should then check items again via `gtk_filter_match()`.
-    /// 
-    /// `GtkFilterListModel` handles this signal automatically.
-    /// 
-    /// Depending on the `change` parameter, not all items need to be changed, but
-    /// only some. Refer to the `GtkFilterChange` documentation for details.
-    case changed = "changed"
-    /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
-    /// 
-    /// Note that getting this signal doesn’t itself guarantee that the value of
-    /// the property has actually changed. When it is emitted is determined by the
-    /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
-    /// in `notify` being emitted, even if the new value is the same as the old.
-    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
-    /// and common practice is to do that only when the value has actually changed.
-    /// 
-    /// This signal is typically used to obtain change notification for a
-    /// single property, by specifying the property name as a detail in the
-    /// `g_signal_connect()` call, like this:
-    /// (C Language Example):
-    /// ```C
-    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
-    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
-    ///                   text_view)
-    /// ```
-    /// It is important to note that you must use
-    /// [canonical parameter names](#canonical-parameter-names) as
-    /// detail strings for the notify signal.
-    case notify = "notify"
-
-}
-
-public extension AnyFilterProtocol {
-    /// Connect a `AnyFilterSignalName` signal to a given signal handler.
-    /// - Parameter signal: the signal to connect
-    /// - Parameter flags: signal connection flags
-    /// - Parameter handler: signal handler to use
-    /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @inlinable @discardableResult func connect(signal kind: AnyFilterSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
-            let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
-            let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
-                if let swift = UnsafeRawPointer($0) {
-                    let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
-                    holder.release()
-                }
-                let _ = $1
-            }, connectFlags: flags)
-            return rv
-        }
-        let rv = _connect(signal: kind.name, flags: f, data: ClosureHolder(handler)) {
-            let ptr = UnsafeRawPointer($1)
-            let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(ptr).takeUnretainedValue()
-            holder.call(())
-        }
-        return rv
-    }
-}
-
-// MARK: AnyFilter Class: AnyFilterProtocol extension (methods and fields)
+// MARK: AnyFilter has no signals// MARK: AnyFilter Class: AnyFilterProtocol extension (methods and fields)
 public extension AnyFilterProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkAnyFilter` instance.
     @inlinable var any_filter_ptr: UnsafeMutablePointer<GtkAnyFilter>! { return ptr?.assumingMemoryBound(to: GtkAnyFilter.self) }
@@ -5045,7 +4954,7 @@ public protocol AppChooserButtonProtocol: WidgetProtocol, AppChooserProtocol {
 /// # CSS nodes
 /// 
 /// GtkAppChooserButton has a single CSS node with the name “appchooserbutton”.
-public struct AppChooserButtonRef: AppChooserButtonProtocol {
+public struct AppChooserButtonRef: AppChooserButtonProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkAppChooserButton` instance.
     /// For type-safe access, use the generated, typed pointer `app_chooser_button_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer!
@@ -5090,6 +4999,9 @@ public extension AppChooserButtonRef {
     @inlinable init<T: AppChooserButtonProtocol>(_ other: T) {
         ptr = other.ptr
     }
+
+    /// This factory is syntactic sugar for setting weak pointers wrapped in `GWeak<T>`
+    @inlinable static func unowned<T: AppChooserButtonProtocol>(_ other: T) -> AppChooserButtonRef { AppChooserButtonRef(other) }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppChooserButtonProtocol`.**
@@ -5289,57 +5201,13 @@ open class AppChooserButton: Widget, AppChooserButtonProtocol {
     @inlinable public init( contentType: UnsafePointer<CChar>!) {
         let rv = gtk_app_chooser_button_new(contentType)
         super.init(gpointer: gpointer(rv))
+        if typeIsA(type: self.type, isAType: InitiallyUnownedClassRef.metatypeReference) { _ = self.refSink() } 
     }
 
 
 }
 
 public enum AppChooserButtonPropertyName: String, PropertyNameProtocol {
-    case accessibleComponentLayer = "accessible-component-layer"
-    case accessibleComponentMdiZorder = "accessible-component-mdi-zorder"
-    case accessibleDescription = "accessible-description"
-    case accessibleHypertextNlinks = "accessible-hypertext-nlinks"
-    case accessibleName = "accessible-name"
-    case accessibleParent = "accessible-parent"
-    case accessibleRole = "accessible-role"
-    /// Table caption.
-    ///
-    /// **accessible-table-caption is deprecated:**
-    /// Since 1.3. Use table-caption-object instead.
-    case accessibleTableCaption = "accessible-table-caption"
-    case accessibleTableCaptionObject = "accessible-table-caption-object"
-    /// Accessible table column description.
-    ///
-    /// **accessible-table-column-description is deprecated:**
-    /// Since 2.12. Use atk_table_get_column_description()
-    /// and atk_table_set_column_description() instead.
-    case accessibleTableColumnDescription = "accessible-table-column-description"
-    /// Accessible table column header.
-    ///
-    /// **accessible-table-column-header is deprecated:**
-    /// Since 2.12. Use atk_table_get_column_header() and
-    /// atk_table_set_column_header() instead.
-    case accessibleTableColumnHeader = "accessible-table-column-header"
-    /// Accessible table row description.
-    ///
-    /// **accessible-table-row-description is deprecated:**
-    /// Since 2.12. Use atk_table_get_row_description() and
-    /// atk_table_set_row_description() instead.
-    case accessibleTableRowDescription = "accessible-table-row-description"
-    /// Accessible table row header.
-    ///
-    /// **accessible-table-row-header is deprecated:**
-    /// Since 2.12. Use atk_table_get_row_header() and
-    /// atk_table_set_row_header() instead.
-    case accessibleTableRowHeader = "accessible-table-row-header"
-    case accessibleTableSummary = "accessible-table-summary"
-    /// Numeric value of this object, in case being and AtkValue.
-    ///
-    /// **accessible-value is deprecated:**
-    /// Since 2.12. Use atk_value_get_value_and_text() to get
-    /// the value, and value-changed signal to be notified on their value
-    /// changes.
-    case accessibleValue = "accessible-value"
     /// Whether the widget or any of its descendents can accept
     /// the input focus.
     /// 
@@ -5525,58 +5393,54 @@ public extension AppChooserButtonProtocol {
     }
 }
 
-public enum AppChooserButtonSignalName: String, SignalNameProtocol {
-    /// The "active-descendant-changed" signal is emitted by an object
-    /// which has the state ATK_STATE_MANAGES_DESCENDANTS when the focus
-    /// object in the object changes. For instance, a table will emit the
-    /// signal when the cell in the table which has focus changes.
-    case activeDescendantChanged = "active-descendant-changed"
+// MARK: Signals of AppChooserButton
+public extension AppChooserButtonProtocol {
     /// Emitted when the active application on the `GtkAppChooserButton`
     /// changes.
-    case changed = "changed"
-    /// The signal "children-changed" is emitted when a child is added or
-    /// removed form an object. It supports two details: "add" and
-    /// "remove"
-    case childrenChanged = "children-changed"
+    /// - Note: Representation of signal named `changed`
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    @discardableResult
+    func onChanged(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: AppChooserButtonRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder<AppChooserButtonRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer) -> Void = { unownedSelf, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(AppChooserButtonRef(raw: unownedSelf))
+            return output
+        }
+        return signalConnectData(
+            detailedSignal: "changed", 
+            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            connectFlags: flags
+        )
+    }
+    
     /// Emitted when a custom item, previously added with
     /// `gtk_app_chooser_button_append_custom_item()`, is activated from the
     /// dropdown menu.
-    case customItemActivated = "custom-item-activated"
-    /// Signals that all holders of a reference to the widget should release
-    /// the reference that they hold. May result in finalization of the widget
-    /// if all references are released.
-    /// 
-    /// This signal is not suitable for saving widget state.
-    case destroy = "destroy"
-    /// The `direction`-changed signal is emitted when the text direction
-    /// of a widget changes.
-    case directionChanged = "direction-changed"
-    /// The signal "focus-event" is emitted when an object gained or lost
-    /// focus.
-    ///
-    /// **focus-event is deprecated:**
-    /// Use the #AtkObject::state-change signal instead.
-    case focusEvent = "focus-event"
-    /// The `hide` signal is emitted when `widget` is hidden, for example with
-    /// `gtk_widget_hide()`.
-    case hide = "hide"
-    /// Gets emitted if keyboard navigation fails.
-    /// See `gtk_widget_keynav_failed()` for details.
-    case keynavFailed = "keynav-failed"
-    /// The `map` signal is emitted when `widget` is going to be mapped, that is
-    /// when the widget is visible (which is controlled with
-    /// `gtk_widget_set_visible()`) and all its parents up to the toplevel widget
-    /// are also visible.
-    /// 
-    /// The `map` signal can be used to determine whether a widget will be drawn,
-    /// for instance it can resume an animation that was stopped during the
-    /// emission of `GtkWidget::unmap`.
-    case map = "map"
-    /// The default handler for this signal activates `widget` if `group_cycling`
-    /// is `false`, or just makes `widget` grab focus if `group_cycling` is `true`.
-    case mnemonicActivate = "mnemonic-activate"
-    /// Emitted when the focus is moved.
-    case moveFocus = "move-focus"
+    /// - Note: Representation of signal named `custom-item-activated`
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter itemName: the name of the activated item
+    @discardableResult
+    func onCustomItemActivated(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: AppChooserButtonRef, _ itemName: String) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder2<AppChooserButtonRef, String, Void>
+        let cCallback: @convention(c) (gpointer, UnsafeMutablePointer<gchar>?, gpointer) -> Void = { unownedSelf, arg1, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(AppChooserButtonRef(raw: unownedSelf), arg1.map({ String(cString: $0) })!)
+            return output
+        }
+        return signalConnectData(
+            detailedSignal: "custom-item-activated", 
+            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            connectFlags: flags
+        )
+    }
+    
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
@@ -5601,266 +5465,162 @@ public enum AppChooserButtonSignalName: String, SignalNameProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    case notify = "notify"
-    /// The signal "property-change" is emitted when an object's property
-    /// value changes. `arg1` contains an `AtkPropertyValues` with the name
-    /// and the new value of the property whose value has changed. Note
-    /// that, as with GObject notify, getting this signal does not
-    /// guarantee that the value of the property has actually changed; it
-    /// may also be emitted when the setter of the property is called to
-    /// reinstate the previous value.
-    /// 
-    /// Toolkit implementor note: ATK implementors should use
-    /// `g_object_notify()` to emit property-changed
-    /// notifications. `AtkObject::property`-changed is needed by the
-    /// implementation of `atk_add_global_event_listener()` because GObject
-    /// notify doesn't support emission hooks.
-    case propertyChange = "property-change"
-    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
-    /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
-    /// focus in keyboard mode.
-    /// 
-    /// Using the given coordinates, the signal handler should determine
-    /// whether a tooltip should be shown for `widget`. If this is the case
-    /// `true` should be returned, `false` otherwise.  Note that if
-    /// `keyboard_mode` is `true`, the values of `x` and `y` are undefined and
-    /// should not be used.
-    /// 
-    /// The signal handler is free to manipulate `tooltip` with the therefore
-    /// destined function calls.
-    case queryTooltip = "query-tooltip"
-    /// The `realize` signal is emitted when `widget` is associated with a
-    /// `GdkSurface`, which means that `gtk_widget_realize()` has been called or the
-    /// widget has been mapped (that is, it is going to be drawn).
-    case realize = "realize"
-    /// The `show` signal is emitted when `widget` is shown, for example with
-    /// `gtk_widget_show()`.
-    case show = "show"
-    /// The "state-change" signal is emitted when an object's state
-    /// changes.  The detail value identifies the state type which has
-    /// changed.
-    case stateChange = "state-change"
-    /// The `state`-flags-changed signal is emitted when the widget state
-    /// changes, see `gtk_widget_get_state_flags()`.
-    case stateFlagsChanged = "state-flags-changed"
-    /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
-    /// means that either it or any of its parents up to the toplevel widget have
-    /// been set as hidden.
-    /// 
-    /// As `unmap` indicates that a widget will not be shown any longer, it can be
-    /// used to, for example, stop an animation on the widget.
-    case unmap = "unmap"
-    /// The `unrealize` signal is emitted when the `GdkSurface` associated with
-    /// `widget` is destroyed, which means that `gtk_widget_unrealize()` has been
-    /// called or the widget has been unmapped (that is, it is going to be
-    /// hidden).
-    case unrealize = "unrealize"
-    /// The "visible-data-changed" signal is emitted when the visual
-    /// appearance of the object changed.
-    case visibleDataChanged = "visible-data-changed"
-    case notifyAccessibleComponentLayer = "notify::accessible-component-layer"
-    case notifyAccessibleComponentMdiZorder = "notify::accessible-component-mdi-zorder"
-    case notifyAccessibleDescription = "notify::accessible-description"
-    case notifyAccessibleHypertextNlinks = "notify::accessible-hypertext-nlinks"
-    case notifyAccessibleName = "notify::accessible-name"
-    case notifyAccessibleParent = "notify::accessible-parent"
-    case notifyAccessibleRole = "notify::accessible-role"
-    /// Table caption.
-    ///
-    /// **accessible-table-caption is deprecated:**
-    /// Since 1.3. Use table-caption-object instead.
-    case notifyAccessibleTableCaption = "notify::accessible-table-caption"
-    case notifyAccessibleTableCaptionObject = "notify::accessible-table-caption-object"
-    /// Accessible table column description.
-    ///
-    /// **accessible-table-column-description is deprecated:**
-    /// Since 2.12. Use atk_table_get_column_description()
-    /// and atk_table_set_column_description() instead.
-    case notifyAccessibleTableColumnDescription = "notify::accessible-table-column-description"
-    /// Accessible table column header.
-    ///
-    /// **accessible-table-column-header is deprecated:**
-    /// Since 2.12. Use atk_table_get_column_header() and
-    /// atk_table_set_column_header() instead.
-    case notifyAccessibleTableColumnHeader = "notify::accessible-table-column-header"
-    /// Accessible table row description.
-    ///
-    /// **accessible-table-row-description is deprecated:**
-    /// Since 2.12. Use atk_table_get_row_description() and
-    /// atk_table_set_row_description() instead.
-    case notifyAccessibleTableRowDescription = "notify::accessible-table-row-description"
-    /// Accessible table row header.
-    ///
-    /// **accessible-table-row-header is deprecated:**
-    /// Since 2.12. Use atk_table_get_row_header() and
-    /// atk_table_set_row_header() instead.
-    case notifyAccessibleTableRowHeader = "notify::accessible-table-row-header"
-    case notifyAccessibleTableSummary = "notify::accessible-table-summary"
-    /// Numeric value of this object, in case being and AtkValue.
-    ///
-    /// **accessible-value is deprecated:**
-    /// Since 2.12. Use atk_value_get_value_and_text() to get
-    /// the value, and value-changed signal to be notified on their value
-    /// changes.
-    case notifyAccessibleValue = "notify::accessible-value"
-    /// Whether the widget or any of its descendents can accept
-    /// the input focus.
-    /// 
-    /// This property is meant to be set by widget implementations,
-    /// typically in their instance init function.
-    case notifyCanFocus = "notify::can-focus"
-    case notifyCanTarget = "notify::can-target"
-    /// A list of css classes applied to this widget.
-    case notifyCssClasses = "notify::css-classes"
-    /// The name of this widget in the CSS tree.
-    /// 
-    /// This property is meant to be set by widget implementations,
-    /// typically in their instance init function.
-    case notifyCssName = "notify::css-name"
-    /// The cursor used by `widget`. See `gtk_widget_set_cursor()` for details.
-    case notifyCursor = "notify::cursor"
-    /// Whether the widget should grab focus when it is clicked with the mouse.
-    /// 
-    /// This property is only relevant for widgets that can take focus.
-    case notifyFocusOnClick = "notify::focus-on-click"
-    /// Whether this widget itself will accept the input focus.
-    case notifyFocusable = "notify::focusable"
-    /// How to distribute horizontal space if widget gets extra space, see `GtkAlign`
-    case notifyHalign = "notify::halign"
-    case notifyHasDefault = "notify::has-default"
-    case notifyHasFocus = "notify::has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
-    /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
-    /// whether it will provide a tooltip or not.
-    case notifyHasTooltip = "notify::has-tooltip"
-    /// The text to show at the top of the dialog that can be
-    /// opened from the button. The string may contain Pango markup.
-    case notifyHeading = "notify::heading"
-    case notifyHeightRequest = "notify::height-request"
-    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
-    case notifyHexpand = "notify::hexpand"
-    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
-    case notifyHexpandSet = "notify::hexpand-set"
-    /// The `GtkLayoutManager` instance to use to compute the preferred size
-    /// of the widget, and allocate its children.
-    /// 
-    /// This property is meant to be set by widget implementations,
-    /// typically in their instance init function.
-    case notifyLayoutManager = "notify::layout-manager"
-    /// Margin on bottom side of widget.
-    /// 
-    /// This property adds margin outside of the widget's normal size
-    /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
-    case notifyMarginBottom = "notify::margin-bottom"
-    /// Margin on end of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
-    /// 
-    /// This property adds margin outside of the widget's normal size
-    /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
-    case notifyMarginEnd = "notify::margin-end"
-    /// Margin on start of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
-    /// 
-    /// This property adds margin outside of the widget's normal size
-    /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
-    case notifyMarginStart = "notify::margin-start"
-    /// Margin on top side of widget.
-    /// 
-    /// This property adds margin outside of the widget's normal size
-    /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
-    case notifyMarginTop = "notify::margin-top"
-    case notifyModal = "notify::modal"
-    case notifyName = "notify::name"
-    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
-    /// more details about window opacity.
-    case notifyOpacity = "notify::opacity"
-    /// How content outside the widget's content area is treated.
-    /// 
-    /// This property is meant to be set by widget implementations,
-    /// typically in their instance init function.
-    case notifyOverflow = "notify::overflow"
-    case notifyParent = "notify::parent"
-    case notifyReceivesDefault = "notify::receives-default"
-    /// The `GtkRoot` widget of the widget tree containing this widget or `nil` if
-    /// the widget is not contained in a root widget.
-    case notifyRoot = "notify::root"
-    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
-    /// more details about widget scaling.
-    case notifyScaleFactor = "notify::scale-factor"
-    case notifySensitive = "notify::sensitive"
-    /// The `GtkAppChooserButton:show`-default-item property determines
-    /// whether the dropdown menu should show the default application
-    /// on top for the provided content type.
-    case notifyShowDefaultItem = "notify::show-default-item"
-    /// The `GtkAppChooserButton:show`-dialog-item property determines
-    /// whether the dropdown menu should show an item that triggers
-    /// a `GtkAppChooserDialog` when clicked.
-    case notifyShowDialogItem = "notify::show-dialog-item"
-    /// Sets the text of tooltip to be the given string, which is marked up
-    /// with the [Pango text markup language](#PangoMarkupFormat).
-    /// Also see `gtk_tooltip_set_markup()`.
-    /// 
-    /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
-    /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
-    /// are set, the last one wins.
-    case notifyTooltipMarkup = "notify::tooltip-markup"
-    /// Sets the text of tooltip to be the given string.
-    /// 
-    /// Also see `gtk_tooltip_set_text()`.
-    /// 
-    /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
-    /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
-    /// are set, the last one wins.
-    case notifyTooltipText = "notify::tooltip-text"
-    /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
-    case notifyValign = "notify::valign"
-    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
-    case notifyVexpand = "notify::vexpand"
-    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
-    case notifyVexpandSet = "notify::vexpand-set"
-    case notifyVisible = "notify::visible"
-    case notifyWidthRequest = "notify::width-request"
-}
-
-public extension AppChooserButtonProtocol {
-    /// Connect a `AppChooserButtonSignalName` signal to a given signal handler.
-    /// - Parameter signal: the signal to connect
-    /// - Parameter flags: signal connection flags
-    /// - Parameter handler: signal handler to use
-    /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @inlinable @discardableResult func connect(signal kind: AppChooserButtonSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
-            let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
-            let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
-                if let swift = UnsafeRawPointer($0) {
-                    let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
-                    holder.release()
-                }
-                let _ = $1
-            }, connectFlags: flags)
-            return rv
+    /// - Note: Representation of signal named `notify::heading`
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter pspec: the `GParamSpec` of the property which changed.
+    @discardableResult
+    func onNotifyHeading(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: AppChooserButtonRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder2<AppChooserButtonRef, ParamSpecRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(AppChooserButtonRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
+            return output
         }
-        let rv = _connect(signal: kind.name, flags: f, data: ClosureHolder(handler)) {
-            let ptr = UnsafeRawPointer($1)
-            let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(ptr).takeUnretainedValue()
-            holder.call(())
-        }
-        return rv
+        return signalConnectData(
+            detailedSignal: "notify::heading", 
+            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            connectFlags: flags
+        )
     }
+    
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    /// - Note: Representation of signal named `notify::modal`
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter pspec: the `GParamSpec` of the property which changed.
+    @discardableResult
+    func onNotifyModal(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: AppChooserButtonRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder2<AppChooserButtonRef, ParamSpecRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(AppChooserButtonRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
+            return output
+        }
+        return signalConnectData(
+            detailedSignal: "notify::modal", 
+            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            connectFlags: flags
+        )
+    }
+    
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    /// - Note: Representation of signal named `notify::show-default-item`
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter pspec: the `GParamSpec` of the property which changed.
+    @discardableResult
+    func onNotifyShowDefaultItem(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: AppChooserButtonRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder2<AppChooserButtonRef, ParamSpecRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(AppChooserButtonRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
+            return output
+        }
+        return signalConnectData(
+            detailedSignal: "notify::show-default-item", 
+            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            connectFlags: flags
+        )
+    }
+    
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    /// - Note: Representation of signal named `notify::show-dialog-item`
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter pspec: the `GParamSpec` of the property which changed.
+    @discardableResult
+    func onNotifyShowDialogItem(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: AppChooserButtonRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder2<AppChooserButtonRef, ParamSpecRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(AppChooserButtonRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
+            return output
+        }
+        return signalConnectData(
+            detailedSignal: "notify::show-dialog-item", 
+            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            connectFlags: flags
+        )
+    }
+    
 }
 
 // MARK: AppChooserButton Class: AppChooserButtonProtocol extension (methods and fields)
@@ -6050,7 +5810,7 @@ public protocol AppChooserDialogProtocol: DialogProtocol, AppChooserProtocol {
 /// 
 /// To set the heading that is shown above the `GtkAppChooserWidget`,
 /// use `gtk_app_chooser_dialog_set_heading()`.
-public struct AppChooserDialogRef: AppChooserDialogProtocol {
+public struct AppChooserDialogRef: AppChooserDialogProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkAppChooserDialog` instance.
     /// For type-safe access, use the generated, typed pointer `app_chooser_dialog_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer!
@@ -6095,6 +5855,9 @@ public extension AppChooserDialogRef {
     @inlinable init<T: AppChooserDialogProtocol>(_ other: T) {
         ptr = other.ptr
     }
+
+    /// This factory is syntactic sugar for setting weak pointers wrapped in `GWeak<T>`
+    @inlinable static func unowned<T: AppChooserDialogProtocol>(_ other: T) -> AppChooserDialogRef { AppChooserDialogRef(other) }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppChooserDialogProtocol`.**
@@ -6290,6 +6053,7 @@ open class AppChooserDialog: Dialog, AppChooserDialogProtocol {
     @inlinable public init<FileT: GIO.FileProtocol, WindowT: WindowProtocol>( parent: WindowT?, flags: DialogFlags, file: FileT) {
         let rv = gtk_app_chooser_dialog_new(parent?.window_ptr, flags.value, file.file_ptr)
         super.init(gpointer: gpointer(rv))
+        if typeIsA(type: self.type, isAType: InitiallyUnownedClassRef.metatypeReference) { _ = self.refSink() } 
     }
 
     /// Creates a new `GtkAppChooserDialog` for the provided content type,
@@ -6297,63 +6061,20 @@ open class AppChooserDialog: Dialog, AppChooserDialogProtocol {
     @inlinable public init<WindowT: WindowProtocol>(contentType parent: WindowT?, flags: DialogFlags, contentType: UnsafePointer<CChar>!) {
         let rv = gtk_app_chooser_dialog_new_for_content_type(parent?.window_ptr, flags.value, contentType)
         super.init(gpointer: gpointer(rv))
+        if typeIsA(type: self.type, isAType: InitiallyUnownedClassRef.metatypeReference) { _ = self.refSink() } 
     }
 
     /// Creates a new `GtkAppChooserDialog` for the provided content type,
     /// to allow the user to select an application for it.
     @inlinable public static func newFor<WindowT: WindowProtocol>(contentType parent: WindowT?, flags: DialogFlags, contentType: UnsafePointer<CChar>!) -> Widget! {
         guard let rv = Widget(gconstpointer: gconstpointer(gtk_app_chooser_dialog_new_for_content_type(parent?.window_ptr, flags.value, contentType))) else { return nil }
+        if typeIsA(type: rv.type, isAType: InitiallyUnownedClassRef.metatypeReference) { _ = rv.refSink() } 
         return rv
     }
 
 }
 
 public enum AppChooserDialogPropertyName: String, PropertyNameProtocol {
-    case accessibleComponentLayer = "accessible-component-layer"
-    case accessibleComponentMdiZorder = "accessible-component-mdi-zorder"
-    case accessibleDescription = "accessible-description"
-    case accessibleHypertextNlinks = "accessible-hypertext-nlinks"
-    case accessibleName = "accessible-name"
-    case accessibleParent = "accessible-parent"
-    case accessibleRole = "accessible-role"
-    /// Table caption.
-    ///
-    /// **accessible-table-caption is deprecated:**
-    /// Since 1.3. Use table-caption-object instead.
-    case accessibleTableCaption = "accessible-table-caption"
-    case accessibleTableCaptionObject = "accessible-table-caption-object"
-    /// Accessible table column description.
-    ///
-    /// **accessible-table-column-description is deprecated:**
-    /// Since 2.12. Use atk_table_get_column_description()
-    /// and atk_table_set_column_description() instead.
-    case accessibleTableColumnDescription = "accessible-table-column-description"
-    /// Accessible table column header.
-    ///
-    /// **accessible-table-column-header is deprecated:**
-    /// Since 2.12. Use atk_table_get_column_header() and
-    /// atk_table_set_column_header() instead.
-    case accessibleTableColumnHeader = "accessible-table-column-header"
-    /// Accessible table row description.
-    ///
-    /// **accessible-table-row-description is deprecated:**
-    /// Since 2.12. Use atk_table_get_row_description() and
-    /// atk_table_set_row_description() instead.
-    case accessibleTableRowDescription = "accessible-table-row-description"
-    /// Accessible table row header.
-    ///
-    /// **accessible-table-row-header is deprecated:**
-    /// Since 2.12. Use atk_table_get_row_header() and
-    /// atk_table_set_row_header() instead.
-    case accessibleTableRowHeader = "accessible-table-row-header"
-    case accessibleTableSummary = "accessible-table-summary"
-    /// Numeric value of this object, in case being and AtkValue.
-    ///
-    /// **accessible-value is deprecated:**
-    /// Since 2.12. Use atk_value_get_value_and_text() to get
-    /// the value, and value-changed signal to be notified on their value
-    /// changes.
-    case accessibleValue = "accessible-value"
     /// The `GtkApplication` associated with the window.
     /// 
     /// The application will be kept alive for at least as long as it
@@ -6600,436 +6321,7 @@ public extension AppChooserDialogProtocol {
     }
 }
 
-public enum AppChooserDialogSignalName: String, SignalNameProtocol {
-    /// The `activate`-default signal is a
-    /// [keybinding signal](#GtkSignalAction)
-    /// which gets emitted when the user activates the default widget
-    /// of `window`.
-    case activateDefault = "activate-default"
-    /// The `activate`-focus signal is a
-    /// [keybinding signal](#GtkSignalAction)
-    /// which gets emitted when the user activates the currently
-    /// focused widget of `window`.
-    case activateFocus = "activate-focus"
-    /// The "active-descendant-changed" signal is emitted by an object
-    /// which has the state ATK_STATE_MANAGES_DESCENDANTS when the focus
-    /// object in the object changes. For instance, a table will emit the
-    /// signal when the cell in the table which has focus changes.
-    case activeDescendantChanged = "active-descendant-changed"
-    /// The signal "children-changed" is emitted when a child is added or
-    /// removed form an object. It supports two details: "add" and
-    /// "remove"
-    case childrenChanged = "children-changed"
-    /// The `close` signal is a
-    /// [keybinding signal](#GtkSignalAction)
-    /// which gets emitted when the user uses a keybinding to close
-    /// the dialog.
-    /// 
-    /// The default binding for this signal is the Escape key.
-    case close = "close"
-    /// The `close`-request signal is emitted when the user clicks on the close
-    /// button of the window.
-    case closeRequest = "close-request"
-    /// Signals that all holders of a reference to the widget should release
-    /// the reference that they hold. May result in finalization of the widget
-    /// if all references are released.
-    /// 
-    /// This signal is not suitable for saving widget state.
-    case destroy = "destroy"
-    /// The `direction`-changed signal is emitted when the text direction
-    /// of a widget changes.
-    case directionChanged = "direction-changed"
-    /// The `enable`-debugging signal is a [keybinding signal](#GtkSignalAction)
-    /// which gets emitted when the user enables or disables interactive
-    /// debugging. When `toggle` is `true`, interactive debugging is toggled
-    /// on or off, when it is `false`, the debugger will be pointed at the
-    /// widget under the pointer.
-    /// 
-    /// The default bindings for this signal are Ctrl-Shift-I
-    /// and Ctrl-Shift-D.
-    case enableDebugging = "enable-debugging"
-    /// The signal "focus-event" is emitted when an object gained or lost
-    /// focus.
-    ///
-    /// **focus-event is deprecated:**
-    /// Use the #AtkObject::state-change signal instead.
-    case focusEvent = "focus-event"
-    /// The `hide` signal is emitted when `widget` is hidden, for example with
-    /// `gtk_widget_hide()`.
-    case hide = "hide"
-    /// Gets emitted if keyboard navigation fails.
-    /// See `gtk_widget_keynav_failed()` for details.
-    case keynavFailed = "keynav-failed"
-    /// The `keys`-changed signal gets emitted when the set of accelerators
-    /// or mnemonics that are associated with `window` changes.
-    case keysChanged = "keys-changed"
-    /// The `map` signal is emitted when `widget` is going to be mapped, that is
-    /// when the widget is visible (which is controlled with
-    /// `gtk_widget_set_visible()`) and all its parents up to the toplevel widget
-    /// are also visible.
-    /// 
-    /// The `map` signal can be used to determine whether a widget will be drawn,
-    /// for instance it can resume an animation that was stopped during the
-    /// emission of `GtkWidget::unmap`.
-    case map = "map"
-    /// The default handler for this signal activates `widget` if `group_cycling`
-    /// is `false`, or just makes `widget` grab focus if `group_cycling` is `true`.
-    case mnemonicActivate = "mnemonic-activate"
-    /// Emitted when the focus is moved.
-    case moveFocus = "move-focus"
-    /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
-    /// 
-    /// Note that getting this signal doesn’t itself guarantee that the value of
-    /// the property has actually changed. When it is emitted is determined by the
-    /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
-    /// in `notify` being emitted, even if the new value is the same as the old.
-    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
-    /// and common practice is to do that only when the value has actually changed.
-    /// 
-    /// This signal is typically used to obtain change notification for a
-    /// single property, by specifying the property name as a detail in the
-    /// `g_signal_connect()` call, like this:
-    /// (C Language Example):
-    /// ```C
-    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
-    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
-    ///                   text_view)
-    /// ```
-    /// It is important to note that you must use
-    /// [canonical parameter names](#canonical-parameter-names) as
-    /// detail strings for the notify signal.
-    case notify = "notify"
-    /// The signal "property-change" is emitted when an object's property
-    /// value changes. `arg1` contains an `AtkPropertyValues` with the name
-    /// and the new value of the property whose value has changed. Note
-    /// that, as with GObject notify, getting this signal does not
-    /// guarantee that the value of the property has actually changed; it
-    /// may also be emitted when the setter of the property is called to
-    /// reinstate the previous value.
-    /// 
-    /// Toolkit implementor note: ATK implementors should use
-    /// `g_object_notify()` to emit property-changed
-    /// notifications. `AtkObject::property`-changed is needed by the
-    /// implementation of `atk_add_global_event_listener()` because GObject
-    /// notify doesn't support emission hooks.
-    case propertyChange = "property-change"
-    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
-    /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
-    /// focus in keyboard mode.
-    /// 
-    /// Using the given coordinates, the signal handler should determine
-    /// whether a tooltip should be shown for `widget`. If this is the case
-    /// `true` should be returned, `false` otherwise.  Note that if
-    /// `keyboard_mode` is `true`, the values of `x` and `y` are undefined and
-    /// should not be used.
-    /// 
-    /// The signal handler is free to manipulate `tooltip` with the therefore
-    /// destined function calls.
-    case queryTooltip = "query-tooltip"
-    /// The `realize` signal is emitted when `widget` is associated with a
-    /// `GdkSurface`, which means that `gtk_widget_realize()` has been called or the
-    /// widget has been mapped (that is, it is going to be drawn).
-    case realize = "realize"
-    /// Emitted when an action widget is clicked, the dialog receives a
-    /// delete event, or the application programmer calls `gtk_dialog_response()`.
-    /// On a delete event, the response ID is `GTK_RESPONSE_DELETE_EVENT`.
-    /// Otherwise, it depends on which action widget was clicked.
-    case response = "response"
-    /// The `show` signal is emitted when `widget` is shown, for example with
-    /// `gtk_widget_show()`.
-    case show = "show"
-    /// The "state-change" signal is emitted when an object's state
-    /// changes.  The detail value identifies the state type which has
-    /// changed.
-    case stateChange = "state-change"
-    /// The `state`-flags-changed signal is emitted when the widget state
-    /// changes, see `gtk_widget_get_state_flags()`.
-    case stateFlagsChanged = "state-flags-changed"
-    /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
-    /// means that either it or any of its parents up to the toplevel widget have
-    /// been set as hidden.
-    /// 
-    /// As `unmap` indicates that a widget will not be shown any longer, it can be
-    /// used to, for example, stop an animation on the widget.
-    case unmap = "unmap"
-    /// The `unrealize` signal is emitted when the `GdkSurface` associated with
-    /// `widget` is destroyed, which means that `gtk_widget_unrealize()` has been
-    /// called or the widget has been unmapped (that is, it is going to be
-    /// hidden).
-    case unrealize = "unrealize"
-    /// The "visible-data-changed" signal is emitted when the visual
-    /// appearance of the object changed.
-    case visibleDataChanged = "visible-data-changed"
-    case notifyAccessibleComponentLayer = "notify::accessible-component-layer"
-    case notifyAccessibleComponentMdiZorder = "notify::accessible-component-mdi-zorder"
-    case notifyAccessibleDescription = "notify::accessible-description"
-    case notifyAccessibleHypertextNlinks = "notify::accessible-hypertext-nlinks"
-    case notifyAccessibleName = "notify::accessible-name"
-    case notifyAccessibleParent = "notify::accessible-parent"
-    case notifyAccessibleRole = "notify::accessible-role"
-    /// Table caption.
-    ///
-    /// **accessible-table-caption is deprecated:**
-    /// Since 1.3. Use table-caption-object instead.
-    case notifyAccessibleTableCaption = "notify::accessible-table-caption"
-    case notifyAccessibleTableCaptionObject = "notify::accessible-table-caption-object"
-    /// Accessible table column description.
-    ///
-    /// **accessible-table-column-description is deprecated:**
-    /// Since 2.12. Use atk_table_get_column_description()
-    /// and atk_table_set_column_description() instead.
-    case notifyAccessibleTableColumnDescription = "notify::accessible-table-column-description"
-    /// Accessible table column header.
-    ///
-    /// **accessible-table-column-header is deprecated:**
-    /// Since 2.12. Use atk_table_get_column_header() and
-    /// atk_table_set_column_header() instead.
-    case notifyAccessibleTableColumnHeader = "notify::accessible-table-column-header"
-    /// Accessible table row description.
-    ///
-    /// **accessible-table-row-description is deprecated:**
-    /// Since 2.12. Use atk_table_get_row_description() and
-    /// atk_table_set_row_description() instead.
-    case notifyAccessibleTableRowDescription = "notify::accessible-table-row-description"
-    /// Accessible table row header.
-    ///
-    /// **accessible-table-row-header is deprecated:**
-    /// Since 2.12. Use atk_table_get_row_header() and
-    /// atk_table_set_row_header() instead.
-    case notifyAccessibleTableRowHeader = "notify::accessible-table-row-header"
-    case notifyAccessibleTableSummary = "notify::accessible-table-summary"
-    /// Numeric value of this object, in case being and AtkValue.
-    ///
-    /// **accessible-value is deprecated:**
-    /// Since 2.12. Use atk_value_get_value_and_text() to get
-    /// the value, and value-changed signal to be notified on their value
-    /// changes.
-    case notifyAccessibleValue = "notify::accessible-value"
-    /// The `GtkApplication` associated with the window.
-    /// 
-    /// The application will be kept alive for at least as long as it
-    /// has any windows associated with it (see `g_application_hold()`
-    /// for a way to keep it alive without windows).
-    /// 
-    /// Normally, the connection between the application and the window
-    /// will remain until the window is destroyed, but you can explicitly
-    /// remove it by setting the :application property to `nil`.
-    case notifyApplication = "notify::application"
-    /// Whether the widget or any of its descendents can accept
-    /// the input focus.
-    /// 
-    /// This property is meant to be set by widget implementations,
-    /// typically in their instance init function.
-    case notifyCanFocus = "notify::can-focus"
-    case notifyCanTarget = "notify::can-target"
-    case notifyChild = "notify::child"
-    /// A list of css classes applied to this widget.
-    case notifyCssClasses = "notify::css-classes"
-    /// The name of this widget in the CSS tree.
-    /// 
-    /// This property is meant to be set by widget implementations,
-    /// typically in their instance init function.
-    case notifyCssName = "notify::css-name"
-    /// The cursor used by `widget`. See `gtk_widget_set_cursor()` for details.
-    case notifyCursor = "notify::cursor"
-    /// Whether the window should be decorated by the window manager.
-    case notifyDecorated = "notify::decorated"
-    case notifyDefaultHeight = "notify::default-height"
-    case notifyDefaultWidget = "notify::default-widget"
-    case notifyDefaultWidth = "notify::default-width"
-    /// Whether the window frame should have a close button.
-    case notifyDeletable = "notify::deletable"
-    case notifyDestroyWithParent = "notify::destroy-with-parent"
-    case notifyDisplay = "notify::display"
-    /// Whether the widget should grab focus when it is clicked with the mouse.
-    /// 
-    /// This property is only relevant for widgets that can take focus.
-    case notifyFocusOnClick = "notify::focus-on-click"
-    /// Whether 'focus rectangles' are currently visible in this window.
-    /// 
-    /// This property is maintained by GTK based on user input
-    /// and should not be set by applications.
-    case notifyFocusVisible = "notify::focus-visible"
-    case notifyFocusWidget = "notify::focus-widget"
-    /// Whether this widget itself will accept the input focus.
-    case notifyFocusable = "notify::focusable"
-    /// Whether the window is fullscreen.
-    /// 
-    /// Setting this property is the equivalent of calling `gtk_window_fullscreen()`
-    /// and `gtk_window_unfullscreen()`; either operation is asynchronous, which
-    /// means you will need to connect to the `GObject::notify` signal in order to
-    /// know whether the operation was successful.
-    case notifyFullscreened = "notify::fullscreened"
-    /// The GFile used by the `GtkAppChooserDialog`.
-    /// The dialog's `GtkAppChooserWidget` content type will be guessed from the
-    /// file, if present.
-    case notifyGfile = "notify::gfile"
-    /// How to distribute horizontal space if widget gets extra space, see `GtkAlign`
-    case notifyHalign = "notify::halign"
-    case notifyHasDefault = "notify::has-default"
-    case notifyHasFocus = "notify::has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
-    /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
-    /// whether it will provide a tooltip or not.
-    case notifyHasTooltip = "notify::has-tooltip"
-    /// The text to show at the top of the dialog.
-    /// The string may contain Pango markup.
-    case notifyHeading = "notify::heading"
-    case notifyHeightRequest = "notify::height-request"
-    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
-    case notifyHexpand = "notify::hexpand"
-    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
-    case notifyHexpandSet = "notify::hexpand-set"
-    case notifyHideOnClose = "notify::hide-on-close"
-    /// The :icon-name property specifies the name of the themed icon to
-    /// use as the window icon. See `GtkIconTheme` for more details.
-    case notifyIconName = "notify::icon-name"
-    case notifyIsActive = "notify::is-active"
-    /// The `GtkLayoutManager` instance to use to compute the preferred size
-    /// of the widget, and allocate its children.
-    /// 
-    /// This property is meant to be set by widget implementations,
-    /// typically in their instance init function.
-    case notifyLayoutManager = "notify::layout-manager"
-    /// Margin on bottom side of widget.
-    /// 
-    /// This property adds margin outside of the widget's normal size
-    /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
-    case notifyMarginBottom = "notify::margin-bottom"
-    /// Margin on end of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
-    /// 
-    /// This property adds margin outside of the widget's normal size
-    /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
-    case notifyMarginEnd = "notify::margin-end"
-    /// Margin on start of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
-    /// 
-    /// This property adds margin outside of the widget's normal size
-    /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
-    case notifyMarginStart = "notify::margin-start"
-    /// Margin on top side of widget.
-    /// 
-    /// This property adds margin outside of the widget's normal size
-    /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
-    case notifyMarginTop = "notify::margin-top"
-    /// Whether the window is maximized.
-    /// 
-    /// Setting this property is the equivalent of calling `gtk_window_maximize()`
-    /// and `gtk_window_unmaximize()`; either operation is asynchronous, which
-    /// means you will need to connect to the `GObject::notify` signal in order to
-    /// know whether the operation was successful.
-    case notifyMaximized = "notify::maximized"
-    /// Whether mnemonics are currently visible in this window.
-    /// 
-    /// This property is maintained by GTK based on user input,
-    /// and should not be set by applications.
-    case notifyMnemonicsVisible = "notify::mnemonics-visible"
-    case notifyModal = "notify::modal"
-    case notifyName = "notify::name"
-    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
-    /// more details about window opacity.
-    case notifyOpacity = "notify::opacity"
-    /// How content outside the widget's content area is treated.
-    /// 
-    /// This property is meant to be set by widget implementations,
-    /// typically in their instance init function.
-    case notifyOverflow = "notify::overflow"
-    case notifyParent = "notify::parent"
-    case notifyReceivesDefault = "notify::receives-default"
-    case notifyResizable = "notify::resizable"
-    /// The `GtkRoot` widget of the widget tree containing this widget or `nil` if
-    /// the widget is not contained in a root widget.
-    case notifyRoot = "notify::root"
-    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
-    /// more details about widget scaling.
-    case notifyScaleFactor = "notify::scale-factor"
-    case notifySensitive = "notify::sensitive"
-    /// The :startup-id is a write-only property for setting window's
-    /// startup notification identifier. See `gtk_window_set_startup_id()`
-    /// for more details.
-    case notifyStartupId = "notify::startup-id"
-    case notifyTitle = "notify::title"
-    /// Sets the text of tooltip to be the given string, which is marked up
-    /// with the [Pango text markup language](#PangoMarkupFormat).
-    /// Also see `gtk_tooltip_set_markup()`.
-    /// 
-    /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
-    /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
-    /// are set, the last one wins.
-    case notifyTooltipMarkup = "notify::tooltip-markup"
-    /// Sets the text of tooltip to be the given string.
-    /// 
-    /// Also see `gtk_tooltip_set_text()`.
-    /// 
-    /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
-    /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
-    /// are set, the last one wins.
-    case notifyTooltipText = "notify::tooltip-text"
-    /// The transient parent of the window. See `gtk_window_set_transient_for()` for
-    /// more details about transient windows.
-    case notifyTransientFor = "notify::transient-for"
-    /// `true` if the dialog uses a `GtkHeaderBar` for action buttons
-    /// instead of the action-area.
-    /// 
-    /// For technical reasons, this property is declared as an integer
-    /// property, but you should only set it to `true` or `false`.
-    case notifyUseHeaderBar = "notify::use-header-bar"
-    /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
-    case notifyValign = "notify::valign"
-    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
-    case notifyVexpand = "notify::vexpand"
-    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
-    case notifyVexpandSet = "notify::vexpand-set"
-    case notifyVisible = "notify::visible"
-    case notifyWidthRequest = "notify::width-request"
-}
-
-public extension AppChooserDialogProtocol {
-    /// Connect a `AppChooserDialogSignalName` signal to a given signal handler.
-    /// - Parameter signal: the signal to connect
-    /// - Parameter flags: signal connection flags
-    /// - Parameter handler: signal handler to use
-    /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @inlinable @discardableResult func connect(signal kind: AppChooserDialogSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
-            let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
-            let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
-                if let swift = UnsafeRawPointer($0) {
-                    let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
-                    holder.release()
-                }
-                let _ = $1
-            }, connectFlags: flags)
-            return rv
-        }
-        let rv = _connect(signal: kind.name, flags: f, data: ClosureHolder(handler)) {
-            let ptr = UnsafeRawPointer($1)
-            let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(ptr).takeUnretainedValue()
-            holder.call(())
-        }
-        return rv
-    }
-}
-
-// MARK: AppChooserDialog Class: AppChooserDialogProtocol extension (methods and fields)
+// MARK: AppChooserDialog has no signals// MARK: AppChooserDialog Class: AppChooserDialogProtocol extension (methods and fields)
 public extension AppChooserDialogProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkAppChooserDialog` instance.
     @inlinable var app_chooser_dialog_ptr: UnsafeMutablePointer<GtkAppChooserDialog>! { return ptr?.assumingMemoryBound(to: GtkAppChooserDialog.self) }
@@ -7143,7 +6435,7 @@ public protocol AppChooserWidgetProtocol: WidgetProtocol, AppChooserProtocol {
 /// # CSS nodes
 /// 
 /// GtkAppChooserWidget has a single CSS node with name appchooser.
-public struct AppChooserWidgetRef: AppChooserWidgetProtocol {
+public struct AppChooserWidgetRef: AppChooserWidgetProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkAppChooserWidget` instance.
     /// For type-safe access, use the generated, typed pointer `app_chooser_widget_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer!
@@ -7188,6 +6480,9 @@ public extension AppChooserWidgetRef {
     @inlinable init<T: AppChooserWidgetProtocol>(_ other: T) {
         ptr = other.ptr
     }
+
+    /// This factory is syntactic sugar for setting weak pointers wrapped in `GWeak<T>`
+    @inlinable static func unowned<T: AppChooserWidgetProtocol>(_ other: T) -> AppChooserWidgetRef { AppChooserWidgetRef(other) }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppChooserWidgetProtocol`.**
@@ -7382,57 +6677,13 @@ open class AppChooserWidget: Widget, AppChooserWidgetProtocol {
     @inlinable public init( contentType: UnsafePointer<CChar>!) {
         let rv = gtk_app_chooser_widget_new(contentType)
         super.init(gpointer: gpointer(rv))
+        if typeIsA(type: self.type, isAType: InitiallyUnownedClassRef.metatypeReference) { _ = self.refSink() } 
     }
 
 
 }
 
 public enum AppChooserWidgetPropertyName: String, PropertyNameProtocol {
-    case accessibleComponentLayer = "accessible-component-layer"
-    case accessibleComponentMdiZorder = "accessible-component-mdi-zorder"
-    case accessibleDescription = "accessible-description"
-    case accessibleHypertextNlinks = "accessible-hypertext-nlinks"
-    case accessibleName = "accessible-name"
-    case accessibleParent = "accessible-parent"
-    case accessibleRole = "accessible-role"
-    /// Table caption.
-    ///
-    /// **accessible-table-caption is deprecated:**
-    /// Since 1.3. Use table-caption-object instead.
-    case accessibleTableCaption = "accessible-table-caption"
-    case accessibleTableCaptionObject = "accessible-table-caption-object"
-    /// Accessible table column description.
-    ///
-    /// **accessible-table-column-description is deprecated:**
-    /// Since 2.12. Use atk_table_get_column_description()
-    /// and atk_table_set_column_description() instead.
-    case accessibleTableColumnDescription = "accessible-table-column-description"
-    /// Accessible table column header.
-    ///
-    /// **accessible-table-column-header is deprecated:**
-    /// Since 2.12. Use atk_table_get_column_header() and
-    /// atk_table_set_column_header() instead.
-    case accessibleTableColumnHeader = "accessible-table-column-header"
-    /// Accessible table row description.
-    ///
-    /// **accessible-table-row-description is deprecated:**
-    /// Since 2.12. Use atk_table_get_row_description() and
-    /// atk_table_set_row_description() instead.
-    case accessibleTableRowDescription = "accessible-table-row-description"
-    /// Accessible table row header.
-    ///
-    /// **accessible-table-row-header is deprecated:**
-    /// Since 2.12. Use atk_table_get_row_header() and
-    /// atk_table_set_row_header() instead.
-    case accessibleTableRowHeader = "accessible-table-row-header"
-    case accessibleTableSummary = "accessible-table-summary"
-    /// Numeric value of this object, in case being and AtkValue.
-    ///
-    /// **accessible-value is deprecated:**
-    /// Since 2.12. Use atk_value_get_value_and_text() to get
-    /// the value, and value-changed signal to be notified on their value
-    /// changes.
-    case accessibleValue = "accessible-value"
     /// Whether the widget or any of its descendents can accept
     /// the input focus.
     /// 
@@ -7633,59 +6884,56 @@ public extension AppChooserWidgetProtocol {
     }
 }
 
-public enum AppChooserWidgetSignalName: String, SignalNameProtocol {
-    /// The "active-descendant-changed" signal is emitted by an object
-    /// which has the state ATK_STATE_MANAGES_DESCENDANTS when the focus
-    /// object in the object changes. For instance, a table will emit the
-    /// signal when the cell in the table which has focus changes.
-    case activeDescendantChanged = "active-descendant-changed"
+// MARK: Signals of AppChooserWidget
+public extension AppChooserWidgetProtocol {
     /// Emitted when an application item is activated from the widget's list.
     /// 
     /// This usually happens when the user double clicks an item, or an item
     /// is selected and the user presses one of the keys Space, Shift+Space,
     /// Return or Enter.
-    case applicationActivated = "application-activated"
+    /// - Note: Representation of signal named `application-activated`
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter application: the activated `GAppInfo`
+    @discardableResult
+    func onApplicationActivated(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: AppChooserWidgetRef, _ application: GIO.AppInfoRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder2<AppChooserWidgetRef, GIO.AppInfoRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(AppChooserWidgetRef(raw: unownedSelf), GIO.AppInfoRef(raw: arg1))
+            return output
+        }
+        return signalConnectData(
+            detailedSignal: "application-activated", 
+            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            connectFlags: flags
+        )
+    }
+    
     /// Emitted when an application item is selected from the widget's list.
-    case applicationSelected = "application-selected"
-    /// The signal "children-changed" is emitted when a child is added or
-    /// removed form an object. It supports two details: "add" and
-    /// "remove"
-    case childrenChanged = "children-changed"
-    /// Signals that all holders of a reference to the widget should release
-    /// the reference that they hold. May result in finalization of the widget
-    /// if all references are released.
-    /// 
-    /// This signal is not suitable for saving widget state.
-    case destroy = "destroy"
-    /// The `direction`-changed signal is emitted when the text direction
-    /// of a widget changes.
-    case directionChanged = "direction-changed"
-    /// The signal "focus-event" is emitted when an object gained or lost
-    /// focus.
-    ///
-    /// **focus-event is deprecated:**
-    /// Use the #AtkObject::state-change signal instead.
-    case focusEvent = "focus-event"
-    /// The `hide` signal is emitted when `widget` is hidden, for example with
-    /// `gtk_widget_hide()`.
-    case hide = "hide"
-    /// Gets emitted if keyboard navigation fails.
-    /// See `gtk_widget_keynav_failed()` for details.
-    case keynavFailed = "keynav-failed"
-    /// The `map` signal is emitted when `widget` is going to be mapped, that is
-    /// when the widget is visible (which is controlled with
-    /// `gtk_widget_set_visible()`) and all its parents up to the toplevel widget
-    /// are also visible.
-    /// 
-    /// The `map` signal can be used to determine whether a widget will be drawn,
-    /// for instance it can resume an animation that was stopped during the
-    /// emission of `GtkWidget::unmap`.
-    case map = "map"
-    /// The default handler for this signal activates `widget` if `group_cycling`
-    /// is `false`, or just makes `widget` grab focus if `group_cycling` is `true`.
-    case mnemonicActivate = "mnemonic-activate"
-    /// Emitted when the focus is moved.
-    case moveFocus = "move-focus"
+    /// - Note: Representation of signal named `application-selected`
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter application: the selected `GAppInfo`
+    @discardableResult
+    func onApplicationSelected(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: AppChooserWidgetRef, _ application: GIO.AppInfoRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder2<AppChooserWidgetRef, GIO.AppInfoRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(AppChooserWidgetRef(raw: unownedSelf), GIO.AppInfoRef(raw: arg1))
+            return output
+        }
+        return signalConnectData(
+            detailedSignal: "application-selected", 
+            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            connectFlags: flags
+        )
+    }
+    
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
@@ -7710,281 +6958,252 @@ public enum AppChooserWidgetSignalName: String, SignalNameProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    case notify = "notify"
-    /// The signal "property-change" is emitted when an object's property
-    /// value changes. `arg1` contains an `AtkPropertyValues` with the name
-    /// and the new value of the property whose value has changed. Note
-    /// that, as with GObject notify, getting this signal does not
-    /// guarantee that the value of the property has actually changed; it
-    /// may also be emitted when the setter of the property is called to
-    /// reinstate the previous value.
-    /// 
-    /// Toolkit implementor note: ATK implementors should use
-    /// `g_object_notify()` to emit property-changed
-    /// notifications. `AtkObject::property`-changed is needed by the
-    /// implementation of `atk_add_global_event_listener()` because GObject
-    /// notify doesn't support emission hooks.
-    case propertyChange = "property-change"
-    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
-    /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
-    /// focus in keyboard mode.
-    /// 
-    /// Using the given coordinates, the signal handler should determine
-    /// whether a tooltip should be shown for `widget`. If this is the case
-    /// `true` should be returned, `false` otherwise.  Note that if
-    /// `keyboard_mode` is `true`, the values of `x` and `y` are undefined and
-    /// should not be used.
-    /// 
-    /// The signal handler is free to manipulate `tooltip` with the therefore
-    /// destined function calls.
-    case queryTooltip = "query-tooltip"
-    /// The `realize` signal is emitted when `widget` is associated with a
-    /// `GdkSurface`, which means that `gtk_widget_realize()` has been called or the
-    /// widget has been mapped (that is, it is going to be drawn).
-    case realize = "realize"
-    /// The `show` signal is emitted when `widget` is shown, for example with
-    /// `gtk_widget_show()`.
-    case show = "show"
-    /// The "state-change" signal is emitted when an object's state
-    /// changes.  The detail value identifies the state type which has
-    /// changed.
-    case stateChange = "state-change"
-    /// The `state`-flags-changed signal is emitted when the widget state
-    /// changes, see `gtk_widget_get_state_flags()`.
-    case stateFlagsChanged = "state-flags-changed"
-    /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
-    /// means that either it or any of its parents up to the toplevel widget have
-    /// been set as hidden.
-    /// 
-    /// As `unmap` indicates that a widget will not be shown any longer, it can be
-    /// used to, for example, stop an animation on the widget.
-    case unmap = "unmap"
-    /// The `unrealize` signal is emitted when the `GdkSurface` associated with
-    /// `widget` is destroyed, which means that `gtk_widget_unrealize()` has been
-    /// called or the widget has been unmapped (that is, it is going to be
-    /// hidden).
-    case unrealize = "unrealize"
-    /// The "visible-data-changed" signal is emitted when the visual
-    /// appearance of the object changed.
-    case visibleDataChanged = "visible-data-changed"
-    case notifyAccessibleComponentLayer = "notify::accessible-component-layer"
-    case notifyAccessibleComponentMdiZorder = "notify::accessible-component-mdi-zorder"
-    case notifyAccessibleDescription = "notify::accessible-description"
-    case notifyAccessibleHypertextNlinks = "notify::accessible-hypertext-nlinks"
-    case notifyAccessibleName = "notify::accessible-name"
-    case notifyAccessibleParent = "notify::accessible-parent"
-    case notifyAccessibleRole = "notify::accessible-role"
-    /// Table caption.
-    ///
-    /// **accessible-table-caption is deprecated:**
-    /// Since 1.3. Use table-caption-object instead.
-    case notifyAccessibleTableCaption = "notify::accessible-table-caption"
-    case notifyAccessibleTableCaptionObject = "notify::accessible-table-caption-object"
-    /// Accessible table column description.
-    ///
-    /// **accessible-table-column-description is deprecated:**
-    /// Since 2.12. Use atk_table_get_column_description()
-    /// and atk_table_set_column_description() instead.
-    case notifyAccessibleTableColumnDescription = "notify::accessible-table-column-description"
-    /// Accessible table column header.
-    ///
-    /// **accessible-table-column-header is deprecated:**
-    /// Since 2.12. Use atk_table_get_column_header() and
-    /// atk_table_set_column_header() instead.
-    case notifyAccessibleTableColumnHeader = "notify::accessible-table-column-header"
-    /// Accessible table row description.
-    ///
-    /// **accessible-table-row-description is deprecated:**
-    /// Since 2.12. Use atk_table_get_row_description() and
-    /// atk_table_set_row_description() instead.
-    case notifyAccessibleTableRowDescription = "notify::accessible-table-row-description"
-    /// Accessible table row header.
-    ///
-    /// **accessible-table-row-header is deprecated:**
-    /// Since 2.12. Use atk_table_get_row_header() and
-    /// atk_table_set_row_header() instead.
-    case notifyAccessibleTableRowHeader = "notify::accessible-table-row-header"
-    case notifyAccessibleTableSummary = "notify::accessible-table-summary"
-    /// Numeric value of this object, in case being and AtkValue.
-    ///
-    /// **accessible-value is deprecated:**
-    /// Since 2.12. Use atk_value_get_value_and_text() to get
-    /// the value, and value-changed signal to be notified on their value
-    /// changes.
-    case notifyAccessibleValue = "notify::accessible-value"
-    /// Whether the widget or any of its descendents can accept
-    /// the input focus.
-    /// 
-    /// This property is meant to be set by widget implementations,
-    /// typically in their instance init function.
-    case notifyCanFocus = "notify::can-focus"
-    case notifyCanTarget = "notify::can-target"
-    /// A list of css classes applied to this widget.
-    case notifyCssClasses = "notify::css-classes"
-    /// The name of this widget in the CSS tree.
-    /// 
-    /// This property is meant to be set by widget implementations,
-    /// typically in their instance init function.
-    case notifyCssName = "notify::css-name"
-    /// The cursor used by `widget`. See `gtk_widget_set_cursor()` for details.
-    case notifyCursor = "notify::cursor"
-    /// The `GtkAppChooserWidget:default`-text property determines the text
-    /// that appears in the widget when there are no applications for the
-    /// given content type.
-    /// See also `gtk_app_chooser_widget_set_default_text()`.
-    case notifyDefaultText = "notify::default-text"
-    /// Whether the widget should grab focus when it is clicked with the mouse.
-    /// 
-    /// This property is only relevant for widgets that can take focus.
-    case notifyFocusOnClick = "notify::focus-on-click"
-    /// Whether this widget itself will accept the input focus.
-    case notifyFocusable = "notify::focusable"
-    /// How to distribute horizontal space if widget gets extra space, see `GtkAlign`
-    case notifyHalign = "notify::halign"
-    case notifyHasDefault = "notify::has-default"
-    case notifyHasFocus = "notify::has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
-    /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
-    /// whether it will provide a tooltip or not.
-    case notifyHasTooltip = "notify::has-tooltip"
-    case notifyHeightRequest = "notify::height-request"
-    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
-    case notifyHexpand = "notify::hexpand"
-    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
-    case notifyHexpandSet = "notify::hexpand-set"
-    /// The `GtkLayoutManager` instance to use to compute the preferred size
-    /// of the widget, and allocate its children.
-    /// 
-    /// This property is meant to be set by widget implementations,
-    /// typically in their instance init function.
-    case notifyLayoutManager = "notify::layout-manager"
-    /// Margin on bottom side of widget.
-    /// 
-    /// This property adds margin outside of the widget's normal size
-    /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
-    case notifyMarginBottom = "notify::margin-bottom"
-    /// Margin on end of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
-    /// 
-    /// This property adds margin outside of the widget's normal size
-    /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
-    case notifyMarginEnd = "notify::margin-end"
-    /// Margin on start of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
-    /// 
-    /// This property adds margin outside of the widget's normal size
-    /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
-    case notifyMarginStart = "notify::margin-start"
-    /// Margin on top side of widget.
-    /// 
-    /// This property adds margin outside of the widget's normal size
-    /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
-    case notifyMarginTop = "notify::margin-top"
-    case notifyName = "notify::name"
-    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
-    /// more details about window opacity.
-    case notifyOpacity = "notify::opacity"
-    /// How content outside the widget's content area is treated.
-    /// 
-    /// This property is meant to be set by widget implementations,
-    /// typically in their instance init function.
-    case notifyOverflow = "notify::overflow"
-    case notifyParent = "notify::parent"
-    case notifyReceivesDefault = "notify::receives-default"
-    /// The `GtkRoot` widget of the widget tree containing this widget or `nil` if
-    /// the widget is not contained in a root widget.
-    case notifyRoot = "notify::root"
-    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
-    /// more details about widget scaling.
-    case notifyScaleFactor = "notify::scale-factor"
-    case notifySensitive = "notify::sensitive"
-    /// If the `GtkAppChooserWidget:show`-all property is `true`, the app
-    /// chooser presents all applications in a single list, without
-    /// subsections for default, recommended or related applications.
-    case notifyShowAll = "notify::show-all"
-    /// The `show`-default property determines whether the app chooser
-    /// should show the default handler for the content type in a
-    /// separate section. If `false`, the default handler is listed
-    /// among the recommended applications.
-    case notifyShowDefault = "notify::show-default"
-    /// The `GtkAppChooserWidget:show`-fallback property determines whether
-    /// the app chooser should show a section for fallback applications.
-    /// If `false`, the fallback applications are listed among the other
-    /// applications.
-    case notifyShowFallback = "notify::show-fallback"
-    /// The `GtkAppChooserWidget:show`-other property determines whether
-    /// the app chooser should show a section for other applications.
-    case notifyShowOther = "notify::show-other"
-    /// The `GtkAppChooserWidget:show`-recommended property determines
-    /// whether the app chooser should show a section for recommended
-    /// applications. If `false`, the recommended applications are listed
-    /// among the other applications.
-    case notifyShowRecommended = "notify::show-recommended"
-    /// Sets the text of tooltip to be the given string, which is marked up
-    /// with the [Pango text markup language](#PangoMarkupFormat).
-    /// Also see `gtk_tooltip_set_markup()`.
-    /// 
-    /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
-    /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
-    /// are set, the last one wins.
-    case notifyTooltipMarkup = "notify::tooltip-markup"
-    /// Sets the text of tooltip to be the given string.
-    /// 
-    /// Also see `gtk_tooltip_set_text()`.
-    /// 
-    /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
-    /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
-    /// are set, the last one wins.
-    case notifyTooltipText = "notify::tooltip-text"
-    /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
-    case notifyValign = "notify::valign"
-    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
-    case notifyVexpand = "notify::vexpand"
-    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
-    case notifyVexpandSet = "notify::vexpand-set"
-    case notifyVisible = "notify::visible"
-    case notifyWidthRequest = "notify::width-request"
-}
-
-public extension AppChooserWidgetProtocol {
-    /// Connect a `AppChooserWidgetSignalName` signal to a given signal handler.
-    /// - Parameter signal: the signal to connect
-    /// - Parameter flags: signal connection flags
-    /// - Parameter handler: signal handler to use
-    /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @inlinable @discardableResult func connect(signal kind: AppChooserWidgetSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
-            let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
-            let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
-                if let swift = UnsafeRawPointer($0) {
-                    let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
-                    holder.release()
-                }
-                let _ = $1
-            }, connectFlags: flags)
-            return rv
+    /// - Note: Representation of signal named `notify::default-text`
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter pspec: the `GParamSpec` of the property which changed.
+    @discardableResult
+    func onNotifyDefaultText(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: AppChooserWidgetRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder2<AppChooserWidgetRef, ParamSpecRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(AppChooserWidgetRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
+            return output
         }
-        let rv = _connect(signal: kind.name, flags: f, data: ClosureHolder(handler)) {
-            let ptr = UnsafeRawPointer($1)
-            let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(ptr).takeUnretainedValue()
-            holder.call(())
-        }
-        return rv
+        return signalConnectData(
+            detailedSignal: "notify::default-text", 
+            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            connectFlags: flags
+        )
     }
+    
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    /// - Note: Representation of signal named `notify::show-all`
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter pspec: the `GParamSpec` of the property which changed.
+    @discardableResult
+    func onNotifyShowAll(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: AppChooserWidgetRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder2<AppChooserWidgetRef, ParamSpecRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(AppChooserWidgetRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
+            return output
+        }
+        return signalConnectData(
+            detailedSignal: "notify::show-all", 
+            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            connectFlags: flags
+        )
+    }
+    
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    /// - Note: Representation of signal named `notify::show-default`
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter pspec: the `GParamSpec` of the property which changed.
+    @discardableResult
+    func onNotifyShowDefault(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: AppChooserWidgetRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder2<AppChooserWidgetRef, ParamSpecRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(AppChooserWidgetRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
+            return output
+        }
+        return signalConnectData(
+            detailedSignal: "notify::show-default", 
+            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            connectFlags: flags
+        )
+    }
+    
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    /// - Note: Representation of signal named `notify::show-fallback`
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter pspec: the `GParamSpec` of the property which changed.
+    @discardableResult
+    func onNotifyShowFallback(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: AppChooserWidgetRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder2<AppChooserWidgetRef, ParamSpecRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(AppChooserWidgetRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
+            return output
+        }
+        return signalConnectData(
+            detailedSignal: "notify::show-fallback", 
+            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            connectFlags: flags
+        )
+    }
+    
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    /// - Note: Representation of signal named `notify::show-other`
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter pspec: the `GParamSpec` of the property which changed.
+    @discardableResult
+    func onNotifyShowOther(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: AppChooserWidgetRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder2<AppChooserWidgetRef, ParamSpecRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(AppChooserWidgetRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
+            return output
+        }
+        return signalConnectData(
+            detailedSignal: "notify::show-other", 
+            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            connectFlags: flags
+        )
+    }
+    
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    /// - Note: Representation of signal named `notify::show-recommended`
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter pspec: the `GParamSpec` of the property which changed.
+    @discardableResult
+    func onNotifyShowRecommended(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: AppChooserWidgetRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder2<AppChooserWidgetRef, ParamSpecRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(AppChooserWidgetRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
+            return output
+        }
+        return signalConnectData(
+            detailedSignal: "notify::show-recommended", 
+            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            connectFlags: flags
+        )
+    }
+    
 }
 
 // MARK: AppChooserWidget Class: AppChooserWidgetProtocol extension (methods and fields)
@@ -8332,7 +7551,7 @@ public protocol ApplicationProtocol: GIO.ApplicationProtocol, GIO.ActionGroupPro
 /// ## See Also ## <a name="seealso"></a>
 /// [HowDoI: Using GtkApplication](https://wiki.gnome.org/HowDoI/GtkApplication),
 /// [Getting Started with GTK: Basics](https://developer.gnome.org/gtk3/stable/gtk-getting-started.html`id`-1.2.3.3)
-public struct ApplicationRef: ApplicationProtocol {
+public struct ApplicationRef: ApplicationProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkApplication` instance.
     /// For type-safe access, use the generated, typed pointer `application_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer!
@@ -8377,6 +7596,9 @@ public extension ApplicationRef {
     @inlinable init<T: ApplicationProtocol>(_ other: T) {
         ptr = other.ptr
     }
+
+    /// This factory is syntactic sugar for setting weak pointers wrapped in `GWeak<T>`
+    @inlinable static func unowned<T: ApplicationProtocol>(_ other: T) -> ApplicationRef { ApplicationRef(other) }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ApplicationProtocol`.**
@@ -8660,6 +7882,7 @@ open class Application: GIO.Application, ApplicationProtocol {
     @inlinable public override init( applicationID: UnsafePointer<CChar>? = nil, flags: GIO.ApplicationFlags) {
         let rv = gtk_application_new(applicationID, flags.value)
         super.init(gpointer: gpointer(rv))
+        if typeIsA(type: self.type, isAType: InitiallyUnownedClassRef.metatypeReference) { _ = self.refSink() } 
     }
 
 
@@ -8743,62 +7966,80 @@ public extension ApplicationProtocol {
     }
 }
 
-public enum ApplicationSignalName: String, SignalNameProtocol {
-    /// The `activate` signal is emitted on the primary instance when an
-    /// activation occurs. See `g_application_activate()`.
-    case activate = "activate"
-    /// The `command`-line signal is emitted on the primary instance when
-    /// a commandline is not handled locally. See `g_application_run()` and
-    /// the `GApplicationCommandLine` documentation for more information.
-    case commandLine = "command-line"
-    /// The `handle`-local-options signal is emitted on the local instance
-    /// after the parsing of the commandline options has occurred.
-    /// 
-    /// You can add options to be recognised during commandline option
-    /// parsing using `g_application_add_main_option_entries()` and
-    /// `g_application_add_option_group()`.
-    /// 
-    /// Signal handlers can inspect `options` (along with values pointed to
-    /// from the `arg_data` of an installed `GOptionEntrys`) in order to
-    /// decide to perform certain actions, including direct local handling
-    /// (which may be useful for options like --version).
-    /// 
-    /// In the event that the application is marked
-    /// `G_APPLICATION_HANDLES_COMMAND_LINE` the "normal processing" will
-    /// send the `options` dictionary to the primary instance where it can be
-    /// read with `g_application_command_line_get_options_dict()`.  The signal
-    /// handler can modify the dictionary before returning, and the
-    /// modified dictionary will be sent.
-    /// 
-    /// In the event that `G_APPLICATION_HANDLES_COMMAND_LINE` is not set,
-    /// "normal processing" will treat the remaining uncollected command
-    /// line arguments as filenames or URIs.  If there are no arguments,
-    /// the application is activated by `g_application_activate()`.  One or
-    /// more arguments results in a call to `g_application_open()`.
-    /// 
-    /// If you want to handle the local commandline arguments for yourself
-    /// by converting them to calls to `g_application_open()` or
-    /// `g_action_group_activate_action()` then you must be sure to register
-    /// the application first.  You should probably not call
-    /// `g_application_activate()` for yourself, however: just return -1 and
-    /// allow the default handler to do it for you.  This will ensure that
-    /// the `--gapplication-service` switch works properly (i.e. no activation
-    /// in that case).
-    /// 
-    /// Note that this signal is emitted from the default implementation of
-    /// `local_command_line()`.  If you override that function and don't
-    /// chain up then this signal will never be emitted.
-    /// 
-    /// You can override `local_command_line()` if you need more powerful
-    /// capabilities than what is provided here, but this should not
-    /// normally be required.
-    case handleLocalOptions = "handle-local-options"
-    /// The `name`-lost signal is emitted only on the registered primary instance
-    /// when a new instance has taken over. This can only happen if the application
-    /// is using the `G_APPLICATION_ALLOW_REPLACEMENT` flag.
-    /// 
-    /// The default handler for this signal calls `g_application_quit()`.
-    case nameLost = "name-lost"
+// MARK: Signals of Application
+public extension ApplicationProtocol {
+    /// Emitted when the session manager is about to end the session, only
+    /// if `GtkApplication:register`-session is `true`. Applications can
+    /// connect to this signal and call `gtk_application_inhibit()` with
+    /// `GTK_APPLICATION_INHIBIT_LOGOUT` to delay the end of the session
+    /// until state has been saved.
+    /// - Note: Representation of signal named `query-end`
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    @discardableResult
+    func onQueryEnd(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ApplicationRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder<ApplicationRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer) -> Void = { unownedSelf, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(ApplicationRef(raw: unownedSelf))
+            return output
+        }
+        return signalConnectData(
+            detailedSignal: "query-end", 
+            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            connectFlags: flags
+        )
+    }
+    
+    /// Emitted when a `GtkWindow` is added to `application` through
+    /// `gtk_application_add_window()`.
+    /// - Note: Representation of signal named `window-added`
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter window: the newly-added `GtkWindow`
+    @discardableResult
+    func onWindowAdded(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ApplicationRef, _ window: WindowRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder2<ApplicationRef, WindowRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(ApplicationRef(raw: unownedSelf), WindowRef(raw: arg1))
+            return output
+        }
+        return signalConnectData(
+            detailedSignal: "window-added", 
+            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            connectFlags: flags
+        )
+    }
+    
+    /// Emitted when a `GtkWindow` is removed from `application`,
+    /// either as a side-effect of being destroyed or explicitly
+    /// through `gtk_application_remove_window()`.
+    /// - Note: Representation of signal named `window-removed`
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter window: the `GtkWindow` that is being removed
+    @discardableResult
+    func onWindowRemoved(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ApplicationRef, _ window: WindowRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder2<ApplicationRef, WindowRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(ApplicationRef(raw: unownedSelf), WindowRef(raw: arg1))
+            return output
+        }
+        return signalConnectData(
+            detailedSignal: "window-removed", 
+            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            connectFlags: flags
+        )
+    }
+    
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
@@ -8823,79 +8064,162 @@ public enum ApplicationSignalName: String, SignalNameProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    case notify = "notify"
-    /// The `open` signal is emitted on the primary instance when there are
-    /// files to open. See `g_application_open()` for more information.
-    case open = "open"
-    /// Emitted when the session manager is about to end the session, only
-    /// if `GtkApplication:register`-session is `true`. Applications can
-    /// connect to this signal and call `gtk_application_inhibit()` with
-    /// `GTK_APPLICATION_INHIBIT_LOGOUT` to delay the end of the session
-    /// until state has been saved.
-    case queryEnd = "query-end"
-    /// The `shutdown` signal is emitted only on the registered primary instance
-    /// immediately after the main loop terminates.
-    case shutdown = "shutdown"
-    /// The `startup` signal is emitted on the primary instance immediately
-    /// after registration. See `g_application_register()`.
-    case startup = "startup"
-    /// Emitted when a `GtkWindow` is added to `application` through
-    /// `gtk_application_add_window()`.
-    case windowAdded = "window-added"
-    /// Emitted when a `GtkWindow` is removed from `application`,
-    /// either as a side-effect of being destroyed or explicitly
-    /// through `gtk_application_remove_window()`.
-    case windowRemoved = "window-removed"
-    case notifyActionGroup = "notify::action-group"
-    case notifyActiveWindow = "notify::active-window"
-    case notifyApplicationId = "notify::application-id"
-    case notifyFlags = "notify::flags"
-    case notifyInactivityTimeout = "notify::inactivity-timeout"
-    /// Whether the application is currently marked as busy through
-    /// `g_application_mark_busy()` or `g_application_bind_busy_property()`.
-    case notifyIsBusy = "notify::is-busy"
-    case notifyIsRegistered = "notify::is-registered"
-    case notifyIsRemote = "notify::is-remote"
-    case notifyMenubar = "notify::menubar"
-    /// Set this property to `true` to register with the session manager.
-    /// This will make GTK+ track the session state (such as the
-    /// `GtkApplication:screensaver`-active property).
-    case notifyRegisterSession = "notify::register-session"
-    case notifyResourceBasePath = "notify::resource-base-path"
-    /// This property is `true` if GTK+ believes that the screensaver is
-    /// currently active. GTK+ only tracks session state (including this)
-    /// when `GtkApplication:register`-session is set to `true`.
-    /// 
-    /// Tracking the screensaver state is supported on Linux.
-    case notifyScreensaverActive = "notify::screensaver-active"
-}
-
-public extension ApplicationProtocol {
-    /// Connect a `ApplicationSignalName` signal to a given signal handler.
-    /// - Parameter signal: the signal to connect
-    /// - Parameter flags: signal connection flags
-    /// - Parameter handler: signal handler to use
-    /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @inlinable @discardableResult func connect(signal kind: ApplicationSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
-            let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
-            let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
-                if let swift = UnsafeRawPointer($0) {
-                    let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
-                    holder.release()
-                }
-                let _ = $1
-            }, connectFlags: flags)
-            return rv
+    /// - Note: Representation of signal named `notify::active-window`
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter pspec: the `GParamSpec` of the property which changed.
+    @discardableResult
+    func onNotifyActiveWindow(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ApplicationRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder2<ApplicationRef, ParamSpecRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(ApplicationRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
+            return output
         }
-        let rv = _connect(signal: kind.name, flags: f, data: ClosureHolder(handler)) {
-            let ptr = UnsafeRawPointer($1)
-            let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(ptr).takeUnretainedValue()
-            holder.call(())
-        }
-        return rv
+        return signalConnectData(
+            detailedSignal: "notify::active-window", 
+            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            connectFlags: flags
+        )
     }
+    
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    /// - Note: Representation of signal named `notify::menubar`
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter pspec: the `GParamSpec` of the property which changed.
+    @discardableResult
+    func onNotifyMenubar(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ApplicationRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder2<ApplicationRef, ParamSpecRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(ApplicationRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
+            return output
+        }
+        return signalConnectData(
+            detailedSignal: "notify::menubar", 
+            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            connectFlags: flags
+        )
+    }
+    
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    /// - Note: Representation of signal named `notify::register-session`
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter pspec: the `GParamSpec` of the property which changed.
+    @discardableResult
+    func onNotifyRegisterSession(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ApplicationRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder2<ApplicationRef, ParamSpecRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(ApplicationRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
+            return output
+        }
+        return signalConnectData(
+            detailedSignal: "notify::register-session", 
+            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            connectFlags: flags
+        )
+    }
+    
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    /// - Note: Representation of signal named `notify::screensaver-active`
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter pspec: the `GParamSpec` of the property which changed.
+    @discardableResult
+    func onNotifyScreensaverActive(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ApplicationRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder2<ApplicationRef, ParamSpecRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(ApplicationRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
+            return output
+        }
+        return signalConnectData(
+            detailedSignal: "notify::screensaver-active", 
+            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            connectFlags: flags
+        )
+    }
+    
 }
 
 // MARK: Application Class: ApplicationProtocol extension (methods and fields)
@@ -9386,7 +8710,7 @@ public protocol ApplicationWindowProtocol: WindowProtocol, GIO.ActionGroupProtoc
 /// GtkWidget *window = gtk_application_window_new (app);
 /// ```
 /// 
-public struct ApplicationWindowRef: ApplicationWindowProtocol {
+public struct ApplicationWindowRef: ApplicationWindowProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkApplicationWindow` instance.
     /// For type-safe access, use the generated, typed pointer `application_window_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer!
@@ -9431,6 +8755,9 @@ public extension ApplicationWindowRef {
     @inlinable init<T: ApplicationWindowProtocol>(_ other: T) {
         ptr = other.ptr
     }
+
+    /// This factory is syntactic sugar for setting weak pointers wrapped in `GWeak<T>`
+    @inlinable static func unowned<T: ApplicationWindowProtocol>(_ other: T) -> ApplicationWindowRef { ApplicationWindowRef(other) }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ApplicationWindowProtocol`.**
@@ -9675,57 +9002,13 @@ open class ApplicationWindow: Window, ApplicationWindowProtocol {
     @inlinable public init<ApplicationT: ApplicationProtocol>( application: ApplicationT) {
         let rv = gtk_application_window_new(application.application_ptr)
         super.init(gpointer: gpointer(rv))
+        if typeIsA(type: self.type, isAType: InitiallyUnownedClassRef.metatypeReference) { _ = self.refSink() } 
     }
 
 
 }
 
 public enum ApplicationWindowPropertyName: String, PropertyNameProtocol {
-    case accessibleComponentLayer = "accessible-component-layer"
-    case accessibleComponentMdiZorder = "accessible-component-mdi-zorder"
-    case accessibleDescription = "accessible-description"
-    case accessibleHypertextNlinks = "accessible-hypertext-nlinks"
-    case accessibleName = "accessible-name"
-    case accessibleParent = "accessible-parent"
-    case accessibleRole = "accessible-role"
-    /// Table caption.
-    ///
-    /// **accessible-table-caption is deprecated:**
-    /// Since 1.3. Use table-caption-object instead.
-    case accessibleTableCaption = "accessible-table-caption"
-    case accessibleTableCaptionObject = "accessible-table-caption-object"
-    /// Accessible table column description.
-    ///
-    /// **accessible-table-column-description is deprecated:**
-    /// Since 2.12. Use atk_table_get_column_description()
-    /// and atk_table_set_column_description() instead.
-    case accessibleTableColumnDescription = "accessible-table-column-description"
-    /// Accessible table column header.
-    ///
-    /// **accessible-table-column-header is deprecated:**
-    /// Since 2.12. Use atk_table_get_column_header() and
-    /// atk_table_set_column_header() instead.
-    case accessibleTableColumnHeader = "accessible-table-column-header"
-    /// Accessible table row description.
-    ///
-    /// **accessible-table-row-description is deprecated:**
-    /// Since 2.12. Use atk_table_get_row_description() and
-    /// atk_table_set_row_description() instead.
-    case accessibleTableRowDescription = "accessible-table-row-description"
-    /// Accessible table row header.
-    ///
-    /// **accessible-table-row-header is deprecated:**
-    /// Since 2.12. Use atk_table_get_row_header() and
-    /// atk_table_set_row_header() instead.
-    case accessibleTableRowHeader = "accessible-table-row-header"
-    case accessibleTableSummary = "accessible-table-summary"
-    /// Numeric value of this object, in case being and AtkValue.
-    ///
-    /// **accessible-value is deprecated:**
-    /// Since 2.12. Use atk_value_get_value_and_text() to get
-    /// the value, and value-changed signal to be notified on their value
-    /// changes.
-    case accessibleValue = "accessible-value"
     /// The `GtkApplication` associated with the window.
     /// 
     /// The application will be kept alive for at least as long as it
@@ -9965,417 +9248,7 @@ public extension ApplicationWindowProtocol {
     }
 }
 
-public enum ApplicationWindowSignalName: String, SignalNameProtocol {
-    /// The `activate`-default signal is a
-    /// [keybinding signal](#GtkSignalAction)
-    /// which gets emitted when the user activates the default widget
-    /// of `window`.
-    case activateDefault = "activate-default"
-    /// The `activate`-focus signal is a
-    /// [keybinding signal](#GtkSignalAction)
-    /// which gets emitted when the user activates the currently
-    /// focused widget of `window`.
-    case activateFocus = "activate-focus"
-    /// The "active-descendant-changed" signal is emitted by an object
-    /// which has the state ATK_STATE_MANAGES_DESCENDANTS when the focus
-    /// object in the object changes. For instance, a table will emit the
-    /// signal when the cell in the table which has focus changes.
-    case activeDescendantChanged = "active-descendant-changed"
-    /// The signal "children-changed" is emitted when a child is added or
-    /// removed form an object. It supports two details: "add" and
-    /// "remove"
-    case childrenChanged = "children-changed"
-    /// The `close`-request signal is emitted when the user clicks on the close
-    /// button of the window.
-    case closeRequest = "close-request"
-    /// Signals that all holders of a reference to the widget should release
-    /// the reference that they hold. May result in finalization of the widget
-    /// if all references are released.
-    /// 
-    /// This signal is not suitable for saving widget state.
-    case destroy = "destroy"
-    /// The `direction`-changed signal is emitted when the text direction
-    /// of a widget changes.
-    case directionChanged = "direction-changed"
-    /// The `enable`-debugging signal is a [keybinding signal](#GtkSignalAction)
-    /// which gets emitted when the user enables or disables interactive
-    /// debugging. When `toggle` is `true`, interactive debugging is toggled
-    /// on or off, when it is `false`, the debugger will be pointed at the
-    /// widget under the pointer.
-    /// 
-    /// The default bindings for this signal are Ctrl-Shift-I
-    /// and Ctrl-Shift-D.
-    case enableDebugging = "enable-debugging"
-    /// The signal "focus-event" is emitted when an object gained or lost
-    /// focus.
-    ///
-    /// **focus-event is deprecated:**
-    /// Use the #AtkObject::state-change signal instead.
-    case focusEvent = "focus-event"
-    /// The `hide` signal is emitted when `widget` is hidden, for example with
-    /// `gtk_widget_hide()`.
-    case hide = "hide"
-    /// Gets emitted if keyboard navigation fails.
-    /// See `gtk_widget_keynav_failed()` for details.
-    case keynavFailed = "keynav-failed"
-    /// The `keys`-changed signal gets emitted when the set of accelerators
-    /// or mnemonics that are associated with `window` changes.
-    case keysChanged = "keys-changed"
-    /// The `map` signal is emitted when `widget` is going to be mapped, that is
-    /// when the widget is visible (which is controlled with
-    /// `gtk_widget_set_visible()`) and all its parents up to the toplevel widget
-    /// are also visible.
-    /// 
-    /// The `map` signal can be used to determine whether a widget will be drawn,
-    /// for instance it can resume an animation that was stopped during the
-    /// emission of `GtkWidget::unmap`.
-    case map = "map"
-    /// The default handler for this signal activates `widget` if `group_cycling`
-    /// is `false`, or just makes `widget` grab focus if `group_cycling` is `true`.
-    case mnemonicActivate = "mnemonic-activate"
-    /// Emitted when the focus is moved.
-    case moveFocus = "move-focus"
-    /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
-    /// 
-    /// Note that getting this signal doesn’t itself guarantee that the value of
-    /// the property has actually changed. When it is emitted is determined by the
-    /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
-    /// in `notify` being emitted, even if the new value is the same as the old.
-    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
-    /// and common practice is to do that only when the value has actually changed.
-    /// 
-    /// This signal is typically used to obtain change notification for a
-    /// single property, by specifying the property name as a detail in the
-    /// `g_signal_connect()` call, like this:
-    /// (C Language Example):
-    /// ```C
-    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
-    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
-    ///                   text_view)
-    /// ```
-    /// It is important to note that you must use
-    /// [canonical parameter names](#canonical-parameter-names) as
-    /// detail strings for the notify signal.
-    case notify = "notify"
-    /// The signal "property-change" is emitted when an object's property
-    /// value changes. `arg1` contains an `AtkPropertyValues` with the name
-    /// and the new value of the property whose value has changed. Note
-    /// that, as with GObject notify, getting this signal does not
-    /// guarantee that the value of the property has actually changed; it
-    /// may also be emitted when the setter of the property is called to
-    /// reinstate the previous value.
-    /// 
-    /// Toolkit implementor note: ATK implementors should use
-    /// `g_object_notify()` to emit property-changed
-    /// notifications. `AtkObject::property`-changed is needed by the
-    /// implementation of `atk_add_global_event_listener()` because GObject
-    /// notify doesn't support emission hooks.
-    case propertyChange = "property-change"
-    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
-    /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
-    /// focus in keyboard mode.
-    /// 
-    /// Using the given coordinates, the signal handler should determine
-    /// whether a tooltip should be shown for `widget`. If this is the case
-    /// `true` should be returned, `false` otherwise.  Note that if
-    /// `keyboard_mode` is `true`, the values of `x` and `y` are undefined and
-    /// should not be used.
-    /// 
-    /// The signal handler is free to manipulate `tooltip` with the therefore
-    /// destined function calls.
-    case queryTooltip = "query-tooltip"
-    /// The `realize` signal is emitted when `widget` is associated with a
-    /// `GdkSurface`, which means that `gtk_widget_realize()` has been called or the
-    /// widget has been mapped (that is, it is going to be drawn).
-    case realize = "realize"
-    /// The `show` signal is emitted when `widget` is shown, for example with
-    /// `gtk_widget_show()`.
-    case show = "show"
-    /// The "state-change" signal is emitted when an object's state
-    /// changes.  The detail value identifies the state type which has
-    /// changed.
-    case stateChange = "state-change"
-    /// The `state`-flags-changed signal is emitted when the widget state
-    /// changes, see `gtk_widget_get_state_flags()`.
-    case stateFlagsChanged = "state-flags-changed"
-    /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
-    /// means that either it or any of its parents up to the toplevel widget have
-    /// been set as hidden.
-    /// 
-    /// As `unmap` indicates that a widget will not be shown any longer, it can be
-    /// used to, for example, stop an animation on the widget.
-    case unmap = "unmap"
-    /// The `unrealize` signal is emitted when the `GdkSurface` associated with
-    /// `widget` is destroyed, which means that `gtk_widget_unrealize()` has been
-    /// called or the widget has been unmapped (that is, it is going to be
-    /// hidden).
-    case unrealize = "unrealize"
-    /// The "visible-data-changed" signal is emitted when the visual
-    /// appearance of the object changed.
-    case visibleDataChanged = "visible-data-changed"
-    case notifyAccessibleComponentLayer = "notify::accessible-component-layer"
-    case notifyAccessibleComponentMdiZorder = "notify::accessible-component-mdi-zorder"
-    case notifyAccessibleDescription = "notify::accessible-description"
-    case notifyAccessibleHypertextNlinks = "notify::accessible-hypertext-nlinks"
-    case notifyAccessibleName = "notify::accessible-name"
-    case notifyAccessibleParent = "notify::accessible-parent"
-    case notifyAccessibleRole = "notify::accessible-role"
-    /// Table caption.
-    ///
-    /// **accessible-table-caption is deprecated:**
-    /// Since 1.3. Use table-caption-object instead.
-    case notifyAccessibleTableCaption = "notify::accessible-table-caption"
-    case notifyAccessibleTableCaptionObject = "notify::accessible-table-caption-object"
-    /// Accessible table column description.
-    ///
-    /// **accessible-table-column-description is deprecated:**
-    /// Since 2.12. Use atk_table_get_column_description()
-    /// and atk_table_set_column_description() instead.
-    case notifyAccessibleTableColumnDescription = "notify::accessible-table-column-description"
-    /// Accessible table column header.
-    ///
-    /// **accessible-table-column-header is deprecated:**
-    /// Since 2.12. Use atk_table_get_column_header() and
-    /// atk_table_set_column_header() instead.
-    case notifyAccessibleTableColumnHeader = "notify::accessible-table-column-header"
-    /// Accessible table row description.
-    ///
-    /// **accessible-table-row-description is deprecated:**
-    /// Since 2.12. Use atk_table_get_row_description() and
-    /// atk_table_set_row_description() instead.
-    case notifyAccessibleTableRowDescription = "notify::accessible-table-row-description"
-    /// Accessible table row header.
-    ///
-    /// **accessible-table-row-header is deprecated:**
-    /// Since 2.12. Use atk_table_get_row_header() and
-    /// atk_table_set_row_header() instead.
-    case notifyAccessibleTableRowHeader = "notify::accessible-table-row-header"
-    case notifyAccessibleTableSummary = "notify::accessible-table-summary"
-    /// Numeric value of this object, in case being and AtkValue.
-    ///
-    /// **accessible-value is deprecated:**
-    /// Since 2.12. Use atk_value_get_value_and_text() to get
-    /// the value, and value-changed signal to be notified on their value
-    /// changes.
-    case notifyAccessibleValue = "notify::accessible-value"
-    /// The `GtkApplication` associated with the window.
-    /// 
-    /// The application will be kept alive for at least as long as it
-    /// has any windows associated with it (see `g_application_hold()`
-    /// for a way to keep it alive without windows).
-    /// 
-    /// Normally, the connection between the application and the window
-    /// will remain until the window is destroyed, but you can explicitly
-    /// remove it by setting the :application property to `nil`.
-    case notifyApplication = "notify::application"
-    /// Whether the widget or any of its descendents can accept
-    /// the input focus.
-    /// 
-    /// This property is meant to be set by widget implementations,
-    /// typically in their instance init function.
-    case notifyCanFocus = "notify::can-focus"
-    case notifyCanTarget = "notify::can-target"
-    case notifyChild = "notify::child"
-    /// A list of css classes applied to this widget.
-    case notifyCssClasses = "notify::css-classes"
-    /// The name of this widget in the CSS tree.
-    /// 
-    /// This property is meant to be set by widget implementations,
-    /// typically in their instance init function.
-    case notifyCssName = "notify::css-name"
-    /// The cursor used by `widget`. See `gtk_widget_set_cursor()` for details.
-    case notifyCursor = "notify::cursor"
-    /// Whether the window should be decorated by the window manager.
-    case notifyDecorated = "notify::decorated"
-    case notifyDefaultHeight = "notify::default-height"
-    case notifyDefaultWidget = "notify::default-widget"
-    case notifyDefaultWidth = "notify::default-width"
-    /// Whether the window frame should have a close button.
-    case notifyDeletable = "notify::deletable"
-    case notifyDestroyWithParent = "notify::destroy-with-parent"
-    case notifyDisplay = "notify::display"
-    /// Whether the widget should grab focus when it is clicked with the mouse.
-    /// 
-    /// This property is only relevant for widgets that can take focus.
-    case notifyFocusOnClick = "notify::focus-on-click"
-    /// Whether 'focus rectangles' are currently visible in this window.
-    /// 
-    /// This property is maintained by GTK based on user input
-    /// and should not be set by applications.
-    case notifyFocusVisible = "notify::focus-visible"
-    case notifyFocusWidget = "notify::focus-widget"
-    /// Whether this widget itself will accept the input focus.
-    case notifyFocusable = "notify::focusable"
-    /// Whether the window is fullscreen.
-    /// 
-    /// Setting this property is the equivalent of calling `gtk_window_fullscreen()`
-    /// and `gtk_window_unfullscreen()`; either operation is asynchronous, which
-    /// means you will need to connect to the `GObject::notify` signal in order to
-    /// know whether the operation was successful.
-    case notifyFullscreened = "notify::fullscreened"
-    /// How to distribute horizontal space if widget gets extra space, see `GtkAlign`
-    case notifyHalign = "notify::halign"
-    case notifyHasDefault = "notify::has-default"
-    case notifyHasFocus = "notify::has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
-    /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
-    /// whether it will provide a tooltip or not.
-    case notifyHasTooltip = "notify::has-tooltip"
-    case notifyHeightRequest = "notify::height-request"
-    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
-    case notifyHexpand = "notify::hexpand"
-    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
-    case notifyHexpandSet = "notify::hexpand-set"
-    case notifyHideOnClose = "notify::hide-on-close"
-    /// The :icon-name property specifies the name of the themed icon to
-    /// use as the window icon. See `GtkIconTheme` for more details.
-    case notifyIconName = "notify::icon-name"
-    case notifyIsActive = "notify::is-active"
-    /// The `GtkLayoutManager` instance to use to compute the preferred size
-    /// of the widget, and allocate its children.
-    /// 
-    /// This property is meant to be set by widget implementations,
-    /// typically in their instance init function.
-    case notifyLayoutManager = "notify::layout-manager"
-    /// Margin on bottom side of widget.
-    /// 
-    /// This property adds margin outside of the widget's normal size
-    /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
-    case notifyMarginBottom = "notify::margin-bottom"
-    /// Margin on end of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
-    /// 
-    /// This property adds margin outside of the widget's normal size
-    /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
-    case notifyMarginEnd = "notify::margin-end"
-    /// Margin on start of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
-    /// 
-    /// This property adds margin outside of the widget's normal size
-    /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
-    case notifyMarginStart = "notify::margin-start"
-    /// Margin on top side of widget.
-    /// 
-    /// This property adds margin outside of the widget's normal size
-    /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
-    case notifyMarginTop = "notify::margin-top"
-    /// Whether the window is maximized.
-    /// 
-    /// Setting this property is the equivalent of calling `gtk_window_maximize()`
-    /// and `gtk_window_unmaximize()`; either operation is asynchronous, which
-    /// means you will need to connect to the `GObject::notify` signal in order to
-    /// know whether the operation was successful.
-    case notifyMaximized = "notify::maximized"
-    /// Whether mnemonics are currently visible in this window.
-    /// 
-    /// This property is maintained by GTK based on user input,
-    /// and should not be set by applications.
-    case notifyMnemonicsVisible = "notify::mnemonics-visible"
-    case notifyModal = "notify::modal"
-    case notifyName = "notify::name"
-    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
-    /// more details about window opacity.
-    case notifyOpacity = "notify::opacity"
-    /// How content outside the widget's content area is treated.
-    /// 
-    /// This property is meant to be set by widget implementations,
-    /// typically in their instance init function.
-    case notifyOverflow = "notify::overflow"
-    case notifyParent = "notify::parent"
-    case notifyReceivesDefault = "notify::receives-default"
-    case notifyResizable = "notify::resizable"
-    /// The `GtkRoot` widget of the widget tree containing this widget or `nil` if
-    /// the widget is not contained in a root widget.
-    case notifyRoot = "notify::root"
-    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
-    /// more details about widget scaling.
-    case notifyScaleFactor = "notify::scale-factor"
-    case notifySensitive = "notify::sensitive"
-    /// If this property is `true`, the window will display a menubar
-    /// unless it is shown by the desktop shell. See `gtk_application_set_menubar()`.
-    /// 
-    /// If `false`, the window will not display a menubar, regardless
-    /// of whether the desktop shell is showing it or not.
-    case notifyShowMenubar = "notify::show-menubar"
-    /// The :startup-id is a write-only property for setting window's
-    /// startup notification identifier. See `gtk_window_set_startup_id()`
-    /// for more details.
-    case notifyStartupId = "notify::startup-id"
-    case notifyTitle = "notify::title"
-    /// Sets the text of tooltip to be the given string, which is marked up
-    /// with the [Pango text markup language](#PangoMarkupFormat).
-    /// Also see `gtk_tooltip_set_markup()`.
-    /// 
-    /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
-    /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
-    /// are set, the last one wins.
-    case notifyTooltipMarkup = "notify::tooltip-markup"
-    /// Sets the text of tooltip to be the given string.
-    /// 
-    /// Also see `gtk_tooltip_set_text()`.
-    /// 
-    /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
-    /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
-    /// are set, the last one wins.
-    case notifyTooltipText = "notify::tooltip-text"
-    /// The transient parent of the window. See `gtk_window_set_transient_for()` for
-    /// more details about transient windows.
-    case notifyTransientFor = "notify::transient-for"
-    /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
-    case notifyValign = "notify::valign"
-    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
-    case notifyVexpand = "notify::vexpand"
-    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
-    case notifyVexpandSet = "notify::vexpand-set"
-    case notifyVisible = "notify::visible"
-    case notifyWidthRequest = "notify::width-request"
-}
-
-public extension ApplicationWindowProtocol {
-    /// Connect a `ApplicationWindowSignalName` signal to a given signal handler.
-    /// - Parameter signal: the signal to connect
-    /// - Parameter flags: signal connection flags
-    /// - Parameter handler: signal handler to use
-    /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @inlinable @discardableResult func connect(signal kind: ApplicationWindowSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
-            let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
-            let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
-                if let swift = UnsafeRawPointer($0) {
-                    let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
-                    holder.release()
-                }
-                let _ = $1
-            }, connectFlags: flags)
-            return rv
-        }
-        let rv = _connect(signal: kind.name, flags: f, data: ClosureHolder(handler)) {
-            let ptr = UnsafeRawPointer($1)
-            let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(ptr).takeUnretainedValue()
-            holder.call(())
-        }
-        return rv
-    }
-}
-
-// MARK: ApplicationWindow Class: ApplicationWindowProtocol extension (methods and fields)
+// MARK: ApplicationWindow has no signals// MARK: ApplicationWindow Class: ApplicationWindowProtocol extension (methods and fields)
 public extension ApplicationWindowProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkApplicationWindow` instance.
     @inlinable var application_window_ptr: UnsafeMutablePointer<GtkApplicationWindow>! { return ptr?.assumingMemoryBound(to: GtkApplicationWindow.self) }
@@ -10525,7 +9398,7 @@ public protocol AspectFrameProtocol: WidgetProtocol {
 /// # CSS nodes
 /// 
 /// GtkAspectFrame uses a CSS node with name frame.
-public struct AspectFrameRef: AspectFrameProtocol {
+public struct AspectFrameRef: AspectFrameProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkAspectFrame` instance.
     /// For type-safe access, use the generated, typed pointer `aspect_frame_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer!
@@ -10570,6 +9443,9 @@ public extension AspectFrameRef {
     @inlinable init<T: AspectFrameProtocol>(_ other: T) {
         ptr = other.ptr
     }
+
+    /// This factory is syntactic sugar for setting weak pointers wrapped in `GWeak<T>`
+    @inlinable static func unowned<T: AspectFrameProtocol>(_ other: T) -> AspectFrameRef { AspectFrameRef(other) }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AspectFrameProtocol`.**
@@ -10752,57 +9628,13 @@ open class AspectFrame: Widget, AspectFrameProtocol {
     @inlinable public init( xalign: CFloat, yalign: CFloat, ratio: CFloat, obeyChild: Bool) {
         let rv = gtk_aspect_frame_new(xalign, yalign, ratio, gboolean((obeyChild) ? 1 : 0))
         super.init(gpointer: gpointer(rv))
+        if typeIsA(type: self.type, isAType: InitiallyUnownedClassRef.metatypeReference) { _ = self.refSink() } 
     }
 
 
 }
 
 public enum AspectFramePropertyName: String, PropertyNameProtocol {
-    case accessibleComponentLayer = "accessible-component-layer"
-    case accessibleComponentMdiZorder = "accessible-component-mdi-zorder"
-    case accessibleDescription = "accessible-description"
-    case accessibleHypertextNlinks = "accessible-hypertext-nlinks"
-    case accessibleName = "accessible-name"
-    case accessibleParent = "accessible-parent"
-    case accessibleRole = "accessible-role"
-    /// Table caption.
-    ///
-    /// **accessible-table-caption is deprecated:**
-    /// Since 1.3. Use table-caption-object instead.
-    case accessibleTableCaption = "accessible-table-caption"
-    case accessibleTableCaptionObject = "accessible-table-caption-object"
-    /// Accessible table column description.
-    ///
-    /// **accessible-table-column-description is deprecated:**
-    /// Since 2.12. Use atk_table_get_column_description()
-    /// and atk_table_set_column_description() instead.
-    case accessibleTableColumnDescription = "accessible-table-column-description"
-    /// Accessible table column header.
-    ///
-    /// **accessible-table-column-header is deprecated:**
-    /// Since 2.12. Use atk_table_get_column_header() and
-    /// atk_table_set_column_header() instead.
-    case accessibleTableColumnHeader = "accessible-table-column-header"
-    /// Accessible table row description.
-    ///
-    /// **accessible-table-row-description is deprecated:**
-    /// Since 2.12. Use atk_table_get_row_description() and
-    /// atk_table_set_row_description() instead.
-    case accessibleTableRowDescription = "accessible-table-row-description"
-    /// Accessible table row header.
-    ///
-    /// **accessible-table-row-header is deprecated:**
-    /// Since 2.12. Use atk_table_get_row_header() and
-    /// atk_table_set_row_header() instead.
-    case accessibleTableRowHeader = "accessible-table-row-header"
-    case accessibleTableSummary = "accessible-table-summary"
-    /// Numeric value of this object, in case being and AtkValue.
-    ///
-    /// **accessible-value is deprecated:**
-    /// Since 2.12. Use atk_value_get_value_and_text() to get
-    /// the value, and value-changed signal to be notified on their value
-    /// changes.
-    case accessibleValue = "accessible-value"
     /// Whether the widget or any of its descendents can accept
     /// the input focus.
     /// 
@@ -10981,331 +9813,7 @@ public extension AspectFrameProtocol {
     }
 }
 
-public enum AspectFrameSignalName: String, SignalNameProtocol {
-    /// The "active-descendant-changed" signal is emitted by an object
-    /// which has the state ATK_STATE_MANAGES_DESCENDANTS when the focus
-    /// object in the object changes. For instance, a table will emit the
-    /// signal when the cell in the table which has focus changes.
-    case activeDescendantChanged = "active-descendant-changed"
-    /// The signal "children-changed" is emitted when a child is added or
-    /// removed form an object. It supports two details: "add" and
-    /// "remove"
-    case childrenChanged = "children-changed"
-    /// Signals that all holders of a reference to the widget should release
-    /// the reference that they hold. May result in finalization of the widget
-    /// if all references are released.
-    /// 
-    /// This signal is not suitable for saving widget state.
-    case destroy = "destroy"
-    /// The `direction`-changed signal is emitted when the text direction
-    /// of a widget changes.
-    case directionChanged = "direction-changed"
-    /// The signal "focus-event" is emitted when an object gained or lost
-    /// focus.
-    ///
-    /// **focus-event is deprecated:**
-    /// Use the #AtkObject::state-change signal instead.
-    case focusEvent = "focus-event"
-    /// The `hide` signal is emitted when `widget` is hidden, for example with
-    /// `gtk_widget_hide()`.
-    case hide = "hide"
-    /// Gets emitted if keyboard navigation fails.
-    /// See `gtk_widget_keynav_failed()` for details.
-    case keynavFailed = "keynav-failed"
-    /// The `map` signal is emitted when `widget` is going to be mapped, that is
-    /// when the widget is visible (which is controlled with
-    /// `gtk_widget_set_visible()`) and all its parents up to the toplevel widget
-    /// are also visible.
-    /// 
-    /// The `map` signal can be used to determine whether a widget will be drawn,
-    /// for instance it can resume an animation that was stopped during the
-    /// emission of `GtkWidget::unmap`.
-    case map = "map"
-    /// The default handler for this signal activates `widget` if `group_cycling`
-    /// is `false`, or just makes `widget` grab focus if `group_cycling` is `true`.
-    case mnemonicActivate = "mnemonic-activate"
-    /// Emitted when the focus is moved.
-    case moveFocus = "move-focus"
-    /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
-    /// 
-    /// Note that getting this signal doesn’t itself guarantee that the value of
-    /// the property has actually changed. When it is emitted is determined by the
-    /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
-    /// in `notify` being emitted, even if the new value is the same as the old.
-    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
-    /// and common practice is to do that only when the value has actually changed.
-    /// 
-    /// This signal is typically used to obtain change notification for a
-    /// single property, by specifying the property name as a detail in the
-    /// `g_signal_connect()` call, like this:
-    /// (C Language Example):
-    /// ```C
-    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
-    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
-    ///                   text_view)
-    /// ```
-    /// It is important to note that you must use
-    /// [canonical parameter names](#canonical-parameter-names) as
-    /// detail strings for the notify signal.
-    case notify = "notify"
-    /// The signal "property-change" is emitted when an object's property
-    /// value changes. `arg1` contains an `AtkPropertyValues` with the name
-    /// and the new value of the property whose value has changed. Note
-    /// that, as with GObject notify, getting this signal does not
-    /// guarantee that the value of the property has actually changed; it
-    /// may also be emitted when the setter of the property is called to
-    /// reinstate the previous value.
-    /// 
-    /// Toolkit implementor note: ATK implementors should use
-    /// `g_object_notify()` to emit property-changed
-    /// notifications. `AtkObject::property`-changed is needed by the
-    /// implementation of `atk_add_global_event_listener()` because GObject
-    /// notify doesn't support emission hooks.
-    case propertyChange = "property-change"
-    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
-    /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
-    /// focus in keyboard mode.
-    /// 
-    /// Using the given coordinates, the signal handler should determine
-    /// whether a tooltip should be shown for `widget`. If this is the case
-    /// `true` should be returned, `false` otherwise.  Note that if
-    /// `keyboard_mode` is `true`, the values of `x` and `y` are undefined and
-    /// should not be used.
-    /// 
-    /// The signal handler is free to manipulate `tooltip` with the therefore
-    /// destined function calls.
-    case queryTooltip = "query-tooltip"
-    /// The `realize` signal is emitted when `widget` is associated with a
-    /// `GdkSurface`, which means that `gtk_widget_realize()` has been called or the
-    /// widget has been mapped (that is, it is going to be drawn).
-    case realize = "realize"
-    /// The `show` signal is emitted when `widget` is shown, for example with
-    /// `gtk_widget_show()`.
-    case show = "show"
-    /// The "state-change" signal is emitted when an object's state
-    /// changes.  The detail value identifies the state type which has
-    /// changed.
-    case stateChange = "state-change"
-    /// The `state`-flags-changed signal is emitted when the widget state
-    /// changes, see `gtk_widget_get_state_flags()`.
-    case stateFlagsChanged = "state-flags-changed"
-    /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
-    /// means that either it or any of its parents up to the toplevel widget have
-    /// been set as hidden.
-    /// 
-    /// As `unmap` indicates that a widget will not be shown any longer, it can be
-    /// used to, for example, stop an animation on the widget.
-    case unmap = "unmap"
-    /// The `unrealize` signal is emitted when the `GdkSurface` associated with
-    /// `widget` is destroyed, which means that `gtk_widget_unrealize()` has been
-    /// called or the widget has been unmapped (that is, it is going to be
-    /// hidden).
-    case unrealize = "unrealize"
-    /// The "visible-data-changed" signal is emitted when the visual
-    /// appearance of the object changed.
-    case visibleDataChanged = "visible-data-changed"
-    case notifyAccessibleComponentLayer = "notify::accessible-component-layer"
-    case notifyAccessibleComponentMdiZorder = "notify::accessible-component-mdi-zorder"
-    case notifyAccessibleDescription = "notify::accessible-description"
-    case notifyAccessibleHypertextNlinks = "notify::accessible-hypertext-nlinks"
-    case notifyAccessibleName = "notify::accessible-name"
-    case notifyAccessibleParent = "notify::accessible-parent"
-    case notifyAccessibleRole = "notify::accessible-role"
-    /// Table caption.
-    ///
-    /// **accessible-table-caption is deprecated:**
-    /// Since 1.3. Use table-caption-object instead.
-    case notifyAccessibleTableCaption = "notify::accessible-table-caption"
-    case notifyAccessibleTableCaptionObject = "notify::accessible-table-caption-object"
-    /// Accessible table column description.
-    ///
-    /// **accessible-table-column-description is deprecated:**
-    /// Since 2.12. Use atk_table_get_column_description()
-    /// and atk_table_set_column_description() instead.
-    case notifyAccessibleTableColumnDescription = "notify::accessible-table-column-description"
-    /// Accessible table column header.
-    ///
-    /// **accessible-table-column-header is deprecated:**
-    /// Since 2.12. Use atk_table_get_column_header() and
-    /// atk_table_set_column_header() instead.
-    case notifyAccessibleTableColumnHeader = "notify::accessible-table-column-header"
-    /// Accessible table row description.
-    ///
-    /// **accessible-table-row-description is deprecated:**
-    /// Since 2.12. Use atk_table_get_row_description() and
-    /// atk_table_set_row_description() instead.
-    case notifyAccessibleTableRowDescription = "notify::accessible-table-row-description"
-    /// Accessible table row header.
-    ///
-    /// **accessible-table-row-header is deprecated:**
-    /// Since 2.12. Use atk_table_get_row_header() and
-    /// atk_table_set_row_header() instead.
-    case notifyAccessibleTableRowHeader = "notify::accessible-table-row-header"
-    case notifyAccessibleTableSummary = "notify::accessible-table-summary"
-    /// Numeric value of this object, in case being and AtkValue.
-    ///
-    /// **accessible-value is deprecated:**
-    /// Since 2.12. Use atk_value_get_value_and_text() to get
-    /// the value, and value-changed signal to be notified on their value
-    /// changes.
-    case notifyAccessibleValue = "notify::accessible-value"
-    /// Whether the widget or any of its descendents can accept
-    /// the input focus.
-    /// 
-    /// This property is meant to be set by widget implementations,
-    /// typically in their instance init function.
-    case notifyCanFocus = "notify::can-focus"
-    case notifyCanTarget = "notify::can-target"
-    case notifyChild = "notify::child"
-    /// A list of css classes applied to this widget.
-    case notifyCssClasses = "notify::css-classes"
-    /// The name of this widget in the CSS tree.
-    /// 
-    /// This property is meant to be set by widget implementations,
-    /// typically in their instance init function.
-    case notifyCssName = "notify::css-name"
-    /// The cursor used by `widget`. See `gtk_widget_set_cursor()` for details.
-    case notifyCursor = "notify::cursor"
-    /// Whether the widget should grab focus when it is clicked with the mouse.
-    /// 
-    /// This property is only relevant for widgets that can take focus.
-    case notifyFocusOnClick = "notify::focus-on-click"
-    /// Whether this widget itself will accept the input focus.
-    case notifyFocusable = "notify::focusable"
-    /// How to distribute horizontal space if widget gets extra space, see `GtkAlign`
-    case notifyHalign = "notify::halign"
-    case notifyHasDefault = "notify::has-default"
-    case notifyHasFocus = "notify::has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
-    /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
-    /// whether it will provide a tooltip or not.
-    case notifyHasTooltip = "notify::has-tooltip"
-    case notifyHeightRequest = "notify::height-request"
-    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
-    case notifyHexpand = "notify::hexpand"
-    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
-    case notifyHexpandSet = "notify::hexpand-set"
-    /// The `GtkLayoutManager` instance to use to compute the preferred size
-    /// of the widget, and allocate its children.
-    /// 
-    /// This property is meant to be set by widget implementations,
-    /// typically in their instance init function.
-    case notifyLayoutManager = "notify::layout-manager"
-    /// Margin on bottom side of widget.
-    /// 
-    /// This property adds margin outside of the widget's normal size
-    /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
-    case notifyMarginBottom = "notify::margin-bottom"
-    /// Margin on end of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
-    /// 
-    /// This property adds margin outside of the widget's normal size
-    /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
-    case notifyMarginEnd = "notify::margin-end"
-    /// Margin on start of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
-    /// 
-    /// This property adds margin outside of the widget's normal size
-    /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
-    case notifyMarginStart = "notify::margin-start"
-    /// Margin on top side of widget.
-    /// 
-    /// This property adds margin outside of the widget's normal size
-    /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
-    case notifyMarginTop = "notify::margin-top"
-    case notifyName = "notify::name"
-    case notifyObeyChild = "notify::obey-child"
-    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
-    /// more details about window opacity.
-    case notifyOpacity = "notify::opacity"
-    /// How content outside the widget's content area is treated.
-    /// 
-    /// This property is meant to be set by widget implementations,
-    /// typically in their instance init function.
-    case notifyOverflow = "notify::overflow"
-    case notifyParent = "notify::parent"
-    case notifyRatio = "notify::ratio"
-    case notifyReceivesDefault = "notify::receives-default"
-    /// The `GtkRoot` widget of the widget tree containing this widget or `nil` if
-    /// the widget is not contained in a root widget.
-    case notifyRoot = "notify::root"
-    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
-    /// more details about widget scaling.
-    case notifyScaleFactor = "notify::scale-factor"
-    case notifySensitive = "notify::sensitive"
-    /// Sets the text of tooltip to be the given string, which is marked up
-    /// with the [Pango text markup language](#PangoMarkupFormat).
-    /// Also see `gtk_tooltip_set_markup()`.
-    /// 
-    /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
-    /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
-    /// are set, the last one wins.
-    case notifyTooltipMarkup = "notify::tooltip-markup"
-    /// Sets the text of tooltip to be the given string.
-    /// 
-    /// Also see `gtk_tooltip_set_text()`.
-    /// 
-    /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
-    /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
-    /// are set, the last one wins.
-    case notifyTooltipText = "notify::tooltip-text"
-    /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
-    case notifyValign = "notify::valign"
-    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
-    case notifyVexpand = "notify::vexpand"
-    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
-    case notifyVexpandSet = "notify::vexpand-set"
-    case notifyVisible = "notify::visible"
-    case notifyWidthRequest = "notify::width-request"
-    case notifyXalign = "notify::xalign"
-    case notifyYalign = "notify::yalign"
-}
-
-public extension AspectFrameProtocol {
-    /// Connect a `AspectFrameSignalName` signal to a given signal handler.
-    /// - Parameter signal: the signal to connect
-    /// - Parameter flags: signal connection flags
-    /// - Parameter handler: signal handler to use
-    /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @inlinable @discardableResult func connect(signal kind: AspectFrameSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
-            let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
-            let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
-                if let swift = UnsafeRawPointer($0) {
-                    let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
-                    holder.release()
-                }
-                let _ = $1
-            }, connectFlags: flags)
-            return rv
-        }
-        let rv = _connect(signal: kind.name, flags: f, data: ClosureHolder(handler)) {
-            let ptr = UnsafeRawPointer($1)
-            let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(ptr).takeUnretainedValue()
-            holder.call(())
-        }
-        return rv
-    }
-}
-
-// MARK: AspectFrame Class: AspectFrameProtocol extension (methods and fields)
+// MARK: AspectFrame has no signals// MARK: AspectFrame Class: AspectFrameProtocol extension (methods and fields)
 public extension AspectFrameProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkAspectFrame` instance.
     @inlinable var aspect_frame_ptr: UnsafeMutablePointer<GtkAspectFrame>! { return ptr?.assumingMemoryBound(to: GtkAspectFrame.self) }
@@ -11543,7 +10051,7 @@ public protocol AssistantProtocol: WindowProtocol {
 /// 
 /// GtkAssistant has a single CSS node with the name window and style
 /// class .assistant.
-public struct AssistantRef: AssistantProtocol {
+public struct AssistantRef: AssistantProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkAssistant` instance.
     /// For type-safe access, use the generated, typed pointer `assistant_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer!
@@ -11588,6 +10096,9 @@ public extension AssistantRef {
     @inlinable init<T: AssistantProtocol>(_ other: T) {
         ptr = other.ptr
     }
+
+    /// This factory is syntactic sugar for setting weak pointers wrapped in `GWeak<T>`
+    @inlinable static func unowned<T: AssistantProtocol>(_ other: T) -> AssistantRef { AssistantRef(other) }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AssistantProtocol`.**
@@ -11793,57 +10304,13 @@ open class Assistant: Window, AssistantProtocol {
     @inlinable override public init() {
         let rv = gtk_assistant_new()
         super.init(gpointer: gpointer(rv))
+        if typeIsA(type: self.type, isAType: InitiallyUnownedClassRef.metatypeReference) { _ = self.refSink() } 
     }
 
 
 }
 
 public enum AssistantPropertyName: String, PropertyNameProtocol {
-    case accessibleComponentLayer = "accessible-component-layer"
-    case accessibleComponentMdiZorder = "accessible-component-mdi-zorder"
-    case accessibleDescription = "accessible-description"
-    case accessibleHypertextNlinks = "accessible-hypertext-nlinks"
-    case accessibleName = "accessible-name"
-    case accessibleParent = "accessible-parent"
-    case accessibleRole = "accessible-role"
-    /// Table caption.
-    ///
-    /// **accessible-table-caption is deprecated:**
-    /// Since 1.3. Use table-caption-object instead.
-    case accessibleTableCaption = "accessible-table-caption"
-    case accessibleTableCaptionObject = "accessible-table-caption-object"
-    /// Accessible table column description.
-    ///
-    /// **accessible-table-column-description is deprecated:**
-    /// Since 2.12. Use atk_table_get_column_description()
-    /// and atk_table_set_column_description() instead.
-    case accessibleTableColumnDescription = "accessible-table-column-description"
-    /// Accessible table column header.
-    ///
-    /// **accessible-table-column-header is deprecated:**
-    /// Since 2.12. Use atk_table_get_column_header() and
-    /// atk_table_set_column_header() instead.
-    case accessibleTableColumnHeader = "accessible-table-column-header"
-    /// Accessible table row description.
-    ///
-    /// **accessible-table-row-description is deprecated:**
-    /// Since 2.12. Use atk_table_get_row_description() and
-    /// atk_table_set_row_description() instead.
-    case accessibleTableRowDescription = "accessible-table-row-description"
-    /// Accessible table row header.
-    ///
-    /// **accessible-table-row-header is deprecated:**
-    /// Since 2.12. Use atk_table_get_row_header() and
-    /// atk_table_set_row_header() instead.
-    case accessibleTableRowHeader = "accessible-table-row-header"
-    case accessibleTableSummary = "accessible-table-summary"
-    /// Numeric value of this object, in case being and AtkValue.
-    ///
-    /// **accessible-value is deprecated:**
-    /// Since 2.12. Use atk_value_get_value_and_text() to get
-    /// the value, and value-changed signal to be notified on their value
-    /// changes.
-    case accessibleValue = "accessible-value"
     /// The `GtkApplication` associated with the window.
     /// 
     /// The application will be kept alive for at least as long as it
@@ -12084,22 +10551,8 @@ public extension AssistantProtocol {
     }
 }
 
-public enum AssistantSignalName: String, SignalNameProtocol {
-    /// The `activate`-default signal is a
-    /// [keybinding signal](#GtkSignalAction)
-    /// which gets emitted when the user activates the default widget
-    /// of `window`.
-    case activateDefault = "activate-default"
-    /// The `activate`-focus signal is a
-    /// [keybinding signal](#GtkSignalAction)
-    /// which gets emitted when the user activates the currently
-    /// focused widget of `window`.
-    case activateFocus = "activate-focus"
-    /// The "active-descendant-changed" signal is emitted by an object
-    /// which has the state ATK_STATE_MANAGES_DESCENDANTS when the focus
-    /// object in the object changes. For instance, a table will emit the
-    /// signal when the cell in the table which has focus changes.
-    case activeDescendantChanged = "active-descendant-changed"
+// MARK: Signals of Assistant
+public extension AssistantProtocol {
     /// The `apply` signal is emitted when the apply button is clicked.
     /// 
     /// The default behavior of the `GtkAssistant` is to switch to the page
@@ -12111,69 +10564,117 @@ public enum AssistantSignalName: String, SignalNameProtocol {
     /// `GTK_ASSISTANT_PAGE_PROGRESS` after the confirmation page and handle
     /// this operation within the `GtkAssistant::prepare` signal of the progress
     /// page.
-    case apply = "apply"
+    /// - Note: Representation of signal named `apply`
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    @discardableResult
+    func onApply(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: AssistantRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder<AssistantRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer) -> Void = { unownedSelf, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(AssistantRef(raw: unownedSelf))
+            return output
+        }
+        return signalConnectData(
+            detailedSignal: "apply", 
+            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            connectFlags: flags
+        )
+    }
+    
     /// The `cancel` signal is emitted when then the cancel button is clicked.
-    case cancel = "cancel"
-    /// The signal "children-changed" is emitted when a child is added or
-    /// removed form an object. It supports two details: "add" and
-    /// "remove"
-    case childrenChanged = "children-changed"
+    /// - Note: Representation of signal named `cancel`
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    @discardableResult
+    func onCancel(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: AssistantRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder<AssistantRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer) -> Void = { unownedSelf, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(AssistantRef(raw: unownedSelf))
+            return output
+        }
+        return signalConnectData(
+            detailedSignal: "cancel", 
+            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            connectFlags: flags
+        )
+    }
+    
     /// The `close` signal is emitted either when the close button of
     /// a summary page is clicked, or when the apply button in the last
     /// page in the flow (of type `GTK_ASSISTANT_PAGE_CONFIRM`) is clicked.
-    case close = "close"
-    /// The `close`-request signal is emitted when the user clicks on the close
-    /// button of the window.
-    case closeRequest = "close-request"
-    /// Signals that all holders of a reference to the widget should release
-    /// the reference that they hold. May result in finalization of the widget
-    /// if all references are released.
-    /// 
-    /// This signal is not suitable for saving widget state.
-    case destroy = "destroy"
-    /// The `direction`-changed signal is emitted when the text direction
-    /// of a widget changes.
-    case directionChanged = "direction-changed"
-    /// The `enable`-debugging signal is a [keybinding signal](#GtkSignalAction)
-    /// which gets emitted when the user enables or disables interactive
-    /// debugging. When `toggle` is `true`, interactive debugging is toggled
-    /// on or off, when it is `false`, the debugger will be pointed at the
-    /// widget under the pointer.
-    /// 
-    /// The default bindings for this signal are Ctrl-Shift-I
-    /// and Ctrl-Shift-D.
-    case enableDebugging = "enable-debugging"
+    /// - Note: Representation of signal named `close`
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    @discardableResult
+    func onClose(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: AssistantRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder<AssistantRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer) -> Void = { unownedSelf, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(AssistantRef(raw: unownedSelf))
+            return output
+        }
+        return signalConnectData(
+            detailedSignal: "close", 
+            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            connectFlags: flags
+        )
+    }
+    
     /// The action signal for the Escape binding.
-    case escape = "escape"
-    /// The signal "focus-event" is emitted when an object gained or lost
-    /// focus.
-    ///
-    /// **focus-event is deprecated:**
-    /// Use the #AtkObject::state-change signal instead.
-    case focusEvent = "focus-event"
-    /// The `hide` signal is emitted when `widget` is hidden, for example with
-    /// `gtk_widget_hide()`.
-    case hide = "hide"
-    /// Gets emitted if keyboard navigation fails.
-    /// See `gtk_widget_keynav_failed()` for details.
-    case keynavFailed = "keynav-failed"
-    /// The `keys`-changed signal gets emitted when the set of accelerators
-    /// or mnemonics that are associated with `window` changes.
-    case keysChanged = "keys-changed"
-    /// The `map` signal is emitted when `widget` is going to be mapped, that is
-    /// when the widget is visible (which is controlled with
-    /// `gtk_widget_set_visible()`) and all its parents up to the toplevel widget
-    /// are also visible.
+    /// - Note: Representation of signal named `escape`
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    @discardableResult
+    func onEscape(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: AssistantRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder<AssistantRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer) -> Void = { unownedSelf, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(AssistantRef(raw: unownedSelf))
+            return output
+        }
+        return signalConnectData(
+            detailedSignal: "escape", 
+            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            connectFlags: flags
+        )
+    }
+    
+    /// The `prepare` signal is emitted when a new page is set as the
+    /// assistant's current page, before making the new page visible.
     /// 
-    /// The `map` signal can be used to determine whether a widget will be drawn,
-    /// for instance it can resume an animation that was stopped during the
-    /// emission of `GtkWidget::unmap`.
-    case map = "map"
-    /// The default handler for this signal activates `widget` if `group_cycling`
-    /// is `false`, or just makes `widget` grab focus if `group_cycling` is `true`.
-    case mnemonicActivate = "mnemonic-activate"
-    /// Emitted when the focus is moved.
-    case moveFocus = "move-focus"
+    /// A handler for this signal can do any preparations which are
+    /// necessary before showing `page`.
+    /// - Note: Representation of signal named `prepare`
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter page: the current page
+    @discardableResult
+    func onPrepare(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: AssistantRef, _ page: WidgetRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder2<AssistantRef, WidgetRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(AssistantRef(raw: unownedSelf), WidgetRef(raw: arg1))
+            return output
+        }
+        return signalConnectData(
+            detailedSignal: "prepare", 
+            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            connectFlags: flags
+        )
+    }
+    
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
@@ -12198,327 +10699,72 @@ public enum AssistantSignalName: String, SignalNameProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    case notify = "notify"
-    /// The `prepare` signal is emitted when a new page is set as the
-    /// assistant's current page, before making the new page visible.
-    /// 
-    /// A handler for this signal can do any preparations which are
-    /// necessary before showing `page`.
-    case prepare = "prepare"
-    /// The signal "property-change" is emitted when an object's property
-    /// value changes. `arg1` contains an `AtkPropertyValues` with the name
-    /// and the new value of the property whose value has changed. Note
-    /// that, as with GObject notify, getting this signal does not
-    /// guarantee that the value of the property has actually changed; it
-    /// may also be emitted when the setter of the property is called to
-    /// reinstate the previous value.
-    /// 
-    /// Toolkit implementor note: ATK implementors should use
-    /// `g_object_notify()` to emit property-changed
-    /// notifications. `AtkObject::property`-changed is needed by the
-    /// implementation of `atk_add_global_event_listener()` because GObject
-    /// notify doesn't support emission hooks.
-    case propertyChange = "property-change"
-    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
-    /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
-    /// focus in keyboard mode.
-    /// 
-    /// Using the given coordinates, the signal handler should determine
-    /// whether a tooltip should be shown for `widget`. If this is the case
-    /// `true` should be returned, `false` otherwise.  Note that if
-    /// `keyboard_mode` is `true`, the values of `x` and `y` are undefined and
-    /// should not be used.
-    /// 
-    /// The signal handler is free to manipulate `tooltip` with the therefore
-    /// destined function calls.
-    case queryTooltip = "query-tooltip"
-    /// The `realize` signal is emitted when `widget` is associated with a
-    /// `GdkSurface`, which means that `gtk_widget_realize()` has been called or the
-    /// widget has been mapped (that is, it is going to be drawn).
-    case realize = "realize"
-    /// The `show` signal is emitted when `widget` is shown, for example with
-    /// `gtk_widget_show()`.
-    case show = "show"
-    /// The "state-change" signal is emitted when an object's state
-    /// changes.  The detail value identifies the state type which has
-    /// changed.
-    case stateChange = "state-change"
-    /// The `state`-flags-changed signal is emitted when the widget state
-    /// changes, see `gtk_widget_get_state_flags()`.
-    case stateFlagsChanged = "state-flags-changed"
-    /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
-    /// means that either it or any of its parents up to the toplevel widget have
-    /// been set as hidden.
-    /// 
-    /// As `unmap` indicates that a widget will not be shown any longer, it can be
-    /// used to, for example, stop an animation on the widget.
-    case unmap = "unmap"
-    /// The `unrealize` signal is emitted when the `GdkSurface` associated with
-    /// `widget` is destroyed, which means that `gtk_widget_unrealize()` has been
-    /// called or the widget has been unmapped (that is, it is going to be
-    /// hidden).
-    case unrealize = "unrealize"
-    /// The "visible-data-changed" signal is emitted when the visual
-    /// appearance of the object changed.
-    case visibleDataChanged = "visible-data-changed"
-    case notifyAccessibleComponentLayer = "notify::accessible-component-layer"
-    case notifyAccessibleComponentMdiZorder = "notify::accessible-component-mdi-zorder"
-    case notifyAccessibleDescription = "notify::accessible-description"
-    case notifyAccessibleHypertextNlinks = "notify::accessible-hypertext-nlinks"
-    case notifyAccessibleName = "notify::accessible-name"
-    case notifyAccessibleParent = "notify::accessible-parent"
-    case notifyAccessibleRole = "notify::accessible-role"
-    /// Table caption.
-    ///
-    /// **accessible-table-caption is deprecated:**
-    /// Since 1.3. Use table-caption-object instead.
-    case notifyAccessibleTableCaption = "notify::accessible-table-caption"
-    case notifyAccessibleTableCaptionObject = "notify::accessible-table-caption-object"
-    /// Accessible table column description.
-    ///
-    /// **accessible-table-column-description is deprecated:**
-    /// Since 2.12. Use atk_table_get_column_description()
-    /// and atk_table_set_column_description() instead.
-    case notifyAccessibleTableColumnDescription = "notify::accessible-table-column-description"
-    /// Accessible table column header.
-    ///
-    /// **accessible-table-column-header is deprecated:**
-    /// Since 2.12. Use atk_table_get_column_header() and
-    /// atk_table_set_column_header() instead.
-    case notifyAccessibleTableColumnHeader = "notify::accessible-table-column-header"
-    /// Accessible table row description.
-    ///
-    /// **accessible-table-row-description is deprecated:**
-    /// Since 2.12. Use atk_table_get_row_description() and
-    /// atk_table_set_row_description() instead.
-    case notifyAccessibleTableRowDescription = "notify::accessible-table-row-description"
-    /// Accessible table row header.
-    ///
-    /// **accessible-table-row-header is deprecated:**
-    /// Since 2.12. Use atk_table_get_row_header() and
-    /// atk_table_set_row_header() instead.
-    case notifyAccessibleTableRowHeader = "notify::accessible-table-row-header"
-    case notifyAccessibleTableSummary = "notify::accessible-table-summary"
-    /// Numeric value of this object, in case being and AtkValue.
-    ///
-    /// **accessible-value is deprecated:**
-    /// Since 2.12. Use atk_value_get_value_and_text() to get
-    /// the value, and value-changed signal to be notified on their value
-    /// changes.
-    case notifyAccessibleValue = "notify::accessible-value"
-    /// The `GtkApplication` associated with the window.
-    /// 
-    /// The application will be kept alive for at least as long as it
-    /// has any windows associated with it (see `g_application_hold()`
-    /// for a way to keep it alive without windows).
-    /// 
-    /// Normally, the connection between the application and the window
-    /// will remain until the window is destroyed, but you can explicitly
-    /// remove it by setting the :application property to `nil`.
-    case notifyApplication = "notify::application"
-    /// Whether the widget or any of its descendents can accept
-    /// the input focus.
-    /// 
-    /// This property is meant to be set by widget implementations,
-    /// typically in their instance init function.
-    case notifyCanFocus = "notify::can-focus"
-    case notifyCanTarget = "notify::can-target"
-    case notifyChild = "notify::child"
-    /// A list of css classes applied to this widget.
-    case notifyCssClasses = "notify::css-classes"
-    /// The name of this widget in the CSS tree.
-    /// 
-    /// This property is meant to be set by widget implementations,
-    /// typically in their instance init function.
-    case notifyCssName = "notify::css-name"
-    /// The cursor used by `widget`. See `gtk_widget_set_cursor()` for details.
-    case notifyCursor = "notify::cursor"
-    /// Whether the window should be decorated by the window manager.
-    case notifyDecorated = "notify::decorated"
-    case notifyDefaultHeight = "notify::default-height"
-    case notifyDefaultWidget = "notify::default-widget"
-    case notifyDefaultWidth = "notify::default-width"
-    /// Whether the window frame should have a close button.
-    case notifyDeletable = "notify::deletable"
-    case notifyDestroyWithParent = "notify::destroy-with-parent"
-    case notifyDisplay = "notify::display"
-    /// Whether the widget should grab focus when it is clicked with the mouse.
-    /// 
-    /// This property is only relevant for widgets that can take focus.
-    case notifyFocusOnClick = "notify::focus-on-click"
-    /// Whether 'focus rectangles' are currently visible in this window.
-    /// 
-    /// This property is maintained by GTK based on user input
-    /// and should not be set by applications.
-    case notifyFocusVisible = "notify::focus-visible"
-    case notifyFocusWidget = "notify::focus-widget"
-    /// Whether this widget itself will accept the input focus.
-    case notifyFocusable = "notify::focusable"
-    /// Whether the window is fullscreen.
-    /// 
-    /// Setting this property is the equivalent of calling `gtk_window_fullscreen()`
-    /// and `gtk_window_unfullscreen()`; either operation is asynchronous, which
-    /// means you will need to connect to the `GObject::notify` signal in order to
-    /// know whether the operation was successful.
-    case notifyFullscreened = "notify::fullscreened"
-    /// How to distribute horizontal space if widget gets extra space, see `GtkAlign`
-    case notifyHalign = "notify::halign"
-    case notifyHasDefault = "notify::has-default"
-    case notifyHasFocus = "notify::has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
-    /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
-    /// whether it will provide a tooltip or not.
-    case notifyHasTooltip = "notify::has-tooltip"
-    case notifyHeightRequest = "notify::height-request"
-    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
-    case notifyHexpand = "notify::hexpand"
-    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
-    case notifyHexpandSet = "notify::hexpand-set"
-    case notifyHideOnClose = "notify::hide-on-close"
-    /// The :icon-name property specifies the name of the themed icon to
-    /// use as the window icon. See `GtkIconTheme` for more details.
-    case notifyIconName = "notify::icon-name"
-    case notifyIsActive = "notify::is-active"
-    /// The `GtkLayoutManager` instance to use to compute the preferred size
-    /// of the widget, and allocate its children.
-    /// 
-    /// This property is meant to be set by widget implementations,
-    /// typically in their instance init function.
-    case notifyLayoutManager = "notify::layout-manager"
-    /// Margin on bottom side of widget.
-    /// 
-    /// This property adds margin outside of the widget's normal size
-    /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
-    case notifyMarginBottom = "notify::margin-bottom"
-    /// Margin on end of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
-    /// 
-    /// This property adds margin outside of the widget's normal size
-    /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
-    case notifyMarginEnd = "notify::margin-end"
-    /// Margin on start of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
-    /// 
-    /// This property adds margin outside of the widget's normal size
-    /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
-    case notifyMarginStart = "notify::margin-start"
-    /// Margin on top side of widget.
-    /// 
-    /// This property adds margin outside of the widget's normal size
-    /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
-    case notifyMarginTop = "notify::margin-top"
-    /// Whether the window is maximized.
-    /// 
-    /// Setting this property is the equivalent of calling `gtk_window_maximize()`
-    /// and `gtk_window_unmaximize()`; either operation is asynchronous, which
-    /// means you will need to connect to the `GObject::notify` signal in order to
-    /// know whether the operation was successful.
-    case notifyMaximized = "notify::maximized"
-    /// Whether mnemonics are currently visible in this window.
-    /// 
-    /// This property is maintained by GTK based on user input,
-    /// and should not be set by applications.
-    case notifyMnemonicsVisible = "notify::mnemonics-visible"
-    case notifyModal = "notify::modal"
-    case notifyName = "notify::name"
-    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
-    /// more details about window opacity.
-    case notifyOpacity = "notify::opacity"
-    /// How content outside the widget's content area is treated.
-    /// 
-    /// This property is meant to be set by widget implementations,
-    /// typically in their instance init function.
-    case notifyOverflow = "notify::overflow"
-    case notifyPages = "notify::pages"
-    case notifyParent = "notify::parent"
-    case notifyReceivesDefault = "notify::receives-default"
-    case notifyResizable = "notify::resizable"
-    /// The `GtkRoot` widget of the widget tree containing this widget or `nil` if
-    /// the widget is not contained in a root widget.
-    case notifyRoot = "notify::root"
-    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
-    /// more details about widget scaling.
-    case notifyScaleFactor = "notify::scale-factor"
-    case notifySensitive = "notify::sensitive"
-    /// The :startup-id is a write-only property for setting window's
-    /// startup notification identifier. See `gtk_window_set_startup_id()`
-    /// for more details.
-    case notifyStartupId = "notify::startup-id"
-    case notifyTitle = "notify::title"
-    /// Sets the text of tooltip to be the given string, which is marked up
-    /// with the [Pango text markup language](#PangoMarkupFormat).
-    /// Also see `gtk_tooltip_set_markup()`.
-    /// 
-    /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
-    /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
-    /// are set, the last one wins.
-    case notifyTooltipMarkup = "notify::tooltip-markup"
-    /// Sets the text of tooltip to be the given string.
-    /// 
-    /// Also see `gtk_tooltip_set_text()`.
-    /// 
-    /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
-    /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
-    /// are set, the last one wins.
-    case notifyTooltipText = "notify::tooltip-text"
-    /// The transient parent of the window. See `gtk_window_set_transient_for()` for
-    /// more details about transient windows.
-    case notifyTransientFor = "notify::transient-for"
-    /// `true` if the assistant uses a `GtkHeaderBar` for action buttons
-    /// instead of the action-area.
-    /// 
-    /// For technical reasons, this property is declared as an integer
-    /// property, but you should only set it to `true` or `false`.
-    case notifyUseHeaderBar = "notify::use-header-bar"
-    /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
-    case notifyValign = "notify::valign"
-    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
-    case notifyVexpand = "notify::vexpand"
-    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
-    case notifyVexpandSet = "notify::vexpand-set"
-    case notifyVisible = "notify::visible"
-    case notifyWidthRequest = "notify::width-request"
-}
-
-public extension AssistantProtocol {
-    /// Connect a `AssistantSignalName` signal to a given signal handler.
-    /// - Parameter signal: the signal to connect
-    /// - Parameter flags: signal connection flags
-    /// - Parameter handler: signal handler to use
-    /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @inlinable @discardableResult func connect(signal kind: AssistantSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
-            let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
-            let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
-                if let swift = UnsafeRawPointer($0) {
-                    let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
-                    holder.release()
-                }
-                let _ = $1
-            }, connectFlags: flags)
-            return rv
+    /// - Note: Representation of signal named `notify::pages`
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter pspec: the `GParamSpec` of the property which changed.
+    @discardableResult
+    func onNotifyPages(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: AssistantRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder2<AssistantRef, ParamSpecRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(AssistantRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
+            return output
         }
-        let rv = _connect(signal: kind.name, flags: f, data: ClosureHolder(handler)) {
-            let ptr = UnsafeRawPointer($1)
-            let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(ptr).takeUnretainedValue()
-            holder.call(())
-        }
-        return rv
+        return signalConnectData(
+            detailedSignal: "notify::pages", 
+            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            connectFlags: flags
+        )
     }
+    
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    /// - Note: Representation of signal named `notify::use-header-bar`
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter pspec: the `GParamSpec` of the property which changed.
+    @discardableResult
+    func onNotifyUseHeaderBar(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: AssistantRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder2<AssistantRef, ParamSpecRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(AssistantRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
+            return output
+        }
+        return signalConnectData(
+            detailedSignal: "notify::use-header-bar", 
+            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            connectFlags: flags
+        )
+    }
+    
 }
 
 // MARK: Assistant Class: AssistantProtocol extension (methods and fields)
@@ -12770,7 +11016,7 @@ public protocol AssistantPageProtocol: GLibObject.ObjectProtocol {
 /// Use `AssistantPageRef` only as an `unowned` reference to an existing `GtkAssistantPage` instance.
 ///
 
-public struct AssistantPageRef: AssistantPageProtocol {
+public struct AssistantPageRef: AssistantPageProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkAssistantPage` instance.
     /// For type-safe access, use the generated, typed pointer `assistant_page_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer!
@@ -12815,6 +11061,9 @@ public extension AssistantPageRef {
     @inlinable init<T: AssistantPageProtocol>(_ other: T) {
         ptr = other.ptr
     }
+
+    /// This factory is syntactic sugar for setting weak pointers wrapped in `GWeak<T>`
+    @inlinable static func unowned<T: AssistantPageProtocol>(_ other: T) -> AssistantPageRef { AssistantPageRef(other) }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AssistantPageProtocol`.**
@@ -13047,72 +11296,7 @@ public extension AssistantPageProtocol {
     }
 }
 
-public enum AssistantPageSignalName: String, SignalNameProtocol {
-    /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
-    /// 
-    /// Note that getting this signal doesn’t itself guarantee that the value of
-    /// the property has actually changed. When it is emitted is determined by the
-    /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
-    /// in `notify` being emitted, even if the new value is the same as the old.
-    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
-    /// and common practice is to do that only when the value has actually changed.
-    /// 
-    /// This signal is typically used to obtain change notification for a
-    /// single property, by specifying the property name as a detail in the
-    /// `g_signal_connect()` call, like this:
-    /// (C Language Example):
-    /// ```C
-    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
-    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
-    ///                   text_view)
-    /// ```
-    /// It is important to note that you must use
-    /// [canonical parameter names](#canonical-parameter-names) as
-    /// detail strings for the notify signal.
-    case notify = "notify"
-    case notifyChild = "notify::child"
-    /// Setting the "complete" property to `true` marks a page as
-    /// complete (i.e.: all the required fields are filled out). GTK uses
-    /// this information to control the sensitivity of the navigation buttons.
-    case notifyComplete = "notify::complete"
-    /// The type of the assistant page.
-    case notifyPageType = "notify::page-type"
-    /// The title of the page.
-    case notifyTitle = "notify::title"
-}
-
-public extension AssistantPageProtocol {
-    /// Connect a `AssistantPageSignalName` signal to a given signal handler.
-    /// - Parameter signal: the signal to connect
-    /// - Parameter flags: signal connection flags
-    /// - Parameter handler: signal handler to use
-    /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @inlinable @discardableResult func connect(signal kind: AssistantPageSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
-            let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
-            let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
-                if let swift = UnsafeRawPointer($0) {
-                    let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
-                    holder.release()
-                }
-                let _ = $1
-            }, connectFlags: flags)
-            return rv
-        }
-        let rv = _connect(signal: kind.name, flags: f, data: ClosureHolder(handler)) {
-            let ptr = UnsafeRawPointer($1)
-            let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(ptr).takeUnretainedValue()
-            holder.call(())
-        }
-        return rv
-    }
-}
-
-// MARK: AssistantPage Class: AssistantPageProtocol extension (methods and fields)
+// MARK: AssistantPage has no signals// MARK: AssistantPage Class: AssistantPageProtocol extension (methods and fields)
 public extension AssistantPageProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkAssistantPage` instance.
     @inlinable var assistant_page_ptr: UnsafeMutablePointer<GtkAssistantPage>! { return ptr?.assumingMemoryBound(to: GtkAssistantPage.self) }
@@ -13165,7 +11349,7 @@ public protocol BinLayoutProtocol: LayoutManagerProtocol {
 /// other, using the `GtkWidget:hexpand`, `GtkWidget:vexpand`, `GtkWidget:halign`,
 /// and `GtkWidget:valign` properties of each child to determine where they
 /// should be positioned.
-public struct BinLayoutRef: BinLayoutProtocol {
+public struct BinLayoutRef: BinLayoutProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkBinLayout` instance.
     /// For type-safe access, use the generated, typed pointer `bin_layout_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer!
@@ -13210,6 +11394,9 @@ public extension BinLayoutRef {
     @inlinable init<T: BinLayoutProtocol>(_ other: T) {
         ptr = other.ptr
     }
+
+    /// This factory is syntactic sugar for setting weak pointers wrapped in `GWeak<T>`
+    @inlinable static func unowned<T: BinLayoutProtocol>(_ other: T) -> BinLayoutRef { BinLayoutRef(other) }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BinLayoutProtocol`.**
@@ -13386,6 +11573,7 @@ open class BinLayout: LayoutManager, BinLayoutProtocol {
     @inlinable public init() {
         let rv = gtk_bin_layout_new()
         super.init(gpointer: gpointer(rv))
+        if typeIsA(type: self.type, isAType: InitiallyUnownedClassRef.metatypeReference) { _ = self.refSink() } 
     }
 
 
@@ -13393,64 +11581,7 @@ open class BinLayout: LayoutManager, BinLayoutProtocol {
 
 // MARK: no BinLayout properties
 
-public enum BinLayoutSignalName: String, SignalNameProtocol {
-    /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
-    /// 
-    /// Note that getting this signal doesn’t itself guarantee that the value of
-    /// the property has actually changed. When it is emitted is determined by the
-    /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
-    /// in `notify` being emitted, even if the new value is the same as the old.
-    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
-    /// and common practice is to do that only when the value has actually changed.
-    /// 
-    /// This signal is typically used to obtain change notification for a
-    /// single property, by specifying the property name as a detail in the
-    /// `g_signal_connect()` call, like this:
-    /// (C Language Example):
-    /// ```C
-    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
-    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
-    ///                   text_view)
-    /// ```
-    /// It is important to note that you must use
-    /// [canonical parameter names](#canonical-parameter-names) as
-    /// detail strings for the notify signal.
-    case notify = "notify"
-
-}
-
-public extension BinLayoutProtocol {
-    /// Connect a `BinLayoutSignalName` signal to a given signal handler.
-    /// - Parameter signal: the signal to connect
-    /// - Parameter flags: signal connection flags
-    /// - Parameter handler: signal handler to use
-    /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @inlinable @discardableResult func connect(signal kind: BinLayoutSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
-            let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
-            let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
-                if let swift = UnsafeRawPointer($0) {
-                    let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
-                    holder.release()
-                }
-                let _ = $1
-            }, connectFlags: flags)
-            return rv
-        }
-        let rv = _connect(signal: kind.name, flags: f, data: ClosureHolder(handler)) {
-            let ptr = UnsafeRawPointer($1)
-            let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(ptr).takeUnretainedValue()
-            holder.call(())
-        }
-        return rv
-    }
-}
-
-// MARK: BinLayout Class: BinLayoutProtocol extension (methods and fields)
+// MARK: BinLayout has no signals// MARK: BinLayout Class: BinLayoutProtocol extension (methods and fields)
 public extension BinLayoutProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkBinLayout` instance.
     @inlinable var bin_layout_ptr: UnsafeMutablePointer<GtkBinLayout>! { return ptr?.assumingMemoryBound(to: GtkBinLayout.self) }

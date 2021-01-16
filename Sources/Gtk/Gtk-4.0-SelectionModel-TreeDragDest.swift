@@ -348,14 +348,8 @@ open class SelectionModel: GIO.ListModel, SelectionModelProtocol {
 
 // MARK: no SelectionModel properties
 
-public enum SelectionModelSignalName: String, SignalNameProtocol {
-    /// This signal is emitted whenever items were added to or removed
-    /// from `list`. At `position`, `removed` items were removed and `added`
-    /// items were added in their place.
-    /// 
-    /// Note: If `removed` != `added`, the positions of all later items
-    /// in the model change.
-    case itemsChanged = "items-changed"
+// MARK: Signals of SelectionModel
+public extension SelectionModelProtocol {
     /// Emitted when the selection state of some of the items in `model` changes.
     /// 
     /// Note that this signal does not specify the new selection state of the items,
@@ -363,36 +357,29 @@ public enum SelectionModelSignalName: String, SignalNameProtocol {
     /// It is also not necessary for a model to change the selection state of any of
     /// the items in the selection model, though it would be rather useless to emit
     /// such a signal.
-    case selectionChanged = "selection-changed"
-
-}
-
-public extension SelectionModelProtocol {
-    /// Connect a `SelectionModelSignalName` signal to a given signal handler.
-    /// - Parameter signal: the signal to connect
-    /// - Parameter flags: signal connection flags
-    /// - Parameter handler: signal handler to use
-    /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @inlinable @discardableResult func connect(signal kind: SelectionModelSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
-            let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
-            let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
-                if let swift = UnsafeRawPointer($0) {
-                    let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
-                    holder.release()
-                }
-                let _ = $1
-            }, connectFlags: flags)
-            return rv
+    /// - Note: Representation of signal named `selection-changed`
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter position: The first item that may have changed
+    /// - Parameter nItems: number of items with changes
+    @discardableResult
+    func onSelectionChanged(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: SelectionModelRef, _ position: UInt, _ nItems: UInt) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder3<SelectionModelRef, UInt, UInt, Void>
+        let cCallback: @convention(c) (gpointer, guint, guint, gpointer) -> Void = { unownedSelf, arg1, arg2, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(SelectionModelRef(raw: unownedSelf), UInt(arg1), UInt(arg2))
+            return output
         }
-        let rv = _connect(signal: kind.name, flags: f, data: ClosureHolder(handler)) {
-            let ptr = UnsafeRawPointer($1)
-            let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(ptr).takeUnretainedValue()
-            holder.call(())
-        }
-        return rv
+        return GLibObject.ObjectRef(raw: ptr).signalConnectData(
+            detailedSignal: "selection-changed", 
+            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            connectFlags: flags
+        )
     }
+    
+    
 }
 
 // MARK: SelectionModel Interface: SelectionModelProtocol extension (methods and fields)
@@ -802,10 +789,7 @@ open class ShortcutManager: ShortcutManagerProtocol {
 
 // MARK: no ShortcutManager properties
 
-// MARK: no ShortcutManager signals
-
-
-// MARK: ShortcutManager Interface: ShortcutManagerProtocol extension (methods and fields)
+// MARK: ShortcutManager has no signals// MARK: ShortcutManager Interface: ShortcutManagerProtocol extension (methods and fields)
 public extension ShortcutManagerProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkShortcutManager` instance.
     @inlinable var shortcut_manager_ptr: UnsafeMutablePointer<GtkShortcutManager>! { return ptr?.assumingMemoryBound(to: GtkShortcutManager.self) }
@@ -1070,37 +1054,29 @@ open class StyleProvider: StyleProviderProtocol {
 
 // MARK: no StyleProvider properties
 
-public enum StyleProviderSignalName: String, SignalNameProtocol {
-    case gtkPrivateChanged = "gtk-private-changed"
-
-}
-
+// MARK: Signals of StyleProvider
 public extension StyleProviderProtocol {
-    /// Connect a `StyleProviderSignalName` signal to a given signal handler.
-    /// - Parameter signal: the signal to connect
-    /// - Parameter flags: signal connection flags
-    /// - Parameter handler: signal handler to use
-    /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @inlinable @discardableResult func connect(signal kind: StyleProviderSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
-            let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
-            let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
-                if let swift = UnsafeRawPointer($0) {
-                    let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
-                    holder.release()
-                }
-                let _ = $1
-            }, connectFlags: flags)
-            return rv
+    /// - Note: Representation of signal named `gtk-private-changed`
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    @discardableResult
+    func onGtkPrivateChanged(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: StyleProviderRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder<StyleProviderRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer) -> Void = { unownedSelf, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(StyleProviderRef(raw: unownedSelf))
+            return output
         }
-        let rv = _connect(signal: kind.name, flags: f, data: ClosureHolder(handler)) {
-            let ptr = UnsafeRawPointer($1)
-            let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(ptr).takeUnretainedValue()
-            holder.call(())
-        }
-        return rv
+        return GLibObject.ObjectRef(raw: ptr).signalConnectData(
+            detailedSignal: "gtk-private-changed", 
+            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            connectFlags: flags
+        )
     }
+    
+    
 }
 
 // MARK: StyleProvider Interface: StyleProviderProtocol extension (methods and fields)
@@ -1365,10 +1341,7 @@ open class TreeDragDest: TreeDragDestProtocol {
 
 // MARK: no TreeDragDest properties
 
-// MARK: no TreeDragDest signals
-
-
-// MARK: TreeDragDest Interface: TreeDragDestProtocol extension (methods and fields)
+// MARK: TreeDragDest has no signals// MARK: TreeDragDest Interface: TreeDragDestProtocol extension (methods and fields)
 public extension TreeDragDestProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkTreeDragDest` instance.
     @inlinable var tree_drag_dest_ptr: UnsafeMutablePointer<GtkTreeDragDest>! { return ptr?.assumingMemoryBound(to: GtkTreeDragDest.self) }

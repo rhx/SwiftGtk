@@ -13,6 +13,21 @@ import PangoCairo
 import GdkPixbuf
 import Gdk
 
+/// Metatype/GType declaration for OverlayLayoutChild
+public extension OverlayLayoutChildClassRef {
+    
+    /// This getter returns type identifier in the GLib type system registry
+    static var metatypeReference: GType { gtk_overlay_layout_child_get_type() }
+    
+    private static var metatypePointer: UnsafeMutablePointer<GtkOverlayLayoutChildClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkOverlayLayoutChildClass.self) }
+    
+    static var metatype: GtkOverlayLayoutChildClass? { metatypePointer?.pointee } 
+    
+    static var wrapper: OverlayLayoutChildClassRef? { OverlayLayoutChildClassRef(metatypePointer) }
+    
+    
+}
+
 // MARK: - OverlayLayoutChildClass Record
 
 /// The `OverlayLayoutChildClassProtocol` protocol exposes the methods and properties of an underlying `GtkOverlayLayoutChildClass` instance.
@@ -113,160 +128,6 @@ public extension OverlayLayoutChildClassRef {
 
     }
 
-/// The `OverlayLayoutChildClass` type acts as an owner of an underlying `GtkOverlayLayoutChildClass` instance.
-/// It provides the methods that can operate on this data type through `OverlayLayoutChildClassProtocol` conformance.
-/// Use `OverlayLayoutChildClass` as a strong reference or owner of a `GtkOverlayLayoutChildClass` instance.
-///
-
-open class OverlayLayoutChildClass: OverlayLayoutChildClassProtocol {
-        /// Untyped pointer to the underlying `GtkOverlayLayoutChildClass` instance.
-    /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer!
-
-    /// Designated initialiser from the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `OverlayLayoutChildClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(_ op: UnsafeMutablePointer<GtkOverlayLayoutChildClass>) {
-        ptr = UnsafeMutableRawPointer(op)
-    }
-
-    /// Designated initialiser from a constant pointer to the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `OverlayLayoutChildClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(_ op: UnsafePointer<GtkOverlayLayoutChildClass>) {
-        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
-    }
-
-    /// Optional initialiser from a non-mutating `gpointer` to
-    /// the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `OverlayLayoutChildClass` instance.
-    /// - Parameter op: gpointer to the underlying object
-    @inlinable public init!(gpointer op: gpointer?) {
-        guard let p = UnsafeMutableRawPointer(op) else { return nil }
-        ptr = p
-    }
-
-    /// Optional initialiser from a non-mutating `gconstpointer` to
-    /// the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `OverlayLayoutChildClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(gconstpointer op: gconstpointer?) {
-        guard let p = op else { return nil }
-        ptr = UnsafeMutableRawPointer(mutating: p)
-    }
-
-    /// Optional initialiser from a constant pointer to the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `OverlayLayoutChildClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(_ op: UnsafePointer<GtkOverlayLayoutChildClass>?) {
-        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Optional initialiser from the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `OverlayLayoutChildClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(_ op: UnsafeMutablePointer<GtkOverlayLayoutChildClass>?) {
-        guard let p = op else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Designated initialiser from the underlying `C` data type.
-    /// `GtkOverlayLayoutChildClass` does not allow reference counting, so despite the name no actual retaining will occur.
-    /// i.e., ownership is transferred to the `OverlayLayoutChildClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(retaining op: UnsafeMutablePointer<GtkOverlayLayoutChildClass>) {
-        ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GtkOverlayLayoutChildClass, cannot ref(_ptr)
-    }
-
-    /// Reference intialiser for a related type that implements `OverlayLayoutChildClassProtocol`
-    /// `GtkOverlayLayoutChildClass` does not allow reference counting.
-    /// - Parameter other: an instance of a related type that implements `OverlayLayoutChildClassProtocol`
-    @inlinable public init<T: OverlayLayoutChildClassProtocol>(_ other: T) {
-        ptr = other.ptr
-        // no reference counting for GtkOverlayLayoutChildClass, cannot ref(_ptr)
-    }
-
-    /// Do-nothing destructor for `GtkOverlayLayoutChildClass`.
-    deinit {
-        // no reference counting for GtkOverlayLayoutChildClass, cannot unref(_ptr)
-    }
-
-    /// Unsafe typed initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `OverlayLayoutChildClassProtocol`.**
-    /// - Parameter cPointer: pointer to the underlying object
-    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Unsafe typed, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `OverlayLayoutChildClassProtocol`.**
-    /// - Parameter cPointer: pointer to the underlying object
-    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GtkOverlayLayoutChildClass, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `OverlayLayoutChildClassProtocol`.**
-    /// - Parameter p: raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: p)
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `OverlayLayoutChildClassProtocol`.**
-    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GtkOverlayLayoutChildClass, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `OverlayLayoutChildClassProtocol`.**
-    /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
-        ptr = p
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `OverlayLayoutChildClassProtocol`.**
-    /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
-        ptr = raw
-        // no reference counting for GtkOverlayLayoutChildClass, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `OverlayLayoutChildClassProtocol`.**
-    /// - Parameter p: opaque pointer to the underlying object
-    @inlinable public init(opaquePointer p: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `OverlayLayoutChildClassProtocol`.**
-    /// - Parameter p: opaque pointer to the underlying object
-    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GtkOverlayLayoutChildClass, cannot ref(_ptr)
-    }
-
-
-
-}
-
-// MARK: no OverlayLayoutChildClass properties
-
-// MARK: no OverlayLayoutChildClass signals
-
-
 // MARK: OverlayLayoutChildClass Record: OverlayLayoutChildClassProtocol extension (methods and fields)
 public extension OverlayLayoutChildClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkOverlayLayoutChildClass` instance.
@@ -283,6 +144,21 @@ public extension OverlayLayoutChildClassProtocol {
 }
 
 
+
+/// Metatype/GType declaration for OverlayLayout
+public extension OverlayLayoutClassRef {
+    
+    /// This getter returns type identifier in the GLib type system registry
+    static var metatypeReference: GType { gtk_overlay_layout_get_type() }
+    
+    private static var metatypePointer: UnsafeMutablePointer<GtkOverlayLayoutClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkOverlayLayoutClass.self) }
+    
+    static var metatype: GtkOverlayLayoutClass? { metatypePointer?.pointee } 
+    
+    static var wrapper: OverlayLayoutClassRef? { OverlayLayoutClassRef(metatypePointer) }
+    
+    
+}
 
 // MARK: - OverlayLayoutClass Record
 
@@ -383,160 +259,6 @@ public extension OverlayLayoutClassRef {
     }
 
     }
-
-/// The `OverlayLayoutClass` type acts as an owner of an underlying `GtkOverlayLayoutClass` instance.
-/// It provides the methods that can operate on this data type through `OverlayLayoutClassProtocol` conformance.
-/// Use `OverlayLayoutClass` as a strong reference or owner of a `GtkOverlayLayoutClass` instance.
-///
-
-open class OverlayLayoutClass: OverlayLayoutClassProtocol {
-        /// Untyped pointer to the underlying `GtkOverlayLayoutClass` instance.
-    /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer!
-
-    /// Designated initialiser from the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `OverlayLayoutClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(_ op: UnsafeMutablePointer<GtkOverlayLayoutClass>) {
-        ptr = UnsafeMutableRawPointer(op)
-    }
-
-    /// Designated initialiser from a constant pointer to the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `OverlayLayoutClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(_ op: UnsafePointer<GtkOverlayLayoutClass>) {
-        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
-    }
-
-    /// Optional initialiser from a non-mutating `gpointer` to
-    /// the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `OverlayLayoutClass` instance.
-    /// - Parameter op: gpointer to the underlying object
-    @inlinable public init!(gpointer op: gpointer?) {
-        guard let p = UnsafeMutableRawPointer(op) else { return nil }
-        ptr = p
-    }
-
-    /// Optional initialiser from a non-mutating `gconstpointer` to
-    /// the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `OverlayLayoutClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(gconstpointer op: gconstpointer?) {
-        guard let p = op else { return nil }
-        ptr = UnsafeMutableRawPointer(mutating: p)
-    }
-
-    /// Optional initialiser from a constant pointer to the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `OverlayLayoutClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(_ op: UnsafePointer<GtkOverlayLayoutClass>?) {
-        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Optional initialiser from the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `OverlayLayoutClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(_ op: UnsafeMutablePointer<GtkOverlayLayoutClass>?) {
-        guard let p = op else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Designated initialiser from the underlying `C` data type.
-    /// `GtkOverlayLayoutClass` does not allow reference counting, so despite the name no actual retaining will occur.
-    /// i.e., ownership is transferred to the `OverlayLayoutClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(retaining op: UnsafeMutablePointer<GtkOverlayLayoutClass>) {
-        ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GtkOverlayLayoutClass, cannot ref(_ptr)
-    }
-
-    /// Reference intialiser for a related type that implements `OverlayLayoutClassProtocol`
-    /// `GtkOverlayLayoutClass` does not allow reference counting.
-    /// - Parameter other: an instance of a related type that implements `OverlayLayoutClassProtocol`
-    @inlinable public init<T: OverlayLayoutClassProtocol>(_ other: T) {
-        ptr = other.ptr
-        // no reference counting for GtkOverlayLayoutClass, cannot ref(_ptr)
-    }
-
-    /// Do-nothing destructor for `GtkOverlayLayoutClass`.
-    deinit {
-        // no reference counting for GtkOverlayLayoutClass, cannot unref(_ptr)
-    }
-
-    /// Unsafe typed initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `OverlayLayoutClassProtocol`.**
-    /// - Parameter cPointer: pointer to the underlying object
-    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Unsafe typed, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `OverlayLayoutClassProtocol`.**
-    /// - Parameter cPointer: pointer to the underlying object
-    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GtkOverlayLayoutClass, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `OverlayLayoutClassProtocol`.**
-    /// - Parameter p: raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: p)
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `OverlayLayoutClassProtocol`.**
-    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GtkOverlayLayoutClass, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `OverlayLayoutClassProtocol`.**
-    /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
-        ptr = p
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `OverlayLayoutClassProtocol`.**
-    /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
-        ptr = raw
-        // no reference counting for GtkOverlayLayoutClass, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `OverlayLayoutClassProtocol`.**
-    /// - Parameter p: opaque pointer to the underlying object
-    @inlinable public init(opaquePointer p: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `OverlayLayoutClassProtocol`.**
-    /// - Parameter p: opaque pointer to the underlying object
-    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GtkOverlayLayoutClass, cannot ref(_ptr)
-    }
-
-
-
-}
-
-// MARK: no OverlayLayoutClass properties
-
-// MARK: no OverlayLayoutClass signals
-
 
 // MARK: OverlayLayoutClass Record: OverlayLayoutClassProtocol extension (methods and fields)
 public extension OverlayLayoutClassProtocol {
@@ -806,10 +528,7 @@ open class PadActionEntry: PadActionEntryProtocol {
 
 // MARK: no PadActionEntry properties
 
-// MARK: no PadActionEntry signals
-
-
-// MARK: PadActionEntry Record: PadActionEntryProtocol extension (methods and fields)
+// MARK: PadActionEntry has no signals// MARK: PadActionEntry Record: PadActionEntryProtocol extension (methods and fields)
 public extension PadActionEntryProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkPadActionEntry` instance.
     @inlinable var _ptr: UnsafeMutablePointer<GtkPadActionEntry>! { return ptr?.assumingMemoryBound(to: GtkPadActionEntry.self) }

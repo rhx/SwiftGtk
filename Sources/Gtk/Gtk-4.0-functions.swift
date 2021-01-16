@@ -494,6 +494,48 @@ import Gdk
 
 
 
+/// Call this function before using any other GTK functions in your GUI
+/// applications.  It will initialize everything needed to operate the
+/// toolkit and parses some standard command line options.
+/// 
+/// If you are using `GtkApplication`, you don't have to call `gtk_init()`
+/// or `gtk_init_check()`; the `GApplication::startup` handler
+/// does it for you.
+/// 
+/// This function will terminate your program if it was unable to
+/// initialize the windowing system for some reason. If you want
+/// your program to fall back to a textual interface you want to
+/// call `gtk_init_check()` instead.
+/// 
+/// GTK calls `signal (SIGPIPE, SIG_IGN)`
+/// during initialization, to ignore SIGPIPE signals, since these are
+/// almost never wanted in graphical applications. If you do need to
+/// handle SIGPIPE for some reason, reset the handler after `gtk_init()`,
+/// but notice that other libraries (e.g. libdbus or gvfs) might do
+/// similar things.
+@inlinable public func init_() {
+    gtk_init()
+
+}
+
+
+
+
+/// This function does the same work as `gtk_init()` with only a single
+/// change: It does not terminate the program if the windowing system
+/// can’t be initialized. Instead it returns `false` on failure.
+/// 
+/// This way the application can fall back to some other means of
+/// communication with the user - for example a curses or command line
+/// interface.
+@inlinable public func initCheck() -> Bool {
+    let rv = ((gtk_init_check()) != 0)
+    return rv
+}
+
+
+
+
 /// Use this function to check if GTK has been initialized with `gtk_init()`
 /// or `gtk_init_check()`.
 @inlinable public func isInitialized() -> Bool {
@@ -505,8 +547,8 @@ import Gdk
 
 
 /// Finds the GtkNative associated with the surface.
-@inlinable public func nativeGetFor(surface: UnsafeMutablePointer<GdkSurface>!) -> NativeRef! {
-    guard let rv = NativeRef(gconstpointer: gconstpointer(gtk_native_get_for_surface(surface))) else { return nil }
+@inlinable public func nativeGetFor<SurfaceT: Gdk.SurfaceProtocol>(surface: SurfaceT) -> NativeRef! {
+    guard let rv = NativeRef(gconstpointer: gconstpointer(gtk_native_get_for_surface(surface.surface_ptr))) else { return nil }
     return rv
 }
 
@@ -727,8 +769,8 @@ import Gdk
 /// This function will render the icon in `texture` at exactly its size,
 /// regardless of scaling factors, which may not be appropriate when
 /// drawing on displays with high pixel densities.
-@inlinable public func renderIcon<ContextT: Cairo.ContextProtocol, StyleContextT: StyleContextProtocol>(context: StyleContextT, cr: ContextT, texture: UnsafeMutablePointer<GdkTexture>!, x: CDouble, y: CDouble) {
-    gtk_render_icon(context.style_context_ptr, cr._ptr, texture, x, y)
+@inlinable public func renderIcon<ContextT: Cairo.ContextProtocol, StyleContextT: StyleContextProtocol, TextureT: Gdk.TextureProtocol>(context: StyleContextT, cr: ContextT, texture: TextureT, x: CDouble, y: CDouble) {
+    gtk_render_icon(context.style_context_ptr, cr._ptr, texture.texture_ptr, x, y)
 
 }
 
@@ -956,8 +998,8 @@ import Gdk
 
 
 /// Creates a content provider for dragging `path` from `tree_model`.
-@inlinable public func treeCreateRowDragContent<TreeModelT: TreeModelProtocol, TreePathT: TreePathProtocol>(treeModel: TreeModelT, path: TreePathT) -> UnsafeMutablePointer<GdkContentProvider>! {
-    guard let rv = gtk_tree_create_row_drag_content(treeModel.tree_model_ptr, path.tree_path_ptr) else { return nil }
+@inlinable public func treeCreateRowDragContent<TreeModelT: TreeModelProtocol, TreePathT: TreePathProtocol>(treeModel: TreeModelT, path: TreePathT) -> Gdk.ContentProviderRef! {
+    guard let rv = Gdk.ContentProviderRef(gtk_tree_create_row_drag_content(treeModel.tree_model_ptr, path.tree_path_ptr)) else { return nil }
     return rv
 }
 

@@ -267,10 +267,7 @@ open class RecentData: RecentDataProtocol {
 
 // MARK: no RecentData properties
 
-// MARK: no RecentData signals
-
-
-// MARK: RecentData Record: RecentDataProtocol extension (methods and fields)
+// MARK: RecentData has no signals// MARK: RecentData Record: RecentDataProtocol extension (methods and fields)
 public extension RecentDataProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkRecentData` instance.
     @inlinable var _ptr: UnsafeMutablePointer<GtkRecentData>! { return ptr?.assumingMemoryBound(to: GtkRecentData.self) }
@@ -658,10 +655,7 @@ open class RecentInfo: RecentInfoProtocol {
 
 // MARK: no RecentInfo properties
 
-// MARK: no RecentInfo signals
-
-
-// MARK: RecentInfo Record: RecentInfoProtocol extension (methods and fields)
+// MARK: RecentInfo has no signals// MARK: RecentInfo Record: RecentInfoProtocol extension (methods and fields)
 public extension RecentInfoProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkRecentInfo` instance.
     @inlinable var recent_info_ptr: UnsafeMutablePointer<GtkRecentInfo>! { return ptr?.assumingMemoryBound(to: GtkRecentInfo.self) }
@@ -976,6 +970,21 @@ public extension RecentInfoProtocol {
 
 
 
+/// Metatype/GType declaration for RecentManager
+public extension RecentManagerClassRef {
+    
+    /// This getter returns type identifier in the GLib type system registry
+    static var metatypeReference: GType { gtk_recent_manager_get_type() }
+    
+    private static var metatypePointer: UnsafeMutablePointer<GtkRecentManagerClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkRecentManagerClass.self) }
+    
+    static var metatype: GtkRecentManagerClass? { metatypePointer?.pointee } 
+    
+    static var wrapper: RecentManagerClassRef? { RecentManagerClassRef(metatypePointer) }
+    
+    
+}
+
 // MARK: - RecentManagerClass Record
 
 /// The `RecentManagerClassProtocol` protocol exposes the methods and properties of an underlying `GtkRecentManagerClass` instance.
@@ -1076,160 +1085,6 @@ public extension RecentManagerClassRef {
 
     }
 
-/// The `RecentManagerClass` type acts as an owner of an underlying `GtkRecentManagerClass` instance.
-/// It provides the methods that can operate on this data type through `RecentManagerClassProtocol` conformance.
-/// Use `RecentManagerClass` as a strong reference or owner of a `GtkRecentManagerClass` instance.
-///
-/// `GtkRecentManagerClass` contains only private data.
-open class RecentManagerClass: RecentManagerClassProtocol {
-        /// Untyped pointer to the underlying `GtkRecentManagerClass` instance.
-    /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer!
-
-    /// Designated initialiser from the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `RecentManagerClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(_ op: UnsafeMutablePointer<GtkRecentManagerClass>) {
-        ptr = UnsafeMutableRawPointer(op)
-    }
-
-    /// Designated initialiser from a constant pointer to the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `RecentManagerClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(_ op: UnsafePointer<GtkRecentManagerClass>) {
-        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
-    }
-
-    /// Optional initialiser from a non-mutating `gpointer` to
-    /// the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `RecentManagerClass` instance.
-    /// - Parameter op: gpointer to the underlying object
-    @inlinable public init!(gpointer op: gpointer?) {
-        guard let p = UnsafeMutableRawPointer(op) else { return nil }
-        ptr = p
-    }
-
-    /// Optional initialiser from a non-mutating `gconstpointer` to
-    /// the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `RecentManagerClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(gconstpointer op: gconstpointer?) {
-        guard let p = op else { return nil }
-        ptr = UnsafeMutableRawPointer(mutating: p)
-    }
-
-    /// Optional initialiser from a constant pointer to the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `RecentManagerClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(_ op: UnsafePointer<GtkRecentManagerClass>?) {
-        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Optional initialiser from the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `RecentManagerClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(_ op: UnsafeMutablePointer<GtkRecentManagerClass>?) {
-        guard let p = op else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Designated initialiser from the underlying `C` data type.
-    /// `GtkRecentManagerClass` does not allow reference counting, so despite the name no actual retaining will occur.
-    /// i.e., ownership is transferred to the `RecentManagerClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(retaining op: UnsafeMutablePointer<GtkRecentManagerClass>) {
-        ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GtkRecentManagerClass, cannot ref(_ptr)
-    }
-
-    /// Reference intialiser for a related type that implements `RecentManagerClassProtocol`
-    /// `GtkRecentManagerClass` does not allow reference counting.
-    /// - Parameter other: an instance of a related type that implements `RecentManagerClassProtocol`
-    @inlinable public init<T: RecentManagerClassProtocol>(_ other: T) {
-        ptr = other.ptr
-        // no reference counting for GtkRecentManagerClass, cannot ref(_ptr)
-    }
-
-    /// Do-nothing destructor for `GtkRecentManagerClass`.
-    deinit {
-        // no reference counting for GtkRecentManagerClass, cannot unref(_ptr)
-    }
-
-    /// Unsafe typed initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `RecentManagerClassProtocol`.**
-    /// - Parameter cPointer: pointer to the underlying object
-    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Unsafe typed, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `RecentManagerClassProtocol`.**
-    /// - Parameter cPointer: pointer to the underlying object
-    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GtkRecentManagerClass, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `RecentManagerClassProtocol`.**
-    /// - Parameter p: raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: p)
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `RecentManagerClassProtocol`.**
-    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GtkRecentManagerClass, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `RecentManagerClassProtocol`.**
-    /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
-        ptr = p
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `RecentManagerClassProtocol`.**
-    /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
-        ptr = raw
-        // no reference counting for GtkRecentManagerClass, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `RecentManagerClassProtocol`.**
-    /// - Parameter p: opaque pointer to the underlying object
-    @inlinable public init(opaquePointer p: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `RecentManagerClassProtocol`.**
-    /// - Parameter p: opaque pointer to the underlying object
-    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GtkRecentManagerClass, cannot ref(_ptr)
-    }
-
-
-
-}
-
-// MARK: no RecentManagerClass properties
-
-// MARK: no RecentManagerClass signals
-
-
 // MARK: RecentManagerClass Record: RecentManagerClassProtocol extension (methods and fields)
 public extension RecentManagerClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkRecentManagerClass` instance.
@@ -1247,271 +1102,6 @@ public extension RecentManagerClassProtocol {
     // var GtkRecent3 is unavailable because _gtk_recent3 is void
 
     // var GtkRecent4 is unavailable because _gtk_recent4 is void
-
-}
-
-
-
-// MARK: - RecentManagerPrivate Record
-
-/// The `RecentManagerPrivateProtocol` protocol exposes the methods and properties of an underlying `GtkRecentManagerPrivate` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `RecentManagerPrivate`.
-/// Alternatively, use `RecentManagerPrivateRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
-
-public protocol RecentManagerPrivateProtocol {
-        /// Untyped pointer to the underlying `GtkRecentManagerPrivate` instance.
-    var ptr: UnsafeMutableRawPointer! { get }
-
-    /// Typed pointer to the underlying `GtkRecentManagerPrivate` instance.
-    var _ptr: UnsafeMutablePointer<GtkRecentManagerPrivate>! { get }
-
-}
-
-/// The `RecentManagerPrivateRef` type acts as a lightweight Swift reference to an underlying `GtkRecentManagerPrivate` instance.
-/// It exposes methods that can operate on this data type through `RecentManagerPrivateProtocol` conformance.
-/// Use `RecentManagerPrivateRef` only as an `unowned` reference to an existing `GtkRecentManagerPrivate` instance.
-///
-
-public struct RecentManagerPrivateRef: RecentManagerPrivateProtocol {
-        /// Untyped pointer to the underlying `GtkRecentManagerPrivate` instance.
-    /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer!
-}
-
-public extension RecentManagerPrivateRef {
-    /// Designated initialiser from the underlying `C` data type
-    @inlinable init(_ p: UnsafeMutablePointer<GtkRecentManagerPrivate>) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Designated initialiser from a constant pointer to the underlying `C` data type
-    @inlinable init(_ p: UnsafePointer<GtkRecentManagerPrivate>) {
-        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
-    }
-
-    /// Conditional initialiser from an optional pointer to the underlying `C` data type
-    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GtkRecentManagerPrivate>?) {
-        guard let p = maybePointer else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
-    @inlinable init!(_ maybePointer: UnsafePointer<GtkRecentManagerPrivate>?) {
-        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Conditional initialiser from an optional `gpointer`
-    @inlinable init!(gpointer g: gpointer?) {
-        guard let p = g else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
-    @inlinable init!(gconstpointer g: gconstpointer?) {
-        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
-        ptr = p
-    }
-
-    /// Reference intialiser for a related type that implements `RecentManagerPrivateProtocol`
-    @inlinable init<T: RecentManagerPrivateProtocol>(_ other: T) {
-        ptr = other.ptr
-    }
-
-    /// Unsafe typed initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `RecentManagerPrivateProtocol`.**
-    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(cPointer)
-    }
-
-    /// Unsafe typed initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `RecentManagerPrivateProtocol`.**
-    @inlinable init<T>(constPointer: UnsafePointer<T>) {
-        ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `RecentManagerPrivateProtocol`.**
-    @inlinable init(mutating raw: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: raw)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `RecentManagerPrivateProtocol`.**
-    @inlinable init(raw: UnsafeMutableRawPointer) {
-        ptr = raw
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `RecentManagerPrivateProtocol`.**
-    @inlinable init(opaquePointer: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(opaquePointer)
-    }
-
-    }
-
-/// The `RecentManagerPrivate` type acts as an owner of an underlying `GtkRecentManagerPrivate` instance.
-/// It provides the methods that can operate on this data type through `RecentManagerPrivateProtocol` conformance.
-/// Use `RecentManagerPrivate` as a strong reference or owner of a `GtkRecentManagerPrivate` instance.
-///
-
-open class RecentManagerPrivate: RecentManagerPrivateProtocol {
-        /// Untyped pointer to the underlying `GtkRecentManagerPrivate` instance.
-    /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer!
-
-    /// Designated initialiser from the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `RecentManagerPrivate` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(_ op: UnsafeMutablePointer<GtkRecentManagerPrivate>) {
-        ptr = UnsafeMutableRawPointer(op)
-    }
-
-    /// Designated initialiser from a constant pointer to the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `RecentManagerPrivate` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(_ op: UnsafePointer<GtkRecentManagerPrivate>) {
-        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
-    }
-
-    /// Optional initialiser from a non-mutating `gpointer` to
-    /// the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `RecentManagerPrivate` instance.
-    /// - Parameter op: gpointer to the underlying object
-    @inlinable public init!(gpointer op: gpointer?) {
-        guard let p = UnsafeMutableRawPointer(op) else { return nil }
-        ptr = p
-    }
-
-    /// Optional initialiser from a non-mutating `gconstpointer` to
-    /// the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `RecentManagerPrivate` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(gconstpointer op: gconstpointer?) {
-        guard let p = op else { return nil }
-        ptr = UnsafeMutableRawPointer(mutating: p)
-    }
-
-    /// Optional initialiser from a constant pointer to the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `RecentManagerPrivate` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(_ op: UnsafePointer<GtkRecentManagerPrivate>?) {
-        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Optional initialiser from the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `RecentManagerPrivate` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(_ op: UnsafeMutablePointer<GtkRecentManagerPrivate>?) {
-        guard let p = op else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Designated initialiser from the underlying `C` data type.
-    /// `GtkRecentManagerPrivate` does not allow reference counting, so despite the name no actual retaining will occur.
-    /// i.e., ownership is transferred to the `RecentManagerPrivate` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(retaining op: UnsafeMutablePointer<GtkRecentManagerPrivate>) {
-        ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GtkRecentManagerPrivate, cannot ref(_ptr)
-    }
-
-    /// Reference intialiser for a related type that implements `RecentManagerPrivateProtocol`
-    /// `GtkRecentManagerPrivate` does not allow reference counting.
-    /// - Parameter other: an instance of a related type that implements `RecentManagerPrivateProtocol`
-    @inlinable public init<T: RecentManagerPrivateProtocol>(_ other: T) {
-        ptr = other.ptr
-        // no reference counting for GtkRecentManagerPrivate, cannot ref(_ptr)
-    }
-
-    /// Do-nothing destructor for `GtkRecentManagerPrivate`.
-    deinit {
-        // no reference counting for GtkRecentManagerPrivate, cannot unref(_ptr)
-    }
-
-    /// Unsafe typed initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `RecentManagerPrivateProtocol`.**
-    /// - Parameter cPointer: pointer to the underlying object
-    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Unsafe typed, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `RecentManagerPrivateProtocol`.**
-    /// - Parameter cPointer: pointer to the underlying object
-    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GtkRecentManagerPrivate, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `RecentManagerPrivateProtocol`.**
-    /// - Parameter p: raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: p)
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `RecentManagerPrivateProtocol`.**
-    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GtkRecentManagerPrivate, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `RecentManagerPrivateProtocol`.**
-    /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
-        ptr = p
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `RecentManagerPrivateProtocol`.**
-    /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
-        ptr = raw
-        // no reference counting for GtkRecentManagerPrivate, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `RecentManagerPrivateProtocol`.**
-    /// - Parameter p: opaque pointer to the underlying object
-    @inlinable public init(opaquePointer p: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `RecentManagerPrivateProtocol`.**
-    /// - Parameter p: opaque pointer to the underlying object
-    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GtkRecentManagerPrivate, cannot ref(_ptr)
-    }
-
-
-
-}
-
-// MARK: no RecentManagerPrivate properties
-
-// MARK: no RecentManagerPrivate signals
-
-
-// MARK: RecentManagerPrivate Record: RecentManagerPrivateProtocol extension (methods and fields)
-public extension RecentManagerPrivateProtocol {
-    /// Return the stored, untyped pointer as a typed pointer to the `GtkRecentManagerPrivate` instance.
-    @inlinable var _ptr: UnsafeMutablePointer<GtkRecentManagerPrivate>! { return ptr?.assumingMemoryBound(to: GtkRecentManagerPrivate.self) }
-
-
 
 }
 
@@ -1774,10 +1364,7 @@ open class RequestedSize: RequestedSizeProtocol {
 
 // MARK: no RequestedSize properties
 
-// MARK: no RequestedSize signals
-
-
-// MARK: RequestedSize Record: RequestedSizeProtocol extension (methods and fields)
+// MARK: RequestedSize has no signals// MARK: RequestedSize Record: RequestedSizeProtocol extension (methods and fields)
 public extension RequestedSizeProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkRequestedSize` instance.
     @inlinable var _ptr: UnsafeMutablePointer<GtkRequestedSize>! { return ptr?.assumingMemoryBound(to: GtkRequestedSize.self) }
@@ -2103,10 +1690,7 @@ open class Requisition: RequisitionProtocol {
 
 // MARK: no Requisition properties
 
-// MARK: no Requisition signals
-
-
-// MARK: Requisition Record: RequisitionProtocol extension (methods and fields)
+// MARK: Requisition has no signals// MARK: Requisition Record: RequisitionProtocol extension (methods and fields)
 public extension RequisitionProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkRequisition` instance.
     @inlinable var requisition_ptr: UnsafeMutablePointer<GtkRequisition>! { return ptr?.assumingMemoryBound(to: GtkRequisition.self) }
@@ -2152,6 +1736,21 @@ public extension RequisitionProtocol {
 }
 
 
+
+/// Metatype/GType declaration for Root
+public extension RootInterfaceRef {
+    
+    /// This getter returns type identifier in the GLib type system registry
+    static var metatypeReference: GType { gtk_root_get_type() }
+    
+    private static var metatypePointer: UnsafeMutablePointer<GtkRootInterface>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkRootInterface.self) }
+    
+    static var metatype: GtkRootInterface? { metatypePointer?.pointee } 
+    
+    static var wrapper: RootInterfaceRef? { RootInterfaceRef(metatypePointer) }
+    
+    
+}
 
 // MARK: - RootInterface Record
 
@@ -2253,160 +1852,6 @@ public extension RootInterfaceRef {
 
     }
 
-/// The `RootInterface` type acts as an owner of an underlying `GtkRootInterface` instance.
-/// It provides the methods that can operate on this data type through `RootInterfaceProtocol` conformance.
-/// Use `RootInterface` as a strong reference or owner of a `GtkRootInterface` instance.
-///
-
-open class RootInterface: RootInterfaceProtocol {
-        /// Untyped pointer to the underlying `GtkRootInterface` instance.
-    /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer!
-
-    /// Designated initialiser from the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `RootInterface` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(_ op: UnsafeMutablePointer<GtkRootInterface>) {
-        ptr = UnsafeMutableRawPointer(op)
-    }
-
-    /// Designated initialiser from a constant pointer to the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `RootInterface` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(_ op: UnsafePointer<GtkRootInterface>) {
-        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
-    }
-
-    /// Optional initialiser from a non-mutating `gpointer` to
-    /// the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `RootInterface` instance.
-    /// - Parameter op: gpointer to the underlying object
-    @inlinable public init!(gpointer op: gpointer?) {
-        guard let p = UnsafeMutableRawPointer(op) else { return nil }
-        ptr = p
-    }
-
-    /// Optional initialiser from a non-mutating `gconstpointer` to
-    /// the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `RootInterface` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(gconstpointer op: gconstpointer?) {
-        guard let p = op else { return nil }
-        ptr = UnsafeMutableRawPointer(mutating: p)
-    }
-
-    /// Optional initialiser from a constant pointer to the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `RootInterface` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(_ op: UnsafePointer<GtkRootInterface>?) {
-        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Optional initialiser from the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `RootInterface` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(_ op: UnsafeMutablePointer<GtkRootInterface>?) {
-        guard let p = op else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Designated initialiser from the underlying `C` data type.
-    /// `GtkRootInterface` does not allow reference counting, so despite the name no actual retaining will occur.
-    /// i.e., ownership is transferred to the `RootInterface` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(retaining op: UnsafeMutablePointer<GtkRootInterface>) {
-        ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GtkRootInterface, cannot ref(_ptr)
-    }
-
-    /// Reference intialiser for a related type that implements `RootInterfaceProtocol`
-    /// `GtkRootInterface` does not allow reference counting.
-    /// - Parameter other: an instance of a related type that implements `RootInterfaceProtocol`
-    @inlinable public init<T: RootInterfaceProtocol>(_ other: T) {
-        ptr = other.ptr
-        // no reference counting for GtkRootInterface, cannot ref(_ptr)
-    }
-
-    /// Do-nothing destructor for `GtkRootInterface`.
-    deinit {
-        // no reference counting for GtkRootInterface, cannot unref(_ptr)
-    }
-
-    /// Unsafe typed initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `RootInterfaceProtocol`.**
-    /// - Parameter cPointer: pointer to the underlying object
-    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Unsafe typed, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `RootInterfaceProtocol`.**
-    /// - Parameter cPointer: pointer to the underlying object
-    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GtkRootInterface, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `RootInterfaceProtocol`.**
-    /// - Parameter p: raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: p)
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `RootInterfaceProtocol`.**
-    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GtkRootInterface, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `RootInterfaceProtocol`.**
-    /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
-        ptr = p
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `RootInterfaceProtocol`.**
-    /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
-        ptr = raw
-        // no reference counting for GtkRootInterface, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `RootInterfaceProtocol`.**
-    /// - Parameter p: opaque pointer to the underlying object
-    @inlinable public init(opaquePointer p: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `RootInterfaceProtocol`.**
-    /// - Parameter p: opaque pointer to the underlying object
-    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GtkRootInterface, cannot ref(_ptr)
-    }
-
-
-
-}
-
-// MARK: no RootInterface properties
-
-// MARK: no RootInterface signals
-
-
 // MARK: RootInterface Record: RootInterfaceProtocol extension (methods and fields)
 public extension RootInterfaceProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkRootInterface` instance.
@@ -2417,6 +1862,21 @@ public extension RootInterfaceProtocol {
 }
 
 
+
+/// Metatype/GType declaration for ScaleButton
+public extension ScaleButtonClassRef {
+    
+    /// This getter returns type identifier in the GLib type system registry
+    static var metatypeReference: GType { gtk_scale_button_get_type() }
+    
+    private static var metatypePointer: UnsafeMutablePointer<GtkScaleButtonClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkScaleButtonClass.self) }
+    
+    static var metatype: GtkScaleButtonClass? { metatypePointer?.pointee } 
+    
+    static var wrapper: ScaleButtonClassRef? { ScaleButtonClassRef(metatypePointer) }
+    
+    
+}
 
 // MARK: - ScaleButtonClass Record
 
@@ -2517,160 +1977,6 @@ public extension ScaleButtonClassRef {
     }
 
     }
-
-/// The `ScaleButtonClass` type acts as an owner of an underlying `GtkScaleButtonClass` instance.
-/// It provides the methods that can operate on this data type through `ScaleButtonClassProtocol` conformance.
-/// Use `ScaleButtonClass` as a strong reference or owner of a `GtkScaleButtonClass` instance.
-///
-
-open class ScaleButtonClass: ScaleButtonClassProtocol {
-        /// Untyped pointer to the underlying `GtkScaleButtonClass` instance.
-    /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer!
-
-    /// Designated initialiser from the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `ScaleButtonClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(_ op: UnsafeMutablePointer<GtkScaleButtonClass>) {
-        ptr = UnsafeMutableRawPointer(op)
-    }
-
-    /// Designated initialiser from a constant pointer to the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `ScaleButtonClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(_ op: UnsafePointer<GtkScaleButtonClass>) {
-        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
-    }
-
-    /// Optional initialiser from a non-mutating `gpointer` to
-    /// the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `ScaleButtonClass` instance.
-    /// - Parameter op: gpointer to the underlying object
-    @inlinable public init!(gpointer op: gpointer?) {
-        guard let p = UnsafeMutableRawPointer(op) else { return nil }
-        ptr = p
-    }
-
-    /// Optional initialiser from a non-mutating `gconstpointer` to
-    /// the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `ScaleButtonClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(gconstpointer op: gconstpointer?) {
-        guard let p = op else { return nil }
-        ptr = UnsafeMutableRawPointer(mutating: p)
-    }
-
-    /// Optional initialiser from a constant pointer to the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `ScaleButtonClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(_ op: UnsafePointer<GtkScaleButtonClass>?) {
-        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Optional initialiser from the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `ScaleButtonClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(_ op: UnsafeMutablePointer<GtkScaleButtonClass>?) {
-        guard let p = op else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Designated initialiser from the underlying `C` data type.
-    /// `GtkScaleButtonClass` does not allow reference counting, so despite the name no actual retaining will occur.
-    /// i.e., ownership is transferred to the `ScaleButtonClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(retaining op: UnsafeMutablePointer<GtkScaleButtonClass>) {
-        ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GtkScaleButtonClass, cannot ref(_ptr)
-    }
-
-    /// Reference intialiser for a related type that implements `ScaleButtonClassProtocol`
-    /// `GtkScaleButtonClass` does not allow reference counting.
-    /// - Parameter other: an instance of a related type that implements `ScaleButtonClassProtocol`
-    @inlinable public init<T: ScaleButtonClassProtocol>(_ other: T) {
-        ptr = other.ptr
-        // no reference counting for GtkScaleButtonClass, cannot ref(_ptr)
-    }
-
-    /// Do-nothing destructor for `GtkScaleButtonClass`.
-    deinit {
-        // no reference counting for GtkScaleButtonClass, cannot unref(_ptr)
-    }
-
-    /// Unsafe typed initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScaleButtonClassProtocol`.**
-    /// - Parameter cPointer: pointer to the underlying object
-    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Unsafe typed, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScaleButtonClassProtocol`.**
-    /// - Parameter cPointer: pointer to the underlying object
-    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GtkScaleButtonClass, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScaleButtonClassProtocol`.**
-    /// - Parameter p: raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: p)
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScaleButtonClassProtocol`.**
-    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GtkScaleButtonClass, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScaleButtonClassProtocol`.**
-    /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
-        ptr = p
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScaleButtonClassProtocol`.**
-    /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
-        ptr = raw
-        // no reference counting for GtkScaleButtonClass, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScaleButtonClassProtocol`.**
-    /// - Parameter p: opaque pointer to the underlying object
-    @inlinable public init(opaquePointer p: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScaleButtonClassProtocol`.**
-    /// - Parameter p: opaque pointer to the underlying object
-    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GtkScaleButtonClass, cannot ref(_ptr)
-    }
-
-
-
-}
-
-// MARK: no ScaleButtonClass properties
-
-// MARK: no ScaleButtonClass signals
-
 
 // MARK: ScaleButtonClass Record: ScaleButtonClassProtocol extension (methods and fields)
 public extension ScaleButtonClassProtocol {

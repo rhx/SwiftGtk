@@ -20,7 +20,7 @@ public let ACCESSIBLE_VALUE_UNDEFINED = GTK_ACCESSIBLE_VALUE_UNDEFINED // -1
 /// Like `gtk_get_binary_age()`, but from the headers used at
 /// application compile time, rather than from the library linked
 /// against at application run time.
-public let BINARY_AGE = GTK_BINARY_AGE // 0
+public let BINARY_AGE = GTK_BINARY_AGE // 1
 
 public let IM_MODULE_EXTENSION_POINT_NAME = "gtk-im-module" // 2
 
@@ -31,7 +31,7 @@ public let INPUT_ERROR = GTK_INPUT_ERROR // -1
 /// Like `gtk_get_interface_age()`, but from the headers used at
 /// application compile time, rather than from the library linked
 /// against at application run time.
-public let INTERFACE_AGE = GTK_INTERFACE_AGE // 0
+public let INTERFACE_AGE = GTK_INTERFACE_AGE // 1
 
 /// The name used for the stock full offset included by `GtkLevelBar`.
 public let LEVEL_BAR_OFFSET_FULL = GTK_LEVEL_BAR_OFFSET_FULL // 5
@@ -55,7 +55,7 @@ public let MEDIA_FILE_EXTENSION_POINT_NAME = GTK_MEDIA_FILE_EXTENSION_POINT_NAME
 /// Like `gtk_get_micro_version()`, but from the headers used at
 /// application compile time, rather than from the library linked
 /// against at application run time.
-public let MICRO_VERSION = GTK_MICRO_VERSION // 0
+public let MICRO_VERSION = GTK_MICRO_VERSION // 1
 
 /// Like `gtk_get_minor_version()`, but from the headers used at
 /// application compile time, rather than from the library linked
