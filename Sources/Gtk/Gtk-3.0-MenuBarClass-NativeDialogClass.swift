@@ -18,7 +18,7 @@ import Atk
 /// Metatype/GType declaration for MenuBar
 public extension MenuBarClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `MenuBar`
     static var metatypeReference: GType { gtk_menu_bar_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkMenuBarClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkMenuBarClass.self) }
@@ -158,7 +158,7 @@ public extension MenuBarClassProtocol {
 /// Metatype/GType declaration for MenuButtonAccessible
 public extension MenuButtonAccessibleClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `MenuButtonAccessible`
     static var metatypeReference: GType { gtk_menu_button_accessible_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkMenuButtonAccessibleClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkMenuButtonAccessibleClass.self) }
@@ -290,7 +290,7 @@ public extension MenuButtonAccessibleClassProtocol {
 /// Metatype/GType declaration for MenuButton
 public extension MenuButtonClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `MenuButton`
     static var metatypeReference: GType { gtk_menu_button_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkMenuButtonClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkMenuButtonClass.self) }
@@ -430,7 +430,7 @@ public extension MenuButtonClassProtocol {
 /// Metatype/GType declaration for Menu
 public extension MenuClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `Menu`
     static var metatypeReference: GType { gtk_menu_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkMenuClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkMenuClass.self) }
@@ -570,7 +570,7 @@ public extension MenuClassProtocol {
 /// Metatype/GType declaration for MenuItemAccessible
 public extension MenuItemAccessibleClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `MenuItemAccessible`
     static var metatypeReference: GType { gtk_menu_item_accessible_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkMenuItemAccessibleClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkMenuItemAccessibleClass.self) }
@@ -702,7 +702,7 @@ public extension MenuItemAccessibleClassProtocol {
 /// Metatype/GType declaration for MenuItem
 public extension MenuItemClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `MenuItem`
     static var metatypeReference: GType { gtk_menu_item_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkMenuItemClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkMenuItemClass.self) }
@@ -873,7 +873,7 @@ public extension MenuItemClassProtocol {
 /// Metatype/GType declaration for MenuShellAccessible
 public extension MenuShellAccessibleClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `MenuShellAccessible`
     static var metatypeReference: GType { gtk_menu_shell_accessible_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkMenuShellAccessibleClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkMenuShellAccessibleClass.self) }
@@ -1005,7 +1005,7 @@ public extension MenuShellAccessibleClassProtocol {
 /// Metatype/GType declaration for MenuShell
 public extension MenuShellClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `MenuShell`
     static var metatypeReference: GType { gtk_menu_shell_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkMenuShellClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkMenuShellClass.self) }
@@ -1170,7 +1170,7 @@ public extension MenuShellClassProtocol {
 /// Metatype/GType declaration for MenuToolButton
 public extension MenuToolButtonClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `MenuToolButton`
     static var metatypeReference: GType { gtk_menu_tool_button_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkMenuToolButtonClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkMenuToolButtonClass.self) }
@@ -1314,7 +1314,7 @@ public extension MenuToolButtonClassProtocol {
 /// Metatype/GType declaration for MessageDialog
 public extension MessageDialogClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `MessageDialog`
     static var metatypeReference: GType { gtk_message_dialog_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkMessageDialogClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkMessageDialogClass.self) }
@@ -1454,7 +1454,7 @@ public extension MessageDialogClassProtocol {
 /// Metatype/GType declaration for Misc
 public extension MiscClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `Misc`
     static var metatypeReference: GType { gtk_misc_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkMiscClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkMiscClass.self) }
@@ -1594,7 +1594,7 @@ public extension MiscClassProtocol {
 /// Metatype/GType declaration for MountOperation
 public extension MountOperationClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `MountOperation`
     static var metatypeReference: GType { gtk_mount_operation_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkMountOperationClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkMountOperationClass.self) }
@@ -1736,7 +1736,7 @@ public extension MountOperationClassProtocol {
 /// Metatype/GType declaration for NativeDialog
 public extension NativeDialogClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `NativeDialog`
     static var metatypeReference: GType { gtk_native_dialog_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkNativeDialogClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkNativeDialogClass.self) }

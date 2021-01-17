@@ -18,7 +18,7 @@ import Atk
 /// Metatype/GType declaration for VBox
 public extension VBoxClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `VBox`
     static var metatypeReference: GType { gtk_vbox_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkVBoxClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkVBoxClass.self) }
@@ -150,7 +150,7 @@ public extension VBoxClassProtocol {
 /// Metatype/GType declaration for VButtonBox
 public extension VButtonBoxClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `VButtonBox`
     static var metatypeReference: GType { gtk_vbutton_box_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkVButtonBoxClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkVButtonBoxClass.self) }
@@ -282,7 +282,7 @@ public extension VButtonBoxClassProtocol {
 /// Metatype/GType declaration for VPaned
 public extension VPanedClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `VPaned`
     static var metatypeReference: GType { gtk_vpaned_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkVPanedClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkVPanedClass.self) }
@@ -414,7 +414,7 @@ public extension VPanedClassProtocol {
 /// Metatype/GType declaration for VScale
 public extension VScaleClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `VScale`
     static var metatypeReference: GType { gtk_vscale_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkVScaleClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkVScaleClass.self) }
@@ -546,7 +546,7 @@ public extension VScaleClassProtocol {
 /// Metatype/GType declaration for VScrollbar
 public extension VScrollbarClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `VScrollbar`
     static var metatypeReference: GType { gtk_vscrollbar_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkVScrollbarClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkVScrollbarClass.self) }
@@ -678,7 +678,7 @@ public extension VScrollbarClassProtocol {
 /// Metatype/GType declaration for VSeparator
 public extension VSeparatorClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `VSeparator`
     static var metatypeReference: GType { gtk_vseparator_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkVSeparatorClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkVSeparatorClass.self) }
@@ -810,7 +810,7 @@ public extension VSeparatorClassProtocol {
 /// Metatype/GType declaration for Viewport
 public extension ViewportClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `Viewport`
     static var metatypeReference: GType { gtk_viewport_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkViewportClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkViewportClass.self) }
@@ -952,7 +952,7 @@ public extension ViewportClassProtocol {
 /// Metatype/GType declaration for VolumeButton
 public extension VolumeButtonClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `VolumeButton`
     static var metatypeReference: GType { gtk_volume_button_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkVolumeButtonClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkVolumeButtonClass.self) }
@@ -1092,7 +1092,7 @@ public extension VolumeButtonClassProtocol {
 /// Metatype/GType declaration for WidgetAccessible
 public extension WidgetAccessibleClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `WidgetAccessible`
     static var metatypeReference: GType { gtk_widget_accessible_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkWidgetAccessibleClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkWidgetAccessibleClass.self) }

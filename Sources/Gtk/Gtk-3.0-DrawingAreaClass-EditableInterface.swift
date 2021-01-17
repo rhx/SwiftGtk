@@ -18,7 +18,7 @@ import Atk
 /// Metatype/GType declaration for DrawingArea
 public extension DrawingAreaClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `DrawingArea`
     static var metatypeReference: GType { gtk_drawing_area_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkDrawingAreaClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkDrawingAreaClass.self) }
@@ -158,7 +158,7 @@ public extension DrawingAreaClassProtocol {
 /// Metatype/GType declaration for Editable
 public extension EditableInterfaceRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `Editable`
     static var metatypeReference: GType { gtk_editable_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkEditableInterface>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkEditableInterface.self) }

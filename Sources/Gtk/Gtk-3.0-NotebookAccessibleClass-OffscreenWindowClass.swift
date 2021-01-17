@@ -18,7 +18,7 @@ import Atk
 /// Metatype/GType declaration for NotebookAccessible
 public extension NotebookAccessibleClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `NotebookAccessible`
     static var metatypeReference: GType { gtk_notebook_accessible_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkNotebookAccessibleClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkNotebookAccessibleClass.self) }
@@ -150,7 +150,7 @@ public extension NotebookAccessibleClassProtocol {
 /// Metatype/GType declaration for Notebook
 public extension NotebookClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `Notebook`
     static var metatypeReference: GType { gtk_notebook_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkNotebookClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkNotebookClass.self) }
@@ -320,7 +320,7 @@ public extension NotebookClassProtocol {
 /// Metatype/GType declaration for NotebookPageAccessible
 public extension NotebookPageAccessibleClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `NotebookPageAccessible`
     static var metatypeReference: GType { gtk_notebook_page_accessible_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkNotebookPageAccessibleClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkNotebookPageAccessibleClass.self) }
@@ -452,7 +452,7 @@ public extension NotebookPageAccessibleClassProtocol {
 /// Metatype/GType declaration for NumerableIcon
 public extension NumerableIconClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `NumerableIcon`
     static var metatypeReference: GType { gtk_numerable_icon_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkNumerableIconClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkNumerableIconClass.self) }
@@ -591,7 +591,7 @@ public extension NumerableIconClassProtocol {
 /// Metatype/GType declaration for OffscreenWindow
 public extension OffscreenWindowClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `OffscreenWindow`
     static var metatypeReference: GType { gtk_offscreen_window_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkOffscreenWindowClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkOffscreenWindowClass.self) }

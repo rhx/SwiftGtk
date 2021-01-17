@@ -18,7 +18,7 @@ import Atk
 /// Metatype/GType declaration for Widget
 public extension WidgetClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `Widget`
     static var metatypeReference: GType { gtk_widget_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkWidgetClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkWidgetClass.self) }
@@ -743,7 +743,10 @@ open class WidgetClassPrivate: WidgetClassPrivateProtocol {
 
 // MARK: no WidgetClassPrivate properties
 
-// MARK: WidgetClassPrivate has no signals// MARK: WidgetClassPrivate Record: WidgetClassPrivateProtocol extension (methods and fields)
+// MARK: no WidgetClassPrivate signals
+
+// MARK: WidgetClassPrivate has no signals
+// MARK: WidgetClassPrivate Record: WidgetClassPrivateProtocol extension (methods and fields)
 public extension WidgetClassPrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkWidgetClassPrivate` instance.
     @inlinable var _ptr: UnsafeMutablePointer<GtkWidgetClassPrivate>! { return ptr?.assumingMemoryBound(to: GtkWidgetClassPrivate.self) }
@@ -1159,7 +1162,10 @@ open class WidgetPath: WidgetPathProtocol {
 
 // MARK: no WidgetPath properties
 
-// MARK: WidgetPath has no signals// MARK: WidgetPath Record: WidgetPathProtocol extension (methods and fields)
+// MARK: no WidgetPath signals
+
+// MARK: WidgetPath has no signals
+// MARK: WidgetPath Record: WidgetPathProtocol extension (methods and fields)
 public extension WidgetPathProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkWidgetPath` instance.
     @inlinable var widget_path_ptr: UnsafeMutablePointer<GtkWidgetPath>! { return ptr?.assumingMemoryBound(to: GtkWidgetPath.self) }
@@ -1502,7 +1508,7 @@ public extension WidgetPathProtocol {
 /// Metatype/GType declaration for WindowAccessible
 public extension WindowAccessibleClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `WindowAccessible`
     static var metatypeReference: GType { gtk_window_accessible_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkWindowAccessibleClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkWindowAccessibleClass.self) }
@@ -1634,7 +1640,7 @@ public extension WindowAccessibleClassProtocol {
 /// Metatype/GType declaration for Window
 public extension WindowClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `Window`
     static var metatypeReference: GType { gtk_window_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkWindowClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkWindowClass.self) }
@@ -2032,7 +2038,10 @@ open class WindowGeometryInfo: WindowGeometryInfoProtocol {
 
 // MARK: no WindowGeometryInfo properties
 
-// MARK: WindowGeometryInfo has no signals// MARK: WindowGeometryInfo Record: WindowGeometryInfoProtocol extension (methods and fields)
+// MARK: no WindowGeometryInfo signals
+
+// MARK: WindowGeometryInfo has no signals
+// MARK: WindowGeometryInfo Record: WindowGeometryInfoProtocol extension (methods and fields)
 public extension WindowGeometryInfoProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkWindowGeometryInfo` instance.
     @inlinable var _ptr: UnsafeMutablePointer<GtkWindowGeometryInfo>! { return ptr?.assumingMemoryBound(to: GtkWindowGeometryInfo.self) }
@@ -2046,7 +2055,7 @@ public extension WindowGeometryInfoProtocol {
 /// Metatype/GType declaration for WindowGroup
 public extension WindowGroupClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `WindowGroup`
     static var metatypeReference: GType { gtk_window_group_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkWindowGroupClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkWindowGroupClass.self) }
@@ -2434,7 +2443,10 @@ open class _MountOperationHandler: _MountOperationHandlerProtocol {
 
 // MARK: no _MountOperationHandler properties
 
-// MARK: _MountOperationHandler has no signals// MARK: _MountOperationHandler Record: _MountOperationHandlerProtocol extension (methods and fields)
+// MARK: no _MountOperationHandler signals
+
+// MARK: _MountOperationHandler has no signals
+// MARK: _MountOperationHandler Record: _MountOperationHandlerProtocol extension (methods and fields)
 public extension _MountOperationHandlerProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `_GtkMountOperationHandler` instance.
     @inlinable var _ptr: UnsafeMutablePointer<_GtkMountOperationHandler>! { return ptr?.assumingMemoryBound(to: _GtkMountOperationHandler.self) }

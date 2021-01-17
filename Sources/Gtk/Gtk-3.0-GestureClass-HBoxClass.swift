@@ -18,7 +18,7 @@ import Atk
 /// Metatype/GType declaration for Gesture
 public extension GestureClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `Gesture`
     static var metatypeReference: GType { gtk_gesture_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkGestureClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkGestureClass.self) }
@@ -144,7 +144,7 @@ public extension GestureClassProtocol {
 /// Metatype/GType declaration for GestureDrag
 public extension GestureDragClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `GestureDrag`
     static var metatypeReference: GType { gtk_gesture_drag_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkGestureDragClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkGestureDragClass.self) }
@@ -270,7 +270,7 @@ public extension GestureDragClassProtocol {
 /// Metatype/GType declaration for GestureLongPress
 public extension GestureLongPressClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `GestureLongPress`
     static var metatypeReference: GType { gtk_gesture_long_press_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkGestureLongPressClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkGestureLongPressClass.self) }
@@ -396,7 +396,7 @@ public extension GestureLongPressClassProtocol {
 /// Metatype/GType declaration for GestureMultiPress
 public extension GestureMultiPressClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `GestureMultiPress`
     static var metatypeReference: GType { gtk_gesture_multi_press_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkGestureMultiPressClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkGestureMultiPressClass.self) }
@@ -522,7 +522,7 @@ public extension GestureMultiPressClassProtocol {
 /// Metatype/GType declaration for GesturePan
 public extension GesturePanClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `GesturePan`
     static var metatypeReference: GType { gtk_gesture_pan_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkGesturePanClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkGesturePanClass.self) }
@@ -648,7 +648,7 @@ public extension GesturePanClassProtocol {
 /// Metatype/GType declaration for GestureRotate
 public extension GestureRotateClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `GestureRotate`
     static var metatypeReference: GType { gtk_gesture_rotate_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkGestureRotateClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkGestureRotateClass.self) }
@@ -774,7 +774,7 @@ public extension GestureRotateClassProtocol {
 /// Metatype/GType declaration for GestureSingle
 public extension GestureSingleClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `GestureSingle`
     static var metatypeReference: GType { gtk_gesture_single_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkGestureSingleClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkGestureSingleClass.self) }
@@ -900,7 +900,7 @@ public extension GestureSingleClassProtocol {
 /// Metatype/GType declaration for GestureStylus
 public extension GestureStylusClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `GestureStylus`
     static var metatypeReference: GType { gtk_gesture_stylus_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkGestureStylusClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkGestureStylusClass.self) }
@@ -1026,7 +1026,7 @@ public extension GestureStylusClassProtocol {
 /// Metatype/GType declaration for GestureSwipe
 public extension GestureSwipeClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `GestureSwipe`
     static var metatypeReference: GType { gtk_gesture_swipe_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkGestureSwipeClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkGestureSwipeClass.self) }
@@ -1152,7 +1152,7 @@ public extension GestureSwipeClassProtocol {
 /// Metatype/GType declaration for GestureZoom
 public extension GestureZoomClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `GestureZoom`
     static var metatypeReference: GType { gtk_gesture_zoom_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkGestureZoomClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkGestureZoomClass.self) }
@@ -1659,7 +1659,10 @@ open class Gradient: GradientProtocol {
 
 // MARK: no Gradient properties
 
-// MARK: Gradient has no signals// MARK: Gradient Record: GradientProtocol extension (methods and fields)
+// MARK: no Gradient signals
+
+// MARK: Gradient has no signals
+// MARK: Gradient Record: GradientProtocol extension (methods and fields)
 public extension GradientProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkGradient` instance.
     @inlinable var gradient_ptr: UnsafeMutablePointer<GtkGradient>! { return ptr?.assumingMemoryBound(to: GtkGradient.self) }
@@ -1733,7 +1736,7 @@ public extension GradientProtocol {
 /// Metatype/GType declaration for Grid
 public extension GridClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `Grid`
     static var metatypeReference: GType { gtk_grid_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkGridClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkGridClass.self) }
@@ -1883,7 +1886,7 @@ public extension GridClassProtocol {
 /// Metatype/GType declaration for HBox
 public extension HBoxClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `HBox`
     static var metatypeReference: GType { gtk_hbox_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkHBoxClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkHBoxClass.self) }

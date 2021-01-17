@@ -18,7 +18,7 @@ import Atk
 /// Metatype/GType declaration for PadController
 public extension PadControllerClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `PadController`
     static var metatypeReference: GType { gtk_pad_controller_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkPadControllerClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkPadControllerClass.self) }
@@ -392,7 +392,10 @@ open class PageRange: PageRangeProtocol {
 
 // MARK: no PageRange properties
 
-// MARK: PageRange has no signals// MARK: PageRange Record: PageRangeProtocol extension (methods and fields)
+// MARK: no PageRange signals
+
+// MARK: PageRange has no signals
+// MARK: PageRange Record: PageRangeProtocol extension (methods and fields)
 public extension PageRangeProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkPageRange` instance.
     @inlinable var _ptr: UnsafeMutablePointer<GtkPageRange>! { return ptr?.assumingMemoryBound(to: GtkPageRange.self) }
@@ -431,7 +434,7 @@ public extension PageRangeProtocol {
 /// Metatype/GType declaration for PanedAccessible
 public extension PanedAccessibleClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `PanedAccessible`
     static var metatypeReference: GType { gtk_paned_accessible_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkPanedAccessibleClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkPanedAccessibleClass.self) }
@@ -563,7 +566,7 @@ public extension PanedAccessibleClassProtocol {
 /// Metatype/GType declaration for Paned
 public extension PanedClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `Paned`
     static var metatypeReference: GType { gtk_paned_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkPanedClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkPanedClass.self) }
@@ -1193,7 +1196,10 @@ open class PaperSize: PaperSizeProtocol {
 
 // MARK: no PaperSize properties
 
-// MARK: PaperSize has no signals// MARK: PaperSize Record: PaperSizeProtocol extension (methods and fields)
+// MARK: no PaperSize signals
+
+// MARK: PaperSize has no signals
+// MARK: PaperSize Record: PaperSizeProtocol extension (methods and fields)
 public extension PaperSizeProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkPaperSize` instance.
     @inlinable var paper_size_ptr: UnsafeMutablePointer<GtkPaperSize>! { return ptr?.assumingMemoryBound(to: GtkPaperSize.self) }
@@ -1345,7 +1351,7 @@ public extension PaperSizeProtocol {
 /// Metatype/GType declaration for PlacesSidebar
 public extension PlacesSidebarClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `PlacesSidebar`
     static var metatypeReference: GType { gtk_places_sidebar_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkPlacesSidebarClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkPlacesSidebarClass.self) }
@@ -1471,7 +1477,7 @@ public extension PlacesSidebarClassProtocol {
 /// Metatype/GType declaration for PlugAccessible
 public extension PlugAccessibleClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `PlugAccessible`
     static var metatypeReference: GType { gtk_plug_accessible_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkPlugAccessibleClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkPlugAccessibleClass.self) }
@@ -1603,7 +1609,7 @@ public extension PlugAccessibleClassProtocol {
 /// Metatype/GType declaration for PopoverAccessible
 public extension PopoverAccessibleClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `PopoverAccessible`
     static var metatypeReference: GType { gtk_popover_accessible_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkPopoverAccessibleClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkPopoverAccessibleClass.self) }
@@ -1735,7 +1741,7 @@ public extension PopoverAccessibleClassProtocol {
 /// Metatype/GType declaration for Popover
 public extension PopoverClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `Popover`
     static var metatypeReference: GType { gtk_popover_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkPopoverClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkPopoverClass.self) }
@@ -1871,7 +1877,7 @@ public extension PopoverClassProtocol {
 /// Metatype/GType declaration for PopoverMenu
 public extension PopoverMenuClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `PopoverMenu`
     static var metatypeReference: GType { gtk_popover_menu_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkPopoverMenuClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkPopoverMenuClass.self) }
@@ -2005,7 +2011,7 @@ public extension PopoverMenuClassProtocol {
 /// Metatype/GType declaration for PrintOperation
 public extension PrintOperationClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `PrintOperation`
     static var metatypeReference: GType { gtk_print_operation_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkPrintOperationClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkPrintOperationClass.self) }
@@ -2177,7 +2183,7 @@ public extension PrintOperationClassProtocol {
 /// Metatype/GType declaration for PrintOperationPreview
 public extension PrintOperationPreviewIfaceRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `PrintOperationPreview`
     static var metatypeReference: GType { gtk_print_operation_preview_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkPrintOperationPreviewIface>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkPrintOperationPreviewIface.self) }
@@ -2335,7 +2341,7 @@ public extension PrintOperationPreviewIfaceProtocol {
 /// Metatype/GType declaration for ProgressBarAccessible
 public extension ProgressBarAccessibleClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `ProgressBarAccessible`
     static var metatypeReference: GType { gtk_progress_bar_accessible_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkProgressBarAccessibleClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkProgressBarAccessibleClass.self) }
@@ -2467,7 +2473,7 @@ public extension ProgressBarAccessibleClassProtocol {
 /// Metatype/GType declaration for ProgressBar
 public extension ProgressBarClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `ProgressBar`
     static var metatypeReference: GType { gtk_progress_bar_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkProgressBarClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkProgressBarClass.self) }
@@ -2607,7 +2613,7 @@ public extension ProgressBarClassProtocol {
 /// Metatype/GType declaration for RadioAction
 public extension RadioActionClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `RadioAction`
     static var metatypeReference: GType { gtk_radio_action_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkRadioActionClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkRadioActionClass.self) }

@@ -18,7 +18,7 @@ import Atk
 /// Metatype/GType declaration for HButtonBox
 public extension HButtonBoxClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `HButtonBox`
     static var metatypeReference: GType { gtk_hbutton_box_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkHButtonBoxClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkHButtonBoxClass.self) }
@@ -150,7 +150,7 @@ public extension HButtonBoxClassProtocol {
 /// Metatype/GType declaration for HPaned
 public extension HPanedClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `HPaned`
     static var metatypeReference: GType { gtk_hpaned_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkHPanedClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkHPanedClass.self) }
@@ -282,7 +282,7 @@ public extension HPanedClassProtocol {
 /// Metatype/GType declaration for HSV
 public extension HSVClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `HSV`
     static var metatypeReference: GType { gtk_hsv_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkHSVClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkHSVClass.self) }
@@ -426,7 +426,7 @@ public extension HSVClassProtocol {
 /// Metatype/GType declaration for HScale
 public extension HScaleClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `HScale`
     static var metatypeReference: GType { gtk_hscale_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkHScaleClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkHScaleClass.self) }
@@ -558,7 +558,7 @@ public extension HScaleClassProtocol {
 /// Metatype/GType declaration for HScrollbar
 public extension HScrollbarClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `HScrollbar`
     static var metatypeReference: GType { gtk_hscrollbar_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkHScrollbarClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkHScrollbarClass.self) }
@@ -690,7 +690,7 @@ public extension HScrollbarClassProtocol {
 /// Metatype/GType declaration for HSeparator
 public extension HSeparatorClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `HSeparator`
     static var metatypeReference: GType { gtk_hseparator_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkHSeparatorClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkHSeparatorClass.self) }
@@ -822,7 +822,7 @@ public extension HSeparatorClassProtocol {
 /// Metatype/GType declaration for HandleBox
 public extension HandleBoxClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `HandleBox`
     static var metatypeReference: GType { gtk_handle_box_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkHandleBoxClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkHandleBoxClass.self) }
@@ -968,7 +968,7 @@ public extension HandleBoxClassProtocol {
 /// Metatype/GType declaration for HeaderBarAccessible
 public extension HeaderBarAccessibleClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `HeaderBarAccessible`
     static var metatypeReference: GType { gtk_header_bar_accessible_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkHeaderBarAccessibleClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkHeaderBarAccessibleClass.self) }
@@ -1100,7 +1100,7 @@ public extension HeaderBarAccessibleClassProtocol {
 /// Metatype/GType declaration for HeaderBar
 public extension HeaderBarClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `HeaderBar`
     static var metatypeReference: GType { gtk_header_bar_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkHeaderBarClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkHeaderBarClass.self) }
@@ -1240,7 +1240,7 @@ public extension HeaderBarClassProtocol {
 /// Metatype/GType declaration for IMContext
 public extension IMContextClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `IMContext`
     static var metatypeReference: GType { gtk_im_context_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkIMContextClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkIMContextClass.self) }

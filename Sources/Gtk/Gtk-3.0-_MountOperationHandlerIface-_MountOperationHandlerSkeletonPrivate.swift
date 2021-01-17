@@ -266,7 +266,10 @@ open class _MountOperationHandlerIface: _MountOperationHandlerIfaceProtocol {
 
 // MARK: no _MountOperationHandlerIface properties
 
-// MARK: _MountOperationHandlerIface has no signals// MARK: _MountOperationHandlerIface Record: _MountOperationHandlerIfaceProtocol extension (methods and fields)
+// MARK: no _MountOperationHandlerIface signals
+
+// MARK: _MountOperationHandlerIface has no signals
+// MARK: _MountOperationHandlerIface Record: _MountOperationHandlerIfaceProtocol extension (methods and fields)
 public extension _MountOperationHandlerIfaceProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `_GtkMountOperationHandlerIface` instance.
     @inlinable var _ptr: UnsafeMutablePointer<_GtkMountOperationHandlerIface>! { return ptr?.assumingMemoryBound(to: _GtkMountOperationHandlerIface.self) }
@@ -550,7 +553,10 @@ open class _MountOperationHandlerProxy: _MountOperationHandlerProxyProtocol {
 
 // MARK: no _MountOperationHandlerProxy properties
 
-// MARK: _MountOperationHandlerProxy has no signals// MARK: _MountOperationHandlerProxy Record: _MountOperationHandlerProxyProtocol extension (methods and fields)
+// MARK: no _MountOperationHandlerProxy signals
+
+// MARK: _MountOperationHandlerProxy has no signals
+// MARK: _MountOperationHandlerProxy Record: _MountOperationHandlerProxyProtocol extension (methods and fields)
 public extension _MountOperationHandlerProxyProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `_GtkMountOperationHandlerProxy` instance.
     @inlinable var _ptr: UnsafeMutablePointer<_GtkMountOperationHandlerProxy>! { return ptr?.assumingMemoryBound(to: _GtkMountOperationHandlerProxy.self) }
@@ -815,7 +821,10 @@ open class _MountOperationHandlerProxyClass: _MountOperationHandlerProxyClassPro
 
 // MARK: no _MountOperationHandlerProxyClass properties
 
-// MARK: _MountOperationHandlerProxyClass has no signals// MARK: _MountOperationHandlerProxyClass Record: _MountOperationHandlerProxyClassProtocol extension (methods and fields)
+// MARK: no _MountOperationHandlerProxyClass signals
+
+// MARK: _MountOperationHandlerProxyClass has no signals
+// MARK: _MountOperationHandlerProxyClass Record: _MountOperationHandlerProxyClassProtocol extension (methods and fields)
 public extension _MountOperationHandlerProxyClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `_GtkMountOperationHandlerProxyClass` instance.
     @inlinable var _ptr: UnsafeMutablePointer<_GtkMountOperationHandlerProxyClass>! { return ptr?.assumingMemoryBound(to: _GtkMountOperationHandlerProxyClass.self) }
@@ -1091,7 +1100,10 @@ open class _MountOperationHandlerProxyPrivate: _MountOperationHandlerProxyPrivat
 
 // MARK: no _MountOperationHandlerProxyPrivate properties
 
-// MARK: _MountOperationHandlerProxyPrivate has no signals// MARK: _MountOperationHandlerProxyPrivate Record: _MountOperationHandlerProxyPrivateProtocol extension (methods and fields)
+// MARK: no _MountOperationHandlerProxyPrivate signals
+
+// MARK: _MountOperationHandlerProxyPrivate has no signals
+// MARK: _MountOperationHandlerProxyPrivate Record: _MountOperationHandlerProxyPrivateProtocol extension (methods and fields)
 public extension _MountOperationHandlerProxyPrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `_GtkMountOperationHandlerProxyPrivate` instance.
     @inlinable var _ptr: UnsafeMutablePointer<_GtkMountOperationHandlerProxyPrivate>! { return ptr?.assumingMemoryBound(to: _GtkMountOperationHandlerProxyPrivate.self) }
@@ -1353,7 +1365,10 @@ open class _MountOperationHandlerSkeleton: _MountOperationHandlerSkeletonProtoco
 
 // MARK: no _MountOperationHandlerSkeleton properties
 
-// MARK: _MountOperationHandlerSkeleton has no signals// MARK: _MountOperationHandlerSkeleton Record: _MountOperationHandlerSkeletonProtocol extension (methods and fields)
+// MARK: no _MountOperationHandlerSkeleton signals
+
+// MARK: _MountOperationHandlerSkeleton has no signals
+// MARK: _MountOperationHandlerSkeleton Record: _MountOperationHandlerSkeletonProtocol extension (methods and fields)
 public extension _MountOperationHandlerSkeletonProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `_GtkMountOperationHandlerSkeleton` instance.
     @inlinable var _ptr: UnsafeMutablePointer<_GtkMountOperationHandlerSkeleton>! { return ptr?.assumingMemoryBound(to: _GtkMountOperationHandlerSkeleton.self) }
@@ -1618,7 +1633,10 @@ open class _MountOperationHandlerSkeletonClass: _MountOperationHandlerSkeletonCl
 
 // MARK: no _MountOperationHandlerSkeletonClass properties
 
-// MARK: _MountOperationHandlerSkeletonClass has no signals// MARK: _MountOperationHandlerSkeletonClass Record: _MountOperationHandlerSkeletonClassProtocol extension (methods and fields)
+// MARK: no _MountOperationHandlerSkeletonClass signals
+
+// MARK: _MountOperationHandlerSkeletonClass has no signals
+// MARK: _MountOperationHandlerSkeletonClass Record: _MountOperationHandlerSkeletonClassProtocol extension (methods and fields)
 public extension _MountOperationHandlerSkeletonClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `_GtkMountOperationHandlerSkeletonClass` instance.
     @inlinable var _ptr: UnsafeMutablePointer<_GtkMountOperationHandlerSkeletonClass>! { return ptr?.assumingMemoryBound(to: _GtkMountOperationHandlerSkeletonClass.self) }
@@ -1894,7 +1912,10 @@ open class _MountOperationHandlerSkeletonPrivate: _MountOperationHandlerSkeleton
 
 // MARK: no _MountOperationHandlerSkeletonPrivate properties
 
-// MARK: _MountOperationHandlerSkeletonPrivate has no signals// MARK: _MountOperationHandlerSkeletonPrivate Record: _MountOperationHandlerSkeletonPrivateProtocol extension (methods and fields)
+// MARK: no _MountOperationHandlerSkeletonPrivate signals
+
+// MARK: _MountOperationHandlerSkeletonPrivate has no signals
+// MARK: _MountOperationHandlerSkeletonPrivate Record: _MountOperationHandlerSkeletonPrivateProtocol extension (methods and fields)
 public extension _MountOperationHandlerSkeletonPrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `_GtkMountOperationHandlerSkeletonPrivate` instance.
     @inlinable var _ptr: UnsafeMutablePointer<_GtkMountOperationHandlerSkeletonPrivate>! { return ptr?.assumingMemoryBound(to: _GtkMountOperationHandlerSkeletonPrivate.self) }

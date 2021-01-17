@@ -18,7 +18,7 @@ import Atk
 /// Metatype/GType declaration for EntryAccessible
 public extension EntryAccessibleClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `EntryAccessible`
     static var metatypeReference: GType { gtk_entry_accessible_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkEntryAccessibleClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkEntryAccessibleClass.self) }
@@ -150,7 +150,7 @@ public extension EntryAccessibleClassProtocol {
 /// Metatype/GType declaration for EntryBuffer
 public extension EntryBufferClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `EntryBuffer`
     static var metatypeReference: GType { gtk_entry_buffer_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkEntryBufferClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkEntryBufferClass.self) }
@@ -310,7 +310,7 @@ public extension EntryBufferClassProtocol {
 /// Metatype/GType declaration for Entry
 public extension EntryClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `Entry`
     static var metatypeReference: GType { gtk_entry_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkEntryClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkEntryClass.self) }
@@ -490,7 +490,7 @@ public extension EntryClassProtocol {
 /// Metatype/GType declaration for EntryCompletion
 public extension EntryCompletionClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `EntryCompletion`
     static var metatypeReference: GType { gtk_entry_completion_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkEntryCompletionClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkEntryCompletionClass.self) }
@@ -638,7 +638,7 @@ public extension EntryCompletionClassProtocol {
 /// Metatype/GType declaration for EventBox
 public extension EventBoxClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `EventBox`
     static var metatypeReference: GType { gtk_event_box_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkEventBoxClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkEventBoxClass.self) }
@@ -780,7 +780,7 @@ public extension EventBoxClassProtocol {
 /// Metatype/GType declaration for EventController
 public extension EventControllerClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `EventController`
     static var metatypeReference: GType { gtk_event_controller_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkEventControllerClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkEventControllerClass.self) }
@@ -906,7 +906,7 @@ public extension EventControllerClassProtocol {
 /// Metatype/GType declaration for EventControllerKey
 public extension EventControllerKeyClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `EventControllerKey`
     static var metatypeReference: GType { gtk_event_controller_key_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkEventControllerKeyClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkEventControllerKeyClass.self) }
@@ -1032,7 +1032,7 @@ public extension EventControllerKeyClassProtocol {
 /// Metatype/GType declaration for EventControllerMotion
 public extension EventControllerMotionClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `EventControllerMotion`
     static var metatypeReference: GType { gtk_event_controller_motion_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkEventControllerMotionClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkEventControllerMotionClass.self) }
@@ -1158,7 +1158,7 @@ public extension EventControllerMotionClassProtocol {
 /// Metatype/GType declaration for EventControllerScroll
 public extension EventControllerScrollClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `EventControllerScroll`
     static var metatypeReference: GType { gtk_event_controller_scroll_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkEventControllerScrollClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkEventControllerScrollClass.self) }
@@ -1284,7 +1284,7 @@ public extension EventControllerScrollClassProtocol {
 /// Metatype/GType declaration for ExpanderAccessible
 public extension ExpanderAccessibleClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `ExpanderAccessible`
     static var metatypeReference: GType { gtk_expander_accessible_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkExpanderAccessibleClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkExpanderAccessibleClass.self) }
@@ -1416,7 +1416,7 @@ public extension ExpanderAccessibleClassProtocol {
 /// Metatype/GType declaration for Expander
 public extension ExpanderClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `Expander`
     static var metatypeReference: GType { gtk_expander_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkExpanderClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkExpanderClass.self) }
@@ -1560,7 +1560,7 @@ public extension ExpanderClassProtocol {
 /// Metatype/GType declaration for FileChooserButton
 public extension FileChooserButtonClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `FileChooserButton`
     static var metatypeReference: GType { gtk_file_chooser_button_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkFileChooserButtonClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkFileChooserButtonClass.self) }

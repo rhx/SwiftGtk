@@ -18,7 +18,7 @@ import Atk
 /// Metatype/GType declaration for CellAccessible
 public extension CellAccessibleClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `CellAccessible`
     static var metatypeReference: GType { gtk_cell_accessible_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkCellAccessibleClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkCellAccessibleClass.self) }
@@ -152,7 +152,7 @@ public extension CellAccessibleClassProtocol {
 /// Metatype/GType declaration for CellAccessibleParent
 public extension CellAccessibleParentIfaceRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `CellAccessibleParent`
     static var metatypeReference: GType { gtk_cell_accessible_parent_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkCellAccessibleParentIface>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkCellAccessibleParentIface.self) }
@@ -308,7 +308,7 @@ public extension CellAccessibleParentIfaceProtocol {
 /// Metatype/GType declaration for CellAreaBox
 public extension CellAreaBoxClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `CellAreaBox`
     static var metatypeReference: GType { gtk_cell_area_box_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkCellAreaBoxClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkCellAreaBoxClass.self) }
@@ -443,7 +443,7 @@ public extension CellAreaBoxClassProtocol {
 /// Metatype/GType declaration for CellArea
 public extension CellAreaClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `CellArea`
     static var metatypeReference: GType { gtk_cell_area_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkCellAreaClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkCellAreaClass.self) }
@@ -641,7 +641,7 @@ public extension CellAreaClassProtocol {
 /// Metatype/GType declaration for CellAreaContext
 public extension CellAreaContextClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `CellAreaContext`
     static var metatypeReference: GType { gtk_cell_area_context_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkCellAreaContextClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkCellAreaContextClass.self) }
@@ -788,7 +788,7 @@ public extension CellAreaContextClassProtocol {
 /// Metatype/GType declaration for CellEditable
 public extension CellEditableIfaceRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `CellEditable`
     static var metatypeReference: GType { gtk_cell_editable_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkCellEditableIface>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkCellEditableIface.self) }
@@ -921,7 +921,7 @@ public extension CellEditableIfaceProtocol {
 /// Metatype/GType declaration for CellLayout
 public extension CellLayoutIfaceRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `CellLayout`
     static var metatypeReference: GType { gtk_cell_layout_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkCellLayoutIface>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkCellLayoutIface.self) }
@@ -1066,7 +1066,7 @@ public extension CellLayoutIfaceProtocol {
 /// Metatype/GType declaration for CellRendererAccel
 public extension CellRendererAccelClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `CellRendererAccel`
     static var metatypeReference: GType { gtk_cell_renderer_accel_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkCellRendererAccelClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkCellRendererAccelClass.self) }
@@ -1212,7 +1212,7 @@ public extension CellRendererAccelClassProtocol {
 /// Metatype/GType declaration for CellRenderer
 public extension CellRendererClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `CellRenderer`
     static var metatypeReference: GType { gtk_cell_renderer_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkCellRendererClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkCellRendererClass.self) }
@@ -1629,7 +1629,10 @@ open class CellRendererClassPrivate: CellRendererClassPrivateProtocol {
 
 // MARK: no CellRendererClassPrivate properties
 
-// MARK: CellRendererClassPrivate has no signals// MARK: CellRendererClassPrivate Record: CellRendererClassPrivateProtocol extension (methods and fields)
+// MARK: no CellRendererClassPrivate signals
+
+// MARK: CellRendererClassPrivate has no signals
+// MARK: CellRendererClassPrivate Record: CellRendererClassPrivateProtocol extension (methods and fields)
 public extension CellRendererClassPrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkCellRendererClassPrivate` instance.
     @inlinable var _ptr: UnsafeMutablePointer<GtkCellRendererClassPrivate>! { return ptr?.assumingMemoryBound(to: GtkCellRendererClassPrivate.self) }
@@ -1643,7 +1646,7 @@ public extension CellRendererClassPrivateProtocol {
 /// Metatype/GType declaration for CellRendererCombo
 public extension CellRendererComboClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `CellRendererCombo`
     static var metatypeReference: GType { gtk_cell_renderer_combo_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkCellRendererComboClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkCellRendererComboClass.self) }
@@ -1783,7 +1786,7 @@ public extension CellRendererComboClassProtocol {
 /// Metatype/GType declaration for CellRendererPixbuf
 public extension CellRendererPixbufClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `CellRendererPixbuf`
     static var metatypeReference: GType { gtk_cell_renderer_pixbuf_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkCellRendererPixbufClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkCellRendererPixbufClass.self) }
@@ -1923,7 +1926,7 @@ public extension CellRendererPixbufClassProtocol {
 /// Metatype/GType declaration for CellRendererProgress
 public extension CellRendererProgressClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `CellRendererProgress`
     static var metatypeReference: GType { gtk_cell_renderer_progress_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkCellRendererProgressClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkCellRendererProgressClass.self) }
@@ -2063,7 +2066,7 @@ public extension CellRendererProgressClassProtocol {
 /// Metatype/GType declaration for CellRendererSpin
 public extension CellRendererSpinClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `CellRendererSpin`
     static var metatypeReference: GType { gtk_cell_renderer_spin_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkCellRendererSpinClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkCellRendererSpinClass.self) }
@@ -2203,7 +2206,7 @@ public extension CellRendererSpinClassProtocol {
 /// Metatype/GType declaration for CellRendererSpinner
 public extension CellRendererSpinnerClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `CellRendererSpinner`
     static var metatypeReference: GType { gtk_cell_renderer_spinner_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkCellRendererSpinnerClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkCellRendererSpinnerClass.self) }
@@ -2343,7 +2346,7 @@ public extension CellRendererSpinnerClassProtocol {
 /// Metatype/GType declaration for CellRendererText
 public extension CellRendererTextClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `CellRendererText`
     static var metatypeReference: GType { gtk_cell_renderer_text_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkCellRendererTextClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkCellRendererTextClass.self) }
@@ -2485,7 +2488,7 @@ public extension CellRendererTextClassProtocol {
 /// Metatype/GType declaration for CellRendererToggle
 public extension CellRendererToggleClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `CellRendererToggle`
     static var metatypeReference: GType { gtk_cell_renderer_toggle_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkCellRendererToggleClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkCellRendererToggleClass.self) }
@@ -2627,7 +2630,7 @@ public extension CellRendererToggleClassProtocol {
 /// Metatype/GType declaration for CellView
 public extension CellViewClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `CellView`
     static var metatypeReference: GType { gtk_cell_view_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkCellViewClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkCellViewClass.self) }
@@ -2769,7 +2772,7 @@ public extension CellViewClassProtocol {
 /// Metatype/GType declaration for CheckButton
 public extension CheckButtonClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `CheckButton`
     static var metatypeReference: GType { gtk_check_button_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkCheckButtonClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkCheckButtonClass.self) }
@@ -2911,7 +2914,7 @@ public extension CheckButtonClassProtocol {
 /// Metatype/GType declaration for CheckMenuItemAccessible
 public extension CheckMenuItemAccessibleClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `CheckMenuItemAccessible`
     static var metatypeReference: GType { gtk_check_menu_item_accessible_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkCheckMenuItemAccessibleClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkCheckMenuItemAccessibleClass.self) }
@@ -3043,7 +3046,7 @@ public extension CheckMenuItemAccessibleClassProtocol {
 /// Metatype/GType declaration for CheckMenuItem
 public extension CheckMenuItemClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `CheckMenuItem`
     static var metatypeReference: GType { gtk_check_menu_item_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkCheckMenuItemClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkCheckMenuItemClass.self) }
@@ -3189,7 +3192,7 @@ public extension CheckMenuItemClassProtocol {
 /// Metatype/GType declaration for ColorButton
 public extension ColorButtonClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `ColorButton`
     static var metatypeReference: GType { gtk_color_button_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkColorButtonClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkColorButtonClass.self) }
@@ -3331,7 +3334,7 @@ public extension ColorButtonClassProtocol {
 /// Metatype/GType declaration for ColorChooserDialog
 public extension ColorChooserDialogClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `ColorChooserDialog`
     static var metatypeReference: GType { gtk_color_chooser_dialog_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkColorChooserDialogClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkColorChooserDialogClass.self) }
@@ -3471,7 +3474,7 @@ public extension ColorChooserDialogClassProtocol {
 /// Metatype/GType declaration for ColorChooser
 public extension ColorChooserInterfaceRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `ColorChooser`
     static var metatypeReference: GType { gtk_color_chooser_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkColorChooserInterface>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkColorChooserInterface.self) }
@@ -3618,7 +3621,7 @@ public extension ColorChooserInterfaceProtocol {
 /// Metatype/GType declaration for ColorChooserWidget
 public extension ColorChooserWidgetClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `ColorChooserWidget`
     static var metatypeReference: GType { gtk_color_chooser_widget_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkColorChooserWidgetClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkColorChooserWidgetClass.self) }
@@ -3768,7 +3771,7 @@ public extension ColorChooserWidgetClassProtocol {
 /// Metatype/GType declaration for ColorSelection
 public extension ColorSelectionClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `ColorSelection`
     static var metatypeReference: GType { gtk_color_selection_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkColorSelectionClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkColorSelectionClass.self) }
@@ -3912,7 +3915,7 @@ public extension ColorSelectionClassProtocol {
 /// Metatype/GType declaration for ColorSelectionDialog
 public extension ColorSelectionDialogClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `ColorSelectionDialog`
     static var metatypeReference: GType { gtk_color_selection_dialog_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkColorSelectionDialogClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkColorSelectionDialogClass.self) }
@@ -4052,7 +4055,7 @@ public extension ColorSelectionDialogClassProtocol {
 /// Metatype/GType declaration for ComboBoxAccessible
 public extension ComboBoxAccessibleClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `ComboBoxAccessible`
     static var metatypeReference: GType { gtk_combo_box_accessible_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkComboBoxAccessibleClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkComboBoxAccessibleClass.self) }
@@ -4184,7 +4187,7 @@ public extension ComboBoxAccessibleClassProtocol {
 /// Metatype/GType declaration for ComboBox
 public extension ComboBoxClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `ComboBox`
     static var metatypeReference: GType { gtk_combo_box_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkComboBoxClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkComboBoxClass.self) }
@@ -4328,7 +4331,7 @@ public extension ComboBoxClassProtocol {
 /// Metatype/GType declaration for ComboBoxText
 public extension ComboBoxTextClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `ComboBoxText`
     static var metatypeReference: GType { gtk_combo_box_text_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkComboBoxTextClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkComboBoxTextClass.self) }
@@ -4468,7 +4471,7 @@ public extension ComboBoxTextClassProtocol {
 /// Metatype/GType declaration for ContainerAccessible
 public extension ContainerAccessibleClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `ContainerAccessible`
     static var metatypeReference: GType { gtk_container_accessible_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkContainerAccessibleClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkContainerAccessibleClass.self) }
@@ -4604,7 +4607,7 @@ public extension ContainerAccessibleClassProtocol {
 /// Metatype/GType declaration for ContainerCellAccessible
 public extension ContainerCellAccessibleClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `ContainerCellAccessible`
     static var metatypeReference: GType { gtk_container_cell_accessible_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkContainerCellAccessibleClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkContainerCellAccessibleClass.self) }
@@ -4736,7 +4739,7 @@ public extension ContainerCellAccessibleClassProtocol {
 /// Metatype/GType declaration for Container
 public extension ContainerClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `Container`
     static var metatypeReference: GType { gtk_container_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkContainerClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkContainerClass.self) }
@@ -4946,7 +4949,7 @@ public extension ContainerClassProtocol {
 /// Metatype/GType declaration for CssProvider
 public extension CssProviderClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `CssProvider`
     static var metatypeReference: GType { gtk_css_provider_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkCssProviderClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkCssProviderClass.self) }
@@ -5340,7 +5343,10 @@ open class CssSection: CssSectionProtocol {
 
 // MARK: no CssSection properties
 
-// MARK: CssSection has no signals// MARK: CssSection Record: CssSectionProtocol extension (methods and fields)
+// MARK: no CssSection signals
+
+// MARK: CssSection has no signals
+// MARK: CssSection Record: CssSectionProtocol extension (methods and fields)
 public extension CssSectionProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkCssSection` instance.
     @inlinable var css_section_ptr: UnsafeMutablePointer<GtkCssSection>! { return ptr?.assumingMemoryBound(to: GtkCssSection.self) }
@@ -5548,7 +5554,7 @@ public extension CssSectionProtocol {
 /// Metatype/GType declaration for Dialog
 public extension DialogClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `Dialog`
     static var metatypeReference: GType { gtk_dialog_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkDialogClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkDialogClass.self) }

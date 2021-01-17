@@ -272,7 +272,10 @@ open class BindingArg: BindingArgProtocol {
 
 // MARK: no BindingArg properties
 
-// MARK: BindingArg has no signals// MARK: BindingArg Record: BindingArgProtocol extension (methods and fields)
+// MARK: no BindingArg signals
+
+// MARK: BindingArg has no signals
+// MARK: BindingArg Record: BindingArgProtocol extension (methods and fields)
 public extension BindingArgProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkBindingArg` instance.
     @inlinable var _ptr: UnsafeMutablePointer<GtkBindingArg>! { return ptr?.assumingMemoryBound(to: GtkBindingArg.self) }
@@ -549,7 +552,10 @@ open class BindingEntry: BindingEntryProtocol {
 
 // MARK: no BindingEntry properties
 
-// MARK: BindingEntry has no signals// MARK: BindingEntry Record: BindingEntryProtocol extension (methods and fields)
+// MARK: no BindingEntry signals
+
+// MARK: BindingEntry has no signals
+// MARK: BindingEntry Record: BindingEntryProtocol extension (methods and fields)
 public extension BindingEntryProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkBindingEntry` instance.
     @inlinable var _ptr: UnsafeMutablePointer<GtkBindingEntry>! { return ptr?.assumingMemoryBound(to: GtkBindingEntry.self) }
@@ -974,7 +980,10 @@ open class BindingSet: BindingSetProtocol {
 
 // MARK: no BindingSet properties
 
-// MARK: BindingSet has no signals// MARK: BindingSet Record: BindingSetProtocol extension (methods and fields)
+// MARK: no BindingSet signals
+
+// MARK: BindingSet has no signals
+// MARK: BindingSet Record: BindingSetProtocol extension (methods and fields)
 public extension BindingSetProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkBindingSet` instance.
     @inlinable var _ptr: UnsafeMutablePointer<GtkBindingSet>! { return ptr?.assumingMemoryBound(to: GtkBindingSet.self) }
@@ -1410,7 +1419,10 @@ open class BindingSignal: BindingSignalProtocol {
 
 // MARK: no BindingSignal properties
 
-// MARK: BindingSignal has no signals// MARK: BindingSignal Record: BindingSignalProtocol extension (methods and fields)
+// MARK: no BindingSignal signals
+
+// MARK: BindingSignal has no signals
+// MARK: BindingSignal Record: BindingSignalProtocol extension (methods and fields)
 public extension BindingSignalProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkBindingSignal` instance.
     @inlinable var _ptr: UnsafeMutablePointer<GtkBindingSignal>! { return ptr?.assumingMemoryBound(to: GtkBindingSignal.self) }
@@ -1475,7 +1487,7 @@ public extension BindingSignalProtocol {
 /// Metatype/GType declaration for BooleanCellAccessible
 public extension BooleanCellAccessibleClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `BooleanCellAccessible`
     static var metatypeReference: GType { gtk_boolean_cell_accessible_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkBooleanCellAccessibleClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkBooleanCellAccessibleClass.self) }
@@ -1868,7 +1880,10 @@ open class Border: BorderProtocol {
 
 // MARK: no Border properties
 
-// MARK: Border has no signals// MARK: Border Record: BorderProtocol extension (methods and fields)
+// MARK: no Border signals
+
+// MARK: Border has no signals
+// MARK: Border Record: BorderProtocol extension (methods and fields)
 public extension BorderProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkBorder` instance.
     @inlinable var border_ptr: UnsafeMutablePointer<GtkBorder>! { return ptr?.assumingMemoryBound(to: GtkBorder.self) }
@@ -1944,7 +1959,7 @@ public extension BorderProtocol {
 /// Metatype/GType declaration for Box
 public extension BoxClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `Box`
     static var metatypeReference: GType { gtk_box_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkBoxClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkBoxClass.self) }
@@ -2086,7 +2101,7 @@ public extension BoxClassProtocol {
 /// Metatype/GType declaration for Buildable
 public extension BuildableIfaceRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `Buildable`
     static var metatypeReference: GType { gtk_buildable_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkBuildableIface>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkBuildableIface.self) }
@@ -2244,7 +2259,7 @@ public extension BuildableIfaceProtocol {
 /// Metatype/GType declaration for Builder
 public extension BuilderClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `Builder`
     static var metatypeReference: GType { gtk_builder_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkBuilderClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkBuilderClass.self) }
@@ -2394,7 +2409,7 @@ public extension BuilderClassProtocol {
 /// Metatype/GType declaration for ButtonAccessible
 public extension ButtonAccessibleClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `ButtonAccessible`
     static var metatypeReference: GType { gtk_button_accessible_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkButtonAccessibleClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkButtonAccessibleClass.self) }
@@ -2526,7 +2541,7 @@ public extension ButtonAccessibleClassProtocol {
 /// Metatype/GType declaration for ButtonBox
 public extension ButtonBoxClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `ButtonBox`
     static var metatypeReference: GType { gtk_button_box_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkButtonBoxClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkButtonBoxClass.self) }
@@ -2668,7 +2683,7 @@ public extension ButtonBoxClassProtocol {
 /// Metatype/GType declaration for Button
 public extension ButtonClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `Button`
     static var metatypeReference: GType { gtk_button_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkButtonClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkButtonClass.self) }
@@ -2822,7 +2837,7 @@ public extension ButtonClassProtocol {
 /// Metatype/GType declaration for Calendar
 public extension CalendarClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `Calendar`
     static var metatypeReference: GType { gtk_calendar_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkCalendarClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkCalendarClass.self) }

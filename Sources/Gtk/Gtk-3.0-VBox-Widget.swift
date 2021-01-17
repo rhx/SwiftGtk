@@ -552,7 +552,722 @@ public extension VBoxProtocol {
     }
 }
 
-// MARK: VBox has no signals// MARK: VBox Class: VBoxProtocol extension (methods and fields)
+public enum VBoxSignalName: String, SignalNameProtocol {
+    case accelClosuresChanged = "accel-closures-changed"
+    case add = "add"
+    /// The `button`-press-event signal will be emitted when a button
+    /// (typically from a mouse) is pressed.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the
+    /// widget needs to enable the `GDK_BUTTON_PRESS_MASK` mask.
+    /// 
+    /// This signal will be sent to the grab widget if there is one.
+    case buttonPressEvent = "button-press-event"
+    /// The `button`-release-event signal will be emitted when a button
+    /// (typically from a mouse) is released.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the
+    /// widget needs to enable the `GDK_BUTTON_RELEASE_MASK` mask.
+    /// 
+    /// This signal will be sent to the grab widget if there is one.
+    case buttonReleaseEvent = "button-release-event"
+    /// Determines whether an accelerator that activates the signal
+    /// identified by `signal_id` can currently be activated.
+    /// This signal is present to allow applications and derived
+    /// widgets to override the default `GtkWidget` handling
+    /// for determining whether an accelerator can be activated.
+    case canActivateAccel = "can-activate-accel"
+    case checkResize = "check-resize"
+    /// The `child`-notify signal is emitted for each
+    /// [child property](#child-properties)  that has
+    /// changed on an object. The signal's detail holds the property name.
+    case childNotify = "child-notify"
+    /// The `composited`-changed signal is emitted when the composited
+    /// status of `widgets` screen changes.
+    /// See `gdk_screen_is_composited()`.
+    ///
+    /// **composited-changed is deprecated:**
+    /// Use GdkScreen::composited-changed instead.
+    case compositedChanged = "composited-changed"
+    /// The `configure`-event signal will be emitted when the size, position or
+    /// stacking of the `widget`'s window has changed.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_STRUCTURE_MASK` mask. GDK will enable this mask
+    /// automatically for all new windows.
+    case configureEvent = "configure-event"
+    /// Emitted when a redirected window belonging to `widget` gets drawn into.
+    /// The region/area members of the event shows what area of the redirected
+    /// drawable was drawn into.
+    case damageEvent = "damage-event"
+    /// The `delete`-event signal is emitted if a user requests that
+    /// a toplevel window is closed. The default handler for this signal
+    /// destroys the window. Connecting `gtk_widget_hide_on_delete()` to
+    /// this signal will cause the window to be hidden instead, so that
+    /// it can later be shown again without reconstructing it.
+    case deleteEvent = "delete-event"
+    /// Signals that all holders of a reference to the widget should release
+    /// the reference that they hold. May result in finalization of the widget
+    /// if all references are released.
+    /// 
+    /// This signal is not suitable for saving widget state.
+    case destroy = "destroy"
+    /// The `destroy`-event signal is emitted when a `GdkWindow` is destroyed.
+    /// You rarely get this signal, because most widgets disconnect themselves
+    /// from their window before they destroy it, so no widget owns the
+    /// window at destroy time.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_STRUCTURE_MASK` mask. GDK will enable this mask
+    /// automatically for all new windows.
+    case destroyEvent = "destroy-event"
+    /// The `direction`-changed signal is emitted when the text direction
+    /// of a widget changes.
+    case directionChanged = "direction-changed"
+    /// The `drag`-begin signal is emitted on the drag source when a drag is
+    /// started. A typical reason to connect to this signal is to set up a
+    /// custom drag icon with e.g. `gtk_drag_source_set_icon_pixbuf()`.
+    /// 
+    /// Note that some widgets set up a drag icon in the default handler of
+    /// this signal, so you may have to use `g_signal_connect_after()` to
+    /// override what the default handler did.
+    case dragBegin = "drag-begin"
+    /// The `drag`-data-delete signal is emitted on the drag source when a drag
+    /// with the action `GDK_ACTION_MOVE` is successfully completed. The signal
+    /// handler is responsible for deleting the data that has been dropped. What
+    /// "delete" means depends on the context of the drag operation.
+    case dragDataDelete = "drag-data-delete"
+    /// The `drag`-data-get signal is emitted on the drag source when the drop
+    /// site requests the data which is dragged. It is the responsibility of
+    /// the signal handler to fill `data` with the data in the format which
+    /// is indicated by `info`. See `gtk_selection_data_set()` and
+    /// `gtk_selection_data_set_text()`.
+    case dragDataGet = "drag-data-get"
+    /// The `drag`-data-received signal is emitted on the drop site when the
+    /// dragged data has been received. If the data was received in order to
+    /// determine whether the drop will be accepted, the handler is expected
+    /// to call `gdk_drag_status()` and not finish the drag.
+    /// If the data was received in response to a `GtkWidget::drag`-drop signal
+    /// (and this is the last target to be received), the handler for this
+    /// signal is expected to process the received data and then call
+    /// `gtk_drag_finish()`, setting the `success` parameter depending on
+    /// whether the data was processed successfully.
+    /// 
+    /// Applications must create some means to determine why the signal was emitted
+    /// and therefore whether to call `gdk_drag_status()` or `gtk_drag_finish()`.
+    /// 
+    /// The handler may inspect the selected action with
+    /// `gdk_drag_context_get_selected_action()` before calling
+    /// `gtk_drag_finish()`, e.g. to implement `GDK_ACTION_ASK` as
+    /// shown in the following example:
+    /// (C Language Example):
+    /// ```C
+    /// void
+    /// drag_data_received (GtkWidget          *widget,
+    ///                     GdkDragContext     *context,
+    ///                     gint                x,
+    ///                     gint                y,
+    ///                     GtkSelectionData   *data,
+    ///                     guint               info,
+    ///                     guint               time)
+    /// {
+    ///   if ((data->length >= 0) && (data->format == 8))
+    ///     {
+    ///       GdkDragAction action;
+    /// 
+    ///       // handle data here
+    /// 
+    ///       action = gdk_drag_context_get_selected_action (context);
+    ///       if (action == GDK_ACTION_ASK)
+    ///         {
+    ///           GtkWidget *dialog;
+    ///           gint response;
+    /// 
+    ///           dialog = gtk_message_dialog_new (NULL,
+    ///                                            GTK_DIALOG_MODAL |
+    ///                                            GTK_DIALOG_DESTROY_WITH_PARENT,
+    ///                                            GTK_MESSAGE_INFO,
+    ///                                            GTK_BUTTONS_YES_NO,
+    ///                                            "Move the data ?\n");
+    ///           response = gtk_dialog_run (GTK_DIALOG (dialog));
+    ///           gtk_widget_destroy (dialog);
+    /// 
+    ///           if (response == GTK_RESPONSE_YES)
+    ///             action = GDK_ACTION_MOVE;
+    ///           else
+    ///             action = GDK_ACTION_COPY;
+    ///          }
+    /// 
+    ///       gtk_drag_finish (context, TRUE, action == GDK_ACTION_MOVE, time);
+    ///     }
+    ///   else
+    ///     gtk_drag_finish (context, FALSE, FALSE, time);
+    ///  }
+    /// ```
+    /// 
+    case dragDataReceived = "drag-data-received"
+    /// The `drag`-drop signal is emitted on the drop site when the user drops
+    /// the data onto the widget. The signal handler must determine whether
+    /// the cursor position is in a drop zone or not. If it is not in a drop
+    /// zone, it returns `false` and no further processing is necessary.
+    /// Otherwise, the handler returns `true`. In this case, the handler must
+    /// ensure that `gtk_drag_finish()` is called to let the source know that
+    /// the drop is done. The call to `gtk_drag_finish()` can be done either
+    /// directly or in a `GtkWidget::drag`-data-received handler which gets
+    /// triggered by calling `gtk_drag_get_data()` to receive the data for one
+    /// or more of the supported targets.
+    case dragDrop = "drag-drop"
+    /// The `drag`-end signal is emitted on the drag source when a drag is
+    /// finished.  A typical reason to connect to this signal is to undo
+    /// things done in `GtkWidget::drag`-begin.
+    case dragEnd = "drag-end"
+    /// The `drag`-failed signal is emitted on the drag source when a drag has
+    /// failed. The signal handler may hook custom code to handle a failed DnD
+    /// operation based on the type of error, it returns `true` is the failure has
+    /// been already handled (not showing the default "drag operation failed"
+    /// animation), otherwise it returns `false`.
+    case dragFailed = "drag-failed"
+    /// The `drag`-leave signal is emitted on the drop site when the cursor
+    /// leaves the widget. A typical reason to connect to this signal is to
+    /// undo things done in `GtkWidget::drag`-motion, e.g. undo highlighting
+    /// with `gtk_drag_unhighlight()`.
+    /// 
+    /// 
+    /// Likewise, the `GtkWidget::drag`-leave signal is also emitted before the
+    /// `drag`-drop signal, for instance to allow cleaning up of a preview item
+    /// created in the `GtkWidget::drag`-motion signal handler.
+    case dragLeave = "drag-leave"
+    /// The `drag`-motion signal is emitted on the drop site when the user
+    /// moves the cursor over the widget during a drag. The signal handler
+    /// must determine whether the cursor position is in a drop zone or not.
+    /// If it is not in a drop zone, it returns `false` and no further processing
+    /// is necessary. Otherwise, the handler returns `true`. In this case, the
+    /// handler is responsible for providing the necessary information for
+    /// displaying feedback to the user, by calling `gdk_drag_status()`.
+    /// 
+    /// If the decision whether the drop will be accepted or rejected can't be
+    /// made based solely on the cursor position and the type of the data, the
+    /// handler may inspect the dragged data by calling `gtk_drag_get_data()` and
+    /// defer the `gdk_drag_status()` call to the `GtkWidget::drag`-data-received
+    /// handler. Note that you must pass `GTK_DEST_DEFAULT_DROP`,
+    /// `GTK_DEST_DEFAULT_MOTION` or `GTK_DEST_DEFAULT_ALL` to `gtk_drag_dest_set()`
+    /// when using the drag-motion signal that way.
+    /// 
+    /// Also note that there is no drag-enter signal. The drag receiver has to
+    /// keep track of whether he has received any drag-motion signals since the
+    /// last `GtkWidget::drag`-leave and if not, treat the drag-motion signal as
+    /// an "enter" signal. Upon an "enter", the handler will typically highlight
+    /// the drop site with `gtk_drag_highlight()`.
+    /// (C Language Example):
+    /// ```C
+    /// static void
+    /// drag_motion (GtkWidget      *widget,
+    ///              GdkDragContext *context,
+    ///              gint            x,
+    ///              gint            y,
+    ///              guint           time)
+    /// {
+    ///   GdkAtom target;
+    /// 
+    ///   PrivateData *private_data = GET_PRIVATE_DATA (widget);
+    /// 
+    ///   if (!private_data->drag_highlight)
+    ///    {
+    ///      private_data->drag_highlight = 1;
+    ///      gtk_drag_highlight (widget);
+    ///    }
+    /// 
+    ///   target = gtk_drag_dest_find_target (widget, context, NULL);
+    ///   if (target == GDK_NONE)
+    ///     gdk_drag_status (context, 0, time);
+    ///   else
+    ///    {
+    ///      private_data->pending_status
+    ///         = gdk_drag_context_get_suggested_action (context);
+    ///      gtk_drag_get_data (widget, context, target, time);
+    ///    }
+    /// 
+    ///   return TRUE;
+    /// }
+    /// 
+    /// static void
+    /// drag_data_received (GtkWidget        *widget,
+    ///                     GdkDragContext   *context,
+    ///                     gint              x,
+    ///                     gint              y,
+    ///                     GtkSelectionData *selection_data,
+    ///                     guint             info,
+    ///                     guint             time)
+    /// {
+    ///   PrivateData *private_data = GET_PRIVATE_DATA (widget);
+    /// 
+    ///   if (private_data->suggested_action)
+    ///    {
+    ///      private_data->suggested_action = 0;
+    /// 
+    ///      // We are getting this data due to a request in drag_motion,
+    ///      // rather than due to a request in drag_drop, so we are just
+    ///      // supposed to call gdk_drag_status(), not actually paste in
+    ///      // the data.
+    /// 
+    ///      str = gtk_selection_data_get_text (selection_data);
+    ///      if (!data_is_acceptable (str))
+    ///        gdk_drag_status (context, 0, time);
+    ///      else
+    ///        gdk_drag_status (context,
+    ///                         private_data->suggested_action,
+    ///                         time);
+    ///    }
+    ///   else
+    ///    {
+    ///      // accept the drop
+    ///    }
+    /// }
+    /// ```
+    /// 
+    case dragMotion = "drag-motion"
+    /// This signal is emitted when a widget is supposed to render itself.
+    /// The `widget`'s top left corner must be painted at the origin of
+    /// the passed in context and be sized to the values returned by
+    /// `gtk_widget_get_allocated_width()` and
+    /// `gtk_widget_get_allocated_height()`.
+    /// 
+    /// Signal handlers connected to this signal can modify the cairo
+    /// context passed as `cr` in any way they like and don't need to
+    /// restore it. The signal emission takes care of calling `cairo_save()`
+    /// before and `cairo_restore()` after invoking the handler.
+    /// 
+    /// The signal handler will get a `cr` with a clip region already set to the
+    /// widget's dirty region, i.e. to the area that needs repainting.  Complicated
+    /// widgets that want to avoid redrawing themselves completely can get the full
+    /// extents of the clip region with `gdk_cairo_get_clip_rectangle()`, or they can
+    /// get a finer-grained representation of the dirty region with
+    /// `cairo_copy_clip_rectangle_list()`.
+    case draw = "draw"
+    /// The `enter`-notify-event will be emitted when the pointer enters
+    /// the `widget`'s window.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_ENTER_NOTIFY_MASK` mask.
+    /// 
+    /// This signal will be sent to the grab widget if there is one.
+    case enterNotifyEvent = "enter-notify-event"
+    /// The GTK+ main loop will emit three signals for each GDK event delivered
+    /// to a widget: one generic `event` signal, another, more specific,
+    /// signal that matches the type of event delivered (e.g.
+    /// `GtkWidget::key`-press-event) and finally a generic
+    /// `GtkWidget::event`-after signal.
+    case event = "event"
+    /// After the emission of the `GtkWidget::event` signal and (optionally)
+    /// the second more specific signal, `event`-after will be emitted
+    /// regardless of the previous two signals handlers return values.
+    case eventAfter = "event-after"
+    case focus = "focus"
+    /// The `focus`-in-event signal will be emitted when the keyboard focus
+    /// enters the `widget`'s window.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_FOCUS_CHANGE_MASK` mask.
+    case focusInEvent = "focus-in-event"
+    /// The `focus`-out-event signal will be emitted when the keyboard focus
+    /// leaves the `widget`'s window.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_FOCUS_CHANGE_MASK` mask.
+    case focusOutEvent = "focus-out-event"
+    /// Emitted when a pointer or keyboard grab on a window belonging
+    /// to `widget` gets broken.
+    /// 
+    /// On X11, this happens when the grab window becomes unviewable
+    /// (i.e. it or one of its ancestors is unmapped), or if the same
+    /// application grabs the pointer or keyboard again.
+    case grabBrokenEvent = "grab-broken-event"
+    case grabFocus = "grab-focus"
+    /// The `grab`-notify signal is emitted when a widget becomes
+    /// shadowed by a GTK+ grab (not a pointer or keyboard grab) on
+    /// another widget, or when it becomes unshadowed due to a grab
+    /// being removed.
+    /// 
+    /// A widget is shadowed by a `gtk_grab_add()` when the topmost
+    /// grab widget in the grab stack of its window group is not
+    /// its ancestor.
+    case grabNotify = "grab-notify"
+    /// The `hide` signal is emitted when `widget` is hidden, for example with
+    /// `gtk_widget_hide()`.
+    case hide = "hide"
+    /// The `hierarchy`-changed signal is emitted when the
+    /// anchored state of a widget changes. A widget is
+    /// “anchored” when its toplevel
+    /// ancestor is a `GtkWindow`. This signal is emitted when
+    /// a widget changes from un-anchored to anchored or vice-versa.
+    case hierarchyChanged = "hierarchy-changed"
+    /// The `key`-press-event signal is emitted when a key is pressed. The signal
+    /// emission will reoccur at the key-repeat rate when the key is kept pressed.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_KEY_PRESS_MASK` mask.
+    /// 
+    /// This signal will be sent to the grab widget if there is one.
+    case keyPressEvent = "key-press-event"
+    /// The `key`-release-event signal is emitted when a key is released.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_KEY_RELEASE_MASK` mask.
+    /// 
+    /// This signal will be sent to the grab widget if there is one.
+    case keyReleaseEvent = "key-release-event"
+    /// Gets emitted if keyboard navigation fails.
+    /// See `gtk_widget_keynav_failed()` for details.
+    case keynavFailed = "keynav-failed"
+    /// The `leave`-notify-event will be emitted when the pointer leaves
+    /// the `widget`'s window.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_LEAVE_NOTIFY_MASK` mask.
+    /// 
+    /// This signal will be sent to the grab widget if there is one.
+    case leaveNotifyEvent = "leave-notify-event"
+    /// The `map` signal is emitted when `widget` is going to be mapped, that is
+    /// when the widget is visible (which is controlled with
+    /// `gtk_widget_set_visible()`) and all its parents up to the toplevel widget
+    /// are also visible. Once the map has occurred, `GtkWidget::map`-event will
+    /// be emitted.
+    /// 
+    /// The `map` signal can be used to determine whether a widget will be drawn,
+    /// for instance it can resume an animation that was stopped during the
+    /// emission of `GtkWidget::unmap`.
+    case map = "map"
+    /// The `map`-event signal will be emitted when the `widget`'s window is
+    /// mapped. A window is mapped when it becomes visible on the screen.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_STRUCTURE_MASK` mask. GDK will enable this mask
+    /// automatically for all new windows.
+    case mapEvent = "map-event"
+    /// The default handler for this signal activates `widget` if `group_cycling`
+    /// is `false`, or just makes `widget` grab focus if `group_cycling` is `true`.
+    case mnemonicActivate = "mnemonic-activate"
+    /// The `motion`-notify-event signal is emitted when the pointer moves
+    /// over the widget's `GdkWindow`.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget
+    /// needs to enable the `GDK_POINTER_MOTION_MASK` mask.
+    /// 
+    /// This signal will be sent to the grab widget if there is one.
+    case motionNotifyEvent = "motion-notify-event"
+    case moveFocus = "move-focus"
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    case notify = "notify"
+    /// The `parent`-set signal is emitted when a new parent
+    /// has been set on a widget.
+    case parentSet = "parent-set"
+    /// This signal gets emitted whenever a widget should pop up a context
+    /// menu. This usually happens through the standard key binding mechanism;
+    /// by pressing a certain key while a widget is focused, the user can cause
+    /// the widget to pop up a menu.  For example, the `GtkEntry` widget creates
+    /// a menu with clipboard commands. See the
+    /// [Popup Menu Migration Checklist](#checklist-popup-menu)
+    /// for an example of how to use this signal.
+    case popupMenu = "popup-menu"
+    /// The `property`-notify-event signal will be emitted when a property on
+    /// the `widget`'s window has been changed or deleted.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_PROPERTY_CHANGE_MASK` mask.
+    case propertyNotifyEvent = "property-notify-event"
+    /// To receive this signal the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_PROXIMITY_IN_MASK` mask.
+    /// 
+    /// This signal will be sent to the grab widget if there is one.
+    case proximityInEvent = "proximity-in-event"
+    /// To receive this signal the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_PROXIMITY_OUT_MASK` mask.
+    /// 
+    /// This signal will be sent to the grab widget if there is one.
+    case proximityOutEvent = "proximity-out-event"
+    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
+    /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
+    /// focus in keyboard mode.
+    /// 
+    /// Using the given coordinates, the signal handler should determine
+    /// whether a tooltip should be shown for `widget`. If this is the case
+    /// `true` should be returned, `false` otherwise.  Note that if
+    /// `keyboard_mode` is `true`, the values of `x` and `y` are undefined and
+    /// should not be used.
+    /// 
+    /// The signal handler is free to manipulate `tooltip` with the therefore
+    /// destined function calls.
+    case queryTooltip = "query-tooltip"
+    /// The `realize` signal is emitted when `widget` is associated with a
+    /// `GdkWindow`, which means that `gtk_widget_realize()` has been called or the
+    /// widget has been mapped (that is, it is going to be drawn).
+    case realize = "realize"
+    case remove = "remove"
+    /// The `screen`-changed signal gets emitted when the
+    /// screen of a widget has changed.
+    case screenChanged = "screen-changed"
+    /// The `scroll`-event signal is emitted when a button in the 4 to 7
+    /// range is pressed. Wheel mice are usually configured to generate
+    /// button press events for buttons 4 and 5 when the wheel is turned.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_SCROLL_MASK` mask.
+    /// 
+    /// This signal will be sent to the grab widget if there is one.
+    case scrollEvent = "scroll-event"
+    /// The `selection`-clear-event signal will be emitted when the
+    /// the `widget`'s window has lost ownership of a selection.
+    case selectionClearEvent = "selection-clear-event"
+    case selectionGet = "selection-get"
+    case selectionNotifyEvent = "selection-notify-event"
+    case selectionReceived = "selection-received"
+    /// The `selection`-request-event signal will be emitted when
+    /// another client requests ownership of the selection owned by
+    /// the `widget`'s window.
+    case selectionRequestEvent = "selection-request-event"
+    case setFocusChild = "set-focus-child"
+    /// The `show` signal is emitted when `widget` is shown, for example with
+    /// `gtk_widget_show()`.
+    case show = "show"
+    case showHelp = "show-help"
+    case sizeAllocate = "size-allocate"
+    /// The `state`-changed signal is emitted when the widget state changes.
+    /// See `gtk_widget_get_state()`.
+    ///
+    /// **state-changed is deprecated:**
+    /// Use #GtkWidget::state-flags-changed instead.
+    case stateChanged = "state-changed"
+    /// The `state`-flags-changed signal is emitted when the widget state
+    /// changes, see `gtk_widget_get_state_flags()`.
+    case stateFlagsChanged = "state-flags-changed"
+    /// The `style`-set signal is emitted when a new style has been set
+    /// on a widget. Note that style-modifying functions like
+    /// `gtk_widget_modify_base()` also cause this signal to be emitted.
+    /// 
+    /// Note that this signal is emitted for changes to the deprecated
+    /// `GtkStyle`. To track changes to the `GtkStyleContext` associated
+    /// with a widget, use the `GtkWidget::style`-updated signal.
+    ///
+    /// **style-set is deprecated:**
+    /// Use the #GtkWidget::style-updated signal
+    case styleSet = "style-set"
+    /// The `style`-updated signal is a convenience signal that is emitted when the
+    /// `GtkStyleContext::changed` signal is emitted on the `widget`'s associated
+    /// `GtkStyleContext` as returned by `gtk_widget_get_style_context()`.
+    /// 
+    /// Note that style-modifying functions like `gtk_widget_override_color()` also
+    /// cause this signal to be emitted.
+    case styleUpdated = "style-updated"
+    case touchEvent = "touch-event"
+    /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
+    /// means that either it or any of its parents up to the toplevel widget have
+    /// been set as hidden.
+    /// 
+    /// As `unmap` indicates that a widget will not be shown any longer, it can be
+    /// used to, for example, stop an animation on the widget.
+    case unmap = "unmap"
+    /// The `unmap`-event signal will be emitted when the `widget`'s window is
+    /// unmapped. A window is unmapped when it becomes invisible on the screen.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_STRUCTURE_MASK` mask. GDK will enable this mask
+    /// automatically for all new windows.
+    case unmapEvent = "unmap-event"
+    /// The `unrealize` signal is emitted when the `GdkWindow` associated with
+    /// `widget` is destroyed, which means that `gtk_widget_unrealize()` has been
+    /// called or the widget has been unmapped (that is, it is going to be
+    /// hidden).
+    case unrealize = "unrealize"
+    /// The `visibility`-notify-event will be emitted when the `widget`'s
+    /// window is obscured or unobscured.
+    /// 
+    /// To receive this signal the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_VISIBILITY_NOTIFY_MASK` mask.
+    ///
+    /// **visibility-notify-event is deprecated:**
+    /// Modern composited windowing systems with pervasive
+    ///     transparency make it impossible to track the visibility of a window
+    ///     reliably, so this signal can not be guaranteed to provide useful
+    ///     information.
+    case visibilityNotifyEvent = "visibility-notify-event"
+    /// The `window`-state-event will be emitted when the state of the
+    /// toplevel window associated to the `widget` changes.
+    /// 
+    /// To receive this signal the `GdkWindow` associated to the widget
+    /// needs to enable the `GDK_STRUCTURE_MASK` mask. GDK will enable
+    /// this mask automatically for all new windows.
+    case windowStateEvent = "window-state-event"
+    case notifyAppPaintable = "notify::app-paintable"
+    case notifyBaselinePosition = "notify::baseline-position"
+    case notifyBorderWidth = "notify::border-width"
+    case notifyCanDefault = "notify::can-default"
+    case notifyCanFocus = "notify::can-focus"
+    case notifyChild = "notify::child"
+    case notifyCompositeChild = "notify::composite-child"
+    /// Whether the widget is double buffered.
+    ///
+    /// **double-buffered is deprecated:**
+    /// Widgets should not use this property.
+    case notifyDoubleBuffered = "notify::double-buffered"
+    case notifyEvents = "notify::events"
+    /// Whether to expand in both directions. Setting this sets both `GtkWidget:hexpand` and `GtkWidget:vexpand`
+    case notifyExpand = "notify::expand"
+    /// Whether the widget should grab focus when it is clicked with the mouse.
+    /// 
+    /// This property is only relevant for widgets that can take focus.
+    /// 
+    /// Before 3.20, several widgets (GtkButton, GtkFileChooserButton,
+    /// GtkComboBox) implemented this property individually.
+    case notifyFocusOnClick = "notify::focus-on-click"
+    /// How to distribute horizontal space if widget gets extra space, see `GtkAlign`
+    case notifyHalign = "notify::halign"
+    case notifyHasDefault = "notify::has-default"
+    case notifyHasFocus = "notify::has-focus"
+    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// A value of `true` indicates that `widget` can have a tooltip, in this case
+    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// whether it will provide a tooltip or not.
+    /// 
+    /// Note that setting this property to `true` for the first time will change
+    /// the event masks of the GdkWindows of this widget to include leave-notify
+    /// and motion-notify events.  This cannot and will not be undone when the
+    /// property is set to `false` again.
+    case notifyHasTooltip = "notify::has-tooltip"
+    case notifyHeightRequest = "notify::height-request"
+    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
+    case notifyHexpand = "notify::hexpand"
+    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
+    case notifyHexpandSet = "notify::hexpand-set"
+    case notifyHomogeneous = "notify::homogeneous"
+    case notifyIsFocus = "notify::is-focus"
+    /// Sets all four sides' margin at once. If read, returns max
+    /// margin on any side.
+    case notifyMargin = "notify::margin"
+    /// Margin on bottom side of widget.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginBottom = "notify::margin-bottom"
+    /// Margin on end of widget, horizontally. This property supports
+    /// left-to-right and right-to-left text directions.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginEnd = "notify::margin-end"
+    /// Margin on left side of widget.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    ///
+    /// **margin-left is deprecated:**
+    /// Use #GtkWidget:margin-start instead.
+    case notifyMarginLeft = "notify::margin-left"
+    /// Margin on right side of widget.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    ///
+    /// **margin-right is deprecated:**
+    /// Use #GtkWidget:margin-end instead.
+    case notifyMarginRight = "notify::margin-right"
+    /// Margin on start of widget, horizontally. This property supports
+    /// left-to-right and right-to-left text directions.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginStart = "notify::margin-start"
+    /// Margin on top side of widget.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginTop = "notify::margin-top"
+    case notifyName = "notify::name"
+    case notifyNoShowAll = "notify::no-show-all"
+    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
+    /// more details about window opacity.
+    /// 
+    /// Before 3.8 this was only available in GtkWindow
+    case notifyOpacity = "notify::opacity"
+    case notifyParent = "notify::parent"
+    case notifyReceivesDefault = "notify::receives-default"
+    case notifyResizeMode = "notify::resize-mode"
+    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
+    /// more details about widget scaling.
+    case notifyScaleFactor = "notify::scale-factor"
+    case notifySensitive = "notify::sensitive"
+    case notifySpacing = "notify::spacing"
+    /// The style of the widget, which contains information about how it will look (colors, etc).
+    ///
+    /// **style is deprecated:**
+    /// Use #GtkStyleContext instead
+    case notifyStyle = "notify::style"
+    /// Sets the text of tooltip to be the given string, which is marked up
+    /// with the [Pango text markup language](#PangoMarkupFormat).
+    /// Also see `gtk_tooltip_set_markup()`.
+    /// 
+    /// This is a convenience property which will take care of getting the
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// will automatically be set to `true` and there will be taken care of
+    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// 
+    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// are set, the last one wins.
+    case notifyTooltipMarkup = "notify::tooltip-markup"
+    /// Sets the text of tooltip to be the given string.
+    /// 
+    /// Also see `gtk_tooltip_set_text()`.
+    /// 
+    /// This is a convenience property which will take care of getting the
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// will automatically be set to `true` and there will be taken care of
+    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// 
+    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// are set, the last one wins.
+    case notifyTooltipText = "notify::tooltip-text"
+    /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
+    case notifyValign = "notify::valign"
+    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
+    case notifyVexpand = "notify::vexpand"
+    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
+    case notifyVexpandSet = "notify::vexpand-set"
+    case notifyVisible = "notify::visible"
+    case notifyWidthRequest = "notify::width-request"
+    /// The widget's window if it is realized, `nil` otherwise.
+    case notifyWindow = "notify::window"
+}
+
+// MARK: VBox has no signals
+// MARK: VBox Class: VBoxProtocol extension (methods and fields)
 public extension VBoxProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkVBox` instance.
     @inlinable var vbox_ptr: UnsafeMutablePointer<GtkVBox>! { return ptr?.assumingMemoryBound(to: GtkVBox.self) }
@@ -1026,7 +1741,723 @@ public extension VButtonBoxProtocol {
     }
 }
 
-// MARK: VButtonBox has no signals// MARK: VButtonBox Class: VButtonBoxProtocol extension (methods and fields)
+public enum VButtonBoxSignalName: String, SignalNameProtocol {
+    case accelClosuresChanged = "accel-closures-changed"
+    case add = "add"
+    /// The `button`-press-event signal will be emitted when a button
+    /// (typically from a mouse) is pressed.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the
+    /// widget needs to enable the `GDK_BUTTON_PRESS_MASK` mask.
+    /// 
+    /// This signal will be sent to the grab widget if there is one.
+    case buttonPressEvent = "button-press-event"
+    /// The `button`-release-event signal will be emitted when a button
+    /// (typically from a mouse) is released.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the
+    /// widget needs to enable the `GDK_BUTTON_RELEASE_MASK` mask.
+    /// 
+    /// This signal will be sent to the grab widget if there is one.
+    case buttonReleaseEvent = "button-release-event"
+    /// Determines whether an accelerator that activates the signal
+    /// identified by `signal_id` can currently be activated.
+    /// This signal is present to allow applications and derived
+    /// widgets to override the default `GtkWidget` handling
+    /// for determining whether an accelerator can be activated.
+    case canActivateAccel = "can-activate-accel"
+    case checkResize = "check-resize"
+    /// The `child`-notify signal is emitted for each
+    /// [child property](#child-properties)  that has
+    /// changed on an object. The signal's detail holds the property name.
+    case childNotify = "child-notify"
+    /// The `composited`-changed signal is emitted when the composited
+    /// status of `widgets` screen changes.
+    /// See `gdk_screen_is_composited()`.
+    ///
+    /// **composited-changed is deprecated:**
+    /// Use GdkScreen::composited-changed instead.
+    case compositedChanged = "composited-changed"
+    /// The `configure`-event signal will be emitted when the size, position or
+    /// stacking of the `widget`'s window has changed.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_STRUCTURE_MASK` mask. GDK will enable this mask
+    /// automatically for all new windows.
+    case configureEvent = "configure-event"
+    /// Emitted when a redirected window belonging to `widget` gets drawn into.
+    /// The region/area members of the event shows what area of the redirected
+    /// drawable was drawn into.
+    case damageEvent = "damage-event"
+    /// The `delete`-event signal is emitted if a user requests that
+    /// a toplevel window is closed. The default handler for this signal
+    /// destroys the window. Connecting `gtk_widget_hide_on_delete()` to
+    /// this signal will cause the window to be hidden instead, so that
+    /// it can later be shown again without reconstructing it.
+    case deleteEvent = "delete-event"
+    /// Signals that all holders of a reference to the widget should release
+    /// the reference that they hold. May result in finalization of the widget
+    /// if all references are released.
+    /// 
+    /// This signal is not suitable for saving widget state.
+    case destroy = "destroy"
+    /// The `destroy`-event signal is emitted when a `GdkWindow` is destroyed.
+    /// You rarely get this signal, because most widgets disconnect themselves
+    /// from their window before they destroy it, so no widget owns the
+    /// window at destroy time.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_STRUCTURE_MASK` mask. GDK will enable this mask
+    /// automatically for all new windows.
+    case destroyEvent = "destroy-event"
+    /// The `direction`-changed signal is emitted when the text direction
+    /// of a widget changes.
+    case directionChanged = "direction-changed"
+    /// The `drag`-begin signal is emitted on the drag source when a drag is
+    /// started. A typical reason to connect to this signal is to set up a
+    /// custom drag icon with e.g. `gtk_drag_source_set_icon_pixbuf()`.
+    /// 
+    /// Note that some widgets set up a drag icon in the default handler of
+    /// this signal, so you may have to use `g_signal_connect_after()` to
+    /// override what the default handler did.
+    case dragBegin = "drag-begin"
+    /// The `drag`-data-delete signal is emitted on the drag source when a drag
+    /// with the action `GDK_ACTION_MOVE` is successfully completed. The signal
+    /// handler is responsible for deleting the data that has been dropped. What
+    /// "delete" means depends on the context of the drag operation.
+    case dragDataDelete = "drag-data-delete"
+    /// The `drag`-data-get signal is emitted on the drag source when the drop
+    /// site requests the data which is dragged. It is the responsibility of
+    /// the signal handler to fill `data` with the data in the format which
+    /// is indicated by `info`. See `gtk_selection_data_set()` and
+    /// `gtk_selection_data_set_text()`.
+    case dragDataGet = "drag-data-get"
+    /// The `drag`-data-received signal is emitted on the drop site when the
+    /// dragged data has been received. If the data was received in order to
+    /// determine whether the drop will be accepted, the handler is expected
+    /// to call `gdk_drag_status()` and not finish the drag.
+    /// If the data was received in response to a `GtkWidget::drag`-drop signal
+    /// (and this is the last target to be received), the handler for this
+    /// signal is expected to process the received data and then call
+    /// `gtk_drag_finish()`, setting the `success` parameter depending on
+    /// whether the data was processed successfully.
+    /// 
+    /// Applications must create some means to determine why the signal was emitted
+    /// and therefore whether to call `gdk_drag_status()` or `gtk_drag_finish()`.
+    /// 
+    /// The handler may inspect the selected action with
+    /// `gdk_drag_context_get_selected_action()` before calling
+    /// `gtk_drag_finish()`, e.g. to implement `GDK_ACTION_ASK` as
+    /// shown in the following example:
+    /// (C Language Example):
+    /// ```C
+    /// void
+    /// drag_data_received (GtkWidget          *widget,
+    ///                     GdkDragContext     *context,
+    ///                     gint                x,
+    ///                     gint                y,
+    ///                     GtkSelectionData   *data,
+    ///                     guint               info,
+    ///                     guint               time)
+    /// {
+    ///   if ((data->length >= 0) && (data->format == 8))
+    ///     {
+    ///       GdkDragAction action;
+    /// 
+    ///       // handle data here
+    /// 
+    ///       action = gdk_drag_context_get_selected_action (context);
+    ///       if (action == GDK_ACTION_ASK)
+    ///         {
+    ///           GtkWidget *dialog;
+    ///           gint response;
+    /// 
+    ///           dialog = gtk_message_dialog_new (NULL,
+    ///                                            GTK_DIALOG_MODAL |
+    ///                                            GTK_DIALOG_DESTROY_WITH_PARENT,
+    ///                                            GTK_MESSAGE_INFO,
+    ///                                            GTK_BUTTONS_YES_NO,
+    ///                                            "Move the data ?\n");
+    ///           response = gtk_dialog_run (GTK_DIALOG (dialog));
+    ///           gtk_widget_destroy (dialog);
+    /// 
+    ///           if (response == GTK_RESPONSE_YES)
+    ///             action = GDK_ACTION_MOVE;
+    ///           else
+    ///             action = GDK_ACTION_COPY;
+    ///          }
+    /// 
+    ///       gtk_drag_finish (context, TRUE, action == GDK_ACTION_MOVE, time);
+    ///     }
+    ///   else
+    ///     gtk_drag_finish (context, FALSE, FALSE, time);
+    ///  }
+    /// ```
+    /// 
+    case dragDataReceived = "drag-data-received"
+    /// The `drag`-drop signal is emitted on the drop site when the user drops
+    /// the data onto the widget. The signal handler must determine whether
+    /// the cursor position is in a drop zone or not. If it is not in a drop
+    /// zone, it returns `false` and no further processing is necessary.
+    /// Otherwise, the handler returns `true`. In this case, the handler must
+    /// ensure that `gtk_drag_finish()` is called to let the source know that
+    /// the drop is done. The call to `gtk_drag_finish()` can be done either
+    /// directly or in a `GtkWidget::drag`-data-received handler which gets
+    /// triggered by calling `gtk_drag_get_data()` to receive the data for one
+    /// or more of the supported targets.
+    case dragDrop = "drag-drop"
+    /// The `drag`-end signal is emitted on the drag source when a drag is
+    /// finished.  A typical reason to connect to this signal is to undo
+    /// things done in `GtkWidget::drag`-begin.
+    case dragEnd = "drag-end"
+    /// The `drag`-failed signal is emitted on the drag source when a drag has
+    /// failed. The signal handler may hook custom code to handle a failed DnD
+    /// operation based on the type of error, it returns `true` is the failure has
+    /// been already handled (not showing the default "drag operation failed"
+    /// animation), otherwise it returns `false`.
+    case dragFailed = "drag-failed"
+    /// The `drag`-leave signal is emitted on the drop site when the cursor
+    /// leaves the widget. A typical reason to connect to this signal is to
+    /// undo things done in `GtkWidget::drag`-motion, e.g. undo highlighting
+    /// with `gtk_drag_unhighlight()`.
+    /// 
+    /// 
+    /// Likewise, the `GtkWidget::drag`-leave signal is also emitted before the
+    /// `drag`-drop signal, for instance to allow cleaning up of a preview item
+    /// created in the `GtkWidget::drag`-motion signal handler.
+    case dragLeave = "drag-leave"
+    /// The `drag`-motion signal is emitted on the drop site when the user
+    /// moves the cursor over the widget during a drag. The signal handler
+    /// must determine whether the cursor position is in a drop zone or not.
+    /// If it is not in a drop zone, it returns `false` and no further processing
+    /// is necessary. Otherwise, the handler returns `true`. In this case, the
+    /// handler is responsible for providing the necessary information for
+    /// displaying feedback to the user, by calling `gdk_drag_status()`.
+    /// 
+    /// If the decision whether the drop will be accepted or rejected can't be
+    /// made based solely on the cursor position and the type of the data, the
+    /// handler may inspect the dragged data by calling `gtk_drag_get_data()` and
+    /// defer the `gdk_drag_status()` call to the `GtkWidget::drag`-data-received
+    /// handler. Note that you must pass `GTK_DEST_DEFAULT_DROP`,
+    /// `GTK_DEST_DEFAULT_MOTION` or `GTK_DEST_DEFAULT_ALL` to `gtk_drag_dest_set()`
+    /// when using the drag-motion signal that way.
+    /// 
+    /// Also note that there is no drag-enter signal. The drag receiver has to
+    /// keep track of whether he has received any drag-motion signals since the
+    /// last `GtkWidget::drag`-leave and if not, treat the drag-motion signal as
+    /// an "enter" signal. Upon an "enter", the handler will typically highlight
+    /// the drop site with `gtk_drag_highlight()`.
+    /// (C Language Example):
+    /// ```C
+    /// static void
+    /// drag_motion (GtkWidget      *widget,
+    ///              GdkDragContext *context,
+    ///              gint            x,
+    ///              gint            y,
+    ///              guint           time)
+    /// {
+    ///   GdkAtom target;
+    /// 
+    ///   PrivateData *private_data = GET_PRIVATE_DATA (widget);
+    /// 
+    ///   if (!private_data->drag_highlight)
+    ///    {
+    ///      private_data->drag_highlight = 1;
+    ///      gtk_drag_highlight (widget);
+    ///    }
+    /// 
+    ///   target = gtk_drag_dest_find_target (widget, context, NULL);
+    ///   if (target == GDK_NONE)
+    ///     gdk_drag_status (context, 0, time);
+    ///   else
+    ///    {
+    ///      private_data->pending_status
+    ///         = gdk_drag_context_get_suggested_action (context);
+    ///      gtk_drag_get_data (widget, context, target, time);
+    ///    }
+    /// 
+    ///   return TRUE;
+    /// }
+    /// 
+    /// static void
+    /// drag_data_received (GtkWidget        *widget,
+    ///                     GdkDragContext   *context,
+    ///                     gint              x,
+    ///                     gint              y,
+    ///                     GtkSelectionData *selection_data,
+    ///                     guint             info,
+    ///                     guint             time)
+    /// {
+    ///   PrivateData *private_data = GET_PRIVATE_DATA (widget);
+    /// 
+    ///   if (private_data->suggested_action)
+    ///    {
+    ///      private_data->suggested_action = 0;
+    /// 
+    ///      // We are getting this data due to a request in drag_motion,
+    ///      // rather than due to a request in drag_drop, so we are just
+    ///      // supposed to call gdk_drag_status(), not actually paste in
+    ///      // the data.
+    /// 
+    ///      str = gtk_selection_data_get_text (selection_data);
+    ///      if (!data_is_acceptable (str))
+    ///        gdk_drag_status (context, 0, time);
+    ///      else
+    ///        gdk_drag_status (context,
+    ///                         private_data->suggested_action,
+    ///                         time);
+    ///    }
+    ///   else
+    ///    {
+    ///      // accept the drop
+    ///    }
+    /// }
+    /// ```
+    /// 
+    case dragMotion = "drag-motion"
+    /// This signal is emitted when a widget is supposed to render itself.
+    /// The `widget`'s top left corner must be painted at the origin of
+    /// the passed in context and be sized to the values returned by
+    /// `gtk_widget_get_allocated_width()` and
+    /// `gtk_widget_get_allocated_height()`.
+    /// 
+    /// Signal handlers connected to this signal can modify the cairo
+    /// context passed as `cr` in any way they like and don't need to
+    /// restore it. The signal emission takes care of calling `cairo_save()`
+    /// before and `cairo_restore()` after invoking the handler.
+    /// 
+    /// The signal handler will get a `cr` with a clip region already set to the
+    /// widget's dirty region, i.e. to the area that needs repainting.  Complicated
+    /// widgets that want to avoid redrawing themselves completely can get the full
+    /// extents of the clip region with `gdk_cairo_get_clip_rectangle()`, or they can
+    /// get a finer-grained representation of the dirty region with
+    /// `cairo_copy_clip_rectangle_list()`.
+    case draw = "draw"
+    /// The `enter`-notify-event will be emitted when the pointer enters
+    /// the `widget`'s window.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_ENTER_NOTIFY_MASK` mask.
+    /// 
+    /// This signal will be sent to the grab widget if there is one.
+    case enterNotifyEvent = "enter-notify-event"
+    /// The GTK+ main loop will emit three signals for each GDK event delivered
+    /// to a widget: one generic `event` signal, another, more specific,
+    /// signal that matches the type of event delivered (e.g.
+    /// `GtkWidget::key`-press-event) and finally a generic
+    /// `GtkWidget::event`-after signal.
+    case event = "event"
+    /// After the emission of the `GtkWidget::event` signal and (optionally)
+    /// the second more specific signal, `event`-after will be emitted
+    /// regardless of the previous two signals handlers return values.
+    case eventAfter = "event-after"
+    case focus = "focus"
+    /// The `focus`-in-event signal will be emitted when the keyboard focus
+    /// enters the `widget`'s window.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_FOCUS_CHANGE_MASK` mask.
+    case focusInEvent = "focus-in-event"
+    /// The `focus`-out-event signal will be emitted when the keyboard focus
+    /// leaves the `widget`'s window.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_FOCUS_CHANGE_MASK` mask.
+    case focusOutEvent = "focus-out-event"
+    /// Emitted when a pointer or keyboard grab on a window belonging
+    /// to `widget` gets broken.
+    /// 
+    /// On X11, this happens when the grab window becomes unviewable
+    /// (i.e. it or one of its ancestors is unmapped), or if the same
+    /// application grabs the pointer or keyboard again.
+    case grabBrokenEvent = "grab-broken-event"
+    case grabFocus = "grab-focus"
+    /// The `grab`-notify signal is emitted when a widget becomes
+    /// shadowed by a GTK+ grab (not a pointer or keyboard grab) on
+    /// another widget, or when it becomes unshadowed due to a grab
+    /// being removed.
+    /// 
+    /// A widget is shadowed by a `gtk_grab_add()` when the topmost
+    /// grab widget in the grab stack of its window group is not
+    /// its ancestor.
+    case grabNotify = "grab-notify"
+    /// The `hide` signal is emitted when `widget` is hidden, for example with
+    /// `gtk_widget_hide()`.
+    case hide = "hide"
+    /// The `hierarchy`-changed signal is emitted when the
+    /// anchored state of a widget changes. A widget is
+    /// “anchored” when its toplevel
+    /// ancestor is a `GtkWindow`. This signal is emitted when
+    /// a widget changes from un-anchored to anchored or vice-versa.
+    case hierarchyChanged = "hierarchy-changed"
+    /// The `key`-press-event signal is emitted when a key is pressed. The signal
+    /// emission will reoccur at the key-repeat rate when the key is kept pressed.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_KEY_PRESS_MASK` mask.
+    /// 
+    /// This signal will be sent to the grab widget if there is one.
+    case keyPressEvent = "key-press-event"
+    /// The `key`-release-event signal is emitted when a key is released.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_KEY_RELEASE_MASK` mask.
+    /// 
+    /// This signal will be sent to the grab widget if there is one.
+    case keyReleaseEvent = "key-release-event"
+    /// Gets emitted if keyboard navigation fails.
+    /// See `gtk_widget_keynav_failed()` for details.
+    case keynavFailed = "keynav-failed"
+    /// The `leave`-notify-event will be emitted when the pointer leaves
+    /// the `widget`'s window.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_LEAVE_NOTIFY_MASK` mask.
+    /// 
+    /// This signal will be sent to the grab widget if there is one.
+    case leaveNotifyEvent = "leave-notify-event"
+    /// The `map` signal is emitted when `widget` is going to be mapped, that is
+    /// when the widget is visible (which is controlled with
+    /// `gtk_widget_set_visible()`) and all its parents up to the toplevel widget
+    /// are also visible. Once the map has occurred, `GtkWidget::map`-event will
+    /// be emitted.
+    /// 
+    /// The `map` signal can be used to determine whether a widget will be drawn,
+    /// for instance it can resume an animation that was stopped during the
+    /// emission of `GtkWidget::unmap`.
+    case map = "map"
+    /// The `map`-event signal will be emitted when the `widget`'s window is
+    /// mapped. A window is mapped when it becomes visible on the screen.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_STRUCTURE_MASK` mask. GDK will enable this mask
+    /// automatically for all new windows.
+    case mapEvent = "map-event"
+    /// The default handler for this signal activates `widget` if `group_cycling`
+    /// is `false`, or just makes `widget` grab focus if `group_cycling` is `true`.
+    case mnemonicActivate = "mnemonic-activate"
+    /// The `motion`-notify-event signal is emitted when the pointer moves
+    /// over the widget's `GdkWindow`.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget
+    /// needs to enable the `GDK_POINTER_MOTION_MASK` mask.
+    /// 
+    /// This signal will be sent to the grab widget if there is one.
+    case motionNotifyEvent = "motion-notify-event"
+    case moveFocus = "move-focus"
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    case notify = "notify"
+    /// The `parent`-set signal is emitted when a new parent
+    /// has been set on a widget.
+    case parentSet = "parent-set"
+    /// This signal gets emitted whenever a widget should pop up a context
+    /// menu. This usually happens through the standard key binding mechanism;
+    /// by pressing a certain key while a widget is focused, the user can cause
+    /// the widget to pop up a menu.  For example, the `GtkEntry` widget creates
+    /// a menu with clipboard commands. See the
+    /// [Popup Menu Migration Checklist](#checklist-popup-menu)
+    /// for an example of how to use this signal.
+    case popupMenu = "popup-menu"
+    /// The `property`-notify-event signal will be emitted when a property on
+    /// the `widget`'s window has been changed or deleted.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_PROPERTY_CHANGE_MASK` mask.
+    case propertyNotifyEvent = "property-notify-event"
+    /// To receive this signal the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_PROXIMITY_IN_MASK` mask.
+    /// 
+    /// This signal will be sent to the grab widget if there is one.
+    case proximityInEvent = "proximity-in-event"
+    /// To receive this signal the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_PROXIMITY_OUT_MASK` mask.
+    /// 
+    /// This signal will be sent to the grab widget if there is one.
+    case proximityOutEvent = "proximity-out-event"
+    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
+    /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
+    /// focus in keyboard mode.
+    /// 
+    /// Using the given coordinates, the signal handler should determine
+    /// whether a tooltip should be shown for `widget`. If this is the case
+    /// `true` should be returned, `false` otherwise.  Note that if
+    /// `keyboard_mode` is `true`, the values of `x` and `y` are undefined and
+    /// should not be used.
+    /// 
+    /// The signal handler is free to manipulate `tooltip` with the therefore
+    /// destined function calls.
+    case queryTooltip = "query-tooltip"
+    /// The `realize` signal is emitted when `widget` is associated with a
+    /// `GdkWindow`, which means that `gtk_widget_realize()` has been called or the
+    /// widget has been mapped (that is, it is going to be drawn).
+    case realize = "realize"
+    case remove = "remove"
+    /// The `screen`-changed signal gets emitted when the
+    /// screen of a widget has changed.
+    case screenChanged = "screen-changed"
+    /// The `scroll`-event signal is emitted when a button in the 4 to 7
+    /// range is pressed. Wheel mice are usually configured to generate
+    /// button press events for buttons 4 and 5 when the wheel is turned.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_SCROLL_MASK` mask.
+    /// 
+    /// This signal will be sent to the grab widget if there is one.
+    case scrollEvent = "scroll-event"
+    /// The `selection`-clear-event signal will be emitted when the
+    /// the `widget`'s window has lost ownership of a selection.
+    case selectionClearEvent = "selection-clear-event"
+    case selectionGet = "selection-get"
+    case selectionNotifyEvent = "selection-notify-event"
+    case selectionReceived = "selection-received"
+    /// The `selection`-request-event signal will be emitted when
+    /// another client requests ownership of the selection owned by
+    /// the `widget`'s window.
+    case selectionRequestEvent = "selection-request-event"
+    case setFocusChild = "set-focus-child"
+    /// The `show` signal is emitted when `widget` is shown, for example with
+    /// `gtk_widget_show()`.
+    case show = "show"
+    case showHelp = "show-help"
+    case sizeAllocate = "size-allocate"
+    /// The `state`-changed signal is emitted when the widget state changes.
+    /// See `gtk_widget_get_state()`.
+    ///
+    /// **state-changed is deprecated:**
+    /// Use #GtkWidget::state-flags-changed instead.
+    case stateChanged = "state-changed"
+    /// The `state`-flags-changed signal is emitted when the widget state
+    /// changes, see `gtk_widget_get_state_flags()`.
+    case stateFlagsChanged = "state-flags-changed"
+    /// The `style`-set signal is emitted when a new style has been set
+    /// on a widget. Note that style-modifying functions like
+    /// `gtk_widget_modify_base()` also cause this signal to be emitted.
+    /// 
+    /// Note that this signal is emitted for changes to the deprecated
+    /// `GtkStyle`. To track changes to the `GtkStyleContext` associated
+    /// with a widget, use the `GtkWidget::style`-updated signal.
+    ///
+    /// **style-set is deprecated:**
+    /// Use the #GtkWidget::style-updated signal
+    case styleSet = "style-set"
+    /// The `style`-updated signal is a convenience signal that is emitted when the
+    /// `GtkStyleContext::changed` signal is emitted on the `widget`'s associated
+    /// `GtkStyleContext` as returned by `gtk_widget_get_style_context()`.
+    /// 
+    /// Note that style-modifying functions like `gtk_widget_override_color()` also
+    /// cause this signal to be emitted.
+    case styleUpdated = "style-updated"
+    case touchEvent = "touch-event"
+    /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
+    /// means that either it or any of its parents up to the toplevel widget have
+    /// been set as hidden.
+    /// 
+    /// As `unmap` indicates that a widget will not be shown any longer, it can be
+    /// used to, for example, stop an animation on the widget.
+    case unmap = "unmap"
+    /// The `unmap`-event signal will be emitted when the `widget`'s window is
+    /// unmapped. A window is unmapped when it becomes invisible on the screen.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_STRUCTURE_MASK` mask. GDK will enable this mask
+    /// automatically for all new windows.
+    case unmapEvent = "unmap-event"
+    /// The `unrealize` signal is emitted when the `GdkWindow` associated with
+    /// `widget` is destroyed, which means that `gtk_widget_unrealize()` has been
+    /// called or the widget has been unmapped (that is, it is going to be
+    /// hidden).
+    case unrealize = "unrealize"
+    /// The `visibility`-notify-event will be emitted when the `widget`'s
+    /// window is obscured or unobscured.
+    /// 
+    /// To receive this signal the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_VISIBILITY_NOTIFY_MASK` mask.
+    ///
+    /// **visibility-notify-event is deprecated:**
+    /// Modern composited windowing systems with pervasive
+    ///     transparency make it impossible to track the visibility of a window
+    ///     reliably, so this signal can not be guaranteed to provide useful
+    ///     information.
+    case visibilityNotifyEvent = "visibility-notify-event"
+    /// The `window`-state-event will be emitted when the state of the
+    /// toplevel window associated to the `widget` changes.
+    /// 
+    /// To receive this signal the `GdkWindow` associated to the widget
+    /// needs to enable the `GDK_STRUCTURE_MASK` mask. GDK will enable
+    /// this mask automatically for all new windows.
+    case windowStateEvent = "window-state-event"
+    case notifyAppPaintable = "notify::app-paintable"
+    case notifyBaselinePosition = "notify::baseline-position"
+    case notifyBorderWidth = "notify::border-width"
+    case notifyCanDefault = "notify::can-default"
+    case notifyCanFocus = "notify::can-focus"
+    case notifyChild = "notify::child"
+    case notifyCompositeChild = "notify::composite-child"
+    /// Whether the widget is double buffered.
+    ///
+    /// **double-buffered is deprecated:**
+    /// Widgets should not use this property.
+    case notifyDoubleBuffered = "notify::double-buffered"
+    case notifyEvents = "notify::events"
+    /// Whether to expand in both directions. Setting this sets both `GtkWidget:hexpand` and `GtkWidget:vexpand`
+    case notifyExpand = "notify::expand"
+    /// Whether the widget should grab focus when it is clicked with the mouse.
+    /// 
+    /// This property is only relevant for widgets that can take focus.
+    /// 
+    /// Before 3.20, several widgets (GtkButton, GtkFileChooserButton,
+    /// GtkComboBox) implemented this property individually.
+    case notifyFocusOnClick = "notify::focus-on-click"
+    /// How to distribute horizontal space if widget gets extra space, see `GtkAlign`
+    case notifyHalign = "notify::halign"
+    case notifyHasDefault = "notify::has-default"
+    case notifyHasFocus = "notify::has-focus"
+    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// A value of `true` indicates that `widget` can have a tooltip, in this case
+    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// whether it will provide a tooltip or not.
+    /// 
+    /// Note that setting this property to `true` for the first time will change
+    /// the event masks of the GdkWindows of this widget to include leave-notify
+    /// and motion-notify events.  This cannot and will not be undone when the
+    /// property is set to `false` again.
+    case notifyHasTooltip = "notify::has-tooltip"
+    case notifyHeightRequest = "notify::height-request"
+    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
+    case notifyHexpand = "notify::hexpand"
+    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
+    case notifyHexpandSet = "notify::hexpand-set"
+    case notifyHomogeneous = "notify::homogeneous"
+    case notifyIsFocus = "notify::is-focus"
+    case notifyLayoutStyle = "notify::layout-style"
+    /// Sets all four sides' margin at once. If read, returns max
+    /// margin on any side.
+    case notifyMargin = "notify::margin"
+    /// Margin on bottom side of widget.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginBottom = "notify::margin-bottom"
+    /// Margin on end of widget, horizontally. This property supports
+    /// left-to-right and right-to-left text directions.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginEnd = "notify::margin-end"
+    /// Margin on left side of widget.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    ///
+    /// **margin-left is deprecated:**
+    /// Use #GtkWidget:margin-start instead.
+    case notifyMarginLeft = "notify::margin-left"
+    /// Margin on right side of widget.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    ///
+    /// **margin-right is deprecated:**
+    /// Use #GtkWidget:margin-end instead.
+    case notifyMarginRight = "notify::margin-right"
+    /// Margin on start of widget, horizontally. This property supports
+    /// left-to-right and right-to-left text directions.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginStart = "notify::margin-start"
+    /// Margin on top side of widget.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginTop = "notify::margin-top"
+    case notifyName = "notify::name"
+    case notifyNoShowAll = "notify::no-show-all"
+    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
+    /// more details about window opacity.
+    /// 
+    /// Before 3.8 this was only available in GtkWindow
+    case notifyOpacity = "notify::opacity"
+    case notifyParent = "notify::parent"
+    case notifyReceivesDefault = "notify::receives-default"
+    case notifyResizeMode = "notify::resize-mode"
+    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
+    /// more details about widget scaling.
+    case notifyScaleFactor = "notify::scale-factor"
+    case notifySensitive = "notify::sensitive"
+    case notifySpacing = "notify::spacing"
+    /// The style of the widget, which contains information about how it will look (colors, etc).
+    ///
+    /// **style is deprecated:**
+    /// Use #GtkStyleContext instead
+    case notifyStyle = "notify::style"
+    /// Sets the text of tooltip to be the given string, which is marked up
+    /// with the [Pango text markup language](#PangoMarkupFormat).
+    /// Also see `gtk_tooltip_set_markup()`.
+    /// 
+    /// This is a convenience property which will take care of getting the
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// will automatically be set to `true` and there will be taken care of
+    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// 
+    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// are set, the last one wins.
+    case notifyTooltipMarkup = "notify::tooltip-markup"
+    /// Sets the text of tooltip to be the given string.
+    /// 
+    /// Also see `gtk_tooltip_set_text()`.
+    /// 
+    /// This is a convenience property which will take care of getting the
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// will automatically be set to `true` and there will be taken care of
+    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// 
+    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// are set, the last one wins.
+    case notifyTooltipText = "notify::tooltip-text"
+    /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
+    case notifyValign = "notify::valign"
+    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
+    case notifyVexpand = "notify::vexpand"
+    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
+    case notifyVexpandSet = "notify::vexpand-set"
+    case notifyVisible = "notify::visible"
+    case notifyWidthRequest = "notify::width-request"
+    /// The widget's window if it is realized, `nil` otherwise.
+    case notifyWindow = "notify::window"
+}
+
+// MARK: VButtonBox has no signals
+// MARK: VButtonBox Class: VButtonBoxProtocol extension (methods and fields)
 public extension VButtonBoxProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkVButtonBox` instance.
     @inlinable var vbutton_box_ptr: UnsafeMutablePointer<GtkVButtonBox>! { return ptr?.assumingMemoryBound(to: GtkVButtonBox.self) }
@@ -1525,7 +2956,773 @@ public extension VPanedProtocol {
     }
 }
 
-// MARK: VPaned has no signals// MARK: VPaned Class: VPanedProtocol extension (methods and fields)
+public enum VPanedSignalName: String, SignalNameProtocol {
+    case accelClosuresChanged = "accel-closures-changed"
+    /// The `accept`-position signal is a
+    /// [keybinding signal](#GtkBindingSignal)
+    /// which gets emitted to accept the current position of the handle when
+    /// moving it using key bindings.
+    /// 
+    /// The default binding for this signal is Return or Space.
+    case acceptPosition = "accept-position"
+    case add = "add"
+    /// The `button`-press-event signal will be emitted when a button
+    /// (typically from a mouse) is pressed.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the
+    /// widget needs to enable the `GDK_BUTTON_PRESS_MASK` mask.
+    /// 
+    /// This signal will be sent to the grab widget if there is one.
+    case buttonPressEvent = "button-press-event"
+    /// The `button`-release-event signal will be emitted when a button
+    /// (typically from a mouse) is released.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the
+    /// widget needs to enable the `GDK_BUTTON_RELEASE_MASK` mask.
+    /// 
+    /// This signal will be sent to the grab widget if there is one.
+    case buttonReleaseEvent = "button-release-event"
+    /// Determines whether an accelerator that activates the signal
+    /// identified by `signal_id` can currently be activated.
+    /// This signal is present to allow applications and derived
+    /// widgets to override the default `GtkWidget` handling
+    /// for determining whether an accelerator can be activated.
+    case canActivateAccel = "can-activate-accel"
+    /// The `cancel`-position signal is a
+    /// [keybinding signal](#GtkBindingSignal)
+    /// which gets emitted to cancel moving the position of the handle using key
+    /// bindings. The position of the handle will be reset to the value prior to
+    /// moving it.
+    /// 
+    /// The default binding for this signal is Escape.
+    case cancelPosition = "cancel-position"
+    case checkResize = "check-resize"
+    /// The `child`-notify signal is emitted for each
+    /// [child property](#child-properties)  that has
+    /// changed on an object. The signal's detail holds the property name.
+    case childNotify = "child-notify"
+    /// The `composited`-changed signal is emitted when the composited
+    /// status of `widgets` screen changes.
+    /// See `gdk_screen_is_composited()`.
+    ///
+    /// **composited-changed is deprecated:**
+    /// Use GdkScreen::composited-changed instead.
+    case compositedChanged = "composited-changed"
+    /// The `configure`-event signal will be emitted when the size, position or
+    /// stacking of the `widget`'s window has changed.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_STRUCTURE_MASK` mask. GDK will enable this mask
+    /// automatically for all new windows.
+    case configureEvent = "configure-event"
+    /// The `cycle`-child-focus signal is a
+    /// [keybinding signal](#GtkBindingSignal)
+    /// which gets emitted to cycle the focus between the children of the paned.
+    /// 
+    /// The default binding is f6.
+    case cycleChildFocus = "cycle-child-focus"
+    /// The `cycle`-handle-focus signal is a
+    /// [keybinding signal](#GtkBindingSignal)
+    /// which gets emitted to cycle whether the paned should grab focus to allow
+    /// the user to change position of the handle by using key bindings.
+    /// 
+    /// The default binding for this signal is f8.
+    case cycleHandleFocus = "cycle-handle-focus"
+    /// Emitted when a redirected window belonging to `widget` gets drawn into.
+    /// The region/area members of the event shows what area of the redirected
+    /// drawable was drawn into.
+    case damageEvent = "damage-event"
+    /// The `delete`-event signal is emitted if a user requests that
+    /// a toplevel window is closed. The default handler for this signal
+    /// destroys the window. Connecting `gtk_widget_hide_on_delete()` to
+    /// this signal will cause the window to be hidden instead, so that
+    /// it can later be shown again without reconstructing it.
+    case deleteEvent = "delete-event"
+    /// Signals that all holders of a reference to the widget should release
+    /// the reference that they hold. May result in finalization of the widget
+    /// if all references are released.
+    /// 
+    /// This signal is not suitable for saving widget state.
+    case destroy = "destroy"
+    /// The `destroy`-event signal is emitted when a `GdkWindow` is destroyed.
+    /// You rarely get this signal, because most widgets disconnect themselves
+    /// from their window before they destroy it, so no widget owns the
+    /// window at destroy time.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_STRUCTURE_MASK` mask. GDK will enable this mask
+    /// automatically for all new windows.
+    case destroyEvent = "destroy-event"
+    /// The `direction`-changed signal is emitted when the text direction
+    /// of a widget changes.
+    case directionChanged = "direction-changed"
+    /// The `drag`-begin signal is emitted on the drag source when a drag is
+    /// started. A typical reason to connect to this signal is to set up a
+    /// custom drag icon with e.g. `gtk_drag_source_set_icon_pixbuf()`.
+    /// 
+    /// Note that some widgets set up a drag icon in the default handler of
+    /// this signal, so you may have to use `g_signal_connect_after()` to
+    /// override what the default handler did.
+    case dragBegin = "drag-begin"
+    /// The `drag`-data-delete signal is emitted on the drag source when a drag
+    /// with the action `GDK_ACTION_MOVE` is successfully completed. The signal
+    /// handler is responsible for deleting the data that has been dropped. What
+    /// "delete" means depends on the context of the drag operation.
+    case dragDataDelete = "drag-data-delete"
+    /// The `drag`-data-get signal is emitted on the drag source when the drop
+    /// site requests the data which is dragged. It is the responsibility of
+    /// the signal handler to fill `data` with the data in the format which
+    /// is indicated by `info`. See `gtk_selection_data_set()` and
+    /// `gtk_selection_data_set_text()`.
+    case dragDataGet = "drag-data-get"
+    /// The `drag`-data-received signal is emitted on the drop site when the
+    /// dragged data has been received. If the data was received in order to
+    /// determine whether the drop will be accepted, the handler is expected
+    /// to call `gdk_drag_status()` and not finish the drag.
+    /// If the data was received in response to a `GtkWidget::drag`-drop signal
+    /// (and this is the last target to be received), the handler for this
+    /// signal is expected to process the received data and then call
+    /// `gtk_drag_finish()`, setting the `success` parameter depending on
+    /// whether the data was processed successfully.
+    /// 
+    /// Applications must create some means to determine why the signal was emitted
+    /// and therefore whether to call `gdk_drag_status()` or `gtk_drag_finish()`.
+    /// 
+    /// The handler may inspect the selected action with
+    /// `gdk_drag_context_get_selected_action()` before calling
+    /// `gtk_drag_finish()`, e.g. to implement `GDK_ACTION_ASK` as
+    /// shown in the following example:
+    /// (C Language Example):
+    /// ```C
+    /// void
+    /// drag_data_received (GtkWidget          *widget,
+    ///                     GdkDragContext     *context,
+    ///                     gint                x,
+    ///                     gint                y,
+    ///                     GtkSelectionData   *data,
+    ///                     guint               info,
+    ///                     guint               time)
+    /// {
+    ///   if ((data->length >= 0) && (data->format == 8))
+    ///     {
+    ///       GdkDragAction action;
+    /// 
+    ///       // handle data here
+    /// 
+    ///       action = gdk_drag_context_get_selected_action (context);
+    ///       if (action == GDK_ACTION_ASK)
+    ///         {
+    ///           GtkWidget *dialog;
+    ///           gint response;
+    /// 
+    ///           dialog = gtk_message_dialog_new (NULL,
+    ///                                            GTK_DIALOG_MODAL |
+    ///                                            GTK_DIALOG_DESTROY_WITH_PARENT,
+    ///                                            GTK_MESSAGE_INFO,
+    ///                                            GTK_BUTTONS_YES_NO,
+    ///                                            "Move the data ?\n");
+    ///           response = gtk_dialog_run (GTK_DIALOG (dialog));
+    ///           gtk_widget_destroy (dialog);
+    /// 
+    ///           if (response == GTK_RESPONSE_YES)
+    ///             action = GDK_ACTION_MOVE;
+    ///           else
+    ///             action = GDK_ACTION_COPY;
+    ///          }
+    /// 
+    ///       gtk_drag_finish (context, TRUE, action == GDK_ACTION_MOVE, time);
+    ///     }
+    ///   else
+    ///     gtk_drag_finish (context, FALSE, FALSE, time);
+    ///  }
+    /// ```
+    /// 
+    case dragDataReceived = "drag-data-received"
+    /// The `drag`-drop signal is emitted on the drop site when the user drops
+    /// the data onto the widget. The signal handler must determine whether
+    /// the cursor position is in a drop zone or not. If it is not in a drop
+    /// zone, it returns `false` and no further processing is necessary.
+    /// Otherwise, the handler returns `true`. In this case, the handler must
+    /// ensure that `gtk_drag_finish()` is called to let the source know that
+    /// the drop is done. The call to `gtk_drag_finish()` can be done either
+    /// directly or in a `GtkWidget::drag`-data-received handler which gets
+    /// triggered by calling `gtk_drag_get_data()` to receive the data for one
+    /// or more of the supported targets.
+    case dragDrop = "drag-drop"
+    /// The `drag`-end signal is emitted on the drag source when a drag is
+    /// finished.  A typical reason to connect to this signal is to undo
+    /// things done in `GtkWidget::drag`-begin.
+    case dragEnd = "drag-end"
+    /// The `drag`-failed signal is emitted on the drag source when a drag has
+    /// failed. The signal handler may hook custom code to handle a failed DnD
+    /// operation based on the type of error, it returns `true` is the failure has
+    /// been already handled (not showing the default "drag operation failed"
+    /// animation), otherwise it returns `false`.
+    case dragFailed = "drag-failed"
+    /// The `drag`-leave signal is emitted on the drop site when the cursor
+    /// leaves the widget. A typical reason to connect to this signal is to
+    /// undo things done in `GtkWidget::drag`-motion, e.g. undo highlighting
+    /// with `gtk_drag_unhighlight()`.
+    /// 
+    /// 
+    /// Likewise, the `GtkWidget::drag`-leave signal is also emitted before the
+    /// `drag`-drop signal, for instance to allow cleaning up of a preview item
+    /// created in the `GtkWidget::drag`-motion signal handler.
+    case dragLeave = "drag-leave"
+    /// The `drag`-motion signal is emitted on the drop site when the user
+    /// moves the cursor over the widget during a drag. The signal handler
+    /// must determine whether the cursor position is in a drop zone or not.
+    /// If it is not in a drop zone, it returns `false` and no further processing
+    /// is necessary. Otherwise, the handler returns `true`. In this case, the
+    /// handler is responsible for providing the necessary information for
+    /// displaying feedback to the user, by calling `gdk_drag_status()`.
+    /// 
+    /// If the decision whether the drop will be accepted or rejected can't be
+    /// made based solely on the cursor position and the type of the data, the
+    /// handler may inspect the dragged data by calling `gtk_drag_get_data()` and
+    /// defer the `gdk_drag_status()` call to the `GtkWidget::drag`-data-received
+    /// handler. Note that you must pass `GTK_DEST_DEFAULT_DROP`,
+    /// `GTK_DEST_DEFAULT_MOTION` or `GTK_DEST_DEFAULT_ALL` to `gtk_drag_dest_set()`
+    /// when using the drag-motion signal that way.
+    /// 
+    /// Also note that there is no drag-enter signal. The drag receiver has to
+    /// keep track of whether he has received any drag-motion signals since the
+    /// last `GtkWidget::drag`-leave and if not, treat the drag-motion signal as
+    /// an "enter" signal. Upon an "enter", the handler will typically highlight
+    /// the drop site with `gtk_drag_highlight()`.
+    /// (C Language Example):
+    /// ```C
+    /// static void
+    /// drag_motion (GtkWidget      *widget,
+    ///              GdkDragContext *context,
+    ///              gint            x,
+    ///              gint            y,
+    ///              guint           time)
+    /// {
+    ///   GdkAtom target;
+    /// 
+    ///   PrivateData *private_data = GET_PRIVATE_DATA (widget);
+    /// 
+    ///   if (!private_data->drag_highlight)
+    ///    {
+    ///      private_data->drag_highlight = 1;
+    ///      gtk_drag_highlight (widget);
+    ///    }
+    /// 
+    ///   target = gtk_drag_dest_find_target (widget, context, NULL);
+    ///   if (target == GDK_NONE)
+    ///     gdk_drag_status (context, 0, time);
+    ///   else
+    ///    {
+    ///      private_data->pending_status
+    ///         = gdk_drag_context_get_suggested_action (context);
+    ///      gtk_drag_get_data (widget, context, target, time);
+    ///    }
+    /// 
+    ///   return TRUE;
+    /// }
+    /// 
+    /// static void
+    /// drag_data_received (GtkWidget        *widget,
+    ///                     GdkDragContext   *context,
+    ///                     gint              x,
+    ///                     gint              y,
+    ///                     GtkSelectionData *selection_data,
+    ///                     guint             info,
+    ///                     guint             time)
+    /// {
+    ///   PrivateData *private_data = GET_PRIVATE_DATA (widget);
+    /// 
+    ///   if (private_data->suggested_action)
+    ///    {
+    ///      private_data->suggested_action = 0;
+    /// 
+    ///      // We are getting this data due to a request in drag_motion,
+    ///      // rather than due to a request in drag_drop, so we are just
+    ///      // supposed to call gdk_drag_status(), not actually paste in
+    ///      // the data.
+    /// 
+    ///      str = gtk_selection_data_get_text (selection_data);
+    ///      if (!data_is_acceptable (str))
+    ///        gdk_drag_status (context, 0, time);
+    ///      else
+    ///        gdk_drag_status (context,
+    ///                         private_data->suggested_action,
+    ///                         time);
+    ///    }
+    ///   else
+    ///    {
+    ///      // accept the drop
+    ///    }
+    /// }
+    /// ```
+    /// 
+    case dragMotion = "drag-motion"
+    /// This signal is emitted when a widget is supposed to render itself.
+    /// The `widget`'s top left corner must be painted at the origin of
+    /// the passed in context and be sized to the values returned by
+    /// `gtk_widget_get_allocated_width()` and
+    /// `gtk_widget_get_allocated_height()`.
+    /// 
+    /// Signal handlers connected to this signal can modify the cairo
+    /// context passed as `cr` in any way they like and don't need to
+    /// restore it. The signal emission takes care of calling `cairo_save()`
+    /// before and `cairo_restore()` after invoking the handler.
+    /// 
+    /// The signal handler will get a `cr` with a clip region already set to the
+    /// widget's dirty region, i.e. to the area that needs repainting.  Complicated
+    /// widgets that want to avoid redrawing themselves completely can get the full
+    /// extents of the clip region with `gdk_cairo_get_clip_rectangle()`, or they can
+    /// get a finer-grained representation of the dirty region with
+    /// `cairo_copy_clip_rectangle_list()`.
+    case draw = "draw"
+    /// The `enter`-notify-event will be emitted when the pointer enters
+    /// the `widget`'s window.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_ENTER_NOTIFY_MASK` mask.
+    /// 
+    /// This signal will be sent to the grab widget if there is one.
+    case enterNotifyEvent = "enter-notify-event"
+    /// The GTK+ main loop will emit three signals for each GDK event delivered
+    /// to a widget: one generic `event` signal, another, more specific,
+    /// signal that matches the type of event delivered (e.g.
+    /// `GtkWidget::key`-press-event) and finally a generic
+    /// `GtkWidget::event`-after signal.
+    case event = "event"
+    /// After the emission of the `GtkWidget::event` signal and (optionally)
+    /// the second more specific signal, `event`-after will be emitted
+    /// regardless of the previous two signals handlers return values.
+    case eventAfter = "event-after"
+    case focus = "focus"
+    /// The `focus`-in-event signal will be emitted when the keyboard focus
+    /// enters the `widget`'s window.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_FOCUS_CHANGE_MASK` mask.
+    case focusInEvent = "focus-in-event"
+    /// The `focus`-out-event signal will be emitted when the keyboard focus
+    /// leaves the `widget`'s window.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_FOCUS_CHANGE_MASK` mask.
+    case focusOutEvent = "focus-out-event"
+    /// Emitted when a pointer or keyboard grab on a window belonging
+    /// to `widget` gets broken.
+    /// 
+    /// On X11, this happens when the grab window becomes unviewable
+    /// (i.e. it or one of its ancestors is unmapped), or if the same
+    /// application grabs the pointer or keyboard again.
+    case grabBrokenEvent = "grab-broken-event"
+    case grabFocus = "grab-focus"
+    /// The `grab`-notify signal is emitted when a widget becomes
+    /// shadowed by a GTK+ grab (not a pointer or keyboard grab) on
+    /// another widget, or when it becomes unshadowed due to a grab
+    /// being removed.
+    /// 
+    /// A widget is shadowed by a `gtk_grab_add()` when the topmost
+    /// grab widget in the grab stack of its window group is not
+    /// its ancestor.
+    case grabNotify = "grab-notify"
+    /// The `hide` signal is emitted when `widget` is hidden, for example with
+    /// `gtk_widget_hide()`.
+    case hide = "hide"
+    /// The `hierarchy`-changed signal is emitted when the
+    /// anchored state of a widget changes. A widget is
+    /// “anchored” when its toplevel
+    /// ancestor is a `GtkWindow`. This signal is emitted when
+    /// a widget changes from un-anchored to anchored or vice-versa.
+    case hierarchyChanged = "hierarchy-changed"
+    /// The `key`-press-event signal is emitted when a key is pressed. The signal
+    /// emission will reoccur at the key-repeat rate when the key is kept pressed.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_KEY_PRESS_MASK` mask.
+    /// 
+    /// This signal will be sent to the grab widget if there is one.
+    case keyPressEvent = "key-press-event"
+    /// The `key`-release-event signal is emitted when a key is released.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_KEY_RELEASE_MASK` mask.
+    /// 
+    /// This signal will be sent to the grab widget if there is one.
+    case keyReleaseEvent = "key-release-event"
+    /// Gets emitted if keyboard navigation fails.
+    /// See `gtk_widget_keynav_failed()` for details.
+    case keynavFailed = "keynav-failed"
+    /// The `leave`-notify-event will be emitted when the pointer leaves
+    /// the `widget`'s window.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_LEAVE_NOTIFY_MASK` mask.
+    /// 
+    /// This signal will be sent to the grab widget if there is one.
+    case leaveNotifyEvent = "leave-notify-event"
+    /// The `map` signal is emitted when `widget` is going to be mapped, that is
+    /// when the widget is visible (which is controlled with
+    /// `gtk_widget_set_visible()`) and all its parents up to the toplevel widget
+    /// are also visible. Once the map has occurred, `GtkWidget::map`-event will
+    /// be emitted.
+    /// 
+    /// The `map` signal can be used to determine whether a widget will be drawn,
+    /// for instance it can resume an animation that was stopped during the
+    /// emission of `GtkWidget::unmap`.
+    case map = "map"
+    /// The `map`-event signal will be emitted when the `widget`'s window is
+    /// mapped. A window is mapped when it becomes visible on the screen.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_STRUCTURE_MASK` mask. GDK will enable this mask
+    /// automatically for all new windows.
+    case mapEvent = "map-event"
+    /// The default handler for this signal activates `widget` if `group_cycling`
+    /// is `false`, or just makes `widget` grab focus if `group_cycling` is `true`.
+    case mnemonicActivate = "mnemonic-activate"
+    /// The `motion`-notify-event signal is emitted when the pointer moves
+    /// over the widget's `GdkWindow`.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget
+    /// needs to enable the `GDK_POINTER_MOTION_MASK` mask.
+    /// 
+    /// This signal will be sent to the grab widget if there is one.
+    case motionNotifyEvent = "motion-notify-event"
+    case moveFocus = "move-focus"
+    /// The `move`-handle signal is a
+    /// [keybinding signal](#GtkBindingSignal)
+    /// which gets emitted to move the handle when the user is using key bindings
+    /// to move it.
+    case moveHandle = "move-handle"
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    case notify = "notify"
+    /// The `parent`-set signal is emitted when a new parent
+    /// has been set on a widget.
+    case parentSet = "parent-set"
+    /// This signal gets emitted whenever a widget should pop up a context
+    /// menu. This usually happens through the standard key binding mechanism;
+    /// by pressing a certain key while a widget is focused, the user can cause
+    /// the widget to pop up a menu.  For example, the `GtkEntry` widget creates
+    /// a menu with clipboard commands. See the
+    /// [Popup Menu Migration Checklist](#checklist-popup-menu)
+    /// for an example of how to use this signal.
+    case popupMenu = "popup-menu"
+    /// The `property`-notify-event signal will be emitted when a property on
+    /// the `widget`'s window has been changed or deleted.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_PROPERTY_CHANGE_MASK` mask.
+    case propertyNotifyEvent = "property-notify-event"
+    /// To receive this signal the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_PROXIMITY_IN_MASK` mask.
+    /// 
+    /// This signal will be sent to the grab widget if there is one.
+    case proximityInEvent = "proximity-in-event"
+    /// To receive this signal the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_PROXIMITY_OUT_MASK` mask.
+    /// 
+    /// This signal will be sent to the grab widget if there is one.
+    case proximityOutEvent = "proximity-out-event"
+    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
+    /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
+    /// focus in keyboard mode.
+    /// 
+    /// Using the given coordinates, the signal handler should determine
+    /// whether a tooltip should be shown for `widget`. If this is the case
+    /// `true` should be returned, `false` otherwise.  Note that if
+    /// `keyboard_mode` is `true`, the values of `x` and `y` are undefined and
+    /// should not be used.
+    /// 
+    /// The signal handler is free to manipulate `tooltip` with the therefore
+    /// destined function calls.
+    case queryTooltip = "query-tooltip"
+    /// The `realize` signal is emitted when `widget` is associated with a
+    /// `GdkWindow`, which means that `gtk_widget_realize()` has been called or the
+    /// widget has been mapped (that is, it is going to be drawn).
+    case realize = "realize"
+    case remove = "remove"
+    /// The `screen`-changed signal gets emitted when the
+    /// screen of a widget has changed.
+    case screenChanged = "screen-changed"
+    /// The `scroll`-event signal is emitted when a button in the 4 to 7
+    /// range is pressed. Wheel mice are usually configured to generate
+    /// button press events for buttons 4 and 5 when the wheel is turned.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_SCROLL_MASK` mask.
+    /// 
+    /// This signal will be sent to the grab widget if there is one.
+    case scrollEvent = "scroll-event"
+    /// The `selection`-clear-event signal will be emitted when the
+    /// the `widget`'s window has lost ownership of a selection.
+    case selectionClearEvent = "selection-clear-event"
+    case selectionGet = "selection-get"
+    case selectionNotifyEvent = "selection-notify-event"
+    case selectionReceived = "selection-received"
+    /// The `selection`-request-event signal will be emitted when
+    /// another client requests ownership of the selection owned by
+    /// the `widget`'s window.
+    case selectionRequestEvent = "selection-request-event"
+    case setFocusChild = "set-focus-child"
+    /// The `show` signal is emitted when `widget` is shown, for example with
+    /// `gtk_widget_show()`.
+    case show = "show"
+    case showHelp = "show-help"
+    case sizeAllocate = "size-allocate"
+    /// The `state`-changed signal is emitted when the widget state changes.
+    /// See `gtk_widget_get_state()`.
+    ///
+    /// **state-changed is deprecated:**
+    /// Use #GtkWidget::state-flags-changed instead.
+    case stateChanged = "state-changed"
+    /// The `state`-flags-changed signal is emitted when the widget state
+    /// changes, see `gtk_widget_get_state_flags()`.
+    case stateFlagsChanged = "state-flags-changed"
+    /// The `style`-set signal is emitted when a new style has been set
+    /// on a widget. Note that style-modifying functions like
+    /// `gtk_widget_modify_base()` also cause this signal to be emitted.
+    /// 
+    /// Note that this signal is emitted for changes to the deprecated
+    /// `GtkStyle`. To track changes to the `GtkStyleContext` associated
+    /// with a widget, use the `GtkWidget::style`-updated signal.
+    ///
+    /// **style-set is deprecated:**
+    /// Use the #GtkWidget::style-updated signal
+    case styleSet = "style-set"
+    /// The `style`-updated signal is a convenience signal that is emitted when the
+    /// `GtkStyleContext::changed` signal is emitted on the `widget`'s associated
+    /// `GtkStyleContext` as returned by `gtk_widget_get_style_context()`.
+    /// 
+    /// Note that style-modifying functions like `gtk_widget_override_color()` also
+    /// cause this signal to be emitted.
+    case styleUpdated = "style-updated"
+    /// The `toggle`-handle-focus is a
+    /// [keybinding signal](#GtkBindingSignal)
+    /// which gets emitted to accept the current position of the handle and then
+    /// move focus to the next widget in the focus chain.
+    /// 
+    /// The default binding is Tab.
+    case toggleHandleFocus = "toggle-handle-focus"
+    case touchEvent = "touch-event"
+    /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
+    /// means that either it or any of its parents up to the toplevel widget have
+    /// been set as hidden.
+    /// 
+    /// As `unmap` indicates that a widget will not be shown any longer, it can be
+    /// used to, for example, stop an animation on the widget.
+    case unmap = "unmap"
+    /// The `unmap`-event signal will be emitted when the `widget`'s window is
+    /// unmapped. A window is unmapped when it becomes invisible on the screen.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_STRUCTURE_MASK` mask. GDK will enable this mask
+    /// automatically for all new windows.
+    case unmapEvent = "unmap-event"
+    /// The `unrealize` signal is emitted when the `GdkWindow` associated with
+    /// `widget` is destroyed, which means that `gtk_widget_unrealize()` has been
+    /// called or the widget has been unmapped (that is, it is going to be
+    /// hidden).
+    case unrealize = "unrealize"
+    /// The `visibility`-notify-event will be emitted when the `widget`'s
+    /// window is obscured or unobscured.
+    /// 
+    /// To receive this signal the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_VISIBILITY_NOTIFY_MASK` mask.
+    ///
+    /// **visibility-notify-event is deprecated:**
+    /// Modern composited windowing systems with pervasive
+    ///     transparency make it impossible to track the visibility of a window
+    ///     reliably, so this signal can not be guaranteed to provide useful
+    ///     information.
+    case visibilityNotifyEvent = "visibility-notify-event"
+    /// The `window`-state-event will be emitted when the state of the
+    /// toplevel window associated to the `widget` changes.
+    /// 
+    /// To receive this signal the `GdkWindow` associated to the widget
+    /// needs to enable the `GDK_STRUCTURE_MASK` mask. GDK will enable
+    /// this mask automatically for all new windows.
+    case windowStateEvent = "window-state-event"
+    case notifyAppPaintable = "notify::app-paintable"
+    case notifyBorderWidth = "notify::border-width"
+    case notifyCanDefault = "notify::can-default"
+    case notifyCanFocus = "notify::can-focus"
+    case notifyChild = "notify::child"
+    case notifyCompositeChild = "notify::composite-child"
+    /// Whether the widget is double buffered.
+    ///
+    /// **double-buffered is deprecated:**
+    /// Widgets should not use this property.
+    case notifyDoubleBuffered = "notify::double-buffered"
+    case notifyEvents = "notify::events"
+    /// Whether to expand in both directions. Setting this sets both `GtkWidget:hexpand` and `GtkWidget:vexpand`
+    case notifyExpand = "notify::expand"
+    /// Whether the widget should grab focus when it is clicked with the mouse.
+    /// 
+    /// This property is only relevant for widgets that can take focus.
+    /// 
+    /// Before 3.20, several widgets (GtkButton, GtkFileChooserButton,
+    /// GtkComboBox) implemented this property individually.
+    case notifyFocusOnClick = "notify::focus-on-click"
+    /// How to distribute horizontal space if widget gets extra space, see `GtkAlign`
+    case notifyHalign = "notify::halign"
+    case notifyHasDefault = "notify::has-default"
+    case notifyHasFocus = "notify::has-focus"
+    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// A value of `true` indicates that `widget` can have a tooltip, in this case
+    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// whether it will provide a tooltip or not.
+    /// 
+    /// Note that setting this property to `true` for the first time will change
+    /// the event masks of the GdkWindows of this widget to include leave-notify
+    /// and motion-notify events.  This cannot and will not be undone when the
+    /// property is set to `false` again.
+    case notifyHasTooltip = "notify::has-tooltip"
+    case notifyHeightRequest = "notify::height-request"
+    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
+    case notifyHexpand = "notify::hexpand"
+    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
+    case notifyHexpandSet = "notify::hexpand-set"
+    case notifyIsFocus = "notify::is-focus"
+    /// Sets all four sides' margin at once. If read, returns max
+    /// margin on any side.
+    case notifyMargin = "notify::margin"
+    /// Margin on bottom side of widget.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginBottom = "notify::margin-bottom"
+    /// Margin on end of widget, horizontally. This property supports
+    /// left-to-right and right-to-left text directions.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginEnd = "notify::margin-end"
+    /// Margin on left side of widget.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    ///
+    /// **margin-left is deprecated:**
+    /// Use #GtkWidget:margin-start instead.
+    case notifyMarginLeft = "notify::margin-left"
+    /// Margin on right side of widget.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    ///
+    /// **margin-right is deprecated:**
+    /// Use #GtkWidget:margin-end instead.
+    case notifyMarginRight = "notify::margin-right"
+    /// Margin on start of widget, horizontally. This property supports
+    /// left-to-right and right-to-left text directions.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginStart = "notify::margin-start"
+    /// Margin on top side of widget.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginTop = "notify::margin-top"
+    /// The largest possible value for the position property.
+    /// This property is derived from the size and shrinkability
+    /// of the widget's children.
+    case notifyMaxPosition = "notify::max-position"
+    /// The smallest possible value for the position property.
+    /// This property is derived from the size and shrinkability
+    /// of the widget's children.
+    case notifyMinPosition = "notify::min-position"
+    case notifyName = "notify::name"
+    case notifyNoShowAll = "notify::no-show-all"
+    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
+    /// more details about window opacity.
+    /// 
+    /// Before 3.8 this was only available in GtkWindow
+    case notifyOpacity = "notify::opacity"
+    case notifyParent = "notify::parent"
+    case notifyPosition = "notify::position"
+    case notifyPositionSet = "notify::position-set"
+    case notifyReceivesDefault = "notify::receives-default"
+    case notifyResizeMode = "notify::resize-mode"
+    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
+    /// more details about widget scaling.
+    case notifyScaleFactor = "notify::scale-factor"
+    case notifySensitive = "notify::sensitive"
+    /// The style of the widget, which contains information about how it will look (colors, etc).
+    ///
+    /// **style is deprecated:**
+    /// Use #GtkStyleContext instead
+    case notifyStyle = "notify::style"
+    /// Sets the text of tooltip to be the given string, which is marked up
+    /// with the [Pango text markup language](#PangoMarkupFormat).
+    /// Also see `gtk_tooltip_set_markup()`.
+    /// 
+    /// This is a convenience property which will take care of getting the
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// will automatically be set to `true` and there will be taken care of
+    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// 
+    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// are set, the last one wins.
+    case notifyTooltipMarkup = "notify::tooltip-markup"
+    /// Sets the text of tooltip to be the given string.
+    /// 
+    /// Also see `gtk_tooltip_set_text()`.
+    /// 
+    /// This is a convenience property which will take care of getting the
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// will automatically be set to `true` and there will be taken care of
+    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// 
+    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// are set, the last one wins.
+    case notifyTooltipText = "notify::tooltip-text"
+    /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
+    case notifyValign = "notify::valign"
+    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
+    case notifyVexpand = "notify::vexpand"
+    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
+    case notifyVexpandSet = "notify::vexpand-set"
+    case notifyVisible = "notify::visible"
+    /// Setting this property to `true` indicates that the paned needs
+    /// to provide stronger visual separation (e.g. because it separates
+    /// between two notebooks, whose tab rows would otherwise merge visually).
+    case notifyWideHandle = "notify::wide-handle"
+    case notifyWidthRequest = "notify::width-request"
+    /// The widget's window if it is realized, `nil` otherwise.
+    case notifyWindow = "notify::window"
+}
+
+// MARK: VPaned has no signals
+// MARK: VPaned Class: VPanedProtocol extension (methods and fields)
 public extension VPanedProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkVPaned` instance.
     @inlinable var vpaned_ptr: UnsafeMutablePointer<GtkVPaned>! { return ptr?.assumingMemoryBound(to: GtkVPaned.self) }
@@ -2100,7 +4297,775 @@ public extension VScaleProtocol {
     }
 }
 
-// MARK: VScale has no signals// MARK: VScale Class: VScaleProtocol extension (methods and fields)
+public enum VScaleSignalName: String, SignalNameProtocol {
+    case accelClosuresChanged = "accel-closures-changed"
+    /// Emitted before clamping a value, to give the application a
+    /// chance to adjust the bounds.
+    case adjustBounds = "adjust-bounds"
+    /// The `button`-press-event signal will be emitted when a button
+    /// (typically from a mouse) is pressed.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the
+    /// widget needs to enable the `GDK_BUTTON_PRESS_MASK` mask.
+    /// 
+    /// This signal will be sent to the grab widget if there is one.
+    case buttonPressEvent = "button-press-event"
+    /// The `button`-release-event signal will be emitted when a button
+    /// (typically from a mouse) is released.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the
+    /// widget needs to enable the `GDK_BUTTON_RELEASE_MASK` mask.
+    /// 
+    /// This signal will be sent to the grab widget if there is one.
+    case buttonReleaseEvent = "button-release-event"
+    /// Determines whether an accelerator that activates the signal
+    /// identified by `signal_id` can currently be activated.
+    /// This signal is present to allow applications and derived
+    /// widgets to override the default `GtkWidget` handling
+    /// for determining whether an accelerator can be activated.
+    case canActivateAccel = "can-activate-accel"
+    /// The `GtkRange::change`-value signal is emitted when a scroll action is
+    /// performed on a range.  It allows an application to determine the
+    /// type of scroll event that occurred and the resultant new value.
+    /// The application can handle the event itself and return `true` to
+    /// prevent further processing.  Or, by returning `false`, it can pass
+    /// the event to other handlers until the default GTK+ handler is
+    /// reached.
+    /// 
+    /// The value parameter is unrounded.  An application that overrides
+    /// the GtkRange`change`-value signal is responsible for clamping the
+    /// value to the desired number of decimal digits; the default GTK+
+    /// handler clamps the value based on `GtkRange:round`-digits.
+    case changeValue = "change-value"
+    /// The `child`-notify signal is emitted for each
+    /// [child property](#child-properties)  that has
+    /// changed on an object. The signal's detail holds the property name.
+    case childNotify = "child-notify"
+    /// The `composited`-changed signal is emitted when the composited
+    /// status of `widgets` screen changes.
+    /// See `gdk_screen_is_composited()`.
+    ///
+    /// **composited-changed is deprecated:**
+    /// Use GdkScreen::composited-changed instead.
+    case compositedChanged = "composited-changed"
+    /// The `configure`-event signal will be emitted when the size, position or
+    /// stacking of the `widget`'s window has changed.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_STRUCTURE_MASK` mask. GDK will enable this mask
+    /// automatically for all new windows.
+    case configureEvent = "configure-event"
+    /// Emitted when a redirected window belonging to `widget` gets drawn into.
+    /// The region/area members of the event shows what area of the redirected
+    /// drawable was drawn into.
+    case damageEvent = "damage-event"
+    /// The `delete`-event signal is emitted if a user requests that
+    /// a toplevel window is closed. The default handler for this signal
+    /// destroys the window. Connecting `gtk_widget_hide_on_delete()` to
+    /// this signal will cause the window to be hidden instead, so that
+    /// it can later be shown again without reconstructing it.
+    case deleteEvent = "delete-event"
+    /// Signals that all holders of a reference to the widget should release
+    /// the reference that they hold. May result in finalization of the widget
+    /// if all references are released.
+    /// 
+    /// This signal is not suitable for saving widget state.
+    case destroy = "destroy"
+    /// The `destroy`-event signal is emitted when a `GdkWindow` is destroyed.
+    /// You rarely get this signal, because most widgets disconnect themselves
+    /// from their window before they destroy it, so no widget owns the
+    /// window at destroy time.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_STRUCTURE_MASK` mask. GDK will enable this mask
+    /// automatically for all new windows.
+    case destroyEvent = "destroy-event"
+    /// The `direction`-changed signal is emitted when the text direction
+    /// of a widget changes.
+    case directionChanged = "direction-changed"
+    /// The `drag`-begin signal is emitted on the drag source when a drag is
+    /// started. A typical reason to connect to this signal is to set up a
+    /// custom drag icon with e.g. `gtk_drag_source_set_icon_pixbuf()`.
+    /// 
+    /// Note that some widgets set up a drag icon in the default handler of
+    /// this signal, so you may have to use `g_signal_connect_after()` to
+    /// override what the default handler did.
+    case dragBegin = "drag-begin"
+    /// The `drag`-data-delete signal is emitted on the drag source when a drag
+    /// with the action `GDK_ACTION_MOVE` is successfully completed. The signal
+    /// handler is responsible for deleting the data that has been dropped. What
+    /// "delete" means depends on the context of the drag operation.
+    case dragDataDelete = "drag-data-delete"
+    /// The `drag`-data-get signal is emitted on the drag source when the drop
+    /// site requests the data which is dragged. It is the responsibility of
+    /// the signal handler to fill `data` with the data in the format which
+    /// is indicated by `info`. See `gtk_selection_data_set()` and
+    /// `gtk_selection_data_set_text()`.
+    case dragDataGet = "drag-data-get"
+    /// The `drag`-data-received signal is emitted on the drop site when the
+    /// dragged data has been received. If the data was received in order to
+    /// determine whether the drop will be accepted, the handler is expected
+    /// to call `gdk_drag_status()` and not finish the drag.
+    /// If the data was received in response to a `GtkWidget::drag`-drop signal
+    /// (and this is the last target to be received), the handler for this
+    /// signal is expected to process the received data and then call
+    /// `gtk_drag_finish()`, setting the `success` parameter depending on
+    /// whether the data was processed successfully.
+    /// 
+    /// Applications must create some means to determine why the signal was emitted
+    /// and therefore whether to call `gdk_drag_status()` or `gtk_drag_finish()`.
+    /// 
+    /// The handler may inspect the selected action with
+    /// `gdk_drag_context_get_selected_action()` before calling
+    /// `gtk_drag_finish()`, e.g. to implement `GDK_ACTION_ASK` as
+    /// shown in the following example:
+    /// (C Language Example):
+    /// ```C
+    /// void
+    /// drag_data_received (GtkWidget          *widget,
+    ///                     GdkDragContext     *context,
+    ///                     gint                x,
+    ///                     gint                y,
+    ///                     GtkSelectionData   *data,
+    ///                     guint               info,
+    ///                     guint               time)
+    /// {
+    ///   if ((data->length >= 0) && (data->format == 8))
+    ///     {
+    ///       GdkDragAction action;
+    /// 
+    ///       // handle data here
+    /// 
+    ///       action = gdk_drag_context_get_selected_action (context);
+    ///       if (action == GDK_ACTION_ASK)
+    ///         {
+    ///           GtkWidget *dialog;
+    ///           gint response;
+    /// 
+    ///           dialog = gtk_message_dialog_new (NULL,
+    ///                                            GTK_DIALOG_MODAL |
+    ///                                            GTK_DIALOG_DESTROY_WITH_PARENT,
+    ///                                            GTK_MESSAGE_INFO,
+    ///                                            GTK_BUTTONS_YES_NO,
+    ///                                            "Move the data ?\n");
+    ///           response = gtk_dialog_run (GTK_DIALOG (dialog));
+    ///           gtk_widget_destroy (dialog);
+    /// 
+    ///           if (response == GTK_RESPONSE_YES)
+    ///             action = GDK_ACTION_MOVE;
+    ///           else
+    ///             action = GDK_ACTION_COPY;
+    ///          }
+    /// 
+    ///       gtk_drag_finish (context, TRUE, action == GDK_ACTION_MOVE, time);
+    ///     }
+    ///   else
+    ///     gtk_drag_finish (context, FALSE, FALSE, time);
+    ///  }
+    /// ```
+    /// 
+    case dragDataReceived = "drag-data-received"
+    /// The `drag`-drop signal is emitted on the drop site when the user drops
+    /// the data onto the widget. The signal handler must determine whether
+    /// the cursor position is in a drop zone or not. If it is not in a drop
+    /// zone, it returns `false` and no further processing is necessary.
+    /// Otherwise, the handler returns `true`. In this case, the handler must
+    /// ensure that `gtk_drag_finish()` is called to let the source know that
+    /// the drop is done. The call to `gtk_drag_finish()` can be done either
+    /// directly or in a `GtkWidget::drag`-data-received handler which gets
+    /// triggered by calling `gtk_drag_get_data()` to receive the data for one
+    /// or more of the supported targets.
+    case dragDrop = "drag-drop"
+    /// The `drag`-end signal is emitted on the drag source when a drag is
+    /// finished.  A typical reason to connect to this signal is to undo
+    /// things done in `GtkWidget::drag`-begin.
+    case dragEnd = "drag-end"
+    /// The `drag`-failed signal is emitted on the drag source when a drag has
+    /// failed. The signal handler may hook custom code to handle a failed DnD
+    /// operation based on the type of error, it returns `true` is the failure has
+    /// been already handled (not showing the default "drag operation failed"
+    /// animation), otherwise it returns `false`.
+    case dragFailed = "drag-failed"
+    /// The `drag`-leave signal is emitted on the drop site when the cursor
+    /// leaves the widget. A typical reason to connect to this signal is to
+    /// undo things done in `GtkWidget::drag`-motion, e.g. undo highlighting
+    /// with `gtk_drag_unhighlight()`.
+    /// 
+    /// 
+    /// Likewise, the `GtkWidget::drag`-leave signal is also emitted before the
+    /// `drag`-drop signal, for instance to allow cleaning up of a preview item
+    /// created in the `GtkWidget::drag`-motion signal handler.
+    case dragLeave = "drag-leave"
+    /// The `drag`-motion signal is emitted on the drop site when the user
+    /// moves the cursor over the widget during a drag. The signal handler
+    /// must determine whether the cursor position is in a drop zone or not.
+    /// If it is not in a drop zone, it returns `false` and no further processing
+    /// is necessary. Otherwise, the handler returns `true`. In this case, the
+    /// handler is responsible for providing the necessary information for
+    /// displaying feedback to the user, by calling `gdk_drag_status()`.
+    /// 
+    /// If the decision whether the drop will be accepted or rejected can't be
+    /// made based solely on the cursor position and the type of the data, the
+    /// handler may inspect the dragged data by calling `gtk_drag_get_data()` and
+    /// defer the `gdk_drag_status()` call to the `GtkWidget::drag`-data-received
+    /// handler. Note that you must pass `GTK_DEST_DEFAULT_DROP`,
+    /// `GTK_DEST_DEFAULT_MOTION` or `GTK_DEST_DEFAULT_ALL` to `gtk_drag_dest_set()`
+    /// when using the drag-motion signal that way.
+    /// 
+    /// Also note that there is no drag-enter signal. The drag receiver has to
+    /// keep track of whether he has received any drag-motion signals since the
+    /// last `GtkWidget::drag`-leave and if not, treat the drag-motion signal as
+    /// an "enter" signal. Upon an "enter", the handler will typically highlight
+    /// the drop site with `gtk_drag_highlight()`.
+    /// (C Language Example):
+    /// ```C
+    /// static void
+    /// drag_motion (GtkWidget      *widget,
+    ///              GdkDragContext *context,
+    ///              gint            x,
+    ///              gint            y,
+    ///              guint           time)
+    /// {
+    ///   GdkAtom target;
+    /// 
+    ///   PrivateData *private_data = GET_PRIVATE_DATA (widget);
+    /// 
+    ///   if (!private_data->drag_highlight)
+    ///    {
+    ///      private_data->drag_highlight = 1;
+    ///      gtk_drag_highlight (widget);
+    ///    }
+    /// 
+    ///   target = gtk_drag_dest_find_target (widget, context, NULL);
+    ///   if (target == GDK_NONE)
+    ///     gdk_drag_status (context, 0, time);
+    ///   else
+    ///    {
+    ///      private_data->pending_status
+    ///         = gdk_drag_context_get_suggested_action (context);
+    ///      gtk_drag_get_data (widget, context, target, time);
+    ///    }
+    /// 
+    ///   return TRUE;
+    /// }
+    /// 
+    /// static void
+    /// drag_data_received (GtkWidget        *widget,
+    ///                     GdkDragContext   *context,
+    ///                     gint              x,
+    ///                     gint              y,
+    ///                     GtkSelectionData *selection_data,
+    ///                     guint             info,
+    ///                     guint             time)
+    /// {
+    ///   PrivateData *private_data = GET_PRIVATE_DATA (widget);
+    /// 
+    ///   if (private_data->suggested_action)
+    ///    {
+    ///      private_data->suggested_action = 0;
+    /// 
+    ///      // We are getting this data due to a request in drag_motion,
+    ///      // rather than due to a request in drag_drop, so we are just
+    ///      // supposed to call gdk_drag_status(), not actually paste in
+    ///      // the data.
+    /// 
+    ///      str = gtk_selection_data_get_text (selection_data);
+    ///      if (!data_is_acceptable (str))
+    ///        gdk_drag_status (context, 0, time);
+    ///      else
+    ///        gdk_drag_status (context,
+    ///                         private_data->suggested_action,
+    ///                         time);
+    ///    }
+    ///   else
+    ///    {
+    ///      // accept the drop
+    ///    }
+    /// }
+    /// ```
+    /// 
+    case dragMotion = "drag-motion"
+    /// This signal is emitted when a widget is supposed to render itself.
+    /// The `widget`'s top left corner must be painted at the origin of
+    /// the passed in context and be sized to the values returned by
+    /// `gtk_widget_get_allocated_width()` and
+    /// `gtk_widget_get_allocated_height()`.
+    /// 
+    /// Signal handlers connected to this signal can modify the cairo
+    /// context passed as `cr` in any way they like and don't need to
+    /// restore it. The signal emission takes care of calling `cairo_save()`
+    /// before and `cairo_restore()` after invoking the handler.
+    /// 
+    /// The signal handler will get a `cr` with a clip region already set to the
+    /// widget's dirty region, i.e. to the area that needs repainting.  Complicated
+    /// widgets that want to avoid redrawing themselves completely can get the full
+    /// extents of the clip region with `gdk_cairo_get_clip_rectangle()`, or they can
+    /// get a finer-grained representation of the dirty region with
+    /// `cairo_copy_clip_rectangle_list()`.
+    case draw = "draw"
+    /// The `enter`-notify-event will be emitted when the pointer enters
+    /// the `widget`'s window.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_ENTER_NOTIFY_MASK` mask.
+    /// 
+    /// This signal will be sent to the grab widget if there is one.
+    case enterNotifyEvent = "enter-notify-event"
+    /// The GTK+ main loop will emit three signals for each GDK event delivered
+    /// to a widget: one generic `event` signal, another, more specific,
+    /// signal that matches the type of event delivered (e.g.
+    /// `GtkWidget::key`-press-event) and finally a generic
+    /// `GtkWidget::event`-after signal.
+    case event = "event"
+    /// After the emission of the `GtkWidget::event` signal and (optionally)
+    /// the second more specific signal, `event`-after will be emitted
+    /// regardless of the previous two signals handlers return values.
+    case eventAfter = "event-after"
+    case focus = "focus"
+    /// The `focus`-in-event signal will be emitted when the keyboard focus
+    /// enters the `widget`'s window.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_FOCUS_CHANGE_MASK` mask.
+    case focusInEvent = "focus-in-event"
+    /// The `focus`-out-event signal will be emitted when the keyboard focus
+    /// leaves the `widget`'s window.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_FOCUS_CHANGE_MASK` mask.
+    case focusOutEvent = "focus-out-event"
+    /// Signal which allows you to change how the scale value is displayed.
+    /// Connect a signal handler which returns an allocated string representing
+    /// `value`. That string will then be used to display the scale's value.
+    /// 
+    /// If no user-provided handlers are installed, the value will be displayed on
+    /// its own, rounded according to the value of the `GtkScale:digits` property.
+    /// 
+    /// Here's an example signal handler which displays a value 1.0 as
+    /// with "-->1.0<--".
+    /// (C Language Example):
+    /// ```C
+    /// static gchar*
+    /// format_value_callback (GtkScale *scale,
+    ///                        gdouble   value)
+    /// {
+    ///   return g_strdup_printf ("-->\%0.*g<--",
+    ///                           gtk_scale_get_digits (scale), value);
+    ///  }
+    /// ```
+    /// 
+    case formatValue = "format-value"
+    /// Emitted when a pointer or keyboard grab on a window belonging
+    /// to `widget` gets broken.
+    /// 
+    /// On X11, this happens when the grab window becomes unviewable
+    /// (i.e. it or one of its ancestors is unmapped), or if the same
+    /// application grabs the pointer or keyboard again.
+    case grabBrokenEvent = "grab-broken-event"
+    case grabFocus = "grab-focus"
+    /// The `grab`-notify signal is emitted when a widget becomes
+    /// shadowed by a GTK+ grab (not a pointer or keyboard grab) on
+    /// another widget, or when it becomes unshadowed due to a grab
+    /// being removed.
+    /// 
+    /// A widget is shadowed by a `gtk_grab_add()` when the topmost
+    /// grab widget in the grab stack of its window group is not
+    /// its ancestor.
+    case grabNotify = "grab-notify"
+    /// The `hide` signal is emitted when `widget` is hidden, for example with
+    /// `gtk_widget_hide()`.
+    case hide = "hide"
+    /// The `hierarchy`-changed signal is emitted when the
+    /// anchored state of a widget changes. A widget is
+    /// “anchored” when its toplevel
+    /// ancestor is a `GtkWindow`. This signal is emitted when
+    /// a widget changes from un-anchored to anchored or vice-versa.
+    case hierarchyChanged = "hierarchy-changed"
+    /// The `key`-press-event signal is emitted when a key is pressed. The signal
+    /// emission will reoccur at the key-repeat rate when the key is kept pressed.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_KEY_PRESS_MASK` mask.
+    /// 
+    /// This signal will be sent to the grab widget if there is one.
+    case keyPressEvent = "key-press-event"
+    /// The `key`-release-event signal is emitted when a key is released.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_KEY_RELEASE_MASK` mask.
+    /// 
+    /// This signal will be sent to the grab widget if there is one.
+    case keyReleaseEvent = "key-release-event"
+    /// Gets emitted if keyboard navigation fails.
+    /// See `gtk_widget_keynav_failed()` for details.
+    case keynavFailed = "keynav-failed"
+    /// The `leave`-notify-event will be emitted when the pointer leaves
+    /// the `widget`'s window.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_LEAVE_NOTIFY_MASK` mask.
+    /// 
+    /// This signal will be sent to the grab widget if there is one.
+    case leaveNotifyEvent = "leave-notify-event"
+    /// The `map` signal is emitted when `widget` is going to be mapped, that is
+    /// when the widget is visible (which is controlled with
+    /// `gtk_widget_set_visible()`) and all its parents up to the toplevel widget
+    /// are also visible. Once the map has occurred, `GtkWidget::map`-event will
+    /// be emitted.
+    /// 
+    /// The `map` signal can be used to determine whether a widget will be drawn,
+    /// for instance it can resume an animation that was stopped during the
+    /// emission of `GtkWidget::unmap`.
+    case map = "map"
+    /// The `map`-event signal will be emitted when the `widget`'s window is
+    /// mapped. A window is mapped when it becomes visible on the screen.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_STRUCTURE_MASK` mask. GDK will enable this mask
+    /// automatically for all new windows.
+    case mapEvent = "map-event"
+    /// The default handler for this signal activates `widget` if `group_cycling`
+    /// is `false`, or just makes `widget` grab focus if `group_cycling` is `true`.
+    case mnemonicActivate = "mnemonic-activate"
+    /// The `motion`-notify-event signal is emitted when the pointer moves
+    /// over the widget's `GdkWindow`.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget
+    /// needs to enable the `GDK_POINTER_MOTION_MASK` mask.
+    /// 
+    /// This signal will be sent to the grab widget if there is one.
+    case motionNotifyEvent = "motion-notify-event"
+    case moveFocus = "move-focus"
+    /// Virtual function that moves the slider. Used for keybindings.
+    case moveSlider = "move-slider"
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    case notify = "notify"
+    /// The `parent`-set signal is emitted when a new parent
+    /// has been set on a widget.
+    case parentSet = "parent-set"
+    /// This signal gets emitted whenever a widget should pop up a context
+    /// menu. This usually happens through the standard key binding mechanism;
+    /// by pressing a certain key while a widget is focused, the user can cause
+    /// the widget to pop up a menu.  For example, the `GtkEntry` widget creates
+    /// a menu with clipboard commands. See the
+    /// [Popup Menu Migration Checklist](#checklist-popup-menu)
+    /// for an example of how to use this signal.
+    case popupMenu = "popup-menu"
+    /// The `property`-notify-event signal will be emitted when a property on
+    /// the `widget`'s window has been changed or deleted.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_PROPERTY_CHANGE_MASK` mask.
+    case propertyNotifyEvent = "property-notify-event"
+    /// To receive this signal the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_PROXIMITY_IN_MASK` mask.
+    /// 
+    /// This signal will be sent to the grab widget if there is one.
+    case proximityInEvent = "proximity-in-event"
+    /// To receive this signal the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_PROXIMITY_OUT_MASK` mask.
+    /// 
+    /// This signal will be sent to the grab widget if there is one.
+    case proximityOutEvent = "proximity-out-event"
+    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
+    /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
+    /// focus in keyboard mode.
+    /// 
+    /// Using the given coordinates, the signal handler should determine
+    /// whether a tooltip should be shown for `widget`. If this is the case
+    /// `true` should be returned, `false` otherwise.  Note that if
+    /// `keyboard_mode` is `true`, the values of `x` and `y` are undefined and
+    /// should not be used.
+    /// 
+    /// The signal handler is free to manipulate `tooltip` with the therefore
+    /// destined function calls.
+    case queryTooltip = "query-tooltip"
+    /// The `realize` signal is emitted when `widget` is associated with a
+    /// `GdkWindow`, which means that `gtk_widget_realize()` has been called or the
+    /// widget has been mapped (that is, it is going to be drawn).
+    case realize = "realize"
+    /// The `screen`-changed signal gets emitted when the
+    /// screen of a widget has changed.
+    case screenChanged = "screen-changed"
+    /// The `scroll`-event signal is emitted when a button in the 4 to 7
+    /// range is pressed. Wheel mice are usually configured to generate
+    /// button press events for buttons 4 and 5 when the wheel is turned.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_SCROLL_MASK` mask.
+    /// 
+    /// This signal will be sent to the grab widget if there is one.
+    case scrollEvent = "scroll-event"
+    /// The `selection`-clear-event signal will be emitted when the
+    /// the `widget`'s window has lost ownership of a selection.
+    case selectionClearEvent = "selection-clear-event"
+    case selectionGet = "selection-get"
+    case selectionNotifyEvent = "selection-notify-event"
+    case selectionReceived = "selection-received"
+    /// The `selection`-request-event signal will be emitted when
+    /// another client requests ownership of the selection owned by
+    /// the `widget`'s window.
+    case selectionRequestEvent = "selection-request-event"
+    /// The `show` signal is emitted when `widget` is shown, for example with
+    /// `gtk_widget_show()`.
+    case show = "show"
+    case showHelp = "show-help"
+    case sizeAllocate = "size-allocate"
+    /// The `state`-changed signal is emitted when the widget state changes.
+    /// See `gtk_widget_get_state()`.
+    ///
+    /// **state-changed is deprecated:**
+    /// Use #GtkWidget::state-flags-changed instead.
+    case stateChanged = "state-changed"
+    /// The `state`-flags-changed signal is emitted when the widget state
+    /// changes, see `gtk_widget_get_state_flags()`.
+    case stateFlagsChanged = "state-flags-changed"
+    /// The `style`-set signal is emitted when a new style has been set
+    /// on a widget. Note that style-modifying functions like
+    /// `gtk_widget_modify_base()` also cause this signal to be emitted.
+    /// 
+    /// Note that this signal is emitted for changes to the deprecated
+    /// `GtkStyle`. To track changes to the `GtkStyleContext` associated
+    /// with a widget, use the `GtkWidget::style`-updated signal.
+    ///
+    /// **style-set is deprecated:**
+    /// Use the #GtkWidget::style-updated signal
+    case styleSet = "style-set"
+    /// The `style`-updated signal is a convenience signal that is emitted when the
+    /// `GtkStyleContext::changed` signal is emitted on the `widget`'s associated
+    /// `GtkStyleContext` as returned by `gtk_widget_get_style_context()`.
+    /// 
+    /// Note that style-modifying functions like `gtk_widget_override_color()` also
+    /// cause this signal to be emitted.
+    case styleUpdated = "style-updated"
+    case touchEvent = "touch-event"
+    /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
+    /// means that either it or any of its parents up to the toplevel widget have
+    /// been set as hidden.
+    /// 
+    /// As `unmap` indicates that a widget will not be shown any longer, it can be
+    /// used to, for example, stop an animation on the widget.
+    case unmap = "unmap"
+    /// The `unmap`-event signal will be emitted when the `widget`'s window is
+    /// unmapped. A window is unmapped when it becomes invisible on the screen.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_STRUCTURE_MASK` mask. GDK will enable this mask
+    /// automatically for all new windows.
+    case unmapEvent = "unmap-event"
+    /// The `unrealize` signal is emitted when the `GdkWindow` associated with
+    /// `widget` is destroyed, which means that `gtk_widget_unrealize()` has been
+    /// called or the widget has been unmapped (that is, it is going to be
+    /// hidden).
+    case unrealize = "unrealize"
+    /// Emitted when the range value changes.
+    case valueChanged = "value-changed"
+    /// The `visibility`-notify-event will be emitted when the `widget`'s
+    /// window is obscured or unobscured.
+    /// 
+    /// To receive this signal the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_VISIBILITY_NOTIFY_MASK` mask.
+    ///
+    /// **visibility-notify-event is deprecated:**
+    /// Modern composited windowing systems with pervasive
+    ///     transparency make it impossible to track the visibility of a window
+    ///     reliably, so this signal can not be guaranteed to provide useful
+    ///     information.
+    case visibilityNotifyEvent = "visibility-notify-event"
+    /// The `window`-state-event will be emitted when the state of the
+    /// toplevel window associated to the `widget` changes.
+    /// 
+    /// To receive this signal the `GdkWindow` associated to the widget
+    /// needs to enable the `GDK_STRUCTURE_MASK` mask. GDK will enable
+    /// this mask automatically for all new windows.
+    case windowStateEvent = "window-state-event"
+    case notifyAdjustment = "notify::adjustment"
+    case notifyAppPaintable = "notify::app-paintable"
+    case notifyCanDefault = "notify::can-default"
+    case notifyCanFocus = "notify::can-focus"
+    case notifyCompositeChild = "notify::composite-child"
+    case notifyDigits = "notify::digits"
+    /// Whether the widget is double buffered.
+    ///
+    /// **double-buffered is deprecated:**
+    /// Widgets should not use this property.
+    case notifyDoubleBuffered = "notify::double-buffered"
+    case notifyDrawValue = "notify::draw-value"
+    case notifyEvents = "notify::events"
+    /// Whether to expand in both directions. Setting this sets both `GtkWidget:hexpand` and `GtkWidget:vexpand`
+    case notifyExpand = "notify::expand"
+    /// The fill level (e.g. prebuffering of a network stream).
+    /// See `gtk_range_set_fill_level()`.
+    case notifyFillLevel = "notify::fill-level"
+    /// Whether the widget should grab focus when it is clicked with the mouse.
+    /// 
+    /// This property is only relevant for widgets that can take focus.
+    /// 
+    /// Before 3.20, several widgets (GtkButton, GtkFileChooserButton,
+    /// GtkComboBox) implemented this property individually.
+    case notifyFocusOnClick = "notify::focus-on-click"
+    /// How to distribute horizontal space if widget gets extra space, see `GtkAlign`
+    case notifyHalign = "notify::halign"
+    case notifyHasDefault = "notify::has-default"
+    case notifyHasFocus = "notify::has-focus"
+    case notifyHasOrigin = "notify::has-origin"
+    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// A value of `true` indicates that `widget` can have a tooltip, in this case
+    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// whether it will provide a tooltip or not.
+    /// 
+    /// Note that setting this property to `true` for the first time will change
+    /// the event masks of the GdkWindows of this widget to include leave-notify
+    /// and motion-notify events.  This cannot and will not be undone when the
+    /// property is set to `false` again.
+    case notifyHasTooltip = "notify::has-tooltip"
+    case notifyHeightRequest = "notify::height-request"
+    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
+    case notifyHexpand = "notify::hexpand"
+    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
+    case notifyHexpandSet = "notify::hexpand-set"
+    case notifyInverted = "notify::inverted"
+    case notifyIsFocus = "notify::is-focus"
+    case notifyLowerStepperSensitivity = "notify::lower-stepper-sensitivity"
+    /// Sets all four sides' margin at once. If read, returns max
+    /// margin on any side.
+    case notifyMargin = "notify::margin"
+    /// Margin on bottom side of widget.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginBottom = "notify::margin-bottom"
+    /// Margin on end of widget, horizontally. This property supports
+    /// left-to-right and right-to-left text directions.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginEnd = "notify::margin-end"
+    /// Margin on left side of widget.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    ///
+    /// **margin-left is deprecated:**
+    /// Use #GtkWidget:margin-start instead.
+    case notifyMarginLeft = "notify::margin-left"
+    /// Margin on right side of widget.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    ///
+    /// **margin-right is deprecated:**
+    /// Use #GtkWidget:margin-end instead.
+    case notifyMarginRight = "notify::margin-right"
+    /// Margin on start of widget, horizontally. This property supports
+    /// left-to-right and right-to-left text directions.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginStart = "notify::margin-start"
+    /// Margin on top side of widget.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginTop = "notify::margin-top"
+    case notifyName = "notify::name"
+    case notifyNoShowAll = "notify::no-show-all"
+    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
+    /// more details about window opacity.
+    /// 
+    /// Before 3.8 this was only available in GtkWindow
+    case notifyOpacity = "notify::opacity"
+    case notifyParent = "notify::parent"
+    case notifyReceivesDefault = "notify::receives-default"
+    /// The restrict-to-fill-level property controls whether slider
+    /// movement is restricted to an upper boundary set by the
+    /// fill level. See `gtk_range_set_restrict_to_fill_level()`.
+    case notifyRestrictToFillLevel = "notify::restrict-to-fill-level"
+    /// The number of digits to round the value to when
+    /// it changes, or -1. See `GtkRange::change`-value.
+    case notifyRoundDigits = "notify::round-digits"
+    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
+    /// more details about widget scaling.
+    case notifyScaleFactor = "notify::scale-factor"
+    case notifySensitive = "notify::sensitive"
+    /// The show-fill-level property controls whether fill level indicator
+    /// graphics are displayed on the trough. See
+    /// `gtk_range_set_show_fill_level()`.
+    case notifyShowFillLevel = "notify::show-fill-level"
+    /// The style of the widget, which contains information about how it will look (colors, etc).
+    ///
+    /// **style is deprecated:**
+    /// Use #GtkStyleContext instead
+    case notifyStyle = "notify::style"
+    /// Sets the text of tooltip to be the given string, which is marked up
+    /// with the [Pango text markup language](#PangoMarkupFormat).
+    /// Also see `gtk_tooltip_set_markup()`.
+    /// 
+    /// This is a convenience property which will take care of getting the
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// will automatically be set to `true` and there will be taken care of
+    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// 
+    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// are set, the last one wins.
+    case notifyTooltipMarkup = "notify::tooltip-markup"
+    /// Sets the text of tooltip to be the given string.
+    /// 
+    /// Also see `gtk_tooltip_set_text()`.
+    /// 
+    /// This is a convenience property which will take care of getting the
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// will automatically be set to `true` and there will be taken care of
+    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// 
+    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// are set, the last one wins.
+    case notifyTooltipText = "notify::tooltip-text"
+    case notifyUpperStepperSensitivity = "notify::upper-stepper-sensitivity"
+    /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
+    case notifyValign = "notify::valign"
+    case notifyValuePos = "notify::value-pos"
+    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
+    case notifyVexpand = "notify::vexpand"
+    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
+    case notifyVexpandSet = "notify::vexpand-set"
+    case notifyVisible = "notify::visible"
+    case notifyWidthRequest = "notify::width-request"
+    /// The widget's window if it is realized, `nil` otherwise.
+    case notifyWindow = "notify::window"
+}
+
+// MARK: VScale has no signals
+// MARK: VScale Class: VScaleProtocol extension (methods and fields)
 public extension VScaleProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkVScale` instance.
     @inlinable var vscale_ptr: UnsafeMutablePointer<GtkVScale>! { return ptr?.assumingMemoryBound(to: GtkVScale.self) }
@@ -2606,7 +5571,750 @@ public extension VScrollbarProtocol {
     }
 }
 
-// MARK: VScrollbar has no signals// MARK: VScrollbar Class: VScrollbarProtocol extension (methods and fields)
+public enum VScrollbarSignalName: String, SignalNameProtocol {
+    case accelClosuresChanged = "accel-closures-changed"
+    /// Emitted before clamping a value, to give the application a
+    /// chance to adjust the bounds.
+    case adjustBounds = "adjust-bounds"
+    /// The `button`-press-event signal will be emitted when a button
+    /// (typically from a mouse) is pressed.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the
+    /// widget needs to enable the `GDK_BUTTON_PRESS_MASK` mask.
+    /// 
+    /// This signal will be sent to the grab widget if there is one.
+    case buttonPressEvent = "button-press-event"
+    /// The `button`-release-event signal will be emitted when a button
+    /// (typically from a mouse) is released.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the
+    /// widget needs to enable the `GDK_BUTTON_RELEASE_MASK` mask.
+    /// 
+    /// This signal will be sent to the grab widget if there is one.
+    case buttonReleaseEvent = "button-release-event"
+    /// Determines whether an accelerator that activates the signal
+    /// identified by `signal_id` can currently be activated.
+    /// This signal is present to allow applications and derived
+    /// widgets to override the default `GtkWidget` handling
+    /// for determining whether an accelerator can be activated.
+    case canActivateAccel = "can-activate-accel"
+    /// The `GtkRange::change`-value signal is emitted when a scroll action is
+    /// performed on a range.  It allows an application to determine the
+    /// type of scroll event that occurred and the resultant new value.
+    /// The application can handle the event itself and return `true` to
+    /// prevent further processing.  Or, by returning `false`, it can pass
+    /// the event to other handlers until the default GTK+ handler is
+    /// reached.
+    /// 
+    /// The value parameter is unrounded.  An application that overrides
+    /// the GtkRange`change`-value signal is responsible for clamping the
+    /// value to the desired number of decimal digits; the default GTK+
+    /// handler clamps the value based on `GtkRange:round`-digits.
+    case changeValue = "change-value"
+    /// The `child`-notify signal is emitted for each
+    /// [child property](#child-properties)  that has
+    /// changed on an object. The signal's detail holds the property name.
+    case childNotify = "child-notify"
+    /// The `composited`-changed signal is emitted when the composited
+    /// status of `widgets` screen changes.
+    /// See `gdk_screen_is_composited()`.
+    ///
+    /// **composited-changed is deprecated:**
+    /// Use GdkScreen::composited-changed instead.
+    case compositedChanged = "composited-changed"
+    /// The `configure`-event signal will be emitted when the size, position or
+    /// stacking of the `widget`'s window has changed.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_STRUCTURE_MASK` mask. GDK will enable this mask
+    /// automatically for all new windows.
+    case configureEvent = "configure-event"
+    /// Emitted when a redirected window belonging to `widget` gets drawn into.
+    /// The region/area members of the event shows what area of the redirected
+    /// drawable was drawn into.
+    case damageEvent = "damage-event"
+    /// The `delete`-event signal is emitted if a user requests that
+    /// a toplevel window is closed. The default handler for this signal
+    /// destroys the window. Connecting `gtk_widget_hide_on_delete()` to
+    /// this signal will cause the window to be hidden instead, so that
+    /// it can later be shown again without reconstructing it.
+    case deleteEvent = "delete-event"
+    /// Signals that all holders of a reference to the widget should release
+    /// the reference that they hold. May result in finalization of the widget
+    /// if all references are released.
+    /// 
+    /// This signal is not suitable for saving widget state.
+    case destroy = "destroy"
+    /// The `destroy`-event signal is emitted when a `GdkWindow` is destroyed.
+    /// You rarely get this signal, because most widgets disconnect themselves
+    /// from their window before they destroy it, so no widget owns the
+    /// window at destroy time.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_STRUCTURE_MASK` mask. GDK will enable this mask
+    /// automatically for all new windows.
+    case destroyEvent = "destroy-event"
+    /// The `direction`-changed signal is emitted when the text direction
+    /// of a widget changes.
+    case directionChanged = "direction-changed"
+    /// The `drag`-begin signal is emitted on the drag source when a drag is
+    /// started. A typical reason to connect to this signal is to set up a
+    /// custom drag icon with e.g. `gtk_drag_source_set_icon_pixbuf()`.
+    /// 
+    /// Note that some widgets set up a drag icon in the default handler of
+    /// this signal, so you may have to use `g_signal_connect_after()` to
+    /// override what the default handler did.
+    case dragBegin = "drag-begin"
+    /// The `drag`-data-delete signal is emitted on the drag source when a drag
+    /// with the action `GDK_ACTION_MOVE` is successfully completed. The signal
+    /// handler is responsible for deleting the data that has been dropped. What
+    /// "delete" means depends on the context of the drag operation.
+    case dragDataDelete = "drag-data-delete"
+    /// The `drag`-data-get signal is emitted on the drag source when the drop
+    /// site requests the data which is dragged. It is the responsibility of
+    /// the signal handler to fill `data` with the data in the format which
+    /// is indicated by `info`. See `gtk_selection_data_set()` and
+    /// `gtk_selection_data_set_text()`.
+    case dragDataGet = "drag-data-get"
+    /// The `drag`-data-received signal is emitted on the drop site when the
+    /// dragged data has been received. If the data was received in order to
+    /// determine whether the drop will be accepted, the handler is expected
+    /// to call `gdk_drag_status()` and not finish the drag.
+    /// If the data was received in response to a `GtkWidget::drag`-drop signal
+    /// (and this is the last target to be received), the handler for this
+    /// signal is expected to process the received data and then call
+    /// `gtk_drag_finish()`, setting the `success` parameter depending on
+    /// whether the data was processed successfully.
+    /// 
+    /// Applications must create some means to determine why the signal was emitted
+    /// and therefore whether to call `gdk_drag_status()` or `gtk_drag_finish()`.
+    /// 
+    /// The handler may inspect the selected action with
+    /// `gdk_drag_context_get_selected_action()` before calling
+    /// `gtk_drag_finish()`, e.g. to implement `GDK_ACTION_ASK` as
+    /// shown in the following example:
+    /// (C Language Example):
+    /// ```C
+    /// void
+    /// drag_data_received (GtkWidget          *widget,
+    ///                     GdkDragContext     *context,
+    ///                     gint                x,
+    ///                     gint                y,
+    ///                     GtkSelectionData   *data,
+    ///                     guint               info,
+    ///                     guint               time)
+    /// {
+    ///   if ((data->length >= 0) && (data->format == 8))
+    ///     {
+    ///       GdkDragAction action;
+    /// 
+    ///       // handle data here
+    /// 
+    ///       action = gdk_drag_context_get_selected_action (context);
+    ///       if (action == GDK_ACTION_ASK)
+    ///         {
+    ///           GtkWidget *dialog;
+    ///           gint response;
+    /// 
+    ///           dialog = gtk_message_dialog_new (NULL,
+    ///                                            GTK_DIALOG_MODAL |
+    ///                                            GTK_DIALOG_DESTROY_WITH_PARENT,
+    ///                                            GTK_MESSAGE_INFO,
+    ///                                            GTK_BUTTONS_YES_NO,
+    ///                                            "Move the data ?\n");
+    ///           response = gtk_dialog_run (GTK_DIALOG (dialog));
+    ///           gtk_widget_destroy (dialog);
+    /// 
+    ///           if (response == GTK_RESPONSE_YES)
+    ///             action = GDK_ACTION_MOVE;
+    ///           else
+    ///             action = GDK_ACTION_COPY;
+    ///          }
+    /// 
+    ///       gtk_drag_finish (context, TRUE, action == GDK_ACTION_MOVE, time);
+    ///     }
+    ///   else
+    ///     gtk_drag_finish (context, FALSE, FALSE, time);
+    ///  }
+    /// ```
+    /// 
+    case dragDataReceived = "drag-data-received"
+    /// The `drag`-drop signal is emitted on the drop site when the user drops
+    /// the data onto the widget. The signal handler must determine whether
+    /// the cursor position is in a drop zone or not. If it is not in a drop
+    /// zone, it returns `false` and no further processing is necessary.
+    /// Otherwise, the handler returns `true`. In this case, the handler must
+    /// ensure that `gtk_drag_finish()` is called to let the source know that
+    /// the drop is done. The call to `gtk_drag_finish()` can be done either
+    /// directly or in a `GtkWidget::drag`-data-received handler which gets
+    /// triggered by calling `gtk_drag_get_data()` to receive the data for one
+    /// or more of the supported targets.
+    case dragDrop = "drag-drop"
+    /// The `drag`-end signal is emitted on the drag source when a drag is
+    /// finished.  A typical reason to connect to this signal is to undo
+    /// things done in `GtkWidget::drag`-begin.
+    case dragEnd = "drag-end"
+    /// The `drag`-failed signal is emitted on the drag source when a drag has
+    /// failed. The signal handler may hook custom code to handle a failed DnD
+    /// operation based on the type of error, it returns `true` is the failure has
+    /// been already handled (not showing the default "drag operation failed"
+    /// animation), otherwise it returns `false`.
+    case dragFailed = "drag-failed"
+    /// The `drag`-leave signal is emitted on the drop site when the cursor
+    /// leaves the widget. A typical reason to connect to this signal is to
+    /// undo things done in `GtkWidget::drag`-motion, e.g. undo highlighting
+    /// with `gtk_drag_unhighlight()`.
+    /// 
+    /// 
+    /// Likewise, the `GtkWidget::drag`-leave signal is also emitted before the
+    /// `drag`-drop signal, for instance to allow cleaning up of a preview item
+    /// created in the `GtkWidget::drag`-motion signal handler.
+    case dragLeave = "drag-leave"
+    /// The `drag`-motion signal is emitted on the drop site when the user
+    /// moves the cursor over the widget during a drag. The signal handler
+    /// must determine whether the cursor position is in a drop zone or not.
+    /// If it is not in a drop zone, it returns `false` and no further processing
+    /// is necessary. Otherwise, the handler returns `true`. In this case, the
+    /// handler is responsible for providing the necessary information for
+    /// displaying feedback to the user, by calling `gdk_drag_status()`.
+    /// 
+    /// If the decision whether the drop will be accepted or rejected can't be
+    /// made based solely on the cursor position and the type of the data, the
+    /// handler may inspect the dragged data by calling `gtk_drag_get_data()` and
+    /// defer the `gdk_drag_status()` call to the `GtkWidget::drag`-data-received
+    /// handler. Note that you must pass `GTK_DEST_DEFAULT_DROP`,
+    /// `GTK_DEST_DEFAULT_MOTION` or `GTK_DEST_DEFAULT_ALL` to `gtk_drag_dest_set()`
+    /// when using the drag-motion signal that way.
+    /// 
+    /// Also note that there is no drag-enter signal. The drag receiver has to
+    /// keep track of whether he has received any drag-motion signals since the
+    /// last `GtkWidget::drag`-leave and if not, treat the drag-motion signal as
+    /// an "enter" signal. Upon an "enter", the handler will typically highlight
+    /// the drop site with `gtk_drag_highlight()`.
+    /// (C Language Example):
+    /// ```C
+    /// static void
+    /// drag_motion (GtkWidget      *widget,
+    ///              GdkDragContext *context,
+    ///              gint            x,
+    ///              gint            y,
+    ///              guint           time)
+    /// {
+    ///   GdkAtom target;
+    /// 
+    ///   PrivateData *private_data = GET_PRIVATE_DATA (widget);
+    /// 
+    ///   if (!private_data->drag_highlight)
+    ///    {
+    ///      private_data->drag_highlight = 1;
+    ///      gtk_drag_highlight (widget);
+    ///    }
+    /// 
+    ///   target = gtk_drag_dest_find_target (widget, context, NULL);
+    ///   if (target == GDK_NONE)
+    ///     gdk_drag_status (context, 0, time);
+    ///   else
+    ///    {
+    ///      private_data->pending_status
+    ///         = gdk_drag_context_get_suggested_action (context);
+    ///      gtk_drag_get_data (widget, context, target, time);
+    ///    }
+    /// 
+    ///   return TRUE;
+    /// }
+    /// 
+    /// static void
+    /// drag_data_received (GtkWidget        *widget,
+    ///                     GdkDragContext   *context,
+    ///                     gint              x,
+    ///                     gint              y,
+    ///                     GtkSelectionData *selection_data,
+    ///                     guint             info,
+    ///                     guint             time)
+    /// {
+    ///   PrivateData *private_data = GET_PRIVATE_DATA (widget);
+    /// 
+    ///   if (private_data->suggested_action)
+    ///    {
+    ///      private_data->suggested_action = 0;
+    /// 
+    ///      // We are getting this data due to a request in drag_motion,
+    ///      // rather than due to a request in drag_drop, so we are just
+    ///      // supposed to call gdk_drag_status(), not actually paste in
+    ///      // the data.
+    /// 
+    ///      str = gtk_selection_data_get_text (selection_data);
+    ///      if (!data_is_acceptable (str))
+    ///        gdk_drag_status (context, 0, time);
+    ///      else
+    ///        gdk_drag_status (context,
+    ///                         private_data->suggested_action,
+    ///                         time);
+    ///    }
+    ///   else
+    ///    {
+    ///      // accept the drop
+    ///    }
+    /// }
+    /// ```
+    /// 
+    case dragMotion = "drag-motion"
+    /// This signal is emitted when a widget is supposed to render itself.
+    /// The `widget`'s top left corner must be painted at the origin of
+    /// the passed in context and be sized to the values returned by
+    /// `gtk_widget_get_allocated_width()` and
+    /// `gtk_widget_get_allocated_height()`.
+    /// 
+    /// Signal handlers connected to this signal can modify the cairo
+    /// context passed as `cr` in any way they like and don't need to
+    /// restore it. The signal emission takes care of calling `cairo_save()`
+    /// before and `cairo_restore()` after invoking the handler.
+    /// 
+    /// The signal handler will get a `cr` with a clip region already set to the
+    /// widget's dirty region, i.e. to the area that needs repainting.  Complicated
+    /// widgets that want to avoid redrawing themselves completely can get the full
+    /// extents of the clip region with `gdk_cairo_get_clip_rectangle()`, or they can
+    /// get a finer-grained representation of the dirty region with
+    /// `cairo_copy_clip_rectangle_list()`.
+    case draw = "draw"
+    /// The `enter`-notify-event will be emitted when the pointer enters
+    /// the `widget`'s window.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_ENTER_NOTIFY_MASK` mask.
+    /// 
+    /// This signal will be sent to the grab widget if there is one.
+    case enterNotifyEvent = "enter-notify-event"
+    /// The GTK+ main loop will emit three signals for each GDK event delivered
+    /// to a widget: one generic `event` signal, another, more specific,
+    /// signal that matches the type of event delivered (e.g.
+    /// `GtkWidget::key`-press-event) and finally a generic
+    /// `GtkWidget::event`-after signal.
+    case event = "event"
+    /// After the emission of the `GtkWidget::event` signal and (optionally)
+    /// the second more specific signal, `event`-after will be emitted
+    /// regardless of the previous two signals handlers return values.
+    case eventAfter = "event-after"
+    case focus = "focus"
+    /// The `focus`-in-event signal will be emitted when the keyboard focus
+    /// enters the `widget`'s window.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_FOCUS_CHANGE_MASK` mask.
+    case focusInEvent = "focus-in-event"
+    /// The `focus`-out-event signal will be emitted when the keyboard focus
+    /// leaves the `widget`'s window.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_FOCUS_CHANGE_MASK` mask.
+    case focusOutEvent = "focus-out-event"
+    /// Emitted when a pointer or keyboard grab on a window belonging
+    /// to `widget` gets broken.
+    /// 
+    /// On X11, this happens when the grab window becomes unviewable
+    /// (i.e. it or one of its ancestors is unmapped), or if the same
+    /// application grabs the pointer or keyboard again.
+    case grabBrokenEvent = "grab-broken-event"
+    case grabFocus = "grab-focus"
+    /// The `grab`-notify signal is emitted when a widget becomes
+    /// shadowed by a GTK+ grab (not a pointer or keyboard grab) on
+    /// another widget, or when it becomes unshadowed due to a grab
+    /// being removed.
+    /// 
+    /// A widget is shadowed by a `gtk_grab_add()` when the topmost
+    /// grab widget in the grab stack of its window group is not
+    /// its ancestor.
+    case grabNotify = "grab-notify"
+    /// The `hide` signal is emitted when `widget` is hidden, for example with
+    /// `gtk_widget_hide()`.
+    case hide = "hide"
+    /// The `hierarchy`-changed signal is emitted when the
+    /// anchored state of a widget changes. A widget is
+    /// “anchored” when its toplevel
+    /// ancestor is a `GtkWindow`. This signal is emitted when
+    /// a widget changes from un-anchored to anchored or vice-versa.
+    case hierarchyChanged = "hierarchy-changed"
+    /// The `key`-press-event signal is emitted when a key is pressed. The signal
+    /// emission will reoccur at the key-repeat rate when the key is kept pressed.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_KEY_PRESS_MASK` mask.
+    /// 
+    /// This signal will be sent to the grab widget if there is one.
+    case keyPressEvent = "key-press-event"
+    /// The `key`-release-event signal is emitted when a key is released.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_KEY_RELEASE_MASK` mask.
+    /// 
+    /// This signal will be sent to the grab widget if there is one.
+    case keyReleaseEvent = "key-release-event"
+    /// Gets emitted if keyboard navigation fails.
+    /// See `gtk_widget_keynav_failed()` for details.
+    case keynavFailed = "keynav-failed"
+    /// The `leave`-notify-event will be emitted when the pointer leaves
+    /// the `widget`'s window.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_LEAVE_NOTIFY_MASK` mask.
+    /// 
+    /// This signal will be sent to the grab widget if there is one.
+    case leaveNotifyEvent = "leave-notify-event"
+    /// The `map` signal is emitted when `widget` is going to be mapped, that is
+    /// when the widget is visible (which is controlled with
+    /// `gtk_widget_set_visible()`) and all its parents up to the toplevel widget
+    /// are also visible. Once the map has occurred, `GtkWidget::map`-event will
+    /// be emitted.
+    /// 
+    /// The `map` signal can be used to determine whether a widget will be drawn,
+    /// for instance it can resume an animation that was stopped during the
+    /// emission of `GtkWidget::unmap`.
+    case map = "map"
+    /// The `map`-event signal will be emitted when the `widget`'s window is
+    /// mapped. A window is mapped when it becomes visible on the screen.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_STRUCTURE_MASK` mask. GDK will enable this mask
+    /// automatically for all new windows.
+    case mapEvent = "map-event"
+    /// The default handler for this signal activates `widget` if `group_cycling`
+    /// is `false`, or just makes `widget` grab focus if `group_cycling` is `true`.
+    case mnemonicActivate = "mnemonic-activate"
+    /// The `motion`-notify-event signal is emitted when the pointer moves
+    /// over the widget's `GdkWindow`.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget
+    /// needs to enable the `GDK_POINTER_MOTION_MASK` mask.
+    /// 
+    /// This signal will be sent to the grab widget if there is one.
+    case motionNotifyEvent = "motion-notify-event"
+    case moveFocus = "move-focus"
+    /// Virtual function that moves the slider. Used for keybindings.
+    case moveSlider = "move-slider"
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    case notify = "notify"
+    /// The `parent`-set signal is emitted when a new parent
+    /// has been set on a widget.
+    case parentSet = "parent-set"
+    /// This signal gets emitted whenever a widget should pop up a context
+    /// menu. This usually happens through the standard key binding mechanism;
+    /// by pressing a certain key while a widget is focused, the user can cause
+    /// the widget to pop up a menu.  For example, the `GtkEntry` widget creates
+    /// a menu with clipboard commands. See the
+    /// [Popup Menu Migration Checklist](#checklist-popup-menu)
+    /// for an example of how to use this signal.
+    case popupMenu = "popup-menu"
+    /// The `property`-notify-event signal will be emitted when a property on
+    /// the `widget`'s window has been changed or deleted.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_PROPERTY_CHANGE_MASK` mask.
+    case propertyNotifyEvent = "property-notify-event"
+    /// To receive this signal the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_PROXIMITY_IN_MASK` mask.
+    /// 
+    /// This signal will be sent to the grab widget if there is one.
+    case proximityInEvent = "proximity-in-event"
+    /// To receive this signal the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_PROXIMITY_OUT_MASK` mask.
+    /// 
+    /// This signal will be sent to the grab widget if there is one.
+    case proximityOutEvent = "proximity-out-event"
+    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
+    /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
+    /// focus in keyboard mode.
+    /// 
+    /// Using the given coordinates, the signal handler should determine
+    /// whether a tooltip should be shown for `widget`. If this is the case
+    /// `true` should be returned, `false` otherwise.  Note that if
+    /// `keyboard_mode` is `true`, the values of `x` and `y` are undefined and
+    /// should not be used.
+    /// 
+    /// The signal handler is free to manipulate `tooltip` with the therefore
+    /// destined function calls.
+    case queryTooltip = "query-tooltip"
+    /// The `realize` signal is emitted when `widget` is associated with a
+    /// `GdkWindow`, which means that `gtk_widget_realize()` has been called or the
+    /// widget has been mapped (that is, it is going to be drawn).
+    case realize = "realize"
+    /// The `screen`-changed signal gets emitted when the
+    /// screen of a widget has changed.
+    case screenChanged = "screen-changed"
+    /// The `scroll`-event signal is emitted when a button in the 4 to 7
+    /// range is pressed. Wheel mice are usually configured to generate
+    /// button press events for buttons 4 and 5 when the wheel is turned.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_SCROLL_MASK` mask.
+    /// 
+    /// This signal will be sent to the grab widget if there is one.
+    case scrollEvent = "scroll-event"
+    /// The `selection`-clear-event signal will be emitted when the
+    /// the `widget`'s window has lost ownership of a selection.
+    case selectionClearEvent = "selection-clear-event"
+    case selectionGet = "selection-get"
+    case selectionNotifyEvent = "selection-notify-event"
+    case selectionReceived = "selection-received"
+    /// The `selection`-request-event signal will be emitted when
+    /// another client requests ownership of the selection owned by
+    /// the `widget`'s window.
+    case selectionRequestEvent = "selection-request-event"
+    /// The `show` signal is emitted when `widget` is shown, for example with
+    /// `gtk_widget_show()`.
+    case show = "show"
+    case showHelp = "show-help"
+    case sizeAllocate = "size-allocate"
+    /// The `state`-changed signal is emitted when the widget state changes.
+    /// See `gtk_widget_get_state()`.
+    ///
+    /// **state-changed is deprecated:**
+    /// Use #GtkWidget::state-flags-changed instead.
+    case stateChanged = "state-changed"
+    /// The `state`-flags-changed signal is emitted when the widget state
+    /// changes, see `gtk_widget_get_state_flags()`.
+    case stateFlagsChanged = "state-flags-changed"
+    /// The `style`-set signal is emitted when a new style has been set
+    /// on a widget. Note that style-modifying functions like
+    /// `gtk_widget_modify_base()` also cause this signal to be emitted.
+    /// 
+    /// Note that this signal is emitted for changes to the deprecated
+    /// `GtkStyle`. To track changes to the `GtkStyleContext` associated
+    /// with a widget, use the `GtkWidget::style`-updated signal.
+    ///
+    /// **style-set is deprecated:**
+    /// Use the #GtkWidget::style-updated signal
+    case styleSet = "style-set"
+    /// The `style`-updated signal is a convenience signal that is emitted when the
+    /// `GtkStyleContext::changed` signal is emitted on the `widget`'s associated
+    /// `GtkStyleContext` as returned by `gtk_widget_get_style_context()`.
+    /// 
+    /// Note that style-modifying functions like `gtk_widget_override_color()` also
+    /// cause this signal to be emitted.
+    case styleUpdated = "style-updated"
+    case touchEvent = "touch-event"
+    /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
+    /// means that either it or any of its parents up to the toplevel widget have
+    /// been set as hidden.
+    /// 
+    /// As `unmap` indicates that a widget will not be shown any longer, it can be
+    /// used to, for example, stop an animation on the widget.
+    case unmap = "unmap"
+    /// The `unmap`-event signal will be emitted when the `widget`'s window is
+    /// unmapped. A window is unmapped when it becomes invisible on the screen.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_STRUCTURE_MASK` mask. GDK will enable this mask
+    /// automatically for all new windows.
+    case unmapEvent = "unmap-event"
+    /// The `unrealize` signal is emitted when the `GdkWindow` associated with
+    /// `widget` is destroyed, which means that `gtk_widget_unrealize()` has been
+    /// called or the widget has been unmapped (that is, it is going to be
+    /// hidden).
+    case unrealize = "unrealize"
+    /// Emitted when the range value changes.
+    case valueChanged = "value-changed"
+    /// The `visibility`-notify-event will be emitted when the `widget`'s
+    /// window is obscured or unobscured.
+    /// 
+    /// To receive this signal the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_VISIBILITY_NOTIFY_MASK` mask.
+    ///
+    /// **visibility-notify-event is deprecated:**
+    /// Modern composited windowing systems with pervasive
+    ///     transparency make it impossible to track the visibility of a window
+    ///     reliably, so this signal can not be guaranteed to provide useful
+    ///     information.
+    case visibilityNotifyEvent = "visibility-notify-event"
+    /// The `window`-state-event will be emitted when the state of the
+    /// toplevel window associated to the `widget` changes.
+    /// 
+    /// To receive this signal the `GdkWindow` associated to the widget
+    /// needs to enable the `GDK_STRUCTURE_MASK` mask. GDK will enable
+    /// this mask automatically for all new windows.
+    case windowStateEvent = "window-state-event"
+    case notifyAdjustment = "notify::adjustment"
+    case notifyAppPaintable = "notify::app-paintable"
+    case notifyCanDefault = "notify::can-default"
+    case notifyCanFocus = "notify::can-focus"
+    case notifyCompositeChild = "notify::composite-child"
+    /// Whether the widget is double buffered.
+    ///
+    /// **double-buffered is deprecated:**
+    /// Widgets should not use this property.
+    case notifyDoubleBuffered = "notify::double-buffered"
+    case notifyEvents = "notify::events"
+    /// Whether to expand in both directions. Setting this sets both `GtkWidget:hexpand` and `GtkWidget:vexpand`
+    case notifyExpand = "notify::expand"
+    /// The fill level (e.g. prebuffering of a network stream).
+    /// See `gtk_range_set_fill_level()`.
+    case notifyFillLevel = "notify::fill-level"
+    /// Whether the widget should grab focus when it is clicked with the mouse.
+    /// 
+    /// This property is only relevant for widgets that can take focus.
+    /// 
+    /// Before 3.20, several widgets (GtkButton, GtkFileChooserButton,
+    /// GtkComboBox) implemented this property individually.
+    case notifyFocusOnClick = "notify::focus-on-click"
+    /// How to distribute horizontal space if widget gets extra space, see `GtkAlign`
+    case notifyHalign = "notify::halign"
+    case notifyHasDefault = "notify::has-default"
+    case notifyHasFocus = "notify::has-focus"
+    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// A value of `true` indicates that `widget` can have a tooltip, in this case
+    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// whether it will provide a tooltip or not.
+    /// 
+    /// Note that setting this property to `true` for the first time will change
+    /// the event masks of the GdkWindows of this widget to include leave-notify
+    /// and motion-notify events.  This cannot and will not be undone when the
+    /// property is set to `false` again.
+    case notifyHasTooltip = "notify::has-tooltip"
+    case notifyHeightRequest = "notify::height-request"
+    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
+    case notifyHexpand = "notify::hexpand"
+    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
+    case notifyHexpandSet = "notify::hexpand-set"
+    case notifyInverted = "notify::inverted"
+    case notifyIsFocus = "notify::is-focus"
+    case notifyLowerStepperSensitivity = "notify::lower-stepper-sensitivity"
+    /// Sets all four sides' margin at once. If read, returns max
+    /// margin on any side.
+    case notifyMargin = "notify::margin"
+    /// Margin on bottom side of widget.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginBottom = "notify::margin-bottom"
+    /// Margin on end of widget, horizontally. This property supports
+    /// left-to-right and right-to-left text directions.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginEnd = "notify::margin-end"
+    /// Margin on left side of widget.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    ///
+    /// **margin-left is deprecated:**
+    /// Use #GtkWidget:margin-start instead.
+    case notifyMarginLeft = "notify::margin-left"
+    /// Margin on right side of widget.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    ///
+    /// **margin-right is deprecated:**
+    /// Use #GtkWidget:margin-end instead.
+    case notifyMarginRight = "notify::margin-right"
+    /// Margin on start of widget, horizontally. This property supports
+    /// left-to-right and right-to-left text directions.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginStart = "notify::margin-start"
+    /// Margin on top side of widget.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginTop = "notify::margin-top"
+    case notifyName = "notify::name"
+    case notifyNoShowAll = "notify::no-show-all"
+    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
+    /// more details about window opacity.
+    /// 
+    /// Before 3.8 this was only available in GtkWindow
+    case notifyOpacity = "notify::opacity"
+    case notifyParent = "notify::parent"
+    case notifyReceivesDefault = "notify::receives-default"
+    /// The restrict-to-fill-level property controls whether slider
+    /// movement is restricted to an upper boundary set by the
+    /// fill level. See `gtk_range_set_restrict_to_fill_level()`.
+    case notifyRestrictToFillLevel = "notify::restrict-to-fill-level"
+    /// The number of digits to round the value to when
+    /// it changes, or -1. See `GtkRange::change`-value.
+    case notifyRoundDigits = "notify::round-digits"
+    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
+    /// more details about widget scaling.
+    case notifyScaleFactor = "notify::scale-factor"
+    case notifySensitive = "notify::sensitive"
+    /// The show-fill-level property controls whether fill level indicator
+    /// graphics are displayed on the trough. See
+    /// `gtk_range_set_show_fill_level()`.
+    case notifyShowFillLevel = "notify::show-fill-level"
+    /// The style of the widget, which contains information about how it will look (colors, etc).
+    ///
+    /// **style is deprecated:**
+    /// Use #GtkStyleContext instead
+    case notifyStyle = "notify::style"
+    /// Sets the text of tooltip to be the given string, which is marked up
+    /// with the [Pango text markup language](#PangoMarkupFormat).
+    /// Also see `gtk_tooltip_set_markup()`.
+    /// 
+    /// This is a convenience property which will take care of getting the
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// will automatically be set to `true` and there will be taken care of
+    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// 
+    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// are set, the last one wins.
+    case notifyTooltipMarkup = "notify::tooltip-markup"
+    /// Sets the text of tooltip to be the given string.
+    /// 
+    /// Also see `gtk_tooltip_set_text()`.
+    /// 
+    /// This is a convenience property which will take care of getting the
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// will automatically be set to `true` and there will be taken care of
+    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// 
+    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// are set, the last one wins.
+    case notifyTooltipText = "notify::tooltip-text"
+    case notifyUpperStepperSensitivity = "notify::upper-stepper-sensitivity"
+    /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
+    case notifyValign = "notify::valign"
+    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
+    case notifyVexpand = "notify::vexpand"
+    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
+    case notifyVexpandSet = "notify::vexpand-set"
+    case notifyVisible = "notify::visible"
+    case notifyWidthRequest = "notify::width-request"
+    /// The widget's window if it is realized, `nil` otherwise.
+    case notifyWindow = "notify::window"
+}
+
+// MARK: VScrollbar has no signals
+// MARK: VScrollbar Class: VScrollbarProtocol extension (methods and fields)
 public extension VScrollbarProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkVScrollbar` instance.
     @inlinable var vscrollbar_ptr: UnsafeMutablePointer<GtkVScrollbar>! { return ptr?.assumingMemoryBound(to: GtkVScrollbar.self) }
@@ -3085,7 +6793,712 @@ public extension VSeparatorProtocol {
     }
 }
 
-// MARK: VSeparator has no signals// MARK: VSeparator Class: VSeparatorProtocol extension (methods and fields)
+public enum VSeparatorSignalName: String, SignalNameProtocol {
+    case accelClosuresChanged = "accel-closures-changed"
+    /// The `button`-press-event signal will be emitted when a button
+    /// (typically from a mouse) is pressed.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the
+    /// widget needs to enable the `GDK_BUTTON_PRESS_MASK` mask.
+    /// 
+    /// This signal will be sent to the grab widget if there is one.
+    case buttonPressEvent = "button-press-event"
+    /// The `button`-release-event signal will be emitted when a button
+    /// (typically from a mouse) is released.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the
+    /// widget needs to enable the `GDK_BUTTON_RELEASE_MASK` mask.
+    /// 
+    /// This signal will be sent to the grab widget if there is one.
+    case buttonReleaseEvent = "button-release-event"
+    /// Determines whether an accelerator that activates the signal
+    /// identified by `signal_id` can currently be activated.
+    /// This signal is present to allow applications and derived
+    /// widgets to override the default `GtkWidget` handling
+    /// for determining whether an accelerator can be activated.
+    case canActivateAccel = "can-activate-accel"
+    /// The `child`-notify signal is emitted for each
+    /// [child property](#child-properties)  that has
+    /// changed on an object. The signal's detail holds the property name.
+    case childNotify = "child-notify"
+    /// The `composited`-changed signal is emitted when the composited
+    /// status of `widgets` screen changes.
+    /// See `gdk_screen_is_composited()`.
+    ///
+    /// **composited-changed is deprecated:**
+    /// Use GdkScreen::composited-changed instead.
+    case compositedChanged = "composited-changed"
+    /// The `configure`-event signal will be emitted when the size, position or
+    /// stacking of the `widget`'s window has changed.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_STRUCTURE_MASK` mask. GDK will enable this mask
+    /// automatically for all new windows.
+    case configureEvent = "configure-event"
+    /// Emitted when a redirected window belonging to `widget` gets drawn into.
+    /// The region/area members of the event shows what area of the redirected
+    /// drawable was drawn into.
+    case damageEvent = "damage-event"
+    /// The `delete`-event signal is emitted if a user requests that
+    /// a toplevel window is closed. The default handler for this signal
+    /// destroys the window. Connecting `gtk_widget_hide_on_delete()` to
+    /// this signal will cause the window to be hidden instead, so that
+    /// it can later be shown again without reconstructing it.
+    case deleteEvent = "delete-event"
+    /// Signals that all holders of a reference to the widget should release
+    /// the reference that they hold. May result in finalization of the widget
+    /// if all references are released.
+    /// 
+    /// This signal is not suitable for saving widget state.
+    case destroy = "destroy"
+    /// The `destroy`-event signal is emitted when a `GdkWindow` is destroyed.
+    /// You rarely get this signal, because most widgets disconnect themselves
+    /// from their window before they destroy it, so no widget owns the
+    /// window at destroy time.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_STRUCTURE_MASK` mask. GDK will enable this mask
+    /// automatically for all new windows.
+    case destroyEvent = "destroy-event"
+    /// The `direction`-changed signal is emitted when the text direction
+    /// of a widget changes.
+    case directionChanged = "direction-changed"
+    /// The `drag`-begin signal is emitted on the drag source when a drag is
+    /// started. A typical reason to connect to this signal is to set up a
+    /// custom drag icon with e.g. `gtk_drag_source_set_icon_pixbuf()`.
+    /// 
+    /// Note that some widgets set up a drag icon in the default handler of
+    /// this signal, so you may have to use `g_signal_connect_after()` to
+    /// override what the default handler did.
+    case dragBegin = "drag-begin"
+    /// The `drag`-data-delete signal is emitted on the drag source when a drag
+    /// with the action `GDK_ACTION_MOVE` is successfully completed. The signal
+    /// handler is responsible for deleting the data that has been dropped. What
+    /// "delete" means depends on the context of the drag operation.
+    case dragDataDelete = "drag-data-delete"
+    /// The `drag`-data-get signal is emitted on the drag source when the drop
+    /// site requests the data which is dragged. It is the responsibility of
+    /// the signal handler to fill `data` with the data in the format which
+    /// is indicated by `info`. See `gtk_selection_data_set()` and
+    /// `gtk_selection_data_set_text()`.
+    case dragDataGet = "drag-data-get"
+    /// The `drag`-data-received signal is emitted on the drop site when the
+    /// dragged data has been received. If the data was received in order to
+    /// determine whether the drop will be accepted, the handler is expected
+    /// to call `gdk_drag_status()` and not finish the drag.
+    /// If the data was received in response to a `GtkWidget::drag`-drop signal
+    /// (and this is the last target to be received), the handler for this
+    /// signal is expected to process the received data and then call
+    /// `gtk_drag_finish()`, setting the `success` parameter depending on
+    /// whether the data was processed successfully.
+    /// 
+    /// Applications must create some means to determine why the signal was emitted
+    /// and therefore whether to call `gdk_drag_status()` or `gtk_drag_finish()`.
+    /// 
+    /// The handler may inspect the selected action with
+    /// `gdk_drag_context_get_selected_action()` before calling
+    /// `gtk_drag_finish()`, e.g. to implement `GDK_ACTION_ASK` as
+    /// shown in the following example:
+    /// (C Language Example):
+    /// ```C
+    /// void
+    /// drag_data_received (GtkWidget          *widget,
+    ///                     GdkDragContext     *context,
+    ///                     gint                x,
+    ///                     gint                y,
+    ///                     GtkSelectionData   *data,
+    ///                     guint               info,
+    ///                     guint               time)
+    /// {
+    ///   if ((data->length >= 0) && (data->format == 8))
+    ///     {
+    ///       GdkDragAction action;
+    /// 
+    ///       // handle data here
+    /// 
+    ///       action = gdk_drag_context_get_selected_action (context);
+    ///       if (action == GDK_ACTION_ASK)
+    ///         {
+    ///           GtkWidget *dialog;
+    ///           gint response;
+    /// 
+    ///           dialog = gtk_message_dialog_new (NULL,
+    ///                                            GTK_DIALOG_MODAL |
+    ///                                            GTK_DIALOG_DESTROY_WITH_PARENT,
+    ///                                            GTK_MESSAGE_INFO,
+    ///                                            GTK_BUTTONS_YES_NO,
+    ///                                            "Move the data ?\n");
+    ///           response = gtk_dialog_run (GTK_DIALOG (dialog));
+    ///           gtk_widget_destroy (dialog);
+    /// 
+    ///           if (response == GTK_RESPONSE_YES)
+    ///             action = GDK_ACTION_MOVE;
+    ///           else
+    ///             action = GDK_ACTION_COPY;
+    ///          }
+    /// 
+    ///       gtk_drag_finish (context, TRUE, action == GDK_ACTION_MOVE, time);
+    ///     }
+    ///   else
+    ///     gtk_drag_finish (context, FALSE, FALSE, time);
+    ///  }
+    /// ```
+    /// 
+    case dragDataReceived = "drag-data-received"
+    /// The `drag`-drop signal is emitted on the drop site when the user drops
+    /// the data onto the widget. The signal handler must determine whether
+    /// the cursor position is in a drop zone or not. If it is not in a drop
+    /// zone, it returns `false` and no further processing is necessary.
+    /// Otherwise, the handler returns `true`. In this case, the handler must
+    /// ensure that `gtk_drag_finish()` is called to let the source know that
+    /// the drop is done. The call to `gtk_drag_finish()` can be done either
+    /// directly or in a `GtkWidget::drag`-data-received handler which gets
+    /// triggered by calling `gtk_drag_get_data()` to receive the data for one
+    /// or more of the supported targets.
+    case dragDrop = "drag-drop"
+    /// The `drag`-end signal is emitted on the drag source when a drag is
+    /// finished.  A typical reason to connect to this signal is to undo
+    /// things done in `GtkWidget::drag`-begin.
+    case dragEnd = "drag-end"
+    /// The `drag`-failed signal is emitted on the drag source when a drag has
+    /// failed. The signal handler may hook custom code to handle a failed DnD
+    /// operation based on the type of error, it returns `true` is the failure has
+    /// been already handled (not showing the default "drag operation failed"
+    /// animation), otherwise it returns `false`.
+    case dragFailed = "drag-failed"
+    /// The `drag`-leave signal is emitted on the drop site when the cursor
+    /// leaves the widget. A typical reason to connect to this signal is to
+    /// undo things done in `GtkWidget::drag`-motion, e.g. undo highlighting
+    /// with `gtk_drag_unhighlight()`.
+    /// 
+    /// 
+    /// Likewise, the `GtkWidget::drag`-leave signal is also emitted before the
+    /// `drag`-drop signal, for instance to allow cleaning up of a preview item
+    /// created in the `GtkWidget::drag`-motion signal handler.
+    case dragLeave = "drag-leave"
+    /// The `drag`-motion signal is emitted on the drop site when the user
+    /// moves the cursor over the widget during a drag. The signal handler
+    /// must determine whether the cursor position is in a drop zone or not.
+    /// If it is not in a drop zone, it returns `false` and no further processing
+    /// is necessary. Otherwise, the handler returns `true`. In this case, the
+    /// handler is responsible for providing the necessary information for
+    /// displaying feedback to the user, by calling `gdk_drag_status()`.
+    /// 
+    /// If the decision whether the drop will be accepted or rejected can't be
+    /// made based solely on the cursor position and the type of the data, the
+    /// handler may inspect the dragged data by calling `gtk_drag_get_data()` and
+    /// defer the `gdk_drag_status()` call to the `GtkWidget::drag`-data-received
+    /// handler. Note that you must pass `GTK_DEST_DEFAULT_DROP`,
+    /// `GTK_DEST_DEFAULT_MOTION` or `GTK_DEST_DEFAULT_ALL` to `gtk_drag_dest_set()`
+    /// when using the drag-motion signal that way.
+    /// 
+    /// Also note that there is no drag-enter signal. The drag receiver has to
+    /// keep track of whether he has received any drag-motion signals since the
+    /// last `GtkWidget::drag`-leave and if not, treat the drag-motion signal as
+    /// an "enter" signal. Upon an "enter", the handler will typically highlight
+    /// the drop site with `gtk_drag_highlight()`.
+    /// (C Language Example):
+    /// ```C
+    /// static void
+    /// drag_motion (GtkWidget      *widget,
+    ///              GdkDragContext *context,
+    ///              gint            x,
+    ///              gint            y,
+    ///              guint           time)
+    /// {
+    ///   GdkAtom target;
+    /// 
+    ///   PrivateData *private_data = GET_PRIVATE_DATA (widget);
+    /// 
+    ///   if (!private_data->drag_highlight)
+    ///    {
+    ///      private_data->drag_highlight = 1;
+    ///      gtk_drag_highlight (widget);
+    ///    }
+    /// 
+    ///   target = gtk_drag_dest_find_target (widget, context, NULL);
+    ///   if (target == GDK_NONE)
+    ///     gdk_drag_status (context, 0, time);
+    ///   else
+    ///    {
+    ///      private_data->pending_status
+    ///         = gdk_drag_context_get_suggested_action (context);
+    ///      gtk_drag_get_data (widget, context, target, time);
+    ///    }
+    /// 
+    ///   return TRUE;
+    /// }
+    /// 
+    /// static void
+    /// drag_data_received (GtkWidget        *widget,
+    ///                     GdkDragContext   *context,
+    ///                     gint              x,
+    ///                     gint              y,
+    ///                     GtkSelectionData *selection_data,
+    ///                     guint             info,
+    ///                     guint             time)
+    /// {
+    ///   PrivateData *private_data = GET_PRIVATE_DATA (widget);
+    /// 
+    ///   if (private_data->suggested_action)
+    ///    {
+    ///      private_data->suggested_action = 0;
+    /// 
+    ///      // We are getting this data due to a request in drag_motion,
+    ///      // rather than due to a request in drag_drop, so we are just
+    ///      // supposed to call gdk_drag_status(), not actually paste in
+    ///      // the data.
+    /// 
+    ///      str = gtk_selection_data_get_text (selection_data);
+    ///      if (!data_is_acceptable (str))
+    ///        gdk_drag_status (context, 0, time);
+    ///      else
+    ///        gdk_drag_status (context,
+    ///                         private_data->suggested_action,
+    ///                         time);
+    ///    }
+    ///   else
+    ///    {
+    ///      // accept the drop
+    ///    }
+    /// }
+    /// ```
+    /// 
+    case dragMotion = "drag-motion"
+    /// This signal is emitted when a widget is supposed to render itself.
+    /// The `widget`'s top left corner must be painted at the origin of
+    /// the passed in context and be sized to the values returned by
+    /// `gtk_widget_get_allocated_width()` and
+    /// `gtk_widget_get_allocated_height()`.
+    /// 
+    /// Signal handlers connected to this signal can modify the cairo
+    /// context passed as `cr` in any way they like and don't need to
+    /// restore it. The signal emission takes care of calling `cairo_save()`
+    /// before and `cairo_restore()` after invoking the handler.
+    /// 
+    /// The signal handler will get a `cr` with a clip region already set to the
+    /// widget's dirty region, i.e. to the area that needs repainting.  Complicated
+    /// widgets that want to avoid redrawing themselves completely can get the full
+    /// extents of the clip region with `gdk_cairo_get_clip_rectangle()`, or they can
+    /// get a finer-grained representation of the dirty region with
+    /// `cairo_copy_clip_rectangle_list()`.
+    case draw = "draw"
+    /// The `enter`-notify-event will be emitted when the pointer enters
+    /// the `widget`'s window.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_ENTER_NOTIFY_MASK` mask.
+    /// 
+    /// This signal will be sent to the grab widget if there is one.
+    case enterNotifyEvent = "enter-notify-event"
+    /// The GTK+ main loop will emit three signals for each GDK event delivered
+    /// to a widget: one generic `event` signal, another, more specific,
+    /// signal that matches the type of event delivered (e.g.
+    /// `GtkWidget::key`-press-event) and finally a generic
+    /// `GtkWidget::event`-after signal.
+    case event = "event"
+    /// After the emission of the `GtkWidget::event` signal and (optionally)
+    /// the second more specific signal, `event`-after will be emitted
+    /// regardless of the previous two signals handlers return values.
+    case eventAfter = "event-after"
+    case focus = "focus"
+    /// The `focus`-in-event signal will be emitted when the keyboard focus
+    /// enters the `widget`'s window.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_FOCUS_CHANGE_MASK` mask.
+    case focusInEvent = "focus-in-event"
+    /// The `focus`-out-event signal will be emitted when the keyboard focus
+    /// leaves the `widget`'s window.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_FOCUS_CHANGE_MASK` mask.
+    case focusOutEvent = "focus-out-event"
+    /// Emitted when a pointer or keyboard grab on a window belonging
+    /// to `widget` gets broken.
+    /// 
+    /// On X11, this happens when the grab window becomes unviewable
+    /// (i.e. it or one of its ancestors is unmapped), or if the same
+    /// application grabs the pointer or keyboard again.
+    case grabBrokenEvent = "grab-broken-event"
+    case grabFocus = "grab-focus"
+    /// The `grab`-notify signal is emitted when a widget becomes
+    /// shadowed by a GTK+ grab (not a pointer or keyboard grab) on
+    /// another widget, or when it becomes unshadowed due to a grab
+    /// being removed.
+    /// 
+    /// A widget is shadowed by a `gtk_grab_add()` when the topmost
+    /// grab widget in the grab stack of its window group is not
+    /// its ancestor.
+    case grabNotify = "grab-notify"
+    /// The `hide` signal is emitted when `widget` is hidden, for example with
+    /// `gtk_widget_hide()`.
+    case hide = "hide"
+    /// The `hierarchy`-changed signal is emitted when the
+    /// anchored state of a widget changes. A widget is
+    /// “anchored” when its toplevel
+    /// ancestor is a `GtkWindow`. This signal is emitted when
+    /// a widget changes from un-anchored to anchored or vice-versa.
+    case hierarchyChanged = "hierarchy-changed"
+    /// The `key`-press-event signal is emitted when a key is pressed. The signal
+    /// emission will reoccur at the key-repeat rate when the key is kept pressed.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_KEY_PRESS_MASK` mask.
+    /// 
+    /// This signal will be sent to the grab widget if there is one.
+    case keyPressEvent = "key-press-event"
+    /// The `key`-release-event signal is emitted when a key is released.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_KEY_RELEASE_MASK` mask.
+    /// 
+    /// This signal will be sent to the grab widget if there is one.
+    case keyReleaseEvent = "key-release-event"
+    /// Gets emitted if keyboard navigation fails.
+    /// See `gtk_widget_keynav_failed()` for details.
+    case keynavFailed = "keynav-failed"
+    /// The `leave`-notify-event will be emitted when the pointer leaves
+    /// the `widget`'s window.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_LEAVE_NOTIFY_MASK` mask.
+    /// 
+    /// This signal will be sent to the grab widget if there is one.
+    case leaveNotifyEvent = "leave-notify-event"
+    /// The `map` signal is emitted when `widget` is going to be mapped, that is
+    /// when the widget is visible (which is controlled with
+    /// `gtk_widget_set_visible()`) and all its parents up to the toplevel widget
+    /// are also visible. Once the map has occurred, `GtkWidget::map`-event will
+    /// be emitted.
+    /// 
+    /// The `map` signal can be used to determine whether a widget will be drawn,
+    /// for instance it can resume an animation that was stopped during the
+    /// emission of `GtkWidget::unmap`.
+    case map = "map"
+    /// The `map`-event signal will be emitted when the `widget`'s window is
+    /// mapped. A window is mapped when it becomes visible on the screen.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_STRUCTURE_MASK` mask. GDK will enable this mask
+    /// automatically for all new windows.
+    case mapEvent = "map-event"
+    /// The default handler for this signal activates `widget` if `group_cycling`
+    /// is `false`, or just makes `widget` grab focus if `group_cycling` is `true`.
+    case mnemonicActivate = "mnemonic-activate"
+    /// The `motion`-notify-event signal is emitted when the pointer moves
+    /// over the widget's `GdkWindow`.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget
+    /// needs to enable the `GDK_POINTER_MOTION_MASK` mask.
+    /// 
+    /// This signal will be sent to the grab widget if there is one.
+    case motionNotifyEvent = "motion-notify-event"
+    case moveFocus = "move-focus"
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    case notify = "notify"
+    /// The `parent`-set signal is emitted when a new parent
+    /// has been set on a widget.
+    case parentSet = "parent-set"
+    /// This signal gets emitted whenever a widget should pop up a context
+    /// menu. This usually happens through the standard key binding mechanism;
+    /// by pressing a certain key while a widget is focused, the user can cause
+    /// the widget to pop up a menu.  For example, the `GtkEntry` widget creates
+    /// a menu with clipboard commands. See the
+    /// [Popup Menu Migration Checklist](#checklist-popup-menu)
+    /// for an example of how to use this signal.
+    case popupMenu = "popup-menu"
+    /// The `property`-notify-event signal will be emitted when a property on
+    /// the `widget`'s window has been changed or deleted.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_PROPERTY_CHANGE_MASK` mask.
+    case propertyNotifyEvent = "property-notify-event"
+    /// To receive this signal the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_PROXIMITY_IN_MASK` mask.
+    /// 
+    /// This signal will be sent to the grab widget if there is one.
+    case proximityInEvent = "proximity-in-event"
+    /// To receive this signal the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_PROXIMITY_OUT_MASK` mask.
+    /// 
+    /// This signal will be sent to the grab widget if there is one.
+    case proximityOutEvent = "proximity-out-event"
+    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
+    /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
+    /// focus in keyboard mode.
+    /// 
+    /// Using the given coordinates, the signal handler should determine
+    /// whether a tooltip should be shown for `widget`. If this is the case
+    /// `true` should be returned, `false` otherwise.  Note that if
+    /// `keyboard_mode` is `true`, the values of `x` and `y` are undefined and
+    /// should not be used.
+    /// 
+    /// The signal handler is free to manipulate `tooltip` with the therefore
+    /// destined function calls.
+    case queryTooltip = "query-tooltip"
+    /// The `realize` signal is emitted when `widget` is associated with a
+    /// `GdkWindow`, which means that `gtk_widget_realize()` has been called or the
+    /// widget has been mapped (that is, it is going to be drawn).
+    case realize = "realize"
+    /// The `screen`-changed signal gets emitted when the
+    /// screen of a widget has changed.
+    case screenChanged = "screen-changed"
+    /// The `scroll`-event signal is emitted when a button in the 4 to 7
+    /// range is pressed. Wheel mice are usually configured to generate
+    /// button press events for buttons 4 and 5 when the wheel is turned.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_SCROLL_MASK` mask.
+    /// 
+    /// This signal will be sent to the grab widget if there is one.
+    case scrollEvent = "scroll-event"
+    /// The `selection`-clear-event signal will be emitted when the
+    /// the `widget`'s window has lost ownership of a selection.
+    case selectionClearEvent = "selection-clear-event"
+    case selectionGet = "selection-get"
+    case selectionNotifyEvent = "selection-notify-event"
+    case selectionReceived = "selection-received"
+    /// The `selection`-request-event signal will be emitted when
+    /// another client requests ownership of the selection owned by
+    /// the `widget`'s window.
+    case selectionRequestEvent = "selection-request-event"
+    /// The `show` signal is emitted when `widget` is shown, for example with
+    /// `gtk_widget_show()`.
+    case show = "show"
+    case showHelp = "show-help"
+    case sizeAllocate = "size-allocate"
+    /// The `state`-changed signal is emitted when the widget state changes.
+    /// See `gtk_widget_get_state()`.
+    ///
+    /// **state-changed is deprecated:**
+    /// Use #GtkWidget::state-flags-changed instead.
+    case stateChanged = "state-changed"
+    /// The `state`-flags-changed signal is emitted when the widget state
+    /// changes, see `gtk_widget_get_state_flags()`.
+    case stateFlagsChanged = "state-flags-changed"
+    /// The `style`-set signal is emitted when a new style has been set
+    /// on a widget. Note that style-modifying functions like
+    /// `gtk_widget_modify_base()` also cause this signal to be emitted.
+    /// 
+    /// Note that this signal is emitted for changes to the deprecated
+    /// `GtkStyle`. To track changes to the `GtkStyleContext` associated
+    /// with a widget, use the `GtkWidget::style`-updated signal.
+    ///
+    /// **style-set is deprecated:**
+    /// Use the #GtkWidget::style-updated signal
+    case styleSet = "style-set"
+    /// The `style`-updated signal is a convenience signal that is emitted when the
+    /// `GtkStyleContext::changed` signal is emitted on the `widget`'s associated
+    /// `GtkStyleContext` as returned by `gtk_widget_get_style_context()`.
+    /// 
+    /// Note that style-modifying functions like `gtk_widget_override_color()` also
+    /// cause this signal to be emitted.
+    case styleUpdated = "style-updated"
+    case touchEvent = "touch-event"
+    /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
+    /// means that either it or any of its parents up to the toplevel widget have
+    /// been set as hidden.
+    /// 
+    /// As `unmap` indicates that a widget will not be shown any longer, it can be
+    /// used to, for example, stop an animation on the widget.
+    case unmap = "unmap"
+    /// The `unmap`-event signal will be emitted when the `widget`'s window is
+    /// unmapped. A window is unmapped when it becomes invisible on the screen.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_STRUCTURE_MASK` mask. GDK will enable this mask
+    /// automatically for all new windows.
+    case unmapEvent = "unmap-event"
+    /// The `unrealize` signal is emitted when the `GdkWindow` associated with
+    /// `widget` is destroyed, which means that `gtk_widget_unrealize()` has been
+    /// called or the widget has been unmapped (that is, it is going to be
+    /// hidden).
+    case unrealize = "unrealize"
+    /// The `visibility`-notify-event will be emitted when the `widget`'s
+    /// window is obscured or unobscured.
+    /// 
+    /// To receive this signal the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_VISIBILITY_NOTIFY_MASK` mask.
+    ///
+    /// **visibility-notify-event is deprecated:**
+    /// Modern composited windowing systems with pervasive
+    ///     transparency make it impossible to track the visibility of a window
+    ///     reliably, so this signal can not be guaranteed to provide useful
+    ///     information.
+    case visibilityNotifyEvent = "visibility-notify-event"
+    /// The `window`-state-event will be emitted when the state of the
+    /// toplevel window associated to the `widget` changes.
+    /// 
+    /// To receive this signal the `GdkWindow` associated to the widget
+    /// needs to enable the `GDK_STRUCTURE_MASK` mask. GDK will enable
+    /// this mask automatically for all new windows.
+    case windowStateEvent = "window-state-event"
+    case notifyAppPaintable = "notify::app-paintable"
+    case notifyCanDefault = "notify::can-default"
+    case notifyCanFocus = "notify::can-focus"
+    case notifyCompositeChild = "notify::composite-child"
+    /// Whether the widget is double buffered.
+    ///
+    /// **double-buffered is deprecated:**
+    /// Widgets should not use this property.
+    case notifyDoubleBuffered = "notify::double-buffered"
+    case notifyEvents = "notify::events"
+    /// Whether to expand in both directions. Setting this sets both `GtkWidget:hexpand` and `GtkWidget:vexpand`
+    case notifyExpand = "notify::expand"
+    /// Whether the widget should grab focus when it is clicked with the mouse.
+    /// 
+    /// This property is only relevant for widgets that can take focus.
+    /// 
+    /// Before 3.20, several widgets (GtkButton, GtkFileChooserButton,
+    /// GtkComboBox) implemented this property individually.
+    case notifyFocusOnClick = "notify::focus-on-click"
+    /// How to distribute horizontal space if widget gets extra space, see `GtkAlign`
+    case notifyHalign = "notify::halign"
+    case notifyHasDefault = "notify::has-default"
+    case notifyHasFocus = "notify::has-focus"
+    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// A value of `true` indicates that `widget` can have a tooltip, in this case
+    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// whether it will provide a tooltip or not.
+    /// 
+    /// Note that setting this property to `true` for the first time will change
+    /// the event masks of the GdkWindows of this widget to include leave-notify
+    /// and motion-notify events.  This cannot and will not be undone when the
+    /// property is set to `false` again.
+    case notifyHasTooltip = "notify::has-tooltip"
+    case notifyHeightRequest = "notify::height-request"
+    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
+    case notifyHexpand = "notify::hexpand"
+    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
+    case notifyHexpandSet = "notify::hexpand-set"
+    case notifyIsFocus = "notify::is-focus"
+    /// Sets all four sides' margin at once. If read, returns max
+    /// margin on any side.
+    case notifyMargin = "notify::margin"
+    /// Margin on bottom side of widget.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginBottom = "notify::margin-bottom"
+    /// Margin on end of widget, horizontally. This property supports
+    /// left-to-right and right-to-left text directions.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginEnd = "notify::margin-end"
+    /// Margin on left side of widget.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    ///
+    /// **margin-left is deprecated:**
+    /// Use #GtkWidget:margin-start instead.
+    case notifyMarginLeft = "notify::margin-left"
+    /// Margin on right side of widget.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    ///
+    /// **margin-right is deprecated:**
+    /// Use #GtkWidget:margin-end instead.
+    case notifyMarginRight = "notify::margin-right"
+    /// Margin on start of widget, horizontally. This property supports
+    /// left-to-right and right-to-left text directions.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginStart = "notify::margin-start"
+    /// Margin on top side of widget.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginTop = "notify::margin-top"
+    case notifyName = "notify::name"
+    case notifyNoShowAll = "notify::no-show-all"
+    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
+    /// more details about window opacity.
+    /// 
+    /// Before 3.8 this was only available in GtkWindow
+    case notifyOpacity = "notify::opacity"
+    case notifyParent = "notify::parent"
+    case notifyReceivesDefault = "notify::receives-default"
+    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
+    /// more details about widget scaling.
+    case notifyScaleFactor = "notify::scale-factor"
+    case notifySensitive = "notify::sensitive"
+    /// The style of the widget, which contains information about how it will look (colors, etc).
+    ///
+    /// **style is deprecated:**
+    /// Use #GtkStyleContext instead
+    case notifyStyle = "notify::style"
+    /// Sets the text of tooltip to be the given string, which is marked up
+    /// with the [Pango text markup language](#PangoMarkupFormat).
+    /// Also see `gtk_tooltip_set_markup()`.
+    /// 
+    /// This is a convenience property which will take care of getting the
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// will automatically be set to `true` and there will be taken care of
+    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// 
+    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// are set, the last one wins.
+    case notifyTooltipMarkup = "notify::tooltip-markup"
+    /// Sets the text of tooltip to be the given string.
+    /// 
+    /// Also see `gtk_tooltip_set_text()`.
+    /// 
+    /// This is a convenience property which will take care of getting the
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// will automatically be set to `true` and there will be taken care of
+    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// 
+    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// are set, the last one wins.
+    case notifyTooltipText = "notify::tooltip-text"
+    /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
+    case notifyValign = "notify::valign"
+    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
+    case notifyVexpand = "notify::vexpand"
+    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
+    case notifyVexpandSet = "notify::vexpand-set"
+    case notifyVisible = "notify::visible"
+    case notifyWidthRequest = "notify::width-request"
+    /// The widget's window if it is realized, `nil` otherwise.
+    case notifyWindow = "notify::window"
+}
+
+// MARK: VSeparator has no signals
+// MARK: VSeparator Class: VSeparatorProtocol extension (methods and fields)
 public extension VSeparatorProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkVSeparator` instance.
     @inlinable var vseparator_ptr: UnsafeMutablePointer<GtkVSeparator>! { return ptr?.assumingMemoryBound(to: GtkVSeparator.self) }
@@ -3604,7 +8017,720 @@ public extension ViewportProtocol {
     }
 }
 
-// MARK: Viewport has no signals// MARK: Viewport Class: ViewportProtocol extension (methods and fields)
+public enum ViewportSignalName: String, SignalNameProtocol {
+    case accelClosuresChanged = "accel-closures-changed"
+    case add = "add"
+    /// The `button`-press-event signal will be emitted when a button
+    /// (typically from a mouse) is pressed.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the
+    /// widget needs to enable the `GDK_BUTTON_PRESS_MASK` mask.
+    /// 
+    /// This signal will be sent to the grab widget if there is one.
+    case buttonPressEvent = "button-press-event"
+    /// The `button`-release-event signal will be emitted when a button
+    /// (typically from a mouse) is released.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the
+    /// widget needs to enable the `GDK_BUTTON_RELEASE_MASK` mask.
+    /// 
+    /// This signal will be sent to the grab widget if there is one.
+    case buttonReleaseEvent = "button-release-event"
+    /// Determines whether an accelerator that activates the signal
+    /// identified by `signal_id` can currently be activated.
+    /// This signal is present to allow applications and derived
+    /// widgets to override the default `GtkWidget` handling
+    /// for determining whether an accelerator can be activated.
+    case canActivateAccel = "can-activate-accel"
+    case checkResize = "check-resize"
+    /// The `child`-notify signal is emitted for each
+    /// [child property](#child-properties)  that has
+    /// changed on an object. The signal's detail holds the property name.
+    case childNotify = "child-notify"
+    /// The `composited`-changed signal is emitted when the composited
+    /// status of `widgets` screen changes.
+    /// See `gdk_screen_is_composited()`.
+    ///
+    /// **composited-changed is deprecated:**
+    /// Use GdkScreen::composited-changed instead.
+    case compositedChanged = "composited-changed"
+    /// The `configure`-event signal will be emitted when the size, position or
+    /// stacking of the `widget`'s window has changed.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_STRUCTURE_MASK` mask. GDK will enable this mask
+    /// automatically for all new windows.
+    case configureEvent = "configure-event"
+    /// Emitted when a redirected window belonging to `widget` gets drawn into.
+    /// The region/area members of the event shows what area of the redirected
+    /// drawable was drawn into.
+    case damageEvent = "damage-event"
+    /// The `delete`-event signal is emitted if a user requests that
+    /// a toplevel window is closed. The default handler for this signal
+    /// destroys the window. Connecting `gtk_widget_hide_on_delete()` to
+    /// this signal will cause the window to be hidden instead, so that
+    /// it can later be shown again without reconstructing it.
+    case deleteEvent = "delete-event"
+    /// Signals that all holders of a reference to the widget should release
+    /// the reference that they hold. May result in finalization of the widget
+    /// if all references are released.
+    /// 
+    /// This signal is not suitable for saving widget state.
+    case destroy = "destroy"
+    /// The `destroy`-event signal is emitted when a `GdkWindow` is destroyed.
+    /// You rarely get this signal, because most widgets disconnect themselves
+    /// from their window before they destroy it, so no widget owns the
+    /// window at destroy time.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_STRUCTURE_MASK` mask. GDK will enable this mask
+    /// automatically for all new windows.
+    case destroyEvent = "destroy-event"
+    /// The `direction`-changed signal is emitted when the text direction
+    /// of a widget changes.
+    case directionChanged = "direction-changed"
+    /// The `drag`-begin signal is emitted on the drag source when a drag is
+    /// started. A typical reason to connect to this signal is to set up a
+    /// custom drag icon with e.g. `gtk_drag_source_set_icon_pixbuf()`.
+    /// 
+    /// Note that some widgets set up a drag icon in the default handler of
+    /// this signal, so you may have to use `g_signal_connect_after()` to
+    /// override what the default handler did.
+    case dragBegin = "drag-begin"
+    /// The `drag`-data-delete signal is emitted on the drag source when a drag
+    /// with the action `GDK_ACTION_MOVE` is successfully completed. The signal
+    /// handler is responsible for deleting the data that has been dropped. What
+    /// "delete" means depends on the context of the drag operation.
+    case dragDataDelete = "drag-data-delete"
+    /// The `drag`-data-get signal is emitted on the drag source when the drop
+    /// site requests the data which is dragged. It is the responsibility of
+    /// the signal handler to fill `data` with the data in the format which
+    /// is indicated by `info`. See `gtk_selection_data_set()` and
+    /// `gtk_selection_data_set_text()`.
+    case dragDataGet = "drag-data-get"
+    /// The `drag`-data-received signal is emitted on the drop site when the
+    /// dragged data has been received. If the data was received in order to
+    /// determine whether the drop will be accepted, the handler is expected
+    /// to call `gdk_drag_status()` and not finish the drag.
+    /// If the data was received in response to a `GtkWidget::drag`-drop signal
+    /// (and this is the last target to be received), the handler for this
+    /// signal is expected to process the received data and then call
+    /// `gtk_drag_finish()`, setting the `success` parameter depending on
+    /// whether the data was processed successfully.
+    /// 
+    /// Applications must create some means to determine why the signal was emitted
+    /// and therefore whether to call `gdk_drag_status()` or `gtk_drag_finish()`.
+    /// 
+    /// The handler may inspect the selected action with
+    /// `gdk_drag_context_get_selected_action()` before calling
+    /// `gtk_drag_finish()`, e.g. to implement `GDK_ACTION_ASK` as
+    /// shown in the following example:
+    /// (C Language Example):
+    /// ```C
+    /// void
+    /// drag_data_received (GtkWidget          *widget,
+    ///                     GdkDragContext     *context,
+    ///                     gint                x,
+    ///                     gint                y,
+    ///                     GtkSelectionData   *data,
+    ///                     guint               info,
+    ///                     guint               time)
+    /// {
+    ///   if ((data->length >= 0) && (data->format == 8))
+    ///     {
+    ///       GdkDragAction action;
+    /// 
+    ///       // handle data here
+    /// 
+    ///       action = gdk_drag_context_get_selected_action (context);
+    ///       if (action == GDK_ACTION_ASK)
+    ///         {
+    ///           GtkWidget *dialog;
+    ///           gint response;
+    /// 
+    ///           dialog = gtk_message_dialog_new (NULL,
+    ///                                            GTK_DIALOG_MODAL |
+    ///                                            GTK_DIALOG_DESTROY_WITH_PARENT,
+    ///                                            GTK_MESSAGE_INFO,
+    ///                                            GTK_BUTTONS_YES_NO,
+    ///                                            "Move the data ?\n");
+    ///           response = gtk_dialog_run (GTK_DIALOG (dialog));
+    ///           gtk_widget_destroy (dialog);
+    /// 
+    ///           if (response == GTK_RESPONSE_YES)
+    ///             action = GDK_ACTION_MOVE;
+    ///           else
+    ///             action = GDK_ACTION_COPY;
+    ///          }
+    /// 
+    ///       gtk_drag_finish (context, TRUE, action == GDK_ACTION_MOVE, time);
+    ///     }
+    ///   else
+    ///     gtk_drag_finish (context, FALSE, FALSE, time);
+    ///  }
+    /// ```
+    /// 
+    case dragDataReceived = "drag-data-received"
+    /// The `drag`-drop signal is emitted on the drop site when the user drops
+    /// the data onto the widget. The signal handler must determine whether
+    /// the cursor position is in a drop zone or not. If it is not in a drop
+    /// zone, it returns `false` and no further processing is necessary.
+    /// Otherwise, the handler returns `true`. In this case, the handler must
+    /// ensure that `gtk_drag_finish()` is called to let the source know that
+    /// the drop is done. The call to `gtk_drag_finish()` can be done either
+    /// directly or in a `GtkWidget::drag`-data-received handler which gets
+    /// triggered by calling `gtk_drag_get_data()` to receive the data for one
+    /// or more of the supported targets.
+    case dragDrop = "drag-drop"
+    /// The `drag`-end signal is emitted on the drag source when a drag is
+    /// finished.  A typical reason to connect to this signal is to undo
+    /// things done in `GtkWidget::drag`-begin.
+    case dragEnd = "drag-end"
+    /// The `drag`-failed signal is emitted on the drag source when a drag has
+    /// failed. The signal handler may hook custom code to handle a failed DnD
+    /// operation based on the type of error, it returns `true` is the failure has
+    /// been already handled (not showing the default "drag operation failed"
+    /// animation), otherwise it returns `false`.
+    case dragFailed = "drag-failed"
+    /// The `drag`-leave signal is emitted on the drop site when the cursor
+    /// leaves the widget. A typical reason to connect to this signal is to
+    /// undo things done in `GtkWidget::drag`-motion, e.g. undo highlighting
+    /// with `gtk_drag_unhighlight()`.
+    /// 
+    /// 
+    /// Likewise, the `GtkWidget::drag`-leave signal is also emitted before the
+    /// `drag`-drop signal, for instance to allow cleaning up of a preview item
+    /// created in the `GtkWidget::drag`-motion signal handler.
+    case dragLeave = "drag-leave"
+    /// The `drag`-motion signal is emitted on the drop site when the user
+    /// moves the cursor over the widget during a drag. The signal handler
+    /// must determine whether the cursor position is in a drop zone or not.
+    /// If it is not in a drop zone, it returns `false` and no further processing
+    /// is necessary. Otherwise, the handler returns `true`. In this case, the
+    /// handler is responsible for providing the necessary information for
+    /// displaying feedback to the user, by calling `gdk_drag_status()`.
+    /// 
+    /// If the decision whether the drop will be accepted or rejected can't be
+    /// made based solely on the cursor position and the type of the data, the
+    /// handler may inspect the dragged data by calling `gtk_drag_get_data()` and
+    /// defer the `gdk_drag_status()` call to the `GtkWidget::drag`-data-received
+    /// handler. Note that you must pass `GTK_DEST_DEFAULT_DROP`,
+    /// `GTK_DEST_DEFAULT_MOTION` or `GTK_DEST_DEFAULT_ALL` to `gtk_drag_dest_set()`
+    /// when using the drag-motion signal that way.
+    /// 
+    /// Also note that there is no drag-enter signal. The drag receiver has to
+    /// keep track of whether he has received any drag-motion signals since the
+    /// last `GtkWidget::drag`-leave and if not, treat the drag-motion signal as
+    /// an "enter" signal. Upon an "enter", the handler will typically highlight
+    /// the drop site with `gtk_drag_highlight()`.
+    /// (C Language Example):
+    /// ```C
+    /// static void
+    /// drag_motion (GtkWidget      *widget,
+    ///              GdkDragContext *context,
+    ///              gint            x,
+    ///              gint            y,
+    ///              guint           time)
+    /// {
+    ///   GdkAtom target;
+    /// 
+    ///   PrivateData *private_data = GET_PRIVATE_DATA (widget);
+    /// 
+    ///   if (!private_data->drag_highlight)
+    ///    {
+    ///      private_data->drag_highlight = 1;
+    ///      gtk_drag_highlight (widget);
+    ///    }
+    /// 
+    ///   target = gtk_drag_dest_find_target (widget, context, NULL);
+    ///   if (target == GDK_NONE)
+    ///     gdk_drag_status (context, 0, time);
+    ///   else
+    ///    {
+    ///      private_data->pending_status
+    ///         = gdk_drag_context_get_suggested_action (context);
+    ///      gtk_drag_get_data (widget, context, target, time);
+    ///    }
+    /// 
+    ///   return TRUE;
+    /// }
+    /// 
+    /// static void
+    /// drag_data_received (GtkWidget        *widget,
+    ///                     GdkDragContext   *context,
+    ///                     gint              x,
+    ///                     gint              y,
+    ///                     GtkSelectionData *selection_data,
+    ///                     guint             info,
+    ///                     guint             time)
+    /// {
+    ///   PrivateData *private_data = GET_PRIVATE_DATA (widget);
+    /// 
+    ///   if (private_data->suggested_action)
+    ///    {
+    ///      private_data->suggested_action = 0;
+    /// 
+    ///      // We are getting this data due to a request in drag_motion,
+    ///      // rather than due to a request in drag_drop, so we are just
+    ///      // supposed to call gdk_drag_status(), not actually paste in
+    ///      // the data.
+    /// 
+    ///      str = gtk_selection_data_get_text (selection_data);
+    ///      if (!data_is_acceptable (str))
+    ///        gdk_drag_status (context, 0, time);
+    ///      else
+    ///        gdk_drag_status (context,
+    ///                         private_data->suggested_action,
+    ///                         time);
+    ///    }
+    ///   else
+    ///    {
+    ///      // accept the drop
+    ///    }
+    /// }
+    /// ```
+    /// 
+    case dragMotion = "drag-motion"
+    /// This signal is emitted when a widget is supposed to render itself.
+    /// The `widget`'s top left corner must be painted at the origin of
+    /// the passed in context and be sized to the values returned by
+    /// `gtk_widget_get_allocated_width()` and
+    /// `gtk_widget_get_allocated_height()`.
+    /// 
+    /// Signal handlers connected to this signal can modify the cairo
+    /// context passed as `cr` in any way they like and don't need to
+    /// restore it. The signal emission takes care of calling `cairo_save()`
+    /// before and `cairo_restore()` after invoking the handler.
+    /// 
+    /// The signal handler will get a `cr` with a clip region already set to the
+    /// widget's dirty region, i.e. to the area that needs repainting.  Complicated
+    /// widgets that want to avoid redrawing themselves completely can get the full
+    /// extents of the clip region with `gdk_cairo_get_clip_rectangle()`, or they can
+    /// get a finer-grained representation of the dirty region with
+    /// `cairo_copy_clip_rectangle_list()`.
+    case draw = "draw"
+    /// The `enter`-notify-event will be emitted when the pointer enters
+    /// the `widget`'s window.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_ENTER_NOTIFY_MASK` mask.
+    /// 
+    /// This signal will be sent to the grab widget if there is one.
+    case enterNotifyEvent = "enter-notify-event"
+    /// The GTK+ main loop will emit three signals for each GDK event delivered
+    /// to a widget: one generic `event` signal, another, more specific,
+    /// signal that matches the type of event delivered (e.g.
+    /// `GtkWidget::key`-press-event) and finally a generic
+    /// `GtkWidget::event`-after signal.
+    case event = "event"
+    /// After the emission of the `GtkWidget::event` signal and (optionally)
+    /// the second more specific signal, `event`-after will be emitted
+    /// regardless of the previous two signals handlers return values.
+    case eventAfter = "event-after"
+    case focus = "focus"
+    /// The `focus`-in-event signal will be emitted when the keyboard focus
+    /// enters the `widget`'s window.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_FOCUS_CHANGE_MASK` mask.
+    case focusInEvent = "focus-in-event"
+    /// The `focus`-out-event signal will be emitted when the keyboard focus
+    /// leaves the `widget`'s window.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_FOCUS_CHANGE_MASK` mask.
+    case focusOutEvent = "focus-out-event"
+    /// Emitted when a pointer or keyboard grab on a window belonging
+    /// to `widget` gets broken.
+    /// 
+    /// On X11, this happens when the grab window becomes unviewable
+    /// (i.e. it or one of its ancestors is unmapped), or if the same
+    /// application grabs the pointer or keyboard again.
+    case grabBrokenEvent = "grab-broken-event"
+    case grabFocus = "grab-focus"
+    /// The `grab`-notify signal is emitted when a widget becomes
+    /// shadowed by a GTK+ grab (not a pointer or keyboard grab) on
+    /// another widget, or when it becomes unshadowed due to a grab
+    /// being removed.
+    /// 
+    /// A widget is shadowed by a `gtk_grab_add()` when the topmost
+    /// grab widget in the grab stack of its window group is not
+    /// its ancestor.
+    case grabNotify = "grab-notify"
+    /// The `hide` signal is emitted when `widget` is hidden, for example with
+    /// `gtk_widget_hide()`.
+    case hide = "hide"
+    /// The `hierarchy`-changed signal is emitted when the
+    /// anchored state of a widget changes. A widget is
+    /// “anchored” when its toplevel
+    /// ancestor is a `GtkWindow`. This signal is emitted when
+    /// a widget changes from un-anchored to anchored or vice-versa.
+    case hierarchyChanged = "hierarchy-changed"
+    /// The `key`-press-event signal is emitted when a key is pressed. The signal
+    /// emission will reoccur at the key-repeat rate when the key is kept pressed.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_KEY_PRESS_MASK` mask.
+    /// 
+    /// This signal will be sent to the grab widget if there is one.
+    case keyPressEvent = "key-press-event"
+    /// The `key`-release-event signal is emitted when a key is released.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_KEY_RELEASE_MASK` mask.
+    /// 
+    /// This signal will be sent to the grab widget if there is one.
+    case keyReleaseEvent = "key-release-event"
+    /// Gets emitted if keyboard navigation fails.
+    /// See `gtk_widget_keynav_failed()` for details.
+    case keynavFailed = "keynav-failed"
+    /// The `leave`-notify-event will be emitted when the pointer leaves
+    /// the `widget`'s window.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_LEAVE_NOTIFY_MASK` mask.
+    /// 
+    /// This signal will be sent to the grab widget if there is one.
+    case leaveNotifyEvent = "leave-notify-event"
+    /// The `map` signal is emitted when `widget` is going to be mapped, that is
+    /// when the widget is visible (which is controlled with
+    /// `gtk_widget_set_visible()`) and all its parents up to the toplevel widget
+    /// are also visible. Once the map has occurred, `GtkWidget::map`-event will
+    /// be emitted.
+    /// 
+    /// The `map` signal can be used to determine whether a widget will be drawn,
+    /// for instance it can resume an animation that was stopped during the
+    /// emission of `GtkWidget::unmap`.
+    case map = "map"
+    /// The `map`-event signal will be emitted when the `widget`'s window is
+    /// mapped. A window is mapped when it becomes visible on the screen.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_STRUCTURE_MASK` mask. GDK will enable this mask
+    /// automatically for all new windows.
+    case mapEvent = "map-event"
+    /// The default handler for this signal activates `widget` if `group_cycling`
+    /// is `false`, or just makes `widget` grab focus if `group_cycling` is `true`.
+    case mnemonicActivate = "mnemonic-activate"
+    /// The `motion`-notify-event signal is emitted when the pointer moves
+    /// over the widget's `GdkWindow`.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget
+    /// needs to enable the `GDK_POINTER_MOTION_MASK` mask.
+    /// 
+    /// This signal will be sent to the grab widget if there is one.
+    case motionNotifyEvent = "motion-notify-event"
+    case moveFocus = "move-focus"
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    case notify = "notify"
+    /// The `parent`-set signal is emitted when a new parent
+    /// has been set on a widget.
+    case parentSet = "parent-set"
+    /// This signal gets emitted whenever a widget should pop up a context
+    /// menu. This usually happens through the standard key binding mechanism;
+    /// by pressing a certain key while a widget is focused, the user can cause
+    /// the widget to pop up a menu.  For example, the `GtkEntry` widget creates
+    /// a menu with clipboard commands. See the
+    /// [Popup Menu Migration Checklist](#checklist-popup-menu)
+    /// for an example of how to use this signal.
+    case popupMenu = "popup-menu"
+    /// The `property`-notify-event signal will be emitted when a property on
+    /// the `widget`'s window has been changed or deleted.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_PROPERTY_CHANGE_MASK` mask.
+    case propertyNotifyEvent = "property-notify-event"
+    /// To receive this signal the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_PROXIMITY_IN_MASK` mask.
+    /// 
+    /// This signal will be sent to the grab widget if there is one.
+    case proximityInEvent = "proximity-in-event"
+    /// To receive this signal the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_PROXIMITY_OUT_MASK` mask.
+    /// 
+    /// This signal will be sent to the grab widget if there is one.
+    case proximityOutEvent = "proximity-out-event"
+    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
+    /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
+    /// focus in keyboard mode.
+    /// 
+    /// Using the given coordinates, the signal handler should determine
+    /// whether a tooltip should be shown for `widget`. If this is the case
+    /// `true` should be returned, `false` otherwise.  Note that if
+    /// `keyboard_mode` is `true`, the values of `x` and `y` are undefined and
+    /// should not be used.
+    /// 
+    /// The signal handler is free to manipulate `tooltip` with the therefore
+    /// destined function calls.
+    case queryTooltip = "query-tooltip"
+    /// The `realize` signal is emitted when `widget` is associated with a
+    /// `GdkWindow`, which means that `gtk_widget_realize()` has been called or the
+    /// widget has been mapped (that is, it is going to be drawn).
+    case realize = "realize"
+    case remove = "remove"
+    /// The `screen`-changed signal gets emitted when the
+    /// screen of a widget has changed.
+    case screenChanged = "screen-changed"
+    /// The `scroll`-event signal is emitted when a button in the 4 to 7
+    /// range is pressed. Wheel mice are usually configured to generate
+    /// button press events for buttons 4 and 5 when the wheel is turned.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_SCROLL_MASK` mask.
+    /// 
+    /// This signal will be sent to the grab widget if there is one.
+    case scrollEvent = "scroll-event"
+    /// The `selection`-clear-event signal will be emitted when the
+    /// the `widget`'s window has lost ownership of a selection.
+    case selectionClearEvent = "selection-clear-event"
+    case selectionGet = "selection-get"
+    case selectionNotifyEvent = "selection-notify-event"
+    case selectionReceived = "selection-received"
+    /// The `selection`-request-event signal will be emitted when
+    /// another client requests ownership of the selection owned by
+    /// the `widget`'s window.
+    case selectionRequestEvent = "selection-request-event"
+    case setFocusChild = "set-focus-child"
+    /// The `show` signal is emitted when `widget` is shown, for example with
+    /// `gtk_widget_show()`.
+    case show = "show"
+    case showHelp = "show-help"
+    case sizeAllocate = "size-allocate"
+    /// The `state`-changed signal is emitted when the widget state changes.
+    /// See `gtk_widget_get_state()`.
+    ///
+    /// **state-changed is deprecated:**
+    /// Use #GtkWidget::state-flags-changed instead.
+    case stateChanged = "state-changed"
+    /// The `state`-flags-changed signal is emitted when the widget state
+    /// changes, see `gtk_widget_get_state_flags()`.
+    case stateFlagsChanged = "state-flags-changed"
+    /// The `style`-set signal is emitted when a new style has been set
+    /// on a widget. Note that style-modifying functions like
+    /// `gtk_widget_modify_base()` also cause this signal to be emitted.
+    /// 
+    /// Note that this signal is emitted for changes to the deprecated
+    /// `GtkStyle`. To track changes to the `GtkStyleContext` associated
+    /// with a widget, use the `GtkWidget::style`-updated signal.
+    ///
+    /// **style-set is deprecated:**
+    /// Use the #GtkWidget::style-updated signal
+    case styleSet = "style-set"
+    /// The `style`-updated signal is a convenience signal that is emitted when the
+    /// `GtkStyleContext::changed` signal is emitted on the `widget`'s associated
+    /// `GtkStyleContext` as returned by `gtk_widget_get_style_context()`.
+    /// 
+    /// Note that style-modifying functions like `gtk_widget_override_color()` also
+    /// cause this signal to be emitted.
+    case styleUpdated = "style-updated"
+    case touchEvent = "touch-event"
+    /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
+    /// means that either it or any of its parents up to the toplevel widget have
+    /// been set as hidden.
+    /// 
+    /// As `unmap` indicates that a widget will not be shown any longer, it can be
+    /// used to, for example, stop an animation on the widget.
+    case unmap = "unmap"
+    /// The `unmap`-event signal will be emitted when the `widget`'s window is
+    /// unmapped. A window is unmapped when it becomes invisible on the screen.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_STRUCTURE_MASK` mask. GDK will enable this mask
+    /// automatically for all new windows.
+    case unmapEvent = "unmap-event"
+    /// The `unrealize` signal is emitted when the `GdkWindow` associated with
+    /// `widget` is destroyed, which means that `gtk_widget_unrealize()` has been
+    /// called or the widget has been unmapped (that is, it is going to be
+    /// hidden).
+    case unrealize = "unrealize"
+    /// The `visibility`-notify-event will be emitted when the `widget`'s
+    /// window is obscured or unobscured.
+    /// 
+    /// To receive this signal the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_VISIBILITY_NOTIFY_MASK` mask.
+    ///
+    /// **visibility-notify-event is deprecated:**
+    /// Modern composited windowing systems with pervasive
+    ///     transparency make it impossible to track the visibility of a window
+    ///     reliably, so this signal can not be guaranteed to provide useful
+    ///     information.
+    case visibilityNotifyEvent = "visibility-notify-event"
+    /// The `window`-state-event will be emitted when the state of the
+    /// toplevel window associated to the `widget` changes.
+    /// 
+    /// To receive this signal the `GdkWindow` associated to the widget
+    /// needs to enable the `GDK_STRUCTURE_MASK` mask. GDK will enable
+    /// this mask automatically for all new windows.
+    case windowStateEvent = "window-state-event"
+    case notifyAppPaintable = "notify::app-paintable"
+    case notifyBorderWidth = "notify::border-width"
+    case notifyCanDefault = "notify::can-default"
+    case notifyCanFocus = "notify::can-focus"
+    case notifyChild = "notify::child"
+    case notifyCompositeChild = "notify::composite-child"
+    /// Whether the widget is double buffered.
+    ///
+    /// **double-buffered is deprecated:**
+    /// Widgets should not use this property.
+    case notifyDoubleBuffered = "notify::double-buffered"
+    case notifyEvents = "notify::events"
+    /// Whether to expand in both directions. Setting this sets both `GtkWidget:hexpand` and `GtkWidget:vexpand`
+    case notifyExpand = "notify::expand"
+    /// Whether the widget should grab focus when it is clicked with the mouse.
+    /// 
+    /// This property is only relevant for widgets that can take focus.
+    /// 
+    /// Before 3.20, several widgets (GtkButton, GtkFileChooserButton,
+    /// GtkComboBox) implemented this property individually.
+    case notifyFocusOnClick = "notify::focus-on-click"
+    /// How to distribute horizontal space if widget gets extra space, see `GtkAlign`
+    case notifyHalign = "notify::halign"
+    case notifyHasDefault = "notify::has-default"
+    case notifyHasFocus = "notify::has-focus"
+    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// A value of `true` indicates that `widget` can have a tooltip, in this case
+    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// whether it will provide a tooltip or not.
+    /// 
+    /// Note that setting this property to `true` for the first time will change
+    /// the event masks of the GdkWindows of this widget to include leave-notify
+    /// and motion-notify events.  This cannot and will not be undone when the
+    /// property is set to `false` again.
+    case notifyHasTooltip = "notify::has-tooltip"
+    case notifyHeightRequest = "notify::height-request"
+    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
+    case notifyHexpand = "notify::hexpand"
+    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
+    case notifyHexpandSet = "notify::hexpand-set"
+    case notifyIsFocus = "notify::is-focus"
+    /// Sets all four sides' margin at once. If read, returns max
+    /// margin on any side.
+    case notifyMargin = "notify::margin"
+    /// Margin on bottom side of widget.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginBottom = "notify::margin-bottom"
+    /// Margin on end of widget, horizontally. This property supports
+    /// left-to-right and right-to-left text directions.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginEnd = "notify::margin-end"
+    /// Margin on left side of widget.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    ///
+    /// **margin-left is deprecated:**
+    /// Use #GtkWidget:margin-start instead.
+    case notifyMarginLeft = "notify::margin-left"
+    /// Margin on right side of widget.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    ///
+    /// **margin-right is deprecated:**
+    /// Use #GtkWidget:margin-end instead.
+    case notifyMarginRight = "notify::margin-right"
+    /// Margin on start of widget, horizontally. This property supports
+    /// left-to-right and right-to-left text directions.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginStart = "notify::margin-start"
+    /// Margin on top side of widget.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginTop = "notify::margin-top"
+    case notifyName = "notify::name"
+    case notifyNoShowAll = "notify::no-show-all"
+    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
+    /// more details about window opacity.
+    /// 
+    /// Before 3.8 this was only available in GtkWindow
+    case notifyOpacity = "notify::opacity"
+    case notifyParent = "notify::parent"
+    case notifyReceivesDefault = "notify::receives-default"
+    case notifyResizeMode = "notify::resize-mode"
+    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
+    /// more details about widget scaling.
+    case notifyScaleFactor = "notify::scale-factor"
+    case notifySensitive = "notify::sensitive"
+    case notifyShadowType = "notify::shadow-type"
+    /// The style of the widget, which contains information about how it will look (colors, etc).
+    ///
+    /// **style is deprecated:**
+    /// Use #GtkStyleContext instead
+    case notifyStyle = "notify::style"
+    /// Sets the text of tooltip to be the given string, which is marked up
+    /// with the [Pango text markup language](#PangoMarkupFormat).
+    /// Also see `gtk_tooltip_set_markup()`.
+    /// 
+    /// This is a convenience property which will take care of getting the
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// will automatically be set to `true` and there will be taken care of
+    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// 
+    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// are set, the last one wins.
+    case notifyTooltipMarkup = "notify::tooltip-markup"
+    /// Sets the text of tooltip to be the given string.
+    /// 
+    /// Also see `gtk_tooltip_set_text()`.
+    /// 
+    /// This is a convenience property which will take care of getting the
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// will automatically be set to `true` and there will be taken care of
+    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// 
+    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// are set, the last one wins.
+    case notifyTooltipText = "notify::tooltip-text"
+    /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
+    case notifyValign = "notify::valign"
+    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
+    case notifyVexpand = "notify::vexpand"
+    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
+    case notifyVexpandSet = "notify::vexpand-set"
+    case notifyVisible = "notify::visible"
+    case notifyWidthRequest = "notify::width-request"
+    /// The widget's window if it is realized, `nil` otherwise.
+    case notifyWindow = "notify::window"
+}
+
+// MARK: Viewport has no signals
+// MARK: Viewport Class: ViewportProtocol extension (methods and fields)
 public extension ViewportProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkViewport` instance.
     @inlinable var viewport_ptr: UnsafeMutablePointer<GtkViewport>! { return ptr?.assumingMemoryBound(to: GtkViewport.self) }
@@ -4298,7 +9424,819 @@ public extension VolumeButtonProtocol {
     }
 }
 
-// MARK: VolumeButton has no signals// MARK: VolumeButton Class: VolumeButtonProtocol extension (methods and fields)
+public enum VolumeButtonSignalName: String, SignalNameProtocol {
+    case accelClosuresChanged = "accel-closures-changed"
+    /// The `activate` signal on GtkButton is an action signal and
+    /// emitting it causes the button to animate press then release.
+    /// Applications should never connect to this signal, but use the
+    /// `GtkButton::clicked` signal.
+    case activate = "activate"
+    case add = "add"
+    /// The `button`-press-event signal will be emitted when a button
+    /// (typically from a mouse) is pressed.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the
+    /// widget needs to enable the `GDK_BUTTON_PRESS_MASK` mask.
+    /// 
+    /// This signal will be sent to the grab widget if there is one.
+    case buttonPressEvent = "button-press-event"
+    /// The `button`-release-event signal will be emitted when a button
+    /// (typically from a mouse) is released.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the
+    /// widget needs to enable the `GDK_BUTTON_RELEASE_MASK` mask.
+    /// 
+    /// This signal will be sent to the grab widget if there is one.
+    case buttonReleaseEvent = "button-release-event"
+    /// Determines whether an accelerator that activates the signal
+    /// identified by `signal_id` can currently be activated.
+    /// This signal is present to allow applications and derived
+    /// widgets to override the default `GtkWidget` handling
+    /// for determining whether an accelerator can be activated.
+    case canActivateAccel = "can-activate-accel"
+    case checkResize = "check-resize"
+    /// The `child`-notify signal is emitted for each
+    /// [child property](#child-properties)  that has
+    /// changed on an object. The signal's detail holds the property name.
+    case childNotify = "child-notify"
+    /// Emitted when the button has been activated (pressed and released).
+    case clicked = "clicked"
+    /// The `composited`-changed signal is emitted when the composited
+    /// status of `widgets` screen changes.
+    /// See `gdk_screen_is_composited()`.
+    ///
+    /// **composited-changed is deprecated:**
+    /// Use GdkScreen::composited-changed instead.
+    case compositedChanged = "composited-changed"
+    /// The `configure`-event signal will be emitted when the size, position or
+    /// stacking of the `widget`'s window has changed.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_STRUCTURE_MASK` mask. GDK will enable this mask
+    /// automatically for all new windows.
+    case configureEvent = "configure-event"
+    /// Emitted when a redirected window belonging to `widget` gets drawn into.
+    /// The region/area members of the event shows what area of the redirected
+    /// drawable was drawn into.
+    case damageEvent = "damage-event"
+    /// The `delete`-event signal is emitted if a user requests that
+    /// a toplevel window is closed. The default handler for this signal
+    /// destroys the window. Connecting `gtk_widget_hide_on_delete()` to
+    /// this signal will cause the window to be hidden instead, so that
+    /// it can later be shown again without reconstructing it.
+    case deleteEvent = "delete-event"
+    /// Signals that all holders of a reference to the widget should release
+    /// the reference that they hold. May result in finalization of the widget
+    /// if all references are released.
+    /// 
+    /// This signal is not suitable for saving widget state.
+    case destroy = "destroy"
+    /// The `destroy`-event signal is emitted when a `GdkWindow` is destroyed.
+    /// You rarely get this signal, because most widgets disconnect themselves
+    /// from their window before they destroy it, so no widget owns the
+    /// window at destroy time.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_STRUCTURE_MASK` mask. GDK will enable this mask
+    /// automatically for all new windows.
+    case destroyEvent = "destroy-event"
+    /// The `direction`-changed signal is emitted when the text direction
+    /// of a widget changes.
+    case directionChanged = "direction-changed"
+    /// The `drag`-begin signal is emitted on the drag source when a drag is
+    /// started. A typical reason to connect to this signal is to set up a
+    /// custom drag icon with e.g. `gtk_drag_source_set_icon_pixbuf()`.
+    /// 
+    /// Note that some widgets set up a drag icon in the default handler of
+    /// this signal, so you may have to use `g_signal_connect_after()` to
+    /// override what the default handler did.
+    case dragBegin = "drag-begin"
+    /// The `drag`-data-delete signal is emitted on the drag source when a drag
+    /// with the action `GDK_ACTION_MOVE` is successfully completed. The signal
+    /// handler is responsible for deleting the data that has been dropped. What
+    /// "delete" means depends on the context of the drag operation.
+    case dragDataDelete = "drag-data-delete"
+    /// The `drag`-data-get signal is emitted on the drag source when the drop
+    /// site requests the data which is dragged. It is the responsibility of
+    /// the signal handler to fill `data` with the data in the format which
+    /// is indicated by `info`. See `gtk_selection_data_set()` and
+    /// `gtk_selection_data_set_text()`.
+    case dragDataGet = "drag-data-get"
+    /// The `drag`-data-received signal is emitted on the drop site when the
+    /// dragged data has been received. If the data was received in order to
+    /// determine whether the drop will be accepted, the handler is expected
+    /// to call `gdk_drag_status()` and not finish the drag.
+    /// If the data was received in response to a `GtkWidget::drag`-drop signal
+    /// (and this is the last target to be received), the handler for this
+    /// signal is expected to process the received data and then call
+    /// `gtk_drag_finish()`, setting the `success` parameter depending on
+    /// whether the data was processed successfully.
+    /// 
+    /// Applications must create some means to determine why the signal was emitted
+    /// and therefore whether to call `gdk_drag_status()` or `gtk_drag_finish()`.
+    /// 
+    /// The handler may inspect the selected action with
+    /// `gdk_drag_context_get_selected_action()` before calling
+    /// `gtk_drag_finish()`, e.g. to implement `GDK_ACTION_ASK` as
+    /// shown in the following example:
+    /// (C Language Example):
+    /// ```C
+    /// void
+    /// drag_data_received (GtkWidget          *widget,
+    ///                     GdkDragContext     *context,
+    ///                     gint                x,
+    ///                     gint                y,
+    ///                     GtkSelectionData   *data,
+    ///                     guint               info,
+    ///                     guint               time)
+    /// {
+    ///   if ((data->length >= 0) && (data->format == 8))
+    ///     {
+    ///       GdkDragAction action;
+    /// 
+    ///       // handle data here
+    /// 
+    ///       action = gdk_drag_context_get_selected_action (context);
+    ///       if (action == GDK_ACTION_ASK)
+    ///         {
+    ///           GtkWidget *dialog;
+    ///           gint response;
+    /// 
+    ///           dialog = gtk_message_dialog_new (NULL,
+    ///                                            GTK_DIALOG_MODAL |
+    ///                                            GTK_DIALOG_DESTROY_WITH_PARENT,
+    ///                                            GTK_MESSAGE_INFO,
+    ///                                            GTK_BUTTONS_YES_NO,
+    ///                                            "Move the data ?\n");
+    ///           response = gtk_dialog_run (GTK_DIALOG (dialog));
+    ///           gtk_widget_destroy (dialog);
+    /// 
+    ///           if (response == GTK_RESPONSE_YES)
+    ///             action = GDK_ACTION_MOVE;
+    ///           else
+    ///             action = GDK_ACTION_COPY;
+    ///          }
+    /// 
+    ///       gtk_drag_finish (context, TRUE, action == GDK_ACTION_MOVE, time);
+    ///     }
+    ///   else
+    ///     gtk_drag_finish (context, FALSE, FALSE, time);
+    ///  }
+    /// ```
+    /// 
+    case dragDataReceived = "drag-data-received"
+    /// The `drag`-drop signal is emitted on the drop site when the user drops
+    /// the data onto the widget. The signal handler must determine whether
+    /// the cursor position is in a drop zone or not. If it is not in a drop
+    /// zone, it returns `false` and no further processing is necessary.
+    /// Otherwise, the handler returns `true`. In this case, the handler must
+    /// ensure that `gtk_drag_finish()` is called to let the source know that
+    /// the drop is done. The call to `gtk_drag_finish()` can be done either
+    /// directly or in a `GtkWidget::drag`-data-received handler which gets
+    /// triggered by calling `gtk_drag_get_data()` to receive the data for one
+    /// or more of the supported targets.
+    case dragDrop = "drag-drop"
+    /// The `drag`-end signal is emitted on the drag source when a drag is
+    /// finished.  A typical reason to connect to this signal is to undo
+    /// things done in `GtkWidget::drag`-begin.
+    case dragEnd = "drag-end"
+    /// The `drag`-failed signal is emitted on the drag source when a drag has
+    /// failed. The signal handler may hook custom code to handle a failed DnD
+    /// operation based on the type of error, it returns `true` is the failure has
+    /// been already handled (not showing the default "drag operation failed"
+    /// animation), otherwise it returns `false`.
+    case dragFailed = "drag-failed"
+    /// The `drag`-leave signal is emitted on the drop site when the cursor
+    /// leaves the widget. A typical reason to connect to this signal is to
+    /// undo things done in `GtkWidget::drag`-motion, e.g. undo highlighting
+    /// with `gtk_drag_unhighlight()`.
+    /// 
+    /// 
+    /// Likewise, the `GtkWidget::drag`-leave signal is also emitted before the
+    /// `drag`-drop signal, for instance to allow cleaning up of a preview item
+    /// created in the `GtkWidget::drag`-motion signal handler.
+    case dragLeave = "drag-leave"
+    /// The `drag`-motion signal is emitted on the drop site when the user
+    /// moves the cursor over the widget during a drag. The signal handler
+    /// must determine whether the cursor position is in a drop zone or not.
+    /// If it is not in a drop zone, it returns `false` and no further processing
+    /// is necessary. Otherwise, the handler returns `true`. In this case, the
+    /// handler is responsible for providing the necessary information for
+    /// displaying feedback to the user, by calling `gdk_drag_status()`.
+    /// 
+    /// If the decision whether the drop will be accepted or rejected can't be
+    /// made based solely on the cursor position and the type of the data, the
+    /// handler may inspect the dragged data by calling `gtk_drag_get_data()` and
+    /// defer the `gdk_drag_status()` call to the `GtkWidget::drag`-data-received
+    /// handler. Note that you must pass `GTK_DEST_DEFAULT_DROP`,
+    /// `GTK_DEST_DEFAULT_MOTION` or `GTK_DEST_DEFAULT_ALL` to `gtk_drag_dest_set()`
+    /// when using the drag-motion signal that way.
+    /// 
+    /// Also note that there is no drag-enter signal. The drag receiver has to
+    /// keep track of whether he has received any drag-motion signals since the
+    /// last `GtkWidget::drag`-leave and if not, treat the drag-motion signal as
+    /// an "enter" signal. Upon an "enter", the handler will typically highlight
+    /// the drop site with `gtk_drag_highlight()`.
+    /// (C Language Example):
+    /// ```C
+    /// static void
+    /// drag_motion (GtkWidget      *widget,
+    ///              GdkDragContext *context,
+    ///              gint            x,
+    ///              gint            y,
+    ///              guint           time)
+    /// {
+    ///   GdkAtom target;
+    /// 
+    ///   PrivateData *private_data = GET_PRIVATE_DATA (widget);
+    /// 
+    ///   if (!private_data->drag_highlight)
+    ///    {
+    ///      private_data->drag_highlight = 1;
+    ///      gtk_drag_highlight (widget);
+    ///    }
+    /// 
+    ///   target = gtk_drag_dest_find_target (widget, context, NULL);
+    ///   if (target == GDK_NONE)
+    ///     gdk_drag_status (context, 0, time);
+    ///   else
+    ///    {
+    ///      private_data->pending_status
+    ///         = gdk_drag_context_get_suggested_action (context);
+    ///      gtk_drag_get_data (widget, context, target, time);
+    ///    }
+    /// 
+    ///   return TRUE;
+    /// }
+    /// 
+    /// static void
+    /// drag_data_received (GtkWidget        *widget,
+    ///                     GdkDragContext   *context,
+    ///                     gint              x,
+    ///                     gint              y,
+    ///                     GtkSelectionData *selection_data,
+    ///                     guint             info,
+    ///                     guint             time)
+    /// {
+    ///   PrivateData *private_data = GET_PRIVATE_DATA (widget);
+    /// 
+    ///   if (private_data->suggested_action)
+    ///    {
+    ///      private_data->suggested_action = 0;
+    /// 
+    ///      // We are getting this data due to a request in drag_motion,
+    ///      // rather than due to a request in drag_drop, so we are just
+    ///      // supposed to call gdk_drag_status(), not actually paste in
+    ///      // the data.
+    /// 
+    ///      str = gtk_selection_data_get_text (selection_data);
+    ///      if (!data_is_acceptable (str))
+    ///        gdk_drag_status (context, 0, time);
+    ///      else
+    ///        gdk_drag_status (context,
+    ///                         private_data->suggested_action,
+    ///                         time);
+    ///    }
+    ///   else
+    ///    {
+    ///      // accept the drop
+    ///    }
+    /// }
+    /// ```
+    /// 
+    case dragMotion = "drag-motion"
+    /// This signal is emitted when a widget is supposed to render itself.
+    /// The `widget`'s top left corner must be painted at the origin of
+    /// the passed in context and be sized to the values returned by
+    /// `gtk_widget_get_allocated_width()` and
+    /// `gtk_widget_get_allocated_height()`.
+    /// 
+    /// Signal handlers connected to this signal can modify the cairo
+    /// context passed as `cr` in any way they like and don't need to
+    /// restore it. The signal emission takes care of calling `cairo_save()`
+    /// before and `cairo_restore()` after invoking the handler.
+    /// 
+    /// The signal handler will get a `cr` with a clip region already set to the
+    /// widget's dirty region, i.e. to the area that needs repainting.  Complicated
+    /// widgets that want to avoid redrawing themselves completely can get the full
+    /// extents of the clip region with `gdk_cairo_get_clip_rectangle()`, or they can
+    /// get a finer-grained representation of the dirty region with
+    /// `cairo_copy_clip_rectangle_list()`.
+    case draw = "draw"
+    /// Emitted when the pointer enters the button.
+    ///
+    /// **enter is deprecated:**
+    /// Use the #GtkWidget::enter-notify-event signal.
+    case enter = "enter"
+    /// The `enter`-notify-event will be emitted when the pointer enters
+    /// the `widget`'s window.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_ENTER_NOTIFY_MASK` mask.
+    /// 
+    /// This signal will be sent to the grab widget if there is one.
+    case enterNotifyEvent = "enter-notify-event"
+    /// The GTK+ main loop will emit three signals for each GDK event delivered
+    /// to a widget: one generic `event` signal, another, more specific,
+    /// signal that matches the type of event delivered (e.g.
+    /// `GtkWidget::key`-press-event) and finally a generic
+    /// `GtkWidget::event`-after signal.
+    case event = "event"
+    /// After the emission of the `GtkWidget::event` signal and (optionally)
+    /// the second more specific signal, `event`-after will be emitted
+    /// regardless of the previous two signals handlers return values.
+    case eventAfter = "event-after"
+    case focus = "focus"
+    /// The `focus`-in-event signal will be emitted when the keyboard focus
+    /// enters the `widget`'s window.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_FOCUS_CHANGE_MASK` mask.
+    case focusInEvent = "focus-in-event"
+    /// The `focus`-out-event signal will be emitted when the keyboard focus
+    /// leaves the `widget`'s window.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_FOCUS_CHANGE_MASK` mask.
+    case focusOutEvent = "focus-out-event"
+    /// Emitted when a pointer or keyboard grab on a window belonging
+    /// to `widget` gets broken.
+    /// 
+    /// On X11, this happens when the grab window becomes unviewable
+    /// (i.e. it or one of its ancestors is unmapped), or if the same
+    /// application grabs the pointer or keyboard again.
+    case grabBrokenEvent = "grab-broken-event"
+    case grabFocus = "grab-focus"
+    /// The `grab`-notify signal is emitted when a widget becomes
+    /// shadowed by a GTK+ grab (not a pointer or keyboard grab) on
+    /// another widget, or when it becomes unshadowed due to a grab
+    /// being removed.
+    /// 
+    /// A widget is shadowed by a `gtk_grab_add()` when the topmost
+    /// grab widget in the grab stack of its window group is not
+    /// its ancestor.
+    case grabNotify = "grab-notify"
+    /// The `hide` signal is emitted when `widget` is hidden, for example with
+    /// `gtk_widget_hide()`.
+    case hide = "hide"
+    /// The `hierarchy`-changed signal is emitted when the
+    /// anchored state of a widget changes. A widget is
+    /// “anchored” when its toplevel
+    /// ancestor is a `GtkWindow`. This signal is emitted when
+    /// a widget changes from un-anchored to anchored or vice-versa.
+    case hierarchyChanged = "hierarchy-changed"
+    /// The `key`-press-event signal is emitted when a key is pressed. The signal
+    /// emission will reoccur at the key-repeat rate when the key is kept pressed.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_KEY_PRESS_MASK` mask.
+    /// 
+    /// This signal will be sent to the grab widget if there is one.
+    case keyPressEvent = "key-press-event"
+    /// The `key`-release-event signal is emitted when a key is released.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_KEY_RELEASE_MASK` mask.
+    /// 
+    /// This signal will be sent to the grab widget if there is one.
+    case keyReleaseEvent = "key-release-event"
+    /// Gets emitted if keyboard navigation fails.
+    /// See `gtk_widget_keynav_failed()` for details.
+    case keynavFailed = "keynav-failed"
+    /// Emitted when the pointer leaves the button.
+    ///
+    /// **leave is deprecated:**
+    /// Use the #GtkWidget::leave-notify-event signal.
+    case leave = "leave"
+    /// The `leave`-notify-event will be emitted when the pointer leaves
+    /// the `widget`'s window.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_LEAVE_NOTIFY_MASK` mask.
+    /// 
+    /// This signal will be sent to the grab widget if there is one.
+    case leaveNotifyEvent = "leave-notify-event"
+    /// The `map` signal is emitted when `widget` is going to be mapped, that is
+    /// when the widget is visible (which is controlled with
+    /// `gtk_widget_set_visible()`) and all its parents up to the toplevel widget
+    /// are also visible. Once the map has occurred, `GtkWidget::map`-event will
+    /// be emitted.
+    /// 
+    /// The `map` signal can be used to determine whether a widget will be drawn,
+    /// for instance it can resume an animation that was stopped during the
+    /// emission of `GtkWidget::unmap`.
+    case map = "map"
+    /// The `map`-event signal will be emitted when the `widget`'s window is
+    /// mapped. A window is mapped when it becomes visible on the screen.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_STRUCTURE_MASK` mask. GDK will enable this mask
+    /// automatically for all new windows.
+    case mapEvent = "map-event"
+    /// The default handler for this signal activates `widget` if `group_cycling`
+    /// is `false`, or just makes `widget` grab focus if `group_cycling` is `true`.
+    case mnemonicActivate = "mnemonic-activate"
+    /// The `motion`-notify-event signal is emitted when the pointer moves
+    /// over the widget's `GdkWindow`.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget
+    /// needs to enable the `GDK_POINTER_MOTION_MASK` mask.
+    /// 
+    /// This signal will be sent to the grab widget if there is one.
+    case motionNotifyEvent = "motion-notify-event"
+    case moveFocus = "move-focus"
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    case notify = "notify"
+    /// The `parent`-set signal is emitted when a new parent
+    /// has been set on a widget.
+    case parentSet = "parent-set"
+    /// The `popdown` signal is a
+    /// [keybinding signal](#GtkBindingSignal)
+    /// which gets emitted to popdown the scale widget.
+    /// 
+    /// The default binding for this signal is Escape.
+    case popdown = "popdown"
+    /// The `popup` signal is a
+    /// [keybinding signal](#GtkBindingSignal)
+    /// which gets emitted to popup the scale widget.
+    /// 
+    /// The default bindings for this signal are Space, Enter and Return.
+    case popup = "popup"
+    /// This signal gets emitted whenever a widget should pop up a context
+    /// menu. This usually happens through the standard key binding mechanism;
+    /// by pressing a certain key while a widget is focused, the user can cause
+    /// the widget to pop up a menu.  For example, the `GtkEntry` widget creates
+    /// a menu with clipboard commands. See the
+    /// [Popup Menu Migration Checklist](#checklist-popup-menu)
+    /// for an example of how to use this signal.
+    case popupMenu = "popup-menu"
+    /// Emitted when the button is pressed.
+    ///
+    /// **pressed is deprecated:**
+    /// Use the #GtkWidget::button-press-event signal.
+    case pressed = "pressed"
+    /// The `property`-notify-event signal will be emitted when a property on
+    /// the `widget`'s window has been changed or deleted.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_PROPERTY_CHANGE_MASK` mask.
+    case propertyNotifyEvent = "property-notify-event"
+    /// To receive this signal the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_PROXIMITY_IN_MASK` mask.
+    /// 
+    /// This signal will be sent to the grab widget if there is one.
+    case proximityInEvent = "proximity-in-event"
+    /// To receive this signal the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_PROXIMITY_OUT_MASK` mask.
+    /// 
+    /// This signal will be sent to the grab widget if there is one.
+    case proximityOutEvent = "proximity-out-event"
+    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
+    /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
+    /// focus in keyboard mode.
+    /// 
+    /// Using the given coordinates, the signal handler should determine
+    /// whether a tooltip should be shown for `widget`. If this is the case
+    /// `true` should be returned, `false` otherwise.  Note that if
+    /// `keyboard_mode` is `true`, the values of `x` and `y` are undefined and
+    /// should not be used.
+    /// 
+    /// The signal handler is free to manipulate `tooltip` with the therefore
+    /// destined function calls.
+    case queryTooltip = "query-tooltip"
+    /// The `realize` signal is emitted when `widget` is associated with a
+    /// `GdkWindow`, which means that `gtk_widget_realize()` has been called or the
+    /// widget has been mapped (that is, it is going to be drawn).
+    case realize = "realize"
+    /// Emitted when the button is released.
+    ///
+    /// **released is deprecated:**
+    /// Use the #GtkWidget::button-release-event signal.
+    case released = "released"
+    case remove = "remove"
+    /// The `screen`-changed signal gets emitted when the
+    /// screen of a widget has changed.
+    case screenChanged = "screen-changed"
+    /// The `scroll`-event signal is emitted when a button in the 4 to 7
+    /// range is pressed. Wheel mice are usually configured to generate
+    /// button press events for buttons 4 and 5 when the wheel is turned.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_SCROLL_MASK` mask.
+    /// 
+    /// This signal will be sent to the grab widget if there is one.
+    case scrollEvent = "scroll-event"
+    /// The `selection`-clear-event signal will be emitted when the
+    /// the `widget`'s window has lost ownership of a selection.
+    case selectionClearEvent = "selection-clear-event"
+    case selectionGet = "selection-get"
+    case selectionNotifyEvent = "selection-notify-event"
+    case selectionReceived = "selection-received"
+    /// The `selection`-request-event signal will be emitted when
+    /// another client requests ownership of the selection owned by
+    /// the `widget`'s window.
+    case selectionRequestEvent = "selection-request-event"
+    case setFocusChild = "set-focus-child"
+    /// The `show` signal is emitted when `widget` is shown, for example with
+    /// `gtk_widget_show()`.
+    case show = "show"
+    case showHelp = "show-help"
+    case sizeAllocate = "size-allocate"
+    /// The `state`-changed signal is emitted when the widget state changes.
+    /// See `gtk_widget_get_state()`.
+    ///
+    /// **state-changed is deprecated:**
+    /// Use #GtkWidget::state-flags-changed instead.
+    case stateChanged = "state-changed"
+    /// The `state`-flags-changed signal is emitted when the widget state
+    /// changes, see `gtk_widget_get_state_flags()`.
+    case stateFlagsChanged = "state-flags-changed"
+    /// The `style`-set signal is emitted when a new style has been set
+    /// on a widget. Note that style-modifying functions like
+    /// `gtk_widget_modify_base()` also cause this signal to be emitted.
+    /// 
+    /// Note that this signal is emitted for changes to the deprecated
+    /// `GtkStyle`. To track changes to the `GtkStyleContext` associated
+    /// with a widget, use the `GtkWidget::style`-updated signal.
+    ///
+    /// **style-set is deprecated:**
+    /// Use the #GtkWidget::style-updated signal
+    case styleSet = "style-set"
+    /// The `style`-updated signal is a convenience signal that is emitted when the
+    /// `GtkStyleContext::changed` signal is emitted on the `widget`'s associated
+    /// `GtkStyleContext` as returned by `gtk_widget_get_style_context()`.
+    /// 
+    /// Note that style-modifying functions like `gtk_widget_override_color()` also
+    /// cause this signal to be emitted.
+    case styleUpdated = "style-updated"
+    case touchEvent = "touch-event"
+    /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
+    /// means that either it or any of its parents up to the toplevel widget have
+    /// been set as hidden.
+    /// 
+    /// As `unmap` indicates that a widget will not be shown any longer, it can be
+    /// used to, for example, stop an animation on the widget.
+    case unmap = "unmap"
+    /// The `unmap`-event signal will be emitted when the `widget`'s window is
+    /// unmapped. A window is unmapped when it becomes invisible on the screen.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_STRUCTURE_MASK` mask. GDK will enable this mask
+    /// automatically for all new windows.
+    case unmapEvent = "unmap-event"
+    /// The `unrealize` signal is emitted when the `GdkWindow` associated with
+    /// `widget` is destroyed, which means that `gtk_widget_unrealize()` has been
+    /// called or the widget has been unmapped (that is, it is going to be
+    /// hidden).
+    case unrealize = "unrealize"
+    /// The `value`-changed signal is emitted when the value field has
+    /// changed.
+    case valueChanged = "value-changed"
+    /// The `visibility`-notify-event will be emitted when the `widget`'s
+    /// window is obscured or unobscured.
+    /// 
+    /// To receive this signal the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_VISIBILITY_NOTIFY_MASK` mask.
+    ///
+    /// **visibility-notify-event is deprecated:**
+    /// Modern composited windowing systems with pervasive
+    ///     transparency make it impossible to track the visibility of a window
+    ///     reliably, so this signal can not be guaranteed to provide useful
+    ///     information.
+    case visibilityNotifyEvent = "visibility-notify-event"
+    /// The `window`-state-event will be emitted when the state of the
+    /// toplevel window associated to the `widget` changes.
+    /// 
+    /// To receive this signal the `GdkWindow` associated to the widget
+    /// needs to enable the `GDK_STRUCTURE_MASK` mask. GDK will enable
+    /// this mask automatically for all new windows.
+    case windowStateEvent = "window-state-event"
+    case notifyAdjustment = "notify::adjustment"
+    /// If `true`, the button will ignore the `GtkSettings:gtk`-button-images
+    /// setting and always show the image, if available.
+    /// 
+    /// Use this property if the button would be useless or hard to use
+    /// without the image.
+    case notifyAlwaysShowImage = "notify::always-show-image"
+    case notifyAppPaintable = "notify::app-paintable"
+    case notifyBorderWidth = "notify::border-width"
+    case notifyCanDefault = "notify::can-default"
+    case notifyCanFocus = "notify::can-focus"
+    case notifyChild = "notify::child"
+    case notifyCompositeChild = "notify::composite-child"
+    /// Whether the widget is double buffered.
+    ///
+    /// **double-buffered is deprecated:**
+    /// Widgets should not use this property.
+    case notifyDoubleBuffered = "notify::double-buffered"
+    case notifyEvents = "notify::events"
+    /// Whether to expand in both directions. Setting this sets both `GtkWidget:hexpand` and `GtkWidget:vexpand`
+    case notifyExpand = "notify::expand"
+    /// Whether the widget should grab focus when it is clicked with the mouse.
+    /// 
+    /// This property is only relevant for widgets that can take focus.
+    /// 
+    /// Before 3.20, several widgets (GtkButton, GtkFileChooserButton,
+    /// GtkComboBox) implemented this property individually.
+    case notifyFocusOnClick = "notify::focus-on-click"
+    /// How to distribute horizontal space if widget gets extra space, see `GtkAlign`
+    case notifyHalign = "notify::halign"
+    case notifyHasDefault = "notify::has-default"
+    case notifyHasFocus = "notify::has-focus"
+    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// A value of `true` indicates that `widget` can have a tooltip, in this case
+    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// whether it will provide a tooltip or not.
+    /// 
+    /// Note that setting this property to `true` for the first time will change
+    /// the event masks of the GdkWindows of this widget to include leave-notify
+    /// and motion-notify events.  This cannot and will not be undone when the
+    /// property is set to `false` again.
+    case notifyHasTooltip = "notify::has-tooltip"
+    case notifyHeightRequest = "notify::height-request"
+    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
+    case notifyHexpand = "notify::hexpand"
+    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
+    case notifyHexpandSet = "notify::hexpand-set"
+    /// The names of the icons to be used by the scale button.
+    /// The first item in the array will be used in the button
+    /// when the current value is the lowest value, the second
+    /// item for the highest value. All the subsequent icons will
+    /// be used for all the other values, spread evenly over the
+    /// range of values.
+    /// 
+    /// If there's only one icon name in the `icons` array, it will
+    /// be used for all the values. If only two icon names are in
+    /// the `icons` array, the first one will be used for the bottom
+    /// 50% of the scale, and the second one for the top 50%.
+    /// 
+    /// It is recommended to use at least 3 icons so that the
+    /// `GtkScaleButton` reflects the current value of the scale
+    /// better for the users.
+    case notifyIcons = "notify::icons"
+    /// The child widget to appear next to the button text.
+    case notifyImage = "notify::image"
+    /// The position of the image relative to the text inside the button.
+    case notifyImagePosition = "notify::image-position"
+    case notifyIsFocus = "notify::is-focus"
+    case notifyLabel = "notify::label"
+    /// Sets all four sides' margin at once. If read, returns max
+    /// margin on any side.
+    case notifyMargin = "notify::margin"
+    /// Margin on bottom side of widget.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginBottom = "notify::margin-bottom"
+    /// Margin on end of widget, horizontally. This property supports
+    /// left-to-right and right-to-left text directions.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginEnd = "notify::margin-end"
+    /// Margin on left side of widget.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    ///
+    /// **margin-left is deprecated:**
+    /// Use #GtkWidget:margin-start instead.
+    case notifyMarginLeft = "notify::margin-left"
+    /// Margin on right side of widget.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    ///
+    /// **margin-right is deprecated:**
+    /// Use #GtkWidget:margin-end instead.
+    case notifyMarginRight = "notify::margin-right"
+    /// Margin on start of widget, horizontally. This property supports
+    /// left-to-right and right-to-left text directions.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginStart = "notify::margin-start"
+    /// Margin on top side of widget.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginTop = "notify::margin-top"
+    case notifyName = "notify::name"
+    case notifyNoShowAll = "notify::no-show-all"
+    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
+    /// more details about window opacity.
+    /// 
+    /// Before 3.8 this was only available in GtkWindow
+    case notifyOpacity = "notify::opacity"
+    case notifyParent = "notify::parent"
+    case notifyReceivesDefault = "notify::receives-default"
+    case notifyRelief = "notify::relief"
+    case notifyResizeMode = "notify::resize-mode"
+    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
+    /// more details about widget scaling.
+    case notifyScaleFactor = "notify::scale-factor"
+    case notifySensitive = "notify::sensitive"
+    case notifySize = "notify::size"
+    /// The style of the widget, which contains information about how it will look (colors, etc).
+    ///
+    /// **style is deprecated:**
+    /// Use #GtkStyleContext instead
+    case notifyStyle = "notify::style"
+    /// Sets the text of tooltip to be the given string, which is marked up
+    /// with the [Pango text markup language](#PangoMarkupFormat).
+    /// Also see `gtk_tooltip_set_markup()`.
+    /// 
+    /// This is a convenience property which will take care of getting the
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// will automatically be set to `true` and there will be taken care of
+    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// 
+    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// are set, the last one wins.
+    case notifyTooltipMarkup = "notify::tooltip-markup"
+    /// Sets the text of tooltip to be the given string.
+    /// 
+    /// Also see `gtk_tooltip_set_text()`.
+    /// 
+    /// This is a convenience property which will take care of getting the
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// will automatically be set to `true` and there will be taken care of
+    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// 
+    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// are set, the last one wins.
+    case notifyTooltipText = "notify::tooltip-text"
+
+    ///
+    /// **use-stock is deprecated:**
+    /// This method is deprecated.
+    case notifyUseStock = "notify::use-stock"
+    /// Whether to use symbolic icons as the icons. Note that
+    /// if the symbolic icons are not available in your installed
+    /// theme, then the normal (potentially colorful) icons will
+    /// be used.
+    case notifyUseSymbolic = "notify::use-symbolic"
+    case notifyUseUnderline = "notify::use-underline"
+    /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
+    case notifyValign = "notify::valign"
+    case notifyValue = "notify::value"
+    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
+    case notifyVexpand = "notify::vexpand"
+    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
+    case notifyVexpandSet = "notify::vexpand-set"
+    case notifyVisible = "notify::visible"
+    case notifyWidthRequest = "notify::width-request"
+    /// The widget's window if it is realized, `nil` otherwise.
+    case notifyWindow = "notify::window"
+    /// If the child of the button is a `GtkMisc` or `GtkAlignment`, this property
+    /// can be used to control its horizontal alignment. 0.0 is left aligned,
+    /// 1.0 is right aligned.
+    ///
+    /// **xalign is deprecated:**
+    /// Access the child widget directly if you need to control
+    /// its alignment.
+    case notifyXalign = "notify::xalign"
+    /// If the child of the button is a `GtkMisc` or `GtkAlignment`, this property
+    /// can be used to control its vertical alignment. 0.0 is top aligned,
+    /// 1.0 is bottom aligned.
+    ///
+    /// **yalign is deprecated:**
+    /// Access the child widget directly if you need to control
+    /// its alignment.
+    case notifyYalign = "notify::yalign"
+}
+
+// MARK: VolumeButton has no signals
+// MARK: VolumeButton Class: VolumeButtonProtocol extension (methods and fields)
 public extension VolumeButtonProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkVolumeButton` instance.
     @inlinable var volume_button_ptr: UnsafeMutablePointer<GtkVolumeButton>! { return ptr?.assumingMemoryBound(to: GtkVolumeButton.self) }
@@ -5910,34 +11848,769 @@ public extension WidgetProtocol {
     }
 }
 
-// MARK: Signals of Widget
+public enum WidgetSignalName: String, SignalNameProtocol {
+    case accelClosuresChanged = "accel-closures-changed"
+    /// The `button`-press-event signal will be emitted when a button
+    /// (typically from a mouse) is pressed.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the
+    /// widget needs to enable the `GDK_BUTTON_PRESS_MASK` mask.
+    /// 
+    /// This signal will be sent to the grab widget if there is one.
+    case buttonPressEvent = "button-press-event"
+    /// The `button`-release-event signal will be emitted when a button
+    /// (typically from a mouse) is released.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the
+    /// widget needs to enable the `GDK_BUTTON_RELEASE_MASK` mask.
+    /// 
+    /// This signal will be sent to the grab widget if there is one.
+    case buttonReleaseEvent = "button-release-event"
+    /// Determines whether an accelerator that activates the signal
+    /// identified by `signal_id` can currently be activated.
+    /// This signal is present to allow applications and derived
+    /// widgets to override the default `GtkWidget` handling
+    /// for determining whether an accelerator can be activated.
+    case canActivateAccel = "can-activate-accel"
+    /// The `child`-notify signal is emitted for each
+    /// [child property](#child-properties)  that has
+    /// changed on an object. The signal's detail holds the property name.
+    case childNotify = "child-notify"
+    /// The `composited`-changed signal is emitted when the composited
+    /// status of `widgets` screen changes.
+    /// See `gdk_screen_is_composited()`.
+    ///
+    /// **composited-changed is deprecated:**
+    /// Use GdkScreen::composited-changed instead.
+    case compositedChanged = "composited-changed"
+    /// The `configure`-event signal will be emitted when the size, position or
+    /// stacking of the `widget`'s window has changed.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_STRUCTURE_MASK` mask. GDK will enable this mask
+    /// automatically for all new windows.
+    case configureEvent = "configure-event"
+    /// Emitted when a redirected window belonging to `widget` gets drawn into.
+    /// The region/area members of the event shows what area of the redirected
+    /// drawable was drawn into.
+    case damageEvent = "damage-event"
+    /// The `delete`-event signal is emitted if a user requests that
+    /// a toplevel window is closed. The default handler for this signal
+    /// destroys the window. Connecting `gtk_widget_hide_on_delete()` to
+    /// this signal will cause the window to be hidden instead, so that
+    /// it can later be shown again without reconstructing it.
+    case deleteEvent = "delete-event"
+    /// Signals that all holders of a reference to the widget should release
+    /// the reference that they hold. May result in finalization of the widget
+    /// if all references are released.
+    /// 
+    /// This signal is not suitable for saving widget state.
+    case destroy = "destroy"
+    /// The `destroy`-event signal is emitted when a `GdkWindow` is destroyed.
+    /// You rarely get this signal, because most widgets disconnect themselves
+    /// from their window before they destroy it, so no widget owns the
+    /// window at destroy time.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_STRUCTURE_MASK` mask. GDK will enable this mask
+    /// automatically for all new windows.
+    case destroyEvent = "destroy-event"
+    /// The `direction`-changed signal is emitted when the text direction
+    /// of a widget changes.
+    case directionChanged = "direction-changed"
+    /// The `drag`-begin signal is emitted on the drag source when a drag is
+    /// started. A typical reason to connect to this signal is to set up a
+    /// custom drag icon with e.g. `gtk_drag_source_set_icon_pixbuf()`.
+    /// 
+    /// Note that some widgets set up a drag icon in the default handler of
+    /// this signal, so you may have to use `g_signal_connect_after()` to
+    /// override what the default handler did.
+    case dragBegin = "drag-begin"
+    /// The `drag`-data-delete signal is emitted on the drag source when a drag
+    /// with the action `GDK_ACTION_MOVE` is successfully completed. The signal
+    /// handler is responsible for deleting the data that has been dropped. What
+    /// "delete" means depends on the context of the drag operation.
+    case dragDataDelete = "drag-data-delete"
+    /// The `drag`-data-get signal is emitted on the drag source when the drop
+    /// site requests the data which is dragged. It is the responsibility of
+    /// the signal handler to fill `data` with the data in the format which
+    /// is indicated by `info`. See `gtk_selection_data_set()` and
+    /// `gtk_selection_data_set_text()`.
+    case dragDataGet = "drag-data-get"
+    /// The `drag`-data-received signal is emitted on the drop site when the
+    /// dragged data has been received. If the data was received in order to
+    /// determine whether the drop will be accepted, the handler is expected
+    /// to call `gdk_drag_status()` and not finish the drag.
+    /// If the data was received in response to a `GtkWidget::drag`-drop signal
+    /// (and this is the last target to be received), the handler for this
+    /// signal is expected to process the received data and then call
+    /// `gtk_drag_finish()`, setting the `success` parameter depending on
+    /// whether the data was processed successfully.
+    /// 
+    /// Applications must create some means to determine why the signal was emitted
+    /// and therefore whether to call `gdk_drag_status()` or `gtk_drag_finish()`.
+    /// 
+    /// The handler may inspect the selected action with
+    /// `gdk_drag_context_get_selected_action()` before calling
+    /// `gtk_drag_finish()`, e.g. to implement `GDK_ACTION_ASK` as
+    /// shown in the following example:
+    /// (C Language Example):
+    /// ```C
+    /// void
+    /// drag_data_received (GtkWidget          *widget,
+    ///                     GdkDragContext     *context,
+    ///                     gint                x,
+    ///                     gint                y,
+    ///                     GtkSelectionData   *data,
+    ///                     guint               info,
+    ///                     guint               time)
+    /// {
+    ///   if ((data->length >= 0) && (data->format == 8))
+    ///     {
+    ///       GdkDragAction action;
+    /// 
+    ///       // handle data here
+    /// 
+    ///       action = gdk_drag_context_get_selected_action (context);
+    ///       if (action == GDK_ACTION_ASK)
+    ///         {
+    ///           GtkWidget *dialog;
+    ///           gint response;
+    /// 
+    ///           dialog = gtk_message_dialog_new (NULL,
+    ///                                            GTK_DIALOG_MODAL |
+    ///                                            GTK_DIALOG_DESTROY_WITH_PARENT,
+    ///                                            GTK_MESSAGE_INFO,
+    ///                                            GTK_BUTTONS_YES_NO,
+    ///                                            "Move the data ?\n");
+    ///           response = gtk_dialog_run (GTK_DIALOG (dialog));
+    ///           gtk_widget_destroy (dialog);
+    /// 
+    ///           if (response == GTK_RESPONSE_YES)
+    ///             action = GDK_ACTION_MOVE;
+    ///           else
+    ///             action = GDK_ACTION_COPY;
+    ///          }
+    /// 
+    ///       gtk_drag_finish (context, TRUE, action == GDK_ACTION_MOVE, time);
+    ///     }
+    ///   else
+    ///     gtk_drag_finish (context, FALSE, FALSE, time);
+    ///  }
+    /// ```
+    /// 
+    case dragDataReceived = "drag-data-received"
+    /// The `drag`-drop signal is emitted on the drop site when the user drops
+    /// the data onto the widget. The signal handler must determine whether
+    /// the cursor position is in a drop zone or not. If it is not in a drop
+    /// zone, it returns `false` and no further processing is necessary.
+    /// Otherwise, the handler returns `true`. In this case, the handler must
+    /// ensure that `gtk_drag_finish()` is called to let the source know that
+    /// the drop is done. The call to `gtk_drag_finish()` can be done either
+    /// directly or in a `GtkWidget::drag`-data-received handler which gets
+    /// triggered by calling `gtk_drag_get_data()` to receive the data for one
+    /// or more of the supported targets.
+    case dragDrop = "drag-drop"
+    /// The `drag`-end signal is emitted on the drag source when a drag is
+    /// finished.  A typical reason to connect to this signal is to undo
+    /// things done in `GtkWidget::drag`-begin.
+    case dragEnd = "drag-end"
+    /// The `drag`-failed signal is emitted on the drag source when a drag has
+    /// failed. The signal handler may hook custom code to handle a failed DnD
+    /// operation based on the type of error, it returns `true` is the failure has
+    /// been already handled (not showing the default "drag operation failed"
+    /// animation), otherwise it returns `false`.
+    case dragFailed = "drag-failed"
+    /// The `drag`-leave signal is emitted on the drop site when the cursor
+    /// leaves the widget. A typical reason to connect to this signal is to
+    /// undo things done in `GtkWidget::drag`-motion, e.g. undo highlighting
+    /// with `gtk_drag_unhighlight()`.
+    /// 
+    /// 
+    /// Likewise, the `GtkWidget::drag`-leave signal is also emitted before the
+    /// `drag`-drop signal, for instance to allow cleaning up of a preview item
+    /// created in the `GtkWidget::drag`-motion signal handler.
+    case dragLeave = "drag-leave"
+    /// The `drag`-motion signal is emitted on the drop site when the user
+    /// moves the cursor over the widget during a drag. The signal handler
+    /// must determine whether the cursor position is in a drop zone or not.
+    /// If it is not in a drop zone, it returns `false` and no further processing
+    /// is necessary. Otherwise, the handler returns `true`. In this case, the
+    /// handler is responsible for providing the necessary information for
+    /// displaying feedback to the user, by calling `gdk_drag_status()`.
+    /// 
+    /// If the decision whether the drop will be accepted or rejected can't be
+    /// made based solely on the cursor position and the type of the data, the
+    /// handler may inspect the dragged data by calling `gtk_drag_get_data()` and
+    /// defer the `gdk_drag_status()` call to the `GtkWidget::drag`-data-received
+    /// handler. Note that you must pass `GTK_DEST_DEFAULT_DROP`,
+    /// `GTK_DEST_DEFAULT_MOTION` or `GTK_DEST_DEFAULT_ALL` to `gtk_drag_dest_set()`
+    /// when using the drag-motion signal that way.
+    /// 
+    /// Also note that there is no drag-enter signal. The drag receiver has to
+    /// keep track of whether he has received any drag-motion signals since the
+    /// last `GtkWidget::drag`-leave and if not, treat the drag-motion signal as
+    /// an "enter" signal. Upon an "enter", the handler will typically highlight
+    /// the drop site with `gtk_drag_highlight()`.
+    /// (C Language Example):
+    /// ```C
+    /// static void
+    /// drag_motion (GtkWidget      *widget,
+    ///              GdkDragContext *context,
+    ///              gint            x,
+    ///              gint            y,
+    ///              guint           time)
+    /// {
+    ///   GdkAtom target;
+    /// 
+    ///   PrivateData *private_data = GET_PRIVATE_DATA (widget);
+    /// 
+    ///   if (!private_data->drag_highlight)
+    ///    {
+    ///      private_data->drag_highlight = 1;
+    ///      gtk_drag_highlight (widget);
+    ///    }
+    /// 
+    ///   target = gtk_drag_dest_find_target (widget, context, NULL);
+    ///   if (target == GDK_NONE)
+    ///     gdk_drag_status (context, 0, time);
+    ///   else
+    ///    {
+    ///      private_data->pending_status
+    ///         = gdk_drag_context_get_suggested_action (context);
+    ///      gtk_drag_get_data (widget, context, target, time);
+    ///    }
+    /// 
+    ///   return TRUE;
+    /// }
+    /// 
+    /// static void
+    /// drag_data_received (GtkWidget        *widget,
+    ///                     GdkDragContext   *context,
+    ///                     gint              x,
+    ///                     gint              y,
+    ///                     GtkSelectionData *selection_data,
+    ///                     guint             info,
+    ///                     guint             time)
+    /// {
+    ///   PrivateData *private_data = GET_PRIVATE_DATA (widget);
+    /// 
+    ///   if (private_data->suggested_action)
+    ///    {
+    ///      private_data->suggested_action = 0;
+    /// 
+    ///      // We are getting this data due to a request in drag_motion,
+    ///      // rather than due to a request in drag_drop, so we are just
+    ///      // supposed to call gdk_drag_status(), not actually paste in
+    ///      // the data.
+    /// 
+    ///      str = gtk_selection_data_get_text (selection_data);
+    ///      if (!data_is_acceptable (str))
+    ///        gdk_drag_status (context, 0, time);
+    ///      else
+    ///        gdk_drag_status (context,
+    ///                         private_data->suggested_action,
+    ///                         time);
+    ///    }
+    ///   else
+    ///    {
+    ///      // accept the drop
+    ///    }
+    /// }
+    /// ```
+    /// 
+    case dragMotion = "drag-motion"
+    /// This signal is emitted when a widget is supposed to render itself.
+    /// The `widget`'s top left corner must be painted at the origin of
+    /// the passed in context and be sized to the values returned by
+    /// `gtk_widget_get_allocated_width()` and
+    /// `gtk_widget_get_allocated_height()`.
+    /// 
+    /// Signal handlers connected to this signal can modify the cairo
+    /// context passed as `cr` in any way they like and don't need to
+    /// restore it. The signal emission takes care of calling `cairo_save()`
+    /// before and `cairo_restore()` after invoking the handler.
+    /// 
+    /// The signal handler will get a `cr` with a clip region already set to the
+    /// widget's dirty region, i.e. to the area that needs repainting.  Complicated
+    /// widgets that want to avoid redrawing themselves completely can get the full
+    /// extents of the clip region with `gdk_cairo_get_clip_rectangle()`, or they can
+    /// get a finer-grained representation of the dirty region with
+    /// `cairo_copy_clip_rectangle_list()`.
+    case draw = "draw"
+    /// The `enter`-notify-event will be emitted when the pointer enters
+    /// the `widget`'s window.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_ENTER_NOTIFY_MASK` mask.
+    /// 
+    /// This signal will be sent to the grab widget if there is one.
+    case enterNotifyEvent = "enter-notify-event"
+    /// The GTK+ main loop will emit three signals for each GDK event delivered
+    /// to a widget: one generic `event` signal, another, more specific,
+    /// signal that matches the type of event delivered (e.g.
+    /// `GtkWidget::key`-press-event) and finally a generic
+    /// `GtkWidget::event`-after signal.
+    case event = "event"
+    /// After the emission of the `GtkWidget::event` signal and (optionally)
+    /// the second more specific signal, `event`-after will be emitted
+    /// regardless of the previous two signals handlers return values.
+    case eventAfter = "event-after"
+    case focus = "focus"
+    /// The `focus`-in-event signal will be emitted when the keyboard focus
+    /// enters the `widget`'s window.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_FOCUS_CHANGE_MASK` mask.
+    case focusInEvent = "focus-in-event"
+    /// The `focus`-out-event signal will be emitted when the keyboard focus
+    /// leaves the `widget`'s window.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_FOCUS_CHANGE_MASK` mask.
+    case focusOutEvent = "focus-out-event"
+    /// Emitted when a pointer or keyboard grab on a window belonging
+    /// to `widget` gets broken.
+    /// 
+    /// On X11, this happens when the grab window becomes unviewable
+    /// (i.e. it or one of its ancestors is unmapped), or if the same
+    /// application grabs the pointer or keyboard again.
+    case grabBrokenEvent = "grab-broken-event"
+    case grabFocus = "grab-focus"
+    /// The `grab`-notify signal is emitted when a widget becomes
+    /// shadowed by a GTK+ grab (not a pointer or keyboard grab) on
+    /// another widget, or when it becomes unshadowed due to a grab
+    /// being removed.
+    /// 
+    /// A widget is shadowed by a `gtk_grab_add()` when the topmost
+    /// grab widget in the grab stack of its window group is not
+    /// its ancestor.
+    case grabNotify = "grab-notify"
+    /// The `hide` signal is emitted when `widget` is hidden, for example with
+    /// `gtk_widget_hide()`.
+    case hide = "hide"
+    /// The `hierarchy`-changed signal is emitted when the
+    /// anchored state of a widget changes. A widget is
+    /// “anchored” when its toplevel
+    /// ancestor is a `GtkWindow`. This signal is emitted when
+    /// a widget changes from un-anchored to anchored or vice-versa.
+    case hierarchyChanged = "hierarchy-changed"
+    /// The `key`-press-event signal is emitted when a key is pressed. The signal
+    /// emission will reoccur at the key-repeat rate when the key is kept pressed.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_KEY_PRESS_MASK` mask.
+    /// 
+    /// This signal will be sent to the grab widget if there is one.
+    case keyPressEvent = "key-press-event"
+    /// The `key`-release-event signal is emitted when a key is released.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_KEY_RELEASE_MASK` mask.
+    /// 
+    /// This signal will be sent to the grab widget if there is one.
+    case keyReleaseEvent = "key-release-event"
+    /// Gets emitted if keyboard navigation fails.
+    /// See `gtk_widget_keynav_failed()` for details.
+    case keynavFailed = "keynav-failed"
+    /// The `leave`-notify-event will be emitted when the pointer leaves
+    /// the `widget`'s window.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_LEAVE_NOTIFY_MASK` mask.
+    /// 
+    /// This signal will be sent to the grab widget if there is one.
+    case leaveNotifyEvent = "leave-notify-event"
+    /// The `map` signal is emitted when `widget` is going to be mapped, that is
+    /// when the widget is visible (which is controlled with
+    /// `gtk_widget_set_visible()`) and all its parents up to the toplevel widget
+    /// are also visible. Once the map has occurred, `GtkWidget::map`-event will
+    /// be emitted.
+    /// 
+    /// The `map` signal can be used to determine whether a widget will be drawn,
+    /// for instance it can resume an animation that was stopped during the
+    /// emission of `GtkWidget::unmap`.
+    case map = "map"
+    /// The `map`-event signal will be emitted when the `widget`'s window is
+    /// mapped. A window is mapped when it becomes visible on the screen.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_STRUCTURE_MASK` mask. GDK will enable this mask
+    /// automatically for all new windows.
+    case mapEvent = "map-event"
+    /// The default handler for this signal activates `widget` if `group_cycling`
+    /// is `false`, or just makes `widget` grab focus if `group_cycling` is `true`.
+    case mnemonicActivate = "mnemonic-activate"
+    /// The `motion`-notify-event signal is emitted when the pointer moves
+    /// over the widget's `GdkWindow`.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget
+    /// needs to enable the `GDK_POINTER_MOTION_MASK` mask.
+    /// 
+    /// This signal will be sent to the grab widget if there is one.
+    case motionNotifyEvent = "motion-notify-event"
+    case moveFocus = "move-focus"
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    case notify = "notify"
+    /// The `parent`-set signal is emitted when a new parent
+    /// has been set on a widget.
+    case parentSet = "parent-set"
+    /// This signal gets emitted whenever a widget should pop up a context
+    /// menu. This usually happens through the standard key binding mechanism;
+    /// by pressing a certain key while a widget is focused, the user can cause
+    /// the widget to pop up a menu.  For example, the `GtkEntry` widget creates
+    /// a menu with clipboard commands. See the
+    /// [Popup Menu Migration Checklist](#checklist-popup-menu)
+    /// for an example of how to use this signal.
+    case popupMenu = "popup-menu"
+    /// The `property`-notify-event signal will be emitted when a property on
+    /// the `widget`'s window has been changed or deleted.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_PROPERTY_CHANGE_MASK` mask.
+    case propertyNotifyEvent = "property-notify-event"
+    /// To receive this signal the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_PROXIMITY_IN_MASK` mask.
+    /// 
+    /// This signal will be sent to the grab widget if there is one.
+    case proximityInEvent = "proximity-in-event"
+    /// To receive this signal the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_PROXIMITY_OUT_MASK` mask.
+    /// 
+    /// This signal will be sent to the grab widget if there is one.
+    case proximityOutEvent = "proximity-out-event"
+    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
+    /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
+    /// focus in keyboard mode.
+    /// 
+    /// Using the given coordinates, the signal handler should determine
+    /// whether a tooltip should be shown for `widget`. If this is the case
+    /// `true` should be returned, `false` otherwise.  Note that if
+    /// `keyboard_mode` is `true`, the values of `x` and `y` are undefined and
+    /// should not be used.
+    /// 
+    /// The signal handler is free to manipulate `tooltip` with the therefore
+    /// destined function calls.
+    case queryTooltip = "query-tooltip"
+    /// The `realize` signal is emitted when `widget` is associated with a
+    /// `GdkWindow`, which means that `gtk_widget_realize()` has been called or the
+    /// widget has been mapped (that is, it is going to be drawn).
+    case realize = "realize"
+    /// The `screen`-changed signal gets emitted when the
+    /// screen of a widget has changed.
+    case screenChanged = "screen-changed"
+    /// The `scroll`-event signal is emitted when a button in the 4 to 7
+    /// range is pressed. Wheel mice are usually configured to generate
+    /// button press events for buttons 4 and 5 when the wheel is turned.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_SCROLL_MASK` mask.
+    /// 
+    /// This signal will be sent to the grab widget if there is one.
+    case scrollEvent = "scroll-event"
+    /// The `selection`-clear-event signal will be emitted when the
+    /// the `widget`'s window has lost ownership of a selection.
+    case selectionClearEvent = "selection-clear-event"
+    case selectionGet = "selection-get"
+    case selectionNotifyEvent = "selection-notify-event"
+    case selectionReceived = "selection-received"
+    /// The `selection`-request-event signal will be emitted when
+    /// another client requests ownership of the selection owned by
+    /// the `widget`'s window.
+    case selectionRequestEvent = "selection-request-event"
+    /// The `show` signal is emitted when `widget` is shown, for example with
+    /// `gtk_widget_show()`.
+    case show = "show"
+    case showHelp = "show-help"
+    case sizeAllocate = "size-allocate"
+    /// The `state`-changed signal is emitted when the widget state changes.
+    /// See `gtk_widget_get_state()`.
+    ///
+    /// **state-changed is deprecated:**
+    /// Use #GtkWidget::state-flags-changed instead.
+    case stateChanged = "state-changed"
+    /// The `state`-flags-changed signal is emitted when the widget state
+    /// changes, see `gtk_widget_get_state_flags()`.
+    case stateFlagsChanged = "state-flags-changed"
+    /// The `style`-set signal is emitted when a new style has been set
+    /// on a widget. Note that style-modifying functions like
+    /// `gtk_widget_modify_base()` also cause this signal to be emitted.
+    /// 
+    /// Note that this signal is emitted for changes to the deprecated
+    /// `GtkStyle`. To track changes to the `GtkStyleContext` associated
+    /// with a widget, use the `GtkWidget::style`-updated signal.
+    ///
+    /// **style-set is deprecated:**
+    /// Use the #GtkWidget::style-updated signal
+    case styleSet = "style-set"
+    /// The `style`-updated signal is a convenience signal that is emitted when the
+    /// `GtkStyleContext::changed` signal is emitted on the `widget`'s associated
+    /// `GtkStyleContext` as returned by `gtk_widget_get_style_context()`.
+    /// 
+    /// Note that style-modifying functions like `gtk_widget_override_color()` also
+    /// cause this signal to be emitted.
+    case styleUpdated = "style-updated"
+    case touchEvent = "touch-event"
+    /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
+    /// means that either it or any of its parents up to the toplevel widget have
+    /// been set as hidden.
+    /// 
+    /// As `unmap` indicates that a widget will not be shown any longer, it can be
+    /// used to, for example, stop an animation on the widget.
+    case unmap = "unmap"
+    /// The `unmap`-event signal will be emitted when the `widget`'s window is
+    /// unmapped. A window is unmapped when it becomes invisible on the screen.
+    /// 
+    /// To receive this signal, the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_STRUCTURE_MASK` mask. GDK will enable this mask
+    /// automatically for all new windows.
+    case unmapEvent = "unmap-event"
+    /// The `unrealize` signal is emitted when the `GdkWindow` associated with
+    /// `widget` is destroyed, which means that `gtk_widget_unrealize()` has been
+    /// called or the widget has been unmapped (that is, it is going to be
+    /// hidden).
+    case unrealize = "unrealize"
+    /// The `visibility`-notify-event will be emitted when the `widget`'s
+    /// window is obscured or unobscured.
+    /// 
+    /// To receive this signal the `GdkWindow` associated to the widget needs
+    /// to enable the `GDK_VISIBILITY_NOTIFY_MASK` mask.
+    ///
+    /// **visibility-notify-event is deprecated:**
+    /// Modern composited windowing systems with pervasive
+    ///     transparency make it impossible to track the visibility of a window
+    ///     reliably, so this signal can not be guaranteed to provide useful
+    ///     information.
+    case visibilityNotifyEvent = "visibility-notify-event"
+    /// The `window`-state-event will be emitted when the state of the
+    /// toplevel window associated to the `widget` changes.
+    /// 
+    /// To receive this signal the `GdkWindow` associated to the widget
+    /// needs to enable the `GDK_STRUCTURE_MASK` mask. GDK will enable
+    /// this mask automatically for all new windows.
+    case windowStateEvent = "window-state-event"
+    case notifyAppPaintable = "notify::app-paintable"
+    case notifyCanDefault = "notify::can-default"
+    case notifyCanFocus = "notify::can-focus"
+    case notifyCompositeChild = "notify::composite-child"
+    /// Whether the widget is double buffered.
+    ///
+    /// **double-buffered is deprecated:**
+    /// Widgets should not use this property.
+    case notifyDoubleBuffered = "notify::double-buffered"
+    case notifyEvents = "notify::events"
+    /// Whether to expand in both directions. Setting this sets both `GtkWidget:hexpand` and `GtkWidget:vexpand`
+    case notifyExpand = "notify::expand"
+    /// Whether the widget should grab focus when it is clicked with the mouse.
+    /// 
+    /// This property is only relevant for widgets that can take focus.
+    /// 
+    /// Before 3.20, several widgets (GtkButton, GtkFileChooserButton,
+    /// GtkComboBox) implemented this property individually.
+    case notifyFocusOnClick = "notify::focus-on-click"
+    /// How to distribute horizontal space if widget gets extra space, see `GtkAlign`
+    case notifyHalign = "notify::halign"
+    case notifyHasDefault = "notify::has-default"
+    case notifyHasFocus = "notify::has-focus"
+    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// A value of `true` indicates that `widget` can have a tooltip, in this case
+    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// whether it will provide a tooltip or not.
+    /// 
+    /// Note that setting this property to `true` for the first time will change
+    /// the event masks of the GdkWindows of this widget to include leave-notify
+    /// and motion-notify events.  This cannot and will not be undone when the
+    /// property is set to `false` again.
+    case notifyHasTooltip = "notify::has-tooltip"
+    case notifyHeightRequest = "notify::height-request"
+    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
+    case notifyHexpand = "notify::hexpand"
+    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
+    case notifyHexpandSet = "notify::hexpand-set"
+    case notifyIsFocus = "notify::is-focus"
+    /// Sets all four sides' margin at once. If read, returns max
+    /// margin on any side.
+    case notifyMargin = "notify::margin"
+    /// Margin on bottom side of widget.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginBottom = "notify::margin-bottom"
+    /// Margin on end of widget, horizontally. This property supports
+    /// left-to-right and right-to-left text directions.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginEnd = "notify::margin-end"
+    /// Margin on left side of widget.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    ///
+    /// **margin-left is deprecated:**
+    /// Use #GtkWidget:margin-start instead.
+    case notifyMarginLeft = "notify::margin-left"
+    /// Margin on right side of widget.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    ///
+    /// **margin-right is deprecated:**
+    /// Use #GtkWidget:margin-end instead.
+    case notifyMarginRight = "notify::margin-right"
+    /// Margin on start of widget, horizontally. This property supports
+    /// left-to-right and right-to-left text directions.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginStart = "notify::margin-start"
+    /// Margin on top side of widget.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginTop = "notify::margin-top"
+    case notifyName = "notify::name"
+    case notifyNoShowAll = "notify::no-show-all"
+    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
+    /// more details about window opacity.
+    /// 
+    /// Before 3.8 this was only available in GtkWindow
+    case notifyOpacity = "notify::opacity"
+    case notifyParent = "notify::parent"
+    case notifyReceivesDefault = "notify::receives-default"
+    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
+    /// more details about widget scaling.
+    case notifyScaleFactor = "notify::scale-factor"
+    case notifySensitive = "notify::sensitive"
+    /// The style of the widget, which contains information about how it will look (colors, etc).
+    ///
+    /// **style is deprecated:**
+    /// Use #GtkStyleContext instead
+    case notifyStyle = "notify::style"
+    /// Sets the text of tooltip to be the given string, which is marked up
+    /// with the [Pango text markup language](#PangoMarkupFormat).
+    /// Also see `gtk_tooltip_set_markup()`.
+    /// 
+    /// This is a convenience property which will take care of getting the
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// will automatically be set to `true` and there will be taken care of
+    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// 
+    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// are set, the last one wins.
+    case notifyTooltipMarkup = "notify::tooltip-markup"
+    /// Sets the text of tooltip to be the given string.
+    /// 
+    /// Also see `gtk_tooltip_set_text()`.
+    /// 
+    /// This is a convenience property which will take care of getting the
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// will automatically be set to `true` and there will be taken care of
+    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// 
+    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// are set, the last one wins.
+    case notifyTooltipText = "notify::tooltip-text"
+    /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
+    case notifyValign = "notify::valign"
+    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
+    case notifyVexpand = "notify::vexpand"
+    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
+    case notifyVexpandSet = "notify::vexpand-set"
+    case notifyVisible = "notify::visible"
+    case notifyWidthRequest = "notify::width-request"
+    /// The widget's window if it is realized, `nil` otherwise.
+    case notifyWindow = "notify::window"
+}
+
+// MARK: Widget signals
 public extension WidgetProtocol {
-    /// - Note: Representation of signal named `size-allocate`
+    /// Connect a Swift signal handler to the given, typed `WidgetSignalName` signal
+    /// - Parameters:
+    ///   - signal: The signal to connect
+    ///   - flags: The connection flags to use
+    ///   - data: A pointer to user data to provide to the callback
+    ///   - destroyData: A `GClosureNotify` C function to destroy the data pointed to by `userData`
+    ///   - handler: The Swift signal handler (function or callback) to invoke on the given signal
+    /// - Returns: The signal handler ID (always greater than 0 for successful connections)
+    @inlinable @discardableResult func connect(signal s: WidgetSignalName, flags f: ConnectFlags = ConnectFlags(0), handler h: @escaping SignalHandler) -> Int {
+        connect(s, flags: f, handler: h)
+    }
+    
+    
+    /// Connect a C signal handler to the given, typed `WidgetSignalName` signal
+    /// - Parameters:
+    ///   - signal: The signal to connect
+    ///   - flags: The connection flags to use
+    ///   - data: A pointer to user data to provide to the callback
+    ///   - destroyData: A `GClosureNotify` C function to destroy the data pointed to by `userData`
+    ///   - signalHandler: The C function to be called on the given signal
+    /// - Returns: The signal handler ID (always greater than 0 for successful connections)
+    @inlinable @discardableResult func connect(signal s: WidgetSignalName, flags f: ConnectFlags = ConnectFlags(0), data userData: gpointer!, destroyData destructor: GClosureNotify? = nil, signalHandler h: @escaping GCallback) -> Int {
+        connectSignal(s, flags: f, data: userData, destroyData: destructor, handler: h)
+    }
+    
+    
+    /// - Note: This represents the underlying `size-allocate` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter allocation: the region which has been   allocated to the widget.
-    /// - Warning: Wrapper of this signal could not be generated because it contains unimplemented features: { (5)  Alias argument or return is not yet supported }
-    /// - Note: Use this string for `signalConnectData` method
-    static var onSizeAllocate: String { "size-allocate" }
-    /// - Note: Representation of signal named `accel-closures-changed`
+    /// - Parameter handler: The signal handler to call
+    /// - Warning: a `onSizeAllocate` wrapper for this signal could not be generated because it contains unimplemented features: { (5)  Alias argument or return is not yet supported }
+    /// - Note: Instead, you can connect `sizeAllocateSignal` using the `connect(signal:)` methods
+    static var sizeAllocateSignal: WidgetSignalName { .sizeAllocate }
+    /// - Note: This represents the underlying `accel-closures-changed` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
-    @discardableResult
-    func onAccelClosuresChanged(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `accelClosuresChanged` signal is emitted
+    @discardableResult @inlinable func onAccelClosuresChanged(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder<WidgetRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer) -> Void = { unownedSelf, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(WidgetRef(raw: unownedSelf))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "accel-closures-changed", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .accelClosuresChanged,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `accel-closures-changed` signal for using the `connect(signal:)` methods
+    static var accelClosuresChangedSignal: WidgetSignalName { .accelClosuresChanged }
     
     /// The `button`-press-event signal will be emitted when a button
     /// (typically from a mouse) is pressed.
@@ -5946,27 +12619,30 @@ public extension WidgetProtocol {
     /// widget needs to enable the `GDK_BUTTON_PRESS_MASK` mask.
     /// 
     /// This signal will be sent to the grab widget if there is one.
-    /// - Note: Representation of signal named `button-press-event`
+    /// - Note: This represents the underlying `button-press-event` signal
     /// - Parameter flags: Flags
-    /// - Parameter handler: `true` to stop other handlers from being invoked for the event.   `false` to propagate the event further.
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter event: the `GdkEventButton` which triggered   this signal.
-    @discardableResult
-    func onButtonPressEvent(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ event: Gdk.EventButtonRef) -> Bool ) -> Int {
+    /// - Parameter handler: `true` to stop other handlers from being invoked for the event.   `false` to propagate the event further.
+    /// Run the given callback whenever the `buttonPressEvent` signal is emitted
+    @discardableResult @inlinable func onButtonPressEvent(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ event: Gdk.EventButtonRef) -> Bool ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<WidgetRef, Gdk.EventButtonRef, Bool>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> gboolean = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output = holder.call(WidgetRef(raw: unownedSelf), Gdk.EventButtonRef(raw: arg1))
             return gboolean((output) ? 1 : 0)
         }
-        return signalConnectData(
-            detailedSignal: "button-press-event", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .buttonPressEvent,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `button-press-event` signal for using the `connect(signal:)` methods
+    static var buttonPressEventSignal: WidgetSignalName { .buttonPressEvent }
     
     /// The `button`-release-event signal will be emitted when a button
     /// (typically from a mouse) is released.
@@ -5975,101 +12651,115 @@ public extension WidgetProtocol {
     /// widget needs to enable the `GDK_BUTTON_RELEASE_MASK` mask.
     /// 
     /// This signal will be sent to the grab widget if there is one.
-    /// - Note: Representation of signal named `button-release-event`
+    /// - Note: This represents the underlying `button-release-event` signal
     /// - Parameter flags: Flags
-    /// - Parameter handler: `true` to stop other handlers from being invoked for the event.   `false` to propagate the event further.
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter event: the `GdkEventButton` which triggered   this signal.
-    @discardableResult
-    func onButtonReleaseEvent(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ event: Gdk.EventButtonRef) -> Bool ) -> Int {
+    /// - Parameter handler: `true` to stop other handlers from being invoked for the event.   `false` to propagate the event further.
+    /// Run the given callback whenever the `buttonReleaseEvent` signal is emitted
+    @discardableResult @inlinable func onButtonReleaseEvent(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ event: Gdk.EventButtonRef) -> Bool ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<WidgetRef, Gdk.EventButtonRef, Bool>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> gboolean = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output = holder.call(WidgetRef(raw: unownedSelf), Gdk.EventButtonRef(raw: arg1))
             return gboolean((output) ? 1 : 0)
         }
-        return signalConnectData(
-            detailedSignal: "button-release-event", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .buttonReleaseEvent,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `button-release-event` signal for using the `connect(signal:)` methods
+    static var buttonReleaseEventSignal: WidgetSignalName { .buttonReleaseEvent }
     
     /// Determines whether an accelerator that activates the signal
     /// identified by `signal_id` can currently be activated.
     /// This signal is present to allow applications and derived
     /// widgets to override the default `GtkWidget` handling
     /// for determining whether an accelerator can be activated.
-    /// - Note: Representation of signal named `can-activate-accel`
+    /// - Note: This represents the underlying `can-activate-accel` signal
     /// - Parameter flags: Flags
-    /// - Parameter handler: `true` if the signal can be activated.
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter signalID: the ID of a signal installed on `widget`
-    @discardableResult
-    func onCanActivateAccel(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ signalID: UInt) -> Bool ) -> Int {
+    /// - Parameter handler: `true` if the signal can be activated.
+    /// Run the given callback whenever the `canActivateAccel` signal is emitted
+    @discardableResult @inlinable func onCanActivateAccel(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ signalID: UInt) -> Bool ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<WidgetRef, UInt, Bool>
         let cCallback: @convention(c) (gpointer, guint, gpointer) -> gboolean = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output = holder.call(WidgetRef(raw: unownedSelf), UInt(arg1))
             return gboolean((output) ? 1 : 0)
         }
-        return signalConnectData(
-            detailedSignal: "can-activate-accel", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .canActivateAccel,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `can-activate-accel` signal for using the `connect(signal:)` methods
+    static var canActivateAccelSignal: WidgetSignalName { .canActivateAccel }
     
     /// The `child`-notify signal is emitted for each
     /// [child property](#child-properties)  that has
     /// changed on an object. The signal's detail holds the property name.
-    /// - Note: Representation of signal named `child-notify`
+    /// - Note: This represents the underlying `child-notify` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter childProperty: the `GParamSpec` of the changed child property
-    @discardableResult
-    func onChildNotify(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ childProperty: GLibObject.ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `childNotify` signal is emitted
+    @discardableResult @inlinable func onChildNotify(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ childProperty: GLibObject.ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<WidgetRef, GLibObject.ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(WidgetRef(raw: unownedSelf), GLibObject.ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "child-notify", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .childNotify,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `child-notify` signal for using the `connect(signal:)` methods
+    static var childNotifySignal: WidgetSignalName { .childNotify }
     
     /// The `composited`-changed signal is emitted when the composited
     /// status of `widgets` screen changes.
     /// See `gdk_screen_is_composited()`.
-    /// - Note: Representation of signal named `composited-changed`
+    /// - Note: This represents the underlying `composited-changed` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
-    @discardableResult
-    func onCompositedChanged(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `compositedChanged` signal is emitted
+    @discardableResult @inlinable func onCompositedChanged(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder<WidgetRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer) -> Void = { unownedSelf, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(WidgetRef(raw: unownedSelf))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "composited-changed", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .compositedChanged,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `composited-changed` signal for using the `connect(signal:)` methods
+    static var compositedChangedSignal: WidgetSignalName { .compositedChanged }
     
     /// The `configure`-event signal will be emitted when the size, position or
     /// stacking of the `widget`'s window has changed.
@@ -6077,104 +12767,117 @@ public extension WidgetProtocol {
     /// To receive this signal, the `GdkWindow` associated to the widget needs
     /// to enable the `GDK_STRUCTURE_MASK` mask. GDK will enable this mask
     /// automatically for all new windows.
-    /// - Note: Representation of signal named `configure-event`
+    /// - Note: This represents the underlying `configure-event` signal
     /// - Parameter flags: Flags
-    /// - Parameter handler: `true` to stop other handlers from being invoked for the event.   `false` to propagate the event further.
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter event: the `GdkEventConfigure` which triggered   this signal.
-    @discardableResult
-    func onConfigureEvent(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ event: Gdk.EventConfigureRef) -> Bool ) -> Int {
+    /// - Parameter handler: `true` to stop other handlers from being invoked for the event.   `false` to propagate the event further.
+    /// Run the given callback whenever the `configureEvent` signal is emitted
+    @discardableResult @inlinable func onConfigureEvent(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ event: Gdk.EventConfigureRef) -> Bool ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<WidgetRef, Gdk.EventConfigureRef, Bool>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> gboolean = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output = holder.call(WidgetRef(raw: unownedSelf), Gdk.EventConfigureRef(raw: arg1))
             return gboolean((output) ? 1 : 0)
         }
-        return signalConnectData(
-            detailedSignal: "configure-event", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .configureEvent,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `configure-event` signal for using the `connect(signal:)` methods
+    static var configureEventSignal: WidgetSignalName { .configureEvent }
     
     /// Emitted when a redirected window belonging to `widget` gets drawn into.
     /// The region/area members of the event shows what area of the redirected
     /// drawable was drawn into.
-    /// - Note: Representation of signal named `damage-event`
+    /// - Note: This represents the underlying `damage-event` signal
     /// - Parameter flags: Flags
-    /// - Parameter handler: `true` to stop other handlers from being invoked for the event.   `false` to propagate the event further.
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter event: the `GdkEventExpose` event
-    @discardableResult
-    func onDamageEvent(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ event: Gdk.EventExposeRef) -> Bool ) -> Int {
+    /// - Parameter handler: `true` to stop other handlers from being invoked for the event.   `false` to propagate the event further.
+    /// Run the given callback whenever the `damageEvent` signal is emitted
+    @discardableResult @inlinable func onDamageEvent(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ event: Gdk.EventExposeRef) -> Bool ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<WidgetRef, Gdk.EventExposeRef, Bool>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> gboolean = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output = holder.call(WidgetRef(raw: unownedSelf), Gdk.EventExposeRef(raw: arg1))
             return gboolean((output) ? 1 : 0)
         }
-        return signalConnectData(
-            detailedSignal: "damage-event", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .damageEvent,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `damage-event` signal for using the `connect(signal:)` methods
+    static var damageEventSignal: WidgetSignalName { .damageEvent }
     
     /// The `delete`-event signal is emitted if a user requests that
     /// a toplevel window is closed. The default handler for this signal
     /// destroys the window. Connecting `gtk_widget_hide_on_delete()` to
     /// this signal will cause the window to be hidden instead, so that
     /// it can later be shown again without reconstructing it.
-    /// - Note: Representation of signal named `delete-event`
+    /// - Note: This represents the underlying `delete-event` signal
     /// - Parameter flags: Flags
-    /// - Parameter handler: `true` to stop other handlers from being invoked for the event.   `false` to propagate the event further.
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter event: the event which triggered this signal
-    @discardableResult
-    func onDeleteEvent(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ event: Gdk.EventRef) -> Bool ) -> Int {
+    /// - Parameter handler: `true` to stop other handlers from being invoked for the event.   `false` to propagate the event further.
+    /// Run the given callback whenever the `deleteEvent` signal is emitted
+    @discardableResult @inlinable func onDeleteEvent(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ event: Gdk.EventRef) -> Bool ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<WidgetRef, Gdk.EventRef, Bool>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> gboolean = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output = holder.call(WidgetRef(raw: unownedSelf), Gdk.EventRef(raw: arg1))
             return gboolean((output) ? 1 : 0)
         }
-        return signalConnectData(
-            detailedSignal: "delete-event", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .deleteEvent,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `delete-event` signal for using the `connect(signal:)` methods
+    static var deleteEventSignal: WidgetSignalName { .deleteEvent }
     
     /// Signals that all holders of a reference to the widget should release
     /// the reference that they hold. May result in finalization of the widget
     /// if all references are released.
     /// 
     /// This signal is not suitable for saving widget state.
-    /// - Note: Representation of signal named `destroy`
+    /// - Note: This represents the underlying `destroy` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
-    @discardableResult
-    func onDestroy(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `destroy` signal is emitted
+    @discardableResult @inlinable func onDestroy(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder<WidgetRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer) -> Void = { unownedSelf, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(WidgetRef(raw: unownedSelf))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "destroy", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .destroy,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `destroy` signal for using the `connect(signal:)` methods
+    static var destroySignal: WidgetSignalName { .destroy }
     
     /// The `destroy`-event signal is emitted when a `GdkWindow` is destroyed.
     /// You rarely get this signal, because most widgets disconnect themselves
@@ -6184,50 +12887,57 @@ public extension WidgetProtocol {
     /// To receive this signal, the `GdkWindow` associated to the widget needs
     /// to enable the `GDK_STRUCTURE_MASK` mask. GDK will enable this mask
     /// automatically for all new windows.
-    /// - Note: Representation of signal named `destroy-event`
+    /// - Note: This represents the underlying `destroy-event` signal
     /// - Parameter flags: Flags
-    /// - Parameter handler: `true` to stop other handlers from being invoked for the event.   `false` to propagate the event further.
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter event: the event which triggered this signal
-    @discardableResult
-    func onDestroyEvent(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ event: Gdk.EventRef) -> Bool ) -> Int {
+    /// - Parameter handler: `true` to stop other handlers from being invoked for the event.   `false` to propagate the event further.
+    /// Run the given callback whenever the `destroyEvent` signal is emitted
+    @discardableResult @inlinable func onDestroyEvent(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ event: Gdk.EventRef) -> Bool ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<WidgetRef, Gdk.EventRef, Bool>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> gboolean = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output = holder.call(WidgetRef(raw: unownedSelf), Gdk.EventRef(raw: arg1))
             return gboolean((output) ? 1 : 0)
         }
-        return signalConnectData(
-            detailedSignal: "destroy-event", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .destroyEvent,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
     
+    /// Typed `destroy-event` signal for using the `connect(signal:)` methods
+    static var destroyEventSignal: WidgetSignalName { .destroyEvent }
+    
     /// The `direction`-changed signal is emitted when the text direction
     /// of a widget changes.
-    /// - Note: Representation of signal named `direction-changed`
+    /// - Note: This represents the underlying `direction-changed` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter previousDirection: the previous text direction of `widget`
-    @discardableResult
-    func onDirectionChanged(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ previousDirection: TextDirection) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `directionChanged` signal is emitted
+    @discardableResult @inlinable func onDirectionChanged(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ previousDirection: TextDirection) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<WidgetRef, TextDirection, Void>
         let cCallback: @convention(c) (gpointer, UInt32, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(WidgetRef(raw: unownedSelf), TextDirection(arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "direction-changed", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .directionChanged,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `direction-changed` signal for using the `connect(signal:)` methods
+    static var directionChangedSignal: WidgetSignalName { .directionChanged }
     
     /// The `drag`-begin signal is emitted on the drag source when a drag is
     /// started. A typical reason to connect to this signal is to set up a
@@ -6236,80 +12946,92 @@ public extension WidgetProtocol {
     /// Note that some widgets set up a drag icon in the default handler of
     /// this signal, so you may have to use `g_signal_connect_after()` to
     /// override what the default handler did.
-    /// - Note: Representation of signal named `drag-begin`
+    /// - Note: This represents the underlying `drag-begin` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter context: the drag context
-    @discardableResult
-    func onDragBegin(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ context: Gdk.DragContextRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `dragBegin` signal is emitted
+    @discardableResult @inlinable func onDragBegin(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ context: Gdk.DragContextRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<WidgetRef, Gdk.DragContextRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(WidgetRef(raw: unownedSelf), Gdk.DragContextRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "drag-begin", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .dragBegin,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `drag-begin` signal for using the `connect(signal:)` methods
+    static var dragBeginSignal: WidgetSignalName { .dragBegin }
     
     /// The `drag`-data-delete signal is emitted on the drag source when a drag
     /// with the action `GDK_ACTION_MOVE` is successfully completed. The signal
     /// handler is responsible for deleting the data that has been dropped. What
     /// "delete" means depends on the context of the drag operation.
-    /// - Note: Representation of signal named `drag-data-delete`
+    /// - Note: This represents the underlying `drag-data-delete` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter context: the drag context
-    @discardableResult
-    func onDragDataDelete(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ context: Gdk.DragContextRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `dragDataDelete` signal is emitted
+    @discardableResult @inlinable func onDragDataDelete(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ context: Gdk.DragContextRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<WidgetRef, Gdk.DragContextRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(WidgetRef(raw: unownedSelf), Gdk.DragContextRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "drag-data-delete", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .dragDataDelete,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `drag-data-delete` signal for using the `connect(signal:)` methods
+    static var dragDataDeleteSignal: WidgetSignalName { .dragDataDelete }
     
     /// The `drag`-data-get signal is emitted on the drag source when the drop
     /// site requests the data which is dragged. It is the responsibility of
     /// the signal handler to fill `data` with the data in the format which
     /// is indicated by `info`. See `gtk_selection_data_set()` and
     /// `gtk_selection_data_set_text()`.
-    /// - Note: Representation of signal named `drag-data-get`
+    /// - Note: This represents the underlying `drag-data-get` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter context: the drag context
     /// - Parameter data: the `GtkSelectionData` to be filled with the dragged data
     /// - Parameter info: the info that has been registered with the target in the        `GtkTargetList`
     /// - Parameter time: the timestamp at which the data was requested
-    @discardableResult
-    func onDragDataGet(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ context: Gdk.DragContextRef, _ data: SelectionDataRef, _ info: UInt, _ time: UInt) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `dragDataGet` signal is emitted
+    @discardableResult @inlinable func onDragDataGet(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ context: Gdk.DragContextRef, _ data: SelectionDataRef, _ info: UInt, _ time: UInt) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder5<WidgetRef, Gdk.DragContextRef, SelectionDataRef, UInt, UInt, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer, guint, guint, gpointer) -> Void = { unownedSelf, arg1, arg2, arg3, arg4, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(WidgetRef(raw: unownedSelf), Gdk.DragContextRef(raw: arg1), SelectionDataRef(raw: arg2), UInt(arg3), UInt(arg4))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "drag-data-get", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .dragDataGet,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `drag-data-get` signal for using the `connect(signal:)` methods
+    static var dragDataGetSignal: WidgetSignalName { .dragDataGet }
     
     /// The `drag`-data-received signal is emitted on the drop site when the
     /// dragged data has been received. If the data was received in order to
@@ -6373,7 +13095,7 @@ public extension WidgetProtocol {
     ///  }
     /// ```
     /// 
-    /// - Note: Representation of signal named `drag-data-received`
+    /// - Note: This represents the underlying `drag-data-received` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter context: the drag context
@@ -6382,22 +13104,26 @@ public extension WidgetProtocol {
     /// - Parameter data: the received data
     /// - Parameter info: the info that has been registered with the target in the        `GtkTargetList`
     /// - Parameter time: the timestamp at which the data was received
-    @discardableResult
-    func onDragDataReceived(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ context: Gdk.DragContextRef, _ x: Int, _ y: Int, _ data: SelectionDataRef, _ info: UInt, _ time: UInt) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `dragDataReceived` signal is emitted
+    @discardableResult @inlinable func onDragDataReceived(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ context: Gdk.DragContextRef, _ x: Int, _ y: Int, _ data: SelectionDataRef, _ info: UInt, _ time: UInt) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder7<WidgetRef, Gdk.DragContextRef, Int, Int, SelectionDataRef, UInt, UInt, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gint, gint, gpointer, guint, guint, gpointer) -> Void = { unownedSelf, arg1, arg2, arg3, arg4, arg5, arg6, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(WidgetRef(raw: unownedSelf), Gdk.DragContextRef(raw: arg1), Int(arg2), Int(arg3), SelectionDataRef(raw: arg4), UInt(arg5), UInt(arg6))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "drag-data-received", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .dragDataReceived,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `drag-data-received` signal for using the `connect(signal:)` methods
+    static var dragDataReceivedSignal: WidgetSignalName { .dragDataReceived }
     
     /// The `drag`-drop signal is emitted on the drop site when the user drops
     /// the data onto the widget. The signal handler must determine whether
@@ -6409,82 +13135,92 @@ public extension WidgetProtocol {
     /// directly or in a `GtkWidget::drag`-data-received handler which gets
     /// triggered by calling `gtk_drag_get_data()` to receive the data for one
     /// or more of the supported targets.
-    /// - Note: Representation of signal named `drag-drop`
+    /// - Note: This represents the underlying `drag-drop` signal
     /// - Parameter flags: Flags
-    /// - Parameter handler: whether the cursor position is in a drop zone
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter context: the drag context
     /// - Parameter x: the x coordinate of the current cursor position
     /// - Parameter y: the y coordinate of the current cursor position
     /// - Parameter time: the timestamp of the motion event
-    @discardableResult
-    func onDragDrop(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ context: Gdk.DragContextRef, _ x: Int, _ y: Int, _ time: UInt) -> Bool ) -> Int {
+    /// - Parameter handler: whether the cursor position is in a drop zone
+    /// Run the given callback whenever the `dragDrop` signal is emitted
+    @discardableResult @inlinable func onDragDrop(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ context: Gdk.DragContextRef, _ x: Int, _ y: Int, _ time: UInt) -> Bool ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder5<WidgetRef, Gdk.DragContextRef, Int, Int, UInt, Bool>
         let cCallback: @convention(c) (gpointer, gpointer, gint, gint, guint, gpointer) -> gboolean = { unownedSelf, arg1, arg2, arg3, arg4, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output = holder.call(WidgetRef(raw: unownedSelf), Gdk.DragContextRef(raw: arg1), Int(arg2), Int(arg3), UInt(arg4))
             return gboolean((output) ? 1 : 0)
         }
-        return signalConnectData(
-            detailedSignal: "drag-drop", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .dragDrop,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `drag-drop` signal for using the `connect(signal:)` methods
+    static var dragDropSignal: WidgetSignalName { .dragDrop }
     
     /// The `drag`-end signal is emitted on the drag source when a drag is
     /// finished.  A typical reason to connect to this signal is to undo
     /// things done in `GtkWidget::drag`-begin.
-    /// - Note: Representation of signal named `drag-end`
+    /// - Note: This represents the underlying `drag-end` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter context: the drag context
-    @discardableResult
-    func onDragEnd(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ context: Gdk.DragContextRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `dragEnd` signal is emitted
+    @discardableResult @inlinable func onDragEnd(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ context: Gdk.DragContextRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<WidgetRef, Gdk.DragContextRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(WidgetRef(raw: unownedSelf), Gdk.DragContextRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "drag-end", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .dragEnd,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `drag-end` signal for using the `connect(signal:)` methods
+    static var dragEndSignal: WidgetSignalName { .dragEnd }
     
     /// The `drag`-failed signal is emitted on the drag source when a drag has
     /// failed. The signal handler may hook custom code to handle a failed DnD
     /// operation based on the type of error, it returns `true` is the failure has
     /// been already handled (not showing the default "drag operation failed"
     /// animation), otherwise it returns `false`.
-    /// - Note: Representation of signal named `drag-failed`
+    /// - Note: This represents the underlying `drag-failed` signal
     /// - Parameter flags: Flags
-    /// - Parameter handler: `true` if the failed drag operation has been already handled.
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter context: the drag context
     /// - Parameter result: the result of the drag operation
-    @discardableResult
-    func onDragFailed(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ context: Gdk.DragContextRef, _ result: DragResult) -> Bool ) -> Int {
+    /// - Parameter handler: `true` if the failed drag operation has been already handled.
+    /// Run the given callback whenever the `dragFailed` signal is emitted
+    @discardableResult @inlinable func onDragFailed(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ context: Gdk.DragContextRef, _ result: DragResult) -> Bool ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder3<WidgetRef, Gdk.DragContextRef, DragResult, Bool>
         let cCallback: @convention(c) (gpointer, gpointer, UInt32, gpointer) -> gboolean = { unownedSelf, arg1, arg2, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output = holder.call(WidgetRef(raw: unownedSelf), Gdk.DragContextRef(raw: arg1), DragResult(arg2))
             return gboolean((output) ? 1 : 0)
         }
-        return signalConnectData(
-            detailedSignal: "drag-failed", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .dragFailed,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `drag-failed` signal for using the `connect(signal:)` methods
+    static var dragFailedSignal: WidgetSignalName { .dragFailed }
     
     /// The `drag`-leave signal is emitted on the drop site when the cursor
     /// leaves the widget. A typical reason to connect to this signal is to
@@ -6495,27 +13231,31 @@ public extension WidgetProtocol {
     /// Likewise, the `GtkWidget::drag`-leave signal is also emitted before the
     /// `drag`-drop signal, for instance to allow cleaning up of a preview item
     /// created in the `GtkWidget::drag`-motion signal handler.
-    /// - Note: Representation of signal named `drag-leave`
+    /// - Note: This represents the underlying `drag-leave` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter context: the drag context
     /// - Parameter time: the timestamp of the motion event
-    @discardableResult
-    func onDragLeave(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ context: Gdk.DragContextRef, _ time: UInt) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `dragLeave` signal is emitted
+    @discardableResult @inlinable func onDragLeave(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ context: Gdk.DragContextRef, _ time: UInt) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder3<WidgetRef, Gdk.DragContextRef, UInt, Void>
         let cCallback: @convention(c) (gpointer, gpointer, guint, gpointer) -> Void = { unownedSelf, arg1, arg2, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(WidgetRef(raw: unownedSelf), Gdk.DragContextRef(raw: arg1), UInt(arg2))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "drag-leave", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .dragLeave,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `drag-leave` signal for using the `connect(signal:)` methods
+    static var dragLeaveSignal: WidgetSignalName { .dragLeave }
     
     /// The `drag`-motion signal is emitted on the drop site when the user
     /// moves the cursor over the widget during a drag. The signal handler
@@ -6605,30 +13345,33 @@ public extension WidgetProtocol {
     /// }
     /// ```
     /// 
-    /// - Note: Representation of signal named `drag-motion`
+    /// - Note: This represents the underlying `drag-motion` signal
     /// - Parameter flags: Flags
-    /// - Parameter handler: whether the cursor position is in a drop zone
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter context: the drag context
     /// - Parameter x: the x coordinate of the current cursor position
     /// - Parameter y: the y coordinate of the current cursor position
     /// - Parameter time: the timestamp of the motion event
-    @discardableResult
-    func onDragMotion(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ context: Gdk.DragContextRef, _ x: Int, _ y: Int, _ time: UInt) -> Bool ) -> Int {
+    /// - Parameter handler: whether the cursor position is in a drop zone
+    /// Run the given callback whenever the `dragMotion` signal is emitted
+    @discardableResult @inlinable func onDragMotion(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ context: Gdk.DragContextRef, _ x: Int, _ y: Int, _ time: UInt) -> Bool ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder5<WidgetRef, Gdk.DragContextRef, Int, Int, UInt, Bool>
         let cCallback: @convention(c) (gpointer, gpointer, gint, gint, guint, gpointer) -> gboolean = { unownedSelf, arg1, arg2, arg3, arg4, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output = holder.call(WidgetRef(raw: unownedSelf), Gdk.DragContextRef(raw: arg1), Int(arg2), Int(arg3), UInt(arg4))
             return gboolean((output) ? 1 : 0)
         }
-        return signalConnectData(
-            detailedSignal: "drag-motion", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .dragMotion,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `drag-motion` signal for using the `connect(signal:)` methods
+    static var dragMotionSignal: WidgetSignalName { .dragMotion }
     
     /// This signal is emitted when a widget is supposed to render itself.
     /// The `widget`'s top left corner must be painted at the origin of
@@ -6647,27 +13390,30 @@ public extension WidgetProtocol {
     /// extents of the clip region with `gdk_cairo_get_clip_rectangle()`, or they can
     /// get a finer-grained representation of the dirty region with
     /// `cairo_copy_clip_rectangle_list()`.
-    /// - Note: Representation of signal named `draw`
+    /// - Note: This represents the underlying `draw` signal
     /// - Parameter flags: Flags
-    /// - Parameter handler: `true` to stop other handlers from being invoked for the event. `false` to propagate the event further.
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter cr: the cairo context to draw to
-    @discardableResult
-    func onDraw(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ cr: Cairo.ContextRef) -> Bool ) -> Int {
+    /// - Parameter handler: `true` to stop other handlers from being invoked for the event. `false` to propagate the event further.
+    /// Run the given callback whenever the `draw` signal is emitted
+    @discardableResult @inlinable func onDraw(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ cr: Cairo.ContextRef) -> Bool ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<WidgetRef, Cairo.ContextRef, Bool>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> gboolean = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output = holder.call(WidgetRef(raw: unownedSelf), Cairo.ContextRef(raw: arg1))
             return gboolean((output) ? 1 : 0)
         }
-        return signalConnectData(
-            detailedSignal: "draw", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .draw,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `draw` signal for using the `connect(signal:)` methods
+    static var drawSignal: WidgetSignalName { .draw }
     
     /// The `enter`-notify-event will be emitted when the pointer enters
     /// the `widget`'s window.
@@ -6676,154 +13422,173 @@ public extension WidgetProtocol {
     /// to enable the `GDK_ENTER_NOTIFY_MASK` mask.
     /// 
     /// This signal will be sent to the grab widget if there is one.
-    /// - Note: Representation of signal named `enter-notify-event`
+    /// - Note: This represents the underlying `enter-notify-event` signal
     /// - Parameter flags: Flags
-    /// - Parameter handler: `true` to stop other handlers from being invoked for the event.   `false` to propagate the event further.
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter event: the `GdkEventCrossing` which triggered   this signal.
-    @discardableResult
-    func onEnterNotifyEvent(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ event: Gdk.EventCrossingRef) -> Bool ) -> Int {
+    /// - Parameter handler: `true` to stop other handlers from being invoked for the event.   `false` to propagate the event further.
+    /// Run the given callback whenever the `enterNotifyEvent` signal is emitted
+    @discardableResult @inlinable func onEnterNotifyEvent(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ event: Gdk.EventCrossingRef) -> Bool ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<WidgetRef, Gdk.EventCrossingRef, Bool>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> gboolean = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output = holder.call(WidgetRef(raw: unownedSelf), Gdk.EventCrossingRef(raw: arg1))
             return gboolean((output) ? 1 : 0)
         }
-        return signalConnectData(
-            detailedSignal: "enter-notify-event", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .enterNotifyEvent,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `enter-notify-event` signal for using the `connect(signal:)` methods
+    static var enterNotifyEventSignal: WidgetSignalName { .enterNotifyEvent }
     
     /// The GTK+ main loop will emit three signals for each GDK event delivered
     /// to a widget: one generic `event` signal, another, more specific,
     /// signal that matches the type of event delivered (e.g.
     /// `GtkWidget::key`-press-event) and finally a generic
     /// `GtkWidget::event`-after signal.
-    /// - Note: Representation of signal named `event`
+    /// - Note: This represents the underlying `event` signal
     /// - Parameter flags: Flags
-    /// - Parameter handler: `true` to stop other handlers from being invoked for the event and to cancel the emission of the second specific `event` signal.   `false` to propagate the event further and to allow the emission of   the second signal. The `event`-after signal is emitted regardless of   the return value.
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter event: the `GdkEvent` which triggered this signal
-    @discardableResult
-    func onEvent(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ event: Gdk.EventRef) -> Bool ) -> Int {
+    /// - Parameter handler: `true` to stop other handlers from being invoked for the event and to cancel the emission of the second specific `event` signal.   `false` to propagate the event further and to allow the emission of   the second signal. The `event`-after signal is emitted regardless of   the return value.
+    /// Run the given callback whenever the `event` signal is emitted
+    @discardableResult @inlinable func onEvent(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ event: Gdk.EventRef) -> Bool ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<WidgetRef, Gdk.EventRef, Bool>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> gboolean = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output = holder.call(WidgetRef(raw: unownedSelf), Gdk.EventRef(raw: arg1))
             return gboolean((output) ? 1 : 0)
         }
-        return signalConnectData(
-            detailedSignal: "event", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .event,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `event` signal for using the `connect(signal:)` methods
+    static var eventSignal: WidgetSignalName { .event }
     
     /// After the emission of the `GtkWidget::event` signal and (optionally)
     /// the second more specific signal, `event`-after will be emitted
     /// regardless of the previous two signals handlers return values.
-    /// - Note: Representation of signal named `event-after`
+    /// - Note: This represents the underlying `event-after` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter event: the `GdkEvent` which triggered this signal
-    @discardableResult
-    func onEventAfter(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ event: Gdk.EventRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `eventAfter` signal is emitted
+    @discardableResult @inlinable func onEventAfter(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ event: Gdk.EventRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<WidgetRef, Gdk.EventRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(WidgetRef(raw: unownedSelf), Gdk.EventRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "event-after", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .eventAfter,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
     
-    /// - Note: Representation of signal named `focus`
+    /// Typed `event-after` signal for using the `connect(signal:)` methods
+    static var eventAfterSignal: WidgetSignalName { .eventAfter }
+    
+    /// - Note: This represents the underlying `focus` signal
     /// - Parameter flags: Flags
-    /// - Parameter handler: `true` to stop other handlers from being invoked for the event. `false` to propagate the event further.
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter direction: none
-    @discardableResult
-    func onFocus(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ direction: DirectionType) -> Bool ) -> Int {
+    /// - Parameter handler: `true` to stop other handlers from being invoked for the event. `false` to propagate the event further.
+    /// Run the given callback whenever the `focus` signal is emitted
+    @discardableResult @inlinable func onFocus(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ direction: DirectionType) -> Bool ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<WidgetRef, DirectionType, Bool>
         let cCallback: @convention(c) (gpointer, UInt32, gpointer) -> gboolean = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output = holder.call(WidgetRef(raw: unownedSelf), DirectionType(arg1))
             return gboolean((output) ? 1 : 0)
         }
-        return signalConnectData(
-            detailedSignal: "focus", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .focus,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `focus` signal for using the `connect(signal:)` methods
+    static var focusSignal: WidgetSignalName { .focus }
     
     /// The `focus`-in-event signal will be emitted when the keyboard focus
     /// enters the `widget`'s window.
     /// 
     /// To receive this signal, the `GdkWindow` associated to the widget needs
     /// to enable the `GDK_FOCUS_CHANGE_MASK` mask.
-    /// - Note: Representation of signal named `focus-in-event`
+    /// - Note: This represents the underlying `focus-in-event` signal
     /// - Parameter flags: Flags
-    /// - Parameter handler: `true` to stop other handlers from being invoked for the event.   `false` to propagate the event further.
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter event: the `GdkEventFocus` which triggered   this signal.
-    @discardableResult
-    func onFocusInEvent(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ event: Gdk.EventFocusRef) -> Bool ) -> Int {
+    /// - Parameter handler: `true` to stop other handlers from being invoked for the event.   `false` to propagate the event further.
+    /// Run the given callback whenever the `focusInEvent` signal is emitted
+    @discardableResult @inlinable func onFocusInEvent(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ event: Gdk.EventFocusRef) -> Bool ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<WidgetRef, Gdk.EventFocusRef, Bool>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> gboolean = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output = holder.call(WidgetRef(raw: unownedSelf), Gdk.EventFocusRef(raw: arg1))
             return gboolean((output) ? 1 : 0)
         }
-        return signalConnectData(
-            detailedSignal: "focus-in-event", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .focusInEvent,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `focus-in-event` signal for using the `connect(signal:)` methods
+    static var focusInEventSignal: WidgetSignalName { .focusInEvent }
     
     /// The `focus`-out-event signal will be emitted when the keyboard focus
     /// leaves the `widget`'s window.
     /// 
     /// To receive this signal, the `GdkWindow` associated to the widget needs
     /// to enable the `GDK_FOCUS_CHANGE_MASK` mask.
-    /// - Note: Representation of signal named `focus-out-event`
+    /// - Note: This represents the underlying `focus-out-event` signal
     /// - Parameter flags: Flags
-    /// - Parameter handler: `true` to stop other handlers from being invoked for the event.   `false` to propagate the event further.
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter event: the `GdkEventFocus` which triggered this   signal.
-    @discardableResult
-    func onFocusOutEvent(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ event: Gdk.EventFocusRef) -> Bool ) -> Int {
+    /// - Parameter handler: `true` to stop other handlers from being invoked for the event.   `false` to propagate the event further.
+    /// Run the given callback whenever the `focusOutEvent` signal is emitted
+    @discardableResult @inlinable func onFocusOutEvent(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ event: Gdk.EventFocusRef) -> Bool ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<WidgetRef, Gdk.EventFocusRef, Bool>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> gboolean = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output = holder.call(WidgetRef(raw: unownedSelf), Gdk.EventFocusRef(raw: arg1))
             return gboolean((output) ? 1 : 0)
         }
-        return signalConnectData(
-            detailedSignal: "focus-out-event", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .focusOutEvent,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `focus-out-event` signal for using the `connect(signal:)` methods
+    static var focusOutEventSignal: WidgetSignalName { .focusOutEvent }
     
     /// Emitted when a pointer or keyboard grab on a window belonging
     /// to `widget` gets broken.
@@ -6831,47 +13596,54 @@ public extension WidgetProtocol {
     /// On X11, this happens when the grab window becomes unviewable
     /// (i.e. it or one of its ancestors is unmapped), or if the same
     /// application grabs the pointer or keyboard again.
-    /// - Note: Representation of signal named `grab-broken-event`
+    /// - Note: This represents the underlying `grab-broken-event` signal
     /// - Parameter flags: Flags
-    /// - Parameter handler: `true` to stop other handlers from being invoked for   the event. `false` to propagate the event further.
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter event: the `GdkEventGrabBroken` event
-    @discardableResult
-    func onGrabBrokenEvent(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ event: Gdk.EventGrabBrokenRef) -> Bool ) -> Int {
+    /// - Parameter handler: `true` to stop other handlers from being invoked for   the event. `false` to propagate the event further.
+    /// Run the given callback whenever the `grabBrokenEvent` signal is emitted
+    @discardableResult @inlinable func onGrabBrokenEvent(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ event: Gdk.EventGrabBrokenRef) -> Bool ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<WidgetRef, Gdk.EventGrabBrokenRef, Bool>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> gboolean = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output = holder.call(WidgetRef(raw: unownedSelf), Gdk.EventGrabBrokenRef(raw: arg1))
             return gboolean((output) ? 1 : 0)
         }
-        return signalConnectData(
-            detailedSignal: "grab-broken-event", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .grabBrokenEvent,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
     
-    /// - Note: Representation of signal named `grab-focus`
+    /// Typed `grab-broken-event` signal for using the `connect(signal:)` methods
+    static var grabBrokenEventSignal: WidgetSignalName { .grabBrokenEvent }
+    
+    /// - Note: This represents the underlying `grab-focus` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
-    @discardableResult
-    func onGrabFocus(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `grabFocus` signal is emitted
+    @discardableResult @inlinable func onGrabFocus(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder<WidgetRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer) -> Void = { unownedSelf, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(WidgetRef(raw: unownedSelf))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "grab-focus", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .grabFocus,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `grab-focus` signal for using the `connect(signal:)` methods
+    static var grabFocusSignal: WidgetSignalName { .grabFocus }
     
     /// The `grab`-notify signal is emitted when a widget becomes
     /// shadowed by a GTK+ grab (not a pointer or keyboard grab) on
@@ -6881,74 +13653,86 @@ public extension WidgetProtocol {
     /// A widget is shadowed by a `gtk_grab_add()` when the topmost
     /// grab widget in the grab stack of its window group is not
     /// its ancestor.
-    /// - Note: Representation of signal named `grab-notify`
+    /// - Note: This represents the underlying `grab-notify` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter wasGrabbed: `false` if the widget becomes shadowed, `true`               if it becomes unshadowed
-    @discardableResult
-    func onGrabNotify(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ wasGrabbed: Bool) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `grabNotify` signal is emitted
+    @discardableResult @inlinable func onGrabNotify(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ wasGrabbed: Bool) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<WidgetRef, Bool, Void>
         let cCallback: @convention(c) (gpointer, gboolean, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(WidgetRef(raw: unownedSelf), ((arg1) != 0))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "grab-notify", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .grabNotify,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
     
+    /// Typed `grab-notify` signal for using the `connect(signal:)` methods
+    static var grabNotifySignal: WidgetSignalName { .grabNotify }
+    
     /// The `hide` signal is emitted when `widget` is hidden, for example with
     /// `gtk_widget_hide()`.
-    /// - Note: Representation of signal named `hide`
+    /// - Note: This represents the underlying `hide` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
-    @discardableResult
-    func onHide(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `hide` signal is emitted
+    @discardableResult @inlinable func onHide(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder<WidgetRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer) -> Void = { unownedSelf, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(WidgetRef(raw: unownedSelf))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "hide", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .hide,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `hide` signal for using the `connect(signal:)` methods
+    static var hideSignal: WidgetSignalName { .hide }
     
     /// The `hierarchy`-changed signal is emitted when the
     /// anchored state of a widget changes. A widget is
     /// “anchored” when its toplevel
     /// ancestor is a `GtkWindow`. This signal is emitted when
     /// a widget changes from un-anchored to anchored or vice-versa.
-    /// - Note: Representation of signal named `hierarchy-changed`
+    /// - Note: This represents the underlying `hierarchy-changed` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter previousToplevel: the previous toplevel ancestor, or `nil`   if the widget was previously unanchored
-    @discardableResult
-    func onHierarchyChanged(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ previousToplevel: WidgetRef?) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `hierarchyChanged` signal is emitted
+    @discardableResult @inlinable func onHierarchyChanged(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ previousToplevel: WidgetRef?) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<WidgetRef, WidgetRef?, Void>
         let cCallback: @convention(c) (gpointer, gpointer?, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(WidgetRef(raw: unownedSelf), arg1.flatMap(WidgetRef.init(raw:)))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "hierarchy-changed", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .hierarchyChanged,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `hierarchy-changed` signal for using the `connect(signal:)` methods
+    static var hierarchyChangedSignal: WidgetSignalName { .hierarchyChanged }
     
     /// The `key`-press-event signal is emitted when a key is pressed. The signal
     /// emission will reoccur at the key-repeat rate when the key is kept pressed.
@@ -6957,27 +13741,30 @@ public extension WidgetProtocol {
     /// to enable the `GDK_KEY_PRESS_MASK` mask.
     /// 
     /// This signal will be sent to the grab widget if there is one.
-    /// - Note: Representation of signal named `key-press-event`
+    /// - Note: This represents the underlying `key-press-event` signal
     /// - Parameter flags: Flags
-    /// - Parameter handler: `true` to stop other handlers from being invoked for the event.   `false` to propagate the event further.
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter event: the `GdkEventKey` which triggered this signal.
-    @discardableResult
-    func onKeyPressEvent(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ event: Gdk.EventKeyRef) -> Bool ) -> Int {
+    /// - Parameter handler: `true` to stop other handlers from being invoked for the event.   `false` to propagate the event further.
+    /// Run the given callback whenever the `keyPressEvent` signal is emitted
+    @discardableResult @inlinable func onKeyPressEvent(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ event: Gdk.EventKeyRef) -> Bool ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<WidgetRef, Gdk.EventKeyRef, Bool>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> gboolean = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output = holder.call(WidgetRef(raw: unownedSelf), Gdk.EventKeyRef(raw: arg1))
             return gboolean((output) ? 1 : 0)
         }
-        return signalConnectData(
-            detailedSignal: "key-press-event", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .keyPressEvent,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `key-press-event` signal for using the `connect(signal:)` methods
+    static var keyPressEventSignal: WidgetSignalName { .keyPressEvent }
     
     /// The `key`-release-event signal is emitted when a key is released.
     /// 
@@ -6985,51 +13772,57 @@ public extension WidgetProtocol {
     /// to enable the `GDK_KEY_RELEASE_MASK` mask.
     /// 
     /// This signal will be sent to the grab widget if there is one.
-    /// - Note: Representation of signal named `key-release-event`
+    /// - Note: This represents the underlying `key-release-event` signal
     /// - Parameter flags: Flags
-    /// - Parameter handler: `true` to stop other handlers from being invoked for the event.   `false` to propagate the event further.
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter event: the `GdkEventKey` which triggered this signal.
-    @discardableResult
-    func onKeyReleaseEvent(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ event: Gdk.EventKeyRef) -> Bool ) -> Int {
+    /// - Parameter handler: `true` to stop other handlers from being invoked for the event.   `false` to propagate the event further.
+    /// Run the given callback whenever the `keyReleaseEvent` signal is emitted
+    @discardableResult @inlinable func onKeyReleaseEvent(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ event: Gdk.EventKeyRef) -> Bool ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<WidgetRef, Gdk.EventKeyRef, Bool>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> gboolean = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output = holder.call(WidgetRef(raw: unownedSelf), Gdk.EventKeyRef(raw: arg1))
             return gboolean((output) ? 1 : 0)
         }
-        return signalConnectData(
-            detailedSignal: "key-release-event", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .keyReleaseEvent,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
     
+    /// Typed `key-release-event` signal for using the `connect(signal:)` methods
+    static var keyReleaseEventSignal: WidgetSignalName { .keyReleaseEvent }
+    
     /// Gets emitted if keyboard navigation fails.
     /// See `gtk_widget_keynav_failed()` for details.
-    /// - Note: Representation of signal named `keynav-failed`
+    /// - Note: This represents the underlying `keynav-failed` signal
     /// - Parameter flags: Flags
-    /// - Parameter handler: `true` if stopping keyboard navigation is fine, `false`          if the emitting widget should try to handle the keyboard          navigation attempt in its parent `container(s)`.
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter direction: the direction of movement
-    @discardableResult
-    func onKeynavFailed(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ direction: DirectionType) -> Bool ) -> Int {
+    /// - Parameter handler: `true` if stopping keyboard navigation is fine, `false`          if the emitting widget should try to handle the keyboard          navigation attempt in its parent `container(s)`.
+    /// Run the given callback whenever the `keynavFailed` signal is emitted
+    @discardableResult @inlinable func onKeynavFailed(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ direction: DirectionType) -> Bool ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<WidgetRef, DirectionType, Bool>
         let cCallback: @convention(c) (gpointer, UInt32, gpointer) -> gboolean = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output = holder.call(WidgetRef(raw: unownedSelf), DirectionType(arg1))
             return gboolean((output) ? 1 : 0)
         }
-        return signalConnectData(
-            detailedSignal: "keynav-failed", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .keynavFailed,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `keynav-failed` signal for using the `connect(signal:)` methods
+    static var keynavFailedSignal: WidgetSignalName { .keynavFailed }
     
     /// The `leave`-notify-event will be emitted when the pointer leaves
     /// the `widget`'s window.
@@ -7038,27 +13831,30 @@ public extension WidgetProtocol {
     /// to enable the `GDK_LEAVE_NOTIFY_MASK` mask.
     /// 
     /// This signal will be sent to the grab widget if there is one.
-    /// - Note: Representation of signal named `leave-notify-event`
+    /// - Note: This represents the underlying `leave-notify-event` signal
     /// - Parameter flags: Flags
-    /// - Parameter handler: `true` to stop other handlers from being invoked for the event.   `false` to propagate the event further.
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter event: the `GdkEventCrossing` which triggered   this signal.
-    @discardableResult
-    func onLeaveNotifyEvent(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ event: Gdk.EventCrossingRef) -> Bool ) -> Int {
+    /// - Parameter handler: `true` to stop other handlers from being invoked for the event.   `false` to propagate the event further.
+    /// Run the given callback whenever the `leaveNotifyEvent` signal is emitted
+    @discardableResult @inlinable func onLeaveNotifyEvent(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ event: Gdk.EventCrossingRef) -> Bool ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<WidgetRef, Gdk.EventCrossingRef, Bool>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> gboolean = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output = holder.call(WidgetRef(raw: unownedSelf), Gdk.EventCrossingRef(raw: arg1))
             return gboolean((output) ? 1 : 0)
         }
-        return signalConnectData(
-            detailedSignal: "leave-notify-event", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .leaveNotifyEvent,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `leave-notify-event` signal for using the `connect(signal:)` methods
+    static var leaveNotifyEventSignal: WidgetSignalName { .leaveNotifyEvent }
     
     /// The `map` signal is emitted when `widget` is going to be mapped, that is
     /// when the widget is visible (which is controlled with
@@ -7069,25 +13865,29 @@ public extension WidgetProtocol {
     /// The `map` signal can be used to determine whether a widget will be drawn,
     /// for instance it can resume an animation that was stopped during the
     /// emission of `GtkWidget::unmap`.
-    /// - Note: Representation of signal named `map`
+    /// - Note: This represents the underlying `map` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
-    @discardableResult
-    func onMap(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `map` signal is emitted
+    @discardableResult @inlinable func onMap(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder<WidgetRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer) -> Void = { unownedSelf, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(WidgetRef(raw: unownedSelf))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "map", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .map,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `map` signal for using the `connect(signal:)` methods
+    static var mapSignal: WidgetSignalName { .map }
     
     /// The `map`-event signal will be emitted when the `widget`'s window is
     /// mapped. A window is mapped when it becomes visible on the screen.
@@ -7095,51 +13895,57 @@ public extension WidgetProtocol {
     /// To receive this signal, the `GdkWindow` associated to the widget needs
     /// to enable the `GDK_STRUCTURE_MASK` mask. GDK will enable this mask
     /// automatically for all new windows.
-    /// - Note: Representation of signal named `map-event`
+    /// - Note: This represents the underlying `map-event` signal
     /// - Parameter flags: Flags
-    /// - Parameter handler: `true` to stop other handlers from being invoked for the event.   `false` to propagate the event further.
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter event: the `GdkEventAny` which triggered this signal.
-    @discardableResult
-    func onMapEvent(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ event: Gdk.EventAnyRef) -> Bool ) -> Int {
+    /// - Parameter handler: `true` to stop other handlers from being invoked for the event.   `false` to propagate the event further.
+    /// Run the given callback whenever the `mapEvent` signal is emitted
+    @discardableResult @inlinable func onMapEvent(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ event: Gdk.EventAnyRef) -> Bool ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<WidgetRef, Gdk.EventAnyRef, Bool>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> gboolean = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output = holder.call(WidgetRef(raw: unownedSelf), Gdk.EventAnyRef(raw: arg1))
             return gboolean((output) ? 1 : 0)
         }
-        return signalConnectData(
-            detailedSignal: "map-event", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .mapEvent,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
     
+    /// Typed `map-event` signal for using the `connect(signal:)` methods
+    static var mapEventSignal: WidgetSignalName { .mapEvent }
+    
     /// The default handler for this signal activates `widget` if `group_cycling`
     /// is `false`, or just makes `widget` grab focus if `group_cycling` is `true`.
-    /// - Note: Representation of signal named `mnemonic-activate`
+    /// - Note: This represents the underlying `mnemonic-activate` signal
     /// - Parameter flags: Flags
-    /// - Parameter handler: `true` to stop other handlers from being invoked for the event. `false` to propagate the event further.
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter groupCycling: `true` if there are other widgets with the same mnemonic
-    @discardableResult
-    func onMnemonicActivate(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ groupCycling: Bool) -> Bool ) -> Int {
+    /// - Parameter handler: `true` to stop other handlers from being invoked for the event. `false` to propagate the event further.
+    /// Run the given callback whenever the `mnemonicActivate` signal is emitted
+    @discardableResult @inlinable func onMnemonicActivate(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ groupCycling: Bool) -> Bool ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<WidgetRef, Bool, Bool>
         let cCallback: @convention(c) (gpointer, gboolean, gpointer) -> gboolean = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output = holder.call(WidgetRef(raw: unownedSelf), ((arg1) != 0))
             return gboolean((output) ? 1 : 0)
         }
-        return signalConnectData(
-            detailedSignal: "mnemonic-activate", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .mnemonicActivate,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `mnemonic-activate` signal for using the `connect(signal:)` methods
+    static var mnemonicActivateSignal: WidgetSignalName { .mnemonicActivate }
     
     /// The `motion`-notify-event signal is emitted when the pointer moves
     /// over the widget's `GdkWindow`.
@@ -7148,71 +13954,82 @@ public extension WidgetProtocol {
     /// needs to enable the `GDK_POINTER_MOTION_MASK` mask.
     /// 
     /// This signal will be sent to the grab widget if there is one.
-    /// - Note: Representation of signal named `motion-notify-event`
+    /// - Note: This represents the underlying `motion-notify-event` signal
     /// - Parameter flags: Flags
-    /// - Parameter handler: `true` to stop other handlers from being invoked for the event.   `false` to propagate the event further.
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter event: the `GdkEventMotion` which triggered   this signal.
-    @discardableResult
-    func onMotionNotifyEvent(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ event: Gdk.EventMotionRef) -> Bool ) -> Int {
+    /// - Parameter handler: `true` to stop other handlers from being invoked for the event.   `false` to propagate the event further.
+    /// Run the given callback whenever the `motionNotifyEvent` signal is emitted
+    @discardableResult @inlinable func onMotionNotifyEvent(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ event: Gdk.EventMotionRef) -> Bool ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<WidgetRef, Gdk.EventMotionRef, Bool>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> gboolean = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output = holder.call(WidgetRef(raw: unownedSelf), Gdk.EventMotionRef(raw: arg1))
             return gboolean((output) ? 1 : 0)
         }
-        return signalConnectData(
-            detailedSignal: "motion-notify-event", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .motionNotifyEvent,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
     
-    /// - Note: Representation of signal named `move-focus`
+    /// Typed `motion-notify-event` signal for using the `connect(signal:)` methods
+    static var motionNotifyEventSignal: WidgetSignalName { .motionNotifyEvent }
+    
+    /// - Note: This represents the underlying `move-focus` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter direction: none
-    @discardableResult
-    func onMoveFocus(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ direction: DirectionType) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `moveFocus` signal is emitted
+    @discardableResult @inlinable func onMoveFocus(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ direction: DirectionType) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<WidgetRef, DirectionType, Void>
         let cCallback: @convention(c) (gpointer, UInt32, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(WidgetRef(raw: unownedSelf), DirectionType(arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "move-focus", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .moveFocus,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
     
+    /// Typed `move-focus` signal for using the `connect(signal:)` methods
+    static var moveFocusSignal: WidgetSignalName { .moveFocus }
+    
     /// The `parent`-set signal is emitted when a new parent
     /// has been set on a widget.
-    /// - Note: Representation of signal named `parent-set`
+    /// - Note: This represents the underlying `parent-set` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter oldParent: the previous parent, or `nil` if the widget   just got its initial parent.
-    @discardableResult
-    func onParentSet(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ oldParent: WidgetRef?) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `parentSet` signal is emitted
+    @discardableResult @inlinable func onParentSet(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ oldParent: WidgetRef?) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<WidgetRef, WidgetRef?, Void>
         let cCallback: @convention(c) (gpointer, gpointer?, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(WidgetRef(raw: unownedSelf), arg1.flatMap(WidgetRef.init(raw:)))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "parent-set", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .parentSet,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `parent-set` signal for using the `connect(signal:)` methods
+    static var parentSetSignal: WidgetSignalName { .parentSet }
     
     /// This signal gets emitted whenever a widget should pop up a context
     /// menu. This usually happens through the standard key binding mechanism;
@@ -7221,105 +14038,117 @@ public extension WidgetProtocol {
     /// a menu with clipboard commands. See the
     /// [Popup Menu Migration Checklist](#checklist-popup-menu)
     /// for an example of how to use this signal.
-    /// - Note: Representation of signal named `popup-menu`
+    /// - Note: This represents the underlying `popup-menu` signal
     /// - Parameter flags: Flags
-    /// - Parameter handler: `true` if a menu was activated
     /// - Parameter unownedSelf: Reference to instance of self
-    @discardableResult
-    func onPopupMenu(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef) -> Bool ) -> Int {
+    /// - Parameter handler: `true` if a menu was activated
+    /// Run the given callback whenever the `popupMenu` signal is emitted
+    @discardableResult @inlinable func onPopupMenu(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef) -> Bool ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder<WidgetRef, Bool>
         let cCallback: @convention(c) (gpointer, gpointer) -> gboolean = { unownedSelf, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output = holder.call(WidgetRef(raw: unownedSelf))
             return gboolean((output) ? 1 : 0)
         }
-        return signalConnectData(
-            detailedSignal: "popup-menu", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .popupMenu,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `popup-menu` signal for using the `connect(signal:)` methods
+    static var popupMenuSignal: WidgetSignalName { .popupMenu }
     
     /// The `property`-notify-event signal will be emitted when a property on
     /// the `widget`'s window has been changed or deleted.
     /// 
     /// To receive this signal, the `GdkWindow` associated to the widget needs
     /// to enable the `GDK_PROPERTY_CHANGE_MASK` mask.
-    /// - Note: Representation of signal named `property-notify-event`
+    /// - Note: This represents the underlying `property-notify-event` signal
     /// - Parameter flags: Flags
-    /// - Parameter handler: `true` to stop other handlers from being invoked for the event.   `false` to propagate the event further.
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter event: the `GdkEventProperty` which triggered   this signal.
-    @discardableResult
-    func onPropertyNotifyEvent(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ event: Gdk.EventPropertyRef) -> Bool ) -> Int {
+    /// - Parameter handler: `true` to stop other handlers from being invoked for the event.   `false` to propagate the event further.
+    /// Run the given callback whenever the `propertyNotifyEvent` signal is emitted
+    @discardableResult @inlinable func onPropertyNotifyEvent(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ event: Gdk.EventPropertyRef) -> Bool ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<WidgetRef, Gdk.EventPropertyRef, Bool>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> gboolean = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output = holder.call(WidgetRef(raw: unownedSelf), Gdk.EventPropertyRef(raw: arg1))
             return gboolean((output) ? 1 : 0)
         }
-        return signalConnectData(
-            detailedSignal: "property-notify-event", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .propertyNotifyEvent,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `property-notify-event` signal for using the `connect(signal:)` methods
+    static var propertyNotifyEventSignal: WidgetSignalName { .propertyNotifyEvent }
     
     /// To receive this signal the `GdkWindow` associated to the widget needs
     /// to enable the `GDK_PROXIMITY_IN_MASK` mask.
     /// 
     /// This signal will be sent to the grab widget if there is one.
-    /// - Note: Representation of signal named `proximity-in-event`
+    /// - Note: This represents the underlying `proximity-in-event` signal
     /// - Parameter flags: Flags
-    /// - Parameter handler: `true` to stop other handlers from being invoked for the event.   `false` to propagate the event further.
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter event: the `GdkEventProximity` which triggered   this signal.
-    @discardableResult
-    func onProximityInEvent(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ event: Gdk.EventProximityRef) -> Bool ) -> Int {
+    /// - Parameter handler: `true` to stop other handlers from being invoked for the event.   `false` to propagate the event further.
+    /// Run the given callback whenever the `proximityInEvent` signal is emitted
+    @discardableResult @inlinable func onProximityInEvent(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ event: Gdk.EventProximityRef) -> Bool ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<WidgetRef, Gdk.EventProximityRef, Bool>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> gboolean = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output = holder.call(WidgetRef(raw: unownedSelf), Gdk.EventProximityRef(raw: arg1))
             return gboolean((output) ? 1 : 0)
         }
-        return signalConnectData(
-            detailedSignal: "proximity-in-event", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .proximityInEvent,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `proximity-in-event` signal for using the `connect(signal:)` methods
+    static var proximityInEventSignal: WidgetSignalName { .proximityInEvent }
     
     /// To receive this signal the `GdkWindow` associated to the widget needs
     /// to enable the `GDK_PROXIMITY_OUT_MASK` mask.
     /// 
     /// This signal will be sent to the grab widget if there is one.
-    /// - Note: Representation of signal named `proximity-out-event`
+    /// - Note: This represents the underlying `proximity-out-event` signal
     /// - Parameter flags: Flags
-    /// - Parameter handler: `true` to stop other handlers from being invoked for the event.   `false` to propagate the event further.
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter event: the `GdkEventProximity` which triggered   this signal.
-    @discardableResult
-    func onProximityOutEvent(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ event: Gdk.EventProximityRef) -> Bool ) -> Int {
+    /// - Parameter handler: `true` to stop other handlers from being invoked for the event.   `false` to propagate the event further.
+    /// Run the given callback whenever the `proximityOutEvent` signal is emitted
+    @discardableResult @inlinable func onProximityOutEvent(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ event: Gdk.EventProximityRef) -> Bool ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<WidgetRef, Gdk.EventProximityRef, Bool>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> gboolean = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output = holder.call(WidgetRef(raw: unownedSelf), Gdk.EventProximityRef(raw: arg1))
             return gboolean((output) ? 1 : 0)
         }
-        return signalConnectData(
-            detailedSignal: "proximity-out-event", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .proximityOutEvent,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `proximity-out-event` signal for using the `connect(signal:)` methods
+    static var proximityOutEventSignal: WidgetSignalName { .proximityOutEvent }
     
     /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
     /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
@@ -7333,76 +14162,87 @@ public extension WidgetProtocol {
     /// 
     /// The signal handler is free to manipulate `tooltip` with the therefore
     /// destined function calls.
-    /// - Note: Representation of signal named `query-tooltip`
+    /// - Note: This represents the underlying `query-tooltip` signal
     /// - Parameter flags: Flags
-    /// - Parameter handler: `true` if `tooltip` should be shown right now, `false` otherwise.
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter x: the x coordinate of the cursor position where the request has     been emitted, relative to `widget`'s left side
     /// - Parameter y: the y coordinate of the cursor position where the request has     been emitted, relative to `widget`'s top
     /// - Parameter keyboardMode: `true` if the tooltip was triggered using the keyboard
     /// - Parameter tooltip: a `GtkTooltip`
-    @discardableResult
-    func onQueryTooltip(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ x: Int, _ y: Int, _ keyboardMode: Bool, _ tooltip: TooltipRef) -> Bool ) -> Int {
+    /// - Parameter handler: `true` if `tooltip` should be shown right now, `false` otherwise.
+    /// Run the given callback whenever the `queryTooltip` signal is emitted
+    @discardableResult @inlinable func onQueryTooltip(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ x: Int, _ y: Int, _ keyboardMode: Bool, _ tooltip: TooltipRef) -> Bool ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder5<WidgetRef, Int, Int, Bool, TooltipRef, Bool>
         let cCallback: @convention(c) (gpointer, gint, gint, gboolean, gpointer, gpointer) -> gboolean = { unownedSelf, arg1, arg2, arg3, arg4, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output = holder.call(WidgetRef(raw: unownedSelf), Int(arg1), Int(arg2), ((arg3) != 0), TooltipRef(raw: arg4))
             return gboolean((output) ? 1 : 0)
         }
-        return signalConnectData(
-            detailedSignal: "query-tooltip", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .queryTooltip,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `query-tooltip` signal for using the `connect(signal:)` methods
+    static var queryTooltipSignal: WidgetSignalName { .queryTooltip }
     
     /// The `realize` signal is emitted when `widget` is associated with a
     /// `GdkWindow`, which means that `gtk_widget_realize()` has been called or the
     /// widget has been mapped (that is, it is going to be drawn).
-    /// - Note: Representation of signal named `realize`
+    /// - Note: This represents the underlying `realize` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
-    @discardableResult
-    func onRealize(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `realize` signal is emitted
+    @discardableResult @inlinable func onRealize(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder<WidgetRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer) -> Void = { unownedSelf, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(WidgetRef(raw: unownedSelf))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "realize", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .realize,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
     
+    /// Typed `realize` signal for using the `connect(signal:)` methods
+    static var realizeSignal: WidgetSignalName { .realize }
+    
     /// The `screen`-changed signal gets emitted when the
     /// screen of a widget has changed.
-    /// - Note: Representation of signal named `screen-changed`
+    /// - Note: This represents the underlying `screen-changed` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter previousScreen: the previous screen, or `nil` if the   widget was not associated with a screen before
-    @discardableResult
-    func onScreenChanged(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ previousScreen: Gdk.ScreenRef?) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `screenChanged` signal is emitted
+    @discardableResult @inlinable func onScreenChanged(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ previousScreen: Gdk.ScreenRef?) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<WidgetRef, Gdk.ScreenRef?, Void>
         let cCallback: @convention(c) (gpointer, gpointer?, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(WidgetRef(raw: unownedSelf), arg1.flatMap(Gdk.ScreenRef.init(raw:)))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "screen-changed", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .screenChanged,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `screen-changed` signal for using the `connect(signal:)` methods
+    static var screenChangedSignal: WidgetSignalName { .screenChanged }
     
     /// The `scroll`-event signal is emitted when a button in the 4 to 7
     /// range is pressed. Wheel mice are usually configured to generate
@@ -7412,233 +14252,268 @@ public extension WidgetProtocol {
     /// to enable the `GDK_SCROLL_MASK` mask.
     /// 
     /// This signal will be sent to the grab widget if there is one.
-    /// - Note: Representation of signal named `scroll-event`
+    /// - Note: This represents the underlying `scroll-event` signal
     /// - Parameter flags: Flags
-    /// - Parameter handler: `true` to stop other handlers from being invoked for the event.   `false` to propagate the event further.
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter event: the `GdkEventScroll` which triggered   this signal.
-    @discardableResult
-    func onScrollEvent(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ event: Gdk.EventScrollRef) -> Bool ) -> Int {
+    /// - Parameter handler: `true` to stop other handlers from being invoked for the event.   `false` to propagate the event further.
+    /// Run the given callback whenever the `scrollEvent` signal is emitted
+    @discardableResult @inlinable func onScrollEvent(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ event: Gdk.EventScrollRef) -> Bool ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<WidgetRef, Gdk.EventScrollRef, Bool>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> gboolean = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output = holder.call(WidgetRef(raw: unownedSelf), Gdk.EventScrollRef(raw: arg1))
             return gboolean((output) ? 1 : 0)
         }
-        return signalConnectData(
-            detailedSignal: "scroll-event", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .scrollEvent,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
     
+    /// Typed `scroll-event` signal for using the `connect(signal:)` methods
+    static var scrollEventSignal: WidgetSignalName { .scrollEvent }
+    
     /// The `selection`-clear-event signal will be emitted when the
     /// the `widget`'s window has lost ownership of a selection.
-    /// - Note: Representation of signal named `selection-clear-event`
+    /// - Note: This represents the underlying `selection-clear-event` signal
     /// - Parameter flags: Flags
-    /// - Parameter handler: `true` to stop other handlers from being invoked for the event.   `false` to propagate the event further.
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter event: the `GdkEventSelection` which triggered   this signal.
-    @discardableResult
-    func onSelectionClearEvent(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ event: Gdk.EventSelectionRef) -> Bool ) -> Int {
+    /// - Parameter handler: `true` to stop other handlers from being invoked for the event.   `false` to propagate the event further.
+    /// Run the given callback whenever the `selectionClearEvent` signal is emitted
+    @discardableResult @inlinable func onSelectionClearEvent(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ event: Gdk.EventSelectionRef) -> Bool ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<WidgetRef, Gdk.EventSelectionRef, Bool>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> gboolean = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output = holder.call(WidgetRef(raw: unownedSelf), Gdk.EventSelectionRef(raw: arg1))
             return gboolean((output) ? 1 : 0)
         }
-        return signalConnectData(
-            detailedSignal: "selection-clear-event", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .selectionClearEvent,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
     
-    /// - Note: Representation of signal named `selection-get`
+    /// Typed `selection-clear-event` signal for using the `connect(signal:)` methods
+    static var selectionClearEventSignal: WidgetSignalName { .selectionClearEvent }
+    
+    /// - Note: This represents the underlying `selection-get` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter data: none
     /// - Parameter info: none
     /// - Parameter time: none
-    @discardableResult
-    func onSelectionGet(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ data: SelectionDataRef, _ info: UInt, _ time: UInt) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `selectionGet` signal is emitted
+    @discardableResult @inlinable func onSelectionGet(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ data: SelectionDataRef, _ info: UInt, _ time: UInt) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder4<WidgetRef, SelectionDataRef, UInt, UInt, Void>
         let cCallback: @convention(c) (gpointer, gpointer, guint, guint, gpointer) -> Void = { unownedSelf, arg1, arg2, arg3, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(WidgetRef(raw: unownedSelf), SelectionDataRef(raw: arg1), UInt(arg2), UInt(arg3))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "selection-get", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .selectionGet,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
     
-    /// - Note: Representation of signal named `selection-notify-event`
+    /// Typed `selection-get` signal for using the `connect(signal:)` methods
+    static var selectionGetSignal: WidgetSignalName { .selectionGet }
+    
+    /// - Note: This represents the underlying `selection-notify-event` signal
     /// - Parameter flags: Flags
-    /// - Parameter handler: `true` to stop other handlers from being invoked for the event. `false` to propagate the event further.
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter event: none
-    @discardableResult
-    func onSelectionNotifyEvent(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ event: Gdk.EventSelectionRef) -> Bool ) -> Int {
+    /// - Parameter handler: `true` to stop other handlers from being invoked for the event. `false` to propagate the event further.
+    /// Run the given callback whenever the `selectionNotifyEvent` signal is emitted
+    @discardableResult @inlinable func onSelectionNotifyEvent(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ event: Gdk.EventSelectionRef) -> Bool ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<WidgetRef, Gdk.EventSelectionRef, Bool>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> gboolean = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output = holder.call(WidgetRef(raw: unownedSelf), Gdk.EventSelectionRef(raw: arg1))
             return gboolean((output) ? 1 : 0)
         }
-        return signalConnectData(
-            detailedSignal: "selection-notify-event", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .selectionNotifyEvent,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
     
-    /// - Note: Representation of signal named `selection-received`
+    /// Typed `selection-notify-event` signal for using the `connect(signal:)` methods
+    static var selectionNotifyEventSignal: WidgetSignalName { .selectionNotifyEvent }
+    
+    /// - Note: This represents the underlying `selection-received` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter data: none
     /// - Parameter time: none
-    @discardableResult
-    func onSelectionReceived(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ data: SelectionDataRef, _ time: UInt) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `selectionReceived` signal is emitted
+    @discardableResult @inlinable func onSelectionReceived(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ data: SelectionDataRef, _ time: UInt) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder3<WidgetRef, SelectionDataRef, UInt, Void>
         let cCallback: @convention(c) (gpointer, gpointer, guint, gpointer) -> Void = { unownedSelf, arg1, arg2, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(WidgetRef(raw: unownedSelf), SelectionDataRef(raw: arg1), UInt(arg2))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "selection-received", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .selectionReceived,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `selection-received` signal for using the `connect(signal:)` methods
+    static var selectionReceivedSignal: WidgetSignalName { .selectionReceived }
     
     /// The `selection`-request-event signal will be emitted when
     /// another client requests ownership of the selection owned by
     /// the `widget`'s window.
-    /// - Note: Representation of signal named `selection-request-event`
+    /// - Note: This represents the underlying `selection-request-event` signal
     /// - Parameter flags: Flags
-    /// - Parameter handler: `true` to stop other handlers from being invoked for the event.   `false` to propagate the event further.
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter event: the `GdkEventSelection` which triggered   this signal.
-    @discardableResult
-    func onSelectionRequestEvent(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ event: Gdk.EventSelectionRef) -> Bool ) -> Int {
+    /// - Parameter handler: `true` to stop other handlers from being invoked for the event.   `false` to propagate the event further.
+    /// Run the given callback whenever the `selectionRequestEvent` signal is emitted
+    @discardableResult @inlinable func onSelectionRequestEvent(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ event: Gdk.EventSelectionRef) -> Bool ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<WidgetRef, Gdk.EventSelectionRef, Bool>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> gboolean = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output = holder.call(WidgetRef(raw: unownedSelf), Gdk.EventSelectionRef(raw: arg1))
             return gboolean((output) ? 1 : 0)
         }
-        return signalConnectData(
-            detailedSignal: "selection-request-event", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .selectionRequestEvent,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
     
+    /// Typed `selection-request-event` signal for using the `connect(signal:)` methods
+    static var selectionRequestEventSignal: WidgetSignalName { .selectionRequestEvent }
+    
     /// The `show` signal is emitted when `widget` is shown, for example with
     /// `gtk_widget_show()`.
-    /// - Note: Representation of signal named `show`
+    /// - Note: This represents the underlying `show` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
-    @discardableResult
-    func onShow(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `show` signal is emitted
+    @discardableResult @inlinable func onShow(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder<WidgetRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer) -> Void = { unownedSelf, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(WidgetRef(raw: unownedSelf))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "show", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .show,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
     
-    /// - Note: Representation of signal named `show-help`
+    /// Typed `show` signal for using the `connect(signal:)` methods
+    static var showSignal: WidgetSignalName { .show }
+    
+    /// - Note: This represents the underlying `show-help` signal
     /// - Parameter flags: Flags
-    /// - Parameter handler: `true` to stop other handlers from being invoked for the event. `false` to propagate the event further.
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter helpType: none
-    @discardableResult
-    func onShowHelp(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ helpType: WidgetHelpType) -> Bool ) -> Int {
+    /// - Parameter handler: `true` to stop other handlers from being invoked for the event. `false` to propagate the event further.
+    /// Run the given callback whenever the `showHelp` signal is emitted
+    @discardableResult @inlinable func onShowHelp(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ helpType: WidgetHelpType) -> Bool ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<WidgetRef, WidgetHelpType, Bool>
         let cCallback: @convention(c) (gpointer, UInt32, gpointer) -> gboolean = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output = holder.call(WidgetRef(raw: unownedSelf), WidgetHelpType(arg1))
             return gboolean((output) ? 1 : 0)
         }
-        return signalConnectData(
-            detailedSignal: "show-help", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .showHelp,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
     
+    /// Typed `show-help` signal for using the `connect(signal:)` methods
+    static var showHelpSignal: WidgetSignalName { .showHelp }
+    
     /// The `state`-changed signal is emitted when the widget state changes.
     /// See `gtk_widget_get_state()`.
-    /// - Note: Representation of signal named `state-changed`
+    /// - Note: This represents the underlying `state-changed` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter state: the previous state
-    @discardableResult
-    func onStateChanged(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ state: StateType) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `stateChanged` signal is emitted
+    @discardableResult @inlinable func onStateChanged(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ state: StateType) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<WidgetRef, StateType, Void>
         let cCallback: @convention(c) (gpointer, UInt32, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(WidgetRef(raw: unownedSelf), StateType(arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "state-changed", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .stateChanged,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
     
+    /// Typed `state-changed` signal for using the `connect(signal:)` methods
+    static var stateChangedSignal: WidgetSignalName { .stateChanged }
+    
     /// The `state`-flags-changed signal is emitted when the widget state
     /// changes, see `gtk_widget_get_state_flags()`.
-    /// - Note: Representation of signal named `state-flags-changed`
+    /// - Note: This represents the underlying `state-flags-changed` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter flags: The previous state flags.
-    @discardableResult
-    func onStateFlagsChanged(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ flags: StateFlags) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `stateFlagsChanged` signal is emitted
+    @discardableResult @inlinable func onStateFlagsChanged(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ flags: StateFlags) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<WidgetRef, StateFlags, Void>
         let cCallback: @convention(c) (gpointer, UInt32, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(WidgetRef(raw: unownedSelf), StateFlags(arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "state-flags-changed", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .stateFlagsChanged,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `state-flags-changed` signal for using the `connect(signal:)` methods
+    static var stateFlagsChangedSignal: WidgetSignalName { .stateFlagsChanged }
     
     /// The `style`-set signal is emitted when a new style has been set
     /// on a widget. Note that style-modifying functions like
@@ -7647,26 +14522,30 @@ public extension WidgetProtocol {
     /// Note that this signal is emitted for changes to the deprecated
     /// `GtkStyle`. To track changes to the `GtkStyleContext` associated
     /// with a widget, use the `GtkWidget::style`-updated signal.
-    /// - Note: Representation of signal named `style-set`
+    /// - Note: This represents the underlying `style-set` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter previousStyle: the previous style, or `nil` if the widget   just got its initial style
-    @discardableResult
-    func onStyleSet(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ previousStyle: StyleRef?) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `styleSet` signal is emitted
+    @discardableResult @inlinable func onStyleSet(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ previousStyle: StyleRef?) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<WidgetRef, StyleRef?, Void>
         let cCallback: @convention(c) (gpointer, gpointer?, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(WidgetRef(raw: unownedSelf), arg1.flatMap(StyleRef.init(raw:)))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "style-set", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .styleSet,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `style-set` signal for using the `connect(signal:)` methods
+    static var styleSetSignal: WidgetSignalName { .styleSet }
     
     /// The `style`-updated signal is a convenience signal that is emitted when the
     /// `GtkStyleContext::changed` signal is emitted on the `widget`'s associated
@@ -7674,46 +14553,54 @@ public extension WidgetProtocol {
     /// 
     /// Note that style-modifying functions like `gtk_widget_override_color()` also
     /// cause this signal to be emitted.
-    /// - Note: Representation of signal named `style-updated`
+    /// - Note: This represents the underlying `style-updated` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
-    @discardableResult
-    func onStyleUpdated(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `styleUpdated` signal is emitted
+    @discardableResult @inlinable func onStyleUpdated(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder<WidgetRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer) -> Void = { unownedSelf, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(WidgetRef(raw: unownedSelf))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "style-updated", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .styleUpdated,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
     
-    /// - Note: Representation of signal named `touch-event`
+    /// Typed `style-updated` signal for using the `connect(signal:)` methods
+    static var styleUpdatedSignal: WidgetSignalName { .styleUpdated }
+    
+    /// - Note: This represents the underlying `touch-event` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter object: none
-    @discardableResult
-    func onTouchEvent(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ object: Gdk.EventRef) -> Bool ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `touchEvent` signal is emitted
+    @discardableResult @inlinable func onTouchEvent(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ object: Gdk.EventRef) -> Bool ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<WidgetRef, Gdk.EventRef, Bool>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> gboolean = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output = holder.call(WidgetRef(raw: unownedSelf), Gdk.EventRef(raw: arg1))
             return gboolean((output) ? 1 : 0)
         }
-        return signalConnectData(
-            detailedSignal: "touch-event", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .touchEvent,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `touch-event` signal for using the `connect(signal:)` methods
+    static var touchEventSignal: WidgetSignalName { .touchEvent }
     
     /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
     /// means that either it or any of its parents up to the toplevel widget have
@@ -7721,25 +14608,29 @@ public extension WidgetProtocol {
     /// 
     /// As `unmap` indicates that a widget will not be shown any longer, it can be
     /// used to, for example, stop an animation on the widget.
-    /// - Note: Representation of signal named `unmap`
+    /// - Note: This represents the underlying `unmap` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
-    @discardableResult
-    func onUnmap(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `unmap` signal is emitted
+    @discardableResult @inlinable func onUnmap(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder<WidgetRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer) -> Void = { unownedSelf, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(WidgetRef(raw: unownedSelf))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "unmap", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .unmap,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `unmap` signal for using the `connect(signal:)` methods
+    static var unmapSignal: WidgetSignalName { .unmap }
     
     /// The `unmap`-event signal will be emitted when the `widget`'s window is
     /// unmapped. A window is unmapped when it becomes invisible on the screen.
@@ -7747,78 +14638,88 @@ public extension WidgetProtocol {
     /// To receive this signal, the `GdkWindow` associated to the widget needs
     /// to enable the `GDK_STRUCTURE_MASK` mask. GDK will enable this mask
     /// automatically for all new windows.
-    /// - Note: Representation of signal named `unmap-event`
+    /// - Note: This represents the underlying `unmap-event` signal
     /// - Parameter flags: Flags
-    /// - Parameter handler: `true` to stop other handlers from being invoked for the event.   `false` to propagate the event further.
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter event: the `GdkEventAny` which triggered this signal
-    @discardableResult
-    func onUnmapEvent(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ event: Gdk.EventAnyRef) -> Bool ) -> Int {
+    /// - Parameter handler: `true` to stop other handlers from being invoked for the event.   `false` to propagate the event further.
+    /// Run the given callback whenever the `unmapEvent` signal is emitted
+    @discardableResult @inlinable func onUnmapEvent(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ event: Gdk.EventAnyRef) -> Bool ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<WidgetRef, Gdk.EventAnyRef, Bool>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> gboolean = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output = holder.call(WidgetRef(raw: unownedSelf), Gdk.EventAnyRef(raw: arg1))
             return gboolean((output) ? 1 : 0)
         }
-        return signalConnectData(
-            detailedSignal: "unmap-event", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .unmapEvent,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `unmap-event` signal for using the `connect(signal:)` methods
+    static var unmapEventSignal: WidgetSignalName { .unmapEvent }
     
     /// The `unrealize` signal is emitted when the `GdkWindow` associated with
     /// `widget` is destroyed, which means that `gtk_widget_unrealize()` has been
     /// called or the widget has been unmapped (that is, it is going to be
     /// hidden).
-    /// - Note: Representation of signal named `unrealize`
+    /// - Note: This represents the underlying `unrealize` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
-    @discardableResult
-    func onUnrealize(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `unrealize` signal is emitted
+    @discardableResult @inlinable func onUnrealize(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder<WidgetRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer) -> Void = { unownedSelf, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(WidgetRef(raw: unownedSelf))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "unrealize", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .unrealize,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `unrealize` signal for using the `connect(signal:)` methods
+    static var unrealizeSignal: WidgetSignalName { .unrealize }
     
     /// The `visibility`-notify-event will be emitted when the `widget`'s
     /// window is obscured or unobscured.
     /// 
     /// To receive this signal the `GdkWindow` associated to the widget needs
     /// to enable the `GDK_VISIBILITY_NOTIFY_MASK` mask.
-    /// - Note: Representation of signal named `visibility-notify-event`
+    /// - Note: This represents the underlying `visibility-notify-event` signal
     /// - Parameter flags: Flags
-    /// - Parameter handler: `true` to stop other handlers from being invoked for the event.   `false` to propagate the event further.
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter event: the `GdkEventVisibility` which   triggered this signal.
-    @discardableResult
-    func onVisibilityNotifyEvent(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ event: Gdk.EventVisibilityRef) -> Bool ) -> Int {
+    /// - Parameter handler: `true` to stop other handlers from being invoked for the event.   `false` to propagate the event further.
+    /// Run the given callback whenever the `visibilityNotifyEvent` signal is emitted
+    @discardableResult @inlinable func onVisibilityNotifyEvent(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ event: Gdk.EventVisibilityRef) -> Bool ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<WidgetRef, Gdk.EventVisibilityRef, Bool>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> gboolean = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output = holder.call(WidgetRef(raw: unownedSelf), Gdk.EventVisibilityRef(raw: arg1))
             return gboolean((output) ? 1 : 0)
         }
-        return signalConnectData(
-            detailedSignal: "visibility-notify-event", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .visibilityNotifyEvent,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `visibility-notify-event` signal for using the `connect(signal:)` methods
+    static var visibilityNotifyEventSignal: WidgetSignalName { .visibilityNotifyEvent }
     
     /// The `window`-state-event will be emitted when the state of the
     /// toplevel window associated to the `widget` changes.
@@ -7826,27 +14727,30 @@ public extension WidgetProtocol {
     /// To receive this signal the `GdkWindow` associated to the widget
     /// needs to enable the `GDK_STRUCTURE_MASK` mask. GDK will enable
     /// this mask automatically for all new windows.
-    /// - Note: Representation of signal named `window-state-event`
+    /// - Note: This represents the underlying `window-state-event` signal
     /// - Parameter flags: Flags
-    /// - Parameter handler: `true` to stop other handlers from being invoked for the   event. `false` to propagate the event further.
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter event: the `GdkEventWindowState` which   triggered this signal.
-    @discardableResult
-    func onWindowStateEvent(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ event: Gdk.EventWindowStateRef) -> Bool ) -> Int {
+    /// - Parameter handler: `true` to stop other handlers from being invoked for the   event. `false` to propagate the event further.
+    /// Run the given callback whenever the `windowStateEvent` signal is emitted
+    @discardableResult @inlinable func onWindowStateEvent(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ event: Gdk.EventWindowStateRef) -> Bool ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<WidgetRef, Gdk.EventWindowStateRef, Bool>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> gboolean = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output = holder.call(WidgetRef(raw: unownedSelf), Gdk.EventWindowStateRef(raw: arg1))
             return gboolean((output) ? 1 : 0)
         }
-        return signalConnectData(
-            detailedSignal: "window-state-event", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .windowStateEvent,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `window-state-event` signal for using the `connect(signal:)` methods
+    static var windowStateEventSignal: WidgetSignalName { .windowStateEvent }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -7872,26 +14776,30 @@ public extension WidgetProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::app-paintable`
+    /// - Note: This represents the underlying `notify::app-paintable` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyAppPaintable(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyAppPaintable` signal is emitted
+    @discardableResult @inlinable func onNotifyAppPaintable(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<WidgetRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(WidgetRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::app-paintable", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyAppPaintable,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::app-paintable` signal for using the `connect(signal:)` methods
+    static var notifyAppPaintableSignal: WidgetSignalName { .notifyAppPaintable }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -7917,26 +14825,30 @@ public extension WidgetProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::can-default`
+    /// - Note: This represents the underlying `notify::can-default` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyCanDefault(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyCanDefault` signal is emitted
+    @discardableResult @inlinable func onNotifyCanDefault(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<WidgetRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(WidgetRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::can-default", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyCanDefault,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::can-default` signal for using the `connect(signal:)` methods
+    static var notifyCanDefaultSignal: WidgetSignalName { .notifyCanDefault }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -7962,26 +14874,30 @@ public extension WidgetProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::can-focus`
+    /// - Note: This represents the underlying `notify::can-focus` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyCanFocus(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyCanFocus` signal is emitted
+    @discardableResult @inlinable func onNotifyCanFocus(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<WidgetRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(WidgetRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::can-focus", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyCanFocus,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::can-focus` signal for using the `connect(signal:)` methods
+    static var notifyCanFocusSignal: WidgetSignalName { .notifyCanFocus }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -8007,26 +14923,30 @@ public extension WidgetProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::composite-child`
+    /// - Note: This represents the underlying `notify::composite-child` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyCompositeChild(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyCompositeChild` signal is emitted
+    @discardableResult @inlinable func onNotifyCompositeChild(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<WidgetRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(WidgetRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::composite-child", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyCompositeChild,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::composite-child` signal for using the `connect(signal:)` methods
+    static var notifyCompositeChildSignal: WidgetSignalName { .notifyCompositeChild }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -8052,26 +14972,30 @@ public extension WidgetProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::double-buffered`
+    /// - Note: This represents the underlying `notify::double-buffered` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyDoubleBuffered(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyDoubleBuffered` signal is emitted
+    @discardableResult @inlinable func onNotifyDoubleBuffered(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<WidgetRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(WidgetRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::double-buffered", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyDoubleBuffered,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::double-buffered` signal for using the `connect(signal:)` methods
+    static var notifyDoubleBufferedSignal: WidgetSignalName { .notifyDoubleBuffered }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -8097,26 +15021,30 @@ public extension WidgetProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::events`
+    /// - Note: This represents the underlying `notify::events` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyEvents(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyEvents` signal is emitted
+    @discardableResult @inlinable func onNotifyEvents(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<WidgetRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(WidgetRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::events", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyEvents,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::events` signal for using the `connect(signal:)` methods
+    static var notifyEventsSignal: WidgetSignalName { .notifyEvents }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -8142,26 +15070,30 @@ public extension WidgetProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::expand`
+    /// - Note: This represents the underlying `notify::expand` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyExpand(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyExpand` signal is emitted
+    @discardableResult @inlinable func onNotifyExpand(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<WidgetRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(WidgetRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::expand", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyExpand,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::expand` signal for using the `connect(signal:)` methods
+    static var notifyExpandSignal: WidgetSignalName { .notifyExpand }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -8187,26 +15119,30 @@ public extension WidgetProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::focus-on-click`
+    /// - Note: This represents the underlying `notify::focus-on-click` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyFocusOnClick(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyFocusOnClick` signal is emitted
+    @discardableResult @inlinable func onNotifyFocusOnClick(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<WidgetRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(WidgetRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::focus-on-click", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyFocusOnClick,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::focus-on-click` signal for using the `connect(signal:)` methods
+    static var notifyFocusOnClickSignal: WidgetSignalName { .notifyFocusOnClick }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -8232,26 +15168,30 @@ public extension WidgetProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::halign`
+    /// - Note: This represents the underlying `notify::halign` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyHalign(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyHalign` signal is emitted
+    @discardableResult @inlinable func onNotifyHalign(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<WidgetRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(WidgetRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::halign", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyHalign,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::halign` signal for using the `connect(signal:)` methods
+    static var notifyHalignSignal: WidgetSignalName { .notifyHalign }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -8277,26 +15217,30 @@ public extension WidgetProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::has-default`
+    /// - Note: This represents the underlying `notify::has-default` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyHasDefault(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyHasDefault` signal is emitted
+    @discardableResult @inlinable func onNotifyHasDefault(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<WidgetRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(WidgetRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::has-default", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyHasDefault,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::has-default` signal for using the `connect(signal:)` methods
+    static var notifyHasDefaultSignal: WidgetSignalName { .notifyHasDefault }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -8322,26 +15266,30 @@ public extension WidgetProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::has-focus`
+    /// - Note: This represents the underlying `notify::has-focus` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyHasFocus(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyHasFocus` signal is emitted
+    @discardableResult @inlinable func onNotifyHasFocus(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<WidgetRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(WidgetRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::has-focus", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyHasFocus,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::has-focus` signal for using the `connect(signal:)` methods
+    static var notifyHasFocusSignal: WidgetSignalName { .notifyHasFocus }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -8367,26 +15315,30 @@ public extension WidgetProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::has-tooltip`
+    /// - Note: This represents the underlying `notify::has-tooltip` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyHasTooltip(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyHasTooltip` signal is emitted
+    @discardableResult @inlinable func onNotifyHasTooltip(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<WidgetRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(WidgetRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::has-tooltip", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyHasTooltip,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::has-tooltip` signal for using the `connect(signal:)` methods
+    static var notifyHasTooltipSignal: WidgetSignalName { .notifyHasTooltip }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -8412,26 +15364,30 @@ public extension WidgetProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::height-request`
+    /// - Note: This represents the underlying `notify::height-request` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyHeightRequest(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyHeightRequest` signal is emitted
+    @discardableResult @inlinable func onNotifyHeightRequest(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<WidgetRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(WidgetRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::height-request", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyHeightRequest,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::height-request` signal for using the `connect(signal:)` methods
+    static var notifyHeightRequestSignal: WidgetSignalName { .notifyHeightRequest }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -8457,26 +15413,30 @@ public extension WidgetProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::hexpand`
+    /// - Note: This represents the underlying `notify::hexpand` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyHexpand(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyHexpand` signal is emitted
+    @discardableResult @inlinable func onNotifyHexpand(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<WidgetRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(WidgetRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::hexpand", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyHexpand,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::hexpand` signal for using the `connect(signal:)` methods
+    static var notifyHexpandSignal: WidgetSignalName { .notifyHexpand }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -8502,26 +15462,30 @@ public extension WidgetProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::hexpand-set`
+    /// - Note: This represents the underlying `notify::hexpand-set` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyHexpandSet(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyHexpandSet` signal is emitted
+    @discardableResult @inlinable func onNotifyHexpandSet(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<WidgetRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(WidgetRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::hexpand-set", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyHexpandSet,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::hexpand-set` signal for using the `connect(signal:)` methods
+    static var notifyHexpandSetSignal: WidgetSignalName { .notifyHexpandSet }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -8547,26 +15511,30 @@ public extension WidgetProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::is-focus`
+    /// - Note: This represents the underlying `notify::is-focus` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyIsFocus(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyIsFocus` signal is emitted
+    @discardableResult @inlinable func onNotifyIsFocus(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<WidgetRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(WidgetRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::is-focus", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyIsFocus,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::is-focus` signal for using the `connect(signal:)` methods
+    static var notifyIsFocusSignal: WidgetSignalName { .notifyIsFocus }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -8592,26 +15560,30 @@ public extension WidgetProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::margin`
+    /// - Note: This represents the underlying `notify::margin` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyMargin(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyMargin` signal is emitted
+    @discardableResult @inlinable func onNotifyMargin(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<WidgetRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(WidgetRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::margin", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyMargin,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::margin` signal for using the `connect(signal:)` methods
+    static var notifyMarginSignal: WidgetSignalName { .notifyMargin }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -8637,26 +15609,30 @@ public extension WidgetProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::margin-bottom`
+    /// - Note: This represents the underlying `notify::margin-bottom` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyMarginBottom(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyMarginBottom` signal is emitted
+    @discardableResult @inlinable func onNotifyMarginBottom(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<WidgetRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(WidgetRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::margin-bottom", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyMarginBottom,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::margin-bottom` signal for using the `connect(signal:)` methods
+    static var notifyMarginBottomSignal: WidgetSignalName { .notifyMarginBottom }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -8682,26 +15658,30 @@ public extension WidgetProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::margin-end`
+    /// - Note: This represents the underlying `notify::margin-end` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyMarginEnd(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyMarginEnd` signal is emitted
+    @discardableResult @inlinable func onNotifyMarginEnd(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<WidgetRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(WidgetRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::margin-end", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyMarginEnd,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::margin-end` signal for using the `connect(signal:)` methods
+    static var notifyMarginEndSignal: WidgetSignalName { .notifyMarginEnd }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -8727,26 +15707,30 @@ public extension WidgetProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::margin-left`
+    /// - Note: This represents the underlying `notify::margin-left` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyMarginLeft(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyMarginLeft` signal is emitted
+    @discardableResult @inlinable func onNotifyMarginLeft(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<WidgetRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(WidgetRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::margin-left", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyMarginLeft,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::margin-left` signal for using the `connect(signal:)` methods
+    static var notifyMarginLeftSignal: WidgetSignalName { .notifyMarginLeft }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -8772,26 +15756,30 @@ public extension WidgetProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::margin-right`
+    /// - Note: This represents the underlying `notify::margin-right` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyMarginRight(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyMarginRight` signal is emitted
+    @discardableResult @inlinable func onNotifyMarginRight(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<WidgetRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(WidgetRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::margin-right", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyMarginRight,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::margin-right` signal for using the `connect(signal:)` methods
+    static var notifyMarginRightSignal: WidgetSignalName { .notifyMarginRight }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -8817,26 +15805,30 @@ public extension WidgetProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::margin-start`
+    /// - Note: This represents the underlying `notify::margin-start` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyMarginStart(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyMarginStart` signal is emitted
+    @discardableResult @inlinable func onNotifyMarginStart(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<WidgetRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(WidgetRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::margin-start", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyMarginStart,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::margin-start` signal for using the `connect(signal:)` methods
+    static var notifyMarginStartSignal: WidgetSignalName { .notifyMarginStart }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -8862,26 +15854,30 @@ public extension WidgetProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::margin-top`
+    /// - Note: This represents the underlying `notify::margin-top` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyMarginTop(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyMarginTop` signal is emitted
+    @discardableResult @inlinable func onNotifyMarginTop(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<WidgetRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(WidgetRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::margin-top", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyMarginTop,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::margin-top` signal for using the `connect(signal:)` methods
+    static var notifyMarginTopSignal: WidgetSignalName { .notifyMarginTop }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -8907,26 +15903,30 @@ public extension WidgetProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::name`
+    /// - Note: This represents the underlying `notify::name` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyName(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyName` signal is emitted
+    @discardableResult @inlinable func onNotifyName(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<WidgetRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(WidgetRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::name", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyName,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::name` signal for using the `connect(signal:)` methods
+    static var notifyNameSignal: WidgetSignalName { .notifyName }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -8952,26 +15952,30 @@ public extension WidgetProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::no-show-all`
+    /// - Note: This represents the underlying `notify::no-show-all` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyNoShowAll(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyNoShowAll` signal is emitted
+    @discardableResult @inlinable func onNotifyNoShowAll(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<WidgetRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(WidgetRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::no-show-all", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyNoShowAll,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::no-show-all` signal for using the `connect(signal:)` methods
+    static var notifyNoShowAllSignal: WidgetSignalName { .notifyNoShowAll }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -8997,26 +16001,30 @@ public extension WidgetProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::opacity`
+    /// - Note: This represents the underlying `notify::opacity` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyOpacity(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyOpacity` signal is emitted
+    @discardableResult @inlinable func onNotifyOpacity(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<WidgetRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(WidgetRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::opacity", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyOpacity,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::opacity` signal for using the `connect(signal:)` methods
+    static var notifyOpacitySignal: WidgetSignalName { .notifyOpacity }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -9042,26 +16050,30 @@ public extension WidgetProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::parent`
+    /// - Note: This represents the underlying `notify::parent` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyParent(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyParent` signal is emitted
+    @discardableResult @inlinable func onNotifyParent(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<WidgetRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(WidgetRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::parent", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyParent,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::parent` signal for using the `connect(signal:)` methods
+    static var notifyParentSignal: WidgetSignalName { .notifyParent }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -9087,26 +16099,30 @@ public extension WidgetProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::receives-default`
+    /// - Note: This represents the underlying `notify::receives-default` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyReceivesDefault(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyReceivesDefault` signal is emitted
+    @discardableResult @inlinable func onNotifyReceivesDefault(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<WidgetRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(WidgetRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::receives-default", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyReceivesDefault,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::receives-default` signal for using the `connect(signal:)` methods
+    static var notifyReceivesDefaultSignal: WidgetSignalName { .notifyReceivesDefault }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -9132,26 +16148,30 @@ public extension WidgetProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::scale-factor`
+    /// - Note: This represents the underlying `notify::scale-factor` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyScaleFactor(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyScaleFactor` signal is emitted
+    @discardableResult @inlinable func onNotifyScaleFactor(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<WidgetRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(WidgetRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::scale-factor", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyScaleFactor,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::scale-factor` signal for using the `connect(signal:)` methods
+    static var notifyScaleFactorSignal: WidgetSignalName { .notifyScaleFactor }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -9177,26 +16197,30 @@ public extension WidgetProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::sensitive`
+    /// - Note: This represents the underlying `notify::sensitive` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifySensitive(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifySensitive` signal is emitted
+    @discardableResult @inlinable func onNotifySensitive(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<WidgetRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(WidgetRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::sensitive", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifySensitive,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::sensitive` signal for using the `connect(signal:)` methods
+    static var notifySensitiveSignal: WidgetSignalName { .notifySensitive }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -9222,26 +16246,30 @@ public extension WidgetProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::style`
+    /// - Note: This represents the underlying `notify::style` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyStyle(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyStyle` signal is emitted
+    @discardableResult @inlinable func onNotifyStyle(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<WidgetRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(WidgetRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::style", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyStyle,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::style` signal for using the `connect(signal:)` methods
+    static var notifyStyleSignal: WidgetSignalName { .notifyStyle }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -9267,26 +16295,30 @@ public extension WidgetProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::tooltip-markup`
+    /// - Note: This represents the underlying `notify::tooltip-markup` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyTooltipMarkup(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyTooltipMarkup` signal is emitted
+    @discardableResult @inlinable func onNotifyTooltipMarkup(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<WidgetRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(WidgetRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::tooltip-markup", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyTooltipMarkup,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::tooltip-markup` signal for using the `connect(signal:)` methods
+    static var notifyTooltipMarkupSignal: WidgetSignalName { .notifyTooltipMarkup }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -9312,26 +16344,30 @@ public extension WidgetProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::tooltip-text`
+    /// - Note: This represents the underlying `notify::tooltip-text` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyTooltipText(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyTooltipText` signal is emitted
+    @discardableResult @inlinable func onNotifyTooltipText(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<WidgetRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(WidgetRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::tooltip-text", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyTooltipText,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::tooltip-text` signal for using the `connect(signal:)` methods
+    static var notifyTooltipTextSignal: WidgetSignalName { .notifyTooltipText }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -9357,26 +16393,30 @@ public extension WidgetProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::valign`
+    /// - Note: This represents the underlying `notify::valign` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyValign(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyValign` signal is emitted
+    @discardableResult @inlinable func onNotifyValign(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<WidgetRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(WidgetRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::valign", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyValign,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::valign` signal for using the `connect(signal:)` methods
+    static var notifyValignSignal: WidgetSignalName { .notifyValign }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -9402,26 +16442,30 @@ public extension WidgetProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::vexpand`
+    /// - Note: This represents the underlying `notify::vexpand` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyVexpand(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyVexpand` signal is emitted
+    @discardableResult @inlinable func onNotifyVexpand(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<WidgetRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(WidgetRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::vexpand", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyVexpand,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::vexpand` signal for using the `connect(signal:)` methods
+    static var notifyVexpandSignal: WidgetSignalName { .notifyVexpand }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -9447,26 +16491,30 @@ public extension WidgetProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::vexpand-set`
+    /// - Note: This represents the underlying `notify::vexpand-set` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyVexpandSet(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyVexpandSet` signal is emitted
+    @discardableResult @inlinable func onNotifyVexpandSet(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<WidgetRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(WidgetRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::vexpand-set", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyVexpandSet,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::vexpand-set` signal for using the `connect(signal:)` methods
+    static var notifyVexpandSetSignal: WidgetSignalName { .notifyVexpandSet }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -9492,26 +16540,30 @@ public extension WidgetProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::visible`
+    /// - Note: This represents the underlying `notify::visible` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyVisible(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyVisible` signal is emitted
+    @discardableResult @inlinable func onNotifyVisible(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<WidgetRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(WidgetRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::visible", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyVisible,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::visible` signal for using the `connect(signal:)` methods
+    static var notifyVisibleSignal: WidgetSignalName { .notifyVisible }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -9537,26 +16589,30 @@ public extension WidgetProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::width-request`
+    /// - Note: This represents the underlying `notify::width-request` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyWidthRequest(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyWidthRequest` signal is emitted
+    @discardableResult @inlinable func onNotifyWidthRequest(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<WidgetRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(WidgetRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::width-request", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyWidthRequest,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::width-request` signal for using the `connect(signal:)` methods
+    static var notifyWidthRequestSignal: WidgetSignalName { .notifyWidthRequest }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -9582,26 +16638,30 @@ public extension WidgetProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::window`
+    /// - Note: This represents the underlying `notify::window` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyWindow(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyWindow` signal is emitted
+    @discardableResult @inlinable func onNotifyWindow(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<WidgetRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(WidgetRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::window", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyWindow,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::window` signal for using the `connect(signal:)` methods
+    static var notifyWindowSignal: WidgetSignalName { .notifyWindow }
     
 }
 

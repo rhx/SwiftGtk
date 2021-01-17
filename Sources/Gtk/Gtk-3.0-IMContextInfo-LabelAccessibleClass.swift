@@ -266,7 +266,10 @@ open class IMContextInfo: IMContextInfoProtocol {
 
 // MARK: no IMContextInfo properties
 
-// MARK: IMContextInfo has no signals// MARK: IMContextInfo Record: IMContextInfoProtocol extension (methods and fields)
+// MARK: no IMContextInfo signals
+
+// MARK: IMContextInfo has no signals
+// MARK: IMContextInfo Record: IMContextInfoProtocol extension (methods and fields)
 public extension IMContextInfoProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkIMContextInfo` instance.
     @inlinable var _ptr: UnsafeMutablePointer<GtkIMContextInfo>! { return ptr?.assumingMemoryBound(to: GtkIMContextInfo.self) }
@@ -347,7 +350,7 @@ public extension IMContextInfoProtocol {
 /// Metatype/GType declaration for IMContextSimple
 public extension IMContextSimpleClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `IMContextSimple`
     static var metatypeReference: GType { gtk_im_context_simple_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkIMContextSimpleClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkIMContextSimpleClass.self) }
@@ -479,7 +482,7 @@ public extension IMContextSimpleClassProtocol {
 /// Metatype/GType declaration for IMMulticontext
 public extension IMMulticontextClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `IMMulticontext`
     static var metatypeReference: GType { gtk_im_multicontext_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkIMMulticontextClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkIMMulticontextClass.self) }
@@ -619,7 +622,7 @@ public extension IMMulticontextClassProtocol {
 /// Metatype/GType declaration for IconFactory
 public extension IconFactoryClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `IconFactory`
     static var metatypeReference: GType { gtk_icon_factory_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkIconFactoryClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkIconFactoryClass.self) }
@@ -761,7 +764,7 @@ public extension IconFactoryClassProtocol {
 /// Metatype/GType declaration for IconInfo
 public extension IconInfoClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `IconInfo`
     static var metatypeReference: GType { gtk_icon_info_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkIconInfoClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkIconInfoClass.self) }
@@ -1223,7 +1226,10 @@ open class IconSet: IconSetProtocol {
 
 // MARK: no IconSet properties
 
-// MARK: IconSet has no signals// MARK: IconSet Record: IconSetProtocol extension (methods and fields)
+// MARK: no IconSet signals
+
+// MARK: IconSet has no signals
+// MARK: IconSet Record: IconSetProtocol extension (methods and fields)
 public extension IconSetProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkIconSet` instance.
     @inlinable var icon_set_ptr: UnsafeMutablePointer<GtkIconSet>! { return ptr?.assumingMemoryBound(to: GtkIconSet.self) }
@@ -1705,7 +1711,10 @@ open class IconSource: IconSourceProtocol {
 
 // MARK: no IconSource properties
 
-// MARK: IconSource has no signals// MARK: IconSource Record: IconSourceProtocol extension (methods and fields)
+// MARK: no IconSource signals
+
+// MARK: IconSource has no signals
+// MARK: IconSource Record: IconSourceProtocol extension (methods and fields)
 public extension IconSourceProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkIconSource` instance.
     @inlinable var icon_source_ptr: UnsafeMutablePointer<GtkIconSource>! { return ptr?.assumingMemoryBound(to: GtkIconSource.self) }
@@ -2294,7 +2303,7 @@ public extension IconSourceProtocol {
 /// Metatype/GType declaration for IconTheme
 public extension IconThemeClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `IconTheme`
     static var metatypeReference: GType { gtk_icon_theme_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkIconThemeClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkIconThemeClass.self) }
@@ -2438,7 +2447,7 @@ public extension IconThemeClassProtocol {
 /// Metatype/GType declaration for IconViewAccessible
 public extension IconViewAccessibleClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `IconViewAccessible`
     static var metatypeReference: GType { gtk_icon_view_accessible_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkIconViewAccessibleClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkIconViewAccessibleClass.self) }
@@ -2570,7 +2579,7 @@ public extension IconViewAccessibleClassProtocol {
 /// Metatype/GType declaration for IconView
 public extension IconViewClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `IconView`
     static var metatypeReference: GType { gtk_icon_view_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkIconViewClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkIconViewClass.self) }
@@ -2726,7 +2735,7 @@ public extension IconViewClassProtocol {
 /// Metatype/GType declaration for ImageAccessible
 public extension ImageAccessibleClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `ImageAccessible`
     static var metatypeReference: GType { gtk_image_accessible_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkImageAccessibleClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkImageAccessibleClass.self) }
@@ -2858,7 +2867,7 @@ public extension ImageAccessibleClassProtocol {
 /// Metatype/GType declaration for ImageCellAccessible
 public extension ImageCellAccessibleClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `ImageCellAccessible`
     static var metatypeReference: GType { gtk_image_cell_accessible_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkImageCellAccessibleClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkImageCellAccessibleClass.self) }
@@ -2990,7 +2999,7 @@ public extension ImageCellAccessibleClassProtocol {
 /// Metatype/GType declaration for Image
 public extension ImageClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `Image`
     static var metatypeReference: GType { gtk_image_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkImageClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkImageClass.self) }
@@ -3130,7 +3139,7 @@ public extension ImageClassProtocol {
 /// Metatype/GType declaration for ImageMenuItem
 public extension ImageMenuItemClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `ImageMenuItem`
     static var metatypeReference: GType { gtk_image_menu_item_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkImageMenuItemClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkImageMenuItemClass.self) }
@@ -3272,7 +3281,7 @@ public extension ImageMenuItemClassProtocol {
 /// Metatype/GType declaration for InfoBar
 public extension InfoBarClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `InfoBar`
     static var metatypeReference: GType { gtk_info_bar_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkInfoBarClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkInfoBarClass.self) }
@@ -3416,7 +3425,7 @@ public extension InfoBarClassProtocol {
 /// Metatype/GType declaration for Invisible
 public extension InvisibleClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `Invisible`
     static var metatypeReference: GType { gtk_invisible_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkInvisibleClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkInvisibleClass.self) }
@@ -3556,7 +3565,7 @@ public extension InvisibleClassProtocol {
 /// Metatype/GType declaration for LabelAccessible
 public extension LabelAccessibleClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `LabelAccessible`
     static var metatypeReference: GType { gtk_label_accessible_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkLabelAccessibleClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkLabelAccessibleClass.self) }

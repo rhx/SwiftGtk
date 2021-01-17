@@ -18,7 +18,7 @@ import Atk
 /// Metatype/GType declaration for FileChooserDialog
 public extension FileChooserDialogClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `FileChooserDialog`
     static var metatypeReference: GType { gtk_file_chooser_dialog_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkFileChooserDialogClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkFileChooserDialogClass.self) }
@@ -158,7 +158,7 @@ public extension FileChooserDialogClassProtocol {
 /// Metatype/GType declaration for FileChooserNative
 public extension FileChooserNativeClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `FileChooserNative`
     static var metatypeReference: GType { gtk_file_chooser_native_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkFileChooserNativeClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkFileChooserNativeClass.self) }
@@ -290,7 +290,7 @@ public extension FileChooserNativeClassProtocol {
 /// Metatype/GType declaration for FileChooserWidget
 public extension FileChooserWidgetClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `FileChooserWidget`
     static var metatypeReference: GType { gtk_file_chooser_widget_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkFileChooserWidgetClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkFileChooserWidgetClass.self) }
@@ -683,7 +683,10 @@ open class FileFilterInfo: FileFilterInfoProtocol {
 
 // MARK: no FileFilterInfo properties
 
-// MARK: FileFilterInfo has no signals// MARK: FileFilterInfo Record: FileFilterInfoProtocol extension (methods and fields)
+// MARK: no FileFilterInfo signals
+
+// MARK: FileFilterInfo has no signals
+// MARK: FileFilterInfo Record: FileFilterInfoProtocol extension (methods and fields)
 public extension FileFilterInfoProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkFileFilterInfo` instance.
     @inlinable var _ptr: UnsafeMutablePointer<GtkFileFilterInfo>! { return ptr?.assumingMemoryBound(to: GtkFileFilterInfo.self) }
@@ -1015,7 +1018,10 @@ open class FixedChild: FixedChildProtocol {
 
 // MARK: no FixedChild properties
 
-// MARK: FixedChild has no signals// MARK: FixedChild Record: FixedChildProtocol extension (methods and fields)
+// MARK: no FixedChild signals
+
+// MARK: FixedChild has no signals
+// MARK: FixedChild Record: FixedChildProtocol extension (methods and fields)
 public extension FixedChildProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkFixedChild` instance.
     @inlinable var _ptr: UnsafeMutablePointer<GtkFixedChild>! { return ptr?.assumingMemoryBound(to: GtkFixedChild.self) }
@@ -1058,7 +1064,7 @@ public extension FixedChildProtocol {
 /// Metatype/GType declaration for Fixed
 public extension FixedClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `Fixed`
     static var metatypeReference: GType { gtk_fixed_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkFixedClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkFixedClass.self) }
@@ -1198,7 +1204,7 @@ public extension FixedClassProtocol {
 /// Metatype/GType declaration for FlowBoxAccessible
 public extension FlowBoxAccessibleClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `FlowBoxAccessible`
     static var metatypeReference: GType { gtk_flow_box_accessible_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkFlowBoxAccessibleClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkFlowBoxAccessibleClass.self) }
@@ -1330,7 +1336,7 @@ public extension FlowBoxAccessibleClassProtocol {
 /// Metatype/GType declaration for FlowBoxChildAccessible
 public extension FlowBoxChildAccessibleClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `FlowBoxChildAccessible`
     static var metatypeReference: GType { gtk_flow_box_child_accessible_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkFlowBoxChildAccessibleClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkFlowBoxChildAccessibleClass.self) }
@@ -1462,7 +1468,7 @@ public extension FlowBoxChildAccessibleClassProtocol {
 /// Metatype/GType declaration for FlowBoxChild
 public extension FlowBoxChildClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `FlowBoxChild`
     static var metatypeReference: GType { gtk_flow_box_child_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkFlowBoxChildClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkFlowBoxChildClass.self) }
@@ -1600,7 +1606,7 @@ public extension FlowBoxChildClassProtocol {
 /// Metatype/GType declaration for FlowBox
 public extension FlowBoxClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `FlowBox`
     static var metatypeReference: GType { gtk_flow_box_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkFlowBoxClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkFlowBoxClass.self) }
@@ -1758,7 +1764,7 @@ public extension FlowBoxClassProtocol {
 /// Metatype/GType declaration for FontButton
 public extension FontButtonClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `FontButton`
     static var metatypeReference: GType { gtk_font_button_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkFontButtonClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkFontButtonClass.self) }
@@ -1900,7 +1906,7 @@ public extension FontButtonClassProtocol {
 /// Metatype/GType declaration for FontChooserDialog
 public extension FontChooserDialogClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `FontChooserDialog`
     static var metatypeReference: GType { gtk_font_chooser_dialog_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkFontChooserDialogClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkFontChooserDialogClass.self) }
@@ -2042,7 +2048,7 @@ public extension FontChooserDialogClassProtocol {
 /// Metatype/GType declaration for FontChooser
 public extension FontChooserIfaceRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `FontChooser`
     static var metatypeReference: GType { gtk_font_chooser_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkFontChooserIface>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkFontChooserIface.self) }
@@ -2195,7 +2201,7 @@ public extension FontChooserIfaceProtocol {
 /// Metatype/GType declaration for FontChooserWidget
 public extension FontChooserWidgetClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `FontChooserWidget`
     static var metatypeReference: GType { gtk_font_chooser_widget_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkFontChooserWidgetClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkFontChooserWidgetClass.self) }
@@ -2345,7 +2351,7 @@ public extension FontChooserWidgetClassProtocol {
 /// Metatype/GType declaration for FontSelection
 public extension FontSelectionClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `FontSelection`
     static var metatypeReference: GType { gtk_font_selection_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkFontSelectionClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkFontSelectionClass.self) }
@@ -2485,7 +2491,7 @@ public extension FontSelectionClassProtocol {
 /// Metatype/GType declaration for FontSelectionDialog
 public extension FontSelectionDialogClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `FontSelectionDialog`
     static var metatypeReference: GType { gtk_font_selection_dialog_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkFontSelectionDialogClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkFontSelectionDialogClass.self) }
@@ -2625,7 +2631,7 @@ public extension FontSelectionDialogClassProtocol {
 /// Metatype/GType declaration for FrameAccessible
 public extension FrameAccessibleClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `FrameAccessible`
     static var metatypeReference: GType { gtk_frame_accessible_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkFrameAccessibleClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkFrameAccessibleClass.self) }
@@ -2757,7 +2763,7 @@ public extension FrameAccessibleClassProtocol {
 /// Metatype/GType declaration for Frame
 public extension FrameClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `Frame`
     static var metatypeReference: GType { gtk_frame_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkFrameClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkFrameClass.self) }
@@ -2901,7 +2907,7 @@ public extension FrameClassProtocol {
 /// Metatype/GType declaration for GLArea
 public extension GLAreaClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `GLArea`
     static var metatypeReference: GType { gtk_gl_area_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkGLAreaClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkGLAreaClass.self) }

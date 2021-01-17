@@ -266,7 +266,10 @@ open class TreeDragDest: TreeDragDestProtocol {
 
 // MARK: no TreeDragDest properties
 
-// MARK: TreeDragDest has no signals// MARK: TreeDragDest Interface: TreeDragDestProtocol extension (methods and fields)
+// MARK: no TreeDragDest signals
+
+// MARK: TreeDragDest has no signals
+// MARK: TreeDragDest Interface: TreeDragDestProtocol extension (methods and fields)
 public extension TreeDragDestProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkTreeDragDest` instance.
     @inlinable var tree_drag_dest_ptr: UnsafeMutablePointer<GtkTreeDragDest>! { return ptr?.assumingMemoryBound(to: GtkTreeDragDest.self) }
@@ -548,7 +551,10 @@ open class TreeDragSource: TreeDragSourceProtocol {
 
 // MARK: no TreeDragSource properties
 
-// MARK: TreeDragSource has no signals// MARK: TreeDragSource Interface: TreeDragSourceProtocol extension (methods and fields)
+// MARK: no TreeDragSource signals
+
+// MARK: TreeDragSource has no signals
+// MARK: TreeDragSource Interface: TreeDragSourceProtocol extension (methods and fields)
 public extension TreeDragSourceProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkTreeDragSource` instance.
     @inlinable var tree_drag_source_ptr: UnsafeMutablePointer<GtkTreeDragSource>! { return ptr?.assumingMemoryBound(to: GtkTreeDragSource.self) }
@@ -1421,45 +1427,108 @@ open class TreeModel: TreeModelProtocol {
 
 // MARK: no TreeModel properties
 
-// MARK: Signals of TreeModel
-public extension TreeModelProtocol {
+public enum TreeModelSignalName: String, SignalNameProtocol {
+    /// This signal is emitted when a row in the model has changed.
+    case rowChanged = "row-changed"
+    /// This signal is emitted when a row has been deleted.
+    /// 
+    /// Note that no iterator is passed to the signal handler,
+    /// since the row is already deleted.
+    /// 
+    /// This should be called by models after a row has been removed.
+    /// The location pointed to by `path` should be the location that
+    /// the row previously was at. It may not be a valid location anymore.
+    case rowDeleted = "row-deleted"
+    /// This signal is emitted when a row has gotten the first child
+    /// row or lost its last child row.
+    case rowHasChildToggled = "row-has-child-toggled"
+    /// This signal is emitted when a new row has been inserted in
+    /// the model.
+    /// 
+    /// Note that the row may still be empty at this point, since
+    /// it is a common pattern to first insert an empty row, and
+    /// then fill it with the desired values.
+    case rowInserted = "row-inserted"
     /// This signal is emitted when the children of a node in the
     /// `GtkTreeModel` have been reordered.
     /// 
     /// Note that this signal is not emitted
     /// when rows are reordered by DND, since this is implemented
     /// by removing and then reinserting the row.
-    /// - Note: Representation of signal named `rows-reordered`
+    case rowsReordered = "rows-reordered"
+
+}
+
+// MARK: TreeModel signals
+public extension TreeModelProtocol {
+    /// Connect a Swift signal handler to the given, typed `TreeModelSignalName` signal
+    /// - Parameters:
+    ///   - signal: The signal to connect
+    ///   - flags: The connection flags to use
+    ///   - data: A pointer to user data to provide to the callback
+    ///   - destroyData: A `GClosureNotify` C function to destroy the data pointed to by `userData`
+    ///   - handler: The Swift signal handler (function or callback) to invoke on the given signal
+    /// - Returns: The signal handler ID (always greater than 0 for successful connections)
+    @inlinable @discardableResult func connect(signal s: TreeModelSignalName, flags f: ConnectFlags = ConnectFlags(0), handler h: @escaping SignalHandler) -> Int {
+        GLibObject.ObjectRef(raw: ptr).connect(s, flags: f, handler: h)
+    }
+    
+    
+    /// Connect a C signal handler to the given, typed `TreeModelSignalName` signal
+    /// - Parameters:
+    ///   - signal: The signal to connect
+    ///   - flags: The connection flags to use
+    ///   - data: A pointer to user data to provide to the callback
+    ///   - destroyData: A `GClosureNotify` C function to destroy the data pointed to by `userData`
+    ///   - signalHandler: The C function to be called on the given signal
+    /// - Returns: The signal handler ID (always greater than 0 for successful connections)
+    @inlinable @discardableResult func connect(signal s: TreeModelSignalName, flags f: ConnectFlags = ConnectFlags(0), data userData: gpointer!, destroyData destructor: GClosureNotify? = nil, signalHandler h: @escaping GCallback) -> Int {
+        GLibObject.ObjectRef(raw: ptr).connectSignal(s, flags: f, data: userData, destroyData: destructor, handler: h)
+    }
+    
+    
+    /// This signal is emitted when the children of a node in the
+    /// `GtkTreeModel` have been reordered.
+    /// 
+    /// Note that this signal is not emitted
+    /// when rows are reordered by DND, since this is implemented
+    /// by removing and then reinserting the row.
+    /// - Note: This represents the underlying `rows-reordered` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter path: a `GtkTreePath`-struct identifying the tree node whose children     have been reordered
     /// - Parameter iter: a valid `GtkTreeIter`-struct pointing to the node whose children     have been reordered, or `nil` if the depth of `path` is 0
     /// - Parameter newOrder: an array of integers mapping the current position     of each child to its old position before the re-ordering,     i.e. `new_order``[newpos] = oldpos`
-    /// - Warning: Wrapper of this signal could not be generated because it contains unimplemented features: { (4)  gpointer argument is not yet supported }
-    /// - Note: Use this string for `signalConnectData` method
-    static var onRowsReordered: String { "rows-reordered" }
+    /// - Parameter handler: The signal handler to call
+    /// - Warning: a `onRowsReordered` wrapper for this signal could not be generated because it contains unimplemented features: { (4)  gpointer argument is not yet supported }
+    /// - Note: Instead, you can connect `rowsReorderedSignal` using the `connect(signal:)` methods
+    static var rowsReorderedSignal: TreeModelSignalName { .rowsReordered }
     /// This signal is emitted when a row in the model has changed.
-    /// - Note: Representation of signal named `row-changed`
+    /// - Note: This represents the underlying `row-changed` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter path: a `GtkTreePath`-struct identifying the changed row
     /// - Parameter iter: a valid `GtkTreeIter`-struct pointing to the changed row
-    @discardableResult
-    func onRowChanged(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: TreeModelRef, _ path: TreePathRef, _ iter: TreeIterRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `rowChanged` signal is emitted
+    @discardableResult @inlinable func onRowChanged(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: TreeModelRef, _ path: TreePathRef, _ iter: TreeIterRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder3<TreeModelRef, TreePathRef, TreeIterRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, arg2, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(TreeModelRef(raw: unownedSelf), TreePathRef(raw: arg1), TreeIterRef(raw: arg2))
             return output
         }
-        return GLibObject.ObjectRef(raw: ptr).signalConnectData(
-            detailedSignal: "row-changed", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .rowChanged,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `row-changed` signal for using the `connect(signal:)` methods
+    static var rowChangedSignal: TreeModelSignalName { .rowChanged }
     
     /// This signal is emitted when a row has been deleted.
     /// 
@@ -1469,50 +1538,58 @@ public extension TreeModelProtocol {
     /// This should be called by models after a row has been removed.
     /// The location pointed to by `path` should be the location that
     /// the row previously was at. It may not be a valid location anymore.
-    /// - Note: Representation of signal named `row-deleted`
+    /// - Note: This represents the underlying `row-deleted` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter path: a `GtkTreePath`-struct identifying the row
-    @discardableResult
-    func onRowDeleted(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: TreeModelRef, _ path: TreePathRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `rowDeleted` signal is emitted
+    @discardableResult @inlinable func onRowDeleted(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: TreeModelRef, _ path: TreePathRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<TreeModelRef, TreePathRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(TreeModelRef(raw: unownedSelf), TreePathRef(raw: arg1))
             return output
         }
-        return GLibObject.ObjectRef(raw: ptr).signalConnectData(
-            detailedSignal: "row-deleted", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .rowDeleted,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
     
+    /// Typed `row-deleted` signal for using the `connect(signal:)` methods
+    static var rowDeletedSignal: TreeModelSignalName { .rowDeleted }
+    
     /// This signal is emitted when a row has gotten the first child
     /// row or lost its last child row.
-    /// - Note: Representation of signal named `row-has-child-toggled`
+    /// - Note: This represents the underlying `row-has-child-toggled` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter path: a `GtkTreePath`-struct identifying the row
     /// - Parameter iter: a valid `GtkTreeIter`-struct pointing to the row
-    @discardableResult
-    func onRowHasChildToggled(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: TreeModelRef, _ path: TreePathRef, _ iter: TreeIterRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `rowHasChildToggled` signal is emitted
+    @discardableResult @inlinable func onRowHasChildToggled(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: TreeModelRef, _ path: TreePathRef, _ iter: TreeIterRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder3<TreeModelRef, TreePathRef, TreeIterRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, arg2, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(TreeModelRef(raw: unownedSelf), TreePathRef(raw: arg1), TreeIterRef(raw: arg2))
             return output
         }
-        return GLibObject.ObjectRef(raw: ptr).signalConnectData(
-            detailedSignal: "row-has-child-toggled", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .rowHasChildToggled,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `row-has-child-toggled` signal for using the `connect(signal:)` methods
+    static var rowHasChildToggledSignal: TreeModelSignalName { .rowHasChildToggled }
     
     /// This signal is emitted when a new row has been inserted in
     /// the model.
@@ -1520,27 +1597,31 @@ public extension TreeModelProtocol {
     /// Note that the row may still be empty at this point, since
     /// it is a common pattern to first insert an empty row, and
     /// then fill it with the desired values.
-    /// - Note: Representation of signal named `row-inserted`
+    /// - Note: This represents the underlying `row-inserted` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter path: a `GtkTreePath`-struct identifying the new row
     /// - Parameter iter: a valid `GtkTreeIter`-struct pointing to the new row
-    @discardableResult
-    func onRowInserted(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: TreeModelRef, _ path: TreePathRef, _ iter: TreeIterRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `rowInserted` signal is emitted
+    @discardableResult @inlinable func onRowInserted(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: TreeModelRef, _ path: TreePathRef, _ iter: TreeIterRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder3<TreeModelRef, TreePathRef, TreeIterRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, arg2, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(TreeModelRef(raw: unownedSelf), TreePathRef(raw: arg1), TreeIterRef(raw: arg2))
             return output
         }
-        return GLibObject.ObjectRef(raw: ptr).signalConnectData(
-            detailedSignal: "row-inserted", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .rowInserted,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `row-inserted` signal for using the `connect(signal:)` methods
+    static var rowInsertedSignal: TreeModelSignalName { .rowInserted }
     
     
 }
@@ -2107,30 +2188,96 @@ open class TreeSortable: TreeModel, TreeSortableProtocol {
 
 // MARK: no TreeSortable properties
 
-// MARK: Signals of TreeSortable
-public extension TreeSortableProtocol {
+public enum TreeSortableSignalName: String, SignalNameProtocol {
+    /// This signal is emitted when a row in the model has changed.
+    case rowChanged = "row-changed"
+    /// This signal is emitted when a row has been deleted.
+    /// 
+    /// Note that no iterator is passed to the signal handler,
+    /// since the row is already deleted.
+    /// 
+    /// This should be called by models after a row has been removed.
+    /// The location pointed to by `path` should be the location that
+    /// the row previously was at. It may not be a valid location anymore.
+    case rowDeleted = "row-deleted"
+    /// This signal is emitted when a row has gotten the first child
+    /// row or lost its last child row.
+    case rowHasChildToggled = "row-has-child-toggled"
+    /// This signal is emitted when a new row has been inserted in
+    /// the model.
+    /// 
+    /// Note that the row may still be empty at this point, since
+    /// it is a common pattern to first insert an empty row, and
+    /// then fill it with the desired values.
+    case rowInserted = "row-inserted"
+    /// This signal is emitted when the children of a node in the
+    /// `GtkTreeModel` have been reordered.
+    /// 
+    /// Note that this signal is not emitted
+    /// when rows are reordered by DND, since this is implemented
+    /// by removing and then reinserting the row.
+    case rowsReordered = "rows-reordered"
     /// The `sort`-column-changed signal is emitted when the sort column
     /// or sort order of `sortable` is changed. The signal is emitted before
     /// the contents of `sortable` are resorted.
-    /// - Note: Representation of signal named `sort-column-changed`
+    case sortColumnChanged = "sort-column-changed"
+
+}
+
+// MARK: TreeSortable signals
+public extension TreeSortableProtocol {
+    /// Connect a Swift signal handler to the given, typed `TreeSortableSignalName` signal
+    /// - Parameters:
+    ///   - signal: The signal to connect
+    ///   - flags: The connection flags to use
+    ///   - data: A pointer to user data to provide to the callback
+    ///   - destroyData: A `GClosureNotify` C function to destroy the data pointed to by `userData`
+    ///   - handler: The Swift signal handler (function or callback) to invoke on the given signal
+    /// - Returns: The signal handler ID (always greater than 0 for successful connections)
+    @inlinable @discardableResult func connect(signal s: TreeSortableSignalName, flags f: ConnectFlags = ConnectFlags(0), handler h: @escaping SignalHandler) -> Int {
+        GLibObject.ObjectRef(raw: ptr).connect(s, flags: f, handler: h)
+    }
+    
+    
+    /// Connect a C signal handler to the given, typed `TreeSortableSignalName` signal
+    /// - Parameters:
+    ///   - signal: The signal to connect
+    ///   - flags: The connection flags to use
+    ///   - data: A pointer to user data to provide to the callback
+    ///   - destroyData: A `GClosureNotify` C function to destroy the data pointed to by `userData`
+    ///   - signalHandler: The C function to be called on the given signal
+    /// - Returns: The signal handler ID (always greater than 0 for successful connections)
+    @inlinable @discardableResult func connect(signal s: TreeSortableSignalName, flags f: ConnectFlags = ConnectFlags(0), data userData: gpointer!, destroyData destructor: GClosureNotify? = nil, signalHandler h: @escaping GCallback) -> Int {
+        GLibObject.ObjectRef(raw: ptr).connectSignal(s, flags: f, data: userData, destroyData: destructor, handler: h)
+    }
+    
+    
+    /// The `sort`-column-changed signal is emitted when the sort column
+    /// or sort order of `sortable` is changed. The signal is emitted before
+    /// the contents of `sortable` are resorted.
+    /// - Note: This represents the underlying `sort-column-changed` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
-    @discardableResult
-    func onSortColumnChanged(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: TreeSortableRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `sortColumnChanged` signal is emitted
+    @discardableResult @inlinable func onSortColumnChanged(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: TreeSortableRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder<TreeSortableRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer) -> Void = { unownedSelf, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(TreeSortableRef(raw: unownedSelf))
             return output
         }
-        return GLibObject.ObjectRef(raw: ptr).signalConnectData(
-            detailedSignal: "sort-column-changed", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .sortColumnChanged,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `sort-column-changed` signal for using the `connect(signal:)` methods
+    static var sortColumnChangedSignal: TreeSortableSignalName { .sortColumnChanged }
     
     
 }

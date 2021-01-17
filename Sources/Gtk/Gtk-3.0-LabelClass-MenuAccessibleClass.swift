@@ -18,7 +18,7 @@ import Atk
 /// Metatype/GType declaration for Label
 public extension LabelClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `Label`
     static var metatypeReference: GType { gtk_label_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkLabelClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkLabelClass.self) }
@@ -422,7 +422,10 @@ open class LabelSelectionInfo: LabelSelectionInfoProtocol {
 
 // MARK: no LabelSelectionInfo properties
 
-// MARK: LabelSelectionInfo has no signals// MARK: LabelSelectionInfo Record: LabelSelectionInfoProtocol extension (methods and fields)
+// MARK: no LabelSelectionInfo signals
+
+// MARK: LabelSelectionInfo has no signals
+// MARK: LabelSelectionInfo Record: LabelSelectionInfoProtocol extension (methods and fields)
 public extension LabelSelectionInfoProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkLabelSelectionInfo` instance.
     @inlinable var _ptr: UnsafeMutablePointer<GtkLabelSelectionInfo>! { return ptr?.assumingMemoryBound(to: GtkLabelSelectionInfo.self) }
@@ -436,7 +439,7 @@ public extension LabelSelectionInfoProtocol {
 /// Metatype/GType declaration for Layout
 public extension LayoutClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `Layout`
     static var metatypeReference: GType { gtk_layout_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkLayoutClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkLayoutClass.self) }
@@ -576,7 +579,7 @@ public extension LayoutClassProtocol {
 /// Metatype/GType declaration for LevelBarAccessible
 public extension LevelBarAccessibleClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `LevelBarAccessible`
     static var metatypeReference: GType { gtk_level_bar_accessible_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkLevelBarAccessibleClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkLevelBarAccessibleClass.self) }
@@ -708,7 +711,7 @@ public extension LevelBarAccessibleClassProtocol {
 /// Metatype/GType declaration for LevelBar
 public extension LevelBarClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `LevelBar`
     static var metatypeReference: GType { gtk_level_bar_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkLevelBarClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkLevelBarClass.self) }
@@ -839,7 +842,7 @@ public extension LevelBarClassProtocol {
 /// Metatype/GType declaration for LinkButtonAccessible
 public extension LinkButtonAccessibleClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `LinkButtonAccessible`
     static var metatypeReference: GType { gtk_link_button_accessible_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkLinkButtonAccessibleClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkLinkButtonAccessibleClass.self) }
@@ -971,7 +974,7 @@ public extension LinkButtonAccessibleClassProtocol {
 /// Metatype/GType declaration for LinkButton
 public extension LinkButtonClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `LinkButton`
     static var metatypeReference: GType { gtk_link_button_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkLinkButtonClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkLinkButtonClass.self) }
@@ -1110,7 +1113,7 @@ public extension LinkButtonClassProtocol {
 /// Metatype/GType declaration for ListBoxAccessible
 public extension ListBoxAccessibleClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `ListBoxAccessible`
     static var metatypeReference: GType { gtk_list_box_accessible_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkListBoxAccessibleClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkListBoxAccessibleClass.self) }
@@ -1242,7 +1245,7 @@ public extension ListBoxAccessibleClassProtocol {
 /// Metatype/GType declaration for ListBox
 public extension ListBoxClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `ListBox`
     static var metatypeReference: GType { gtk_list_box_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkListBoxClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkListBoxClass.self) }
@@ -1398,7 +1401,7 @@ public extension ListBoxClassProtocol {
 /// Metatype/GType declaration for ListBoxRowAccessible
 public extension ListBoxRowAccessibleClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `ListBoxRowAccessible`
     static var metatypeReference: GType { gtk_list_box_row_accessible_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkListBoxRowAccessibleClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkListBoxRowAccessibleClass.self) }
@@ -1530,7 +1533,7 @@ public extension ListBoxRowAccessibleClassProtocol {
 /// Metatype/GType declaration for ListBoxRow
 public extension ListBoxRowClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `ListBoxRow`
     static var metatypeReference: GType { gtk_list_box_row_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkListBoxRowClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkListBoxRowClass.self) }
@@ -1670,7 +1673,7 @@ public extension ListBoxRowClassProtocol {
 /// Metatype/GType declaration for ListStore
 public extension ListStoreClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `ListStore`
     static var metatypeReference: GType { gtk_list_store_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkListStoreClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkListStoreClass.self) }
@@ -1810,7 +1813,7 @@ public extension ListStoreClassProtocol {
 /// Metatype/GType declaration for LockButtonAccessible
 public extension LockButtonAccessibleClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `LockButtonAccessible`
     static var metatypeReference: GType { gtk_lock_button_accessible_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkLockButtonAccessibleClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkLockButtonAccessibleClass.self) }
@@ -1942,7 +1945,7 @@ public extension LockButtonAccessibleClassProtocol {
 /// Metatype/GType declaration for LockButton
 public extension LockButtonClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `LockButton`
     static var metatypeReference: GType { gtk_lock_button_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkLockButtonClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkLockButtonClass.self) }
@@ -2092,7 +2095,7 @@ public extension LockButtonClassProtocol {
 /// Metatype/GType declaration for MenuAccessible
 public extension MenuAccessibleClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `MenuAccessible`
     static var metatypeReference: GType { gtk_menu_accessible_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkMenuAccessibleClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkMenuAccessibleClass.self) }

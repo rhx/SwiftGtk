@@ -711,8 +711,7 @@ public extension FileChooserProtocol {
     }
 }
 
-// MARK: Signals of FileChooser
-public extension FileChooserProtocol {
+public enum FileChooserSignalName: String, SignalNameProtocol {
     /// This signal gets emitted whenever it is appropriate to present a
     /// confirmation dialog when the user has selected a file name that
     /// already exists.  The signal only gets emitted when the file
@@ -773,26 +772,200 @@ public extension FileChooserProtocol {
     /// gtk_widget_destroy (chooser);
     /// ```
     /// 
-    /// - Note: Representation of signal named `confirm-overwrite`
+    case confirmOverwrite = "confirm-overwrite"
+    /// This signal is emitted when the current folder in a `GtkFileChooser`
+    /// changes.  This can happen due to the user performing some action that
+    /// changes folders, such as selecting a bookmark or visiting a folder on the
+    /// file list.  It can also happen as a result of calling a function to
+    /// explicitly change the current folder in a file chooser.
+    /// 
+    /// Normally you do not need to connect to this signal, unless you need to keep
+    /// track of which folder a file chooser is showing.
+    /// 
+    /// See also:  `gtk_file_chooser_set_current_folder()`,
+    /// `gtk_file_chooser_get_current_folder()`,
+    /// `gtk_file_chooser_set_current_folder_uri()`,
+    /// `gtk_file_chooser_get_current_folder_uri()`.
+    case currentFolderChanged = "current-folder-changed"
+    /// This signal is emitted when the user "activates" a file in the file
+    /// chooser.  This can happen by double-clicking on a file in the file list, or
+    /// by pressing `Enter`.
+    /// 
+    /// Normally you do not need to connect to this signal.  It is used internally
+    /// by `GtkFileChooserDialog` to know when to activate the default button in the
+    /// dialog.
+    /// 
+    /// See also: `gtk_file_chooser_get_filename()`,
+    /// `gtk_file_chooser_get_filenames()`, `gtk_file_chooser_get_uri()`,
+    /// `gtk_file_chooser_get_uris()`.
+    case fileActivated = "file-activated"
+    /// This signal is emitted when there is a change in the set of selected files
+    /// in a `GtkFileChooser`.  This can happen when the user modifies the selection
+    /// with the mouse or the keyboard, or when explicitly calling functions to
+    /// change the selection.
+    /// 
+    /// Normally you do not need to connect to this signal, as it is easier to wait
+    /// for the file chooser to finish running, and then to get the list of
+    /// selected files using the functions mentioned below.
+    /// 
+    /// See also: `gtk_file_chooser_select_filename()`,
+    /// `gtk_file_chooser_unselect_filename()`, `gtk_file_chooser_get_filename()`,
+    /// `gtk_file_chooser_get_filenames()`, `gtk_file_chooser_select_uri()`,
+    /// `gtk_file_chooser_unselect_uri()`, `gtk_file_chooser_get_uri()`,
+    /// `gtk_file_chooser_get_uris()`.
+    case selectionChanged = "selection-changed"
+    /// This signal is emitted when the preview in a file chooser should be
+    /// regenerated.  For example, this can happen when the currently selected file
+    /// changes.  You should use this signal if you want your file chooser to have
+    /// a preview widget.
+    /// 
+    /// Once you have installed a preview widget with
+    /// `gtk_file_chooser_set_preview_widget()`, you should update it when this
+    /// signal is emitted.  You can use the functions
+    /// `gtk_file_chooser_get_preview_filename()` or
+    /// `gtk_file_chooser_get_preview_uri()` to get the name of the file to preview.
+    /// Your widget may not be able to preview all kinds of files; your callback
+    /// must call `gtk_file_chooser_set_preview_widget_active()` to inform the file
+    /// chooser about whether the preview was generated successfully or not.
+    /// 
+    /// Please see the example code in
+    /// [Using a Preview Widget](#gtkfilechooser-preview).
+    /// 
+    /// See also: `gtk_file_chooser_set_preview_widget()`,
+    /// `gtk_file_chooser_set_preview_widget_active()`,
+    /// `gtk_file_chooser_set_use_preview_label()`,
+    /// `gtk_file_chooser_get_preview_filename()`,
+    /// `gtk_file_chooser_get_preview_uri()`.
+    case updatePreview = "update-preview"
+    case notifyAction = "notify::action"
+    /// Whether a file chooser not in `GTK_FILE_CHOOSER_ACTION_OPEN` mode
+    /// will offer the user to create new folders.
+    case notifyCreateFolders = "notify::create-folders"
+    /// Whether a file chooser in `GTK_FILE_CHOOSER_ACTION_SAVE` mode
+    /// will present an overwrite confirmation dialog if the user
+    /// selects a file name that already exists.
+    case notifyDoOverwriteConfirmation = "notify::do-overwrite-confirmation"
+    case notifyExtraWidget = "notify::extra-widget"
+    case notifyFilter = "notify::filter"
+    case notifyLocalOnly = "notify::local-only"
+    case notifyPreviewWidget = "notify::preview-widget"
+    case notifyPreviewWidgetActive = "notify::preview-widget-active"
+    case notifySelectMultiple = "notify::select-multiple"
+    case notifyShowHidden = "notify::show-hidden"
+    case notifyUsePreviewLabel = "notify::use-preview-label"
+}
+
+// MARK: FileChooser signals
+public extension FileChooserProtocol {
+    /// Connect a Swift signal handler to the given, typed `FileChooserSignalName` signal
+    /// - Parameters:
+    ///   - signal: The signal to connect
+    ///   - flags: The connection flags to use
+    ///   - data: A pointer to user data to provide to the callback
+    ///   - destroyData: A `GClosureNotify` C function to destroy the data pointed to by `userData`
+    ///   - handler: The Swift signal handler (function or callback) to invoke on the given signal
+    /// - Returns: The signal handler ID (always greater than 0 for successful connections)
+    @inlinable @discardableResult func connect(signal s: FileChooserSignalName, flags f: ConnectFlags = ConnectFlags(0), handler h: @escaping SignalHandler) -> Int {
+        GLibObject.ObjectRef(raw: ptr).connect(s, flags: f, handler: h)
+    }
+    
+    
+    /// Connect a C signal handler to the given, typed `FileChooserSignalName` signal
+    /// - Parameters:
+    ///   - signal: The signal to connect
+    ///   - flags: The connection flags to use
+    ///   - data: A pointer to user data to provide to the callback
+    ///   - destroyData: A `GClosureNotify` C function to destroy the data pointed to by `userData`
+    ///   - signalHandler: The C function to be called on the given signal
+    /// - Returns: The signal handler ID (always greater than 0 for successful connections)
+    @inlinable @discardableResult func connect(signal s: FileChooserSignalName, flags f: ConnectFlags = ConnectFlags(0), data userData: gpointer!, destroyData destructor: GClosureNotify? = nil, signalHandler h: @escaping GCallback) -> Int {
+        GLibObject.ObjectRef(raw: ptr).connectSignal(s, flags: f, data: userData, destroyData: destructor, handler: h)
+    }
+    
+    
+    /// This signal gets emitted whenever it is appropriate to present a
+    /// confirmation dialog when the user has selected a file name that
+    /// already exists.  The signal only gets emitted when the file
+    /// chooser is in `GTK_FILE_CHOOSER_ACTION_SAVE` mode.
+    /// 
+    /// Most applications just need to turn on the
+    /// `GtkFileChooser:do`-overwrite-confirmation property (or call the
+    /// `gtk_file_chooser_set_do_overwrite_confirmation()` function), and
+    /// they will automatically get a stock confirmation dialog.
+    /// Applications which need to customize this behavior should do
+    /// that, and also connect to the `GtkFileChooser::confirm`-overwrite
+    /// signal.
+    /// 
+    /// A signal handler for this signal must return a
+    /// `GtkFileChooserConfirmation` value, which indicates the action to
+    /// take.  If the handler determines that the user wants to select a
+    /// different filename, it should return
+    /// `GTK_FILE_CHOOSER_CONFIRMATION_SELECT_AGAIN`.  If it determines
+    /// that the user is satisfied with his choice of file name, it
+    /// should return `GTK_FILE_CHOOSER_CONFIRMATION_ACCEPT_FILENAME`.
+    /// On the other hand, if it determines that the stock confirmation
+    /// dialog should be used, it should return
+    /// `GTK_FILE_CHOOSER_CONFIRMATION_CONFIRM`. The following example
+    /// illustrates this.
+    /// 
+    /// ## Custom confirmation ## <a name="gtkfilechooser-confirmation"></a>
+    /// 
+    /// (C Language Example):
+    /// ```C
+    /// static GtkFileChooserConfirmation
+    /// confirm_overwrite_callback (GtkFileChooser *chooser, gpointer data)
+    /// {
+    ///   char *uri;
+    /// 
+    ///   uri = gtk_file_chooser_get_uri (chooser);
+    /// 
+    ///   if (is_uri_read_only (uri))
+    ///     {
+    ///       if (user_wants_to_replace_read_only_file (uri))
+    ///         return GTK_FILE_CHOOSER_CONFIRMATION_ACCEPT_FILENAME;
+    ///       else
+    ///         return GTK_FILE_CHOOSER_CONFIRMATION_SELECT_AGAIN;
+    ///     } else
+    ///       return GTK_FILE_CHOOSER_CONFIRMATION_CONFIRM; // fall back to the default dialog
+    /// }
+    /// 
+    /// ...
+    /// 
+    /// chooser = gtk_file_chooser_dialog_new (...);
+    /// 
+    /// gtk_file_chooser_set_do_overwrite_confirmation (GTK_FILE_CHOOSER (dialog), TRUE);
+    /// g_signal_connect (chooser, "confirm-overwrite",
+    ///                   G_CALLBACK (confirm_overwrite_callback), NULL);
+    /// 
+    /// if (gtk_dialog_run (chooser) == GTK_RESPONSE_ACCEPT)
+    ///         save_to_file (gtk_file_chooser_get_filename (GTK_FILE_CHOOSER (chooser));
+    /// 
+    /// gtk_widget_destroy (chooser);
+    /// ```
+    /// 
+    /// - Note: This represents the underlying `confirm-overwrite` signal
     /// - Parameter flags: Flags
-    /// - Parameter handler: a `GtkFileChooserConfirmation` value that indicates which  action to take after emitting the signal.
     /// - Parameter unownedSelf: Reference to instance of self
-    @discardableResult
-    func onConfirmOverwrite(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: FileChooserRef) -> FileChooserConfirmation ) -> Int {
+    /// - Parameter handler: a `GtkFileChooserConfirmation` value that indicates which  action to take after emitting the signal.
+    /// Run the given callback whenever the `confirmOverwrite` signal is emitted
+    @discardableResult @inlinable func onConfirmOverwrite(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: FileChooserRef) -> FileChooserConfirmation ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder<FileChooserRef, FileChooserConfirmation>
         let cCallback: @convention(c) (gpointer, gpointer) -> UInt32 = { unownedSelf, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output = holder.call(FileChooserRef(raw: unownedSelf))
             return output.rawValue
         }
-        return GLibObject.ObjectRef(raw: ptr).signalConnectData(
-            detailedSignal: "confirm-overwrite", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .confirmOverwrite,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `confirm-overwrite` signal for using the `connect(signal:)` methods
+    static var confirmOverwriteSignal: FileChooserSignalName { .confirmOverwrite }
     
     /// This signal is emitted when the current folder in a `GtkFileChooser`
     /// changes.  This can happen due to the user performing some action that
@@ -807,25 +980,29 @@ public extension FileChooserProtocol {
     /// `gtk_file_chooser_get_current_folder()`,
     /// `gtk_file_chooser_set_current_folder_uri()`,
     /// `gtk_file_chooser_get_current_folder_uri()`.
-    /// - Note: Representation of signal named `current-folder-changed`
+    /// - Note: This represents the underlying `current-folder-changed` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
-    @discardableResult
-    func onCurrentFolderChanged(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: FileChooserRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `currentFolderChanged` signal is emitted
+    @discardableResult @inlinable func onCurrentFolderChanged(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: FileChooserRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder<FileChooserRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer) -> Void = { unownedSelf, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(FileChooserRef(raw: unownedSelf))
             return output
         }
-        return GLibObject.ObjectRef(raw: ptr).signalConnectData(
-            detailedSignal: "current-folder-changed", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .currentFolderChanged,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `current-folder-changed` signal for using the `connect(signal:)` methods
+    static var currentFolderChangedSignal: FileChooserSignalName { .currentFolderChanged }
     
     /// This signal is emitted when the user "activates" a file in the file
     /// chooser.  This can happen by double-clicking on a file in the file list, or
@@ -838,25 +1015,29 @@ public extension FileChooserProtocol {
     /// See also: `gtk_file_chooser_get_filename()`,
     /// `gtk_file_chooser_get_filenames()`, `gtk_file_chooser_get_uri()`,
     /// `gtk_file_chooser_get_uris()`.
-    /// - Note: Representation of signal named `file-activated`
+    /// - Note: This represents the underlying `file-activated` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
-    @discardableResult
-    func onFileActivated(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: FileChooserRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `fileActivated` signal is emitted
+    @discardableResult @inlinable func onFileActivated(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: FileChooserRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder<FileChooserRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer) -> Void = { unownedSelf, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(FileChooserRef(raw: unownedSelf))
             return output
         }
-        return GLibObject.ObjectRef(raw: ptr).signalConnectData(
-            detailedSignal: "file-activated", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .fileActivated,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `file-activated` signal for using the `connect(signal:)` methods
+    static var fileActivatedSignal: FileChooserSignalName { .fileActivated }
     
     /// This signal is emitted when there is a change in the set of selected files
     /// in a `GtkFileChooser`.  This can happen when the user modifies the selection
@@ -872,25 +1053,29 @@ public extension FileChooserProtocol {
     /// `gtk_file_chooser_get_filenames()`, `gtk_file_chooser_select_uri()`,
     /// `gtk_file_chooser_unselect_uri()`, `gtk_file_chooser_get_uri()`,
     /// `gtk_file_chooser_get_uris()`.
-    /// - Note: Representation of signal named `selection-changed`
+    /// - Note: This represents the underlying `selection-changed` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
-    @discardableResult
-    func onSelectionChanged(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: FileChooserRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `selectionChanged` signal is emitted
+    @discardableResult @inlinable func onSelectionChanged(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: FileChooserRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder<FileChooserRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer) -> Void = { unownedSelf, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(FileChooserRef(raw: unownedSelf))
             return output
         }
-        return GLibObject.ObjectRef(raw: ptr).signalConnectData(
-            detailedSignal: "selection-changed", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .selectionChanged,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `selection-changed` signal for using the `connect(signal:)` methods
+    static var selectionChangedSignal: FileChooserSignalName { .selectionChanged }
     
     /// This signal is emitted when the preview in a file chooser should be
     /// regenerated.  For example, this can happen when the currently selected file
@@ -914,25 +1099,29 @@ public extension FileChooserProtocol {
     /// `gtk_file_chooser_set_use_preview_label()`,
     /// `gtk_file_chooser_get_preview_filename()`,
     /// `gtk_file_chooser_get_preview_uri()`.
-    /// - Note: Representation of signal named `update-preview`
+    /// - Note: This represents the underlying `update-preview` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
-    @discardableResult
-    func onUpdatePreview(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: FileChooserRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `updatePreview` signal is emitted
+    @discardableResult @inlinable func onUpdatePreview(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: FileChooserRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder<FileChooserRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer) -> Void = { unownedSelf, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(FileChooserRef(raw: unownedSelf))
             return output
         }
-        return GLibObject.ObjectRef(raw: ptr).signalConnectData(
-            detailedSignal: "update-preview", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .updatePreview,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `update-preview` signal for using the `connect(signal:)` methods
+    static var updatePreviewSignal: FileChooserSignalName { .updatePreview }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -958,26 +1147,30 @@ public extension FileChooserProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::action`
+    /// - Note: This represents the underlying `notify::action` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyAction(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: FileChooserRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyAction` signal is emitted
+    @discardableResult @inlinable func onNotifyAction(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: FileChooserRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<FileChooserRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(FileChooserRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return GLibObject.ObjectRef(raw: ptr).signalConnectData(
-            detailedSignal: "notify::action", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyAction,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::action` signal for using the `connect(signal:)` methods
+    static var notifyActionSignal: FileChooserSignalName { .notifyAction }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -1003,26 +1196,30 @@ public extension FileChooserProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::create-folders`
+    /// - Note: This represents the underlying `notify::create-folders` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyCreateFolders(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: FileChooserRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyCreateFolders` signal is emitted
+    @discardableResult @inlinable func onNotifyCreateFolders(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: FileChooserRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<FileChooserRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(FileChooserRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return GLibObject.ObjectRef(raw: ptr).signalConnectData(
-            detailedSignal: "notify::create-folders", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyCreateFolders,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::create-folders` signal for using the `connect(signal:)` methods
+    static var notifyCreateFoldersSignal: FileChooserSignalName { .notifyCreateFolders }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -1048,26 +1245,30 @@ public extension FileChooserProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::do-overwrite-confirmation`
+    /// - Note: This represents the underlying `notify::do-overwrite-confirmation` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyDoOverwriteConfirmation(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: FileChooserRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyDoOverwriteConfirmation` signal is emitted
+    @discardableResult @inlinable func onNotifyDoOverwriteConfirmation(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: FileChooserRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<FileChooserRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(FileChooserRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return GLibObject.ObjectRef(raw: ptr).signalConnectData(
-            detailedSignal: "notify::do-overwrite-confirmation", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyDoOverwriteConfirmation,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::do-overwrite-confirmation` signal for using the `connect(signal:)` methods
+    static var notifyDoOverwriteConfirmationSignal: FileChooserSignalName { .notifyDoOverwriteConfirmation }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -1093,26 +1294,30 @@ public extension FileChooserProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::extra-widget`
+    /// - Note: This represents the underlying `notify::extra-widget` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyExtraWidget(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: FileChooserRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyExtraWidget` signal is emitted
+    @discardableResult @inlinable func onNotifyExtraWidget(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: FileChooserRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<FileChooserRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(FileChooserRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return GLibObject.ObjectRef(raw: ptr).signalConnectData(
-            detailedSignal: "notify::extra-widget", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyExtraWidget,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::extra-widget` signal for using the `connect(signal:)` methods
+    static var notifyExtraWidgetSignal: FileChooserSignalName { .notifyExtraWidget }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -1138,26 +1343,30 @@ public extension FileChooserProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::filter`
+    /// - Note: This represents the underlying `notify::filter` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyFilter(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: FileChooserRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyFilter` signal is emitted
+    @discardableResult @inlinable func onNotifyFilter(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: FileChooserRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<FileChooserRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(FileChooserRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return GLibObject.ObjectRef(raw: ptr).signalConnectData(
-            detailedSignal: "notify::filter", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyFilter,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::filter` signal for using the `connect(signal:)` methods
+    static var notifyFilterSignal: FileChooserSignalName { .notifyFilter }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -1183,26 +1392,30 @@ public extension FileChooserProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::local-only`
+    /// - Note: This represents the underlying `notify::local-only` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyLocalOnly(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: FileChooserRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyLocalOnly` signal is emitted
+    @discardableResult @inlinable func onNotifyLocalOnly(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: FileChooserRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<FileChooserRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(FileChooserRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return GLibObject.ObjectRef(raw: ptr).signalConnectData(
-            detailedSignal: "notify::local-only", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyLocalOnly,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::local-only` signal for using the `connect(signal:)` methods
+    static var notifyLocalOnlySignal: FileChooserSignalName { .notifyLocalOnly }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -1228,26 +1441,30 @@ public extension FileChooserProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::preview-widget`
+    /// - Note: This represents the underlying `notify::preview-widget` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyPreviewWidget(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: FileChooserRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyPreviewWidget` signal is emitted
+    @discardableResult @inlinable func onNotifyPreviewWidget(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: FileChooserRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<FileChooserRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(FileChooserRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return GLibObject.ObjectRef(raw: ptr).signalConnectData(
-            detailedSignal: "notify::preview-widget", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyPreviewWidget,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::preview-widget` signal for using the `connect(signal:)` methods
+    static var notifyPreviewWidgetSignal: FileChooserSignalName { .notifyPreviewWidget }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -1273,26 +1490,30 @@ public extension FileChooserProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::preview-widget-active`
+    /// - Note: This represents the underlying `notify::preview-widget-active` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyPreviewWidgetActive(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: FileChooserRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyPreviewWidgetActive` signal is emitted
+    @discardableResult @inlinable func onNotifyPreviewWidgetActive(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: FileChooserRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<FileChooserRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(FileChooserRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return GLibObject.ObjectRef(raw: ptr).signalConnectData(
-            detailedSignal: "notify::preview-widget-active", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyPreviewWidgetActive,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::preview-widget-active` signal for using the `connect(signal:)` methods
+    static var notifyPreviewWidgetActiveSignal: FileChooserSignalName { .notifyPreviewWidgetActive }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -1318,26 +1539,30 @@ public extension FileChooserProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::select-multiple`
+    /// - Note: This represents the underlying `notify::select-multiple` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifySelectMultiple(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: FileChooserRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifySelectMultiple` signal is emitted
+    @discardableResult @inlinable func onNotifySelectMultiple(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: FileChooserRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<FileChooserRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(FileChooserRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return GLibObject.ObjectRef(raw: ptr).signalConnectData(
-            detailedSignal: "notify::select-multiple", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifySelectMultiple,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::select-multiple` signal for using the `connect(signal:)` methods
+    static var notifySelectMultipleSignal: FileChooserSignalName { .notifySelectMultiple }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -1363,26 +1588,30 @@ public extension FileChooserProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::show-hidden`
+    /// - Note: This represents the underlying `notify::show-hidden` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyShowHidden(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: FileChooserRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyShowHidden` signal is emitted
+    @discardableResult @inlinable func onNotifyShowHidden(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: FileChooserRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<FileChooserRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(FileChooserRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return GLibObject.ObjectRef(raw: ptr).signalConnectData(
-            detailedSignal: "notify::show-hidden", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyShowHidden,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::show-hidden` signal for using the `connect(signal:)` methods
+    static var notifyShowHiddenSignal: FileChooserSignalName { .notifyShowHidden }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -1408,26 +1637,30 @@ public extension FileChooserProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::use-preview-label`
+    /// - Note: This represents the underlying `notify::use-preview-label` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyUsePreviewLabel(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: FileChooserRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyUsePreviewLabel` signal is emitted
+    @discardableResult @inlinable func onNotifyUsePreviewLabel(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: FileChooserRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<FileChooserRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(FileChooserRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return GLibObject.ObjectRef(raw: ptr).signalConnectData(
-            detailedSignal: "notify::use-preview-label", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyUsePreviewLabel,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::use-preview-label` signal for using the `connect(signal:)` methods
+    static var notifyUsePreviewLabelSignal: FileChooserSignalName { .notifyUsePreviewLabel }
     
 }
 
@@ -3022,32 +3255,87 @@ public extension FontChooserProtocol {
     }
 }
 
-// MARK: Signals of FontChooser
-public extension FontChooserProtocol {
+public enum FontChooserSignalName: String, SignalNameProtocol {
     /// Emitted when a font is activated.
     /// This usually happens when the user double clicks an item,
     /// or an item is selected and the user presses one of the keys
     /// Space, Shift+Space, Return or Enter.
-    /// - Note: Representation of signal named `font-activated`
+    case fontActivated = "font-activated"
+    /// The font description as a string, e.g. "Sans Italic 12".
+    case notifyFont = "notify::font"
+    /// The font description as a `PangoFontDescription`.
+    case notifyFontDesc = "notify::font-desc"
+    /// The selected font features, in a format that is compatible with
+    /// CSS and with Pango attributes.
+    case notifyFontFeatures = "notify::font-features"
+    /// The language for which the `GtkFontChooser:font`-features were
+    /// selected, in a format that is compatible with CSS and with Pango
+    /// attributes.
+    case notifyLanguage = "notify::language"
+    /// The level of granularity to offer for selecting fonts.
+    case notifyLevel = "notify::level"
+    /// The string with which to preview the font.
+    case notifyPreviewText = "notify::preview-text"
+    /// Whether to show an entry to change the preview text.
+    case notifyShowPreviewEntry = "notify::show-preview-entry"
+}
+
+// MARK: FontChooser signals
+public extension FontChooserProtocol {
+    /// Connect a Swift signal handler to the given, typed `FontChooserSignalName` signal
+    /// - Parameters:
+    ///   - signal: The signal to connect
+    ///   - flags: The connection flags to use
+    ///   - data: A pointer to user data to provide to the callback
+    ///   - destroyData: A `GClosureNotify` C function to destroy the data pointed to by `userData`
+    ///   - handler: The Swift signal handler (function or callback) to invoke on the given signal
+    /// - Returns: The signal handler ID (always greater than 0 for successful connections)
+    @inlinable @discardableResult func connect(signal s: FontChooserSignalName, flags f: ConnectFlags = ConnectFlags(0), handler h: @escaping SignalHandler) -> Int {
+        GLibObject.ObjectRef(raw: ptr).connect(s, flags: f, handler: h)
+    }
+    
+    
+    /// Connect a C signal handler to the given, typed `FontChooserSignalName` signal
+    /// - Parameters:
+    ///   - signal: The signal to connect
+    ///   - flags: The connection flags to use
+    ///   - data: A pointer to user data to provide to the callback
+    ///   - destroyData: A `GClosureNotify` C function to destroy the data pointed to by `userData`
+    ///   - signalHandler: The C function to be called on the given signal
+    /// - Returns: The signal handler ID (always greater than 0 for successful connections)
+    @inlinable @discardableResult func connect(signal s: FontChooserSignalName, flags f: ConnectFlags = ConnectFlags(0), data userData: gpointer!, destroyData destructor: GClosureNotify? = nil, signalHandler h: @escaping GCallback) -> Int {
+        GLibObject.ObjectRef(raw: ptr).connectSignal(s, flags: f, data: userData, destroyData: destructor, handler: h)
+    }
+    
+    
+    /// Emitted when a font is activated.
+    /// This usually happens when the user double clicks an item,
+    /// or an item is selected and the user presses one of the keys
+    /// Space, Shift+Space, Return or Enter.
+    /// - Note: This represents the underlying `font-activated` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter fontname: the font name
-    @discardableResult
-    func onFontActivated(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: FontChooserRef, _ fontname: String) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `fontActivated` signal is emitted
+    @discardableResult @inlinable func onFontActivated(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: FontChooserRef, _ fontname: String) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<FontChooserRef, String, Void>
         let cCallback: @convention(c) (gpointer, UnsafeMutablePointer<gchar>?, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(FontChooserRef(raw: unownedSelf), arg1.map({ String(cString: $0) })!)
             return output
         }
-        return GLibObject.ObjectRef(raw: ptr).signalConnectData(
-            detailedSignal: "font-activated", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .fontActivated,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `font-activated` signal for using the `connect(signal:)` methods
+    static var fontActivatedSignal: FontChooserSignalName { .fontActivated }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -3073,26 +3361,30 @@ public extension FontChooserProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::font`
+    /// - Note: This represents the underlying `notify::font` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyFont(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: FontChooserRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyFont` signal is emitted
+    @discardableResult @inlinable func onNotifyFont(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: FontChooserRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<FontChooserRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(FontChooserRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return GLibObject.ObjectRef(raw: ptr).signalConnectData(
-            detailedSignal: "notify::font", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyFont,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::font` signal for using the `connect(signal:)` methods
+    static var notifyFontSignal: FontChooserSignalName { .notifyFont }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -3118,26 +3410,30 @@ public extension FontChooserProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::font-desc`
+    /// - Note: This represents the underlying `notify::font-desc` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyFontDesc(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: FontChooserRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyFontDesc` signal is emitted
+    @discardableResult @inlinable func onNotifyFontDesc(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: FontChooserRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<FontChooserRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(FontChooserRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return GLibObject.ObjectRef(raw: ptr).signalConnectData(
-            detailedSignal: "notify::font-desc", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyFontDesc,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::font-desc` signal for using the `connect(signal:)` methods
+    static var notifyFontDescSignal: FontChooserSignalName { .notifyFontDesc }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -3163,26 +3459,30 @@ public extension FontChooserProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::font-features`
+    /// - Note: This represents the underlying `notify::font-features` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyFontFeatures(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: FontChooserRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyFontFeatures` signal is emitted
+    @discardableResult @inlinable func onNotifyFontFeatures(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: FontChooserRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<FontChooserRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(FontChooserRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return GLibObject.ObjectRef(raw: ptr).signalConnectData(
-            detailedSignal: "notify::font-features", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyFontFeatures,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::font-features` signal for using the `connect(signal:)` methods
+    static var notifyFontFeaturesSignal: FontChooserSignalName { .notifyFontFeatures }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -3208,26 +3508,30 @@ public extension FontChooserProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::language`
+    /// - Note: This represents the underlying `notify::language` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyLanguage(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: FontChooserRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyLanguage` signal is emitted
+    @discardableResult @inlinable func onNotifyLanguage(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: FontChooserRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<FontChooserRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(FontChooserRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return GLibObject.ObjectRef(raw: ptr).signalConnectData(
-            detailedSignal: "notify::language", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyLanguage,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::language` signal for using the `connect(signal:)` methods
+    static var notifyLanguageSignal: FontChooserSignalName { .notifyLanguage }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -3253,26 +3557,30 @@ public extension FontChooserProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::level`
+    /// - Note: This represents the underlying `notify::level` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyLevel(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: FontChooserRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyLevel` signal is emitted
+    @discardableResult @inlinable func onNotifyLevel(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: FontChooserRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<FontChooserRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(FontChooserRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return GLibObject.ObjectRef(raw: ptr).signalConnectData(
-            detailedSignal: "notify::level", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyLevel,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::level` signal for using the `connect(signal:)` methods
+    static var notifyLevelSignal: FontChooserSignalName { .notifyLevel }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -3298,26 +3606,30 @@ public extension FontChooserProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::preview-text`
+    /// - Note: This represents the underlying `notify::preview-text` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyPreviewText(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: FontChooserRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyPreviewText` signal is emitted
+    @discardableResult @inlinable func onNotifyPreviewText(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: FontChooserRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<FontChooserRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(FontChooserRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return GLibObject.ObjectRef(raw: ptr).signalConnectData(
-            detailedSignal: "notify::preview-text", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyPreviewText,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::preview-text` signal for using the `connect(signal:)` methods
+    static var notifyPreviewTextSignal: FontChooserSignalName { .notifyPreviewText }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -3343,26 +3655,30 @@ public extension FontChooserProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::show-preview-entry`
+    /// - Note: This represents the underlying `notify::show-preview-entry` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyShowPreviewEntry(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: FontChooserRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyShowPreviewEntry` signal is emitted
+    @discardableResult @inlinable func onNotifyShowPreviewEntry(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: FontChooserRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<FontChooserRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(FontChooserRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return GLibObject.ObjectRef(raw: ptr).signalConnectData(
-            detailedSignal: "notify::show-preview-entry", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyShowPreviewEntry,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::show-preview-entry` signal for using the `connect(signal:)` methods
+    static var notifyShowPreviewEntrySignal: FontChooserSignalName { .notifyShowPreviewEntry }
     
 }
 
@@ -4095,7 +4411,14 @@ public extension OrientableProtocol {
     }
 }
 
-// MARK: Orientable has no signals// MARK: Orientable Interface: OrientableProtocol extension (methods and fields)
+public enum OrientableSignalName: String, SignalNameProtocol {
+
+    /// The orientation of the orientable.
+    case notifyOrientation = "notify::orientation"
+}
+
+// MARK: Orientable has no signals
+// MARK: Orientable Interface: OrientableProtocol extension (methods and fields)
 public extension OrientableProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkOrientable` instance.
     @inlinable var orientable_ptr: UnsafeMutablePointer<GtkOrientable>! { return ptr?.assumingMemoryBound(to: GtkOrientable.self) }

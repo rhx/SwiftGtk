@@ -269,7 +269,10 @@ open class RadioActionEntry: RadioActionEntryProtocol {
 
 // MARK: no RadioActionEntry properties
 
-// MARK: RadioActionEntry has no signals// MARK: RadioActionEntry Record: RadioActionEntryProtocol extension (methods and fields)
+// MARK: no RadioActionEntry signals
+
+// MARK: RadioActionEntry has no signals
+// MARK: RadioActionEntry Record: RadioActionEntryProtocol extension (methods and fields)
 public extension RadioActionEntryProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkRadioActionEntry` instance.
     @inlinable var _ptr: UnsafeMutablePointer<GtkRadioActionEntry>! { return ptr?.assumingMemoryBound(to: GtkRadioActionEntry.self) }
@@ -375,7 +378,7 @@ public extension RadioActionEntryProtocol {
 /// Metatype/GType declaration for RadioButtonAccessible
 public extension RadioButtonAccessibleClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `RadioButtonAccessible`
     static var metatypeReference: GType { gtk_radio_button_accessible_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkRadioButtonAccessibleClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkRadioButtonAccessibleClass.self) }
@@ -507,7 +510,7 @@ public extension RadioButtonAccessibleClassProtocol {
 /// Metatype/GType declaration for RadioButton
 public extension RadioButtonClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `RadioButton`
     static var metatypeReference: GType { gtk_radio_button_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkRadioButtonClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkRadioButtonClass.self) }
@@ -649,7 +652,7 @@ public extension RadioButtonClassProtocol {
 /// Metatype/GType declaration for RadioMenuItemAccessible
 public extension RadioMenuItemAccessibleClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `RadioMenuItemAccessible`
     static var metatypeReference: GType { gtk_radio_menu_item_accessible_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkRadioMenuItemAccessibleClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkRadioMenuItemAccessibleClass.self) }
@@ -781,7 +784,7 @@ public extension RadioMenuItemAccessibleClassProtocol {
 /// Metatype/GType declaration for RadioMenuItem
 public extension RadioMenuItemClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `RadioMenuItem`
     static var metatypeReference: GType { gtk_radio_menu_item_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkRadioMenuItemClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkRadioMenuItemClass.self) }
@@ -923,7 +926,7 @@ public extension RadioMenuItemClassProtocol {
 /// Metatype/GType declaration for RadioToolButton
 public extension RadioToolButtonClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `RadioToolButton`
     static var metatypeReference: GType { gtk_radio_tool_button_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkRadioToolButtonClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkRadioToolButtonClass.self) }
@@ -1063,7 +1066,7 @@ public extension RadioToolButtonClassProtocol {
 /// Metatype/GType declaration for RangeAccessible
 public extension RangeAccessibleClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `RangeAccessible`
     static var metatypeReference: GType { gtk_range_accessible_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkRangeAccessibleClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkRangeAccessibleClass.self) }
@@ -1195,7 +1198,7 @@ public extension RangeAccessibleClassProtocol {
 /// Metatype/GType declaration for Range
 public extension RangeClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `Range`
     static var metatypeReference: GType { gtk_range_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkRangeClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkRangeClass.self) }
@@ -1607,7 +1610,10 @@ open class RcContext: RcContextProtocol {
 
 // MARK: no RcContext properties
 
-// MARK: RcContext has no signals// MARK: RcContext Record: RcContextProtocol extension (methods and fields)
+// MARK: no RcContext signals
+
+// MARK: RcContext has no signals
+// MARK: RcContext Record: RcContextProtocol extension (methods and fields)
 public extension RcContextProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkRcContext` instance.
     @inlinable var _ptr: UnsafeMutablePointer<GtkRcContext>! { return ptr?.assumingMemoryBound(to: GtkRcContext.self) }
@@ -1869,7 +1875,10 @@ open class RcProperty: RcPropertyProtocol {
 
 // MARK: no RcProperty properties
 
-// MARK: RcProperty has no signals// MARK: RcProperty Record: RcPropertyProtocol extension (methods and fields)
+// MARK: no RcProperty signals
+
+// MARK: RcProperty has no signals
+// MARK: RcProperty Record: RcPropertyProtocol extension (methods and fields)
 public extension RcPropertyProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkRcProperty` instance.
     @inlinable var _ptr: UnsafeMutablePointer<GtkRcProperty>! { return ptr?.assumingMemoryBound(to: GtkRcProperty.self) }
@@ -1937,7 +1946,7 @@ public extension RcPropertyProtocol {
 /// Metatype/GType declaration for RcStyle
 public extension RcStyleClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `RcStyle`
     static var metatypeReference: GType { gtk_rc_style_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkRcStyleClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkRcStyleClass.self) }
@@ -2087,7 +2096,7 @@ public extension RcStyleClassProtocol {
 /// Metatype/GType declaration for RecentAction
 public extension RecentActionClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `RecentAction`
     static var metatypeReference: GType { gtk_recent_action_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkRecentActionClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkRecentActionClass.self) }
@@ -2227,7 +2236,7 @@ public extension RecentActionClassProtocol {
 /// Metatype/GType declaration for RecentChooserDialog
 public extension RecentChooserDialogClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `RecentChooserDialog`
     static var metatypeReference: GType { gtk_recent_chooser_dialog_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkRecentChooserDialogClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkRecentChooserDialogClass.self) }
@@ -2367,7 +2376,7 @@ public extension RecentChooserDialogClassProtocol {
 /// Metatype/GType declaration for RecentChooser
 public extension RecentChooserIfaceRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `RecentChooser`
     static var metatypeReference: GType { gtk_recent_chooser_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkRecentChooserIface>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkRecentChooserIface.self) }
@@ -2522,7 +2531,7 @@ public extension RecentChooserIfaceProtocol {
 /// Metatype/GType declaration for RecentChooserMenu
 public extension RecentChooserMenuClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `RecentChooserMenu`
     static var metatypeReference: GType { gtk_recent_chooser_menu_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkRecentChooserMenuClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkRecentChooserMenuClass.self) }
@@ -2662,7 +2671,7 @@ public extension RecentChooserMenuClassProtocol {
 /// Metatype/GType declaration for RecentChooserWidget
 public extension RecentChooserWidgetClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `RecentChooserWidget`
     static var metatypeReference: GType { gtk_recent_chooser_widget_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkRecentChooserWidgetClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkRecentChooserWidgetClass.self) }
@@ -3053,7 +3062,10 @@ open class RecentData: RecentDataProtocol {
 
 // MARK: no RecentData properties
 
-// MARK: RecentData has no signals// MARK: RecentData Record: RecentDataProtocol extension (methods and fields)
+// MARK: no RecentData signals
+
+// MARK: RecentData has no signals
+// MARK: RecentData Record: RecentDataProtocol extension (methods and fields)
 public extension RecentDataProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkRecentData` instance.
     @inlinable var _ptr: UnsafeMutablePointer<GtkRecentData>! { return ptr?.assumingMemoryBound(to: GtkRecentData.self) }
@@ -3432,7 +3444,10 @@ open class RecentFilterInfo: RecentFilterInfoProtocol {
 
 // MARK: no RecentFilterInfo properties
 
-// MARK: RecentFilterInfo has no signals// MARK: RecentFilterInfo Record: RecentFilterInfoProtocol extension (methods and fields)
+// MARK: no RecentFilterInfo signals
+
+// MARK: RecentFilterInfo has no signals
+// MARK: RecentFilterInfo Record: RecentFilterInfoProtocol extension (methods and fields)
 public extension RecentFilterInfoProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkRecentFilterInfo` instance.
     @inlinable var _ptr: UnsafeMutablePointer<GtkRecentFilterInfo>! { return ptr?.assumingMemoryBound(to: GtkRecentFilterInfo.self) }
@@ -3808,7 +3823,10 @@ open class RecentInfo: RecentInfoProtocol {
 
 // MARK: no RecentInfo properties
 
-// MARK: RecentInfo has no signals// MARK: RecentInfo Record: RecentInfoProtocol extension (methods and fields)
+// MARK: no RecentInfo signals
+
+// MARK: RecentInfo has no signals
+// MARK: RecentInfo Record: RecentInfoProtocol extension (methods and fields)
 public extension RecentInfoProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkRecentInfo` instance.
     @inlinable var recent_info_ptr: UnsafeMutablePointer<GtkRecentInfo>! { return ptr?.assumingMemoryBound(to: GtkRecentInfo.self) }
@@ -4133,7 +4151,7 @@ public extension RecentInfoProtocol {
 /// Metatype/GType declaration for RecentManager
 public extension RecentManagerClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `RecentManager`
     static var metatypeReference: GType { gtk_recent_manager_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkRecentManagerClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkRecentManagerClass.self) }
@@ -4270,7 +4288,7 @@ public extension RecentManagerClassProtocol {
 /// Metatype/GType declaration for RendererCellAccessible
 public extension RendererCellAccessibleClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `RendererCellAccessible`
     static var metatypeReference: GType { gtk_renderer_cell_accessible_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkRendererCellAccessibleClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkRendererCellAccessibleClass.self) }
@@ -4656,7 +4674,10 @@ open class RequestedSize: RequestedSizeProtocol {
 
 // MARK: no RequestedSize properties
 
-// MARK: RequestedSize has no signals// MARK: RequestedSize Record: RequestedSizeProtocol extension (methods and fields)
+// MARK: no RequestedSize signals
+
+// MARK: RequestedSize has no signals
+// MARK: RequestedSize Record: RequestedSizeProtocol extension (methods and fields)
 public extension RequestedSizeProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkRequestedSize` instance.
     @inlinable var _ptr: UnsafeMutablePointer<GtkRequestedSize>! { return ptr?.assumingMemoryBound(to: GtkRequestedSize.self) }
@@ -4982,7 +5003,10 @@ open class Requisition: RequisitionProtocol {
 
 // MARK: no Requisition properties
 
-// MARK: Requisition has no signals// MARK: Requisition Record: RequisitionProtocol extension (methods and fields)
+// MARK: no Requisition signals
+
+// MARK: Requisition has no signals
+// MARK: Requisition Record: RequisitionProtocol extension (methods and fields)
 public extension RequisitionProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkRequisition` instance.
     @inlinable var requisition_ptr: UnsafeMutablePointer<GtkRequisition>! { return ptr?.assumingMemoryBound(to: GtkRequisition.self) }
@@ -5032,7 +5056,7 @@ public extension RequisitionProtocol {
 /// Metatype/GType declaration for Revealer
 public extension RevealerClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `Revealer`
     static var metatypeReference: GType { gtk_revealer_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkRevealerClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkRevealerClass.self) }
@@ -5166,7 +5190,7 @@ public extension RevealerClassProtocol {
 /// Metatype/GType declaration for ScaleAccessible
 public extension ScaleAccessibleClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `ScaleAccessible`
     static var metatypeReference: GType { gtk_scale_accessible_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkScaleAccessibleClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkScaleAccessibleClass.self) }

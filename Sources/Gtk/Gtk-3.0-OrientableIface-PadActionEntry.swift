@@ -18,7 +18,7 @@ import Atk
 /// Metatype/GType declaration for Orientable
 public extension OrientableIfaceRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `Orientable`
     static var metatypeReference: GType { gtk_orientable_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkOrientableIface>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkOrientableIface.self) }
@@ -150,7 +150,7 @@ public extension OrientableIfaceProtocol {
 /// Metatype/GType declaration for Overlay
 public extension OverlayClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `Overlay`
     static var metatypeReference: GType { gtk_overlay_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkOverlayClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkOverlayClass.self) }
@@ -550,7 +550,10 @@ open class PadActionEntry: PadActionEntryProtocol {
 
 // MARK: no PadActionEntry properties
 
-// MARK: PadActionEntry has no signals// MARK: PadActionEntry Record: PadActionEntryProtocol extension (methods and fields)
+// MARK: no PadActionEntry signals
+
+// MARK: PadActionEntry has no signals
+// MARK: PadActionEntry Record: PadActionEntryProtocol extension (methods and fields)
 public extension PadActionEntryProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkPadActionEntry` instance.
     @inlinable var _ptr: UnsafeMutablePointer<GtkPadActionEntry>! { return ptr?.assumingMemoryBound(to: GtkPadActionEntry.self) }

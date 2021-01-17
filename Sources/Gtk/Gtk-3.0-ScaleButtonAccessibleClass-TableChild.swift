@@ -18,7 +18,7 @@ import Atk
 /// Metatype/GType declaration for ScaleButtonAccessible
 public extension ScaleButtonAccessibleClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `ScaleButtonAccessible`
     static var metatypeReference: GType { gtk_scale_button_accessible_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkScaleButtonAccessibleClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkScaleButtonAccessibleClass.self) }
@@ -150,7 +150,7 @@ public extension ScaleButtonAccessibleClassProtocol {
 /// Metatype/GType declaration for ScaleButton
 public extension ScaleButtonClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `ScaleButton`
     static var metatypeReference: GType { gtk_scale_button_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkScaleButtonClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkScaleButtonClass.self) }
@@ -292,7 +292,7 @@ public extension ScaleButtonClassProtocol {
 /// Metatype/GType declaration for Scale
 public extension ScaleClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `Scale`
     static var metatypeReference: GType { gtk_scale_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkScaleClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkScaleClass.self) }
@@ -438,7 +438,7 @@ public extension ScaleClassProtocol {
 /// Metatype/GType declaration for Scrollable
 public extension ScrollableInterfaceRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `Scrollable`
     static var metatypeReference: GType { gtk_scrollable_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkScrollableInterface>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkScrollableInterface.self) }
@@ -572,7 +572,7 @@ public extension ScrollableInterfaceProtocol {
 /// Metatype/GType declaration for Scrollbar
 public extension ScrollbarClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `Scrollbar`
     static var metatypeReference: GType { gtk_scrollbar_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkScrollbarClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkScrollbarClass.self) }
@@ -712,7 +712,7 @@ public extension ScrollbarClassProtocol {
 /// Metatype/GType declaration for ScrolledWindowAccessible
 public extension ScrolledWindowAccessibleClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `ScrolledWindowAccessible`
     static var metatypeReference: GType { gtk_scrolled_window_accessible_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkScrolledWindowAccessibleClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkScrolledWindowAccessibleClass.self) }
@@ -844,7 +844,7 @@ public extension ScrolledWindowAccessibleClassProtocol {
 /// Metatype/GType declaration for ScrolledWindow
 public extension ScrolledWindowClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `ScrolledWindow`
     static var metatypeReference: GType { gtk_scrolled_window_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkScrolledWindowClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkScrolledWindowClass.self) }
@@ -997,7 +997,7 @@ public extension ScrolledWindowClassProtocol {
 /// Metatype/GType declaration for SearchBar
 public extension SearchBarClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `SearchBar`
     static var metatypeReference: GType { gtk_search_bar_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkSearchBarClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkSearchBarClass.self) }
@@ -1139,7 +1139,7 @@ public extension SearchBarClassProtocol {
 /// Metatype/GType declaration for SearchEntry
 public extension SearchEntryClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `SearchEntry`
     static var metatypeReference: GType { gtk_search_entry_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkSearchEntryClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkSearchEntryClass.self) }
@@ -1527,7 +1527,10 @@ open class SelectionData: SelectionDataProtocol {
 
 // MARK: no SelectionData properties
 
-// MARK: SelectionData has no signals// MARK: SelectionData Record: SelectionDataProtocol extension (methods and fields)
+// MARK: no SelectionData signals
+
+// MARK: SelectionData has no signals
+// MARK: SelectionData Record: SelectionDataProtocol extension (methods and fields)
 public extension SelectionDataProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkSelectionData` instance.
     @inlinable var selection_data_ptr: UnsafeMutablePointer<GtkSelectionData>! { return ptr?.assumingMemoryBound(to: GtkSelectionData.self) }
@@ -1814,7 +1817,7 @@ public extension SelectionDataProtocol {
 /// Metatype/GType declaration for Separator
 public extension SeparatorClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `Separator`
     static var metatypeReference: GType { gtk_separator_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkSeparatorClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkSeparatorClass.self) }
@@ -1954,7 +1957,7 @@ public extension SeparatorClassProtocol {
 /// Metatype/GType declaration for SeparatorMenuItem
 public extension SeparatorMenuItemClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `SeparatorMenuItem`
     static var metatypeReference: GType { gtk_separator_menu_item_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkSeparatorMenuItemClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkSeparatorMenuItemClass.self) }
@@ -2096,7 +2099,7 @@ public extension SeparatorMenuItemClassProtocol {
 /// Metatype/GType declaration for SeparatorToolItem
 public extension SeparatorToolItemClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `SeparatorToolItem`
     static var metatypeReference: GType { gtk_separator_tool_item_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkSeparatorToolItemClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkSeparatorToolItemClass.self) }
@@ -2238,7 +2241,7 @@ public extension SeparatorToolItemClassProtocol {
 /// Metatype/GType declaration for Settings
 public extension SettingsClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `Settings`
     static var metatypeReference: GType { gtk_settings_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkSettingsClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkSettingsClass.self) }
@@ -2626,7 +2629,10 @@ open class SettingsValue: SettingsValueProtocol {
 
 // MARK: no SettingsValue properties
 
-// MARK: SettingsValue has no signals// MARK: SettingsValue Record: SettingsValueProtocol extension (methods and fields)
+// MARK: no SettingsValue signals
+
+// MARK: SettingsValue has no signals
+// MARK: SettingsValue Record: SettingsValueProtocol extension (methods and fields)
 public extension SettingsValueProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkSettingsValue` instance.
     @inlinable var _ptr: UnsafeMutablePointer<GtkSettingsValue>! { return ptr?.assumingMemoryBound(to: GtkSettingsValue.self) }
@@ -2671,7 +2677,7 @@ public extension SettingsValueProtocol {
 /// Metatype/GType declaration for ShortcutLabel
 public extension ShortcutLabelClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `ShortcutLabel`
     static var metatypeReference: GType { gtk_shortcut_label_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkShortcutLabelClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkShortcutLabelClass.self) }
@@ -2797,7 +2803,7 @@ public extension ShortcutLabelClassProtocol {
 /// Metatype/GType declaration for ShortcutsGroup
 public extension ShortcutsGroupClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `ShortcutsGroup`
     static var metatypeReference: GType { gtk_shortcuts_group_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkShortcutsGroupClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkShortcutsGroupClass.self) }
@@ -2923,7 +2929,7 @@ public extension ShortcutsGroupClassProtocol {
 /// Metatype/GType declaration for ShortcutsSection
 public extension ShortcutsSectionClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `ShortcutsSection`
     static var metatypeReference: GType { gtk_shortcuts_section_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkShortcutsSectionClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkShortcutsSectionClass.self) }
@@ -3049,7 +3055,7 @@ public extension ShortcutsSectionClassProtocol {
 /// Metatype/GType declaration for ShortcutsShortcut
 public extension ShortcutsShortcutClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `ShortcutsShortcut`
     static var metatypeReference: GType { gtk_shortcuts_shortcut_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkShortcutsShortcutClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkShortcutsShortcutClass.self) }
@@ -3175,7 +3181,7 @@ public extension ShortcutsShortcutClassProtocol {
 /// Metatype/GType declaration for ShortcutsWindow
 public extension ShortcutsWindowClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `ShortcutsWindow`
     static var metatypeReference: GType { gtk_shortcuts_window_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkShortcutsWindowClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkShortcutsWindowClass.self) }
@@ -3311,7 +3317,7 @@ public extension ShortcutsWindowClassProtocol {
 /// Metatype/GType declaration for SizeGroup
 public extension SizeGroupClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `SizeGroup`
     static var metatypeReference: GType { gtk_size_group_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkSizeGroupClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkSizeGroupClass.self) }
@@ -3451,7 +3457,7 @@ public extension SizeGroupClassProtocol {
 /// Metatype/GType declaration for SocketAccessible
 public extension SocketAccessibleClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `SocketAccessible`
     static var metatypeReference: GType { gtk_socket_accessible_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkSocketAccessibleClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkSocketAccessibleClass.self) }
@@ -3583,7 +3589,7 @@ public extension SocketAccessibleClassProtocol {
 /// Metatype/GType declaration for SpinButtonAccessible
 public extension SpinButtonAccessibleClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `SpinButtonAccessible`
     static var metatypeReference: GType { gtk_spin_button_accessible_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkSpinButtonAccessibleClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkSpinButtonAccessibleClass.self) }
@@ -3715,7 +3721,7 @@ public extension SpinButtonAccessibleClassProtocol {
 /// Metatype/GType declaration for SpinButton
 public extension SpinButtonClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `SpinButton`
     static var metatypeReference: GType { gtk_spin_button_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkSpinButtonClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkSpinButtonClass.self) }
@@ -3865,7 +3871,7 @@ public extension SpinButtonClassProtocol {
 /// Metatype/GType declaration for SpinnerAccessible
 public extension SpinnerAccessibleClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `SpinnerAccessible`
     static var metatypeReference: GType { gtk_spinner_accessible_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkSpinnerAccessibleClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkSpinnerAccessibleClass.self) }
@@ -3997,7 +4003,7 @@ public extension SpinnerAccessibleClassProtocol {
 /// Metatype/GType declaration for Spinner
 public extension SpinnerClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `Spinner`
     static var metatypeReference: GType { gtk_spinner_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkSpinnerClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkSpinnerClass.self) }
@@ -4137,7 +4143,7 @@ public extension SpinnerClassProtocol {
 /// Metatype/GType declaration for StackAccessible
 public extension StackAccessibleClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `StackAccessible`
     static var metatypeReference: GType { gtk_stack_accessible_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkStackAccessibleClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkStackAccessibleClass.self) }
@@ -4269,7 +4275,7 @@ public extension StackAccessibleClassProtocol {
 /// Metatype/GType declaration for Stack
 public extension StackClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `Stack`
     static var metatypeReference: GType { gtk_stack_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkStackClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkStackClass.self) }
@@ -4401,7 +4407,7 @@ public extension StackClassProtocol {
 /// Metatype/GType declaration for StackSidebar
 public extension StackSidebarClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `StackSidebar`
     static var metatypeReference: GType { gtk_stack_sidebar_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkStackSidebarClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkStackSidebarClass.self) }
@@ -4541,7 +4547,7 @@ public extension StackSidebarClassProtocol {
 /// Metatype/GType declaration for StackSwitcher
 public extension StackSwitcherClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `StackSwitcher`
     static var metatypeReference: GType { gtk_stack_switcher_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkStackSwitcherClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkStackSwitcherClass.self) }
@@ -4681,7 +4687,7 @@ public extension StackSwitcherClassProtocol {
 /// Metatype/GType declaration for StatusIcon
 public extension StatusIconClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `StatusIcon`
     static var metatypeReference: GType { gtk_status_icon_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkStatusIconClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkStatusIconClass.self) }
@@ -4835,7 +4841,7 @@ public extension StatusIconClassProtocol {
 /// Metatype/GType declaration for StatusbarAccessible
 public extension StatusbarAccessibleClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `StatusbarAccessible`
     static var metatypeReference: GType { gtk_statusbar_accessible_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkStatusbarAccessibleClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkStatusbarAccessibleClass.self) }
@@ -4967,7 +4973,7 @@ public extension StatusbarAccessibleClassProtocol {
 /// Metatype/GType declaration for Statusbar
 public extension StatusbarClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `Statusbar`
     static var metatypeReference: GType { gtk_statusbar_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkStatusbarClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkStatusbarClass.self) }
@@ -5366,7 +5372,10 @@ open class StockItem: StockItemProtocol {
 
 // MARK: no StockItem properties
 
-// MARK: StockItem has no signals// MARK: StockItem Record: StockItemProtocol extension (methods and fields)
+// MARK: no StockItem signals
+
+// MARK: StockItem has no signals
+// MARK: StockItem Record: StockItemProtocol extension (methods and fields)
 public extension StockItemProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkStockItem` instance.
     @inlinable var _ptr: UnsafeMutablePointer<GtkStockItem>! { return ptr?.assumingMemoryBound(to: GtkStockItem.self) }
@@ -5476,7 +5485,7 @@ public extension StockItemProtocol {
 /// Metatype/GType declaration for Style
 public extension StyleClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `Style`
     static var metatypeReference: GType { gtk_style_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkStyleClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkStyleClass.self) }
@@ -5686,7 +5695,7 @@ public extension StyleClassProtocol {
 /// Metatype/GType declaration for StyleContext
 public extension StyleContextClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `StyleContext`
     static var metatypeReference: GType { gtk_style_context_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkStyleContextClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkStyleContextClass.self) }
@@ -5828,7 +5837,7 @@ public extension StyleContextClassProtocol {
 /// Metatype/GType declaration for StyleProperties
 public extension StylePropertiesClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `StyleProperties`
     static var metatypeReference: GType { gtk_style_properties_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkStylePropertiesClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkStylePropertiesClass.self) }
@@ -5963,7 +5972,7 @@ public extension StylePropertiesClassProtocol {
 /// Metatype/GType declaration for StyleProvider
 public extension StyleProviderIfaceRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `StyleProvider`
     static var metatypeReference: GType { gtk_style_provider_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkStyleProviderIface>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkStyleProviderIface.self) }
@@ -6096,7 +6105,7 @@ public extension StyleProviderIfaceProtocol {
 /// Metatype/GType declaration for SwitchAccessible
 public extension SwitchAccessibleClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `SwitchAccessible`
     static var metatypeReference: GType { gtk_switch_accessible_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkSwitchAccessibleClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkSwitchAccessibleClass.self) }
@@ -6228,7 +6237,7 @@ public extension SwitchAccessibleClassProtocol {
 /// Metatype/GType declaration for Switch
 public extension SwitchClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `Switch`
     static var metatypeReference: GType { gtk_switch_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkSwitchClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkSwitchClass.self) }
@@ -6810,7 +6819,10 @@ open class SymbolicColor: SymbolicColorProtocol {
 
 // MARK: no SymbolicColor properties
 
-// MARK: SymbolicColor has no signals// MARK: SymbolicColor Record: SymbolicColorProtocol extension (methods and fields)
+// MARK: no SymbolicColor signals
+
+// MARK: SymbolicColor has no signals
+// MARK: SymbolicColor Record: SymbolicColorProtocol extension (methods and fields)
 public extension SymbolicColorProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkSymbolicColor` instance.
     @inlinable var symbolic_color_ptr: UnsafeMutablePointer<GtkSymbolicColor>! { return ptr?.assumingMemoryBound(to: GtkSymbolicColor.self) }
@@ -7139,7 +7151,10 @@ open class TableChild: TableChildProtocol {
 
 // MARK: no TableChild properties
 
-// MARK: TableChild has no signals// MARK: TableChild Record: TableChildProtocol extension (methods and fields)
+// MARK: no TableChild signals
+
+// MARK: TableChild has no signals
+// MARK: TableChild Record: TableChildProtocol extension (methods and fields)
 public extension TableChildProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkTableChild` instance.
     @inlinable var _ptr: UnsafeMutablePointer<GtkTableChild>! { return ptr?.assumingMemoryBound(to: GtkTableChild.self) }

@@ -266,60 +266,110 @@ open class PrintOperationPreview: PrintOperationPreviewProtocol {
 
 // MARK: no PrintOperationPreview properties
 
-// MARK: Signals of PrintOperationPreview
-public extension PrintOperationPreviewProtocol {
+public enum PrintOperationPreviewSignalName: String, SignalNameProtocol {
     /// The `got`-page-size signal is emitted once for each page
     /// that gets rendered to the preview.
     /// 
     /// A handler for this signal should update the `context`
     /// according to `page_setup` and set up a suitable cairo
     /// context, using `gtk_print_context_set_cairo_context()`.
-    /// - Note: Representation of signal named `got-page-size`
+    case gotPageSize = "got-page-size"
+    /// The `ready` signal gets emitted once per preview operation,
+    /// before the first page is rendered.
+    /// 
+    /// A handler for this signal can be used for setup tasks.
+    case ready = "ready"
+
+}
+
+// MARK: PrintOperationPreview signals
+public extension PrintOperationPreviewProtocol {
+    /// Connect a Swift signal handler to the given, typed `PrintOperationPreviewSignalName` signal
+    /// - Parameters:
+    ///   - signal: The signal to connect
+    ///   - flags: The connection flags to use
+    ///   - data: A pointer to user data to provide to the callback
+    ///   - destroyData: A `GClosureNotify` C function to destroy the data pointed to by `userData`
+    ///   - handler: The Swift signal handler (function or callback) to invoke on the given signal
+    /// - Returns: The signal handler ID (always greater than 0 for successful connections)
+    @inlinable @discardableResult func connect(signal s: PrintOperationPreviewSignalName, flags f: ConnectFlags = ConnectFlags(0), handler h: @escaping SignalHandler) -> Int {
+        GLibObject.ObjectRef(raw: ptr).connect(s, flags: f, handler: h)
+    }
+    
+    
+    /// Connect a C signal handler to the given, typed `PrintOperationPreviewSignalName` signal
+    /// - Parameters:
+    ///   - signal: The signal to connect
+    ///   - flags: The connection flags to use
+    ///   - data: A pointer to user data to provide to the callback
+    ///   - destroyData: A `GClosureNotify` C function to destroy the data pointed to by `userData`
+    ///   - signalHandler: The C function to be called on the given signal
+    /// - Returns: The signal handler ID (always greater than 0 for successful connections)
+    @inlinable @discardableResult func connect(signal s: PrintOperationPreviewSignalName, flags f: ConnectFlags = ConnectFlags(0), data userData: gpointer!, destroyData destructor: GClosureNotify? = nil, signalHandler h: @escaping GCallback) -> Int {
+        GLibObject.ObjectRef(raw: ptr).connectSignal(s, flags: f, data: userData, destroyData: destructor, handler: h)
+    }
+    
+    
+    /// The `got`-page-size signal is emitted once for each page
+    /// that gets rendered to the preview.
+    /// 
+    /// A handler for this signal should update the `context`
+    /// according to `page_setup` and set up a suitable cairo
+    /// context, using `gtk_print_context_set_cairo_context()`.
+    /// - Note: This represents the underlying `got-page-size` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter context: the current `GtkPrintContext`
     /// - Parameter pageSetup: the `GtkPageSetup` for the current page
-    @discardableResult
-    func onGotPageSize(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: PrintOperationPreviewRef, _ context: PrintContextRef, _ pageSetup: PageSetupRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `gotPageSize` signal is emitted
+    @discardableResult @inlinable func onGotPageSize(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: PrintOperationPreviewRef, _ context: PrintContextRef, _ pageSetup: PageSetupRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder3<PrintOperationPreviewRef, PrintContextRef, PageSetupRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, arg2, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(PrintOperationPreviewRef(raw: unownedSelf), PrintContextRef(raw: arg1), PageSetupRef(raw: arg2))
             return output
         }
-        return GLibObject.ObjectRef(raw: ptr).signalConnectData(
-            detailedSignal: "got-page-size", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .gotPageSize,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `got-page-size` signal for using the `connect(signal:)` methods
+    static var gotPageSizeSignal: PrintOperationPreviewSignalName { .gotPageSize }
     
     /// The `ready` signal gets emitted once per preview operation,
     /// before the first page is rendered.
     /// 
     /// A handler for this signal can be used for setup tasks.
-    /// - Note: Representation of signal named `ready`
+    /// - Note: This represents the underlying `ready` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter context: the current `GtkPrintContext`
-    @discardableResult
-    func onReady(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: PrintOperationPreviewRef, _ context: PrintContextRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `ready` signal is emitted
+    @discardableResult @inlinable func onReady(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: PrintOperationPreviewRef, _ context: PrintContextRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<PrintOperationPreviewRef, PrintContextRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(PrintOperationPreviewRef(raw: unownedSelf), PrintContextRef(raw: arg1))
             return output
         }
-        return GLibObject.ObjectRef(raw: ptr).signalConnectData(
-            detailedSignal: "ready", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .ready,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `ready` signal for using the `connect(signal:)` methods
+    static var readySignal: PrintOperationPreviewSignalName { .ready }
     
     
 }
@@ -710,55 +760,129 @@ public extension RecentChooserProtocol {
     }
 }
 
-// MARK: Signals of RecentChooser
-public extension RecentChooserProtocol {
+public enum RecentChooserSignalName: String, SignalNameProtocol {
     /// This signal is emitted when the user "activates" a recent item
     /// in the recent chooser.  This can happen by double-clicking on an item
     /// in the recently used resources list, or by pressing
     /// `Enter`.
-    /// - Note: Representation of signal named `item-activated`
+    case itemActivated = "item-activated"
+    /// This signal is emitted when there is a change in the set of
+    /// selected recently used resources.  This can happen when a user
+    /// modifies the selection with the mouse or the keyboard, or when
+    /// explicitly calling functions to change the selection.
+    case selectionChanged = "selection-changed"
+    /// The `GtkRecentFilter` object to be used when displaying
+    /// the recently used resources.
+    case notifyFilter = "notify::filter"
+    /// The maximum number of recently used resources to be displayed,
+    /// or -1 to display all items.
+    case notifyLimit = "notify::limit"
+    /// Whether this `GtkRecentChooser` should display only local (file:)
+    /// resources.
+    case notifyLocalOnly = "notify::local-only"
+    /// The `GtkRecentManager` instance used by the `GtkRecentChooser` to
+    /// display the list of recently used resources.
+    case notifyRecentManager = "notify::recent-manager"
+    /// Allow the user to select multiple resources.
+    case notifySelectMultiple = "notify::select-multiple"
+    /// Whether this `GtkRecentChooser` should display an icon near the item.
+    case notifyShowIcons = "notify::show-icons"
+    /// Whether this `GtkRecentChooser` should display the recently used resources
+    /// even if not present anymore. Setting this to `false` will perform a
+    /// potentially expensive check on every local resource (every remote
+    /// resource will always be displayed).
+    case notifyShowNotFound = "notify::show-not-found"
+    case notifyShowPrivate = "notify::show-private"
+    /// Whether this `GtkRecentChooser` should display a tooltip containing the
+    /// full path of the recently used resources.
+    case notifyShowTips = "notify::show-tips"
+    /// Sorting order to be used when displaying the recently used resources.
+    case notifySortType = "notify::sort-type"
+}
+
+// MARK: RecentChooser signals
+public extension RecentChooserProtocol {
+    /// Connect a Swift signal handler to the given, typed `RecentChooserSignalName` signal
+    /// - Parameters:
+    ///   - signal: The signal to connect
+    ///   - flags: The connection flags to use
+    ///   - data: A pointer to user data to provide to the callback
+    ///   - destroyData: A `GClosureNotify` C function to destroy the data pointed to by `userData`
+    ///   - handler: The Swift signal handler (function or callback) to invoke on the given signal
+    /// - Returns: The signal handler ID (always greater than 0 for successful connections)
+    @inlinable @discardableResult func connect(signal s: RecentChooserSignalName, flags f: ConnectFlags = ConnectFlags(0), handler h: @escaping SignalHandler) -> Int {
+        GLibObject.ObjectRef(raw: ptr).connect(s, flags: f, handler: h)
+    }
+    
+    
+    /// Connect a C signal handler to the given, typed `RecentChooserSignalName` signal
+    /// - Parameters:
+    ///   - signal: The signal to connect
+    ///   - flags: The connection flags to use
+    ///   - data: A pointer to user data to provide to the callback
+    ///   - destroyData: A `GClosureNotify` C function to destroy the data pointed to by `userData`
+    ///   - signalHandler: The C function to be called on the given signal
+    /// - Returns: The signal handler ID (always greater than 0 for successful connections)
+    @inlinable @discardableResult func connect(signal s: RecentChooserSignalName, flags f: ConnectFlags = ConnectFlags(0), data userData: gpointer!, destroyData destructor: GClosureNotify? = nil, signalHandler h: @escaping GCallback) -> Int {
+        GLibObject.ObjectRef(raw: ptr).connectSignal(s, flags: f, data: userData, destroyData: destructor, handler: h)
+    }
+    
+    
+    /// This signal is emitted when the user "activates" a recent item
+    /// in the recent chooser.  This can happen by double-clicking on an item
+    /// in the recently used resources list, or by pressing
+    /// `Enter`.
+    /// - Note: This represents the underlying `item-activated` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
-    @discardableResult
-    func onItemActivated(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: RecentChooserRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `itemActivated` signal is emitted
+    @discardableResult @inlinable func onItemActivated(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: RecentChooserRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder<RecentChooserRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer) -> Void = { unownedSelf, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(RecentChooserRef(raw: unownedSelf))
             return output
         }
-        return GLibObject.ObjectRef(raw: ptr).signalConnectData(
-            detailedSignal: "item-activated", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .itemActivated,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `item-activated` signal for using the `connect(signal:)` methods
+    static var itemActivatedSignal: RecentChooserSignalName { .itemActivated }
     
     /// This signal is emitted when there is a change in the set of
     /// selected recently used resources.  This can happen when a user
     /// modifies the selection with the mouse or the keyboard, or when
     /// explicitly calling functions to change the selection.
-    /// - Note: Representation of signal named `selection-changed`
+    /// - Note: This represents the underlying `selection-changed` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
-    @discardableResult
-    func onSelectionChanged(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: RecentChooserRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `selectionChanged` signal is emitted
+    @discardableResult @inlinable func onSelectionChanged(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: RecentChooserRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder<RecentChooserRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer) -> Void = { unownedSelf, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(RecentChooserRef(raw: unownedSelf))
             return output
         }
-        return GLibObject.ObjectRef(raw: ptr).signalConnectData(
-            detailedSignal: "selection-changed", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .selectionChanged,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `selection-changed` signal for using the `connect(signal:)` methods
+    static var selectionChangedSignal: RecentChooserSignalName { .selectionChanged }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -784,26 +908,30 @@ public extension RecentChooserProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::filter`
+    /// - Note: This represents the underlying `notify::filter` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyFilter(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: RecentChooserRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyFilter` signal is emitted
+    @discardableResult @inlinable func onNotifyFilter(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: RecentChooserRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<RecentChooserRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(RecentChooserRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return GLibObject.ObjectRef(raw: ptr).signalConnectData(
-            detailedSignal: "notify::filter", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyFilter,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::filter` signal for using the `connect(signal:)` methods
+    static var notifyFilterSignal: RecentChooserSignalName { .notifyFilter }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -829,26 +957,30 @@ public extension RecentChooserProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::limit`
+    /// - Note: This represents the underlying `notify::limit` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyLimit(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: RecentChooserRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyLimit` signal is emitted
+    @discardableResult @inlinable func onNotifyLimit(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: RecentChooserRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<RecentChooserRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(RecentChooserRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return GLibObject.ObjectRef(raw: ptr).signalConnectData(
-            detailedSignal: "notify::limit", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyLimit,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::limit` signal for using the `connect(signal:)` methods
+    static var notifyLimitSignal: RecentChooserSignalName { .notifyLimit }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -874,26 +1006,30 @@ public extension RecentChooserProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::local-only`
+    /// - Note: This represents the underlying `notify::local-only` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyLocalOnly(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: RecentChooserRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyLocalOnly` signal is emitted
+    @discardableResult @inlinable func onNotifyLocalOnly(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: RecentChooserRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<RecentChooserRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(RecentChooserRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return GLibObject.ObjectRef(raw: ptr).signalConnectData(
-            detailedSignal: "notify::local-only", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyLocalOnly,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::local-only` signal for using the `connect(signal:)` methods
+    static var notifyLocalOnlySignal: RecentChooserSignalName { .notifyLocalOnly }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -919,26 +1055,30 @@ public extension RecentChooserProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::recent-manager`
+    /// - Note: This represents the underlying `notify::recent-manager` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyRecentManager(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: RecentChooserRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyRecentManager` signal is emitted
+    @discardableResult @inlinable func onNotifyRecentManager(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: RecentChooserRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<RecentChooserRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(RecentChooserRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return GLibObject.ObjectRef(raw: ptr).signalConnectData(
-            detailedSignal: "notify::recent-manager", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyRecentManager,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::recent-manager` signal for using the `connect(signal:)` methods
+    static var notifyRecentManagerSignal: RecentChooserSignalName { .notifyRecentManager }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -964,26 +1104,30 @@ public extension RecentChooserProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::select-multiple`
+    /// - Note: This represents the underlying `notify::select-multiple` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifySelectMultiple(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: RecentChooserRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifySelectMultiple` signal is emitted
+    @discardableResult @inlinable func onNotifySelectMultiple(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: RecentChooserRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<RecentChooserRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(RecentChooserRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return GLibObject.ObjectRef(raw: ptr).signalConnectData(
-            detailedSignal: "notify::select-multiple", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifySelectMultiple,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::select-multiple` signal for using the `connect(signal:)` methods
+    static var notifySelectMultipleSignal: RecentChooserSignalName { .notifySelectMultiple }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -1009,26 +1153,30 @@ public extension RecentChooserProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::show-icons`
+    /// - Note: This represents the underlying `notify::show-icons` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyShowIcons(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: RecentChooserRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyShowIcons` signal is emitted
+    @discardableResult @inlinable func onNotifyShowIcons(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: RecentChooserRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<RecentChooserRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(RecentChooserRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return GLibObject.ObjectRef(raw: ptr).signalConnectData(
-            detailedSignal: "notify::show-icons", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyShowIcons,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::show-icons` signal for using the `connect(signal:)` methods
+    static var notifyShowIconsSignal: RecentChooserSignalName { .notifyShowIcons }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -1054,26 +1202,30 @@ public extension RecentChooserProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::show-not-found`
+    /// - Note: This represents the underlying `notify::show-not-found` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyShowNotFound(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: RecentChooserRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyShowNotFound` signal is emitted
+    @discardableResult @inlinable func onNotifyShowNotFound(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: RecentChooserRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<RecentChooserRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(RecentChooserRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return GLibObject.ObjectRef(raw: ptr).signalConnectData(
-            detailedSignal: "notify::show-not-found", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyShowNotFound,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::show-not-found` signal for using the `connect(signal:)` methods
+    static var notifyShowNotFoundSignal: RecentChooserSignalName { .notifyShowNotFound }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -1099,26 +1251,30 @@ public extension RecentChooserProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::show-private`
+    /// - Note: This represents the underlying `notify::show-private` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyShowPrivate(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: RecentChooserRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyShowPrivate` signal is emitted
+    @discardableResult @inlinable func onNotifyShowPrivate(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: RecentChooserRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<RecentChooserRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(RecentChooserRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return GLibObject.ObjectRef(raw: ptr).signalConnectData(
-            detailedSignal: "notify::show-private", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyShowPrivate,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::show-private` signal for using the `connect(signal:)` methods
+    static var notifyShowPrivateSignal: RecentChooserSignalName { .notifyShowPrivate }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -1144,26 +1300,30 @@ public extension RecentChooserProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::show-tips`
+    /// - Note: This represents the underlying `notify::show-tips` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyShowTips(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: RecentChooserRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyShowTips` signal is emitted
+    @discardableResult @inlinable func onNotifyShowTips(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: RecentChooserRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<RecentChooserRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(RecentChooserRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return GLibObject.ObjectRef(raw: ptr).signalConnectData(
-            detailedSignal: "notify::show-tips", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyShowTips,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::show-tips` signal for using the `connect(signal:)` methods
+    static var notifyShowTipsSignal: RecentChooserSignalName { .notifyShowTips }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -1189,26 +1349,30 @@ public extension RecentChooserProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::sort-type`
+    /// - Note: This represents the underlying `notify::sort-type` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifySortType(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: RecentChooserRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifySortType` signal is emitted
+    @discardableResult @inlinable func onNotifySortType(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: RecentChooserRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<RecentChooserRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(RecentChooserRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return GLibObject.ObjectRef(raw: ptr).signalConnectData(
-            detailedSignal: "notify::sort-type", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifySortType,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::sort-type` signal for using the `connect(signal:)` methods
+    static var notifySortTypeSignal: RecentChooserSignalName { .notifySortType }
     
 }
 
