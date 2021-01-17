@@ -12,10 +12,6 @@ import GLibObject
 import GIO
 import Cairo
 
-@usableFromInline enum ContainerSignalName: String, GLibObject.SignalNameProtocol {
-    case add = "add"
-}
-
 /// Box protocol convenience methods
 public extension BoxProtocol {
     /// Set the start margin of the box
