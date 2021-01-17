@@ -137,13 +137,6 @@ On Ubuntu 20.04 and 18.04, you can use the gtk that comes with the distribution.
 	sudo apt update
 	sudo apt install libgtk-3-dev gir1.2-gtksource-3.0 gobject-introspection libgirepository1.0-dev libxml2-dev
 
-If you prefer a newer version of gtk, you can also install it from the GNOME 3 Staging PPA (see https://launchpad.net/~gnome3-team/+archive/ubuntu/gnome3-staging), but be aware that this can be a bit dangerous (as this removes packages that can be vital, particularly if you use a GNOME-based desktop), so only do this if you know what you are doing:
-
-	sudo add-apt-repository ppa:gnome3-team/gnome3-staging
-	sudo apt update
-	sudo apt dist-upgrade
-	sudo apt install libgtk-3-dev gir1.2-gtksource-3.0 gobject-introspection libgirepository1.0-dev libxml2-dev
-
 ##### Fedora
 
 On Fedora 29, you can use the gtk that comes with the distribution.  Just install with the `dnf` package manager:
@@ -155,7 +148,7 @@ On Fedora 29, you can use the gtk that comes with the distribution.  Just instal
 On macOS, you can install gtk using HomeBrew (for setup instructions, see http://brew.sh).  Once you have a running HomeBrew installation, you can use it to install a native version of gtk:
 
 	brew update
-	brew install gtk+3 glib glib-networking gobject-introspection pkg-config
+	brew install gtk4 glib glib-networking gobject-introspection pkg-config
 
 
 ## Building
