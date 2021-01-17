@@ -89,11 +89,18 @@ The demo applications come with build scripts that configure some environment va
  * [SwiftHelloGtk](https://github.com/rhx/SwiftHelloGtk): this is a quick starting point for a simple gtk app that does not need any resources.
  * [SwiftHelloGtkBuilder](https://github.com/rhx/SwiftHelloGtkBuilder): this is a good starting point for a more complex app that has user interface files (`*.ui`) for GtkBuilder in its `Resources` folder.
  
-To build your project, you then simply run
+You first need to create the Swift Wrappers using
 ```
-./build.sh
+./run-gir2swift.sh
 ```
-from within your project folder.  On macOS, you can also build the project using Xcode instead.  To do this, you need to create an Xcode project first, then open the project in the Xcode IDE:
+After that, you can build, test, or run your project using the usual Swift compiler commands:
+```
+swift build
+swift test
+swift run
+```
+
+On macOS, there is an issue that requires you to pass in the required flags manually (see [Building](#Building) below).  You can also build the project using Xcode on macOS instead.  To do this, you need to create an Xcode project first, then open the project in the Xcode IDE:
 
 	./xcodegen.sh
 	open MyPackage.xcodeproj
@@ -130,13 +137,6 @@ On Ubuntu 20.04 and 18.04, you can use the gtk that comes with the distribution.
 	sudo apt update
 	sudo apt install libgtk-3-dev gir1.2-gtksource-3.0 gobject-introspection libgirepository1.0-dev libxml2-dev
 
-If you prefer a newer version of gtk, you can also install it from the GNOME 3 Staging PPA (see https://launchpad.net/~gnome3-team/+archive/ubuntu/gnome3-staging), but be aware that this can be a bit dangerous (as this removes packages that can be vital, particularly if you use a GNOME-based desktop), so only do this if you know what you are doing:
-
-	sudo add-apt-repository ppa:gnome3-team/gnome3-staging
-	sudo apt update
-	sudo apt dist-upgrade
-	sudo apt install libgtk-3-dev gir1.2-gtksource-3.0 gobject-introspection libgirepository1.0-dev libxml2-dev
-
 ##### Fedora
 
 On Fedora 29, you can use the gtk that comes with the distribution.  Just install with the `dnf` package manager:
@@ -148,7 +148,7 @@ On Fedora 29, you can use the gtk that comes with the distribution.  Just instal
 On macOS, you can install gtk using HomeBrew (for setup instructions, see http://brew.sh).  Once you have a running HomeBrew installation, you can use it to install a native version of gtk:
 
 	brew update
-	brew install gtk+3 glib glib-networking gobject-introspection pkg-config
+	brew install gtk4 glib glib-networking gobject-introspection pkg-config
 
 
 ## Building
@@ -178,15 +178,15 @@ After that, use the (usual) Build and Test buttons to build/test this package.
 
 
 ## Documentation
+
 You can find reference documentation inside the [docs](https://rhx.github.io/SwiftGtk/) folder.
 This was generated using the [jazzy](https://github.com/realm/jazzy) tool.
 If you want to generate your own documentation, matching your local installation,
 you can use the `generate-documentation.sh` script in the repository.
-Unfortunately, at this stage [jazzy](https://github.com/realm/jazzy) only works on macOS (and crashes under Linux), so this will currently only work on a Mac.
-
 
 
 ## Troubleshooting
+
 Here are some common errors you might encounter and how to fix them.
 
 ### SwiftGtk takes a very long time to build
