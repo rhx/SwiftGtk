@@ -479,80 +479,361 @@ public extension ScaleButtonProtocol {
     }
 }
 
-// MARK: Signals of ScaleButton
-public extension ScaleButtonProtocol {
+public enum ScaleButtonSignalName: String, SignalNameProtocol {
+    /// Signals that all holders of a reference to the widget should release
+    /// the reference that they hold. May result in finalization of the widget
+    /// if all references are released.
+    /// 
+    /// This signal is not suitable for saving widget state.
+    case destroy = "destroy"
+    /// The `direction`-changed signal is emitted when the text direction
+    /// of a widget changes.
+    case directionChanged = "direction-changed"
+    /// The `hide` signal is emitted when `widget` is hidden, for example with
+    /// `gtk_widget_hide()`.
+    case hide = "hide"
+    /// Gets emitted if keyboard navigation fails.
+    /// See `gtk_widget_keynav_failed()` for details.
+    case keynavFailed = "keynav-failed"
+    /// The `map` signal is emitted when `widget` is going to be mapped, that is
+    /// when the widget is visible (which is controlled with
+    /// `gtk_widget_set_visible()`) and all its parents up to the toplevel widget
+    /// are also visible.
+    /// 
+    /// The `map` signal can be used to determine whether a widget will be drawn,
+    /// for instance it can resume an animation that was stopped during the
+    /// emission of `GtkWidget::unmap`.
+    case map = "map"
+    /// The default handler for this signal activates `widget` if `group_cycling`
+    /// is `false`, or just makes `widget` grab focus if `group_cycling` is `true`.
+    case mnemonicActivate = "mnemonic-activate"
+    /// Emitted when the focus is moved.
+    case moveFocus = "move-focus"
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    case notify = "notify"
     /// The `popdown` signal is a
     /// [keybinding signal](#GtkSignalAction)
     /// which gets emitted to popdown the scale widget.
     /// 
     /// The default binding for this signal is Escape.
-    /// - Note: Representation of signal named `popdown`
+    case popdown = "popdown"
+    /// The `popup` signal is a
+    /// [keybinding signal](#GtkSignalAction)
+    /// which gets emitted to popup the scale widget.
+    /// 
+    /// The default bindings for this signal are Space, Enter and Return.
+    case popup = "popup"
+    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
+    /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
+    /// focus in keyboard mode.
+    /// 
+    /// Using the given coordinates, the signal handler should determine
+    /// whether a tooltip should be shown for `widget`. If this is the case
+    /// `true` should be returned, `false` otherwise.  Note that if
+    /// `keyboard_mode` is `true`, the values of `x` and `y` are undefined and
+    /// should not be used.
+    /// 
+    /// The signal handler is free to manipulate `tooltip` with the therefore
+    /// destined function calls.
+    case queryTooltip = "query-tooltip"
+    /// The `realize` signal is emitted when `widget` is associated with a
+    /// `GdkSurface`, which means that `gtk_widget_realize()` has been called or the
+    /// widget has been mapped (that is, it is going to be drawn).
+    case realize = "realize"
+    /// The `show` signal is emitted when `widget` is shown, for example with
+    /// `gtk_widget_show()`.
+    case show = "show"
+    /// The `state`-flags-changed signal is emitted when the widget state
+    /// changes, see `gtk_widget_get_state_flags()`.
+    case stateFlagsChanged = "state-flags-changed"
+    /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
+    /// means that either it or any of its parents up to the toplevel widget have
+    /// been set as hidden.
+    /// 
+    /// As `unmap` indicates that a widget will not be shown any longer, it can be
+    /// used to, for example, stop an animation on the widget.
+    case unmap = "unmap"
+    /// The `unrealize` signal is emitted when the `GdkSurface` associated with
+    /// `widget` is destroyed, which means that `gtk_widget_unrealize()` has been
+    /// called or the widget has been unmapped (that is, it is going to be
+    /// hidden).
+    case unrealize = "unrealize"
+    /// The `value`-changed signal is emitted when the value field has
+    /// changed.
+    case valueChanged = "value-changed"
+    case notifyAdjustment = "notify::adjustment"
+    /// Whether the widget or any of its descendents can accept
+    /// the input focus.
+    /// 
+    /// This property is meant to be set by widget implementations,
+    /// typically in their instance init function.
+    case notifyCanFocus = "notify::can-focus"
+    case notifyCanTarget = "notify::can-target"
+    /// A list of css classes applied to this widget.
+    case notifyCssClasses = "notify::css-classes"
+    /// The name of this widget in the CSS tree.
+    /// 
+    /// This property is meant to be set by widget implementations,
+    /// typically in their instance init function.
+    case notifyCssName = "notify::css-name"
+    /// The cursor used by `widget`. See `gtk_widget_set_cursor()` for details.
+    case notifyCursor = "notify::cursor"
+    /// Whether the widget should grab focus when it is clicked with the mouse.
+    /// 
+    /// This property is only relevant for widgets that can take focus.
+    case notifyFocusOnClick = "notify::focus-on-click"
+    /// Whether this widget itself will accept the input focus.
+    case notifyFocusable = "notify::focusable"
+    /// How to distribute horizontal space if widget gets extra space, see `GtkAlign`
+    case notifyHalign = "notify::halign"
+    case notifyHasDefault = "notify::has-default"
+    case notifyHasFocus = "notify::has-focus"
+    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// A value of `true` indicates that `widget` can have a tooltip, in this case
+    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// whether it will provide a tooltip or not.
+    case notifyHasTooltip = "notify::has-tooltip"
+    case notifyHeightRequest = "notify::height-request"
+    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
+    case notifyHexpand = "notify::hexpand"
+    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
+    case notifyHexpandSet = "notify::hexpand-set"
+    /// The names of the icons to be used by the scale button.
+    /// The first item in the array will be used in the button
+    /// when the current value is the lowest value, the second
+    /// item for the highest value. All the subsequent icons will
+    /// be used for all the other values, spread evenly over the
+    /// range of values.
+    /// 
+    /// If there's only one icon name in the `icons` array, it will
+    /// be used for all the values. If only two icon names are in
+    /// the `icons` array, the first one will be used for the bottom
+    /// 50% of the scale, and the second one for the top 50%.
+    /// 
+    /// It is recommended to use at least 3 icons so that the
+    /// `GtkScaleButton` reflects the current value of the scale
+    /// better for the users.
+    case notifyIcons = "notify::icons"
+    /// The `GtkLayoutManager` instance to use to compute the preferred size
+    /// of the widget, and allocate its children.
+    /// 
+    /// This property is meant to be set by widget implementations,
+    /// typically in their instance init function.
+    case notifyLayoutManager = "notify::layout-manager"
+    /// Margin on bottom side of widget.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginBottom = "notify::margin-bottom"
+    /// Margin on end of widget, horizontally. This property supports
+    /// left-to-right and right-to-left text directions.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginEnd = "notify::margin-end"
+    /// Margin on start of widget, horizontally. This property supports
+    /// left-to-right and right-to-left text directions.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginStart = "notify::margin-start"
+    /// Margin on top side of widget.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginTop = "notify::margin-top"
+    case notifyName = "notify::name"
+    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
+    /// more details about window opacity.
+    case notifyOpacity = "notify::opacity"
+    /// How content outside the widget's content area is treated.
+    /// 
+    /// This property is meant to be set by widget implementations,
+    /// typically in their instance init function.
+    case notifyOverflow = "notify::overflow"
+    case notifyParent = "notify::parent"
+    case notifyReceivesDefault = "notify::receives-default"
+    /// The `GtkRoot` widget of the widget tree containing this widget or `nil` if
+    /// the widget is not contained in a root widget.
+    case notifyRoot = "notify::root"
+    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
+    /// more details about widget scaling.
+    case notifyScaleFactor = "notify::scale-factor"
+    case notifySensitive = "notify::sensitive"
+    /// Sets the text of tooltip to be the given string, which is marked up
+    /// with the [Pango text markup language](#PangoMarkupFormat).
+    /// Also see `gtk_tooltip_set_markup()`.
+    /// 
+    /// This is a convenience property which will take care of getting the
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// will automatically be set to `true` and there will be taken care of
+    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// 
+    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// are set, the last one wins.
+    case notifyTooltipMarkup = "notify::tooltip-markup"
+    /// Sets the text of tooltip to be the given string.
+    /// 
+    /// Also see `gtk_tooltip_set_text()`.
+    /// 
+    /// This is a convenience property which will take care of getting the
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// will automatically be set to `true` and there will be taken care of
+    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// 
+    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// are set, the last one wins.
+    case notifyTooltipText = "notify::tooltip-text"
+    /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
+    case notifyValign = "notify::valign"
+    case notifyValue = "notify::value"
+    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
+    case notifyVexpand = "notify::vexpand"
+    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
+    case notifyVexpandSet = "notify::vexpand-set"
+    case notifyVisible = "notify::visible"
+    case notifyWidthRequest = "notify::width-request"
+}
+
+// MARK: ScaleButton signals
+public extension ScaleButtonProtocol {
+    /// Connect a Swift signal handler to the given, typed `ScaleButtonSignalName` signal
+    /// - Parameters:
+    ///   - signal: The signal to connect
+    ///   - flags: The connection flags to use
+    ///   - data: A pointer to user data to provide to the callback
+    ///   - destroyData: A `GClosureNotify` C function to destroy the data pointed to by `userData`
+    ///   - handler: The Swift signal handler (function or callback) to invoke on the given signal
+    /// - Returns: The signal handler ID (always greater than 0 for successful connections)
+    @inlinable @discardableResult func connect(signal s: ScaleButtonSignalName, flags f: ConnectFlags = ConnectFlags(0), handler h: @escaping SignalHandler) -> Int {
+        connect(s, flags: f, handler: h)
+    }
+    
+    
+    /// Connect a C signal handler to the given, typed `ScaleButtonSignalName` signal
+    /// - Parameters:
+    ///   - signal: The signal to connect
+    ///   - flags: The connection flags to use
+    ///   - data: A pointer to user data to provide to the callback
+    ///   - destroyData: A `GClosureNotify` C function to destroy the data pointed to by `userData`
+    ///   - signalHandler: The C function to be called on the given signal
+    /// - Returns: The signal handler ID (always greater than 0 for successful connections)
+    @inlinable @discardableResult func connect(signal s: ScaleButtonSignalName, flags f: ConnectFlags = ConnectFlags(0), data userData: gpointer!, destroyData destructor: GClosureNotify? = nil, signalHandler h: @escaping GCallback) -> Int {
+        connectSignal(s, flags: f, data: userData, destroyData: destructor, handler: h)
+    }
+    
+    
+    /// The `popdown` signal is a
+    /// [keybinding signal](#GtkSignalAction)
+    /// which gets emitted to popdown the scale widget.
+    /// 
+    /// The default binding for this signal is Escape.
+    /// - Note: This represents the underlying `popdown` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
-    @discardableResult
-    func onPopdown(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ScaleButtonRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `popdown` signal is emitted
+    @discardableResult @inlinable func onPopdown(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ScaleButtonRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder<ScaleButtonRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer) -> Void = { unownedSelf, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(ScaleButtonRef(raw: unownedSelf))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "popdown", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .popdown,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `popdown` signal for using the `connect(signal:)` methods
+    static var popdownSignal: ScaleButtonSignalName { .popdown }
     
     /// The `popup` signal is a
     /// [keybinding signal](#GtkSignalAction)
     /// which gets emitted to popup the scale widget.
     /// 
     /// The default bindings for this signal are Space, Enter and Return.
-    /// - Note: Representation of signal named `popup`
+    /// - Note: This represents the underlying `popup` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
-    @discardableResult
-    func onPopup(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ScaleButtonRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `popup` signal is emitted
+    @discardableResult @inlinable func onPopup(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ScaleButtonRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder<ScaleButtonRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer) -> Void = { unownedSelf, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(ScaleButtonRef(raw: unownedSelf))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "popup", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .popup,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
     
+    /// Typed `popup` signal for using the `connect(signal:)` methods
+    static var popupSignal: ScaleButtonSignalName { .popup }
+    
     /// The `value`-changed signal is emitted when the value field has
     /// changed.
-    /// - Note: Representation of signal named `value-changed`
+    /// - Note: This represents the underlying `value-changed` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter value: the new value
-    @discardableResult
-    func onValueChanged(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ScaleButtonRef, _ value: Double) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `valueChanged` signal is emitted
+    @discardableResult @inlinable func onValueChanged(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ScaleButtonRef, _ value: Double) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<ScaleButtonRef, Double, Void>
         let cCallback: @convention(c) (gpointer, gdouble, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(ScaleButtonRef(raw: unownedSelf), Double(arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "value-changed", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .valueChanged,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `value-changed` signal for using the `connect(signal:)` methods
+    static var valueChangedSignal: ScaleButtonSignalName { .valueChanged }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -578,26 +859,30 @@ public extension ScaleButtonProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::adjustment`
+    /// - Note: This represents the underlying `notify::adjustment` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyAdjustment(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ScaleButtonRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyAdjustment` signal is emitted
+    @discardableResult @inlinable func onNotifyAdjustment(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ScaleButtonRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<ScaleButtonRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(ScaleButtonRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::adjustment", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyAdjustment,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::adjustment` signal for using the `connect(signal:)` methods
+    static var notifyAdjustmentSignal: ScaleButtonSignalName { .notifyAdjustment }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -623,26 +908,30 @@ public extension ScaleButtonProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::icons`
+    /// - Note: This represents the underlying `notify::icons` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyIcons(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ScaleButtonRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyIcons` signal is emitted
+    @discardableResult @inlinable func onNotifyIcons(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ScaleButtonRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<ScaleButtonRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(ScaleButtonRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::icons", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyIcons,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::icons` signal for using the `connect(signal:)` methods
+    static var notifyIconsSignal: ScaleButtonSignalName { .notifyIcons }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -668,26 +957,30 @@ public extension ScaleButtonProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::value`
+    /// - Note: This represents the underlying `notify::value` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyValue(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ScaleButtonRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyValue` signal is emitted
+    @discardableResult @inlinable func onNotifyValue(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ScaleButtonRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<ScaleButtonRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(ScaleButtonRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::value", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyValue,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::value` signal for using the `connect(signal:)` methods
+    static var notifyValueSignal: ScaleButtonSignalName { .notifyValue }
     
 }
 
@@ -1349,7 +1642,219 @@ public extension ScrollbarProtocol {
     }
 }
 
-// MARK: Scrollbar has no signals// MARK: Scrollbar Class: ScrollbarProtocol extension (methods and fields)
+public enum ScrollbarSignalName: String, SignalNameProtocol {
+    /// Signals that all holders of a reference to the widget should release
+    /// the reference that they hold. May result in finalization of the widget
+    /// if all references are released.
+    /// 
+    /// This signal is not suitable for saving widget state.
+    case destroy = "destroy"
+    /// The `direction`-changed signal is emitted when the text direction
+    /// of a widget changes.
+    case directionChanged = "direction-changed"
+    /// The `hide` signal is emitted when `widget` is hidden, for example with
+    /// `gtk_widget_hide()`.
+    case hide = "hide"
+    /// Gets emitted if keyboard navigation fails.
+    /// See `gtk_widget_keynav_failed()` for details.
+    case keynavFailed = "keynav-failed"
+    /// The `map` signal is emitted when `widget` is going to be mapped, that is
+    /// when the widget is visible (which is controlled with
+    /// `gtk_widget_set_visible()`) and all its parents up to the toplevel widget
+    /// are also visible.
+    /// 
+    /// The `map` signal can be used to determine whether a widget will be drawn,
+    /// for instance it can resume an animation that was stopped during the
+    /// emission of `GtkWidget::unmap`.
+    case map = "map"
+    /// The default handler for this signal activates `widget` if `group_cycling`
+    /// is `false`, or just makes `widget` grab focus if `group_cycling` is `true`.
+    case mnemonicActivate = "mnemonic-activate"
+    /// Emitted when the focus is moved.
+    case moveFocus = "move-focus"
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    case notify = "notify"
+    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
+    /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
+    /// focus in keyboard mode.
+    /// 
+    /// Using the given coordinates, the signal handler should determine
+    /// whether a tooltip should be shown for `widget`. If this is the case
+    /// `true` should be returned, `false` otherwise.  Note that if
+    /// `keyboard_mode` is `true`, the values of `x` and `y` are undefined and
+    /// should not be used.
+    /// 
+    /// The signal handler is free to manipulate `tooltip` with the therefore
+    /// destined function calls.
+    case queryTooltip = "query-tooltip"
+    /// The `realize` signal is emitted when `widget` is associated with a
+    /// `GdkSurface`, which means that `gtk_widget_realize()` has been called or the
+    /// widget has been mapped (that is, it is going to be drawn).
+    case realize = "realize"
+    /// The `show` signal is emitted when `widget` is shown, for example with
+    /// `gtk_widget_show()`.
+    case show = "show"
+    /// The `state`-flags-changed signal is emitted when the widget state
+    /// changes, see `gtk_widget_get_state_flags()`.
+    case stateFlagsChanged = "state-flags-changed"
+    /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
+    /// means that either it or any of its parents up to the toplevel widget have
+    /// been set as hidden.
+    /// 
+    /// As `unmap` indicates that a widget will not be shown any longer, it can be
+    /// used to, for example, stop an animation on the widget.
+    case unmap = "unmap"
+    /// The `unrealize` signal is emitted when the `GdkSurface` associated with
+    /// `widget` is destroyed, which means that `gtk_widget_unrealize()` has been
+    /// called or the widget has been unmapped (that is, it is going to be
+    /// hidden).
+    case unrealize = "unrealize"
+    case notifyAdjustment = "notify::adjustment"
+    /// Whether the widget or any of its descendents can accept
+    /// the input focus.
+    /// 
+    /// This property is meant to be set by widget implementations,
+    /// typically in their instance init function.
+    case notifyCanFocus = "notify::can-focus"
+    case notifyCanTarget = "notify::can-target"
+    /// A list of css classes applied to this widget.
+    case notifyCssClasses = "notify::css-classes"
+    /// The name of this widget in the CSS tree.
+    /// 
+    /// This property is meant to be set by widget implementations,
+    /// typically in their instance init function.
+    case notifyCssName = "notify::css-name"
+    /// The cursor used by `widget`. See `gtk_widget_set_cursor()` for details.
+    case notifyCursor = "notify::cursor"
+    /// Whether the widget should grab focus when it is clicked with the mouse.
+    /// 
+    /// This property is only relevant for widgets that can take focus.
+    case notifyFocusOnClick = "notify::focus-on-click"
+    /// Whether this widget itself will accept the input focus.
+    case notifyFocusable = "notify::focusable"
+    /// How to distribute horizontal space if widget gets extra space, see `GtkAlign`
+    case notifyHalign = "notify::halign"
+    case notifyHasDefault = "notify::has-default"
+    case notifyHasFocus = "notify::has-focus"
+    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// A value of `true` indicates that `widget` can have a tooltip, in this case
+    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// whether it will provide a tooltip or not.
+    case notifyHasTooltip = "notify::has-tooltip"
+    case notifyHeightRequest = "notify::height-request"
+    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
+    case notifyHexpand = "notify::hexpand"
+    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
+    case notifyHexpandSet = "notify::hexpand-set"
+    /// The `GtkLayoutManager` instance to use to compute the preferred size
+    /// of the widget, and allocate its children.
+    /// 
+    /// This property is meant to be set by widget implementations,
+    /// typically in their instance init function.
+    case notifyLayoutManager = "notify::layout-manager"
+    /// Margin on bottom side of widget.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginBottom = "notify::margin-bottom"
+    /// Margin on end of widget, horizontally. This property supports
+    /// left-to-right and right-to-left text directions.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginEnd = "notify::margin-end"
+    /// Margin on start of widget, horizontally. This property supports
+    /// left-to-right and right-to-left text directions.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginStart = "notify::margin-start"
+    /// Margin on top side of widget.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginTop = "notify::margin-top"
+    case notifyName = "notify::name"
+    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
+    /// more details about window opacity.
+    case notifyOpacity = "notify::opacity"
+    /// How content outside the widget's content area is treated.
+    /// 
+    /// This property is meant to be set by widget implementations,
+    /// typically in their instance init function.
+    case notifyOverflow = "notify::overflow"
+    case notifyParent = "notify::parent"
+    case notifyReceivesDefault = "notify::receives-default"
+    /// The `GtkRoot` widget of the widget tree containing this widget or `nil` if
+    /// the widget is not contained in a root widget.
+    case notifyRoot = "notify::root"
+    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
+    /// more details about widget scaling.
+    case notifyScaleFactor = "notify::scale-factor"
+    case notifySensitive = "notify::sensitive"
+    /// Sets the text of tooltip to be the given string, which is marked up
+    /// with the [Pango text markup language](#PangoMarkupFormat).
+    /// Also see `gtk_tooltip_set_markup()`.
+    /// 
+    /// This is a convenience property which will take care of getting the
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// will automatically be set to `true` and there will be taken care of
+    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// 
+    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// are set, the last one wins.
+    case notifyTooltipMarkup = "notify::tooltip-markup"
+    /// Sets the text of tooltip to be the given string.
+    /// 
+    /// Also see `gtk_tooltip_set_text()`.
+    /// 
+    /// This is a convenience property which will take care of getting the
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// will automatically be set to `true` and there will be taken care of
+    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// 
+    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// are set, the last one wins.
+    case notifyTooltipText = "notify::tooltip-text"
+    /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
+    case notifyValign = "notify::valign"
+    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
+    case notifyVexpand = "notify::vexpand"
+    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
+    case notifyVexpandSet = "notify::vexpand-set"
+    case notifyVisible = "notify::visible"
+    case notifyWidthRequest = "notify::width-request"
+}
+
+// MARK: Scrollbar has no signals
+// MARK: Scrollbar Class: ScrollbarProtocol extension (methods and fields)
 public extension ScrollbarProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkScrollbar` instance.
     @inlinable var scrollbar_ptr: UnsafeMutablePointer<GtkScrollbar>! { return ptr?.assumingMemoryBound(to: GtkScrollbar.self) }
@@ -2099,8 +2604,16 @@ public extension ScrolledWindowProtocol {
     }
 }
 
-// MARK: Signals of ScrolledWindow
-public extension ScrolledWindowProtocol {
+public enum ScrolledWindowSignalName: String, SignalNameProtocol {
+    /// Signals that all holders of a reference to the widget should release
+    /// the reference that they hold. May result in finalization of the widget
+    /// if all references are released.
+    /// 
+    /// This signal is not suitable for saving widget state.
+    case destroy = "destroy"
+    /// The `direction`-changed signal is emitted when the text direction
+    /// of a widget changes.
+    case directionChanged = "direction-changed"
     /// The `edge`-overshot signal is emitted whenever user initiated scrolling
     /// makes the scrolled window firmly surpass (i.e. with some edge resistance)
     /// the lower or upper limits defined by the adjustment in that orientation.
@@ -2110,26 +2623,330 @@ public extension ScrolledWindowProtocol {
     /// 
     /// Note: The `pos` argument is LTR/RTL aware, so callers should be aware too
     /// if intending to provide behavior on horizontal edges.
-    /// - Note: Representation of signal named `edge-overshot`
+    case edgeOvershot = "edge-overshot"
+    /// The `edge`-reached signal is emitted whenever user-initiated scrolling
+    /// makes the scrolled window exactly reach the lower or upper limits
+    /// defined by the adjustment in that orientation.
+    /// 
+    /// A similar behavior with edge resistance is provided by the
+    /// `GtkScrolledWindow::edge`-overshot signal.
+    /// 
+    /// Note: The `pos` argument is LTR/RTL aware, so callers should be aware too
+    /// if intending to provide behavior on horizontal edges.
+    case edgeReached = "edge-reached"
+    /// The `hide` signal is emitted when `widget` is hidden, for example with
+    /// `gtk_widget_hide()`.
+    case hide = "hide"
+    /// Gets emitted if keyboard navigation fails.
+    /// See `gtk_widget_keynav_failed()` for details.
+    case keynavFailed = "keynav-failed"
+    /// The `map` signal is emitted when `widget` is going to be mapped, that is
+    /// when the widget is visible (which is controlled with
+    /// `gtk_widget_set_visible()`) and all its parents up to the toplevel widget
+    /// are also visible.
+    /// 
+    /// The `map` signal can be used to determine whether a widget will be drawn,
+    /// for instance it can resume an animation that was stopped during the
+    /// emission of `GtkWidget::unmap`.
+    case map = "map"
+    /// The default handler for this signal activates `widget` if `group_cycling`
+    /// is `false`, or just makes `widget` grab focus if `group_cycling` is `true`.
+    case mnemonicActivate = "mnemonic-activate"
+    /// Emitted when the focus is moved.
+    case moveFocus = "move-focus"
+    /// The `move`-focus-out signal is a
+    /// [keybinding signal](#GtkSignalAction) which gets
+    /// emitted when focus is moved away from the scrolled window by a
+    /// keybinding. The `GtkWidget::move`-focus signal is emitted with
+    /// `direction_type` on this scrolled window’s toplevel parent in the
+    /// container hierarchy. The default bindings for this signal are
+    /// `Ctrl + Tab` to move forward and `Ctrl + Shift + Tab` to move backward.
+    case moveFocusOut = "move-focus-out"
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    case notify = "notify"
+    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
+    /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
+    /// focus in keyboard mode.
+    /// 
+    /// Using the given coordinates, the signal handler should determine
+    /// whether a tooltip should be shown for `widget`. If this is the case
+    /// `true` should be returned, `false` otherwise.  Note that if
+    /// `keyboard_mode` is `true`, the values of `x` and `y` are undefined and
+    /// should not be used.
+    /// 
+    /// The signal handler is free to manipulate `tooltip` with the therefore
+    /// destined function calls.
+    case queryTooltip = "query-tooltip"
+    /// The `realize` signal is emitted when `widget` is associated with a
+    /// `GdkSurface`, which means that `gtk_widget_realize()` has been called or the
+    /// widget has been mapped (that is, it is going to be drawn).
+    case realize = "realize"
+    /// The `scroll`-child signal is a
+    /// [keybinding signal](#GtkSignalAction)
+    /// which gets emitted when a keybinding that scrolls is pressed.
+    /// The horizontal or vertical adjustment is updated which triggers a
+    /// signal that the scrolled window’s child may listen to and scroll itself.
+    case scrollChild = "scroll-child"
+    /// The `show` signal is emitted when `widget` is shown, for example with
+    /// `gtk_widget_show()`.
+    case show = "show"
+    /// The `state`-flags-changed signal is emitted when the widget state
+    /// changes, see `gtk_widget_get_state_flags()`.
+    case stateFlagsChanged = "state-flags-changed"
+    /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
+    /// means that either it or any of its parents up to the toplevel widget have
+    /// been set as hidden.
+    /// 
+    /// As `unmap` indicates that a widget will not be shown any longer, it can be
+    /// used to, for example, stop an animation on the widget.
+    case unmap = "unmap"
+    /// The `unrealize` signal is emitted when the `GdkSurface` associated with
+    /// `widget` is destroyed, which means that `gtk_widget_unrealize()` has been
+    /// called or the widget has been unmapped (that is, it is going to be
+    /// hidden).
+    case unrealize = "unrealize"
+    /// Whether the widget or any of its descendents can accept
+    /// the input focus.
+    /// 
+    /// This property is meant to be set by widget implementations,
+    /// typically in their instance init function.
+    case notifyCanFocus = "notify::can-focus"
+    case notifyCanTarget = "notify::can-target"
+    case notifyChild = "notify::child"
+    /// A list of css classes applied to this widget.
+    case notifyCssClasses = "notify::css-classes"
+    /// The name of this widget in the CSS tree.
+    /// 
+    /// This property is meant to be set by widget implementations,
+    /// typically in their instance init function.
+    case notifyCssName = "notify::css-name"
+    /// The cursor used by `widget`. See `gtk_widget_set_cursor()` for details.
+    case notifyCursor = "notify::cursor"
+    /// Whether the widget should grab focus when it is clicked with the mouse.
+    /// 
+    /// This property is only relevant for widgets that can take focus.
+    case notifyFocusOnClick = "notify::focus-on-click"
+    /// Whether this widget itself will accept the input focus.
+    case notifyFocusable = "notify::focusable"
+    case notifyHadjustment = "notify::hadjustment"
+    /// How to distribute horizontal space if widget gets extra space, see `GtkAlign`
+    case notifyHalign = "notify::halign"
+    case notifyHasDefault = "notify::has-default"
+    case notifyHasFocus = "notify::has-focus"
+    case notifyHasFrame = "notify::has-frame"
+    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// A value of `true` indicates that `widget` can have a tooltip, in this case
+    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// whether it will provide a tooltip or not.
+    case notifyHasTooltip = "notify::has-tooltip"
+    case notifyHeightRequest = "notify::height-request"
+    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
+    case notifyHexpand = "notify::hexpand"
+    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
+    case notifyHexpandSet = "notify::hexpand-set"
+    case notifyHscrollbarPolicy = "notify::hscrollbar-policy"
+    /// Whether kinetic scrolling is enabled or not. Kinetic scrolling
+    /// only applies to devices with source `GDK_SOURCE_TOUCHSCREEN`.
+    case notifyKineticScrolling = "notify::kinetic-scrolling"
+    /// The `GtkLayoutManager` instance to use to compute the preferred size
+    /// of the widget, and allocate its children.
+    /// 
+    /// This property is meant to be set by widget implementations,
+    /// typically in their instance init function.
+    case notifyLayoutManager = "notify::layout-manager"
+    /// Margin on bottom side of widget.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginBottom = "notify::margin-bottom"
+    /// Margin on end of widget, horizontally. This property supports
+    /// left-to-right and right-to-left text directions.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginEnd = "notify::margin-end"
+    /// Margin on start of widget, horizontally. This property supports
+    /// left-to-right and right-to-left text directions.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginStart = "notify::margin-start"
+    /// Margin on top side of widget.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginTop = "notify::margin-top"
+    /// The maximum content height of `scrolled_window`, or -1 if not set.
+    case notifyMaxContentHeight = "notify::max-content-height"
+    /// The maximum content width of `scrolled_window`, or -1 if not set.
+    case notifyMaxContentWidth = "notify::max-content-width"
+    /// The minimum content height of `scrolled_window`, or -1 if not set.
+    case notifyMinContentHeight = "notify::min-content-height"
+    /// The minimum content width of `scrolled_window`, or -1 if not set.
+    case notifyMinContentWidth = "notify::min-content-width"
+    case notifyName = "notify::name"
+    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
+    /// more details about window opacity.
+    case notifyOpacity = "notify::opacity"
+    /// How content outside the widget's content area is treated.
+    /// 
+    /// This property is meant to be set by widget implementations,
+    /// typically in their instance init function.
+    case notifyOverflow = "notify::overflow"
+    /// Whether overlay scrolling is enabled or not. If it is, the
+    /// scrollbars are only added as traditional widgets when a mouse
+    /// is present. Otherwise, they are overlaid on top of the content,
+    /// as narrow indicators.
+    /// 
+    /// Note that overlay scrolling can also be globally disabled, with
+    /// the `GtkSettings:gtk`-overlay-scrolling setting.
+    case notifyOverlayScrolling = "notify::overlay-scrolling"
+    case notifyParent = "notify::parent"
+    /// Whether the natural height of the child should be calculated and propagated
+    /// through the scrolled window’s requested natural height.
+    /// 
+    /// This is useful in cases where an attempt should be made to allocate exactly
+    /// enough space for the natural size of the child.
+    case notifyPropagateNaturalHeight = "notify::propagate-natural-height"
+    /// Whether the natural width of the child should be calculated and propagated
+    /// through the scrolled window’s requested natural width.
+    /// 
+    /// This is useful in cases where an attempt should be made to allocate exactly
+    /// enough space for the natural size of the child.
+    case notifyPropagateNaturalWidth = "notify::propagate-natural-width"
+    case notifyReceivesDefault = "notify::receives-default"
+    /// The `GtkRoot` widget of the widget tree containing this widget or `nil` if
+    /// the widget is not contained in a root widget.
+    case notifyRoot = "notify::root"
+    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
+    /// more details about widget scaling.
+    case notifyScaleFactor = "notify::scale-factor"
+    case notifySensitive = "notify::sensitive"
+    /// Sets the text of tooltip to be the given string, which is marked up
+    /// with the [Pango text markup language](#PangoMarkupFormat).
+    /// Also see `gtk_tooltip_set_markup()`.
+    /// 
+    /// This is a convenience property which will take care of getting the
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// will automatically be set to `true` and there will be taken care of
+    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// 
+    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// are set, the last one wins.
+    case notifyTooltipMarkup = "notify::tooltip-markup"
+    /// Sets the text of tooltip to be the given string.
+    /// 
+    /// Also see `gtk_tooltip_set_text()`.
+    /// 
+    /// This is a convenience property which will take care of getting the
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// will automatically be set to `true` and there will be taken care of
+    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// 
+    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// are set, the last one wins.
+    case notifyTooltipText = "notify::tooltip-text"
+    case notifyVadjustment = "notify::vadjustment"
+    /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
+    case notifyValign = "notify::valign"
+    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
+    case notifyVexpand = "notify::vexpand"
+    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
+    case notifyVexpandSet = "notify::vexpand-set"
+    case notifyVisible = "notify::visible"
+    case notifyVscrollbarPolicy = "notify::vscrollbar-policy"
+    case notifyWidthRequest = "notify::width-request"
+    case notifyWindowPlacement = "notify::window-placement"
+}
+
+// MARK: ScrolledWindow signals
+public extension ScrolledWindowProtocol {
+    /// Connect a Swift signal handler to the given, typed `ScrolledWindowSignalName` signal
+    /// - Parameters:
+    ///   - signal: The signal to connect
+    ///   - flags: The connection flags to use
+    ///   - data: A pointer to user data to provide to the callback
+    ///   - destroyData: A `GClosureNotify` C function to destroy the data pointed to by `userData`
+    ///   - handler: The Swift signal handler (function or callback) to invoke on the given signal
+    /// - Returns: The signal handler ID (always greater than 0 for successful connections)
+    @inlinable @discardableResult func connect(signal s: ScrolledWindowSignalName, flags f: ConnectFlags = ConnectFlags(0), handler h: @escaping SignalHandler) -> Int {
+        connect(s, flags: f, handler: h)
+    }
+    
+    
+    /// Connect a C signal handler to the given, typed `ScrolledWindowSignalName` signal
+    /// - Parameters:
+    ///   - signal: The signal to connect
+    ///   - flags: The connection flags to use
+    ///   - data: A pointer to user data to provide to the callback
+    ///   - destroyData: A `GClosureNotify` C function to destroy the data pointed to by `userData`
+    ///   - signalHandler: The C function to be called on the given signal
+    /// - Returns: The signal handler ID (always greater than 0 for successful connections)
+    @inlinable @discardableResult func connect(signal s: ScrolledWindowSignalName, flags f: ConnectFlags = ConnectFlags(0), data userData: gpointer!, destroyData destructor: GClosureNotify? = nil, signalHandler h: @escaping GCallback) -> Int {
+        connectSignal(s, flags: f, data: userData, destroyData: destructor, handler: h)
+    }
+    
+    
+    /// The `edge`-overshot signal is emitted whenever user initiated scrolling
+    /// makes the scrolled window firmly surpass (i.e. with some edge resistance)
+    /// the lower or upper limits defined by the adjustment in that orientation.
+    /// 
+    /// A similar behavior without edge resistance is provided by the
+    /// `GtkScrolledWindow::edge`-reached signal.
+    /// 
+    /// Note: The `pos` argument is LTR/RTL aware, so callers should be aware too
+    /// if intending to provide behavior on horizontal edges.
+    /// - Note: This represents the underlying `edge-overshot` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pos: edge side that was hit
-    @discardableResult
-    func onEdgeOvershot(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ScrolledWindowRef, _ pos: PositionType) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `edgeOvershot` signal is emitted
+    @discardableResult @inlinable func onEdgeOvershot(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ScrolledWindowRef, _ pos: PositionType) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<ScrolledWindowRef, PositionType, Void>
         let cCallback: @convention(c) (gpointer, UInt32, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(ScrolledWindowRef(raw: unownedSelf), PositionType(arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "edge-overshot", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .edgeOvershot,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `edge-overshot` signal for using the `connect(signal:)` methods
+    static var edgeOvershotSignal: ScrolledWindowSignalName { .edgeOvershot }
     
     /// The `edge`-reached signal is emitted whenever user-initiated scrolling
     /// makes the scrolled window exactly reach the lower or upper limits
@@ -2140,26 +2957,30 @@ public extension ScrolledWindowProtocol {
     /// 
     /// Note: The `pos` argument is LTR/RTL aware, so callers should be aware too
     /// if intending to provide behavior on horizontal edges.
-    /// - Note: Representation of signal named `edge-reached`
+    /// - Note: This represents the underlying `edge-reached` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pos: edge side that was reached
-    @discardableResult
-    func onEdgeReached(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ScrolledWindowRef, _ pos: PositionType) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `edgeReached` signal is emitted
+    @discardableResult @inlinable func onEdgeReached(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ScrolledWindowRef, _ pos: PositionType) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<ScrolledWindowRef, PositionType, Void>
         let cCallback: @convention(c) (gpointer, UInt32, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(ScrolledWindowRef(raw: unownedSelf), PositionType(arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "edge-reached", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .edgeReached,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `edge-reached` signal for using the `connect(signal:)` methods
+    static var edgeReachedSignal: ScrolledWindowSignalName { .edgeReached }
     
     /// The `move`-focus-out signal is a
     /// [keybinding signal](#GtkSignalAction) which gets
@@ -2168,53 +2989,61 @@ public extension ScrolledWindowProtocol {
     /// `direction_type` on this scrolled window’s toplevel parent in the
     /// container hierarchy. The default bindings for this signal are
     /// `Ctrl + Tab` to move forward and `Ctrl + Shift + Tab` to move backward.
-    /// - Note: Representation of signal named `move-focus-out`
+    /// - Note: This represents the underlying `move-focus-out` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter directionType: either `GTK_DIR_TAB_FORWARD` or   `GTK_DIR_TAB_BACKWARD`
-    @discardableResult
-    func onMoveFocusOut(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ScrolledWindowRef, _ directionType: DirectionType) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `moveFocusOut` signal is emitted
+    @discardableResult @inlinable func onMoveFocusOut(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ScrolledWindowRef, _ directionType: DirectionType) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<ScrolledWindowRef, DirectionType, Void>
         let cCallback: @convention(c) (gpointer, UInt32, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(ScrolledWindowRef(raw: unownedSelf), DirectionType(arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "move-focus-out", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .moveFocusOut,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `move-focus-out` signal for using the `connect(signal:)` methods
+    static var moveFocusOutSignal: ScrolledWindowSignalName { .moveFocusOut }
     
     /// The `scroll`-child signal is a
     /// [keybinding signal](#GtkSignalAction)
     /// which gets emitted when a keybinding that scrolls is pressed.
     /// The horizontal or vertical adjustment is updated which triggers a
     /// signal that the scrolled window’s child may listen to and scroll itself.
-    /// - Note: Representation of signal named `scroll-child`
+    /// - Note: This represents the underlying `scroll-child` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter scroll: a `GtkScrollType` describing how much to scroll
     /// - Parameter horizontal: whether the keybinding scrolls the child   horizontally or not
-    @discardableResult
-    func onScrollChild(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ScrolledWindowRef, _ scroll: ScrollType, _ horizontal: Bool) -> Bool ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `scrollChild` signal is emitted
+    @discardableResult @inlinable func onScrollChild(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ScrolledWindowRef, _ scroll: ScrollType, _ horizontal: Bool) -> Bool ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder3<ScrolledWindowRef, ScrollType, Bool, Bool>
         let cCallback: @convention(c) (gpointer, UInt32, gboolean, gpointer) -> gboolean = { unownedSelf, arg1, arg2, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output = holder.call(ScrolledWindowRef(raw: unownedSelf), ScrollType(arg1), ((arg2) != 0))
             return gboolean((output) ? 1 : 0)
         }
-        return signalConnectData(
-            detailedSignal: "scroll-child", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .scrollChild,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `scroll-child` signal for using the `connect(signal:)` methods
+    static var scrollChildSignal: ScrolledWindowSignalName { .scrollChild }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -2240,26 +3069,30 @@ public extension ScrolledWindowProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::child`
+    /// - Note: This represents the underlying `notify::child` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyChild(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ScrolledWindowRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyChild` signal is emitted
+    @discardableResult @inlinable func onNotifyChild(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ScrolledWindowRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<ScrolledWindowRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(ScrolledWindowRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::child", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyChild,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::child` signal for using the `connect(signal:)` methods
+    static var notifyChildSignal: ScrolledWindowSignalName { .notifyChild }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -2285,26 +3118,30 @@ public extension ScrolledWindowProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::hadjustment`
+    /// - Note: This represents the underlying `notify::hadjustment` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyHadjustment(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ScrolledWindowRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyHadjustment` signal is emitted
+    @discardableResult @inlinable func onNotifyHadjustment(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ScrolledWindowRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<ScrolledWindowRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(ScrolledWindowRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::hadjustment", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyHadjustment,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::hadjustment` signal for using the `connect(signal:)` methods
+    static var notifyHadjustmentSignal: ScrolledWindowSignalName { .notifyHadjustment }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -2330,26 +3167,30 @@ public extension ScrolledWindowProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::has-frame`
+    /// - Note: This represents the underlying `notify::has-frame` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyHasFrame(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ScrolledWindowRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyHasFrame` signal is emitted
+    @discardableResult @inlinable func onNotifyHasFrame(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ScrolledWindowRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<ScrolledWindowRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(ScrolledWindowRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::has-frame", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyHasFrame,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::has-frame` signal for using the `connect(signal:)` methods
+    static var notifyHasFrameSignal: ScrolledWindowSignalName { .notifyHasFrame }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -2375,26 +3216,30 @@ public extension ScrolledWindowProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::hscrollbar-policy`
+    /// - Note: This represents the underlying `notify::hscrollbar-policy` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyHscrollbarPolicy(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ScrolledWindowRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyHscrollbarPolicy` signal is emitted
+    @discardableResult @inlinable func onNotifyHscrollbarPolicy(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ScrolledWindowRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<ScrolledWindowRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(ScrolledWindowRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::hscrollbar-policy", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyHscrollbarPolicy,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::hscrollbar-policy` signal for using the `connect(signal:)` methods
+    static var notifyHscrollbarPolicySignal: ScrolledWindowSignalName { .notifyHscrollbarPolicy }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -2420,26 +3265,30 @@ public extension ScrolledWindowProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::kinetic-scrolling`
+    /// - Note: This represents the underlying `notify::kinetic-scrolling` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyKineticScrolling(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ScrolledWindowRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyKineticScrolling` signal is emitted
+    @discardableResult @inlinable func onNotifyKineticScrolling(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ScrolledWindowRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<ScrolledWindowRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(ScrolledWindowRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::kinetic-scrolling", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyKineticScrolling,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::kinetic-scrolling` signal for using the `connect(signal:)` methods
+    static var notifyKineticScrollingSignal: ScrolledWindowSignalName { .notifyKineticScrolling }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -2465,26 +3314,30 @@ public extension ScrolledWindowProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::max-content-height`
+    /// - Note: This represents the underlying `notify::max-content-height` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyMaxContentHeight(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ScrolledWindowRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyMaxContentHeight` signal is emitted
+    @discardableResult @inlinable func onNotifyMaxContentHeight(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ScrolledWindowRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<ScrolledWindowRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(ScrolledWindowRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::max-content-height", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyMaxContentHeight,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::max-content-height` signal for using the `connect(signal:)` methods
+    static var notifyMaxContentHeightSignal: ScrolledWindowSignalName { .notifyMaxContentHeight }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -2510,26 +3363,30 @@ public extension ScrolledWindowProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::max-content-width`
+    /// - Note: This represents the underlying `notify::max-content-width` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyMaxContentWidth(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ScrolledWindowRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyMaxContentWidth` signal is emitted
+    @discardableResult @inlinable func onNotifyMaxContentWidth(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ScrolledWindowRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<ScrolledWindowRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(ScrolledWindowRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::max-content-width", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyMaxContentWidth,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::max-content-width` signal for using the `connect(signal:)` methods
+    static var notifyMaxContentWidthSignal: ScrolledWindowSignalName { .notifyMaxContentWidth }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -2555,26 +3412,30 @@ public extension ScrolledWindowProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::min-content-height`
+    /// - Note: This represents the underlying `notify::min-content-height` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyMinContentHeight(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ScrolledWindowRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyMinContentHeight` signal is emitted
+    @discardableResult @inlinable func onNotifyMinContentHeight(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ScrolledWindowRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<ScrolledWindowRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(ScrolledWindowRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::min-content-height", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyMinContentHeight,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::min-content-height` signal for using the `connect(signal:)` methods
+    static var notifyMinContentHeightSignal: ScrolledWindowSignalName { .notifyMinContentHeight }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -2600,26 +3461,30 @@ public extension ScrolledWindowProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::min-content-width`
+    /// - Note: This represents the underlying `notify::min-content-width` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyMinContentWidth(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ScrolledWindowRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyMinContentWidth` signal is emitted
+    @discardableResult @inlinable func onNotifyMinContentWidth(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ScrolledWindowRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<ScrolledWindowRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(ScrolledWindowRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::min-content-width", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyMinContentWidth,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::min-content-width` signal for using the `connect(signal:)` methods
+    static var notifyMinContentWidthSignal: ScrolledWindowSignalName { .notifyMinContentWidth }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -2645,26 +3510,30 @@ public extension ScrolledWindowProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::overlay-scrolling`
+    /// - Note: This represents the underlying `notify::overlay-scrolling` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyOverlayScrolling(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ScrolledWindowRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyOverlayScrolling` signal is emitted
+    @discardableResult @inlinable func onNotifyOverlayScrolling(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ScrolledWindowRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<ScrolledWindowRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(ScrolledWindowRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::overlay-scrolling", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyOverlayScrolling,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::overlay-scrolling` signal for using the `connect(signal:)` methods
+    static var notifyOverlayScrollingSignal: ScrolledWindowSignalName { .notifyOverlayScrolling }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -2690,26 +3559,30 @@ public extension ScrolledWindowProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::propagate-natural-height`
+    /// - Note: This represents the underlying `notify::propagate-natural-height` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyPropagateNaturalHeight(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ScrolledWindowRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyPropagateNaturalHeight` signal is emitted
+    @discardableResult @inlinable func onNotifyPropagateNaturalHeight(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ScrolledWindowRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<ScrolledWindowRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(ScrolledWindowRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::propagate-natural-height", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyPropagateNaturalHeight,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::propagate-natural-height` signal for using the `connect(signal:)` methods
+    static var notifyPropagateNaturalHeightSignal: ScrolledWindowSignalName { .notifyPropagateNaturalHeight }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -2735,26 +3608,30 @@ public extension ScrolledWindowProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::propagate-natural-width`
+    /// - Note: This represents the underlying `notify::propagate-natural-width` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyPropagateNaturalWidth(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ScrolledWindowRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyPropagateNaturalWidth` signal is emitted
+    @discardableResult @inlinable func onNotifyPropagateNaturalWidth(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ScrolledWindowRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<ScrolledWindowRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(ScrolledWindowRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::propagate-natural-width", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyPropagateNaturalWidth,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::propagate-natural-width` signal for using the `connect(signal:)` methods
+    static var notifyPropagateNaturalWidthSignal: ScrolledWindowSignalName { .notifyPropagateNaturalWidth }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -2780,26 +3657,30 @@ public extension ScrolledWindowProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::vadjustment`
+    /// - Note: This represents the underlying `notify::vadjustment` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyVadjustment(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ScrolledWindowRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyVadjustment` signal is emitted
+    @discardableResult @inlinable func onNotifyVadjustment(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ScrolledWindowRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<ScrolledWindowRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(ScrolledWindowRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::vadjustment", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyVadjustment,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::vadjustment` signal for using the `connect(signal:)` methods
+    static var notifyVadjustmentSignal: ScrolledWindowSignalName { .notifyVadjustment }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -2825,26 +3706,30 @@ public extension ScrolledWindowProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::vscrollbar-policy`
+    /// - Note: This represents the underlying `notify::vscrollbar-policy` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyVscrollbarPolicy(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ScrolledWindowRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyVscrollbarPolicy` signal is emitted
+    @discardableResult @inlinable func onNotifyVscrollbarPolicy(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ScrolledWindowRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<ScrolledWindowRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(ScrolledWindowRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::vscrollbar-policy", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyVscrollbarPolicy,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::vscrollbar-policy` signal for using the `connect(signal:)` methods
+    static var notifyVscrollbarPolicySignal: ScrolledWindowSignalName { .notifyVscrollbarPolicy }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -2870,26 +3755,30 @@ public extension ScrolledWindowProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::window-placement`
+    /// - Note: This represents the underlying `notify::window-placement` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyWindowPlacement(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ScrolledWindowRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyWindowPlacement` signal is emitted
+    @discardableResult @inlinable func onNotifyWindowPlacement(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ScrolledWindowRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<ScrolledWindowRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(ScrolledWindowRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::window-placement", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyWindowPlacement,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::window-placement` signal for using the `connect(signal:)` methods
+    static var notifyWindowPlacementSignal: ScrolledWindowSignalName { .notifyWindowPlacement }
     
 }
 
@@ -3935,7 +4824,226 @@ public extension SearchBarProtocol {
     }
 }
 
-// MARK: SearchBar has no signals// MARK: SearchBar Class: SearchBarProtocol extension (methods and fields)
+public enum SearchBarSignalName: String, SignalNameProtocol {
+    /// Signals that all holders of a reference to the widget should release
+    /// the reference that they hold. May result in finalization of the widget
+    /// if all references are released.
+    /// 
+    /// This signal is not suitable for saving widget state.
+    case destroy = "destroy"
+    /// The `direction`-changed signal is emitted when the text direction
+    /// of a widget changes.
+    case directionChanged = "direction-changed"
+    /// The `hide` signal is emitted when `widget` is hidden, for example with
+    /// `gtk_widget_hide()`.
+    case hide = "hide"
+    /// Gets emitted if keyboard navigation fails.
+    /// See `gtk_widget_keynav_failed()` for details.
+    case keynavFailed = "keynav-failed"
+    /// The `map` signal is emitted when `widget` is going to be mapped, that is
+    /// when the widget is visible (which is controlled with
+    /// `gtk_widget_set_visible()`) and all its parents up to the toplevel widget
+    /// are also visible.
+    /// 
+    /// The `map` signal can be used to determine whether a widget will be drawn,
+    /// for instance it can resume an animation that was stopped during the
+    /// emission of `GtkWidget::unmap`.
+    case map = "map"
+    /// The default handler for this signal activates `widget` if `group_cycling`
+    /// is `false`, or just makes `widget` grab focus if `group_cycling` is `true`.
+    case mnemonicActivate = "mnemonic-activate"
+    /// Emitted when the focus is moved.
+    case moveFocus = "move-focus"
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    case notify = "notify"
+    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
+    /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
+    /// focus in keyboard mode.
+    /// 
+    /// Using the given coordinates, the signal handler should determine
+    /// whether a tooltip should be shown for `widget`. If this is the case
+    /// `true` should be returned, `false` otherwise.  Note that if
+    /// `keyboard_mode` is `true`, the values of `x` and `y` are undefined and
+    /// should not be used.
+    /// 
+    /// The signal handler is free to manipulate `tooltip` with the therefore
+    /// destined function calls.
+    case queryTooltip = "query-tooltip"
+    /// The `realize` signal is emitted when `widget` is associated with a
+    /// `GdkSurface`, which means that `gtk_widget_realize()` has been called or the
+    /// widget has been mapped (that is, it is going to be drawn).
+    case realize = "realize"
+    /// The `show` signal is emitted when `widget` is shown, for example with
+    /// `gtk_widget_show()`.
+    case show = "show"
+    /// The `state`-flags-changed signal is emitted when the widget state
+    /// changes, see `gtk_widget_get_state_flags()`.
+    case stateFlagsChanged = "state-flags-changed"
+    /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
+    /// means that either it or any of its parents up to the toplevel widget have
+    /// been set as hidden.
+    /// 
+    /// As `unmap` indicates that a widget will not be shown any longer, it can be
+    /// used to, for example, stop an animation on the widget.
+    case unmap = "unmap"
+    /// The `unrealize` signal is emitted when the `GdkSurface` associated with
+    /// `widget` is destroyed, which means that `gtk_widget_unrealize()` has been
+    /// called or the widget has been unmapped (that is, it is going to be
+    /// hidden).
+    case unrealize = "unrealize"
+    /// Whether the widget or any of its descendents can accept
+    /// the input focus.
+    /// 
+    /// This property is meant to be set by widget implementations,
+    /// typically in their instance init function.
+    case notifyCanFocus = "notify::can-focus"
+    case notifyCanTarget = "notify::can-target"
+    case notifyChild = "notify::child"
+    /// A list of css classes applied to this widget.
+    case notifyCssClasses = "notify::css-classes"
+    /// The name of this widget in the CSS tree.
+    /// 
+    /// This property is meant to be set by widget implementations,
+    /// typically in their instance init function.
+    case notifyCssName = "notify::css-name"
+    /// The cursor used by `widget`. See `gtk_widget_set_cursor()` for details.
+    case notifyCursor = "notify::cursor"
+    /// Whether the widget should grab focus when it is clicked with the mouse.
+    /// 
+    /// This property is only relevant for widgets that can take focus.
+    case notifyFocusOnClick = "notify::focus-on-click"
+    /// Whether this widget itself will accept the input focus.
+    case notifyFocusable = "notify::focusable"
+    /// How to distribute horizontal space if widget gets extra space, see `GtkAlign`
+    case notifyHalign = "notify::halign"
+    case notifyHasDefault = "notify::has-default"
+    case notifyHasFocus = "notify::has-focus"
+    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// A value of `true` indicates that `widget` can have a tooltip, in this case
+    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// whether it will provide a tooltip or not.
+    case notifyHasTooltip = "notify::has-tooltip"
+    case notifyHeightRequest = "notify::height-request"
+    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
+    case notifyHexpand = "notify::hexpand"
+    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
+    case notifyHexpandSet = "notify::hexpand-set"
+    case notifyKeyCaptureWidget = "notify::key-capture-widget"
+    /// The `GtkLayoutManager` instance to use to compute the preferred size
+    /// of the widget, and allocate its children.
+    /// 
+    /// This property is meant to be set by widget implementations,
+    /// typically in their instance init function.
+    case notifyLayoutManager = "notify::layout-manager"
+    /// Margin on bottom side of widget.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginBottom = "notify::margin-bottom"
+    /// Margin on end of widget, horizontally. This property supports
+    /// left-to-right and right-to-left text directions.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginEnd = "notify::margin-end"
+    /// Margin on start of widget, horizontally. This property supports
+    /// left-to-right and right-to-left text directions.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginStart = "notify::margin-start"
+    /// Margin on top side of widget.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginTop = "notify::margin-top"
+    case notifyName = "notify::name"
+    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
+    /// more details about window opacity.
+    case notifyOpacity = "notify::opacity"
+    /// How content outside the widget's content area is treated.
+    /// 
+    /// This property is meant to be set by widget implementations,
+    /// typically in their instance init function.
+    case notifyOverflow = "notify::overflow"
+    case notifyParent = "notify::parent"
+    case notifyReceivesDefault = "notify::receives-default"
+    /// The `GtkRoot` widget of the widget tree containing this widget or `nil` if
+    /// the widget is not contained in a root widget.
+    case notifyRoot = "notify::root"
+    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
+    /// more details about widget scaling.
+    case notifyScaleFactor = "notify::scale-factor"
+    /// Whether the search mode is on and the search bar shown.
+    /// 
+    /// See `gtk_search_bar_set_search_mode()` for details.
+    case notifySearchModeEnabled = "notify::search-mode-enabled"
+    case notifySensitive = "notify::sensitive"
+    /// Whether to show the close button in the search bar.
+    case notifyShowCloseButton = "notify::show-close-button"
+    /// Sets the text of tooltip to be the given string, which is marked up
+    /// with the [Pango text markup language](#PangoMarkupFormat).
+    /// Also see `gtk_tooltip_set_markup()`.
+    /// 
+    /// This is a convenience property which will take care of getting the
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// will automatically be set to `true` and there will be taken care of
+    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// 
+    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// are set, the last one wins.
+    case notifyTooltipMarkup = "notify::tooltip-markup"
+    /// Sets the text of tooltip to be the given string.
+    /// 
+    /// Also see `gtk_tooltip_set_text()`.
+    /// 
+    /// This is a convenience property which will take care of getting the
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// will automatically be set to `true` and there will be taken care of
+    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// 
+    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// are set, the last one wins.
+    case notifyTooltipText = "notify::tooltip-text"
+    /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
+    case notifyValign = "notify::valign"
+    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
+    case notifyVexpand = "notify::vexpand"
+    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
+    case notifyVexpandSet = "notify::vexpand-set"
+    case notifyVisible = "notify::visible"
+    case notifyWidthRequest = "notify::width-request"
+}
+
+// MARK: SearchBar has no signals
+// MARK: SearchBar Class: SearchBarProtocol extension (methods and fields)
 public extension SearchBarProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkSearchBar` instance.
     @inlinable var search_bar_ptr: UnsafeMutablePointer<GtkSearchBar>! { return ptr?.assumingMemoryBound(to: GtkSearchBar.self) }
@@ -4611,30 +5719,308 @@ public extension SearchEntryProtocol {
     }
 }
 
-// MARK: Signals of SearchEntry
-public extension SearchEntryProtocol {
+public enum SearchEntrySignalName: String, SignalNameProtocol {
     /// The `activate` signal is forwarded from the
     /// `GtkText::activated` signal, which is a keybinding
     /// signal for all forms of the Enter key.
-    /// - Note: Representation of signal named `activate`
+    case activate = "activate"
+    /// Signals that all holders of a reference to the widget should release
+    /// the reference that they hold. May result in finalization of the widget
+    /// if all references are released.
+    /// 
+    /// This signal is not suitable for saving widget state.
+    case destroy = "destroy"
+    /// The `direction`-changed signal is emitted when the text direction
+    /// of a widget changes.
+    case directionChanged = "direction-changed"
+    /// The `hide` signal is emitted when `widget` is hidden, for example with
+    /// `gtk_widget_hide()`.
+    case hide = "hide"
+    /// Gets emitted if keyboard navigation fails.
+    /// See `gtk_widget_keynav_failed()` for details.
+    case keynavFailed = "keynav-failed"
+    /// The `map` signal is emitted when `widget` is going to be mapped, that is
+    /// when the widget is visible (which is controlled with
+    /// `gtk_widget_set_visible()`) and all its parents up to the toplevel widget
+    /// are also visible.
+    /// 
+    /// The `map` signal can be used to determine whether a widget will be drawn,
+    /// for instance it can resume an animation that was stopped during the
+    /// emission of `GtkWidget::unmap`.
+    case map = "map"
+    /// The default handler for this signal activates `widget` if `group_cycling`
+    /// is `false`, or just makes `widget` grab focus if `group_cycling` is `true`.
+    case mnemonicActivate = "mnemonic-activate"
+    /// Emitted when the focus is moved.
+    case moveFocus = "move-focus"
+    /// The `next`-match signal is a [keybinding signal](#GtkSignalAction)
+    /// which gets emitted when the user initiates a move to the next match
+    /// for the current search string.
+    /// 
+    /// Applications should connect to it, to implement moving between
+    /// matches.
+    /// 
+    /// The default bindings for this signal is Ctrl-g.
+    case nextMatch = "next-match"
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    case notify = "notify"
+    /// The `previous`-match signal is a [keybinding signal](#GtkSignalAction)
+    /// which gets emitted when the user initiates a move to the previous match
+    /// for the current search string.
+    /// 
+    /// Applications should connect to it, to implement moving between
+    /// matches.
+    /// 
+    /// The default bindings for this signal is Ctrl-Shift-g.
+    case previousMatch = "previous-match"
+    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
+    /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
+    /// focus in keyboard mode.
+    /// 
+    /// Using the given coordinates, the signal handler should determine
+    /// whether a tooltip should be shown for `widget`. If this is the case
+    /// `true` should be returned, `false` otherwise.  Note that if
+    /// `keyboard_mode` is `true`, the values of `x` and `y` are undefined and
+    /// should not be used.
+    /// 
+    /// The signal handler is free to manipulate `tooltip` with the therefore
+    /// destined function calls.
+    case queryTooltip = "query-tooltip"
+    /// The `realize` signal is emitted when `widget` is associated with a
+    /// `GdkSurface`, which means that `gtk_widget_realize()` has been called or the
+    /// widget has been mapped (that is, it is going to be drawn).
+    case realize = "realize"
+    /// The `GtkSearchEntry::search`-changed signal is emitted with a short
+    /// delay of 150 milliseconds after the last change to the entry text.
+    case searchChanged = "search-changed"
+    /// The `search`-started signal gets emitted when the user initiated
+    /// a search on the entry.
+    case searchStarted = "search-started"
+    /// The `show` signal is emitted when `widget` is shown, for example with
+    /// `gtk_widget_show()`.
+    case show = "show"
+    /// The `state`-flags-changed signal is emitted when the widget state
+    /// changes, see `gtk_widget_get_state_flags()`.
+    case stateFlagsChanged = "state-flags-changed"
+    /// The `stop`-search signal is a [keybinding signal](#GtkSignalAction)
+    /// which gets emitted when the user stops a search via keyboard input.
+    /// 
+    /// Applications should connect to it, to implement hiding the search
+    /// entry in this case.
+    /// 
+    /// The default bindings for this signal is Escape.
+    case stopSearch = "stop-search"
+    /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
+    /// means that either it or any of its parents up to the toplevel widget have
+    /// been set as hidden.
+    /// 
+    /// As `unmap` indicates that a widget will not be shown any longer, it can be
+    /// used to, for example, stop an animation on the widget.
+    case unmap = "unmap"
+    /// The `unrealize` signal is emitted when the `GdkSurface` associated with
+    /// `widget` is destroyed, which means that `gtk_widget_unrealize()` has been
+    /// called or the widget has been unmapped (that is, it is going to be
+    /// hidden).
+    case unrealize = "unrealize"
+    case notifyActivatesDefault = "notify::activates-default"
+    /// Whether the widget or any of its descendents can accept
+    /// the input focus.
+    /// 
+    /// This property is meant to be set by widget implementations,
+    /// typically in their instance init function.
+    case notifyCanFocus = "notify::can-focus"
+    case notifyCanTarget = "notify::can-target"
+    /// A list of css classes applied to this widget.
+    case notifyCssClasses = "notify::css-classes"
+    /// The name of this widget in the CSS tree.
+    /// 
+    /// This property is meant to be set by widget implementations,
+    /// typically in their instance init function.
+    case notifyCssName = "notify::css-name"
+    /// The cursor used by `widget`. See `gtk_widget_set_cursor()` for details.
+    case notifyCursor = "notify::cursor"
+    /// Whether the widget should grab focus when it is clicked with the mouse.
+    /// 
+    /// This property is only relevant for widgets that can take focus.
+    case notifyFocusOnClick = "notify::focus-on-click"
+    /// Whether this widget itself will accept the input focus.
+    case notifyFocusable = "notify::focusable"
+    /// How to distribute horizontal space if widget gets extra space, see `GtkAlign`
+    case notifyHalign = "notify::halign"
+    case notifyHasDefault = "notify::has-default"
+    case notifyHasFocus = "notify::has-focus"
+    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// A value of `true` indicates that `widget` can have a tooltip, in this case
+    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// whether it will provide a tooltip or not.
+    case notifyHasTooltip = "notify::has-tooltip"
+    case notifyHeightRequest = "notify::height-request"
+    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
+    case notifyHexpand = "notify::hexpand"
+    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
+    case notifyHexpandSet = "notify::hexpand-set"
+    /// The `GtkLayoutManager` instance to use to compute the preferred size
+    /// of the widget, and allocate its children.
+    /// 
+    /// This property is meant to be set by widget implementations,
+    /// typically in their instance init function.
+    case notifyLayoutManager = "notify::layout-manager"
+    /// Margin on bottom side of widget.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginBottom = "notify::margin-bottom"
+    /// Margin on end of widget, horizontally. This property supports
+    /// left-to-right and right-to-left text directions.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginEnd = "notify::margin-end"
+    /// Margin on start of widget, horizontally. This property supports
+    /// left-to-right and right-to-left text directions.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginStart = "notify::margin-start"
+    /// Margin on top side of widget.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginTop = "notify::margin-top"
+    case notifyName = "notify::name"
+    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
+    /// more details about window opacity.
+    case notifyOpacity = "notify::opacity"
+    /// How content outside the widget's content area is treated.
+    /// 
+    /// This property is meant to be set by widget implementations,
+    /// typically in their instance init function.
+    case notifyOverflow = "notify::overflow"
+    case notifyParent = "notify::parent"
+    case notifyPlaceholderText = "notify::placeholder-text"
+    case notifyReceivesDefault = "notify::receives-default"
+    /// The `GtkRoot` widget of the widget tree containing this widget or `nil` if
+    /// the widget is not contained in a root widget.
+    case notifyRoot = "notify::root"
+    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
+    /// more details about widget scaling.
+    case notifyScaleFactor = "notify::scale-factor"
+    case notifySensitive = "notify::sensitive"
+    /// Sets the text of tooltip to be the given string, which is marked up
+    /// with the [Pango text markup language](#PangoMarkupFormat).
+    /// Also see `gtk_tooltip_set_markup()`.
+    /// 
+    /// This is a convenience property which will take care of getting the
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// will automatically be set to `true` and there will be taken care of
+    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// 
+    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// are set, the last one wins.
+    case notifyTooltipMarkup = "notify::tooltip-markup"
+    /// Sets the text of tooltip to be the given string.
+    /// 
+    /// Also see `gtk_tooltip_set_text()`.
+    /// 
+    /// This is a convenience property which will take care of getting the
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// will automatically be set to `true` and there will be taken care of
+    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// 
+    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// are set, the last one wins.
+    case notifyTooltipText = "notify::tooltip-text"
+    /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
+    case notifyValign = "notify::valign"
+    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
+    case notifyVexpand = "notify::vexpand"
+    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
+    case notifyVexpandSet = "notify::vexpand-set"
+    case notifyVisible = "notify::visible"
+    case notifyWidthRequest = "notify::width-request"
+}
+
+// MARK: SearchEntry signals
+public extension SearchEntryProtocol {
+    /// Connect a Swift signal handler to the given, typed `SearchEntrySignalName` signal
+    /// - Parameters:
+    ///   - signal: The signal to connect
+    ///   - flags: The connection flags to use
+    ///   - data: A pointer to user data to provide to the callback
+    ///   - destroyData: A `GClosureNotify` C function to destroy the data pointed to by `userData`
+    ///   - handler: The Swift signal handler (function or callback) to invoke on the given signal
+    /// - Returns: The signal handler ID (always greater than 0 for successful connections)
+    @inlinable @discardableResult func connect(signal s: SearchEntrySignalName, flags f: ConnectFlags = ConnectFlags(0), handler h: @escaping SignalHandler) -> Int {
+        connect(s, flags: f, handler: h)
+    }
+    
+    
+    /// Connect a C signal handler to the given, typed `SearchEntrySignalName` signal
+    /// - Parameters:
+    ///   - signal: The signal to connect
+    ///   - flags: The connection flags to use
+    ///   - data: A pointer to user data to provide to the callback
+    ///   - destroyData: A `GClosureNotify` C function to destroy the data pointed to by `userData`
+    ///   - signalHandler: The C function to be called on the given signal
+    /// - Returns: The signal handler ID (always greater than 0 for successful connections)
+    @inlinable @discardableResult func connect(signal s: SearchEntrySignalName, flags f: ConnectFlags = ConnectFlags(0), data userData: gpointer!, destroyData destructor: GClosureNotify? = nil, signalHandler h: @escaping GCallback) -> Int {
+        connectSignal(s, flags: f, data: userData, destroyData: destructor, handler: h)
+    }
+    
+    
+    /// The `activate` signal is forwarded from the
+    /// `GtkText::activated` signal, which is a keybinding
+    /// signal for all forms of the Enter key.
+    /// - Note: This represents the underlying `activate` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
-    @discardableResult
-    func onActivate(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: SearchEntryRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `activate` signal is emitted
+    @discardableResult @inlinable func onActivate(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: SearchEntryRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder<SearchEntryRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer) -> Void = { unownedSelf, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(SearchEntryRef(raw: unownedSelf))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "activate", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .activate,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `activate` signal for using the `connect(signal:)` methods
+    static var activateSignal: SearchEntrySignalName { .activate }
     
     /// The `next`-match signal is a [keybinding signal](#GtkSignalAction)
     /// which gets emitted when the user initiates a move to the next match
@@ -4644,25 +6030,29 @@ public extension SearchEntryProtocol {
     /// matches.
     /// 
     /// The default bindings for this signal is Ctrl-g.
-    /// - Note: Representation of signal named `next-match`
+    /// - Note: This represents the underlying `next-match` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
-    @discardableResult
-    func onNextMatch(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: SearchEntryRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `nextMatch` signal is emitted
+    @discardableResult @inlinable func onNextMatch(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: SearchEntryRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder<SearchEntryRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer) -> Void = { unownedSelf, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(SearchEntryRef(raw: unownedSelf))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "next-match", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .nextMatch,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `next-match` signal for using the `connect(signal:)` methods
+    static var nextMatchSignal: SearchEntrySignalName { .nextMatch }
     
     /// The `previous`-match signal is a [keybinding signal](#GtkSignalAction)
     /// which gets emitted when the user initiates a move to the previous match
@@ -4672,69 +6062,81 @@ public extension SearchEntryProtocol {
     /// matches.
     /// 
     /// The default bindings for this signal is Ctrl-Shift-g.
-    /// - Note: Representation of signal named `previous-match`
+    /// - Note: This represents the underlying `previous-match` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
-    @discardableResult
-    func onPreviousMatch(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: SearchEntryRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `previousMatch` signal is emitted
+    @discardableResult @inlinable func onPreviousMatch(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: SearchEntryRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder<SearchEntryRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer) -> Void = { unownedSelf, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(SearchEntryRef(raw: unownedSelf))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "previous-match", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .previousMatch,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `previous-match` signal for using the `connect(signal:)` methods
+    static var previousMatchSignal: SearchEntrySignalName { .previousMatch }
     
     /// The `GtkSearchEntry::search`-changed signal is emitted with a short
     /// delay of 150 milliseconds after the last change to the entry text.
-    /// - Note: Representation of signal named `search-changed`
+    /// - Note: This represents the underlying `search-changed` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
-    @discardableResult
-    func onSearchChanged(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: SearchEntryRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `searchChanged` signal is emitted
+    @discardableResult @inlinable func onSearchChanged(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: SearchEntryRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder<SearchEntryRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer) -> Void = { unownedSelf, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(SearchEntryRef(raw: unownedSelf))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "search-changed", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .searchChanged,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
     
+    /// Typed `search-changed` signal for using the `connect(signal:)` methods
+    static var searchChangedSignal: SearchEntrySignalName { .searchChanged }
+    
     /// The `search`-started signal gets emitted when the user initiated
     /// a search on the entry.
-    /// - Note: Representation of signal named `search-started`
+    /// - Note: This represents the underlying `search-started` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
-    @discardableResult
-    func onSearchStarted(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: SearchEntryRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `searchStarted` signal is emitted
+    @discardableResult @inlinable func onSearchStarted(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: SearchEntryRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder<SearchEntryRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer) -> Void = { unownedSelf, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(SearchEntryRef(raw: unownedSelf))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "search-started", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .searchStarted,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `search-started` signal for using the `connect(signal:)` methods
+    static var searchStartedSignal: SearchEntrySignalName { .searchStarted }
     
     /// The `stop`-search signal is a [keybinding signal](#GtkSignalAction)
     /// which gets emitted when the user stops a search via keyboard input.
@@ -4743,25 +6145,29 @@ public extension SearchEntryProtocol {
     /// entry in this case.
     /// 
     /// The default bindings for this signal is Escape.
-    /// - Note: Representation of signal named `stop-search`
+    /// - Note: This represents the underlying `stop-search` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
-    @discardableResult
-    func onStopSearch(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: SearchEntryRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `stopSearch` signal is emitted
+    @discardableResult @inlinable func onStopSearch(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: SearchEntryRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder<SearchEntryRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer) -> Void = { unownedSelf, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(SearchEntryRef(raw: unownedSelf))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "stop-search", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .stopSearch,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `stop-search` signal for using the `connect(signal:)` methods
+    static var stopSearchSignal: SearchEntrySignalName { .stopSearch }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -4787,26 +6193,30 @@ public extension SearchEntryProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::activates-default`
+    /// - Note: This represents the underlying `notify::activates-default` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyActivatesDefault(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: SearchEntryRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyActivatesDefault` signal is emitted
+    @discardableResult @inlinable func onNotifyActivatesDefault(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: SearchEntryRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<SearchEntryRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(SearchEntryRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::activates-default", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyActivatesDefault,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::activates-default` signal for using the `connect(signal:)` methods
+    static var notifyActivatesDefaultSignal: SearchEntrySignalName { .notifyActivatesDefault }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -4832,26 +6242,30 @@ public extension SearchEntryProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::placeholder-text`
+    /// - Note: This represents the underlying `notify::placeholder-text` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyPlaceholderText(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: SearchEntryRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyPlaceholderText` signal is emitted
+    @discardableResult @inlinable func onNotifyPlaceholderText(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: SearchEntryRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<SearchEntryRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(SearchEntryRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::placeholder-text", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyPlaceholderText,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::placeholder-text` signal for using the `connect(signal:)` methods
+    static var notifyPlaceholderTextSignal: SearchEntrySignalName { .notifyPlaceholderText }
     
 }
 
@@ -5226,7 +6640,38 @@ public extension SelectionFilterModelProtocol {
     }
 }
 
-// MARK: SelectionFilterModel has no signals// MARK: SelectionFilterModel Class: SelectionFilterModelProtocol extension (methods and fields)
+public enum SelectionFilterModelSignalName: String, SignalNameProtocol {
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    case notify = "notify"
+    /// The model being filtered
+    case notifyModel = "notify::model"
+}
+
+// MARK: SelectionFilterModel has no signals
+// MARK: SelectionFilterModel Class: SelectionFilterModelProtocol extension (methods and fields)
 public extension SelectionFilterModelProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkSelectionFilterModel` instance.
     @inlinable var selection_filter_model_ptr: UnsafeMutablePointer<GtkSelectionFilterModel>! { return ptr?.assumingMemoryBound(to: GtkSelectionFilterModel.self) }
@@ -5738,7 +7183,218 @@ public extension SeparatorProtocol {
     }
 }
 
-// MARK: Separator has no signals// MARK: Separator Class: SeparatorProtocol extension (methods and fields)
+public enum SeparatorSignalName: String, SignalNameProtocol {
+    /// Signals that all holders of a reference to the widget should release
+    /// the reference that they hold. May result in finalization of the widget
+    /// if all references are released.
+    /// 
+    /// This signal is not suitable for saving widget state.
+    case destroy = "destroy"
+    /// The `direction`-changed signal is emitted when the text direction
+    /// of a widget changes.
+    case directionChanged = "direction-changed"
+    /// The `hide` signal is emitted when `widget` is hidden, for example with
+    /// `gtk_widget_hide()`.
+    case hide = "hide"
+    /// Gets emitted if keyboard navigation fails.
+    /// See `gtk_widget_keynav_failed()` for details.
+    case keynavFailed = "keynav-failed"
+    /// The `map` signal is emitted when `widget` is going to be mapped, that is
+    /// when the widget is visible (which is controlled with
+    /// `gtk_widget_set_visible()`) and all its parents up to the toplevel widget
+    /// are also visible.
+    /// 
+    /// The `map` signal can be used to determine whether a widget will be drawn,
+    /// for instance it can resume an animation that was stopped during the
+    /// emission of `GtkWidget::unmap`.
+    case map = "map"
+    /// The default handler for this signal activates `widget` if `group_cycling`
+    /// is `false`, or just makes `widget` grab focus if `group_cycling` is `true`.
+    case mnemonicActivate = "mnemonic-activate"
+    /// Emitted when the focus is moved.
+    case moveFocus = "move-focus"
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    case notify = "notify"
+    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
+    /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
+    /// focus in keyboard mode.
+    /// 
+    /// Using the given coordinates, the signal handler should determine
+    /// whether a tooltip should be shown for `widget`. If this is the case
+    /// `true` should be returned, `false` otherwise.  Note that if
+    /// `keyboard_mode` is `true`, the values of `x` and `y` are undefined and
+    /// should not be used.
+    /// 
+    /// The signal handler is free to manipulate `tooltip` with the therefore
+    /// destined function calls.
+    case queryTooltip = "query-tooltip"
+    /// The `realize` signal is emitted when `widget` is associated with a
+    /// `GdkSurface`, which means that `gtk_widget_realize()` has been called or the
+    /// widget has been mapped (that is, it is going to be drawn).
+    case realize = "realize"
+    /// The `show` signal is emitted when `widget` is shown, for example with
+    /// `gtk_widget_show()`.
+    case show = "show"
+    /// The `state`-flags-changed signal is emitted when the widget state
+    /// changes, see `gtk_widget_get_state_flags()`.
+    case stateFlagsChanged = "state-flags-changed"
+    /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
+    /// means that either it or any of its parents up to the toplevel widget have
+    /// been set as hidden.
+    /// 
+    /// As `unmap` indicates that a widget will not be shown any longer, it can be
+    /// used to, for example, stop an animation on the widget.
+    case unmap = "unmap"
+    /// The `unrealize` signal is emitted when the `GdkSurface` associated with
+    /// `widget` is destroyed, which means that `gtk_widget_unrealize()` has been
+    /// called or the widget has been unmapped (that is, it is going to be
+    /// hidden).
+    case unrealize = "unrealize"
+    /// Whether the widget or any of its descendents can accept
+    /// the input focus.
+    /// 
+    /// This property is meant to be set by widget implementations,
+    /// typically in their instance init function.
+    case notifyCanFocus = "notify::can-focus"
+    case notifyCanTarget = "notify::can-target"
+    /// A list of css classes applied to this widget.
+    case notifyCssClasses = "notify::css-classes"
+    /// The name of this widget in the CSS tree.
+    /// 
+    /// This property is meant to be set by widget implementations,
+    /// typically in their instance init function.
+    case notifyCssName = "notify::css-name"
+    /// The cursor used by `widget`. See `gtk_widget_set_cursor()` for details.
+    case notifyCursor = "notify::cursor"
+    /// Whether the widget should grab focus when it is clicked with the mouse.
+    /// 
+    /// This property is only relevant for widgets that can take focus.
+    case notifyFocusOnClick = "notify::focus-on-click"
+    /// Whether this widget itself will accept the input focus.
+    case notifyFocusable = "notify::focusable"
+    /// How to distribute horizontal space if widget gets extra space, see `GtkAlign`
+    case notifyHalign = "notify::halign"
+    case notifyHasDefault = "notify::has-default"
+    case notifyHasFocus = "notify::has-focus"
+    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// A value of `true` indicates that `widget` can have a tooltip, in this case
+    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// whether it will provide a tooltip or not.
+    case notifyHasTooltip = "notify::has-tooltip"
+    case notifyHeightRequest = "notify::height-request"
+    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
+    case notifyHexpand = "notify::hexpand"
+    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
+    case notifyHexpandSet = "notify::hexpand-set"
+    /// The `GtkLayoutManager` instance to use to compute the preferred size
+    /// of the widget, and allocate its children.
+    /// 
+    /// This property is meant to be set by widget implementations,
+    /// typically in their instance init function.
+    case notifyLayoutManager = "notify::layout-manager"
+    /// Margin on bottom side of widget.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginBottom = "notify::margin-bottom"
+    /// Margin on end of widget, horizontally. This property supports
+    /// left-to-right and right-to-left text directions.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginEnd = "notify::margin-end"
+    /// Margin on start of widget, horizontally. This property supports
+    /// left-to-right and right-to-left text directions.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginStart = "notify::margin-start"
+    /// Margin on top side of widget.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginTop = "notify::margin-top"
+    case notifyName = "notify::name"
+    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
+    /// more details about window opacity.
+    case notifyOpacity = "notify::opacity"
+    /// How content outside the widget's content area is treated.
+    /// 
+    /// This property is meant to be set by widget implementations,
+    /// typically in their instance init function.
+    case notifyOverflow = "notify::overflow"
+    case notifyParent = "notify::parent"
+    case notifyReceivesDefault = "notify::receives-default"
+    /// The `GtkRoot` widget of the widget tree containing this widget or `nil` if
+    /// the widget is not contained in a root widget.
+    case notifyRoot = "notify::root"
+    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
+    /// more details about widget scaling.
+    case notifyScaleFactor = "notify::scale-factor"
+    case notifySensitive = "notify::sensitive"
+    /// Sets the text of tooltip to be the given string, which is marked up
+    /// with the [Pango text markup language](#PangoMarkupFormat).
+    /// Also see `gtk_tooltip_set_markup()`.
+    /// 
+    /// This is a convenience property which will take care of getting the
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// will automatically be set to `true` and there will be taken care of
+    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// 
+    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// are set, the last one wins.
+    case notifyTooltipMarkup = "notify::tooltip-markup"
+    /// Sets the text of tooltip to be the given string.
+    /// 
+    /// Also see `gtk_tooltip_set_text()`.
+    /// 
+    /// This is a convenience property which will take care of getting the
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// will automatically be set to `true` and there will be taken care of
+    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// 
+    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// are set, the last one wins.
+    case notifyTooltipText = "notify::tooltip-text"
+    /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
+    case notifyValign = "notify::valign"
+    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
+    case notifyVexpand = "notify::vexpand"
+    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
+    case notifyVexpandSet = "notify::vexpand-set"
+    case notifyVisible = "notify::visible"
+    case notifyWidthRequest = "notify::width-request"
+}
+
+// MARK: Separator has no signals
+// MARK: Separator Class: SeparatorProtocol extension (methods and fields)
 public extension SeparatorProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkSeparator` instance.
     @inlinable var separator_ptr: UnsafeMutablePointer<GtkSeparator>! { return ptr?.assumingMemoryBound(to: GtkSeparator.self) }
@@ -6330,7 +7986,223 @@ public extension SettingsProtocol {
     }
 }
 
-// MARK: Settings has no signals// MARK: Settings Class: SettingsProtocol extension (methods and fields)
+public enum SettingsSignalName: String, SignalNameProtocol {
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    case notify = "notify"
+    case notifyGtkAlternativeButtonOrder = "notify::gtk-alternative-button-order"
+    /// Controls the direction of the sort indicators in sorted list and tree
+    /// views. By default an arrow pointing down means the column is sorted
+    /// in ascending order. When set to `true`, this order will be inverted.
+    case notifyGtkAlternativeSortArrows = "notify::gtk-alternative-sort-arrows"
+    /// Whether the application prefers to use a dark theme. If a GTK theme
+    /// includes a dark variant, it will be used instead of the configured
+    /// theme.
+    /// 
+    /// Some applications benefit from minimizing the amount of light pollution that
+    /// interferes with the content. Good candidates for dark themes are photo and
+    /// video editors that make the actual content get all the attention and minimize
+    /// the distraction of the chrome.
+    /// 
+    /// Dark themes should not be used for documents, where large spaces are white/light
+    /// and the dark chrome creates too much contrast (web browser, text editor...).
+    case notifyGtkApplicationPreferDarkTheme = "notify::gtk-application-prefer-dark-theme"
+    case notifyGtkCursorAspectRatio = "notify::gtk-cursor-aspect-ratio"
+    /// Whether the cursor should blink.
+    /// 
+    /// Also see the `GtkSettings:gtk`-cursor-blink-timeout setting,
+    /// which allows more flexible control over cursor blinking.
+    case notifyGtkCursorBlink = "notify::gtk-cursor-blink"
+    case notifyGtkCursorBlinkTime = "notify::gtk-cursor-blink-time"
+    /// Time after which the cursor stops blinking, in seconds.
+    /// The timer is reset after each user interaction.
+    /// 
+    /// Setting this to zero has the same effect as setting
+    /// `GtkSettings:gtk`-cursor-blink to `false`.
+    case notifyGtkCursorBlinkTimeout = "notify::gtk-cursor-blink-timeout"
+    case notifyGtkCursorThemeName = "notify::gtk-cursor-theme-name"
+    case notifyGtkCursorThemeSize = "notify::gtk-cursor-theme-size"
+    /// This setting determines which buttons should be put in the
+    /// titlebar of client-side decorated windows, and whether they
+    /// should be placed at the left of right.
+    /// 
+    /// The format of the string is button names, separated by commas.
+    /// A colon separates the buttons that should appear on the left
+    /// from those on the right. Recognized button names are minimize,
+    /// maximize, close, icon (the window icon) and menu (a menu button
+    /// for the fallback app menu).
+    /// 
+    /// For example, "menu:minimize,maximize,close" specifies a menu
+    /// on the left, and minimize, maximize and close buttons on the right.
+    /// 
+    /// Note that buttons will only be shown when they are meaningful.
+    /// E.g. a menu button only appears when the desktop shell does not
+    /// show the app menu, and a close button only appears on a window
+    /// that can be closed.
+    /// 
+    /// Also note that the setting can be overridden with the
+    /// `GtkHeaderBar:decoration`-layout property.
+    case notifyGtkDecorationLayout = "notify::gtk-decoration-layout"
+    /// Whether builtin GTK dialogs such as the file chooser, the
+    /// color chooser or the font chooser will use a header bar at
+    /// the top to show action widgets, or an action area at the bottom.
+    /// 
+    /// This setting does not affect custom dialogs using GtkDialog
+    /// directly, or message dialogs.
+    case notifyGtkDialogsUseHeader = "notify::gtk-dialogs-use-header"
+    case notifyGtkDndDragThreshold = "notify::gtk-dnd-drag-threshold"
+    case notifyGtkDoubleClickDistance = "notify::gtk-double-click-distance"
+    case notifyGtkDoubleClickTime = "notify::gtk-double-click-time"
+    /// Whether menu items should have visible accelerators which can be
+    /// activated.
+    case notifyGtkEnableAccels = "notify::gtk-enable-accels"
+    case notifyGtkEnableAnimations = "notify::gtk-enable-animations"
+    /// Whether to play any event sounds at all.
+    /// 
+    /// See the [Sound Theme Specifications](http://www.freedesktop.org/wiki/Specifications/sound-theme-spec)
+    /// for more information on event sounds and sound themes.
+    /// 
+    /// GTK itself does not support event sounds, you have to use a loadable
+    /// module like the one that comes with libcanberra.
+    case notifyGtkEnableEventSounds = "notify::gtk-enable-event-sounds"
+    /// Whether to play event sounds as feedback to user input.
+    /// 
+    /// See the [Sound Theme Specifications](http://www.freedesktop.org/wiki/Specifications/sound-theme-spec)
+    /// for more information on event sounds and sound themes.
+    /// 
+    /// GTK itself does not support event sounds, you have to use a loadable
+    /// module like the one that comes with libcanberra.
+    case notifyGtkEnableInputFeedbackSounds = "notify::gtk-enable-input-feedback-sounds"
+    /// Whether a middle click on a mouse should paste the
+    /// 'PRIMARY' clipboard content at the cursor location.
+    case notifyGtkEnablePrimaryPaste = "notify::gtk-enable-primary-paste"
+    /// How long to show the last input character in hidden
+    /// entries. This value is in milliseconds. 0 disables showing the
+    /// last char. 600 is a good value for enabling it.
+    case notifyGtkEntryPasswordHintTimeout = "notify::gtk-entry-password-hint-timeout"
+    case notifyGtkEntrySelectOnFocus = "notify::gtk-entry-select-on-focus"
+    /// When `true`, keyboard navigation and other input-related errors
+    /// will cause a beep. Since the error bell is implemented using
+    /// `gdk_surface_beep()`, the windowing system may offer ways to
+    /// configure the error bell in many ways, such as flashing the
+    /// window or similar visual effects.
+    case notifyGtkErrorBell = "notify::gtk-error-bell"
+    /// The default font to use. GTK uses the family name and size from this string.
+    case notifyGtkFontName = "notify::gtk-font-name"
+    case notifyGtkFontconfigTimestamp = "notify::gtk-fontconfig-timestamp"
+    case notifyGtkIconThemeName = "notify::gtk-icon-theme-name"
+    /// Which IM (input method) module should be used by default. This is the
+    /// input method that will be used if the user has not explicitly chosen
+    /// another input method from the IM context menu.
+    /// This also can be a colon-separated list of input methods, which GTK
+    /// will try in turn until it finds one available on the system.
+    /// 
+    /// See `GtkIMContext`.
+    case notifyGtkImModule = "notify::gtk-im-module"
+    /// Whether GTK should make sure that text can be navigated with
+    /// a caret, even if it is not editable. This is useful when using
+    /// a screen reader.
+    case notifyGtkKeynavUseCaret = "notify::gtk-keynav-use-caret"
+    case notifyGtkLabelSelectOnFocus = "notify::gtk-label-select-on-focus"
+    /// The time for a button or touch press to be considered a "long press".
+    case notifyGtkLongPressTime = "notify::gtk-long-press-time"
+    /// Whether scrolled windows may use overlaid scrolling indicators.
+    /// If this is set to `false`, scrolled windows will have permanent
+    /// scrollbars.
+    case notifyGtkOverlayScrolling = "notify::gtk-overlay-scrolling"
+    /// If the value of this setting is `true`, clicking the primary button in a
+    /// `GtkRange` trough will move the slider, and hence set the range’s value, to
+    /// the point that you clicked. If it is `false`, a primary click will cause the
+    /// slider/value to move by the range’s page-size towards the point clicked.
+    /// 
+    /// Whichever action you choose for the primary button, the other action will
+    /// be available by holding Shift and primary-clicking, or (since GTK 3.22.25)
+    /// clicking the middle mouse button.
+    case notifyGtkPrimaryButtonWarpsSlider = "notify::gtk-primary-button-warps-slider"
+    /// A comma-separated list of print backends to use in the print
+    /// dialog. Available print backends depend on the GTK installation,
+    /// and may include "file", "cups", "lpr" or "papi".
+    case notifyGtkPrintBackends = "notify::gtk-print-backends"
+    /// A command to run for displaying the print preview. The command
+    /// should contain a ``f`` placeholder, which will get replaced by
+    /// the path to the pdf file. The command may also contain a ``s``
+    /// placeholder, which will get replaced by the path to a file
+    /// containing the print settings in the format produced by
+    /// `gtk_print_settings_to_file()`.
+    /// 
+    /// The preview application is responsible for removing the pdf file
+    /// and the print settings file when it is done.
+    case notifyGtkPrintPreviewCommand = "notify::gtk-print-preview-command"
+    /// Whether GTK should keep track of items inside the recently used
+    /// resources list. If set to `false`, the list will always be empty.
+    case notifyGtkRecentFilesEnabled = "notify::gtk-recent-files-enabled"
+    /// The maximum age, in days, of the items inside the recently used
+    /// resources list. Items older than this setting will be excised
+    /// from the list. If set to 0, the list will always be empty; if
+    /// set to -1, no item will be removed.
+    case notifyGtkRecentFilesMaxAge = "notify::gtk-recent-files-max-age"
+    case notifyGtkShellShowsAppMenu = "notify::gtk-shell-shows-app-menu"
+    case notifyGtkShellShowsDesktop = "notify::gtk-shell-shows-desktop"
+    case notifyGtkShellShowsMenubar = "notify::gtk-shell-shows-menubar"
+    /// The XDG sound theme to use for event sounds.
+    /// 
+    /// See the [Sound Theme Specifications](http://www.freedesktop.org/wiki/Specifications/sound-theme-spec)
+    /// for more information on event sounds and sound themes.
+    /// 
+    /// GTK itself does not support event sounds, you have to use a loadable
+    /// module like the one that comes with libcanberra.
+    case notifyGtkSoundThemeName = "notify::gtk-sound-theme-name"
+    case notifyGtkSplitCursor = "notify::gtk-split-cursor"
+    case notifyGtkThemeName = "notify::gtk-theme-name"
+    /// This setting determines the action to take when a double-click
+    /// occurs on the titlebar of client-side decorated windows.
+    /// 
+    /// Recognized actions are minimize, toggle-maximize, menu, lower
+    /// or none.
+    case notifyGtkTitlebarDoubleClick = "notify::gtk-titlebar-double-click"
+    /// This setting determines the action to take when a middle-click
+    /// occurs on the titlebar of client-side decorated windows.
+    /// 
+    /// Recognized actions are minimize, toggle-maximize, menu, lower
+    /// or none.
+    case notifyGtkTitlebarMiddleClick = "notify::gtk-titlebar-middle-click"
+    /// This setting determines the action to take when a right-click
+    /// occurs on the titlebar of client-side decorated windows.
+    /// 
+    /// Recognized actions are minimize, toggle-maximize, menu, lower
+    /// or none.
+    case notifyGtkTitlebarRightClick = "notify::gtk-titlebar-right-click"
+    case notifyGtkXftAntialias = "notify::gtk-xft-antialias"
+    case notifyGtkXftDpi = "notify::gtk-xft-dpi"
+    case notifyGtkXftHinting = "notify::gtk-xft-hinting"
+    case notifyGtkXftHintstyle = "notify::gtk-xft-hintstyle"
+    case notifyGtkXftRgba = "notify::gtk-xft-rgba"
+}
+
+// MARK: Settings has no signals
+// MARK: Settings Class: SettingsProtocol extension (methods and fields)
 public extension SettingsProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkSettings` instance.
     @inlinable var settings_ptr: UnsafeMutablePointer<GtkSettings>! { return ptr?.assumingMemoryBound(to: GtkSettings.self) }
@@ -6720,7 +8592,42 @@ public extension ShortcutProtocol {
     }
 }
 
-// MARK: Shortcut has no signals// MARK: Shortcut Class: ShortcutProtocol extension (methods and fields)
+public enum ShortcutSignalName: String, SignalNameProtocol {
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    case notify = "notify"
+    /// The action that gets activated by this shortcut.
+    case notifyAction = "notify::action"
+    /// Arguments passed to activation.
+    case notifyArguments = "notify::arguments"
+    /// The trigger that triggers this shortcut.
+    case notifyTrigger = "notify::trigger"
+}
+
+// MARK: Shortcut has no signals
+// MARK: Shortcut Class: ShortcutProtocol extension (methods and fields)
 public extension ShortcutProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkShortcut` instance.
     @inlinable var shortcut_ptr: UnsafeMutablePointer<GtkShortcut>! { return ptr?.assumingMemoryBound(to: GtkShortcut.self) }
@@ -7189,7 +9096,37 @@ open class ShortcutAction: GLibObject.Object, ShortcutActionProtocol {
 
 // MARK: no ShortcutAction properties
 
-// MARK: ShortcutAction has no signals// MARK: ShortcutAction Class: ShortcutActionProtocol extension (methods and fields)
+public enum ShortcutActionSignalName: String, SignalNameProtocol {
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    case notify = "notify"
+
+}
+
+// MARK: ShortcutAction has no signals
+// MARK: ShortcutAction Class: ShortcutActionProtocol extension (methods and fields)
 public extension ShortcutActionProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkShortcutAction` instance.
     @inlinable var shortcut_action_ptr: UnsafeMutablePointer<GtkShortcutAction>! { return ptr?.assumingMemoryBound(to: GtkShortcutAction.self) }
@@ -7716,7 +9653,50 @@ public extension ShortcutControllerProtocol {
     }
 }
 
-// MARK: ShortcutController has no signals// MARK: ShortcutController Class: ShortcutControllerProtocol extension (methods and fields)
+public enum ShortcutControllerSignalName: String, SignalNameProtocol {
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    case notify = "notify"
+    /// The modifiers that need to be pressed to allow mnemonics activation.
+    case notifyMnemonicModifiers = "notify::mnemonic-modifiers"
+    /// A list model to take shortcuts from
+    case notifyModel = "notify::model"
+    /// The name for this controller, typically used for debugging purposes.
+    case notifyName = "notify::name"
+    /// The limit for which events this controller will handle.
+    case notifyPropagationLimit = "notify::propagation-limit"
+    /// The propagation phase at which this controller will handle events.
+    case notifyPropagationPhase = "notify::propagation-phase"
+    /// What scope the shortcuts will be handled in.
+    case notifyScope = "notify::scope"
+    /// The widget receiving the `GdkEvents` that the controller will handle.
+    case notifyWidget = "notify::widget"
+}
+
+// MARK: ShortcutController has no signals
+// MARK: ShortcutController Class: ShortcutControllerProtocol extension (methods and fields)
 public extension ShortcutControllerProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkShortcutController` instance.
     @inlinable var shortcut_controller_ptr: UnsafeMutablePointer<GtkShortcutController>! { return ptr?.assumingMemoryBound(to: GtkShortcutController.self) }
@@ -8268,7 +10248,223 @@ public extension ShortcutLabelProtocol {
     }
 }
 
-// MARK: ShortcutLabel has no signals// MARK: ShortcutLabel Class: ShortcutLabelProtocol extension (methods and fields)
+public enum ShortcutLabelSignalName: String, SignalNameProtocol {
+    /// Signals that all holders of a reference to the widget should release
+    /// the reference that they hold. May result in finalization of the widget
+    /// if all references are released.
+    /// 
+    /// This signal is not suitable for saving widget state.
+    case destroy = "destroy"
+    /// The `direction`-changed signal is emitted when the text direction
+    /// of a widget changes.
+    case directionChanged = "direction-changed"
+    /// The `hide` signal is emitted when `widget` is hidden, for example with
+    /// `gtk_widget_hide()`.
+    case hide = "hide"
+    /// Gets emitted if keyboard navigation fails.
+    /// See `gtk_widget_keynav_failed()` for details.
+    case keynavFailed = "keynav-failed"
+    /// The `map` signal is emitted when `widget` is going to be mapped, that is
+    /// when the widget is visible (which is controlled with
+    /// `gtk_widget_set_visible()`) and all its parents up to the toplevel widget
+    /// are also visible.
+    /// 
+    /// The `map` signal can be used to determine whether a widget will be drawn,
+    /// for instance it can resume an animation that was stopped during the
+    /// emission of `GtkWidget::unmap`.
+    case map = "map"
+    /// The default handler for this signal activates `widget` if `group_cycling`
+    /// is `false`, or just makes `widget` grab focus if `group_cycling` is `true`.
+    case mnemonicActivate = "mnemonic-activate"
+    /// Emitted when the focus is moved.
+    case moveFocus = "move-focus"
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    case notify = "notify"
+    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
+    /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
+    /// focus in keyboard mode.
+    /// 
+    /// Using the given coordinates, the signal handler should determine
+    /// whether a tooltip should be shown for `widget`. If this is the case
+    /// `true` should be returned, `false` otherwise.  Note that if
+    /// `keyboard_mode` is `true`, the values of `x` and `y` are undefined and
+    /// should not be used.
+    /// 
+    /// The signal handler is free to manipulate `tooltip` with the therefore
+    /// destined function calls.
+    case queryTooltip = "query-tooltip"
+    /// The `realize` signal is emitted when `widget` is associated with a
+    /// `GdkSurface`, which means that `gtk_widget_realize()` has been called or the
+    /// widget has been mapped (that is, it is going to be drawn).
+    case realize = "realize"
+    /// The `show` signal is emitted when `widget` is shown, for example with
+    /// `gtk_widget_show()`.
+    case show = "show"
+    /// The `state`-flags-changed signal is emitted when the widget state
+    /// changes, see `gtk_widget_get_state_flags()`.
+    case stateFlagsChanged = "state-flags-changed"
+    /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
+    /// means that either it or any of its parents up to the toplevel widget have
+    /// been set as hidden.
+    /// 
+    /// As `unmap` indicates that a widget will not be shown any longer, it can be
+    /// used to, for example, stop an animation on the widget.
+    case unmap = "unmap"
+    /// The `unrealize` signal is emitted when the `GdkSurface` associated with
+    /// `widget` is destroyed, which means that `gtk_widget_unrealize()` has been
+    /// called or the widget has been unmapped (that is, it is going to be
+    /// hidden).
+    case unrealize = "unrealize"
+    /// The accelerator that `self` displays. See `GtkShortcutsShortcut:accelerator`
+    /// for the accepted syntax.
+    case notifyAccelerator = "notify::accelerator"
+    /// Whether the widget or any of its descendents can accept
+    /// the input focus.
+    /// 
+    /// This property is meant to be set by widget implementations,
+    /// typically in their instance init function.
+    case notifyCanFocus = "notify::can-focus"
+    case notifyCanTarget = "notify::can-target"
+    /// A list of css classes applied to this widget.
+    case notifyCssClasses = "notify::css-classes"
+    /// The name of this widget in the CSS tree.
+    /// 
+    /// This property is meant to be set by widget implementations,
+    /// typically in their instance init function.
+    case notifyCssName = "notify::css-name"
+    /// The cursor used by `widget`. See `gtk_widget_set_cursor()` for details.
+    case notifyCursor = "notify::cursor"
+    /// The text that is displayed when no accelerator is set.
+    case notifyDisabledText = "notify::disabled-text"
+    /// Whether the widget should grab focus when it is clicked with the mouse.
+    /// 
+    /// This property is only relevant for widgets that can take focus.
+    case notifyFocusOnClick = "notify::focus-on-click"
+    /// Whether this widget itself will accept the input focus.
+    case notifyFocusable = "notify::focusable"
+    /// How to distribute horizontal space if widget gets extra space, see `GtkAlign`
+    case notifyHalign = "notify::halign"
+    case notifyHasDefault = "notify::has-default"
+    case notifyHasFocus = "notify::has-focus"
+    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// A value of `true` indicates that `widget` can have a tooltip, in this case
+    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// whether it will provide a tooltip or not.
+    case notifyHasTooltip = "notify::has-tooltip"
+    case notifyHeightRequest = "notify::height-request"
+    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
+    case notifyHexpand = "notify::hexpand"
+    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
+    case notifyHexpandSet = "notify::hexpand-set"
+    /// The `GtkLayoutManager` instance to use to compute the preferred size
+    /// of the widget, and allocate its children.
+    /// 
+    /// This property is meant to be set by widget implementations,
+    /// typically in their instance init function.
+    case notifyLayoutManager = "notify::layout-manager"
+    /// Margin on bottom side of widget.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginBottom = "notify::margin-bottom"
+    /// Margin on end of widget, horizontally. This property supports
+    /// left-to-right and right-to-left text directions.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginEnd = "notify::margin-end"
+    /// Margin on start of widget, horizontally. This property supports
+    /// left-to-right and right-to-left text directions.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginStart = "notify::margin-start"
+    /// Margin on top side of widget.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginTop = "notify::margin-top"
+    case notifyName = "notify::name"
+    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
+    /// more details about window opacity.
+    case notifyOpacity = "notify::opacity"
+    /// How content outside the widget's content area is treated.
+    /// 
+    /// This property is meant to be set by widget implementations,
+    /// typically in their instance init function.
+    case notifyOverflow = "notify::overflow"
+    case notifyParent = "notify::parent"
+    case notifyReceivesDefault = "notify::receives-default"
+    /// The `GtkRoot` widget of the widget tree containing this widget or `nil` if
+    /// the widget is not contained in a root widget.
+    case notifyRoot = "notify::root"
+    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
+    /// more details about widget scaling.
+    case notifyScaleFactor = "notify::scale-factor"
+    case notifySensitive = "notify::sensitive"
+    /// Sets the text of tooltip to be the given string, which is marked up
+    /// with the [Pango text markup language](#PangoMarkupFormat).
+    /// Also see `gtk_tooltip_set_markup()`.
+    /// 
+    /// This is a convenience property which will take care of getting the
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// will automatically be set to `true` and there will be taken care of
+    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// 
+    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// are set, the last one wins.
+    case notifyTooltipMarkup = "notify::tooltip-markup"
+    /// Sets the text of tooltip to be the given string.
+    /// 
+    /// Also see `gtk_tooltip_set_text()`.
+    /// 
+    /// This is a convenience property which will take care of getting the
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// will automatically be set to `true` and there will be taken care of
+    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// 
+    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// are set, the last one wins.
+    case notifyTooltipText = "notify::tooltip-text"
+    /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
+    case notifyValign = "notify::valign"
+    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
+    case notifyVexpand = "notify::vexpand"
+    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
+    case notifyVexpandSet = "notify::vexpand-set"
+    case notifyVisible = "notify::visible"
+    case notifyWidthRequest = "notify::width-request"
+}
+
+// MARK: ShortcutLabel has no signals
+// MARK: ShortcutLabel Class: ShortcutLabelProtocol extension (methods and fields)
 public extension ShortcutLabelProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkShortcutLabel` instance.
     @inlinable var shortcut_label_ptr: UnsafeMutablePointer<GtkShortcutLabel>! { return ptr?.assumingMemoryBound(to: GtkShortcutLabel.self) }
@@ -8672,7 +10868,37 @@ open class ShortcutTrigger: GLibObject.Object, ShortcutTriggerProtocol {
 
 // MARK: no ShortcutTrigger properties
 
-// MARK: ShortcutTrigger has no signals// MARK: ShortcutTrigger Class: ShortcutTriggerProtocol extension (methods and fields)
+public enum ShortcutTriggerSignalName: String, SignalNameProtocol {
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    case notify = "notify"
+
+}
+
+// MARK: ShortcutTrigger has no signals
+// MARK: ShortcutTrigger Class: ShortcutTriggerProtocol extension (methods and fields)
 public extension ShortcutTriggerProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkShortcutTrigger` instance.
     @inlinable var shortcut_trigger_ptr: UnsafeMutablePointer<GtkShortcutTrigger>! { return ptr?.assumingMemoryBound(to: GtkShortcutTrigger.self) }
@@ -9216,7 +11442,241 @@ public extension ShortcutsGroupProtocol {
     }
 }
 
-// MARK: ShortcutsGroup has no signals// MARK: ShortcutsGroup Class: ShortcutsGroupProtocol extension (methods and fields)
+public enum ShortcutsGroupSignalName: String, SignalNameProtocol {
+    /// Signals that all holders of a reference to the widget should release
+    /// the reference that they hold. May result in finalization of the widget
+    /// if all references are released.
+    /// 
+    /// This signal is not suitable for saving widget state.
+    case destroy = "destroy"
+    /// The `direction`-changed signal is emitted when the text direction
+    /// of a widget changes.
+    case directionChanged = "direction-changed"
+    /// The `hide` signal is emitted when `widget` is hidden, for example with
+    /// `gtk_widget_hide()`.
+    case hide = "hide"
+    /// Gets emitted if keyboard navigation fails.
+    /// See `gtk_widget_keynav_failed()` for details.
+    case keynavFailed = "keynav-failed"
+    /// The `map` signal is emitted when `widget` is going to be mapped, that is
+    /// when the widget is visible (which is controlled with
+    /// `gtk_widget_set_visible()`) and all its parents up to the toplevel widget
+    /// are also visible.
+    /// 
+    /// The `map` signal can be used to determine whether a widget will be drawn,
+    /// for instance it can resume an animation that was stopped during the
+    /// emission of `GtkWidget::unmap`.
+    case map = "map"
+    /// The default handler for this signal activates `widget` if `group_cycling`
+    /// is `false`, or just makes `widget` grab focus if `group_cycling` is `true`.
+    case mnemonicActivate = "mnemonic-activate"
+    /// Emitted when the focus is moved.
+    case moveFocus = "move-focus"
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    case notify = "notify"
+    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
+    /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
+    /// focus in keyboard mode.
+    /// 
+    /// Using the given coordinates, the signal handler should determine
+    /// whether a tooltip should be shown for `widget`. If this is the case
+    /// `true` should be returned, `false` otherwise.  Note that if
+    /// `keyboard_mode` is `true`, the values of `x` and `y` are undefined and
+    /// should not be used.
+    /// 
+    /// The signal handler is free to manipulate `tooltip` with the therefore
+    /// destined function calls.
+    case queryTooltip = "query-tooltip"
+    /// The `realize` signal is emitted when `widget` is associated with a
+    /// `GdkSurface`, which means that `gtk_widget_realize()` has been called or the
+    /// widget has been mapped (that is, it is going to be drawn).
+    case realize = "realize"
+    /// The `show` signal is emitted when `widget` is shown, for example with
+    /// `gtk_widget_show()`.
+    case show = "show"
+    /// The `state`-flags-changed signal is emitted when the widget state
+    /// changes, see `gtk_widget_get_state_flags()`.
+    case stateFlagsChanged = "state-flags-changed"
+    /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
+    /// means that either it or any of its parents up to the toplevel widget have
+    /// been set as hidden.
+    /// 
+    /// As `unmap` indicates that a widget will not be shown any longer, it can be
+    /// used to, for example, stop an animation on the widget.
+    case unmap = "unmap"
+    /// The `unrealize` signal is emitted when the `GdkSurface` associated with
+    /// `widget` is destroyed, which means that `gtk_widget_unrealize()` has been
+    /// called or the widget has been unmapped (that is, it is going to be
+    /// hidden).
+    case unrealize = "unrealize"
+    /// The size group for the accelerator portion of shortcuts in this group.
+    /// 
+    /// This is used internally by GTK, and must not be modified by applications.
+    case notifyAccelSizeGroup = "notify::accel-size-group"
+    case notifyBaselinePosition = "notify::baseline-position"
+    /// Whether the widget or any of its descendents can accept
+    /// the input focus.
+    /// 
+    /// This property is meant to be set by widget implementations,
+    /// typically in their instance init function.
+    case notifyCanFocus = "notify::can-focus"
+    case notifyCanTarget = "notify::can-target"
+    /// A list of css classes applied to this widget.
+    case notifyCssClasses = "notify::css-classes"
+    /// The name of this widget in the CSS tree.
+    /// 
+    /// This property is meant to be set by widget implementations,
+    /// typically in their instance init function.
+    case notifyCssName = "notify::css-name"
+    /// The cursor used by `widget`. See `gtk_widget_set_cursor()` for details.
+    case notifyCursor = "notify::cursor"
+    /// Whether the widget should grab focus when it is clicked with the mouse.
+    /// 
+    /// This property is only relevant for widgets that can take focus.
+    case notifyFocusOnClick = "notify::focus-on-click"
+    /// Whether this widget itself will accept the input focus.
+    case notifyFocusable = "notify::focusable"
+    /// How to distribute horizontal space if widget gets extra space, see `GtkAlign`
+    case notifyHalign = "notify::halign"
+    case notifyHasDefault = "notify::has-default"
+    case notifyHasFocus = "notify::has-focus"
+    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// A value of `true` indicates that `widget` can have a tooltip, in this case
+    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// whether it will provide a tooltip or not.
+    case notifyHasTooltip = "notify::has-tooltip"
+    /// A rough measure for the number of lines in this group.
+    /// 
+    /// This is used internally by GTK, and is not useful for applications.
+    case notifyHeight = "notify::height"
+    case notifyHeightRequest = "notify::height-request"
+    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
+    case notifyHexpand = "notify::hexpand"
+    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
+    case notifyHexpandSet = "notify::hexpand-set"
+    case notifyHomogeneous = "notify::homogeneous"
+    /// The `GtkLayoutManager` instance to use to compute the preferred size
+    /// of the widget, and allocate its children.
+    /// 
+    /// This property is meant to be set by widget implementations,
+    /// typically in their instance init function.
+    case notifyLayoutManager = "notify::layout-manager"
+    /// Margin on bottom side of widget.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginBottom = "notify::margin-bottom"
+    /// Margin on end of widget, horizontally. This property supports
+    /// left-to-right and right-to-left text directions.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginEnd = "notify::margin-end"
+    /// Margin on start of widget, horizontally. This property supports
+    /// left-to-right and right-to-left text directions.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginStart = "notify::margin-start"
+    /// Margin on top side of widget.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginTop = "notify::margin-top"
+    case notifyName = "notify::name"
+    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
+    /// more details about window opacity.
+    case notifyOpacity = "notify::opacity"
+    /// How content outside the widget's content area is treated.
+    /// 
+    /// This property is meant to be set by widget implementations,
+    /// typically in their instance init function.
+    case notifyOverflow = "notify::overflow"
+    case notifyParent = "notify::parent"
+    case notifyReceivesDefault = "notify::receives-default"
+    /// The `GtkRoot` widget of the widget tree containing this widget or `nil` if
+    /// the widget is not contained in a root widget.
+    case notifyRoot = "notify::root"
+    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
+    /// more details about widget scaling.
+    case notifyScaleFactor = "notify::scale-factor"
+    case notifySensitive = "notify::sensitive"
+    case notifySpacing = "notify::spacing"
+    /// The title for this group of shortcuts.
+    case notifyTitle = "notify::title"
+    /// The size group for the textual portion of shortcuts in this group.
+    /// 
+    /// This is used internally by GTK, and must not be modified by applications.
+    case notifyTitleSizeGroup = "notify::title-size-group"
+    /// Sets the text of tooltip to be the given string, which is marked up
+    /// with the [Pango text markup language](#PangoMarkupFormat).
+    /// Also see `gtk_tooltip_set_markup()`.
+    /// 
+    /// This is a convenience property which will take care of getting the
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// will automatically be set to `true` and there will be taken care of
+    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// 
+    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// are set, the last one wins.
+    case notifyTooltipMarkup = "notify::tooltip-markup"
+    /// Sets the text of tooltip to be the given string.
+    /// 
+    /// Also see `gtk_tooltip_set_text()`.
+    /// 
+    /// This is a convenience property which will take care of getting the
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// will automatically be set to `true` and there will be taken care of
+    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// 
+    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// are set, the last one wins.
+    case notifyTooltipText = "notify::tooltip-text"
+    /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
+    case notifyValign = "notify::valign"
+    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
+    case notifyVexpand = "notify::vexpand"
+    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
+    case notifyVexpandSet = "notify::vexpand-set"
+    /// An optional view that the shortcuts in this group are relevant for.
+    /// The group will be hidden if the `GtkShortcutsWindow:view`-name property
+    /// does not match the view of this group.
+    /// 
+    /// Set this to `nil` to make the group always visible.
+    case notifyView = "notify::view"
+    case notifyVisible = "notify::visible"
+    case notifyWidthRequest = "notify::width-request"
+}
+
+// MARK: ShortcutsGroup has no signals
+// MARK: ShortcutsGroup Class: ShortcutsGroupProtocol extension (methods and fields)
 public extension ShortcutsGroupProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkShortcutsGroup` instance.
     @inlinable var shortcuts_group_ptr: UnsafeMutablePointer<GtkShortcutsGroup>! { return ptr?.assumingMemoryBound(to: GtkShortcutsGroup.self) }
@@ -9688,28 +12148,292 @@ public extension ShortcutsSectionProtocol {
     }
 }
 
-// MARK: Signals of ShortcutsSection
+public enum ShortcutsSectionSignalName: String, SignalNameProtocol {
+    case changeCurrentPage = "change-current-page"
+    /// Signals that all holders of a reference to the widget should release
+    /// the reference that they hold. May result in finalization of the widget
+    /// if all references are released.
+    /// 
+    /// This signal is not suitable for saving widget state.
+    case destroy = "destroy"
+    /// The `direction`-changed signal is emitted when the text direction
+    /// of a widget changes.
+    case directionChanged = "direction-changed"
+    /// The `hide` signal is emitted when `widget` is hidden, for example with
+    /// `gtk_widget_hide()`.
+    case hide = "hide"
+    /// Gets emitted if keyboard navigation fails.
+    /// See `gtk_widget_keynav_failed()` for details.
+    case keynavFailed = "keynav-failed"
+    /// The `map` signal is emitted when `widget` is going to be mapped, that is
+    /// when the widget is visible (which is controlled with
+    /// `gtk_widget_set_visible()`) and all its parents up to the toplevel widget
+    /// are also visible.
+    /// 
+    /// The `map` signal can be used to determine whether a widget will be drawn,
+    /// for instance it can resume an animation that was stopped during the
+    /// emission of `GtkWidget::unmap`.
+    case map = "map"
+    /// The default handler for this signal activates `widget` if `group_cycling`
+    /// is `false`, or just makes `widget` grab focus if `group_cycling` is `true`.
+    case mnemonicActivate = "mnemonic-activate"
+    /// Emitted when the focus is moved.
+    case moveFocus = "move-focus"
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    case notify = "notify"
+    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
+    /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
+    /// focus in keyboard mode.
+    /// 
+    /// Using the given coordinates, the signal handler should determine
+    /// whether a tooltip should be shown for `widget`. If this is the case
+    /// `true` should be returned, `false` otherwise.  Note that if
+    /// `keyboard_mode` is `true`, the values of `x` and `y` are undefined and
+    /// should not be used.
+    /// 
+    /// The signal handler is free to manipulate `tooltip` with the therefore
+    /// destined function calls.
+    case queryTooltip = "query-tooltip"
+    /// The `realize` signal is emitted when `widget` is associated with a
+    /// `GdkSurface`, which means that `gtk_widget_realize()` has been called or the
+    /// widget has been mapped (that is, it is going to be drawn).
+    case realize = "realize"
+    /// The `show` signal is emitted when `widget` is shown, for example with
+    /// `gtk_widget_show()`.
+    case show = "show"
+    /// The `state`-flags-changed signal is emitted when the widget state
+    /// changes, see `gtk_widget_get_state_flags()`.
+    case stateFlagsChanged = "state-flags-changed"
+    /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
+    /// means that either it or any of its parents up to the toplevel widget have
+    /// been set as hidden.
+    /// 
+    /// As `unmap` indicates that a widget will not be shown any longer, it can be
+    /// used to, for example, stop an animation on the widget.
+    case unmap = "unmap"
+    /// The `unrealize` signal is emitted when the `GdkSurface` associated with
+    /// `widget` is destroyed, which means that `gtk_widget_unrealize()` has been
+    /// called or the widget has been unmapped (that is, it is going to be
+    /// hidden).
+    case unrealize = "unrealize"
+    case notifyBaselinePosition = "notify::baseline-position"
+    /// Whether the widget or any of its descendents can accept
+    /// the input focus.
+    /// 
+    /// This property is meant to be set by widget implementations,
+    /// typically in their instance init function.
+    case notifyCanFocus = "notify::can-focus"
+    case notifyCanTarget = "notify::can-target"
+    /// A list of css classes applied to this widget.
+    case notifyCssClasses = "notify::css-classes"
+    /// The name of this widget in the CSS tree.
+    /// 
+    /// This property is meant to be set by widget implementations,
+    /// typically in their instance init function.
+    case notifyCssName = "notify::css-name"
+    /// The cursor used by `widget`. See `gtk_widget_set_cursor()` for details.
+    case notifyCursor = "notify::cursor"
+    /// Whether the widget should grab focus when it is clicked with the mouse.
+    /// 
+    /// This property is only relevant for widgets that can take focus.
+    case notifyFocusOnClick = "notify::focus-on-click"
+    /// Whether this widget itself will accept the input focus.
+    case notifyFocusable = "notify::focusable"
+    /// How to distribute horizontal space if widget gets extra space, see `GtkAlign`
+    case notifyHalign = "notify::halign"
+    case notifyHasDefault = "notify::has-default"
+    case notifyHasFocus = "notify::has-focus"
+    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// A value of `true` indicates that `widget` can have a tooltip, in this case
+    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// whether it will provide a tooltip or not.
+    case notifyHasTooltip = "notify::has-tooltip"
+    case notifyHeightRequest = "notify::height-request"
+    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
+    case notifyHexpand = "notify::hexpand"
+    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
+    case notifyHexpandSet = "notify::hexpand-set"
+    case notifyHomogeneous = "notify::homogeneous"
+    /// The `GtkLayoutManager` instance to use to compute the preferred size
+    /// of the widget, and allocate its children.
+    /// 
+    /// This property is meant to be set by widget implementations,
+    /// typically in their instance init function.
+    case notifyLayoutManager = "notify::layout-manager"
+    /// Margin on bottom side of widget.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginBottom = "notify::margin-bottom"
+    /// Margin on end of widget, horizontally. This property supports
+    /// left-to-right and right-to-left text directions.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginEnd = "notify::margin-end"
+    /// Margin on start of widget, horizontally. This property supports
+    /// left-to-right and right-to-left text directions.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginStart = "notify::margin-start"
+    /// Margin on top side of widget.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginTop = "notify::margin-top"
+    /// The maximum number of lines to allow per column. This property can
+    /// be used to influence how the groups in this section are distributed
+    /// across pages and columns. The default value of 15 should work in
+    /// most cases.
+    case notifyMaxHeight = "notify::max-height"
+    case notifyName = "notify::name"
+    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
+    /// more details about window opacity.
+    case notifyOpacity = "notify::opacity"
+    /// How content outside the widget's content area is treated.
+    /// 
+    /// This property is meant to be set by widget implementations,
+    /// typically in their instance init function.
+    case notifyOverflow = "notify::overflow"
+    case notifyParent = "notify::parent"
+    case notifyReceivesDefault = "notify::receives-default"
+    /// The `GtkRoot` widget of the widget tree containing this widget or `nil` if
+    /// the widget is not contained in a root widget.
+    case notifyRoot = "notify::root"
+    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
+    /// more details about widget scaling.
+    case notifyScaleFactor = "notify::scale-factor"
+    /// A unique name to identify this section among the sections
+    /// added to the GtkShortcutsWindow. Setting the `GtkShortcutsWindow:section`-name
+    /// property to this string will make this section shown in the
+    /// GtkShortcutsWindow.
+    case notifySectionName = "notify::section-name"
+    case notifySensitive = "notify::sensitive"
+    case notifySpacing = "notify::spacing"
+    /// The string to show in the section selector of the GtkShortcutsWindow
+    /// for this section. If there is only one section, you don't need to
+    /// set a title, since the section selector will not be shown in this case.
+    case notifyTitle = "notify::title"
+    /// Sets the text of tooltip to be the given string, which is marked up
+    /// with the [Pango text markup language](#PangoMarkupFormat).
+    /// Also see `gtk_tooltip_set_markup()`.
+    /// 
+    /// This is a convenience property which will take care of getting the
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// will automatically be set to `true` and there will be taken care of
+    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// 
+    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// are set, the last one wins.
+    case notifyTooltipMarkup = "notify::tooltip-markup"
+    /// Sets the text of tooltip to be the given string.
+    /// 
+    /// Also see `gtk_tooltip_set_text()`.
+    /// 
+    /// This is a convenience property which will take care of getting the
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// will automatically be set to `true` and there will be taken care of
+    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// 
+    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// are set, the last one wins.
+    case notifyTooltipText = "notify::tooltip-text"
+    /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
+    case notifyValign = "notify::valign"
+    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
+    case notifyVexpand = "notify::vexpand"
+    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
+    case notifyVexpandSet = "notify::vexpand-set"
+    /// A view name to filter the groups in this section by.
+    /// See `GtkShortcutsGroup:view`.
+    /// 
+    /// Applications are expected to use the `GtkShortcutsWindow:view`-name
+    /// property for this purpose.
+    case notifyViewName = "notify::view-name"
+    case notifyVisible = "notify::visible"
+    case notifyWidthRequest = "notify::width-request"
+}
+
+// MARK: ShortcutsSection signals
 public extension ShortcutsSectionProtocol {
-    /// - Note: Representation of signal named `change-current-page`
+    /// Connect a Swift signal handler to the given, typed `ShortcutsSectionSignalName` signal
+    /// - Parameters:
+    ///   - signal: The signal to connect
+    ///   - flags: The connection flags to use
+    ///   - data: A pointer to user data to provide to the callback
+    ///   - destroyData: A `GClosureNotify` C function to destroy the data pointed to by `userData`
+    ///   - handler: The Swift signal handler (function or callback) to invoke on the given signal
+    /// - Returns: The signal handler ID (always greater than 0 for successful connections)
+    @inlinable @discardableResult func connect(signal s: ShortcutsSectionSignalName, flags f: ConnectFlags = ConnectFlags(0), handler h: @escaping SignalHandler) -> Int {
+        connect(s, flags: f, handler: h)
+    }
+    
+    
+    /// Connect a C signal handler to the given, typed `ShortcutsSectionSignalName` signal
+    /// - Parameters:
+    ///   - signal: The signal to connect
+    ///   - flags: The connection flags to use
+    ///   - data: A pointer to user data to provide to the callback
+    ///   - destroyData: A `GClosureNotify` C function to destroy the data pointed to by `userData`
+    ///   - signalHandler: The C function to be called on the given signal
+    /// - Returns: The signal handler ID (always greater than 0 for successful connections)
+    @inlinable @discardableResult func connect(signal s: ShortcutsSectionSignalName, flags f: ConnectFlags = ConnectFlags(0), data userData: gpointer!, destroyData destructor: GClosureNotify? = nil, signalHandler h: @escaping GCallback) -> Int {
+        connectSignal(s, flags: f, data: userData, destroyData: destructor, handler: h)
+    }
+    
+    
+    /// - Note: This represents the underlying `change-current-page` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter object: none
-    @discardableResult
-    func onChangeCurrentPage(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ShortcutsSectionRef, _ object: Int) -> Bool ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `changeCurrentPage` signal is emitted
+    @discardableResult @inlinable func onChangeCurrentPage(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ShortcutsSectionRef, _ object: Int) -> Bool ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<ShortcutsSectionRef, Int, Bool>
         let cCallback: @convention(c) (gpointer, gint, gpointer) -> gboolean = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output = holder.call(ShortcutsSectionRef(raw: unownedSelf), Int(arg1))
             return gboolean((output) ? 1 : 0)
         }
-        return signalConnectData(
-            detailedSignal: "change-current-page", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .changeCurrentPage,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `change-current-page` signal for using the `connect(signal:)` methods
+    static var changeCurrentPageSignal: ShortcutsSectionSignalName { .changeCurrentPage }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -9735,26 +12459,30 @@ public extension ShortcutsSectionProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::max-height`
+    /// - Note: This represents the underlying `notify::max-height` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyMaxHeight(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ShortcutsSectionRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyMaxHeight` signal is emitted
+    @discardableResult @inlinable func onNotifyMaxHeight(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ShortcutsSectionRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<ShortcutsSectionRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(ShortcutsSectionRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::max-height", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyMaxHeight,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::max-height` signal for using the `connect(signal:)` methods
+    static var notifyMaxHeightSignal: ShortcutsSectionSignalName { .notifyMaxHeight }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -9780,26 +12508,30 @@ public extension ShortcutsSectionProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::section-name`
+    /// - Note: This represents the underlying `notify::section-name` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifySectionName(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ShortcutsSectionRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifySectionName` signal is emitted
+    @discardableResult @inlinable func onNotifySectionName(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ShortcutsSectionRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<ShortcutsSectionRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(ShortcutsSectionRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::section-name", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifySectionName,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::section-name` signal for using the `connect(signal:)` methods
+    static var notifySectionNameSignal: ShortcutsSectionSignalName { .notifySectionName }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -9825,26 +12557,30 @@ public extension ShortcutsSectionProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::title`
+    /// - Note: This represents the underlying `notify::title` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyTitle(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ShortcutsSectionRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyTitle` signal is emitted
+    @discardableResult @inlinable func onNotifyTitle(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ShortcutsSectionRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<ShortcutsSectionRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(ShortcutsSectionRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::title", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyTitle,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::title` signal for using the `connect(signal:)` methods
+    static var notifyTitleSignal: ShortcutsSectionSignalName { .notifyTitle }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -9870,26 +12606,30 @@ public extension ShortcutsSectionProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::view-name`
+    /// - Note: This represents the underlying `notify::view-name` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyViewName(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ShortcutsSectionRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyViewName` signal is emitted
+    @discardableResult @inlinable func onNotifyViewName(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ShortcutsSectionRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<ShortcutsSectionRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(ShortcutsSectionRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::view-name", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyViewName,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::view-name` signal for using the `connect(signal:)` methods
+    static var notifyViewNameSignal: ShortcutsSectionSignalName { .notifyViewName }
     
 }
 
@@ -10377,7 +13117,277 @@ public extension ShortcutsShortcutProtocol {
     }
 }
 
-// MARK: ShortcutsShortcut has no signals// MARK: ShortcutsShortcut Class: ShortcutsShortcutProtocol extension (methods and fields)
+public enum ShortcutsShortcutSignalName: String, SignalNameProtocol {
+    /// Signals that all holders of a reference to the widget should release
+    /// the reference that they hold. May result in finalization of the widget
+    /// if all references are released.
+    /// 
+    /// This signal is not suitable for saving widget state.
+    case destroy = "destroy"
+    /// The `direction`-changed signal is emitted when the text direction
+    /// of a widget changes.
+    case directionChanged = "direction-changed"
+    /// The `hide` signal is emitted when `widget` is hidden, for example with
+    /// `gtk_widget_hide()`.
+    case hide = "hide"
+    /// Gets emitted if keyboard navigation fails.
+    /// See `gtk_widget_keynav_failed()` for details.
+    case keynavFailed = "keynav-failed"
+    /// The `map` signal is emitted when `widget` is going to be mapped, that is
+    /// when the widget is visible (which is controlled with
+    /// `gtk_widget_set_visible()`) and all its parents up to the toplevel widget
+    /// are also visible.
+    /// 
+    /// The `map` signal can be used to determine whether a widget will be drawn,
+    /// for instance it can resume an animation that was stopped during the
+    /// emission of `GtkWidget::unmap`.
+    case map = "map"
+    /// The default handler for this signal activates `widget` if `group_cycling`
+    /// is `false`, or just makes `widget` grab focus if `group_cycling` is `true`.
+    case mnemonicActivate = "mnemonic-activate"
+    /// Emitted when the focus is moved.
+    case moveFocus = "move-focus"
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    case notify = "notify"
+    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
+    /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
+    /// focus in keyboard mode.
+    /// 
+    /// Using the given coordinates, the signal handler should determine
+    /// whether a tooltip should be shown for `widget`. If this is the case
+    /// `true` should be returned, `false` otherwise.  Note that if
+    /// `keyboard_mode` is `true`, the values of `x` and `y` are undefined and
+    /// should not be used.
+    /// 
+    /// The signal handler is free to manipulate `tooltip` with the therefore
+    /// destined function calls.
+    case queryTooltip = "query-tooltip"
+    /// The `realize` signal is emitted when `widget` is associated with a
+    /// `GdkSurface`, which means that `gtk_widget_realize()` has been called or the
+    /// widget has been mapped (that is, it is going to be drawn).
+    case realize = "realize"
+    /// The `show` signal is emitted when `widget` is shown, for example with
+    /// `gtk_widget_show()`.
+    case show = "show"
+    /// The `state`-flags-changed signal is emitted when the widget state
+    /// changes, see `gtk_widget_get_state_flags()`.
+    case stateFlagsChanged = "state-flags-changed"
+    /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
+    /// means that either it or any of its parents up to the toplevel widget have
+    /// been set as hidden.
+    /// 
+    /// As `unmap` indicates that a widget will not be shown any longer, it can be
+    /// used to, for example, stop an animation on the widget.
+    case unmap = "unmap"
+    /// The `unrealize` signal is emitted when the `GdkSurface` associated with
+    /// `widget` is destroyed, which means that `gtk_widget_unrealize()` has been
+    /// called or the widget has been unmapped (that is, it is going to be
+    /// hidden).
+    case unrealize = "unrealize"
+    /// The size group for the accelerator portion of this shortcut.
+    /// 
+    /// This is used internally by GTK, and must not be modified by applications.
+    case notifyAccelSizeGroup = "notify::accel-size-group"
+    /// The `accelerator(s)` represented by this object. This property is used
+    /// if `GtkShortcutsShortcut:shortcut`-type is set to `GTK_SHORTCUT_ACCELERATOR`.
+    /// 
+    /// The syntax of this property is (an extension of) the syntax understood by
+    /// `gtk_accelerator_parse()`. Multiple accelerators can be specified by separating
+    /// them with a space, but keep in mind that the available width is limited.
+    /// It is also possible to specify ranges of shortcuts, using ... between the keys.
+    /// Sequences of keys can be specified using a + or & between the keys.
+    /// 
+    /// Examples:
+    /// - A single shortcut: <ctl><alt>delete
+    /// - Two alternative shortcuts: <shift>a Home
+    /// - A range of shortcuts: <alt>1...<alt>9
+    /// - Several keys pressed together: Control_L&Control_R
+    /// - A sequence of shortcuts or keys: <ctl>c+<ctl>x
+    /// 
+    /// Use + instead of & when the keys may (or have to be) pressed sequentially (e.g
+    /// use t+t for 'press the t key twice').
+    /// 
+    /// Note that <, > and & need to be escaped as &lt;, &gt; and &amp; when used
+    /// in .ui files.
+    case notifyAccelerator = "notify::accelerator"
+    /// A detailed action name. If this is set for a shortcut
+    /// of type `GTK_SHORTCUT_ACCELERATOR`, then GTK will use
+    /// the accelerators that are associated with the action
+    /// via `gtk_application_set_accels_for_action()`, and setting
+    /// `GtkShortcutsShortcut:accelerator` is not necessary.
+    case notifyActionName = "notify::action-name"
+    /// Whether the widget or any of its descendents can accept
+    /// the input focus.
+    /// 
+    /// This property is meant to be set by widget implementations,
+    /// typically in their instance init function.
+    case notifyCanFocus = "notify::can-focus"
+    case notifyCanTarget = "notify::can-target"
+    /// A list of css classes applied to this widget.
+    case notifyCssClasses = "notify::css-classes"
+    /// The name of this widget in the CSS tree.
+    /// 
+    /// This property is meant to be set by widget implementations,
+    /// typically in their instance init function.
+    case notifyCssName = "notify::css-name"
+    /// The cursor used by `widget`. See `gtk_widget_set_cursor()` for details.
+    case notifyCursor = "notify::cursor"
+    /// The text direction for which this shortcut is active. If the shortcut
+    /// is used regardless of the text direction, set this property to
+    /// `GTK_TEXT_DIR_NONE`.
+    case notifyDirection = "notify::direction"
+    /// Whether the widget should grab focus when it is clicked with the mouse.
+    /// 
+    /// This property is only relevant for widgets that can take focus.
+    case notifyFocusOnClick = "notify::focus-on-click"
+    /// Whether this widget itself will accept the input focus.
+    case notifyFocusable = "notify::focusable"
+    /// How to distribute horizontal space if widget gets extra space, see `GtkAlign`
+    case notifyHalign = "notify::halign"
+    case notifyHasDefault = "notify::has-default"
+    case notifyHasFocus = "notify::has-focus"
+    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// A value of `true` indicates that `widget` can have a tooltip, in this case
+    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// whether it will provide a tooltip or not.
+    case notifyHasTooltip = "notify::has-tooltip"
+    case notifyHeightRequest = "notify::height-request"
+    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
+    case notifyHexpand = "notify::hexpand"
+    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
+    case notifyHexpandSet = "notify::hexpand-set"
+    /// An icon to represent the shortcut or gesture. This property is used if
+    /// `GtkShortcutsShortcut:shortcut`-type is set to `GTK_SHORTCUT_GESTURE`.
+    /// For the other predefined gesture types, GTK provides an icon on its own.
+    case notifyIcon = "notify::icon"
+    /// `true` if an icon has been set.
+    case notifyIconSet = "notify::icon-set"
+    /// The `GtkLayoutManager` instance to use to compute the preferred size
+    /// of the widget, and allocate its children.
+    /// 
+    /// This property is meant to be set by widget implementations,
+    /// typically in their instance init function.
+    case notifyLayoutManager = "notify::layout-manager"
+    /// Margin on bottom side of widget.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginBottom = "notify::margin-bottom"
+    /// Margin on end of widget, horizontally. This property supports
+    /// left-to-right and right-to-left text directions.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginEnd = "notify::margin-end"
+    /// Margin on start of widget, horizontally. This property supports
+    /// left-to-right and right-to-left text directions.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginStart = "notify::margin-start"
+    /// Margin on top side of widget.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginTop = "notify::margin-top"
+    case notifyName = "notify::name"
+    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
+    /// more details about window opacity.
+    case notifyOpacity = "notify::opacity"
+    /// How content outside the widget's content area is treated.
+    /// 
+    /// This property is meant to be set by widget implementations,
+    /// typically in their instance init function.
+    case notifyOverflow = "notify::overflow"
+    case notifyParent = "notify::parent"
+    case notifyReceivesDefault = "notify::receives-default"
+    /// The `GtkRoot` widget of the widget tree containing this widget or `nil` if
+    /// the widget is not contained in a root widget.
+    case notifyRoot = "notify::root"
+    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
+    /// more details about widget scaling.
+    case notifyScaleFactor = "notify::scale-factor"
+    case notifySensitive = "notify::sensitive"
+    /// The type of shortcut that is represented.
+    case notifyShortcutType = "notify::shortcut-type"
+    /// The subtitle for the shortcut or gesture.
+    /// 
+    /// This is typically used for gestures and should be a short, one-line
+    /// text that describes the gesture itself. For the predefined gesture
+    /// types, GTK provides a subtitle on its own.
+    case notifySubtitle = "notify::subtitle"
+    /// `true` if a subtitle has been set.
+    case notifySubtitleSet = "notify::subtitle-set"
+    /// The textual description for the shortcut or gesture represented by
+    /// this object. This should be a short string that can fit in a single line.
+    case notifyTitle = "notify::title"
+    /// The size group for the textual portion of this shortcut.
+    /// 
+    /// This is used internally by GTK, and must not be modified by applications.
+    case notifyTitleSizeGroup = "notify::title-size-group"
+    /// Sets the text of tooltip to be the given string, which is marked up
+    /// with the [Pango text markup language](#PangoMarkupFormat).
+    /// Also see `gtk_tooltip_set_markup()`.
+    /// 
+    /// This is a convenience property which will take care of getting the
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// will automatically be set to `true` and there will be taken care of
+    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// 
+    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// are set, the last one wins.
+    case notifyTooltipMarkup = "notify::tooltip-markup"
+    /// Sets the text of tooltip to be the given string.
+    /// 
+    /// Also see `gtk_tooltip_set_text()`.
+    /// 
+    /// This is a convenience property which will take care of getting the
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// will automatically be set to `true` and there will be taken care of
+    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// 
+    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// are set, the last one wins.
+    case notifyTooltipText = "notify::tooltip-text"
+    /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
+    case notifyValign = "notify::valign"
+    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
+    case notifyVexpand = "notify::vexpand"
+    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
+    case notifyVexpandSet = "notify::vexpand-set"
+    case notifyVisible = "notify::visible"
+    case notifyWidthRequest = "notify::width-request"
+}
+
+// MARK: ShortcutsShortcut has no signals
+// MARK: ShortcutsShortcut Class: ShortcutsShortcutProtocol extension (methods and fields)
 public extension ShortcutsShortcutProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkShortcutsShortcut` instance.
     @inlinable var shortcuts_shortcut_ptr: UnsafeMutablePointer<GtkShortcutsShortcut>! { return ptr?.assumingMemoryBound(to: GtkShortcutsShortcut.self) }
@@ -10988,58 +13998,412 @@ public extension ShortcutsWindowProtocol {
     }
 }
 
-// MARK: Signals of ShortcutsWindow
-public extension ShortcutsWindowProtocol {
+public enum ShortcutsWindowSignalName: String, SignalNameProtocol {
+    /// The `activate`-default signal is a
+    /// [keybinding signal](#GtkSignalAction)
+    /// which gets emitted when the user activates the default widget
+    /// of `window`.
+    case activateDefault = "activate-default"
+    /// The `activate`-focus signal is a
+    /// [keybinding signal](#GtkSignalAction)
+    /// which gets emitted when the user activates the currently
+    /// focused widget of `window`.
+    case activateFocus = "activate-focus"
     /// The `close` signal is a
     /// [keybinding signal](#GtkSignalAction)
     /// which gets emitted when the user uses a keybinding to close
     /// the window.
     /// 
     /// The default binding for this signal is the Escape key.
-    /// - Note: Representation of signal named `close`
+    case close = "close"
+    /// The `close`-request signal is emitted when the user clicks on the close
+    /// button of the window.
+    case closeRequest = "close-request"
+    /// Signals that all holders of a reference to the widget should release
+    /// the reference that they hold. May result in finalization of the widget
+    /// if all references are released.
+    /// 
+    /// This signal is not suitable for saving widget state.
+    case destroy = "destroy"
+    /// The `direction`-changed signal is emitted when the text direction
+    /// of a widget changes.
+    case directionChanged = "direction-changed"
+    /// The `enable`-debugging signal is a [keybinding signal](#GtkSignalAction)
+    /// which gets emitted when the user enables or disables interactive
+    /// debugging. When `toggle` is `true`, interactive debugging is toggled
+    /// on or off, when it is `false`, the debugger will be pointed at the
+    /// widget under the pointer.
+    /// 
+    /// The default bindings for this signal are Ctrl-Shift-I
+    /// and Ctrl-Shift-D.
+    case enableDebugging = "enable-debugging"
+    /// The `hide` signal is emitted when `widget` is hidden, for example with
+    /// `gtk_widget_hide()`.
+    case hide = "hide"
+    /// Gets emitted if keyboard navigation fails.
+    /// See `gtk_widget_keynav_failed()` for details.
+    case keynavFailed = "keynav-failed"
+    /// The `keys`-changed signal gets emitted when the set of accelerators
+    /// or mnemonics that are associated with `window` changes.
+    case keysChanged = "keys-changed"
+    /// The `map` signal is emitted when `widget` is going to be mapped, that is
+    /// when the widget is visible (which is controlled with
+    /// `gtk_widget_set_visible()`) and all its parents up to the toplevel widget
+    /// are also visible.
+    /// 
+    /// The `map` signal can be used to determine whether a widget will be drawn,
+    /// for instance it can resume an animation that was stopped during the
+    /// emission of `GtkWidget::unmap`.
+    case map = "map"
+    /// The default handler for this signal activates `widget` if `group_cycling`
+    /// is `false`, or just makes `widget` grab focus if `group_cycling` is `true`.
+    case mnemonicActivate = "mnemonic-activate"
+    /// Emitted when the focus is moved.
+    case moveFocus = "move-focus"
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    case notify = "notify"
+    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
+    /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
+    /// focus in keyboard mode.
+    /// 
+    /// Using the given coordinates, the signal handler should determine
+    /// whether a tooltip should be shown for `widget`. If this is the case
+    /// `true` should be returned, `false` otherwise.  Note that if
+    /// `keyboard_mode` is `true`, the values of `x` and `y` are undefined and
+    /// should not be used.
+    /// 
+    /// The signal handler is free to manipulate `tooltip` with the therefore
+    /// destined function calls.
+    case queryTooltip = "query-tooltip"
+    /// The `realize` signal is emitted when `widget` is associated with a
+    /// `GdkSurface`, which means that `gtk_widget_realize()` has been called or the
+    /// widget has been mapped (that is, it is going to be drawn).
+    case realize = "realize"
+    /// The `search` signal is a
+    /// [keybinding signal](#GtkSignalAction)
+    /// which gets emitted when the user uses a keybinding to start a search.
+    /// 
+    /// The default binding for this signal is Control-F.
+    case search = "search"
+    /// The `show` signal is emitted when `widget` is shown, for example with
+    /// `gtk_widget_show()`.
+    case show = "show"
+    /// The `state`-flags-changed signal is emitted when the widget state
+    /// changes, see `gtk_widget_get_state_flags()`.
+    case stateFlagsChanged = "state-flags-changed"
+    /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
+    /// means that either it or any of its parents up to the toplevel widget have
+    /// been set as hidden.
+    /// 
+    /// As `unmap` indicates that a widget will not be shown any longer, it can be
+    /// used to, for example, stop an animation on the widget.
+    case unmap = "unmap"
+    /// The `unrealize` signal is emitted when the `GdkSurface` associated with
+    /// `widget` is destroyed, which means that `gtk_widget_unrealize()` has been
+    /// called or the widget has been unmapped (that is, it is going to be
+    /// hidden).
+    case unrealize = "unrealize"
+    /// The `GtkApplication` associated with the window.
+    /// 
+    /// The application will be kept alive for at least as long as it
+    /// has any windows associated with it (see `g_application_hold()`
+    /// for a way to keep it alive without windows).
+    /// 
+    /// Normally, the connection between the application and the window
+    /// will remain until the window is destroyed, but you can explicitly
+    /// remove it by setting the :application property to `nil`.
+    case notifyApplication = "notify::application"
+    /// Whether the widget or any of its descendents can accept
+    /// the input focus.
+    /// 
+    /// This property is meant to be set by widget implementations,
+    /// typically in their instance init function.
+    case notifyCanFocus = "notify::can-focus"
+    case notifyCanTarget = "notify::can-target"
+    case notifyChild = "notify::child"
+    /// A list of css classes applied to this widget.
+    case notifyCssClasses = "notify::css-classes"
+    /// The name of this widget in the CSS tree.
+    /// 
+    /// This property is meant to be set by widget implementations,
+    /// typically in their instance init function.
+    case notifyCssName = "notify::css-name"
+    /// The cursor used by `widget`. See `gtk_widget_set_cursor()` for details.
+    case notifyCursor = "notify::cursor"
+    /// Whether the window should be decorated by the window manager.
+    case notifyDecorated = "notify::decorated"
+    case notifyDefaultHeight = "notify::default-height"
+    case notifyDefaultWidget = "notify::default-widget"
+    case notifyDefaultWidth = "notify::default-width"
+    /// Whether the window frame should have a close button.
+    case notifyDeletable = "notify::deletable"
+    case notifyDestroyWithParent = "notify::destroy-with-parent"
+    case notifyDisplay = "notify::display"
+    /// Whether the widget should grab focus when it is clicked with the mouse.
+    /// 
+    /// This property is only relevant for widgets that can take focus.
+    case notifyFocusOnClick = "notify::focus-on-click"
+    /// Whether 'focus rectangles' are currently visible in this window.
+    /// 
+    /// This property is maintained by GTK based on user input
+    /// and should not be set by applications.
+    case notifyFocusVisible = "notify::focus-visible"
+    case notifyFocusWidget = "notify::focus-widget"
+    /// Whether this widget itself will accept the input focus.
+    case notifyFocusable = "notify::focusable"
+    /// Whether the window is fullscreen.
+    /// 
+    /// Setting this property is the equivalent of calling `gtk_window_fullscreen()`
+    /// and `gtk_window_unfullscreen()`; either operation is asynchronous, which
+    /// means you will need to connect to the `GObject::notify` signal in order to
+    /// know whether the operation was successful.
+    case notifyFullscreened = "notify::fullscreened"
+    /// How to distribute horizontal space if widget gets extra space, see `GtkAlign`
+    case notifyHalign = "notify::halign"
+    case notifyHasDefault = "notify::has-default"
+    case notifyHasFocus = "notify::has-focus"
+    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// A value of `true` indicates that `widget` can have a tooltip, in this case
+    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// whether it will provide a tooltip or not.
+    case notifyHasTooltip = "notify::has-tooltip"
+    case notifyHeightRequest = "notify::height-request"
+    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
+    case notifyHexpand = "notify::hexpand"
+    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
+    case notifyHexpandSet = "notify::hexpand-set"
+    case notifyHideOnClose = "notify::hide-on-close"
+    /// The :icon-name property specifies the name of the themed icon to
+    /// use as the window icon. See `GtkIconTheme` for more details.
+    case notifyIconName = "notify::icon-name"
+    case notifyIsActive = "notify::is-active"
+    /// The `GtkLayoutManager` instance to use to compute the preferred size
+    /// of the widget, and allocate its children.
+    /// 
+    /// This property is meant to be set by widget implementations,
+    /// typically in their instance init function.
+    case notifyLayoutManager = "notify::layout-manager"
+    /// Margin on bottom side of widget.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginBottom = "notify::margin-bottom"
+    /// Margin on end of widget, horizontally. This property supports
+    /// left-to-right and right-to-left text directions.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginEnd = "notify::margin-end"
+    /// Margin on start of widget, horizontally. This property supports
+    /// left-to-right and right-to-left text directions.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginStart = "notify::margin-start"
+    /// Margin on top side of widget.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginTop = "notify::margin-top"
+    /// Whether the window is maximized.
+    /// 
+    /// Setting this property is the equivalent of calling `gtk_window_maximize()`
+    /// and `gtk_window_unmaximize()`; either operation is asynchronous, which
+    /// means you will need to connect to the `GObject::notify` signal in order to
+    /// know whether the operation was successful.
+    case notifyMaximized = "notify::maximized"
+    /// Whether mnemonics are currently visible in this window.
+    /// 
+    /// This property is maintained by GTK based on user input,
+    /// and should not be set by applications.
+    case notifyMnemonicsVisible = "notify::mnemonics-visible"
+    case notifyModal = "notify::modal"
+    case notifyName = "notify::name"
+    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
+    /// more details about window opacity.
+    case notifyOpacity = "notify::opacity"
+    /// How content outside the widget's content area is treated.
+    /// 
+    /// This property is meant to be set by widget implementations,
+    /// typically in their instance init function.
+    case notifyOverflow = "notify::overflow"
+    case notifyParent = "notify::parent"
+    case notifyReceivesDefault = "notify::receives-default"
+    case notifyResizable = "notify::resizable"
+    /// The `GtkRoot` widget of the widget tree containing this widget or `nil` if
+    /// the widget is not contained in a root widget.
+    case notifyRoot = "notify::root"
+    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
+    /// more details about widget scaling.
+    case notifyScaleFactor = "notify::scale-factor"
+    /// The name of the section to show.
+    /// 
+    /// This should be the section-name of one of the `GtkShortcutsSection`
+    /// objects that are in this shortcuts window.
+    case notifySectionName = "notify::section-name"
+    case notifySensitive = "notify::sensitive"
+    /// The :startup-id is a write-only property for setting window's
+    /// startup notification identifier. See `gtk_window_set_startup_id()`
+    /// for more details.
+    case notifyStartupId = "notify::startup-id"
+    case notifyTitle = "notify::title"
+    /// Sets the text of tooltip to be the given string, which is marked up
+    /// with the [Pango text markup language](#PangoMarkupFormat).
+    /// Also see `gtk_tooltip_set_markup()`.
+    /// 
+    /// This is a convenience property which will take care of getting the
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// will automatically be set to `true` and there will be taken care of
+    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// 
+    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// are set, the last one wins.
+    case notifyTooltipMarkup = "notify::tooltip-markup"
+    /// Sets the text of tooltip to be the given string.
+    /// 
+    /// Also see `gtk_tooltip_set_text()`.
+    /// 
+    /// This is a convenience property which will take care of getting the
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// will automatically be set to `true` and there will be taken care of
+    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// 
+    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// are set, the last one wins.
+    case notifyTooltipText = "notify::tooltip-text"
+    /// The transient parent of the window. See `gtk_window_set_transient_for()` for
+    /// more details about transient windows.
+    case notifyTransientFor = "notify::transient-for"
+    /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
+    case notifyValign = "notify::valign"
+    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
+    case notifyVexpand = "notify::vexpand"
+    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
+    case notifyVexpandSet = "notify::vexpand-set"
+    /// The view name by which to filter the contents.
+    /// 
+    /// This should correspond to the `GtkShortcutsGroup:view` property of some of
+    /// the `GtkShortcutsGroup` objects that are inside this shortcuts window.
+    /// 
+    /// Set this to `nil` to show all groups.
+    case notifyViewName = "notify::view-name"
+    case notifyVisible = "notify::visible"
+    case notifyWidthRequest = "notify::width-request"
+}
+
+// MARK: ShortcutsWindow signals
+public extension ShortcutsWindowProtocol {
+    /// Connect a Swift signal handler to the given, typed `ShortcutsWindowSignalName` signal
+    /// - Parameters:
+    ///   - signal: The signal to connect
+    ///   - flags: The connection flags to use
+    ///   - data: A pointer to user data to provide to the callback
+    ///   - destroyData: A `GClosureNotify` C function to destroy the data pointed to by `userData`
+    ///   - handler: The Swift signal handler (function or callback) to invoke on the given signal
+    /// - Returns: The signal handler ID (always greater than 0 for successful connections)
+    @inlinable @discardableResult func connect(signal s: ShortcutsWindowSignalName, flags f: ConnectFlags = ConnectFlags(0), handler h: @escaping SignalHandler) -> Int {
+        connect(s, flags: f, handler: h)
+    }
+    
+    
+    /// Connect a C signal handler to the given, typed `ShortcutsWindowSignalName` signal
+    /// - Parameters:
+    ///   - signal: The signal to connect
+    ///   - flags: The connection flags to use
+    ///   - data: A pointer to user data to provide to the callback
+    ///   - destroyData: A `GClosureNotify` C function to destroy the data pointed to by `userData`
+    ///   - signalHandler: The C function to be called on the given signal
+    /// - Returns: The signal handler ID (always greater than 0 for successful connections)
+    @inlinable @discardableResult func connect(signal s: ShortcutsWindowSignalName, flags f: ConnectFlags = ConnectFlags(0), data userData: gpointer!, destroyData destructor: GClosureNotify? = nil, signalHandler h: @escaping GCallback) -> Int {
+        connectSignal(s, flags: f, data: userData, destroyData: destructor, handler: h)
+    }
+    
+    
+    /// The `close` signal is a
+    /// [keybinding signal](#GtkSignalAction)
+    /// which gets emitted when the user uses a keybinding to close
+    /// the window.
+    /// 
+    /// The default binding for this signal is the Escape key.
+    /// - Note: This represents the underlying `close` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
-    @discardableResult
-    func onClose(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ShortcutsWindowRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `close` signal is emitted
+    @discardableResult @inlinable func onClose(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ShortcutsWindowRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder<ShortcutsWindowRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer) -> Void = { unownedSelf, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(ShortcutsWindowRef(raw: unownedSelf))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "close", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .close,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `close` signal for using the `connect(signal:)` methods
+    static var closeSignal: ShortcutsWindowSignalName { .close }
     
     /// The `search` signal is a
     /// [keybinding signal](#GtkSignalAction)
     /// which gets emitted when the user uses a keybinding to start a search.
     /// 
     /// The default binding for this signal is Control-F.
-    /// - Note: Representation of signal named `search`
+    /// - Note: This represents the underlying `search` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
-    @discardableResult
-    func onSearch(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ShortcutsWindowRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `search` signal is emitted
+    @discardableResult @inlinable func onSearch(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ShortcutsWindowRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder<ShortcutsWindowRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer) -> Void = { unownedSelf, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(ShortcutsWindowRef(raw: unownedSelf))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "search", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .search,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `search` signal for using the `connect(signal:)` methods
+    static var searchSignal: ShortcutsWindowSignalName { .search }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -11065,26 +14429,30 @@ public extension ShortcutsWindowProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::section-name`
+    /// - Note: This represents the underlying `notify::section-name` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifySectionName(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ShortcutsWindowRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifySectionName` signal is emitted
+    @discardableResult @inlinable func onNotifySectionName(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ShortcutsWindowRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<ShortcutsWindowRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(ShortcutsWindowRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::section-name", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifySectionName,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::section-name` signal for using the `connect(signal:)` methods
+    static var notifySectionNameSignal: ShortcutsWindowSignalName { .notifySectionName }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -11110,26 +14478,30 @@ public extension ShortcutsWindowProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::view-name`
+    /// - Note: This represents the underlying `notify::view-name` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyViewName(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ShortcutsWindowRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyViewName` signal is emitted
+    @discardableResult @inlinable func onNotifyViewName(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ShortcutsWindowRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<ShortcutsWindowRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(ShortcutsWindowRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::view-name", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyViewName,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::view-name` signal for using the `connect(signal:)` methods
+    static var notifyViewNameSignal: ShortcutsWindowSignalName { .notifyViewName }
     
 }
 
@@ -11448,7 +14820,38 @@ public extension SignalActionProtocol {
     }
 }
 
-// MARK: SignalAction has no signals// MARK: SignalAction Class: SignalActionProtocol extension (methods and fields)
+public enum SignalActionSignalName: String, SignalNameProtocol {
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    case notify = "notify"
+    /// The name of the signal to emit.
+    case notifySignalName = "notify::signal-name"
+}
+
+// MARK: SignalAction has no signals
+// MARK: SignalAction Class: SignalActionProtocol extension (methods and fields)
 public extension SignalActionProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkSignalAction` instance.
     @inlinable var signal_action_ptr: UnsafeMutablePointer<GtkSignalAction>! { return ptr?.assumingMemoryBound(to: GtkSignalAction.self) }
@@ -11838,8 +15241,7 @@ open class SignalListItemFactory: ListItemFactory, SignalListItemFactoryProtocol
 
 // MARK: no SignalListItemFactory properties
 
-// MARK: Signals of SignalListItemFactory
-public extension SignalListItemFactoryProtocol {
+public enum SignalListItemFactorySignalName: String, SignalNameProtocol {
     /// The `bind` signal is emitted when a new `GtkListItem:item` has been set
     /// on the `listitem` and should be bound for use.
     /// 
@@ -11848,104 +15250,203 @@ public extension SignalListItemFactoryProtocol {
     /// 
     /// The `GtkSignalListItemFactory::unbind` signal is the opposite of this signal
     /// and can be used to undo everything done in this signal.
-    /// - Note: Representation of signal named `bind`
+    case bind = "bind"
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    case notify = "notify"
+    /// The `setup` signal is emitted when a new listitem has been created and
+    /// needs to be setup for use. It is the first signal emitted for every listitem.
+    /// 
+    /// The `GtkSignalListItemFactory::teardown` signal is the opposite of this signal
+    /// and can be used to undo everything done in this signal.
+    case setup = "setup"
+    /// The `teardown` signal is emitted when a listitem is about to be destroyed.
+    /// It is the last signal ever emitted for this `listitem`.
+    /// 
+    /// This signal is the opposite of the `GtkSignalListItemFactory::setup` signal
+    /// and should be used to undo everything done in that signal.
+    case teardown = "teardown"
+    /// The `unbind` signal is emitted when a listitem has been removed from use
+    /// in a list widget and its new `GtkListItem:item` is about to be unset.
+    /// 
+    /// This signal is the opposite of the `GtkSignalListItemFactory::bind` signal
+    /// and should be used to undo everything done in that signal.
+    case unbind = "unbind"
+
+}
+
+// MARK: SignalListItemFactory signals
+public extension SignalListItemFactoryProtocol {
+    /// Connect a Swift signal handler to the given, typed `SignalListItemFactorySignalName` signal
+    /// - Parameters:
+    ///   - signal: The signal to connect
+    ///   - flags: The connection flags to use
+    ///   - data: A pointer to user data to provide to the callback
+    ///   - destroyData: A `GClosureNotify` C function to destroy the data pointed to by `userData`
+    ///   - handler: The Swift signal handler (function or callback) to invoke on the given signal
+    /// - Returns: The signal handler ID (always greater than 0 for successful connections)
+    @inlinable @discardableResult func connect(signal s: SignalListItemFactorySignalName, flags f: ConnectFlags = ConnectFlags(0), handler h: @escaping SignalHandler) -> Int {
+        connect(s, flags: f, handler: h)
+    }
+    
+    
+    /// Connect a C signal handler to the given, typed `SignalListItemFactorySignalName` signal
+    /// - Parameters:
+    ///   - signal: The signal to connect
+    ///   - flags: The connection flags to use
+    ///   - data: A pointer to user data to provide to the callback
+    ///   - destroyData: A `GClosureNotify` C function to destroy the data pointed to by `userData`
+    ///   - signalHandler: The C function to be called on the given signal
+    /// - Returns: The signal handler ID (always greater than 0 for successful connections)
+    @inlinable @discardableResult func connect(signal s: SignalListItemFactorySignalName, flags f: ConnectFlags = ConnectFlags(0), data userData: gpointer!, destroyData destructor: GClosureNotify? = nil, signalHandler h: @escaping GCallback) -> Int {
+        connectSignal(s, flags: f, data: userData, destroyData: destructor, handler: h)
+    }
+    
+    
+    /// The `bind` signal is emitted when a new `GtkListItem:item` has been set
+    /// on the `listitem` and should be bound for use.
+    /// 
+    /// After this signal was emitted, the listitem might be shown in a `GtkListView`
+    /// or other list widget.
+    /// 
+    /// The `GtkSignalListItemFactory::unbind` signal is the opposite of this signal
+    /// and can be used to undo everything done in this signal.
+    /// - Note: This represents the underlying `bind` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter listitem: The `GtkListItem` to bind
-    @discardableResult
-    func onBind(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: SignalListItemFactoryRef, _ listitem: ListItemRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `bind` signal is emitted
+    @discardableResult @inlinable func onBind(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: SignalListItemFactoryRef, _ listitem: ListItemRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<SignalListItemFactoryRef, ListItemRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(SignalListItemFactoryRef(raw: unownedSelf), ListItemRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "bind", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .bind,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `bind` signal for using the `connect(signal:)` methods
+    static var bindSignal: SignalListItemFactorySignalName { .bind }
     
     /// The `setup` signal is emitted when a new listitem has been created and
     /// needs to be setup for use. It is the first signal emitted for every listitem.
     /// 
     /// The `GtkSignalListItemFactory::teardown` signal is the opposite of this signal
     /// and can be used to undo everything done in this signal.
-    /// - Note: Representation of signal named `setup`
+    /// - Note: This represents the underlying `setup` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter listitem: The `GtkListItem` to set up
-    @discardableResult
-    func onSetup(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: SignalListItemFactoryRef, _ listitem: ListItemRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `setup` signal is emitted
+    @discardableResult @inlinable func onSetup(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: SignalListItemFactoryRef, _ listitem: ListItemRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<SignalListItemFactoryRef, ListItemRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(SignalListItemFactoryRef(raw: unownedSelf), ListItemRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "setup", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .setup,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `setup` signal for using the `connect(signal:)` methods
+    static var setupSignal: SignalListItemFactorySignalName { .setup }
     
     /// The `teardown` signal is emitted when a listitem is about to be destroyed.
     /// It is the last signal ever emitted for this `listitem`.
     /// 
     /// This signal is the opposite of the `GtkSignalListItemFactory::setup` signal
     /// and should be used to undo everything done in that signal.
-    /// - Note: Representation of signal named `teardown`
+    /// - Note: This represents the underlying `teardown` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter listitem: The `GtkListItem` to teardown
-    @discardableResult
-    func onTeardown(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: SignalListItemFactoryRef, _ listitem: ListItemRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `teardown` signal is emitted
+    @discardableResult @inlinable func onTeardown(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: SignalListItemFactoryRef, _ listitem: ListItemRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<SignalListItemFactoryRef, ListItemRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(SignalListItemFactoryRef(raw: unownedSelf), ListItemRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "teardown", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .teardown,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `teardown` signal for using the `connect(signal:)` methods
+    static var teardownSignal: SignalListItemFactorySignalName { .teardown }
     
     /// The `unbind` signal is emitted when a listitem has been removed from use
     /// in a list widget and its new `GtkListItem:item` is about to be unset.
     /// 
     /// This signal is the opposite of the `GtkSignalListItemFactory::bind` signal
     /// and should be used to undo everything done in that signal.
-    /// - Note: Representation of signal named `unbind`
+    /// - Note: This represents the underlying `unbind` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter listitem: The `GtkListItem` to unbind
-    @discardableResult
-    func onUnbind(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: SignalListItemFactoryRef, _ listitem: ListItemRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `unbind` signal is emitted
+    @discardableResult @inlinable func onUnbind(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: SignalListItemFactoryRef, _ listitem: ListItemRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<SignalListItemFactoryRef, ListItemRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(SignalListItemFactoryRef(raw: unownedSelf), ListItemRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "unbind", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .unbind,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `unbind` signal for using the `connect(signal:)` methods
+    static var unbindSignal: SignalListItemFactorySignalName { .unbind }
     
     
 }
@@ -12296,7 +15797,46 @@ public extension SingleSelectionProtocol {
     }
 }
 
-// MARK: SingleSelection has no signals// MARK: SingleSelection Class: SingleSelectionProtocol extension (methods and fields)
+public enum SingleSelectionSignalName: String, SignalNameProtocol {
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    case notify = "notify"
+    /// If the selection will always select an item
+    case notifyAutoselect = "notify::autoselect"
+    /// If unselecting the selected item is allowed
+    case notifyCanUnselect = "notify::can-unselect"
+    /// The model being managed
+    case notifyModel = "notify::model"
+    /// Position of the selected item
+    case notifySelected = "notify::selected"
+    /// The selected item
+    case notifySelectedItem = "notify::selected-item"
+}
+
+// MARK: SingleSelection has no signals
+// MARK: SingleSelection Class: SingleSelectionProtocol extension (methods and fields)
 public extension SingleSelectionProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkSingleSelection` instance.
     @inlinable var single_selection_ptr: UnsafeMutablePointer<GtkSingleSelection>! { return ptr?.assumingMemoryBound(to: GtkSingleSelection.self) }
@@ -12967,7 +16507,37 @@ public extension SizeGroupProtocol {
     }
 }
 
-// MARK: SizeGroup has no signals// MARK: SizeGroup Class: SizeGroupProtocol extension (methods and fields)
+public enum SizeGroupSignalName: String, SignalNameProtocol {
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    case notify = "notify"
+    case notifyMode = "notify::mode"
+}
+
+// MARK: SizeGroup has no signals
+// MARK: SizeGroup Class: SizeGroupProtocol extension (methods and fields)
 public extension SizeGroupProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkSizeGroup` instance.
     @inlinable var size_group_ptr: UnsafeMutablePointer<GtkSizeGroup>! { return ptr?.assumingMemoryBound(to: GtkSizeGroup.self) }
@@ -13377,7 +16947,42 @@ public extension SliceListModelProtocol {
     }
 }
 
-// MARK: SliceListModel has no signals// MARK: SliceListModel Class: SliceListModelProtocol extension (methods and fields)
+public enum SliceListModelSignalName: String, SignalNameProtocol {
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    case notify = "notify"
+    /// Child model to take slice from
+    case notifyModel = "notify::model"
+    /// Offset of slice
+    case notifyOffset = "notify::offset"
+    /// Maximum size of slice
+    case notifySize = "notify::size"
+}
+
+// MARK: SliceListModel has no signals
+// MARK: SliceListModel Class: SliceListModelProtocol extension (methods and fields)
 public extension SliceListModelProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkSliceListModel` instance.
     @inlinable var slice_list_model_ptr: UnsafeMutablePointer<GtkSliceListModel>! { return ptr?.assumingMemoryBound(to: GtkSliceListModel.self) }
@@ -13766,7 +17371,37 @@ open class Snapshot: Gdk.Snapshot, SnapshotProtocol {
 
 // MARK: no Snapshot properties
 
-// MARK: Snapshot has no signals// MARK: Snapshot Class: SnapshotProtocol extension (methods and fields)
+public enum SnapshotSignalName: String, SignalNameProtocol {
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    case notify = "notify"
+
+}
+
+// MARK: Snapshot has no signals
+// MARK: Snapshot Class: SnapshotProtocol extension (methods and fields)
 public extension SnapshotProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkSnapshot` instance.
     @inlinable var snapshot_ptr: UnsafeMutablePointer<GtkSnapshot>! { return ptr?.assumingMemoryBound(to: GtkSnapshot.self) }
@@ -14498,7 +18133,44 @@ public extension SortListModelProtocol {
     }
 }
 
-// MARK: SortListModel has no signals// MARK: SortListModel Class: SortListModelProtocol extension (methods and fields)
+public enum SortListModelSignalName: String, SignalNameProtocol {
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    case notify = "notify"
+    /// If the model should sort items incrementally
+    case notifyIncremental = "notify::incremental"
+    /// The model being sorted
+    case notifyModel = "notify::model"
+    /// Estimate of unsorted items remaining
+    case notifyPending = "notify::pending"
+    /// The sorter for this model
+    case notifySorter = "notify::sorter"
+}
+
+// MARK: SortListModel has no signals
+// MARK: SortListModel Class: SortListModelProtocol extension (methods and fields)
 public extension SortListModelProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkSortListModel` instance.
     @inlinable var sort_list_model_ptr: UnsafeMutablePointer<GtkSortListModel>! { return ptr?.assumingMemoryBound(to: GtkSortListModel.self) }
@@ -14958,8 +18630,7 @@ open class Sorter: GLibObject.Object, SorterProtocol {
 
 // MARK: no Sorter properties
 
-// MARK: Signals of Sorter
-public extension SorterProtocol {
+public enum SorterSignalName: String, SignalNameProtocol {
     /// This signal is emitted whenever the sorter changed. Users of the sorter
     /// should then update the sort order again via `gtk_sorter_compare()`.
     /// 
@@ -14968,26 +18639,95 @@ public extension SorterProtocol {
     /// Depending on the `change` parameter, it may be possible to update
     /// the sort order without a full resorting. Refer to the `GtkSorterChange`
     /// documentation for details.
-    /// - Note: Representation of signal named `changed`
+    case changed = "changed"
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    case notify = "notify"
+
+}
+
+// MARK: Sorter signals
+public extension SorterProtocol {
+    /// Connect a Swift signal handler to the given, typed `SorterSignalName` signal
+    /// - Parameters:
+    ///   - signal: The signal to connect
+    ///   - flags: The connection flags to use
+    ///   - data: A pointer to user data to provide to the callback
+    ///   - destroyData: A `GClosureNotify` C function to destroy the data pointed to by `userData`
+    ///   - handler: The Swift signal handler (function or callback) to invoke on the given signal
+    /// - Returns: The signal handler ID (always greater than 0 for successful connections)
+    @inlinable @discardableResult func connect(signal s: SorterSignalName, flags f: ConnectFlags = ConnectFlags(0), handler h: @escaping SignalHandler) -> Int {
+        connect(s, flags: f, handler: h)
+    }
+    
+    
+    /// Connect a C signal handler to the given, typed `SorterSignalName` signal
+    /// - Parameters:
+    ///   - signal: The signal to connect
+    ///   - flags: The connection flags to use
+    ///   - data: A pointer to user data to provide to the callback
+    ///   - destroyData: A `GClosureNotify` C function to destroy the data pointed to by `userData`
+    ///   - signalHandler: The C function to be called on the given signal
+    /// - Returns: The signal handler ID (always greater than 0 for successful connections)
+    @inlinable @discardableResult func connect(signal s: SorterSignalName, flags f: ConnectFlags = ConnectFlags(0), data userData: gpointer!, destroyData destructor: GClosureNotify? = nil, signalHandler h: @escaping GCallback) -> Int {
+        connectSignal(s, flags: f, data: userData, destroyData: destructor, handler: h)
+    }
+    
+    
+    /// This signal is emitted whenever the sorter changed. Users of the sorter
+    /// should then update the sort order again via `gtk_sorter_compare()`.
+    /// 
+    /// `GtkSortListModel` handles this signal automatically.
+    /// 
+    /// Depending on the `change` parameter, it may be possible to update
+    /// the sort order without a full resorting. Refer to the `GtkSorterChange`
+    /// documentation for details.
+    /// - Note: This represents the underlying `changed` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter change: how the sorter changed
-    @discardableResult
-    func onChanged(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: SorterRef, _ change: SorterChange) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `changed` signal is emitted
+    @discardableResult @inlinable func onChanged(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: SorterRef, _ change: SorterChange) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<SorterRef, SorterChange, Void>
         let cCallback: @convention(c) (gpointer, UInt32, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(SorterRef(raw: unownedSelf), SorterChange(arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "changed", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .changed,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `changed` signal for using the `connect(signal:)` methods
+    static var changedSignal: SorterSignalName { .changed }
     
     
 }
@@ -15881,22 +19621,7 @@ public extension SpinButtonProtocol {
     }
 }
 
-// MARK: Signals of SpinButton
-public extension SpinButtonProtocol {
-    /// The `input` signal can be used to influence the conversion of
-    /// the users input into a double value. The signal handler is
-    /// expected to use `gtk_editable_get_text()` to retrieve the text of
-    /// the spinbutton and set `new_value` to the new value.
-    /// 
-    /// The default conversion uses `g_strtod()`.
-    /// - Note: Representation of signal named `input`
-    /// - Parameter flags: Flags
-    /// - Parameter handler: `true` for a successful conversion, `false` if the input     was not handled, and `GTK_INPUT_ERROR` if the conversion failed.
-    /// - Parameter unownedSelf: Reference to instance of self
-    /// - Parameter newValue: return location for the new value
-    /// - Warning: Wrapper of this signal could not be generated because it contains unimplemented features: { (1) argument with owner transfership is not allowed, (2)  argument out or inout direction is not allowed }
-    /// - Note: Use this string for `signalConnectData` method
-    static var onInput: String { "input" }
+public enum SpinButtonSignalName: String, SignalNameProtocol {
     /// The `change`-value signal is a [keybinding signal](#GtkSignalAction)
     /// which gets emitted when the user initiates a value change.
     /// 
@@ -15905,26 +19630,335 @@ public extension SpinButtonProtocol {
     /// programmatically.
     /// 
     /// The default bindings for this signal are Up/Down and PageUp and/PageDown.
-    /// - Note: Representation of signal named `change-value`
+    case changeValue = "change-value"
+    /// Signals that all holders of a reference to the widget should release
+    /// the reference that they hold. May result in finalization of the widget
+    /// if all references are released.
+    /// 
+    /// This signal is not suitable for saving widget state.
+    case destroy = "destroy"
+    /// The `direction`-changed signal is emitted when the text direction
+    /// of a widget changes.
+    case directionChanged = "direction-changed"
+    /// The `hide` signal is emitted when `widget` is hidden, for example with
+    /// `gtk_widget_hide()`.
+    case hide = "hide"
+    /// The `input` signal can be used to influence the conversion of
+    /// the users input into a double value. The signal handler is
+    /// expected to use `gtk_editable_get_text()` to retrieve the text of
+    /// the spinbutton and set `new_value` to the new value.
+    /// 
+    /// The default conversion uses `g_strtod()`.
+    case input = "input"
+    /// Gets emitted if keyboard navigation fails.
+    /// See `gtk_widget_keynav_failed()` for details.
+    case keynavFailed = "keynav-failed"
+    /// The `map` signal is emitted when `widget` is going to be mapped, that is
+    /// when the widget is visible (which is controlled with
+    /// `gtk_widget_set_visible()`) and all its parents up to the toplevel widget
+    /// are also visible.
+    /// 
+    /// The `map` signal can be used to determine whether a widget will be drawn,
+    /// for instance it can resume an animation that was stopped during the
+    /// emission of `GtkWidget::unmap`.
+    case map = "map"
+    /// The default handler for this signal activates `widget` if `group_cycling`
+    /// is `false`, or just makes `widget` grab focus if `group_cycling` is `true`.
+    case mnemonicActivate = "mnemonic-activate"
+    /// Emitted when the focus is moved.
+    case moveFocus = "move-focus"
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    case notify = "notify"
+    /// The `output` signal can be used to change to formatting
+    /// of the value that is displayed in the spin buttons entry.
+    /// (C Language Example):
+    /// ```C
+    /// // show leading zeros
+    /// static gboolean
+    /// on_output (GtkSpinButton *spin,
+    ///            gpointer       data)
+    /// {
+    ///    GtkAdjustment *adjustment;
+    ///    char *text;
+    ///    int value;
+    /// 
+    ///    adjustment = gtk_spin_button_get_adjustment (spin);
+    ///    value = (int)gtk_adjustment_get_value (adjustment);
+    ///    text = g_strdup_printf ("%02d", value);
+    ///    gtk_spin_button_set_text (spin, text):
+    ///    g_free (text);
+    /// 
+    ///    return TRUE;
+    /// }
+    /// ```
+    /// 
+    case output = "output"
+    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
+    /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
+    /// focus in keyboard mode.
+    /// 
+    /// Using the given coordinates, the signal handler should determine
+    /// whether a tooltip should be shown for `widget`. If this is the case
+    /// `true` should be returned, `false` otherwise.  Note that if
+    /// `keyboard_mode` is `true`, the values of `x` and `y` are undefined and
+    /// should not be used.
+    /// 
+    /// The signal handler is free to manipulate `tooltip` with the therefore
+    /// destined function calls.
+    case queryTooltip = "query-tooltip"
+    /// The `realize` signal is emitted when `widget` is associated with a
+    /// `GdkSurface`, which means that `gtk_widget_realize()` has been called or the
+    /// widget has been mapped (that is, it is going to be drawn).
+    case realize = "realize"
+    /// The `show` signal is emitted when `widget` is shown, for example with
+    /// `gtk_widget_show()`.
+    case show = "show"
+    /// The `state`-flags-changed signal is emitted when the widget state
+    /// changes, see `gtk_widget_get_state_flags()`.
+    case stateFlagsChanged = "state-flags-changed"
+    /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
+    /// means that either it or any of its parents up to the toplevel widget have
+    /// been set as hidden.
+    /// 
+    /// As `unmap` indicates that a widget will not be shown any longer, it can be
+    /// used to, for example, stop an animation on the widget.
+    case unmap = "unmap"
+    /// The `unrealize` signal is emitted when the `GdkSurface` associated with
+    /// `widget` is destroyed, which means that `gtk_widget_unrealize()` has been
+    /// called or the widget has been unmapped (that is, it is going to be
+    /// hidden).
+    case unrealize = "unrealize"
+    /// The `value`-changed signal is emitted when the value represented by
+    /// `spinbutton` changes. Also see the `GtkSpinButton::output` signal.
+    case valueChanged = "value-changed"
+    /// The `wrapped` signal is emitted right after the spinbutton wraps
+    /// from its maximum to minimum value or vice-versa.
+    case wrapped = "wrapped"
+    case notifyAdjustment = "notify::adjustment"
+    /// Whether the widget or any of its descendents can accept
+    /// the input focus.
+    /// 
+    /// This property is meant to be set by widget implementations,
+    /// typically in their instance init function.
+    case notifyCanFocus = "notify::can-focus"
+    case notifyCanTarget = "notify::can-target"
+    case notifyClimbRate = "notify::climb-rate"
+    /// A list of css classes applied to this widget.
+    case notifyCssClasses = "notify::css-classes"
+    /// The name of this widget in the CSS tree.
+    /// 
+    /// This property is meant to be set by widget implementations,
+    /// typically in their instance init function.
+    case notifyCssName = "notify::css-name"
+    /// The cursor used by `widget`. See `gtk_widget_set_cursor()` for details.
+    case notifyCursor = "notify::cursor"
+    case notifyDigits = "notify::digits"
+    /// Whether the widget should grab focus when it is clicked with the mouse.
+    /// 
+    /// This property is only relevant for widgets that can take focus.
+    case notifyFocusOnClick = "notify::focus-on-click"
+    /// Whether this widget itself will accept the input focus.
+    case notifyFocusable = "notify::focusable"
+    /// How to distribute horizontal space if widget gets extra space, see `GtkAlign`
+    case notifyHalign = "notify::halign"
+    case notifyHasDefault = "notify::has-default"
+    case notifyHasFocus = "notify::has-focus"
+    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// A value of `true` indicates that `widget` can have a tooltip, in this case
+    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// whether it will provide a tooltip or not.
+    case notifyHasTooltip = "notify::has-tooltip"
+    case notifyHeightRequest = "notify::height-request"
+    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
+    case notifyHexpand = "notify::hexpand"
+    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
+    case notifyHexpandSet = "notify::hexpand-set"
+    /// The `GtkLayoutManager` instance to use to compute the preferred size
+    /// of the widget, and allocate its children.
+    /// 
+    /// This property is meant to be set by widget implementations,
+    /// typically in their instance init function.
+    case notifyLayoutManager = "notify::layout-manager"
+    /// Margin on bottom side of widget.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginBottom = "notify::margin-bottom"
+    /// Margin on end of widget, horizontally. This property supports
+    /// left-to-right and right-to-left text directions.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginEnd = "notify::margin-end"
+    /// Margin on start of widget, horizontally. This property supports
+    /// left-to-right and right-to-left text directions.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginStart = "notify::margin-start"
+    /// Margin on top side of widget.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginTop = "notify::margin-top"
+    case notifyName = "notify::name"
+    case notifyNumeric = "notify::numeric"
+    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
+    /// more details about window opacity.
+    case notifyOpacity = "notify::opacity"
+    /// How content outside the widget's content area is treated.
+    /// 
+    /// This property is meant to be set by widget implementations,
+    /// typically in their instance init function.
+    case notifyOverflow = "notify::overflow"
+    case notifyParent = "notify::parent"
+    case notifyReceivesDefault = "notify::receives-default"
+    /// The `GtkRoot` widget of the widget tree containing this widget or `nil` if
+    /// the widget is not contained in a root widget.
+    case notifyRoot = "notify::root"
+    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
+    /// more details about widget scaling.
+    case notifyScaleFactor = "notify::scale-factor"
+    case notifySensitive = "notify::sensitive"
+    case notifySnapToTicks = "notify::snap-to-ticks"
+    /// Sets the text of tooltip to be the given string, which is marked up
+    /// with the [Pango text markup language](#PangoMarkupFormat).
+    /// Also see `gtk_tooltip_set_markup()`.
+    /// 
+    /// This is a convenience property which will take care of getting the
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// will automatically be set to `true` and there will be taken care of
+    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// 
+    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// are set, the last one wins.
+    case notifyTooltipMarkup = "notify::tooltip-markup"
+    /// Sets the text of tooltip to be the given string.
+    /// 
+    /// Also see `gtk_tooltip_set_text()`.
+    /// 
+    /// This is a convenience property which will take care of getting the
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// will automatically be set to `true` and there will be taken care of
+    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// 
+    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// are set, the last one wins.
+    case notifyTooltipText = "notify::tooltip-text"
+    case notifyUpdatePolicy = "notify::update-policy"
+    /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
+    case notifyValign = "notify::valign"
+    case notifyValue = "notify::value"
+    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
+    case notifyVexpand = "notify::vexpand"
+    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
+    case notifyVexpandSet = "notify::vexpand-set"
+    case notifyVisible = "notify::visible"
+    case notifyWidthRequest = "notify::width-request"
+    case notifyWrap = "notify::wrap"
+}
+
+// MARK: SpinButton signals
+public extension SpinButtonProtocol {
+    /// Connect a Swift signal handler to the given, typed `SpinButtonSignalName` signal
+    /// - Parameters:
+    ///   - signal: The signal to connect
+    ///   - flags: The connection flags to use
+    ///   - data: A pointer to user data to provide to the callback
+    ///   - destroyData: A `GClosureNotify` C function to destroy the data pointed to by `userData`
+    ///   - handler: The Swift signal handler (function or callback) to invoke on the given signal
+    /// - Returns: The signal handler ID (always greater than 0 for successful connections)
+    @inlinable @discardableResult func connect(signal s: SpinButtonSignalName, flags f: ConnectFlags = ConnectFlags(0), handler h: @escaping SignalHandler) -> Int {
+        connect(s, flags: f, handler: h)
+    }
+    
+    
+    /// Connect a C signal handler to the given, typed `SpinButtonSignalName` signal
+    /// - Parameters:
+    ///   - signal: The signal to connect
+    ///   - flags: The connection flags to use
+    ///   - data: A pointer to user data to provide to the callback
+    ///   - destroyData: A `GClosureNotify` C function to destroy the data pointed to by `userData`
+    ///   - signalHandler: The C function to be called on the given signal
+    /// - Returns: The signal handler ID (always greater than 0 for successful connections)
+    @inlinable @discardableResult func connect(signal s: SpinButtonSignalName, flags f: ConnectFlags = ConnectFlags(0), data userData: gpointer!, destroyData destructor: GClosureNotify? = nil, signalHandler h: @escaping GCallback) -> Int {
+        connectSignal(s, flags: f, data: userData, destroyData: destructor, handler: h)
+    }
+    
+    
+    /// The `input` signal can be used to influence the conversion of
+    /// the users input into a double value. The signal handler is
+    /// expected to use `gtk_editable_get_text()` to retrieve the text of
+    /// the spinbutton and set `new_value` to the new value.
+    /// 
+    /// The default conversion uses `g_strtod()`.
+    /// - Note: This represents the underlying `input` signal
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter newValue: return location for the new value
+    /// - Parameter handler: `true` for a successful conversion, `false` if the input     was not handled, and `GTK_INPUT_ERROR` if the conversion failed.
+    /// - Warning: a `onInput` wrapper for this signal could not be generated because it contains unimplemented features: { (1) argument with ownership transfer is not allowed, (2)  `out` or `inout` argument direction is not allowed }
+    /// - Note: Instead, you can connect `inputSignal` using the `connect(signal:)` methods
+    static var inputSignal: SpinButtonSignalName { .input }
+    /// The `change`-value signal is a [keybinding signal](#GtkSignalAction)
+    /// which gets emitted when the user initiates a value change.
+    /// 
+    /// Applications should not connect to it, but may emit it with
+    /// `g_signal_emit_by_name()` if they need to control the cursor
+    /// programmatically.
+    /// 
+    /// The default bindings for this signal are Up/Down and PageUp and/PageDown.
+    /// - Note: This represents the underlying `change-value` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter scroll: a `GtkScrollType` to specify the speed and amount of change
-    @discardableResult
-    func onChangeValue(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: SpinButtonRef, _ scroll: ScrollType) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `changeValue` signal is emitted
+    @discardableResult @inlinable func onChangeValue(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: SpinButtonRef, _ scroll: ScrollType) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<SpinButtonRef, ScrollType, Void>
         let cCallback: @convention(c) (gpointer, UInt32, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(SpinButtonRef(raw: unownedSelf), ScrollType(arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "change-value", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .changeValue,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `change-value` signal for using the `connect(signal:)` methods
+    static var changeValueSignal: SpinButtonSignalName { .changeValue }
     
     /// The `output` signal can be used to change to formatting
     /// of the value that is displayed in the spin buttons entry.
@@ -15949,70 +19983,81 @@ public extension SpinButtonProtocol {
     /// }
     /// ```
     /// 
-    /// - Note: Representation of signal named `output`
+    /// - Note: This represents the underlying `output` signal
     /// - Parameter flags: Flags
-    /// - Parameter handler: `true` if the value has been displayed
     /// - Parameter unownedSelf: Reference to instance of self
-    @discardableResult
-    func onOutput(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: SpinButtonRef) -> Bool ) -> Int {
+    /// - Parameter handler: `true` if the value has been displayed
+    /// Run the given callback whenever the `output` signal is emitted
+    @discardableResult @inlinable func onOutput(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: SpinButtonRef) -> Bool ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder<SpinButtonRef, Bool>
         let cCallback: @convention(c) (gpointer, gpointer) -> gboolean = { unownedSelf, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output = holder.call(SpinButtonRef(raw: unownedSelf))
             return gboolean((output) ? 1 : 0)
         }
-        return signalConnectData(
-            detailedSignal: "output", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .output,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `output` signal for using the `connect(signal:)` methods
+    static var outputSignal: SpinButtonSignalName { .output }
     
     /// The `value`-changed signal is emitted when the value represented by
     /// `spinbutton` changes. Also see the `GtkSpinButton::output` signal.
-    /// - Note: Representation of signal named `value-changed`
+    /// - Note: This represents the underlying `value-changed` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
-    @discardableResult
-    func onValueChanged(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: SpinButtonRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `valueChanged` signal is emitted
+    @discardableResult @inlinable func onValueChanged(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: SpinButtonRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder<SpinButtonRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer) -> Void = { unownedSelf, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(SpinButtonRef(raw: unownedSelf))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "value-changed", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .valueChanged,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `value-changed` signal for using the `connect(signal:)` methods
+    static var valueChangedSignal: SpinButtonSignalName { .valueChanged }
     
     /// The `wrapped` signal is emitted right after the spinbutton wraps
     /// from its maximum to minimum value or vice-versa.
-    /// - Note: Representation of signal named `wrapped`
+    /// - Note: This represents the underlying `wrapped` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
-    @discardableResult
-    func onWrapped(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: SpinButtonRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `wrapped` signal is emitted
+    @discardableResult @inlinable func onWrapped(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: SpinButtonRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder<SpinButtonRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer) -> Void = { unownedSelf, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(SpinButtonRef(raw: unownedSelf))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "wrapped", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .wrapped,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `wrapped` signal for using the `connect(signal:)` methods
+    static var wrappedSignal: SpinButtonSignalName { .wrapped }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -16038,26 +20083,30 @@ public extension SpinButtonProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::adjustment`
+    /// - Note: This represents the underlying `notify::adjustment` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyAdjustment(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: SpinButtonRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyAdjustment` signal is emitted
+    @discardableResult @inlinable func onNotifyAdjustment(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: SpinButtonRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<SpinButtonRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(SpinButtonRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::adjustment", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyAdjustment,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::adjustment` signal for using the `connect(signal:)` methods
+    static var notifyAdjustmentSignal: SpinButtonSignalName { .notifyAdjustment }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -16083,26 +20132,30 @@ public extension SpinButtonProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::climb-rate`
+    /// - Note: This represents the underlying `notify::climb-rate` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyClimbRate(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: SpinButtonRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyClimbRate` signal is emitted
+    @discardableResult @inlinable func onNotifyClimbRate(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: SpinButtonRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<SpinButtonRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(SpinButtonRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::climb-rate", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyClimbRate,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::climb-rate` signal for using the `connect(signal:)` methods
+    static var notifyClimbRateSignal: SpinButtonSignalName { .notifyClimbRate }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -16128,26 +20181,30 @@ public extension SpinButtonProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::digits`
+    /// - Note: This represents the underlying `notify::digits` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyDigits(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: SpinButtonRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyDigits` signal is emitted
+    @discardableResult @inlinable func onNotifyDigits(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: SpinButtonRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<SpinButtonRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(SpinButtonRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::digits", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyDigits,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::digits` signal for using the `connect(signal:)` methods
+    static var notifyDigitsSignal: SpinButtonSignalName { .notifyDigits }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -16173,26 +20230,30 @@ public extension SpinButtonProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::numeric`
+    /// - Note: This represents the underlying `notify::numeric` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyNumeric(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: SpinButtonRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyNumeric` signal is emitted
+    @discardableResult @inlinable func onNotifyNumeric(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: SpinButtonRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<SpinButtonRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(SpinButtonRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::numeric", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyNumeric,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::numeric` signal for using the `connect(signal:)` methods
+    static var notifyNumericSignal: SpinButtonSignalName { .notifyNumeric }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -16218,26 +20279,30 @@ public extension SpinButtonProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::snap-to-ticks`
+    /// - Note: This represents the underlying `notify::snap-to-ticks` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifySnapToTicks(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: SpinButtonRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifySnapToTicks` signal is emitted
+    @discardableResult @inlinable func onNotifySnapToTicks(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: SpinButtonRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<SpinButtonRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(SpinButtonRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::snap-to-ticks", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifySnapToTicks,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::snap-to-ticks` signal for using the `connect(signal:)` methods
+    static var notifySnapToTicksSignal: SpinButtonSignalName { .notifySnapToTicks }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -16263,26 +20328,30 @@ public extension SpinButtonProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::update-policy`
+    /// - Note: This represents the underlying `notify::update-policy` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyUpdatePolicy(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: SpinButtonRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyUpdatePolicy` signal is emitted
+    @discardableResult @inlinable func onNotifyUpdatePolicy(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: SpinButtonRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<SpinButtonRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(SpinButtonRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::update-policy", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyUpdatePolicy,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::update-policy` signal for using the `connect(signal:)` methods
+    static var notifyUpdatePolicySignal: SpinButtonSignalName { .notifyUpdatePolicy }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -16308,26 +20377,30 @@ public extension SpinButtonProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::value`
+    /// - Note: This represents the underlying `notify::value` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyValue(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: SpinButtonRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyValue` signal is emitted
+    @discardableResult @inlinable func onNotifyValue(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: SpinButtonRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<SpinButtonRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(SpinButtonRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::value", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyValue,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::value` signal for using the `connect(signal:)` methods
+    static var notifyValueSignal: SpinButtonSignalName { .notifyValue }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -16353,26 +20426,30 @@ public extension SpinButtonProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::wrap`
+    /// - Note: This represents the underlying `notify::wrap` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyWrap(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: SpinButtonRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyWrap` signal is emitted
+    @discardableResult @inlinable func onNotifyWrap(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: SpinButtonRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<SpinButtonRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(SpinButtonRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::wrap", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyWrap,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::wrap` signal for using the `connect(signal:)` methods
+    static var notifyWrapSignal: SpinButtonSignalName { .notifyWrap }
     
 }
 
@@ -17137,7 +21214,219 @@ public extension SpinnerProtocol {
     }
 }
 
-// MARK: Spinner has no signals// MARK: Spinner Class: SpinnerProtocol extension (methods and fields)
+public enum SpinnerSignalName: String, SignalNameProtocol {
+    /// Signals that all holders of a reference to the widget should release
+    /// the reference that they hold. May result in finalization of the widget
+    /// if all references are released.
+    /// 
+    /// This signal is not suitable for saving widget state.
+    case destroy = "destroy"
+    /// The `direction`-changed signal is emitted when the text direction
+    /// of a widget changes.
+    case directionChanged = "direction-changed"
+    /// The `hide` signal is emitted when `widget` is hidden, for example with
+    /// `gtk_widget_hide()`.
+    case hide = "hide"
+    /// Gets emitted if keyboard navigation fails.
+    /// See `gtk_widget_keynav_failed()` for details.
+    case keynavFailed = "keynav-failed"
+    /// The `map` signal is emitted when `widget` is going to be mapped, that is
+    /// when the widget is visible (which is controlled with
+    /// `gtk_widget_set_visible()`) and all its parents up to the toplevel widget
+    /// are also visible.
+    /// 
+    /// The `map` signal can be used to determine whether a widget will be drawn,
+    /// for instance it can resume an animation that was stopped during the
+    /// emission of `GtkWidget::unmap`.
+    case map = "map"
+    /// The default handler for this signal activates `widget` if `group_cycling`
+    /// is `false`, or just makes `widget` grab focus if `group_cycling` is `true`.
+    case mnemonicActivate = "mnemonic-activate"
+    /// Emitted when the focus is moved.
+    case moveFocus = "move-focus"
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    case notify = "notify"
+    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
+    /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
+    /// focus in keyboard mode.
+    /// 
+    /// Using the given coordinates, the signal handler should determine
+    /// whether a tooltip should be shown for `widget`. If this is the case
+    /// `true` should be returned, `false` otherwise.  Note that if
+    /// `keyboard_mode` is `true`, the values of `x` and `y` are undefined and
+    /// should not be used.
+    /// 
+    /// The signal handler is free to manipulate `tooltip` with the therefore
+    /// destined function calls.
+    case queryTooltip = "query-tooltip"
+    /// The `realize` signal is emitted when `widget` is associated with a
+    /// `GdkSurface`, which means that `gtk_widget_realize()` has been called or the
+    /// widget has been mapped (that is, it is going to be drawn).
+    case realize = "realize"
+    /// The `show` signal is emitted when `widget` is shown, for example with
+    /// `gtk_widget_show()`.
+    case show = "show"
+    /// The `state`-flags-changed signal is emitted when the widget state
+    /// changes, see `gtk_widget_get_state_flags()`.
+    case stateFlagsChanged = "state-flags-changed"
+    /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
+    /// means that either it or any of its parents up to the toplevel widget have
+    /// been set as hidden.
+    /// 
+    /// As `unmap` indicates that a widget will not be shown any longer, it can be
+    /// used to, for example, stop an animation on the widget.
+    case unmap = "unmap"
+    /// The `unrealize` signal is emitted when the `GdkSurface` associated with
+    /// `widget` is destroyed, which means that `gtk_widget_unrealize()` has been
+    /// called or the widget has been unmapped (that is, it is going to be
+    /// hidden).
+    case unrealize = "unrealize"
+    /// Whether the widget or any of its descendents can accept
+    /// the input focus.
+    /// 
+    /// This property is meant to be set by widget implementations,
+    /// typically in their instance init function.
+    case notifyCanFocus = "notify::can-focus"
+    case notifyCanTarget = "notify::can-target"
+    /// A list of css classes applied to this widget.
+    case notifyCssClasses = "notify::css-classes"
+    /// The name of this widget in the CSS tree.
+    /// 
+    /// This property is meant to be set by widget implementations,
+    /// typically in their instance init function.
+    case notifyCssName = "notify::css-name"
+    /// The cursor used by `widget`. See `gtk_widget_set_cursor()` for details.
+    case notifyCursor = "notify::cursor"
+    /// Whether the widget should grab focus when it is clicked with the mouse.
+    /// 
+    /// This property is only relevant for widgets that can take focus.
+    case notifyFocusOnClick = "notify::focus-on-click"
+    /// Whether this widget itself will accept the input focus.
+    case notifyFocusable = "notify::focusable"
+    /// How to distribute horizontal space if widget gets extra space, see `GtkAlign`
+    case notifyHalign = "notify::halign"
+    case notifyHasDefault = "notify::has-default"
+    case notifyHasFocus = "notify::has-focus"
+    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// A value of `true` indicates that `widget` can have a tooltip, in this case
+    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// whether it will provide a tooltip or not.
+    case notifyHasTooltip = "notify::has-tooltip"
+    case notifyHeightRequest = "notify::height-request"
+    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
+    case notifyHexpand = "notify::hexpand"
+    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
+    case notifyHexpandSet = "notify::hexpand-set"
+    /// The `GtkLayoutManager` instance to use to compute the preferred size
+    /// of the widget, and allocate its children.
+    /// 
+    /// This property is meant to be set by widget implementations,
+    /// typically in their instance init function.
+    case notifyLayoutManager = "notify::layout-manager"
+    /// Margin on bottom side of widget.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginBottom = "notify::margin-bottom"
+    /// Margin on end of widget, horizontally. This property supports
+    /// left-to-right and right-to-left text directions.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginEnd = "notify::margin-end"
+    /// Margin on start of widget, horizontally. This property supports
+    /// left-to-right and right-to-left text directions.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginStart = "notify::margin-start"
+    /// Margin on top side of widget.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginTop = "notify::margin-top"
+    case notifyName = "notify::name"
+    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
+    /// more details about window opacity.
+    case notifyOpacity = "notify::opacity"
+    /// How content outside the widget's content area is treated.
+    /// 
+    /// This property is meant to be set by widget implementations,
+    /// typically in their instance init function.
+    case notifyOverflow = "notify::overflow"
+    case notifyParent = "notify::parent"
+    case notifyReceivesDefault = "notify::receives-default"
+    /// The `GtkRoot` widget of the widget tree containing this widget or `nil` if
+    /// the widget is not contained in a root widget.
+    case notifyRoot = "notify::root"
+    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
+    /// more details about widget scaling.
+    case notifyScaleFactor = "notify::scale-factor"
+    case notifySensitive = "notify::sensitive"
+    case notifySpinning = "notify::spinning"
+    /// Sets the text of tooltip to be the given string, which is marked up
+    /// with the [Pango text markup language](#PangoMarkupFormat).
+    /// Also see `gtk_tooltip_set_markup()`.
+    /// 
+    /// This is a convenience property which will take care of getting the
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// will automatically be set to `true` and there will be taken care of
+    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// 
+    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// are set, the last one wins.
+    case notifyTooltipMarkup = "notify::tooltip-markup"
+    /// Sets the text of tooltip to be the given string.
+    /// 
+    /// Also see `gtk_tooltip_set_text()`.
+    /// 
+    /// This is a convenience property which will take care of getting the
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// will automatically be set to `true` and there will be taken care of
+    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// 
+    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// are set, the last one wins.
+    case notifyTooltipText = "notify::tooltip-text"
+    /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
+    case notifyValign = "notify::valign"
+    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
+    case notifyVexpand = "notify::vexpand"
+    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
+    case notifyVexpandSet = "notify::vexpand-set"
+    case notifyVisible = "notify::visible"
+    case notifyWidthRequest = "notify::width-request"
+}
+
+// MARK: Spinner has no signals
+// MARK: Spinner Class: SpinnerProtocol extension (methods and fields)
 public extension SpinnerProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkSpinner` instance.
     @inlinable var spinner_ptr: UnsafeMutablePointer<GtkSpinner>! { return ptr?.assumingMemoryBound(to: GtkSpinner.self) }
@@ -17738,7 +22027,229 @@ public extension StackProtocol {
     }
 }
 
-// MARK: Stack has no signals// MARK: Stack Class: StackProtocol extension (methods and fields)
+public enum StackSignalName: String, SignalNameProtocol {
+    /// Signals that all holders of a reference to the widget should release
+    /// the reference that they hold. May result in finalization of the widget
+    /// if all references are released.
+    /// 
+    /// This signal is not suitable for saving widget state.
+    case destroy = "destroy"
+    /// The `direction`-changed signal is emitted when the text direction
+    /// of a widget changes.
+    case directionChanged = "direction-changed"
+    /// The `hide` signal is emitted when `widget` is hidden, for example with
+    /// `gtk_widget_hide()`.
+    case hide = "hide"
+    /// Gets emitted if keyboard navigation fails.
+    /// See `gtk_widget_keynav_failed()` for details.
+    case keynavFailed = "keynav-failed"
+    /// The `map` signal is emitted when `widget` is going to be mapped, that is
+    /// when the widget is visible (which is controlled with
+    /// `gtk_widget_set_visible()`) and all its parents up to the toplevel widget
+    /// are also visible.
+    /// 
+    /// The `map` signal can be used to determine whether a widget will be drawn,
+    /// for instance it can resume an animation that was stopped during the
+    /// emission of `GtkWidget::unmap`.
+    case map = "map"
+    /// The default handler for this signal activates `widget` if `group_cycling`
+    /// is `false`, or just makes `widget` grab focus if `group_cycling` is `true`.
+    case mnemonicActivate = "mnemonic-activate"
+    /// Emitted when the focus is moved.
+    case moveFocus = "move-focus"
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    case notify = "notify"
+    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
+    /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
+    /// focus in keyboard mode.
+    /// 
+    /// Using the given coordinates, the signal handler should determine
+    /// whether a tooltip should be shown for `widget`. If this is the case
+    /// `true` should be returned, `false` otherwise.  Note that if
+    /// `keyboard_mode` is `true`, the values of `x` and `y` are undefined and
+    /// should not be used.
+    /// 
+    /// The signal handler is free to manipulate `tooltip` with the therefore
+    /// destined function calls.
+    case queryTooltip = "query-tooltip"
+    /// The `realize` signal is emitted when `widget` is associated with a
+    /// `GdkSurface`, which means that `gtk_widget_realize()` has been called or the
+    /// widget has been mapped (that is, it is going to be drawn).
+    case realize = "realize"
+    /// The `show` signal is emitted when `widget` is shown, for example with
+    /// `gtk_widget_show()`.
+    case show = "show"
+    /// The `state`-flags-changed signal is emitted when the widget state
+    /// changes, see `gtk_widget_get_state_flags()`.
+    case stateFlagsChanged = "state-flags-changed"
+    /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
+    /// means that either it or any of its parents up to the toplevel widget have
+    /// been set as hidden.
+    /// 
+    /// As `unmap` indicates that a widget will not be shown any longer, it can be
+    /// used to, for example, stop an animation on the widget.
+    case unmap = "unmap"
+    /// The `unrealize` signal is emitted when the `GdkSurface` associated with
+    /// `widget` is destroyed, which means that `gtk_widget_unrealize()` has been
+    /// called or the widget has been unmapped (that is, it is going to be
+    /// hidden).
+    case unrealize = "unrealize"
+    /// Whether the widget or any of its descendents can accept
+    /// the input focus.
+    /// 
+    /// This property is meant to be set by widget implementations,
+    /// typically in their instance init function.
+    case notifyCanFocus = "notify::can-focus"
+    case notifyCanTarget = "notify::can-target"
+    /// A list of css classes applied to this widget.
+    case notifyCssClasses = "notify::css-classes"
+    /// The name of this widget in the CSS tree.
+    /// 
+    /// This property is meant to be set by widget implementations,
+    /// typically in their instance init function.
+    case notifyCssName = "notify::css-name"
+    /// The cursor used by `widget`. See `gtk_widget_set_cursor()` for details.
+    case notifyCursor = "notify::cursor"
+    /// Whether the widget should grab focus when it is clicked with the mouse.
+    /// 
+    /// This property is only relevant for widgets that can take focus.
+    case notifyFocusOnClick = "notify::focus-on-click"
+    /// Whether this widget itself will accept the input focus.
+    case notifyFocusable = "notify::focusable"
+    /// How to distribute horizontal space if widget gets extra space, see `GtkAlign`
+    case notifyHalign = "notify::halign"
+    case notifyHasDefault = "notify::has-default"
+    case notifyHasFocus = "notify::has-focus"
+    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// A value of `true` indicates that `widget` can have a tooltip, in this case
+    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// whether it will provide a tooltip or not.
+    case notifyHasTooltip = "notify::has-tooltip"
+    case notifyHeightRequest = "notify::height-request"
+    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
+    case notifyHexpand = "notify::hexpand"
+    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
+    case notifyHexpandSet = "notify::hexpand-set"
+    /// `true` if the stack allocates the same width for all children.
+    case notifyHhomogeneous = "notify::hhomogeneous"
+    case notifyInterpolateSize = "notify::interpolate-size"
+    /// The `GtkLayoutManager` instance to use to compute the preferred size
+    /// of the widget, and allocate its children.
+    /// 
+    /// This property is meant to be set by widget implementations,
+    /// typically in their instance init function.
+    case notifyLayoutManager = "notify::layout-manager"
+    /// Margin on bottom side of widget.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginBottom = "notify::margin-bottom"
+    /// Margin on end of widget, horizontally. This property supports
+    /// left-to-right and right-to-left text directions.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginEnd = "notify::margin-end"
+    /// Margin on start of widget, horizontally. This property supports
+    /// left-to-right and right-to-left text directions.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginStart = "notify::margin-start"
+    /// Margin on top side of widget.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginTop = "notify::margin-top"
+    case notifyName = "notify::name"
+    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
+    /// more details about window opacity.
+    case notifyOpacity = "notify::opacity"
+    /// How content outside the widget's content area is treated.
+    /// 
+    /// This property is meant to be set by widget implementations,
+    /// typically in their instance init function.
+    case notifyOverflow = "notify::overflow"
+    case notifyPages = "notify::pages"
+    case notifyParent = "notify::parent"
+    case notifyReceivesDefault = "notify::receives-default"
+    /// The `GtkRoot` widget of the widget tree containing this widget or `nil` if
+    /// the widget is not contained in a root widget.
+    case notifyRoot = "notify::root"
+    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
+    /// more details about widget scaling.
+    case notifyScaleFactor = "notify::scale-factor"
+    case notifySensitive = "notify::sensitive"
+    /// Sets the text of tooltip to be the given string, which is marked up
+    /// with the [Pango text markup language](#PangoMarkupFormat).
+    /// Also see `gtk_tooltip_set_markup()`.
+    /// 
+    /// This is a convenience property which will take care of getting the
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// will automatically be set to `true` and there will be taken care of
+    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// 
+    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// are set, the last one wins.
+    case notifyTooltipMarkup = "notify::tooltip-markup"
+    /// Sets the text of tooltip to be the given string.
+    /// 
+    /// Also see `gtk_tooltip_set_text()`.
+    /// 
+    /// This is a convenience property which will take care of getting the
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// will automatically be set to `true` and there will be taken care of
+    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// 
+    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// are set, the last one wins.
+    case notifyTooltipText = "notify::tooltip-text"
+    case notifyTransitionDuration = "notify::transition-duration"
+    case notifyTransitionRunning = "notify::transition-running"
+    case notifyTransitionType = "notify::transition-type"
+    /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
+    case notifyValign = "notify::valign"
+    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
+    case notifyVexpand = "notify::vexpand"
+    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
+    case notifyVexpandSet = "notify::vexpand-set"
+    /// `true` if the stack allocates the same height for all children.
+    case notifyVhomogeneous = "notify::vhomogeneous"
+    case notifyVisible = "notify::visible"
+    case notifyVisibleChild = "notify::visible-child"
+    case notifyVisibleChildName = "notify::visible-child-name"
+    case notifyWidthRequest = "notify::width-request"
+}
+
+// MARK: Stack has no signals
+// MARK: Stack Class: StackProtocol extension (methods and fields)
 public extension StackProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkStack` instance.
     @inlinable var stack_ptr: UnsafeMutablePointer<GtkStack>! { return ptr?.assumingMemoryBound(to: GtkStack.self) }
@@ -18405,7 +22916,47 @@ public extension StackPageProtocol {
     }
 }
 
-// MARK: StackPage has no signals// MARK: StackPage Class: StackPageProtocol extension (methods and fields)
+public enum StackPageSignalName: String, SignalNameProtocol {
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    case notify = "notify"
+    case notifyChild = "notify::child"
+    case notifyIconName = "notify::icon-name"
+    case notifyName = "notify::name"
+    /// Sets a flag specifying whether the page requires the user attention.
+    /// This is used by the `GtkStackSwitcher` to change the appearance of the
+    /// corresponding button when a page needs attention and it is not the
+    /// current one.
+    case notifyNeedsAttention = "notify::needs-attention"
+    case notifyTitle = "notify::title"
+    case notifyUseUnderline = "notify::use-underline"
+    case notifyVisible = "notify::visible"
+}
+
+// MARK: StackPage has no signals
+// MARK: StackPage Class: StackPageProtocol extension (methods and fields)
 public extension StackPageProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkStackPage` instance.
     @inlinable var stack_page_ptr: UnsafeMutablePointer<GtkStackPage>! { return ptr?.assumingMemoryBound(to: GtkStackPage.self) }
@@ -19059,7 +23610,219 @@ public extension StackSidebarProtocol {
     }
 }
 
-// MARK: StackSidebar has no signals// MARK: StackSidebar Class: StackSidebarProtocol extension (methods and fields)
+public enum StackSidebarSignalName: String, SignalNameProtocol {
+    /// Signals that all holders of a reference to the widget should release
+    /// the reference that they hold. May result in finalization of the widget
+    /// if all references are released.
+    /// 
+    /// This signal is not suitable for saving widget state.
+    case destroy = "destroy"
+    /// The `direction`-changed signal is emitted when the text direction
+    /// of a widget changes.
+    case directionChanged = "direction-changed"
+    /// The `hide` signal is emitted when `widget` is hidden, for example with
+    /// `gtk_widget_hide()`.
+    case hide = "hide"
+    /// Gets emitted if keyboard navigation fails.
+    /// See `gtk_widget_keynav_failed()` for details.
+    case keynavFailed = "keynav-failed"
+    /// The `map` signal is emitted when `widget` is going to be mapped, that is
+    /// when the widget is visible (which is controlled with
+    /// `gtk_widget_set_visible()`) and all its parents up to the toplevel widget
+    /// are also visible.
+    /// 
+    /// The `map` signal can be used to determine whether a widget will be drawn,
+    /// for instance it can resume an animation that was stopped during the
+    /// emission of `GtkWidget::unmap`.
+    case map = "map"
+    /// The default handler for this signal activates `widget` if `group_cycling`
+    /// is `false`, or just makes `widget` grab focus if `group_cycling` is `true`.
+    case mnemonicActivate = "mnemonic-activate"
+    /// Emitted when the focus is moved.
+    case moveFocus = "move-focus"
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    case notify = "notify"
+    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
+    /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
+    /// focus in keyboard mode.
+    /// 
+    /// Using the given coordinates, the signal handler should determine
+    /// whether a tooltip should be shown for `widget`. If this is the case
+    /// `true` should be returned, `false` otherwise.  Note that if
+    /// `keyboard_mode` is `true`, the values of `x` and `y` are undefined and
+    /// should not be used.
+    /// 
+    /// The signal handler is free to manipulate `tooltip` with the therefore
+    /// destined function calls.
+    case queryTooltip = "query-tooltip"
+    /// The `realize` signal is emitted when `widget` is associated with a
+    /// `GdkSurface`, which means that `gtk_widget_realize()` has been called or the
+    /// widget has been mapped (that is, it is going to be drawn).
+    case realize = "realize"
+    /// The `show` signal is emitted when `widget` is shown, for example with
+    /// `gtk_widget_show()`.
+    case show = "show"
+    /// The `state`-flags-changed signal is emitted when the widget state
+    /// changes, see `gtk_widget_get_state_flags()`.
+    case stateFlagsChanged = "state-flags-changed"
+    /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
+    /// means that either it or any of its parents up to the toplevel widget have
+    /// been set as hidden.
+    /// 
+    /// As `unmap` indicates that a widget will not be shown any longer, it can be
+    /// used to, for example, stop an animation on the widget.
+    case unmap = "unmap"
+    /// The `unrealize` signal is emitted when the `GdkSurface` associated with
+    /// `widget` is destroyed, which means that `gtk_widget_unrealize()` has been
+    /// called or the widget has been unmapped (that is, it is going to be
+    /// hidden).
+    case unrealize = "unrealize"
+    /// Whether the widget or any of its descendents can accept
+    /// the input focus.
+    /// 
+    /// This property is meant to be set by widget implementations,
+    /// typically in their instance init function.
+    case notifyCanFocus = "notify::can-focus"
+    case notifyCanTarget = "notify::can-target"
+    /// A list of css classes applied to this widget.
+    case notifyCssClasses = "notify::css-classes"
+    /// The name of this widget in the CSS tree.
+    /// 
+    /// This property is meant to be set by widget implementations,
+    /// typically in their instance init function.
+    case notifyCssName = "notify::css-name"
+    /// The cursor used by `widget`. See `gtk_widget_set_cursor()` for details.
+    case notifyCursor = "notify::cursor"
+    /// Whether the widget should grab focus when it is clicked with the mouse.
+    /// 
+    /// This property is only relevant for widgets that can take focus.
+    case notifyFocusOnClick = "notify::focus-on-click"
+    /// Whether this widget itself will accept the input focus.
+    case notifyFocusable = "notify::focusable"
+    /// How to distribute horizontal space if widget gets extra space, see `GtkAlign`
+    case notifyHalign = "notify::halign"
+    case notifyHasDefault = "notify::has-default"
+    case notifyHasFocus = "notify::has-focus"
+    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// A value of `true` indicates that `widget` can have a tooltip, in this case
+    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// whether it will provide a tooltip or not.
+    case notifyHasTooltip = "notify::has-tooltip"
+    case notifyHeightRequest = "notify::height-request"
+    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
+    case notifyHexpand = "notify::hexpand"
+    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
+    case notifyHexpandSet = "notify::hexpand-set"
+    /// The `GtkLayoutManager` instance to use to compute the preferred size
+    /// of the widget, and allocate its children.
+    /// 
+    /// This property is meant to be set by widget implementations,
+    /// typically in their instance init function.
+    case notifyLayoutManager = "notify::layout-manager"
+    /// Margin on bottom side of widget.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginBottom = "notify::margin-bottom"
+    /// Margin on end of widget, horizontally. This property supports
+    /// left-to-right and right-to-left text directions.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginEnd = "notify::margin-end"
+    /// Margin on start of widget, horizontally. This property supports
+    /// left-to-right and right-to-left text directions.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginStart = "notify::margin-start"
+    /// Margin on top side of widget.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginTop = "notify::margin-top"
+    case notifyName = "notify::name"
+    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
+    /// more details about window opacity.
+    case notifyOpacity = "notify::opacity"
+    /// How content outside the widget's content area is treated.
+    /// 
+    /// This property is meant to be set by widget implementations,
+    /// typically in their instance init function.
+    case notifyOverflow = "notify::overflow"
+    case notifyParent = "notify::parent"
+    case notifyReceivesDefault = "notify::receives-default"
+    /// The `GtkRoot` widget of the widget tree containing this widget or `nil` if
+    /// the widget is not contained in a root widget.
+    case notifyRoot = "notify::root"
+    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
+    /// more details about widget scaling.
+    case notifyScaleFactor = "notify::scale-factor"
+    case notifySensitive = "notify::sensitive"
+    case notifyStack = "notify::stack"
+    /// Sets the text of tooltip to be the given string, which is marked up
+    /// with the [Pango text markup language](#PangoMarkupFormat).
+    /// Also see `gtk_tooltip_set_markup()`.
+    /// 
+    /// This is a convenience property which will take care of getting the
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// will automatically be set to `true` and there will be taken care of
+    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// 
+    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// are set, the last one wins.
+    case notifyTooltipMarkup = "notify::tooltip-markup"
+    /// Sets the text of tooltip to be the given string.
+    /// 
+    /// Also see `gtk_tooltip_set_text()`.
+    /// 
+    /// This is a convenience property which will take care of getting the
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// will automatically be set to `true` and there will be taken care of
+    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// 
+    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// are set, the last one wins.
+    case notifyTooltipText = "notify::tooltip-text"
+    /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
+    case notifyValign = "notify::valign"
+    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
+    case notifyVexpand = "notify::vexpand"
+    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
+    case notifyVexpandSet = "notify::vexpand-set"
+    case notifyVisible = "notify::visible"
+    case notifyWidthRequest = "notify::width-request"
+}
+
+// MARK: StackSidebar has no signals
+// MARK: StackSidebar Class: StackSidebarProtocol extension (methods and fields)
 public extension StackSidebarProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkStackSidebar` instance.
     @inlinable var stack_sidebar_ptr: UnsafeMutablePointer<GtkStackSidebar>! { return ptr?.assumingMemoryBound(to: GtkStackSidebar.self) }
@@ -19595,7 +24358,219 @@ public extension StackSwitcherProtocol {
     }
 }
 
-// MARK: StackSwitcher has no signals// MARK: StackSwitcher Class: StackSwitcherProtocol extension (methods and fields)
+public enum StackSwitcherSignalName: String, SignalNameProtocol {
+    /// Signals that all holders of a reference to the widget should release
+    /// the reference that they hold. May result in finalization of the widget
+    /// if all references are released.
+    /// 
+    /// This signal is not suitable for saving widget state.
+    case destroy = "destroy"
+    /// The `direction`-changed signal is emitted when the text direction
+    /// of a widget changes.
+    case directionChanged = "direction-changed"
+    /// The `hide` signal is emitted when `widget` is hidden, for example with
+    /// `gtk_widget_hide()`.
+    case hide = "hide"
+    /// Gets emitted if keyboard navigation fails.
+    /// See `gtk_widget_keynav_failed()` for details.
+    case keynavFailed = "keynav-failed"
+    /// The `map` signal is emitted when `widget` is going to be mapped, that is
+    /// when the widget is visible (which is controlled with
+    /// `gtk_widget_set_visible()`) and all its parents up to the toplevel widget
+    /// are also visible.
+    /// 
+    /// The `map` signal can be used to determine whether a widget will be drawn,
+    /// for instance it can resume an animation that was stopped during the
+    /// emission of `GtkWidget::unmap`.
+    case map = "map"
+    /// The default handler for this signal activates `widget` if `group_cycling`
+    /// is `false`, or just makes `widget` grab focus if `group_cycling` is `true`.
+    case mnemonicActivate = "mnemonic-activate"
+    /// Emitted when the focus is moved.
+    case moveFocus = "move-focus"
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    case notify = "notify"
+    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
+    /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
+    /// focus in keyboard mode.
+    /// 
+    /// Using the given coordinates, the signal handler should determine
+    /// whether a tooltip should be shown for `widget`. If this is the case
+    /// `true` should be returned, `false` otherwise.  Note that if
+    /// `keyboard_mode` is `true`, the values of `x` and `y` are undefined and
+    /// should not be used.
+    /// 
+    /// The signal handler is free to manipulate `tooltip` with the therefore
+    /// destined function calls.
+    case queryTooltip = "query-tooltip"
+    /// The `realize` signal is emitted when `widget` is associated with a
+    /// `GdkSurface`, which means that `gtk_widget_realize()` has been called or the
+    /// widget has been mapped (that is, it is going to be drawn).
+    case realize = "realize"
+    /// The `show` signal is emitted when `widget` is shown, for example with
+    /// `gtk_widget_show()`.
+    case show = "show"
+    /// The `state`-flags-changed signal is emitted when the widget state
+    /// changes, see `gtk_widget_get_state_flags()`.
+    case stateFlagsChanged = "state-flags-changed"
+    /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
+    /// means that either it or any of its parents up to the toplevel widget have
+    /// been set as hidden.
+    /// 
+    /// As `unmap` indicates that a widget will not be shown any longer, it can be
+    /// used to, for example, stop an animation on the widget.
+    case unmap = "unmap"
+    /// The `unrealize` signal is emitted when the `GdkSurface` associated with
+    /// `widget` is destroyed, which means that `gtk_widget_unrealize()` has been
+    /// called or the widget has been unmapped (that is, it is going to be
+    /// hidden).
+    case unrealize = "unrealize"
+    /// Whether the widget or any of its descendents can accept
+    /// the input focus.
+    /// 
+    /// This property is meant to be set by widget implementations,
+    /// typically in their instance init function.
+    case notifyCanFocus = "notify::can-focus"
+    case notifyCanTarget = "notify::can-target"
+    /// A list of css classes applied to this widget.
+    case notifyCssClasses = "notify::css-classes"
+    /// The name of this widget in the CSS tree.
+    /// 
+    /// This property is meant to be set by widget implementations,
+    /// typically in their instance init function.
+    case notifyCssName = "notify::css-name"
+    /// The cursor used by `widget`. See `gtk_widget_set_cursor()` for details.
+    case notifyCursor = "notify::cursor"
+    /// Whether the widget should grab focus when it is clicked with the mouse.
+    /// 
+    /// This property is only relevant for widgets that can take focus.
+    case notifyFocusOnClick = "notify::focus-on-click"
+    /// Whether this widget itself will accept the input focus.
+    case notifyFocusable = "notify::focusable"
+    /// How to distribute horizontal space if widget gets extra space, see `GtkAlign`
+    case notifyHalign = "notify::halign"
+    case notifyHasDefault = "notify::has-default"
+    case notifyHasFocus = "notify::has-focus"
+    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// A value of `true` indicates that `widget` can have a tooltip, in this case
+    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// whether it will provide a tooltip or not.
+    case notifyHasTooltip = "notify::has-tooltip"
+    case notifyHeightRequest = "notify::height-request"
+    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
+    case notifyHexpand = "notify::hexpand"
+    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
+    case notifyHexpandSet = "notify::hexpand-set"
+    /// The `GtkLayoutManager` instance to use to compute the preferred size
+    /// of the widget, and allocate its children.
+    /// 
+    /// This property is meant to be set by widget implementations,
+    /// typically in their instance init function.
+    case notifyLayoutManager = "notify::layout-manager"
+    /// Margin on bottom side of widget.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginBottom = "notify::margin-bottom"
+    /// Margin on end of widget, horizontally. This property supports
+    /// left-to-right and right-to-left text directions.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginEnd = "notify::margin-end"
+    /// Margin on start of widget, horizontally. This property supports
+    /// left-to-right and right-to-left text directions.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginStart = "notify::margin-start"
+    /// Margin on top side of widget.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginTop = "notify::margin-top"
+    case notifyName = "notify::name"
+    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
+    /// more details about window opacity.
+    case notifyOpacity = "notify::opacity"
+    /// How content outside the widget's content area is treated.
+    /// 
+    /// This property is meant to be set by widget implementations,
+    /// typically in their instance init function.
+    case notifyOverflow = "notify::overflow"
+    case notifyParent = "notify::parent"
+    case notifyReceivesDefault = "notify::receives-default"
+    /// The `GtkRoot` widget of the widget tree containing this widget or `nil` if
+    /// the widget is not contained in a root widget.
+    case notifyRoot = "notify::root"
+    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
+    /// more details about widget scaling.
+    case notifyScaleFactor = "notify::scale-factor"
+    case notifySensitive = "notify::sensitive"
+    case notifyStack = "notify::stack"
+    /// Sets the text of tooltip to be the given string, which is marked up
+    /// with the [Pango text markup language](#PangoMarkupFormat).
+    /// Also see `gtk_tooltip_set_markup()`.
+    /// 
+    /// This is a convenience property which will take care of getting the
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// will automatically be set to `true` and there will be taken care of
+    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// 
+    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// are set, the last one wins.
+    case notifyTooltipMarkup = "notify::tooltip-markup"
+    /// Sets the text of tooltip to be the given string.
+    /// 
+    /// Also see `gtk_tooltip_set_text()`.
+    /// 
+    /// This is a convenience property which will take care of getting the
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// will automatically be set to `true` and there will be taken care of
+    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// 
+    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// are set, the last one wins.
+    case notifyTooltipText = "notify::tooltip-text"
+    /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
+    case notifyValign = "notify::valign"
+    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
+    case notifyVexpand = "notify::vexpand"
+    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
+    case notifyVexpandSet = "notify::vexpand-set"
+    case notifyVisible = "notify::visible"
+    case notifyWidthRequest = "notify::width-request"
+}
+
+// MARK: StackSwitcher has no signals
+// MARK: StackSwitcher Class: StackSwitcherProtocol extension (methods and fields)
 public extension StackSwitcherProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkStackSwitcher` instance.
     @inlinable var stack_switcher_ptr: UnsafeMutablePointer<GtkStackSwitcher>! { return ptr?.assumingMemoryBound(to: GtkStackSwitcher.self) }
@@ -20153,53 +25128,301 @@ public extension StatusbarProtocol {
     }
 }
 
-// MARK: Signals of Statusbar
-public extension StatusbarProtocol {
+public enum StatusbarSignalName: String, SignalNameProtocol {
+    /// Signals that all holders of a reference to the widget should release
+    /// the reference that they hold. May result in finalization of the widget
+    /// if all references are released.
+    /// 
+    /// This signal is not suitable for saving widget state.
+    case destroy = "destroy"
+    /// The `direction`-changed signal is emitted when the text direction
+    /// of a widget changes.
+    case directionChanged = "direction-changed"
+    /// The `hide` signal is emitted when `widget` is hidden, for example with
+    /// `gtk_widget_hide()`.
+    case hide = "hide"
+    /// Gets emitted if keyboard navigation fails.
+    /// See `gtk_widget_keynav_failed()` for details.
+    case keynavFailed = "keynav-failed"
+    /// The `map` signal is emitted when `widget` is going to be mapped, that is
+    /// when the widget is visible (which is controlled with
+    /// `gtk_widget_set_visible()`) and all its parents up to the toplevel widget
+    /// are also visible.
+    /// 
+    /// The `map` signal can be used to determine whether a widget will be drawn,
+    /// for instance it can resume an animation that was stopped during the
+    /// emission of `GtkWidget::unmap`.
+    case map = "map"
+    /// The default handler for this signal activates `widget` if `group_cycling`
+    /// is `false`, or just makes `widget` grab focus if `group_cycling` is `true`.
+    case mnemonicActivate = "mnemonic-activate"
+    /// Emitted when the focus is moved.
+    case moveFocus = "move-focus"
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    case notify = "notify"
+    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
+    /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
+    /// focus in keyboard mode.
+    /// 
+    /// Using the given coordinates, the signal handler should determine
+    /// whether a tooltip should be shown for `widget`. If this is the case
+    /// `true` should be returned, `false` otherwise.  Note that if
+    /// `keyboard_mode` is `true`, the values of `x` and `y` are undefined and
+    /// should not be used.
+    /// 
+    /// The signal handler is free to manipulate `tooltip` with the therefore
+    /// destined function calls.
+    case queryTooltip = "query-tooltip"
+    /// The `realize` signal is emitted when `widget` is associated with a
+    /// `GdkSurface`, which means that `gtk_widget_realize()` has been called or the
+    /// widget has been mapped (that is, it is going to be drawn).
+    case realize = "realize"
+    /// The `show` signal is emitted when `widget` is shown, for example with
+    /// `gtk_widget_show()`.
+    case show = "show"
+    /// The `state`-flags-changed signal is emitted when the widget state
+    /// changes, see `gtk_widget_get_state_flags()`.
+    case stateFlagsChanged = "state-flags-changed"
     /// Is emitted whenever a new message is popped off a statusbar's stack.
-    /// - Note: Representation of signal named `text-popped`
+    case textPopped = "text-popped"
+    /// Is emitted whenever a new message gets pushed onto a statusbar's stack.
+    case textPushed = "text-pushed"
+    /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
+    /// means that either it or any of its parents up to the toplevel widget have
+    /// been set as hidden.
+    /// 
+    /// As `unmap` indicates that a widget will not be shown any longer, it can be
+    /// used to, for example, stop an animation on the widget.
+    case unmap = "unmap"
+    /// The `unrealize` signal is emitted when the `GdkSurface` associated with
+    /// `widget` is destroyed, which means that `gtk_widget_unrealize()` has been
+    /// called or the widget has been unmapped (that is, it is going to be
+    /// hidden).
+    case unrealize = "unrealize"
+    /// Whether the widget or any of its descendents can accept
+    /// the input focus.
+    /// 
+    /// This property is meant to be set by widget implementations,
+    /// typically in their instance init function.
+    case notifyCanFocus = "notify::can-focus"
+    case notifyCanTarget = "notify::can-target"
+    /// A list of css classes applied to this widget.
+    case notifyCssClasses = "notify::css-classes"
+    /// The name of this widget in the CSS tree.
+    /// 
+    /// This property is meant to be set by widget implementations,
+    /// typically in their instance init function.
+    case notifyCssName = "notify::css-name"
+    /// The cursor used by `widget`. See `gtk_widget_set_cursor()` for details.
+    case notifyCursor = "notify::cursor"
+    /// Whether the widget should grab focus when it is clicked with the mouse.
+    /// 
+    /// This property is only relevant for widgets that can take focus.
+    case notifyFocusOnClick = "notify::focus-on-click"
+    /// Whether this widget itself will accept the input focus.
+    case notifyFocusable = "notify::focusable"
+    /// How to distribute horizontal space if widget gets extra space, see `GtkAlign`
+    case notifyHalign = "notify::halign"
+    case notifyHasDefault = "notify::has-default"
+    case notifyHasFocus = "notify::has-focus"
+    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// A value of `true` indicates that `widget` can have a tooltip, in this case
+    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// whether it will provide a tooltip or not.
+    case notifyHasTooltip = "notify::has-tooltip"
+    case notifyHeightRequest = "notify::height-request"
+    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
+    case notifyHexpand = "notify::hexpand"
+    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
+    case notifyHexpandSet = "notify::hexpand-set"
+    /// The `GtkLayoutManager` instance to use to compute the preferred size
+    /// of the widget, and allocate its children.
+    /// 
+    /// This property is meant to be set by widget implementations,
+    /// typically in their instance init function.
+    case notifyLayoutManager = "notify::layout-manager"
+    /// Margin on bottom side of widget.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginBottom = "notify::margin-bottom"
+    /// Margin on end of widget, horizontally. This property supports
+    /// left-to-right and right-to-left text directions.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginEnd = "notify::margin-end"
+    /// Margin on start of widget, horizontally. This property supports
+    /// left-to-right and right-to-left text directions.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginStart = "notify::margin-start"
+    /// Margin on top side of widget.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginTop = "notify::margin-top"
+    case notifyName = "notify::name"
+    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
+    /// more details about window opacity.
+    case notifyOpacity = "notify::opacity"
+    /// How content outside the widget's content area is treated.
+    /// 
+    /// This property is meant to be set by widget implementations,
+    /// typically in their instance init function.
+    case notifyOverflow = "notify::overflow"
+    case notifyParent = "notify::parent"
+    case notifyReceivesDefault = "notify::receives-default"
+    /// The `GtkRoot` widget of the widget tree containing this widget or `nil` if
+    /// the widget is not contained in a root widget.
+    case notifyRoot = "notify::root"
+    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
+    /// more details about widget scaling.
+    case notifyScaleFactor = "notify::scale-factor"
+    case notifySensitive = "notify::sensitive"
+    /// Sets the text of tooltip to be the given string, which is marked up
+    /// with the [Pango text markup language](#PangoMarkupFormat).
+    /// Also see `gtk_tooltip_set_markup()`.
+    /// 
+    /// This is a convenience property which will take care of getting the
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// will automatically be set to `true` and there will be taken care of
+    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// 
+    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// are set, the last one wins.
+    case notifyTooltipMarkup = "notify::tooltip-markup"
+    /// Sets the text of tooltip to be the given string.
+    /// 
+    /// Also see `gtk_tooltip_set_text()`.
+    /// 
+    /// This is a convenience property which will take care of getting the
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// will automatically be set to `true` and there will be taken care of
+    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// 
+    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// are set, the last one wins.
+    case notifyTooltipText = "notify::tooltip-text"
+    /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
+    case notifyValign = "notify::valign"
+    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
+    case notifyVexpand = "notify::vexpand"
+    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
+    case notifyVexpandSet = "notify::vexpand-set"
+    case notifyVisible = "notify::visible"
+    case notifyWidthRequest = "notify::width-request"
+}
+
+// MARK: Statusbar signals
+public extension StatusbarProtocol {
+    /// Connect a Swift signal handler to the given, typed `StatusbarSignalName` signal
+    /// - Parameters:
+    ///   - signal: The signal to connect
+    ///   - flags: The connection flags to use
+    ///   - data: A pointer to user data to provide to the callback
+    ///   - destroyData: A `GClosureNotify` C function to destroy the data pointed to by `userData`
+    ///   - handler: The Swift signal handler (function or callback) to invoke on the given signal
+    /// - Returns: The signal handler ID (always greater than 0 for successful connections)
+    @inlinable @discardableResult func connect(signal s: StatusbarSignalName, flags f: ConnectFlags = ConnectFlags(0), handler h: @escaping SignalHandler) -> Int {
+        connect(s, flags: f, handler: h)
+    }
+    
+    
+    /// Connect a C signal handler to the given, typed `StatusbarSignalName` signal
+    /// - Parameters:
+    ///   - signal: The signal to connect
+    ///   - flags: The connection flags to use
+    ///   - data: A pointer to user data to provide to the callback
+    ///   - destroyData: A `GClosureNotify` C function to destroy the data pointed to by `userData`
+    ///   - signalHandler: The C function to be called on the given signal
+    /// - Returns: The signal handler ID (always greater than 0 for successful connections)
+    @inlinable @discardableResult func connect(signal s: StatusbarSignalName, flags f: ConnectFlags = ConnectFlags(0), data userData: gpointer!, destroyData destructor: GClosureNotify? = nil, signalHandler h: @escaping GCallback) -> Int {
+        connectSignal(s, flags: f, data: userData, destroyData: destructor, handler: h)
+    }
+    
+    
+    /// Is emitted whenever a new message is popped off a statusbar's stack.
+    /// - Note: This represents the underlying `text-popped` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter contextId: the context id of the relevant message/statusbar
     /// - Parameter text: the message that was just popped
-    @discardableResult
-    func onTextPopped(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: StatusbarRef, _ contextId: UInt, _ text: String) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `textPopped` signal is emitted
+    @discardableResult @inlinable func onTextPopped(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: StatusbarRef, _ contextId: UInt, _ text: String) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder3<StatusbarRef, UInt, String, Void>
         let cCallback: @convention(c) (gpointer, guint, UnsafeMutablePointer<gchar>?, gpointer) -> Void = { unownedSelf, arg1, arg2, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(StatusbarRef(raw: unownedSelf), UInt(arg1), arg2.map({ String(cString: $0) })!)
             return output
         }
-        return signalConnectData(
-            detailedSignal: "text-popped", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .textPopped,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
     
+    /// Typed `text-popped` signal for using the `connect(signal:)` methods
+    static var textPoppedSignal: StatusbarSignalName { .textPopped }
+    
     /// Is emitted whenever a new message gets pushed onto a statusbar's stack.
-    /// - Note: Representation of signal named `text-pushed`
+    /// - Note: This represents the underlying `text-pushed` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter contextId: the context id of the relevant message/statusbar
     /// - Parameter text: the message that was pushed
-    @discardableResult
-    func onTextPushed(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: StatusbarRef, _ contextId: UInt, _ text: String) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `textPushed` signal is emitted
+    @discardableResult @inlinable func onTextPushed(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: StatusbarRef, _ contextId: UInt, _ text: String) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder3<StatusbarRef, UInt, String, Void>
         let cCallback: @convention(c) (gpointer, guint, UnsafeMutablePointer<gchar>?, gpointer) -> Void = { unownedSelf, arg1, arg2, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(StatusbarRef(raw: unownedSelf), UInt(arg1), arg2.map({ String(cString: $0) })!)
             return output
         }
-        return signalConnectData(
-            detailedSignal: "text-pushed", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .textPushed,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `text-pushed` signal for using the `connect(signal:)` methods
+    static var textPushedSignal: StatusbarSignalName { .textPushed }
     
     
 }
@@ -20586,7 +25809,52 @@ public extension StringFilterProtocol {
     }
 }
 
-// MARK: StringFilter has no signals// MARK: StringFilter Class: StringFilterProtocol extension (methods and fields)
+public enum StringFilterSignalName: String, SignalNameProtocol {
+    /// This signal is emitted whenever the filter changed. Users of the filter
+    /// should then check items again via `gtk_filter_match()`.
+    /// 
+    /// `GtkFilterListModel` handles this signal automatically.
+    /// 
+    /// Depending on the `change` parameter, not all items need to be changed, but
+    /// only some. Refer to the `GtkFilterChange` documentation for details.
+    case changed = "changed"
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    case notify = "notify"
+    /// The expression to evaluate on item to get a string to compare with
+    case notifyExpression = "notify::expression"
+    /// If matching is case sensitive
+    case notifyIgnoreCase = "notify::ignore-case"
+    /// If exact matches are necessary or if substrings are allowed
+    case notifyMatchMode = "notify::match-mode"
+    /// The search term
+    case notifySearch = "notify::search"
+}
+
+// MARK: StringFilter has no signals
+// MARK: StringFilter Class: StringFilterProtocol extension (methods and fields)
 public extension StringFilterProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkStringFilter` instance.
     @inlinable var string_filter_ptr: UnsafeMutablePointer<GtkStringFilter>! { return ptr?.assumingMemoryBound(to: GtkStringFilter.self) }
@@ -21026,7 +26294,37 @@ open class StringList: GLibObject.Object, StringListProtocol {
 
 // MARK: no StringList properties
 
-// MARK: StringList has no signals// MARK: StringList Class: StringListProtocol extension (methods and fields)
+public enum StringListSignalName: String, SignalNameProtocol {
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    case notify = "notify"
+
+}
+
+// MARK: StringList has no signals
+// MARK: StringList Class: StringListProtocol extension (methods and fields)
 public extension StringListProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkStringList` instance.
     @inlinable var string_list_ptr: UnsafeMutablePointer<GtkStringList>! { return ptr?.assumingMemoryBound(to: GtkStringList.self) }
@@ -21399,7 +26697,37 @@ public extension StringObjectProtocol {
     }
 }
 
-// MARK: StringObject has no signals// MARK: StringObject Class: StringObjectProtocol extension (methods and fields)
+public enum StringObjectSignalName: String, SignalNameProtocol {
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    case notify = "notify"
+    case notifyString = "notify::string"
+}
+
+// MARK: StringObject has no signals
+// MARK: StringObject Class: StringObjectProtocol extension (methods and fields)
 public extension StringObjectProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkStringObject` instance.
     @inlinable var string_object_ptr: UnsafeMutablePointer<GtkStringObject>! { return ptr?.assumingMemoryBound(to: GtkStringObject.self) }
@@ -21753,7 +27081,49 @@ public extension StringSorterProtocol {
     }
 }
 
-// MARK: StringSorter has no signals// MARK: StringSorter Class: StringSorterProtocol extension (methods and fields)
+public enum StringSorterSignalName: String, SignalNameProtocol {
+    /// This signal is emitted whenever the sorter changed. Users of the sorter
+    /// should then update the sort order again via `gtk_sorter_compare()`.
+    /// 
+    /// `GtkSortListModel` handles this signal automatically.
+    /// 
+    /// Depending on the `change` parameter, it may be possible to update
+    /// the sort order without a full resorting. Refer to the `GtkSorterChange`
+    /// documentation for details.
+    case changed = "changed"
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    case notify = "notify"
+    /// The expression to evaluate on item to get a string to compare with
+    case notifyExpression = "notify::expression"
+    /// If matching is case sensitive
+    case notifyIgnoreCase = "notify::ignore-case"
+}
+
+// MARK: StringSorter has no signals
+// MARK: StringSorter Class: StringSorterProtocol extension (methods and fields)
 public extension StringSorterProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkStringSorter` instance.
     @inlinable var string_sorter_ptr: UnsafeMutablePointer<GtkStringSorter>! { return ptr?.assumingMemoryBound(to: GtkStringSorter.self) }
@@ -22234,7 +27604,37 @@ public extension StyleContextProtocol {
     }
 }
 
-// MARK: StyleContext has no signals// MARK: StyleContext Class: StyleContextProtocol extension (methods and fields)
+public enum StyleContextSignalName: String, SignalNameProtocol {
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    case notify = "notify"
+    case notifyDisplay = "notify::display"
+}
+
+// MARK: StyleContext has no signals
+// MARK: StyleContext Class: StyleContextProtocol extension (methods and fields)
 public extension StyleContextProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkStyleContext` instance.
     @inlinable var style_context_ptr: UnsafeMutablePointer<GtkStyleContext>! { return ptr?.assumingMemoryBound(to: GtkStyleContext.self) }
@@ -23087,31 +28487,295 @@ public extension SwitchProtocol {
     }
 }
 
-// MARK: Signals of Switch
-public extension SwitchProtocol {
+public enum SwitchSignalName: String, SignalNameProtocol {
     /// The `activate` signal on GtkSwitch is an action signal and
     /// emitting it causes the switch to animate.
     /// Applications should never connect to this signal, but use the
     /// notify`active` signal.
-    /// - Note: Representation of signal named `activate`
+    case activate = "activate"
+    /// Signals that all holders of a reference to the widget should release
+    /// the reference that they hold. May result in finalization of the widget
+    /// if all references are released.
+    /// 
+    /// This signal is not suitable for saving widget state.
+    case destroy = "destroy"
+    /// The `direction`-changed signal is emitted when the text direction
+    /// of a widget changes.
+    case directionChanged = "direction-changed"
+    /// The `hide` signal is emitted when `widget` is hidden, for example with
+    /// `gtk_widget_hide()`.
+    case hide = "hide"
+    /// Gets emitted if keyboard navigation fails.
+    /// See `gtk_widget_keynav_failed()` for details.
+    case keynavFailed = "keynav-failed"
+    /// The `map` signal is emitted when `widget` is going to be mapped, that is
+    /// when the widget is visible (which is controlled with
+    /// `gtk_widget_set_visible()`) and all its parents up to the toplevel widget
+    /// are also visible.
+    /// 
+    /// The `map` signal can be used to determine whether a widget will be drawn,
+    /// for instance it can resume an animation that was stopped during the
+    /// emission of `GtkWidget::unmap`.
+    case map = "map"
+    /// The default handler for this signal activates `widget` if `group_cycling`
+    /// is `false`, or just makes `widget` grab focus if `group_cycling` is `true`.
+    case mnemonicActivate = "mnemonic-activate"
+    /// Emitted when the focus is moved.
+    case moveFocus = "move-focus"
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    case notify = "notify"
+    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
+    /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
+    /// focus in keyboard mode.
+    /// 
+    /// Using the given coordinates, the signal handler should determine
+    /// whether a tooltip should be shown for `widget`. If this is the case
+    /// `true` should be returned, `false` otherwise.  Note that if
+    /// `keyboard_mode` is `true`, the values of `x` and `y` are undefined and
+    /// should not be used.
+    /// 
+    /// The signal handler is free to manipulate `tooltip` with the therefore
+    /// destined function calls.
+    case queryTooltip = "query-tooltip"
+    /// The `realize` signal is emitted when `widget` is associated with a
+    /// `GdkSurface`, which means that `gtk_widget_realize()` has been called or the
+    /// widget has been mapped (that is, it is going to be drawn).
+    case realize = "realize"
+    /// The `show` signal is emitted when `widget` is shown, for example with
+    /// `gtk_widget_show()`.
+    case show = "show"
+    /// The `state`-flags-changed signal is emitted when the widget state
+    /// changes, see `gtk_widget_get_state_flags()`.
+    case stateFlagsChanged = "state-flags-changed"
+    /// The `state`-set signal on GtkSwitch is emitted to change the underlying
+    /// state. It is emitted when the user changes the switch position. The
+    /// default handler keeps the state in sync with the `GtkSwitch:active`
+    /// property.
+    /// 
+    /// To implement delayed state change, applications can connect to this signal,
+    /// initiate the change of the underlying state, and call `gtk_switch_set_state()`
+    /// when the underlying state change is complete. The signal handler should
+    /// return `true` to prevent the default handler from running.
+    /// 
+    /// Visually, the underlying state is represented by the trough color of
+    /// the switch, while the `GtkSwitch:active` property is represented by the
+    /// position of the switch.
+    case stateSet = "state-set"
+    /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
+    /// means that either it or any of its parents up to the toplevel widget have
+    /// been set as hidden.
+    /// 
+    /// As `unmap` indicates that a widget will not be shown any longer, it can be
+    /// used to, for example, stop an animation on the widget.
+    case unmap = "unmap"
+    /// The `unrealize` signal is emitted when the `GdkSurface` associated with
+    /// `widget` is destroyed, which means that `gtk_widget_unrealize()` has been
+    /// called or the widget has been unmapped (that is, it is going to be
+    /// hidden).
+    case unrealize = "unrealize"
+    /// Whether the `GtkSwitch` widget is in its on or off state.
+    case notifyActive = "notify::active"
+    /// Whether the widget or any of its descendents can accept
+    /// the input focus.
+    /// 
+    /// This property is meant to be set by widget implementations,
+    /// typically in their instance init function.
+    case notifyCanFocus = "notify::can-focus"
+    case notifyCanTarget = "notify::can-target"
+    /// A list of css classes applied to this widget.
+    case notifyCssClasses = "notify::css-classes"
+    /// The name of this widget in the CSS tree.
+    /// 
+    /// This property is meant to be set by widget implementations,
+    /// typically in their instance init function.
+    case notifyCssName = "notify::css-name"
+    /// The cursor used by `widget`. See `gtk_widget_set_cursor()` for details.
+    case notifyCursor = "notify::cursor"
+    /// Whether the widget should grab focus when it is clicked with the mouse.
+    /// 
+    /// This property is only relevant for widgets that can take focus.
+    case notifyFocusOnClick = "notify::focus-on-click"
+    /// Whether this widget itself will accept the input focus.
+    case notifyFocusable = "notify::focusable"
+    /// How to distribute horizontal space if widget gets extra space, see `GtkAlign`
+    case notifyHalign = "notify::halign"
+    case notifyHasDefault = "notify::has-default"
+    case notifyHasFocus = "notify::has-focus"
+    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// A value of `true` indicates that `widget` can have a tooltip, in this case
+    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// whether it will provide a tooltip or not.
+    case notifyHasTooltip = "notify::has-tooltip"
+    case notifyHeightRequest = "notify::height-request"
+    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
+    case notifyHexpand = "notify::hexpand"
+    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
+    case notifyHexpandSet = "notify::hexpand-set"
+    /// The `GtkLayoutManager` instance to use to compute the preferred size
+    /// of the widget, and allocate its children.
+    /// 
+    /// This property is meant to be set by widget implementations,
+    /// typically in their instance init function.
+    case notifyLayoutManager = "notify::layout-manager"
+    /// Margin on bottom side of widget.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginBottom = "notify::margin-bottom"
+    /// Margin on end of widget, horizontally. This property supports
+    /// left-to-right and right-to-left text directions.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginEnd = "notify::margin-end"
+    /// Margin on start of widget, horizontally. This property supports
+    /// left-to-right and right-to-left text directions.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginStart = "notify::margin-start"
+    /// Margin on top side of widget.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginTop = "notify::margin-top"
+    case notifyName = "notify::name"
+    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
+    /// more details about window opacity.
+    case notifyOpacity = "notify::opacity"
+    /// How content outside the widget's content area is treated.
+    /// 
+    /// This property is meant to be set by widget implementations,
+    /// typically in their instance init function.
+    case notifyOverflow = "notify::overflow"
+    case notifyParent = "notify::parent"
+    case notifyReceivesDefault = "notify::receives-default"
+    /// The `GtkRoot` widget of the widget tree containing this widget or `nil` if
+    /// the widget is not contained in a root widget.
+    case notifyRoot = "notify::root"
+    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
+    /// more details about widget scaling.
+    case notifyScaleFactor = "notify::scale-factor"
+    case notifySensitive = "notify::sensitive"
+    /// The backend state that is controlled by the switch.
+    /// See `GtkSwitch::state`-set for details.
+    case notifyState = "notify::state"
+    /// Sets the text of tooltip to be the given string, which is marked up
+    /// with the [Pango text markup language](#PangoMarkupFormat).
+    /// Also see `gtk_tooltip_set_markup()`.
+    /// 
+    /// This is a convenience property which will take care of getting the
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// will automatically be set to `true` and there will be taken care of
+    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// 
+    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// are set, the last one wins.
+    case notifyTooltipMarkup = "notify::tooltip-markup"
+    /// Sets the text of tooltip to be the given string.
+    /// 
+    /// Also see `gtk_tooltip_set_text()`.
+    /// 
+    /// This is a convenience property which will take care of getting the
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// will automatically be set to `true` and there will be taken care of
+    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// 
+    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// are set, the last one wins.
+    case notifyTooltipText = "notify::tooltip-text"
+    /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
+    case notifyValign = "notify::valign"
+    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
+    case notifyVexpand = "notify::vexpand"
+    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
+    case notifyVexpandSet = "notify::vexpand-set"
+    case notifyVisible = "notify::visible"
+    case notifyWidthRequest = "notify::width-request"
+}
+
+// MARK: Switch signals
+public extension SwitchProtocol {
+    /// Connect a Swift signal handler to the given, typed `SwitchSignalName` signal
+    /// - Parameters:
+    ///   - signal: The signal to connect
+    ///   - flags: The connection flags to use
+    ///   - data: A pointer to user data to provide to the callback
+    ///   - destroyData: A `GClosureNotify` C function to destroy the data pointed to by `userData`
+    ///   - handler: The Swift signal handler (function or callback) to invoke on the given signal
+    /// - Returns: The signal handler ID (always greater than 0 for successful connections)
+    @inlinable @discardableResult func connect(signal s: SwitchSignalName, flags f: ConnectFlags = ConnectFlags(0), handler h: @escaping SignalHandler) -> Int {
+        connect(s, flags: f, handler: h)
+    }
+    
+    
+    /// Connect a C signal handler to the given, typed `SwitchSignalName` signal
+    /// - Parameters:
+    ///   - signal: The signal to connect
+    ///   - flags: The connection flags to use
+    ///   - data: A pointer to user data to provide to the callback
+    ///   - destroyData: A `GClosureNotify` C function to destroy the data pointed to by `userData`
+    ///   - signalHandler: The C function to be called on the given signal
+    /// - Returns: The signal handler ID (always greater than 0 for successful connections)
+    @inlinable @discardableResult func connect(signal s: SwitchSignalName, flags f: ConnectFlags = ConnectFlags(0), data userData: gpointer!, destroyData destructor: GClosureNotify? = nil, signalHandler h: @escaping GCallback) -> Int {
+        connectSignal(s, flags: f, data: userData, destroyData: destructor, handler: h)
+    }
+    
+    
+    /// The `activate` signal on GtkSwitch is an action signal and
+    /// emitting it causes the switch to animate.
+    /// Applications should never connect to this signal, but use the
+    /// notify`active` signal.
+    /// - Note: This represents the underlying `activate` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
-    @discardableResult
-    func onActivate(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: SwitchRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `activate` signal is emitted
+    @discardableResult @inlinable func onActivate(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: SwitchRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder<SwitchRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer) -> Void = { unownedSelf, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(SwitchRef(raw: unownedSelf))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "activate", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .activate,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `activate` signal for using the `connect(signal:)` methods
+    static var activateSignal: SwitchSignalName { .activate }
     
     /// The `state`-set signal on GtkSwitch is emitted to change the underlying
     /// state. It is emitted when the user changes the switch position. The
@@ -23126,27 +28790,30 @@ public extension SwitchProtocol {
     /// Visually, the underlying state is represented by the trough color of
     /// the switch, while the `GtkSwitch:active` property is represented by the
     /// position of the switch.
-    /// - Note: Representation of signal named `state-set`
+    /// - Note: This represents the underlying `state-set` signal
     /// - Parameter flags: Flags
-    /// - Parameter handler: `true` to stop the signal emission
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter state: the new state of the switch
-    @discardableResult
-    func onStateSet(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: SwitchRef, _ state: Bool) -> Bool ) -> Int {
+    /// - Parameter handler: `true` to stop the signal emission
+    /// Run the given callback whenever the `stateSet` signal is emitted
+    @discardableResult @inlinable func onStateSet(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: SwitchRef, _ state: Bool) -> Bool ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<SwitchRef, Bool, Bool>
         let cCallback: @convention(c) (gpointer, gboolean, gpointer) -> gboolean = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output = holder.call(SwitchRef(raw: unownedSelf), ((arg1) != 0))
             return gboolean((output) ? 1 : 0)
         }
-        return signalConnectData(
-            detailedSignal: "state-set", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .stateSet,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `state-set` signal for using the `connect(signal:)` methods
+    static var stateSetSignal: SwitchSignalName { .stateSet }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -23172,26 +28839,30 @@ public extension SwitchProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::active`
+    /// - Note: This represents the underlying `notify::active` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyActive(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: SwitchRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyActive` signal is emitted
+    @discardableResult @inlinable func onNotifyActive(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: SwitchRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<SwitchRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(SwitchRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::active", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyActive,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::active` signal for using the `connect(signal:)` methods
+    static var notifyActiveSignal: SwitchSignalName { .notifyActive }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -23217,26 +28888,30 @@ public extension SwitchProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::state`
+    /// - Note: This represents the underlying `notify::state` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyState(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: SwitchRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyState` signal is emitted
+    @discardableResult @inlinable func onNotifyState(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: SwitchRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<SwitchRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(SwitchRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::state", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyState,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::state` signal for using the `connect(signal:)` methods
+    static var notifyStateSignal: SwitchSignalName { .notifyState }
     
 }
 
@@ -23968,31 +29643,406 @@ public extension TextProtocol {
     }
 }
 
-// MARK: Signals of Text
-public extension TextProtocol {
+public enum TextSignalName: String, SignalNameProtocol {
     /// The `activate` signal is emitted when the user hits
     /// the Enter key.
     /// 
     /// The default bindings for this signal are all forms of the Enter key.
-    /// - Note: Representation of signal named `activate`
+    case activate = "activate"
+    /// The `backspace` signal is a
+    /// [keybinding signal](#GtkSignalAction)
+    /// which gets emitted when the user asks for it.
+    /// 
+    /// The default bindings for this signal are
+    /// Backspace and Shift-Backspace.
+    case backspace = "backspace"
+    /// The `copy`-clipboard signal is a
+    /// [keybinding signal](#GtkSignalAction)
+    /// which gets emitted to copy the selection to the clipboard.
+    /// 
+    /// The default bindings for this signal are
+    /// Ctrl-c and Ctrl-Insert.
+    case copyClipboard = "copy-clipboard"
+    /// The `cut`-clipboard signal is a
+    /// [keybinding signal](#GtkSignalAction)
+    /// which gets emitted to cut the selection to the clipboard.
+    /// 
+    /// The default bindings for this signal are
+    /// Ctrl-x and Shift-Delete.
+    case cutClipboard = "cut-clipboard"
+    /// The `delete`-from-cursor signal is a
+    /// [keybinding signal](#GtkSignalAction)
+    /// which gets emitted when the user initiates a text deletion.
+    /// 
+    /// If the `type` is `GTK_DELETE_CHARS`, GTK deletes the selection
+    /// if there is one, otherwise it deletes the requested number
+    /// of characters.
+    /// 
+    /// The default bindings for this signal are
+    /// Delete for deleting a character and Ctrl-Delete for
+    /// deleting a word.
+    case deleteFromCursor = "delete-from-cursor"
+    /// Signals that all holders of a reference to the widget should release
+    /// the reference that they hold. May result in finalization of the widget
+    /// if all references are released.
+    /// 
+    /// This signal is not suitable for saving widget state.
+    case destroy = "destroy"
+    /// The `direction`-changed signal is emitted when the text direction
+    /// of a widget changes.
+    case directionChanged = "direction-changed"
+    /// The `hide` signal is emitted when `widget` is hidden, for example with
+    /// `gtk_widget_hide()`.
+    case hide = "hide"
+    /// The `insert`-at-cursor signal is a
+    /// [keybinding signal](#GtkSignalAction)
+    /// which gets emitted when the user initiates the insertion of a
+    /// fixed string at the cursor.
+    /// 
+    /// This signal has no default bindings.
+    case insertAtCursor = "insert-at-cursor"
+    /// The `insert`-emoji signal is a
+    /// [keybinding signal](#GtkSignalAction)
+    /// which gets emitted to present the Emoji chooser for the `self`.
+    /// 
+    /// The default bindings for this signal are Ctrl-. and Ctrl-;
+    case insertEmoji = "insert-emoji"
+    /// Gets emitted if keyboard navigation fails.
+    /// See `gtk_widget_keynav_failed()` for details.
+    case keynavFailed = "keynav-failed"
+    /// The `map` signal is emitted when `widget` is going to be mapped, that is
+    /// when the widget is visible (which is controlled with
+    /// `gtk_widget_set_visible()`) and all its parents up to the toplevel widget
+    /// are also visible.
+    /// 
+    /// The `map` signal can be used to determine whether a widget will be drawn,
+    /// for instance it can resume an animation that was stopped during the
+    /// emission of `GtkWidget::unmap`.
+    case map = "map"
+    /// The default handler for this signal activates `widget` if `group_cycling`
+    /// is `false`, or just makes `widget` grab focus if `group_cycling` is `true`.
+    case mnemonicActivate = "mnemonic-activate"
+    /// The `move`-cursor signal is a
+    /// [keybinding signal](#GtkSignalAction)
+    /// which gets emitted when the user initiates a cursor movement.
+    /// If the cursor is not visible in `self`, this signal causes
+    /// the viewport to be moved instead.
+    /// 
+    /// Applications should not connect to it, but may emit it with
+    /// `g_signal_emit_by_name()` if they need to control the cursor
+    /// programmatically.
+    /// 
+    /// The default bindings for this signal come in two variants,
+    /// the variant with the Shift modifier extends the selection,
+    /// the variant without the Shift modifier does not.
+    /// There are too many key combinations to list them all here.
+    /// - Arrow keys move by individual characters/lines
+    /// - Ctrl-arrow key combinations move by words/paragraphs
+    /// - Home/End keys move to the ends of the buffer
+    case moveCursor = "move-cursor"
+    /// Emitted when the focus is moved.
+    case moveFocus = "move-focus"
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    case notify = "notify"
+    /// The `paste`-clipboard signal is a
+    /// [keybinding signal](#GtkSignalAction)
+    /// which gets emitted to paste the contents of the clipboard
+    /// into the text view.
+    /// 
+    /// The default bindings for this signal are
+    /// Ctrl-v and Shift-Insert.
+    case pasteClipboard = "paste-clipboard"
+    /// If an input method is used, the typed text will not immediately
+    /// be committed to the buffer. So if you are interested in the text,
+    /// connect to this signal.
+    case preeditChanged = "preedit-changed"
+    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
+    /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
+    /// focus in keyboard mode.
+    /// 
+    /// Using the given coordinates, the signal handler should determine
+    /// whether a tooltip should be shown for `widget`. If this is the case
+    /// `true` should be returned, `false` otherwise.  Note that if
+    /// `keyboard_mode` is `true`, the values of `x` and `y` are undefined and
+    /// should not be used.
+    /// 
+    /// The signal handler is free to manipulate `tooltip` with the therefore
+    /// destined function calls.
+    case queryTooltip = "query-tooltip"
+    /// The `realize` signal is emitted when `widget` is associated with a
+    /// `GdkSurface`, which means that `gtk_widget_realize()` has been called or the
+    /// widget has been mapped (that is, it is going to be drawn).
+    case realize = "realize"
+    /// The `show` signal is emitted when `widget` is shown, for example with
+    /// `gtk_widget_show()`.
+    case show = "show"
+    /// The `state`-flags-changed signal is emitted when the widget state
+    /// changes, see `gtk_widget_get_state_flags()`.
+    case stateFlagsChanged = "state-flags-changed"
+    /// The `toggle`-overwrite signal is a
+    /// [keybinding signal](#GtkSignalAction)
+    /// which gets emitted to toggle the overwrite mode of the self.
+    /// 
+    /// The default bindings for this signal is Insert.
+    case toggleOverwrite = "toggle-overwrite"
+    /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
+    /// means that either it or any of its parents up to the toplevel widget have
+    /// been set as hidden.
+    /// 
+    /// As `unmap` indicates that a widget will not be shown any longer, it can be
+    /// used to, for example, stop an animation on the widget.
+    case unmap = "unmap"
+    /// The `unrealize` signal is emitted when the `GdkSurface` associated with
+    /// `widget` is destroyed, which means that `gtk_widget_unrealize()` has been
+    /// called or the widget has been unmapped (that is, it is going to be
+    /// hidden).
+    case unrealize = "unrealize"
+    case notifyActivatesDefault = "notify::activates-default"
+    /// A list of Pango attributes to apply to the text of the self.
+    /// 
+    /// This is mainly useful to change the size or weight of the text.
+    /// 
+    /// The `PangoAttribute`'s `start_index` and `end_index` must refer to the
+    /// `GtkEntryBuffer` text, i.e. without the preedit string.
+    case notifyAttributes = "notify::attributes"
+    case notifyBuffer = "notify::buffer"
+    /// Whether the widget or any of its descendents can accept
+    /// the input focus.
+    /// 
+    /// This property is meant to be set by widget implementations,
+    /// typically in their instance init function.
+    case notifyCanFocus = "notify::can-focus"
+    case notifyCanTarget = "notify::can-target"
+    /// A list of css classes applied to this widget.
+    case notifyCssClasses = "notify::css-classes"
+    /// The name of this widget in the CSS tree.
+    /// 
+    /// This property is meant to be set by widget implementations,
+    /// typically in their instance init function.
+    case notifyCssName = "notify::css-name"
+    /// The cursor used by `widget`. See `gtk_widget_set_cursor()` for details.
+    case notifyCursor = "notify::cursor"
+    case notifyEnableEmojiCompletion = "notify::enable-emoji-completion"
+    /// A menu model whose contents will be appended to
+    /// the context menu.
+    case notifyExtraMenu = "notify::extra-menu"
+    /// Whether the widget should grab focus when it is clicked with the mouse.
+    /// 
+    /// This property is only relevant for widgets that can take focus.
+    case notifyFocusOnClick = "notify::focus-on-click"
+    /// Whether this widget itself will accept the input focus.
+    case notifyFocusable = "notify::focusable"
+    /// How to distribute horizontal space if widget gets extra space, see `GtkAlign`
+    case notifyHalign = "notify::halign"
+    case notifyHasDefault = "notify::has-default"
+    case notifyHasFocus = "notify::has-focus"
+    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// A value of `true` indicates that `widget` can have a tooltip, in this case
+    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// whether it will provide a tooltip or not.
+    case notifyHasTooltip = "notify::has-tooltip"
+    case notifyHeightRequest = "notify::height-request"
+    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
+    case notifyHexpand = "notify::hexpand"
+    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
+    case notifyHexpandSet = "notify::hexpand-set"
+    /// Which IM (input method) module should be used for this self.
+    /// See `GtkIMContext`.
+    /// 
+    /// Setting this to a non-`nil` value overrides the
+    /// system-wide IM module setting. See the GtkSettings
+    /// `GtkSettings:gtk`-im-module property.
+    case notifyImModule = "notify::im-module"
+    /// Additional hints (beyond `GtkText:input`-purpose) that
+    /// allow input methods to fine-tune their behaviour.
+    case notifyInputHints = "notify::input-hints"
+    /// The purpose of this text field.
+    /// 
+    /// This property can be used by on-screen keyboards and other input
+    /// methods to adjust their behaviour.
+    /// 
+    /// Note that setting the purpose to `GTK_INPUT_PURPOSE_PASSWORD` or
+    /// `GTK_INPUT_PURPOSE_PIN` is independent from setting
+    /// `GtkText:visibility`.
+    case notifyInputPurpose = "notify::input-purpose"
+    case notifyInvisibleChar = "notify::invisible-char"
+    /// Whether the invisible char has been set for the `GtkText`.
+    case notifyInvisibleCharSet = "notify::invisible-char-set"
+    /// The `GtkLayoutManager` instance to use to compute the preferred size
+    /// of the widget, and allocate its children.
+    /// 
+    /// This property is meant to be set by widget implementations,
+    /// typically in their instance init function.
+    case notifyLayoutManager = "notify::layout-manager"
+    /// Margin on bottom side of widget.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginBottom = "notify::margin-bottom"
+    /// Margin on end of widget, horizontally. This property supports
+    /// left-to-right and right-to-left text directions.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginEnd = "notify::margin-end"
+    /// Margin on start of widget, horizontally. This property supports
+    /// left-to-right and right-to-left text directions.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginStart = "notify::margin-start"
+    /// Margin on top side of widget.
+    /// 
+    /// This property adds margin outside of the widget's normal size
+    /// request, the margin will be added in addition to the size from
+    /// `gtk_widget_set_size_request()` for example.
+    case notifyMarginTop = "notify::margin-top"
+    case notifyMaxLength = "notify::max-length"
+    case notifyName = "notify::name"
+    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
+    /// more details about window opacity.
+    case notifyOpacity = "notify::opacity"
+    /// How content outside the widget's content area is treated.
+    /// 
+    /// This property is meant to be set by widget implementations,
+    /// typically in their instance init function.
+    case notifyOverflow = "notify::overflow"
+    /// If text is overwritten when typing in the `GtkText`.
+    case notifyOverwriteMode = "notify::overwrite-mode"
+    case notifyParent = "notify::parent"
+    /// The text that will be displayed in the `GtkText` when it is empty
+    /// and unfocused.
+    case notifyPlaceholderText = "notify::placeholder-text"
+    case notifyPropagateTextWidth = "notify::propagate-text-width"
+    case notifyReceivesDefault = "notify::receives-default"
+    /// The `GtkRoot` widget of the widget tree containing this widget or `nil` if
+    /// the widget is not contained in a root widget.
+    case notifyRoot = "notify::root"
+    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
+    /// more details about widget scaling.
+    case notifyScaleFactor = "notify::scale-factor"
+    case notifyScrollOffset = "notify::scroll-offset"
+    case notifySensitive = "notify::sensitive"
+    /// A list of tabstops to apply to the text of the self.
+    case notifyTabs = "notify::tabs"
+    /// Sets the text of tooltip to be the given string, which is marked up
+    /// with the [Pango text markup language](#PangoMarkupFormat).
+    /// Also see `gtk_tooltip_set_markup()`.
+    /// 
+    /// This is a convenience property which will take care of getting the
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// will automatically be set to `true` and there will be taken care of
+    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// 
+    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// are set, the last one wins.
+    case notifyTooltipMarkup = "notify::tooltip-markup"
+    /// Sets the text of tooltip to be the given string.
+    /// 
+    /// Also see `gtk_tooltip_set_text()`.
+    /// 
+    /// This is a convenience property which will take care of getting the
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// will automatically be set to `true` and there will be taken care of
+    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// 
+    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// are set, the last one wins.
+    case notifyTooltipText = "notify::tooltip-text"
+    /// When `true`, pasted multi-line text is truncated to the first line.
+    case notifyTruncateMultiline = "notify::truncate-multiline"
+    /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
+    case notifyValign = "notify::valign"
+    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
+    case notifyVexpand = "notify::vexpand"
+    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
+    case notifyVexpandSet = "notify::vexpand-set"
+    case notifyVisibility = "notify::visibility"
+    case notifyVisible = "notify::visible"
+    case notifyWidthRequest = "notify::width-request"
+}
+
+// MARK: Text signals
+public extension TextProtocol {
+    /// Connect a Swift signal handler to the given, typed `TextSignalName` signal
+    /// - Parameters:
+    ///   - signal: The signal to connect
+    ///   - flags: The connection flags to use
+    ///   - data: A pointer to user data to provide to the callback
+    ///   - destroyData: A `GClosureNotify` C function to destroy the data pointed to by `userData`
+    ///   - handler: The Swift signal handler (function or callback) to invoke on the given signal
+    /// - Returns: The signal handler ID (always greater than 0 for successful connections)
+    @inlinable @discardableResult func connect(signal s: TextSignalName, flags f: ConnectFlags = ConnectFlags(0), handler h: @escaping SignalHandler) -> Int {
+        connect(s, flags: f, handler: h)
+    }
+    
+    
+    /// Connect a C signal handler to the given, typed `TextSignalName` signal
+    /// - Parameters:
+    ///   - signal: The signal to connect
+    ///   - flags: The connection flags to use
+    ///   - data: A pointer to user data to provide to the callback
+    ///   - destroyData: A `GClosureNotify` C function to destroy the data pointed to by `userData`
+    ///   - signalHandler: The C function to be called on the given signal
+    /// - Returns: The signal handler ID (always greater than 0 for successful connections)
+    @inlinable @discardableResult func connect(signal s: TextSignalName, flags f: ConnectFlags = ConnectFlags(0), data userData: gpointer!, destroyData destructor: GClosureNotify? = nil, signalHandler h: @escaping GCallback) -> Int {
+        connectSignal(s, flags: f, data: userData, destroyData: destructor, handler: h)
+    }
+    
+    
+    /// The `activate` signal is emitted when the user hits
+    /// the Enter key.
+    /// 
+    /// The default bindings for this signal are all forms of the Enter key.
+    /// - Note: This represents the underlying `activate` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
-    @discardableResult
-    func onActivate(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: TextRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `activate` signal is emitted
+    @discardableResult @inlinable func onActivate(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: TextRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder<TextRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer) -> Void = { unownedSelf, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(TextRef(raw: unownedSelf))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "activate", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .activate,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `activate` signal for using the `connect(signal:)` methods
+    static var activateSignal: TextSignalName { .activate }
     
     /// The `backspace` signal is a
     /// [keybinding signal](#GtkSignalAction)
@@ -24000,25 +30050,29 @@ public extension TextProtocol {
     /// 
     /// The default bindings for this signal are
     /// Backspace and Shift-Backspace.
-    /// - Note: Representation of signal named `backspace`
+    /// - Note: This represents the underlying `backspace` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
-    @discardableResult
-    func onBackspace(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: TextRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `backspace` signal is emitted
+    @discardableResult @inlinable func onBackspace(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: TextRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder<TextRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer) -> Void = { unownedSelf, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(TextRef(raw: unownedSelf))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "backspace", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .backspace,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `backspace` signal for using the `connect(signal:)` methods
+    static var backspaceSignal: TextSignalName { .backspace }
     
     /// The `copy`-clipboard signal is a
     /// [keybinding signal](#GtkSignalAction)
@@ -24026,25 +30080,29 @@ public extension TextProtocol {
     /// 
     /// The default bindings for this signal are
     /// Ctrl-c and Ctrl-Insert.
-    /// - Note: Representation of signal named `copy-clipboard`
+    /// - Note: This represents the underlying `copy-clipboard` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
-    @discardableResult
-    func onCopyClipboard(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: TextRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `copyClipboard` signal is emitted
+    @discardableResult @inlinable func onCopyClipboard(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: TextRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder<TextRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer) -> Void = { unownedSelf, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(TextRef(raw: unownedSelf))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "copy-clipboard", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .copyClipboard,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `copy-clipboard` signal for using the `connect(signal:)` methods
+    static var copyClipboardSignal: TextSignalName { .copyClipboard }
     
     /// The `cut`-clipboard signal is a
     /// [keybinding signal](#GtkSignalAction)
@@ -24052,25 +30110,29 @@ public extension TextProtocol {
     /// 
     /// The default bindings for this signal are
     /// Ctrl-x and Shift-Delete.
-    /// - Note: Representation of signal named `cut-clipboard`
+    /// - Note: This represents the underlying `cut-clipboard` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
-    @discardableResult
-    func onCutClipboard(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: TextRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `cutClipboard` signal is emitted
+    @discardableResult @inlinable func onCutClipboard(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: TextRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder<TextRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer) -> Void = { unownedSelf, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(TextRef(raw: unownedSelf))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "cut-clipboard", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .cutClipboard,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `cut-clipboard` signal for using the `connect(signal:)` methods
+    static var cutClipboardSignal: TextSignalName { .cutClipboard }
     
     /// The `delete`-from-cursor signal is a
     /// [keybinding signal](#GtkSignalAction)
@@ -24083,27 +30145,31 @@ public extension TextProtocol {
     /// The default bindings for this signal are
     /// Delete for deleting a character and Ctrl-Delete for
     /// deleting a word.
-    /// - Note: Representation of signal named `delete-from-cursor`
+    /// - Note: This represents the underlying `delete-from-cursor` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter type: the granularity of the deletion, as a `GtkDeleteType`
     /// - Parameter count: the number of `type` units to delete
-    @discardableResult
-    func onDeleteFromCursor(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: TextRef, _ type: DeleteType, _ count: Int) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `deleteFromCursor` signal is emitted
+    @discardableResult @inlinable func onDeleteFromCursor(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: TextRef, _ type: DeleteType, _ count: Int) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder3<TextRef, DeleteType, Int, Void>
         let cCallback: @convention(c) (gpointer, UInt32, gint, gpointer) -> Void = { unownedSelf, arg1, arg2, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(TextRef(raw: unownedSelf), DeleteType(arg1), Int(arg2))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "delete-from-cursor", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .deleteFromCursor,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `delete-from-cursor` signal for using the `connect(signal:)` methods
+    static var deleteFromCursorSignal: TextSignalName { .deleteFromCursor }
     
     /// The `insert`-at-cursor signal is a
     /// [keybinding signal](#GtkSignalAction)
@@ -24111,51 +30177,59 @@ public extension TextProtocol {
     /// fixed string at the cursor.
     /// 
     /// This signal has no default bindings.
-    /// - Note: Representation of signal named `insert-at-cursor`
+    /// - Note: This represents the underlying `insert-at-cursor` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter string: the string to insert
-    @discardableResult
-    func onInsertAtCursor(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: TextRef, _ string: String) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `insertAtCursor` signal is emitted
+    @discardableResult @inlinable func onInsertAtCursor(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: TextRef, _ string: String) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<TextRef, String, Void>
         let cCallback: @convention(c) (gpointer, UnsafeMutablePointer<gchar>?, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(TextRef(raw: unownedSelf), arg1.map({ String(cString: $0) })!)
             return output
         }
-        return signalConnectData(
-            detailedSignal: "insert-at-cursor", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .insertAtCursor,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `insert-at-cursor` signal for using the `connect(signal:)` methods
+    static var insertAtCursorSignal: TextSignalName { .insertAtCursor }
     
     /// The `insert`-emoji signal is a
     /// [keybinding signal](#GtkSignalAction)
     /// which gets emitted to present the Emoji chooser for the `self`.
     /// 
     /// The default bindings for this signal are Ctrl-. and Ctrl-;
-    /// - Note: Representation of signal named `insert-emoji`
+    /// - Note: This represents the underlying `insert-emoji` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
-    @discardableResult
-    func onInsertEmoji(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: TextRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `insertEmoji` signal is emitted
+    @discardableResult @inlinable func onInsertEmoji(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: TextRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder<TextRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer) -> Void = { unownedSelf, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(TextRef(raw: unownedSelf))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "insert-emoji", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .insertEmoji,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `insert-emoji` signal for using the `connect(signal:)` methods
+    static var insertEmojiSignal: TextSignalName { .insertEmoji }
     
     /// The `move`-cursor signal is a
     /// [keybinding signal](#GtkSignalAction)
@@ -24174,28 +30248,32 @@ public extension TextProtocol {
     /// - Arrow keys move by individual characters/lines
     /// - Ctrl-arrow key combinations move by words/paragraphs
     /// - Home/End keys move to the ends of the buffer
-    /// - Note: Representation of signal named `move-cursor`
+    /// - Note: This represents the underlying `move-cursor` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter step: the granularity of the move, as a `GtkMovementStep`
     /// - Parameter count: the number of `step` units to move
     /// - Parameter extend: `true` if the move should extend the selection
-    @discardableResult
-    func onMoveCursor(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: TextRef, _ step: MovementStep, _ count: Int, _ extend: Bool) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `moveCursor` signal is emitted
+    @discardableResult @inlinable func onMoveCursor(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: TextRef, _ step: MovementStep, _ count: Int, _ extend: Bool) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder4<TextRef, MovementStep, Int, Bool, Void>
         let cCallback: @convention(c) (gpointer, UInt32, gint, gboolean, gpointer) -> Void = { unownedSelf, arg1, arg2, arg3, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(TextRef(raw: unownedSelf), MovementStep(arg1), Int(arg2), ((arg3) != 0))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "move-cursor", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .moveCursor,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `move-cursor` signal for using the `connect(signal:)` methods
+    static var moveCursorSignal: TextSignalName { .moveCursor }
     
     /// The `paste`-clipboard signal is a
     /// [keybinding signal](#GtkSignalAction)
@@ -24204,74 +30282,86 @@ public extension TextProtocol {
     /// 
     /// The default bindings for this signal are
     /// Ctrl-v and Shift-Insert.
-    /// - Note: Representation of signal named `paste-clipboard`
+    /// - Note: This represents the underlying `paste-clipboard` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
-    @discardableResult
-    func onPasteClipboard(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: TextRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `pasteClipboard` signal is emitted
+    @discardableResult @inlinable func onPasteClipboard(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: TextRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder<TextRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer) -> Void = { unownedSelf, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(TextRef(raw: unownedSelf))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "paste-clipboard", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .pasteClipboard,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `paste-clipboard` signal for using the `connect(signal:)` methods
+    static var pasteClipboardSignal: TextSignalName { .pasteClipboard }
     
     /// If an input method is used, the typed text will not immediately
     /// be committed to the buffer. So if you are interested in the text,
     /// connect to this signal.
-    /// - Note: Representation of signal named `preedit-changed`
+    /// - Note: This represents the underlying `preedit-changed` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter preedit: the current preedit string
-    @discardableResult
-    func onPreeditChanged(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: TextRef, _ preedit: String) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `preeditChanged` signal is emitted
+    @discardableResult @inlinable func onPreeditChanged(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: TextRef, _ preedit: String) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<TextRef, String, Void>
         let cCallback: @convention(c) (gpointer, UnsafeMutablePointer<gchar>?, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(TextRef(raw: unownedSelf), arg1.map({ String(cString: $0) })!)
             return output
         }
-        return signalConnectData(
-            detailedSignal: "preedit-changed", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .preeditChanged,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `preedit-changed` signal for using the `connect(signal:)` methods
+    static var preeditChangedSignal: TextSignalName { .preeditChanged }
     
     /// The `toggle`-overwrite signal is a
     /// [keybinding signal](#GtkSignalAction)
     /// which gets emitted to toggle the overwrite mode of the self.
     /// 
     /// The default bindings for this signal is Insert.
-    /// - Note: Representation of signal named `toggle-overwrite`
+    /// - Note: This represents the underlying `toggle-overwrite` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
-    @discardableResult
-    func onToggleOverwrite(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: TextRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `toggleOverwrite` signal is emitted
+    @discardableResult @inlinable func onToggleOverwrite(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: TextRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder<TextRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer) -> Void = { unownedSelf, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(TextRef(raw: unownedSelf))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "toggle-overwrite", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .toggleOverwrite,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `toggle-overwrite` signal for using the `connect(signal:)` methods
+    static var toggleOverwriteSignal: TextSignalName { .toggleOverwrite }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -24297,26 +30387,30 @@ public extension TextProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::activates-default`
+    /// - Note: This represents the underlying `notify::activates-default` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyActivatesDefault(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: TextRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyActivatesDefault` signal is emitted
+    @discardableResult @inlinable func onNotifyActivatesDefault(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: TextRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<TextRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(TextRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::activates-default", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyActivatesDefault,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::activates-default` signal for using the `connect(signal:)` methods
+    static var notifyActivatesDefaultSignal: TextSignalName { .notifyActivatesDefault }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -24342,26 +30436,30 @@ public extension TextProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::attributes`
+    /// - Note: This represents the underlying `notify::attributes` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyAttributes(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: TextRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyAttributes` signal is emitted
+    @discardableResult @inlinable func onNotifyAttributes(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: TextRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<TextRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(TextRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::attributes", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyAttributes,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::attributes` signal for using the `connect(signal:)` methods
+    static var notifyAttributesSignal: TextSignalName { .notifyAttributes }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -24387,26 +30485,30 @@ public extension TextProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::buffer`
+    /// - Note: This represents the underlying `notify::buffer` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyBuffer(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: TextRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyBuffer` signal is emitted
+    @discardableResult @inlinable func onNotifyBuffer(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: TextRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<TextRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(TextRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::buffer", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyBuffer,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::buffer` signal for using the `connect(signal:)` methods
+    static var notifyBufferSignal: TextSignalName { .notifyBuffer }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -24432,26 +30534,30 @@ public extension TextProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::enable-emoji-completion`
+    /// - Note: This represents the underlying `notify::enable-emoji-completion` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyEnableEmojiCompletion(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: TextRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyEnableEmojiCompletion` signal is emitted
+    @discardableResult @inlinable func onNotifyEnableEmojiCompletion(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: TextRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<TextRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(TextRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::enable-emoji-completion", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyEnableEmojiCompletion,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::enable-emoji-completion` signal for using the `connect(signal:)` methods
+    static var notifyEnableEmojiCompletionSignal: TextSignalName { .notifyEnableEmojiCompletion }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -24477,26 +30583,30 @@ public extension TextProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::extra-menu`
+    /// - Note: This represents the underlying `notify::extra-menu` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyExtraMenu(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: TextRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyExtraMenu` signal is emitted
+    @discardableResult @inlinable func onNotifyExtraMenu(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: TextRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<TextRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(TextRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::extra-menu", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyExtraMenu,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::extra-menu` signal for using the `connect(signal:)` methods
+    static var notifyExtraMenuSignal: TextSignalName { .notifyExtraMenu }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -24522,26 +30632,30 @@ public extension TextProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::im-module`
+    /// - Note: This represents the underlying `notify::im-module` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyImModule(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: TextRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyImModule` signal is emitted
+    @discardableResult @inlinable func onNotifyImModule(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: TextRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<TextRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(TextRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::im-module", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyImModule,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::im-module` signal for using the `connect(signal:)` methods
+    static var notifyImModuleSignal: TextSignalName { .notifyImModule }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -24567,26 +30681,30 @@ public extension TextProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::input-hints`
+    /// - Note: This represents the underlying `notify::input-hints` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyInputHints(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: TextRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyInputHints` signal is emitted
+    @discardableResult @inlinable func onNotifyInputHints(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: TextRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<TextRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(TextRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::input-hints", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyInputHints,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::input-hints` signal for using the `connect(signal:)` methods
+    static var notifyInputHintsSignal: TextSignalName { .notifyInputHints }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -24612,26 +30730,30 @@ public extension TextProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::input-purpose`
+    /// - Note: This represents the underlying `notify::input-purpose` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyInputPurpose(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: TextRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyInputPurpose` signal is emitted
+    @discardableResult @inlinable func onNotifyInputPurpose(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: TextRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<TextRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(TextRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::input-purpose", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyInputPurpose,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::input-purpose` signal for using the `connect(signal:)` methods
+    static var notifyInputPurposeSignal: TextSignalName { .notifyInputPurpose }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -24657,26 +30779,30 @@ public extension TextProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::invisible-char`
+    /// - Note: This represents the underlying `notify::invisible-char` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyInvisibleChar(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: TextRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyInvisibleChar` signal is emitted
+    @discardableResult @inlinable func onNotifyInvisibleChar(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: TextRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<TextRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(TextRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::invisible-char", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyInvisibleChar,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::invisible-char` signal for using the `connect(signal:)` methods
+    static var notifyInvisibleCharSignal: TextSignalName { .notifyInvisibleChar }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -24702,26 +30828,30 @@ public extension TextProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::invisible-char-set`
+    /// - Note: This represents the underlying `notify::invisible-char-set` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyInvisibleCharSet(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: TextRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyInvisibleCharSet` signal is emitted
+    @discardableResult @inlinable func onNotifyInvisibleCharSet(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: TextRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<TextRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(TextRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::invisible-char-set", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyInvisibleCharSet,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::invisible-char-set` signal for using the `connect(signal:)` methods
+    static var notifyInvisibleCharSetSignal: TextSignalName { .notifyInvisibleCharSet }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -24747,26 +30877,30 @@ public extension TextProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::max-length`
+    /// - Note: This represents the underlying `notify::max-length` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyMaxLength(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: TextRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyMaxLength` signal is emitted
+    @discardableResult @inlinable func onNotifyMaxLength(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: TextRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<TextRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(TextRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::max-length", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyMaxLength,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::max-length` signal for using the `connect(signal:)` methods
+    static var notifyMaxLengthSignal: TextSignalName { .notifyMaxLength }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -24792,26 +30926,30 @@ public extension TextProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::overwrite-mode`
+    /// - Note: This represents the underlying `notify::overwrite-mode` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyOverwriteMode(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: TextRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyOverwriteMode` signal is emitted
+    @discardableResult @inlinable func onNotifyOverwriteMode(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: TextRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<TextRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(TextRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::overwrite-mode", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyOverwriteMode,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::overwrite-mode` signal for using the `connect(signal:)` methods
+    static var notifyOverwriteModeSignal: TextSignalName { .notifyOverwriteMode }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -24837,26 +30975,30 @@ public extension TextProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::placeholder-text`
+    /// - Note: This represents the underlying `notify::placeholder-text` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyPlaceholderText(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: TextRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyPlaceholderText` signal is emitted
+    @discardableResult @inlinable func onNotifyPlaceholderText(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: TextRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<TextRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(TextRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::placeholder-text", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyPlaceholderText,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::placeholder-text` signal for using the `connect(signal:)` methods
+    static var notifyPlaceholderTextSignal: TextSignalName { .notifyPlaceholderText }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -24882,26 +31024,30 @@ public extension TextProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::propagate-text-width`
+    /// - Note: This represents the underlying `notify::propagate-text-width` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyPropagateTextWidth(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: TextRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyPropagateTextWidth` signal is emitted
+    @discardableResult @inlinable func onNotifyPropagateTextWidth(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: TextRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<TextRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(TextRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::propagate-text-width", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyPropagateTextWidth,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::propagate-text-width` signal for using the `connect(signal:)` methods
+    static var notifyPropagateTextWidthSignal: TextSignalName { .notifyPropagateTextWidth }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -24927,26 +31073,30 @@ public extension TextProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::scroll-offset`
+    /// - Note: This represents the underlying `notify::scroll-offset` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyScrollOffset(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: TextRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyScrollOffset` signal is emitted
+    @discardableResult @inlinable func onNotifyScrollOffset(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: TextRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<TextRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(TextRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::scroll-offset", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyScrollOffset,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::scroll-offset` signal for using the `connect(signal:)` methods
+    static var notifyScrollOffsetSignal: TextSignalName { .notifyScrollOffset }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -24972,26 +31122,30 @@ public extension TextProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::tabs`
+    /// - Note: This represents the underlying `notify::tabs` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyTabs(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: TextRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyTabs` signal is emitted
+    @discardableResult @inlinable func onNotifyTabs(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: TextRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<TextRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(TextRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::tabs", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyTabs,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::tabs` signal for using the `connect(signal:)` methods
+    static var notifyTabsSignal: TextSignalName { .notifyTabs }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -25017,26 +31171,30 @@ public extension TextProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::truncate-multiline`
+    /// - Note: This represents the underlying `notify::truncate-multiline` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyTruncateMultiline(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: TextRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyTruncateMultiline` signal is emitted
+    @discardableResult @inlinable func onNotifyTruncateMultiline(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: TextRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<TextRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(TextRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::truncate-multiline", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyTruncateMultiline,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::truncate-multiline` signal for using the `connect(signal:)` methods
+    static var notifyTruncateMultilineSignal: TextSignalName { .notifyTruncateMultiline }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -25062,26 +31220,30 @@ public extension TextProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::visibility`
+    /// - Note: This represents the underlying `notify::visibility` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyVisibility(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: TextRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyVisibility` signal is emitted
+    @discardableResult @inlinable func onNotifyVisibility(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: TextRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<TextRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(TextRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::visibility", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyVisibility,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::visibility` signal for using the `connect(signal:)` methods
+    static var notifyVisibilitySignal: TextSignalName { .notifyVisibility }
     
 }
 

@@ -16,7 +16,7 @@ import Gdk
 /// Metatype/GType declaration for LayoutChild
 public extension LayoutChildClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `LayoutChild`
     static var metatypeReference: GType { gtk_layout_child_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkLayoutChildClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkLayoutChildClass.self) }
@@ -143,7 +143,7 @@ public extension LayoutChildClassProtocol {
 /// Metatype/GType declaration for LayoutManager
 public extension LayoutManagerClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `LayoutManager`
     static var metatypeReference: GType { gtk_layout_manager_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkLayoutManagerClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkLayoutManagerClass.self) }
@@ -297,7 +297,7 @@ public extension LayoutManagerClassProtocol {
 /// Metatype/GType declaration for ListBase
 public extension ListBaseClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `ListBase`
     static var metatypeReference: GType { gtk_list_base_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkListBaseClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkListBaseClass.self) }
@@ -423,7 +423,7 @@ public extension ListBaseClassProtocol {
 /// Metatype/GType declaration for ListBoxRow
 public extension ListBoxRowClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `ListBoxRow`
     static var metatypeReference: GType { gtk_list_box_row_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkListBoxRowClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkListBoxRowClass.self) }
@@ -561,7 +561,7 @@ public extension ListBoxRowClassProtocol {
 /// Metatype/GType declaration for ListItem
 public extension ListItemClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `ListItem`
     static var metatypeReference: GType { gtk_list_item_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkListItemClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkListItemClass.self) }
@@ -687,7 +687,7 @@ public extension ListItemClassProtocol {
 /// Metatype/GType declaration for ListItemFactory
 public extension ListItemFactoryClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `ListItemFactory`
     static var metatypeReference: GType { gtk_list_item_factory_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkListItemFactoryClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkListItemFactoryClass.self) }
@@ -813,7 +813,7 @@ public extension ListItemFactoryClassProtocol {
 /// Metatype/GType declaration for ListStore
 public extension ListStoreClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `ListStore`
     static var metatypeReference: GType { gtk_list_store_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkListStoreClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkListStoreClass.self) }
@@ -947,7 +947,7 @@ public extension ListStoreClassProtocol {
 /// Metatype/GType declaration for ListView
 public extension ListViewClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `ListView`
     static var metatypeReference: GType { gtk_list_view_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkListViewClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkListViewClass.self) }
@@ -1073,7 +1073,7 @@ public extension ListViewClassProtocol {
 /// Metatype/GType declaration for MapListModel
 public extension MapListModelClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `MapListModel`
     static var metatypeReference: GType { gtk_map_list_model_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkMapListModelClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkMapListModelClass.self) }

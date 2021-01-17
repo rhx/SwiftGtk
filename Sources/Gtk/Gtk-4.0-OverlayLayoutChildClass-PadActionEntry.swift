@@ -16,7 +16,7 @@ import Gdk
 /// Metatype/GType declaration for OverlayLayoutChild
 public extension OverlayLayoutChildClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `OverlayLayoutChild`
     static var metatypeReference: GType { gtk_overlay_layout_child_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkOverlayLayoutChildClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkOverlayLayoutChildClass.self) }
@@ -148,7 +148,7 @@ public extension OverlayLayoutChildClassProtocol {
 /// Metatype/GType declaration for OverlayLayout
 public extension OverlayLayoutClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `OverlayLayout`
     static var metatypeReference: GType { gtk_overlay_layout_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkOverlayLayoutClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkOverlayLayoutClass.self) }
@@ -528,7 +528,10 @@ open class PadActionEntry: PadActionEntryProtocol {
 
 // MARK: no PadActionEntry properties
 
-// MARK: PadActionEntry has no signals// MARK: PadActionEntry Record: PadActionEntryProtocol extension (methods and fields)
+// MARK: no PadActionEntry signals
+
+// MARK: PadActionEntry has no signals
+// MARK: PadActionEntry Record: PadActionEntryProtocol extension (methods and fields)
 public extension PadActionEntryProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkPadActionEntry` instance.
     @inlinable var _ptr: UnsafeMutablePointer<GtkPadActionEntry>! { return ptr?.assumingMemoryBound(to: GtkPadActionEntry.self) }

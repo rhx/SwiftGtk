@@ -16,7 +16,7 @@ import Gdk
 /// Metatype/GType declaration for NativeDialog
 public extension NativeDialogClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `NativeDialog`
     static var metatypeReference: GType { gtk_native_dialog_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkNativeDialogClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkNativeDialogClass.self) }
@@ -157,7 +157,7 @@ public extension NativeDialogClassProtocol {
 /// Metatype/GType declaration for Native
 public extension NativeInterfaceRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `Native`
     static var metatypeReference: GType { gtk_native_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkNativeInterface>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkNativeInterface.self) }
@@ -283,7 +283,7 @@ public extension NativeInterfaceProtocol {
 /// Metatype/GType declaration for NeverTrigger
 public extension NeverTriggerClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `NeverTrigger`
     static var metatypeReference: GType { gtk_never_trigger_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkNeverTriggerClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkNeverTriggerClass.self) }
@@ -409,7 +409,7 @@ public extension NeverTriggerClassProtocol {
 /// Metatype/GType declaration for NoSelection
 public extension NoSelectionClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `NoSelection`
     static var metatypeReference: GType { gtk_no_selection_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkNoSelectionClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkNoSelectionClass.self) }
@@ -541,7 +541,7 @@ public extension NoSelectionClassProtocol {
 /// Metatype/GType declaration for NothingAction
 public extension NothingActionClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `NothingAction`
     static var metatypeReference: GType { gtk_nothing_action_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkNothingActionClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkNothingActionClass.self) }
@@ -667,7 +667,7 @@ public extension NothingActionClassProtocol {
 /// Metatype/GType declaration for NumericSorter
 public extension NumericSorterClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `NumericSorter`
     static var metatypeReference: GType { gtk_numeric_sorter_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkNumericSorterClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkNumericSorterClass.self) }
@@ -799,7 +799,7 @@ public extension NumericSorterClassProtocol {
 /// Metatype/GType declaration for Orientable
 public extension OrientableIfaceRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `Orientable`
     static var metatypeReference: GType { gtk_orientable_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkOrientableIface>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkOrientableIface.self) }

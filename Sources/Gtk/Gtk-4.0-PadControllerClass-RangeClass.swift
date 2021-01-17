@@ -16,7 +16,7 @@ import Gdk
 /// Metatype/GType declaration for PadController
 public extension PadControllerClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `PadController`
     static var metatypeReference: GType { gtk_pad_controller_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkPadControllerClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkPadControllerClass.self) }
@@ -390,7 +390,10 @@ open class PageRange: PageRangeProtocol {
 
 // MARK: no PageRange properties
 
-// MARK: PageRange has no signals// MARK: PageRange Record: PageRangeProtocol extension (methods and fields)
+// MARK: no PageRange signals
+
+// MARK: PageRange has no signals
+// MARK: PageRange Record: PageRangeProtocol extension (methods and fields)
 public extension PageRangeProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkPageRange` instance.
     @inlinable var _ptr: UnsafeMutablePointer<GtkPageRange>! { return ptr?.assumingMemoryBound(to: GtkPageRange.self) }
@@ -901,7 +904,10 @@ open class PaperSize: PaperSizeProtocol {
 
 // MARK: no PaperSize properties
 
-// MARK: PaperSize has no signals// MARK: PaperSize Record: PaperSizeProtocol extension (methods and fields)
+// MARK: no PaperSize signals
+
+// MARK: PaperSize has no signals
+// MARK: PaperSize Record: PaperSizeProtocol extension (methods and fields)
 public extension PaperSizeProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkPaperSize` instance.
     @inlinable var paper_size_ptr: UnsafeMutablePointer<GtkPaperSize>! { return ptr?.assumingMemoryBound(to: GtkPaperSize.self) }
@@ -1053,7 +1059,7 @@ public extension PaperSizeProtocol {
 /// Metatype/GType declaration for PasswordEntry
 public extension PasswordEntryClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `PasswordEntry`
     static var metatypeReference: GType { gtk_password_entry_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkPasswordEntryClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkPasswordEntryClass.self) }
@@ -1179,7 +1185,7 @@ public extension PasswordEntryClassProtocol {
 /// Metatype/GType declaration for Picture
 public extension PictureClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `Picture`
     static var metatypeReference: GType { gtk_picture_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkPictureClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkPictureClass.self) }
@@ -1311,7 +1317,7 @@ public extension PictureClassProtocol {
 /// Metatype/GType declaration for Popover
 public extension PopoverClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `Popover`
     static var metatypeReference: GType { gtk_popover_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkPopoverClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkPopoverClass.self) }
@@ -1449,7 +1455,7 @@ public extension PopoverClassProtocol {
 /// Metatype/GType declaration for PrintOperation
 public extension PrintOperationClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `PrintOperation`
     static var metatypeReference: GType { gtk_print_operation_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkPrintOperationClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkPrintOperationClass.self) }
@@ -1607,7 +1613,7 @@ public extension PrintOperationClassProtocol {
 /// Metatype/GType declaration for PrintOperationPreview
 public extension PrintOperationPreviewIfaceRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `PrintOperationPreview`
     static var metatypeReference: GType { gtk_print_operation_preview_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkPrintOperationPreviewIface>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkPrintOperationPreviewIface.self) }
@@ -1765,7 +1771,7 @@ public extension PrintOperationPreviewIfaceProtocol {
 /// Metatype/GType declaration for Range
 public extension RangeClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `Range`
     static var metatypeReference: GType { gtk_range_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkRangeClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkRangeClass.self) }

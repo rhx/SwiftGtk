@@ -16,7 +16,7 @@ import Gdk
 /// Metatype/GType declaration for ATContext
 public extension ATContextClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `ATContext`
     static var metatypeReference: GType { gtk_at_context_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkATContextClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkATContextClass.self) }
@@ -142,7 +142,7 @@ public extension ATContextClassProtocol {
 /// Metatype/GType declaration for Accessible
 public extension AccessibleInterfaceRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `Accessible`
     static var metatypeReference: GType { gtk_accessible_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkAccessibleInterface>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkAccessibleInterface.self) }
@@ -268,7 +268,7 @@ public extension AccessibleInterfaceProtocol {
 /// Metatype/GType declaration for Actionable
 public extension ActionableInterfaceRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `Actionable`
     static var metatypeReference: GType { gtk_actionable_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkActionableInterface>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkActionableInterface.self) }
@@ -403,7 +403,7 @@ public extension ActionableInterfaceProtocol {
 /// Metatype/GType declaration for ActivateAction
 public extension ActivateActionClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `ActivateAction`
     static var metatypeReference: GType { gtk_activate_action_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkActivateActionClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkActivateActionClass.self) }
@@ -529,7 +529,7 @@ public extension ActivateActionClassProtocol {
 /// Metatype/GType declaration for Adjustment
 public extension AdjustmentClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `Adjustment`
     static var metatypeReference: GType { gtk_adjustment_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkAdjustmentClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkAdjustmentClass.self) }
@@ -673,7 +673,7 @@ public extension AdjustmentClassProtocol {
 /// Metatype/GType declaration for AlternativeTrigger
 public extension AlternativeTriggerClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `AlternativeTrigger`
     static var metatypeReference: GType { gtk_alternative_trigger_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkAlternativeTriggerClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkAlternativeTriggerClass.self) }
@@ -799,7 +799,7 @@ public extension AlternativeTriggerClassProtocol {
 /// Metatype/GType declaration for AnyFilter
 public extension AnyFilterClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `AnyFilter`
     static var metatypeReference: GType { gtk_any_filter_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkAnyFilterClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkAnyFilterClass.self) }
@@ -925,7 +925,7 @@ public extension AnyFilterClassProtocol {
 /// Metatype/GType declaration for Application
 public extension ApplicationClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `Application`
     static var metatypeReference: GType { gtk_application_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkApplicationClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkApplicationClass.self) }
@@ -1065,7 +1065,7 @@ public extension ApplicationClassProtocol {
 /// Metatype/GType declaration for ApplicationWindow
 public extension ApplicationWindowClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `ApplicationWindow`
     static var metatypeReference: GType { gtk_application_window_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkApplicationWindowClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkApplicationWindowClass.self) }
@@ -1201,7 +1201,7 @@ public extension ApplicationWindowClassProtocol {
 /// Metatype/GType declaration for BinLayout
 public extension BinLayoutClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `BinLayout`
     static var metatypeReference: GType { gtk_bin_layout_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkBinLayoutClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkBinLayoutClass.self) }

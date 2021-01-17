@@ -16,7 +16,7 @@ import Gdk
 /// Metatype/GType declaration for MediaControls
 public extension MediaControlsClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `MediaControls`
     static var metatypeReference: GType { gtk_media_controls_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkMediaControlsClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkMediaControlsClass.self) }
@@ -148,7 +148,7 @@ public extension MediaControlsClassProtocol {
 /// Metatype/GType declaration for MediaFile
 public extension MediaFileClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `MediaFile`
     static var metatypeReference: GType { gtk_media_file_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkMediaFileClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkMediaFileClass.self) }
@@ -292,7 +292,7 @@ public extension MediaFileClassProtocol {
 /// Metatype/GType declaration for MediaStream
 public extension MediaStreamClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `MediaStream`
     static var metatypeReference: GType { gtk_media_stream_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkMediaStreamClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkMediaStreamClass.self) }
@@ -452,7 +452,7 @@ public extension MediaStreamClassProtocol {
 /// Metatype/GType declaration for MessageDialog
 public extension MessageDialogClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `MessageDialog`
     static var metatypeReference: GType { gtk_message_dialog_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkMessageDialogClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkMessageDialogClass.self) }
@@ -578,7 +578,7 @@ public extension MessageDialogClassProtocol {
 /// Metatype/GType declaration for MnemonicAction
 public extension MnemonicActionClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `MnemonicAction`
     static var metatypeReference: GType { gtk_mnemonic_action_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkMnemonicActionClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkMnemonicActionClass.self) }
@@ -704,7 +704,7 @@ public extension MnemonicActionClassProtocol {
 /// Metatype/GType declaration for MnemonicTrigger
 public extension MnemonicTriggerClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `MnemonicTrigger`
     static var metatypeReference: GType { gtk_mnemonic_trigger_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkMnemonicTriggerClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkMnemonicTriggerClass.self) }
@@ -830,7 +830,7 @@ public extension MnemonicTriggerClassProtocol {
 /// Metatype/GType declaration for MountOperation
 public extension MountOperationClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `MountOperation`
     static var metatypeReference: GType { gtk_mount_operation_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkMountOperationClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkMountOperationClass.self) }
@@ -972,7 +972,7 @@ public extension MountOperationClassProtocol {
 /// Metatype/GType declaration for MultiFilter
 public extension MultiFilterClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `MultiFilter`
     static var metatypeReference: GType { gtk_multi_filter_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkMultiFilterClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkMultiFilterClass.self) }
@@ -1098,7 +1098,7 @@ public extension MultiFilterClassProtocol {
 /// Metatype/GType declaration for MultiSelection
 public extension MultiSelectionClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `MultiSelection`
     static var metatypeReference: GType { gtk_multi_selection_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkMultiSelectionClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkMultiSelectionClass.self) }
@@ -1230,7 +1230,7 @@ public extension MultiSelectionClassProtocol {
 /// Metatype/GType declaration for MultiSorter
 public extension MultiSorterClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `MultiSorter`
     static var metatypeReference: GType { gtk_multi_sorter_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkMultiSorterClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkMultiSorterClass.self) }
@@ -1362,7 +1362,7 @@ public extension MultiSorterClassProtocol {
 /// Metatype/GType declaration for NamedAction
 public extension NamedActionClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `NamedAction`
     static var metatypeReference: GType { gtk_named_action_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkNamedActionClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkNamedActionClass.self) }

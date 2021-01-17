@@ -16,7 +16,7 @@ import Gdk
 /// Metatype/GType declaration for IMContextSimple
 public extension IMContextSimpleClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `IMContextSimple`
     static var metatypeReference: GType { gtk_im_context_simple_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkIMContextSimpleClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkIMContextSimpleClass.self) }
@@ -148,7 +148,7 @@ public extension IMContextSimpleClassProtocol {
 /// Metatype/GType declaration for IMMulticontext
 public extension IMMulticontextClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `IMMulticontext`
     static var metatypeReference: GType { gtk_im_multicontext_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkIMMulticontextClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkIMMulticontextClass.self) }
@@ -288,7 +288,7 @@ public extension IMMulticontextClassProtocol {
 /// Metatype/GType declaration for KeyvalTrigger
 public extension KeyvalTriggerClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `KeyvalTrigger`
     static var metatypeReference: GType { gtk_keyval_trigger_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkKeyvalTriggerClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkKeyvalTriggerClass.self) }

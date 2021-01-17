@@ -348,8 +348,14 @@ open class SelectionModel: GIO.ListModel, SelectionModelProtocol {
 
 // MARK: no SelectionModel properties
 
-// MARK: Signals of SelectionModel
-public extension SelectionModelProtocol {
+public enum SelectionModelSignalName: String, SignalNameProtocol {
+    /// This signal is emitted whenever items were added to or removed
+    /// from `list`. At `position`, `removed` items were removed and `added`
+    /// items were added in their place.
+    /// 
+    /// Note: If `removed` != `added`, the positions of all later items
+    /// in the model change.
+    case itemsChanged = "items-changed"
     /// Emitted when the selection state of some of the items in `model` changes.
     /// 
     /// Note that this signal does not specify the new selection state of the items,
@@ -357,27 +363,70 @@ public extension SelectionModelProtocol {
     /// It is also not necessary for a model to change the selection state of any of
     /// the items in the selection model, though it would be rather useless to emit
     /// such a signal.
-    /// - Note: Representation of signal named `selection-changed`
+    case selectionChanged = "selection-changed"
+
+}
+
+// MARK: SelectionModel signals
+public extension SelectionModelProtocol {
+    /// Connect a Swift signal handler to the given, typed `SelectionModelSignalName` signal
+    /// - Parameters:
+    ///   - signal: The signal to connect
+    ///   - flags: The connection flags to use
+    ///   - data: A pointer to user data to provide to the callback
+    ///   - destroyData: A `GClosureNotify` C function to destroy the data pointed to by `userData`
+    ///   - handler: The Swift signal handler (function or callback) to invoke on the given signal
+    /// - Returns: The signal handler ID (always greater than 0 for successful connections)
+    @inlinable @discardableResult func connect(signal s: SelectionModelSignalName, flags f: ConnectFlags = ConnectFlags(0), handler h: @escaping SignalHandler) -> Int {
+        GLibObject.ObjectRef(raw: ptr).connect(s, flags: f, handler: h)
+    }
+    
+    
+    /// Connect a C signal handler to the given, typed `SelectionModelSignalName` signal
+    /// - Parameters:
+    ///   - signal: The signal to connect
+    ///   - flags: The connection flags to use
+    ///   - data: A pointer to user data to provide to the callback
+    ///   - destroyData: A `GClosureNotify` C function to destroy the data pointed to by `userData`
+    ///   - signalHandler: The C function to be called on the given signal
+    /// - Returns: The signal handler ID (always greater than 0 for successful connections)
+    @inlinable @discardableResult func connect(signal s: SelectionModelSignalName, flags f: ConnectFlags = ConnectFlags(0), data userData: gpointer!, destroyData destructor: GClosureNotify? = nil, signalHandler h: @escaping GCallback) -> Int {
+        GLibObject.ObjectRef(raw: ptr).connectSignal(s, flags: f, data: userData, destroyData: destructor, handler: h)
+    }
+    
+    
+    /// Emitted when the selection state of some of the items in `model` changes.
+    /// 
+    /// Note that this signal does not specify the new selection state of the items,
+    /// they need to be queried manually.
+    /// It is also not necessary for a model to change the selection state of any of
+    /// the items in the selection model, though it would be rather useless to emit
+    /// such a signal.
+    /// - Note: This represents the underlying `selection-changed` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter position: The first item that may have changed
     /// - Parameter nItems: number of items with changes
-    @discardableResult
-    func onSelectionChanged(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: SelectionModelRef, _ position: UInt, _ nItems: UInt) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `selectionChanged` signal is emitted
+    @discardableResult @inlinable func onSelectionChanged(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: SelectionModelRef, _ position: UInt, _ nItems: UInt) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder3<SelectionModelRef, UInt, UInt, Void>
         let cCallback: @convention(c) (gpointer, guint, guint, gpointer) -> Void = { unownedSelf, arg1, arg2, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(SelectionModelRef(raw: unownedSelf), UInt(arg1), UInt(arg2))
             return output
         }
-        return GLibObject.ObjectRef(raw: ptr).signalConnectData(
-            detailedSignal: "selection-changed", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .selectionChanged,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `selection-changed` signal for using the `connect(signal:)` methods
+    static var selectionChangedSignal: SelectionModelSignalName { .selectionChanged }
     
     
 }
@@ -789,7 +838,10 @@ open class ShortcutManager: ShortcutManagerProtocol {
 
 // MARK: no ShortcutManager properties
 
-// MARK: ShortcutManager has no signals// MARK: ShortcutManager Interface: ShortcutManagerProtocol extension (methods and fields)
+// MARK: no ShortcutManager signals
+
+// MARK: ShortcutManager has no signals
+// MARK: ShortcutManager Interface: ShortcutManagerProtocol extension (methods and fields)
 public extension ShortcutManagerProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkShortcutManager` instance.
     @inlinable var shortcut_manager_ptr: UnsafeMutablePointer<GtkShortcutManager>! { return ptr?.assumingMemoryBound(to: GtkShortcutManager.self) }
@@ -1054,27 +1106,62 @@ open class StyleProvider: StyleProviderProtocol {
 
 // MARK: no StyleProvider properties
 
-// MARK: Signals of StyleProvider
+public enum StyleProviderSignalName: String, SignalNameProtocol {
+    case gtkPrivateChanged = "gtk-private-changed"
+
+}
+
+// MARK: StyleProvider signals
 public extension StyleProviderProtocol {
-    /// - Note: Representation of signal named `gtk-private-changed`
+    /// Connect a Swift signal handler to the given, typed `StyleProviderSignalName` signal
+    /// - Parameters:
+    ///   - signal: The signal to connect
+    ///   - flags: The connection flags to use
+    ///   - data: A pointer to user data to provide to the callback
+    ///   - destroyData: A `GClosureNotify` C function to destroy the data pointed to by `userData`
+    ///   - handler: The Swift signal handler (function or callback) to invoke on the given signal
+    /// - Returns: The signal handler ID (always greater than 0 for successful connections)
+    @inlinable @discardableResult func connect(signal s: StyleProviderSignalName, flags f: ConnectFlags = ConnectFlags(0), handler h: @escaping SignalHandler) -> Int {
+        GLibObject.ObjectRef(raw: ptr).connect(s, flags: f, handler: h)
+    }
+    
+    
+    /// Connect a C signal handler to the given, typed `StyleProviderSignalName` signal
+    /// - Parameters:
+    ///   - signal: The signal to connect
+    ///   - flags: The connection flags to use
+    ///   - data: A pointer to user data to provide to the callback
+    ///   - destroyData: A `GClosureNotify` C function to destroy the data pointed to by `userData`
+    ///   - signalHandler: The C function to be called on the given signal
+    /// - Returns: The signal handler ID (always greater than 0 for successful connections)
+    @inlinable @discardableResult func connect(signal s: StyleProviderSignalName, flags f: ConnectFlags = ConnectFlags(0), data userData: gpointer!, destroyData destructor: GClosureNotify? = nil, signalHandler h: @escaping GCallback) -> Int {
+        GLibObject.ObjectRef(raw: ptr).connectSignal(s, flags: f, data: userData, destroyData: destructor, handler: h)
+    }
+    
+    
+    /// - Note: This represents the underlying `gtk-private-changed` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
-    @discardableResult
-    func onGtkPrivateChanged(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: StyleProviderRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `gtkPrivateChanged` signal is emitted
+    @discardableResult @inlinable func onGtkPrivateChanged(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: StyleProviderRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder<StyleProviderRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer) -> Void = { unownedSelf, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(StyleProviderRef(raw: unownedSelf))
             return output
         }
-        return GLibObject.ObjectRef(raw: ptr).signalConnectData(
-            detailedSignal: "gtk-private-changed", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .gtkPrivateChanged,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `gtk-private-changed` signal for using the `connect(signal:)` methods
+    static var gtkPrivateChangedSignal: StyleProviderSignalName { .gtkPrivateChanged }
     
     
 }
@@ -1341,7 +1428,10 @@ open class TreeDragDest: TreeDragDestProtocol {
 
 // MARK: no TreeDragDest properties
 
-// MARK: TreeDragDest has no signals// MARK: TreeDragDest Interface: TreeDragDestProtocol extension (methods and fields)
+// MARK: no TreeDragDest signals
+
+// MARK: TreeDragDest has no signals
+// MARK: TreeDragDest Interface: TreeDragDestProtocol extension (methods and fields)
 public extension TreeDragDestProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkTreeDragDest` instance.
     @inlinable var tree_drag_dest_ptr: UnsafeMutablePointer<GtkTreeDragDest>! { return ptr?.assumingMemoryBound(to: GtkTreeDragDest.self) }

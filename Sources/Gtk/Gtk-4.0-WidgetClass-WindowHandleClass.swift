@@ -16,7 +16,7 @@ import Gdk
 /// Metatype/GType declaration for Widget
 public extension WidgetClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `Widget`
     static var metatypeReference: GType { gtk_widget_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkWidgetClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkWidgetClass.self) }
@@ -762,7 +762,10 @@ open class WidgetClassPrivate: WidgetClassPrivateProtocol {
 
 // MARK: no WidgetClassPrivate properties
 
-// MARK: WidgetClassPrivate has no signals// MARK: WidgetClassPrivate Record: WidgetClassPrivateProtocol extension (methods and fields)
+// MARK: no WidgetClassPrivate signals
+
+// MARK: WidgetClassPrivate has no signals
+// MARK: WidgetClassPrivate Record: WidgetClassPrivateProtocol extension (methods and fields)
 public extension WidgetClassPrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkWidgetClassPrivate` instance.
     @inlinable var _ptr: UnsafeMutablePointer<GtkWidgetClassPrivate>! { return ptr?.assumingMemoryBound(to: GtkWidgetClassPrivate.self) }
@@ -776,7 +779,7 @@ public extension WidgetClassPrivateProtocol {
 /// Metatype/GType declaration for WidgetPaintable
 public extension WidgetPaintableClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `WidgetPaintable`
     static var metatypeReference: GType { gtk_widget_paintable_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkWidgetPaintableClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkWidgetPaintableClass.self) }
@@ -908,7 +911,7 @@ public extension WidgetPaintableClassProtocol {
 /// Metatype/GType declaration for Window
 public extension WindowClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `Window`
     static var metatypeReference: GType { gtk_window_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkWindowClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkWindowClass.self) }
@@ -1054,7 +1057,7 @@ public extension WindowClassProtocol {
 /// Metatype/GType declaration for WindowControls
 public extension WindowControlsClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `WindowControls`
     static var metatypeReference: GType { gtk_window_controls_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkWindowControlsClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkWindowControlsClass.self) }
@@ -1186,7 +1189,7 @@ public extension WindowControlsClassProtocol {
 /// Metatype/GType declaration for WindowGroup
 public extension WindowGroupClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `WindowGroup`
     static var metatypeReference: GType { gtk_window_group_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkWindowGroupClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkWindowGroupClass.self) }
@@ -1326,7 +1329,7 @@ public extension WindowGroupClassProtocol {
 /// Metatype/GType declaration for WindowHandle
 public extension WindowHandleClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `WindowHandle`
     static var metatypeReference: GType { gtk_window_handle_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkWindowHandleClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkWindowHandleClass.self) }

@@ -16,7 +16,7 @@ import Gdk
 /// Metatype/GType declaration for TextBuffer
 public extension TextBufferClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `TextBuffer`
     static var metatypeReference: GType { gtk_text_buffer_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkTextBufferClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkTextBufferClass.self) }
@@ -188,7 +188,7 @@ public extension TextBufferClassProtocol {
 /// Metatype/GType declaration for TextChildAnchor
 public extension TextChildAnchorClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `TextChildAnchor`
     static var metatypeReference: GType { gtk_text_child_anchor_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkTextChildAnchorClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkTextChildAnchorClass.self) }
@@ -585,7 +585,10 @@ open class TextIter: TextIterProtocol {
 
 // MARK: no TextIter properties
 
-// MARK: TextIter has no signals// MARK: TextIter Record: TextIterProtocol extension (methods and fields)
+// MARK: no TextIter signals
+
+// MARK: TextIter has no signals
+// MARK: TextIter Record: TextIterProtocol extension (methods and fields)
 public extension TextIterProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkTextIter` instance.
     @inlinable var text_iter_ptr: UnsafeMutablePointer<GtkTextIter>! { return ptr?.assumingMemoryBound(to: GtkTextIter.self) }
@@ -1826,7 +1829,7 @@ public extension TextIterProtocol {
 /// Metatype/GType declaration for TextMark
 public extension TextMarkClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `TextMark`
     static var metatypeReference: GType { gtk_text_mark_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkTextMarkClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkTextMarkClass.self) }
@@ -1960,7 +1963,7 @@ public extension TextMarkClassProtocol {
 /// Metatype/GType declaration for TextTag
 public extension TextTagClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `TextTag`
     static var metatypeReference: GType { gtk_text_tag_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkTextTagClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkTextTagClass.self) }
@@ -2094,7 +2097,7 @@ public extension TextTagClassProtocol {
 /// Metatype/GType declaration for TextView
 public extension TextViewClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `TextView`
     static var metatypeReference: GType { gtk_text_view_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkTextViewClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkTextViewClass.self) }
@@ -2256,7 +2259,7 @@ public extension TextViewClassProtocol {
 /// Metatype/GType declaration for ToggleButton
 public extension ToggleButtonClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `ToggleButton`
     static var metatypeReference: GType { gtk_toggle_button_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkToggleButtonClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkToggleButtonClass.self) }
@@ -2392,7 +2395,7 @@ public extension ToggleButtonClassProtocol {
 /// Metatype/GType declaration for TreeDragDest
 public extension TreeDragDestIfaceRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `TreeDragDest`
     static var metatypeReference: GType { gtk_tree_drag_dest_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkTreeDragDestIface>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkTreeDragDestIface.self) }
@@ -2523,7 +2526,7 @@ public extension TreeDragDestIfaceProtocol {
 /// Metatype/GType declaration for TreeDragSource
 public extension TreeDragSourceIfaceRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `TreeDragSource`
     static var metatypeReference: GType { gtk_tree_drag_source_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkTreeDragSourceIface>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkTreeDragSourceIface.self) }
@@ -2656,7 +2659,7 @@ public extension TreeDragSourceIfaceProtocol {
 /// Metatype/GType declaration for TreeExpander
 public extension TreeExpanderClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `TreeExpander`
     static var metatypeReference: GType { gtk_tree_expander_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkTreeExpanderClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkTreeExpanderClass.self) }
@@ -3048,7 +3051,10 @@ open class TreeIterBase: TreeIterProtocol {
 
 // MARK: no TreeIter properties
 
-// MARK: TreeIter has no signals// MARK: TreeIter Record: TreeIterProtocol extension (methods and fields)
+// MARK: no TreeIter signals
+
+// MARK: TreeIter has no signals
+// MARK: TreeIter Record: TreeIterProtocol extension (methods and fields)
 public extension TreeIterProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkTreeIter` instance.
     @inlinable var tree_iter_ptr: UnsafeMutablePointer<GtkTreeIter>! { return ptr?.assumingMemoryBound(to: GtkTreeIter.self) }
@@ -3139,7 +3145,7 @@ public extension TreeIterProtocol {
 /// Metatype/GType declaration for TreeListModel
 public extension TreeListModelClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `TreeListModel`
     static var metatypeReference: GType { gtk_tree_list_model_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkTreeListModelClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkTreeListModelClass.self) }
@@ -3271,7 +3277,7 @@ public extension TreeListModelClassProtocol {
 /// Metatype/GType declaration for TreeListRow
 public extension TreeListRowClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `TreeListRow`
     static var metatypeReference: GType { gtk_tree_list_row_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkTreeListRowClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkTreeListRowClass.self) }
@@ -3403,7 +3409,7 @@ public extension TreeListRowClassProtocol {
 /// Metatype/GType declaration for TreeListRowSorter
 public extension TreeListRowSorterClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `TreeListRowSorter`
     static var metatypeReference: GType { gtk_tree_list_row_sorter_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkTreeListRowSorterClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkTreeListRowSorterClass.self) }
@@ -3535,7 +3541,7 @@ public extension TreeListRowSorterClassProtocol {
 /// Metatype/GType declaration for TreeModelFilter
 public extension TreeModelFilterClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `TreeModelFilter`
     static var metatypeReference: GType { gtk_tree_model_filter_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkTreeModelFilterClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkTreeModelFilterClass.self) }
@@ -3673,7 +3679,7 @@ public extension TreeModelFilterClassProtocol {
 /// Metatype/GType declaration for TreeModel
 public extension TreeModelIfaceRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `TreeModel`
     static var metatypeReference: GType { gtk_tree_model_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkTreeModelIface>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkTreeModelIface.self) }
@@ -3840,7 +3846,7 @@ public extension TreeModelIfaceProtocol {
 /// Metatype/GType declaration for TreeModelSort
 public extension TreeModelSortClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `TreeModelSort`
     static var metatypeReference: GType { gtk_tree_model_sort_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkTreeModelSortClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkTreeModelSortClass.self) }
@@ -4336,7 +4342,10 @@ open class TreePath: TreePathProtocol {
 
 // MARK: no TreePath properties
 
-// MARK: TreePath has no signals// MARK: TreePath Record: TreePathProtocol extension (methods and fields)
+// MARK: no TreePath signals
+
+// MARK: TreePath has no signals
+// MARK: TreePath Record: TreePathProtocol extension (methods and fields)
 public extension TreePathProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkTreePath` instance.
     @inlinable var tree_path_ptr: UnsafeMutablePointer<GtkTreePath>! { return ptr?.assumingMemoryBound(to: GtkTreePath.self) }
@@ -4907,7 +4916,10 @@ open class TreeRowReference: TreeRowReferenceProtocol {
 
 // MARK: no TreeRowReference properties
 
-// MARK: TreeRowReference has no signals// MARK: TreeRowReference Record: TreeRowReferenceProtocol extension (methods and fields)
+// MARK: no TreeRowReference signals
+
+// MARK: TreeRowReference has no signals
+// MARK: TreeRowReference Record: TreeRowReferenceProtocol extension (methods and fields)
 public extension TreeRowReferenceProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkTreeRowReference` instance.
     @inlinable var tree_row_reference_ptr: UnsafeMutablePointer<GtkTreeRowReference>! { return ptr?.assumingMemoryBound(to: GtkTreeRowReference.self) }
@@ -4971,7 +4983,7 @@ public extension TreeRowReferenceProtocol {
 /// Metatype/GType declaration for TreeSortable
 public extension TreeSortableIfaceRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `TreeSortable`
     static var metatypeReference: GType { gtk_tree_sortable_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkTreeSortableIface>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkTreeSortableIface.self) }
@@ -5110,7 +5122,7 @@ public extension TreeSortableIfaceProtocol {
 /// Metatype/GType declaration for TreeStore
 public extension TreeStoreClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `TreeStore`
     static var metatypeReference: GType { gtk_tree_store_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkTreeStoreClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkTreeStoreClass.self) }
@@ -5244,7 +5256,7 @@ public extension TreeStoreClassProtocol {
 /// Metatype/GType declaration for TreeView
 public extension TreeViewClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `TreeView`
     static var metatypeReference: GType { gtk_tree_view_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkTreeViewClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkTreeViewClass.self) }
@@ -5408,7 +5420,7 @@ public extension TreeViewClassProtocol {
 /// Metatype/GType declaration for Video
 public extension VideoClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `Video`
     static var metatypeReference: GType { gtk_video_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkVideoClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkVideoClass.self) }

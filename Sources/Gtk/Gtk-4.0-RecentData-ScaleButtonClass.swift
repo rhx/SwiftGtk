@@ -267,7 +267,10 @@ open class RecentData: RecentDataProtocol {
 
 // MARK: no RecentData properties
 
-// MARK: RecentData has no signals// MARK: RecentData Record: RecentDataProtocol extension (methods and fields)
+// MARK: no RecentData signals
+
+// MARK: RecentData has no signals
+// MARK: RecentData Record: RecentDataProtocol extension (methods and fields)
 public extension RecentDataProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkRecentData` instance.
     @inlinable var _ptr: UnsafeMutablePointer<GtkRecentData>! { return ptr?.assumingMemoryBound(to: GtkRecentData.self) }
@@ -655,7 +658,10 @@ open class RecentInfo: RecentInfoProtocol {
 
 // MARK: no RecentInfo properties
 
-// MARK: RecentInfo has no signals// MARK: RecentInfo Record: RecentInfoProtocol extension (methods and fields)
+// MARK: no RecentInfo signals
+
+// MARK: RecentInfo has no signals
+// MARK: RecentInfo Record: RecentInfoProtocol extension (methods and fields)
 public extension RecentInfoProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkRecentInfo` instance.
     @inlinable var recent_info_ptr: UnsafeMutablePointer<GtkRecentInfo>! { return ptr?.assumingMemoryBound(to: GtkRecentInfo.self) }
@@ -973,7 +979,7 @@ public extension RecentInfoProtocol {
 /// Metatype/GType declaration for RecentManager
 public extension RecentManagerClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `RecentManager`
     static var metatypeReference: GType { gtk_recent_manager_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkRecentManagerClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkRecentManagerClass.self) }
@@ -1364,7 +1370,10 @@ open class RequestedSize: RequestedSizeProtocol {
 
 // MARK: no RequestedSize properties
 
-// MARK: RequestedSize has no signals// MARK: RequestedSize Record: RequestedSizeProtocol extension (methods and fields)
+// MARK: no RequestedSize signals
+
+// MARK: RequestedSize has no signals
+// MARK: RequestedSize Record: RequestedSizeProtocol extension (methods and fields)
 public extension RequestedSizeProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkRequestedSize` instance.
     @inlinable var _ptr: UnsafeMutablePointer<GtkRequestedSize>! { return ptr?.assumingMemoryBound(to: GtkRequestedSize.self) }
@@ -1690,7 +1699,10 @@ open class Requisition: RequisitionProtocol {
 
 // MARK: no Requisition properties
 
-// MARK: Requisition has no signals// MARK: Requisition Record: RequisitionProtocol extension (methods and fields)
+// MARK: no Requisition signals
+
+// MARK: Requisition has no signals
+// MARK: Requisition Record: RequisitionProtocol extension (methods and fields)
 public extension RequisitionProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkRequisition` instance.
     @inlinable var requisition_ptr: UnsafeMutablePointer<GtkRequisition>! { return ptr?.assumingMemoryBound(to: GtkRequisition.self) }
@@ -1740,7 +1752,7 @@ public extension RequisitionProtocol {
 /// Metatype/GType declaration for Root
 public extension RootInterfaceRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `Root`
     static var metatypeReference: GType { gtk_root_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkRootInterface>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkRootInterface.self) }
@@ -1866,7 +1878,7 @@ public extension RootInterfaceProtocol {
 /// Metatype/GType declaration for ScaleButton
 public extension ScaleButtonClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `ScaleButton`
     static var metatypeReference: GType { gtk_scale_button_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkScaleButtonClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkScaleButtonClass.self) }

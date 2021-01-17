@@ -329,7 +329,14 @@ public extension OrientableProtocol {
     }
 }
 
-// MARK: Orientable has no signals// MARK: Orientable Interface: OrientableProtocol extension (methods and fields)
+public enum OrientableSignalName: String, SignalNameProtocol {
+
+    /// The orientation of the orientable.
+    case notifyOrientation = "notify::orientation"
+}
+
+// MARK: Orientable has no signals
+// MARK: Orientable Interface: OrientableProtocol extension (methods and fields)
 public extension OrientableProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkOrientable` instance.
     @inlinable var orientable_ptr: UnsafeMutablePointer<GtkOrientable>! { return ptr?.assumingMemoryBound(to: GtkOrientable.self) }
@@ -614,60 +621,110 @@ open class PrintOperationPreview: PrintOperationPreviewProtocol {
 
 // MARK: no PrintOperationPreview properties
 
-// MARK: Signals of PrintOperationPreview
-public extension PrintOperationPreviewProtocol {
+public enum PrintOperationPreviewSignalName: String, SignalNameProtocol {
     /// The `got`-page-size signal is emitted once for each page
     /// that gets rendered to the preview.
     /// 
     /// A handler for this signal should update the `context`
     /// according to `page_setup` and set up a suitable cairo
     /// context, using `gtk_print_context_set_cairo_context()`.
-    /// - Note: Representation of signal named `got-page-size`
+    case gotPageSize = "got-page-size"
+    /// The `ready` signal gets emitted once per preview operation,
+    /// before the first page is rendered.
+    /// 
+    /// A handler for this signal can be used for setup tasks.
+    case ready = "ready"
+
+}
+
+// MARK: PrintOperationPreview signals
+public extension PrintOperationPreviewProtocol {
+    /// Connect a Swift signal handler to the given, typed `PrintOperationPreviewSignalName` signal
+    /// - Parameters:
+    ///   - signal: The signal to connect
+    ///   - flags: The connection flags to use
+    ///   - data: A pointer to user data to provide to the callback
+    ///   - destroyData: A `GClosureNotify` C function to destroy the data pointed to by `userData`
+    ///   - handler: The Swift signal handler (function or callback) to invoke on the given signal
+    /// - Returns: The signal handler ID (always greater than 0 for successful connections)
+    @inlinable @discardableResult func connect(signal s: PrintOperationPreviewSignalName, flags f: ConnectFlags = ConnectFlags(0), handler h: @escaping SignalHandler) -> Int {
+        GLibObject.ObjectRef(raw: ptr).connect(s, flags: f, handler: h)
+    }
+    
+    
+    /// Connect a C signal handler to the given, typed `PrintOperationPreviewSignalName` signal
+    /// - Parameters:
+    ///   - signal: The signal to connect
+    ///   - flags: The connection flags to use
+    ///   - data: A pointer to user data to provide to the callback
+    ///   - destroyData: A `GClosureNotify` C function to destroy the data pointed to by `userData`
+    ///   - signalHandler: The C function to be called on the given signal
+    /// - Returns: The signal handler ID (always greater than 0 for successful connections)
+    @inlinable @discardableResult func connect(signal s: PrintOperationPreviewSignalName, flags f: ConnectFlags = ConnectFlags(0), data userData: gpointer!, destroyData destructor: GClosureNotify? = nil, signalHandler h: @escaping GCallback) -> Int {
+        GLibObject.ObjectRef(raw: ptr).connectSignal(s, flags: f, data: userData, destroyData: destructor, handler: h)
+    }
+    
+    
+    /// The `got`-page-size signal is emitted once for each page
+    /// that gets rendered to the preview.
+    /// 
+    /// A handler for this signal should update the `context`
+    /// according to `page_setup` and set up a suitable cairo
+    /// context, using `gtk_print_context_set_cairo_context()`.
+    /// - Note: This represents the underlying `got-page-size` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter context: the current `GtkPrintContext`
     /// - Parameter pageSetup: the `GtkPageSetup` for the current page
-    @discardableResult
-    func onGotPageSize(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: PrintOperationPreviewRef, _ context: PrintContextRef, _ pageSetup: PageSetupRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `gotPageSize` signal is emitted
+    @discardableResult @inlinable func onGotPageSize(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: PrintOperationPreviewRef, _ context: PrintContextRef, _ pageSetup: PageSetupRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder3<PrintOperationPreviewRef, PrintContextRef, PageSetupRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, arg2, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(PrintOperationPreviewRef(raw: unownedSelf), PrintContextRef(raw: arg1), PageSetupRef(raw: arg2))
             return output
         }
-        return GLibObject.ObjectRef(raw: ptr).signalConnectData(
-            detailedSignal: "got-page-size", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .gotPageSize,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `got-page-size` signal for using the `connect(signal:)` methods
+    static var gotPageSizeSignal: PrintOperationPreviewSignalName { .gotPageSize }
     
     /// The `ready` signal gets emitted once per preview operation,
     /// before the first page is rendered.
     /// 
     /// A handler for this signal can be used for setup tasks.
-    /// - Note: Representation of signal named `ready`
+    /// - Note: This represents the underlying `ready` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter context: the current `GtkPrintContext`
-    @discardableResult
-    func onReady(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: PrintOperationPreviewRef, _ context: PrintContextRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `ready` signal is emitted
+    @discardableResult @inlinable func onReady(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: PrintOperationPreviewRef, _ context: PrintContextRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<PrintOperationPreviewRef, PrintContextRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(PrintOperationPreviewRef(raw: unownedSelf), PrintContextRef(raw: arg1))
             return output
         }
-        return GLibObject.ObjectRef(raw: ptr).signalConnectData(
-            detailedSignal: "ready", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .ready,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `ready` signal for using the `connect(signal:)` methods
+    static var readySignal: PrintOperationPreviewSignalName { .ready }
     
     
 }

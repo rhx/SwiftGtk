@@ -335,7 +335,10 @@ open class Bitset: BitsetProtocol {
 
 // MARK: no Bitset properties
 
-// MARK: Bitset has no signals// MARK: Bitset Record: BitsetProtocol extension (methods and fields)
+// MARK: no Bitset signals
+
+// MARK: Bitset has no signals
+// MARK: Bitset Record: BitsetProtocol extension (methods and fields)
 public extension BitsetProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkBitset` instance.
     @inlinable var bitset_ptr: UnsafeMutablePointer<GtkBitset>! { return ptr?.assumingMemoryBound(to: GtkBitset.self) }
@@ -888,7 +891,10 @@ open class BitsetIter: BitsetIterProtocol {
 
 // MARK: no BitsetIter properties
 
-// MARK: BitsetIter has no signals// MARK: BitsetIter Record: BitsetIterProtocol extension (methods and fields)
+// MARK: no BitsetIter signals
+
+// MARK: BitsetIter has no signals
+// MARK: BitsetIter Record: BitsetIterProtocol extension (methods and fields)
 public extension BitsetIterProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkBitsetIter` instance.
     @inlinable var _ptr: UnsafeMutablePointer<GtkBitsetIter>! { return ptr?.assumingMemoryBound(to: GtkBitsetIter.self) }
@@ -996,7 +1002,7 @@ public extension BitsetIterProtocol {
 /// Metatype/GType declaration for BookmarkList
 public extension BookmarkListClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `BookmarkList`
     static var metatypeReference: GType { gtk_bookmark_list_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkBookmarkListClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkBookmarkListClass.self) }
@@ -1128,7 +1134,7 @@ public extension BookmarkListClassProtocol {
 /// Metatype/GType declaration for BoolFilter
 public extension BoolFilterClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `BoolFilter`
     static var metatypeReference: GType { gtk_bool_filter_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkBoolFilterClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkBoolFilterClass.self) }
@@ -1521,7 +1527,10 @@ open class Border: BorderProtocol {
 
 // MARK: no Border properties
 
-// MARK: Border has no signals// MARK: Border Record: BorderProtocol extension (methods and fields)
+// MARK: no Border signals
+
+// MARK: Border has no signals
+// MARK: Border Record: BorderProtocol extension (methods and fields)
 public extension BorderProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkBorder` instance.
     @inlinable var border_ptr: UnsafeMutablePointer<GtkBorder>! { return ptr?.assumingMemoryBound(to: GtkBorder.self) }
@@ -1597,7 +1606,7 @@ public extension BorderProtocol {
 /// Metatype/GType declaration for Box
 public extension BoxClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `Box`
     static var metatypeReference: GType { gtk_box_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkBoxClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkBoxClass.self) }
@@ -1733,7 +1742,7 @@ public extension BoxClassProtocol {
 /// Metatype/GType declaration for BoxLayout
 public extension BoxLayoutClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `BoxLayout`
     static var metatypeReference: GType { gtk_box_layout_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkBoxLayoutClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkBoxLayoutClass.self) }
@@ -1865,7 +1874,7 @@ public extension BoxLayoutClassProtocol {
 /// Metatype/GType declaration for Buildable
 public extension BuildableIfaceRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `Buildable`
     static var metatypeReference: GType { gtk_buildable_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkBuildableIface>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkBuildableIface.self) }
@@ -2271,7 +2280,10 @@ open class BuildableParseContext: BuildableParseContextProtocol {
 
 // MARK: no BuildableParseContext properties
 
-// MARK: BuildableParseContext has no signals// MARK: BuildableParseContext Record: BuildableParseContextProtocol extension (methods and fields)
+// MARK: no BuildableParseContext signals
+
+// MARK: BuildableParseContext has no signals
+// MARK: BuildableParseContext Record: BuildableParseContextProtocol extension (methods and fields)
 public extension BuildableParseContextProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkBuildableParseContext` instance.
     @inlinable var _ptr: UnsafeMutablePointer<GtkBuildableParseContext>! { return ptr?.assumingMemoryBound(to: GtkBuildableParseContext.self) }
@@ -2664,7 +2676,10 @@ open class BuildableParser: BuildableParserProtocol {
 
 // MARK: no BuildableParser properties
 
-// MARK: BuildableParser has no signals// MARK: BuildableParser Record: BuildableParserProtocol extension (methods and fields)
+// MARK: no BuildableParser signals
+
+// MARK: BuildableParser has no signals
+// MARK: BuildableParser Record: BuildableParserProtocol extension (methods and fields)
 public extension BuildableParserProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkBuildableParser` instance.
     @inlinable var _ptr: UnsafeMutablePointer<GtkBuildableParser>! { return ptr?.assumingMemoryBound(to: GtkBuildableParser.self) }
@@ -2687,7 +2702,7 @@ public extension BuildableParserProtocol {
 /// Metatype/GType declaration for BuilderCScope
 public extension BuilderCScopeClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `BuilderCScope`
     static var metatypeReference: GType { gtk_builder_cscope_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkBuilderCScopeClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkBuilderCScopeClass.self) }
@@ -2819,7 +2834,7 @@ public extension BuilderCScopeClassProtocol {
 /// Metatype/GType declaration for Builder
 public extension BuilderClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `Builder`
     static var metatypeReference: GType { gtk_builder_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkBuilderClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkBuilderClass.self) }
@@ -2945,7 +2960,7 @@ public extension BuilderClassProtocol {
 /// Metatype/GType declaration for BuilderListItemFactory
 public extension BuilderListItemFactoryClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `BuilderListItemFactory`
     static var metatypeReference: GType { gtk_builder_list_item_factory_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkBuilderListItemFactoryClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkBuilderListItemFactoryClass.self) }
@@ -3071,7 +3086,7 @@ public extension BuilderListItemFactoryClassProtocol {
 /// Metatype/GType declaration for BuilderScope
 public extension BuilderScopeInterfaceRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `BuilderScope`
     static var metatypeReference: GType { gtk_builder_scope_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkBuilderScopeInterface>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkBuilderScopeInterface.self) }
@@ -3208,7 +3223,7 @@ public extension BuilderScopeInterfaceProtocol {
 /// Metatype/GType declaration for Button
 public extension ButtonClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `Button`
     static var metatypeReference: GType { gtk_button_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkButtonClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkButtonClass.self) }
@@ -3348,7 +3363,7 @@ public extension ButtonClassProtocol {
 /// Metatype/GType declaration for CallbackAction
 public extension CallbackActionClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `CallbackAction`
     static var metatypeReference: GType { gtk_callback_action_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkCallbackActionClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkCallbackActionClass.self) }

@@ -16,7 +16,7 @@ import Gdk
 /// Metatype/GType declaration for DirectoryList
 public extension DirectoryListClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `DirectoryList`
     static var metatypeReference: GType { gtk_directory_list_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkDirectoryListClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkDirectoryListClass.self) }
@@ -148,7 +148,7 @@ public extension DirectoryListClassProtocol {
 /// Metatype/GType declaration for DragIcon
 public extension DragIconClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `DragIcon`
     static var metatypeReference: GType { gtk_drag_icon_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkDragIconClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkDragIconClass.self) }
@@ -280,7 +280,7 @@ public extension DragIconClassProtocol {
 /// Metatype/GType declaration for DragSource
 public extension DragSourceClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `DragSource`
     static var metatypeReference: GType { gtk_drag_source_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkDragSourceClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkDragSourceClass.self) }
@@ -406,7 +406,7 @@ public extension DragSourceClassProtocol {
 /// Metatype/GType declaration for DrawingArea
 public extension DrawingAreaClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `DrawingArea`
     static var metatypeReference: GType { gtk_drawing_area_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkDrawingAreaClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkDrawingAreaClass.self) }
@@ -542,7 +542,7 @@ public extension DrawingAreaClassProtocol {
 /// Metatype/GType declaration for DropControllerMotion
 public extension DropControllerMotionClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `DropControllerMotion`
     static var metatypeReference: GType { gtk_drop_controller_motion_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkDropControllerMotionClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkDropControllerMotionClass.self) }
@@ -668,7 +668,7 @@ public extension DropControllerMotionClassProtocol {
 /// Metatype/GType declaration for DropDown
 public extension DropDownClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `DropDown`
     static var metatypeReference: GType { gtk_drop_down_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkDropDownClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkDropDownClass.self) }
@@ -800,7 +800,7 @@ public extension DropDownClassProtocol {
 /// Metatype/GType declaration for DropTargetAsync
 public extension DropTargetAsyncClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `DropTargetAsync`
     static var metatypeReference: GType { gtk_drop_target_async_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkDropTargetAsyncClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkDropTargetAsyncClass.self) }
@@ -926,7 +926,7 @@ public extension DropTargetAsyncClassProtocol {
 /// Metatype/GType declaration for DropTarget
 public extension DropTargetClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `DropTarget`
     static var metatypeReference: GType { gtk_drop_target_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkDropTargetClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkDropTargetClass.self) }
@@ -1052,7 +1052,7 @@ public extension DropTargetClassProtocol {
 /// Metatype/GType declaration for Editable
 public extension EditableInterfaceRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `Editable`
     static var metatypeReference: GType { gtk_editable_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkEditableInterface>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkEditableInterface.self) }

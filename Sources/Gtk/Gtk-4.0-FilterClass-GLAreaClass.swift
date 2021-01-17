@@ -16,7 +16,7 @@ import Gdk
 /// Metatype/GType declaration for Filter
 public extension FilterClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `Filter`
     static var metatypeReference: GType { gtk_filter_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkFilterClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkFilterClass.self) }
@@ -168,7 +168,7 @@ public extension FilterClassProtocol {
 /// Metatype/GType declaration for FilterListModel
 public extension FilterListModelClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `FilterListModel`
     static var metatypeReference: GType { gtk_filter_list_model_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkFilterListModelClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkFilterListModelClass.self) }
@@ -300,7 +300,7 @@ public extension FilterListModelClassProtocol {
 /// Metatype/GType declaration for Fixed
 public extension FixedClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `Fixed`
     static var metatypeReference: GType { gtk_fixed_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkFixedClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkFixedClass.self) }
@@ -434,7 +434,7 @@ public extension FixedClassProtocol {
 /// Metatype/GType declaration for FixedLayoutChild
 public extension FixedLayoutChildClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `FixedLayoutChild`
     static var metatypeReference: GType { gtk_fixed_layout_child_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkFixedLayoutChildClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkFixedLayoutChildClass.self) }
@@ -566,7 +566,7 @@ public extension FixedLayoutChildClassProtocol {
 /// Metatype/GType declaration for FixedLayout
 public extension FixedLayoutClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `FixedLayout`
     static var metatypeReference: GType { gtk_fixed_layout_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkFixedLayoutClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkFixedLayoutClass.self) }
@@ -698,7 +698,7 @@ public extension FixedLayoutClassProtocol {
 /// Metatype/GType declaration for FlattenListModel
 public extension FlattenListModelClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `FlattenListModel`
     static var metatypeReference: GType { gtk_flatten_list_model_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkFlattenListModelClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkFlattenListModelClass.self) }
@@ -830,7 +830,7 @@ public extension FlattenListModelClassProtocol {
 /// Metatype/GType declaration for FlowBoxChild
 public extension FlowBoxChildClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `FlowBoxChild`
     static var metatypeReference: GType { gtk_flow_box_child_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkFlowBoxChildClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkFlowBoxChildClass.self) }
@@ -971,7 +971,7 @@ public extension FlowBoxChildClassProtocol {
 /// Metatype/GType declaration for FontChooser
 public extension FontChooserIfaceRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `FontChooser`
     static var metatypeReference: GType { gtk_font_chooser_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkFontChooserIface>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkFontChooserIface.self) }
@@ -1124,7 +1124,7 @@ public extension FontChooserIfaceProtocol {
 /// Metatype/GType declaration for Frame
 public extension FrameClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `Frame`
     static var metatypeReference: GType { gtk_frame_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkFrameClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkFrameClass.self) }
@@ -1262,7 +1262,7 @@ public extension FrameClassProtocol {
 /// Metatype/GType declaration for GLArea
 public extension GLAreaClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `GLArea`
     static var metatypeReference: GType { gtk_gl_area_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GtkGLAreaClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkGLAreaClass.self) }
