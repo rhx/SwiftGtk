@@ -37,6 +37,13 @@ open class BoundsIter: TextIter {
         let ptr = withUnsafeMutablePointer(to: &iter) { $0 }
         super.init(ptr)
     }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `StringProtocol`.**
+    /// - Parameter p: raw pointer to the underlying object
+    @inlinable required public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
 }
 
 

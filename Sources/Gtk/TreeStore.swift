@@ -104,6 +104,20 @@ open class TreeIter: TreeIterBase {
         self.init()
         iter = other.tree_iter_ptr.pointee
     }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `StringProtocol`.**
+    /// - Parameter p: raw pointer to the underlying object
+    @inlinable required public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `StringProtocol`.**
+    /// - Parameter p: raw pointer to the underlying object to be retained
+    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
+    }
 }
 
 public extension TreeView {
