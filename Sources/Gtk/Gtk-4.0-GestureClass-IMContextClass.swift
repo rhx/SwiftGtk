@@ -43,6 +43,8 @@ public protocol GestureClassProtocol {
     /// Typed pointer to the underlying `GtkGestureClass` instance.
     var _ptr: UnsafeMutablePointer<GtkGestureClass>! { get }
 
+    /// Required Initialiser for types conforming to `GestureClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `GestureClassRef` type acts as a lightweight Swift reference to an underlying `GtkGestureClass` instance.
@@ -169,6 +171,8 @@ public protocol GestureClickClassProtocol {
     /// Typed pointer to the underlying `GtkGestureClickClass` instance.
     var _ptr: UnsafeMutablePointer<GtkGestureClickClass>! { get }
 
+    /// Required Initialiser for types conforming to `GestureClickClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `GestureClickClassRef` type acts as a lightweight Swift reference to an underlying `GtkGestureClickClass` instance.
@@ -295,6 +299,8 @@ public protocol GestureDragClassProtocol {
     /// Typed pointer to the underlying `GtkGestureDragClass` instance.
     var _ptr: UnsafeMutablePointer<GtkGestureDragClass>! { get }
 
+    /// Required Initialiser for types conforming to `GestureDragClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `GestureDragClassRef` type acts as a lightweight Swift reference to an underlying `GtkGestureDragClass` instance.
@@ -421,6 +427,8 @@ public protocol GestureLongPressClassProtocol {
     /// Typed pointer to the underlying `GtkGestureLongPressClass` instance.
     var _ptr: UnsafeMutablePointer<GtkGestureLongPressClass>! { get }
 
+    /// Required Initialiser for types conforming to `GestureLongPressClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `GestureLongPressClassRef` type acts as a lightweight Swift reference to an underlying `GtkGestureLongPressClass` instance.
@@ -547,6 +555,8 @@ public protocol GesturePanClassProtocol {
     /// Typed pointer to the underlying `GtkGesturePanClass` instance.
     var _ptr: UnsafeMutablePointer<GtkGesturePanClass>! { get }
 
+    /// Required Initialiser for types conforming to `GesturePanClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `GesturePanClassRef` type acts as a lightweight Swift reference to an underlying `GtkGesturePanClass` instance.
@@ -673,6 +683,8 @@ public protocol GestureRotateClassProtocol {
     /// Typed pointer to the underlying `GtkGestureRotateClass` instance.
     var _ptr: UnsafeMutablePointer<GtkGestureRotateClass>! { get }
 
+    /// Required Initialiser for types conforming to `GestureRotateClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `GestureRotateClassRef` type acts as a lightweight Swift reference to an underlying `GtkGestureRotateClass` instance.
@@ -799,6 +811,8 @@ public protocol GestureSingleClassProtocol {
     /// Typed pointer to the underlying `GtkGestureSingleClass` instance.
     var _ptr: UnsafeMutablePointer<GtkGestureSingleClass>! { get }
 
+    /// Required Initialiser for types conforming to `GestureSingleClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `GestureSingleClassRef` type acts as a lightweight Swift reference to an underlying `GtkGestureSingleClass` instance.
@@ -925,6 +939,8 @@ public protocol GestureStylusClassProtocol {
     /// Typed pointer to the underlying `GtkGestureStylusClass` instance.
     var _ptr: UnsafeMutablePointer<GtkGestureStylusClass>! { get }
 
+    /// Required Initialiser for types conforming to `GestureStylusClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `GestureStylusClassRef` type acts as a lightweight Swift reference to an underlying `GtkGestureStylusClass` instance.
@@ -1051,6 +1067,8 @@ public protocol GestureSwipeClassProtocol {
     /// Typed pointer to the underlying `GtkGestureSwipeClass` instance.
     var _ptr: UnsafeMutablePointer<GtkGestureSwipeClass>! { get }
 
+    /// Required Initialiser for types conforming to `GestureSwipeClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `GestureSwipeClassRef` type acts as a lightweight Swift reference to an underlying `GtkGestureSwipeClass` instance.
@@ -1177,6 +1195,8 @@ public protocol GestureZoomClassProtocol {
     /// Typed pointer to the underlying `GtkGestureZoomClass` instance.
     var _ptr: UnsafeMutablePointer<GtkGestureZoomClass>! { get }
 
+    /// Required Initialiser for types conforming to `GestureZoomClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `GestureZoomClassRef` type acts as a lightweight Swift reference to an underlying `GtkGestureZoomClass` instance.
@@ -1303,6 +1323,8 @@ public protocol GridClassProtocol {
     /// Typed pointer to the underlying `GtkGridClass` instance.
     var _ptr: UnsafeMutablePointer<GtkGridClass>! { get }
 
+    /// Required Initialiser for types conforming to `GridClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `GridClassRef` type acts as a lightweight Swift reference to an underlying `GtkGridClass` instance.
@@ -1439,6 +1461,8 @@ public protocol GridLayoutChildClassProtocol {
     /// Typed pointer to the underlying `GtkGridLayoutChildClass` instance.
     var _ptr: UnsafeMutablePointer<GtkGridLayoutChildClass>! { get }
 
+    /// Required Initialiser for types conforming to `GridLayoutChildClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `GridLayoutChildClassRef` type acts as a lightweight Swift reference to an underlying `GtkGridLayoutChildClass` instance.
@@ -1571,6 +1595,8 @@ public protocol GridLayoutClassProtocol {
     /// Typed pointer to the underlying `GtkGridLayoutClass` instance.
     var _ptr: UnsafeMutablePointer<GtkGridLayoutClass>! { get }
 
+    /// Required Initialiser for types conforming to `GridLayoutClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `GridLayoutClassRef` type acts as a lightweight Swift reference to an underlying `GtkGridLayoutClass` instance.
@@ -1703,6 +1729,8 @@ public protocol GridViewClassProtocol {
     /// Typed pointer to the underlying `GtkGridViewClass` instance.
     var _ptr: UnsafeMutablePointer<GtkGridViewClass>! { get }
 
+    /// Required Initialiser for types conforming to `GridViewClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `GridViewClassRef` type acts as a lightweight Swift reference to an underlying `GtkGridViewClass` instance.
@@ -1829,6 +1857,8 @@ public protocol IMContextClassProtocol {
     /// Typed pointer to the underlying `GtkIMContextClass` instance.
     var _ptr: UnsafeMutablePointer<GtkIMContextClass>! { get }
 
+    /// Required Initialiser for types conforming to `IMContextClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `IMContextClassRef` type acts as a lightweight Swift reference to an underlying `GtkIMContextClass` instance.

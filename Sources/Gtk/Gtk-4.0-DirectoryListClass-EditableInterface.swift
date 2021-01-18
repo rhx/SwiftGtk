@@ -43,6 +43,8 @@ public protocol DirectoryListClassProtocol {
     /// Typed pointer to the underlying `GtkDirectoryListClass` instance.
     var _ptr: UnsafeMutablePointer<GtkDirectoryListClass>! { get }
 
+    /// Required Initialiser for types conforming to `DirectoryListClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `DirectoryListClassRef` type acts as a lightweight Swift reference to an underlying `GtkDirectoryListClass` instance.
@@ -175,6 +177,8 @@ public protocol DragIconClassProtocol {
     /// Typed pointer to the underlying `GtkDragIconClass` instance.
     var _ptr: UnsafeMutablePointer<GtkDragIconClass>! { get }
 
+    /// Required Initialiser for types conforming to `DragIconClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `DragIconClassRef` type acts as a lightweight Swift reference to an underlying `GtkDragIconClass` instance.
@@ -307,6 +311,8 @@ public protocol DragSourceClassProtocol {
     /// Typed pointer to the underlying `GtkDragSourceClass` instance.
     var _ptr: UnsafeMutablePointer<GtkDragSourceClass>! { get }
 
+    /// Required Initialiser for types conforming to `DragSourceClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `DragSourceClassRef` type acts as a lightweight Swift reference to an underlying `GtkDragSourceClass` instance.
@@ -433,6 +439,8 @@ public protocol DrawingAreaClassProtocol {
     /// Typed pointer to the underlying `GtkDrawingAreaClass` instance.
     var _ptr: UnsafeMutablePointer<GtkDrawingAreaClass>! { get }
 
+    /// Required Initialiser for types conforming to `DrawingAreaClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `DrawingAreaClassRef` type acts as a lightweight Swift reference to an underlying `GtkDrawingAreaClass` instance.
@@ -569,6 +577,8 @@ public protocol DropControllerMotionClassProtocol {
     /// Typed pointer to the underlying `GtkDropControllerMotionClass` instance.
     var _ptr: UnsafeMutablePointer<GtkDropControllerMotionClass>! { get }
 
+    /// Required Initialiser for types conforming to `DropControllerMotionClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `DropControllerMotionClassRef` type acts as a lightweight Swift reference to an underlying `GtkDropControllerMotionClass` instance.
@@ -695,6 +705,8 @@ public protocol DropDownClassProtocol {
     /// Typed pointer to the underlying `GtkDropDownClass` instance.
     var _ptr: UnsafeMutablePointer<GtkDropDownClass>! { get }
 
+    /// Required Initialiser for types conforming to `DropDownClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `DropDownClassRef` type acts as a lightweight Swift reference to an underlying `GtkDropDownClass` instance.
@@ -827,6 +839,8 @@ public protocol DropTargetAsyncClassProtocol {
     /// Typed pointer to the underlying `GtkDropTargetAsyncClass` instance.
     var _ptr: UnsafeMutablePointer<GtkDropTargetAsyncClass>! { get }
 
+    /// Required Initialiser for types conforming to `DropTargetAsyncClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `DropTargetAsyncClassRef` type acts as a lightweight Swift reference to an underlying `GtkDropTargetAsyncClass` instance.
@@ -953,6 +967,8 @@ public protocol DropTargetClassProtocol {
     /// Typed pointer to the underlying `GtkDropTargetClass` instance.
     var _ptr: UnsafeMutablePointer<GtkDropTargetClass>! { get }
 
+    /// Required Initialiser for types conforming to `DropTargetClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `DropTargetClassRef` type acts as a lightweight Swift reference to an underlying `GtkDropTargetClass` instance.
@@ -1079,6 +1095,8 @@ public protocol EditableInterfaceProtocol {
     /// Typed pointer to the underlying `GtkEditableInterface` instance.
     var _ptr: UnsafeMutablePointer<GtkEditableInterface>! { get }
 
+    /// Required Initialiser for types conforming to `EditableInterfaceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `EditableInterfaceRef` type acts as a lightweight Swift reference to an underlying `GtkEditableInterface` instance.

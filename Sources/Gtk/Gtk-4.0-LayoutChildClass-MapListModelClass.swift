@@ -43,6 +43,8 @@ public protocol LayoutChildClassProtocol {
     /// Typed pointer to the underlying `GtkLayoutChildClass` instance.
     var _ptr: UnsafeMutablePointer<GtkLayoutChildClass>! { get }
 
+    /// Required Initialiser for types conforming to `LayoutChildClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `LayoutChildClassRef` type acts as a lightweight Swift reference to an underlying `GtkLayoutChildClass` instance.
@@ -172,6 +174,8 @@ public protocol LayoutManagerClassProtocol {
     /// Typed pointer to the underlying `GtkLayoutManagerClass` instance.
     var _ptr: UnsafeMutablePointer<GtkLayoutManagerClass>! { get }
 
+    /// Required Initialiser for types conforming to `LayoutManagerClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `LayoutManagerClassRef` type acts as a lightweight Swift reference to an underlying `GtkLayoutManagerClass` instance.
@@ -324,6 +328,8 @@ public protocol ListBaseClassProtocol {
     /// Typed pointer to the underlying `GtkListBaseClass` instance.
     var _ptr: UnsafeMutablePointer<GtkListBaseClass>! { get }
 
+    /// Required Initialiser for types conforming to `ListBaseClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ListBaseClassRef` type acts as a lightweight Swift reference to an underlying `GtkListBaseClass` instance.
@@ -450,6 +456,8 @@ public protocol ListBoxRowClassProtocol {
     /// Typed pointer to the underlying `GtkListBoxRowClass` instance.
     var _ptr: UnsafeMutablePointer<GtkListBoxRowClass>! { get }
 
+    /// Required Initialiser for types conforming to `ListBoxRowClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ListBoxRowClassRef` type acts as a lightweight Swift reference to an underlying `GtkListBoxRowClass` instance.
@@ -588,6 +596,8 @@ public protocol ListItemClassProtocol {
     /// Typed pointer to the underlying `GtkListItemClass` instance.
     var _ptr: UnsafeMutablePointer<GtkListItemClass>! { get }
 
+    /// Required Initialiser for types conforming to `ListItemClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ListItemClassRef` type acts as a lightweight Swift reference to an underlying `GtkListItemClass` instance.
@@ -714,6 +724,8 @@ public protocol ListItemFactoryClassProtocol {
     /// Typed pointer to the underlying `GtkListItemFactoryClass` instance.
     var _ptr: UnsafeMutablePointer<GtkListItemFactoryClass>! { get }
 
+    /// Required Initialiser for types conforming to `ListItemFactoryClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ListItemFactoryClassRef` type acts as a lightweight Swift reference to an underlying `GtkListItemFactoryClass` instance.
@@ -840,6 +852,8 @@ public protocol ListStoreClassProtocol {
     /// Typed pointer to the underlying `GtkListStoreClass` instance.
     var _ptr: UnsafeMutablePointer<GtkListStoreClass>! { get }
 
+    /// Required Initialiser for types conforming to `ListStoreClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ListStoreClassRef` type acts as a lightweight Swift reference to an underlying `GtkListStoreClass` instance.
@@ -974,6 +988,8 @@ public protocol ListViewClassProtocol {
     /// Typed pointer to the underlying `GtkListViewClass` instance.
     var _ptr: UnsafeMutablePointer<GtkListViewClass>! { get }
 
+    /// Required Initialiser for types conforming to `ListViewClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ListViewClassRef` type acts as a lightweight Swift reference to an underlying `GtkListViewClass` instance.
@@ -1100,6 +1116,8 @@ public protocol MapListModelClassProtocol {
     /// Typed pointer to the underlying `GtkMapListModelClass` instance.
     var _ptr: UnsafeMutablePointer<GtkMapListModelClass>! { get }
 
+    /// Required Initialiser for types conforming to `MapListModelClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `MapListModelClassRef` type acts as a lightweight Swift reference to an underlying `GtkMapListModelClass` instance.

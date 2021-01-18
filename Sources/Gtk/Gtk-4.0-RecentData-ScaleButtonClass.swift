@@ -29,6 +29,8 @@ public protocol RecentDataProtocol {
     /// Typed pointer to the underlying `GtkRecentData` instance.
     var _ptr: UnsafeMutablePointer<GtkRecentData>! { get }
 
+    /// Required Initialiser for types conforming to `RecentDataProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `RecentDataRef` type acts as a lightweight Swift reference to an underlying `GtkRecentData` instance.
@@ -234,7 +236,7 @@ open class RecentData: RecentDataProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RecentDataProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -414,6 +416,8 @@ public protocol RecentInfoProtocol {
     /// Typed pointer to the underlying `GtkRecentInfo` instance.
     var recent_info_ptr: UnsafeMutablePointer<GtkRecentInfo>! { get }
 
+    /// Required Initialiser for types conforming to `RecentInfoProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `RecentInfoRef` type acts as a lightweight Swift reference to an underlying `GtkRecentInfo` instance.
@@ -625,7 +629,7 @@ open class RecentInfo: RecentInfoProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RecentInfoProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -1006,6 +1010,8 @@ public protocol RecentManagerClassProtocol {
     /// Typed pointer to the underlying `GtkRecentManagerClass` instance.
     var _ptr: UnsafeMutablePointer<GtkRecentManagerClass>! { get }
 
+    /// Required Initialiser for types conforming to `RecentManagerClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `RecentManagerClassRef` type acts as a lightweight Swift reference to an underlying `GtkRecentManagerClass` instance.
@@ -1130,6 +1136,8 @@ public protocol RequestedSizeProtocol {
     /// Typed pointer to the underlying `GtkRequestedSize` instance.
     var _ptr: UnsafeMutablePointer<GtkRequestedSize>! { get }
 
+    /// Required Initialiser for types conforming to `RequestedSizeProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `RequestedSizeRef` type acts as a lightweight Swift reference to an underlying `GtkRequestedSize` instance.
@@ -1337,7 +1345,7 @@ open class RequestedSize: RequestedSizeProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RequestedSizeProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -1439,7 +1447,7 @@ public extension RequestedSizeProtocol {
 /// For a concrete class that implements these methods and properties, see `Requisition`.
 /// Alternatively, use `RequisitionRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// A `GtkRequisition`-struct represents the desired size of a widget. See
+/// A `GtkRequisition-struct` represents the desired size of a widget. See
 /// [GtkWidget’s geometry management section](#geometry-management) for
 /// more information.
 public protocol RequisitionProtocol {
@@ -1449,13 +1457,15 @@ public protocol RequisitionProtocol {
     /// Typed pointer to the underlying `GtkRequisition` instance.
     var requisition_ptr: UnsafeMutablePointer<GtkRequisition>! { get }
 
+    /// Required Initialiser for types conforming to `RequisitionProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `RequisitionRef` type acts as a lightweight Swift reference to an underlying `GtkRequisition` instance.
 /// It exposes methods that can operate on this data type through `RequisitionProtocol` conformance.
 /// Use `RequisitionRef` only as an `unowned` reference to an existing `GtkRequisition` instance.
 ///
-/// A `GtkRequisition`-struct represents the desired size of a widget. See
+/// A `GtkRequisition-struct` represents the desired size of a widget. See
 /// [GtkWidget’s geometry management section](#geometry-management) for
 /// more information.
 public struct RequisitionRef: RequisitionProtocol {
@@ -1534,7 +1544,7 @@ public extension RequisitionRef {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
-        /// Allocates a new `GtkRequisition`-struct and initializes its elements to zero.
+        /// Allocates a new `GtkRequisition-struct` and initializes its elements to zero.
     @inlinable init() {
         let rv = gtk_requisition_new()
         ptr = UnsafeMutableRawPointer(rv)
@@ -1545,7 +1555,7 @@ public extension RequisitionRef {
 /// It provides the methods that can operate on this data type through `RequisitionProtocol` conformance.
 /// Use `Requisition` as a strong reference or owner of a `GtkRequisition` instance.
 ///
-/// A `GtkRequisition`-struct represents the desired size of a widget. See
+/// A `GtkRequisition-struct` represents the desired size of a widget. See
 /// [GtkWidget’s geometry management section](#geometry-management) for
 /// more information.
 open class Requisition: RequisitionProtocol {
@@ -1661,7 +1671,7 @@ open class Requisition: RequisitionProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RequisitionProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -1688,7 +1698,7 @@ open class Requisition: RequisitionProtocol {
         // no reference counting for GtkRequisition, cannot ref(requisition_ptr)
     }
 
-    /// Allocates a new `GtkRequisition`-struct and initializes its elements to zero.
+    /// Allocates a new `GtkRequisition-struct` and initializes its elements to zero.
     @inlinable public init() {
         let rv = gtk_requisition_new()
         ptr = UnsafeMutableRawPointer(rv)
@@ -1779,6 +1789,8 @@ public protocol RootInterfaceProtocol {
     /// Typed pointer to the underlying `GtkRootInterface` instance.
     var _ptr: UnsafeMutablePointer<GtkRootInterface>! { get }
 
+    /// Required Initialiser for types conforming to `RootInterfaceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `RootInterfaceRef` type acts as a lightweight Swift reference to an underlying `GtkRootInterface` instance.
@@ -1905,6 +1917,8 @@ public protocol ScaleButtonClassProtocol {
     /// Typed pointer to the underlying `GtkScaleButtonClass` instance.
     var _ptr: UnsafeMutablePointer<GtkScaleButtonClass>! { get }
 
+    /// Required Initialiser for types conforming to `ScaleButtonClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ScaleButtonClassRef` type acts as a lightweight Swift reference to an underlying `GtkScaleButtonClass` instance.

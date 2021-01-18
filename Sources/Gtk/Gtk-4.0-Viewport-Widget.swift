@@ -42,6 +42,8 @@ public protocol ViewportProtocol: WidgetProtocol, ScrollableProtocol {
     /// Typed pointer to the underlying `GtkViewport` instance.
     var viewport_ptr: UnsafeMutablePointer<GtkViewport>! { get }
 
+    /// Required Initialiser for types conforming to `ViewportProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ViewportRef` type acts as a lightweight Swift reference to an underlying `GtkViewport` instance.
@@ -269,14 +271,14 @@ open class Viewport: Widget, ViewportProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ViewportProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ViewportProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -333,9 +335,9 @@ public enum ViewportPropertyName: String, PropertyNameProtocol {
     case halign = "halign"
     case hasDefault = "has-default"
     case hasFocus = "has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case hasTooltip = "has-tooltip"
     case heightRequest = "height-request"
@@ -399,11 +401,11 @@ public enum ViewportPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipMarkup = "tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -411,11 +413,11 @@ public enum ViewportPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipText = "tooltip-text"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
@@ -488,7 +490,7 @@ public enum ViewportSignalName: String, SignalNameProtocol {
     /// 
     /// This signal is not suitable for saving widget state.
     case destroy = "destroy"
-    /// The `direction`-changed signal is emitted when the text direction
+    /// The `direction-changed` signal is emitted when the text direction
     /// of a widget changes.
     case directionChanged = "direction-changed"
     /// The `hide` signal is emitted when `widget` is hidden, for example with
@@ -536,7 +538,7 @@ public enum ViewportSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
+    /// Emitted when `GtkWidget:has-tooltip` is `true` and the hover timeout
     /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
     /// focus in keyboard mode.
     /// 
@@ -556,7 +558,7 @@ public enum ViewportSignalName: String, SignalNameProtocol {
     /// The `show` signal is emitted when `widget` is shown, for example with
     /// `gtk_widget_show()`.
     case show = "show"
-    /// The `state`-flags-changed signal is emitted when the widget state
+    /// The `state-flags-changed` signal is emitted when the widget state
     /// changes, see `gtk_widget_get_state_flags()`.
     case stateFlagsChanged = "state-flags-changed"
     /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
@@ -598,9 +600,9 @@ public enum ViewportSignalName: String, SignalNameProtocol {
     case notifyHalign = "notify::halign"
     case notifyHasDefault = "notify::has-default"
     case notifyHasFocus = "notify::has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case notifyHasTooltip = "notify::has-tooltip"
     case notifyHeightRequest = "notify::height-request"
@@ -664,11 +666,11 @@ public enum ViewportSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipMarkup = "notify::tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -676,11 +678,11 @@ public enum ViewportSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipText = "notify::tooltip-text"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
@@ -779,6 +781,8 @@ public protocol VolumeButtonProtocol: ScaleButtonProtocol {
     /// Typed pointer to the underlying `GtkVolumeButton` instance.
     var volume_button_ptr: UnsafeMutablePointer<GtkVolumeButton>! { get }
 
+    /// Required Initialiser for types conforming to `VolumeButtonProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `VolumeButtonRef` type acts as a lightweight Swift reference to an underlying `GtkVolumeButton` instance.
@@ -983,14 +987,14 @@ open class VolumeButton: ScaleButton, VolumeButtonProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VolumeButtonProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VolumeButtonProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -1048,9 +1052,9 @@ public enum VolumeButtonPropertyName: String, PropertyNameProtocol {
     case halign = "halign"
     case hasDefault = "has-default"
     case hasFocus = "has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case hasTooltip = "has-tooltip"
     case heightRequest = "height-request"
@@ -1129,11 +1133,11 @@ public enum VolumeButtonPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipMarkup = "tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -1141,11 +1145,11 @@ public enum VolumeButtonPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipText = "tooltip-text"
     /// Whether to use symbolic icons as the icons. Note that
@@ -1224,7 +1228,7 @@ public enum VolumeButtonSignalName: String, SignalNameProtocol {
     /// 
     /// This signal is not suitable for saving widget state.
     case destroy = "destroy"
-    /// The `direction`-changed signal is emitted when the text direction
+    /// The `direction-changed` signal is emitted when the text direction
     /// of a widget changes.
     case directionChanged = "direction-changed"
     /// The `hide` signal is emitted when `widget` is hidden, for example with
@@ -1284,7 +1288,7 @@ public enum VolumeButtonSignalName: String, SignalNameProtocol {
     /// 
     /// The default bindings for this signal are Space, Enter and Return.
     case popup = "popup"
-    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
+    /// Emitted when `GtkWidget:has-tooltip` is `true` and the hover timeout
     /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
     /// focus in keyboard mode.
     /// 
@@ -1304,7 +1308,7 @@ public enum VolumeButtonSignalName: String, SignalNameProtocol {
     /// The `show` signal is emitted when `widget` is shown, for example with
     /// `gtk_widget_show()`.
     case show = "show"
-    /// The `state`-flags-changed signal is emitted when the widget state
+    /// The `state-flags-changed` signal is emitted when the widget state
     /// changes, see `gtk_widget_get_state_flags()`.
     case stateFlagsChanged = "state-flags-changed"
     /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
@@ -1319,7 +1323,7 @@ public enum VolumeButtonSignalName: String, SignalNameProtocol {
     /// called or the widget has been unmapped (that is, it is going to be
     /// hidden).
     case unrealize = "unrealize"
-    /// The `value`-changed signal is emitted when the value field has
+    /// The `value-changed` signal is emitted when the value field has
     /// changed.
     case valueChanged = "value-changed"
     case notifyAdjustment = "notify::adjustment"
@@ -1349,9 +1353,9 @@ public enum VolumeButtonSignalName: String, SignalNameProtocol {
     case notifyHalign = "notify::halign"
     case notifyHasDefault = "notify::has-default"
     case notifyHasFocus = "notify::has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case notifyHasTooltip = "notify::has-tooltip"
     case notifyHeightRequest = "notify::height-request"
@@ -1430,11 +1434,11 @@ public enum VolumeButtonSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipMarkup = "notify::tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -1442,11 +1446,11 @@ public enum VolumeButtonSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipText = "notify::tooltip-text"
     /// Whether to use symbolic icons as the icons. Note that
@@ -1617,7 +1621,7 @@ public extension VolumeButtonProtocol {
 /// example above.
 /// 
 /// It will not work to use the wrapper function `gtk_widget_measure()`
-/// inside your own `GtkWidgetClass.size``-allocate()` implementation.
+/// inside your own `GtkWidgetClass.size-allocate``()` implementation.
 /// These return a request adjusted by `GtkSizeGroup`, the widget's align and expand flags
 /// as well as its CSS style.
 /// If a widget used the wrappers inside its virtual method implementations,
@@ -1652,7 +1656,7 @@ public extension VolumeButtonProtocol {
 /// directly expressed as properties.
 /// 
 /// If the parent widget uses a `GtkLayoutManager`, `GtkWidget` supports a
-/// custom `<layout>` element, used to define layout properties:
+/// custom `&lt;layout&gt;` element, used to define layout properties:
 /// 
 /// ```
 /// <object class="MyGrid" id="grid1">
@@ -1681,7 +1685,7 @@ public extension VolumeButtonProtocol {
 /// ```
 /// 
 /// GtkWidget allows style information such as style classes to
-/// be associated with widgets, using the custom `<style>` element:
+/// be associated with widgets, using the custom `&lt;style&gt;` element:
 /// ```
 /// <object class="GtkButton" id="button1">
 ///   <style>
@@ -1692,7 +1696,7 @@ public extension VolumeButtonProtocol {
 /// ```
 /// 
 /// GtkWidget allows defining accessibility information, such as properties,
-/// relations, and states, using the custom `<accessibility>` element:
+/// relations, and states, using the custom `&lt;accessibility&gt;` element:
 /// ```
 /// <object class="GtkButton" id="button1">
 ///   <accessibility>
@@ -1716,24 +1720,24 @@ public extension VolumeButtonProtocol {
 /// is slightly different from regular `GtkBuilder` XML.
 /// 
 /// Unlike regular interface descriptions, `gtk_widget_class_set_template()` will
-/// expect a <template> tag as a direct child of the toplevel <interface>
-/// tag. The <template> tag must specify the “class” attribute which must be
+/// expect a &lt;template&gt; tag as a direct child of the toplevel &lt;interface&gt;
+/// tag. The &lt;template&gt; tag must specify the “class” attribute which must be
 /// the type name of the widget. Optionally, the “parent” attribute may be
 /// specified to specify the direct parent type of the widget type, this is
 /// ignored by the GtkBuilder but required for Glade to introspect what kind
 /// of properties and internal children exist for a given type when the actual
 /// type does not exist.
 /// 
-/// The XML which is contained inside the <template> tag behaves as if it were
-/// added to the <object> tag defining `widget` itself. You may set properties
-/// on `widget` by inserting <property> tags into the <template> tag, and also
-/// add <child> tags to add children and extend `widget` in the normal way you
-/// would with <object> tags.
+/// The XML which is contained inside the &lt;template&gt; tag behaves as if it were
+/// added to the &lt;object&gt; tag defining `widget` itself. You may set properties
+/// on `widget` by inserting &lt;property&gt; tags into the &lt;template&gt; tag, and also
+/// add &lt;child&gt; tags to add children and extend `widget` in the normal way you
+/// would with &lt;object&gt; tags.
 /// 
-/// Additionally, <object> tags can also be added before and after the initial
-/// <template> tag in the normal way, allowing one to define auxiliary objects
+/// Additionally, &lt;object&gt; tags can also be added before and after the initial
+/// &lt;template&gt; tag in the normal way, allowing one to define auxiliary objects
 /// which might be referenced by other widgets declared as children of the
-/// <template> tag.
+/// &lt;template&gt; tag.
 /// 
 /// An example of a GtkBuilder Template Definition:
 /// ```
@@ -1852,6 +1856,8 @@ public protocol WidgetProtocol: GLibObject.InitiallyUnownedProtocol, AccessibleP
     /// Typed pointer to the underlying `GtkWidget` instance.
     var widget_ptr: UnsafeMutablePointer<GtkWidget>! { get }
 
+    /// Required Initialiser for types conforming to `WidgetProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `WidgetRef` type acts as a lightweight Swift reference to an underlying `GtkWidget` instance.
@@ -1985,7 +1991,7 @@ public protocol WidgetProtocol: GLibObject.InitiallyUnownedProtocol, AccessibleP
 /// example above.
 /// 
 /// It will not work to use the wrapper function `gtk_widget_measure()`
-/// inside your own `GtkWidgetClass.size``-allocate()` implementation.
+/// inside your own `GtkWidgetClass.size-allocate``()` implementation.
 /// These return a request adjusted by `GtkSizeGroup`, the widget's align and expand flags
 /// as well as its CSS style.
 /// If a widget used the wrappers inside its virtual method implementations,
@@ -2020,7 +2026,7 @@ public protocol WidgetProtocol: GLibObject.InitiallyUnownedProtocol, AccessibleP
 /// directly expressed as properties.
 /// 
 /// If the parent widget uses a `GtkLayoutManager`, `GtkWidget` supports a
-/// custom `<layout>` element, used to define layout properties:
+/// custom `&lt;layout&gt;` element, used to define layout properties:
 /// 
 /// ```
 /// <object class="MyGrid" id="grid1">
@@ -2049,7 +2055,7 @@ public protocol WidgetProtocol: GLibObject.InitiallyUnownedProtocol, AccessibleP
 /// ```
 /// 
 /// GtkWidget allows style information such as style classes to
-/// be associated with widgets, using the custom `<style>` element:
+/// be associated with widgets, using the custom `&lt;style&gt;` element:
 /// ```
 /// <object class="GtkButton" id="button1">
 ///   <style>
@@ -2060,7 +2066,7 @@ public protocol WidgetProtocol: GLibObject.InitiallyUnownedProtocol, AccessibleP
 /// ```
 /// 
 /// GtkWidget allows defining accessibility information, such as properties,
-/// relations, and states, using the custom `<accessibility>` element:
+/// relations, and states, using the custom `&lt;accessibility&gt;` element:
 /// ```
 /// <object class="GtkButton" id="button1">
 ///   <accessibility>
@@ -2084,24 +2090,24 @@ public protocol WidgetProtocol: GLibObject.InitiallyUnownedProtocol, AccessibleP
 /// is slightly different from regular `GtkBuilder` XML.
 /// 
 /// Unlike regular interface descriptions, `gtk_widget_class_set_template()` will
-/// expect a <template> tag as a direct child of the toplevel <interface>
-/// tag. The <template> tag must specify the “class” attribute which must be
+/// expect a &lt;template&gt; tag as a direct child of the toplevel &lt;interface&gt;
+/// tag. The &lt;template&gt; tag must specify the “class” attribute which must be
 /// the type name of the widget. Optionally, the “parent” attribute may be
 /// specified to specify the direct parent type of the widget type, this is
 /// ignored by the GtkBuilder but required for Glade to introspect what kind
 /// of properties and internal children exist for a given type when the actual
 /// type does not exist.
 /// 
-/// The XML which is contained inside the <template> tag behaves as if it were
-/// added to the <object> tag defining `widget` itself. You may set properties
-/// on `widget` by inserting <property> tags into the <template> tag, and also
-/// add <child> tags to add children and extend `widget` in the normal way you
-/// would with <object> tags.
+/// The XML which is contained inside the &lt;template&gt; tag behaves as if it were
+/// added to the &lt;object&gt; tag defining `widget` itself. You may set properties
+/// on `widget` by inserting &lt;property&gt; tags into the &lt;template&gt; tag, and also
+/// add &lt;child&gt; tags to add children and extend `widget` in the normal way you
+/// would with &lt;object&gt; tags.
 /// 
-/// Additionally, <object> tags can also be added before and after the initial
-/// <template> tag in the normal way, allowing one to define auxiliary objects
+/// Additionally, &lt;object&gt; tags can also be added before and after the initial
+/// &lt;template&gt; tag in the normal way, allowing one to define auxiliary objects
 /// which might be referenced by other widgets declared as children of the
-/// <template> tag.
+/// &lt;template&gt; tag.
 /// 
 /// An example of a GtkBuilder Template Definition:
 /// ```
@@ -2425,7 +2431,7 @@ public extension WidgetRef {
 /// example above.
 /// 
 /// It will not work to use the wrapper function `gtk_widget_measure()`
-/// inside your own `GtkWidgetClass.size``-allocate()` implementation.
+/// inside your own `GtkWidgetClass.size-allocate``()` implementation.
 /// These return a request adjusted by `GtkSizeGroup`, the widget's align and expand flags
 /// as well as its CSS style.
 /// If a widget used the wrappers inside its virtual method implementations,
@@ -2460,7 +2466,7 @@ public extension WidgetRef {
 /// directly expressed as properties.
 /// 
 /// If the parent widget uses a `GtkLayoutManager`, `GtkWidget` supports a
-/// custom `<layout>` element, used to define layout properties:
+/// custom `&lt;layout&gt;` element, used to define layout properties:
 /// 
 /// ```
 /// <object class="MyGrid" id="grid1">
@@ -2489,7 +2495,7 @@ public extension WidgetRef {
 /// ```
 /// 
 /// GtkWidget allows style information such as style classes to
-/// be associated with widgets, using the custom `<style>` element:
+/// be associated with widgets, using the custom `&lt;style&gt;` element:
 /// ```
 /// <object class="GtkButton" id="button1">
 ///   <style>
@@ -2500,7 +2506,7 @@ public extension WidgetRef {
 /// ```
 /// 
 /// GtkWidget allows defining accessibility information, such as properties,
-/// relations, and states, using the custom `<accessibility>` element:
+/// relations, and states, using the custom `&lt;accessibility&gt;` element:
 /// ```
 /// <object class="GtkButton" id="button1">
 ///   <accessibility>
@@ -2524,24 +2530,24 @@ public extension WidgetRef {
 /// is slightly different from regular `GtkBuilder` XML.
 /// 
 /// Unlike regular interface descriptions, `gtk_widget_class_set_template()` will
-/// expect a <template> tag as a direct child of the toplevel <interface>
-/// tag. The <template> tag must specify the “class” attribute which must be
+/// expect a &lt;template&gt; tag as a direct child of the toplevel &lt;interface&gt;
+/// tag. The &lt;template&gt; tag must specify the “class” attribute which must be
 /// the type name of the widget. Optionally, the “parent” attribute may be
 /// specified to specify the direct parent type of the widget type, this is
 /// ignored by the GtkBuilder but required for Glade to introspect what kind
 /// of properties and internal children exist for a given type when the actual
 /// type does not exist.
 /// 
-/// The XML which is contained inside the <template> tag behaves as if it were
-/// added to the <object> tag defining `widget` itself. You may set properties
-/// on `widget` by inserting <property> tags into the <template> tag, and also
-/// add <child> tags to add children and extend `widget` in the normal way you
-/// would with <object> tags.
+/// The XML which is contained inside the &lt;template&gt; tag behaves as if it were
+/// added to the &lt;object&gt; tag defining `widget` itself. You may set properties
+/// on `widget` by inserting &lt;property&gt; tags into the &lt;template&gt; tag, and also
+/// add &lt;child&gt; tags to add children and extend `widget` in the normal way you
+/// would with &lt;object&gt; tags.
 /// 
-/// Additionally, <object> tags can also be added before and after the initial
-/// <template> tag in the normal way, allowing one to define auxiliary objects
+/// Additionally, &lt;object&gt; tags can also be added before and after the initial
+/// &lt;template&gt; tag in the normal way, allowing one to define auxiliary objects
 /// which might be referenced by other widgets declared as children of the
-/// <template> tag.
+/// &lt;template&gt; tag.
 /// 
 /// An example of a GtkBuilder Template Definition:
 /// ```
@@ -2753,14 +2759,14 @@ open class Widget: GLibObject.InitiallyUnowned, WidgetProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `WidgetProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `WidgetProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -2809,9 +2815,9 @@ public enum WidgetPropertyName: String, PropertyNameProtocol {
     case halign = "halign"
     case hasDefault = "has-default"
     case hasFocus = "has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case hasTooltip = "has-tooltip"
     case heightRequest = "height-request"
@@ -2874,11 +2880,11 @@ public enum WidgetPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipMarkup = "tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -2886,11 +2892,11 @@ public enum WidgetPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipText = "tooltip-text"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
@@ -2963,7 +2969,7 @@ public enum WidgetSignalName: String, SignalNameProtocol {
     /// 
     /// This signal is not suitable for saving widget state.
     case destroy = "destroy"
-    /// The `direction`-changed signal is emitted when the text direction
+    /// The `direction-changed` signal is emitted when the text direction
     /// of a widget changes.
     case directionChanged = "direction-changed"
     /// The `hide` signal is emitted when `widget` is hidden, for example with
@@ -3011,7 +3017,7 @@ public enum WidgetSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
+    /// Emitted when `GtkWidget:has-tooltip` is `true` and the hover timeout
     /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
     /// focus in keyboard mode.
     /// 
@@ -3031,7 +3037,7 @@ public enum WidgetSignalName: String, SignalNameProtocol {
     /// The `show` signal is emitted when `widget` is shown, for example with
     /// `gtk_widget_show()`.
     case show = "show"
-    /// The `state`-flags-changed signal is emitted when the widget state
+    /// The `state-flags-changed` signal is emitted when the widget state
     /// changes, see `gtk_widget_get_state_flags()`.
     case stateFlagsChanged = "state-flags-changed"
     /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
@@ -3072,9 +3078,9 @@ public enum WidgetSignalName: String, SignalNameProtocol {
     case notifyHalign = "notify::halign"
     case notifyHasDefault = "notify::has-default"
     case notifyHasFocus = "notify::has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case notifyHasTooltip = "notify::has-tooltip"
     case notifyHeightRequest = "notify::height-request"
@@ -3137,11 +3143,11 @@ public enum WidgetSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipMarkup = "notify::tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -3149,11 +3155,11 @@ public enum WidgetSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipText = "notify::tooltip-text"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
@@ -3223,7 +3229,7 @@ public extension WidgetProtocol {
     /// Typed `destroy` signal for using the `connect(signal:)` methods
     static var destroySignal: WidgetSignalName { .destroy }
     
-    /// The `direction`-changed signal is emitted when the text direction
+    /// The `direction-changed` signal is emitted when the text direction
     /// of a widget changes.
     /// - Note: This represents the underlying `direction-changed` signal
     /// - Parameter flags: Flags
@@ -3388,7 +3394,7 @@ public extension WidgetProtocol {
     /// Typed `move-focus` signal for using the `connect(signal:)` methods
     static var moveFocusSignal: WidgetSignalName { .moveFocus }
     
-    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
+    /// Emitted when `GtkWidget:has-tooltip` is `true` and the hover timeout
     /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
     /// focus in keyboard mode.
     /// 
@@ -3481,7 +3487,7 @@ public extension WidgetProtocol {
     /// Typed `show` signal for using the `connect(signal:)` methods
     static var showSignal: WidgetSignalName { .show }
     
-    /// The `state`-flags-changed signal is emitted when the widget state
+    /// The `state-flags-changed` signal is emitted when the widget state
     /// changes, see `gtk_widget_get_state_flags()`.
     /// - Note: This represents the underlying `state-flags-changed` signal
     /// - Parameter flags: Flags
@@ -5473,7 +5479,7 @@ public extension WidgetProtocol {
     }
 
     /// Notifies the user about an input-related error on this widget.
-    /// If the `GtkSettings:gtk`-error-bell setting is `true`, it calls
+    /// If the `GtkSettings:gtk-error-bell` setting is `true`, it calls
     /// `gdk_surface_beep()`, otherwise it does nothing.
     /// 
     /// Note that the effect of `gdk_surface_beep()` can be configured in many
@@ -5690,7 +5696,7 @@ public extension WidgetProtocol {
     }
 
     /// Returns the current value of the has-tooltip property.  See
-    /// `GtkWidget:has`-tooltip for more information.
+    /// `GtkWidget:has-tooltip` for more information.
     @inlinable func getHasTooltip() -> Bool {
         let rv = ((gtk_widget_get_has_tooltip(widget_ptr)) != 0)
         return rv
@@ -5758,25 +5764,25 @@ public extension WidgetProtocol {
         return rv
     }
 
-    /// Gets the value of the `GtkWidget:margin`-bottom property.
+    /// Gets the value of the `GtkWidget:margin-bottom` property.
     @inlinable func getMarginBottom() -> Int {
         let rv = Int(gtk_widget_get_margin_bottom(widget_ptr))
         return rv
     }
 
-    /// Gets the value of the `GtkWidget:margin`-end property.
+    /// Gets the value of the `GtkWidget:margin-end` property.
     @inlinable func getMarginEnd() -> Int {
         let rv = Int(gtk_widget_get_margin_end(widget_ptr))
         return rv
     }
 
-    /// Gets the value of the `GtkWidget:margin`-start property.
+    /// Gets the value of the `GtkWidget:margin-start` property.
     @inlinable func getMarginStart() -> Int {
         let rv = Int(gtk_widget_get_margin_start(widget_ptr))
         return rv
     }
 
-    /// Gets the value of the `GtkWidget:margin`-top property.
+    /// Gets the value of the `GtkWidget:margin-top` property.
     @inlinable func getMarginTop() -> Int {
         let rv = Int(gtk_widget_get_margin_top(widget_ptr))
         return rv
@@ -6240,7 +6246,7 @@ public extension WidgetProtocol {
 
     /// This function should be called whenever keyboard navigation within
     /// a single widget hits a boundary. The function emits the
-    /// `GtkWidget::keynav`-failed signal on the widget and its return
+    /// `GtkWidget::keynav-failed` signal on the widget and its return
     /// value should be interpreted in a way similar to the return value of
     /// `gtk_widget_child_focus()`:
     /// 
@@ -6252,7 +6258,7 @@ public extension WidgetProtocol {
     /// navigation outside the widget, e.g. by calling
     /// `gtk_widget_child_focus()` on the widget’s toplevel.
     /// 
-    /// The default `keynav`-failed handler returns `false` for
+    /// The default `keynav-failed` handler returns `false` for
     /// `GTK_DIR_TAB_FORWARD` and `GTK_DIR_TAB_BACKWARD`. For the other
     /// values of `GtkDirectionType` it returns `true`.
     /// 
@@ -6260,7 +6266,7 @@ public extension WidgetProtocol {
     /// `gtk_widget_error_bell()` to notify the user of the failed keyboard
     /// navigation.
     /// 
-    /// A use case for providing an own implementation of `keynav`-failed
+    /// A use case for providing an own implementation of `keynav-failed`
     /// (either by connecting to it or by overriding it) would be a row of
     /// `GtkEntry` widgets where the user should be able to navigate the
     /// entire row with the cursor keys, as e.g. known from user interfaces
@@ -6304,7 +6310,7 @@ public extension WidgetProtocol {
     
     }
 
-    /// Emits the `GtkWidget::mnemonic`-activate signal.
+    /// Emits the `GtkWidget::mnemonic-activate` signal.
     @inlinable func mnemonicActivate(groupCycling: Bool) -> Bool {
         let rv = ((gtk_widget_mnemonic_activate(widget_ptr, gboolean((groupCycling) ? 1 : 0))) != 0)
         return rv
@@ -6634,7 +6640,7 @@ public extension WidgetProtocol {
     }
 
     /// Sets the has-tooltip property on `widget` to `has_tooltip`.  See
-    /// `GtkWidget:has`-tooltip for more information.
+    /// `GtkWidget:has-tooltip` for more information.
     @inlinable func set(hasTooltip: Bool) {
         gtk_widget_set_has_tooltip(widget_ptr, gboolean((hasTooltip) ? 1 : 0))
     
@@ -6704,28 +6710,28 @@ public extension WidgetProtocol {
     }
 
     /// Sets the bottom margin of `widget`.
-    /// See the `GtkWidget:margin`-bottom property.
+    /// See the `GtkWidget:margin-bottom` property.
     @inlinable func setMarginBottom(margin: Int) {
         gtk_widget_set_margin_bottom(widget_ptr, gint(margin))
     
     }
 
     /// Sets the end margin of `widget`.
-    /// See the `GtkWidget:margin`-end property.
+    /// See the `GtkWidget:margin-end` property.
     @inlinable func setMarginEnd(margin: Int) {
         gtk_widget_set_margin_end(widget_ptr, gint(margin))
     
     }
 
     /// Sets the start margin of `widget`.
-    /// See the `GtkWidget:margin`-start property.
+    /// See the `GtkWidget:margin-start` property.
     @inlinable func setMarginStart(margin: Int) {
         gtk_widget_set_margin_start(widget_ptr, gint(margin))
     
     }
 
     /// Sets the top margin of `widget`.
-    /// See the `GtkWidget:margin`-top property.
+    /// See the `GtkWidget:margin-top` property.
     @inlinable func setMarginTop(margin: Int) {
         gtk_widget_set_margin_top(widget_ptr, gint(margin))
     
@@ -6737,7 +6743,7 @@ public extension WidgetProtocol {
     /// same page as the docs for `GtkStyleContext`).
     /// 
     /// Note that the CSS syntax has certain special characters to delimit
-    /// and represent elements in a selector (period, #, >, *...), so using
+    /// and represent elements in a selector (period, #, &gt;, *...), so using
     /// these will make your widget impossible to match by name. Any combination
     /// of alphanumeric symbols, dashes and underscores will suffice.
     @inlinable func set(name: UnsafePointer<CChar>!) {
@@ -6861,10 +6867,10 @@ public extension WidgetProtocol {
     /// Sets `markup` as the contents of the tooltip, which is marked up with
     /// the [Pango text markup language](#PangoMarkupFormat).
     /// 
-    /// This function will take care of setting the `GtkWidget:has`-tooltip as
-    /// a side effect, and of the default handler for the `GtkWidget::query`-tooltip signal.
+    /// This function will take care of setting the `GtkWidget:has-tooltip` as
+    /// a side effect, and of the default handler for the `GtkWidget::query-tooltip` signal.
     /// 
-    /// See also the `GtkWidget:tooltip`-markup property and
+    /// See also the `GtkWidget:tooltip-markup` property and
     /// `gtk_tooltip_set_markup()`.
     @inlinable func setTooltip(markup: UnsafePointer<CChar>? = nil) {
         gtk_widget_set_tooltip_markup(widget_ptr, markup)
@@ -6875,11 +6881,11 @@ public extension WidgetProtocol {
     /// 
     /// If `text` contains any markup, it will be escaped.
     /// 
-    /// This function will take care of setting `GtkWidget:has`-tooltip
+    /// This function will take care of setting `GtkWidget:has-tooltip`
     /// as a side effect, and of the default handler for the
-    /// `GtkWidget::query`-tooltip signal.
+    /// `GtkWidget::query-tooltip` signal.
     /// 
-    /// See also the `GtkWidget:tooltip`-text property and
+    /// See also the `GtkWidget:tooltip-text` property and
     /// `gtk_tooltip_set_text()`.
     @inlinable func setTooltip(text: UnsafePointer<CChar>? = nil) {
         gtk_widget_set_tooltip_text(widget_ptr, text)
@@ -7425,16 +7431,16 @@ public extension WidgetProtocol {
     }
 
     /// Returns the current value of the has-tooltip property.  See
-    /// `GtkWidget:has`-tooltip for more information.
+    /// `GtkWidget:has-tooltip` for more information.
     @inlinable var hasTooltip: Bool {
         /// Returns the current value of the has-tooltip property.  See
-        /// `GtkWidget:has`-tooltip for more information.
+        /// `GtkWidget:has-tooltip` for more information.
         get {
             let rv = ((gtk_widget_get_has_tooltip(widget_ptr)) != 0)
             return rv
         }
         /// Sets the has-tooltip property on `widget` to `has_tooltip`.  See
-        /// `GtkWidget:has`-tooltip for more information.
+        /// `GtkWidget:has-tooltip` for more information.
         nonmutating set {
             gtk_widget_set_has_tooltip(widget_ptr, gboolean((newValue) ? 1 : 0))
         }
@@ -7560,13 +7566,13 @@ public extension WidgetProtocol {
     }
 
     /// Determines if the widget is the focus widget within its
-    /// toplevel. (This does not mean that the `GtkWidget:has`-focus property is
-    /// necessarily set; `GtkWidget:has`-focus will only be set if the
+    /// toplevel. (This does not mean that the `GtkWidget:has-focus` property is
+    /// necessarily set; `GtkWidget:has-focus` will only be set if the
     /// toplevel widget additionally has the global input focus.)
     @inlinable var isFocus: Bool {
         /// Determines if the widget is the focus widget within its
-        /// toplevel. (This does not mean that the `GtkWidget:has`-focus property is
-        /// necessarily set; `GtkWidget:has`-focus will only be set if the
+        /// toplevel. (This does not mean that the `GtkWidget:has-focus` property is
+        /// necessarily set; `GtkWidget:has-focus` will only be set if the
         /// toplevel widget additionally has the global input focus.)
         get {
             let rv = ((gtk_widget_is_focus(widget_ptr)) != 0)
@@ -7640,57 +7646,57 @@ public extension WidgetProtocol {
         }
     }
 
-    /// Gets the value of the `GtkWidget:margin`-bottom property.
+    /// Gets the value of the `GtkWidget:margin-bottom` property.
     @inlinable var marginBottom: Int {
-        /// Gets the value of the `GtkWidget:margin`-bottom property.
+        /// Gets the value of the `GtkWidget:margin-bottom` property.
         get {
             let rv = Int(gtk_widget_get_margin_bottom(widget_ptr))
             return rv
         }
         /// Sets the bottom margin of `widget`.
-        /// See the `GtkWidget:margin`-bottom property.
+        /// See the `GtkWidget:margin-bottom` property.
         nonmutating set {
             gtk_widget_set_margin_bottom(widget_ptr, gint(newValue))
         }
     }
 
-    /// Gets the value of the `GtkWidget:margin`-end property.
+    /// Gets the value of the `GtkWidget:margin-end` property.
     @inlinable var marginEnd: Int {
-        /// Gets the value of the `GtkWidget:margin`-end property.
+        /// Gets the value of the `GtkWidget:margin-end` property.
         get {
             let rv = Int(gtk_widget_get_margin_end(widget_ptr))
             return rv
         }
         /// Sets the end margin of `widget`.
-        /// See the `GtkWidget:margin`-end property.
+        /// See the `GtkWidget:margin-end` property.
         nonmutating set {
             gtk_widget_set_margin_end(widget_ptr, gint(newValue))
         }
     }
 
-    /// Gets the value of the `GtkWidget:margin`-start property.
+    /// Gets the value of the `GtkWidget:margin-start` property.
     @inlinable var marginStart: Int {
-        /// Gets the value of the `GtkWidget:margin`-start property.
+        /// Gets the value of the `GtkWidget:margin-start` property.
         get {
             let rv = Int(gtk_widget_get_margin_start(widget_ptr))
             return rv
         }
         /// Sets the start margin of `widget`.
-        /// See the `GtkWidget:margin`-start property.
+        /// See the `GtkWidget:margin-start` property.
         nonmutating set {
             gtk_widget_set_margin_start(widget_ptr, gint(newValue))
         }
     }
 
-    /// Gets the value of the `GtkWidget:margin`-top property.
+    /// Gets the value of the `GtkWidget:margin-top` property.
     @inlinable var marginTop: Int {
-        /// Gets the value of the `GtkWidget:margin`-top property.
+        /// Gets the value of the `GtkWidget:margin-top` property.
         get {
             let rv = Int(gtk_widget_get_margin_top(widget_ptr))
             return rv
         }
         /// Sets the top margin of `widget`.
-        /// See the `GtkWidget:margin`-top property.
+        /// See the `GtkWidget:margin-top` property.
         nonmutating set {
             gtk_widget_set_margin_top(widget_ptr, gint(newValue))
         }
@@ -7709,7 +7715,7 @@ public extension WidgetProtocol {
         /// same page as the docs for `GtkStyleContext`).
         /// 
         /// Note that the CSS syntax has certain special characters to delimit
-        /// and represent elements in a selector (period, #, >, *...), so using
+        /// and represent elements in a selector (period, #, &gt;, *...), so using
         /// these will make your widget impossible to match by name. Any combination
         /// of alphanumeric symbols, dashes and underscores will suffice.
         nonmutating set {
@@ -8040,10 +8046,10 @@ public extension WidgetProtocol {
         /// Sets `markup` as the contents of the tooltip, which is marked up with
         /// the [Pango text markup language](#PangoMarkupFormat).
         /// 
-        /// This function will take care of setting the `GtkWidget:has`-tooltip as
-        /// a side effect, and of the default handler for the `GtkWidget::query`-tooltip signal.
+        /// This function will take care of setting the `GtkWidget:has-tooltip` as
+        /// a side effect, and of the default handler for the `GtkWidget::query-tooltip` signal.
         /// 
-        /// See also the `GtkWidget:tooltip`-markup property and
+        /// See also the `GtkWidget:tooltip-markup` property and
         /// `gtk_tooltip_set_markup()`.
         nonmutating set {
             gtk_widget_set_tooltip_markup(widget_ptr, newValue)
@@ -8067,11 +8073,11 @@ public extension WidgetProtocol {
         /// 
         /// If `text` contains any markup, it will be escaped.
         /// 
-        /// This function will take care of setting `GtkWidget:has`-tooltip
+        /// This function will take care of setting `GtkWidget:has-tooltip`
         /// as a side effect, and of the default handler for the
-        /// `GtkWidget::query`-tooltip signal.
+        /// `GtkWidget::query-tooltip` signal.
         /// 
-        /// See also the `GtkWidget:tooltip`-text property and
+        /// See also the `GtkWidget:tooltip-text` property and
         /// `gtk_tooltip_set_text()`.
         nonmutating set {
             gtk_widget_set_tooltip_text(widget_ptr, newValue)

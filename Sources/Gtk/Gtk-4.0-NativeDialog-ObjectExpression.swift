@@ -38,6 +38,8 @@ public protocol NativeDialogProtocol: GLibObject.ObjectProtocol {
     /// Typed pointer to the underlying `GtkNativeDialog` instance.
     var native_dialog_ptr: UnsafeMutablePointer<GtkNativeDialog>! { get }
 
+    /// Required Initialiser for types conforming to `NativeDialogProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `NativeDialogRef` type acts as a lightweight Swift reference to an underlying `GtkNativeDialog` instance.
@@ -251,14 +253,14 @@ open class NativeDialog: GLibObject.Object, NativeDialogProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `NativeDialogProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `NativeDialogProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -835,6 +837,8 @@ public protocol NeverTriggerProtocol: ShortcutTriggerProtocol {
     /// Typed pointer to the underlying `GtkNeverTrigger` instance.
     var never_trigger_ptr: UnsafeMutablePointer<GtkNeverTrigger>! { get }
 
+    /// Required Initialiser for types conforming to `NeverTriggerProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `NeverTriggerRef` type acts as a lightweight Swift reference to an underlying `GtkNeverTrigger` instance.
@@ -1028,14 +1032,14 @@ open class NeverTrigger: ShortcutTrigger, NeverTriggerProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `NeverTriggerProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `NeverTriggerProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -1119,6 +1123,8 @@ public protocol NoSelectionProtocol: GLibObject.ObjectProtocol, GIO.ListModelPro
     /// Typed pointer to the underlying `GtkNoSelection` instance.
     var no_selection_ptr: UnsafeMutablePointer<GtkNoSelection>! { get }
 
+    /// Required Initialiser for types conforming to `NoSelectionProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `NoSelectionRef` type acts as a lightweight Swift reference to an underlying `GtkNoSelection` instance.
@@ -1325,14 +1331,14 @@ open class NoSelection: GLibObject.Object, NoSelectionProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `NoSelectionProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `NoSelectionProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -1513,14 +1519,14 @@ public extension NoSelectionProtocol {
 /// 
 /// The GtkNotebook implementation of the `GtkBuildable` interface
 /// supports placing children into tabs by specifying “tab” as the
-/// “type” attribute of a <child> element. Note that the content
+/// “type” attribute of a &lt;child&gt; element. Note that the content
 /// of the tab must be created before the tab can be filled.
-/// A tab child can be specified without specifying a <child>
+/// A tab child can be specified without specifying a &lt;child&gt;
 /// type attribute.
 /// 
 /// To add a child widget in the notebooks action area, specify
 /// "action-start" or “action-end” as the “type” attribute of the
-/// <child> element.
+/// &lt;child&gt; element.
 /// 
 /// An example of a UI definition fragment with GtkNotebook:
 /// ```
@@ -1595,6 +1601,8 @@ public protocol NotebookProtocol: WidgetProtocol {
     /// Typed pointer to the underlying `GtkNotebook` instance.
     var notebook_ptr: UnsafeMutablePointer<GtkNotebook>! { get }
 
+    /// Required Initialiser for types conforming to `NotebookProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `NotebookRef` type acts as a lightweight Swift reference to an underlying `GtkNotebook` instance.
@@ -1616,14 +1624,14 @@ public protocol NotebookProtocol: WidgetProtocol {
 /// 
 /// The GtkNotebook implementation of the `GtkBuildable` interface
 /// supports placing children into tabs by specifying “tab” as the
-/// “type” attribute of a <child> element. Note that the content
+/// “type” attribute of a &lt;child&gt; element. Note that the content
 /// of the tab must be created before the tab can be filled.
-/// A tab child can be specified without specifying a <child>
+/// A tab child can be specified without specifying a &lt;child&gt;
 /// type attribute.
 /// 
 /// To add a child widget in the notebooks action area, specify
 /// "action-start" or “action-end” as the “type” attribute of the
-/// <child> element.
+/// &lt;child&gt; element.
 /// 
 /// An example of a UI definition fragment with GtkNotebook:
 /// ```
@@ -1796,14 +1804,14 @@ public extension NotebookRef {
 /// 
 /// The GtkNotebook implementation of the `GtkBuildable` interface
 /// supports placing children into tabs by specifying “tab” as the
-/// “type” attribute of a <child> element. Note that the content
+/// “type” attribute of a &lt;child&gt; element. Note that the content
 /// of the tab must be created before the tab can be filled.
-/// A tab child can be specified without specifying a <child>
+/// A tab child can be specified without specifying a &lt;child&gt;
 /// type attribute.
 /// 
 /// To add a child widget in the notebooks action area, specify
 /// "action-start" or “action-end” as the “type” attribute of the
-/// <child> element.
+/// &lt;child&gt; element.
 /// 
 /// An example of a UI definition fragment with GtkNotebook:
 /// ```
@@ -1971,14 +1979,14 @@ open class Notebook: Widget, NotebookProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `NotebookProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `NotebookProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -2036,9 +2044,9 @@ public enum NotebookPropertyName: String, PropertyNameProtocol {
     case halign = "halign"
     case hasDefault = "has-default"
     case hasFocus = "has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case hasTooltip = "has-tooltip"
     case heightRequest = "height-request"
@@ -2107,11 +2115,11 @@ public enum NotebookPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipMarkup = "tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -2119,11 +2127,11 @@ public enum NotebookPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipText = "tooltip-text"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
@@ -2191,14 +2199,14 @@ public extension NotebookProtocol {
 
 public enum NotebookSignalName: String, SignalNameProtocol {
     case changeCurrentPage = "change-current-page"
-    /// The `create`-window signal is emitted when a detachable
+    /// The `create-window` signal is emitted when a detachable
     /// tab is dropped on the root window.
     /// 
     /// A handler for this signal can create a window containing
     /// a notebook where the tab will be attached. It is also
     /// responsible for moving/resizing the window and adding the
     /// necessary properties to the notebook (e.g. the
-    /// `GtkNotebook:group`-name ).
+    /// `GtkNotebook:group-name` ).
     case createWindow = "create-window"
     /// Signals that all holders of a reference to the widget should release
     /// the reference that they hold. May result in finalization of the widget
@@ -2206,7 +2214,7 @@ public enum NotebookSignalName: String, SignalNameProtocol {
     /// 
     /// This signal is not suitable for saving widget state.
     case destroy = "destroy"
-    /// The `direction`-changed signal is emitted when the text direction
+    /// The `direction-changed` signal is emitted when the text direction
     /// of a widget changes.
     case directionChanged = "direction-changed"
     case focusTab = "focus-tab"
@@ -2256,16 +2264,16 @@ public enum NotebookSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// the `page`-added signal is emitted in the notebook
+    /// the `page-added` signal is emitted in the notebook
     /// right after a page is added to the notebook.
     case pageAdded = "page-added"
-    /// the `page`-removed signal is emitted in the notebook
+    /// the `page-removed` signal is emitted in the notebook
     /// right after a page is removed from the notebook.
     case pageRemoved = "page-removed"
-    /// the `page`-reordered signal is emitted in the notebook
+    /// the `page-reordered` signal is emitted in the notebook
     /// right after a page has been reordered.
     case pageReordered = "page-reordered"
-    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
+    /// Emitted when `GtkWidget:has-tooltip` is `true` and the hover timeout
     /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
     /// focus in keyboard mode.
     /// 
@@ -2287,7 +2295,7 @@ public enum NotebookSignalName: String, SignalNameProtocol {
     /// The `show` signal is emitted when `widget` is shown, for example with
     /// `gtk_widget_show()`.
     case show = "show"
-    /// The `state`-flags-changed signal is emitted when the widget state
+    /// The `state-flags-changed` signal is emitted when the widget state
     /// changes, see `gtk_widget_get_state_flags()`.
     case stateFlagsChanged = "state-flags-changed"
     /// Emitted when the user or a function changes the current page.
@@ -2333,9 +2341,9 @@ public enum NotebookSignalName: String, SignalNameProtocol {
     case notifyHalign = "notify::halign"
     case notifyHasDefault = "notify::has-default"
     case notifyHasFocus = "notify::has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case notifyHasTooltip = "notify::has-tooltip"
     case notifyHeightRequest = "notify::height-request"
@@ -2404,11 +2412,11 @@ public enum NotebookSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipMarkup = "notify::tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -2416,11 +2424,11 @@ public enum NotebookSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipText = "notify::tooltip-text"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
@@ -2461,14 +2469,14 @@ public extension NotebookProtocol {
     }
     
     
-    /// The `create`-window signal is emitted when a detachable
+    /// The `create-window` signal is emitted when a detachable
     /// tab is dropped on the root window.
     /// 
     /// A handler for this signal can create a window containing
     /// a notebook where the tab will be attached. It is also
     /// responsible for moving/resizing the window and adding the
     /// necessary properties to the notebook (e.g. the
-    /// `GtkNotebook:group`-name ).
+    /// `GtkNotebook:group-name` ).
     /// - Note: This represents the underlying `create-window` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -2552,7 +2560,7 @@ public extension NotebookProtocol {
     /// Typed `move-focus-out` signal for using the `connect(signal:)` methods
     static var moveFocusOutSignal: NotebookSignalName { .moveFocusOut }
     
-    /// the `page`-added signal is emitted in the notebook
+    /// the `page-added` signal is emitted in the notebook
     /// right after a page is added to the notebook.
     /// - Note: This represents the underlying `page-added` signal
     /// - Parameter flags: Flags
@@ -2580,7 +2588,7 @@ public extension NotebookProtocol {
     /// Typed `page-added` signal for using the `connect(signal:)` methods
     static var pageAddedSignal: NotebookSignalName { .pageAdded }
     
-    /// the `page`-removed signal is emitted in the notebook
+    /// the `page-removed` signal is emitted in the notebook
     /// right after a page is removed from the notebook.
     /// - Note: This represents the underlying `page-removed` signal
     /// - Parameter flags: Flags
@@ -2608,7 +2616,7 @@ public extension NotebookProtocol {
     /// Typed `page-removed` signal for using the `connect(signal:)` methods
     static var pageRemovedSignal: NotebookSignalName { .pageRemoved }
     
-    /// the `page`-reordered signal is emitted in the notebook
+    /// the `page-reordered` signal is emitted in the notebook
     /// right after a page has been reordered.
     /// - Note: This represents the underlying `page-reordered` signal
     /// - Parameter flags: Flags
@@ -3602,6 +3610,8 @@ public protocol NotebookPageProtocol: GLibObject.ObjectProtocol {
     /// Typed pointer to the underlying `GtkNotebookPage` instance.
     var notebook_page_ptr: UnsafeMutablePointer<GtkNotebookPage>! { get }
 
+    /// Required Initialiser for types conforming to `NotebookPageProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `NotebookPageRef` type acts as a lightweight Swift reference to an underlying `GtkNotebookPage` instance.
@@ -3799,14 +3809,14 @@ open class NotebookPage: GLibObject.Object, NotebookPageProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `NotebookPageProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `NotebookPageProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -3971,6 +3981,8 @@ public protocol NothingActionProtocol: ShortcutActionProtocol {
     /// Typed pointer to the underlying `GtkNothingAction` instance.
     var nothing_action_ptr: UnsafeMutablePointer<GtkNothingAction>! { get }
 
+    /// Required Initialiser for types conforming to `NothingActionProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `NothingActionRef` type acts as a lightweight Swift reference to an underlying `GtkNothingAction` instance.
@@ -4164,14 +4176,14 @@ open class NothingAction: ShortcutAction, NothingActionProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `NothingActionProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `NothingActionProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -4253,6 +4265,8 @@ public protocol NumericSorterProtocol: SorterProtocol {
     /// Typed pointer to the underlying `GtkNumericSorter` instance.
     var numeric_sorter_ptr: UnsafeMutablePointer<GtkNumericSorter>! { get }
 
+    /// Required Initialiser for types conforming to `NumericSorterProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `NumericSorterRef` type acts as a lightweight Swift reference to an underlying `GtkNumericSorter` instance.
@@ -4458,14 +4472,14 @@ open class NumericSorter: Sorter, NumericSorterProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `NumericSorterProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `NumericSorterProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -4695,6 +4709,8 @@ public protocol ObjectExpressionProtocol: ExpressionProtocol {
     /// Typed pointer to the underlying `GtkObjectExpression` instance.
     var object_expression_ptr: UnsafeMutablePointer<GtkObjectExpression>! { get }
 
+    /// Required Initialiser for types conforming to `ObjectExpressionProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ObjectExpressionRef` type acts as a lightweight Swift reference to an underlying `GtkObjectExpression` instance.
@@ -4894,7 +4910,7 @@ open class ObjectExpression: Expression, ObjectExpressionProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ObjectExpressionProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 

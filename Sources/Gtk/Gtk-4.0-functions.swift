@@ -64,7 +64,7 @@ import Gdk
 
 /// Converts an accelerator keyval and modifier mask into a string
 /// parseable by `gtk_accelerator_parse()`. For example, if you pass in
-/// `GDK_KEY_q` and `GDK_CONTROL_MASK`, this function returns “<Control>q”.
+/// `GDK_KEY_q` and `GDK_CONTROL_MASK`, this function returns “&lt;Control&gt;q”.
 /// 
 /// If you need to display accelerators in the user interface,
 /// see `gtk_accelerator_get_label()`.
@@ -99,13 +99,13 @@ import Gdk
 
 
 /// Parses a string representing an accelerator. The format looks like
-/// “<Control>a” or “<Shift><Alt>F1”.
+/// “&lt;Control&gt;a” or “&lt;Shift&gt;&lt;Alt&gt;F1”.
 /// 
 /// The parser is fairly liberal and allows lower or upper case, and also
-/// abbreviations such as “<Ctl>” and “<Ctrl>”. Key names are parsed using
+/// abbreviations such as “&lt;Ctl&gt;” and “&lt;Ctrl&gt;”. Key names are parsed using
 /// `gdk_keyval_from_name()`. For character keys the name is not the symbol,
-/// but the lowercase name, e.g. one would use “<Ctrl>minus” instead of
-/// “<Ctrl>-”.
+/// but the lowercase name, e.g. one would use “&lt;Ctrl&gt;minus” instead of
+/// “&lt;Ctrl&gt;-”.
 /// 
 /// If the parse fails, `accelerator_key` and `accelerator_mods` will
 /// be set to 0 (zero).
@@ -193,7 +193,7 @@ import Gdk
 
 
 /// Initializes `iter` to point to `target`. If `target` is not found, finds
-/// the next value after it. If no value >= `target` exists in `set`, this
+/// the next value after it. If no value &gt;= `target` exists in `set`, this
 /// function returns `false`.
 @inlinable public func bitsetIterInitAt<BitsetIterT: BitsetIterProtocol, BitsetT: BitsetProtocol>(iter: BitsetIterT, set: BitsetT, target: Int, value: UnsafeMutablePointer<guint>! = nil) -> Bool {
     let rv = ((gtk_bitset_iter_init_at(iter._ptr, set.bitset_ptr, guint(target), value)) != 0)
@@ -941,7 +941,7 @@ import Gdk
 
 
 
-/// Checks whether the `GtkAccessible:accessible`-role of the accessible
+/// Checks whether the `GtkAccessible:accessible-role` of the accessible
 /// is `role`.
 @inlinable public func testAccessibleHasRole<AccessibleT: AccessibleProtocol>(accessible: AccessibleT, role: GtkAccessibleRole) -> Bool {
     let rv = ((gtk_test_accessible_has_role(accessible.accessible_ptr, role)) != 0)
@@ -1020,7 +1020,7 @@ import Gdk
 
 /// Lets a set of row reference created by
 /// `gtk_tree_row_reference_new_proxy()` know that the
-/// model emitted the `GtkTreeModel::row`-deleted signal.
+/// model emitted the `GtkTreeModel::row-deleted` signal.
 @inlinable public func treeRowReferenceDeleted<ObjectT: GLibObject.ObjectProtocol, TreePathT: TreePathProtocol>(proxy: ObjectT, path: TreePathT) {
     gtk_tree_row_reference_deleted(proxy.object_ptr, path.tree_path_ptr)
 
@@ -1031,7 +1031,7 @@ import Gdk
 
 /// Lets a set of row reference created by
 /// `gtk_tree_row_reference_new_proxy()` know that the
-/// model emitted the `GtkTreeModel::row`-inserted signal.
+/// model emitted the `GtkTreeModel::row-inserted` signal.
 @inlinable public func treeRowReferenceInserted<ObjectT: GLibObject.ObjectProtocol, TreePathT: TreePathProtocol>(proxy: ObjectT, path: TreePathT) {
     gtk_tree_row_reference_inserted(proxy.object_ptr, path.tree_path_ptr)
 
@@ -1042,7 +1042,7 @@ import Gdk
 
 /// Lets a set of row reference created by
 /// `gtk_tree_row_reference_new_proxy()` know that the
-/// model emitted the `GtkTreeModel::rows`-reordered signal.
+/// model emitted the `GtkTreeModel::rows-reordered` signal.
 @inlinable public func treeRowReferenceReordered<ObjectT: GLibObject.ObjectProtocol, TreeIterT: TreeIterProtocol, TreePathT: TreePathProtocol>(proxy: ObjectT, path: TreePathT, iter: TreeIterT, newOrder: UnsafeMutablePointer<CInt>!) {
     gtk_tree_row_reference_reordered(proxy.object_ptr, path.tree_path_ptr, iter.tree_iter_ptr, newOrder)
 

@@ -43,6 +43,8 @@ public protocol MediaControlsClassProtocol {
     /// Typed pointer to the underlying `GtkMediaControlsClass` instance.
     var _ptr: UnsafeMutablePointer<GtkMediaControlsClass>! { get }
 
+    /// Required Initialiser for types conforming to `MediaControlsClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `MediaControlsClassRef` type acts as a lightweight Swift reference to an underlying `GtkMediaControlsClass` instance.
@@ -175,6 +177,8 @@ public protocol MediaFileClassProtocol {
     /// Typed pointer to the underlying `GtkMediaFileClass` instance.
     var _ptr: UnsafeMutablePointer<GtkMediaFileClass>! { get }
 
+    /// Required Initialiser for types conforming to `MediaFileClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `MediaFileClassRef` type acts as a lightweight Swift reference to an underlying `GtkMediaFileClass` instance.
@@ -319,6 +323,8 @@ public protocol MediaStreamClassProtocol {
     /// Typed pointer to the underlying `GtkMediaStreamClass` instance.
     var _ptr: UnsafeMutablePointer<GtkMediaStreamClass>! { get }
 
+    /// Required Initialiser for types conforming to `MediaStreamClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `MediaStreamClassRef` type acts as a lightweight Swift reference to an underlying `GtkMediaStreamClass` instance.
@@ -479,6 +485,8 @@ public protocol MessageDialogClassProtocol {
     /// Typed pointer to the underlying `GtkMessageDialogClass` instance.
     var _ptr: UnsafeMutablePointer<GtkMessageDialogClass>! { get }
 
+    /// Required Initialiser for types conforming to `MessageDialogClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `MessageDialogClassRef` type acts as a lightweight Swift reference to an underlying `GtkMessageDialogClass` instance.
@@ -605,6 +613,8 @@ public protocol MnemonicActionClassProtocol {
     /// Typed pointer to the underlying `GtkMnemonicActionClass` instance.
     var _ptr: UnsafeMutablePointer<GtkMnemonicActionClass>! { get }
 
+    /// Required Initialiser for types conforming to `MnemonicActionClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `MnemonicActionClassRef` type acts as a lightweight Swift reference to an underlying `GtkMnemonicActionClass` instance.
@@ -731,6 +741,8 @@ public protocol MnemonicTriggerClassProtocol {
     /// Typed pointer to the underlying `GtkMnemonicTriggerClass` instance.
     var _ptr: UnsafeMutablePointer<GtkMnemonicTriggerClass>! { get }
 
+    /// Required Initialiser for types conforming to `MnemonicTriggerClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `MnemonicTriggerClassRef` type acts as a lightweight Swift reference to an underlying `GtkMnemonicTriggerClass` instance.
@@ -857,6 +869,8 @@ public protocol MountOperationClassProtocol {
     /// Typed pointer to the underlying `GtkMountOperationClass` instance.
     var _ptr: UnsafeMutablePointer<GtkMountOperationClass>! { get }
 
+    /// Required Initialiser for types conforming to `MountOperationClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `MountOperationClassRef` type acts as a lightweight Swift reference to an underlying `GtkMountOperationClass` instance.
@@ -999,6 +1013,8 @@ public protocol MultiFilterClassProtocol {
     /// Typed pointer to the underlying `GtkMultiFilterClass` instance.
     var _ptr: UnsafeMutablePointer<GtkMultiFilterClass>! { get }
 
+    /// Required Initialiser for types conforming to `MultiFilterClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `MultiFilterClassRef` type acts as a lightweight Swift reference to an underlying `GtkMultiFilterClass` instance.
@@ -1125,6 +1141,8 @@ public protocol MultiSelectionClassProtocol {
     /// Typed pointer to the underlying `GtkMultiSelectionClass` instance.
     var _ptr: UnsafeMutablePointer<GtkMultiSelectionClass>! { get }
 
+    /// Required Initialiser for types conforming to `MultiSelectionClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `MultiSelectionClassRef` type acts as a lightweight Swift reference to an underlying `GtkMultiSelectionClass` instance.
@@ -1257,6 +1275,8 @@ public protocol MultiSorterClassProtocol {
     /// Typed pointer to the underlying `GtkMultiSorterClass` instance.
     var _ptr: UnsafeMutablePointer<GtkMultiSorterClass>! { get }
 
+    /// Required Initialiser for types conforming to `MultiSorterClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `MultiSorterClassRef` type acts as a lightweight Swift reference to an underlying `GtkMultiSorterClass` instance.
@@ -1389,6 +1409,8 @@ public protocol NamedActionClassProtocol {
     /// Typed pointer to the underlying `GtkNamedActionClass` instance.
     var _ptr: UnsafeMutablePointer<GtkNamedActionClass>! { get }
 
+    /// Required Initialiser for types conforming to `NamedActionClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `NamedActionClassRef` type acts as a lightweight Swift reference to an underlying `GtkNamedActionClass` instance.

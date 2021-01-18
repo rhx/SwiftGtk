@@ -43,6 +43,8 @@ public protocol IMContextSimpleClassProtocol {
     /// Typed pointer to the underlying `GtkIMContextSimpleClass` instance.
     var _ptr: UnsafeMutablePointer<GtkIMContextSimpleClass>! { get }
 
+    /// Required Initialiser for types conforming to `IMContextSimpleClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `IMContextSimpleClassRef` type acts as a lightweight Swift reference to an underlying `GtkIMContextSimpleClass` instance.
@@ -175,6 +177,8 @@ public protocol IMMulticontextClassProtocol {
     /// Typed pointer to the underlying `GtkIMMulticontextClass` instance.
     var _ptr: UnsafeMutablePointer<GtkIMMulticontextClass>! { get }
 
+    /// Required Initialiser for types conforming to `IMMulticontextClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `IMMulticontextClassRef` type acts as a lightweight Swift reference to an underlying `GtkIMMulticontextClass` instance.
@@ -315,6 +319,8 @@ public protocol KeyvalTriggerClassProtocol {
     /// Typed pointer to the underlying `GtkKeyvalTriggerClass` instance.
     var _ptr: UnsafeMutablePointer<GtkKeyvalTriggerClass>! { get }
 
+    /// Required Initialiser for types conforming to `KeyvalTriggerClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `KeyvalTriggerClassRef` type acts as a lightweight Swift reference to an underlying `GtkKeyvalTriggerClass` instance.

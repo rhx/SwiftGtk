@@ -78,7 +78,7 @@ import Gdk
 /// one, or more `GtkRecentChooser` implementations.
 /// 
 /// Note that the maximum age of the recently used files list is
-/// controllable through the `GtkSettings:gtk`-recent-files-max-age
+/// controllable through the `GtkSettings:gtk-recent-files-max-age`
 /// property.
 public protocol RecentManagerProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GtkRecentManager` instance.
@@ -87,6 +87,8 @@ public protocol RecentManagerProtocol: GLibObject.ObjectProtocol {
     /// Typed pointer to the underlying `GtkRecentManager` instance.
     var recent_manager_ptr: UnsafeMutablePointer<GtkRecentManager>! { get }
 
+    /// Required Initialiser for types conforming to `RecentManagerProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `RecentManagerRef` type acts as a lightweight Swift reference to an underlying `GtkRecentManager` instance.
@@ -151,7 +153,7 @@ public protocol RecentManagerProtocol: GLibObject.ObjectProtocol {
 /// one, or more `GtkRecentChooser` implementations.
 /// 
 /// Note that the maximum age of the recently used files list is
-/// controllable through the `GtkSettings:gtk`-recent-files-max-age
+/// controllable through the `GtkSettings:gtk-recent-files-max-age`
 /// property.
 public struct RecentManagerRef: RecentManagerProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkRecentManager` instance.
@@ -313,7 +315,7 @@ public extension RecentManagerRef {
 /// one, or more `GtkRecentChooser` implementations.
 /// 
 /// Note that the maximum age of the recently used files list is
-/// controllable through the `GtkSettings:gtk`-recent-files-max-age
+/// controllable through the `GtkSettings:gtk-recent-files-max-age`
 /// property.
 open class RecentManager: GLibObject.Object, RecentManagerProtocol {
         /// Designated initialiser from the underlying `C` data type.
@@ -415,14 +417,14 @@ open class RecentManager: GLibObject.Object, RecentManagerProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RecentManagerProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RecentManagerProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -839,7 +841,7 @@ public extension RecentManagerProtocol {
 /// The style of transition can be controlled with
 /// `gtk_revealer_set_transition_type()`.
 /// 
-/// These animations respect the `GtkSettings:gtk`-enable-animations
+/// These animations respect the `GtkSettings:gtk-enable-animations`
 /// setting.
 /// 
 /// # CSS nodes
@@ -847,7 +849,7 @@ public extension RecentManagerProtocol {
 /// GtkRevealer has a single CSS node with name revealer.
 /// When styling `GtkRevealer` using CSS, remember that it only hides its contents,
 /// not itself. That means applied margin, padding and borders will be
-/// visible even when the `GtkRevealer:reveal`-child property is set to `false`.
+/// visible even when the `GtkRevealer:reveal-child` property is set to `false`.
 /// 
 /// # Accessibility
 /// 
@@ -862,6 +864,8 @@ public protocol RevealerProtocol: WidgetProtocol {
     /// Typed pointer to the underlying `GtkRevealer` instance.
     var revealer_ptr: UnsafeMutablePointer<GtkRevealer>! { get }
 
+    /// Required Initialiser for types conforming to `RevealerProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `RevealerRef` type acts as a lightweight Swift reference to an underlying `GtkRevealer` instance.
@@ -874,7 +878,7 @@ public protocol RevealerProtocol: WidgetProtocol {
 /// The style of transition can be controlled with
 /// `gtk_revealer_set_transition_type()`.
 /// 
-/// These animations respect the `GtkSettings:gtk`-enable-animations
+/// These animations respect the `GtkSettings:gtk-enable-animations`
 /// setting.
 /// 
 /// # CSS nodes
@@ -882,7 +886,7 @@ public protocol RevealerProtocol: WidgetProtocol {
 /// GtkRevealer has a single CSS node with name revealer.
 /// When styling `GtkRevealer` using CSS, remember that it only hides its contents,
 /// not itself. That means applied margin, padding and borders will be
-/// visible even when the `GtkRevealer:reveal`-child property is set to `false`.
+/// visible even when the `GtkRevealer:reveal-child` property is set to `false`.
 /// 
 /// # Accessibility
 /// 
@@ -986,7 +990,7 @@ public extension RevealerRef {
 /// The style of transition can be controlled with
 /// `gtk_revealer_set_transition_type()`.
 /// 
-/// These animations respect the `GtkSettings:gtk`-enable-animations
+/// These animations respect the `GtkSettings:gtk-enable-animations`
 /// setting.
 /// 
 /// # CSS nodes
@@ -994,7 +998,7 @@ public extension RevealerRef {
 /// GtkRevealer has a single CSS node with name revealer.
 /// When styling `GtkRevealer` using CSS, remember that it only hides its contents,
 /// not itself. That means applied margin, padding and borders will be
-/// visible even when the `GtkRevealer:reveal`-child property is set to `false`.
+/// visible even when the `GtkRevealer:reveal-child` property is set to `false`.
 /// 
 /// # Accessibility
 /// 
@@ -1102,14 +1106,14 @@ open class Revealer: Widget, RevealerProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RevealerProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RevealerProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -1166,9 +1170,9 @@ public enum RevealerPropertyName: String, PropertyNameProtocol {
     case halign = "halign"
     case hasDefault = "has-default"
     case hasFocus = "has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case hasTooltip = "has-tooltip"
     case heightRequest = "height-request"
@@ -1232,11 +1236,11 @@ public enum RevealerPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipMarkup = "tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -1244,11 +1248,11 @@ public enum RevealerPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipText = "tooltip-text"
     case transitionDuration = "transition-duration"
@@ -1323,7 +1327,7 @@ public enum RevealerSignalName: String, SignalNameProtocol {
     /// 
     /// This signal is not suitable for saving widget state.
     case destroy = "destroy"
-    /// The `direction`-changed signal is emitted when the text direction
+    /// The `direction-changed` signal is emitted when the text direction
     /// of a widget changes.
     case directionChanged = "direction-changed"
     /// The `hide` signal is emitted when `widget` is hidden, for example with
@@ -1371,7 +1375,7 @@ public enum RevealerSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
+    /// Emitted when `GtkWidget:has-tooltip` is `true` and the hover timeout
     /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
     /// focus in keyboard mode.
     /// 
@@ -1391,7 +1395,7 @@ public enum RevealerSignalName: String, SignalNameProtocol {
     /// The `show` signal is emitted when `widget` is shown, for example with
     /// `gtk_widget_show()`.
     case show = "show"
-    /// The `state`-flags-changed signal is emitted when the widget state
+    /// The `state-flags-changed` signal is emitted when the widget state
     /// changes, see `gtk_widget_get_state_flags()`.
     case stateFlagsChanged = "state-flags-changed"
     /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
@@ -1434,9 +1438,9 @@ public enum RevealerSignalName: String, SignalNameProtocol {
     case notifyHalign = "notify::halign"
     case notifyHasDefault = "notify::has-default"
     case notifyHasFocus = "notify::has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case notifyHasTooltip = "notify::has-tooltip"
     case notifyHeightRequest = "notify::height-request"
@@ -1500,11 +1504,11 @@ public enum RevealerSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipMarkup = "notify::tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -1512,11 +1516,11 @@ public enum RevealerSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipText = "notify::tooltip-text"
     case notifyTransitionDuration = "notify::transition-duration"
@@ -1709,7 +1713,7 @@ public extension RevealerProtocol {
 /// its base class, `GtkRange`, in addition to the methods for GtkScale itself.
 /// To set the value of a scale, you would normally use `gtk_range_set_value()`.
 /// To detect changes to the value, you would normally use the
-/// `GtkRange::value`-changed signal.
+/// `GtkRange::value-changed` signal.
 /// 
 /// Note that using the same upper and lower bounds for the `GtkScale` (through
 /// the `GtkRange` methods) will hide the slider itself. This is useful for
@@ -1718,8 +1722,8 @@ public extension RevealerProtocol {
 /// 
 /// # GtkScale as GtkBuildable
 /// 
-/// GtkScale supports a custom <marks> element, which can contain multiple
-/// <mark> elements. The “value” and “position” attributes have the same
+/// GtkScale supports a custom &lt;marks&gt; element, which can contain multiple
+/// &lt;mark&gt; elements. The “value” and “position” attributes have the same
 /// meaning as `gtk_scale_add_mark()` parameters of the same name. If the
 /// element is not empty, its content is taken as the markup to show at
 /// the mark. It can be translated with the usual ”translatable” and
@@ -1775,7 +1779,7 @@ public extension RevealerProtocol {
 /// The main CSS node gets the 'marks-before' and/or 'marks-after' style classes
 /// added depending on what marks are present.
 /// 
-/// If the scale is displaying the value (see `GtkScale:draw`-value), there is
+/// If the scale is displaying the value (see `GtkScale:draw-value`), there is
 /// subnode with name value. This node will get the .top or .bottom style classes
 /// similar to the marks node.
 /// 
@@ -1789,6 +1793,8 @@ public protocol ScaleProtocol: RangeProtocol {
     /// Typed pointer to the underlying `GtkScale` instance.
     var scale_ptr: UnsafeMutablePointer<GtkScale>! { get }
 
+    /// Required Initialiser for types conforming to `ScaleProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ScaleRef` type acts as a lightweight Swift reference to an underlying `GtkScale` instance.
@@ -1800,7 +1806,7 @@ public protocol ScaleProtocol: RangeProtocol {
 /// its base class, `GtkRange`, in addition to the methods for GtkScale itself.
 /// To set the value of a scale, you would normally use `gtk_range_set_value()`.
 /// To detect changes to the value, you would normally use the
-/// `GtkRange::value`-changed signal.
+/// `GtkRange::value-changed` signal.
 /// 
 /// Note that using the same upper and lower bounds for the `GtkScale` (through
 /// the `GtkRange` methods) will hide the slider itself. This is useful for
@@ -1809,8 +1815,8 @@ public protocol ScaleProtocol: RangeProtocol {
 /// 
 /// # GtkScale as GtkBuildable
 /// 
-/// GtkScale supports a custom <marks> element, which can contain multiple
-/// <mark> elements. The “value” and “position” attributes have the same
+/// GtkScale supports a custom &lt;marks&gt; element, which can contain multiple
+/// &lt;mark&gt; elements. The “value” and “position” attributes have the same
 /// meaning as `gtk_scale_add_mark()` parameters of the same name. If the
 /// element is not empty, its content is taken as the markup to show at
 /// the mark. It can be translated with the usual ”translatable” and
@@ -1866,7 +1872,7 @@ public protocol ScaleProtocol: RangeProtocol {
 /// The main CSS node gets the 'marks-before' and/or 'marks-after' style classes
 /// added depending on what marks are present.
 /// 
-/// If the scale is displaying the value (see `GtkScale:draw`-value), there is
+/// If the scale is displaying the value (see `GtkScale:draw-value`), there is
 /// subnode with name value. This node will get the .top or .bottom style classes
 /// similar to the marks node.
 /// 
@@ -1995,7 +2001,7 @@ public extension ScaleRef {
 /// its base class, `GtkRange`, in addition to the methods for GtkScale itself.
 /// To set the value of a scale, you would normally use `gtk_range_set_value()`.
 /// To detect changes to the value, you would normally use the
-/// `GtkRange::value`-changed signal.
+/// `GtkRange::value-changed` signal.
 /// 
 /// Note that using the same upper and lower bounds for the `GtkScale` (through
 /// the `GtkRange` methods) will hide the slider itself. This is useful for
@@ -2004,8 +2010,8 @@ public extension ScaleRef {
 /// 
 /// # GtkScale as GtkBuildable
 /// 
-/// GtkScale supports a custom <marks> element, which can contain multiple
-/// <mark> elements. The “value” and “position” attributes have the same
+/// GtkScale supports a custom &lt;marks&gt; element, which can contain multiple
+/// &lt;mark&gt; elements. The “value” and “position” attributes have the same
 /// meaning as `gtk_scale_add_mark()` parameters of the same name. If the
 /// element is not empty, its content is taken as the markup to show at
 /// the mark. It can be translated with the usual ”translatable” and
@@ -2061,7 +2067,7 @@ public extension ScaleRef {
 /// The main CSS node gets the 'marks-before' and/or 'marks-after' style classes
 /// added depending on what marks are present.
 /// 
-/// If the scale is displaying the value (see `GtkScale:draw`-value), there is
+/// If the scale is displaying the value (see `GtkScale:draw-value`), there is
 /// subnode with name value. This node will get the .top or .bottom style classes
 /// similar to the marks node.
 /// 
@@ -2168,14 +2174,14 @@ open class Scale: Range, ScaleProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScaleProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScaleProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -2266,9 +2272,9 @@ public enum ScalePropertyName: String, PropertyNameProtocol {
     case hasDefault = "has-default"
     case hasFocus = "has-focus"
     case hasOrigin = "has-origin"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case hasTooltip = "has-tooltip"
     case heightRequest = "height-request"
@@ -2328,7 +2334,7 @@ public enum ScalePropertyName: String, PropertyNameProtocol {
     /// the widget is not contained in a root widget.
     case root = "root"
     /// The number of digits to round the value to when
-    /// it changes, or -1. See `GtkRange::change`-value.
+    /// it changes, or -1. See `GtkRange::change-value`.
     case roundDigits = "round-digits"
     /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
     /// more details about widget scaling.
@@ -2343,11 +2349,11 @@ public enum ScalePropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipMarkup = "tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -2355,11 +2361,11 @@ public enum ScalePropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipText = "tooltip-text"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
@@ -2430,7 +2436,7 @@ public enum ScaleSignalName: String, SignalNameProtocol {
     /// Emitted before clamping a value, to give the application a
     /// chance to adjust the bounds.
     case adjustBounds = "adjust-bounds"
-    /// The `GtkRange::change`-value signal is emitted when a scroll action is
+    /// The `GtkRange::change-value` signal is emitted when a scroll action is
     /// performed on a range.  It allows an application to determine the
     /// type of scroll event that occurred and the resultant new value.
     /// The application can handle the event itself and return `true` to
@@ -2439,9 +2445,9 @@ public enum ScaleSignalName: String, SignalNameProtocol {
     /// reached.
     /// 
     /// The value parameter is unrounded.  An application that overrides
-    /// the GtkRange`change`-value signal is responsible for clamping the
+    /// the GtkRange`change-value` signal is responsible for clamping the
     /// value to the desired number of decimal digits; the default GTK
-    /// handler clamps the value based on `GtkRange:round`-digits.
+    /// handler clamps the value based on `GtkRange:round-digits`.
     case changeValue = "change-value"
     /// Signals that all holders of a reference to the widget should release
     /// the reference that they hold. May result in finalization of the widget
@@ -2449,7 +2455,7 @@ public enum ScaleSignalName: String, SignalNameProtocol {
     /// 
     /// This signal is not suitable for saving widget state.
     case destroy = "destroy"
-    /// The `direction`-changed signal is emitted when the text direction
+    /// The `direction-changed` signal is emitted when the text direction
     /// of a widget changes.
     case directionChanged = "direction-changed"
     /// The `hide` signal is emitted when `widget` is hidden, for example with
@@ -2499,7 +2505,7 @@ public enum ScaleSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
+    /// Emitted when `GtkWidget:has-tooltip` is `true` and the hover timeout
     /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
     /// focus in keyboard mode.
     /// 
@@ -2519,7 +2525,7 @@ public enum ScaleSignalName: String, SignalNameProtocol {
     /// The `show` signal is emitted when `widget` is shown, for example with
     /// `gtk_widget_show()`.
     case show = "show"
-    /// The `state`-flags-changed signal is emitted when the widget state
+    /// The `state-flags-changed` signal is emitted when the widget state
     /// changes, see `gtk_widget_get_state_flags()`.
     case stateFlagsChanged = "state-flags-changed"
     /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
@@ -2569,9 +2575,9 @@ public enum ScaleSignalName: String, SignalNameProtocol {
     case notifyHasDefault = "notify::has-default"
     case notifyHasFocus = "notify::has-focus"
     case notifyHasOrigin = "notify::has-origin"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case notifyHasTooltip = "notify::has-tooltip"
     case notifyHeightRequest = "notify::height-request"
@@ -2631,7 +2637,7 @@ public enum ScaleSignalName: String, SignalNameProtocol {
     /// the widget is not contained in a root widget.
     case notifyRoot = "notify::root"
     /// The number of digits to round the value to when
-    /// it changes, or -1. See `GtkRange::change`-value.
+    /// it changes, or -1. See `GtkRange::change-value`.
     case notifyRoundDigits = "notify::round-digits"
     /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
     /// more details about widget scaling.
@@ -2646,11 +2652,11 @@ public enum ScaleSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipMarkup = "notify::tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -2658,11 +2664,11 @@ public enum ScaleSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipText = "notify::tooltip-text"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
@@ -2734,7 +2740,7 @@ public extension ScaleProtocol {
     /// when using the `PangoLayout` function you need to convert to
     /// and from pixels using `PANGO_PIXELS()` or `PANGO_SCALE`.
     /// 
-    /// If the `GtkScale:draw`-value property is `false`, the return
+    /// If the `GtkScale:draw-value` property is `false`, the return
     /// values are undefined.
     @inlinable func getLayoutOffsets(x: UnsafeMutablePointer<gint>! = nil, y: UnsafeMutablePointer<gint>! = nil) {
         gtk_scale_get_layout_offsets(scale_ptr, x, y)
@@ -2749,9 +2755,9 @@ public extension ScaleProtocol {
 
     /// Sets the number of decimal places that are displayed in the value. Also
     /// causes the value of the adjustment to be rounded to this number of digits,
-    /// so the retrieved value matches the displayed one, if `GtkScale:draw`-value is
+    /// so the retrieved value matches the displayed one, if `GtkScale:draw-value` is
     /// `true` when the value changes. If you want to enforce rounding the value when
-    /// `GtkScale:draw`-value is `false`, you can set `GtkRange:round`-digits instead.
+    /// `GtkScale:draw-value` is `false`, you can set `GtkRange:round-digits` instead.
     /// 
     /// Note that rounding to a small number of digits can interfere with
     /// the smooth autoscrolling that is built into `GtkScale`. As an alternative,
@@ -2780,7 +2786,7 @@ public extension ScaleProtocol {
     
     }
 
-    /// If `GtkScale:has`-origin is set to `true` (the default), the scale will
+    /// If `GtkScale:has-origin` is set to `true` (the default), the scale will
     /// highlight the part of the trough between the origin (bottom or left side)
     /// and the current value.
     @inlinable func set(hasOrigin: Bool) {
@@ -2801,9 +2807,9 @@ public extension ScaleProtocol {
         }
         /// Sets the number of decimal places that are displayed in the value. Also
         /// causes the value of the adjustment to be rounded to this number of digits,
-        /// so the retrieved value matches the displayed one, if `GtkScale:draw`-value is
+        /// so the retrieved value matches the displayed one, if `GtkScale:draw-value` is
         /// `true` when the value changes. If you want to enforce rounding the value when
-        /// `GtkScale:draw`-value is `false`, you can set `GtkRange:round`-digits instead.
+        /// `GtkScale:draw-value` is `false`, you can set `GtkRange:round-digits` instead.
         /// 
         /// Note that rounding to a small number of digits can interfere with
         /// the smooth autoscrolling that is built into `GtkScale`. As an alternative,
@@ -2837,7 +2843,7 @@ public extension ScaleProtocol {
             let rv = ((gtk_scale_get_has_origin(scale_ptr)) != 0)
             return rv
         }
-        /// If `GtkScale:has`-origin is set to `true` (the default), the scale will
+        /// If `GtkScale:has-origin` is set to `true` (the default), the scale will
         /// highlight the part of the trough between the origin (bottom or left side)
         /// and the current value.
         nonmutating set {

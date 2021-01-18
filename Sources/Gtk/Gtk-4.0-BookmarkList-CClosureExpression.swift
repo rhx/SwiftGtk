@@ -33,6 +33,8 @@ public protocol BookmarkListProtocol: GLibObject.ObjectProtocol, GIO.ListModelPr
     /// Typed pointer to the underlying `GtkBookmarkList` instance.
     var bookmark_list_ptr: UnsafeMutablePointer<GtkBookmarkList>! { get }
 
+    /// Required Initialiser for types conforming to `BookmarkListProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `BookmarkListRef` type acts as a lightweight Swift reference to an underlying `GtkBookmarkList` instance.
@@ -241,14 +243,14 @@ open class BookmarkList: GLibObject.Object, BookmarkListProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BookmarkListProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BookmarkListProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -493,6 +495,8 @@ public protocol BoolFilterProtocol: FilterProtocol {
     /// Typed pointer to the underlying `GtkBoolFilter` instance.
     var bool_filter_ptr: UnsafeMutablePointer<GtkBoolFilter>! { get }
 
+    /// Required Initialiser for types conforming to `BoolFilterProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `BoolFilterRef` type acts as a lightweight Swift reference to an underlying `GtkBoolFilter` instance.
@@ -693,14 +697,14 @@ open class BoolFilter: Filter, BoolFilterProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BoolFilterProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BoolFilterProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -935,6 +939,8 @@ public protocol BoxProtocol: WidgetProtocol, OrientableProtocol {
     /// Typed pointer to the underlying `GtkBox` instance.
     var box_ptr: UnsafeMutablePointer<GtkBox>! { get }
 
+    /// Required Initialiser for types conforming to `BoxProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `BoxRef` type acts as a lightweight Swift reference to an underlying `GtkBox` instance.
@@ -1185,14 +1191,14 @@ open class Box: Widget, BoxProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BoxProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BoxProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -1248,9 +1254,9 @@ public enum BoxPropertyName: String, PropertyNameProtocol {
     case halign = "halign"
     case hasDefault = "has-default"
     case hasFocus = "has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case hasTooltip = "has-tooltip"
     case heightRequest = "height-request"
@@ -1315,11 +1321,11 @@ public enum BoxPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipMarkup = "tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -1327,11 +1333,11 @@ public enum BoxPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipText = "tooltip-text"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
@@ -1404,7 +1410,7 @@ public enum BoxSignalName: String, SignalNameProtocol {
     /// 
     /// This signal is not suitable for saving widget state.
     case destroy = "destroy"
-    /// The `direction`-changed signal is emitted when the text direction
+    /// The `direction-changed` signal is emitted when the text direction
     /// of a widget changes.
     case directionChanged = "direction-changed"
     /// The `hide` signal is emitted when `widget` is hidden, for example with
@@ -1452,7 +1458,7 @@ public enum BoxSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
+    /// Emitted when `GtkWidget:has-tooltip` is `true` and the hover timeout
     /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
     /// focus in keyboard mode.
     /// 
@@ -1472,7 +1478,7 @@ public enum BoxSignalName: String, SignalNameProtocol {
     /// The `show` signal is emitted when `widget` is shown, for example with
     /// `gtk_widget_show()`.
     case show = "show"
-    /// The `state`-flags-changed signal is emitted when the widget state
+    /// The `state-flags-changed` signal is emitted when the widget state
     /// changes, see `gtk_widget_get_state_flags()`.
     case stateFlagsChanged = "state-flags-changed"
     /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
@@ -1514,9 +1520,9 @@ public enum BoxSignalName: String, SignalNameProtocol {
     case notifyHalign = "notify::halign"
     case notifyHasDefault = "notify::has-default"
     case notifyHasFocus = "notify::has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case notifyHasTooltip = "notify::has-tooltip"
     case notifyHeightRequest = "notify::height-request"
@@ -1581,11 +1587,11 @@ public enum BoxSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipMarkup = "notify::tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -1593,11 +1599,11 @@ public enum BoxSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipText = "notify::tooltip-text"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
@@ -1779,6 +1785,8 @@ public protocol BoxLayoutProtocol: LayoutManagerProtocol, OrientableProtocol {
     /// Typed pointer to the underlying `GtkBoxLayout` instance.
     var box_layout_ptr: UnsafeMutablePointer<GtkBoxLayout>! { get }
 
+    /// Required Initialiser for types conforming to `BoxLayoutProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `BoxLayoutRef` type acts as a lightweight Swift reference to an underlying `GtkBoxLayout` instance.
@@ -1999,14 +2007,14 @@ open class BoxLayout: LayoutManager, BoxLayoutProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BoxLayoutProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BoxLayoutProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -2291,23 +2299,23 @@ public extension BoxLayoutProtocol {
 /// specified in XML format. We refer to these descriptions as “GtkBuilder
 /// UI definitions” or just “UI definitions” if the context is clear.
 /// 
-/// The toplevel element is `<interface>`. It optionally takes a “domain”
+/// The toplevel element is `&lt;interface&gt;`. It optionally takes a “domain”
 /// attribute, which will make the builder look for translated strings
 /// using ``dgettext()`` in the domain specified. This can also be done by
 /// calling `gtk_builder_set_translation_domain()` on the builder.
-/// Objects are described by `<object>` elements, which can contain
-/// <property> elements to set properties, `<signal>` elements which
-/// connect signals to handlers, and `<child>` elements, which describe
+/// Objects are described by `&lt;object&gt;` elements, which can contain
+/// &lt;property&gt; elements to set properties, `&lt;signal&gt;` elements which
+/// connect signals to handlers, and `&lt;child&gt;` elements, which describe
 /// child objects (most often widgets inside a container, but also e.g.
-/// actions in an action group, or columns in a tree model). A `<child>`
-/// element contains an `<object>` element which describes the child object.
-/// The target toolkit `version(s)` are described by <requires> elements,
+/// actions in an action group, or columns in a tree model). A `&lt;child&gt;`
+/// element contains an `&lt;object&gt;` element which describes the child object.
+/// The target toolkit `version(s)` are described by &lt;requires&gt; elements,
 /// the “lib” attribute specifies the widget library in question (currently
 /// the only supported value is “gtk”) and the “version” attribute specifies
-/// the target version in the form “`<major>`.`<minor>`”. The builder will error
+/// the target version in the form “`&lt;major&gt;`.`&lt;minor&gt;`”. The builder will error
 /// out if the version requirements are not met.
 /// 
-/// Typically, the specific kind of object represented by an `<object>`
+/// Typically, the specific kind of object represented by an `&lt;object&gt;`
 /// element is specified by the “class” attribute. If the type has not
 /// been loaded yet, GTK tries to find the ``get_type()`` function from the
 /// class name by applying heuristics. This works in most cases, but if
@@ -2321,7 +2329,7 @@ public extension BoxLayoutProtocol {
 /// with `___` (three consecutive underscores) for its own purposes.
 /// 
 /// Setting properties of objects is pretty straightforward with the
-/// <property> element: the “name” attribute specifies the name of the
+/// &lt;property&gt; element: the “name” attribute specifies the name of the
 /// property, and the content of the element specifies the value.
 /// If the “translatable” attribute is set to a true value, GTK uses
 /// ``gettext()`` (or ``dgettext()`` if the builder has a translation domain set)
@@ -2363,19 +2371,19 @@ public extension BoxLayoutProtocol {
 /// been constructed by GTK as part of a composite widget, to set
 /// properties on them or to add further children (e.g. the content area
 /// of a `GtkDialog`). This can be achieved by setting the “internal-child”
-/// property of the `<child>` element to a true value. Note that `GtkBuilder`
-/// still requires an `<object>` element for the internal child, even if it
+/// property of the `&lt;child&gt;` element to a true value. Note that `GtkBuilder`
+/// still requires an `&lt;object&gt;` element for the internal child, even if it
 /// has already been constructed.
 /// 
 /// A number of widgets have different places where a child can be added
 /// (e.g. tabs vs. page content in notebooks). This can be reflected in
-/// a UI definition by specifying the “type” attribute on a `<child>`
+/// a UI definition by specifying the “type” attribute on a `&lt;child&gt;`
 /// The possible values for the “type” attribute are described in the
 /// sections describing the widget-specific portions of UI definitions.
 /// 
 /// # Signal handlers and function pointers
 /// 
-/// Signal handlers are set up with the <signal> element. The “name”
+/// Signal handlers are set up with the &lt;signal&gt; element. The “name”
 /// attribute specifies the name of the signal, and the “handler” attribute
 /// specifies the function to connect to the signal.
 /// The remaining attributes, “after”, “swapped” and “object”, have the
@@ -2418,14 +2426,14 @@ public extension BoxLayoutProtocol {
 /// 
 /// Beyond this general structure, several object classes define their
 /// own XML DTD fragments for filling in the ANY placeholders in the DTD
-/// above. Note that a custom element in a <child> element gets parsed by
+/// above. Note that a custom element in a &lt;child&gt; element gets parsed by
 /// the custom tag handler of the parent object, while a custom element in
-/// an <object> element gets parsed by the custom tag handler of the object.
+/// an &lt;object&gt; element gets parsed by the custom tag handler of the object.
 /// 
 /// These XML fragments are explained in the documentation of the
 /// respective objects.
 /// 
-/// Additionally, since 3.10 a special <template> tag has been added
+/// Additionally, since 3.10 a special &lt;template&gt; tag has been added
 /// to the format allowing one to define a widget class’s components.
 /// See the [GtkWidget documentation](#composite-templates) for details.
 public protocol BuilderProtocol: GLibObject.ObjectProtocol {
@@ -2435,6 +2443,8 @@ public protocol BuilderProtocol: GLibObject.ObjectProtocol {
     /// Typed pointer to the underlying `GtkBuilder` instance.
     var builder_ptr: UnsafeMutablePointer<GtkBuilder>! { get }
 
+    /// Required Initialiser for types conforming to `BuilderProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `BuilderRef` type acts as a lightweight Swift reference to an underlying `GtkBuilder` instance.
@@ -2477,23 +2487,23 @@ public protocol BuilderProtocol: GLibObject.ObjectProtocol {
 /// specified in XML format. We refer to these descriptions as “GtkBuilder
 /// UI definitions” or just “UI definitions” if the context is clear.
 /// 
-/// The toplevel element is `<interface>`. It optionally takes a “domain”
+/// The toplevel element is `&lt;interface&gt;`. It optionally takes a “domain”
 /// attribute, which will make the builder look for translated strings
 /// using ``dgettext()`` in the domain specified. This can also be done by
 /// calling `gtk_builder_set_translation_domain()` on the builder.
-/// Objects are described by `<object>` elements, which can contain
-/// <property> elements to set properties, `<signal>` elements which
-/// connect signals to handlers, and `<child>` elements, which describe
+/// Objects are described by `&lt;object&gt;` elements, which can contain
+/// &lt;property&gt; elements to set properties, `&lt;signal&gt;` elements which
+/// connect signals to handlers, and `&lt;child&gt;` elements, which describe
 /// child objects (most often widgets inside a container, but also e.g.
-/// actions in an action group, or columns in a tree model). A `<child>`
-/// element contains an `<object>` element which describes the child object.
-/// The target toolkit `version(s)` are described by <requires> elements,
+/// actions in an action group, or columns in a tree model). A `&lt;child&gt;`
+/// element contains an `&lt;object&gt;` element which describes the child object.
+/// The target toolkit `version(s)` are described by &lt;requires&gt; elements,
 /// the “lib” attribute specifies the widget library in question (currently
 /// the only supported value is “gtk”) and the “version” attribute specifies
-/// the target version in the form “`<major>`.`<minor>`”. The builder will error
+/// the target version in the form “`&lt;major&gt;`.`&lt;minor&gt;`”. The builder will error
 /// out if the version requirements are not met.
 /// 
-/// Typically, the specific kind of object represented by an `<object>`
+/// Typically, the specific kind of object represented by an `&lt;object&gt;`
 /// element is specified by the “class” attribute. If the type has not
 /// been loaded yet, GTK tries to find the ``get_type()`` function from the
 /// class name by applying heuristics. This works in most cases, but if
@@ -2507,7 +2517,7 @@ public protocol BuilderProtocol: GLibObject.ObjectProtocol {
 /// with `___` (three consecutive underscores) for its own purposes.
 /// 
 /// Setting properties of objects is pretty straightforward with the
-/// <property> element: the “name” attribute specifies the name of the
+/// &lt;property&gt; element: the “name” attribute specifies the name of the
 /// property, and the content of the element specifies the value.
 /// If the “translatable” attribute is set to a true value, GTK uses
 /// ``gettext()`` (or ``dgettext()`` if the builder has a translation domain set)
@@ -2549,19 +2559,19 @@ public protocol BuilderProtocol: GLibObject.ObjectProtocol {
 /// been constructed by GTK as part of a composite widget, to set
 /// properties on them or to add further children (e.g. the content area
 /// of a `GtkDialog`). This can be achieved by setting the “internal-child”
-/// property of the `<child>` element to a true value. Note that `GtkBuilder`
-/// still requires an `<object>` element for the internal child, even if it
+/// property of the `&lt;child&gt;` element to a true value. Note that `GtkBuilder`
+/// still requires an `&lt;object&gt;` element for the internal child, even if it
 /// has already been constructed.
 /// 
 /// A number of widgets have different places where a child can be added
 /// (e.g. tabs vs. page content in notebooks). This can be reflected in
-/// a UI definition by specifying the “type” attribute on a `<child>`
+/// a UI definition by specifying the “type” attribute on a `&lt;child&gt;`
 /// The possible values for the “type” attribute are described in the
 /// sections describing the widget-specific portions of UI definitions.
 /// 
 /// # Signal handlers and function pointers
 /// 
-/// Signal handlers are set up with the <signal> element. The “name”
+/// Signal handlers are set up with the &lt;signal&gt; element. The “name”
 /// attribute specifies the name of the signal, and the “handler” attribute
 /// specifies the function to connect to the signal.
 /// The remaining attributes, “after”, “swapped” and “object”, have the
@@ -2604,14 +2614,14 @@ public protocol BuilderProtocol: GLibObject.ObjectProtocol {
 /// 
 /// Beyond this general structure, several object classes define their
 /// own XML DTD fragments for filling in the ANY placeholders in the DTD
-/// above. Note that a custom element in a <child> element gets parsed by
+/// above. Note that a custom element in a &lt;child&gt; element gets parsed by
 /// the custom tag handler of the parent object, while a custom element in
-/// an <object> element gets parsed by the custom tag handler of the object.
+/// an &lt;object&gt; element gets parsed by the custom tag handler of the object.
 /// 
 /// These XML fragments are explained in the documentation of the
 /// respective objects.
 /// 
-/// Additionally, since 3.10 a special <template> tag has been added
+/// Additionally, since 3.10 a special &lt;template&gt; tag has been added
 /// to the format allowing one to define a widget class’s components.
 /// See the [GtkWidget documentation](#composite-templates) for details.
 public struct BuilderRef: BuilderProtocol, GWeakCapturing {
@@ -2814,23 +2824,23 @@ public extension BuilderRef {
 /// specified in XML format. We refer to these descriptions as “GtkBuilder
 /// UI definitions” or just “UI definitions” if the context is clear.
 /// 
-/// The toplevel element is `<interface>`. It optionally takes a “domain”
+/// The toplevel element is `&lt;interface&gt;`. It optionally takes a “domain”
 /// attribute, which will make the builder look for translated strings
 /// using ``dgettext()`` in the domain specified. This can also be done by
 /// calling `gtk_builder_set_translation_domain()` on the builder.
-/// Objects are described by `<object>` elements, which can contain
-/// <property> elements to set properties, `<signal>` elements which
-/// connect signals to handlers, and `<child>` elements, which describe
+/// Objects are described by `&lt;object&gt;` elements, which can contain
+/// &lt;property&gt; elements to set properties, `&lt;signal&gt;` elements which
+/// connect signals to handlers, and `&lt;child&gt;` elements, which describe
 /// child objects (most often widgets inside a container, but also e.g.
-/// actions in an action group, or columns in a tree model). A `<child>`
-/// element contains an `<object>` element which describes the child object.
-/// The target toolkit `version(s)` are described by <requires> elements,
+/// actions in an action group, or columns in a tree model). A `&lt;child&gt;`
+/// element contains an `&lt;object&gt;` element which describes the child object.
+/// The target toolkit `version(s)` are described by &lt;requires&gt; elements,
 /// the “lib” attribute specifies the widget library in question (currently
 /// the only supported value is “gtk”) and the “version” attribute specifies
-/// the target version in the form “`<major>`.`<minor>`”. The builder will error
+/// the target version in the form “`&lt;major&gt;`.`&lt;minor&gt;`”. The builder will error
 /// out if the version requirements are not met.
 /// 
-/// Typically, the specific kind of object represented by an `<object>`
+/// Typically, the specific kind of object represented by an `&lt;object&gt;`
 /// element is specified by the “class” attribute. If the type has not
 /// been loaded yet, GTK tries to find the ``get_type()`` function from the
 /// class name by applying heuristics. This works in most cases, but if
@@ -2844,7 +2854,7 @@ public extension BuilderRef {
 /// with `___` (three consecutive underscores) for its own purposes.
 /// 
 /// Setting properties of objects is pretty straightforward with the
-/// <property> element: the “name” attribute specifies the name of the
+/// &lt;property&gt; element: the “name” attribute specifies the name of the
 /// property, and the content of the element specifies the value.
 /// If the “translatable” attribute is set to a true value, GTK uses
 /// ``gettext()`` (or ``dgettext()`` if the builder has a translation domain set)
@@ -2886,19 +2896,19 @@ public extension BuilderRef {
 /// been constructed by GTK as part of a composite widget, to set
 /// properties on them or to add further children (e.g. the content area
 /// of a `GtkDialog`). This can be achieved by setting the “internal-child”
-/// property of the `<child>` element to a true value. Note that `GtkBuilder`
-/// still requires an `<object>` element for the internal child, even if it
+/// property of the `&lt;child&gt;` element to a true value. Note that `GtkBuilder`
+/// still requires an `&lt;object&gt;` element for the internal child, even if it
 /// has already been constructed.
 /// 
 /// A number of widgets have different places where a child can be added
 /// (e.g. tabs vs. page content in notebooks). This can be reflected in
-/// a UI definition by specifying the “type” attribute on a `<child>`
+/// a UI definition by specifying the “type” attribute on a `&lt;child&gt;`
 /// The possible values for the “type” attribute are described in the
 /// sections describing the widget-specific portions of UI definitions.
 /// 
 /// # Signal handlers and function pointers
 /// 
-/// Signal handlers are set up with the <signal> element. The “name”
+/// Signal handlers are set up with the &lt;signal&gt; element. The “name”
 /// attribute specifies the name of the signal, and the “handler” attribute
 /// specifies the function to connect to the signal.
 /// The remaining attributes, “after”, “swapped” and “object”, have the
@@ -2941,14 +2951,14 @@ public extension BuilderRef {
 /// 
 /// Beyond this general structure, several object classes define their
 /// own XML DTD fragments for filling in the ANY placeholders in the DTD
-/// above. Note that a custom element in a <child> element gets parsed by
+/// above. Note that a custom element in a &lt;child&gt; element gets parsed by
 /// the custom tag handler of the parent object, while a custom element in
-/// an <object> element gets parsed by the custom tag handler of the object.
+/// an &lt;object&gt; element gets parsed by the custom tag handler of the object.
 /// 
 /// These XML fragments are explained in the documentation of the
 /// respective objects.
 /// 
-/// Additionally, since 3.10 a special <template> tag has been added
+/// Additionally, since 3.10 a special &lt;template&gt; tag has been added
 /// to the format allowing one to define a widget class’s components.
 /// See the [GtkWidget documentation](#composite-templates) for details.
 open class Builder: GLibObject.Object, BuilderProtocol {
@@ -3051,14 +3061,14 @@ open class Builder: GLibObject.Object, BuilderProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BuilderProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BuilderProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -3525,7 +3535,7 @@ public extension BuilderProtocol {
     }
 
     /// Sets the translation domain of `builder`.
-    /// See `GtkBuilder:translation`-domain.
+    /// See `GtkBuilder:translation-domain`.
     @inlinable func setTranslation(domain: UnsafePointer<CChar>? = nil) {
         gtk_builder_set_translation_domain(builder_ptr, domain)
     
@@ -3622,7 +3632,7 @@ public extension BuilderProtocol {
             return rv
         }
         /// Sets the translation domain of `builder`.
-        /// See `GtkBuilder:translation`-domain.
+        /// See `GtkBuilder:translation-domain`.
         nonmutating set {
             gtk_builder_set_translation_domain(builder_ptr, newValue)
         }
@@ -3648,6 +3658,8 @@ public protocol BuilderCScopeProtocol: GLibObject.ObjectProtocol, BuilderScopePr
     /// Typed pointer to the underlying `GtkBuilderCScope` instance.
     var builder_cscope_ptr: UnsafeMutablePointer<GtkBuilderCScope>! { get }
 
+    /// Required Initialiser for types conforming to `BuilderCScopeProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `BuilderCScopeRef` type acts as a lightweight Swift reference to an underlying `GtkBuilderCScope` instance.
@@ -3841,14 +3853,14 @@ open class BuilderCScope: GLibObject.Object, BuilderCScopeProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BuilderCScopeProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BuilderCScopeProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -3977,6 +3989,8 @@ public protocol BuilderListItemFactoryProtocol: ListItemFactoryProtocol {
     /// Typed pointer to the underlying `GtkBuilderListItemFactory` instance.
     var builder_list_item_factory_ptr: UnsafeMutablePointer<GtkBuilderListItemFactory>! { get }
 
+    /// Required Initialiser for types conforming to `BuilderListItemFactoryProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `BuilderListItemFactoryRef` type acts as a lightweight Swift reference to an underlying `GtkBuilderListItemFactory` instance.
@@ -4240,14 +4254,14 @@ open class BuilderListItemFactory: ListItemFactory, BuilderListItemFactoryProtoc
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BuilderListItemFactoryProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BuilderListItemFactoryProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -4492,6 +4506,8 @@ public protocol ButtonProtocol: WidgetProtocol, ActionableProtocol {
     /// Typed pointer to the underlying `GtkButton` instance.
     var button_ptr: UnsafeMutablePointer<GtkButton>! { get }
 
+    /// Required Initialiser for types conforming to `ButtonProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ButtonRef` type acts as a lightweight Swift reference to an underlying `GtkButton` instance.
@@ -4796,14 +4812,14 @@ open class Button: Widget, ButtonProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ButtonProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ButtonProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -4922,9 +4938,9 @@ public enum ButtonPropertyName: String, PropertyNameProtocol {
     case hasDefault = "has-default"
     case hasFocus = "has-focus"
     case hasFrame = "has-frame"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case hasTooltip = "has-tooltip"
     case heightRequest = "height-request"
@@ -4989,11 +5005,11 @@ public enum ButtonPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipMarkup = "tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -5001,11 +5017,11 @@ public enum ButtonPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipText = "tooltip-text"
     case useUnderline = "use-underline"
@@ -5086,7 +5102,7 @@ public enum ButtonSignalName: String, SignalNameProtocol {
     /// 
     /// This signal is not suitable for saving widget state.
     case destroy = "destroy"
-    /// The `direction`-changed signal is emitted when the text direction
+    /// The `direction-changed` signal is emitted when the text direction
     /// of a widget changes.
     case directionChanged = "direction-changed"
     /// The `hide` signal is emitted when `widget` is hidden, for example with
@@ -5134,7 +5150,7 @@ public enum ButtonSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
+    /// Emitted when `GtkWidget:has-tooltip` is `true` and the hover timeout
     /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
     /// focus in keyboard mode.
     /// 
@@ -5154,7 +5170,7 @@ public enum ButtonSignalName: String, SignalNameProtocol {
     /// The `show` signal is emitted when `widget` is shown, for example with
     /// `gtk_widget_show()`.
     case show = "show"
-    /// The `state`-flags-changed signal is emitted when the widget state
+    /// The `state-flags-changed` signal is emitted when the widget state
     /// changes, see `gtk_widget_get_state_flags()`.
     case stateFlagsChanged = "state-flags-changed"
     /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
@@ -5197,9 +5213,9 @@ public enum ButtonSignalName: String, SignalNameProtocol {
     case notifyHasDefault = "notify::has-default"
     case notifyHasFocus = "notify::has-focus"
     case notifyHasFrame = "notify::has-frame"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case notifyHasTooltip = "notify::has-tooltip"
     case notifyHeightRequest = "notify::height-request"
@@ -5264,11 +5280,11 @@ public enum ButtonSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipMarkup = "notify::tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -5276,11 +5292,11 @@ public enum ButtonSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipText = "notify::tooltip-text"
     case notifyUseUnderline = "notify::use-underline"
@@ -5798,6 +5814,8 @@ public protocol CClosureExpressionProtocol: ExpressionProtocol {
     /// Typed pointer to the underlying `GtkCClosureExpression` instance.
     var cclosure_expression_ptr: UnsafeMutablePointer<GtkCClosureExpression>! { get }
 
+    /// Required Initialiser for types conforming to `CClosureExpressionProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `CClosureExpressionRef` type acts as a lightweight Swift reference to an underlying `GtkCClosureExpression` instance.
@@ -5995,7 +6013,7 @@ open class CClosureExpression: Expression, CClosureExpressionProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `CClosureExpressionProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 

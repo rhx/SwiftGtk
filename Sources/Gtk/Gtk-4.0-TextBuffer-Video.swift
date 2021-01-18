@@ -31,6 +31,8 @@ public protocol TextBufferProtocol: GLibObject.ObjectProtocol {
     /// Typed pointer to the underlying `GtkTextBuffer` instance.
     var text_buffer_ptr: UnsafeMutablePointer<GtkTextBuffer>! { get }
 
+    /// Required Initialiser for types conforming to `TextBufferProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TextBufferRef` type acts as a lightweight Swift reference to an underlying `GtkTextBuffer` instance.
@@ -235,14 +237,14 @@ open class TextBuffer: GLibObject.Object, TextBufferProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextBufferProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextBufferProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -271,17 +273,17 @@ open class TextBuffer: GLibObject.Object, TextBufferProtocol {
 }
 
 public enum TextBufferPropertyName: String, PropertyNameProtocol {
-    /// The `GtkTextBuffer:can`-redo property denotes that the buffer can reapply the
+    /// The `GtkTextBuffer:can-redo` property denotes that the buffer can reapply the
     /// last undone action.
     case canRedo = "can-redo"
-    /// The `GtkTextBuffer:can`-undo property denotes that the buffer can undo the last
+    /// The `GtkTextBuffer:can-undo` property denotes that the buffer can undo the last
     /// applied action.
     case canUndo = "can-undo"
     /// The position of the insert mark (as offset from the beginning
     /// of the buffer). It is useful for getting notified when the
     /// cursor moves.
     case cursorPosition = "cursor-position"
-    /// The `GtkTextBuffer:enable`-undo property denotes if support for undoing and
+    /// The `GtkTextBuffer:enable-undo` property denotes if support for undoing and
     /// redoing changes to the buffer is allowed.
     case enableUndo = "enable-undo"
     /// Whether the buffer has some text currently selected.
@@ -346,7 +348,7 @@ public extension TextBufferProtocol {
 }
 
 public enum TextBufferSignalName: String, SignalNameProtocol {
-    /// The `GtkTextBuffer::apply`-tag signal is emitted to apply a tag to a
+    /// The `GtkTextBuffer::apply-tag` signal is emitted to apply a tag to a
     /// range of text in a `GtkTextBuffer`.
     /// Applying actually occurs in the default handler.
     /// 
@@ -358,7 +360,7 @@ public enum TextBufferSignalName: String, SignalNameProtocol {
     /// `gtk_text_buffer_insert_with_tags()`,
     /// `gtk_text_buffer_insert_range()`.
     case applyTag = "apply-tag"
-    /// The `GtkTextBuffer::begin`-user-action signal is emitted at the beginning of a single
+    /// The `GtkTextBuffer::begin-user-action` signal is emitted at the beginning of a single
     /// user-visible operation on a `GtkTextBuffer`.
     /// 
     /// See also:
@@ -372,7 +374,7 @@ public enum TextBufferSignalName: String, SignalNameProtocol {
     /// The `GtkTextBuffer::changed` signal is emitted when the content of a `GtkTextBuffer`
     /// has changed.
     case changed = "changed"
-    /// The `GtkTextBuffer::delete`-range signal is emitted to delete a range
+    /// The `GtkTextBuffer::delete-range` signal is emitted to delete a range
     /// from a `GtkTextBuffer`.
     /// 
     /// Note that if your handler runs before the default handler it must not
@@ -384,7 +386,7 @@ public enum TextBufferSignalName: String, SignalNameProtocol {
     /// 
     /// See also: `gtk_text_buffer_delete()`.
     case deleteRange = "delete-range"
-    /// The `GtkTextBuffer::end`-user-action signal is emitted at the end of a single
+    /// The `GtkTextBuffer::end-user-action` signal is emitted at the end of a single
     /// user-visible operation on the `GtkTextBuffer`.
     /// 
     /// See also:
@@ -396,7 +398,7 @@ public enum TextBufferSignalName: String, SignalNameProtocol {
     /// `gtk_text_buffer_delete_selection()`,
     /// `gtk_text_buffer_backspace()`.
     case endUserAction = "end-user-action"
-    /// The `GtkTextBuffer::insert`-child-anchor signal is emitted to insert a
+    /// The `GtkTextBuffer::insert-child-anchor` signal is emitted to insert a
     /// `GtkTextChildAnchor` in a `GtkTextBuffer`.
     /// Insertion actually occurs in the default handler.
     /// 
@@ -407,7 +409,7 @@ public enum TextBufferSignalName: String, SignalNameProtocol {
     /// 
     /// See also: `gtk_text_buffer_insert_child_anchor()`.
     case insertChildAnchor = "insert-child-anchor"
-    /// The `GtkTextBuffer::insert`-paintable signal is emitted to insert a `GdkPaintable`
+    /// The `GtkTextBuffer::insert-paintable` signal is emitted to insert a `GdkPaintable`
     /// in a `GtkTextBuffer`. Insertion actually occurs in the default handler.
     /// 
     /// Note that if your handler runs before the default handler it must not
@@ -417,7 +419,7 @@ public enum TextBufferSignalName: String, SignalNameProtocol {
     /// 
     /// See also: `gtk_text_buffer_insert_paintable()`.
     case insertPaintable = "insert-paintable"
-    /// The `insert`-text signal is emitted to insert text in a `GtkTextBuffer`.
+    /// The `insert-text` signal is emitted to insert text in a `GtkTextBuffer`.
     /// Insertion actually occurs in the default handler.
     /// 
     /// Note that if your handler runs before the default handler it must not
@@ -429,20 +431,20 @@ public enum TextBufferSignalName: String, SignalNameProtocol {
     /// `gtk_text_buffer_insert()`,
     /// `gtk_text_buffer_insert_range()`.
     case insertText = "insert-text"
-    /// The `GtkTextBuffer::mark`-deleted signal is emitted as notification
+    /// The `GtkTextBuffer::mark-deleted` signal is emitted as notification
     /// after a `GtkTextMark` is deleted.
     /// 
     /// See also:
     /// `gtk_text_buffer_delete_mark()`.
     case markDeleted = "mark-deleted"
-    /// The `GtkTextBuffer::mark`-set signal is emitted as notification
+    /// The `GtkTextBuffer::mark-set` signal is emitted as notification
     /// after a `GtkTextMark` is set.
     /// 
     /// See also:
     /// `gtk_text_buffer_create_mark()`,
     /// `gtk_text_buffer_move_mark()`.
     case markSet = "mark-set"
-    /// The `GtkTextBuffer::modified`-changed signal is emitted when the modified bit of a
+    /// The `GtkTextBuffer::modified-changed` signal is emitted when the modified bit of a
     /// `GtkTextBuffer` flips.
     /// 
     /// See also:
@@ -480,7 +482,7 @@ public enum TextBufferSignalName: String, SignalNameProtocol {
     /// The "redo" signal is emitted when a request has been made to redo the
     /// previously undone operation.
     case redo = "redo"
-    /// The `GtkTextBuffer::remove`-tag signal is emitted to remove all occurrences
+    /// The `GtkTextBuffer::remove-tag` signal is emitted to remove all occurrences
     /// of `tag` from a range of text in a `GtkTextBuffer`.
     /// Removal actually occurs in the default handler.
     /// 
@@ -493,17 +495,17 @@ public enum TextBufferSignalName: String, SignalNameProtocol {
     /// The "undo" signal is emitted when a request has been made to undo the
     /// previous operation or set of operations that have been grouped together.
     case undo = "undo"
-    /// The `GtkTextBuffer:can`-redo property denotes that the buffer can reapply the
+    /// The `GtkTextBuffer:can-redo` property denotes that the buffer can reapply the
     /// last undone action.
     case notifyCanRedo = "notify::can-redo"
-    /// The `GtkTextBuffer:can`-undo property denotes that the buffer can undo the last
+    /// The `GtkTextBuffer:can-undo` property denotes that the buffer can undo the last
     /// applied action.
     case notifyCanUndo = "notify::can-undo"
     /// The position of the insert mark (as offset from the beginning
     /// of the buffer). It is useful for getting notified when the
     /// cursor moves.
     case notifyCursorPosition = "notify::cursor-position"
-    /// The `GtkTextBuffer:enable`-undo property denotes if support for undoing and
+    /// The `GtkTextBuffer:enable-undo` property denotes if support for undoing and
     /// redoing changes to the buffer is allowed.
     case notifyEnableUndo = "notify::enable-undo"
     /// Whether the buffer has some text currently selected.
@@ -542,7 +544,7 @@ public extension TextBufferProtocol {
     }
     
     
-    /// The `GtkTextBuffer::apply`-tag signal is emitted to apply a tag to a
+    /// The `GtkTextBuffer::apply-tag` signal is emitted to apply a tag to a
     /// range of text in a `GtkTextBuffer`.
     /// Applying actually occurs in the default handler.
     /// 
@@ -580,7 +582,7 @@ public extension TextBufferProtocol {
     /// Typed `apply-tag` signal for using the `connect(signal:)` methods
     static var applyTagSignal: TextBufferSignalName { .applyTag }
     
-    /// The `GtkTextBuffer::begin`-user-action signal is emitted at the beginning of a single
+    /// The `GtkTextBuffer::begin-user-action` signal is emitted at the beginning of a single
     /// user-visible operation on a `GtkTextBuffer`.
     /// 
     /// See also:
@@ -640,7 +642,7 @@ public extension TextBufferProtocol {
     /// Typed `changed` signal for using the `connect(signal:)` methods
     static var changedSignal: TextBufferSignalName { .changed }
     
-    /// The `GtkTextBuffer::delete`-range signal is emitted to delete a range
+    /// The `GtkTextBuffer::delete-range` signal is emitted to delete a range
     /// from a `GtkTextBuffer`.
     /// 
     /// Note that if your handler runs before the default handler it must not
@@ -677,7 +679,7 @@ public extension TextBufferProtocol {
     /// Typed `delete-range` signal for using the `connect(signal:)` methods
     static var deleteRangeSignal: TextBufferSignalName { .deleteRange }
     
-    /// The `GtkTextBuffer::end`-user-action signal is emitted at the end of a single
+    /// The `GtkTextBuffer::end-user-action` signal is emitted at the end of a single
     /// user-visible operation on the `GtkTextBuffer`.
     /// 
     /// See also:
@@ -712,7 +714,7 @@ public extension TextBufferProtocol {
     /// Typed `end-user-action` signal for using the `connect(signal:)` methods
     static var endUserActionSignal: TextBufferSignalName { .endUserAction }
     
-    /// The `GtkTextBuffer::insert`-child-anchor signal is emitted to insert a
+    /// The `GtkTextBuffer::insert-child-anchor` signal is emitted to insert a
     /// `GtkTextChildAnchor` in a `GtkTextBuffer`.
     /// Insertion actually occurs in the default handler.
     /// 
@@ -748,7 +750,7 @@ public extension TextBufferProtocol {
     /// Typed `insert-child-anchor` signal for using the `connect(signal:)` methods
     static var insertChildAnchorSignal: TextBufferSignalName { .insertChildAnchor }
     
-    /// The `GtkTextBuffer::insert`-paintable signal is emitted to insert a `GdkPaintable`
+    /// The `GtkTextBuffer::insert-paintable` signal is emitted to insert a `GdkPaintable`
     /// in a `GtkTextBuffer`. Insertion actually occurs in the default handler.
     /// 
     /// Note that if your handler runs before the default handler it must not
@@ -783,7 +785,7 @@ public extension TextBufferProtocol {
     /// Typed `insert-paintable` signal for using the `connect(signal:)` methods
     static var insertPaintableSignal: TextBufferSignalName { .insertPaintable }
     
-    /// The `insert`-text signal is emitted to insert text in a `GtkTextBuffer`.
+    /// The `insert-text` signal is emitted to insert text in a `GtkTextBuffer`.
     /// Insertion actually occurs in the default handler.
     /// 
     /// Note that if your handler runs before the default handler it must not
@@ -821,7 +823,7 @@ public extension TextBufferProtocol {
     /// Typed `insert-text` signal for using the `connect(signal:)` methods
     static var insertTextSignal: TextBufferSignalName { .insertText }
     
-    /// The `GtkTextBuffer::mark`-deleted signal is emitted as notification
+    /// The `GtkTextBuffer::mark-deleted` signal is emitted as notification
     /// after a `GtkTextMark` is deleted.
     /// 
     /// See also:
@@ -851,7 +853,7 @@ public extension TextBufferProtocol {
     /// Typed `mark-deleted` signal for using the `connect(signal:)` methods
     static var markDeletedSignal: TextBufferSignalName { .markDeleted }
     
-    /// The `GtkTextBuffer::mark`-set signal is emitted as notification
+    /// The `GtkTextBuffer::mark-set` signal is emitted as notification
     /// after a `GtkTextMark` is set.
     /// 
     /// See also:
@@ -883,7 +885,7 @@ public extension TextBufferProtocol {
     /// Typed `mark-set` signal for using the `connect(signal:)` methods
     static var markSetSignal: TextBufferSignalName { .markSet }
     
-    /// The `GtkTextBuffer::modified`-changed signal is emitted when the modified bit of a
+    /// The `GtkTextBuffer::modified-changed` signal is emitted when the modified bit of a
     /// `GtkTextBuffer` flips.
     /// 
     /// See also:
@@ -966,7 +968,7 @@ public extension TextBufferProtocol {
     /// Typed `redo` signal for using the `connect(signal:)` methods
     static var redoSignal: TextBufferSignalName { .redo }
     
-    /// The `GtkTextBuffer::remove`-tag signal is emitted to remove all occurrences
+    /// The `GtkTextBuffer::remove-tag` signal is emitted to remove all occurrences
     /// of `tag` from a range of text in a `GtkTextBuffer`.
     /// Removal actually occurs in the default handler.
     /// 
@@ -1382,7 +1384,7 @@ public extension TextBufferProtocol {
     /// another buffer, and if its name is not `nil` then there must not
     /// be another mark in the buffer with the same name.
     /// 
-    /// Emits the `GtkTextBuffer::mark`-set signal as notification of the mark's
+    /// Emits the `GtkTextBuffer::mark-set` signal as notification of the mark's
     /// initial placement.
     @inlinable func add<TextIterT: TextIterProtocol, TextMarkT: TextMarkProtocol>(mark: TextMarkT, `where`: TextIterT) {
         gtk_text_buffer_add_mark(text_buffer_ptr, mark.text_mark_ptr, `where`.text_iter_ptr)
@@ -1495,7 +1497,7 @@ public extension TextBufferProtocol {
     /// return value if you like. Marks are owned by the buffer and go
     /// away when the buffer does.
     /// 
-    /// Emits the `GtkTextBuffer::mark`-set signal as notification of the mark's
+    /// Emits the `GtkTextBuffer::mark-set` signal as notification of the mark's
     /// initial placement.
     @inlinable func createMark<TextIterT: TextIterProtocol>(markName: UnsafePointer<CChar>? = nil, `where`: TextIterT, leftGravity: Bool) -> TextMarkRef! {
         let rv = TextMarkRef(gconstpointer: gconstpointer(gtk_text_buffer_create_mark(text_buffer_ptr, markName, `where`.text_iter_ptr, gboolean((leftGravity) ? 1 : 0))))
@@ -1542,7 +1544,7 @@ public extension TextBufferProtocol {
     /// invalid, until it gets added to a buffer again with
     /// `gtk_text_buffer_add_mark()`. Use `gtk_text_mark_get_deleted()` to
     /// find out if a mark has been removed from its buffer.
-    /// The `GtkTextBuffer::mark`-deleted signal will be emitted as notification after
+    /// The `GtkTextBuffer::mark-deleted` signal will be emitted as notification after
     /// the mark is deleted.
     @inlinable func delete<TextMarkT: TextMarkProtocol>(mark: TextMarkT) {
         gtk_text_buffer_delete_mark(text_buffer_ptr, mark.text_mark_ptr)
@@ -1872,7 +1874,7 @@ public extension TextBufferProtocol {
 
     /// Inserts the text in `markup` at position `iter`. `markup` will be inserted
     /// in its entirety and must be nul-terminated and valid UTF-8. Emits the
-    /// `GtkTextBuffer::insert`-text signal, possibly multiple times; insertion
+    /// `GtkTextBuffer::insert-text` signal, possibly multiple times; insertion
     /// actually occurs in the default handler for the signal. `iter` will point
     /// to the end of the inserted text on return.
     @inlinable func insertMarkup<TextIterT: TextIterProtocol>(iter: TextIterT, markup: UnsafePointer<CChar>!, len: Int) {
@@ -1924,7 +1926,7 @@ public extension TextBufferProtocol {
     // *** insertWithTagsByName() is not available because it has a varargs (...) parameter!
 
 
-    /// Moves `mark` to the new location `where`. Emits the `GtkTextBuffer::mark`-set
+    /// Moves `mark` to the new location `where`. Emits the `GtkTextBuffer::mark-set`
     /// signal as notification of the move.
     @inlinable func move<TextIterT: TextIterProtocol, TextMarkT: TextMarkProtocol>(mark: TextMarkT, `where`: TextIterT) {
         gtk_text_buffer_move_mark(text_buffer_ptr, mark.text_mark_ptr, `where`.text_iter_ptr)
@@ -2048,7 +2050,7 @@ public extension TextBufferProtocol {
     /// last time it was saved. Whenever the buffer is saved to disk, call
     /// gtk_text_buffer_set_modified (`buffer`, FALSE). When the buffer is modified,
     /// it will automatically toggled on the modified bit again. When the modified
-    /// bit flips, the buffer emits the `GtkTextBuffer::modified`-changed signal.
+    /// bit flips, the buffer emits the `GtkTextBuffer::modified-changed` signal.
     @inlinable func setModified(setting: Bool) {
         gtk_text_buffer_set_modified(text_buffer_ptr, gboolean((setting) ? 1 : 0))
     
@@ -2202,7 +2204,7 @@ public extension TextBufferProtocol {
         /// last time it was saved. Whenever the buffer is saved to disk, call
         /// gtk_text_buffer_set_modified (`buffer`, FALSE). When the buffer is modified,
         /// it will automatically toggled on the modified bit again. When the modified
-        /// bit flips, the buffer emits the `GtkTextBuffer::modified`-changed signal.
+        /// bit flips, the buffer emits the `GtkTextBuffer::modified-changed` signal.
         nonmutating set {
             gtk_text_buffer_set_modified(text_buffer_ptr, gboolean((newValue) ? 1 : 0))
         }
@@ -2289,6 +2291,8 @@ public protocol TextChildAnchorProtocol: GLibObject.ObjectProtocol {
     /// Typed pointer to the underlying `GtkTextChildAnchor` instance.
     var text_child_anchor_ptr: UnsafeMutablePointer<GtkTextChildAnchor>! { get }
 
+    /// Required Initialiser for types conforming to `TextChildAnchorProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TextChildAnchorRef` type acts as a lightweight Swift reference to an underlying `GtkTextChildAnchor` instance.
@@ -2494,14 +2498,14 @@ open class TextChildAnchor: GLibObject.Object, TextChildAnchorProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextChildAnchorProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextChildAnchorProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -2662,6 +2666,8 @@ public protocol TextMarkProtocol: GLibObject.ObjectProtocol {
     /// Typed pointer to the underlying `GtkTextMark` instance.
     var text_mark_ptr: UnsafeMutablePointer<GtkTextMark>! { get }
 
+    /// Required Initialiser for types conforming to `TextMarkProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TextMarkRef` type acts as a lightweight Swift reference to an underlying `GtkTextMark` instance.
@@ -2924,14 +2930,14 @@ open class TextMark: GLibObject.Object, TextMarkProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextMarkProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextMarkProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -3205,6 +3211,8 @@ public protocol TextTagProtocol: GLibObject.ObjectProtocol {
     /// Typed pointer to the underlying `GtkTextTag` instance.
     var text_tag_ptr: UnsafeMutablePointer<GtkTextTag>! { get }
 
+    /// Required Initialiser for types conforming to `TextTagProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TextTagRef` type acts as a lightweight Swift reference to an underlying `GtkTextTag` instance.
@@ -3432,14 +3440,14 @@ open class TextTag: GLibObject.Object, TextTagProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextTagProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextTagProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -3566,7 +3574,7 @@ public enum TextTagPropertyName: String, PropertyNameProtocol {
     /// This property modifies the color of strikeouts. If not set, strikeouts
     /// will use the foreground color.
     case strikethroughRgba = "strikethrough-rgba"
-    /// If the `GtkTextTag:strikethrough`-rgba property has been set.
+    /// If the `GtkTextTag:strikethrough-rgba` property has been set.
     case strikethroughRgbaSet = "strikethrough-rgba-set"
     case strikethroughSet = "strikethrough-set"
     case style = "style"
@@ -3581,7 +3589,7 @@ public enum TextTagPropertyName: String, PropertyNameProtocol {
     /// color may be applied instead of the foreground. Setting this property
     /// will always override those defaults.
     case underlineRgba = "underline-rgba"
-    /// If the `GtkTextTag:underline`-rgba property has been set.
+    /// If the `GtkTextTag:underline-rgba` property has been set.
     case underlineRgbaSet = "underline-rgba-set"
     case underlineSet = "underline-set"
     case variant = "variant"
@@ -3768,7 +3776,7 @@ public enum TextTagSignalName: String, SignalNameProtocol {
     /// This property modifies the color of strikeouts. If not set, strikeouts
     /// will use the foreground color.
     case notifyStrikethroughRgba = "notify::strikethrough-rgba"
-    /// If the `GtkTextTag:strikethrough`-rgba property has been set.
+    /// If the `GtkTextTag:strikethrough-rgba` property has been set.
     case notifyStrikethroughRgbaSet = "notify::strikethrough-rgba-set"
     case notifyStrikethroughSet = "notify::strikethrough-set"
     case notifyStyle = "notify::style"
@@ -3783,7 +3791,7 @@ public enum TextTagSignalName: String, SignalNameProtocol {
     /// color may be applied instead of the foreground. Setting this property
     /// will always override those defaults.
     case notifyUnderlineRgba = "notify::underline-rgba"
-    /// If the `GtkTextTag:underline`-rgba property has been set.
+    /// If the `GtkTextTag:underline-rgba` property has been set.
     case notifyUnderlineRgbaSet = "notify::underline-rgba-set"
     case notifyUnderlineSet = "notify::underline-set"
     case notifyVariant = "notify::variant"
@@ -3800,7 +3808,7 @@ public extension TextTagProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkTextTag` instance.
     @inlinable var text_tag_ptr: UnsafeMutablePointer<GtkTextTag>! { return ptr?.assumingMemoryBound(to: GtkTextTag.self) }
 
-    /// Emits the `GtkTextTagTable::tag`-changed signal on the `GtkTextTagTable` where
+    /// Emits the `GtkTextTagTable::tag-changed` signal on the `GtkTextTagTable` where
     /// the tag is included.
     /// 
     /// The signal is already emitted when setting a `GtkTextTag` property. This
@@ -3883,7 +3891,7 @@ public extension TextTagProtocol {
 /// 
 /// The GtkTextTagTable implementation of the GtkBuildable interface
 /// supports adding tags by specifying “tag” as the “type” attribute
-/// of a <child> element.
+/// of a &lt;child&gt; element.
 /// 
 /// An example of a UI definition fragment specifying tags:
 /// ```
@@ -3901,6 +3909,8 @@ public protocol TextTagTableProtocol: GLibObject.ObjectProtocol, BuildableProtoc
     /// Typed pointer to the underlying `GtkTextTagTable` instance.
     var text_tag_table_ptr: UnsafeMutablePointer<GtkTextTagTable>! { get }
 
+    /// Required Initialiser for types conforming to `TextTagTableProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TextTagTableRef` type acts as a lightweight Swift reference to an underlying `GtkTextTagTable` instance.
@@ -3916,7 +3926,7 @@ public protocol TextTagTableProtocol: GLibObject.ObjectProtocol, BuildableProtoc
 /// 
 /// The GtkTextTagTable implementation of the GtkBuildable interface
 /// supports adding tags by specifying “tag” as the “type” attribute
-/// of a <child> element.
+/// of a &lt;child&gt; element.
 /// 
 /// An example of a UI definition fragment specifying tags:
 /// ```
@@ -4027,7 +4037,7 @@ public extension TextTagTableRef {
 /// 
 /// The GtkTextTagTable implementation of the GtkBuildable interface
 /// supports adding tags by specifying “tag” as the “type” attribute
-/// of a <child> element.
+/// of a &lt;child&gt; element.
 /// 
 /// An example of a UI definition fragment specifying tags:
 /// ```
@@ -4138,14 +4148,14 @@ open class TextTagTable: GLibObject.Object, TextTagTableProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextTagTableProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextTagTableProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -4430,6 +4440,8 @@ public protocol TextViewProtocol: WidgetProtocol, ScrollableProtocol {
     /// Typed pointer to the underlying `GtkTextView` instance.
     var text_view_ptr: UnsafeMutablePointer<GtkTextView>! { get }
 
+    /// Required Initialiser for types conforming to `TextViewProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TextViewRef` type acts as a lightweight Swift reference to an underlying `GtkTextView` instance.
@@ -4714,14 +4726,14 @@ open class TextView: Widget, TextViewProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextViewProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextViewProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -4783,7 +4795,7 @@ public enum TextViewPropertyName: String, PropertyNameProtocol {
     /// the value set here is padding, and it is applied in addition
     /// to the padding from the theme.
     /// 
-    /// Don't confuse this property with `GtkWidget:margin`-bottom.
+    /// Don't confuse this property with `GtkWidget:margin-bottom`.
     case bottomMargin = "bottom-margin"
     case buffer = "buffer"
     /// Whether the widget or any of its descendents can accept
@@ -4815,9 +4827,9 @@ public enum TextViewPropertyName: String, PropertyNameProtocol {
     case halign = "halign"
     case hasDefault = "has-default"
     case hasFocus = "has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case hasTooltip = "has-tooltip"
     case heightRequest = "height-request"
@@ -4830,10 +4842,10 @@ public enum TextViewPropertyName: String, PropertyNameProtocol {
     /// 
     /// Setting this to a non-`nil` value overrides the
     /// system-wide IM module setting. See the GtkSettings
-    /// `GtkSettings:gtk`-im-module property.
+    /// `GtkSettings:gtk-im-module` property.
     case imModule = "im-module"
     case indent = "indent"
-    /// Additional hints (beyond `GtkTextView:input`-purpose) that
+    /// Additional hints (beyond `GtkTextView:input-purpose`) that
     /// allow input methods to fine-tune their behaviour.
     case inputHints = "input-hints"
     /// The purpose of this text field.
@@ -4919,11 +4931,11 @@ public enum TextViewPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipMarkup = "tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -4931,11 +4943,11 @@ public enum TextViewPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipText = "tooltip-text"
     /// The top margin for text in the text view.
@@ -4944,7 +4956,7 @@ public enum TextViewPropertyName: String, PropertyNameProtocol {
     /// the value set here is padding, and it is applied in addition
     /// to the padding from the theme.
     /// 
-    /// Don't confuse this property with `GtkWidget:margin`-top.
+    /// Don't confuse this property with `GtkWidget:margin-top`.
     case topMargin = "top-margin"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
     case valign = "valign"
@@ -5018,21 +5030,21 @@ public enum TextViewSignalName: String, SignalNameProtocol {
     /// The default bindings for this signal are
     /// Backspace and Shift-Backspace.
     case backspace = "backspace"
-    /// The `copy`-clipboard signal is a
+    /// The `copy-clipboard` signal is a
     /// [keybinding signal](#GtkSignalAction)
     /// which gets emitted to copy the selection to the clipboard.
     /// 
     /// The default bindings for this signal are
     /// Ctrl-c and Ctrl-Insert.
     case copyClipboard = "copy-clipboard"
-    /// The `cut`-clipboard signal is a
+    /// The `cut-clipboard` signal is a
     /// [keybinding signal](#GtkSignalAction)
     /// which gets emitted to cut the selection to the clipboard.
     /// 
     /// The default bindings for this signal are
     /// Ctrl-x and Shift-Delete.
     case cutClipboard = "cut-clipboard"
-    /// The `delete`-from-cursor signal is a
+    /// The `delete-from-cursor` signal is a
     /// [keybinding signal](#GtkSignalAction)
     /// which gets emitted when the user initiates a text deletion.
     /// 
@@ -5051,23 +5063,23 @@ public enum TextViewSignalName: String, SignalNameProtocol {
     /// 
     /// This signal is not suitable for saving widget state.
     case destroy = "destroy"
-    /// The `direction`-changed signal is emitted when the text direction
+    /// The `direction-changed` signal is emitted when the text direction
     /// of a widget changes.
     case directionChanged = "direction-changed"
-    /// The `extend`-selection signal is emitted when the selection needs to be
+    /// The `extend-selection` signal is emitted when the selection needs to be
     /// extended at `location`.
     case extendSelection = "extend-selection"
     /// The `hide` signal is emitted when `widget` is hidden, for example with
     /// `gtk_widget_hide()`.
     case hide = "hide"
-    /// The `insert`-at-cursor signal is a
+    /// The `insert-at-cursor` signal is a
     /// [keybinding signal](#GtkSignalAction)
     /// which gets emitted when the user initiates the insertion of a
     /// fixed string at the cursor.
     /// 
     /// This signal has no default bindings.
     case insertAtCursor = "insert-at-cursor"
-    /// The `insert`-emoji signal is a
+    /// The `insert-emoji` signal is a
     /// [keybinding signal](#GtkSignalAction)
     /// which gets emitted to present the Emoji chooser for the `text_view`.
     /// 
@@ -5088,7 +5100,7 @@ public enum TextViewSignalName: String, SignalNameProtocol {
     /// The default handler for this signal activates `widget` if `group_cycling`
     /// is `false`, or just makes `widget` grab focus if `group_cycling` is `true`.
     case mnemonicActivate = "mnemonic-activate"
-    /// The `move`-cursor signal is a
+    /// The `move-cursor` signal is a
     /// [keybinding signal](#GtkSignalAction)
     /// which gets emitted when the user initiates a cursor movement.
     /// If the cursor is not visible in `text_view`, this signal causes
@@ -5110,7 +5122,7 @@ public enum TextViewSignalName: String, SignalNameProtocol {
     case moveCursor = "move-cursor"
     /// Emitted when the focus is moved.
     case moveFocus = "move-focus"
-    /// The `move`-viewport signal is a
+    /// The `move-viewport` signal is a
     /// [keybinding signal](#GtkSignalAction)
     /// which can be bound to key combinations to allow the user
     /// to move the viewport, i.e. change what part of the text view
@@ -5143,7 +5155,7 @@ public enum TextViewSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// The `paste`-clipboard signal is a
+    /// The `paste-clipboard` signal is a
     /// [keybinding signal](#GtkSignalAction)
     /// which gets emitted to paste the contents of the clipboard
     /// into the text view.
@@ -5158,7 +5170,7 @@ public enum TextViewSignalName: String, SignalNameProtocol {
     /// This signal is only emitted if the text at the given position
     /// is actually editable.
     case preeditChanged = "preedit-changed"
-    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
+    /// Emitted when `GtkWidget:has-tooltip` is `true` and the hover timeout
     /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
     /// focus in keyboard mode.
     /// 
@@ -5175,7 +5187,7 @@ public enum TextViewSignalName: String, SignalNameProtocol {
     /// `GdkSurface`, which means that `gtk_widget_realize()` has been called or the
     /// widget has been mapped (that is, it is going to be drawn).
     case realize = "realize"
-    /// The `select`-all signal is a
+    /// The `select-all` signal is a
     /// [keybinding signal](#GtkSignalAction)
     /// which gets emitted to select or unselect the complete
     /// contents of the text view.
@@ -5183,7 +5195,7 @@ public enum TextViewSignalName: String, SignalNameProtocol {
     /// The default bindings for this signal are Ctrl-a and Ctrl-/
     /// for selecting and Shift-Ctrl-a and Ctrl-\ for unselecting.
     case selectAll = "select-all"
-    /// The `set`-anchor signal is a
+    /// The `set-anchor` signal is a
     /// [keybinding signal](#GtkSignalAction)
     /// which gets emitted when the user initiates setting the "anchor"
     /// mark. The "anchor" mark gets placed at the same position as the
@@ -5194,17 +5206,17 @@ public enum TextViewSignalName: String, SignalNameProtocol {
     /// The `show` signal is emitted when `widget` is shown, for example with
     /// `gtk_widget_show()`.
     case show = "show"
-    /// The `state`-flags-changed signal is emitted when the widget state
+    /// The `state-flags-changed` signal is emitted when the widget state
     /// changes, see `gtk_widget_get_state_flags()`.
     case stateFlagsChanged = "state-flags-changed"
-    /// The `toggle`-cursor-visible signal is a
+    /// The `toggle-cursor-visible` signal is a
     /// [keybinding signal](#GtkSignalAction)
-    /// which gets emitted to toggle the `GtkTextView:cursor`-visible
+    /// which gets emitted to toggle the `GtkTextView:cursor-visible`
     /// property.
     /// 
     /// The default binding for this signal is F7.
     case toggleCursorVisible = "toggle-cursor-visible"
-    /// The `toggle`-overwrite signal is a
+    /// The `toggle-overwrite` signal is a
     /// [keybinding signal](#GtkSignalAction)
     /// which gets emitted to toggle the overwrite mode of the text view.
     /// 
@@ -5229,7 +5241,7 @@ public enum TextViewSignalName: String, SignalNameProtocol {
     /// the value set here is padding, and it is applied in addition
     /// to the padding from the theme.
     /// 
-    /// Don't confuse this property with `GtkWidget:margin`-bottom.
+    /// Don't confuse this property with `GtkWidget:margin-bottom`.
     case notifyBottomMargin = "notify::bottom-margin"
     case notifyBuffer = "notify::buffer"
     /// Whether the widget or any of its descendents can accept
@@ -5261,9 +5273,9 @@ public enum TextViewSignalName: String, SignalNameProtocol {
     case notifyHalign = "notify::halign"
     case notifyHasDefault = "notify::has-default"
     case notifyHasFocus = "notify::has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case notifyHasTooltip = "notify::has-tooltip"
     case notifyHeightRequest = "notify::height-request"
@@ -5276,10 +5288,10 @@ public enum TextViewSignalName: String, SignalNameProtocol {
     /// 
     /// Setting this to a non-`nil` value overrides the
     /// system-wide IM module setting. See the GtkSettings
-    /// `GtkSettings:gtk`-im-module property.
+    /// `GtkSettings:gtk-im-module` property.
     case notifyImModule = "notify::im-module"
     case notifyIndent = "notify::indent"
-    /// Additional hints (beyond `GtkTextView:input`-purpose) that
+    /// Additional hints (beyond `GtkTextView:input-purpose`) that
     /// allow input methods to fine-tune their behaviour.
     case notifyInputHints = "notify::input-hints"
     /// The purpose of this text field.
@@ -5365,11 +5377,11 @@ public enum TextViewSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipMarkup = "notify::tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -5377,11 +5389,11 @@ public enum TextViewSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipText = "notify::tooltip-text"
     /// The top margin for text in the text view.
@@ -5390,7 +5402,7 @@ public enum TextViewSignalName: String, SignalNameProtocol {
     /// the value set here is padding, and it is applied in addition
     /// to the padding from the theme.
     /// 
-    /// Don't confuse this property with `GtkWidget:margin`-top.
+    /// Don't confuse this property with `GtkWidget:margin-top`.
     case notifyTopMargin = "notify::top-margin"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
     case notifyValign = "notify::valign"
@@ -5461,7 +5473,7 @@ public extension TextViewProtocol {
     /// Typed `backspace` signal for using the `connect(signal:)` methods
     static var backspaceSignal: TextViewSignalName { .backspace }
     
-    /// The `copy`-clipboard signal is a
+    /// The `copy-clipboard` signal is a
     /// [keybinding signal](#GtkSignalAction)
     /// which gets emitted to copy the selection to the clipboard.
     /// 
@@ -5491,7 +5503,7 @@ public extension TextViewProtocol {
     /// Typed `copy-clipboard` signal for using the `connect(signal:)` methods
     static var copyClipboardSignal: TextViewSignalName { .copyClipboard }
     
-    /// The `cut`-clipboard signal is a
+    /// The `cut-clipboard` signal is a
     /// [keybinding signal](#GtkSignalAction)
     /// which gets emitted to cut the selection to the clipboard.
     /// 
@@ -5521,7 +5533,7 @@ public extension TextViewProtocol {
     /// Typed `cut-clipboard` signal for using the `connect(signal:)` methods
     static var cutClipboardSignal: TextViewSignalName { .cutClipboard }
     
-    /// The `delete`-from-cursor signal is a
+    /// The `delete-from-cursor` signal is a
     /// [keybinding signal](#GtkSignalAction)
     /// which gets emitted when the user initiates a text deletion.
     /// 
@@ -5559,7 +5571,7 @@ public extension TextViewProtocol {
     /// Typed `delete-from-cursor` signal for using the `connect(signal:)` methods
     static var deleteFromCursorSignal: TextViewSignalName { .deleteFromCursor }
     
-    /// The `extend`-selection signal is emitted when the selection needs to be
+    /// The `extend-selection` signal is emitted when the selection needs to be
     /// extended at `location`.
     /// - Note: This represents the underlying `extend-selection` signal
     /// - Parameter flags: Flags
@@ -5589,7 +5601,7 @@ public extension TextViewProtocol {
     /// Typed `extend-selection` signal for using the `connect(signal:)` methods
     static var extendSelectionSignal: TextViewSignalName { .extendSelection }
     
-    /// The `insert`-at-cursor signal is a
+    /// The `insert-at-cursor` signal is a
     /// [keybinding signal](#GtkSignalAction)
     /// which gets emitted when the user initiates the insertion of a
     /// fixed string at the cursor.
@@ -5620,7 +5632,7 @@ public extension TextViewProtocol {
     /// Typed `insert-at-cursor` signal for using the `connect(signal:)` methods
     static var insertAtCursorSignal: TextViewSignalName { .insertAtCursor }
     
-    /// The `insert`-emoji signal is a
+    /// The `insert-emoji` signal is a
     /// [keybinding signal](#GtkSignalAction)
     /// which gets emitted to present the Emoji chooser for the `text_view`.
     /// 
@@ -5649,7 +5661,7 @@ public extension TextViewProtocol {
     /// Typed `insert-emoji` signal for using the `connect(signal:)` methods
     static var insertEmojiSignal: TextViewSignalName { .insertEmoji }
     
-    /// The `move`-cursor signal is a
+    /// The `move-cursor` signal is a
     /// [keybinding signal](#GtkSignalAction)
     /// which gets emitted when the user initiates a cursor movement.
     /// If the cursor is not visible in `text_view`, this signal causes
@@ -5695,7 +5707,7 @@ public extension TextViewProtocol {
     /// Typed `move-cursor` signal for using the `connect(signal:)` methods
     static var moveCursorSignal: TextViewSignalName { .moveCursor }
     
-    /// The `move`-viewport signal is a
+    /// The `move-viewport` signal is a
     /// [keybinding signal](#GtkSignalAction)
     /// which can be bound to key combinations to allow the user
     /// to move the viewport, i.e. change what part of the text view
@@ -5728,7 +5740,7 @@ public extension TextViewProtocol {
     /// Typed `move-viewport` signal for using the `connect(signal:)` methods
     static var moveViewportSignal: TextViewSignalName { .moveViewport }
     
-    /// The `paste`-clipboard signal is a
+    /// The `paste-clipboard` signal is a
     /// [keybinding signal](#GtkSignalAction)
     /// which gets emitted to paste the contents of the clipboard
     /// into the text view.
@@ -5790,7 +5802,7 @@ public extension TextViewProtocol {
     /// Typed `preedit-changed` signal for using the `connect(signal:)` methods
     static var preeditChangedSignal: TextViewSignalName { .preeditChanged }
     
-    /// The `select`-all signal is a
+    /// The `select-all` signal is a
     /// [keybinding signal](#GtkSignalAction)
     /// which gets emitted to select or unselect the complete
     /// contents of the text view.
@@ -5822,7 +5834,7 @@ public extension TextViewProtocol {
     /// Typed `select-all` signal for using the `connect(signal:)` methods
     static var selectAllSignal: TextViewSignalName { .selectAll }
     
-    /// The `set`-anchor signal is a
+    /// The `set-anchor` signal is a
     /// [keybinding signal](#GtkSignalAction)
     /// which gets emitted when the user initiates setting the "anchor"
     /// mark. The "anchor" mark gets placed at the same position as the
@@ -5853,9 +5865,9 @@ public extension TextViewProtocol {
     /// Typed `set-anchor` signal for using the `connect(signal:)` methods
     static var setAnchorSignal: TextViewSignalName { .setAnchor }
     
-    /// The `toggle`-cursor-visible signal is a
+    /// The `toggle-cursor-visible` signal is a
     /// [keybinding signal](#GtkSignalAction)
-    /// which gets emitted to toggle the `GtkTextView:cursor`-visible
+    /// which gets emitted to toggle the `GtkTextView:cursor-visible`
     /// property.
     /// 
     /// The default binding for this signal is F7.
@@ -5883,7 +5895,7 @@ public extension TextViewProtocol {
     /// Typed `toggle-cursor-visible` signal for using the `connect(signal:)` methods
     static var toggleCursorVisibleSignal: TextViewSignalName { .toggleCursorVisible }
     
-    /// The `toggle`-overwrite signal is a
+    /// The `toggle-overwrite` signal is a
     /// [keybinding signal](#GtkSignalAction)
     /// which gets emitted to toggle the overwrite mode of the text view.
     /// 
@@ -7132,13 +7144,13 @@ public extension TextViewProtocol {
         return rv
     }
 
-    /// Gets the value of the `GtkTextView:input`-hints property.
+    /// Gets the value of the `GtkTextView:input-hints` property.
     @inlinable func getInputHints() -> InputHints {
         let rv = InputHints(gtk_text_view_get_input_hints(text_view_ptr))
         return rv
     }
 
-    /// Gets the value of the `GtkTextView:input`-purpose property.
+    /// Gets the value of the `GtkTextView:input-purpose` property.
     @inlinable func getInputPurpose() -> GtkInputPurpose {
         let rv = gtk_text_view_get_input_purpose(text_view_ptr)
         return rv
@@ -7461,7 +7473,7 @@ public extension TextViewProtocol {
     /// want to turn the cursor off.
     /// 
     /// Note that this property may be overridden by the
-    /// `GtkSettings:gtk`-keynav-use-caret settings.
+    /// `GtkSettings:gtk-keynav-use-caret` settings.
     @inlinable func setCursorVisible(setting: Bool) {
         gtk_text_view_set_cursor_visible(text_view_ptr, gboolean((setting) ? 1 : 0))
     
@@ -7514,14 +7526,14 @@ public extension TextViewProtocol {
     
     }
 
-    /// Sets the `GtkTextView:input`-hints property, which
+    /// Sets the `GtkTextView:input-hints` property, which
     /// allows input methods to fine-tune their behaviour.
     @inlinable func setInput(hints: InputHints) {
         gtk_text_view_set_input_hints(text_view_ptr, hints.value)
     
     }
 
-    /// Sets the `GtkTextView:input`-purpose property which
+    /// Sets the `GtkTextView:input-purpose` property which
     /// can be used by on-screen keyboards and other input
     /// methods to adjust their behaviour.
     @inlinable func setInput(purpose: GtkInputPurpose) {
@@ -7693,7 +7705,7 @@ public extension TextViewProtocol {
         /// want to turn the cursor off.
         /// 
         /// Note that this property may be overridden by the
-        /// `GtkSettings:gtk`-keynav-use-caret settings.
+        /// `GtkSettings:gtk-keynav-use-caret` settings.
         nonmutating set {
             gtk_text_view_set_cursor_visible(text_view_ptr, gboolean((newValue) ? 1 : 0))
         }
@@ -7746,28 +7758,28 @@ public extension TextViewProtocol {
         }
     }
 
-    /// Gets the value of the `GtkTextView:input`-hints property.
+    /// Gets the value of the `GtkTextView:input-hints` property.
     @inlinable var inputHints: InputHints {
-        /// Gets the value of the `GtkTextView:input`-hints property.
+        /// Gets the value of the `GtkTextView:input-hints` property.
         get {
             let rv = InputHints(gtk_text_view_get_input_hints(text_view_ptr))
             return rv
         }
-        /// Sets the `GtkTextView:input`-hints property, which
+        /// Sets the `GtkTextView:input-hints` property, which
         /// allows input methods to fine-tune their behaviour.
         nonmutating set {
             gtk_text_view_set_input_hints(text_view_ptr, newValue.value)
         }
     }
 
-    /// Gets the value of the `GtkTextView:input`-purpose property.
+    /// Gets the value of the `GtkTextView:input-purpose` property.
     @inlinable var inputPurpose: GtkInputPurpose {
-        /// Gets the value of the `GtkTextView:input`-purpose property.
+        /// Gets the value of the `GtkTextView:input-purpose` property.
         get {
             let rv = gtk_text_view_get_input_purpose(text_view_ptr)
             return rv
         }
-        /// Sets the `GtkTextView:input`-purpose property which
+        /// Sets the `GtkTextView:input-purpose` property which
         /// can be used by on-screen keyboards and other input
         /// methods to adjust their behaviour.
         nonmutating set {
@@ -8037,6 +8049,8 @@ public protocol ToggleButtonProtocol: ButtonProtocol {
     /// Typed pointer to the underlying `GtkToggleButton` instance.
     var toggle_button_ptr: UnsafeMutablePointer<GtkToggleButton>! { get }
 
+    /// Required Initialiser for types conforming to `ToggleButtonProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ToggleButtonRef` type acts as a lightweight Swift reference to an underlying `GtkToggleButton` instance.
@@ -8372,14 +8386,14 @@ open class ToggleButton: Button, ToggleButtonProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ToggleButtonProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ToggleButtonProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -8469,9 +8483,9 @@ public enum ToggleButtonPropertyName: String, PropertyNameProtocol {
     case hasDefault = "has-default"
     case hasFocus = "has-focus"
     case hasFrame = "has-frame"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case hasTooltip = "has-tooltip"
     case heightRequest = "height-request"
@@ -8536,11 +8550,11 @@ public enum ToggleButtonPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipMarkup = "tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -8548,11 +8562,11 @@ public enum ToggleButtonPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipText = "tooltip-text"
     case useUnderline = "use-underline"
@@ -8633,7 +8647,7 @@ public enum ToggleButtonSignalName: String, SignalNameProtocol {
     /// 
     /// This signal is not suitable for saving widget state.
     case destroy = "destroy"
-    /// The `direction`-changed signal is emitted when the text direction
+    /// The `direction-changed` signal is emitted when the text direction
     /// of a widget changes.
     case directionChanged = "direction-changed"
     /// The `hide` signal is emitted when `widget` is hidden, for example with
@@ -8681,7 +8695,7 @@ public enum ToggleButtonSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
+    /// Emitted when `GtkWidget:has-tooltip` is `true` and the hover timeout
     /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
     /// focus in keyboard mode.
     /// 
@@ -8701,7 +8715,7 @@ public enum ToggleButtonSignalName: String, SignalNameProtocol {
     /// The `show` signal is emitted when `widget` is shown, for example with
     /// `gtk_widget_show()`.
     case show = "show"
-    /// The `state`-flags-changed signal is emitted when the widget state
+    /// The `state-flags-changed` signal is emitted when the widget state
     /// changes, see `gtk_widget_get_state_flags()`.
     case stateFlagsChanged = "state-flags-changed"
     /// Should be connected if you wish to perform an action whenever the
@@ -8749,9 +8763,9 @@ public enum ToggleButtonSignalName: String, SignalNameProtocol {
     case notifyHasDefault = "notify::has-default"
     case notifyHasFocus = "notify::has-focus"
     case notifyHasFrame = "notify::has-frame"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case notifyHasTooltip = "notify::has-tooltip"
     case notifyHeightRequest = "notify::height-request"
@@ -8816,11 +8830,11 @@ public enum ToggleButtonSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipMarkup = "notify::tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -8828,11 +8842,11 @@ public enum ToggleButtonSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipText = "notify::tooltip-text"
     case notifyUseUnderline = "notify::use-underline"
@@ -9089,11 +9103,11 @@ public extension ToggleButtonProtocol {
 /// image, or you want the tooltip to have different contents per `GtkTreeView`
 /// row or cell, you will have to do a little more work:
 /// 
-/// - Set the `GtkWidget:has`-tooltip property to `true`, this will make GTK
+/// - Set the `GtkWidget:has-tooltip` property to `true`, this will make GTK
 ///   monitor the widget for motion and related events which are needed to
 ///   determine when and where to show a tooltip.
 /// 
-/// - Connect to the `GtkWidget::query`-tooltip signal.  This signal will be
+/// - Connect to the `GtkWidget::query-tooltip` signal.  This signal will be
 ///   emitted when a tooltip is supposed to be shown. One of the arguments passed
 ///   to the signal handler is a GtkTooltip object. This is the object that we
 ///   are about to display as a tooltip, and can be manipulated in your callback
@@ -9110,6 +9124,8 @@ public protocol TooltipProtocol: GLibObject.ObjectProtocol {
     /// Typed pointer to the underlying `GtkTooltip` instance.
     var tooltip_ptr: UnsafeMutablePointer<GtkTooltip>! { get }
 
+    /// Required Initialiser for types conforming to `TooltipProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TooltipRef` type acts as a lightweight Swift reference to an underlying `GtkTooltip` instance.
@@ -9123,11 +9139,11 @@ public protocol TooltipProtocol: GLibObject.ObjectProtocol {
 /// image, or you want the tooltip to have different contents per `GtkTreeView`
 /// row or cell, you will have to do a little more work:
 /// 
-/// - Set the `GtkWidget:has`-tooltip property to `true`, this will make GTK
+/// - Set the `GtkWidget:has-tooltip` property to `true`, this will make GTK
 ///   monitor the widget for motion and related events which are needed to
 ///   determine when and where to show a tooltip.
 /// 
-/// - Connect to the `GtkWidget::query`-tooltip signal.  This signal will be
+/// - Connect to the `GtkWidget::query-tooltip` signal.  This signal will be
 ///   emitted when a tooltip is supposed to be shown. One of the arguments passed
 ///   to the signal handler is a GtkTooltip object. This is the object that we
 ///   are about to display as a tooltip, and can be manipulated in your callback
@@ -9229,11 +9245,11 @@ public extension TooltipRef {
 /// image, or you want the tooltip to have different contents per `GtkTreeView`
 /// row or cell, you will have to do a little more work:
 /// 
-/// - Set the `GtkWidget:has`-tooltip property to `true`, this will make GTK
+/// - Set the `GtkWidget:has-tooltip` property to `true`, this will make GTK
 ///   monitor the widget for motion and related events which are needed to
 ///   determine when and where to show a tooltip.
 /// 
-/// - Connect to the `GtkWidget::query`-tooltip signal.  This signal will be
+/// - Connect to the `GtkWidget::query-tooltip` signal.  This signal will be
 ///   emitted when a tooltip is supposed to be shown. One of the arguments passed
 ///   to the signal handler is a GtkTooltip object. This is the object that we
 ///   are about to display as a tooltip, and can be manipulated in your callback
@@ -9343,14 +9359,14 @@ open class Tooltip: GLibObject.Object, TooltipProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TooltipProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TooltipProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -9551,6 +9567,8 @@ public protocol TreeExpanderProtocol: WidgetProtocol {
     /// Typed pointer to the underlying `GtkTreeExpander` instance.
     var tree_expander_ptr: UnsafeMutablePointer<GtkTreeExpander>! { get }
 
+    /// Required Initialiser for types conforming to `TreeExpanderProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TreeExpanderRef` type acts as a lightweight Swift reference to an underlying `GtkTreeExpander` instance.
@@ -9823,14 +9841,14 @@ open class TreeExpander: Widget, TreeExpanderProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TreeExpanderProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TreeExpanderProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -9887,9 +9905,9 @@ public enum TreeExpanderPropertyName: String, PropertyNameProtocol {
     case halign = "halign"
     case hasDefault = "has-default"
     case hasFocus = "has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case hasTooltip = "has-tooltip"
     case heightRequest = "height-request"
@@ -9956,11 +9974,11 @@ public enum TreeExpanderPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipMarkup = "tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -9968,11 +9986,11 @@ public enum TreeExpanderPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipText = "tooltip-text"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
@@ -10045,7 +10063,7 @@ public enum TreeExpanderSignalName: String, SignalNameProtocol {
     /// 
     /// This signal is not suitable for saving widget state.
     case destroy = "destroy"
-    /// The `direction`-changed signal is emitted when the text direction
+    /// The `direction-changed` signal is emitted when the text direction
     /// of a widget changes.
     case directionChanged = "direction-changed"
     /// The `hide` signal is emitted when `widget` is hidden, for example with
@@ -10093,7 +10111,7 @@ public enum TreeExpanderSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
+    /// Emitted when `GtkWidget:has-tooltip` is `true` and the hover timeout
     /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
     /// focus in keyboard mode.
     /// 
@@ -10113,7 +10131,7 @@ public enum TreeExpanderSignalName: String, SignalNameProtocol {
     /// The `show` signal is emitted when `widget` is shown, for example with
     /// `gtk_widget_show()`.
     case show = "show"
-    /// The `state`-flags-changed signal is emitted when the widget state
+    /// The `state-flags-changed` signal is emitted when the widget state
     /// changes, see `gtk_widget_get_state_flags()`.
     case stateFlagsChanged = "state-flags-changed"
     /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
@@ -10156,9 +10174,9 @@ public enum TreeExpanderSignalName: String, SignalNameProtocol {
     case notifyHalign = "notify::halign"
     case notifyHasDefault = "notify::has-default"
     case notifyHasFocus = "notify::has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case notifyHasTooltip = "notify::has-tooltip"
     case notifyHeightRequest = "notify::height-request"
@@ -10225,11 +10243,11 @@ public enum TreeExpanderSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipMarkup = "notify::tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -10237,11 +10255,11 @@ public enum TreeExpanderSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipText = "notify::tooltip-text"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
@@ -10371,6 +10389,8 @@ public protocol TreeListModelProtocol: GLibObject.ObjectProtocol, GIO.ListModelP
     /// Typed pointer to the underlying `GtkTreeListModel` instance.
     var tree_list_model_ptr: UnsafeMutablePointer<GtkTreeListModel>! { get }
 
+    /// Required Initialiser for types conforming to `TreeListModelProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TreeListModelRef` type acts as a lightweight Swift reference to an underlying `GtkTreeListModel` instance.
@@ -10571,14 +10591,14 @@ open class TreeListModel: GLibObject.Object, TreeListModelProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TreeListModelProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TreeListModelProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -10851,6 +10871,8 @@ public protocol TreeListRowProtocol: GLibObject.ObjectProtocol {
     /// Typed pointer to the underlying `GtkTreeListRow` instance.
     var tree_list_row_ptr: UnsafeMutablePointer<GtkTreeListRow>! { get }
 
+    /// Required Initialiser for types conforming to `TreeListRowProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TreeListRowRef` type acts as a lightweight Swift reference to an underlying `GtkTreeListRow` instance.
@@ -11064,14 +11086,14 @@ open class TreeListRow: GLibObject.Object, TreeListRowProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TreeListRowProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TreeListRowProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -11418,6 +11440,8 @@ public protocol TreeListRowSorterProtocol: SorterProtocol {
     /// Typed pointer to the underlying `GtkTreeListRowSorter` instance.
     var tree_list_row_sorter_ptr: UnsafeMutablePointer<GtkTreeListRowSorter>! { get }
 
+    /// Required Initialiser for types conforming to `TreeListRowSorterProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TreeListRowSorterRef` type acts as a lightweight Swift reference to an underlying `GtkTreeListRowSorter` instance.
@@ -11646,14 +11670,14 @@ open class TreeListRowSorter: Sorter, TreeListRowSorterProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TreeListRowSorterProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TreeListRowSorterProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -11910,6 +11934,8 @@ public protocol TreeModelFilterProtocol: GLibObject.ObjectProtocol, TreeDragSour
     /// Typed pointer to the underlying `GtkTreeModelFilter` instance.
     var tree_model_filter_ptr: UnsafeMutablePointer<GtkTreeModelFilter>! { get }
 
+    /// Required Initialiser for types conforming to `TreeModelFilterProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TreeModelFilterRef` type acts as a lightweight Swift reference to an underlying `GtkTreeModelFilter` instance.
@@ -12231,14 +12257,14 @@ open class TreeModelFilter: GLibObject.Object, TreeModelFilterProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TreeModelFilterProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TreeModelFilterProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -12612,6 +12638,8 @@ public protocol TreeModelSortProtocol: GLibObject.ObjectProtocol, TreeDragSource
     /// Typed pointer to the underlying `GtkTreeModelSort` instance.
     var tree_model_sort_ptr: UnsafeMutablePointer<GtkTreeModelSort>! { get }
 
+    /// Required Initialiser for types conforming to `TreeModelSortProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TreeModelSortRef` type acts as a lightweight Swift reference to an underlying `GtkTreeModelSort` instance.
@@ -12997,14 +13025,14 @@ open class TreeModelSort: GLibObject.Object, TreeModelSortProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TreeModelSortProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TreeModelSortProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -13168,8 +13196,8 @@ public extension TreeModelSortProtocol {
         return rv
     }
 
-    /// > This function is slow. Only use it for debugging and/or testing
-    /// > purposes.
+    /// >&gt; This function is slow. Only use it for debugging and/or testing
+    /// &gt; purposes.
     /// 
     /// Checks if the given iter is a valid iter for this `GtkTreeModelSort`.
     @inlinable func iterIsValid<TreeIterT: TreeIterProtocol>(iter: TreeIterT) -> Bool {
@@ -13243,6 +13271,8 @@ public protocol TreeSelectionProtocol: GLibObject.ObjectProtocol {
     /// Typed pointer to the underlying `GtkTreeSelection` instance.
     var tree_selection_ptr: UnsafeMutablePointer<GtkTreeSelection>! { get }
 
+    /// Required Initialiser for types conforming to `TreeSelectionProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TreeSelectionRef` type acts as a lightweight Swift reference to an underlying `GtkTreeSelection` instance.
@@ -13480,14 +13510,14 @@ open class TreeSelection: GLibObject.Object, TreeSelectionProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TreeSelectionProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TreeSelectionProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -13939,8 +13969,8 @@ public extension TreeSelectionProtocol {
 /// # GtkTreeStore as GtkBuildable
 /// 
 /// The GtkTreeStore implementation of the `GtkBuildable` interface allows
-/// to specify the model columns with a <columns> element that may contain
-/// multiple <column> elements, each specifying one model column. The “type”
+/// to specify the model columns with a &lt;columns&gt; element that may contain
+/// multiple &lt;column&gt; elements, each specifying one model column. The “type”
 /// attribute specifies the data type for the column.
 /// 
 /// An example of a UI Definition fragment for a tree store:
@@ -13961,6 +13991,8 @@ public protocol TreeStoreProtocol: GLibObject.ObjectProtocol, BuildableProtocol,
     /// Typed pointer to the underlying `GtkTreeStore` instance.
     var tree_store_ptr: UnsafeMutablePointer<GtkTreeStore>! { get }
 
+    /// Required Initialiser for types conforming to `TreeStoreProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TreeStoreRef` type acts as a lightweight Swift reference to an underlying `GtkTreeStore` instance.
@@ -13978,8 +14010,8 @@ public protocol TreeStoreProtocol: GLibObject.ObjectProtocol, BuildableProtocol,
 /// # GtkTreeStore as GtkBuildable
 /// 
 /// The GtkTreeStore implementation of the `GtkBuildable` interface allows
-/// to specify the model columns with a <columns> element that may contain
-/// multiple <column> elements, each specifying one model column. The “type”
+/// to specify the model columns with a &lt;columns&gt; element that may contain
+/// multiple &lt;column&gt; elements, each specifying one model column. The “type”
 /// attribute specifies the data type for the column.
 /// 
 /// An example of a UI Definition fragment for a tree store:
@@ -14103,8 +14135,8 @@ public extension TreeStoreRef {
 /// # GtkTreeStore as GtkBuildable
 /// 
 /// The GtkTreeStore implementation of the `GtkBuildable` interface allows
-/// to specify the model columns with a <columns> element that may contain
-/// multiple <column> elements, each specifying one model column. The “type”
+/// to specify the model columns with a &lt;columns&gt; element that may contain
+/// multiple &lt;column&gt; elements, each specifying one model column. The “type”
 /// attribute specifies the data type for the column.
 /// 
 /// An example of a UI Definition fragment for a tree store:
@@ -14218,14 +14250,14 @@ open class TreeStore: GLibObject.Object, TreeStoreProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TreeStoreProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TreeStoreProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -14527,7 +14559,7 @@ public extension TreeStoreProtocol {
 /// 
 /// Coordinate systems in GtkTreeView API:
 /// 
-/// - Widget coordinates: Coordinates relative to the widget (usually `widget->window`).
+/// - Widget coordinates: Coordinates relative to the widget (usually `widget-&gt;window`).
 /// 
 /// - Bin window coordinates: Coordinates relative to the window that GtkTreeView renders to.
 /// 
@@ -14544,7 +14576,7 @@ public extension TreeStoreProtocol {
 /// # GtkTreeView as GtkBuildable
 /// 
 /// The GtkTreeView implementation of the GtkBuildable interface accepts
-/// `GtkTreeViewColumn` objects as <child> elements and exposes the internal
+/// `GtkTreeViewColumn` objects as &lt;child&gt; elements and exposes the internal
 /// `GtkTreeSelection` in UI definitions.
 /// 
 /// An example of a UI definition fragment with GtkTreeView:
@@ -14598,6 +14630,8 @@ public protocol TreeViewProtocol: WidgetProtocol, ScrollableProtocol {
     /// Typed pointer to the underlying `GtkTreeView` instance.
     var tree_view_ptr: UnsafeMutablePointer<GtkTreeView>! { get }
 
+    /// Required Initialiser for types conforming to `TreeViewProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TreeViewRef` type acts as a lightweight Swift reference to an underlying `GtkTreeView` instance.
@@ -14618,7 +14652,7 @@ public protocol TreeViewProtocol: WidgetProtocol, ScrollableProtocol {
 /// 
 /// Coordinate systems in GtkTreeView API:
 /// 
-/// - Widget coordinates: Coordinates relative to the widget (usually `widget->window`).
+/// - Widget coordinates: Coordinates relative to the widget (usually `widget-&gt;window`).
 /// 
 /// - Bin window coordinates: Coordinates relative to the window that GtkTreeView renders to.
 /// 
@@ -14635,7 +14669,7 @@ public protocol TreeViewProtocol: WidgetProtocol, ScrollableProtocol {
 /// # GtkTreeView as GtkBuildable
 /// 
 /// The GtkTreeView implementation of the GtkBuildable interface accepts
-/// `GtkTreeViewColumn` objects as <child> elements and exposes the internal
+/// `GtkTreeViewColumn` objects as &lt;child&gt; elements and exposes the internal
 /// `GtkTreeSelection` in UI definitions.
 /// 
 /// An example of a UI definition fragment with GtkTreeView:
@@ -14797,7 +14831,7 @@ public extension TreeViewRef {
 /// 
 /// Coordinate systems in GtkTreeView API:
 /// 
-/// - Widget coordinates: Coordinates relative to the widget (usually `widget->window`).
+/// - Widget coordinates: Coordinates relative to the widget (usually `widget-&gt;window`).
 /// 
 /// - Bin window coordinates: Coordinates relative to the window that GtkTreeView renders to.
 /// 
@@ -14814,7 +14848,7 @@ public extension TreeViewRef {
 /// # GtkTreeView as GtkBuildable
 /// 
 /// The GtkTreeView implementation of the GtkBuildable interface accepts
-/// `GtkTreeViewColumn` objects as <child> elements and exposes the internal
+/// `GtkTreeViewColumn` objects as &lt;child&gt; elements and exposes the internal
 /// `GtkTreeSelection` in UI definitions.
 /// 
 /// An example of a UI definition fragment with GtkTreeView:
@@ -14961,14 +14995,14 @@ open class TreeView: Widget, TreeViewProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TreeViewProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TreeViewProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -15033,7 +15067,7 @@ public enum TreeViewPropertyName: String, PropertyNameProtocol {
     case enableSearch = "enable-search"
     case enableTreeLines = "enable-tree-lines"
     case expanderColumn = "expander-column"
-    /// Setting the `fixed`-height-mode property to `true` speeds up
+    /// Setting the `fixed-height-mode` property to `true` speeds up
     /// `GtkTreeView` by assuming that all rows have the same height.
     /// Only enable this option if all rows are the same height.
     /// Please see `gtk_tree_view_set_fixed_height_mode()` for more
@@ -15049,9 +15083,9 @@ public enum TreeViewPropertyName: String, PropertyNameProtocol {
     case halign = "halign"
     case hasDefault = "has-default"
     case hasFocus = "has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case hasTooltip = "has-tooltip"
     case headersClickable = "headers-clickable"
@@ -15140,11 +15174,11 @@ public enum TreeViewPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipMarkup = "tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -15152,11 +15186,11 @@ public enum TreeViewPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipText = "tooltip-text"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
@@ -15233,7 +15267,7 @@ public enum TreeViewSignalName: String, SignalNameProtocol {
     /// 
     /// This signal is not suitable for saving widget state.
     case destroy = "destroy"
-    /// The `direction`-changed signal is emitted when the text direction
+    /// The `direction-changed` signal is emitted when the text direction
     /// of a widget changes.
     case directionChanged = "direction-changed"
     case expandCollapseCursorRow = "expand-collapse-cursor-row"
@@ -15255,7 +15289,7 @@ public enum TreeViewSignalName: String, SignalNameProtocol {
     /// The default handler for this signal activates `widget` if `group_cycling`
     /// is `false`, or just makes `widget` grab focus if `group_cycling` is `true`.
     case mnemonicActivate = "mnemonic-activate"
-    /// The `GtkTreeView::move`-cursor signal is a [keybinding
+    /// The `GtkTreeView::move-cursor` signal is a [keybinding
     /// signal](#GtkSignalAction) which gets emitted when the user
     /// presses one of the cursor keys.
     /// 
@@ -15263,7 +15297,7 @@ public enum TreeViewSignalName: String, SignalNameProtocol {
     /// `g_signal_emit_by_name()` if they need to control the cursor
     /// programmatically. In contrast to `gtk_tree_view_set_cursor()` and
     /// `gtk_tree_view_set_cursor_on_cell()` when moving horizontally
-    /// `GtkTreeView::move`-cursor does not reset the current selection.
+    /// `GtkTreeView::move-cursor` does not reset the current selection.
     case moveCursor = "move-cursor"
     /// Emitted when the focus is moved.
     case moveFocus = "move-focus"
@@ -15292,7 +15326,7 @@ public enum TreeViewSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
+    /// Emitted when `GtkWidget:has-tooltip` is `true` and the hover timeout
     /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
     /// focus in keyboard mode.
     /// 
@@ -15332,7 +15366,7 @@ public enum TreeViewSignalName: String, SignalNameProtocol {
     /// `gtk_widget_show()`.
     case show = "show"
     case startInteractiveSearch = "start-interactive-search"
-    /// The `state`-flags-changed signal is emitted when the widget state
+    /// The `state-flags-changed` signal is emitted when the widget state
     /// changes, see `gtk_widget_get_state_flags()`.
     case stateFlagsChanged = "state-flags-changed"
     /// The given row is about to be collapsed (hide its children nodes). Use this
@@ -15378,7 +15412,7 @@ public enum TreeViewSignalName: String, SignalNameProtocol {
     case notifyEnableSearch = "notify::enable-search"
     case notifyEnableTreeLines = "notify::enable-tree-lines"
     case notifyExpanderColumn = "notify::expander-column"
-    /// Setting the `fixed`-height-mode property to `true` speeds up
+    /// Setting the `fixed-height-mode` property to `true` speeds up
     /// `GtkTreeView` by assuming that all rows have the same height.
     /// Only enable this option if all rows are the same height.
     /// Please see `gtk_tree_view_set_fixed_height_mode()` for more
@@ -15394,9 +15428,9 @@ public enum TreeViewSignalName: String, SignalNameProtocol {
     case notifyHalign = "notify::halign"
     case notifyHasDefault = "notify::has-default"
     case notifyHasFocus = "notify::has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case notifyHasTooltip = "notify::has-tooltip"
     case notifyHeadersClickable = "notify::headers-clickable"
@@ -15485,11 +15519,11 @@ public enum TreeViewSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipMarkup = "notify::tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -15497,11 +15531,11 @@ public enum TreeViewSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipText = "notify::tooltip-text"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
@@ -15619,7 +15653,7 @@ public extension TreeViewProtocol {
     /// Typed `expand-collapse-cursor-row` signal for using the `connect(signal:)` methods
     static var expandCollapseCursorRowSignal: TreeViewSignalName { .expandCollapseCursorRow }
     
-    /// The `GtkTreeView::move`-cursor signal is a [keybinding
+    /// The `GtkTreeView::move-cursor` signal is a [keybinding
     /// signal](#GtkSignalAction) which gets emitted when the user
     /// presses one of the cursor keys.
     /// 
@@ -15627,7 +15661,7 @@ public extension TreeViewProtocol {
     /// `g_signal_emit_by_name()` if they need to control the cursor
     /// programmatically. In contrast to `gtk_tree_view_set_cursor()` and
     /// `gtk_tree_view_set_cursor_on_cell()` when moving horizontally
-    /// `GtkTreeView::move`-cursor does not reset the current selection.
+    /// `GtkTreeView::move-cursor` does not reset the current selection.
     /// - Note: This represents the underlying `move-cursor` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -17085,7 +17119,7 @@ public extension TreeViewProtocol {
     /// if `tree_view` is not realized or does not have a model.
     /// 
     /// For converting widget coordinates (eg. the ones you get from
-    /// GtkWidget`query`-tooltip), please see
+    /// GtkWidget`query-tooltip`), please see
     /// `gtk_tree_view_convert_widget_to_bin_window_coords()`.
     @inlinable func getPathAtPos(x: Int, y: Int, path: UnsafeMutablePointer<UnsafeMutablePointer<GtkTreePath>?>? = nil, column: UnsafeMutablePointer<UnsafeMutablePointer<GtkTreeViewColumn>?>? = nil, cellX: UnsafeMutablePointer<gint>! = nil, cellY: UnsafeMutablePointer<gint>! = nil) -> Bool {
         let rv = ((gtk_tree_view_get_path_at_pos(tree_view_ptr, gint(x), gint(y), path, column, cellX, cellY)) != 0)
@@ -17152,7 +17186,7 @@ public extension TreeViewProtocol {
         return rv
     }
 
-    /// This function is supposed to be used in a `GtkWidget::query`-tooltip
+    /// This function is supposed to be used in a `GtkWidget::query-tooltip`
     /// signal handler for `GtkTreeView`.  The `x`, `y` and `keyboard_tip` values
     /// which are received in the signal handler, should be passed to this
     /// function without modification.
@@ -17167,7 +17201,7 @@ public extension TreeViewProtocol {
         let rv = ((gtk_tree_view_get_tooltip_context(tree_view_ptr, gint(x), gint(y), gboolean((keyboardTip) ? 1 : 0), model, path, iter?.tree_iter_ptr)) != 0)
         return rv
     }
-    /// This function is supposed to be used in a `GtkWidget::query`-tooltip
+    /// This function is supposed to be used in a `GtkWidget::query-tooltip`
     /// signal handler for `GtkTreeView`.  The `x`, `y` and `keyboard_tip` values
     /// which are received in the signal handler, should be passed to this
     /// function without modification.
@@ -17237,7 +17271,7 @@ public extension TreeViewProtocol {
     /// `gtk_tree_view_convert_widget_to_bin_window_coords()`.
     /// 
     /// For converting widget coordinates (eg. the ones you get from
-    /// GtkWidget`query`-tooltip), please see
+    /// GtkWidget`query-tooltip`), please see
     /// `gtk_tree_view_convert_widget_to_bin_window_coords()`.
     /// 
     /// The `path`, `column`, `cell_x` and `cell_y` arguments will be filled in
@@ -17332,7 +17366,7 @@ public extension TreeViewProtocol {
     
     }
 
-    /// Cause the `GtkTreeView::row`-activated signal to be emitted
+    /// Cause the `GtkTreeView::row-activated` signal to be emitted
     /// on a single click instead of a double click.
     @inlinable func setActivateOnSingleClick(single: Bool) {
         gtk_tree_view_set_activate_on_single_click(tree_view_ptr, gboolean((single) ? 1 : 0))
@@ -17547,8 +17581,8 @@ public extension TreeViewProtocol {
     /// `GtkTreeDragDestIface`.  Both `GtkTreeStore` and `GtkListStore` support
     /// these.  If `reorderable` is `true`, then the user can reorder the
     /// model by dragging and dropping rows. The developer can listen to
-    /// these changes by connecting to the model’s `GtkTreeModel::row`-inserted
-    /// and `GtkTreeModel::row`-deleted signals. The reordering is implemented
+    /// these changes by connecting to the model’s `GtkTreeModel::row-inserted`
+    /// and `GtkTreeModel::row-deleted` signals. The reordering is implemented
     /// by setting up the tree view as a drag source and destination.
     /// Therefore, drag and drop can not be used in a reorderable view for any
     /// other purpose.
@@ -17666,11 +17700,11 @@ public extension TreeViewProtocol {
     /// for you. `column` should be set to the column in `tree_view`’s model
     /// containing the tooltip texts, or -1 to disable this feature.
     /// 
-    /// When enabled, `GtkWidget:has`-tooltip will be set to `true` and
-    /// `tree_view` will connect a `GtkWidget::query`-tooltip signal handler.
+    /// When enabled, `GtkWidget:has-tooltip` will be set to `true` and
+    /// `tree_view` will connect a `GtkWidget::query-tooltip` signal handler.
     /// 
     /// Note that the signal handler sets the text with `gtk_tooltip_set_markup()`,
-    /// so &, <, etc have to be escaped in the text.
+    /// so &, &lt;, etc have to be escaped in the text.
     @inlinable func setTooltip(column: Int) {
         gtk_tree_view_set_tooltip_column(tree_view_ptr, gint(column))
     
@@ -17706,7 +17740,7 @@ public extension TreeViewProtocol {
             let rv = ((gtk_tree_view_get_activate_on_single_click(tree_view_ptr)) != 0)
             return rv
         }
-        /// Cause the `GtkTreeView::row`-activated signal to be emitted
+        /// Cause the `GtkTreeView::row-activated` signal to be emitted
         /// on a single click instead of a double click.
         nonmutating set {
             gtk_tree_view_set_activate_on_single_click(tree_view_ptr, gboolean((newValue) ? 1 : 0))
@@ -17932,8 +17966,8 @@ public extension TreeViewProtocol {
         /// `GtkTreeDragDestIface`.  Both `GtkTreeStore` and `GtkListStore` support
         /// these.  If `reorderable` is `true`, then the user can reorder the
         /// model by dragging and dropping rows. The developer can listen to
-        /// these changes by connecting to the model’s `GtkTreeModel::row`-inserted
-        /// and `GtkTreeModel::row`-deleted signals. The reordering is implemented
+        /// these changes by connecting to the model’s `GtkTreeModel::row-inserted`
+        /// and `GtkTreeModel::row-deleted` signals. The reordering is implemented
         /// by setting up the tree view as a drag source and destination.
         /// Therefore, drag and drop can not be used in a reorderable view for any
         /// other purpose.
@@ -18067,11 +18101,11 @@ public extension TreeViewProtocol {
         /// for you. `column` should be set to the column in `tree_view`’s model
         /// containing the tooltip texts, or -1 to disable this feature.
         /// 
-        /// When enabled, `GtkWidget:has`-tooltip will be set to `true` and
-        /// `tree_view` will connect a `GtkWidget::query`-tooltip signal handler.
+        /// When enabled, `GtkWidget:has-tooltip` will be set to `true` and
+        /// `tree_view` will connect a `GtkWidget::query-tooltip` signal handler.
         /// 
         /// Note that the signal handler sets the text with `gtk_tooltip_set_markup()`,
-        /// so &, <, etc have to be escaped in the text.
+        /// so &, &lt;, etc have to be escaped in the text.
         nonmutating set {
             gtk_tree_view_set_tooltip_column(tree_view_ptr, gint(newValue))
         }
@@ -18109,6 +18143,8 @@ public protocol TreeViewColumnProtocol: GLibObject.InitiallyUnownedProtocol, Bui
     /// Typed pointer to the underlying `GtkTreeViewColumn` instance.
     var tree_view_column_ptr: UnsafeMutablePointer<GtkTreeViewColumn>! { get }
 
+    /// Required Initialiser for types conforming to `TreeViewColumnProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TreeViewColumnRef` type acts as a lightweight Swift reference to an underlying `GtkTreeViewColumn` instance.
@@ -18338,14 +18374,14 @@ open class TreeViewColumn: GLibObject.InitiallyUnowned, TreeViewColumnProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TreeViewColumnProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TreeViewColumnProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -20225,6 +20261,8 @@ public protocol VideoProtocol: WidgetProtocol {
     /// Typed pointer to the underlying `GtkVideo` instance.
     var video_ptr: UnsafeMutablePointer<GtkVideo>! { get }
 
+    /// Required Initialiser for types conforming to `VideoProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `VideoRef` type acts as a lightweight Swift reference to an underlying `GtkVideo` instance.
@@ -20502,14 +20540,14 @@ open class Video: Widget, VideoProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VideoProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VideoProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -20635,9 +20673,9 @@ public enum VideoPropertyName: String, PropertyNameProtocol {
     case halign = "halign"
     case hasDefault = "has-default"
     case hasFocus = "has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case hasTooltip = "has-tooltip"
     case heightRequest = "height-request"
@@ -20704,11 +20742,11 @@ public enum VideoPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipMarkup = "tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -20716,11 +20754,11 @@ public enum VideoPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipText = "tooltip-text"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
@@ -20793,7 +20831,7 @@ public enum VideoSignalName: String, SignalNameProtocol {
     /// 
     /// This signal is not suitable for saving widget state.
     case destroy = "destroy"
-    /// The `direction`-changed signal is emitted when the text direction
+    /// The `direction-changed` signal is emitted when the text direction
     /// of a widget changes.
     case directionChanged = "direction-changed"
     /// The `hide` signal is emitted when `widget` is hidden, for example with
@@ -20841,7 +20879,7 @@ public enum VideoSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
+    /// Emitted when `GtkWidget:has-tooltip` is `true` and the hover timeout
     /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
     /// focus in keyboard mode.
     /// 
@@ -20861,7 +20899,7 @@ public enum VideoSignalName: String, SignalNameProtocol {
     /// The `show` signal is emitted when `widget` is shown, for example with
     /// `gtk_widget_show()`.
     case show = "show"
-    /// The `state`-flags-changed signal is emitted when the widget state
+    /// The `state-flags-changed` signal is emitted when the widget state
     /// changes, see `gtk_widget_get_state_flags()`.
     case stateFlagsChanged = "state-flags-changed"
     /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
@@ -20906,9 +20944,9 @@ public enum VideoSignalName: String, SignalNameProtocol {
     case notifyHalign = "notify::halign"
     case notifyHasDefault = "notify::has-default"
     case notifyHasFocus = "notify::has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case notifyHasTooltip = "notify::has-tooltip"
     case notifyHeightRequest = "notify::height-request"
@@ -20975,11 +21013,11 @@ public enum VideoSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipMarkup = "notify::tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -20987,11 +21025,11 @@ public enum VideoSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipText = "notify::tooltip-text"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`

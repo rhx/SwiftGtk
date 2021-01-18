@@ -65,6 +65,8 @@ public protocol FileChooserProtocol {
     /// Typed pointer to the underlying `GtkFileChooser` instance.
     var file_chooser_ptr: UnsafeMutablePointer<GtkFileChooser>! { get }
 
+    /// Required Initialiser for types conforming to `FileChooserProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `FileChooserRef` type acts as a lightweight Swift reference to an underlying `GtkFileChooser` instance.
@@ -342,7 +344,7 @@ open class FileChooser: FileChooserProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileChooserProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -976,6 +978,8 @@ public protocol FontChooserProtocol {
     /// Typed pointer to the underlying `GtkFontChooser` instance.
     var font_chooser_ptr: UnsafeMutablePointer<GtkFontChooser>! { get }
 
+    /// Required Initialiser for types conforming to `FontChooserProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `FontChooserRef` type acts as a lightweight Swift reference to an underlying `GtkFontChooser` instance.
@@ -1185,7 +1189,7 @@ open class FontChooser: FontChooserProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FontChooserProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -1224,7 +1228,7 @@ public enum FontChooserPropertyName: String, PropertyNameProtocol {
     /// The selected font features, in a format that is compatible with
     /// CSS and with Pango attributes.
     case fontFeatures = "font-features"
-    /// The language for which the `GtkFontChooser:font`-features were
+    /// The language for which the `GtkFontChooser:font-features` were
     /// selected, in a format that is compatible with CSS and with Pango
     /// attributes.
     case language = "language"
@@ -1302,7 +1306,7 @@ public enum FontChooserSignalName: String, SignalNameProtocol {
     /// The selected font features, in a format that is compatible with
     /// CSS and with Pango attributes.
     case notifyFontFeatures = "notify::font-features"
-    /// The language for which the `GtkFontChooser:font`-features were
+    /// The language for which the `GtkFontChooser:font-features` were
     /// selected, in a format that is compatible with CSS and with Pango
     /// attributes.
     case notifyLanguage = "notify::language"
@@ -2057,7 +2061,7 @@ public extension FontChooserProtocol {
         }
     }
 
-    /// The language for which the `GtkFontChooser:font`-features were
+    /// The language for which the `GtkFontChooser:font-features` were
     /// selected, in a format that is compatible with CSS and with Pango
     /// attributes.
     @inlinable var language: String! {
@@ -2135,6 +2139,8 @@ public protocol NativeProtocol: WidgetProtocol {
     /// Typed pointer to the underlying `GtkNative` instance.
     var native_ptr: UnsafeMutablePointer<GtkNative>! { get }
 
+    /// Required Initialiser for types conforming to `NativeProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `NativeRef` type acts as a lightweight Swift reference to an underlying `GtkNative` instance.
@@ -2339,14 +2345,14 @@ open class Native: Widget, NativeProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `NativeProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `NativeProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -2401,9 +2407,9 @@ public enum NativePropertyName: String, PropertyNameProtocol {
     case halign = "halign"
     case hasDefault = "has-default"
     case hasFocus = "has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case hasTooltip = "has-tooltip"
     case heightRequest = "height-request"
@@ -2466,11 +2472,11 @@ public enum NativePropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipMarkup = "tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -2478,11 +2484,11 @@ public enum NativePropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipText = "tooltip-text"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
@@ -2555,7 +2561,7 @@ public enum NativeSignalName: String, SignalNameProtocol {
     /// 
     /// This signal is not suitable for saving widget state.
     case destroy = "destroy"
-    /// The `direction`-changed signal is emitted when the text direction
+    /// The `direction-changed` signal is emitted when the text direction
     /// of a widget changes.
     case directionChanged = "direction-changed"
     /// The `hide` signal is emitted when `widget` is hidden, for example with
@@ -2603,7 +2609,7 @@ public enum NativeSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
+    /// Emitted when `GtkWidget:has-tooltip` is `true` and the hover timeout
     /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
     /// focus in keyboard mode.
     /// 
@@ -2623,7 +2629,7 @@ public enum NativeSignalName: String, SignalNameProtocol {
     /// The `show` signal is emitted when `widget` is shown, for example with
     /// `gtk_widget_show()`.
     case show = "show"
-    /// The `state`-flags-changed signal is emitted when the widget state
+    /// The `state-flags-changed` signal is emitted when the widget state
     /// changes, see `gtk_widget_get_state_flags()`.
     case stateFlagsChanged = "state-flags-changed"
     /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
@@ -2664,9 +2670,9 @@ public enum NativeSignalName: String, SignalNameProtocol {
     case notifyHalign = "notify::halign"
     case notifyHasDefault = "notify::has-default"
     case notifyHasFocus = "notify::has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case notifyHasTooltip = "notify::has-tooltip"
     case notifyHeightRequest = "notify::height-request"
@@ -2729,11 +2735,11 @@ public enum NativeSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipMarkup = "notify::tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -2741,11 +2747,11 @@ public enum NativeSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipText = "notify::tooltip-text"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`

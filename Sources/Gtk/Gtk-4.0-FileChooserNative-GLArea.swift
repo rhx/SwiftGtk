@@ -167,6 +167,8 @@ public protocol FileChooserNativeProtocol: NativeDialogProtocol, FileChooserProt
     /// Typed pointer to the underlying `GtkFileChooserNative` instance.
     var file_chooser_native_ptr: UnsafeMutablePointer<GtkFileChooserNative>! { get }
 
+    /// Required Initialiser for types conforming to `FileChooserNativeProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `FileChooserNativeRef` type acts as a lightweight Swift reference to an underlying `GtkFileChooserNative` instance.
@@ -643,14 +645,14 @@ open class FileChooserNative: NativeDialog, FileChooserNativeProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileChooserNativeProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileChooserNativeProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -903,6 +905,8 @@ public protocol FileChooserWidgetProtocol: WidgetProtocol, FileChooserProtocol {
     /// Typed pointer to the underlying `GtkFileChooserWidget` instance.
     var file_chooser_widget_ptr: UnsafeMutablePointer<GtkFileChooserWidget>! { get }
 
+    /// Required Initialiser for types conforming to `FileChooserWidgetProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `FileChooserWidgetRef` type acts as a lightweight Swift reference to an underlying `GtkFileChooserWidget` instance.
@@ -1117,14 +1121,14 @@ open class FileChooserWidget: Widget, FileChooserWidgetProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileChooserWidgetProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileChooserWidgetProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -1181,9 +1185,9 @@ public enum FileChooserWidgetPropertyName: String, PropertyNameProtocol {
     case halign = "halign"
     case hasDefault = "has-default"
     case hasFocus = "has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case hasTooltip = "has-tooltip"
     case heightRequest = "height-request"
@@ -1248,11 +1252,11 @@ public enum FileChooserWidgetPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipMarkup = "tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -1260,11 +1264,11 @@ public enum FileChooserWidgetPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipText = "tooltip-text"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
@@ -1331,7 +1335,7 @@ public extension FileChooserWidgetProtocol {
 }
 
 public enum FileChooserWidgetSignalName: String, SignalNameProtocol {
-    /// The `desktop`-folder signal is a [keybinding signal](#GtkSignalAction)
+    /// The `desktop-folder` signal is a [keybinding signal](#GtkSignalAction)
     /// which gets emitted when the user asks for it.
     /// 
     /// This is used to make the file chooser show the user's Desktop
@@ -1345,10 +1349,10 @@ public enum FileChooserWidgetSignalName: String, SignalNameProtocol {
     /// 
     /// This signal is not suitable for saving widget state.
     case destroy = "destroy"
-    /// The `direction`-changed signal is emitted when the text direction
+    /// The `direction-changed` signal is emitted when the text direction
     /// of a widget changes.
     case directionChanged = "direction-changed"
-    /// The `down`-folder signal is a [keybinding signal](#GtkSignalAction)
+    /// The `down-folder` signal is a [keybinding signal](#GtkSignalAction)
     /// which gets emitted when the user asks for it.
     /// 
     /// This is used to make the file chooser go to a child of the current folder
@@ -1362,7 +1366,7 @@ public enum FileChooserWidgetSignalName: String, SignalNameProtocol {
     /// The `hide` signal is emitted when `widget` is hidden, for example with
     /// `gtk_widget_hide()`.
     case hide = "hide"
-    /// The `home`-folder signal is a [keybinding signal](#GtkSignalAction)
+    /// The `home-folder` signal is a [keybinding signal](#GtkSignalAction)
     /// which gets emitted when the user asks for it.
     /// 
     /// This is used to make the file chooser show the user's home
@@ -1373,7 +1377,7 @@ public enum FileChooserWidgetSignalName: String, SignalNameProtocol {
     /// Gets emitted if keyboard navigation fails.
     /// See `gtk_widget_keynav_failed()` for details.
     case keynavFailed = "keynav-failed"
-    /// The `location`-popup signal is a [keybinding signal](#GtkSignalAction)
+    /// The `location-popup` signal is a [keybinding signal](#GtkSignalAction)
     /// which gets emitted when the user asks for it.
     /// 
     /// This is used to make the file chooser show a "Location" prompt which
@@ -1385,7 +1389,7 @@ public enum FileChooserWidgetSignalName: String, SignalNameProtocol {
     /// On Unix systems, this is bound to `~` (tilde) with a `path` string of "~"
     /// itself for access to home directories.
     case locationPopup = "location-popup"
-    /// The `location`-popup-on-paste signal is a [keybinding signal](#GtkSignalAction)
+    /// The `location-popup-on-paste` signal is a [keybinding signal](#GtkSignalAction)
     /// which gets emitted when the user asks for it.
     /// 
     /// This is used to make the file chooser show a "Location" prompt when the user
@@ -1393,7 +1397,7 @@ public enum FileChooserWidgetSignalName: String, SignalNameProtocol {
     /// 
     /// The default binding for this signal is `Control + V`.
     case locationPopupOnPaste = "location-popup-on-paste"
-    /// The `location`-toggle-popup signal is a [keybinding signal](#GtkSignalAction)
+    /// The `location-toggle-popup` signal is a [keybinding signal](#GtkSignalAction)
     /// which gets emitted when the user asks for it.
     /// 
     /// This is used to toggle the visibility of a "Location" prompt which the user
@@ -1440,14 +1444,14 @@ public enum FileChooserWidgetSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// The `places`-shortcut signal is a [keybinding signal](#GtkSignalAction)
+    /// The `places-shortcut` signal is a [keybinding signal](#GtkSignalAction)
     /// which gets emitted when the user asks for it.
     /// 
     /// This is used to move the focus to the places sidebar.
     /// 
     /// The default binding for this signal is `Alt + P`.
     case placesShortcut = "places-shortcut"
-    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
+    /// Emitted when `GtkWidget:has-tooltip` is `true` and the hover timeout
     /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
     /// focus in keyboard mode.
     /// 
@@ -1460,7 +1464,7 @@ public enum FileChooserWidgetSignalName: String, SignalNameProtocol {
     /// The signal handler is free to manipulate `tooltip` with the therefore
     /// destined function calls.
     case queryTooltip = "query-tooltip"
-    /// The `quick`-bookmark signal is a [keybinding signal](#GtkSignalAction)
+    /// The `quick-bookmark` signal is a [keybinding signal](#GtkSignalAction)
     /// which gets emitted when the user asks for it.
     /// 
     /// This is used to make the file chooser switch to the bookmark specified
@@ -1477,14 +1481,14 @@ public enum FileChooserWidgetSignalName: String, SignalNameProtocol {
     /// `GdkSurface`, which means that `gtk_widget_realize()` has been called or the
     /// widget has been mapped (that is, it is going to be drawn).
     case realize = "realize"
-    /// The `recent`-shortcut signal is a [keybinding signal](#GtkSignalAction)
+    /// The `recent-shortcut` signal is a [keybinding signal](#GtkSignalAction)
     /// which gets emitted when the user asks for it.
     /// 
     /// This is used to make the file chooser show the Recent location.
     /// 
     /// The default binding for this signal is `Alt + R`.
     case recentShortcut = "recent-shortcut"
-    /// The `search`-shortcut signal is a [keybinding signal](#GtkSignalAction)
+    /// The `search-shortcut` signal is a [keybinding signal](#GtkSignalAction)
     /// which gets emitted when the user asks for it.
     /// 
     /// This is used to make the file chooser show the search entry.
@@ -1494,14 +1498,14 @@ public enum FileChooserWidgetSignalName: String, SignalNameProtocol {
     /// The `show` signal is emitted when `widget` is shown, for example with
     /// `gtk_widget_show()`.
     case show = "show"
-    /// The `show`-hidden signal is a [keybinding signal](#GtkSignalAction)
+    /// The `show-hidden` signal is a [keybinding signal](#GtkSignalAction)
     /// which gets emitted when the user asks for it.
     /// 
     /// This is used to make the file chooser display hidden files.
     /// 
     /// The default binding for this signal is `Control + H`.
     case showHidden = "show-hidden"
-    /// The `state`-flags-changed signal is emitted when the widget state
+    /// The `state-flags-changed` signal is emitted when the widget state
     /// changes, see `gtk_widget_get_state_flags()`.
     case stateFlagsChanged = "state-flags-changed"
     /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
@@ -1516,7 +1520,7 @@ public enum FileChooserWidgetSignalName: String, SignalNameProtocol {
     /// called or the widget has been unmapped (that is, it is going to be
     /// hidden).
     case unrealize = "unrealize"
-    /// The `up`-folder signal is a [keybinding signal](#GtkSignalAction)
+    /// The `up-folder` signal is a [keybinding signal](#GtkSignalAction)
     /// which gets emitted when the user asks for it.
     /// 
     /// This is used to make the file chooser go to the parent of the current folder
@@ -1550,9 +1554,9 @@ public enum FileChooserWidgetSignalName: String, SignalNameProtocol {
     case notifyHalign = "notify::halign"
     case notifyHasDefault = "notify::has-default"
     case notifyHasFocus = "notify::has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case notifyHasTooltip = "notify::has-tooltip"
     case notifyHeightRequest = "notify::height-request"
@@ -1617,11 +1621,11 @@ public enum FileChooserWidgetSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipMarkup = "notify::tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -1629,11 +1633,11 @@ public enum FileChooserWidgetSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipText = "notify::tooltip-text"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
@@ -1674,7 +1678,7 @@ public extension FileChooserWidgetProtocol {
     }
     
     
-    /// The `desktop`-folder signal is a [keybinding signal](#GtkSignalAction)
+    /// The `desktop-folder` signal is a [keybinding signal](#GtkSignalAction)
     /// which gets emitted when the user asks for it.
     /// 
     /// This is used to make the file chooser show the user's Desktop
@@ -1705,7 +1709,7 @@ public extension FileChooserWidgetProtocol {
     /// Typed `desktop-folder` signal for using the `connect(signal:)` methods
     static var desktopFolderSignal: FileChooserWidgetSignalName { .desktopFolder }
     
-    /// The `down`-folder signal is a [keybinding signal](#GtkSignalAction)
+    /// The `down-folder` signal is a [keybinding signal](#GtkSignalAction)
     /// which gets emitted when the user asks for it.
     /// 
     /// This is used to make the file chooser go to a child of the current folder
@@ -1739,7 +1743,7 @@ public extension FileChooserWidgetProtocol {
     /// Typed `down-folder` signal for using the `connect(signal:)` methods
     static var downFolderSignal: FileChooserWidgetSignalName { .downFolder }
     
-    /// The `home`-folder signal is a [keybinding signal](#GtkSignalAction)
+    /// The `home-folder` signal is a [keybinding signal](#GtkSignalAction)
     /// which gets emitted when the user asks for it.
     /// 
     /// This is used to make the file chooser show the user's home
@@ -1770,7 +1774,7 @@ public extension FileChooserWidgetProtocol {
     /// Typed `home-folder` signal for using the `connect(signal:)` methods
     static var homeFolderSignal: FileChooserWidgetSignalName { .homeFolder }
     
-    /// The `location`-popup signal is a [keybinding signal](#GtkSignalAction)
+    /// The `location-popup` signal is a [keybinding signal](#GtkSignalAction)
     /// which gets emitted when the user asks for it.
     /// 
     /// This is used to make the file chooser show a "Location" prompt which
@@ -1806,7 +1810,7 @@ public extension FileChooserWidgetProtocol {
     /// Typed `location-popup` signal for using the `connect(signal:)` methods
     static var locationPopupSignal: FileChooserWidgetSignalName { .locationPopup }
     
-    /// The `location`-popup-on-paste signal is a [keybinding signal](#GtkSignalAction)
+    /// The `location-popup-on-paste` signal is a [keybinding signal](#GtkSignalAction)
     /// which gets emitted when the user asks for it.
     /// 
     /// This is used to make the file chooser show a "Location" prompt when the user
@@ -1837,7 +1841,7 @@ public extension FileChooserWidgetProtocol {
     /// Typed `location-popup-on-paste` signal for using the `connect(signal:)` methods
     static var locationPopupOnPasteSignal: FileChooserWidgetSignalName { .locationPopupOnPaste }
     
-    /// The `location`-toggle-popup signal is a [keybinding signal](#GtkSignalAction)
+    /// The `location-toggle-popup` signal is a [keybinding signal](#GtkSignalAction)
     /// which gets emitted when the user asks for it.
     /// 
     /// This is used to toggle the visibility of a "Location" prompt which the user
@@ -1868,7 +1872,7 @@ public extension FileChooserWidgetProtocol {
     /// Typed `location-toggle-popup` signal for using the `connect(signal:)` methods
     static var locationTogglePopupSignal: FileChooserWidgetSignalName { .locationTogglePopup }
     
-    /// The `places`-shortcut signal is a [keybinding signal](#GtkSignalAction)
+    /// The `places-shortcut` signal is a [keybinding signal](#GtkSignalAction)
     /// which gets emitted when the user asks for it.
     /// 
     /// This is used to move the focus to the places sidebar.
@@ -1898,7 +1902,7 @@ public extension FileChooserWidgetProtocol {
     /// Typed `places-shortcut` signal for using the `connect(signal:)` methods
     static var placesShortcutSignal: FileChooserWidgetSignalName { .placesShortcut }
     
-    /// The `quick`-bookmark signal is a [keybinding signal](#GtkSignalAction)
+    /// The `quick-bookmark` signal is a [keybinding signal](#GtkSignalAction)
     /// which gets emitted when the user asks for it.
     /// 
     /// This is used to make the file chooser switch to the bookmark specified
@@ -1935,7 +1939,7 @@ public extension FileChooserWidgetProtocol {
     /// Typed `quick-bookmark` signal for using the `connect(signal:)` methods
     static var quickBookmarkSignal: FileChooserWidgetSignalName { .quickBookmark }
     
-    /// The `recent`-shortcut signal is a [keybinding signal](#GtkSignalAction)
+    /// The `recent-shortcut` signal is a [keybinding signal](#GtkSignalAction)
     /// which gets emitted when the user asks for it.
     /// 
     /// This is used to make the file chooser show the Recent location.
@@ -1965,7 +1969,7 @@ public extension FileChooserWidgetProtocol {
     /// Typed `recent-shortcut` signal for using the `connect(signal:)` methods
     static var recentShortcutSignal: FileChooserWidgetSignalName { .recentShortcut }
     
-    /// The `search`-shortcut signal is a [keybinding signal](#GtkSignalAction)
+    /// The `search-shortcut` signal is a [keybinding signal](#GtkSignalAction)
     /// which gets emitted when the user asks for it.
     /// 
     /// This is used to make the file chooser show the search entry.
@@ -1995,7 +1999,7 @@ public extension FileChooserWidgetProtocol {
     /// Typed `search-shortcut` signal for using the `connect(signal:)` methods
     static var searchShortcutSignal: FileChooserWidgetSignalName { .searchShortcut }
     
-    /// The `show`-hidden signal is a [keybinding signal](#GtkSignalAction)
+    /// The `show-hidden` signal is a [keybinding signal](#GtkSignalAction)
     /// which gets emitted when the user asks for it.
     /// 
     /// This is used to make the file chooser display hidden files.
@@ -2025,7 +2029,7 @@ public extension FileChooserWidgetProtocol {
     /// Typed `show-hidden` signal for using the `connect(signal:)` methods
     static var showHiddenSignal: FileChooserWidgetSignalName { .showHidden }
     
-    /// The `up`-folder signal is a [keybinding signal](#GtkSignalAction)
+    /// The `up-folder` signal is a [keybinding signal](#GtkSignalAction)
     /// which gets emitted when the user asks for it.
     /// 
     /// This is used to make the file chooser go to the parent of the current folder
@@ -2193,9 +2197,9 @@ public extension FileChooserWidgetProtocol {
 /// # GtkFileFilter as GtkBuildable
 /// 
 /// The GtkFileFilter implementation of the GtkBuildable interface
-/// supports adding rules using the <mime-types> and <patterns>
-/// elements and listing the rules within. Specifying a <mime-type>
-/// or <pattern> has the same effect as as calling
+/// supports adding rules using the &lt;mime-types&gt; and &lt;patterns&gt;
+/// elements and listing the rules within. Specifying a &lt;mime-type&gt;
+/// or &lt;pattern&gt; has the same effect as as calling
 /// `gtk_file_filter_add_mime_type()` or `gtk_file_filter_add_pattern()`.
 /// 
 /// An example of a UI definition fragment specifying GtkFileFilter
@@ -2221,6 +2225,8 @@ public protocol FileFilterProtocol: FilterProtocol, BuildableProtocol {
     /// Typed pointer to the underlying `GtkFileFilter` instance.
     var file_filter_ptr: UnsafeMutablePointer<GtkFileFilter>! { get }
 
+    /// Required Initialiser for types conforming to `FileFilterProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `FileFilterRef` type acts as a lightweight Swift reference to an underlying `GtkFileFilter` instance.
@@ -2246,9 +2252,9 @@ public protocol FileFilterProtocol: FilterProtocol, BuildableProtocol {
 /// # GtkFileFilter as GtkBuildable
 /// 
 /// The GtkFileFilter implementation of the GtkBuildable interface
-/// supports adding rules using the <mime-types> and <patterns>
-/// elements and listing the rules within. Specifying a <mime-type>
-/// or <pattern> has the same effect as as calling
+/// supports adding rules using the &lt;mime-types&gt; and &lt;patterns&gt;
+/// elements and listing the rules within. Specifying a &lt;mime-type&gt;
+/// or &lt;pattern&gt; has the same effect as as calling
 /// `gtk_file_filter_add_mime_type()` or `gtk_file_filter_add_pattern()`.
 /// 
 /// An example of a UI definition fragment specifying GtkFileFilter
@@ -2402,9 +2408,9 @@ public extension FileFilterRef {
 /// # GtkFileFilter as GtkBuildable
 /// 
 /// The GtkFileFilter implementation of the GtkBuildable interface
-/// supports adding rules using the <mime-types> and <patterns>
-/// elements and listing the rules within. Specifying a <mime-type>
-/// or <pattern> has the same effect as as calling
+/// supports adding rules using the &lt;mime-types&gt; and &lt;patterns&gt;
+/// elements and listing the rules within. Specifying a &lt;mime-type&gt;
+/// or &lt;pattern&gt; has the same effect as as calling
 /// `gtk_file_filter_add_mime_type()` or `gtk_file_filter_add_pattern()`.
 /// 
 /// An example of a UI definition fragment specifying GtkFileFilter
@@ -2523,14 +2529,14 @@ open class FileFilter: Filter, FileFilterProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileFilterProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileFilterProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -2820,6 +2826,8 @@ public protocol FilterProtocol: GLibObject.ObjectProtocol {
     /// Typed pointer to the underlying `GtkFilter` instance.
     var filter_ptr: UnsafeMutablePointer<GtkFilter>! { get }
 
+    /// Required Initialiser for types conforming to `FilterProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `FilterRef` type acts as a lightweight Swift reference to an underlying `GtkFilter` instance.
@@ -3047,14 +3055,14 @@ open class Filter: GLibObject.Object, FilterProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FilterProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FilterProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -3268,6 +3276,8 @@ public protocol FilterListModelProtocol: GLibObject.ObjectProtocol, GIO.ListMode
     /// Typed pointer to the underlying `GtkFilterListModel` instance.
     var filter_list_model_ptr: UnsafeMutablePointer<GtkFilterListModel>! { get }
 
+    /// Required Initialiser for types conforming to `FilterListModelProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `FilterListModelRef` type acts as a lightweight Swift reference to an underlying `GtkFilterListModel` instance.
@@ -3481,14 +3491,14 @@ open class FilterListModel: GLibObject.Object, FilterListModelProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FilterListModelProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FilterListModelProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -3849,6 +3859,8 @@ public protocol FixedProtocol: WidgetProtocol {
     /// Typed pointer to the underlying `GtkFixed` instance.
     var fixed_ptr: UnsafeMutablePointer<GtkFixed>! { get }
 
+    /// Required Initialiser for types conforming to `FixedProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `FixedRef` type acts as a lightweight Swift reference to an underlying `GtkFixed` instance.
@@ -4119,14 +4131,14 @@ open class Fixed: Widget, FixedProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FixedProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FixedProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -4181,9 +4193,9 @@ public enum FixedPropertyName: String, PropertyNameProtocol {
     case halign = "halign"
     case hasDefault = "has-default"
     case hasFocus = "has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case hasTooltip = "has-tooltip"
     case heightRequest = "height-request"
@@ -4246,11 +4258,11 @@ public enum FixedPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipMarkup = "tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -4258,11 +4270,11 @@ public enum FixedPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipText = "tooltip-text"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
@@ -4335,7 +4347,7 @@ public enum FixedSignalName: String, SignalNameProtocol {
     /// 
     /// This signal is not suitable for saving widget state.
     case destroy = "destroy"
-    /// The `direction`-changed signal is emitted when the text direction
+    /// The `direction-changed` signal is emitted when the text direction
     /// of a widget changes.
     case directionChanged = "direction-changed"
     /// The `hide` signal is emitted when `widget` is hidden, for example with
@@ -4383,7 +4395,7 @@ public enum FixedSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
+    /// Emitted when `GtkWidget:has-tooltip` is `true` and the hover timeout
     /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
     /// focus in keyboard mode.
     /// 
@@ -4403,7 +4415,7 @@ public enum FixedSignalName: String, SignalNameProtocol {
     /// The `show` signal is emitted when `widget` is shown, for example with
     /// `gtk_widget_show()`.
     case show = "show"
-    /// The `state`-flags-changed signal is emitted when the widget state
+    /// The `state-flags-changed` signal is emitted when the widget state
     /// changes, see `gtk_widget_get_state_flags()`.
     case stateFlagsChanged = "state-flags-changed"
     /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
@@ -4444,9 +4456,9 @@ public enum FixedSignalName: String, SignalNameProtocol {
     case notifyHalign = "notify::halign"
     case notifyHasDefault = "notify::has-default"
     case notifyHasFocus = "notify::has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case notifyHasTooltip = "notify::has-tooltip"
     case notifyHeightRequest = "notify::height-request"
@@ -4509,11 +4521,11 @@ public enum FixedSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipMarkup = "notify::tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -4521,11 +4533,11 @@ public enum FixedSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipText = "notify::tooltip-text"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
@@ -4646,6 +4658,8 @@ public protocol FixedLayoutProtocol: LayoutManagerProtocol {
     /// Typed pointer to the underlying `GtkFixedLayout` instance.
     var fixed_layout_ptr: UnsafeMutablePointer<GtkFixedLayout>! { get }
 
+    /// Required Initialiser for types conforming to `FixedLayoutProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `FixedLayoutRef` type acts as a lightweight Swift reference to an underlying `GtkFixedLayout` instance.
@@ -4904,14 +4918,14 @@ open class FixedLayout: LayoutManager, FixedLayoutProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FixedLayoutProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FixedLayoutProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -4997,6 +5011,8 @@ public protocol FixedLayoutChildProtocol: LayoutChildProtocol {
     /// Typed pointer to the underlying `GtkFixedLayoutChild` instance.
     var fixed_layout_child_ptr: UnsafeMutablePointer<GtkFixedLayoutChild>! { get }
 
+    /// Required Initialiser for types conforming to `FixedLayoutChildProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `FixedLayoutChildRef` type acts as a lightweight Swift reference to an underlying `GtkFixedLayoutChild` instance.
@@ -5190,14 +5206,14 @@ open class FixedLayoutChild: LayoutChild, FixedLayoutChildProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FixedLayoutChildProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FixedLayoutChildProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -5366,6 +5382,8 @@ public protocol FlattenListModelProtocol: GLibObject.ObjectProtocol, GIO.ListMod
     /// Typed pointer to the underlying `GtkFlattenListModel` instance.
     var flatten_list_model_ptr: UnsafeMutablePointer<GtkFlattenListModel>! { get }
 
+    /// Required Initialiser for types conforming to `FlattenListModelProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `FlattenListModelRef` type acts as a lightweight Swift reference to an underlying `GtkFlattenListModel` instance.
@@ -5572,14 +5590,14 @@ open class FlattenListModel: GLibObject.Object, FlattenListModelProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FlattenListModelProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FlattenListModelProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -5802,6 +5820,8 @@ public protocol FlowBoxProtocol: WidgetProtocol, OrientableProtocol {
     /// Typed pointer to the underlying `GtkFlowBox` instance.
     var flow_box_ptr: UnsafeMutablePointer<GtkFlowBox>! { get }
 
+    /// Required Initialiser for types conforming to `FlowBoxProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `FlowBoxRef` type acts as a lightweight Swift reference to an underlying `GtkFlowBox` instance.
@@ -6092,14 +6112,14 @@ open class FlowBox: Widget, FlowBoxProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FlowBoxProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FlowBoxProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -6160,9 +6180,9 @@ public enum FlowBoxPropertyName: String, PropertyNameProtocol {
     case halign = "halign"
     case hasDefault = "has-default"
     case hasFocus = "has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case hasTooltip = "has-tooltip"
     case heightRequest = "height-request"
@@ -6242,11 +6262,11 @@ public enum FlowBoxPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipMarkup = "tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -6254,11 +6274,11 @@ public enum FlowBoxPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipText = "tooltip-text"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
@@ -6325,11 +6345,11 @@ public extension FlowBoxProtocol {
 }
 
 public enum FlowBoxSignalName: String, SignalNameProtocol {
-    /// The `activate`-cursor-child signal is a
+    /// The `activate-cursor-child` signal is a
     /// [keybinding signal](#GtkSignalAction)
     /// which gets emitted when the user activates the `box`.
     case activateCursorChild = "activate-cursor-child"
-    /// The `child`-activated signal is emitted when a child has been
+    /// The `child-activated` signal is emitted when a child has been
     /// activated by the user.
     case childActivated = "child-activated"
     /// Signals that all holders of a reference to the widget should release
@@ -6338,7 +6358,7 @@ public enum FlowBoxSignalName: String, SignalNameProtocol {
     /// 
     /// This signal is not suitable for saving widget state.
     case destroy = "destroy"
-    /// The `direction`-changed signal is emitted when the text direction
+    /// The `direction-changed` signal is emitted when the text direction
     /// of a widget changes.
     case directionChanged = "direction-changed"
     /// The `hide` signal is emitted when `widget` is hidden, for example with
@@ -6359,7 +6379,7 @@ public enum FlowBoxSignalName: String, SignalNameProtocol {
     /// The default handler for this signal activates `widget` if `group_cycling`
     /// is `false`, or just makes `widget` grab focus if `group_cycling` is `true`.
     case mnemonicActivate = "mnemonic-activate"
-    /// The `move`-cursor signal is a
+    /// The `move-cursor` signal is a
     /// [keybinding signal](#GtkSignalAction)
     /// which gets emitted when the user initiates a cursor movement.
     /// 
@@ -6402,7 +6422,7 @@ public enum FlowBoxSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
+    /// Emitted when `GtkWidget:has-tooltip` is `true` and the hover timeout
     /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
     /// focus in keyboard mode.
     /// 
@@ -6419,14 +6439,14 @@ public enum FlowBoxSignalName: String, SignalNameProtocol {
     /// `GdkSurface`, which means that `gtk_widget_realize()` has been called or the
     /// widget has been mapped (that is, it is going to be drawn).
     case realize = "realize"
-    /// The `select`-all signal is a
+    /// The `select-all` signal is a
     /// [keybinding signal](#GtkSignalAction)
     /// which gets emitted to select all children of the box, if
     /// the selection mode permits it.
     /// 
     /// The default bindings for this signal is Ctrl-a.
     case selectAll = "select-all"
-    /// The `selected`-children-changed signal is emitted when the
+    /// The `selected-children-changed` signal is emitted when the
     /// set of selected children changes.
     /// 
     /// Use `gtk_flow_box_selected_foreach()` or
@@ -6436,10 +6456,10 @@ public enum FlowBoxSignalName: String, SignalNameProtocol {
     /// The `show` signal is emitted when `widget` is shown, for example with
     /// `gtk_widget_show()`.
     case show = "show"
-    /// The `state`-flags-changed signal is emitted when the widget state
+    /// The `state-flags-changed` signal is emitted when the widget state
     /// changes, see `gtk_widget_get_state_flags()`.
     case stateFlagsChanged = "state-flags-changed"
-    /// The `toggle`-cursor-child signal is a
+    /// The `toggle-cursor-child` signal is a
     /// [keybinding signal](#GtkSignalAction)
     /// which toggles the selection of the child that has the focus.
     /// 
@@ -6457,7 +6477,7 @@ public enum FlowBoxSignalName: String, SignalNameProtocol {
     /// called or the widget has been unmapped (that is, it is going to be
     /// hidden).
     case unrealize = "unrealize"
-    /// The `unselect`-all signal is a
+    /// The `unselect-all` signal is a
     /// [keybinding signal](#GtkSignalAction)
     /// which gets emitted to unselect all children of the box, if
     /// the selection mode permits it.
@@ -6496,9 +6516,9 @@ public enum FlowBoxSignalName: String, SignalNameProtocol {
     case notifyHalign = "notify::halign"
     case notifyHasDefault = "notify::has-default"
     case notifyHasFocus = "notify::has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case notifyHasTooltip = "notify::has-tooltip"
     case notifyHeightRequest = "notify::height-request"
@@ -6578,11 +6598,11 @@ public enum FlowBoxSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipMarkup = "notify::tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -6590,11 +6610,11 @@ public enum FlowBoxSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipText = "notify::tooltip-text"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
@@ -6635,7 +6655,7 @@ public extension FlowBoxProtocol {
     }
     
     
-    /// The `activate`-cursor-child signal is a
+    /// The `activate-cursor-child` signal is a
     /// [keybinding signal](#GtkSignalAction)
     /// which gets emitted when the user activates the `box`.
     /// - Note: This represents the underlying `activate-cursor-child` signal
@@ -6662,7 +6682,7 @@ public extension FlowBoxProtocol {
     /// Typed `activate-cursor-child` signal for using the `connect(signal:)` methods
     static var activateCursorChildSignal: FlowBoxSignalName { .activateCursorChild }
     
-    /// The `child`-activated signal is emitted when a child has been
+    /// The `child-activated` signal is emitted when a child has been
     /// activated by the user.
     /// - Note: This represents the underlying `child-activated` signal
     /// - Parameter flags: Flags
@@ -6689,7 +6709,7 @@ public extension FlowBoxProtocol {
     /// Typed `child-activated` signal for using the `connect(signal:)` methods
     static var childActivatedSignal: FlowBoxSignalName { .childActivated }
     
-    /// The `move`-cursor signal is a
+    /// The `move-cursor` signal is a
     /// [keybinding signal](#GtkSignalAction)
     /// which gets emitted when the user initiates a cursor movement.
     /// 
@@ -6732,7 +6752,7 @@ public extension FlowBoxProtocol {
     /// Typed `move-cursor` signal for using the `connect(signal:)` methods
     static var moveCursorSignal: FlowBoxSignalName { .moveCursor }
     
-    /// The `select`-all signal is a
+    /// The `select-all` signal is a
     /// [keybinding signal](#GtkSignalAction)
     /// which gets emitted to select all children of the box, if
     /// the selection mode permits it.
@@ -6762,7 +6782,7 @@ public extension FlowBoxProtocol {
     /// Typed `select-all` signal for using the `connect(signal:)` methods
     static var selectAllSignal: FlowBoxSignalName { .selectAll }
     
-    /// The `selected`-children-changed signal is emitted when the
+    /// The `selected-children-changed` signal is emitted when the
     /// set of selected children changes.
     /// 
     /// Use `gtk_flow_box_selected_foreach()` or
@@ -6792,7 +6812,7 @@ public extension FlowBoxProtocol {
     /// Typed `selected-children-changed` signal for using the `connect(signal:)` methods
     static var selectedChildrenChangedSignal: FlowBoxSignalName { .selectedChildrenChanged }
     
-    /// The `toggle`-cursor-child signal is a
+    /// The `toggle-cursor-child` signal is a
     /// [keybinding signal](#GtkSignalAction)
     /// which toggles the selection of the child that has the focus.
     /// 
@@ -6821,7 +6841,7 @@ public extension FlowBoxProtocol {
     /// Typed `toggle-cursor-child` signal for using the `connect(signal:)` methods
     static var toggleCursorChildSignal: FlowBoxSignalName { .toggleCursorChild }
     
-    /// The `unselect`-all signal is a
+    /// The `unselect-all` signal is a
     /// [keybinding signal](#GtkSignalAction)
     /// which gets emitted to unselect all children of the box, if
     /// the selection mode permits it.
@@ -7423,7 +7443,7 @@ public extension FlowBoxProtocol {
     }
 
     /// Sets the horizontal space to add between children.
-    /// See the `GtkFlowBox:column`-spacing property.
+    /// See the `GtkFlowBox:column-spacing` property.
     @inlinable func setColumn(spacing: Int) {
         gtk_flow_box_set_column_spacing(flow_box_ptr, guint(spacing))
     
@@ -7487,7 +7507,7 @@ public extension FlowBoxProtocol {
     }
 
     /// Sets the vertical space to add between children.
-    /// See the `GtkFlowBox:row`-spacing property.
+    /// See the `GtkFlowBox:row-spacing` property.
     @inlinable func setRow(spacing: Int) {
         gtk_flow_box_set_row_spacing(flow_box_ptr, guint(spacing))
     
@@ -7566,7 +7586,7 @@ public extension FlowBoxProtocol {
             return rv
         }
         /// Sets the horizontal space to add between children.
-        /// See the `GtkFlowBox:column`-spacing property.
+        /// See the `GtkFlowBox:column-spacing` property.
         nonmutating set {
             gtk_flow_box_set_column_spacing(flow_box_ptr, guint(newValue))
         }
@@ -7629,7 +7649,7 @@ public extension FlowBoxProtocol {
             return rv
         }
         /// Sets the vertical space to add between children.
-        /// See the `GtkFlowBox:row`-spacing property.
+        /// See the `GtkFlowBox:row-spacing` property.
         nonmutating set {
             gtk_flow_box_set_row_spacing(flow_box_ptr, guint(newValue))
         }
@@ -7678,6 +7698,8 @@ public protocol FlowBoxChildProtocol: WidgetProtocol {
     /// Typed pointer to the underlying `GtkFlowBoxChild` instance.
     var flow_box_child_ptr: UnsafeMutablePointer<GtkFlowBoxChild>! { get }
 
+    /// Required Initialiser for types conforming to `FlowBoxChildProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `FlowBoxChildRef` type acts as a lightweight Swift reference to an underlying `GtkFlowBoxChild` instance.
@@ -7877,14 +7899,14 @@ open class FlowBoxChild: Widget, FlowBoxChildProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FlowBoxChildProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FlowBoxChildProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -7941,9 +7963,9 @@ public enum FlowBoxChildPropertyName: String, PropertyNameProtocol {
     case halign = "halign"
     case hasDefault = "has-default"
     case hasFocus = "has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case hasTooltip = "has-tooltip"
     case heightRequest = "height-request"
@@ -8006,11 +8028,11 @@ public enum FlowBoxChildPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipMarkup = "tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -8018,11 +8040,11 @@ public enum FlowBoxChildPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipText = "tooltip-text"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
@@ -8103,7 +8125,7 @@ public enum FlowBoxChildSignalName: String, SignalNameProtocol {
     /// 
     /// This signal is not suitable for saving widget state.
     case destroy = "destroy"
-    /// The `direction`-changed signal is emitted when the text direction
+    /// The `direction-changed` signal is emitted when the text direction
     /// of a widget changes.
     case directionChanged = "direction-changed"
     /// The `hide` signal is emitted when `widget` is hidden, for example with
@@ -8151,7 +8173,7 @@ public enum FlowBoxChildSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
+    /// Emitted when `GtkWidget:has-tooltip` is `true` and the hover timeout
     /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
     /// focus in keyboard mode.
     /// 
@@ -8171,7 +8193,7 @@ public enum FlowBoxChildSignalName: String, SignalNameProtocol {
     /// The `show` signal is emitted when `widget` is shown, for example with
     /// `gtk_widget_show()`.
     case show = "show"
-    /// The `state`-flags-changed signal is emitted when the widget state
+    /// The `state-flags-changed` signal is emitted when the widget state
     /// changes, see `gtk_widget_get_state_flags()`.
     case stateFlagsChanged = "state-flags-changed"
     /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
@@ -8213,9 +8235,9 @@ public enum FlowBoxChildSignalName: String, SignalNameProtocol {
     case notifyHalign = "notify::halign"
     case notifyHasDefault = "notify::has-default"
     case notifyHasFocus = "notify::has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case notifyHasTooltip = "notify::has-tooltip"
     case notifyHeightRequest = "notify::height-request"
@@ -8278,11 +8300,11 @@ public enum FlowBoxChildSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipMarkup = "notify::tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -8290,11 +8312,11 @@ public enum FlowBoxChildSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipText = "notify::tooltip-text"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
@@ -8537,6 +8559,8 @@ public protocol FontButtonProtocol: WidgetProtocol, FontChooserProtocol {
     /// Typed pointer to the underlying `GtkFontButton` instance.
     var font_button_ptr: UnsafeMutablePointer<GtkFontButton>! { get }
 
+    /// Required Initialiser for types conforming to `FontButtonProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `FontButtonRef` type acts as a lightweight Swift reference to an underlying `GtkFontButton` instance.
@@ -8774,14 +8798,14 @@ open class FontButton: Widget, FontButtonProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FontButtonProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FontButtonProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -8849,9 +8873,9 @@ public enum FontButtonPropertyName: String, PropertyNameProtocol {
     case halign = "halign"
     case hasDefault = "has-default"
     case hasFocus = "has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case hasTooltip = "has-tooltip"
     case heightRequest = "height-request"
@@ -8917,11 +8941,11 @@ public enum FontButtonPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipMarkup = "tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -8929,11 +8953,11 @@ public enum FontButtonPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipText = "tooltip-text"
     /// If this property is set to `true`, the label will be drawn
@@ -9012,10 +9036,10 @@ public enum FontButtonSignalName: String, SignalNameProtocol {
     /// 
     /// This signal is not suitable for saving widget state.
     case destroy = "destroy"
-    /// The `direction`-changed signal is emitted when the text direction
+    /// The `direction-changed` signal is emitted when the text direction
     /// of a widget changes.
     case directionChanged = "direction-changed"
-    /// The `font`-set signal is emitted when the user selects a font.
+    /// The `font-set` signal is emitted when the user selects a font.
     /// When handling this signal, use `gtk_font_chooser_get_font()`
     /// to find out which font was just selected.
     /// 
@@ -9068,7 +9092,7 @@ public enum FontButtonSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
+    /// Emitted when `GtkWidget:has-tooltip` is `true` and the hover timeout
     /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
     /// focus in keyboard mode.
     /// 
@@ -9088,7 +9112,7 @@ public enum FontButtonSignalName: String, SignalNameProtocol {
     /// The `show` signal is emitted when `widget` is shown, for example with
     /// `gtk_widget_show()`.
     case show = "show"
-    /// The `state`-flags-changed signal is emitted when the widget state
+    /// The `state-flags-changed` signal is emitted when the widget state
     /// changes, see `gtk_widget_get_state_flags()`.
     case stateFlagsChanged = "state-flags-changed"
     /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
@@ -9129,9 +9153,9 @@ public enum FontButtonSignalName: String, SignalNameProtocol {
     case notifyHalign = "notify::halign"
     case notifyHasDefault = "notify::has-default"
     case notifyHasFocus = "notify::has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case notifyHasTooltip = "notify::has-tooltip"
     case notifyHeightRequest = "notify::height-request"
@@ -9197,11 +9221,11 @@ public enum FontButtonSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipMarkup = "notify::tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -9209,11 +9233,11 @@ public enum FontButtonSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipText = "notify::tooltip-text"
     /// If this property is set to `true`, the label will be drawn
@@ -9260,7 +9284,7 @@ public extension FontButtonProtocol {
     }
     
     
-    /// The `font`-set signal is emitted when the user selects a font.
+    /// The `font-set` signal is emitted when the user selects a font.
     /// When handling this signal, use `gtk_font_chooser_get_font()`
     /// to find out which font was just selected.
     /// 
@@ -9619,6 +9643,8 @@ public protocol FontChooserDialogProtocol: DialogProtocol, FontChooserProtocol {
     /// Typed pointer to the underlying `GtkFontChooserDialog` instance.
     var font_chooser_dialog_ptr: UnsafeMutablePointer<GtkFontChooserDialog>! { get }
 
+    /// Required Initialiser for types conforming to `FontChooserDialogProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `FontChooserDialogRef` type acts as a lightweight Swift reference to an underlying `GtkFontChooserDialog` instance.
@@ -9831,14 +9857,14 @@ open class FontChooserDialog: Dialog, FontChooserDialogProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FontChooserDialogProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FontChooserDialogProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -9926,9 +9952,9 @@ public enum FontChooserDialogPropertyName: String, PropertyNameProtocol {
     case halign = "halign"
     case hasDefault = "has-default"
     case hasFocus = "has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case hasTooltip = "has-tooltip"
     case heightRequest = "height-request"
@@ -10015,11 +10041,11 @@ public enum FontChooserDialogPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipMarkup = "tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -10027,11 +10053,11 @@ public enum FontChooserDialogPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipText = "tooltip-text"
     /// The transient parent of the window. See `gtk_window_set_transient_for()` for
@@ -10107,12 +10133,12 @@ public extension FontChooserDialogProtocol {
 }
 
 public enum FontChooserDialogSignalName: String, SignalNameProtocol {
-    /// The `activate`-default signal is a
+    /// The `activate-default` signal is a
     /// [keybinding signal](#GtkSignalAction)
     /// which gets emitted when the user activates the default widget
     /// of `window`.
     case activateDefault = "activate-default"
-    /// The `activate`-focus signal is a
+    /// The `activate-focus` signal is a
     /// [keybinding signal](#GtkSignalAction)
     /// which gets emitted when the user activates the currently
     /// focused widget of `window`.
@@ -10124,7 +10150,7 @@ public enum FontChooserDialogSignalName: String, SignalNameProtocol {
     /// 
     /// The default binding for this signal is the Escape key.
     case close = "close"
-    /// The `close`-request signal is emitted when the user clicks on the close
+    /// The `close-request` signal is emitted when the user clicks on the close
     /// button of the window.
     case closeRequest = "close-request"
     /// Signals that all holders of a reference to the widget should release
@@ -10133,10 +10159,10 @@ public enum FontChooserDialogSignalName: String, SignalNameProtocol {
     /// 
     /// This signal is not suitable for saving widget state.
     case destroy = "destroy"
-    /// The `direction`-changed signal is emitted when the text direction
+    /// The `direction-changed` signal is emitted when the text direction
     /// of a widget changes.
     case directionChanged = "direction-changed"
-    /// The `enable`-debugging signal is a [keybinding signal](#GtkSignalAction)
+    /// The `enable-debugging` signal is a [keybinding signal](#GtkSignalAction)
     /// which gets emitted when the user enables or disables interactive
     /// debugging. When `toggle` is `true`, interactive debugging is toggled
     /// on or off, when it is `false`, the debugger will be pointed at the
@@ -10151,7 +10177,7 @@ public enum FontChooserDialogSignalName: String, SignalNameProtocol {
     /// Gets emitted if keyboard navigation fails.
     /// See `gtk_widget_keynav_failed()` for details.
     case keynavFailed = "keynav-failed"
-    /// The `keys`-changed signal gets emitted when the set of accelerators
+    /// The `keys-changed` signal gets emitted when the set of accelerators
     /// or mnemonics that are associated with `window` changes.
     case keysChanged = "keys-changed"
     /// The `map` signal is emitted when `widget` is going to be mapped, that is
@@ -10193,7 +10219,7 @@ public enum FontChooserDialogSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
+    /// Emitted when `GtkWidget:has-tooltip` is `true` and the hover timeout
     /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
     /// focus in keyboard mode.
     /// 
@@ -10218,7 +10244,7 @@ public enum FontChooserDialogSignalName: String, SignalNameProtocol {
     /// The `show` signal is emitted when `widget` is shown, for example with
     /// `gtk_widget_show()`.
     case show = "show"
-    /// The `state`-flags-changed signal is emitted when the widget state
+    /// The `state-flags-changed` signal is emitted when the widget state
     /// changes, see `gtk_widget_get_state_flags()`.
     case stateFlagsChanged = "state-flags-changed"
     /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
@@ -10292,9 +10318,9 @@ public enum FontChooserDialogSignalName: String, SignalNameProtocol {
     case notifyHalign = "notify::halign"
     case notifyHasDefault = "notify::has-default"
     case notifyHasFocus = "notify::has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case notifyHasTooltip = "notify::has-tooltip"
     case notifyHeightRequest = "notify::height-request"
@@ -10381,11 +10407,11 @@ public enum FontChooserDialogSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipMarkup = "notify::tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -10393,11 +10419,11 @@ public enum FontChooserDialogSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipText = "notify::tooltip-text"
     /// The transient parent of the window. See `gtk_window_set_transient_for()` for
@@ -10462,6 +10488,8 @@ public protocol FontChooserWidgetProtocol: WidgetProtocol, FontChooserProtocol {
     /// Typed pointer to the underlying `GtkFontChooserWidget` instance.
     var font_chooser_widget_ptr: UnsafeMutablePointer<GtkFontChooserWidget>! { get }
 
+    /// Required Initialiser for types conforming to `FontChooserWidgetProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `FontChooserWidgetRef` type acts as a lightweight Swift reference to an underlying `GtkFontChooserWidget` instance.
@@ -10692,14 +10720,14 @@ open class FontChooserWidget: Widget, FontChooserWidgetProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FontChooserWidgetProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FontChooserWidgetProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -10754,9 +10782,9 @@ public enum FontChooserWidgetPropertyName: String, PropertyNameProtocol {
     case halign = "halign"
     case hasDefault = "has-default"
     case hasFocus = "has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case hasTooltip = "has-tooltip"
     case heightRequest = "height-request"
@@ -10819,11 +10847,11 @@ public enum FontChooserWidgetPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipMarkup = "tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -10831,11 +10859,11 @@ public enum FontChooserWidgetPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipText = "tooltip-text"
     /// A toggle action that can be used to switch to the tweak page
@@ -10915,7 +10943,7 @@ public enum FontChooserWidgetSignalName: String, SignalNameProtocol {
     /// 
     /// This signal is not suitable for saving widget state.
     case destroy = "destroy"
-    /// The `direction`-changed signal is emitted when the text direction
+    /// The `direction-changed` signal is emitted when the text direction
     /// of a widget changes.
     case directionChanged = "direction-changed"
     /// The `hide` signal is emitted when `widget` is hidden, for example with
@@ -10963,7 +10991,7 @@ public enum FontChooserWidgetSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
+    /// Emitted when `GtkWidget:has-tooltip` is `true` and the hover timeout
     /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
     /// focus in keyboard mode.
     /// 
@@ -10983,7 +11011,7 @@ public enum FontChooserWidgetSignalName: String, SignalNameProtocol {
     /// The `show` signal is emitted when `widget` is shown, for example with
     /// `gtk_widget_show()`.
     case show = "show"
-    /// The `state`-flags-changed signal is emitted when the widget state
+    /// The `state-flags-changed` signal is emitted when the widget state
     /// changes, see `gtk_widget_get_state_flags()`.
     case stateFlagsChanged = "state-flags-changed"
     /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
@@ -11024,9 +11052,9 @@ public enum FontChooserWidgetSignalName: String, SignalNameProtocol {
     case notifyHalign = "notify::halign"
     case notifyHasDefault = "notify::has-default"
     case notifyHasFocus = "notify::has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case notifyHasTooltip = "notify::has-tooltip"
     case notifyHeightRequest = "notify::height-request"
@@ -11089,11 +11117,11 @@ public enum FontChooserWidgetSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipMarkup = "notify::tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -11101,11 +11129,11 @@ public enum FontChooserWidgetSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipText = "notify::tooltip-text"
     /// A toggle action that can be used to switch to the tweak page
@@ -11156,8 +11184,8 @@ public extension FontChooserWidgetProtocol {
 /// 
 /// The GtkFrame implementation of the GtkBuildable interface supports
 /// placing a child in the label position by specifying “label” as the
-/// “type” attribute of a <child> element. A normal content child can
-/// be specified without specifying a <child> type attribute.
+/// “type” attribute of a &lt;child&gt; element. A normal content child can
+/// be specified without specifying a &lt;child&gt; type attribute.
 /// 
 /// An example of a UI definition fragment with GtkFrame:
 /// ```
@@ -11190,6 +11218,8 @@ public protocol FrameProtocol: WidgetProtocol {
     /// Typed pointer to the underlying `GtkFrame` instance.
     var frame_ptr: UnsafeMutablePointer<GtkFrame>! { get }
 
+    /// Required Initialiser for types conforming to `FrameProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `FrameRef` type acts as a lightweight Swift reference to an underlying `GtkFrame` instance.
@@ -11208,8 +11238,8 @@ public protocol FrameProtocol: WidgetProtocol {
 /// 
 /// The GtkFrame implementation of the GtkBuildable interface supports
 /// placing a child in the label position by specifying “label” as the
-/// “type” attribute of a <child> element. A normal content child can
-/// be specified without specifying a <child> type attribute.
+/// “type” attribute of a &lt;child&gt; element. A normal content child can
+/// be specified without specifying a &lt;child&gt; type attribute.
 /// 
 /// An example of a UI definition fragment with GtkFrame:
 /// ```
@@ -11338,8 +11368,8 @@ public extension FrameRef {
 /// 
 /// The GtkFrame implementation of the GtkBuildable interface supports
 /// placing a child in the label position by specifying “label” as the
-/// “type” attribute of a <child> element. A normal content child can
-/// be specified without specifying a <child> type attribute.
+/// “type” attribute of a &lt;child&gt; element. A normal content child can
+/// be specified without specifying a &lt;child&gt; type attribute.
 /// 
 /// An example of a UI definition fragment with GtkFrame:
 /// ```
@@ -11465,14 +11495,14 @@ open class Frame: Widget, FrameProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FrameProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FrameProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -11529,9 +11559,9 @@ public enum FramePropertyName: String, PropertyNameProtocol {
     case halign = "halign"
     case hasDefault = "has-default"
     case hasFocus = "has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case hasTooltip = "has-tooltip"
     case heightRequest = "height-request"
@@ -11597,11 +11627,11 @@ public enum FramePropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipMarkup = "tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -11609,11 +11639,11 @@ public enum FramePropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipText = "tooltip-text"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
@@ -11686,7 +11716,7 @@ public enum FrameSignalName: String, SignalNameProtocol {
     /// 
     /// This signal is not suitable for saving widget state.
     case destroy = "destroy"
-    /// The `direction`-changed signal is emitted when the text direction
+    /// The `direction-changed` signal is emitted when the text direction
     /// of a widget changes.
     case directionChanged = "direction-changed"
     /// The `hide` signal is emitted when `widget` is hidden, for example with
@@ -11734,7 +11764,7 @@ public enum FrameSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
+    /// Emitted when `GtkWidget:has-tooltip` is `true` and the hover timeout
     /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
     /// focus in keyboard mode.
     /// 
@@ -11754,7 +11784,7 @@ public enum FrameSignalName: String, SignalNameProtocol {
     /// The `show` signal is emitted when `widget` is shown, for example with
     /// `gtk_widget_show()`.
     case show = "show"
-    /// The `state`-flags-changed signal is emitted when the widget state
+    /// The `state-flags-changed` signal is emitted when the widget state
     /// changes, see `gtk_widget_get_state_flags()`.
     case stateFlagsChanged = "state-flags-changed"
     /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
@@ -11796,9 +11826,9 @@ public enum FrameSignalName: String, SignalNameProtocol {
     case notifyHalign = "notify::halign"
     case notifyHasDefault = "notify::has-default"
     case notifyHasFocus = "notify::has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case notifyHasTooltip = "notify::has-tooltip"
     case notifyHeightRequest = "notify::height-request"
@@ -11864,11 +11894,11 @@ public enum FrameSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipMarkup = "notify::tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -11876,11 +11906,11 @@ public enum FrameSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipText = "notify::tooltip-text"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
@@ -11939,8 +11969,8 @@ public extension FrameProtocol {
     
     }
 
-    /// Removes the current `GtkFrame:label`-widget. If `label` is not `nil`, creates a
-    /// new `GtkLabel` with that text and adds it as the `GtkFrame:label`-widget.
+    /// Removes the current `GtkFrame:label-widget`. If `label` is not `nil`, creates a
+    /// new `GtkLabel` with that text and adds it as the `GtkFrame:label-widget`.
     @inlinable func set(label: UnsafePointer<CChar>? = nil) {
         gtk_frame_set_label(frame_ptr, label)
     
@@ -11953,13 +11983,13 @@ public extension FrameProtocol {
     
     }
 
-    /// Sets the `GtkFrame:label`-widget for the frame. This is the widget that
+    /// Sets the `GtkFrame:label-widget` for the frame. This is the widget that
     /// will appear embedded in the top edge of the frame as a title.
     @inlinable func set(labelWidget: WidgetRef? = nil) {
         gtk_frame_set_label_widget(frame_ptr, labelWidget?.widget_ptr)
     
     }
-    /// Sets the `GtkFrame:label`-widget for the frame. This is the widget that
+    /// Sets the `GtkFrame:label-widget` for the frame. This is the widget that
     /// will appear embedded in the top edge of the frame as a title.
     @inlinable func set<WidgetT: WidgetProtocol>(labelWidget: WidgetT?) {
         gtk_frame_set_label_widget(frame_ptr, labelWidget?.widget_ptr)
@@ -11986,8 +12016,8 @@ public extension FrameProtocol {
             let rv = gtk_frame_get_label(frame_ptr).map({ String(cString: $0) })
             return rv
         }
-        /// Removes the current `GtkFrame:label`-widget. If `label` is not `nil`, creates a
-        /// new `GtkLabel` with that text and adds it as the `GtkFrame:label`-widget.
+        /// Removes the current `GtkFrame:label-widget`. If `label` is not `nil`, creates a
+        /// new `GtkLabel` with that text and adds it as the `GtkFrame:label-widget`.
         nonmutating set {
             gtk_frame_set_label(frame_ptr, newValue)
         }
@@ -12018,7 +12048,7 @@ public extension FrameProtocol {
             guard let rv = WidgetRef(gconstpointer: gconstpointer(gtk_frame_get_label_widget(frame_ptr))) else { return nil }
             return rv
         }
-        /// Sets the `GtkFrame:label`-widget for the frame. This is the widget that
+        /// Sets the `GtkFrame:label-widget` for the frame. This is the widget that
         /// will appear embedded in the top edge of the frame as a title.
         nonmutating set {
             gtk_frame_set_label_widget(frame_ptr, UnsafeMutablePointer<GtkWidget>(newValue?.widget_ptr))
@@ -12149,7 +12179,7 @@ public extension FrameProtocol {
 /// ```
 /// 
 /// If you need to change the options for creating the `GdkGLContext`
-/// you should use the `GtkGLArea::create`-context signal.
+/// you should use the `GtkGLArea::create-context` signal.
 public protocol GLAreaProtocol: WidgetProtocol {
         /// Untyped pointer to the underlying `GtkGLArea` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -12157,6 +12187,8 @@ public protocol GLAreaProtocol: WidgetProtocol {
     /// Typed pointer to the underlying `GtkGLArea` instance.
     var gl_area_ptr: UnsafeMutablePointer<GtkGLArea>! { get }
 
+    /// Required Initialiser for types conforming to `GLAreaProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `GLAreaRef` type acts as a lightweight Swift reference to an underlying `GtkGLArea` instance.
@@ -12269,7 +12301,7 @@ public protocol GLAreaProtocol: WidgetProtocol {
 /// ```
 /// 
 /// If you need to change the options for creating the `GdkGLContext`
-/// you should use the `GtkGLArea::create`-context signal.
+/// you should use the `GtkGLArea::create-context` signal.
 public struct GLAreaRef: GLAreaProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkGLArea` instance.
     /// For type-safe access, use the generated, typed pointer `gl_area_ptr` property instead.
@@ -12466,7 +12498,7 @@ public extension GLAreaRef {
 /// ```
 /// 
 /// If you need to change the options for creating the `GdkGLContext`
-/// you should use the `GtkGLArea::create`-context signal.
+/// you should use the `GtkGLArea::create-context` signal.
 open class GLArea: Widget, GLAreaProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -12567,14 +12599,14 @@ open class GLArea: Widget, GLAreaProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `GLAreaProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `GLAreaProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -12651,9 +12683,9 @@ public enum GLAreaPropertyName: String, PropertyNameProtocol {
     /// If set to `true` the widget will allocate and enable a stencil buffer for the
     /// target framebuffer.
     case hasStencilBuffer = "has-stencil-buffer"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case hasTooltip = "has-tooltip"
     case heightRequest = "height-request"
@@ -12716,11 +12748,11 @@ public enum GLAreaPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipMarkup = "tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -12728,11 +12760,11 @@ public enum GLAreaPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipText = "tooltip-text"
     /// If set to `true` the widget will try to create a `GdkGLContext` using
@@ -12804,7 +12836,7 @@ public extension GLAreaProtocol {
 }
 
 public enum GLAreaSignalName: String, SignalNameProtocol {
-    /// The `create`-context signal is emitted when the widget is being
+    /// The `create-context` signal is emitted when the widget is being
     /// realized, and allows you to override how the GL context is
     /// created. This is useful when you want to reuse an existing GL
     /// context, or if you want to try creating different kinds of GL
@@ -12820,7 +12852,7 @@ public enum GLAreaSignalName: String, SignalNameProtocol {
     /// 
     /// This signal is not suitable for saving widget state.
     case destroy = "destroy"
-    /// The `direction`-changed signal is emitted when the text direction
+    /// The `direction-changed` signal is emitted when the text direction
     /// of a widget changes.
     case directionChanged = "direction-changed"
     /// The `hide` signal is emitted when `widget` is hidden, for example with
@@ -12868,7 +12900,7 @@ public enum GLAreaSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
+    /// Emitted when `GtkWidget:has-tooltip` is `true` and the hover timeout
     /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
     /// focus in keyboard mode.
     /// 
@@ -12904,7 +12936,7 @@ public enum GLAreaSignalName: String, SignalNameProtocol {
     /// The `show` signal is emitted when `widget` is shown, for example with
     /// `gtk_widget_show()`.
     case show = "show"
-    /// The `state`-flags-changed signal is emitted when the widget state
+    /// The `state-flags-changed` signal is emitted when the widget state
     /// changes, see `gtk_widget_get_state_flags()`.
     case stateFlagsChanged = "state-flags-changed"
     /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
@@ -12967,9 +12999,9 @@ public enum GLAreaSignalName: String, SignalNameProtocol {
     /// If set to `true` the widget will allocate and enable a stencil buffer for the
     /// target framebuffer.
     case notifyHasStencilBuffer = "notify::has-stencil-buffer"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case notifyHasTooltip = "notify::has-tooltip"
     case notifyHeightRequest = "notify::height-request"
@@ -13032,11 +13064,11 @@ public enum GLAreaSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipMarkup = "notify::tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -13044,11 +13076,11 @@ public enum GLAreaSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipText = "notify::tooltip-text"
     /// If set to `true` the widget will try to create a `GdkGLContext` using
@@ -13094,7 +13126,7 @@ public extension GLAreaProtocol {
     }
     
     
-    /// The `create`-context signal is emitted when the widget is being
+    /// The `create-context` signal is emitted when the widget is being
     /// realized, and allows you to override how the GL context is
     /// created. This is useful when you want to reuse an existing GL
     /// context, or if you want to try creating different kinds of GL
@@ -13520,14 +13552,14 @@ public extension GLAreaProtocol {
     }
 
     /// Sets an error on the area which will be shown instead of the
-    /// GL rendering. This is useful in the `GtkGLArea::create`-context
+    /// GL rendering. This is useful in the `GtkGLArea::create-context`
     /// signal if GL context creation fails.
     @inlinable func set(error: ErrorRef? = nil) {
         gtk_gl_area_set_error(gl_area_ptr, error?.error_ptr)
     
     }
     /// Sets an error on the area which will be shown instead of the
-    /// GL rendering. This is useful in the `GtkGLArea::create`-context
+    /// GL rendering. This is useful in the `GtkGLArea::create-context`
     /// signal if GL context creation fails.
     @inlinable func set<GLibErrorT: ErrorProtocol>(error: GLibErrorT?) {
         gtk_gl_area_set_error(gl_area_ptr, error?.error_ptr)
@@ -13609,7 +13641,7 @@ public extension GLAreaProtocol {
             return rv
         }
         /// Sets an error on the area which will be shown instead of the
-        /// GL rendering. This is useful in the `GtkGLArea::create`-context
+        /// GL rendering. This is useful in the `GtkGLArea::create-context`
         /// signal if GL context creation fails.
         nonmutating set {
             gtk_gl_area_set_error(gl_area_ptr, UnsafePointer<GError>(newValue?.error_ptr))

@@ -43,6 +43,8 @@ public protocol WidgetClassProtocol {
     /// Typed pointer to the underlying `GtkWidgetClass` instance.
     var _ptr: UnsafeMutablePointer<GtkWidgetClass>! { get }
 
+    /// Required Initialiser for types conforming to `WidgetClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `WidgetClassRef` type acts as a lightweight Swift reference to an underlying `GtkWidgetClass` instance.
@@ -526,6 +528,8 @@ public protocol WidgetClassPrivateProtocol {
     /// Typed pointer to the underlying `GtkWidgetClassPrivate` instance.
     var _ptr: UnsafeMutablePointer<GtkWidgetClassPrivate>! { get }
 
+    /// Required Initialiser for types conforming to `WidgetClassPrivateProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `WidgetClassPrivateRef` type acts as a lightweight Swift reference to an underlying `GtkWidgetClassPrivate` instance.
@@ -729,7 +733,7 @@ open class WidgetClassPrivate: WidgetClassPrivateProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `WidgetClassPrivateProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -806,6 +810,8 @@ public protocol WidgetPaintableClassProtocol {
     /// Typed pointer to the underlying `GtkWidgetPaintableClass` instance.
     var _ptr: UnsafeMutablePointer<GtkWidgetPaintableClass>! { get }
 
+    /// Required Initialiser for types conforming to `WidgetPaintableClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `WidgetPaintableClassRef` type acts as a lightweight Swift reference to an underlying `GtkWidgetPaintableClass` instance.
@@ -938,6 +944,8 @@ public protocol WindowClassProtocol {
     /// Typed pointer to the underlying `GtkWindowClass` instance.
     var _ptr: UnsafeMutablePointer<GtkWindowClass>! { get }
 
+    /// Required Initialiser for types conforming to `WindowClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `WindowClassRef` type acts as a lightweight Swift reference to an underlying `GtkWindowClass` instance.
@@ -1084,6 +1092,8 @@ public protocol WindowControlsClassProtocol {
     /// Typed pointer to the underlying `GtkWindowControlsClass` instance.
     var _ptr: UnsafeMutablePointer<GtkWindowControlsClass>! { get }
 
+    /// Required Initialiser for types conforming to `WindowControlsClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `WindowControlsClassRef` type acts as a lightweight Swift reference to an underlying `GtkWindowControlsClass` instance.
@@ -1216,6 +1226,8 @@ public protocol WindowGroupClassProtocol {
     /// Typed pointer to the underlying `GtkWindowGroupClass` instance.
     var _ptr: UnsafeMutablePointer<GtkWindowGroupClass>! { get }
 
+    /// Required Initialiser for types conforming to `WindowGroupClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `WindowGroupClassRef` type acts as a lightweight Swift reference to an underlying `GtkWindowGroupClass` instance.
@@ -1356,6 +1368,8 @@ public protocol WindowHandleClassProtocol {
     /// Typed pointer to the underlying `GtkWindowHandleClass` instance.
     var _ptr: UnsafeMutablePointer<GtkWindowHandleClass>! { get }
 
+    /// Required Initialiser for types conforming to `WindowHandleClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `WindowHandleClassRef` type acts as a lightweight Swift reference to an underlying `GtkWindowHandleClass` instance.

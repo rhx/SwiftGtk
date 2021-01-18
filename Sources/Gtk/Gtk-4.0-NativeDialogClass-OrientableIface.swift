@@ -43,6 +43,8 @@ public protocol NativeDialogClassProtocol {
     /// Typed pointer to the underlying `GtkNativeDialogClass` instance.
     var _ptr: UnsafeMutablePointer<GtkNativeDialogClass>! { get }
 
+    /// Required Initialiser for types conforming to `NativeDialogClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `NativeDialogClassRef` type acts as a lightweight Swift reference to an underlying `GtkNativeDialogClass` instance.
@@ -184,6 +186,8 @@ public protocol NativeInterfaceProtocol {
     /// Typed pointer to the underlying `GtkNativeInterface` instance.
     var _ptr: UnsafeMutablePointer<GtkNativeInterface>! { get }
 
+    /// Required Initialiser for types conforming to `NativeInterfaceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `NativeInterfaceRef` type acts as a lightweight Swift reference to an underlying `GtkNativeInterface` instance.
@@ -310,6 +314,8 @@ public protocol NeverTriggerClassProtocol {
     /// Typed pointer to the underlying `GtkNeverTriggerClass` instance.
     var _ptr: UnsafeMutablePointer<GtkNeverTriggerClass>! { get }
 
+    /// Required Initialiser for types conforming to `NeverTriggerClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `NeverTriggerClassRef` type acts as a lightweight Swift reference to an underlying `GtkNeverTriggerClass` instance.
@@ -436,6 +442,8 @@ public protocol NoSelectionClassProtocol {
     /// Typed pointer to the underlying `GtkNoSelectionClass` instance.
     var _ptr: UnsafeMutablePointer<GtkNoSelectionClass>! { get }
 
+    /// Required Initialiser for types conforming to `NoSelectionClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `NoSelectionClassRef` type acts as a lightweight Swift reference to an underlying `GtkNoSelectionClass` instance.
@@ -568,6 +576,8 @@ public protocol NothingActionClassProtocol {
     /// Typed pointer to the underlying `GtkNothingActionClass` instance.
     var _ptr: UnsafeMutablePointer<GtkNothingActionClass>! { get }
 
+    /// Required Initialiser for types conforming to `NothingActionClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `NothingActionClassRef` type acts as a lightweight Swift reference to an underlying `GtkNothingActionClass` instance.
@@ -694,6 +704,8 @@ public protocol NumericSorterClassProtocol {
     /// Typed pointer to the underlying `GtkNumericSorterClass` instance.
     var _ptr: UnsafeMutablePointer<GtkNumericSorterClass>! { get }
 
+    /// Required Initialiser for types conforming to `NumericSorterClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `NumericSorterClassRef` type acts as a lightweight Swift reference to an underlying `GtkNumericSorterClass` instance.
@@ -826,6 +838,8 @@ public protocol OrientableIfaceProtocol {
     /// Typed pointer to the underlying `GtkOrientableIface` instance.
     var _ptr: UnsafeMutablePointer<GtkOrientableIface>! { get }
 
+    /// Required Initialiser for types conforming to `OrientableIfaceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `OrientableIfaceRef` type acts as a lightweight Swift reference to an underlying `GtkOrientableIface` instance.

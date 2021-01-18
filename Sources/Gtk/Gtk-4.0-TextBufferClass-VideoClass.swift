@@ -43,6 +43,8 @@ public protocol TextBufferClassProtocol {
     /// Typed pointer to the underlying `GtkTextBufferClass` instance.
     var _ptr: UnsafeMutablePointer<GtkTextBufferClass>! { get }
 
+    /// Required Initialiser for types conforming to `TextBufferClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TextBufferClassRef` type acts as a lightweight Swift reference to an underlying `GtkTextBufferClass` instance.
@@ -215,6 +217,8 @@ public protocol TextChildAnchorClassProtocol {
     /// Typed pointer to the underlying `GtkTextChildAnchorClass` instance.
     var _ptr: UnsafeMutablePointer<GtkTextChildAnchorClass>! { get }
 
+    /// Required Initialiser for types conforming to `TextChildAnchorClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TextChildAnchorClassRef` type acts as a lightweight Swift reference to an underlying `GtkTextChildAnchorClass` instance.
@@ -343,6 +347,8 @@ public protocol TextIterProtocol {
     /// Typed pointer to the underlying `GtkTextIter` instance.
     var text_iter_ptr: UnsafeMutablePointer<GtkTextIter>! { get }
 
+    /// Required Initialiser for types conforming to `TextIterProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TextIterRef` type acts as a lightweight Swift reference to an underlying `GtkTextIter` instance.
@@ -552,7 +558,7 @@ open class TextIter: TextIterProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextIterProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -942,7 +948,7 @@ public extension TextIterProtocol {
     /// the equivalent of say the letter “a” with an accent mark will be
     /// represented as two characters, first the letter then a "combining
     /// mark" that causes the accent to be rendered; so the cursor can’t go
-    /// between those two characters. See also the `PangoLogAttr`-struct and
+    /// between those two characters. See also the `PangoLogAttr-struct` and
     /// `pango_break()` function.
     @inlinable func forwardCursorPosition() -> Bool {
         let rv = ((gtk_text_iter_forward_cursor_position(text_iter_ptr)) != 0)
@@ -1856,6 +1862,8 @@ public protocol TextMarkClassProtocol {
     /// Typed pointer to the underlying `GtkTextMarkClass` instance.
     var _ptr: UnsafeMutablePointer<GtkTextMarkClass>! { get }
 
+    /// Required Initialiser for types conforming to `TextMarkClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TextMarkClassRef` type acts as a lightweight Swift reference to an underlying `GtkTextMarkClass` instance.
@@ -1990,6 +1998,8 @@ public protocol TextTagClassProtocol {
     /// Typed pointer to the underlying `GtkTextTagClass` instance.
     var _ptr: UnsafeMutablePointer<GtkTextTagClass>! { get }
 
+    /// Required Initialiser for types conforming to `TextTagClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TextTagClassRef` type acts as a lightweight Swift reference to an underlying `GtkTextTagClass` instance.
@@ -2124,6 +2134,8 @@ public protocol TextViewClassProtocol {
     /// Typed pointer to the underlying `GtkTextViewClass` instance.
     var _ptr: UnsafeMutablePointer<GtkTextViewClass>! { get }
 
+    /// Required Initialiser for types conforming to `TextViewClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TextViewClassRef` type acts as a lightweight Swift reference to an underlying `GtkTextViewClass` instance.
@@ -2286,6 +2298,8 @@ public protocol ToggleButtonClassProtocol {
     /// Typed pointer to the underlying `GtkToggleButtonClass` instance.
     var _ptr: UnsafeMutablePointer<GtkToggleButtonClass>! { get }
 
+    /// Required Initialiser for types conforming to `ToggleButtonClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ToggleButtonClassRef` type acts as a lightweight Swift reference to an underlying `GtkToggleButtonClass` instance.
@@ -2422,6 +2436,8 @@ public protocol TreeDragDestIfaceProtocol {
     /// Typed pointer to the underlying `GtkTreeDragDestIface` instance.
     var _ptr: UnsafeMutablePointer<GtkTreeDragDestIface>! { get }
 
+    /// Required Initialiser for types conforming to `TreeDragDestIfaceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TreeDragDestIfaceRef` type acts as a lightweight Swift reference to an underlying `GtkTreeDragDestIface` instance.
@@ -2553,6 +2569,8 @@ public protocol TreeDragSourceIfaceProtocol {
     /// Typed pointer to the underlying `GtkTreeDragSourceIface` instance.
     var _ptr: UnsafeMutablePointer<GtkTreeDragSourceIface>! { get }
 
+    /// Required Initialiser for types conforming to `TreeDragSourceIfaceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TreeDragSourceIfaceRef` type acts as a lightweight Swift reference to an underlying `GtkTreeDragSourceIface` instance.
@@ -2686,6 +2704,8 @@ public protocol TreeExpanderClassProtocol {
     /// Typed pointer to the underlying `GtkTreeExpanderClass` instance.
     var _ptr: UnsafeMutablePointer<GtkTreeExpanderClass>! { get }
 
+    /// Required Initialiser for types conforming to `TreeExpanderClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TreeExpanderClassRef` type acts as a lightweight Swift reference to an underlying `GtkTreeExpanderClass` instance.
@@ -2807,6 +2827,8 @@ public protocol TreeIterProtocol {
     /// Typed pointer to the underlying `GtkTreeIter` instance.
     var tree_iter_ptr: UnsafeMutablePointer<GtkTreeIter>! { get }
 
+    /// Required Initialiser for types conforming to `TreeIterProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TreeIterRef` type acts as a lightweight Swift reference to an underlying `GtkTreeIter` instance.
@@ -3018,7 +3040,7 @@ open class TreeIterBase: TreeIterProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TreeIterProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -3080,7 +3102,7 @@ public extension TreeIterProtocol {
 
     /// Lets a set of row reference created by
     /// `gtk_tree_row_reference_new_proxy()` know that the
-    /// model emitted the `GtkTreeModel::rows`-reordered signal.
+    /// model emitted the `GtkTreeModel::rows-reordered` signal.
     @inlinable func treeRowReferenceReordered<ObjectT: GLibObject.ObjectProtocol, TreePathT: TreePathProtocol>(proxy: ObjectT, path: TreePathT, newOrder: UnsafeMutablePointer<CInt>!) {
         gtk_tree_row_reference_reordered(proxy.object_ptr, path.tree_path_ptr, tree_iter_ptr, newOrder)
     
@@ -3172,6 +3194,8 @@ public protocol TreeListModelClassProtocol {
     /// Typed pointer to the underlying `GtkTreeListModelClass` instance.
     var _ptr: UnsafeMutablePointer<GtkTreeListModelClass>! { get }
 
+    /// Required Initialiser for types conforming to `TreeListModelClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TreeListModelClassRef` type acts as a lightweight Swift reference to an underlying `GtkTreeListModelClass` instance.
@@ -3304,6 +3328,8 @@ public protocol TreeListRowClassProtocol {
     /// Typed pointer to the underlying `GtkTreeListRowClass` instance.
     var _ptr: UnsafeMutablePointer<GtkTreeListRowClass>! { get }
 
+    /// Required Initialiser for types conforming to `TreeListRowClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TreeListRowClassRef` type acts as a lightweight Swift reference to an underlying `GtkTreeListRowClass` instance.
@@ -3436,6 +3462,8 @@ public protocol TreeListRowSorterClassProtocol {
     /// Typed pointer to the underlying `GtkTreeListRowSorterClass` instance.
     var _ptr: UnsafeMutablePointer<GtkTreeListRowSorterClass>! { get }
 
+    /// Required Initialiser for types conforming to `TreeListRowSorterClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TreeListRowSorterClassRef` type acts as a lightweight Swift reference to an underlying `GtkTreeListRowSorterClass` instance.
@@ -3568,6 +3596,8 @@ public protocol TreeModelFilterClassProtocol {
     /// Typed pointer to the underlying `GtkTreeModelFilterClass` instance.
     var _ptr: UnsafeMutablePointer<GtkTreeModelFilterClass>! { get }
 
+    /// Required Initialiser for types conforming to `TreeModelFilterClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TreeModelFilterClassRef` type acts as a lightweight Swift reference to an underlying `GtkTreeModelFilterClass` instance.
@@ -3706,6 +3736,8 @@ public protocol TreeModelIfaceProtocol {
     /// Typed pointer to the underlying `GtkTreeModelIface` instance.
     var _ptr: UnsafeMutablePointer<GtkTreeModelIface>! { get }
 
+    /// Required Initialiser for types conforming to `TreeModelIfaceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TreeModelIfaceRef` type acts as a lightweight Swift reference to an underlying `GtkTreeModelIface` instance.
@@ -3873,6 +3905,8 @@ public protocol TreeModelSortClassProtocol {
     /// Typed pointer to the underlying `GtkTreeModelSortClass` instance.
     var _ptr: UnsafeMutablePointer<GtkTreeModelSortClass>! { get }
 
+    /// Required Initialiser for types conforming to `TreeModelSortClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TreeModelSortClassRef` type acts as a lightweight Swift reference to an underlying `GtkTreeModelSortClass` instance.
@@ -3992,6 +4026,8 @@ public protocol TreePathProtocol {
     /// Typed pointer to the underlying `GtkTreePath` instance.
     var tree_path_ptr: UnsafeMutablePointer<GtkTreePath>! { get }
 
+    /// Required Initialiser for types conforming to `TreePathProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TreePathRef` type acts as a lightweight Swift reference to an underlying `GtkTreePath` instance.
@@ -4075,7 +4111,7 @@ public extension TreePathRef {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
-        /// Creates a new `GtkTreePath`-struct.
+        /// Creates a new `GtkTreePath-struct`.
     /// This refers to a row.
     @inlinable init() {
         let rv = gtk_tree_path_new()
@@ -4092,7 +4128,7 @@ public extension TreePathRef {
         ptr = UnsafeMutableRawPointer(rv)
     }
 
-    /// Creates a new `GtkTreePath`-struct initialized to `path`.
+    /// Creates a new `GtkTreePath-struct` initialized to `path`.
     /// 
     /// `path` is expected to be a colon separated list of numbers.
     /// For example, the string “10:4:0” would create a path of depth
@@ -4103,7 +4139,7 @@ public extension TreePathRef {
         let rv = gtk_tree_path_new_from_string(path)
         ptr = UnsafeMutableRawPointer(rv)
     }
-    /// Creates a new `GtkTreePath`-struct.
+    /// Creates a new `GtkTreePath-struct`.
     /// 
     /// The string representation of this path is “0”.
     @inlinable static func newFirst() -> TreePathRef! {
@@ -4121,7 +4157,7 @@ public extension TreePathRef {
         return rv
     }
 
-    /// Creates a new `GtkTreePath`-struct initialized to `path`.
+    /// Creates a new `GtkTreePath-struct` initialized to `path`.
     /// 
     /// `path` is expected to be a colon separated list of numbers.
     /// For example, the string “10:4:0” would create a path of depth
@@ -4252,7 +4288,7 @@ open class TreePath: TreePathProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TreePathProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -4279,7 +4315,7 @@ open class TreePath: TreePathProtocol {
         // no reference counting for GtkTreePath, cannot ref(tree_path_ptr)
     }
 
-    /// Creates a new `GtkTreePath`-struct.
+    /// Creates a new `GtkTreePath-struct`.
     /// This refers to a row.
     @inlinable public init() {
         let rv = gtk_tree_path_new()
@@ -4296,7 +4332,7 @@ open class TreePath: TreePathProtocol {
         ptr = UnsafeMutableRawPointer(rv)
     }
 
-    /// Creates a new `GtkTreePath`-struct initialized to `path`.
+    /// Creates a new `GtkTreePath-struct` initialized to `path`.
     /// 
     /// `path` is expected to be a colon separated list of numbers.
     /// For example, the string “10:4:0” would create a path of depth
@@ -4308,7 +4344,7 @@ open class TreePath: TreePathProtocol {
         ptr = UnsafeMutableRawPointer(rv)
     }
 
-    /// Creates a new `GtkTreePath`-struct.
+    /// Creates a new `GtkTreePath-struct`.
     /// 
     /// The string representation of this path is “0”.
     @inlinable public static func newFirst() -> TreePath! {
@@ -4326,7 +4362,7 @@ open class TreePath: TreePathProtocol {
         return rv
     }
 
-    /// Creates a new `GtkTreePath`-struct initialized to `path`.
+    /// Creates a new `GtkTreePath-struct` initialized to `path`.
     /// 
     /// `path` is expected to be a colon separated list of numbers.
     /// For example, the string “10:4:0” would create a path of depth
@@ -4368,7 +4404,7 @@ public extension TreePathProtocol {
         return rv
     }
 
-    /// Creates a new `GtkTreePath`-struct as a copy of `path`.
+    /// Creates a new `GtkTreePath-struct` as a copy of `path`.
     @inlinable func copy() -> TreePathRef! {
         guard let rv = TreePathRef(gconstpointer: gconstpointer(gtk_tree_path_copy(tree_path_ptr))) else { return nil }
         return rv
@@ -4471,7 +4507,7 @@ public extension TreePathProtocol {
 
     /// Lets a set of row reference created by
     /// `gtk_tree_row_reference_new_proxy()` know that the
-    /// model emitted the `GtkTreeModel::row`-deleted signal.
+    /// model emitted the `GtkTreeModel::row-deleted` signal.
     @inlinable func treeRowReferenceDeleted<ObjectT: GLibObject.ObjectProtocol>(proxy: ObjectT) {
         gtk_tree_row_reference_deleted(proxy.object_ptr, tree_path_ptr)
     
@@ -4479,7 +4515,7 @@ public extension TreePathProtocol {
 
     /// Lets a set of row reference created by
     /// `gtk_tree_row_reference_new_proxy()` know that the
-    /// model emitted the `GtkTreeModel::row`-inserted signal.
+    /// model emitted the `GtkTreeModel::row-inserted` signal.
     @inlinable func treeRowReferenceInserted<ObjectT: GLibObject.ObjectProtocol>(proxy: ObjectT) {
         gtk_tree_row_reference_inserted(proxy.object_ptr, tree_path_ptr)
     
@@ -4487,7 +4523,7 @@ public extension TreePathProtocol {
 
     /// Lets a set of row reference created by
     /// `gtk_tree_row_reference_new_proxy()` know that the
-    /// model emitted the `GtkTreeModel::rows`-reordered signal.
+    /// model emitted the `GtkTreeModel::rows-reordered` signal.
     @inlinable func treeRowReferenceReordered<ObjectT: GLibObject.ObjectProtocol, TreeIterT: TreeIterProtocol>(proxy: ObjectT, iter: TreeIterT, newOrder: UnsafeMutablePointer<CInt>!) {
         gtk_tree_row_reference_reordered(proxy.object_ptr, tree_path_ptr, iter.tree_iter_ptr, newOrder)
     
@@ -4542,6 +4578,8 @@ public protocol TreeRowReferenceProtocol {
     /// Typed pointer to the underlying `GtkTreeRowReference` instance.
     var tree_row_reference_ptr: UnsafeMutablePointer<GtkTreeRowReference>! { get }
 
+    /// Required Initialiser for types conforming to `TreeRowReferenceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TreeRowReferenceRef` type acts as a lightweight Swift reference to an underlying `GtkTreeRowReference` instance.
@@ -4816,7 +4854,7 @@ open class TreeRowReference: TreeRowReferenceProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TreeRowReferenceProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -5010,6 +5048,8 @@ public protocol TreeSortableIfaceProtocol {
     /// Typed pointer to the underlying `GtkTreeSortableIface` instance.
     var _ptr: UnsafeMutablePointer<GtkTreeSortableIface>! { get }
 
+    /// Required Initialiser for types conforming to `TreeSortableIfaceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TreeSortableIfaceRef` type acts as a lightweight Swift reference to an underlying `GtkTreeSortableIface` instance.
@@ -5149,6 +5189,8 @@ public protocol TreeStoreClassProtocol {
     /// Typed pointer to the underlying `GtkTreeStoreClass` instance.
     var _ptr: UnsafeMutablePointer<GtkTreeStoreClass>! { get }
 
+    /// Required Initialiser for types conforming to `TreeStoreClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TreeStoreClassRef` type acts as a lightweight Swift reference to an underlying `GtkTreeStoreClass` instance.
@@ -5283,6 +5325,8 @@ public protocol TreeViewClassProtocol {
     /// Typed pointer to the underlying `GtkTreeViewClass` instance.
     var _ptr: UnsafeMutablePointer<GtkTreeViewClass>! { get }
 
+    /// Required Initialiser for types conforming to `TreeViewClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TreeViewClassRef` type acts as a lightweight Swift reference to an underlying `GtkTreeViewClass` instance.
@@ -5447,6 +5491,8 @@ public protocol VideoClassProtocol {
     /// Typed pointer to the underlying `GtkVideoClass` instance.
     var _ptr: UnsafeMutablePointer<GtkVideoClass>! { get }
 
+    /// Required Initialiser for types conforming to `VideoClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `VideoClassRef` type acts as a lightweight Swift reference to an underlying `GtkVideoClass` instance.

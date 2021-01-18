@@ -23,7 +23,7 @@ import Gdk
 /// The `GtkEmojiChooser` popover is used by text widgets such as `GtkEntry` or
 /// `GtkTextView` to offer users a convenient way to insert Emoji characters.
 /// 
-/// GtkEmojiChooser emits the `GtkEmojiChooser::emoji`-picked signal when an
+/// GtkEmojiChooser emits the `GtkEmojiChooser::emoji-picked` signal when an
 /// Emoji is selected.
 /// 
 /// # CSS nodes
@@ -53,6 +53,8 @@ public protocol EmojiChooserProtocol: PopoverProtocol {
     /// Typed pointer to the underlying `GtkEmojiChooser` instance.
     var emoji_chooser_ptr: UnsafeMutablePointer<GtkEmojiChooser>! { get }
 
+    /// Required Initialiser for types conforming to `EmojiChooserProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `EmojiChooserRef` type acts as a lightweight Swift reference to an underlying `GtkEmojiChooser` instance.
@@ -62,7 +64,7 @@ public protocol EmojiChooserProtocol: PopoverProtocol {
 /// The `GtkEmojiChooser` popover is used by text widgets such as `GtkEntry` or
 /// `GtkTextView` to offer users a convenient way to insert Emoji characters.
 /// 
-/// GtkEmojiChooser emits the `GtkEmojiChooser::emoji`-picked signal when an
+/// GtkEmojiChooser emits the `GtkEmojiChooser::emoji-picked` signal when an
 /// Emoji is selected.
 /// 
 /// # CSS nodes
@@ -178,7 +180,7 @@ public extension EmojiChooserRef {
 /// The `GtkEmojiChooser` popover is used by text widgets such as `GtkEntry` or
 /// `GtkTextView` to offer users a convenient way to insert Emoji characters.
 /// 
-/// GtkEmojiChooser emits the `GtkEmojiChooser::emoji`-picked signal when an
+/// GtkEmojiChooser emits the `GtkEmojiChooser::emoji-picked` signal when an
 /// Emoji is selected.
 /// 
 /// # CSS nodes
@@ -301,14 +303,14 @@ open class EmojiChooser: Popover, EmojiChooserProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EmojiChooserProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EmojiChooserProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -368,9 +370,9 @@ public enum EmojiChooserPropertyName: String, PropertyNameProtocol {
     case hasArrow = "has-arrow"
     case hasDefault = "has-default"
     case hasFocus = "has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case hasTooltip = "has-tooltip"
     case heightRequest = "height-request"
@@ -436,11 +438,11 @@ public enum EmojiChooserPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipMarkup = "tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -448,11 +450,11 @@ public enum EmojiChooserPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipText = "tooltip-text"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
@@ -519,7 +521,7 @@ public extension EmojiChooserProtocol {
 }
 
 public enum EmojiChooserSignalName: String, SignalNameProtocol {
-    /// The `activate`-default signal is a
+    /// The `activate-default` signal is a
     /// [keybinding signal](#GtkSignalAction)
     /// which gets emitted when the user activates the default widget
     /// of `self`.
@@ -532,10 +534,10 @@ public enum EmojiChooserSignalName: String, SignalNameProtocol {
     /// 
     /// This signal is not suitable for saving widget state.
     case destroy = "destroy"
-    /// The `direction`-changed signal is emitted when the text direction
+    /// The `direction-changed` signal is emitted when the text direction
     /// of a widget changes.
     case directionChanged = "direction-changed"
-    /// The `emoji`-picked signal is emitted when the user selects an
+    /// The `emoji-picked` signal is emitted when the user selects an
     /// Emoji.
     case emojiPicked = "emoji-picked"
     /// The `hide` signal is emitted when `widget` is hidden, for example with
@@ -583,7 +585,7 @@ public enum EmojiChooserSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
+    /// Emitted when `GtkWidget:has-tooltip` is `true` and the hover timeout
     /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
     /// focus in keyboard mode.
     /// 
@@ -603,7 +605,7 @@ public enum EmojiChooserSignalName: String, SignalNameProtocol {
     /// The `show` signal is emitted when `widget` is shown, for example with
     /// `gtk_widget_show()`.
     case show = "show"
-    /// The `state`-flags-changed signal is emitted when the widget state
+    /// The `state-flags-changed` signal is emitted when the widget state
     /// changes, see `gtk_widget_get_state_flags()`.
     case stateFlagsChanged = "state-flags-changed"
     /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
@@ -649,9 +651,9 @@ public enum EmojiChooserSignalName: String, SignalNameProtocol {
     case notifyHasArrow = "notify::has-arrow"
     case notifyHasDefault = "notify::has-default"
     case notifyHasFocus = "notify::has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case notifyHasTooltip = "notify::has-tooltip"
     case notifyHeightRequest = "notify::height-request"
@@ -717,11 +719,11 @@ public enum EmojiChooserSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipMarkup = "notify::tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -729,11 +731,11 @@ public enum EmojiChooserSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipText = "notify::tooltip-text"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
@@ -774,7 +776,7 @@ public extension EmojiChooserProtocol {
     }
     
     
-    /// The `emoji`-picked signal is emitted when the user selects an
+    /// The `emoji-picked` signal is emitted when the user selects an
     /// Emoji.
     /// - Note: This represents the underlying `emoji-picked` signal
     /// - Parameter flags: Flags
@@ -844,7 +846,7 @@ public extension EmojiChooserProtocol {
 /// can have tooltips. To add an icon, use `gtk_entry_set_icon_from_gicon()` or
 /// one of the various other functions that set an icon from an icon name or a
 /// paintable. To trigger an action when the user clicks an icon,
-/// connect to the `GtkEntry::icon`-press signal. To allow DND operations
+/// connect to the `GtkEntry::icon-press` signal. To allow DND operations
 /// from an icon, use `gtk_entry_set_icon_drag_source()`. To set a tooltip on
 /// an icon, use `gtk_entry_set_icon_tooltip_text()` or the corresponding function
 /// for markup.
@@ -882,8 +884,8 @@ public extension EmojiChooserProtocol {
 /// # GtkEntry as GtkBuildable
 /// 
 /// The GtkEntry implementation of the GtkBuildable interface supports a
-/// custom <attributes> element, which supports any number of <attribute>
-/// elements. The <attribute> element has attributes named “name“, “value“,
+/// custom &lt;attributes&gt; element, which supports any number of &lt;attribute&gt;
+/// elements. The &lt;attribute&gt; element has attributes named “name“, “value“,
 /// “start“ and “end“ and allows you to specify `PangoAttribute` values for
 /// this label.
 /// 
@@ -913,6 +915,8 @@ public protocol EntryProtocol: WidgetProtocol, CellEditableProtocol, EditablePro
     /// Typed pointer to the underlying `GtkEntry` instance.
     var entry_ptr: UnsafeMutablePointer<GtkEntry>! { get }
 
+    /// Required Initialiser for types conforming to `EntryProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `EntryRef` type acts as a lightweight Swift reference to an underlying `GtkEntry` instance.
@@ -941,7 +945,7 @@ public protocol EntryProtocol: WidgetProtocol, CellEditableProtocol, EditablePro
 /// can have tooltips. To add an icon, use `gtk_entry_set_icon_from_gicon()` or
 /// one of the various other functions that set an icon from an icon name or a
 /// paintable. To trigger an action when the user clicks an icon,
-/// connect to the `GtkEntry::icon`-press signal. To allow DND operations
+/// connect to the `GtkEntry::icon-press` signal. To allow DND operations
 /// from an icon, use `gtk_entry_set_icon_drag_source()`. To set a tooltip on
 /// an icon, use `gtk_entry_set_icon_tooltip_text()` or the corresponding function
 /// for markup.
@@ -979,8 +983,8 @@ public protocol EntryProtocol: WidgetProtocol, CellEditableProtocol, EditablePro
 /// # GtkEntry as GtkBuildable
 /// 
 /// The GtkEntry implementation of the GtkBuildable interface supports a
-/// custom <attributes> element, which supports any number of <attribute>
-/// elements. The <attribute> element has attributes named “name“, “value“,
+/// custom &lt;attributes&gt; element, which supports any number of &lt;attribute&gt;
+/// elements. The &lt;attribute&gt; element has attributes named “name“, “value“,
 /// “start“ and “end“ and allows you to specify `PangoAttribute` values for
 /// this label.
 /// 
@@ -1126,7 +1130,7 @@ public extension EntryRef {
 /// can have tooltips. To add an icon, use `gtk_entry_set_icon_from_gicon()` or
 /// one of the various other functions that set an icon from an icon name or a
 /// paintable. To trigger an action when the user clicks an icon,
-/// connect to the `GtkEntry::icon`-press signal. To allow DND operations
+/// connect to the `GtkEntry::icon-press` signal. To allow DND operations
 /// from an icon, use `gtk_entry_set_icon_drag_source()`. To set a tooltip on
 /// an icon, use `gtk_entry_set_icon_tooltip_text()` or the corresponding function
 /// for markup.
@@ -1164,8 +1168,8 @@ public extension EntryRef {
 /// # GtkEntry as GtkBuildable
 /// 
 /// The GtkEntry implementation of the GtkBuildable interface supports a
-/// custom <attributes> element, which supports any number of <attribute>
-/// elements. The <attribute> element has attributes named “name“, “value“,
+/// custom &lt;attributes&gt; element, which supports any number of &lt;attribute&gt;
+/// elements. The &lt;attribute&gt; element has attributes named “name“, “value“,
 /// “start“ and “end“ and allows you to specify `PangoAttribute` values for
 /// this label.
 /// 
@@ -1288,14 +1292,14 @@ open class Entry: Widget, EntryProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EntryProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EntryProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -1379,9 +1383,9 @@ public enum EntryPropertyName: String, PropertyNameProtocol {
     case hasDefault = "has-default"
     case hasFocus = "has-focus"
     case hasFrame = "has-frame"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case hasTooltip = "has-tooltip"
     case heightRequest = "height-request"
@@ -1394,9 +1398,9 @@ public enum EntryPropertyName: String, PropertyNameProtocol {
     /// 
     /// Setting this to a non-`nil` value overrides the
     /// system-wide IM module setting. See the GtkSettings
-    /// `GtkSettings:gtk`-im-module property.
+    /// `GtkSettings:gtk-im-module` property.
     case imModule = "im-module"
-    /// Additional hints (beyond `GtkEntry:input`-purpose) that
+    /// Additional hints (beyond `GtkEntry:input-purpose`) that
     /// allow input methods to fine-tune their behaviour.
     case inputHints = "input-hints"
     /// The purpose of this text field.
@@ -1461,7 +1465,7 @@ public enum EntryPropertyName: String, PropertyNameProtocol {
     case placeholderText = "placeholder-text"
     /// Whether the primary icon is activatable.
     /// 
-    /// GTK emits the `GtkEntry::icon`-press and `GtkEntry::icon`-release
+    /// GTK emits the `GtkEntry::icon-press` and `GtkEntry::icon-release`
     /// signals only on sensitive, activatable icons.
     /// 
     /// Sensitive, but non-activatable icons can be used for purely
@@ -1476,7 +1480,7 @@ public enum EntryPropertyName: String, PropertyNameProtocol {
     /// Whether the primary icon is sensitive.
     /// 
     /// An insensitive icon appears grayed out. GTK does not emit the
-    /// `GtkEntry::icon`-press and `GtkEntry::icon`-release signals and
+    /// `GtkEntry::icon-press` and `GtkEntry::icon-release` signals and
     /// does not allow DND from insensitive icons.
     /// 
     /// An icon should be set insensitive if the action that would trigger
@@ -1508,7 +1512,7 @@ public enum EntryPropertyName: String, PropertyNameProtocol {
     case scrollOffset = "scroll-offset"
     /// Whether the secondary icon is activatable.
     /// 
-    /// GTK emits the `GtkEntry::icon`-press and `GtkEntry::icon`-release
+    /// GTK emits the `GtkEntry::icon-press` and `GtkEntry::icon-release`
     /// signals only on sensitive, activatable icons.
     /// 
     /// Sensitive, but non-activatable icons can be used for purely
@@ -1523,7 +1527,7 @@ public enum EntryPropertyName: String, PropertyNameProtocol {
     /// Whether the secondary icon is sensitive.
     /// 
     /// An insensitive icon appears grayed out. GTK does not emit the
-    /// `GtkEntry::icon`-press and `GtkEntry::icon`-release signals and
+    /// `GtkEntry::icon-press` and `GtkEntry::icon-release` signals and
     /// does not allow DND from insensitive icons.
     /// 
     /// An icon should be set insensitive if the action that would trigger
@@ -1550,11 +1554,11 @@ public enum EntryPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipMarkup = "tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -1562,11 +1566,11 @@ public enum EntryPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipText = "tooltip-text"
     /// When `true`, pasted multi-line text is truncated to the first line.
@@ -1646,16 +1650,16 @@ public enum EntrySignalName: String, SignalNameProtocol {
     /// 
     /// This signal is not suitable for saving widget state.
     case destroy = "destroy"
-    /// The `direction`-changed signal is emitted when the text direction
+    /// The `direction-changed` signal is emitted when the text direction
     /// of a widget changes.
     case directionChanged = "direction-changed"
     /// The `hide` signal is emitted when `widget` is hidden, for example with
     /// `gtk_widget_hide()`.
     case hide = "hide"
-    /// The `icon`-press signal is emitted when an activatable icon
+    /// The `icon-press` signal is emitted when an activatable icon
     /// is clicked.
     case iconPress = "icon-press"
-    /// The `icon`-release signal is emitted on the button release from a
+    /// The `icon-release` signal is emitted on the button release from a
     /// mouse click over an activatable icon.
     case iconRelease = "icon-release"
     /// Gets emitted if keyboard navigation fails.
@@ -1700,7 +1704,7 @@ public enum EntrySignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
+    /// Emitted when `GtkWidget:has-tooltip` is `true` and the hover timeout
     /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
     /// focus in keyboard mode.
     /// 
@@ -1720,7 +1724,7 @@ public enum EntrySignalName: String, SignalNameProtocol {
     /// The `show` signal is emitted when `widget` is shown, for example with
     /// `gtk_widget_show()`.
     case show = "show"
-    /// The `state`-flags-changed signal is emitted when the widget state
+    /// The `state-flags-changed` signal is emitted when the widget state
     /// changes, see `gtk_widget_get_state_flags()`.
     case stateFlagsChanged = "state-flags-changed"
     /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
@@ -1777,9 +1781,9 @@ public enum EntrySignalName: String, SignalNameProtocol {
     case notifyHasDefault = "notify::has-default"
     case notifyHasFocus = "notify::has-focus"
     case notifyHasFrame = "notify::has-frame"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case notifyHasTooltip = "notify::has-tooltip"
     case notifyHeightRequest = "notify::height-request"
@@ -1792,9 +1796,9 @@ public enum EntrySignalName: String, SignalNameProtocol {
     /// 
     /// Setting this to a non-`nil` value overrides the
     /// system-wide IM module setting. See the GtkSettings
-    /// `GtkSettings:gtk`-im-module property.
+    /// `GtkSettings:gtk-im-module` property.
     case notifyImModule = "notify::im-module"
-    /// Additional hints (beyond `GtkEntry:input`-purpose) that
+    /// Additional hints (beyond `GtkEntry:input-purpose`) that
     /// allow input methods to fine-tune their behaviour.
     case notifyInputHints = "notify::input-hints"
     /// The purpose of this text field.
@@ -1859,7 +1863,7 @@ public enum EntrySignalName: String, SignalNameProtocol {
     case notifyPlaceholderText = "notify::placeholder-text"
     /// Whether the primary icon is activatable.
     /// 
-    /// GTK emits the `GtkEntry::icon`-press and `GtkEntry::icon`-release
+    /// GTK emits the `GtkEntry::icon-press` and `GtkEntry::icon-release`
     /// signals only on sensitive, activatable icons.
     /// 
     /// Sensitive, but non-activatable icons can be used for purely
@@ -1874,7 +1878,7 @@ public enum EntrySignalName: String, SignalNameProtocol {
     /// Whether the primary icon is sensitive.
     /// 
     /// An insensitive icon appears grayed out. GTK does not emit the
-    /// `GtkEntry::icon`-press and `GtkEntry::icon`-release signals and
+    /// `GtkEntry::icon-press` and `GtkEntry::icon-release` signals and
     /// does not allow DND from insensitive icons.
     /// 
     /// An icon should be set insensitive if the action that would trigger
@@ -1906,7 +1910,7 @@ public enum EntrySignalName: String, SignalNameProtocol {
     case notifyScrollOffset = "notify::scroll-offset"
     /// Whether the secondary icon is activatable.
     /// 
-    /// GTK emits the `GtkEntry::icon`-press and `GtkEntry::icon`-release
+    /// GTK emits the `GtkEntry::icon-press` and `GtkEntry::icon-release`
     /// signals only on sensitive, activatable icons.
     /// 
     /// Sensitive, but non-activatable icons can be used for purely
@@ -1921,7 +1925,7 @@ public enum EntrySignalName: String, SignalNameProtocol {
     /// Whether the secondary icon is sensitive.
     /// 
     /// An insensitive icon appears grayed out. GTK does not emit the
-    /// `GtkEntry::icon`-press and `GtkEntry::icon`-release signals and
+    /// `GtkEntry::icon-press` and `GtkEntry::icon-release` signals and
     /// does not allow DND from insensitive icons.
     /// 
     /// An icon should be set insensitive if the action that would trigger
@@ -1948,11 +1952,11 @@ public enum EntrySignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipMarkup = "notify::tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -1960,11 +1964,11 @@ public enum EntrySignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipText = "notify::tooltip-text"
     /// When `true`, pasted multi-line text is truncated to the first line.
@@ -2035,7 +2039,7 @@ public extension EntryProtocol {
     /// Typed `activate` signal for using the `connect(signal:)` methods
     static var activateSignal: EntrySignalName { .activate }
     
-    /// The `icon`-press signal is emitted when an activatable icon
+    /// The `icon-press` signal is emitted when an activatable icon
     /// is clicked.
     /// - Note: This represents the underlying `icon-press` signal
     /// - Parameter flags: Flags
@@ -2062,7 +2066,7 @@ public extension EntryProtocol {
     /// Typed `icon-press` signal for using the `connect(signal:)` methods
     static var iconPressSignal: EntrySignalName { .iconPress }
     
-    /// The `icon`-release signal is emitted on the button release from a
+    /// The `icon-release` signal is emitted on the button release from a
     /// mouse click over an activatable icon.
     /// - Note: This represents the underlying `icon-release` signal
     /// - Parameter flags: Flags
@@ -4079,7 +4083,7 @@ public extension EntryProtocol {
     /// Finds the icon at the given position and return its index. The
     /// position’s coordinates are relative to the `entry`’s top left corner.
     /// If `x`, `y` doesn’t lie inside an icon, -1 is returned.
-    /// This function is intended for use in a `GtkWidget::query`-tooltip
+    /// This function is intended for use in a `GtkWidget::query-tooltip`
     /// signal handler.
     @inlinable func getIconAtPos(x: Int, y: Int) -> Int {
         let rv = Int(gtk_entry_get_icon_at_pos(entry_ptr, gint(x), gint(y)))
@@ -4138,13 +4142,13 @@ public extension EntryProtocol {
         return rv
     }
 
-    /// Gets the value of the `GtkEntry:input`-hints property.
+    /// Gets the value of the `GtkEntry:input-hints` property.
     @inlinable func getInputHints() -> InputHints {
         let rv = InputHints(gtk_entry_get_input_hints(entry_ptr))
         return rv
     }
 
-    /// Gets the value of the `GtkEntry:input`-purpose property.
+    /// Gets the value of the `GtkEntry:input-purpose` property.
     @inlinable func getInputPurpose() -> GtkInputPurpose {
         let rv = gtk_entry_get_input_purpose(entry_ptr)
         return rv
@@ -4413,14 +4417,14 @@ public extension EntryProtocol {
     
     }
 
-    /// Sets the `GtkEntry:input`-hints property, which
+    /// Sets the `GtkEntry:input-hints` property, which
     /// allows input methods to fine-tune their behaviour.
     @inlinable func setInput(hints: InputHints) {
         gtk_entry_set_input_hints(entry_ptr, hints.value)
     
     }
 
-    /// Sets the `GtkEntry:input`-purpose property which
+    /// Sets the `GtkEntry:input-purpose` property which
     /// can be used by on-screen keyboards and other input
     /// methods to adjust their behaviour.
     @inlinable func setInput(purpose: GtkInputPurpose) {
@@ -4503,7 +4507,7 @@ public extension EntryProtocol {
     /// in the current font, but it can be changed with
     /// `gtk_entry_set_invisible_char()`.
     /// 
-    /// Note that you probably want to set `GtkEntry:input`-purpose
+    /// Note that you probably want to set `GtkEntry:input-purpose`
     /// to `GTK_INPUT_PURPOSE_PASSWORD` or `GTK_INPUT_PURPOSE_PIN` to
     /// inform input methods about the purpose of this entry,
     /// in addition to setting visibility to `false`.
@@ -4638,28 +4642,28 @@ public extension EntryProtocol {
         }
     }
 
-    /// Gets the value of the `GtkEntry:input`-hints property.
+    /// Gets the value of the `GtkEntry:input-hints` property.
     @inlinable var inputHints: InputHints {
-        /// Gets the value of the `GtkEntry:input`-hints property.
+        /// Gets the value of the `GtkEntry:input-hints` property.
         get {
             let rv = InputHints(gtk_entry_get_input_hints(entry_ptr))
             return rv
         }
-        /// Sets the `GtkEntry:input`-hints property, which
+        /// Sets the `GtkEntry:input-hints` property, which
         /// allows input methods to fine-tune their behaviour.
         nonmutating set {
             gtk_entry_set_input_hints(entry_ptr, newValue.value)
         }
     }
 
-    /// Gets the value of the `GtkEntry:input`-purpose property.
+    /// Gets the value of the `GtkEntry:input-purpose` property.
     @inlinable var inputPurpose: GtkInputPurpose {
-        /// Gets the value of the `GtkEntry:input`-purpose property.
+        /// Gets the value of the `GtkEntry:input-purpose` property.
         get {
             let rv = gtk_entry_get_input_purpose(entry_ptr)
             return rv
         }
-        /// Sets the `GtkEntry:input`-purpose property which
+        /// Sets the `GtkEntry:input-purpose` property which
         /// can be used by on-screen keyboards and other input
         /// methods to adjust their behaviour.
         nonmutating set {
@@ -4821,7 +4825,7 @@ public extension EntryProtocol {
         /// in the current font, but it can be changed with
         /// `gtk_entry_set_invisible_char()`.
         /// 
-        /// Note that you probably want to set `GtkEntry:input`-purpose
+        /// Note that you probably want to set `GtkEntry:input-purpose`
         /// to `GTK_INPUT_PURPOSE_PASSWORD` or `GTK_INPUT_PURPOSE_PIN` to
         /// inform input methods about the purpose of this entry,
         /// in addition to setting visibility to `false`.
@@ -4861,6 +4865,8 @@ public protocol EntryBufferProtocol: GLibObject.ObjectProtocol {
     /// Typed pointer to the underlying `GtkEntryBuffer` instance.
     var entry_buffer_ptr: UnsafeMutablePointer<GtkEntryBuffer>! { get }
 
+    /// Required Initialiser for types conforming to `EntryBufferProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `EntryBufferRef` type acts as a lightweight Swift reference to an underlying `GtkEntryBuffer` instance.
@@ -5081,14 +5087,14 @@ open class EntryBuffer: GLibObject.Object, EntryBufferProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EntryBufferProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EntryBufferProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -5628,7 +5634,7 @@ public extension EntryBufferProtocol {
 /// When the user selects a completion, the content of the entry is
 /// updated. By default, the content of the entry is replaced by the
 /// text column of the model, but this can be overridden by connecting
-/// to the `GtkEntryCompletion::match`-selected signal and updating the
+/// to the `GtkEntryCompletion::match-selected` signal and updating the
 /// entry in the signal handler. Note that you should return `true` from
 /// the signal handler to suppress the default behaviour.
 /// 
@@ -5636,10 +5642,10 @@ public extension EntryBufferProtocol {
 /// 
 /// GtkEntryCompletion uses a `GtkTreeModelFilter` model to represent the
 /// subset of the entire model that is currently matching. While the
-/// GtkEntryCompletion signals `GtkEntryCompletion::match`-selected and
-/// `GtkEntryCompletion::cursor`-on-match take the original model and an
+/// GtkEntryCompletion signals `GtkEntryCompletion::match-selected` and
+/// `GtkEntryCompletion::cursor-on-match` take the original model and an
 /// iter pointing to that model as arguments, other callbacks and signals
-/// (such as `GtkCellLayoutDataFuncs` or `GtkCellArea::apply`-attributes)
+/// (such as `GtkCellLayoutDataFuncs` or `GtkCellArea::apply-attributes`)
 /// will generally take the filter model as argument. As long as you are
 /// only calling `gtk_tree_model_get()`, this will make no difference to
 /// you. If for some reason, you need the original model, use
@@ -5653,6 +5659,8 @@ public protocol EntryCompletionProtocol: GLibObject.ObjectProtocol, BuildablePro
     /// Typed pointer to the underlying `GtkEntryCompletion` instance.
     var entry_completion_ptr: UnsafeMutablePointer<GtkEntryCompletion>! { get }
 
+    /// Required Initialiser for types conforming to `EntryCompletionProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `EntryCompletionRef` type acts as a lightweight Swift reference to an underlying `GtkEntryCompletion` instance.
@@ -5675,7 +5683,7 @@ public protocol EntryCompletionProtocol: GLibObject.ObjectProtocol, BuildablePro
 /// When the user selects a completion, the content of the entry is
 /// updated. By default, the content of the entry is replaced by the
 /// text column of the model, but this can be overridden by connecting
-/// to the `GtkEntryCompletion::match`-selected signal and updating the
+/// to the `GtkEntryCompletion::match-selected` signal and updating the
 /// entry in the signal handler. Note that you should return `true` from
 /// the signal handler to suppress the default behaviour.
 /// 
@@ -5683,10 +5691,10 @@ public protocol EntryCompletionProtocol: GLibObject.ObjectProtocol, BuildablePro
 /// 
 /// GtkEntryCompletion uses a `GtkTreeModelFilter` model to represent the
 /// subset of the entire model that is currently matching. While the
-/// GtkEntryCompletion signals `GtkEntryCompletion::match`-selected and
-/// `GtkEntryCompletion::cursor`-on-match take the original model and an
+/// GtkEntryCompletion signals `GtkEntryCompletion::match-selected` and
+/// `GtkEntryCompletion::cursor-on-match` take the original model and an
 /// iter pointing to that model as arguments, other callbacks and signals
-/// (such as `GtkCellLayoutDataFuncs` or `GtkCellArea::apply`-attributes)
+/// (such as `GtkCellLayoutDataFuncs` or `GtkCellArea::apply-attributes`)
 /// will generally take the filter model as argument. As long as you are
 /// only calling `gtk_tree_model_get()`, this will make no difference to
 /// you. If for some reason, you need the original model, use
@@ -5814,7 +5822,7 @@ public extension EntryCompletionRef {
 /// When the user selects a completion, the content of the entry is
 /// updated. By default, the content of the entry is replaced by the
 /// text column of the model, but this can be overridden by connecting
-/// to the `GtkEntryCompletion::match`-selected signal and updating the
+/// to the `GtkEntryCompletion::match-selected` signal and updating the
 /// entry in the signal handler. Note that you should return `true` from
 /// the signal handler to suppress the default behaviour.
 /// 
@@ -5822,10 +5830,10 @@ public extension EntryCompletionRef {
 /// 
 /// GtkEntryCompletion uses a `GtkTreeModelFilter` model to represent the
 /// subset of the entire model that is currently matching. While the
-/// GtkEntryCompletion signals `GtkEntryCompletion::match`-selected and
-/// `GtkEntryCompletion::cursor`-on-match take the original model and an
+/// GtkEntryCompletion signals `GtkEntryCompletion::match-selected` and
+/// `GtkEntryCompletion::cursor-on-match` take the original model and an
 /// iter pointing to that model as arguments, other callbacks and signals
-/// (such as `GtkCellLayoutDataFuncs` or `GtkCellArea::apply`-attributes)
+/// (such as `GtkCellLayoutDataFuncs` or `GtkCellArea::apply-attributes`)
 /// will generally take the filter model as argument. As long as you are
 /// only calling `gtk_tree_model_get()`, this will make no difference to
 /// you. If for some reason, you need the original model, use
@@ -5932,14 +5940,14 @@ open class EntryCompletion: GLibObject.Object, EntryCompletionProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EntryCompletionProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EntryCompletionProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -6923,7 +6931,7 @@ public extension EntryCompletionProtocol {
     /// 
     /// This functions creates and adds a `GtkCellRendererText` for the selected
     /// column. If you need to set the text column, but don't want the cell
-    /// renderer, use `g_object_set()` to set the `GtkEntryCompletion:text`-column
+    /// renderer, use `g_object_set()` to set the `GtkEntryCompletion:text-column`
     /// property directly.
     @inlinable func setText(column: Int) {
         gtk_entry_completion_set_text_column(entry_completion_ptr, gint(column))
@@ -7070,7 +7078,7 @@ public extension EntryCompletionProtocol {
         /// 
         /// This functions creates and adds a `GtkCellRendererText` for the selected
         /// column. If you need to set the text column, but don't want the cell
-        /// renderer, use `g_object_set()` to set the `GtkEntryCompletion:text`-column
+        /// renderer, use `g_object_set()` to set the `GtkEntryCompletion:text-column`
         /// property directly.
         nonmutating set {
             gtk_entry_completion_set_text_column(entry_completion_ptr, gint(newValue))
@@ -7099,6 +7107,8 @@ public protocol EventControllerProtocol: GLibObject.ObjectProtocol {
     /// Typed pointer to the underlying `GtkEventController` instance.
     var event_controller_ptr: UnsafeMutablePointer<GtkEventController>! { get }
 
+    /// Required Initialiser for types conforming to `EventControllerProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `EventControllerRef` type acts as a lightweight Swift reference to an underlying `GtkEventController` instance.
@@ -7296,14 +7306,14 @@ open class EventController: GLibObject.Object, EventControllerProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EventControllerProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EventControllerProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -7639,6 +7649,8 @@ public protocol EventControllerFocusProtocol: EventControllerProtocol {
     /// Typed pointer to the underlying `GtkEventControllerFocus` instance.
     var event_controller_focus_ptr: UnsafeMutablePointer<GtkEventControllerFocus>! { get }
 
+    /// Required Initialiser for types conforming to `EventControllerFocusProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `EventControllerFocusRef` type acts as a lightweight Swift reference to an underlying `GtkEventControllerFocus` instance.
@@ -7839,14 +7851,14 @@ open class EventControllerFocus: EventController, EventControllerFocusProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EventControllerFocusProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EventControllerFocusProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -7876,7 +7888,7 @@ open class EventControllerFocus: EventController, EventControllerFocusProtocol {
 
 public enum EventControllerFocusPropertyName: String, PropertyNameProtocol {
     /// Whether focus is contain in the controllers widget. See
-    /// See `GtkEventControllerFocus:is`-focus for whether the focus is in the widget itself
+    /// See `GtkEventControllerFocus:is-focus` for whether the focus is in the widget itself
     /// or inside a descendent.
     /// 
     /// When handling focus events, this property is updated
@@ -7885,7 +7897,7 @@ public enum EventControllerFocusPropertyName: String, PropertyNameProtocol {
     case containsFocus = "contains-focus"
     /// Whether focus is in the controllers widget itself,
     /// opposed to in a descendent widget. See also
-    /// `GtkEventControllerFocus:contains`-focus.
+    /// `GtkEventControllerFocus:contains-focus`.
     /// 
     /// When handling focus events, this property is updated
     /// before `GtkEventControllerFocus::enter` or
@@ -7962,7 +7974,7 @@ public enum EventControllerFocusSignalName: String, SignalNameProtocol {
     /// even though the widget becomes the focus location, in
     /// certain cases (such as when the focus moves from a descendent
     /// of the widget to the widget itself). If you are interested
-    /// in these cases, you can monitor the `GtkEventControllerFocus:is`-focus
+    /// in these cases, you can monitor the `GtkEventControllerFocus:is-focus`
     /// property for changes.
     case enter = "enter"
     /// This signal is emitted whenever the focus leaves the
@@ -7973,7 +7985,7 @@ public enum EventControllerFocusSignalName: String, SignalNameProtocol {
     /// even though the focus moves away from the widget, in
     /// certain cases (such as when the focus moves from the widget
     /// to a descendent). If you are interested in these cases, you
-    /// can monitor the `GtkEventControllerFocus:is`-focus property
+    /// can monitor the `GtkEventControllerFocus:is-focus` property
     /// for changes.
     case leave = "leave"
     /// The notify signal is emitted on an object when one of its properties has
@@ -8002,7 +8014,7 @@ public enum EventControllerFocusSignalName: String, SignalNameProtocol {
     /// detail strings for the notify signal.
     case notify = "notify"
     /// Whether focus is contain in the controllers widget. See
-    /// See `GtkEventControllerFocus:is`-focus for whether the focus is in the widget itself
+    /// See `GtkEventControllerFocus:is-focus` for whether the focus is in the widget itself
     /// or inside a descendent.
     /// 
     /// When handling focus events, this property is updated
@@ -8011,7 +8023,7 @@ public enum EventControllerFocusSignalName: String, SignalNameProtocol {
     case notifyContainsFocus = "notify::contains-focus"
     /// Whether focus is in the controllers widget itself,
     /// opposed to in a descendent widget. See also
-    /// `GtkEventControllerFocus:contains`-focus.
+    /// `GtkEventControllerFocus:contains-focus`.
     /// 
     /// When handling focus events, this property is updated
     /// before `GtkEventControllerFocus::enter` or
@@ -8062,7 +8074,7 @@ public extension EventControllerFocusProtocol {
     /// even though the widget becomes the focus location, in
     /// certain cases (such as when the focus moves from a descendent
     /// of the widget to the widget itself). If you are interested
-    /// in these cases, you can monitor the `GtkEventControllerFocus:is`-focus
+    /// in these cases, you can monitor the `GtkEventControllerFocus:is-focus`
     /// property for changes.
     /// - Note: This represents the underlying `enter` signal
     /// - Parameter flags: Flags
@@ -8096,7 +8108,7 @@ public extension EventControllerFocusProtocol {
     /// even though the focus moves away from the widget, in
     /// certain cases (such as when the focus moves from the widget
     /// to a descendent). If you are interested in these cases, you
-    /// can monitor the `GtkEventControllerFocus:is`-focus property
+    /// can monitor the `GtkEventControllerFocus:is-focus` property
     /// for changes.
     /// - Note: This represents the underlying `leave` signal
     /// - Parameter flags: Flags
@@ -8262,6 +8274,8 @@ public protocol EventControllerKeyProtocol: EventControllerProtocol {
     /// Typed pointer to the underlying `GtkEventControllerKey` instance.
     var event_controller_key_ptr: UnsafeMutablePointer<GtkEventControllerKey>! { get }
 
+    /// Required Initialiser for types conforming to `EventControllerKeyProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `EventControllerKeyRef` type acts as a lightweight Swift reference to an underlying `GtkEventControllerKey` instance.
@@ -8462,14 +8476,14 @@ open class EventControllerKey: EventController, EventControllerKeyProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EventControllerKeyProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EventControllerKeyProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -8759,8 +8773,8 @@ public extension EventControllerKeyProtocol {
     /// Forwards the current event of this `controller` to a `widget`.
     /// 
     /// This function can only be used in handlers for the
-    /// `GtkEventControllerKey::key`-pressed,
-    /// `GtkEventControllerKey::key`-released
+    /// `GtkEventControllerKey::key-pressed`,
+    /// `GtkEventControllerKey::key-released`
     /// or
     /// `GtkEventControllerKey::modifiers`
     /// signals.
@@ -8834,6 +8848,8 @@ public protocol EventControllerLegacyProtocol: EventControllerProtocol {
     /// Typed pointer to the underlying `GtkEventControllerLegacy` instance.
     var event_controller_legacy_ptr: UnsafeMutablePointer<GtkEventControllerLegacy>! { get }
 
+    /// Required Initialiser for types conforming to `EventControllerLegacyProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `EventControllerLegacyRef` type acts as a lightweight Swift reference to an underlying `GtkEventControllerLegacy` instance.
@@ -9038,14 +9054,14 @@ open class EventControllerLegacy: EventController, EventControllerLegacyProtocol
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EventControllerLegacyProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EventControllerLegacyProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -9259,6 +9275,8 @@ public protocol EventControllerMotionProtocol: EventControllerProtocol {
     /// Typed pointer to the underlying `GtkEventControllerMotion` instance.
     var event_controller_motion_ptr: UnsafeMutablePointer<GtkEventControllerMotion>! { get }
 
+    /// Required Initialiser for types conforming to `EventControllerMotionProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `EventControllerMotionRef` type acts as a lightweight Swift reference to an underlying `GtkEventControllerMotion` instance.
@@ -9459,14 +9477,14 @@ open class EventControllerMotion: EventController, EventControllerMotionProtocol
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EventControllerMotionProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EventControllerMotionProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -9496,7 +9514,7 @@ open class EventControllerMotion: EventController, EventControllerMotionProtocol
 
 public enum EventControllerMotionPropertyName: String, PropertyNameProtocol {
     /// Whether the pointer is in the controllers widget or a descendant.
-    /// See also `GtkEventControllerMotion:is`-pointer.
+    /// See also `GtkEventControllerMotion:is-pointer`.
     /// 
     /// When handling crossing events, this property is updated
     /// before `GtkEventControllerMotion::enter` but after
@@ -9504,7 +9522,7 @@ public enum EventControllerMotionPropertyName: String, PropertyNameProtocol {
     case containsPointer = "contains-pointer"
     /// Whether the pointer is in the controllers widget itself,
     /// as opposed to in a descendent widget. See also
-    /// `GtkEventControllerMotion:contains`-pointer.
+    /// `GtkEventControllerMotion:contains-pointer`.
     /// 
     /// When handling crossing events, this property is updated
     /// before `GtkEventControllerMotion::enter` but after
@@ -9606,7 +9624,7 @@ public enum EventControllerMotionSignalName: String, SignalNameProtocol {
     /// detail strings for the notify signal.
     case notify = "notify"
     /// Whether the pointer is in the controllers widget or a descendant.
-    /// See also `GtkEventControllerMotion:is`-pointer.
+    /// See also `GtkEventControllerMotion:is-pointer`.
     /// 
     /// When handling crossing events, this property is updated
     /// before `GtkEventControllerMotion::enter` but after
@@ -9614,7 +9632,7 @@ public enum EventControllerMotionSignalName: String, SignalNameProtocol {
     case notifyContainsPointer = "notify::contains-pointer"
     /// Whether the pointer is in the controllers widget itself,
     /// as opposed to in a descendent widget. See also
-    /// `GtkEventControllerMotion:contains`-pointer.
+    /// `GtkEventControllerMotion:contains-pointer`.
     /// 
     /// When handling crossing events, this property is updated
     /// before `GtkEventControllerMotion::enter` but after
@@ -9876,7 +9894,7 @@ public extension EventControllerMotionProtocol {
 /// 
 /// In the case of continuous scroll events, `GtkEventControllerScroll`
 /// encloses all `GtkEventControllerScroll::scroll` events between two
-/// `GtkEventControllerScroll::scroll`-begin and `GtkEventControllerScroll::scroll`-end
+/// `GtkEventControllerScroll::scroll-begin` and `GtkEventControllerScroll::scroll-end`
 /// signals.
 /// 
 /// The behavior of the event controller can be modified by the
@@ -9907,6 +9925,8 @@ public protocol EventControllerScrollProtocol: EventControllerProtocol {
     /// Typed pointer to the underlying `GtkEventControllerScroll` instance.
     var event_controller_scroll_ptr: UnsafeMutablePointer<GtkEventControllerScroll>! { get }
 
+    /// Required Initialiser for types conforming to `EventControllerScrollProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `EventControllerScrollRef` type acts as a lightweight Swift reference to an underlying `GtkEventControllerScroll` instance.
@@ -9921,7 +9941,7 @@ public protocol EventControllerScrollProtocol: EventControllerProtocol {
 /// 
 /// In the case of continuous scroll events, `GtkEventControllerScroll`
 /// encloses all `GtkEventControllerScroll::scroll` events between two
-/// `GtkEventControllerScroll::scroll`-begin and `GtkEventControllerScroll::scroll`-end
+/// `GtkEventControllerScroll::scroll-begin` and `GtkEventControllerScroll::scroll-end`
 /// signals.
 /// 
 /// The behavior of the event controller can be modified by the
@@ -10043,7 +10063,7 @@ public extension EventControllerScrollRef {
 /// 
 /// In the case of continuous scroll events, `GtkEventControllerScroll`
 /// encloses all `GtkEventControllerScroll::scroll` events between two
-/// `GtkEventControllerScroll::scroll`-begin and `GtkEventControllerScroll::scroll`-end
+/// `GtkEventControllerScroll::scroll-begin` and `GtkEventControllerScroll::scroll-end`
 /// signals.
 /// 
 /// The behavior of the event controller can be modified by the
@@ -10167,14 +10187,14 @@ open class EventControllerScroll: EventController, EventControllerScrollProtocol
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EventControllerScrollProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EventControllerScrollProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -10558,6 +10578,8 @@ public protocol EveryFilterProtocol: MultiFilterProtocol {
     /// Typed pointer to the underlying `GtkEveryFilter` instance.
     var every_filter_ptr: UnsafeMutablePointer<GtkEveryFilter>! { get }
 
+    /// Required Initialiser for types conforming to `EveryFilterProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `EveryFilterRef` type acts as a lightweight Swift reference to an underlying `GtkEveryFilter` instance.
@@ -10762,14 +10784,14 @@ open class EveryFilter: MultiFilter, EveryFilterProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EveryFilterProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EveryFilterProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -10915,8 +10937,8 @@ public extension EveryFilterProtocol {
 /// 
 /// The GtkExpander implementation of the GtkBuildable interface supports
 /// placing a child in the label position by specifying “label” as the
-/// “type” attribute of a <child> element. A normal content child can be
-/// specified without specifying a <child> type attribute.
+/// “type” attribute of a &lt;child&gt; element. A normal content child can be
+/// specified without specifying a &lt;child&gt; type attribute.
 /// 
 /// An example of a UI definition fragment with GtkExpander:
 /// ```
@@ -10956,6 +10978,8 @@ public protocol ExpanderProtocol: WidgetProtocol {
     /// Typed pointer to the underlying `GtkExpander` instance.
     var expander_ptr: UnsafeMutablePointer<GtkExpander>! { get }
 
+    /// Required Initialiser for types conforming to `ExpanderProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ExpanderRef` type acts as a lightweight Swift reference to an underlying `GtkExpander` instance.
@@ -11016,8 +11040,8 @@ public protocol ExpanderProtocol: WidgetProtocol {
 /// 
 /// The GtkExpander implementation of the GtkBuildable interface supports
 /// placing a child in the label position by specifying “label” as the
-/// “type” attribute of a <child> element. A normal content child can be
-/// specified without specifying a <child> type attribute.
+/// “type” attribute of a &lt;child&gt; element. A normal content child can be
+/// specified without specifying a &lt;child&gt; type attribute.
 /// 
 /// An example of a UI definition fragment with GtkExpander:
 /// ```
@@ -11215,8 +11239,8 @@ public extension ExpanderRef {
 /// 
 /// The GtkExpander implementation of the GtkBuildable interface supports
 /// placing a child in the label position by specifying “label” as the
-/// “type” attribute of a <child> element. A normal content child can be
-/// specified without specifying a <child> type attribute.
+/// “type” attribute of a &lt;child&gt; element. A normal content child can be
+/// specified without specifying a &lt;child&gt; type attribute.
 /// 
 /// An example of a UI definition fragment with GtkExpander:
 /// ```
@@ -11349,14 +11373,14 @@ open class Expander: Widget, ExpanderProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ExpanderProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ExpanderProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -11436,9 +11460,9 @@ public enum ExpanderPropertyName: String, PropertyNameProtocol {
     case halign = "halign"
     case hasDefault = "has-default"
     case hasFocus = "has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case hasTooltip = "has-tooltip"
     case heightRequest = "height-request"
@@ -11506,11 +11530,11 @@ public enum ExpanderPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipMarkup = "tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -11518,11 +11542,11 @@ public enum ExpanderPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipText = "tooltip-text"
     case useMarkup = "use-markup"
@@ -11599,7 +11623,7 @@ public enum ExpanderSignalName: String, SignalNameProtocol {
     /// 
     /// This signal is not suitable for saving widget state.
     case destroy = "destroy"
-    /// The `direction`-changed signal is emitted when the text direction
+    /// The `direction-changed` signal is emitted when the text direction
     /// of a widget changes.
     case directionChanged = "direction-changed"
     /// The `hide` signal is emitted when `widget` is hidden, for example with
@@ -11647,7 +11671,7 @@ public enum ExpanderSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
+    /// Emitted when `GtkWidget:has-tooltip` is `true` and the hover timeout
     /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
     /// focus in keyboard mode.
     /// 
@@ -11667,7 +11691,7 @@ public enum ExpanderSignalName: String, SignalNameProtocol {
     /// The `show` signal is emitted when `widget` is shown, for example with
     /// `gtk_widget_show()`.
     case show = "show"
-    /// The `state`-flags-changed signal is emitted when the widget state
+    /// The `state-flags-changed` signal is emitted when the widget state
     /// changes, see `gtk_widget_get_state_flags()`.
     case stateFlagsChanged = "state-flags-changed"
     /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
@@ -11710,9 +11734,9 @@ public enum ExpanderSignalName: String, SignalNameProtocol {
     case notifyHalign = "notify::halign"
     case notifyHasDefault = "notify::has-default"
     case notifyHasFocus = "notify::has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case notifyHasTooltip = "notify::has-tooltip"
     case notifyHeightRequest = "notify::height-request"
@@ -11780,11 +11804,11 @@ public enum ExpanderSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipMarkup = "notify::tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -11792,11 +11816,11 @@ public enum ExpanderSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipText = "notify::tooltip-text"
     case notifyUseMarkup = "notify::use-markup"
@@ -12558,12 +12582,12 @@ public extension ExpanderProtocol {
 /// # GtkExpression in .ui files
 /// 
 /// GtkBuilder has support for creating expressions. The syntax here can be used where
-/// a `GtkExpression` object is needed like in a <property> tag for an expression
-/// property, or in a <binding> tag to bind a property to an expression.
+/// a `GtkExpression` object is needed like in a &lt;property&gt; tag for an expression
+/// property, or in a &lt;binding&gt; tag to bind a property to an expression.
 /// 
-/// To create an property expression, use the <lookup> element. It can have a `type`
+/// To create an property expression, use the &lt;lookup&gt; element. It can have a `type`
 /// attribute to specify the object type, and a `name` attribute to specify the property
-/// to look up. The content of <lookup> can either be an element specfiying the expression
+/// to look up. The content of &lt;lookup&gt; can either be an element specfiying the expression
 /// to use the object, or a string that specifies the name of the object to use.
 /// 
 /// Example:
@@ -12571,7 +12595,7 @@ public extension ExpanderProtocol {
 ///   <lookup name='search'>string_filter</lookup>
 /// ```
 /// 
-/// To create a constant expression, use the <constant> element. If the type attribute
+/// To create a constant expression, use the &lt;constant&gt; element. If the type attribute
 /// is specified, the element content is interpreted as a value of that type. Otherwise,
 /// it is assumed to be an object.
 /// 
@@ -12581,7 +12605,7 @@ public extension ExpanderProtocol {
 ///   <constant type='gchararray'>Hello, world</constant>
 /// ```
 /// 
-/// To create a closure expression, use the <closure> element. The `type` and `function`
+/// To create a closure expression, use the &lt;closure&gt; element. The `type` and `function`
 /// attributes specify what function to use for the closure, the content of the element
 /// contains the expressions for the parameters.
 /// 
@@ -12600,6 +12624,8 @@ public protocol ExpressionProtocol {
     /// Typed pointer to the underlying `GtkExpression` instance.
     var expression_ptr: UnsafeMutablePointer<GtkExpression>! { get }
 
+    /// Required Initialiser for types conforming to `ExpressionProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ExpressionRef` type acts as a lightweight Swift reference to an underlying `GtkExpression` instance.
@@ -12697,12 +12723,12 @@ public protocol ExpressionProtocol {
 /// # GtkExpression in .ui files
 /// 
 /// GtkBuilder has support for creating expressions. The syntax here can be used where
-/// a `GtkExpression` object is needed like in a <property> tag for an expression
-/// property, or in a <binding> tag to bind a property to an expression.
+/// a `GtkExpression` object is needed like in a &lt;property&gt; tag for an expression
+/// property, or in a &lt;binding&gt; tag to bind a property to an expression.
 /// 
-/// To create an property expression, use the <lookup> element. It can have a `type`
+/// To create an property expression, use the &lt;lookup&gt; element. It can have a `type`
 /// attribute to specify the object type, and a `name` attribute to specify the property
-/// to look up. The content of <lookup> can either be an element specfiying the expression
+/// to look up. The content of &lt;lookup&gt; can either be an element specfiying the expression
 /// to use the object, or a string that specifies the name of the object to use.
 /// 
 /// Example:
@@ -12710,7 +12736,7 @@ public protocol ExpressionProtocol {
 ///   <lookup name='search'>string_filter</lookup>
 /// ```
 /// 
-/// To create a constant expression, use the <constant> element. If the type attribute
+/// To create a constant expression, use the &lt;constant&gt; element. If the type attribute
 /// is specified, the element content is interpreted as a value of that type. Otherwise,
 /// it is assumed to be an object.
 /// 
@@ -12720,7 +12746,7 @@ public protocol ExpressionProtocol {
 ///   <constant type='gchararray'>Hello, world</constant>
 /// ```
 /// 
-/// To create a closure expression, use the <closure> element. The `type` and `function`
+/// To create a closure expression, use the &lt;closure&gt; element. The `type` and `function`
 /// attributes specify what function to use for the closure, the content of the element
 /// contains the expressions for the parameters.
 /// 
@@ -12905,12 +12931,12 @@ public extension ExpressionRef {
 /// # GtkExpression in .ui files
 /// 
 /// GtkBuilder has support for creating expressions. The syntax here can be used where
-/// a `GtkExpression` object is needed like in a <property> tag for an expression
-/// property, or in a <binding> tag to bind a property to an expression.
+/// a `GtkExpression` object is needed like in a &lt;property&gt; tag for an expression
+/// property, or in a &lt;binding&gt; tag to bind a property to an expression.
 /// 
-/// To create an property expression, use the <lookup> element. It can have a `type`
+/// To create an property expression, use the &lt;lookup&gt; element. It can have a `type`
 /// attribute to specify the object type, and a `name` attribute to specify the property
-/// to look up. The content of <lookup> can either be an element specfiying the expression
+/// to look up. The content of &lt;lookup&gt; can either be an element specfiying the expression
 /// to use the object, or a string that specifies the name of the object to use.
 /// 
 /// Example:
@@ -12918,7 +12944,7 @@ public extension ExpressionRef {
 ///   <lookup name='search'>string_filter</lookup>
 /// ```
 /// 
-/// To create a constant expression, use the <constant> element. If the type attribute
+/// To create a constant expression, use the &lt;constant&gt; element. If the type attribute
 /// is specified, the element content is interpreted as a value of that type. Otherwise,
 /// it is assumed to be an object.
 /// 
@@ -12928,7 +12954,7 @@ public extension ExpressionRef {
 ///   <constant type='gchararray'>Hello, world</constant>
 /// ```
 /// 
-/// To create a closure expression, use the <closure> element. The `type` and `function`
+/// To create a closure expression, use the &lt;closure&gt; element. The `type` and `function`
 /// attributes specify what function to use for the closure, the content of the element
 /// contains the expressions for the parameters.
 /// 
@@ -13053,7 +13079,7 @@ open class Expression: ExpressionProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ExpressionProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -13416,6 +13442,8 @@ public protocol FileChooserDialogProtocol: DialogProtocol, FileChooserProtocol {
     /// Typed pointer to the underlying `GtkFileChooserDialog` instance.
     var file_chooser_dialog_ptr: UnsafeMutablePointer<GtkFileChooserDialog>! { get }
 
+    /// Required Initialiser for types conforming to `FileChooserDialogProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `FileChooserDialogRef` type acts as a lightweight Swift reference to an underlying `GtkFileChooserDialog` instance.
@@ -13952,14 +13980,14 @@ open class FileChooserDialog: Dialog, FileChooserDialogProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileChooserDialogProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileChooserDialogProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -14044,9 +14072,9 @@ public enum FileChooserDialogPropertyName: String, PropertyNameProtocol {
     case halign = "halign"
     case hasDefault = "has-default"
     case hasFocus = "has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case hasTooltip = "has-tooltip"
     case heightRequest = "height-request"
@@ -14133,11 +14161,11 @@ public enum FileChooserDialogPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipMarkup = "tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -14145,11 +14173,11 @@ public enum FileChooserDialogPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipText = "tooltip-text"
     /// The transient parent of the window. See `gtk_window_set_transient_for()` for
@@ -14225,12 +14253,12 @@ public extension FileChooserDialogProtocol {
 }
 
 public enum FileChooserDialogSignalName: String, SignalNameProtocol {
-    /// The `activate`-default signal is a
+    /// The `activate-default` signal is a
     /// [keybinding signal](#GtkSignalAction)
     /// which gets emitted when the user activates the default widget
     /// of `window`.
     case activateDefault = "activate-default"
-    /// The `activate`-focus signal is a
+    /// The `activate-focus` signal is a
     /// [keybinding signal](#GtkSignalAction)
     /// which gets emitted when the user activates the currently
     /// focused widget of `window`.
@@ -14242,7 +14270,7 @@ public enum FileChooserDialogSignalName: String, SignalNameProtocol {
     /// 
     /// The default binding for this signal is the Escape key.
     case close = "close"
-    /// The `close`-request signal is emitted when the user clicks on the close
+    /// The `close-request` signal is emitted when the user clicks on the close
     /// button of the window.
     case closeRequest = "close-request"
     /// Signals that all holders of a reference to the widget should release
@@ -14251,10 +14279,10 @@ public enum FileChooserDialogSignalName: String, SignalNameProtocol {
     /// 
     /// This signal is not suitable for saving widget state.
     case destroy = "destroy"
-    /// The `direction`-changed signal is emitted when the text direction
+    /// The `direction-changed` signal is emitted when the text direction
     /// of a widget changes.
     case directionChanged = "direction-changed"
-    /// The `enable`-debugging signal is a [keybinding signal](#GtkSignalAction)
+    /// The `enable-debugging` signal is a [keybinding signal](#GtkSignalAction)
     /// which gets emitted when the user enables or disables interactive
     /// debugging. When `toggle` is `true`, interactive debugging is toggled
     /// on or off, when it is `false`, the debugger will be pointed at the
@@ -14269,7 +14297,7 @@ public enum FileChooserDialogSignalName: String, SignalNameProtocol {
     /// Gets emitted if keyboard navigation fails.
     /// See `gtk_widget_keynav_failed()` for details.
     case keynavFailed = "keynav-failed"
-    /// The `keys`-changed signal gets emitted when the set of accelerators
+    /// The `keys-changed` signal gets emitted when the set of accelerators
     /// or mnemonics that are associated with `window` changes.
     case keysChanged = "keys-changed"
     /// The `map` signal is emitted when `widget` is going to be mapped, that is
@@ -14311,7 +14339,7 @@ public enum FileChooserDialogSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
+    /// Emitted when `GtkWidget:has-tooltip` is `true` and the hover timeout
     /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
     /// focus in keyboard mode.
     /// 
@@ -14336,7 +14364,7 @@ public enum FileChooserDialogSignalName: String, SignalNameProtocol {
     /// The `show` signal is emitted when `widget` is shown, for example with
     /// `gtk_widget_show()`.
     case show = "show"
-    /// The `state`-flags-changed signal is emitted when the widget state
+    /// The `state-flags-changed` signal is emitted when the widget state
     /// changes, see `gtk_widget_get_state_flags()`.
     case stateFlagsChanged = "state-flags-changed"
     /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
@@ -14410,9 +14438,9 @@ public enum FileChooserDialogSignalName: String, SignalNameProtocol {
     case notifyHalign = "notify::halign"
     case notifyHasDefault = "notify::has-default"
     case notifyHasFocus = "notify::has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case notifyHasTooltip = "notify::has-tooltip"
     case notifyHeightRequest = "notify::height-request"
@@ -14499,11 +14527,11 @@ public enum FileChooserDialogSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipMarkup = "notify::tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -14511,11 +14539,11 @@ public enum FileChooserDialogSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipText = "notify::tooltip-text"
     /// The transient parent of the window. See `gtk_window_set_transient_for()` for

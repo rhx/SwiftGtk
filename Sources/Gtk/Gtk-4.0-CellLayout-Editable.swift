@@ -39,9 +39,9 @@ import Gdk
 /// Implementations of GtkCellLayout which also implement the GtkBuildable
 /// interface (`GtkCellView`, `GtkIconView`, `GtkComboBox`,
 /// `GtkEntryCompletion`, `GtkTreeViewColumn`) accept GtkCellRenderer objects
-/// as <child> elements in UI definitions. They support a custom <attributes>
-/// element for their children, which can contain multiple <attribute>
-/// elements. Each <attribute> element has a name attribute which specifies
+/// as &lt;child&gt; elements in UI definitions. They support a custom &lt;attributes&gt;
+/// element for their children, which can contain multiple &lt;attribute&gt;
+/// elements. Each &lt;attribute&gt; element has a name attribute which specifies
 /// a property of the cell renderer; the content of the element is the
 /// attribute value.
 /// 
@@ -60,8 +60,8 @@ import Gdk
 /// Furthermore for implementations of GtkCellLayout that use a `GtkCellArea`
 /// to lay out cells (all GtkCellLayouts in GTK use a GtkCellArea)
 /// [cell properties](#cell-properties) can also be defined in the format by
-/// specifying the custom <cell-packing> attribute which can contain multiple
-/// <property> elements defined in the normal way.
+/// specifying the custom &lt;cell-packing&gt; attribute which can contain multiple
+/// &lt;property&gt; elements defined in the normal way.
 /// 
 /// Here is a UI definition fragment specifying cell properties:
 /// 
@@ -132,6 +132,8 @@ public protocol CellLayoutProtocol {
     /// Typed pointer to the underlying `GtkCellLayout` instance.
     var cell_layout_ptr: UnsafeMutablePointer<GtkCellLayout>! { get }
 
+    /// Required Initialiser for types conforming to `CellLayoutProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `CellLayoutRef` type acts as a lightweight Swift reference to an underlying `GtkCellLayout` instance.
@@ -157,9 +159,9 @@ public protocol CellLayoutProtocol {
 /// Implementations of GtkCellLayout which also implement the GtkBuildable
 /// interface (`GtkCellView`, `GtkIconView`, `GtkComboBox`,
 /// `GtkEntryCompletion`, `GtkTreeViewColumn`) accept GtkCellRenderer objects
-/// as <child> elements in UI definitions. They support a custom <attributes>
-/// element for their children, which can contain multiple <attribute>
-/// elements. Each <attribute> element has a name attribute which specifies
+/// as &lt;child&gt; elements in UI definitions. They support a custom &lt;attributes&gt;
+/// element for their children, which can contain multiple &lt;attribute&gt;
+/// elements. Each &lt;attribute&gt; element has a name attribute which specifies
 /// a property of the cell renderer; the content of the element is the
 /// attribute value.
 /// 
@@ -178,8 +180,8 @@ public protocol CellLayoutProtocol {
 /// Furthermore for implementations of GtkCellLayout that use a `GtkCellArea`
 /// to lay out cells (all GtkCellLayouts in GTK use a GtkCellArea)
 /// [cell properties](#cell-properties) can also be defined in the format by
-/// specifying the custom <cell-packing> attribute which can contain multiple
-/// <property> elements defined in the normal way.
+/// specifying the custom &lt;cell-packing&gt; attribute which can contain multiple
+/// &lt;property&gt; elements defined in the normal way.
 /// 
 /// Here is a UI definition fragment specifying cell properties:
 /// 
@@ -344,9 +346,9 @@ public extension CellLayoutRef {
 /// Implementations of GtkCellLayout which also implement the GtkBuildable
 /// interface (`GtkCellView`, `GtkIconView`, `GtkComboBox`,
 /// `GtkEntryCompletion`, `GtkTreeViewColumn`) accept GtkCellRenderer objects
-/// as <child> elements in UI definitions. They support a custom <attributes>
-/// element for their children, which can contain multiple <attribute>
-/// elements. Each <attribute> element has a name attribute which specifies
+/// as &lt;child&gt; elements in UI definitions. They support a custom &lt;attributes&gt;
+/// element for their children, which can contain multiple &lt;attribute&gt;
+/// elements. Each &lt;attribute&gt; element has a name attribute which specifies
 /// a property of the cell renderer; the content of the element is the
 /// attribute value.
 /// 
@@ -365,8 +367,8 @@ public extension CellLayoutRef {
 /// Furthermore for implementations of GtkCellLayout that use a `GtkCellArea`
 /// to lay out cells (all GtkCellLayouts in GTK use a GtkCellArea)
 /// [cell properties](#cell-properties) can also be defined in the format by
-/// specifying the custom <cell-packing> attribute which can contain multiple
-/// <property> elements defined in the normal way.
+/// specifying the custom &lt;cell-packing&gt; attribute which can contain multiple
+/// &lt;property&gt; elements defined in the normal way.
 /// 
 /// Here is a UI definition fragment specifying cell properties:
 /// 
@@ -543,7 +545,7 @@ open class CellLayout: CellLayoutProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `CellLayoutProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -714,6 +716,8 @@ public protocol ColorChooserProtocol {
     /// Typed pointer to the underlying `GtkColorChooser` instance.
     var color_chooser_ptr: UnsafeMutablePointer<GtkColorChooser>! { get }
 
+    /// Required Initialiser for types conforming to `ColorChooserProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ColorChooserRef` type acts as a lightweight Swift reference to an underlying `GtkColorChooser` instance.
@@ -927,7 +931,7 @@ open class ColorChooser: ColorChooserProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ColorChooserProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -963,7 +967,7 @@ public enum ColorChooserPropertyName: String, PropertyNameProtocol {
     /// as a `GdkRGBA` struct. The property can be set to change
     /// the current selection programmatically.
     case rgba = "rgba"
-    /// When `use`-alpha is `true`, colors may have alpha (translucency)
+    /// When `use-alpha` is `true`, colors may have alpha (translucency)
     /// information. When it is `false`, the `GdkRGBA` struct obtained
     /// via the `GtkColorChooser:rgba` property will be forced to have
     /// alpha == 1.
@@ -1036,7 +1040,7 @@ public enum ColorChooserSignalName: String, SignalNameProtocol {
     /// as a `GdkRGBA` struct. The property can be set to change
     /// the current selection programmatically.
     case notifyRgba = "notify::rgba"
-    /// When `use`-alpha is `true`, colors may have alpha (translucency)
+    /// When `use-alpha` is `true`, colors may have alpha (translucency)
     /// information. When it is `false`, the `GdkRGBA` struct obtained
     /// via the `GtkColorChooser:rgba` property will be forced to have
     /// alpha == 1.
@@ -1288,6 +1292,8 @@ public protocol ConstraintTargetProtocol {
     /// Typed pointer to the underlying `GtkConstraintTarget` instance.
     var constraint_target_ptr: UnsafeMutablePointer<GtkConstraintTarget>! { get }
 
+    /// Required Initialiser for types conforming to `ConstraintTargetProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ConstraintTargetRef` type acts as a lightweight Swift reference to an underlying `GtkConstraintTarget` instance.
@@ -1495,7 +1501,7 @@ open class ConstraintTarget: ConstraintTargetProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ConstraintTargetProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -1556,7 +1562,7 @@ public extension ConstraintTargetProtocol {
 /// connect to modify the behavior of a widget.
 /// 
 /// As an example of the latter usage, by connecting
-/// the following handler to `GtkEditable::insert`-text, an application
+/// the following handler to `GtkEditable::insert-text`, an application
 /// can convert all entry into a widget into uppercase.
 /// 
 /// ## Forcing entry to uppercase.
@@ -1669,11 +1675,11 @@ public extension ConstraintTargetProtocol {
 /// ```
 /// 
 /// It is important to note that if you create a GtkEditable that uses a delegate,
-/// the low level `GtkEditable::insert`-text and `GtkEditable::delete`-text signals
+/// the low level `GtkEditable::insert-text` and `GtkEditable::delete-text` signals
 /// will be propagated from the "wrapper" editable to the delegate, but they will
 /// not be propagated from the delegate to the "wrapper" editable, as they would
-/// cause an infinite recursion. If you wish to connect to the `GtkEditable::insert`-text
-/// and `GtkEditable::delete`-text signals, you will need to connect to them on
+/// cause an infinite recursion. If you wish to connect to the `GtkEditable::insert-text`
+/// and `GtkEditable::delete-text` signals, you will need to connect to them on
 /// the delegate obtained via `gtk_editable_get_delegate()`.
 public protocol EditableProtocol: WidgetProtocol {
         /// Untyped pointer to the underlying `GtkEditable` instance.
@@ -1682,6 +1688,8 @@ public protocol EditableProtocol: WidgetProtocol {
     /// Typed pointer to the underlying `GtkEditable` instance.
     var editable_ptr: UnsafeMutablePointer<GtkEditable>! { get }
 
+    /// Required Initialiser for types conforming to `EditableProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `EditableRef` type acts as a lightweight Swift reference to an underlying `GtkEditable` instance.
@@ -1695,7 +1703,7 @@ public protocol EditableProtocol: WidgetProtocol {
 /// connect to modify the behavior of a widget.
 /// 
 /// As an example of the latter usage, by connecting
-/// the following handler to `GtkEditable::insert`-text, an application
+/// the following handler to `GtkEditable::insert-text`, an application
 /// can convert all entry into a widget into uppercase.
 /// 
 /// ## Forcing entry to uppercase.
@@ -1808,11 +1816,11 @@ public protocol EditableProtocol: WidgetProtocol {
 /// ```
 /// 
 /// It is important to note that if you create a GtkEditable that uses a delegate,
-/// the low level `GtkEditable::insert`-text and `GtkEditable::delete`-text signals
+/// the low level `GtkEditable::insert-text` and `GtkEditable::delete-text` signals
 /// will be propagated from the "wrapper" editable to the delegate, but they will
 /// not be propagated from the delegate to the "wrapper" editable, as they would
-/// cause an infinite recursion. If you wish to connect to the `GtkEditable::insert`-text
-/// and `GtkEditable::delete`-text signals, you will need to connect to them on
+/// cause an infinite recursion. If you wish to connect to the `GtkEditable::insert-text`
+/// and `GtkEditable::delete-text` signals, you will need to connect to them on
 /// the delegate obtained via `gtk_editable_get_delegate()`.
 public struct EditableRef: EditableProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkEditable` instance.
@@ -1906,7 +1914,7 @@ public extension EditableRef {
 /// connect to modify the behavior of a widget.
 /// 
 /// As an example of the latter usage, by connecting
-/// the following handler to `GtkEditable::insert`-text, an application
+/// the following handler to `GtkEditable::insert-text`, an application
 /// can convert all entry into a widget into uppercase.
 /// 
 /// ## Forcing entry to uppercase.
@@ -2019,11 +2027,11 @@ public extension EditableRef {
 /// ```
 /// 
 /// It is important to note that if you create a GtkEditable that uses a delegate,
-/// the low level `GtkEditable::insert`-text and `GtkEditable::delete`-text signals
+/// the low level `GtkEditable::insert-text` and `GtkEditable::delete-text` signals
 /// will be propagated from the "wrapper" editable to the delegate, but they will
 /// not be propagated from the delegate to the "wrapper" editable, as they would
-/// cause an infinite recursion. If you wish to connect to the `GtkEditable::insert`-text
-/// and `GtkEditable::delete`-text signals, you will need to connect to them on
+/// cause an infinite recursion. If you wish to connect to the `GtkEditable::insert-text`
+/// and `GtkEditable::delete-text` signals, you will need to connect to them on
 /// the delegate obtained via `gtk_editable_get_delegate()`.
 open class Editable: Widget, EditableProtocol {
         /// Designated initialiser from the underlying `C` data type.
@@ -2125,14 +2133,14 @@ open class Editable: Widget, EditableProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EditableProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EditableProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -2184,9 +2192,9 @@ public enum EditablePropertyName: String, PropertyNameProtocol {
     case halign = "halign"
     case hasDefault = "has-default"
     case hasFocus = "has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case hasTooltip = "has-tooltip"
     case heightRequest = "height-request"
@@ -2252,11 +2260,11 @@ public enum EditablePropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipMarkup = "tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -2264,11 +2272,11 @@ public enum EditablePropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipText = "tooltip-text"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
@@ -2362,7 +2370,7 @@ public enum EditableSignalName: String, SignalNameProtocol {
     /// 
     /// This signal is not suitable for saving widget state.
     case destroy = "destroy"
-    /// The `direction`-changed signal is emitted when the text direction
+    /// The `direction-changed` signal is emitted when the text direction
     /// of a widget changes.
     case directionChanged = "direction-changed"
     /// The `hide` signal is emitted when `widget` is hidden, for example with
@@ -2418,7 +2426,7 @@ public enum EditableSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
+    /// Emitted when `GtkWidget:has-tooltip` is `true` and the hover timeout
     /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
     /// focus in keyboard mode.
     /// 
@@ -2438,7 +2446,7 @@ public enum EditableSignalName: String, SignalNameProtocol {
     /// The `show` signal is emitted when `widget` is shown, for example with
     /// `gtk_widget_show()`.
     case show = "show"
-    /// The `state`-flags-changed signal is emitted when the widget state
+    /// The `state-flags-changed` signal is emitted when the widget state
     /// changes, see `gtk_widget_get_state_flags()`.
     case stateFlagsChanged = "state-flags-changed"
     /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
@@ -2482,9 +2490,9 @@ public enum EditableSignalName: String, SignalNameProtocol {
     case notifyHalign = "notify::halign"
     case notifyHasDefault = "notify::has-default"
     case notifyHasFocus = "notify::has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case notifyHasTooltip = "notify::has-tooltip"
     case notifyHeightRequest = "notify::height-request"
@@ -2550,11 +2558,11 @@ public enum EditableSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipMarkup = "notify::tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -2562,11 +2570,11 @@ public enum EditableSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipText = "notify::tooltip-text"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`

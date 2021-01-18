@@ -29,6 +29,8 @@ public protocol MediaControlsProtocol: WidgetProtocol {
     /// Typed pointer to the underlying `GtkMediaControls` instance.
     var media_controls_ptr: UnsafeMutablePointer<GtkMediaControls>! { get }
 
+    /// Required Initialiser for types conforming to `MediaControlsProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `MediaControlsRef` type acts as a lightweight Swift reference to an underlying `GtkMediaControls` instance.
@@ -229,14 +231,14 @@ open class MediaControls: Widget, MediaControlsProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MediaControlsProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MediaControlsProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -291,9 +293,9 @@ public enum MediaControlsPropertyName: String, PropertyNameProtocol {
     case halign = "halign"
     case hasDefault = "has-default"
     case hasFocus = "has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case hasTooltip = "has-tooltip"
     case heightRequest = "height-request"
@@ -358,11 +360,11 @@ public enum MediaControlsPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipMarkup = "tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -370,11 +372,11 @@ public enum MediaControlsPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipText = "tooltip-text"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
@@ -447,7 +449,7 @@ public enum MediaControlsSignalName: String, SignalNameProtocol {
     /// 
     /// This signal is not suitable for saving widget state.
     case destroy = "destroy"
-    /// The `direction`-changed signal is emitted when the text direction
+    /// The `direction-changed` signal is emitted when the text direction
     /// of a widget changes.
     case directionChanged = "direction-changed"
     /// The `hide` signal is emitted when `widget` is hidden, for example with
@@ -495,7 +497,7 @@ public enum MediaControlsSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
+    /// Emitted when `GtkWidget:has-tooltip` is `true` and the hover timeout
     /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
     /// focus in keyboard mode.
     /// 
@@ -515,7 +517,7 @@ public enum MediaControlsSignalName: String, SignalNameProtocol {
     /// The `show` signal is emitted when `widget` is shown, for example with
     /// `gtk_widget_show()`.
     case show = "show"
-    /// The `state`-flags-changed signal is emitted when the widget state
+    /// The `state-flags-changed` signal is emitted when the widget state
     /// changes, see `gtk_widget_get_state_flags()`.
     case stateFlagsChanged = "state-flags-changed"
     /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
@@ -556,9 +558,9 @@ public enum MediaControlsSignalName: String, SignalNameProtocol {
     case notifyHalign = "notify::halign"
     case notifyHasDefault = "notify::has-default"
     case notifyHasFocus = "notify::has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case notifyHasTooltip = "notify::has-tooltip"
     case notifyHeightRequest = "notify::height-request"
@@ -623,11 +625,11 @@ public enum MediaControlsSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipMarkup = "notify::tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -635,11 +637,11 @@ public enum MediaControlsSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipText = "notify::tooltip-text"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
@@ -713,6 +715,8 @@ public protocol MediaFileProtocol: MediaStreamProtocol {
     /// Typed pointer to the underlying `GtkMediaFile` instance.
     var media_file_ptr: UnsafeMutablePointer<GtkMediaFile>! { get }
 
+    /// Required Initialiser for types conforming to `MediaFileProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `MediaFileRef` type acts as a lightweight Swift reference to an underlying `GtkMediaFile` instance.
@@ -918,14 +922,14 @@ open class MediaFile: MediaStream, MediaFileProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MediaFileProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MediaFileProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -1253,6 +1257,8 @@ public protocol MediaStreamProtocol: GLibObject.ObjectProtocol, Gdk.PaintablePro
     /// Typed pointer to the underlying `GtkMediaStream` instance.
     var media_stream_ptr: UnsafeMutablePointer<GtkMediaStream>! { get }
 
+    /// Required Initialiser for types conforming to `MediaStreamProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `MediaStreamRef` type acts as a lightweight Swift reference to an underlying `GtkMediaStream` instance.
@@ -1478,14 +1484,14 @@ open class MediaStream: GLibObject.Object, MediaStreamProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MediaStreamProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MediaStreamProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -2097,7 +2103,7 @@ public extension MediaStreamProtocol {
 /// `GMenuModel`.
 /// 
 /// The `GtkMenuButton` widget can show either an icon (set with the
-/// `GtkMenuButton:icon`-name property) or a label (set with the
+/// `GtkMenuButton:icon-name` property) or a label (set with the
 /// `GtkMenuButton:label` property). If neither is explicitly set,
 /// a `GtkImage` is automatically created, using an arrow image oriented
 /// according to `GtkMenuButton:direction` or the generic “open-menu-symbolic”
@@ -2193,6 +2199,8 @@ public protocol MenuButtonProtocol: WidgetProtocol {
     /// Typed pointer to the underlying `GtkMenuButton` instance.
     var menu_button_ptr: UnsafeMutablePointer<GtkMenuButton>! { get }
 
+    /// Required Initialiser for types conforming to `MenuButtonProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `MenuButtonRef` type acts as a lightweight Swift reference to an underlying `GtkMenuButton` instance.
@@ -2204,7 +2212,7 @@ public protocol MenuButtonProtocol: WidgetProtocol {
 /// `GMenuModel`.
 /// 
 /// The `GtkMenuButton` widget can show either an icon (set with the
-/// `GtkMenuButton:icon`-name property) or a label (set with the
+/// `GtkMenuButton:icon-name` property) or a label (set with the
 /// `GtkMenuButton:label` property). If neither is explicitly set,
 /// a `GtkImage` is automatically created, using an arrow image oriented
 /// according to `GtkMenuButton:direction` or the generic “open-menu-symbolic”
@@ -2390,7 +2398,7 @@ public extension MenuButtonRef {
 /// `GMenuModel`.
 /// 
 /// The `GtkMenuButton` widget can show either an icon (set with the
-/// `GtkMenuButton:icon`-name property) or a label (set with the
+/// `GtkMenuButton:icon-name` property) or a label (set with the
 /// `GtkMenuButton:label` property). If neither is explicitly set,
 /// a `GtkImage` is automatically created, using an arrow image oriented
 /// according to `GtkMenuButton:direction` or the generic “open-menu-symbolic”
@@ -2579,14 +2587,14 @@ open class MenuButton: Widget, MenuButtonProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuButtonProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuButtonProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -2647,9 +2655,9 @@ public enum MenuButtonPropertyName: String, PropertyNameProtocol {
     case hasDefault = "has-default"
     case hasFocus = "has-focus"
     case hasFrame = "has-frame"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case hasTooltip = "has-tooltip"
     case heightRequest = "height-request"
@@ -2721,11 +2729,11 @@ public enum MenuButtonPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipMarkup = "tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -2733,11 +2741,11 @@ public enum MenuButtonPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipText = "tooltip-text"
     case useUnderline = "use-underline"
@@ -2811,7 +2819,7 @@ public enum MenuButtonSignalName: String, SignalNameProtocol {
     /// 
     /// This signal is not suitable for saving widget state.
     case destroy = "destroy"
-    /// The `direction`-changed signal is emitted when the text direction
+    /// The `direction-changed` signal is emitted when the text direction
     /// of a widget changes.
     case directionChanged = "direction-changed"
     /// The `hide` signal is emitted when `widget` is hidden, for example with
@@ -2859,7 +2867,7 @@ public enum MenuButtonSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
+    /// Emitted when `GtkWidget:has-tooltip` is `true` and the hover timeout
     /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
     /// focus in keyboard mode.
     /// 
@@ -2879,7 +2887,7 @@ public enum MenuButtonSignalName: String, SignalNameProtocol {
     /// The `show` signal is emitted when `widget` is shown, for example with
     /// `gtk_widget_show()`.
     case show = "show"
-    /// The `state`-flags-changed signal is emitted when the widget state
+    /// The `state-flags-changed` signal is emitted when the widget state
     /// changes, see `gtk_widget_get_state_flags()`.
     case stateFlagsChanged = "state-flags-changed"
     /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
@@ -2924,9 +2932,9 @@ public enum MenuButtonSignalName: String, SignalNameProtocol {
     case notifyHasDefault = "notify::has-default"
     case notifyHasFocus = "notify::has-focus"
     case notifyHasFrame = "notify::has-frame"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case notifyHasTooltip = "notify::has-tooltip"
     case notifyHeightRequest = "notify::height-request"
@@ -2998,11 +3006,11 @@ public enum MenuButtonSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipMarkup = "notify::tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -3010,11 +3018,11 @@ public enum MenuButtonSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipText = "notify::tooltip-text"
     case notifyUseUnderline = "notify::use-underline"
@@ -3167,7 +3175,7 @@ public extension MenuButtonProtocol {
     /// Sets the `GtkPopover` that will be popped up when the `menu_button` is clicked,
     /// or `nil` to dissociate any existing popover and disable the button.
     /// 
-    /// If `GtkMenuButton:menu`-model is set, the menu model is dissociated from the
+    /// If `GtkMenuButton:menu-model` is set, the menu model is dissociated from the
     /// `menu_button`, and the property is set to `nil`.
     @inlinable func set(popover: WidgetRef? = nil) {
         gtk_menu_button_set_popover(menu_button_ptr, popover?.widget_ptr)
@@ -3176,7 +3184,7 @@ public extension MenuButtonProtocol {
     /// Sets the `GtkPopover` that will be popped up when the `menu_button` is clicked,
     /// or `nil` to dissociate any existing popover and disable the button.
     /// 
-    /// If `GtkMenuButton:menu`-model is set, the menu model is dissociated from the
+    /// If `GtkMenuButton:menu-model` is set, the menu model is dissociated from the
     /// `menu_button`, and the property is set to `nil`.
     @inlinable func set<WidgetT: WidgetProtocol>(popover: WidgetT?) {
         gtk_menu_button_set_popover(menu_button_ptr, popover?.widget_ptr)
@@ -3281,7 +3289,7 @@ public extension MenuButtonProtocol {
         /// Sets the `GtkPopover` that will be popped up when the `menu_button` is clicked,
         /// or `nil` to dissociate any existing popover and disable the button.
         /// 
-        /// If `GtkMenuButton:menu`-model is set, the menu model is dissociated from the
+        /// If `GtkMenuButton:menu-model` is set, the menu model is dissociated from the
         /// `menu_button`, and the property is set to `nil`.
         nonmutating set {
             gtk_menu_button_set_popover(menu_button_ptr, UnsafeMutablePointer<GtkWidget>(newValue?.widget_ptr))
@@ -3377,6 +3385,8 @@ public protocol MessageDialogProtocol: DialogProtocol {
     /// Typed pointer to the underlying `GtkMessageDialog` instance.
     var message_dialog_ptr: UnsafeMutablePointer<GtkMessageDialog>! { get }
 
+    /// Required Initialiser for types conforming to `MessageDialogProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `MessageDialogRef` type acts as a lightweight Swift reference to an underlying `GtkMessageDialog` instance.
@@ -3686,14 +3696,14 @@ open class MessageDialog: Dialog, MessageDialogProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MessageDialogProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MessageDialogProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -3786,9 +3796,9 @@ public enum MessageDialogPropertyName: String, PropertyNameProtocol {
     case halign = "halign"
     case hasDefault = "has-default"
     case hasFocus = "has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case hasTooltip = "has-tooltip"
     case heightRequest = "height-request"
@@ -3889,11 +3899,11 @@ public enum MessageDialogPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipMarkup = "tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -3901,11 +3911,11 @@ public enum MessageDialogPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipText = "tooltip-text"
     /// The transient parent of the window. See `gtk_window_set_transient_for()` for
@@ -3984,12 +3994,12 @@ public extension MessageDialogProtocol {
 }
 
 public enum MessageDialogSignalName: String, SignalNameProtocol {
-    /// The `activate`-default signal is a
+    /// The `activate-default` signal is a
     /// [keybinding signal](#GtkSignalAction)
     /// which gets emitted when the user activates the default widget
     /// of `window`.
     case activateDefault = "activate-default"
-    /// The `activate`-focus signal is a
+    /// The `activate-focus` signal is a
     /// [keybinding signal](#GtkSignalAction)
     /// which gets emitted when the user activates the currently
     /// focused widget of `window`.
@@ -4001,7 +4011,7 @@ public enum MessageDialogSignalName: String, SignalNameProtocol {
     /// 
     /// The default binding for this signal is the Escape key.
     case close = "close"
-    /// The `close`-request signal is emitted when the user clicks on the close
+    /// The `close-request` signal is emitted when the user clicks on the close
     /// button of the window.
     case closeRequest = "close-request"
     /// Signals that all holders of a reference to the widget should release
@@ -4010,10 +4020,10 @@ public enum MessageDialogSignalName: String, SignalNameProtocol {
     /// 
     /// This signal is not suitable for saving widget state.
     case destroy = "destroy"
-    /// The `direction`-changed signal is emitted when the text direction
+    /// The `direction-changed` signal is emitted when the text direction
     /// of a widget changes.
     case directionChanged = "direction-changed"
-    /// The `enable`-debugging signal is a [keybinding signal](#GtkSignalAction)
+    /// The `enable-debugging` signal is a [keybinding signal](#GtkSignalAction)
     /// which gets emitted when the user enables or disables interactive
     /// debugging. When `toggle` is `true`, interactive debugging is toggled
     /// on or off, when it is `false`, the debugger will be pointed at the
@@ -4028,7 +4038,7 @@ public enum MessageDialogSignalName: String, SignalNameProtocol {
     /// Gets emitted if keyboard navigation fails.
     /// See `gtk_widget_keynav_failed()` for details.
     case keynavFailed = "keynav-failed"
-    /// The `keys`-changed signal gets emitted when the set of accelerators
+    /// The `keys-changed` signal gets emitted when the set of accelerators
     /// or mnemonics that are associated with `window` changes.
     case keysChanged = "keys-changed"
     /// The `map` signal is emitted when `widget` is going to be mapped, that is
@@ -4070,7 +4080,7 @@ public enum MessageDialogSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
+    /// Emitted when `GtkWidget:has-tooltip` is `true` and the hover timeout
     /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
     /// focus in keyboard mode.
     /// 
@@ -4095,7 +4105,7 @@ public enum MessageDialogSignalName: String, SignalNameProtocol {
     /// The `show` signal is emitted when `widget` is shown, for example with
     /// `gtk_widget_show()`.
     case show = "show"
-    /// The `state`-flags-changed signal is emitted when the widget state
+    /// The `state-flags-changed` signal is emitted when the widget state
     /// changes, see `gtk_widget_get_state_flags()`.
     case stateFlagsChanged = "state-flags-changed"
     /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
@@ -4170,9 +4180,9 @@ public enum MessageDialogSignalName: String, SignalNameProtocol {
     case notifyHalign = "notify::halign"
     case notifyHasDefault = "notify::has-default"
     case notifyHasFocus = "notify::has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case notifyHasTooltip = "notify::has-tooltip"
     case notifyHeightRequest = "notify::height-request"
@@ -4273,11 +4283,11 @@ public enum MessageDialogSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipMarkup = "notify::tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -4285,11 +4295,11 @@ public enum MessageDialogSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipText = "notify::tooltip-text"
     /// The transient parent of the window. See `gtk_window_set_transient_for()` for
@@ -4387,6 +4397,8 @@ public protocol MnemonicActionProtocol: ShortcutActionProtocol {
     /// Typed pointer to the underlying `GtkMnemonicAction` instance.
     var mnemonic_action_ptr: UnsafeMutablePointer<GtkMnemonicAction>! { get }
 
+    /// Required Initialiser for types conforming to `MnemonicActionProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `MnemonicActionRef` type acts as a lightweight Swift reference to an underlying `GtkMnemonicAction` instance.
@@ -4580,14 +4592,14 @@ open class MnemonicAction: ShortcutAction, MnemonicActionProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MnemonicActionProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MnemonicActionProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -4668,6 +4680,8 @@ public protocol MnemonicTriggerProtocol: ShortcutTriggerProtocol {
     /// Typed pointer to the underlying `GtkMnemonicTrigger` instance.
     var mnemonic_trigger_ptr: UnsafeMutablePointer<GtkMnemonicTrigger>! { get }
 
+    /// Required Initialiser for types conforming to `MnemonicTriggerProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `MnemonicTriggerRef` type acts as a lightweight Swift reference to an underlying `GtkMnemonicTrigger` instance.
@@ -4863,14 +4877,14 @@ open class MnemonicTrigger: ShortcutTrigger, MnemonicTriggerProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MnemonicTriggerProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MnemonicTriggerProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -5020,6 +5034,8 @@ public protocol MountOperationProtocol: GIO.MountOperationProtocol {
     /// Typed pointer to the underlying `GtkMountOperation` instance.
     var mount_operation_ptr: UnsafeMutablePointer<GtkMountOperation>! { get }
 
+    /// Required Initialiser for types conforming to `MountOperationProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `MountOperationRef` type acts as a lightweight Swift reference to an underlying `GtkMountOperation` instance.
@@ -5213,14 +5229,14 @@ open class MountOperation: GIO.MountOperation, MountOperationProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MountOperationProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MountOperationProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -5246,7 +5262,7 @@ public enum MountOperationPropertyName: String, PropertyNameProtocol {
     /// Whether to use an anonymous user when authenticating.
     case anonymous = "anonymous"
     /// The index of the user's choice when a question is asked during the
-    /// mount operation. See the `GMountOperation::ask`-question signal.
+    /// mount operation. See the `GMountOperation::ask-question` signal.
     case choice = "choice"
     case display = "display"
     /// The domain to use for the mount operation.
@@ -5408,7 +5424,7 @@ public enum MountOperationSignalName: String, SignalNameProtocol {
     /// Whether to use an anonymous user when authenticating.
     case notifyAnonymous = "notify::anonymous"
     /// The index of the user's choice when a question is asked during the
-    /// mount operation. See the `GMountOperation::ask`-question signal.
+    /// mount operation. See the `GMountOperation::ask-question` signal.
     case notifyChoice = "notify::choice"
     case notifyDisplay = "notify::display"
     /// The domain to use for the mount operation.
@@ -5546,6 +5562,8 @@ public protocol MultiFilterProtocol: FilterProtocol, GIO.ListModelProtocol, Buil
     /// Typed pointer to the underlying `GtkMultiFilter` instance.
     var multi_filter_ptr: UnsafeMutablePointer<GtkMultiFilter>! { get }
 
+    /// Required Initialiser for types conforming to `MultiFilterProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `MultiFilterRef` type acts as a lightweight Swift reference to an underlying `GtkMultiFilter` instance.
@@ -5753,14 +5771,14 @@ open class MultiFilter: Filter, MultiFilterProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MultiFilterProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MultiFilterProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -5863,6 +5881,8 @@ public protocol MultiSelectionProtocol: GLibObject.ObjectProtocol, GIO.ListModel
     /// Typed pointer to the underlying `GtkMultiSelection` instance.
     var multi_selection_ptr: UnsafeMutablePointer<GtkMultiSelection>! { get }
 
+    /// Required Initialiser for types conforming to `MultiSelectionProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `MultiSelectionRef` type acts as a lightweight Swift reference to an underlying `GtkMultiSelection` instance.
@@ -6063,14 +6083,14 @@ open class MultiSelection: GLibObject.Object, MultiSelectionProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MultiSelectionProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MultiSelectionProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -6246,6 +6266,8 @@ public protocol MultiSorterProtocol: SorterProtocol, GIO.ListModelProtocol, Buil
     /// Typed pointer to the underlying `GtkMultiSorter` instance.
     var multi_sorter_ptr: UnsafeMutablePointer<GtkMultiSorter>! { get }
 
+    /// Required Initialiser for types conforming to `MultiSorterProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `MultiSorterRef` type acts as a lightweight Swift reference to an underlying `GtkMultiSorter` instance.
@@ -6453,14 +6475,14 @@ open class MultiSorter: Sorter, MultiSorterProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MultiSorterProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MultiSorterProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -6576,6 +6598,8 @@ public protocol NamedActionProtocol: ShortcutActionProtocol {
     /// Typed pointer to the underlying `GtkNamedAction` instance.
     var named_action_ptr: UnsafeMutablePointer<GtkNamedAction>! { get }
 
+    /// Required Initialiser for types conforming to `NamedActionProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `NamedActionRef` type acts as a lightweight Swift reference to an underlying `GtkNamedAction` instance.
@@ -6769,14 +6793,14 @@ open class NamedAction: ShortcutAction, NamedActionProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `NamedActionProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `NamedActionProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 

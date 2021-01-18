@@ -70,6 +70,8 @@ public protocol PageSetupProtocol: GLibObject.ObjectProtocol {
     /// Typed pointer to the underlying `GtkPageSetup` instance.
     var page_setup_ptr: UnsafeMutablePointer<GtkPageSetup>! { get }
 
+    /// Required Initialiser for types conforming to `PageSetupProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `PageSetupRef` type acts as a lightweight Swift reference to an underlying `GtkPageSetup` instance.
@@ -407,14 +409,14 @@ open class PageSetup: GLibObject.Object, PageSetupProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PageSetupProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PageSetupProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -864,6 +866,8 @@ public protocol PanedProtocol: WidgetProtocol, OrientableProtocol {
     /// Typed pointer to the underlying `GtkPaned` instance.
     var paned_ptr: UnsafeMutablePointer<GtkPaned>! { get }
 
+    /// Required Initialiser for types conforming to `PanedProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `PanedRef` type acts as a lightweight Swift reference to an underlying `GtkPaned` instance.
@@ -1198,14 +1202,14 @@ open class Paned: Widget, PanedProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PanedProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PanedProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -1261,9 +1265,9 @@ public enum PanedPropertyName: String, PropertyNameProtocol {
     case halign = "halign"
     case hasDefault = "has-default"
     case hasFocus = "has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case hasTooltip = "has-tooltip"
     case heightRequest = "height-request"
@@ -1349,11 +1353,11 @@ public enum PanedPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipMarkup = "tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -1361,11 +1365,11 @@ public enum PanedPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipText = "tooltip-text"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
@@ -1436,14 +1440,14 @@ public extension PanedProtocol {
 }
 
 public enum PanedSignalName: String, SignalNameProtocol {
-    /// The `accept`-position signal is a
+    /// The `accept-position` signal is a
     /// [keybinding signal](#GtkSignalAction)
     /// which gets emitted to accept the current position of the handle when
     /// moving it using key bindings.
     /// 
     /// The default binding for this signal is Return or Space.
     case acceptPosition = "accept-position"
-    /// The `cancel`-position signal is a
+    /// The `cancel-position` signal is a
     /// [keybinding signal](#GtkSignalAction)
     /// which gets emitted to cancel moving the position of the handle using key
     /// bindings. The position of the handle will be reset to the value prior to
@@ -1451,13 +1455,13 @@ public enum PanedSignalName: String, SignalNameProtocol {
     /// 
     /// The default binding for this signal is Escape.
     case cancelPosition = "cancel-position"
-    /// The `cycle`-child-focus signal is a
+    /// The `cycle-child-focus` signal is a
     /// [keybinding signal](#GtkSignalAction)
     /// which gets emitted to cycle the focus between the children of the paned.
     /// 
     /// The default binding is f6.
     case cycleChildFocus = "cycle-child-focus"
-    /// The `cycle`-handle-focus signal is a
+    /// The `cycle-handle-focus` signal is a
     /// [keybinding signal](#GtkSignalAction)
     /// which gets emitted to cycle whether the paned should grab focus to allow
     /// the user to change position of the handle by using key bindings.
@@ -1470,7 +1474,7 @@ public enum PanedSignalName: String, SignalNameProtocol {
     /// 
     /// This signal is not suitable for saving widget state.
     case destroy = "destroy"
-    /// The `direction`-changed signal is emitted when the text direction
+    /// The `direction-changed` signal is emitted when the text direction
     /// of a widget changes.
     case directionChanged = "direction-changed"
     /// The `hide` signal is emitted when `widget` is hidden, for example with
@@ -1493,7 +1497,7 @@ public enum PanedSignalName: String, SignalNameProtocol {
     case mnemonicActivate = "mnemonic-activate"
     /// Emitted when the focus is moved.
     case moveFocus = "move-focus"
-    /// The `move`-handle signal is a
+    /// The `move-handle` signal is a
     /// [keybinding signal](#GtkSignalAction)
     /// which gets emitted to move the handle when the user is using key bindings
     /// to move it.
@@ -1523,7 +1527,7 @@ public enum PanedSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
+    /// Emitted when `GtkWidget:has-tooltip` is `true` and the hover timeout
     /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
     /// focus in keyboard mode.
     /// 
@@ -1543,10 +1547,10 @@ public enum PanedSignalName: String, SignalNameProtocol {
     /// The `show` signal is emitted when `widget` is shown, for example with
     /// `gtk_widget_show()`.
     case show = "show"
-    /// The `state`-flags-changed signal is emitted when the widget state
+    /// The `state-flags-changed` signal is emitted when the widget state
     /// changes, see `gtk_widget_get_state_flags()`.
     case stateFlagsChanged = "state-flags-changed"
-    /// The `toggle`-handle-focus is a
+    /// The `toggle-handle-focus` is a
     /// [keybinding signal](#GtkSignalAction)
     /// which gets emitted to accept the current position of the handle and then
     /// move focus to the next widget in the focus chain.
@@ -1592,9 +1596,9 @@ public enum PanedSignalName: String, SignalNameProtocol {
     case notifyHalign = "notify::halign"
     case notifyHasDefault = "notify::has-default"
     case notifyHasFocus = "notify::has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case notifyHasTooltip = "notify::has-tooltip"
     case notifyHeightRequest = "notify::height-request"
@@ -1680,11 +1684,11 @@ public enum PanedSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipMarkup = "notify::tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -1692,11 +1696,11 @@ public enum PanedSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipText = "notify::tooltip-text"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
@@ -1741,7 +1745,7 @@ public extension PanedProtocol {
     }
     
     
-    /// The `accept`-position signal is a
+    /// The `accept-position` signal is a
     /// [keybinding signal](#GtkSignalAction)
     /// which gets emitted to accept the current position of the handle when
     /// moving it using key bindings.
@@ -1771,7 +1775,7 @@ public extension PanedProtocol {
     /// Typed `accept-position` signal for using the `connect(signal:)` methods
     static var acceptPositionSignal: PanedSignalName { .acceptPosition }
     
-    /// The `cancel`-position signal is a
+    /// The `cancel-position` signal is a
     /// [keybinding signal](#GtkSignalAction)
     /// which gets emitted to cancel moving the position of the handle using key
     /// bindings. The position of the handle will be reset to the value prior to
@@ -1802,7 +1806,7 @@ public extension PanedProtocol {
     /// Typed `cancel-position` signal for using the `connect(signal:)` methods
     static var cancelPositionSignal: PanedSignalName { .cancelPosition }
     
-    /// The `cycle`-child-focus signal is a
+    /// The `cycle-child-focus` signal is a
     /// [keybinding signal](#GtkSignalAction)
     /// which gets emitted to cycle the focus between the children of the paned.
     /// 
@@ -1832,7 +1836,7 @@ public extension PanedProtocol {
     /// Typed `cycle-child-focus` signal for using the `connect(signal:)` methods
     static var cycleChildFocusSignal: PanedSignalName { .cycleChildFocus }
     
-    /// The `cycle`-handle-focus signal is a
+    /// The `cycle-handle-focus` signal is a
     /// [keybinding signal](#GtkSignalAction)
     /// which gets emitted to cycle whether the paned should grab focus to allow
     /// the user to change position of the handle by using key bindings.
@@ -1863,7 +1867,7 @@ public extension PanedProtocol {
     /// Typed `cycle-handle-focus` signal for using the `connect(signal:)` methods
     static var cycleHandleFocusSignal: PanedSignalName { .cycleHandleFocus }
     
-    /// The `move`-handle signal is a
+    /// The `move-handle` signal is a
     /// [keybinding signal](#GtkSignalAction)
     /// which gets emitted to move the handle when the user is using key bindings
     /// to move it.
@@ -1892,7 +1896,7 @@ public extension PanedProtocol {
     /// Typed `move-handle` signal for using the `connect(signal:)` methods
     static var moveHandleSignal: PanedSignalName { .moveHandle }
     
-    /// The `toggle`-handle-focus is a
+    /// The `toggle-handle-focus` is a
     /// [keybinding signal](#GtkSignalAction)
     /// which gets emitted to accept the current position of the handle and then
     /// move focus to the next widget in the focus chain.
@@ -2470,7 +2474,7 @@ public extension PanedProtocol {
 
     /// Retrieves the end child of the given `GtkPaned`.
     /// 
-    /// See also: `GtkPaned:end`-child
+    /// See also: `GtkPaned:end-child`
     @inlinable func getEndChild() -> WidgetRef! {
         guard let rv = WidgetRef(gconstpointer: gconstpointer(gtk_paned_get_end_child(paned_ptr))) else { return nil }
         return rv
@@ -2508,13 +2512,13 @@ public extension PanedProtocol {
 
     /// Retrieves the start child of the given `GtkPaned`.
     /// 
-    /// See also: `GtkPaned:start`-child
+    /// See also: `GtkPaned:start-child`
     @inlinable func getStartChild() -> WidgetRef! {
         guard let rv = WidgetRef(gconstpointer: gconstpointer(gtk_paned_get_start_child(paned_ptr))) else { return nil }
         return rv
     }
 
-    /// Gets the `GtkPaned:wide`-handle property.
+    /// Gets the `GtkPaned:wide-handle` property.
     @inlinable func getWideHandle() -> Bool {
         let rv = ((gtk_paned_get_wide_handle(paned_ptr)) != 0)
         return rv
@@ -2532,25 +2536,25 @@ public extension PanedProtocol {
     
     }
 
-    /// Sets the `GtkPaned:resize`-end-child property
+    /// Sets the `GtkPaned:resize-end-child` property
     @inlinable func setResizeEndChild(resize: Bool) {
         gtk_paned_set_resize_end_child(paned_ptr, gboolean((resize) ? 1 : 0))
     
     }
 
-    /// Sets the `GtkPaned:resize`-start-child property
+    /// Sets the `GtkPaned:resize-start-child` property
     @inlinable func setResizeStartChild(resize: Bool) {
         gtk_paned_set_resize_start_child(paned_ptr, gboolean((resize) ? 1 : 0))
     
     }
 
-    /// Sets the `GtkPaned:shrink`-end-child property
+    /// Sets the `GtkPaned:shrink-end-child` property
     @inlinable func setShrinkEndChild(resize: Bool) {
         gtk_paned_set_shrink_end_child(paned_ptr, gboolean((resize) ? 1 : 0))
     
     }
 
-    /// Sets the `GtkPaned:shrink`-start-child property
+    /// Sets the `GtkPaned:shrink-start-child` property
     @inlinable func setShrinkStartChild(resize: Bool) {
         gtk_paned_set_shrink_start_child(paned_ptr, gboolean((resize) ? 1 : 0))
     
@@ -2562,18 +2566,18 @@ public extension PanedProtocol {
     
     }
 
-    /// Sets the `GtkPaned:wide`-handle property.
+    /// Sets the `GtkPaned:wide-handle` property.
     @inlinable func setWideHandle(wide: Bool) {
         gtk_paned_set_wide_handle(paned_ptr, gboolean((wide) ? 1 : 0))
     
     }
     /// Retrieves the end child of the given `GtkPaned`.
     /// 
-    /// See also: `GtkPaned:end`-child
+    /// See also: `GtkPaned:end-child`
     @inlinable var endChild: WidgetRef! {
         /// Retrieves the end child of the given `GtkPaned`.
         /// 
-        /// See also: `GtkPaned:end`-child
+        /// See also: `GtkPaned:end-child`
         get {
             guard let rv = WidgetRef(gconstpointer: gconstpointer(gtk_paned_get_end_child(paned_ptr))) else { return nil }
             return rv
@@ -2603,7 +2607,7 @@ public extension PanedProtocol {
             let rv = ((gtk_paned_get_resize_end_child(paned_ptr)) != 0)
             return rv
         }
-        /// Sets the `GtkPaned:resize`-end-child property
+        /// Sets the `GtkPaned:resize-end-child` property
         nonmutating set {
             gtk_paned_set_resize_end_child(paned_ptr, gboolean((newValue) ? 1 : 0))
         }
@@ -2616,7 +2620,7 @@ public extension PanedProtocol {
             let rv = ((gtk_paned_get_resize_start_child(paned_ptr)) != 0)
             return rv
         }
-        /// Sets the `GtkPaned:resize`-start-child property
+        /// Sets the `GtkPaned:resize-start-child` property
         nonmutating set {
             gtk_paned_set_resize_start_child(paned_ptr, gboolean((newValue) ? 1 : 0))
         }
@@ -2629,7 +2633,7 @@ public extension PanedProtocol {
             let rv = ((gtk_paned_get_shrink_end_child(paned_ptr)) != 0)
             return rv
         }
-        /// Sets the `GtkPaned:shrink`-end-child property
+        /// Sets the `GtkPaned:shrink-end-child` property
         nonmutating set {
             gtk_paned_set_shrink_end_child(paned_ptr, gboolean((newValue) ? 1 : 0))
         }
@@ -2642,7 +2646,7 @@ public extension PanedProtocol {
             let rv = ((gtk_paned_get_shrink_start_child(paned_ptr)) != 0)
             return rv
         }
-        /// Sets the `GtkPaned:shrink`-start-child property
+        /// Sets the `GtkPaned:shrink-start-child` property
         nonmutating set {
             gtk_paned_set_shrink_start_child(paned_ptr, gboolean((newValue) ? 1 : 0))
         }
@@ -2650,11 +2654,11 @@ public extension PanedProtocol {
 
     /// Retrieves the start child of the given `GtkPaned`.
     /// 
-    /// See also: `GtkPaned:start`-child
+    /// See also: `GtkPaned:start-child`
     @inlinable var startChild: WidgetRef! {
         /// Retrieves the start child of the given `GtkPaned`.
         /// 
-        /// See also: `GtkPaned:start`-child
+        /// See also: `GtkPaned:start-child`
         get {
             guard let rv = WidgetRef(gconstpointer: gconstpointer(gtk_paned_get_start_child(paned_ptr))) else { return nil }
             return rv
@@ -2665,14 +2669,14 @@ public extension PanedProtocol {
         }
     }
 
-    /// Gets the `GtkPaned:wide`-handle property.
+    /// Gets the `GtkPaned:wide-handle` property.
     @inlinable var wideHandle: Bool {
-        /// Gets the `GtkPaned:wide`-handle property.
+        /// Gets the `GtkPaned:wide-handle` property.
         get {
             let rv = ((gtk_paned_get_wide_handle(paned_ptr)) != 0)
             return rv
         }
-        /// Sets the `GtkPaned:wide`-handle property.
+        /// Sets the `GtkPaned:wide-handle` property.
         nonmutating set {
             gtk_paned_set_wide_handle(paned_ptr, gboolean((newValue) ? 1 : 0))
         }
@@ -2698,6 +2702,8 @@ public protocol ParamSpecExpressionProtocol: GLibObject.ParamSpecProtocol {
     /// Typed pointer to the underlying `GtkParamSpecExpression` instance.
     var param_expression_ptr: UnsafeMutablePointer<GtkParamSpecExpression>! { get }
 
+    /// Required Initialiser for types conforming to `ParamSpecExpressionProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ParamSpecExpressionRef` type acts as a lightweight Swift reference to an underlying `GtkParamSpecExpression` instance.
@@ -2888,7 +2894,7 @@ open class ParamSpecExpression: GLibObject.ParamSpec, ParamSpecExpressionProtoco
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecExpressionProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
@@ -2978,6 +2984,8 @@ public protocol PasswordEntryProtocol: WidgetProtocol, EditableProtocol {
     /// Typed pointer to the underlying `GtkPasswordEntry` instance.
     var password_entry_ptr: UnsafeMutablePointer<GtkPasswordEntry>! { get }
 
+    /// Required Initialiser for types conforming to `PasswordEntryProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `PasswordEntryRef` type acts as a lightweight Swift reference to an underlying `GtkPasswordEntry` instance.
@@ -3234,14 +3242,14 @@ open class PasswordEntry: Widget, PasswordEntryProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PasswordEntryProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PasswordEntryProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -3300,9 +3308,9 @@ public enum PasswordEntryPropertyName: String, PropertyNameProtocol {
     case halign = "halign"
     case hasDefault = "has-default"
     case hasFocus = "has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case hasTooltip = "has-tooltip"
     case heightRequest = "height-request"
@@ -3367,11 +3375,11 @@ public enum PasswordEntryPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipMarkup = "tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -3379,11 +3387,11 @@ public enum PasswordEntryPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipText = "tooltip-text"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
@@ -3457,7 +3465,7 @@ public enum PasswordEntrySignalName: String, SignalNameProtocol {
     /// 
     /// This signal is not suitable for saving widget state.
     case destroy = "destroy"
-    /// The `direction`-changed signal is emitted when the text direction
+    /// The `direction-changed` signal is emitted when the text direction
     /// of a widget changes.
     case directionChanged = "direction-changed"
     /// The `hide` signal is emitted when `widget` is hidden, for example with
@@ -3505,7 +3513,7 @@ public enum PasswordEntrySignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
+    /// Emitted when `GtkWidget:has-tooltip` is `true` and the hover timeout
     /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
     /// focus in keyboard mode.
     /// 
@@ -3525,7 +3533,7 @@ public enum PasswordEntrySignalName: String, SignalNameProtocol {
     /// The `show` signal is emitted when `widget` is shown, for example with
     /// `gtk_widget_show()`.
     case show = "show"
-    /// The `state`-flags-changed signal is emitted when the widget state
+    /// The `state-flags-changed` signal is emitted when the widget state
     /// changes, see `gtk_widget_get_state_flags()`.
     case stateFlagsChanged = "state-flags-changed"
     /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
@@ -3570,9 +3578,9 @@ public enum PasswordEntrySignalName: String, SignalNameProtocol {
     case notifyHalign = "notify::halign"
     case notifyHasDefault = "notify::has-default"
     case notifyHasFocus = "notify::has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case notifyHasTooltip = "notify::has-tooltip"
     case notifyHeightRequest = "notify::height-request"
@@ -3637,11 +3645,11 @@ public enum PasswordEntrySignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipMarkup = "notify::tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -3649,11 +3657,11 @@ public enum PasswordEntrySignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipText = "notify::tooltip-text"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
@@ -4023,8 +4031,8 @@ public extension PasswordEntryProtocol {
 /// # Sizing the paintable
 /// 
 /// You can influence how the paintable is displayed inside the `GtkPicture`.
-/// By turning off `GtkPicture:keep`-aspect-ratio you can allow the paintable
-/// to get stretched. `GtkPicture:can`-shrink can be unset to make sure that
+/// By turning off `GtkPicture:keep-aspect-ratio` you can allow the paintable
+/// to get stretched. `GtkPicture:can-shrink` can be unset to make sure that
 /// paintables are never made smaller than their ideal size - but be careful
 /// if you do not know the size of the paintable in use (like when displaying
 /// user-loaded images). This can easily cause the picture to grow larger than
@@ -4046,6 +4054,8 @@ public protocol PictureProtocol: WidgetProtocol {
     /// Typed pointer to the underlying `GtkPicture` instance.
     var picture_ptr: UnsafeMutablePointer<GtkPicture>! { get }
 
+    /// Required Initialiser for types conforming to `PictureProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `PictureRef` type acts as a lightweight Swift reference to an underlying `GtkPicture` instance.
@@ -4076,8 +4086,8 @@ public protocol PictureProtocol: WidgetProtocol {
 /// # Sizing the paintable
 /// 
 /// You can influence how the paintable is displayed inside the `GtkPicture`.
-/// By turning off `GtkPicture:keep`-aspect-ratio you can allow the paintable
-/// to get stretched. `GtkPicture:can`-shrink can be unset to make sure that
+/// By turning off `GtkPicture:keep-aspect-ratio` you can allow the paintable
+/// to get stretched. `GtkPicture:can-shrink` can be unset to make sure that
 /// paintables are never made smaller than their ideal size - but be careful
 /// if you do not know the size of the paintable in use (like when displaying
 /// user-loaded images). This can easily cause the picture to grow larger than
@@ -4303,8 +4313,8 @@ public extension PictureRef {
 /// # Sizing the paintable
 /// 
 /// You can influence how the paintable is displayed inside the `GtkPicture`.
-/// By turning off `GtkPicture:keep`-aspect-ratio you can allow the paintable
-/// to get stretched. `GtkPicture:can`-shrink can be unset to make sure that
+/// By turning off `GtkPicture:keep-aspect-ratio` you can allow the paintable
+/// to get stretched. `GtkPicture:can-shrink` can be unset to make sure that
 /// paintables are never made smaller than their ideal size - but be careful
 /// if you do not know the size of the paintable in use (like when displaying
 /// user-loaded images). This can easily cause the picture to grow larger than
@@ -4419,14 +4429,14 @@ open class Picture: Widget, PictureProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PictureProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PictureProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -4594,9 +4604,9 @@ public enum PicturePropertyName: String, PropertyNameProtocol {
     case halign = "halign"
     case hasDefault = "has-default"
     case hasFocus = "has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case hasTooltip = "has-tooltip"
     case heightRequest = "height-request"
@@ -4664,11 +4674,11 @@ public enum PicturePropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipMarkup = "tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -4676,11 +4686,11 @@ public enum PicturePropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipText = "tooltip-text"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
@@ -4753,7 +4763,7 @@ public enum PictureSignalName: String, SignalNameProtocol {
     /// 
     /// This signal is not suitable for saving widget state.
     case destroy = "destroy"
-    /// The `direction`-changed signal is emitted when the text direction
+    /// The `direction-changed` signal is emitted when the text direction
     /// of a widget changes.
     case directionChanged = "direction-changed"
     /// The `hide` signal is emitted when `widget` is hidden, for example with
@@ -4801,7 +4811,7 @@ public enum PictureSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
+    /// Emitted when `GtkWidget:has-tooltip` is `true` and the hover timeout
     /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
     /// focus in keyboard mode.
     /// 
@@ -4821,7 +4831,7 @@ public enum PictureSignalName: String, SignalNameProtocol {
     /// The `show` signal is emitted when `widget` is shown, for example with
     /// `gtk_widget_show()`.
     case show = "show"
-    /// The `state`-flags-changed signal is emitted when the widget state
+    /// The `state-flags-changed` signal is emitted when the widget state
     /// changes, see `gtk_widget_get_state_flags()`.
     case stateFlagsChanged = "state-flags-changed"
     /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
@@ -4868,9 +4878,9 @@ public enum PictureSignalName: String, SignalNameProtocol {
     case notifyHalign = "notify::halign"
     case notifyHasDefault = "notify::has-default"
     case notifyHasFocus = "notify::has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case notifyHasTooltip = "notify::has-tooltip"
     case notifyHeightRequest = "notify::height-request"
@@ -4938,11 +4948,11 @@ public enum PictureSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipMarkup = "notify::tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -4950,11 +4960,11 @@ public enum PictureSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipText = "notify::tooltip-text"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
@@ -5287,6 +5297,8 @@ public protocol PopoverProtocol: WidgetProtocol, NativeProtocol, ShortcutManager
     /// Typed pointer to the underlying `GtkPopover` instance.
     var popover_ptr: UnsafeMutablePointer<GtkPopover>! { get }
 
+    /// Required Initialiser for types conforming to `PopoverProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `PopoverRef` type acts as a lightweight Swift reference to an underlying `GtkPopover` instance.
@@ -5625,14 +5637,14 @@ open class Popover: Widget, PopoverProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PopoverProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PopoverProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -5692,9 +5704,9 @@ public enum PopoverPropertyName: String, PropertyNameProtocol {
     case hasArrow = "has-arrow"
     case hasDefault = "has-default"
     case hasFocus = "has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case hasTooltip = "has-tooltip"
     case heightRequest = "height-request"
@@ -5760,11 +5772,11 @@ public enum PopoverPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipMarkup = "tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -5772,11 +5784,11 @@ public enum PopoverPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipText = "tooltip-text"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
@@ -5843,7 +5855,7 @@ public extension PopoverProtocol {
 }
 
 public enum PopoverSignalName: String, SignalNameProtocol {
-    /// The `activate`-default signal is a
+    /// The `activate-default` signal is a
     /// [keybinding signal](#GtkSignalAction)
     /// which gets emitted when the user activates the default widget
     /// of `self`.
@@ -5856,7 +5868,7 @@ public enum PopoverSignalName: String, SignalNameProtocol {
     /// 
     /// This signal is not suitable for saving widget state.
     case destroy = "destroy"
-    /// The `direction`-changed signal is emitted when the text direction
+    /// The `direction-changed` signal is emitted when the text direction
     /// of a widget changes.
     case directionChanged = "direction-changed"
     /// The `hide` signal is emitted when `widget` is hidden, for example with
@@ -5904,7 +5916,7 @@ public enum PopoverSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
+    /// Emitted when `GtkWidget:has-tooltip` is `true` and the hover timeout
     /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
     /// focus in keyboard mode.
     /// 
@@ -5924,7 +5936,7 @@ public enum PopoverSignalName: String, SignalNameProtocol {
     /// The `show` signal is emitted when `widget` is shown, for example with
     /// `gtk_widget_show()`.
     case show = "show"
-    /// The `state`-flags-changed signal is emitted when the widget state
+    /// The `state-flags-changed` signal is emitted when the widget state
     /// changes, see `gtk_widget_get_state_flags()`.
     case stateFlagsChanged = "state-flags-changed"
     /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
@@ -5970,9 +5982,9 @@ public enum PopoverSignalName: String, SignalNameProtocol {
     case notifyHasArrow = "notify::has-arrow"
     case notifyHasDefault = "notify::has-default"
     case notifyHasFocus = "notify::has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case notifyHasTooltip = "notify::has-tooltip"
     case notifyHeightRequest = "notify::height-request"
@@ -6038,11 +6050,11 @@ public enum PopoverSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipMarkup = "notify::tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -6050,11 +6062,11 @@ public enum PopoverSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipText = "notify::tooltip-text"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
@@ -6095,7 +6107,7 @@ public extension PopoverProtocol {
     }
     
     
-    /// The `activate`-default signal is a
+    /// The `activate-default` signal is a
     /// [keybinding signal](#GtkSignalAction)
     /// which gets emitted when the user activates the default widget
     /// of `self`.
@@ -6575,7 +6587,7 @@ public extension PopoverProtocol {
         return rv
     }
 
-    /// Gets the value of the `GtkPopover:mnemonics`-visible property.
+    /// Gets the value of the `GtkPopover:mnemonics-visible` property.
     @inlinable func getMnemonicsVisible() -> Bool {
         let rv = ((gtk_popover_get_mnemonics_visible(popover_ptr)) != 0)
         return rv
@@ -6677,7 +6689,7 @@ public extension PopoverProtocol {
     
     }
 
-    /// Sets the `GtkPopover:mnemonics`-visible property.
+    /// Sets the `GtkPopover:mnemonics-visible` property.
     @inlinable func set(mnemonicsVisible: Bool) {
         gtk_popover_set_mnemonics_visible(popover_ptr, gboolean((mnemonicsVisible) ? 1 : 0))
     
@@ -6773,14 +6785,14 @@ public extension PopoverProtocol {
         }
     }
 
-    /// Gets the value of the `GtkPopover:mnemonics`-visible property.
+    /// Gets the value of the `GtkPopover:mnemonics-visible` property.
     @inlinable var mnemonicsVisible: Bool {
-        /// Gets the value of the `GtkPopover:mnemonics`-visible property.
+        /// Gets the value of the `GtkPopover:mnemonics-visible` property.
         get {
             let rv = ((gtk_popover_get_mnemonics_visible(popover_ptr)) != 0)
             return rv
         }
-        /// Sets the `GtkPopover:mnemonics`-visible property.
+        /// Sets the `GtkPopover:mnemonics-visible` property.
         nonmutating set {
             gtk_popover_set_mnemonics_visible(popover_ptr, gboolean((newValue) ? 1 : 0))
         }
@@ -6834,11 +6846,11 @@ public extension PopoverProtocol {
 /// ## Menu models
 /// 
 /// The XML format understood by `GtkBuilder` for `GMenuModel` consists
-/// of a toplevel `<menu>` element, which contains one or more `<item>`
-/// elements. Each `<item>` element contains `<attribute>` and `<link>`
-/// elements with a mandatory name attribute. `<link>` elements have the
-/// same content model as `<menu>`. Instead of `<link name="submenu>` or
-/// `<link name="section">`, you can use `<submenu>` or `<section>`
+/// of a toplevel `&lt;menu&gt;` element, which contains one or more `&lt;item&gt;`
+/// elements. Each `&lt;item&gt;` element contains `&lt;attribute&gt;` and `&lt;link&gt;`
+/// elements with a mandatory name attribute. `&lt;link&gt;` elements have the
+/// same content model as `&lt;menu&gt;`. Instead of `&lt;link name="submenu&gt;` or
+/// `&lt;link name="section"&gt;`, you can use `&lt;submenu&gt;` or `&lt;section&gt;`
 /// elements.
 /// 
 /// ```
@@ -6861,7 +6873,7 @@ public extension PopoverProtocol {
 /// ```
 /// 
 /// Attribute values can be translated using gettext, like other `GtkBuilder`
-/// content. `<attribute>` elements can be marked for translation with a
+/// content. `&lt;attribute&gt;` elements can be marked for translation with a
 /// `translatable="yes"` attribute. It is also possible to specify message
 /// context and translator comments, using the context and comments attributes.
 /// To make use of this, the `GtkBuilder` must have been given the gettext
@@ -6879,7 +6891,7 @@ public extension PopoverProtocol {
 ///      This is mainly useful for exported menus, see `gtk_application_set_menubar()`.
 /// - "custom": a string used to match against the ID of a custom child added
 ///      with `gtk_popover_menu_add_child()`, `gtk_popover_menu_bar_add_child()`, or
-///      in the ui file with `<child type="ID">`.
+///      in the ui file with `&lt;child type="ID"&gt;`.
 /// 
 /// The following attributes are used when constructing sections:
 /// - "label": a user-visible string to use as section heading
@@ -6917,6 +6929,8 @@ public protocol PopoverMenuProtocol: PopoverProtocol {
     /// Typed pointer to the underlying `GtkPopoverMenu` instance.
     var popover_menu_ptr: UnsafeMutablePointer<GtkPopoverMenu>! { get }
 
+    /// Required Initialiser for types conforming to `PopoverMenuProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `PopoverMenuRef` type acts as a lightweight Swift reference to an underlying `GtkPopoverMenu` instance.
@@ -6936,11 +6950,11 @@ public protocol PopoverMenuProtocol: PopoverProtocol {
 /// ## Menu models
 /// 
 /// The XML format understood by `GtkBuilder` for `GMenuModel` consists
-/// of a toplevel `<menu>` element, which contains one or more `<item>`
-/// elements. Each `<item>` element contains `<attribute>` and `<link>`
-/// elements with a mandatory name attribute. `<link>` elements have the
-/// same content model as `<menu>`. Instead of `<link name="submenu>` or
-/// `<link name="section">`, you can use `<submenu>` or `<section>`
+/// of a toplevel `&lt;menu&gt;` element, which contains one or more `&lt;item&gt;`
+/// elements. Each `&lt;item&gt;` element contains `&lt;attribute&gt;` and `&lt;link&gt;`
+/// elements with a mandatory name attribute. `&lt;link&gt;` elements have the
+/// same content model as `&lt;menu&gt;`. Instead of `&lt;link name="submenu&gt;` or
+/// `&lt;link name="section"&gt;`, you can use `&lt;submenu&gt;` or `&lt;section&gt;`
 /// elements.
 /// 
 /// ```
@@ -6963,7 +6977,7 @@ public protocol PopoverMenuProtocol: PopoverProtocol {
 /// ```
 /// 
 /// Attribute values can be translated using gettext, like other `GtkBuilder`
-/// content. `<attribute>` elements can be marked for translation with a
+/// content. `&lt;attribute&gt;` elements can be marked for translation with a
 /// `translatable="yes"` attribute. It is also possible to specify message
 /// context and translator comments, using the context and comments attributes.
 /// To make use of this, the `GtkBuilder` must have been given the gettext
@@ -6981,7 +6995,7 @@ public protocol PopoverMenuProtocol: PopoverProtocol {
 ///      This is mainly useful for exported menus, see `gtk_application_set_menubar()`.
 /// - "custom": a string used to match against the ID of a custom child added
 ///      with `gtk_popover_menu_add_child()`, `gtk_popover_menu_bar_add_child()`, or
-///      in the ui file with `<child type="ID">`.
+///      in the ui file with `&lt;child type="ID"&gt;`.
 /// 
 /// The following attributes are used when constructing sections:
 /// - "label": a user-visible string to use as section heading
@@ -7180,11 +7194,11 @@ public extension PopoverMenuRef {
 /// ## Menu models
 /// 
 /// The XML format understood by `GtkBuilder` for `GMenuModel` consists
-/// of a toplevel `<menu>` element, which contains one or more `<item>`
-/// elements. Each `<item>` element contains `<attribute>` and `<link>`
-/// elements with a mandatory name attribute. `<link>` elements have the
-/// same content model as `<menu>`. Instead of `<link name="submenu>` or
-/// `<link name="section">`, you can use `<submenu>` or `<section>`
+/// of a toplevel `&lt;menu&gt;` element, which contains one or more `&lt;item&gt;`
+/// elements. Each `&lt;item&gt;` element contains `&lt;attribute&gt;` and `&lt;link&gt;`
+/// elements with a mandatory name attribute. `&lt;link&gt;` elements have the
+/// same content model as `&lt;menu&gt;`. Instead of `&lt;link name="submenu&gt;` or
+/// `&lt;link name="section"&gt;`, you can use `&lt;submenu&gt;` or `&lt;section&gt;`
 /// elements.
 /// 
 /// ```
@@ -7207,7 +7221,7 @@ public extension PopoverMenuRef {
 /// ```
 /// 
 /// Attribute values can be translated using gettext, like other `GtkBuilder`
-/// content. `<attribute>` elements can be marked for translation with a
+/// content. `&lt;attribute&gt;` elements can be marked for translation with a
 /// `translatable="yes"` attribute. It is also possible to specify message
 /// context and translator comments, using the context and comments attributes.
 /// To make use of this, the `GtkBuilder` must have been given the gettext
@@ -7225,7 +7239,7 @@ public extension PopoverMenuRef {
 ///      This is mainly useful for exported menus, see `gtk_application_set_menubar()`.
 /// - "custom": a string used to match against the ID of a custom child added
 ///      with `gtk_popover_menu_add_child()`, `gtk_popover_menu_bar_add_child()`, or
-///      in the ui file with `<child type="ID">`.
+///      in the ui file with `&lt;child type="ID"&gt;`.
 /// 
 /// The following attributes are used when constructing sections:
 /// - "label": a user-visible string to use as section heading
@@ -7356,14 +7370,14 @@ open class PopoverMenu: Popover, PopoverMenuProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PopoverMenuProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PopoverMenuProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -7491,9 +7505,9 @@ public enum PopoverMenuPropertyName: String, PropertyNameProtocol {
     case hasArrow = "has-arrow"
     case hasDefault = "has-default"
     case hasFocus = "has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case hasTooltip = "has-tooltip"
     case heightRequest = "height-request"
@@ -7560,11 +7574,11 @@ public enum PopoverMenuPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipMarkup = "tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -7572,11 +7586,11 @@ public enum PopoverMenuPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipText = "tooltip-text"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
@@ -7644,7 +7658,7 @@ public extension PopoverMenuProtocol {
 }
 
 public enum PopoverMenuSignalName: String, SignalNameProtocol {
-    /// The `activate`-default signal is a
+    /// The `activate-default` signal is a
     /// [keybinding signal](#GtkSignalAction)
     /// which gets emitted when the user activates the default widget
     /// of `self`.
@@ -7657,7 +7671,7 @@ public enum PopoverMenuSignalName: String, SignalNameProtocol {
     /// 
     /// This signal is not suitable for saving widget state.
     case destroy = "destroy"
-    /// The `direction`-changed signal is emitted when the text direction
+    /// The `direction-changed` signal is emitted when the text direction
     /// of a widget changes.
     case directionChanged = "direction-changed"
     /// The `hide` signal is emitted when `widget` is hidden, for example with
@@ -7705,7 +7719,7 @@ public enum PopoverMenuSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
+    /// Emitted when `GtkWidget:has-tooltip` is `true` and the hover timeout
     /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
     /// focus in keyboard mode.
     /// 
@@ -7725,7 +7739,7 @@ public enum PopoverMenuSignalName: String, SignalNameProtocol {
     /// The `show` signal is emitted when `widget` is shown, for example with
     /// `gtk_widget_show()`.
     case show = "show"
-    /// The `state`-flags-changed signal is emitted when the widget state
+    /// The `state-flags-changed` signal is emitted when the widget state
     /// changes, see `gtk_widget_get_state_flags()`.
     case stateFlagsChanged = "state-flags-changed"
     /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
@@ -7771,9 +7785,9 @@ public enum PopoverMenuSignalName: String, SignalNameProtocol {
     case notifyHasArrow = "notify::has-arrow"
     case notifyHasDefault = "notify::has-default"
     case notifyHasFocus = "notify::has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case notifyHasTooltip = "notify::has-tooltip"
     case notifyHeightRequest = "notify::height-request"
@@ -7840,11 +7854,11 @@ public enum PopoverMenuSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipMarkup = "notify::tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -7852,11 +7866,11 @@ public enum PopoverMenuSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipText = "notify::tooltip-text"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
@@ -7980,6 +7994,8 @@ public protocol PopoverMenuBarProtocol: WidgetProtocol {
     /// Typed pointer to the underlying `GtkPopoverMenuBar` instance.
     var popover_menu_bar_ptr: UnsafeMutablePointer<GtkPopoverMenuBar>! { get }
 
+    /// Required Initialiser for types conforming to `PopoverMenuBarProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `PopoverMenuBarRef` type acts as a lightweight Swift reference to an underlying `GtkPopoverMenuBar` instance.
@@ -8237,14 +8253,14 @@ open class PopoverMenuBar: Widget, PopoverMenuBarProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PopoverMenuBarProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PopoverMenuBarProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -8305,9 +8321,9 @@ public enum PopoverMenuBarPropertyName: String, PropertyNameProtocol {
     case halign = "halign"
     case hasDefault = "has-default"
     case hasFocus = "has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case hasTooltip = "has-tooltip"
     case heightRequest = "height-request"
@@ -8374,11 +8390,11 @@ public enum PopoverMenuBarPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipMarkup = "tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -8386,11 +8402,11 @@ public enum PopoverMenuBarPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipText = "tooltip-text"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
@@ -8463,7 +8479,7 @@ public enum PopoverMenuBarSignalName: String, SignalNameProtocol {
     /// 
     /// This signal is not suitable for saving widget state.
     case destroy = "destroy"
-    /// The `direction`-changed signal is emitted when the text direction
+    /// The `direction-changed` signal is emitted when the text direction
     /// of a widget changes.
     case directionChanged = "direction-changed"
     /// The `hide` signal is emitted when `widget` is hidden, for example with
@@ -8511,7 +8527,7 @@ public enum PopoverMenuBarSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
+    /// Emitted when `GtkWidget:has-tooltip` is `true` and the hover timeout
     /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
     /// focus in keyboard mode.
     /// 
@@ -8531,7 +8547,7 @@ public enum PopoverMenuBarSignalName: String, SignalNameProtocol {
     /// The `show` signal is emitted when `widget` is shown, for example with
     /// `gtk_widget_show()`.
     case show = "show"
-    /// The `state`-flags-changed signal is emitted when the widget state
+    /// The `state-flags-changed` signal is emitted when the widget state
     /// changes, see `gtk_widget_get_state_flags()`.
     case stateFlagsChanged = "state-flags-changed"
     /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
@@ -8572,9 +8588,9 @@ public enum PopoverMenuBarSignalName: String, SignalNameProtocol {
     case notifyHalign = "notify::halign"
     case notifyHasDefault = "notify::has-default"
     case notifyHasFocus = "notify::has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case notifyHasTooltip = "notify::has-tooltip"
     case notifyHeightRequest = "notify::height-request"
@@ -8641,11 +8657,11 @@ public enum PopoverMenuBarSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipMarkup = "notify::tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -8653,11 +8669,11 @@ public enum PopoverMenuBarSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipText = "notify::tooltip-text"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
@@ -8742,11 +8758,11 @@ public extension PopoverMenuBarProtocol {
 /// create `PangoLayout` and `PangoContext` objects that match the font metrics
 /// of the cairo surface.
 /// 
-/// GtkPrintContext objects gets passed to the `GtkPrintOperation::begin`-print,
-/// `GtkPrintOperation::end`-print, `GtkPrintOperation::request`-page-setup and
-/// `GtkPrintOperation::draw`-page signals on the `GtkPrintOperation`.
+/// GtkPrintContext objects gets passed to the `GtkPrintOperation::begin-print`,
+/// `GtkPrintOperation::end-print`, `GtkPrintOperation::request-page-setup` and
+/// `GtkPrintOperation::draw-page` signals on the `GtkPrintOperation`.
 /// 
-/// ## Using GtkPrintContext in a `GtkPrintOperation::draw`-page callback
+/// ## Using GtkPrintContext in a `GtkPrintOperation::draw-page` callback
 /// 
 /// (C Language Example):
 /// ```C
@@ -8810,6 +8826,8 @@ public protocol PrintContextProtocol: GLibObject.ObjectProtocol {
     /// Typed pointer to the underlying `GtkPrintContext` instance.
     var print_context_ptr: UnsafeMutablePointer<GtkPrintContext>! { get }
 
+    /// Required Initialiser for types conforming to `PrintContextProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `PrintContextRef` type acts as a lightweight Swift reference to an underlying `GtkPrintContext` instance.
@@ -8822,11 +8840,11 @@ public protocol PrintContextProtocol: GLibObject.ObjectProtocol {
 /// create `PangoLayout` and `PangoContext` objects that match the font metrics
 /// of the cairo surface.
 /// 
-/// GtkPrintContext objects gets passed to the `GtkPrintOperation::begin`-print,
-/// `GtkPrintOperation::end`-print, `GtkPrintOperation::request`-page-setup and
-/// `GtkPrintOperation::draw`-page signals on the `GtkPrintOperation`.
+/// GtkPrintContext objects gets passed to the `GtkPrintOperation::begin-print`,
+/// `GtkPrintOperation::end-print`, `GtkPrintOperation::request-page-setup` and
+/// `GtkPrintOperation::draw-page` signals on the `GtkPrintOperation`.
 /// 
-/// ## Using GtkPrintContext in a `GtkPrintOperation::draw`-page callback
+/// ## Using GtkPrintContext in a `GtkPrintOperation::draw-page` callback
 /// 
 /// (C Language Example):
 /// ```C
@@ -8974,11 +8992,11 @@ public extension PrintContextRef {
 /// create `PangoLayout` and `PangoContext` objects that match the font metrics
 /// of the cairo surface.
 /// 
-/// GtkPrintContext objects gets passed to the `GtkPrintOperation::begin`-print,
-/// `GtkPrintOperation::end`-print, `GtkPrintOperation::request`-page-setup and
-/// `GtkPrintOperation::draw`-page signals on the `GtkPrintOperation`.
+/// GtkPrintContext objects gets passed to the `GtkPrintOperation::begin-print`,
+/// `GtkPrintOperation::end-print`, `GtkPrintOperation::request-page-setup` and
+/// `GtkPrintOperation::draw-page` signals on the `GtkPrintOperation`.
 /// 
-/// ## Using GtkPrintContext in a `GtkPrintOperation::draw`-page callback
+/// ## Using GtkPrintContext in a `GtkPrintOperation::draw-page` callback
 /// 
 /// (C Language Example):
 /// ```C
@@ -9135,14 +9153,14 @@ open class PrintContext: GLibObject.Object, PrintContextProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PrintContextProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PrintContextProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -9381,7 +9399,7 @@ public extension PrintContextProtocol {
 /// It will then show a dialog, let the user select a printer and
 /// options. When the user finished the dialog various signals will
 /// be emitted on the `GtkPrintOperation`, the main one being
-/// `GtkPrintOperation::draw`-page, which you are supposed to catch
+/// `GtkPrintOperation::draw-page`, which you are supposed to catch
 /// and render the page on the provided `GtkPrintContext` using Cairo.
 /// 
 /// # The high-level printing API
@@ -9432,6 +9450,8 @@ public protocol PrintOperationProtocol: GLibObject.ObjectProtocol, PrintOperatio
     /// Typed pointer to the underlying `GtkPrintOperation` instance.
     var print_operation_ptr: UnsafeMutablePointer<GtkPrintOperation>! { get }
 
+    /// Required Initialiser for types conforming to `PrintOperationProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `PrintOperationRef` type acts as a lightweight Swift reference to an underlying `GtkPrintOperation` instance.
@@ -9456,7 +9476,7 @@ public protocol PrintOperationProtocol: GLibObject.ObjectProtocol, PrintOperatio
 /// It will then show a dialog, let the user select a printer and
 /// options. When the user finished the dialog various signals will
 /// be emitted on the `GtkPrintOperation`, the main one being
-/// `GtkPrintOperation::draw`-page, which you are supposed to catch
+/// `GtkPrintOperation::draw-page`, which you are supposed to catch
 /// and render the page on the provided `GtkPrintContext` using Cairo.
 /// 
 /// # The high-level printing API
@@ -9608,7 +9628,7 @@ public extension PrintOperationRef {
 /// It will then show a dialog, let the user select a printer and
 /// options. When the user finished the dialog various signals will
 /// be emitted on the `GtkPrintOperation`, the main one being
-/// `GtkPrintOperation::draw`-page, which you are supposed to catch
+/// `GtkPrintOperation::draw-page`, which you are supposed to catch
 /// and render the page on the provided `GtkPrintContext` using Cairo.
 /// 
 /// # The high-level printing API
@@ -9752,14 +9772,14 @@ open class PrintOperation: GLibObject.Object, PrintOperationProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PrintOperationProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PrintOperationProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -9815,7 +9835,7 @@ public enum PrintOperationPropertyName: String, PropertyNameProtocol {
     /// 
     /// This page setup will be used by `gtk_print_operation_run()`,
     /// but it can be overridden on a per-page basis by connecting
-    /// to the `GtkPrintOperation::request`-page-setup signal.
+    /// to the `GtkPrintOperation::request-page-setup` signal.
     case defaultPageSetup = "default-page-setup"
     /// If `true`, page size combo box and orientation combo box are embedded into page setup page.
     case embedPageSetup = "embed-page-setup"
@@ -9843,12 +9863,12 @@ public enum PrintOperationPropertyName: String, PropertyNameProtocol {
     /// 
     /// This must be set to a positive number
     /// before the rendering starts. It may be set in a
-    /// `GtkPrintOperation::begin`-print signal handler.
+    /// `GtkPrintOperation::begin-print` signal handler.
     /// 
     /// Note that the page numbers passed to the
-    /// `GtkPrintOperation::request`-page-setup and
-    /// `GtkPrintOperation::draw`-page signals are 0-based, i.e. if
-    /// the user chooses to print all pages, the last `draw`-page signal
+    /// `GtkPrintOperation::request-page-setup` and
+    /// `GtkPrintOperation::draw-page` signals are 0-based, i.e. if
+    /// the user chooses to print all pages, the last `draw-page` signal
     /// will be for page `n_pages` - 1.
     case nPages = "n-pages"
     /// The number of pages that will be printed.
@@ -9856,7 +9876,7 @@ public enum PrintOperationPropertyName: String, PropertyNameProtocol {
     /// Note that this value is set during print preparation phase
     /// (`GTK_PRINT_STATUS_PREPARING`), so this value should never be
     /// get before the data generation phase (`GTK_PRINT_STATUS_GENERATING_DATA`).
-    /// You can connect to the `GtkPrintOperation::status`-changed signal
+    /// You can connect to the `GtkPrintOperation::status-changed` signal
     /// and call `gtk_print_operation_get_n_pages_to_print()` when
     /// print status is `GTK_PRINT_STATUS_GENERATING_DATA`.
     /// This is typically used to track the progress of print operation.
@@ -9959,7 +9979,7 @@ public enum PrintOperationSignalName: String, SignalNameProtocol {
     /// Emitted after the user has finished changing print settings
     /// in the dialog, before the actual rendering starts.
     /// 
-    /// A typical use for `begin`-print is to use the parameters from the
+    /// A typical use for `begin-print` is to use the parameters from the
     /// `GtkPrintContext` and paginate the document accordingly, and then
     /// set the number of pages with `gtk_print_operation_set_n_pages()`.
     case beginPrint = "begin-print"
@@ -9970,12 +9990,12 @@ public enum PrintOperationSignalName: String, SignalNameProtocol {
     /// 
     /// The print dialog owns the returned widget, and its lifetime is not
     /// controlled by the application. However, the widget is guaranteed
-    /// to stay around until the `GtkPrintOperation::custom`-widget-apply
+    /// to stay around until the `GtkPrintOperation::custom-widget-apply`
     /// signal is emitted on the operation. Then you can read out any
     /// information you need from the widgets.
     case createCustomWidget = "create-custom-widget"
-    /// Emitted right before `GtkPrintOperation::begin`-print if you added
-    /// a custom widget in the `GtkPrintOperation::create`-custom-widget handler.
+    /// Emitted right before `GtkPrintOperation::begin-print` if you added
+    /// a custom widget in the `GtkPrintOperation::create-custom-widget` handler.
     /// When you get this signal you should read the information from the
     /// custom widgets, as the widgets are not guaraneed to be around at a
     /// later time.
@@ -10043,7 +10063,7 @@ public enum PrintOperationSignalName: String, SignalNameProtocol {
     case drawPage = "draw-page"
     /// Emitted after all pages have been rendered.
     /// A handler for this signal can clean up any resources that have
-    /// been allocated in the `GtkPrintOperation::begin`-print handler.
+    /// been allocated in the `GtkPrintOperation::begin-print` handler.
     case endPrint = "end-print"
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -10070,7 +10090,7 @@ public enum PrintOperationSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// Emitted after the `GtkPrintOperation::begin`-print signal, but before
+    /// Emitted after the `GtkPrintOperation::begin-print` signal, but before
     /// the actual rendering starts. It keeps getting emitted until a connected
     /// signal handler returns `true`.
     /// 
@@ -10081,7 +10101,7 @@ public enum PrintOperationSignalName: String, SignalNameProtocol {
     /// has been completely paginated.
     /// 
     /// If you don't need to do pagination in chunks, you can simply do
-    /// it all in the `begin`-print handler, and set the number of pages
+    /// it all in the `begin-print` handler, and set the number of pages
     /// from there.
     case paginate = "paginate"
     /// Gets emitted when a preview is requested from the native dialog.
@@ -10141,7 +10161,7 @@ public enum PrintOperationSignalName: String, SignalNameProtocol {
     /// 
     /// This page setup will be used by `gtk_print_operation_run()`,
     /// but it can be overridden on a per-page basis by connecting
-    /// to the `GtkPrintOperation::request`-page-setup signal.
+    /// to the `GtkPrintOperation::request-page-setup` signal.
     case notifyDefaultPageSetup = "notify::default-page-setup"
     /// If `true`, page size combo box and orientation combo box are embedded into page setup page.
     case notifyEmbedPageSetup = "notify::embed-page-setup"
@@ -10169,12 +10189,12 @@ public enum PrintOperationSignalName: String, SignalNameProtocol {
     /// 
     /// This must be set to a positive number
     /// before the rendering starts. It may be set in a
-    /// `GtkPrintOperation::begin`-print signal handler.
+    /// `GtkPrintOperation::begin-print` signal handler.
     /// 
     /// Note that the page numbers passed to the
-    /// `GtkPrintOperation::request`-page-setup and
-    /// `GtkPrintOperation::draw`-page signals are 0-based, i.e. if
-    /// the user chooses to print all pages, the last `draw`-page signal
+    /// `GtkPrintOperation::request-page-setup` and
+    /// `GtkPrintOperation::draw-page` signals are 0-based, i.e. if
+    /// the user chooses to print all pages, the last `draw-page` signal
     /// will be for page `n_pages` - 1.
     case notifyNPages = "notify::n-pages"
     /// The number of pages that will be printed.
@@ -10182,7 +10202,7 @@ public enum PrintOperationSignalName: String, SignalNameProtocol {
     /// Note that this value is set during print preparation phase
     /// (`GTK_PRINT_STATUS_PREPARING`), so this value should never be
     /// get before the data generation phase (`GTK_PRINT_STATUS_GENERATING_DATA`).
-    /// You can connect to the `GtkPrintOperation::status`-changed signal
+    /// You can connect to the `GtkPrintOperation::status-changed` signal
     /// and call `gtk_print_operation_get_n_pages_to_print()` when
     /// print status is `GTK_PRINT_STATUS_GENERATING_DATA`.
     /// This is typically used to track the progress of print operation.
@@ -10263,7 +10283,7 @@ public extension PrintOperationProtocol {
     /// 
     /// The print dialog owns the returned widget, and its lifetime is not
     /// controlled by the application. However, the widget is guaranteed
-    /// to stay around until the `GtkPrintOperation::custom`-widget-apply
+    /// to stay around until the `GtkPrintOperation::custom-widget-apply`
     /// signal is emitted on the operation. Then you can read out any
     /// information you need from the widgets.
     /// - Note: This represents the underlying `create-custom-widget` signal
@@ -10276,7 +10296,7 @@ public extension PrintOperationProtocol {
     /// Emitted after the user has finished changing print settings
     /// in the dialog, before the actual rendering starts.
     /// 
-    /// A typical use for `begin`-print is to use the parameters from the
+    /// A typical use for `begin-print` is to use the parameters from the
     /// `GtkPrintContext` and paginate the document accordingly, and then
     /// set the number of pages with `gtk_print_operation_set_n_pages()`.
     /// - Note: This represents the underlying `begin-print` signal
@@ -10304,8 +10324,8 @@ public extension PrintOperationProtocol {
     /// Typed `begin-print` signal for using the `connect(signal:)` methods
     static var beginPrintSignal: PrintOperationSignalName { .beginPrint }
     
-    /// Emitted right before `GtkPrintOperation::begin`-print if you added
-    /// a custom widget in the `GtkPrintOperation::create`-custom-widget handler.
+    /// Emitted right before `GtkPrintOperation::begin-print` if you added
+    /// a custom widget in the `GtkPrintOperation::create-custom-widget` handler.
     /// When you get this signal you should read the information from the
     /// custom widgets, as the widgets are not guaraneed to be around at a
     /// later time.
@@ -10446,7 +10466,7 @@ public extension PrintOperationProtocol {
     
     /// Emitted after all pages have been rendered.
     /// A handler for this signal can clean up any resources that have
-    /// been allocated in the `GtkPrintOperation::begin`-print handler.
+    /// been allocated in the `GtkPrintOperation::begin-print` handler.
     /// - Note: This represents the underlying `end-print` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -10472,7 +10492,7 @@ public extension PrintOperationProtocol {
     /// Typed `end-print` signal for using the `connect(signal:)` methods
     static var endPrintSignal: PrintOperationSignalName { .endPrint }
     
-    /// Emitted after the `GtkPrintOperation::begin`-print signal, but before
+    /// Emitted after the `GtkPrintOperation::begin-print` signal, but before
     /// the actual rendering starts. It keeps getting emitted until a connected
     /// signal handler returns `true`.
     /// 
@@ -10483,7 +10503,7 @@ public extension PrintOperationProtocol {
     /// has been completely paginated.
     /// 
     /// If you don't need to do pagination in chunks, you can simply do
-    /// it all in the `begin`-print handler, and set the number of pages
+    /// it all in the `begin-print` handler, and set the number of pages
     /// from there.
     /// - Note: This represents the underlying `paginate` signal
     /// - Parameter flags: Flags
@@ -11531,8 +11551,8 @@ public extension PrintOperationProtocol {
     @inlinable var print_operation_ptr: UnsafeMutablePointer<GtkPrintOperation>! { return ptr?.assumingMemoryBound(to: GtkPrintOperation.self) }
 
     /// Cancels a running print operation. This function may
-    /// be called from a `GtkPrintOperation::begin`-print,
-    /// `GtkPrintOperation::paginate` or `GtkPrintOperation::draw`-page
+    /// be called from a `GtkPrintOperation::begin-print`,
+    /// `GtkPrintOperation::paginate` or `GtkPrintOperation::draw-page`
     /// signal handler to stop the currently running print
     /// operation.
     @inlinable func cancel() {
@@ -11559,7 +11579,7 @@ public extension PrintOperationProtocol {
         return rv
     }
 
-    /// Gets the value of `GtkPrintOperation:embed`-page-setup property.
+    /// Gets the value of `GtkPrintOperation:embed-page-setup` property.
     @inlinable func getEmbedPageSetup() -> Bool {
         let rv = ((gtk_print_operation_get_embed_page_setup(print_operation_ptr)) != 0)
         return rv
@@ -11576,7 +11596,7 @@ public extension PrintOperationProtocol {
     
     }
 
-    /// Gets the value of `GtkPrintOperation:has`-selection property.
+    /// Gets the value of `GtkPrintOperation:has-selection` property.
     @inlinable func getHasSelection() -> Bool {
         let rv = ((gtk_print_operation_get_has_selection(print_operation_ptr)) != 0)
         return rv
@@ -11587,7 +11607,7 @@ public extension PrintOperationProtocol {
     /// Note that this value is set during print preparation phase
     /// (`GTK_PRINT_STATUS_PREPARING`), so this function should never be
     /// called before the data generation phase (`GTK_PRINT_STATUS_GENERATING_DATA`).
-    /// You can connect to the `GtkPrintOperation::status`-changed signal
+    /// You can connect to the `GtkPrintOperation::status-changed` signal
     /// and call `gtk_print_operation_get_n_pages_to_print()` when
     /// print status is `GTK_PRINT_STATUS_GENERATING_DATA`.
     /// This is typically used to track the progress of print operation.
@@ -11624,7 +11644,7 @@ public extension PrintOperationProtocol {
         return rv
     }
 
-    /// Gets the value of `GtkPrintOperation:support`-selection property.
+    /// Gets the value of `GtkPrintOperation:support-selection` property.
     @inlinable func getSupportSelection() -> Bool {
         let rv = ((gtk_print_operation_get_support_selection(print_operation_ptr)) != 0)
         return rv
@@ -11635,12 +11655,12 @@ public extension PrintOperationProtocol {
     /// 
     /// Normally that this function does not return until the rendering of all
     /// pages is complete. You can connect to the
-    /// `GtkPrintOperation::status`-changed signal on `op` to obtain some
+    /// `GtkPrintOperation::status-changed` signal on `op` to obtain some
     /// information about the progress of the print operation.
     /// Furthermore, it may use a recursive mainloop to show the print dialog.
     /// 
     /// If you call `gtk_print_operation_set_allow_async()` or set the
-    /// `GtkPrintOperation:allow`-async property the operation will run
+    /// `GtkPrintOperation:allow-async` property the operation will run
     /// asynchronously if this is supported on the platform. The
     /// `GtkPrintOperation::done` signal will be emitted with the result of the
     /// operation when the it is done (i.e. when the dialog is canceled, or when
@@ -11697,12 +11717,12 @@ public extension PrintOperationProtocol {
     /// 
     /// Normally that this function does not return until the rendering of all
     /// pages is complete. You can connect to the
-    /// `GtkPrintOperation::status`-changed signal on `op` to obtain some
+    /// `GtkPrintOperation::status-changed` signal on `op` to obtain some
     /// information about the progress of the print operation.
     /// Furthermore, it may use a recursive mainloop to show the print dialog.
     /// 
     /// If you call `gtk_print_operation_set_allow_async()` or set the
-    /// `GtkPrintOperation:allow`-async property the operation will run
+    /// `GtkPrintOperation:allow-async` property the operation will run
     /// asynchronously if this is supported on the platform. The
     /// `GtkPrintOperation::done` signal will be emitted with the result of the
     /// operation when the it is done (i.e. when the dialog is canceled, or when
@@ -11784,7 +11804,7 @@ public extension PrintOperationProtocol {
     /// 
     /// This page setup will be used by `gtk_print_operation_run()`,
     /// but it can be overridden on a per-page basis by connecting
-    /// to the `GtkPrintOperation::request`-page-setup signal.
+    /// to the `GtkPrintOperation::request-page-setup` signal.
     @inlinable func set(defaultPageSetup: PageSetupRef? = nil) {
         gtk_print_operation_set_default_page_setup(print_operation_ptr, defaultPageSetup?.page_setup_ptr)
     
@@ -11793,7 +11813,7 @@ public extension PrintOperationProtocol {
     /// 
     /// This page setup will be used by `gtk_print_operation_run()`,
     /// but it can be overridden on a per-page basis by connecting
-    /// to the `GtkPrintOperation::request`-page-setup signal.
+    /// to the `GtkPrintOperation::request-page-setup` signal.
     @inlinable func set<PageSetupT: PageSetupProtocol>(defaultPageSetup: PageSetupT?) {
         gtk_print_operation_set_default_page_setup(print_operation_ptr, defaultPageSetup?.page_setup_ptr)
     
@@ -11833,7 +11853,7 @@ public extension PrintOperationProtocol {
     /// 
     /// Application has to set number of pages to which the selection
     /// will draw by `gtk_print_operation_set_n_pages()` in a callback of
-    /// `GtkPrintOperation::begin`-print.
+    /// `GtkPrintOperation::begin-print`.
     @inlinable func set(hasSelection: Bool) {
         gtk_print_operation_set_has_selection(print_operation_ptr, gboolean((hasSelection) ? 1 : 0))
     
@@ -11853,12 +11873,12 @@ public extension PrintOperationProtocol {
     /// 
     /// This must be set to a positive number
     /// before the rendering starts. It may be set in a
-    /// `GtkPrintOperation::begin`-print signal handler.
+    /// `GtkPrintOperation::begin-print` signal handler.
     /// 
     /// Note that the page numbers passed to the
-    /// `GtkPrintOperation::request`-page-setup
-    /// and `GtkPrintOperation::draw`-page signals are 0-based, i.e. if
-    /// the user chooses to print all pages, the last `draw`-page signal
+    /// `GtkPrintOperation::request-page-setup`
+    /// and `GtkPrintOperation::draw-page` signals are 0-based, i.e. if
+    /// the user chooses to print all pages, the last `draw-page` signal
     /// will be for page `n_pages` - 1.
     @inlinable func set(nPages: Int) {
         gtk_print_operation_set_n_pages(print_operation_ptr, gint(nPages))
@@ -11936,15 +11956,15 @@ public extension PrintOperationProtocol {
         /// 
         /// This page setup will be used by `gtk_print_operation_run()`,
         /// but it can be overridden on a per-page basis by connecting
-        /// to the `GtkPrintOperation::request`-page-setup signal.
+        /// to the `GtkPrintOperation::request-page-setup` signal.
         nonmutating set {
             gtk_print_operation_set_default_page_setup(print_operation_ptr, UnsafeMutablePointer<GtkPageSetup>(newValue?.page_setup_ptr))
         }
     }
 
-    /// Gets the value of `GtkPrintOperation:embed`-page-setup property.
+    /// Gets the value of `GtkPrintOperation:embed-page-setup` property.
     @inlinable var embedPageSetup: Bool {
-        /// Gets the value of `GtkPrintOperation:embed`-page-setup property.
+        /// Gets the value of `GtkPrintOperation:embed-page-setup` property.
         get {
             let rv = ((gtk_print_operation_get_embed_page_setup(print_operation_ptr)) != 0)
             return rv
@@ -11958,9 +11978,9 @@ public extension PrintOperationProtocol {
 
     // var error is unavailable because it does not have a valid getter or setter
 
-    /// Gets the value of `GtkPrintOperation:has`-selection property.
+    /// Gets the value of `GtkPrintOperation:has-selection` property.
     @inlinable var hasSelection: Bool {
-        /// Gets the value of `GtkPrintOperation:has`-selection property.
+        /// Gets the value of `GtkPrintOperation:has-selection` property.
         get {
             let rv = ((gtk_print_operation_get_has_selection(print_operation_ptr)) != 0)
             return rv
@@ -11969,7 +11989,7 @@ public extension PrintOperationProtocol {
         /// 
         /// Application has to set number of pages to which the selection
         /// will draw by `gtk_print_operation_set_n_pages()` in a callback of
-        /// `GtkPrintOperation::begin`-print.
+        /// `GtkPrintOperation::begin-print`.
         nonmutating set {
             gtk_print_operation_set_has_selection(print_operation_ptr, gboolean((newValue) ? 1 : 0))
         }
@@ -12001,7 +12021,7 @@ public extension PrintOperationProtocol {
     /// Note that this value is set during print preparation phase
     /// (`GTK_PRINT_STATUS_PREPARING`), so this function should never be
     /// called before the data generation phase (`GTK_PRINT_STATUS_GENERATING_DATA`).
-    /// You can connect to the `GtkPrintOperation::status`-changed signal
+    /// You can connect to the `GtkPrintOperation::status-changed` signal
     /// and call `gtk_print_operation_get_n_pages_to_print()` when
     /// print status is `GTK_PRINT_STATUS_GENERATING_DATA`.
     /// This is typically used to track the progress of print operation.
@@ -12011,7 +12031,7 @@ public extension PrintOperationProtocol {
         /// Note that this value is set during print preparation phase
         /// (`GTK_PRINT_STATUS_PREPARING`), so this function should never be
         /// called before the data generation phase (`GTK_PRINT_STATUS_GENERATING_DATA`).
-        /// You can connect to the `GtkPrintOperation::status`-changed signal
+        /// You can connect to the `GtkPrintOperation::status-changed` signal
         /// and call `gtk_print_operation_get_n_pages_to_print()` when
         /// print status is `GTK_PRINT_STATUS_GENERATING_DATA`.
         /// This is typically used to track the progress of print operation.
@@ -12073,9 +12093,9 @@ public extension PrintOperationProtocol {
         }
     }
 
-    /// Gets the value of `GtkPrintOperation:support`-selection property.
+    /// Gets the value of `GtkPrintOperation:support-selection` property.
     @inlinable var supportSelection: Bool {
-        /// Gets the value of `GtkPrintOperation:support`-selection property.
+        /// Gets the value of `GtkPrintOperation:support-selection` property.
         get {
             let rv = ((gtk_print_operation_get_support_selection(print_operation_ptr)) != 0)
             return rv
@@ -12123,6 +12143,8 @@ public protocol PrintSettingsProtocol: GLibObject.ObjectProtocol {
     /// Typed pointer to the underlying `GtkPrintSettings` instance.
     var print_settings_ptr: UnsafeMutablePointer<GtkPrintSettings>! { get }
 
+    /// Required Initialiser for types conforming to `PrintSettingsProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `PrintSettingsRef` type acts as a lightweight Swift reference to an underlying `GtkPrintSettings` instance.
@@ -12398,14 +12420,14 @@ open class PrintSettings: GLibObject.Object, PrintSettingsProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PrintSettingsProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PrintSettingsProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -13420,6 +13442,8 @@ public protocol ProgressBarProtocol: WidgetProtocol, OrientableProtocol {
     /// Typed pointer to the underlying `GtkProgressBar` instance.
     var progress_bar_ptr: UnsafeMutablePointer<GtkProgressBar>! { get }
 
+    /// Required Initialiser for types conforming to `ProgressBarProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ProgressBarRef` type acts as a lightweight Swift reference to an underlying `GtkProgressBar` instance.
@@ -13704,14 +13728,14 @@ open class ProgressBar: Widget, ProgressBarProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ProgressBarProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ProgressBarProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -13776,9 +13800,9 @@ public enum ProgressBarPropertyName: String, PropertyNameProtocol {
     case halign = "halign"
     case hasDefault = "has-default"
     case hasFocus = "has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case hasTooltip = "has-tooltip"
     case heightRequest = "height-request"
@@ -13845,7 +13869,7 @@ public enum ProgressBarPropertyName: String, PropertyNameProtocol {
     /// 
     /// To make a progress bar that is styled and sized suitably for
     /// showing text (even if the actual text is blank), set
-    /// `GtkProgressBar:show`-text to `true` and `GtkProgressBar:text`
+    /// `GtkProgressBar:show-text` to `true` and `GtkProgressBar:text`
     /// to the empty string (not `nil`).
     case showText = "show-text"
     case text = "text"
@@ -13854,11 +13878,11 @@ public enum ProgressBarPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipMarkup = "tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -13866,11 +13890,11 @@ public enum ProgressBarPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipText = "tooltip-text"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
@@ -13943,7 +13967,7 @@ public enum ProgressBarSignalName: String, SignalNameProtocol {
     /// 
     /// This signal is not suitable for saving widget state.
     case destroy = "destroy"
-    /// The `direction`-changed signal is emitted when the text direction
+    /// The `direction-changed` signal is emitted when the text direction
     /// of a widget changes.
     case directionChanged = "direction-changed"
     /// The `hide` signal is emitted when `widget` is hidden, for example with
@@ -13991,7 +14015,7 @@ public enum ProgressBarSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
+    /// Emitted when `GtkWidget:has-tooltip` is `true` and the hover timeout
     /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
     /// focus in keyboard mode.
     /// 
@@ -14011,7 +14035,7 @@ public enum ProgressBarSignalName: String, SignalNameProtocol {
     /// The `show` signal is emitted when `widget` is shown, for example with
     /// `gtk_widget_show()`.
     case show = "show"
-    /// The `state`-flags-changed signal is emitted when the widget state
+    /// The `state-flags-changed` signal is emitted when the widget state
     /// changes, see `gtk_widget_get_state_flags()`.
     case stateFlagsChanged = "state-flags-changed"
     /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
@@ -14062,9 +14086,9 @@ public enum ProgressBarSignalName: String, SignalNameProtocol {
     case notifyHalign = "notify::halign"
     case notifyHasDefault = "notify::has-default"
     case notifyHasFocus = "notify::has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case notifyHasTooltip = "notify::has-tooltip"
     case notifyHeightRequest = "notify::height-request"
@@ -14131,7 +14155,7 @@ public enum ProgressBarSignalName: String, SignalNameProtocol {
     /// 
     /// To make a progress bar that is styled and sized suitably for
     /// showing text (even if the actual text is blank), set
-    /// `GtkProgressBar:show`-text to `true` and `GtkProgressBar:text`
+    /// `GtkProgressBar:show-text` to `true` and `GtkProgressBar:text`
     /// to the empty string (not `nil`).
     case notifyShowText = "notify::show-text"
     case notifyText = "notify::text"
@@ -14140,11 +14164,11 @@ public enum ProgressBarSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipMarkup = "notify::tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -14152,11 +14176,11 @@ public enum ProgressBarSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipText = "notify::tooltip-text"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
@@ -14200,7 +14224,7 @@ public extension ProgressBarProtocol {
         return rv
     }
 
-    /// Gets the value of the `GtkProgressBar:show`-text property.
+    /// Gets the value of the `GtkProgressBar:show-text` property.
     /// See `gtk_progress_bar_set_show_text()`.
     @inlinable func getShowText() -> Bool {
         let rv = ((gtk_progress_bar_get_show_text(progress_bar_ptr)) != 0)
@@ -14261,7 +14285,7 @@ public extension ProgressBarProtocol {
     /// as a percentage.
     /// 
     /// To make a progress bar that is styled and sized suitably for containing
-    /// text (even if the actual text is blank), set `GtkProgressBar:show`-text to
+    /// text (even if the actual text is blank), set `GtkProgressBar:show-text` to
     /// `true` and `GtkProgressBar:text` to the empty string (not `nil`).
     @inlinable func set(showText: Bool) {
         gtk_progress_bar_set_show_text(progress_bar_ptr, gboolean((showText) ? 1 : 0))
@@ -14270,14 +14294,14 @@ public extension ProgressBarProtocol {
 
     /// Causes the given `text` to appear next to the progress bar.
     /// 
-    /// If `text` is `nil` and `GtkProgressBar:show`-text is `true`, the current
+    /// If `text` is `nil` and `GtkProgressBar:show-text` is `true`, the current
     /// value of `GtkProgressBar:fraction` will be displayed as a percentage.
     /// 
-    /// If `text` is non-`nil` and `GtkProgressBar:show`-text is `true`, the text
+    /// If `text` is non-`nil` and `GtkProgressBar:show-text` is `true`, the text
     /// will be displayed. In this case, it will not display the progress
     /// percentage. If `text` is the empty string, the progress bar will still
     /// be styled and sized suitably for containing text, as long as
-    /// `GtkProgressBar:show`-text is `true`.
+    /// `GtkProgressBar:show-text` is `true`.
     @inlinable func set(text: UnsafePointer<CChar>? = nil) {
         gtk_progress_bar_set_text(progress_bar_ptr, text)
     
@@ -14345,10 +14369,10 @@ public extension ProgressBarProtocol {
         }
     }
 
-    /// Gets the value of the `GtkProgressBar:show`-text property.
+    /// Gets the value of the `GtkProgressBar:show-text` property.
     /// See `gtk_progress_bar_set_show_text()`.
     @inlinable var showText: Bool {
-        /// Gets the value of the `GtkProgressBar:show`-text property.
+        /// Gets the value of the `GtkProgressBar:show-text` property.
         /// See `gtk_progress_bar_set_show_text()`.
         get {
             let rv = ((gtk_progress_bar_get_show_text(progress_bar_ptr)) != 0)
@@ -14360,7 +14384,7 @@ public extension ProgressBarProtocol {
         /// as a percentage.
         /// 
         /// To make a progress bar that is styled and sized suitably for containing
-        /// text (even if the actual text is blank), set `GtkProgressBar:show`-text to
+        /// text (even if the actual text is blank), set `GtkProgressBar:show-text` to
         /// `true` and `GtkProgressBar:text` to the empty string (not `nil`).
         nonmutating set {
             gtk_progress_bar_set_show_text(progress_bar_ptr, gboolean((newValue) ? 1 : 0))
@@ -14378,14 +14402,14 @@ public extension ProgressBarProtocol {
         }
         /// Causes the given `text` to appear next to the progress bar.
         /// 
-        /// If `text` is `nil` and `GtkProgressBar:show`-text is `true`, the current
+        /// If `text` is `nil` and `GtkProgressBar:show-text` is `true`, the current
         /// value of `GtkProgressBar:fraction` will be displayed as a percentage.
         /// 
-        /// If `text` is non-`nil` and `GtkProgressBar:show`-text is `true`, the text
+        /// If `text` is non-`nil` and `GtkProgressBar:show-text` is `true`, the text
         /// will be displayed. In this case, it will not display the progress
         /// percentage. If `text` is the empty string, the progress bar will still
         /// be styled and sized suitably for containing text, as long as
-        /// `GtkProgressBar:show`-text is `true`.
+        /// `GtkProgressBar:show-text` is `true`.
         nonmutating set {
             gtk_progress_bar_set_text(progress_bar_ptr, newValue)
         }
@@ -14411,6 +14435,8 @@ public protocol PropertyExpressionProtocol: ExpressionProtocol {
     /// Typed pointer to the underlying `GtkPropertyExpression` instance.
     var property_expression_ptr: UnsafeMutablePointer<GtkPropertyExpression>! { get }
 
+    /// Required Initialiser for types conforming to `PropertyExpressionProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `PropertyExpressionRef` type acts as a lightweight Swift reference to an underlying `GtkPropertyExpression` instance.
@@ -14644,7 +14670,7 @@ open class PropertyExpression: Expression, PropertyExpressionProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PropertyExpressionProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
@@ -14786,6 +14812,8 @@ public protocol RangeProtocol: WidgetProtocol, OrientableProtocol {
     /// Typed pointer to the underlying `GtkRange` instance.
     var range_ptr: UnsafeMutablePointer<GtkRange>! { get }
 
+    /// Required Initialiser for types conforming to `RangeProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `RangeRef` type acts as a lightweight Swift reference to an underlying `GtkRange` instance.
@@ -14989,14 +15017,14 @@ open class Range: Widget, RangeProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RangeProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RangeProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -15049,9 +15077,9 @@ public enum RangePropertyName: String, PropertyNameProtocol {
     case halign = "halign"
     case hasDefault = "has-default"
     case hasFocus = "has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case hasTooltip = "has-tooltip"
     case heightRequest = "height-request"
@@ -15111,7 +15139,7 @@ public enum RangePropertyName: String, PropertyNameProtocol {
     /// the widget is not contained in a root widget.
     case root = "root"
     /// The number of digits to round the value to when
-    /// it changes, or -1. See `GtkRange::change`-value.
+    /// it changes, or -1. See `GtkRange::change-value`.
     case roundDigits = "round-digits"
     /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
     /// more details about widget scaling.
@@ -15126,11 +15154,11 @@ public enum RangePropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipMarkup = "tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -15138,11 +15166,11 @@ public enum RangePropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipText = "tooltip-text"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
@@ -15212,7 +15240,7 @@ public enum RangeSignalName: String, SignalNameProtocol {
     /// Emitted before clamping a value, to give the application a
     /// chance to adjust the bounds.
     case adjustBounds = "adjust-bounds"
-    /// The `GtkRange::change`-value signal is emitted when a scroll action is
+    /// The `GtkRange::change-value` signal is emitted when a scroll action is
     /// performed on a range.  It allows an application to determine the
     /// type of scroll event that occurred and the resultant new value.
     /// The application can handle the event itself and return `true` to
@@ -15221,9 +15249,9 @@ public enum RangeSignalName: String, SignalNameProtocol {
     /// reached.
     /// 
     /// The value parameter is unrounded.  An application that overrides
-    /// the GtkRange`change`-value signal is responsible for clamping the
+    /// the GtkRange`change-value` signal is responsible for clamping the
     /// value to the desired number of decimal digits; the default GTK
-    /// handler clamps the value based on `GtkRange:round`-digits.
+    /// handler clamps the value based on `GtkRange:round-digits`.
     case changeValue = "change-value"
     /// Signals that all holders of a reference to the widget should release
     /// the reference that they hold. May result in finalization of the widget
@@ -15231,7 +15259,7 @@ public enum RangeSignalName: String, SignalNameProtocol {
     /// 
     /// This signal is not suitable for saving widget state.
     case destroy = "destroy"
-    /// The `direction`-changed signal is emitted when the text direction
+    /// The `direction-changed` signal is emitted when the text direction
     /// of a widget changes.
     case directionChanged = "direction-changed"
     /// The `hide` signal is emitted when `widget` is hidden, for example with
@@ -15281,7 +15309,7 @@ public enum RangeSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
+    /// Emitted when `GtkWidget:has-tooltip` is `true` and the hover timeout
     /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
     /// focus in keyboard mode.
     /// 
@@ -15301,7 +15329,7 @@ public enum RangeSignalName: String, SignalNameProtocol {
     /// The `show` signal is emitted when `widget` is shown, for example with
     /// `gtk_widget_show()`.
     case show = "show"
-    /// The `state`-flags-changed signal is emitted when the widget state
+    /// The `state-flags-changed` signal is emitted when the widget state
     /// changes, see `gtk_widget_get_state_flags()`.
     case stateFlagsChanged = "state-flags-changed"
     /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
@@ -15348,9 +15376,9 @@ public enum RangeSignalName: String, SignalNameProtocol {
     case notifyHalign = "notify::halign"
     case notifyHasDefault = "notify::has-default"
     case notifyHasFocus = "notify::has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case notifyHasTooltip = "notify::has-tooltip"
     case notifyHeightRequest = "notify::height-request"
@@ -15410,7 +15438,7 @@ public enum RangeSignalName: String, SignalNameProtocol {
     /// the widget is not contained in a root widget.
     case notifyRoot = "notify::root"
     /// The number of digits to round the value to when
-    /// it changes, or -1. See `GtkRange::change`-value.
+    /// it changes, or -1. See `GtkRange::change-value`.
     case notifyRoundDigits = "notify::round-digits"
     /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
     /// more details about widget scaling.
@@ -15425,11 +15453,11 @@ public enum RangeSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipMarkup = "notify::tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -15437,11 +15465,11 @@ public enum RangeSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipText = "notify::tooltip-text"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
@@ -15509,7 +15537,7 @@ public extension RangeProtocol {
     /// Typed `adjust-bounds` signal for using the `connect(signal:)` methods
     static var adjustBoundsSignal: RangeSignalName { .adjustBounds }
     
-    /// The `GtkRange::change`-value signal is emitted when a scroll action is
+    /// The `GtkRange::change-value` signal is emitted when a scroll action is
     /// performed on a range.  It allows an application to determine the
     /// type of scroll event that occurred and the resultant new value.
     /// The application can handle the event itself and return `true` to
@@ -15518,9 +15546,9 @@ public extension RangeProtocol {
     /// reached.
     /// 
     /// The value parameter is unrounded.  An application that overrides
-    /// the GtkRange`change`-value signal is responsible for clamping the
+    /// the GtkRange`change-value` signal is responsible for clamping the
     /// value to the desired number of decimal digits; the default GTK
-    /// handler clamps the value based on `GtkRange:round`-digits.
+    /// handler clamps the value based on `GtkRange:round-digits`.
     /// - Note: This represents the underlying `change-value` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -15942,7 +15970,7 @@ public extension RangeProtocol {
     }
 
     /// Gets the number of digits to round the value to when
-    /// it changes. See `GtkRange::change`-value.
+    /// it changes. See `GtkRange::change-value`.
     @inlinable func getRoundDigits() -> Int {
         let rv = Int(gtk_range_get_round_digits(range_ptr))
         return rv
@@ -15955,7 +15983,7 @@ public extension RangeProtocol {
     }
 
     /// This function returns sliders range along the long dimension,
-    /// in widget->window coordinates.
+    /// in widget-&gt;window coordinates.
     /// 
     /// This function is useful mainly for `GtkRange` subclasses.
     @inlinable func getSliderRange(sliderStart: UnsafeMutablePointer<gint>! = nil, sliderEnd: UnsafeMutablePointer<gint>! = nil) {
@@ -16055,7 +16083,7 @@ public extension RangeProtocol {
     }
 
     /// Sets the number of digits to round the value to when
-    /// it changes. See `GtkRange::change`-value.
+    /// it changes. See `GtkRange::change-value`.
     @inlinable func set(roundDigits: Int) {
         gtk_range_set_round_digits(range_ptr, gint(roundDigits))
     
@@ -16080,7 +16108,7 @@ public extension RangeProtocol {
 
     /// Sets the current value of the range; if the value is outside the
     /// minimum or maximum range values, it will be clamped to fit inside
-    /// them. The range emits the `GtkRange::value`-changed signal if the
+    /// them. The range emits the `GtkRange::value-changed` signal if the
     /// value changes.
     @inlinable func set(value: CDouble) {
         gtk_range_set_value(range_ptr, value)
@@ -16183,16 +16211,16 @@ public extension RangeProtocol {
     }
 
     /// Gets the number of digits to round the value to when
-    /// it changes. See `GtkRange::change`-value.
+    /// it changes. See `GtkRange::change-value`.
     @inlinable var roundDigits: Int {
         /// Gets the number of digits to round the value to when
-        /// it changes. See `GtkRange::change`-value.
+        /// it changes. See `GtkRange::change-value`.
         get {
             let rv = Int(gtk_range_get_round_digits(range_ptr))
             return rv
         }
         /// Sets the number of digits to round the value to when
-        /// it changes. See `GtkRange::change`-value.
+        /// it changes. See `GtkRange::change-value`.
         nonmutating set {
             gtk_range_set_round_digits(range_ptr, gint(newValue))
         }
@@ -16242,7 +16270,7 @@ public extension RangeProtocol {
         }
         /// Sets the current value of the range; if the value is outside the
         /// minimum or maximum range values, it will be clamped to fit inside
-        /// them. The range emits the `GtkRange::value`-changed signal if the
+        /// them. The range emits the `GtkRange::value-changed` signal if the
         /// value changes.
         nonmutating set {
             gtk_range_set_value(range_ptr, newValue)

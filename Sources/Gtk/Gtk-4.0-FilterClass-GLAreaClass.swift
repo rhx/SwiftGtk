@@ -43,6 +43,8 @@ public protocol FilterClassProtocol {
     /// Typed pointer to the underlying `GtkFilterClass` instance.
     var _ptr: UnsafeMutablePointer<GtkFilterClass>! { get }
 
+    /// Required Initialiser for types conforming to `FilterClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `FilterClassRef` type acts as a lightweight Swift reference to an underlying `GtkFilterClass` instance.
@@ -195,6 +197,8 @@ public protocol FilterListModelClassProtocol {
     /// Typed pointer to the underlying `GtkFilterListModelClass` instance.
     var _ptr: UnsafeMutablePointer<GtkFilterListModelClass>! { get }
 
+    /// Required Initialiser for types conforming to `FilterListModelClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `FilterListModelClassRef` type acts as a lightweight Swift reference to an underlying `GtkFilterListModelClass` instance.
@@ -327,6 +331,8 @@ public protocol FixedClassProtocol {
     /// Typed pointer to the underlying `GtkFixedClass` instance.
     var _ptr: UnsafeMutablePointer<GtkFixedClass>! { get }
 
+    /// Required Initialiser for types conforming to `FixedClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `FixedClassRef` type acts as a lightweight Swift reference to an underlying `GtkFixedClass` instance.
@@ -461,6 +467,8 @@ public protocol FixedLayoutChildClassProtocol {
     /// Typed pointer to the underlying `GtkFixedLayoutChildClass` instance.
     var _ptr: UnsafeMutablePointer<GtkFixedLayoutChildClass>! { get }
 
+    /// Required Initialiser for types conforming to `FixedLayoutChildClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `FixedLayoutChildClassRef` type acts as a lightweight Swift reference to an underlying `GtkFixedLayoutChildClass` instance.
@@ -593,6 +601,8 @@ public protocol FixedLayoutClassProtocol {
     /// Typed pointer to the underlying `GtkFixedLayoutClass` instance.
     var _ptr: UnsafeMutablePointer<GtkFixedLayoutClass>! { get }
 
+    /// Required Initialiser for types conforming to `FixedLayoutClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `FixedLayoutClassRef` type acts as a lightweight Swift reference to an underlying `GtkFixedLayoutClass` instance.
@@ -725,6 +735,8 @@ public protocol FlattenListModelClassProtocol {
     /// Typed pointer to the underlying `GtkFlattenListModelClass` instance.
     var _ptr: UnsafeMutablePointer<GtkFlattenListModelClass>! { get }
 
+    /// Required Initialiser for types conforming to `FlattenListModelClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `FlattenListModelClassRef` type acts as a lightweight Swift reference to an underlying `GtkFlattenListModelClass` instance.
@@ -857,6 +869,8 @@ public protocol FlowBoxChildClassProtocol {
     /// Typed pointer to the underlying `GtkFlowBoxChildClass` instance.
     var _ptr: UnsafeMutablePointer<GtkFlowBoxChildClass>! { get }
 
+    /// Required Initialiser for types conforming to `FlowBoxChildClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `FlowBoxChildClassRef` type acts as a lightweight Swift reference to an underlying `GtkFlowBoxChildClass` instance.
@@ -998,6 +1012,8 @@ public protocol FontChooserIfaceProtocol {
     /// Typed pointer to the underlying `GtkFontChooserIface` instance.
     var _ptr: UnsafeMutablePointer<GtkFontChooserIface>! { get }
 
+    /// Required Initialiser for types conforming to `FontChooserIfaceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `FontChooserIfaceRef` type acts as a lightweight Swift reference to an underlying `GtkFontChooserIface` instance.
@@ -1151,6 +1167,8 @@ public protocol FrameClassProtocol {
     /// Typed pointer to the underlying `GtkFrameClass` instance.
     var _ptr: UnsafeMutablePointer<GtkFrameClass>! { get }
 
+    /// Required Initialiser for types conforming to `FrameClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `FrameClassRef` type acts as a lightweight Swift reference to an underlying `GtkFrameClass` instance.
@@ -1289,6 +1307,8 @@ public protocol GLAreaClassProtocol {
     /// Typed pointer to the underlying `GtkGLAreaClass` instance.
     var _ptr: UnsafeMutablePointer<GtkGLAreaClass>! { get }
 
+    /// Required Initialiser for types conforming to `GLAreaClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `GLAreaClassRef` type acts as a lightweight Swift reference to an underlying `GtkGLAreaClass` instance.

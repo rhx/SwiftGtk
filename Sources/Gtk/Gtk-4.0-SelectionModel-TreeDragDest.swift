@@ -31,14 +31,14 @@ import Gdk
 /// A `GtkSelectionModel` supports a single boolean per item indicating if an item
 /// is selected or not. This can be queried via `gtk_selection_model_is_selected()`.
 /// When the selected state of one or more items changes, the model will emit the
-/// `GtkSelectionModel::selection`-changed signal by calling the
+/// `GtkSelectionModel::selection-changed` signal by calling the
 /// `gtk_selection_model_selection_changed()` function. The positions given in that
 /// signal may have their selection state changed, though that is not a requirement.
-/// If new items added to the model via the `GListModel::items`-changed signal are
+/// If new items added to the model via the `GListModel::items-changed` signal are
 /// selected or not is up to the implementation.
 /// 
-/// Note that items added via `GListModel::items`-changed may already be selected
-/// and no `GtkSelectionModel::selection`-changed will be emitted for them. So to
+/// Note that items added via `GListModel::items-changed` may already be selected
+/// and no `GtkSelectionModel::selection-changed` will be emitted for them. So to
 /// track which items are selected, it is necessary to listen to both signals.
 /// 
 /// Additionally, the interface can expose functionality to select and unselect
@@ -61,6 +61,8 @@ public protocol SelectionModelProtocol: GIO.ListModelProtocol {
     /// Typed pointer to the underlying `GtkSelectionModel` instance.
     var selection_model_ptr: UnsafeMutablePointer<GtkSelectionModel>! { get }
 
+    /// Required Initialiser for types conforming to `SelectionModelProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `SelectionModelRef` type acts as a lightweight Swift reference to an underlying `GtkSelectionModel` instance.
@@ -78,14 +80,14 @@ public protocol SelectionModelProtocol: GIO.ListModelProtocol {
 /// A `GtkSelectionModel` supports a single boolean per item indicating if an item
 /// is selected or not. This can be queried via `gtk_selection_model_is_selected()`.
 /// When the selected state of one or more items changes, the model will emit the
-/// `GtkSelectionModel::selection`-changed signal by calling the
+/// `GtkSelectionModel::selection-changed` signal by calling the
 /// `gtk_selection_model_selection_changed()` function. The positions given in that
 /// signal may have their selection state changed, though that is not a requirement.
-/// If new items added to the model via the `GListModel::items`-changed signal are
+/// If new items added to the model via the `GListModel::items-changed` signal are
 /// selected or not is up to the implementation.
 /// 
-/// Note that items added via `GListModel::items`-changed may already be selected
-/// and no `GtkSelectionModel::selection`-changed will be emitted for them. So to
+/// Note that items added via `GListModel::items-changed` may already be selected
+/// and no `GtkSelectionModel::selection-changed` will be emitted for them. So to
 /// track which items are selected, it is necessary to listen to both signals.
 /// 
 /// Additionally, the interface can expose functionality to select and unselect
@@ -194,14 +196,14 @@ public extension SelectionModelRef {
 /// A `GtkSelectionModel` supports a single boolean per item indicating if an item
 /// is selected or not. This can be queried via `gtk_selection_model_is_selected()`.
 /// When the selected state of one or more items changes, the model will emit the
-/// `GtkSelectionModel::selection`-changed signal by calling the
+/// `GtkSelectionModel::selection-changed` signal by calling the
 /// `gtk_selection_model_selection_changed()` function. The positions given in that
 /// signal may have their selection state changed, though that is not a requirement.
-/// If new items added to the model via the `GListModel::items`-changed signal are
+/// If new items added to the model via the `GListModel::items-changed` signal are
 /// selected or not is up to the implementation.
 /// 
-/// Note that items added via `GListModel::items`-changed may already be selected
-/// and no `GtkSelectionModel::selection`-changed will be emitted for them. So to
+/// Note that items added via `GListModel::items-changed` may already be selected
+/// and no `GtkSelectionModel::selection-changed` will be emitted for them. So to
 /// track which items are selected, it is necessary to listen to both signals.
 /// 
 /// Additionally, the interface can expose functionality to select and unselect
@@ -317,7 +319,7 @@ open class SelectionModel: GIO.ListModel, SelectionModelProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SelectionModelProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
@@ -452,7 +454,7 @@ public extension SelectionModelProtocol {
     /// 
     /// This function is an optimization for `gtk_selection_model_get_selection()` when
     /// you are only interested in part of the model's selected state. A common use
-    /// case is in response to the `GtkSelectionModel::selection`-changed signal.
+    /// case is in response to the `GtkSelectionModel::selection-changed` signal.
     @inlinable func getSelectionInRange(position: Int, nItems: Int) -> BitsetRef! {
         let rv = BitsetRef(gconstpointer: gconstpointer(gtk_selection_model_get_selection_in_range(selection_model_ptr, guint(position), guint(nItems))))
         return rv
@@ -484,7 +486,7 @@ public extension SelectionModelProtocol {
 
     /// Helper function for implementations of `GtkSelectionModel`.
     /// Call this when a the selection changes to emit the
-    /// `GtkSelectionModel::selection`-changed signal.
+    /// `GtkSelectionModel::selection-changed` signal.
     @inlinable func selectionChanged(position: Int, nItems: Int) {
         gtk_selection_model_selection_changed(selection_model_ptr, guint(position), guint(nItems))
     
@@ -586,6 +588,8 @@ public protocol ShortcutManagerProtocol {
     /// Typed pointer to the underlying `GtkShortcutManager` instance.
     var shortcut_manager_ptr: UnsafeMutablePointer<GtkShortcutManager>! { get }
 
+    /// Required Initialiser for types conforming to `ShortcutManagerProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ShortcutManagerRef` type acts as a lightweight Swift reference to an underlying `GtkShortcutManager` instance.
@@ -805,7 +809,7 @@ open class ShortcutManager: ShortcutManagerProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ShortcutManagerProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -868,6 +872,8 @@ public protocol StyleProviderProtocol {
     /// Typed pointer to the underlying `GtkStyleProvider` instance.
     var style_provider_ptr: UnsafeMutablePointer<GtkStyleProvider>! { get }
 
+    /// Required Initialiser for types conforming to `StyleProviderProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `StyleProviderRef` type acts as a lightweight Swift reference to an underlying `GtkStyleProvider` instance.
@@ -1073,7 +1079,7 @@ open class StyleProvider: StyleProviderProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StyleProviderProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -1192,6 +1198,8 @@ public protocol TreeDragDestProtocol {
     /// Typed pointer to the underlying `GtkTreeDragDest` instance.
     var tree_drag_dest_ptr: UnsafeMutablePointer<GtkTreeDragDest>! { get }
 
+    /// Required Initialiser for types conforming to `TreeDragDestProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TreeDragDestRef` type acts as a lightweight Swift reference to an underlying `GtkTreeDragDest` instance.
@@ -1395,7 +1403,7 @@ open class TreeDragDest: TreeDragDestProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TreeDragDestProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 

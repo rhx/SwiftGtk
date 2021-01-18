@@ -33,6 +33,8 @@ public protocol RootProtocol: NativeProtocol {
     /// Typed pointer to the underlying `GtkRoot` instance.
     var root_ptr: UnsafeMutablePointer<GtkRoot>! { get }
 
+    /// Required Initialiser for types conforming to `RootProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `RootRef` type acts as a lightweight Swift reference to an underlying `GtkRoot` instance.
@@ -236,14 +238,14 @@ open class Root: Native, RootProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RootProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RootProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -292,9 +294,9 @@ public enum RootPropertyName: String, PropertyNameProtocol {
     case halign = "halign"
     case hasDefault = "has-default"
     case hasFocus = "has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case hasTooltip = "has-tooltip"
     case heightRequest = "height-request"
@@ -357,11 +359,11 @@ public enum RootPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipMarkup = "tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -369,11 +371,11 @@ public enum RootPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipText = "tooltip-text"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
@@ -446,7 +448,7 @@ public enum RootSignalName: String, SignalNameProtocol {
     /// 
     /// This signal is not suitable for saving widget state.
     case destroy = "destroy"
-    /// The `direction`-changed signal is emitted when the text direction
+    /// The `direction-changed` signal is emitted when the text direction
     /// of a widget changes.
     case directionChanged = "direction-changed"
     /// The `hide` signal is emitted when `widget` is hidden, for example with
@@ -494,7 +496,7 @@ public enum RootSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
+    /// Emitted when `GtkWidget:has-tooltip` is `true` and the hover timeout
     /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
     /// focus in keyboard mode.
     /// 
@@ -514,7 +516,7 @@ public enum RootSignalName: String, SignalNameProtocol {
     /// The `show` signal is emitted when `widget` is shown, for example with
     /// `gtk_widget_show()`.
     case show = "show"
-    /// The `state`-flags-changed signal is emitted when the widget state
+    /// The `state-flags-changed` signal is emitted when the widget state
     /// changes, see `gtk_widget_get_state_flags()`.
     case stateFlagsChanged = "state-flags-changed"
     /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
@@ -555,9 +557,9 @@ public enum RootSignalName: String, SignalNameProtocol {
     case notifyHalign = "notify::halign"
     case notifyHasDefault = "notify::has-default"
     case notifyHasFocus = "notify::has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case notifyHasTooltip = "notify::has-tooltip"
     case notifyHeightRequest = "notify::height-request"
@@ -620,11 +622,11 @@ public enum RootSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipMarkup = "notify::tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -632,11 +634,11 @@ public enum RootSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipText = "notify::tooltip-text"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
@@ -754,9 +756,9 @@ public extension RootProtocol {
 /// - When a parent widget sets the scrollable child widget’s adjustments,
 ///   the widget should populate the adjustments’
 ///   `GtkAdjustment:lower`, `GtkAdjustment:upper`,
-///   `GtkAdjustment:step`-increment, `GtkAdjustment:page`-increment and
-///   `GtkAdjustment:page`-size properties and connect to the
-///   `GtkAdjustment::value`-changed signal.
+///   `GtkAdjustment:step-increment`, `GtkAdjustment:page-increment` and
+///   `GtkAdjustment:page-size` properties and connect to the
+///   `GtkAdjustment::value-changed` signal.
 /// 
 /// - Because its preferred size is the size for a fully expanded widget,
 ///   the scrollable widget must be able to cope with underallocations.
@@ -766,7 +768,7 @@ public extension RootProtocol {
 /// - When the parent allocates space to the scrollable child widget,
 ///   the widget should update the adjustments’ properties with new values.
 /// 
-/// - When any of the adjustments emits the `GtkAdjustment::value`-changed signal,
+/// - When any of the adjustments emits the `GtkAdjustment::value-changed` signal,
 ///   the scrollable widget should scroll its contents.
 public protocol ScrollableProtocol {
         /// Untyped pointer to the underlying `GtkScrollable` instance.
@@ -775,6 +777,8 @@ public protocol ScrollableProtocol {
     /// Typed pointer to the underlying `GtkScrollable` instance.
     var scrollable_ptr: UnsafeMutablePointer<GtkScrollable>! { get }
 
+    /// Required Initialiser for types conforming to `ScrollableProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ScrollableRef` type acts as a lightweight Swift reference to an underlying `GtkScrollable` instance.
@@ -794,9 +798,9 @@ public protocol ScrollableProtocol {
 /// - When a parent widget sets the scrollable child widget’s adjustments,
 ///   the widget should populate the adjustments’
 ///   `GtkAdjustment:lower`, `GtkAdjustment:upper`,
-///   `GtkAdjustment:step`-increment, `GtkAdjustment:page`-increment and
-///   `GtkAdjustment:page`-size properties and connect to the
-///   `GtkAdjustment::value`-changed signal.
+///   `GtkAdjustment:step-increment`, `GtkAdjustment:page-increment` and
+///   `GtkAdjustment:page-size` properties and connect to the
+///   `GtkAdjustment::value-changed` signal.
 /// 
 /// - Because its preferred size is the size for a fully expanded widget,
 ///   the scrollable widget must be able to cope with underallocations.
@@ -806,7 +810,7 @@ public protocol ScrollableProtocol {
 /// - When the parent allocates space to the scrollable child widget,
 ///   the widget should update the adjustments’ properties with new values.
 /// 
-/// - When any of the adjustments emits the `GtkAdjustment::value`-changed signal,
+/// - When any of the adjustments emits the `GtkAdjustment::value-changed` signal,
 ///   the scrollable widget should scroll its contents.
 public struct ScrollableRef: ScrollableProtocol {
         /// Untyped pointer to the underlying `GtkScrollable` instance.
@@ -903,9 +907,9 @@ public extension ScrollableRef {
 /// - When a parent widget sets the scrollable child widget’s adjustments,
 ///   the widget should populate the adjustments’
 ///   `GtkAdjustment:lower`, `GtkAdjustment:upper`,
-///   `GtkAdjustment:step`-increment, `GtkAdjustment:page`-increment and
-///   `GtkAdjustment:page`-size properties and connect to the
-///   `GtkAdjustment::value`-changed signal.
+///   `GtkAdjustment:step-increment`, `GtkAdjustment:page-increment` and
+///   `GtkAdjustment:page-size` properties and connect to the
+///   `GtkAdjustment::value-changed` signal.
 /// 
 /// - Because its preferred size is the size for a fully expanded widget,
 ///   the scrollable widget must be able to cope with underallocations.
@@ -915,7 +919,7 @@ public extension ScrollableRef {
 /// - When the parent allocates space to the scrollable child widget,
 ///   the widget should update the adjustments’ properties with new values.
 /// 
-/// - When any of the adjustments emits the `GtkAdjustment::value`-changed signal,
+/// - When any of the adjustments emits the `GtkAdjustment::value-changed` signal,
 ///   the scrollable widget should scroll its contents.
 open class Scrollable: ScrollableProtocol {
         /// Untyped pointer to the underlying `GtkScrollable` instance.
@@ -1030,7 +1034,7 @@ open class Scrollable: ScrollableProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScrollableProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 

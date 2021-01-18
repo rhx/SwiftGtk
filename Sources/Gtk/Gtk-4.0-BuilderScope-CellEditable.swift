@@ -52,6 +52,8 @@ public protocol BuilderScopeProtocol {
     /// Typed pointer to the underlying `GtkBuilderScope` instance.
     var builder_scope_ptr: UnsafeMutablePointer<GtkBuilderScope>! { get }
 
+    /// Required Initialiser for types conforming to `BuilderScopeProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `BuilderScopeRef` type acts as a lightweight Swift reference to an underlying `GtkBuilderScope` instance.
@@ -303,7 +305,7 @@ open class BuilderScope: BuilderScopeProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BuilderScopeProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -367,6 +369,8 @@ public protocol CellEditableProtocol: WidgetProtocol {
     /// Typed pointer to the underlying `GtkCellEditable` instance.
     var cell_editable_ptr: UnsafeMutablePointer<GtkCellEditable>! { get }
 
+    /// Required Initialiser for types conforming to `CellEditableProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `CellEditableRef` type acts as a lightweight Swift reference to an underlying `GtkCellEditable` instance.
@@ -564,14 +568,14 @@ open class CellEditable: Widget, CellEditableProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `CellEditableProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `CellEditableProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -622,9 +626,9 @@ public enum CellEditablePropertyName: String, PropertyNameProtocol {
     case halign = "halign"
     case hasDefault = "has-default"
     case hasFocus = "has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case hasTooltip = "has-tooltip"
     case heightRequest = "height-request"
@@ -687,11 +691,11 @@ public enum CellEditablePropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipMarkup = "tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -699,11 +703,11 @@ public enum CellEditablePropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipText = "tooltip-text"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
@@ -776,7 +780,7 @@ public enum CellEditableSignalName: String, SignalNameProtocol {
     /// 
     /// This signal is not suitable for saving widget state.
     case destroy = "destroy"
-    /// The `direction`-changed signal is emitted when the text direction
+    /// The `direction-changed` signal is emitted when the text direction
     /// of a widget changes.
     case directionChanged = "direction-changed"
     /// This signal is a sign for the cell renderer to update its
@@ -785,11 +789,11 @@ public enum CellEditableSignalName: String, SignalNameProtocol {
     /// Implementations of `GtkCellEditable` are responsible for
     /// emitting this signal when they are done editing, e.g.
     /// `GtkEntry` emits this signal when the user presses Enter. Typical things to
-    /// do in a handler for `editing`-done are to capture the edited value,
+    /// do in a handler for `editing-done` are to capture the edited value,
     /// disconnect the `cell_editable` from signals on the `GtkCellRenderer`, etc.
     /// 
     /// `gtk_cell_editable_editing_done()` is a convenience method
-    /// for emitting `GtkCellEditable::editing`-done.
+    /// for emitting `GtkCellEditable::editing-done`.
     case editingDone = "editing-done"
     /// The `hide` signal is emitted when `widget` is hidden, for example with
     /// `gtk_widget_hide()`.
@@ -836,7 +840,7 @@ public enum CellEditableSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
+    /// Emitted when `GtkWidget:has-tooltip` is `true` and the hover timeout
     /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
     /// focus in keyboard mode.
     /// 
@@ -859,17 +863,17 @@ public enum CellEditableSignalName: String, SignalNameProtocol {
     /// 
     /// Implementations of `GtkCellEditable` are responsible for
     /// emitting this signal when they are done editing. It must
-    /// be emitted after the `GtkCellEditable::editing`-done signal,
+    /// be emitted after the `GtkCellEditable::editing-done` signal,
     /// to give the cell renderer a chance to update the cell's value
     /// before the widget is removed.
     /// 
     /// `gtk_cell_editable_remove_widget()` is a convenience method
-    /// for emitting `GtkCellEditable::remove`-widget.
+    /// for emitting `GtkCellEditable::remove-widget`.
     case removeWidget = "remove-widget"
     /// The `show` signal is emitted when `widget` is shown, for example with
     /// `gtk_widget_show()`.
     case show = "show"
-    /// The `state`-flags-changed signal is emitted when the widget state
+    /// The `state-flags-changed` signal is emitted when the widget state
     /// changes, see `gtk_widget_get_state_flags()`.
     case stateFlagsChanged = "state-flags-changed"
     /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
@@ -912,9 +916,9 @@ public enum CellEditableSignalName: String, SignalNameProtocol {
     case notifyHalign = "notify::halign"
     case notifyHasDefault = "notify::has-default"
     case notifyHasFocus = "notify::has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case notifyHasTooltip = "notify::has-tooltip"
     case notifyHeightRequest = "notify::height-request"
@@ -977,11 +981,11 @@ public enum CellEditableSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipMarkup = "notify::tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -989,11 +993,11 @@ public enum CellEditableSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipText = "notify::tooltip-text"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
@@ -1040,11 +1044,11 @@ public extension CellEditableProtocol {
     /// Implementations of `GtkCellEditable` are responsible for
     /// emitting this signal when they are done editing, e.g.
     /// `GtkEntry` emits this signal when the user presses Enter. Typical things to
-    /// do in a handler for `editing`-done are to capture the edited value,
+    /// do in a handler for `editing-done` are to capture the edited value,
     /// disconnect the `cell_editable` from signals on the `GtkCellRenderer`, etc.
     /// 
     /// `gtk_cell_editable_editing_done()` is a convenience method
-    /// for emitting `GtkCellEditable::editing`-done.
+    /// for emitting `GtkCellEditable::editing-done`.
     /// - Note: This represents the underlying `editing-done` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -1075,12 +1079,12 @@ public extension CellEditableProtocol {
     /// 
     /// Implementations of `GtkCellEditable` are responsible for
     /// emitting this signal when they are done editing. It must
-    /// be emitted after the `GtkCellEditable::editing`-done signal,
+    /// be emitted after the `GtkCellEditable::editing-done` signal,
     /// to give the cell renderer a chance to update the cell's value
     /// before the widget is removed.
     /// 
     /// `gtk_cell_editable_remove_widget()` is a convenience method
-    /// for emitting `GtkCellEditable::remove`-widget.
+    /// for emitting `GtkCellEditable::remove-widget`.
     /// - Note: This represents the underlying `remove-widget` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -1161,13 +1165,13 @@ public extension CellEditableProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkCellEditable` instance.
     @inlinable var cell_editable_ptr: UnsafeMutablePointer<GtkCellEditable>! { return ptr?.assumingMemoryBound(to: GtkCellEditable.self) }
 
-    /// Emits the `GtkCellEditable::editing`-done signal.
+    /// Emits the `GtkCellEditable::editing-done` signal.
     @inlinable func editingDone() {
         gtk_cell_editable_editing_done(cell_editable_ptr)
     
     }
 
-    /// Emits the `GtkCellEditable::remove`-widget signal.
+    /// Emits the `GtkCellEditable::remove-widget` signal.
     @inlinable func removeWidget() {
         gtk_cell_editable_remove_widget(cell_editable_ptr)
     
@@ -1179,7 +1183,7 @@ public extension CellEditableProtocol {
     /// `gtk_cell_renderer_start_editing()`, configured for the `GtkCellRenderer` type.
     /// 
     /// `gtk_cell_editable_start_editing()` can then set up `cell_editable` suitably for
-    /// editing a cell, e.g. making the Esc key emit `GtkCellEditable::editing`-done.
+    /// editing a cell, e.g. making the Esc key emit `GtkCellEditable::editing-done`.
     /// 
     /// Note that the `cell_editable` is created on-demand for the current edit; its
     /// lifetime is temporary and does not persist across other edits and/or cells.
@@ -1193,7 +1197,7 @@ public extension CellEditableProtocol {
     /// `gtk_cell_renderer_start_editing()`, configured for the `GtkCellRenderer` type.
     /// 
     /// `gtk_cell_editable_start_editing()` can then set up `cell_editable` suitably for
-    /// editing a cell, e.g. making the Esc key emit `GtkCellEditable::editing`-done.
+    /// editing a cell, e.g. making the Esc key emit `GtkCellEditable::editing-done`.
     /// 
     /// Note that the `cell_editable` is created on-demand for the current edit; its
     /// lifetime is temporary and does not persist across other edits and/or cells.

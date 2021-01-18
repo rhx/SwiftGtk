@@ -43,6 +43,8 @@ public protocol EditableLabelClassProtocol {
     /// Typed pointer to the underlying `GtkEditableLabelClass` instance.
     var _ptr: UnsafeMutablePointer<GtkEditableLabelClass>! { get }
 
+    /// Required Initialiser for types conforming to `EditableLabelClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `EditableLabelClassRef` type acts as a lightweight Swift reference to an underlying `GtkEditableLabelClass` instance.
@@ -175,6 +177,8 @@ public protocol EmojiChooserClassProtocol {
     /// Typed pointer to the underlying `GtkEmojiChooserClass` instance.
     var _ptr: UnsafeMutablePointer<GtkEmojiChooserClass>! { get }
 
+    /// Required Initialiser for types conforming to `EmojiChooserClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `EmojiChooserClassRef` type acts as a lightweight Swift reference to an underlying `GtkEmojiChooserClass` instance.
@@ -301,6 +305,8 @@ public protocol EntryBufferClassProtocol {
     /// Typed pointer to the underlying `GtkEntryBufferClass` instance.
     var _ptr: UnsafeMutablePointer<GtkEntryBufferClass>! { get }
 
+    /// Required Initialiser for types conforming to `EntryBufferClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `EntryBufferClassRef` type acts as a lightweight Swift reference to an underlying `GtkEntryBufferClass` instance.
@@ -465,6 +471,8 @@ public protocol EntryClassProtocol {
     /// Typed pointer to the underlying `GtkEntryClass` instance.
     var _ptr: UnsafeMutablePointer<GtkEntryClass>! { get }
 
+    /// Required Initialiser for types conforming to `EntryClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `EntryClassRef` type acts as a lightweight Swift reference to an underlying `GtkEntryClass` instance.
@@ -607,6 +615,8 @@ public protocol EventControllerClassProtocol {
     /// Typed pointer to the underlying `GtkEventControllerClass` instance.
     var _ptr: UnsafeMutablePointer<GtkEventControllerClass>! { get }
 
+    /// Required Initialiser for types conforming to `EventControllerClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `EventControllerClassRef` type acts as a lightweight Swift reference to an underlying `GtkEventControllerClass` instance.
@@ -733,6 +743,8 @@ public protocol EventControllerFocusClassProtocol {
     /// Typed pointer to the underlying `GtkEventControllerFocusClass` instance.
     var _ptr: UnsafeMutablePointer<GtkEventControllerFocusClass>! { get }
 
+    /// Required Initialiser for types conforming to `EventControllerFocusClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `EventControllerFocusClassRef` type acts as a lightweight Swift reference to an underlying `GtkEventControllerFocusClass` instance.
@@ -859,6 +871,8 @@ public protocol EventControllerKeyClassProtocol {
     /// Typed pointer to the underlying `GtkEventControllerKeyClass` instance.
     var _ptr: UnsafeMutablePointer<GtkEventControllerKeyClass>! { get }
 
+    /// Required Initialiser for types conforming to `EventControllerKeyClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `EventControllerKeyClassRef` type acts as a lightweight Swift reference to an underlying `GtkEventControllerKeyClass` instance.
@@ -985,6 +999,8 @@ public protocol EventControllerLegacyClassProtocol {
     /// Typed pointer to the underlying `GtkEventControllerLegacyClass` instance.
     var _ptr: UnsafeMutablePointer<GtkEventControllerLegacyClass>! { get }
 
+    /// Required Initialiser for types conforming to `EventControllerLegacyClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `EventControllerLegacyClassRef` type acts as a lightweight Swift reference to an underlying `GtkEventControllerLegacyClass` instance.
@@ -1111,6 +1127,8 @@ public protocol EventControllerMotionClassProtocol {
     /// Typed pointer to the underlying `GtkEventControllerMotionClass` instance.
     var _ptr: UnsafeMutablePointer<GtkEventControllerMotionClass>! { get }
 
+    /// Required Initialiser for types conforming to `EventControllerMotionClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `EventControllerMotionClassRef` type acts as a lightweight Swift reference to an underlying `GtkEventControllerMotionClass` instance.
@@ -1237,6 +1255,8 @@ public protocol EventControllerScrollClassProtocol {
     /// Typed pointer to the underlying `GtkEventControllerScrollClass` instance.
     var _ptr: UnsafeMutablePointer<GtkEventControllerScrollClass>! { get }
 
+    /// Required Initialiser for types conforming to `EventControllerScrollClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `EventControllerScrollClassRef` type acts as a lightweight Swift reference to an underlying `GtkEventControllerScrollClass` instance.
@@ -1363,6 +1383,8 @@ public protocol EveryFilterClassProtocol {
     /// Typed pointer to the underlying `GtkEveryFilterClass` instance.
     var _ptr: UnsafeMutablePointer<GtkEveryFilterClass>! { get }
 
+    /// Required Initialiser for types conforming to `EveryFilterClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `EveryFilterClassRef` type acts as a lightweight Swift reference to an underlying `GtkEveryFilterClass` instance.
@@ -1474,6 +1496,8 @@ public protocol ExpressionWatchProtocol {
     /// Typed pointer to the underlying `GtkExpressionWatch` instance.
     var _ptr: UnsafeMutablePointer<GtkExpressionWatch>! { get }
 
+    /// Required Initialiser for types conforming to `ExpressionWatchProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ExpressionWatchRef` type acts as a lightweight Swift reference to an underlying `GtkExpressionWatch` instance.
@@ -1677,7 +1701,7 @@ open class ExpressionWatch: ExpressionWatchProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ExpressionWatchProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -1784,6 +1808,8 @@ public protocol FileChooserNativeClassProtocol {
     /// Typed pointer to the underlying `GtkFileChooserNativeClass` instance.
     var _ptr: UnsafeMutablePointer<GtkFileChooserNativeClass>! { get }
 
+    /// Required Initialiser for types conforming to `FileChooserNativeClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `FileChooserNativeClassRef` type acts as a lightweight Swift reference to an underlying `GtkFileChooserNativeClass` instance.

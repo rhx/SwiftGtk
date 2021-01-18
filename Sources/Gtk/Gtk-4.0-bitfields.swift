@@ -426,7 +426,7 @@ public struct PickFlags: OptionSet {
     public static let `default` = PickFlags(0) // GTK_PICK_DEFAULT
     /// Include widgets that are insensitive
     public static let insensitive = PickFlags(1) // GTK_PICK_INSENSITIVE
-    /// Include widgets that are marked as non-targetable. See `GtkWidget:can`-target
+    /// Include widgets that are marked as non-targetable. See `GtkWidget:can-target`
     public static let nonTargetable = PickFlags(2) // GTK_PICK_NON_TARGETABLE
 }
 

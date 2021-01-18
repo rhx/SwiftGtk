@@ -25,11 +25,11 @@ import Gdk
 /// Unicode character strings.
 /// 
 /// The default input method can be set programmatically via the
-/// `GtkSettings:gtk`-im-module GtkSettings property. Alternatively, you may set
+/// `GtkSettings:gtk-im-module` GtkSettings property. Alternatively, you may set
 /// the GTK_IM_MODULE environment variable as documented in
 /// [Running GTK Applications](#gtk-running).
 /// 
-/// The `GtkEntry` `GtkEntry:im`-module and `GtkTextView` `GtkTextView:im`-module
+/// The `GtkEntry` `GtkEntry:im-module` and `GtkTextView` `GtkTextView:im-module`
 /// properties may also be used to set input methods for specific widget
 /// instances. For instance, a certain entry widget might be expected to contain
 /// certain characters which would be easier to input with a certain input
@@ -97,6 +97,8 @@ public protocol IMContextProtocol: GLibObject.ObjectProtocol {
     /// Typed pointer to the underlying `GtkIMContext` instance.
     var im_context_ptr: UnsafeMutablePointer<GtkIMContext>! { get }
 
+    /// Required Initialiser for types conforming to `IMContextProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `IMContextRef` type acts as a lightweight Swift reference to an underlying `GtkIMContext` instance.
@@ -108,11 +110,11 @@ public protocol IMContextProtocol: GLibObject.ObjectProtocol {
 /// Unicode character strings.
 /// 
 /// The default input method can be set programmatically via the
-/// `GtkSettings:gtk`-im-module GtkSettings property. Alternatively, you may set
+/// `GtkSettings:gtk-im-module` GtkSettings property. Alternatively, you may set
 /// the GTK_IM_MODULE environment variable as documented in
 /// [Running GTK Applications](#gtk-running).
 /// 
-/// The `GtkEntry` `GtkEntry:im`-module and `GtkTextView` `GtkTextView:im`-module
+/// The `GtkEntry` `GtkEntry:im-module` and `GtkTextView` `GtkTextView:im-module`
 /// properties may also be used to set input methods for specific widget
 /// instances. For instance, a certain entry widget might be expected to contain
 /// certain characters which would be easier to input with a certain input
@@ -263,11 +265,11 @@ public extension IMContextRef {
 /// Unicode character strings.
 /// 
 /// The default input method can be set programmatically via the
-/// `GtkSettings:gtk`-im-module GtkSettings property. Alternatively, you may set
+/// `GtkSettings:gtk-im-module` GtkSettings property. Alternatively, you may set
 /// the GTK_IM_MODULE environment variable as documented in
 /// [Running GTK Applications](#gtk-running).
 /// 
-/// The `GtkEntry` `GtkEntry:im`-module and `GtkTextView` `GtkTextView:im`-module
+/// The `GtkEntry` `GtkEntry:im-module` and `GtkTextView` `GtkTextView:im-module`
 /// properties may also be used to set input methods for specific widget
 /// instances. For instance, a certain entry widget might be expected to contain
 /// certain characters which would be easier to input with a certain input
@@ -428,14 +430,14 @@ open class IMContext: GLibObject.Object, IMContextProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IMContextProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IMContextProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -520,7 +522,7 @@ public enum IMContextSignalName: String, SignalNameProtocol {
     /// has been entered by the user. This can be a single character
     /// immediately after a key press or the final result of preediting.
     case commit = "commit"
-    /// The `delete`-surrounding signal is emitted when the input method
+    /// The `delete-surrounding` signal is emitted when the input method
     /// needs to delete all or part of the context surrounding the cursor.
     case deleteSurrounding = "delete-surrounding"
     /// The notify signal is emitted on an object when one of its properties has
@@ -548,18 +550,18 @@ public enum IMContextSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// The `preedit`-changed signal is emitted whenever the preedit sequence
+    /// The `preedit-changed` signal is emitted whenever the preedit sequence
     /// currently being entered has changed.  It is also emitted at the end of
     /// a preedit sequence, in which case
     /// `gtk_im_context_get_preedit_string()` returns the empty string.
     case preeditChanged = "preedit-changed"
-    /// The `preedit`-end signal is emitted when a preediting sequence
+    /// The `preedit-end` signal is emitted when a preediting sequence
     /// has been completed or canceled.
     case preeditEnd = "preedit-end"
-    /// The `preedit`-start signal is emitted when a new preediting sequence
+    /// The `preedit-start` signal is emitted when a new preediting sequence
     /// starts.
     case preeditStart = "preedit-start"
-    /// The `retrieve`-surrounding signal is emitted when the input method
+    /// The `retrieve-surrounding` signal is emitted when the input method
     /// requires the context surrounding the cursor.  The callback should set
     /// the input method surrounding context by calling the
     /// `gtk_im_context_set_surrounding()` method.
@@ -624,7 +626,7 @@ public extension IMContextProtocol {
     /// Typed `commit` signal for using the `connect(signal:)` methods
     static var commitSignal: IMContextSignalName { .commit }
     
-    /// The `delete`-surrounding signal is emitted when the input method
+    /// The `delete-surrounding` signal is emitted when the input method
     /// needs to delete all or part of the context surrounding the cursor.
     /// - Note: This represents the underlying `delete-surrounding` signal
     /// - Parameter flags: Flags
@@ -652,7 +654,7 @@ public extension IMContextProtocol {
     /// Typed `delete-surrounding` signal for using the `connect(signal:)` methods
     static var deleteSurroundingSignal: IMContextSignalName { .deleteSurrounding }
     
-    /// The `preedit`-changed signal is emitted whenever the preedit sequence
+    /// The `preedit-changed` signal is emitted whenever the preedit sequence
     /// currently being entered has changed.  It is also emitted at the end of
     /// a preedit sequence, in which case
     /// `gtk_im_context_get_preedit_string()` returns the empty string.
@@ -680,7 +682,7 @@ public extension IMContextProtocol {
     /// Typed `preedit-changed` signal for using the `connect(signal:)` methods
     static var preeditChangedSignal: IMContextSignalName { .preeditChanged }
     
-    /// The `preedit`-end signal is emitted when a preediting sequence
+    /// The `preedit-end` signal is emitted when a preediting sequence
     /// has been completed or canceled.
     /// - Note: This represents the underlying `preedit-end` signal
     /// - Parameter flags: Flags
@@ -706,7 +708,7 @@ public extension IMContextProtocol {
     /// Typed `preedit-end` signal for using the `connect(signal:)` methods
     static var preeditEndSignal: IMContextSignalName { .preeditEnd }
     
-    /// The `preedit`-start signal is emitted when a new preediting sequence
+    /// The `preedit-start` signal is emitted when a new preediting sequence
     /// starts.
     /// - Note: This represents the underlying `preedit-start` signal
     /// - Parameter flags: Flags
@@ -732,7 +734,7 @@ public extension IMContextProtocol {
     /// Typed `preedit-start` signal for using the `connect(signal:)` methods
     static var preeditStartSignal: IMContextSignalName { .preeditStart }
     
-    /// The `retrieve`-surrounding signal is emitted when the input method
+    /// The `retrieve-surrounding` signal is emitted when the input method
     /// requires the context surrounding the cursor.  The callback should set
     /// the input method surrounding context by calling the
     /// `gtk_im_context_set_surrounding()` method.
@@ -1038,6 +1040,8 @@ public protocol IMContextSimpleProtocol: IMContextProtocol {
     /// Typed pointer to the underlying `GtkIMContextSimple` instance.
     var im_context_simple_ptr: UnsafeMutablePointer<GtkIMContextSimple>! { get }
 
+    /// Required Initialiser for types conforming to `IMContextSimpleProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `IMContextSimpleRef` type acts as a lightweight Swift reference to an underlying `GtkIMContextSimple` instance.
@@ -1266,14 +1270,14 @@ open class IMContextSimple: IMContext, IMContextSimpleProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IMContextSimpleProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IMContextSimpleProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -1364,7 +1368,7 @@ public enum IMContextSimpleSignalName: String, SignalNameProtocol {
     /// has been entered by the user. This can be a single character
     /// immediately after a key press or the final result of preediting.
     case commit = "commit"
-    /// The `delete`-surrounding signal is emitted when the input method
+    /// The `delete-surrounding` signal is emitted when the input method
     /// needs to delete all or part of the context surrounding the cursor.
     case deleteSurrounding = "delete-surrounding"
     /// The notify signal is emitted on an object when one of its properties has
@@ -1392,18 +1396,18 @@ public enum IMContextSimpleSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// The `preedit`-changed signal is emitted whenever the preedit sequence
+    /// The `preedit-changed` signal is emitted whenever the preedit sequence
     /// currently being entered has changed.  It is also emitted at the end of
     /// a preedit sequence, in which case
     /// `gtk_im_context_get_preedit_string()` returns the empty string.
     case preeditChanged = "preedit-changed"
-    /// The `preedit`-end signal is emitted when a preediting sequence
+    /// The `preedit-end` signal is emitted when a preediting sequence
     /// has been completed or canceled.
     case preeditEnd = "preedit-end"
-    /// The `preedit`-start signal is emitted when a new preediting sequence
+    /// The `preedit-start` signal is emitted when a new preediting sequence
     /// starts.
     case preeditStart = "preedit-start"
-    /// The `retrieve`-surrounding signal is emitted when the input method
+    /// The `retrieve-surrounding` signal is emitted when the input method
     /// requires the context surrounding the cursor.  The callback should set
     /// the input method surrounding context by calling the
     /// `gtk_im_context_set_surrounding()` method.
@@ -1466,6 +1470,8 @@ public protocol IMMulticontextProtocol: IMContextProtocol {
     /// Typed pointer to the underlying `GtkIMMulticontext` instance.
     var im_multicontext_ptr: UnsafeMutablePointer<GtkIMMulticontext>! { get }
 
+    /// Required Initialiser for types conforming to `IMMulticontextProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `IMMulticontextRef` type acts as a lightweight Swift reference to an underlying `GtkIMMulticontext` instance.
@@ -1664,14 +1670,14 @@ open class IMMulticontext: IMContext, IMMulticontextProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IMMulticontextProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IMMulticontextProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -1762,7 +1768,7 @@ public enum IMMulticontextSignalName: String, SignalNameProtocol {
     /// has been entered by the user. This can be a single character
     /// immediately after a key press or the final result of preediting.
     case commit = "commit"
-    /// The `delete`-surrounding signal is emitted when the input method
+    /// The `delete-surrounding` signal is emitted when the input method
     /// needs to delete all or part of the context surrounding the cursor.
     case deleteSurrounding = "delete-surrounding"
     /// The notify signal is emitted on an object when one of its properties has
@@ -1790,18 +1796,18 @@ public enum IMMulticontextSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// The `preedit`-changed signal is emitted whenever the preedit sequence
+    /// The `preedit-changed` signal is emitted whenever the preedit sequence
     /// currently being entered has changed.  It is also emitted at the end of
     /// a preedit sequence, in which case
     /// `gtk_im_context_get_preedit_string()` returns the empty string.
     case preeditChanged = "preedit-changed"
-    /// The `preedit`-end signal is emitted when a preediting sequence
+    /// The `preedit-end` signal is emitted when a preediting sequence
     /// has been completed or canceled.
     case preeditEnd = "preedit-end"
-    /// The `preedit`-start signal is emitted when a new preediting sequence
+    /// The `preedit-start` signal is emitted when a new preediting sequence
     /// starts.
     case preeditStart = "preedit-start"
-    /// The `retrieve`-surrounding signal is emitted when the input method
+    /// The `retrieve-surrounding` signal is emitted when the input method
     /// requires the context surrounding the cursor.  The callback should set
     /// the input method surrounding context by calling the
     /// `gtk_im_context_set_surrounding()` method.
@@ -1875,6 +1881,8 @@ public protocol IconPaintableProtocol: GLibObject.ObjectProtocol, Gdk.PaintableP
     /// Typed pointer to the underlying `GtkIconPaintable` instance.
     var icon_paintable_ptr: UnsafeMutablePointer<GtkIconPaintable>! { get }
 
+    /// Required Initialiser for types conforming to `IconPaintableProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `IconPaintableRef` type acts as a lightweight Swift reference to an underlying `GtkIconPaintable` instance.
@@ -2082,14 +2090,14 @@ open class IconPaintable: GLibObject.Object, IconPaintableProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IconPaintableProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IconPaintableProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -2352,6 +2360,8 @@ public protocol IconThemeProtocol: GLibObject.ObjectProtocol {
     /// Typed pointer to the underlying `GtkIconTheme` instance.
     var icon_theme_ptr: UnsafeMutablePointer<GtkIconTheme>! { get }
 
+    /// Required Initialiser for types conforming to `IconThemeProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `IconThemeRef` type acts as a lightweight Swift reference to an underlying `GtkIconTheme` instance.
@@ -2633,14 +2643,14 @@ open class IconTheme: GLibObject.Object, IconThemeProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IconThemeProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IconThemeProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -2709,7 +2719,7 @@ public enum IconThemePropertyName: String, PropertyNameProtocol {
     /// The name of the icon theme that is being used.
     /// 
     /// Unless set to a different value, this will be the value of
-    /// the `GtkSettings:gtk`-icon-theme-name property of the `GtkSettings`
+    /// the `GtkSettings:gtk-icon-theme-name` property of the `GtkSettings`
     /// object associated to the display of the icontheme object.
     case themeName = "theme-name"
 }
@@ -2821,7 +2831,7 @@ public enum IconThemeSignalName: String, SignalNameProtocol {
     /// The name of the icon theme that is being used.
     /// 
     /// Unless set to a different value, this will be the value of
-    /// the `GtkSettings:gtk`-icon-theme-name property of the `GtkSettings`
+    /// the `GtkSettings:gtk-icon-theme-name` property of the `GtkSettings`
     /// object associated to the display of the icontheme object.
     case notifyThemeName = "notify::theme-name"
 }
@@ -3224,7 +3234,7 @@ public extension IconThemeProtocol {
     /// 
     /// Note that you probably want to listen for icon theme changes and
     /// update the icon. This is usually done by overriding the
-    /// `GtkWidgetClass.css``-changed()` function.
+    /// `GtkWidgetClass.css-changed``()` function.
     @inlinable func lookupIcon(iconName: UnsafePointer<CChar>!, fallbacks: UnsafeMutablePointer<UnsafePointer<CChar>?>! = nil, size: Int, scale: Int, direction: GtkTextDirection, flags: IconLookupFlags) -> IconPaintableRef! {
         let rv = IconPaintableRef(gconstpointer: gconstpointer(gtk_icon_theme_lookup_icon(icon_theme_ptr, iconName, fallbacks, gint(size), gint(scale), direction, flags.value)))
         return rv
@@ -3404,6 +3414,8 @@ public protocol IconViewProtocol: WidgetProtocol, CellLayoutProtocol, Scrollable
     /// Typed pointer to the underlying `GtkIconView` instance.
     var icon_view_ptr: UnsafeMutablePointer<GtkIconView>! { get }
 
+    /// Required Initialiser for types conforming to `IconViewProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `IconViewRef` type acts as a lightweight Swift reference to an underlying `GtkIconView` instance.
@@ -3669,14 +3681,14 @@ open class IconView: Widget, IconViewProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IconViewProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IconViewProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -3775,9 +3787,9 @@ public enum IconViewPropertyName: String, PropertyNameProtocol {
     case halign = "halign"
     case hasDefault = "has-default"
     case hasFocus = "has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case hasTooltip = "has-tooltip"
     case heightRequest = "height-request"
@@ -3830,7 +3842,7 @@ public enum IconViewPropertyName: String, PropertyNameProtocol {
     /// request, the margin will be added in addition to the size from
     /// `gtk_widget_set_size_request()` for example.
     case marginTop = "margin-top"
-    /// The `markup`-column property contains the number of the model column
+    /// The `markup-column` property contains the number of the model column
     /// containing markup information to be displayed. The markup column must be
     /// of type `G_TYPE_STRING`. If this property and the :text-column property
     /// are both set to column numbers, it overrides the text column.
@@ -3847,7 +3859,7 @@ public enum IconViewPropertyName: String, PropertyNameProtocol {
     /// typically in their instance init function.
     case overflow = "overflow"
     case parent = "parent"
-    /// The `pixbuf`-column property contains the number of the model column
+    /// The `pixbuf-column` property contains the number of the model column
     /// containing the pixbufs which are displayed. The pixbuf column must be
     /// of type `GDK_TYPE_PIXBUF`. Setting this property to -1 turns off the
     /// display of pixbufs.
@@ -3865,7 +3877,7 @@ public enum IconViewPropertyName: String, PropertyNameProtocol {
     /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
     /// more details about widget scaling.
     case scaleFactor = "scale-factor"
-    /// The `selection`-mode property specifies the selection mode of
+    /// The `selection-mode` property specifies the selection mode of
     /// icon view. If the mode is `GTK_SELECTION_MULTIPLE`, rubberband selection
     /// is enabled, for the other modes, only keyboard selection is possible.
     case selectionMode = "selection-mode"
@@ -3873,7 +3885,7 @@ public enum IconViewPropertyName: String, PropertyNameProtocol {
     /// The spacing property specifies the space which is inserted between
     /// the cells (i.e. the icon and the text) of an item.
     case spacing = "spacing"
-    /// The `text`-column property contains the number of the model column
+    /// The `text-column` property contains the number of the model column
     /// containing the texts which are displayed. The text column must be
     /// of type `G_TYPE_STRING`. If this property and the :markup-column
     /// property are both set to -1, no texts are displayed.
@@ -3884,11 +3896,11 @@ public enum IconViewPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipMarkup = "tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -3896,11 +3908,11 @@ public enum IconViewPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipText = "tooltip-text"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
@@ -3983,13 +3995,13 @@ public enum IconViewSignalName: String, SignalNameProtocol {
     /// 
     /// This signal is not suitable for saving widget state.
     case destroy = "destroy"
-    /// The `direction`-changed signal is emitted when the text direction
+    /// The `direction-changed` signal is emitted when the text direction
     /// of a widget changes.
     case directionChanged = "direction-changed"
     /// The `hide` signal is emitted when `widget` is hidden, for example with
     /// `gtk_widget_hide()`.
     case hide = "hide"
-    /// The `item`-activated signal is emitted when the method
+    /// The `item-activated` signal is emitted when the method
     /// `gtk_icon_view_item_activated()` is called, when the user double
     /// clicks an item with the "activate-on-single-click" property set
     /// to `false`, or when the user single clicks an item when the
@@ -4012,7 +4024,7 @@ public enum IconViewSignalName: String, SignalNameProtocol {
     /// The default handler for this signal activates `widget` if `group_cycling`
     /// is `false`, or just makes `widget` grab focus if `group_cycling` is `true`.
     case mnemonicActivate = "mnemonic-activate"
-    /// The `move`-cursor signal is a
+    /// The `move-cursor` signal is a
     /// [keybinding signal](#GtkSignalAction)
     /// which gets emitted when the user initiates a cursor movement.
     /// 
@@ -4054,7 +4066,7 @@ public enum IconViewSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
+    /// Emitted when `GtkWidget:has-tooltip` is `true` and the hover timeout
     /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
     /// focus in keyboard mode.
     /// 
@@ -4090,13 +4102,13 @@ public enum IconViewSignalName: String, SignalNameProtocol {
     /// 
     /// There is no default binding for this signal.
     case selectCursorItem = "select-cursor-item"
-    /// The `selection`-changed signal is emitted when the selection
+    /// The `selection-changed` signal is emitted when the selection
     /// (i.e. the set of selected items) changes.
     case selectionChanged = "selection-changed"
     /// The `show` signal is emitted when `widget` is shown, for example with
     /// `gtk_widget_show()`.
     case show = "show"
-    /// The `state`-flags-changed signal is emitted when the widget state
+    /// The `state-flags-changed` signal is emitted when the widget state
     /// changes, see `gtk_widget_get_state_flags()`.
     case stateFlagsChanged = "state-flags-changed"
     /// A [keybinding signal](#GtkSignalAction)
@@ -4172,9 +4184,9 @@ public enum IconViewSignalName: String, SignalNameProtocol {
     case notifyHalign = "notify::halign"
     case notifyHasDefault = "notify::has-default"
     case notifyHasFocus = "notify::has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case notifyHasTooltip = "notify::has-tooltip"
     case notifyHeightRequest = "notify::height-request"
@@ -4227,7 +4239,7 @@ public enum IconViewSignalName: String, SignalNameProtocol {
     /// request, the margin will be added in addition to the size from
     /// `gtk_widget_set_size_request()` for example.
     case notifyMarginTop = "notify::margin-top"
-    /// The `markup`-column property contains the number of the model column
+    /// The `markup-column` property contains the number of the model column
     /// containing markup information to be displayed. The markup column must be
     /// of type `G_TYPE_STRING`. If this property and the :text-column property
     /// are both set to column numbers, it overrides the text column.
@@ -4244,7 +4256,7 @@ public enum IconViewSignalName: String, SignalNameProtocol {
     /// typically in their instance init function.
     case notifyOverflow = "notify::overflow"
     case notifyParent = "notify::parent"
-    /// The `pixbuf`-column property contains the number of the model column
+    /// The `pixbuf-column` property contains the number of the model column
     /// containing the pixbufs which are displayed. The pixbuf column must be
     /// of type `GDK_TYPE_PIXBUF`. Setting this property to -1 turns off the
     /// display of pixbufs.
@@ -4262,7 +4274,7 @@ public enum IconViewSignalName: String, SignalNameProtocol {
     /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
     /// more details about widget scaling.
     case notifyScaleFactor = "notify::scale-factor"
-    /// The `selection`-mode property specifies the selection mode of
+    /// The `selection-mode` property specifies the selection mode of
     /// icon view. If the mode is `GTK_SELECTION_MULTIPLE`, rubberband selection
     /// is enabled, for the other modes, only keyboard selection is possible.
     case notifySelectionMode = "notify::selection-mode"
@@ -4270,7 +4282,7 @@ public enum IconViewSignalName: String, SignalNameProtocol {
     /// The spacing property specifies the space which is inserted between
     /// the cells (i.e. the icon and the text) of an item.
     case notifySpacing = "notify::spacing"
-    /// The `text`-column property contains the number of the model column
+    /// The `text-column` property contains the number of the model column
     /// containing the texts which are displayed. The text column must be
     /// of type `G_TYPE_STRING`. If this property and the :markup-column
     /// property are both set to -1, no texts are displayed.
@@ -4281,11 +4293,11 @@ public enum IconViewSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipMarkup = "notify::tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -4293,11 +4305,11 @@ public enum IconViewSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipText = "notify::tooltip-text"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
@@ -4371,7 +4383,7 @@ public extension IconViewProtocol {
     /// Typed `activate-cursor-item` signal for using the `connect(signal:)` methods
     static var activateCursorItemSignal: IconViewSignalName { .activateCursorItem }
     
-    /// The `item`-activated signal is emitted when the method
+    /// The `item-activated` signal is emitted when the method
     /// `gtk_icon_view_item_activated()` is called, when the user double
     /// clicks an item with the "activate-on-single-click" property set
     /// to `false`, or when the user single clicks an item when the
@@ -4403,7 +4415,7 @@ public extension IconViewProtocol {
     /// Typed `item-activated` signal for using the `connect(signal:)` methods
     static var itemActivatedSignal: IconViewSignalName { .itemActivated }
     
-    /// The `move`-cursor signal is a
+    /// The `move-cursor` signal is a
     /// [keybinding signal](#GtkSignalAction)
     /// which gets emitted when the user initiates a cursor movement.
     /// 
@@ -4510,7 +4522,7 @@ public extension IconViewProtocol {
     /// Typed `select-cursor-item` signal for using the `connect(signal:)` methods
     static var selectCursorItemSignal: IconViewSignalName { .selectCursorItem }
     
-    /// The `selection`-changed signal is emitted when the selection
+    /// The `selection-changed` signal is emitted when the selection
     /// (i.e. the set of selected items) changes.
     /// - Note: This represents the underlying `selection-changed` signal
     /// - Parameter flags: Flags
@@ -5486,7 +5498,7 @@ public extension IconViewProtocol {
         return rv
     }
 
-    /// Returns the value of the `column`-spacing property.
+    /// Returns the value of the `column-spacing` property.
     @inlinable func getColumnSpacing() -> Int {
         let rv = Int(gtk_icon_view_get_column_spacing(icon_view_ptr))
         return rv
@@ -5533,14 +5545,14 @@ public extension IconViewProtocol {
         return rv
     }
 
-    /// Returns the value of the `item`-orientation property which determines
+    /// Returns the value of the `item-orientation` property which determines
     /// whether the labels are drawn beside the icons instead of below.
     @inlinable func getItemOrientation() -> GtkOrientation {
         let rv = gtk_icon_view_get_item_orientation(icon_view_ptr)
         return rv
     }
 
-    /// Returns the value of the `item`-padding property.
+    /// Returns the value of the `item-padding` property.
     @inlinable func getItemPadding() -> Int {
         let rv = Int(gtk_icon_view_get_item_padding(icon_view_ptr))
         return rv
@@ -5553,7 +5565,7 @@ public extension IconViewProtocol {
         return rv
     }
 
-    /// Returns the value of the `item`-width property.
+    /// Returns the value of the `item-width` property.
     @inlinable func getItemWidth() -> Int {
         let rv = Int(gtk_icon_view_get_item_width(icon_view_ptr))
         return rv
@@ -5597,7 +5609,7 @@ public extension IconViewProtocol {
         return rv
     }
 
-    /// Returns the value of the `row`-spacing property.
+    /// Returns the value of the `row-spacing` property.
     @inlinable func getRowSpacing() -> Int {
         let rv = Int(gtk_icon_view_get_row_spacing(icon_view_ptr))
         return rv
@@ -5644,7 +5656,7 @@ public extension IconViewProtocol {
         return rv
     }
 
-    /// This function is supposed to be used in a `GtkWidget::query`-tooltip
+    /// This function is supposed to be used in a `GtkWidget::query-tooltip`
     /// signal handler for `GtkIconView`.  The `x`, `y` and `keyboard_tip` values
     /// which are received in the signal handler, should be passed to this
     /// function without modification.
@@ -5658,7 +5670,7 @@ public extension IconViewProtocol {
         let rv = ((gtk_icon_view_get_tooltip_context(icon_view_ptr, gint(x), gint(y), gboolean((keyboardTip) ? 1 : 0), model, path, iter?.tree_iter_ptr)) != 0)
         return rv
     }
-    /// This function is supposed to be used in a `GtkWidget::query`-tooltip
+    /// This function is supposed to be used in a `GtkWidget::query-tooltip`
     /// signal handler for `GtkIconView`.  The `x`, `y` and `keyboard_tip` values
     /// which are received in the signal handler, should be passed to this
     /// function without modification.
@@ -5734,14 +5746,14 @@ public extension IconViewProtocol {
     
     }
 
-    /// Causes the `GtkIconView::item`-activated signal to be emitted on
+    /// Causes the `GtkIconView::item-activated` signal to be emitted on
     /// a single click instead of a double click.
     @inlinable func setActivateOnSingleClick(single: Bool) {
         gtk_icon_view_set_activate_on_single_click(icon_view_ptr, gboolean((single) ? 1 : 0))
     
     }
 
-    /// Sets the `column`-spacing property which specifies the space
+    /// Sets the `column-spacing` property which specifies the space
     /// which is inserted between the columns of the icon view.
     @inlinable func set(columnSpacing: Int) {
         gtk_icon_view_set_column_spacing(icon_view_ptr, gint(columnSpacing))
@@ -5795,21 +5807,21 @@ public extension IconViewProtocol {
     
     }
 
-    /// Sets the `item`-orientation property which determines whether the labels
+    /// Sets the `item-orientation` property which determines whether the labels
     /// are drawn beside the icons instead of below.
     @inlinable func setItem(orientation: GtkOrientation) {
         gtk_icon_view_set_item_orientation(icon_view_ptr, orientation)
     
     }
 
-    /// Sets the `GtkIconView:item`-padding property which specifies the padding
+    /// Sets the `GtkIconView:item-padding` property which specifies the padding
     /// around each of the icon view’s items.
     @inlinable func set(itemPadding: Int) {
         gtk_icon_view_set_item_padding(icon_view_ptr, gint(itemPadding))
     
     }
 
-    /// Sets the `item`-width property which specifies the width
+    /// Sets the `item-width` property which specifies the width
     /// to use for each item. If it is set to -1, the icon view will
     /// automatically determine a suitable item size.
     @inlinable func set(itemWidth: Int) {
@@ -5875,7 +5887,7 @@ public extension IconViewProtocol {
     
     }
 
-    /// Sets the `row`-spacing property which specifies the space
+    /// Sets the `row-spacing` property which specifies the space
     /// which is inserted between the rows of the icon view.
     @inlinable func set(rowSpacing: Int) {
         gtk_icon_view_set_row_spacing(icon_view_ptr, gint(rowSpacing))
@@ -5925,11 +5937,11 @@ public extension IconViewProtocol {
     /// for you. `column` should be set to the column in `icon_view`’s model
     /// containing the tooltip texts, or -1 to disable this feature.
     /// 
-    /// When enabled, `GtkWidget:has`-tooltip will be set to `true` and
-    /// `icon_view` will connect a `GtkWidget::query`-tooltip signal handler.
+    /// When enabled, `GtkWidget:has-tooltip` will be set to `true` and
+    /// `icon_view` will connect a `GtkWidget::query-tooltip` signal handler.
     /// 
     /// Note that the signal handler sets the text with `gtk_tooltip_set_markup()`,
-    /// so &, <, etc have to be escaped in the text.
+    /// so &, &lt;, etc have to be escaped in the text.
     @inlinable func setTooltip(column: Int) {
         gtk_icon_view_set_tooltip_column(icon_view_ptr, gint(column))
     
@@ -5975,21 +5987,21 @@ public extension IconViewProtocol {
             let rv = ((gtk_icon_view_get_activate_on_single_click(icon_view_ptr)) != 0)
             return rv
         }
-        /// Causes the `GtkIconView::item`-activated signal to be emitted on
+        /// Causes the `GtkIconView::item-activated` signal to be emitted on
         /// a single click instead of a double click.
         nonmutating set {
             gtk_icon_view_set_activate_on_single_click(icon_view_ptr, gboolean((newValue) ? 1 : 0))
         }
     }
 
-    /// Returns the value of the `column`-spacing property.
+    /// Returns the value of the `column-spacing` property.
     @inlinable var columnSpacing: Int {
-        /// Returns the value of the `column`-spacing property.
+        /// Returns the value of the `column-spacing` property.
         get {
             let rv = Int(gtk_icon_view_get_column_spacing(icon_view_ptr))
             return rv
         }
-        /// Sets the `column`-spacing property which specifies the space
+        /// Sets the `column-spacing` property which specifies the space
         /// which is inserted between the columns of the icon view.
         nonmutating set {
             gtk_icon_view_set_column_spacing(icon_view_ptr, gint(newValue))
@@ -6014,44 +6026,44 @@ public extension IconViewProtocol {
         }
     }
 
-    /// Returns the value of the `item`-orientation property which determines
+    /// Returns the value of the `item-orientation` property which determines
     /// whether the labels are drawn beside the icons instead of below.
     @inlinable var itemOrientation: GtkOrientation {
-        /// Returns the value of the `item`-orientation property which determines
+        /// Returns the value of the `item-orientation` property which determines
         /// whether the labels are drawn beside the icons instead of below.
         get {
             let rv = gtk_icon_view_get_item_orientation(icon_view_ptr)
             return rv
         }
-        /// Sets the `item`-orientation property which determines whether the labels
+        /// Sets the `item-orientation` property which determines whether the labels
         /// are drawn beside the icons instead of below.
         nonmutating set {
             gtk_icon_view_set_item_orientation(icon_view_ptr, newValue)
         }
     }
 
-    /// Returns the value of the `item`-padding property.
+    /// Returns the value of the `item-padding` property.
     @inlinable var itemPadding: Int {
-        /// Returns the value of the `item`-padding property.
+        /// Returns the value of the `item-padding` property.
         get {
             let rv = Int(gtk_icon_view_get_item_padding(icon_view_ptr))
             return rv
         }
-        /// Sets the `GtkIconView:item`-padding property which specifies the padding
+        /// Sets the `GtkIconView:item-padding` property which specifies the padding
         /// around each of the icon view’s items.
         nonmutating set {
             gtk_icon_view_set_item_padding(icon_view_ptr, gint(newValue))
         }
     }
 
-    /// Returns the value of the `item`-width property.
+    /// Returns the value of the `item-width` property.
     @inlinable var itemWidth: Int {
-        /// Returns the value of the `item`-width property.
+        /// Returns the value of the `item-width` property.
         get {
             let rv = Int(gtk_icon_view_get_item_width(icon_view_ptr))
             return rv
         }
-        /// Sets the `item`-width property which specifies the width
+        /// Sets the `item-width` property which specifies the width
         /// to use for each item. If it is set to -1, the icon view will
         /// automatically determine a suitable item size.
         nonmutating set {
@@ -6147,14 +6159,14 @@ public extension IconViewProtocol {
         }
     }
 
-    /// Returns the value of the `row`-spacing property.
+    /// Returns the value of the `row-spacing` property.
     @inlinable var rowSpacing: Int {
-        /// Returns the value of the `row`-spacing property.
+        /// Returns the value of the `row-spacing` property.
         get {
             let rv = Int(gtk_icon_view_get_row_spacing(icon_view_ptr))
             return rv
         }
-        /// Sets the `row`-spacing property which specifies the space
+        /// Sets the `row-spacing` property which specifies the space
         /// which is inserted between the rows of the icon view.
         nonmutating set {
             gtk_icon_view_set_row_spacing(icon_view_ptr, gint(newValue))
@@ -6247,11 +6259,11 @@ public extension IconViewProtocol {
         /// for you. `column` should be set to the column in `icon_view`’s model
         /// containing the tooltip texts, or -1 to disable this feature.
         /// 
-        /// When enabled, `GtkWidget:has`-tooltip will be set to `true` and
-        /// `icon_view` will connect a `GtkWidget::query`-tooltip signal handler.
+        /// When enabled, `GtkWidget:has-tooltip` will be set to `true` and
+        /// `icon_view` will connect a `GtkWidget::query-tooltip` signal handler.
         /// 
         /// Note that the signal handler sets the text with `gtk_tooltip_set_markup()`,
-        /// so &, <, etc have to be escaped in the text.
+        /// so &, &lt;, etc have to be escaped in the text.
         nonmutating set {
             gtk_icon_view_set_tooltip_column(icon_view_ptr, gint(newValue))
         }
@@ -6294,7 +6306,7 @@ public extension IconViewProtocol {
 /// # CSS nodes
 /// 
 /// GtkImage has a single CSS node with the name image. The style classes
-/// .normal-icons or .large-icons may appear, depending on the `GtkImage:icon`-size
+/// .normal-icons or .large-icons may appear, depending on the `GtkImage:icon-size`
 /// property.
 /// 
 /// # Accessibility
@@ -6307,6 +6319,8 @@ public protocol ImageProtocol: WidgetProtocol {
     /// Typed pointer to the underlying `GtkImage` instance.
     var image_ptr: UnsafeMutablePointer<GtkImage>! { get }
 
+    /// Required Initialiser for types conforming to `ImageProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ImageRef` type acts as a lightweight Swift reference to an underlying `GtkImage` instance.
@@ -6338,7 +6352,7 @@ public protocol ImageProtocol: WidgetProtocol {
 /// # CSS nodes
 /// 
 /// GtkImage has a single CSS node with the name image. The style classes
-/// .normal-icons or .large-icons may appear, depending on the `GtkImage:icon`-size
+/// .normal-icons or .large-icons may appear, depending on the `GtkImage:icon-size`
 /// property.
 /// 
 /// # Accessibility
@@ -6634,7 +6648,7 @@ public extension ImageRef {
 /// # CSS nodes
 /// 
 /// GtkImage has a single CSS node with the name image. The style classes
-/// .normal-icons or .large-icons may appear, depending on the `GtkImage:icon`-size
+/// .normal-icons or .large-icons may appear, depending on the `GtkImage:icon-size`
 /// property.
 /// 
 /// # Accessibility
@@ -6740,14 +6754,14 @@ open class Image: Widget, ImageProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ImageProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ImageProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -6994,9 +7008,9 @@ public enum ImagePropertyName: String, PropertyNameProtocol {
     case halign = "halign"
     case hasDefault = "has-default"
     case hasFocus = "has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case hasTooltip = "has-tooltip"
     case heightRequest = "height-request"
@@ -7052,7 +7066,7 @@ public enum ImagePropertyName: String, PropertyNameProtocol {
     case paintable = "paintable"
     case parent = "parent"
     /// The "pixel-size" property can be used to specify a fixed size
-    /// overriding the `GtkImage:icon`-size property for images of type
+    /// overriding the `GtkImage:icon-size` property for images of type
     /// `GTK_IMAGE_ICON_NAME`.
     case pixelSize = "pixel-size"
     case receivesDefault = "receives-default"
@@ -7071,11 +7085,11 @@ public enum ImagePropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipMarkup = "tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -7083,11 +7097,11 @@ public enum ImagePropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipText = "tooltip-text"
     /// Whether the icon displayed in the GtkImage will use
@@ -7165,7 +7179,7 @@ public enum ImageSignalName: String, SignalNameProtocol {
     /// 
     /// This signal is not suitable for saving widget state.
     case destroy = "destroy"
-    /// The `direction`-changed signal is emitted when the text direction
+    /// The `direction-changed` signal is emitted when the text direction
     /// of a widget changes.
     case directionChanged = "direction-changed"
     /// The `hide` signal is emitted when `widget` is hidden, for example with
@@ -7213,7 +7227,7 @@ public enum ImageSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
+    /// Emitted when `GtkWidget:has-tooltip` is `true` and the hover timeout
     /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
     /// focus in keyboard mode.
     /// 
@@ -7233,7 +7247,7 @@ public enum ImageSignalName: String, SignalNameProtocol {
     /// The `show` signal is emitted when `widget` is shown, for example with
     /// `gtk_widget_show()`.
     case show = "show"
-    /// The `state`-flags-changed signal is emitted when the widget state
+    /// The `state-flags-changed` signal is emitted when the widget state
     /// changes, see `gtk_widget_get_state_flags()`.
     case stateFlagsChanged = "state-flags-changed"
     /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
@@ -7279,9 +7293,9 @@ public enum ImageSignalName: String, SignalNameProtocol {
     case notifyHalign = "notify::halign"
     case notifyHasDefault = "notify::has-default"
     case notifyHasFocus = "notify::has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case notifyHasTooltip = "notify::has-tooltip"
     case notifyHeightRequest = "notify::height-request"
@@ -7337,7 +7351,7 @@ public enum ImageSignalName: String, SignalNameProtocol {
     case notifyPaintable = "notify::paintable"
     case notifyParent = "notify::parent"
     /// The "pixel-size" property can be used to specify a fixed size
-    /// overriding the `GtkImage:icon`-size property for images of type
+    /// overriding the `GtkImage:icon-size` property for images of type
     /// `GTK_IMAGE_ICON_NAME`.
     case notifyPixelSize = "notify::pixel-size"
     case notifyReceivesDefault = "notify::receives-default"
@@ -7356,11 +7370,11 @@ public enum ImageSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipMarkup = "notify::tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -7368,11 +7382,11 @@ public enum ImageSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipText = "notify::tooltip-text"
     /// Whether the icon displayed in the GtkImage will use
@@ -7701,8 +7715,8 @@ public extension ImageProtocol {
 /// the content area and action area as internal children with the names
 /// “content_area” and “action_area”.
 /// 
-/// GtkInfoBar supports a custom <action-widgets> element, which can contain
-/// multiple <action-widget> elements. The “response” attribute specifies a
+/// GtkInfoBar supports a custom &lt;action-widgets&gt; element, which can contain
+/// multiple &lt;action-widget&gt; elements. The “response” attribute specifies a
 /// numeric response, and the content of the element is the id of widget
 /// (which should be a child of the dialogs `action_area`).
 /// 
@@ -7720,6 +7734,8 @@ public protocol InfoBarProtocol: WidgetProtocol {
     /// Typed pointer to the underlying `GtkInfoBar` instance.
     var info_bar_ptr: UnsafeMutablePointer<GtkInfoBar>! { get }
 
+    /// Required Initialiser for types conforming to `InfoBarProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `InfoBarRef` type acts as a lightweight Swift reference to an underlying `GtkInfoBar` instance.
@@ -7785,8 +7801,8 @@ public protocol InfoBarProtocol: WidgetProtocol {
 /// the content area and action area as internal children with the names
 /// “content_area” and “action_area”.
 /// 
-/// GtkInfoBar supports a custom <action-widgets> element, which can contain
-/// multiple <action-widget> elements. The “response” attribute specifies a
+/// GtkInfoBar supports a custom &lt;action-widgets&gt; element, which can contain
+/// multiple &lt;action-widget&gt; elements. The “response” attribute specifies a
 /// numeric response, and the content of the element is the id of widget
 /// (which should be a child of the dialogs `action_area`).
 /// 
@@ -7953,8 +7969,8 @@ public extension InfoBarRef {
 /// the content area and action area as internal children with the names
 /// “content_area” and “action_area”.
 /// 
-/// GtkInfoBar supports a custom <action-widgets> element, which can contain
-/// multiple <action-widget> elements. The “response” attribute specifies a
+/// GtkInfoBar supports a custom &lt;action-widgets&gt; element, which can contain
+/// multiple &lt;action-widget&gt; elements. The “response” attribute specifies a
 /// numeric response, and the content of the element is the id of widget
 /// (which should be a child of the dialogs `action_area`).
 /// 
@@ -8065,14 +8081,14 @@ open class InfoBar: Widget, InfoBarProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `InfoBarProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `InfoBarProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -8134,9 +8150,9 @@ public enum InfoBarPropertyName: String, PropertyNameProtocol {
     case halign = "halign"
     case hasDefault = "has-default"
     case hasFocus = "has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case hasTooltip = "has-tooltip"
     case heightRequest = "height-request"
@@ -8206,11 +8222,11 @@ public enum InfoBarPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipMarkup = "tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -8218,11 +8234,11 @@ public enum InfoBarPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipText = "tooltip-text"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
@@ -8302,7 +8318,7 @@ public enum InfoBarSignalName: String, SignalNameProtocol {
     /// 
     /// This signal is not suitable for saving widget state.
     case destroy = "destroy"
-    /// The `direction`-changed signal is emitted when the text direction
+    /// The `direction-changed` signal is emitted when the text direction
     /// of a widget changes.
     case directionChanged = "direction-changed"
     /// The `hide` signal is emitted when `widget` is hidden, for example with
@@ -8350,7 +8366,7 @@ public enum InfoBarSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
+    /// Emitted when `GtkWidget:has-tooltip` is `true` and the hover timeout
     /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
     /// focus in keyboard mode.
     /// 
@@ -8374,7 +8390,7 @@ public enum InfoBarSignalName: String, SignalNameProtocol {
     /// The `show` signal is emitted when `widget` is shown, for example with
     /// `gtk_widget_show()`.
     case show = "show"
-    /// The `state`-flags-changed signal is emitted when the widget state
+    /// The `state-flags-changed` signal is emitted when the widget state
     /// changes, see `gtk_widget_get_state_flags()`.
     case stateFlagsChanged = "state-flags-changed"
     /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
@@ -8415,9 +8431,9 @@ public enum InfoBarSignalName: String, SignalNameProtocol {
     case notifyHalign = "notify::halign"
     case notifyHasDefault = "notify::has-default"
     case notifyHasFocus = "notify::has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case notifyHasTooltip = "notify::has-tooltip"
     case notifyHeightRequest = "notify::height-request"
@@ -8487,11 +8503,11 @@ public enum InfoBarSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipMarkup = "notify::tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -8499,11 +8515,11 @@ public enum InfoBarSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipText = "notify::tooltip-text"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
@@ -8933,6 +8949,8 @@ public protocol KeyvalTriggerProtocol: ShortcutTriggerProtocol {
     /// Typed pointer to the underlying `GtkKeyvalTrigger` instance.
     var keyval_trigger_ptr: UnsafeMutablePointer<GtkKeyvalTrigger>! { get }
 
+    /// Required Initialiser for types conforming to `KeyvalTriggerProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `KeyvalTriggerRef` type acts as a lightweight Swift reference to an underlying `GtkKeyvalTrigger` instance.
@@ -9134,14 +9152,14 @@ open class KeyvalTrigger: ShortcutTrigger, KeyvalTriggerProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeyvalTriggerProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeyvalTriggerProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 

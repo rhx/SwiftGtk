@@ -31,7 +31,7 @@ import Gdk
 /// properties of the child to non-zero values.
 /// 
 /// More complicated placement of overlays is possible by connecting
-/// to the `GtkOverlay::get`-child-position signal.
+/// to the `GtkOverlay::get-child-position` signal.
 /// 
 /// An overlay’s minimum and natural sizes are those of its main child. The sizes
 /// of overlay children are not considered when measuring these preferred sizes.
@@ -40,7 +40,7 @@ import Gdk
 /// 
 /// The GtkOverlay implementation of the GtkBuildable interface
 /// supports placing a child as an overlay by specifying “overlay” as
-/// the “type” attribute of a `<child>` element.
+/// the “type” attribute of a `&lt;child&gt;` element.
 /// 
 /// # CSS nodes
 /// 
@@ -54,6 +54,8 @@ public protocol OverlayProtocol: WidgetProtocol {
     /// Typed pointer to the underlying `GtkOverlay` instance.
     var overlay_ptr: UnsafeMutablePointer<GtkOverlay>! { get }
 
+    /// Required Initialiser for types conforming to `OverlayProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `OverlayRef` type acts as a lightweight Swift reference to an underlying `GtkOverlay` instance.
@@ -71,7 +73,7 @@ public protocol OverlayProtocol: WidgetProtocol {
 /// properties of the child to non-zero values.
 /// 
 /// More complicated placement of overlays is possible by connecting
-/// to the `GtkOverlay::get`-child-position signal.
+/// to the `GtkOverlay::get-child-position` signal.
 /// 
 /// An overlay’s minimum and natural sizes are those of its main child. The sizes
 /// of overlay children are not considered when measuring these preferred sizes.
@@ -80,7 +82,7 @@ public protocol OverlayProtocol: WidgetProtocol {
 /// 
 /// The GtkOverlay implementation of the GtkBuildable interface
 /// supports placing a child as an overlay by specifying “overlay” as
-/// the “type” attribute of a `<child>` element.
+/// the “type” attribute of a `&lt;child&gt;` element.
 /// 
 /// # CSS nodes
 /// 
@@ -188,7 +190,7 @@ public extension OverlayRef {
 /// properties of the child to non-zero values.
 /// 
 /// More complicated placement of overlays is possible by connecting
-/// to the `GtkOverlay::get`-child-position signal.
+/// to the `GtkOverlay::get-child-position` signal.
 /// 
 /// An overlay’s minimum and natural sizes are those of its main child. The sizes
 /// of overlay children are not considered when measuring these preferred sizes.
@@ -197,7 +199,7 @@ public extension OverlayRef {
 /// 
 /// The GtkOverlay implementation of the GtkBuildable interface
 /// supports placing a child as an overlay by specifying “overlay” as
-/// the “type” attribute of a `<child>` element.
+/// the “type” attribute of a `&lt;child&gt;` element.
 /// 
 /// # CSS nodes
 /// 
@@ -304,14 +306,14 @@ open class Overlay: Widget, OverlayProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `OverlayProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `OverlayProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -367,9 +369,9 @@ public enum OverlayPropertyName: String, PropertyNameProtocol {
     case halign = "halign"
     case hasDefault = "has-default"
     case hasFocus = "has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case hasTooltip = "has-tooltip"
     case heightRequest = "height-request"
@@ -432,11 +434,11 @@ public enum OverlayPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipMarkup = "tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -444,11 +446,11 @@ public enum OverlayPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipText = "tooltip-text"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
@@ -521,10 +523,10 @@ public enum OverlaySignalName: String, SignalNameProtocol {
     /// 
     /// This signal is not suitable for saving widget state.
     case destroy = "destroy"
-    /// The `direction`-changed signal is emitted when the text direction
+    /// The `direction-changed` signal is emitted when the text direction
     /// of a widget changes.
     case directionChanged = "direction-changed"
-    /// The `get`-child-position signal is emitted to determine
+    /// The `get-child-position` signal is emitted to determine
     /// the position and size of any overlay child widgets. A
     /// handler for this signal should fill `allocation` with
     /// the desired position and size for `widget`, relative to
@@ -583,7 +585,7 @@ public enum OverlaySignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
+    /// Emitted when `GtkWidget:has-tooltip` is `true` and the hover timeout
     /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
     /// focus in keyboard mode.
     /// 
@@ -603,7 +605,7 @@ public enum OverlaySignalName: String, SignalNameProtocol {
     /// The `show` signal is emitted when `widget` is shown, for example with
     /// `gtk_widget_show()`.
     case show = "show"
-    /// The `state`-flags-changed signal is emitted when the widget state
+    /// The `state-flags-changed` signal is emitted when the widget state
     /// changes, see `gtk_widget_get_state_flags()`.
     case stateFlagsChanged = "state-flags-changed"
     /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
@@ -645,9 +647,9 @@ public enum OverlaySignalName: String, SignalNameProtocol {
     case notifyHalign = "notify::halign"
     case notifyHasDefault = "notify::has-default"
     case notifyHasFocus = "notify::has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case notifyHasTooltip = "notify::has-tooltip"
     case notifyHeightRequest = "notify::height-request"
@@ -710,11 +712,11 @@ public enum OverlaySignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipMarkup = "notify::tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -722,11 +724,11 @@ public enum OverlaySignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipText = "notify::tooltip-text"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
@@ -767,7 +769,7 @@ public extension OverlayProtocol {
     }
     
     
-    /// The `get`-child-position signal is emitted to determine
+    /// The `get-child-position` signal is emitted to determine
     /// the position and size of any overlay child widgets. A
     /// handler for this signal should fill `allocation` with
     /// the desired position and size for `widget`, relative to
@@ -945,6 +947,8 @@ public protocol OverlayLayoutProtocol: LayoutManagerProtocol {
     /// Typed pointer to the underlying `GtkOverlayLayout` instance.
     var overlay_layout_ptr: UnsafeMutablePointer<GtkOverlayLayout>! { get }
 
+    /// Required Initialiser for types conforming to `OverlayLayoutProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `OverlayLayoutRef` type acts as a lightweight Swift reference to an underlying `GtkOverlayLayout` instance.
@@ -1153,14 +1157,14 @@ open class OverlayLayout: LayoutManager, OverlayLayoutProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `OverlayLayoutProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `OverlayLayoutProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -1246,6 +1250,8 @@ public protocol OverlayLayoutChildProtocol: LayoutChildProtocol {
     /// Typed pointer to the underlying `GtkOverlayLayoutChild` instance.
     var overlay_layout_child_ptr: UnsafeMutablePointer<GtkOverlayLayoutChild>! { get }
 
+    /// Required Initialiser for types conforming to `OverlayLayoutChildProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `OverlayLayoutChildRef` type acts as a lightweight Swift reference to an underlying `GtkOverlayLayoutChild` instance.
@@ -1439,14 +1445,14 @@ open class OverlayLayoutChild: LayoutChild, OverlayLayoutChildProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `OverlayLayoutChildProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `OverlayLayoutChildProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -1687,6 +1693,8 @@ public protocol PadControllerProtocol: EventControllerProtocol {
     /// Typed pointer to the underlying `GtkPadController` instance.
     var pad_controller_ptr: UnsafeMutablePointer<GtkPadController>! { get }
 
+    /// Required Initialiser for types conforming to `PadControllerProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `PadControllerRef` type acts as a lightweight Swift reference to an underlying `GtkPadController` instance.
@@ -1978,14 +1986,14 @@ open class PadController: EventController, PadControllerProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PadControllerProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PadControllerProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 

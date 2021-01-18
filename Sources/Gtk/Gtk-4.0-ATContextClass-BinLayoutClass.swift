@@ -43,6 +43,8 @@ public protocol ATContextClassProtocol {
     /// Typed pointer to the underlying `GtkATContextClass` instance.
     var _ptr: UnsafeMutablePointer<GtkATContextClass>! { get }
 
+    /// Required Initialiser for types conforming to `ATContextClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ATContextClassRef` type acts as a lightweight Swift reference to an underlying `GtkATContextClass` instance.
@@ -169,6 +171,8 @@ public protocol AccessibleInterfaceProtocol {
     /// Typed pointer to the underlying `GtkAccessibleInterface` instance.
     var _ptr: UnsafeMutablePointer<GtkAccessibleInterface>! { get }
 
+    /// Required Initialiser for types conforming to `AccessibleInterfaceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `AccessibleInterfaceRef` type acts as a lightweight Swift reference to an underlying `GtkAccessibleInterface` instance.
@@ -295,6 +299,8 @@ public protocol ActionableInterfaceProtocol {
     /// Typed pointer to the underlying `GtkActionableInterface` instance.
     var _ptr: UnsafeMutablePointer<GtkActionableInterface>! { get }
 
+    /// Required Initialiser for types conforming to `ActionableInterfaceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ActionableInterfaceRef` type acts as a lightweight Swift reference to an underlying `GtkActionableInterface` instance.
@@ -430,6 +436,8 @@ public protocol ActivateActionClassProtocol {
     /// Typed pointer to the underlying `GtkActivateActionClass` instance.
     var _ptr: UnsafeMutablePointer<GtkActivateActionClass>! { get }
 
+    /// Required Initialiser for types conforming to `ActivateActionClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ActivateActionClassRef` type acts as a lightweight Swift reference to an underlying `GtkActivateActionClass` instance.
@@ -556,6 +564,8 @@ public protocol AdjustmentClassProtocol {
     /// Typed pointer to the underlying `GtkAdjustmentClass` instance.
     var _ptr: UnsafeMutablePointer<GtkAdjustmentClass>! { get }
 
+    /// Required Initialiser for types conforming to `AdjustmentClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `AdjustmentClassRef` type acts as a lightweight Swift reference to an underlying `GtkAdjustmentClass` instance.
@@ -700,6 +710,8 @@ public protocol AlternativeTriggerClassProtocol {
     /// Typed pointer to the underlying `GtkAlternativeTriggerClass` instance.
     var _ptr: UnsafeMutablePointer<GtkAlternativeTriggerClass>! { get }
 
+    /// Required Initialiser for types conforming to `AlternativeTriggerClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `AlternativeTriggerClassRef` type acts as a lightweight Swift reference to an underlying `GtkAlternativeTriggerClass` instance.
@@ -826,6 +838,8 @@ public protocol AnyFilterClassProtocol {
     /// Typed pointer to the underlying `GtkAnyFilterClass` instance.
     var _ptr: UnsafeMutablePointer<GtkAnyFilterClass>! { get }
 
+    /// Required Initialiser for types conforming to `AnyFilterClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `AnyFilterClassRef` type acts as a lightweight Swift reference to an underlying `GtkAnyFilterClass` instance.
@@ -952,6 +966,8 @@ public protocol ApplicationClassProtocol {
     /// Typed pointer to the underlying `GtkApplicationClass` instance.
     var _ptr: UnsafeMutablePointer<GtkApplicationClass>! { get }
 
+    /// Required Initialiser for types conforming to `ApplicationClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ApplicationClassRef` type acts as a lightweight Swift reference to an underlying `GtkApplicationClass` instance.
@@ -1092,6 +1108,8 @@ public protocol ApplicationWindowClassProtocol {
     /// Typed pointer to the underlying `GtkApplicationWindowClass` instance.
     var _ptr: UnsafeMutablePointer<GtkApplicationWindowClass>! { get }
 
+    /// Required Initialiser for types conforming to `ApplicationWindowClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ApplicationWindowClassRef` type acts as a lightweight Swift reference to an underlying `GtkApplicationWindowClass` instance.
@@ -1228,6 +1246,8 @@ public protocol BinLayoutClassProtocol {
     /// Typed pointer to the underlying `GtkBinLayoutClass` instance.
     var _ptr: UnsafeMutablePointer<GtkBinLayoutClass>! { get }
 
+    /// Required Initialiser for types conforming to `BinLayoutClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `BinLayoutClassRef` type acts as a lightweight Swift reference to an underlying `GtkBinLayoutClass` instance.

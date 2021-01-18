@@ -48,8 +48,8 @@ import Gdk
 /// # GtkLabel as GtkBuildable
 /// 
 /// The GtkLabel implementation of the GtkBuildable interface supports a
-/// custom <attributes> element, which supports any number of <attribute>
-/// elements. The <attribute> element has attributes named “name“, “value“,
+/// custom &lt;attributes&gt; element, which supports any number of &lt;attribute&gt;
+/// elements. The &lt;attribute&gt; element has attributes named “name“, “value“,
 /// “start“ and “end“ and allows you to specify `PangoAttribute` values for
 /// this label.
 /// 
@@ -134,7 +134,7 @@ import Gdk
 /// tags in the Pango manual.)
 /// 
 /// The markup passed to `gtk_label_set_markup()` must be valid; for example,
-/// literal <, > and & characters must be escaped as &lt;, &gt;, and &amp;.
+/// literal &lt;, &gt; and & characters must be escaped as &lt;, &gt;, and &amp;.
 /// If you pass text obtained from the user, file, or a network to
 /// `gtk_label_set_markup()`, you’ll want to escape it with
 /// `g_markup_escape_text()` or `g_markup_printf_escaped()`.
@@ -170,7 +170,7 @@ import Gdk
 /// aligns in its available space, see the `GtkWidget:halign` and
 /// `GtkWidget:valign` properties.
 /// 
-/// The `GtkLabel:width`-chars and `GtkLabel:max`-width-chars properties
+/// The `GtkLabel:width-chars` and `GtkLabel:max-width-chars` properties
 /// can be used to control the size allocation of ellipsized or wrapped
 /// labels. For ellipsizing labels, if either is specified (and less
 /// than the actual text size), it is used as the minimum width, and the actual
@@ -179,15 +179,15 @@ import Gdk
 /// is used as the natural width. Even if max-width-chars specified, wrapping
 /// labels will be rewrapped to use all of the available width.
 /// 
-/// Note that the interpretation of `GtkLabel:width`-chars and
-/// `GtkLabel:max`-width-chars has changed a bit with the introduction of
+/// Note that the interpretation of `GtkLabel:width-chars` and
+/// `GtkLabel:max-width-chars` has changed a bit with the introduction of
 /// [width-for-height geometry management.](#geometry-management)
 /// 
 /// # Links
 /// 
 /// GTK supports markup for clickable hyperlinks in addition
 /// to regular Pango markup. The markup for links is borrowed from HTML,
-/// using the `<a>` with “href“, “title“ and “class“ attributes. GTK renders links
+/// using the `&lt;a&gt;` with “href“, “title“ and “class“ attributes. GTK renders links
 /// similar to the way they appear in web browsers, with colored, underlined
 /// text. The “title“ attribute is displayed as a tooltip on the link. The “class“
 /// attribute is used as style class on the CSS node for the link.
@@ -205,7 +205,7 @@ import Gdk
 /// ```
 /// 
 /// It is possible to implement custom handling for links and their tooltips with
-/// the `GtkLabel::activate`-link signal and the `gtk_label_get_current_uri()` function.
+/// the `GtkLabel::activate-link` signal and the `gtk_label_get_current_uri()` function.
 public protocol LabelProtocol: WidgetProtocol {
         /// Untyped pointer to the underlying `GtkLabel` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -213,6 +213,8 @@ public protocol LabelProtocol: WidgetProtocol {
     /// Typed pointer to the underlying `GtkLabel` instance.
     var label_ptr: UnsafeMutablePointer<GtkLabel>! { get }
 
+    /// Required Initialiser for types conforming to `LabelProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `LabelRef` type acts as a lightweight Swift reference to an underlying `GtkLabel` instance.
@@ -247,8 +249,8 @@ public protocol LabelProtocol: WidgetProtocol {
 /// # GtkLabel as GtkBuildable
 /// 
 /// The GtkLabel implementation of the GtkBuildable interface supports a
-/// custom <attributes> element, which supports any number of <attribute>
-/// elements. The <attribute> element has attributes named “name“, “value“,
+/// custom &lt;attributes&gt; element, which supports any number of &lt;attribute&gt;
+/// elements. The &lt;attribute&gt; element has attributes named “name“, “value“,
 /// “start“ and “end“ and allows you to specify `PangoAttribute` values for
 /// this label.
 /// 
@@ -333,7 +335,7 @@ public protocol LabelProtocol: WidgetProtocol {
 /// tags in the Pango manual.)
 /// 
 /// The markup passed to `gtk_label_set_markup()` must be valid; for example,
-/// literal <, > and & characters must be escaped as &lt;, &gt;, and &amp;.
+/// literal &lt;, &gt; and & characters must be escaped as &lt;, &gt;, and &amp;.
 /// If you pass text obtained from the user, file, or a network to
 /// `gtk_label_set_markup()`, you’ll want to escape it with
 /// `g_markup_escape_text()` or `g_markup_printf_escaped()`.
@@ -369,7 +371,7 @@ public protocol LabelProtocol: WidgetProtocol {
 /// aligns in its available space, see the `GtkWidget:halign` and
 /// `GtkWidget:valign` properties.
 /// 
-/// The `GtkLabel:width`-chars and `GtkLabel:max`-width-chars properties
+/// The `GtkLabel:width-chars` and `GtkLabel:max-width-chars` properties
 /// can be used to control the size allocation of ellipsized or wrapped
 /// labels. For ellipsizing labels, if either is specified (and less
 /// than the actual text size), it is used as the minimum width, and the actual
@@ -378,15 +380,15 @@ public protocol LabelProtocol: WidgetProtocol {
 /// is used as the natural width. Even if max-width-chars specified, wrapping
 /// labels will be rewrapped to use all of the available width.
 /// 
-/// Note that the interpretation of `GtkLabel:width`-chars and
-/// `GtkLabel:max`-width-chars has changed a bit with the introduction of
+/// Note that the interpretation of `GtkLabel:width-chars` and
+/// `GtkLabel:max-width-chars` has changed a bit with the introduction of
 /// [width-for-height geometry management.](#geometry-management)
 /// 
 /// # Links
 /// 
 /// GTK supports markup for clickable hyperlinks in addition
 /// to regular Pango markup. The markup for links is borrowed from HTML,
-/// using the `<a>` with “href“, “title“ and “class“ attributes. GTK renders links
+/// using the `&lt;a&gt;` with “href“, “title“ and “class“ attributes. GTK renders links
 /// similar to the way they appear in web browsers, with colored, underlined
 /// text. The “title“ attribute is displayed as a tooltip on the link. The “class“
 /// attribute is used as style class on the CSS node for the link.
@@ -404,7 +406,7 @@ public protocol LabelProtocol: WidgetProtocol {
 /// ```
 /// 
 /// It is possible to implement custom handling for links and their tooltips with
-/// the `GtkLabel::activate`-link signal and the `gtk_label_get_current_uri()` function.
+/// the `GtkLabel::activate-link` signal and the `gtk_label_get_current_uri()` function.
 public struct LabelRef: LabelProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkLabel` instance.
     /// For type-safe access, use the generated, typed pointer `label_ptr` property instead.
@@ -561,8 +563,8 @@ public extension LabelRef {
 /// # GtkLabel as GtkBuildable
 /// 
 /// The GtkLabel implementation of the GtkBuildable interface supports a
-/// custom <attributes> element, which supports any number of <attribute>
-/// elements. The <attribute> element has attributes named “name“, “value“,
+/// custom &lt;attributes&gt; element, which supports any number of &lt;attribute&gt;
+/// elements. The &lt;attribute&gt; element has attributes named “name“, “value“,
 /// “start“ and “end“ and allows you to specify `PangoAttribute` values for
 /// this label.
 /// 
@@ -647,7 +649,7 @@ public extension LabelRef {
 /// tags in the Pango manual.)
 /// 
 /// The markup passed to `gtk_label_set_markup()` must be valid; for example,
-/// literal <, > and & characters must be escaped as &lt;, &gt;, and &amp;.
+/// literal &lt;, &gt; and & characters must be escaped as &lt;, &gt;, and &amp;.
 /// If you pass text obtained from the user, file, or a network to
 /// `gtk_label_set_markup()`, you’ll want to escape it with
 /// `g_markup_escape_text()` or `g_markup_printf_escaped()`.
@@ -683,7 +685,7 @@ public extension LabelRef {
 /// aligns in its available space, see the `GtkWidget:halign` and
 /// `GtkWidget:valign` properties.
 /// 
-/// The `GtkLabel:width`-chars and `GtkLabel:max`-width-chars properties
+/// The `GtkLabel:width-chars` and `GtkLabel:max-width-chars` properties
 /// can be used to control the size allocation of ellipsized or wrapped
 /// labels. For ellipsizing labels, if either is specified (and less
 /// than the actual text size), it is used as the minimum width, and the actual
@@ -692,15 +694,15 @@ public extension LabelRef {
 /// is used as the natural width. Even if max-width-chars specified, wrapping
 /// labels will be rewrapped to use all of the available width.
 /// 
-/// Note that the interpretation of `GtkLabel:width`-chars and
-/// `GtkLabel:max`-width-chars has changed a bit with the introduction of
+/// Note that the interpretation of `GtkLabel:width-chars` and
+/// `GtkLabel:max-width-chars` has changed a bit with the introduction of
 /// [width-for-height geometry management.](#geometry-management)
 /// 
 /// # Links
 /// 
 /// GTK supports markup for clickable hyperlinks in addition
 /// to regular Pango markup. The markup for links is borrowed from HTML,
-/// using the `<a>` with “href“, “title“ and “class“ attributes. GTK renders links
+/// using the `&lt;a&gt;` with “href“, “title“ and “class“ attributes. GTK renders links
 /// similar to the way they appear in web browsers, with colored, underlined
 /// text. The “title“ attribute is displayed as a tooltip on the link. The “class“
 /// attribute is used as style class on the CSS node for the link.
@@ -718,7 +720,7 @@ public extension LabelRef {
 /// ```
 /// 
 /// It is possible to implement custom handling for links and their tooltips with
-/// the `GtkLabel::activate`-link signal and the `gtk_label_get_current_uri()` function.
+/// the `GtkLabel::activate-link` signal and the `gtk_label_get_current_uri()` function.
 open class Label: Widget, LabelProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -819,14 +821,14 @@ open class Label: Widget, LabelProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `LabelProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `LabelProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -937,9 +939,9 @@ public enum LabelPropertyName: String, PropertyNameProtocol {
     case halign = "halign"
     case hasDefault = "has-default"
     case hasFocus = "has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case hasTooltip = "has-tooltip"
     case heightRequest = "height-request"
@@ -951,13 +953,13 @@ public enum LabelPropertyName: String, PropertyNameProtocol {
     /// The contents of the label.
     /// 
     /// If the string contains [Pango XML markup](#PangoMarkupFormat), you will
-    /// have to set the `GtkLabel:use`-markup property to `true` in order for the
+    /// have to set the `GtkLabel:use-markup` property to `true` in order for the
     /// label to display the markup attributes. See also `gtk_label_set_markup()`
     /// for a convenience function that sets both this property and the
-    /// `GtkLabel:use`-markup property at the same time.
+    /// `GtkLabel:use-markup` property at the same time.
     /// 
     /// If the string contains underlines acting as mnemonics, you will have to
-    /// set the `GtkLabel:use`-underline property to `true` in order for the label
+    /// set the `GtkLabel:use-underline` property to `true` in order for the label
     /// to display them.
     case label = "label"
     /// The `GtkLayoutManager` instance to use to compute the preferred size
@@ -1001,7 +1003,7 @@ public enum LabelPropertyName: String, PropertyNameProtocol {
     /// is set to -1, the width will be calculated automatically.
     /// 
     /// See the section on [text layout](#label-text-layout)
-    /// for details of how `GtkLabel:width`-chars and `GtkLabel:max`-width-chars
+    /// for details of how `GtkLabel:width-chars` and `GtkLabel:max-width-chars`
     /// determine the width of ellipsized and wrapped labels.
     case maxWidthChars = "max-width-chars"
     case mnemonicKeyval = "mnemonic-keyval"
@@ -1036,11 +1038,11 @@ public enum LabelPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipMarkup = "tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -1048,11 +1050,11 @@ public enum LabelPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipText = "tooltip-text"
     case useMarkup = "use-markup"
@@ -1068,7 +1070,7 @@ public enum LabelPropertyName: String, PropertyNameProtocol {
     /// -1, the width will be calculated automatically.
     /// 
     /// See the section on [text layout](#label-text-layout)
-    /// for details of how `GtkLabel:width`-chars and `GtkLabel:max`-width-chars
+    /// for details of how `GtkLabel:width-chars` and `GtkLabel:max-width-chars`
     /// determine the width of ellipsized and wrapped labels.
     case widthChars = "width-chars"
     case widthRequest = "width-request"
@@ -1155,7 +1157,7 @@ public enum LabelSignalName: String, SignalNameProtocol {
     /// Applications may connect to it to override the default behaviour,
     /// which is to call `gtk_show_uri()`.
     case activateLink = "activate-link"
-    /// The `copy`-clipboard signal is a
+    /// The `copy-clipboard` signal is a
     /// [keybinding signal](#GtkSignalAction)
     /// which gets emitted to copy the selection to the clipboard.
     /// 
@@ -1167,7 +1169,7 @@ public enum LabelSignalName: String, SignalNameProtocol {
     /// 
     /// This signal is not suitable for saving widget state.
     case destroy = "destroy"
-    /// The `direction`-changed signal is emitted when the text direction
+    /// The `direction-changed` signal is emitted when the text direction
     /// of a widget changes.
     case directionChanged = "direction-changed"
     /// The `hide` signal is emitted when `widget` is hidden, for example with
@@ -1188,7 +1190,7 @@ public enum LabelSignalName: String, SignalNameProtocol {
     /// The default handler for this signal activates `widget` if `group_cycling`
     /// is `false`, or just makes `widget` grab focus if `group_cycling` is `true`.
     case mnemonicActivate = "mnemonic-activate"
-    /// The `move`-cursor signal is a
+    /// The `move-cursor` signal is a
     /// [keybinding signal](#GtkSignalAction)
     /// which gets emitted when the user initiates a cursor movement.
     /// If the cursor is not visible in `entry`, this signal causes
@@ -1233,7 +1235,7 @@ public enum LabelSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
+    /// Emitted when `GtkWidget:has-tooltip` is `true` and the hover timeout
     /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
     /// focus in keyboard mode.
     /// 
@@ -1253,7 +1255,7 @@ public enum LabelSignalName: String, SignalNameProtocol {
     /// The `show` signal is emitted when `widget` is shown, for example with
     /// `gtk_widget_show()`.
     case show = "show"
-    /// The `state`-flags-changed signal is emitted when the widget state
+    /// The `state-flags-changed` signal is emitted when the widget state
     /// changes, see `gtk_widget_get_state_flags()`.
     case stateFlagsChanged = "state-flags-changed"
     /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
@@ -1310,9 +1312,9 @@ public enum LabelSignalName: String, SignalNameProtocol {
     case notifyHalign = "notify::halign"
     case notifyHasDefault = "notify::has-default"
     case notifyHasFocus = "notify::has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case notifyHasTooltip = "notify::has-tooltip"
     case notifyHeightRequest = "notify::height-request"
@@ -1324,13 +1326,13 @@ public enum LabelSignalName: String, SignalNameProtocol {
     /// The contents of the label.
     /// 
     /// If the string contains [Pango XML markup](#PangoMarkupFormat), you will
-    /// have to set the `GtkLabel:use`-markup property to `true` in order for the
+    /// have to set the `GtkLabel:use-markup` property to `true` in order for the
     /// label to display the markup attributes. See also `gtk_label_set_markup()`
     /// for a convenience function that sets both this property and the
-    /// `GtkLabel:use`-markup property at the same time.
+    /// `GtkLabel:use-markup` property at the same time.
     /// 
     /// If the string contains underlines acting as mnemonics, you will have to
-    /// set the `GtkLabel:use`-underline property to `true` in order for the label
+    /// set the `GtkLabel:use-underline` property to `true` in order for the label
     /// to display them.
     case notifyLabel = "notify::label"
     /// The `GtkLayoutManager` instance to use to compute the preferred size
@@ -1374,7 +1376,7 @@ public enum LabelSignalName: String, SignalNameProtocol {
     /// is set to -1, the width will be calculated automatically.
     /// 
     /// See the section on [text layout](#label-text-layout)
-    /// for details of how `GtkLabel:width`-chars and `GtkLabel:max`-width-chars
+    /// for details of how `GtkLabel:width-chars` and `GtkLabel:max-width-chars`
     /// determine the width of ellipsized and wrapped labels.
     case notifyMaxWidthChars = "notify::max-width-chars"
     case notifyMnemonicKeyval = "notify::mnemonic-keyval"
@@ -1409,11 +1411,11 @@ public enum LabelSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipMarkup = "notify::tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -1421,11 +1423,11 @@ public enum LabelSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipText = "notify::tooltip-text"
     case notifyUseMarkup = "notify::use-markup"
@@ -1441,7 +1443,7 @@ public enum LabelSignalName: String, SignalNameProtocol {
     /// -1, the width will be calculated automatically.
     /// 
     /// See the section on [text layout](#label-text-layout)
-    /// for details of how `GtkLabel:width`-chars and `GtkLabel:max`-width-chars
+    /// for details of how `GtkLabel:width-chars` and `GtkLabel:max-width-chars`
     /// determine the width of ellipsized and wrapped labels.
     case notifyWidthChars = "notify::width-chars"
     case notifyWidthRequest = "notify::width-request"
@@ -1549,7 +1551,7 @@ public extension LabelProtocol {
     /// Typed `activate-link` signal for using the `connect(signal:)` methods
     static var activateLinkSignal: LabelSignalName { .activateLink }
     
-    /// The `copy`-clipboard signal is a
+    /// The `copy-clipboard` signal is a
     /// [keybinding signal](#GtkSignalAction)
     /// which gets emitted to copy the selection to the clipboard.
     /// 
@@ -1578,7 +1580,7 @@ public extension LabelProtocol {
     /// Typed `copy-clipboard` signal for using the `connect(signal:)` methods
     static var copyClipboardSignal: LabelSignalName { .copyClipboard }
     
-    /// The `move`-cursor signal is a
+    /// The `move-cursor` signal is a
     /// [keybinding signal](#GtkSignalAction)
     /// which gets emitted when the user initiates a cursor movement.
     /// If the cursor is not visible in `entry`, this signal causes
@@ -2527,8 +2529,8 @@ public extension LabelProtocol {
     /// selectable label, the link in which the text cursor is currently
     /// positioned.
     /// 
-    /// This function is intended for use in a `GtkLabel::activate`-link handler
-    /// or for use in a `GtkWidget::query`-tooltip handler.
+    /// This function is intended for use in a `GtkLabel::activate-link` handler
+    /// or for use in a `GtkWidget::query-tooltip` handler.
     @inlinable func getCurrentUri() -> String! {
         let rv = gtk_label_get_current_uri(label_ptr).map({ String(cString: $0) })
         return rv
@@ -2699,7 +2701,7 @@ public extension LabelProtocol {
     /// 
     /// The attributes set with this function will be applied
     /// and merged with any other attributes previously effected by way
-    /// of the `GtkLabel:use`-underline or `GtkLabel:use`-markup properties.
+    /// of the `GtkLabel:use-underline` or `GtkLabel:use-markup` properties.
     /// While it is not recommended to mix markup strings with manually set
     /// attributes, if you must; know that the attributes will be applied
     /// to the label after the markup string is parsed.
@@ -2712,7 +2714,7 @@ public extension LabelProtocol {
     /// 
     /// The attributes set with this function will be applied
     /// and merged with any other attributes previously effected by way
-    /// of the `GtkLabel:use`-underline or `GtkLabel:use`-markup properties.
+    /// of the `GtkLabel:use-underline` or `GtkLabel:use-markup` properties.
     /// While it is not recommended to mix markup strings with manually set
     /// attributes, if you must; know that the attributes will be applied
     /// to the label after the markup string is parsed.
@@ -2754,8 +2756,8 @@ public extension LabelProtocol {
 
     /// Sets the text of the label. The label is interpreted as
     /// including embedded underlines and/or Pango markup depending
-    /// on the values of the `GtkLabel:use`-underline and
-    /// `GtkLabel:use`-markup properties.
+    /// on the values of the `GtkLabel:use-underline` and
+    /// `GtkLabel:use-markup` properties.
     @inlinable func setLabel(str: UnsafePointer<CChar>!) {
         gtk_label_set_label(label_ptr, str)
     
@@ -2789,11 +2791,11 @@ public extension LabelProtocol {
     /// g_free (markup);
     /// ```
     /// 
-    /// This function will set the `GtkLabel:use`-markup property to `true` as
+    /// This function will set the `GtkLabel:use-markup` property to `true` as
     /// a side effect.
     /// 
     /// If you set the label contents using the `GtkLabel:label` property you
-    /// should also ensure that you set the `GtkLabel:use`-markup property
+    /// should also ensure that you set the `GtkLabel:use-markup` property
     /// accordingly.
     /// 
     /// See also: `gtk_label_set_text()`
@@ -2832,7 +2834,7 @@ public extension LabelProtocol {
     /// set it explicitly using this function.
     /// 
     /// The target widget will be accelerated by emitting the
-    /// GtkWidget`mnemonic`-activate signal on it. The default handler for
+    /// GtkWidget`mnemonic-activate` signal on it. The default handler for
     /// this signal will activate the widget if there are no mnemonic collisions
     /// and toggle focus between the colliding widgets otherwise.
     @inlinable func setMnemonic(widget: WidgetRef? = nil) {
@@ -2850,7 +2852,7 @@ public extension LabelProtocol {
     /// set it explicitly using this function.
     /// 
     /// The target widget will be accelerated by emitting the
-    /// GtkWidget`mnemonic`-activate signal on it. The default handler for
+    /// GtkWidget`mnemonic-activate` signal on it. The default handler for
     /// this signal will activate the widget if there are no mnemonic collisions
     /// and toggle focus between the colliding widgets otherwise.
     @inlinable func setMnemonic<WidgetT: WidgetProtocol>(widget: WidgetT?) {
@@ -2875,9 +2877,9 @@ public extension LabelProtocol {
     /// was there before.
     /// 
     /// This function will clear any previously set mnemonic accelerators, and
-    /// set the `GtkLabel:use`-underline property to `false` as a side effect.
+    /// set the `GtkLabel:use-underline` property to `false` as a side effect.
     /// 
-    /// This function will set the `GtkLabel:use`-markup property to `false`
+    /// This function will set the `GtkLabel:use-markup` property to `false`
     /// as a side effect.
     /// 
     /// See also: `gtk_label_set_markup()`
@@ -2966,7 +2968,7 @@ public extension LabelProtocol {
         /// 
         /// The attributes set with this function will be applied
         /// and merged with any other attributes previously effected by way
-        /// of the `GtkLabel:use`-underline or `GtkLabel:use`-markup properties.
+        /// of the `GtkLabel:use-underline` or `GtkLabel:use-markup` properties.
         /// While it is not recommended to mix markup strings with manually set
         /// attributes, if you must; know that the attributes will be applied
         /// to the label after the markup string is parsed.
@@ -2980,16 +2982,16 @@ public extension LabelProtocol {
     /// selectable label, the link in which the text cursor is currently
     /// positioned.
     /// 
-    /// This function is intended for use in a `GtkLabel::activate`-link handler
-    /// or for use in a `GtkWidget::query`-tooltip handler.
+    /// This function is intended for use in a `GtkLabel::activate-link` handler
+    /// or for use in a `GtkWidget::query-tooltip` handler.
     @inlinable var currentUri: String! {
         /// Returns the URI for the currently active link in the label.
         /// The active link is the one under the mouse pointer or, in a
         /// selectable label, the link in which the text cursor is currently
         /// positioned.
         /// 
-        /// This function is intended for use in a `GtkLabel::activate`-link handler
-        /// or for use in a `GtkWidget::query`-tooltip handler.
+        /// This function is intended for use in a `GtkLabel::activate-link` handler
+        /// or for use in a `GtkWidget::query-tooltip` handler.
         get {
             let rv = gtk_label_get_current_uri(label_ptr).map({ String(cString: $0) })
             return rv
@@ -3054,13 +3056,13 @@ public extension LabelProtocol {
     /// The contents of the label.
     /// 
     /// If the string contains [Pango XML markup](#PangoMarkupFormat), you will
-    /// have to set the `GtkLabel:use`-markup property to `true` in order for the
+    /// have to set the `GtkLabel:use-markup` property to `true` in order for the
     /// label to display the markup attributes. See also `gtk_label_set_markup()`
     /// for a convenience function that sets both this property and the
-    /// `GtkLabel:use`-markup property at the same time.
+    /// `GtkLabel:use-markup` property at the same time.
     /// 
     /// If the string contains underlines acting as mnemonics, you will have to
-    /// set the `GtkLabel:use`-underline property to `true` in order for the label
+    /// set the `GtkLabel:use-underline` property to `true` in order for the label
     /// to display them.
     @inlinable var label: String! {
         /// Fetches the text from a label widget including any embedded
@@ -3072,8 +3074,8 @@ public extension LabelProtocol {
         }
         /// Sets the text of the label. The label is interpreted as
         /// including embedded underlines and/or Pango markup depending
-        /// on the values of the `GtkLabel:use`-underline and
-        /// `GtkLabel:use`-markup properties.
+        /// on the values of the `GtkLabel:use-underline` and
+        /// `GtkLabel:use-markup` properties.
         nonmutating set {
             gtk_label_set_label(label_ptr, newValue)
         }
@@ -3166,7 +3168,7 @@ public extension LabelProtocol {
         /// set it explicitly using this function.
         /// 
         /// The target widget will be accelerated by emitting the
-        /// GtkWidget`mnemonic`-activate signal on it. The default handler for
+        /// GtkWidget`mnemonic-activate` signal on it. The default handler for
         /// this signal will activate the widget if there are no mnemonic collisions
         /// and toggle focus between the colliding widgets otherwise.
         nonmutating set {
@@ -3215,9 +3217,9 @@ public extension LabelProtocol {
         /// was there before.
         /// 
         /// This function will clear any previously set mnemonic accelerators, and
-        /// set the `GtkLabel:use`-underline property to `false` as a side effect.
+        /// set the `GtkLabel:use-underline` property to `false` as a side effect.
         /// 
-        /// This function will set the `GtkLabel:use`-markup property to `false`
+        /// This function will set the `GtkLabel:use-markup` property to `false`
         /// as a side effect.
         /// 
         /// See also: `gtk_label_set_markup()`
@@ -3371,6 +3373,8 @@ public protocol LayoutChildProtocol: GLibObject.ObjectProtocol {
     /// Typed pointer to the underlying `GtkLayoutChild` instance.
     var layout_child_ptr: UnsafeMutablePointer<GtkLayoutChild>! { get }
 
+    /// Required Initialiser for types conforming to `LayoutChildProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `LayoutChildRef` type acts as a lightweight Swift reference to an underlying `GtkLayoutChild` instance.
@@ -3578,14 +3582,14 @@ open class LayoutChild: GLibObject.Object, LayoutChildProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `LayoutChildProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `LayoutChildProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -3792,7 +3796,7 @@ public extension LayoutChildProtocol {
 /// }
 /// ```
 /// 
-/// The `GtkLayoutChild:layout`-manager and `GtkLayoutChild:child`-widget properties
+/// The `GtkLayoutChild:layout-manager` and `GtkLayoutChild:child-widget` properties
 /// on the newly created `GtkLayoutChild` instance are mandatory. The
 /// `GtkLayoutManager` will cache the newly created `GtkLayoutChild` instance until
 /// the widget is removed from its parent, or the parent removes the layout
@@ -3810,6 +3814,8 @@ public protocol LayoutManagerProtocol: GLibObject.ObjectProtocol {
     /// Typed pointer to the underlying `GtkLayoutManager` instance.
     var layout_manager_ptr: UnsafeMutablePointer<GtkLayoutManager>! { get }
 
+    /// Required Initialiser for types conforming to `LayoutManagerProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `LayoutManagerRef` type acts as a lightweight Swift reference to an underlying `GtkLayoutManager` instance.
@@ -3853,7 +3859,7 @@ public protocol LayoutManagerProtocol: GLibObject.ObjectProtocol {
 /// }
 /// ```
 /// 
-/// The `GtkLayoutChild:layout`-manager and `GtkLayoutChild:child`-widget properties
+/// The `GtkLayoutChild:layout-manager` and `GtkLayoutChild:child-widget` properties
 /// on the newly created `GtkLayoutChild` instance are mandatory. The
 /// `GtkLayoutManager` will cache the newly created `GtkLayoutChild` instance until
 /// the widget is removed from its parent, or the parent removes the layout
@@ -3986,7 +3992,7 @@ public extension LayoutManagerRef {
 /// }
 /// ```
 /// 
-/// The `GtkLayoutChild:layout`-manager and `GtkLayoutChild:child`-widget properties
+/// The `GtkLayoutChild:layout-manager` and `GtkLayoutChild:child-widget` properties
 /// on the newly created `GtkLayoutChild` instance are mandatory. The
 /// `GtkLayoutManager` will cache the newly created `GtkLayoutChild` instance until
 /// the widget is removed from its parent, or the parent removes the layout
@@ -4097,14 +4103,14 @@ open class LayoutManager: GLibObject.Object, LayoutManagerProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `LayoutManagerProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `LayoutManagerProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -4318,7 +4324,7 @@ public extension LayoutManagerProtocol {
 /// # GtkLevelBar as GtkBuildable
 /// 
 /// The GtkLevelBar implementation of the GtkBuildable interface supports a
-/// custom <offsets> element, which can contain any number of <offset> elements,
+/// custom &lt;offsets&gt; element, which can contain any number of &lt;offset&gt; elements,
 /// each of which must have name and value attributes.
 /// 
 /// # CSS nodes
@@ -4354,6 +4360,8 @@ public protocol LevelBarProtocol: WidgetProtocol, OrientableProtocol {
     /// Typed pointer to the underlying `GtkLevelBar` instance.
     var level_bar_ptr: UnsafeMutablePointer<GtkLevelBar>! { get }
 
+    /// Required Initialiser for types conforming to `LevelBarProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `LevelBarRef` type acts as a lightweight Swift reference to an underlying `GtkLevelBar` instance.
@@ -4428,7 +4436,7 @@ public protocol LevelBarProtocol: WidgetProtocol, OrientableProtocol {
 /// # GtkLevelBar as GtkBuildable
 /// 
 /// The GtkLevelBar implementation of the GtkBuildable interface supports a
-/// custom <offsets> element, which can contain any number of <offset> elements,
+/// custom &lt;offsets&gt; element, which can contain any number of &lt;offset&gt; elements,
 /// each of which must have name and value attributes.
 /// 
 /// # CSS nodes
@@ -4628,7 +4636,7 @@ public extension LevelBarRef {
 /// # GtkLevelBar as GtkBuildable
 /// 
 /// The GtkLevelBar implementation of the GtkBuildable interface supports a
-/// custom <offsets> element, which can contain any number of <offset> elements,
+/// custom &lt;offsets&gt; element, which can contain any number of &lt;offset&gt; elements,
 /// each of which must have name and value attributes.
 /// 
 /// # CSS nodes
@@ -4757,14 +4765,14 @@ open class LevelBar: Widget, LevelBarProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `LevelBarProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `LevelBarProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -4834,9 +4842,9 @@ public enum LevelBarPropertyName: String, PropertyNameProtocol {
     case halign = "halign"
     case hasDefault = "has-default"
     case hasFocus = "has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case hasTooltip = "has-tooltip"
     case heightRequest = "height-request"
@@ -4879,10 +4887,10 @@ public enum LevelBarPropertyName: String, PropertyNameProtocol {
     /// request, the margin will be added in addition to the size from
     /// `gtk_widget_set_size_request()` for example.
     case marginTop = "margin-top"
-    /// The `GtkLevelBar:max`-value property determaxes the maximum value of
+    /// The `GtkLevelBar:max-value` property determaxes the maximum value of
     /// the interval that can be displayed by the bar.
     case maxValue = "max-value"
-    /// The `GtkLevelBar:min`-value property determines the minimum value of
+    /// The `GtkLevelBar:min-value` property determines the minimum value of
     /// the interval that can be displayed by the bar.
     case minValue = "min-value"
     /// The `GtkLevelBar:mode` property determines the way `GtkLevelBar`
@@ -4892,7 +4900,7 @@ public enum LevelBarPropertyName: String, PropertyNameProtocol {
     /// that area; when the value is `GTK_LEVEL_BAR_MODE_DISCRETE`,
     /// the widget will draw a succession of separate blocks filling the
     /// draw area, with the number of blocks being equal to the units separating
-    /// the integral roundings of `GtkLevelBar:min`-value and `GtkLevelBar:max`-value.
+    /// the integral roundings of `GtkLevelBar:min-value` and `GtkLevelBar:max-value`.
     case mode = "mode"
     case name = "name"
     /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
@@ -4917,11 +4925,11 @@ public enum LevelBarPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipMarkup = "tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -4929,11 +4937,11 @@ public enum LevelBarPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipText = "tooltip-text"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
@@ -5009,7 +5017,7 @@ public enum LevelBarSignalName: String, SignalNameProtocol {
     /// 
     /// This signal is not suitable for saving widget state.
     case destroy = "destroy"
-    /// The `direction`-changed signal is emitted when the text direction
+    /// The `direction-changed` signal is emitted when the text direction
     /// of a widget changes.
     case directionChanged = "direction-changed"
     /// The `hide` signal is emitted when `widget` is hidden, for example with
@@ -5064,7 +5072,7 @@ public enum LevelBarSignalName: String, SignalNameProtocol {
     /// detailed signal "changed`x`" in order to only receive callbacks when
     /// the value of offset "x" changes.
     case offsetChanged = "offset-changed"
-    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
+    /// Emitted when `GtkWidget:has-tooltip` is `true` and the hover timeout
     /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
     /// focus in keyboard mode.
     /// 
@@ -5084,7 +5092,7 @@ public enum LevelBarSignalName: String, SignalNameProtocol {
     /// The `show` signal is emitted when `widget` is shown, for example with
     /// `gtk_widget_show()`.
     case show = "show"
-    /// The `state`-flags-changed signal is emitted when the widget state
+    /// The `state-flags-changed` signal is emitted when the widget state
     /// changes, see `gtk_widget_get_state_flags()`.
     case stateFlagsChanged = "state-flags-changed"
     /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
@@ -5125,9 +5133,9 @@ public enum LevelBarSignalName: String, SignalNameProtocol {
     case notifyHalign = "notify::halign"
     case notifyHasDefault = "notify::has-default"
     case notifyHasFocus = "notify::has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case notifyHasTooltip = "notify::has-tooltip"
     case notifyHeightRequest = "notify::height-request"
@@ -5170,10 +5178,10 @@ public enum LevelBarSignalName: String, SignalNameProtocol {
     /// request, the margin will be added in addition to the size from
     /// `gtk_widget_set_size_request()` for example.
     case notifyMarginTop = "notify::margin-top"
-    /// The `GtkLevelBar:max`-value property determaxes the maximum value of
+    /// The `GtkLevelBar:max-value` property determaxes the maximum value of
     /// the interval that can be displayed by the bar.
     case notifyMaxValue = "notify::max-value"
-    /// The `GtkLevelBar:min`-value property determines the minimum value of
+    /// The `GtkLevelBar:min-value` property determines the minimum value of
     /// the interval that can be displayed by the bar.
     case notifyMinValue = "notify::min-value"
     /// The `GtkLevelBar:mode` property determines the way `GtkLevelBar`
@@ -5183,7 +5191,7 @@ public enum LevelBarSignalName: String, SignalNameProtocol {
     /// that area; when the value is `GTK_LEVEL_BAR_MODE_DISCRETE`,
     /// the widget will draw a succession of separate blocks filling the
     /// draw area, with the number of blocks being equal to the units separating
-    /// the integral roundings of `GtkLevelBar:min`-value and `GtkLevelBar:max`-value.
+    /// the integral roundings of `GtkLevelBar:min-value` and `GtkLevelBar:max-value`.
     case notifyMode = "notify::mode"
     case notifyName = "notify::name"
     /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
@@ -5208,11 +5216,11 @@ public enum LevelBarSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipMarkup = "notify::tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -5220,11 +5228,11 @@ public enum LevelBarSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipText = "notify::tooltip-text"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
@@ -5553,7 +5561,7 @@ public extension LevelBarProtocol {
 
     /// Adds a new offset marker on `self` at the position specified by `value`.
     /// When the bar value is in the interval topped by `value` (or between `value`
-    /// and `GtkLevelBar:max`-value in case the offset is the last one on the bar)
+    /// and `GtkLevelBar:max-value` in case the offset is the last one on the bar)
     /// a style class named `level-``name` will be applied
     /// when rendering the level bar fill.
     /// If another offset marker named `name` exists, its value will be
@@ -5569,13 +5577,13 @@ public extension LevelBarProtocol {
         return rv
     }
 
-    /// Returns the value of the `GtkLevelBar:max`-value property.
+    /// Returns the value of the `GtkLevelBar:max-value` property.
     @inlinable func getMaxValue() -> CDouble {
         let rv = gtk_level_bar_get_max_value(level_bar_ptr)
         return rv
     }
 
-    /// Returns the value of the `GtkLevelBar:min`-value property.
+    /// Returns the value of the `GtkLevelBar:min-value` property.
     @inlinable func getMinValue() -> CDouble {
         let rv = gtk_level_bar_get_min_value(level_bar_ptr)
         return rv
@@ -5613,7 +5621,7 @@ public extension LevelBarProtocol {
     
     }
 
-    /// Sets the value of the `GtkLevelBar:max`-value property.
+    /// Sets the value of the `GtkLevelBar:max-value` property.
     /// 
     /// You probably want to update preexisting level offsets after calling
     /// this function.
@@ -5622,7 +5630,7 @@ public extension LevelBarProtocol {
     
     }
 
-    /// Sets the value of the `GtkLevelBar:min`-value property.
+    /// Sets the value of the `GtkLevelBar:min-value` property.
     /// 
     /// You probably want to update preexisting level offsets after calling
     /// this function.
@@ -5656,14 +5664,14 @@ public extension LevelBarProtocol {
         }
     }
 
-    /// Returns the value of the `GtkLevelBar:max`-value property.
+    /// Returns the value of the `GtkLevelBar:max-value` property.
     @inlinable var maxValue: CDouble {
-        /// Returns the value of the `GtkLevelBar:max`-value property.
+        /// Returns the value of the `GtkLevelBar:max-value` property.
         get {
             let rv = gtk_level_bar_get_max_value(level_bar_ptr)
             return rv
         }
-        /// Sets the value of the `GtkLevelBar:max`-value property.
+        /// Sets the value of the `GtkLevelBar:max-value` property.
         /// 
         /// You probably want to update preexisting level offsets after calling
         /// this function.
@@ -5672,14 +5680,14 @@ public extension LevelBarProtocol {
         }
     }
 
-    /// Returns the value of the `GtkLevelBar:min`-value property.
+    /// Returns the value of the `GtkLevelBar:min-value` property.
     @inlinable var minValue: CDouble {
-        /// Returns the value of the `GtkLevelBar:min`-value property.
+        /// Returns the value of the `GtkLevelBar:min-value` property.
         get {
             let rv = gtk_level_bar_get_min_value(level_bar_ptr)
             return rv
         }
-        /// Sets the value of the `GtkLevelBar:min`-value property.
+        /// Sets the value of the `GtkLevelBar:min-value` property.
         /// 
         /// You probably want to update preexisting level offsets after calling
         /// this function.
@@ -5695,7 +5703,7 @@ public extension LevelBarProtocol {
     /// that area; when the value is `GTK_LEVEL_BAR_MODE_DISCRETE`,
     /// the widget will draw a succession of separate blocks filling the
     /// draw area, with the number of blocks being equal to the units separating
-    /// the integral roundings of `GtkLevelBar:min`-value and `GtkLevelBar:max`-value.
+    /// the integral roundings of `GtkLevelBar:min-value` and `GtkLevelBar:max-value`.
     @inlinable var mode: GtkLevelBarMode {
         /// Returns the value of the `GtkLevelBar:mode` property.
         get {
@@ -5747,7 +5755,7 @@ public extension LevelBarProtocol {
 /// 
 /// By default, GtkLinkButton calls `gtk_show_uri()` when the button is
 /// clicked. This behaviour can be overridden by connecting to the
-/// `GtkLinkButton::activate`-link signal and returning `true` from the
+/// `GtkLinkButton::activate-link` signal and returning `true` from the
 /// signal handler.
 /// 
 /// # CSS nodes
@@ -5765,6 +5773,8 @@ public protocol LinkButtonProtocol: ButtonProtocol {
     /// Typed pointer to the underlying `GtkLinkButton` instance.
     var link_button_ptr: UnsafeMutablePointer<GtkLinkButton>! { get }
 
+    /// Required Initialiser for types conforming to `LinkButtonProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `LinkButtonRef` type acts as a lightweight Swift reference to an underlying `GtkLinkButton` instance.
@@ -5784,7 +5794,7 @@ public protocol LinkButtonProtocol: ButtonProtocol {
 /// 
 /// By default, GtkLinkButton calls `gtk_show_uri()` when the button is
 /// clicked. This behaviour can be overridden by connecting to the
-/// `GtkLinkButton::activate`-link signal and returning `true` from the
+/// `GtkLinkButton::activate-link` signal and returning `true` from the
 /// signal handler.
 /// 
 /// # CSS nodes
@@ -5909,7 +5919,7 @@ public extension LinkButtonRef {
 /// 
 /// By default, GtkLinkButton calls `gtk_show_uri()` when the button is
 /// clicked. This behaviour can be overridden by connecting to the
-/// `GtkLinkButton::activate`-link signal and returning `true` from the
+/// `GtkLinkButton::activate-link` signal and returning `true` from the
 /// signal handler.
 /// 
 /// # CSS nodes
@@ -6020,14 +6030,14 @@ open class LinkButton: Button, LinkButtonProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `LinkButtonProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `LinkButtonProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -6097,9 +6107,9 @@ public enum LinkButtonPropertyName: String, PropertyNameProtocol {
     case hasDefault = "has-default"
     case hasFocus = "has-focus"
     case hasFrame = "has-frame"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case hasTooltip = "has-tooltip"
     case heightRequest = "height-request"
@@ -6164,11 +6174,11 @@ public enum LinkButtonPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipMarkup = "tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -6176,11 +6186,11 @@ public enum LinkButtonPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipText = "tooltip-text"
     /// The URI bound to this button.
@@ -6258,13 +6268,13 @@ public enum LinkButtonSignalName: String, SignalNameProtocol {
     /// Applications should never connect to this signal, but use the
     /// `GtkButton::clicked` signal.
     case activate = "activate"
-    /// The `activate`-link signal is emitted each time the `GtkLinkButton`
+    /// The `activate-link` signal is emitted each time the `GtkLinkButton`
     /// has been clicked.
     /// 
     /// The default handler will call `gtk_show_uri()` with the URI stored inside
     /// the `GtkLinkButton:uri` property.
     /// 
-    /// To override the default behavior, you can connect to the `activate`-link
+    /// To override the default behavior, you can connect to the `activate-link`
     /// signal and stop the propagation of the signal by returning `true` from
     /// your handler.
     case activateLink = "activate-link"
@@ -6276,7 +6286,7 @@ public enum LinkButtonSignalName: String, SignalNameProtocol {
     /// 
     /// This signal is not suitable for saving widget state.
     case destroy = "destroy"
-    /// The `direction`-changed signal is emitted when the text direction
+    /// The `direction-changed` signal is emitted when the text direction
     /// of a widget changes.
     case directionChanged = "direction-changed"
     /// The `hide` signal is emitted when `widget` is hidden, for example with
@@ -6324,7 +6334,7 @@ public enum LinkButtonSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
+    /// Emitted when `GtkWidget:has-tooltip` is `true` and the hover timeout
     /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
     /// focus in keyboard mode.
     /// 
@@ -6344,7 +6354,7 @@ public enum LinkButtonSignalName: String, SignalNameProtocol {
     /// The `show` signal is emitted when `widget` is shown, for example with
     /// `gtk_widget_show()`.
     case show = "show"
-    /// The `state`-flags-changed signal is emitted when the widget state
+    /// The `state-flags-changed` signal is emitted when the widget state
     /// changes, see `gtk_widget_get_state_flags()`.
     case stateFlagsChanged = "state-flags-changed"
     /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
@@ -6387,9 +6397,9 @@ public enum LinkButtonSignalName: String, SignalNameProtocol {
     case notifyHasDefault = "notify::has-default"
     case notifyHasFocus = "notify::has-focus"
     case notifyHasFrame = "notify::has-frame"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case notifyHasTooltip = "notify::has-tooltip"
     case notifyHeightRequest = "notify::height-request"
@@ -6454,11 +6464,11 @@ public enum LinkButtonSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipMarkup = "notify::tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -6466,11 +6476,11 @@ public enum LinkButtonSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipText = "notify::tooltip-text"
     /// The URI bound to this button.
@@ -6517,13 +6527,13 @@ public extension LinkButtonProtocol {
     }
     
     
-    /// The `activate`-link signal is emitted each time the `GtkLinkButton`
+    /// The `activate-link` signal is emitted each time the `GtkLinkButton`
     /// has been clicked.
     /// 
     /// The default handler will call `gtk_show_uri()` with the URI stored inside
     /// the `GtkLinkButton:uri` property.
     /// 
-    /// To override the default behavior, you can connect to the `activate`-link
+    /// To override the default behavior, you can connect to the `activate-link`
     /// signal and stop the propagation of the signal by returning `true` from
     /// your handler.
     /// - Note: This represents the underlying `activate-link` signal
@@ -6737,6 +6747,8 @@ public protocol ListBaseProtocol: WidgetProtocol, OrientableProtocol, Scrollable
     /// Typed pointer to the underlying `GtkListBase` instance.
     var list_base_ptr: UnsafeMutablePointer<GtkListBase>! { get }
 
+    /// Required Initialiser for types conforming to `ListBaseProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ListBaseRef` type acts as a lightweight Swift reference to an underlying `GtkListBase` instance.
@@ -6930,14 +6942,14 @@ open class ListBase: Widget, ListBaseProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ListBaseProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ListBaseProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -6986,9 +6998,9 @@ public enum ListBasePropertyName: String, PropertyNameProtocol {
     case halign = "halign"
     case hasDefault = "has-default"
     case hasFocus = "has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case hasTooltip = "has-tooltip"
     case heightRequest = "height-request"
@@ -7054,11 +7066,11 @@ public enum ListBasePropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipMarkup = "tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -7066,11 +7078,11 @@ public enum ListBasePropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipText = "tooltip-text"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
@@ -7143,7 +7155,7 @@ public enum ListBaseSignalName: String, SignalNameProtocol {
     /// 
     /// This signal is not suitable for saving widget state.
     case destroy = "destroy"
-    /// The `direction`-changed signal is emitted when the text direction
+    /// The `direction-changed` signal is emitted when the text direction
     /// of a widget changes.
     case directionChanged = "direction-changed"
     /// The `hide` signal is emitted when `widget` is hidden, for example with
@@ -7191,7 +7203,7 @@ public enum ListBaseSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
+    /// Emitted when `GtkWidget:has-tooltip` is `true` and the hover timeout
     /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
     /// focus in keyboard mode.
     /// 
@@ -7211,7 +7223,7 @@ public enum ListBaseSignalName: String, SignalNameProtocol {
     /// The `show` signal is emitted when `widget` is shown, for example with
     /// `gtk_widget_show()`.
     case show = "show"
-    /// The `state`-flags-changed signal is emitted when the widget state
+    /// The `state-flags-changed` signal is emitted when the widget state
     /// changes, see `gtk_widget_get_state_flags()`.
     case stateFlagsChanged = "state-flags-changed"
     /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
@@ -7252,9 +7264,9 @@ public enum ListBaseSignalName: String, SignalNameProtocol {
     case notifyHalign = "notify::halign"
     case notifyHasDefault = "notify::has-default"
     case notifyHasFocus = "notify::has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case notifyHasTooltip = "notify::has-tooltip"
     case notifyHeightRequest = "notify::height-request"
@@ -7320,11 +7332,11 @@ public enum ListBaseSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipMarkup = "notify::tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -7332,11 +7344,11 @@ public enum ListBaseSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipText = "notify::tooltip-text"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
@@ -7385,7 +7397,7 @@ public extension ListBaseProtocol {
 /// widget will automatically be inserted between the list and the widget.
 /// 
 /// `GtkListBoxRows` can be marked as activatable or selectable. If a row
-/// is activatable, `GtkListBox::row`-activated will be emitted for it when
+/// is activatable, `GtkListBox::row-activated` will be emitted for it when
 /// the user tries to activate it. If it is selectable, the row will be marked
 /// as selected when the user tries to select it.
 /// 
@@ -7393,7 +7405,7 @@ public extension ListBaseProtocol {
 /// 
 /// The GtkListBox implementation of the `GtkBuildable` interface supports
 /// setting a child as the placeholder by specifying “placeholder” as the “type”
-/// attribute of a <child> element. See `gtk_list_box_set_placeholder()` for info.
+/// attribute of a &lt;child&gt; element. See `gtk_list_box_set_placeholder()` for info.
 /// 
 /// # CSS nodes
 /// 
@@ -7404,12 +7416,12 @@ public extension ListBaseProtocol {
 /// ```
 /// 
 /// GtkListBox uses a single CSS node named list. It may carry the .separators
-/// style class, when the `GtkListBox:show`-separators property is set. Each
+/// style class, when the `GtkListBox:show-separators` property is set. Each
 /// GtkListBoxRow uses a single CSS node named row. The row nodes get the
 /// .activatable style class added when appropriate.
 /// 
 /// The main list node may also carry style classes to select
-/// the style of [list presentation](ListContainers.html`list`-styles):
+/// the style of [list presentation](ListContainers.html`list-styles`):
 /// .rich-list, .navigation-sidebar or .data-table.
 /// 
 /// # Accessibility
@@ -7423,6 +7435,8 @@ public protocol ListBoxProtocol: WidgetProtocol {
     /// Typed pointer to the underlying `GtkListBox` instance.
     var list_box_ptr: UnsafeMutablePointer<GtkListBox>! { get }
 
+    /// Required Initialiser for types conforming to `ListBoxProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ListBoxRef` type acts as a lightweight Swift reference to an underlying `GtkListBox` instance.
@@ -7446,7 +7460,7 @@ public protocol ListBoxProtocol: WidgetProtocol {
 /// widget will automatically be inserted between the list and the widget.
 /// 
 /// `GtkListBoxRows` can be marked as activatable or selectable. If a row
-/// is activatable, `GtkListBox::row`-activated will be emitted for it when
+/// is activatable, `GtkListBox::row-activated` will be emitted for it when
 /// the user tries to activate it. If it is selectable, the row will be marked
 /// as selected when the user tries to select it.
 /// 
@@ -7454,7 +7468,7 @@ public protocol ListBoxProtocol: WidgetProtocol {
 /// 
 /// The GtkListBox implementation of the `GtkBuildable` interface supports
 /// setting a child as the placeholder by specifying “placeholder” as the “type”
-/// attribute of a <child> element. See `gtk_list_box_set_placeholder()` for info.
+/// attribute of a &lt;child&gt; element. See `gtk_list_box_set_placeholder()` for info.
 /// 
 /// # CSS nodes
 /// 
@@ -7465,12 +7479,12 @@ public protocol ListBoxProtocol: WidgetProtocol {
 /// ```
 /// 
 /// GtkListBox uses a single CSS node named list. It may carry the .separators
-/// style class, when the `GtkListBox:show`-separators property is set. Each
+/// style class, when the `GtkListBox:show-separators` property is set. Each
 /// GtkListBoxRow uses a single CSS node named row. The row nodes get the
 /// .activatable style class added when appropriate.
 /// 
 /// The main list node may also carry style classes to select
-/// the style of [list presentation](ListContainers.html`list`-styles):
+/// the style of [list presentation](ListContainers.html`list-styles`):
 /// .rich-list, .navigation-sidebar or .data-table.
 /// 
 /// # Accessibility
@@ -7584,7 +7598,7 @@ public extension ListBoxRef {
 /// widget will automatically be inserted between the list and the widget.
 /// 
 /// `GtkListBoxRows` can be marked as activatable or selectable. If a row
-/// is activatable, `GtkListBox::row`-activated will be emitted for it when
+/// is activatable, `GtkListBox::row-activated` will be emitted for it when
 /// the user tries to activate it. If it is selectable, the row will be marked
 /// as selected when the user tries to select it.
 /// 
@@ -7592,7 +7606,7 @@ public extension ListBoxRef {
 /// 
 /// The GtkListBox implementation of the `GtkBuildable` interface supports
 /// setting a child as the placeholder by specifying “placeholder” as the “type”
-/// attribute of a <child> element. See `gtk_list_box_set_placeholder()` for info.
+/// attribute of a &lt;child&gt; element. See `gtk_list_box_set_placeholder()` for info.
 /// 
 /// # CSS nodes
 /// 
@@ -7603,12 +7617,12 @@ public extension ListBoxRef {
 /// ```
 /// 
 /// GtkListBox uses a single CSS node named list. It may carry the .separators
-/// style class, when the `GtkListBox:show`-separators property is set. Each
+/// style class, when the `GtkListBox:show-separators` property is set. Each
 /// GtkListBoxRow uses a single CSS node named row. The row nodes get the
 /// .activatable style class added when appropriate.
 /// 
 /// The main list node may also carry style classes to select
-/// the style of [list presentation](ListContainers.html`list`-styles):
+/// the style of [list presentation](ListContainers.html`list-styles`):
 /// .rich-list, .navigation-sidebar or .data-table.
 /// 
 /// # Accessibility
@@ -7715,14 +7729,14 @@ open class ListBox: Widget, ListBoxProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ListBoxProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ListBoxProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -7779,9 +7793,9 @@ public enum ListBoxPropertyName: String, PropertyNameProtocol {
     case halign = "halign"
     case hasDefault = "has-default"
     case hasFocus = "has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case hasTooltip = "has-tooltip"
     case heightRequest = "height-request"
@@ -7846,11 +7860,11 @@ public enum ListBoxPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipMarkup = "tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -7858,11 +7872,11 @@ public enum ListBoxPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipText = "tooltip-text"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
@@ -7936,7 +7950,7 @@ public enum ListBoxSignalName: String, SignalNameProtocol {
     /// 
     /// This signal is not suitable for saving widget state.
     case destroy = "destroy"
-    /// The `direction`-changed signal is emitted when the text direction
+    /// The `direction-changed` signal is emitted when the text direction
     /// of a widget changes.
     case directionChanged = "direction-changed"
     /// The `hide` signal is emitted when `widget` is hidden, for example with
@@ -7985,7 +7999,7 @@ public enum ListBoxSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
+    /// Emitted when `GtkWidget:has-tooltip` is `true` and the hover timeout
     /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
     /// focus in keyboard mode.
     /// 
@@ -8002,28 +8016,28 @@ public enum ListBoxSignalName: String, SignalNameProtocol {
     /// `GdkSurface`, which means that `gtk_widget_realize()` has been called or the
     /// widget has been mapped (that is, it is going to be drawn).
     case realize = "realize"
-    /// The `row`-activated signal is emitted when a row has been activated by the user.
+    /// The `row-activated` signal is emitted when a row has been activated by the user.
     case rowActivated = "row-activated"
-    /// The `row`-selected signal is emitted when a new row is selected, or
+    /// The `row-selected` signal is emitted when a new row is selected, or
     /// (with a `nil` `row`) when the selection is cleared.
     /// 
     /// When the `box` is using `GTK_SELECTION_MULTIPLE`, this signal will not
     /// give you the full picture of selection changes, and you should use
-    /// the `GtkListBox::selected`-rows-changed signal instead.
+    /// the `GtkListBox::selected-rows-changed` signal instead.
     case rowSelected = "row-selected"
-    /// The `select`-all signal is a [keybinding signal](#GtkSignalAction)
+    /// The `select-all` signal is a [keybinding signal](#GtkSignalAction)
     /// which gets emitted to select all children of the box, if the selection
     /// mode permits it.
     /// 
     /// The default bindings for this signal is Ctrl-a.
     case selectAll = "select-all"
-    /// The `selected`-rows-changed signal is emitted when the
+    /// The `selected-rows-changed` signal is emitted when the
     /// set of selected rows changes.
     case selectedRowsChanged = "selected-rows-changed"
     /// The `show` signal is emitted when `widget` is shown, for example with
     /// `gtk_widget_show()`.
     case show = "show"
-    /// The `state`-flags-changed signal is emitted when the widget state
+    /// The `state-flags-changed` signal is emitted when the widget state
     /// changes, see `gtk_widget_get_state_flags()`.
     case stateFlagsChanged = "state-flags-changed"
     case toggleCursorRow = "toggle-cursor-row"
@@ -8039,7 +8053,7 @@ public enum ListBoxSignalName: String, SignalNameProtocol {
     /// called or the widget has been unmapped (that is, it is going to be
     /// hidden).
     case unrealize = "unrealize"
-    /// The `unselect`-all signal is a [keybinding signal](#GtkSignalAction)
+    /// The `unselect-all` signal is a [keybinding signal](#GtkSignalAction)
     /// which gets emitted to unselect all children of the box, if the selection
     /// mode permits it.
     /// 
@@ -8073,9 +8087,9 @@ public enum ListBoxSignalName: String, SignalNameProtocol {
     case notifyHalign = "notify::halign"
     case notifyHasDefault = "notify::has-default"
     case notifyHasFocus = "notify::has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case notifyHasTooltip = "notify::has-tooltip"
     case notifyHeightRequest = "notify::height-request"
@@ -8140,11 +8154,11 @@ public enum ListBoxSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipMarkup = "notify::tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -8152,11 +8166,11 @@ public enum ListBoxSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipText = "notify::tooltip-text"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
@@ -8249,7 +8263,7 @@ public extension ListBoxProtocol {
     /// Typed `move-cursor` signal for using the `connect(signal:)` methods
     static var moveCursorSignal: ListBoxSignalName { .moveCursor }
     
-    /// The `row`-activated signal is emitted when a row has been activated by the user.
+    /// The `row-activated` signal is emitted when a row has been activated by the user.
     /// - Note: This represents the underlying `row-activated` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -8275,12 +8289,12 @@ public extension ListBoxProtocol {
     /// Typed `row-activated` signal for using the `connect(signal:)` methods
     static var rowActivatedSignal: ListBoxSignalName { .rowActivated }
     
-    /// The `row`-selected signal is emitted when a new row is selected, or
+    /// The `row-selected` signal is emitted when a new row is selected, or
     /// (with a `nil` `row`) when the selection is cleared.
     /// 
     /// When the `box` is using `GTK_SELECTION_MULTIPLE`, this signal will not
     /// give you the full picture of selection changes, and you should use
-    /// the `GtkListBox::selected`-rows-changed signal instead.
+    /// the `GtkListBox::selected-rows-changed` signal instead.
     /// - Note: This represents the underlying `row-selected` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -8306,7 +8320,7 @@ public extension ListBoxProtocol {
     /// Typed `row-selected` signal for using the `connect(signal:)` methods
     static var rowSelectedSignal: ListBoxSignalName { .rowSelected }
     
-    /// The `select`-all signal is a [keybinding signal](#GtkSignalAction)
+    /// The `select-all` signal is a [keybinding signal](#GtkSignalAction)
     /// which gets emitted to select all children of the box, if the selection
     /// mode permits it.
     /// 
@@ -8335,7 +8349,7 @@ public extension ListBoxProtocol {
     /// Typed `select-all` signal for using the `connect(signal:)` methods
     static var selectAllSignal: ListBoxSignalName { .selectAll }
     
-    /// The `selected`-rows-changed signal is emitted when the
+    /// The `selected-rows-changed` signal is emitted when the
     /// set of selected rows changes.
     /// - Note: This represents the underlying `selected-rows-changed` signal
     /// - Parameter flags: Flags
@@ -8385,7 +8399,7 @@ public extension ListBoxProtocol {
     /// Typed `toggle-cursor-row` signal for using the `connect(signal:)` methods
     static var toggleCursorRowSignal: ListBoxSignalName { .toggleCursorRow }
     
-    /// The `unselect`-all signal is a [keybinding signal](#GtkSignalAction)
+    /// The `unselect-all` signal is a [keybinding signal](#GtkSignalAction)
     /// which gets emitted to unselect all children of the box, if the selection
     /// mode permits it.
     /// 
@@ -9048,6 +9062,8 @@ public protocol ListBoxRowProtocol: WidgetProtocol, ActionableProtocol {
     /// Typed pointer to the underlying `GtkListBoxRow` instance.
     var list_box_row_ptr: UnsafeMutablePointer<GtkListBoxRow>! { get }
 
+    /// Required Initialiser for types conforming to `ListBoxRowProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ListBoxRowRef` type acts as a lightweight Swift reference to an underlying `GtkListBoxRow` instance.
@@ -9246,14 +9262,14 @@ open class ListBoxRow: Widget, ListBoxRowProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ListBoxRowProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ListBoxRowProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -9282,7 +9298,7 @@ open class ListBoxRow: Widget, ListBoxRowProtocol {
 }
 
 public enum ListBoxRowPropertyName: String, PropertyNameProtocol {
-    /// The property determines whether the `GtkListBox::row`-activated
+    /// The property determines whether the `GtkListBox::row-activated`
     /// signal will be emitted for this row.
     case activatable = "activatable"
     /// Whether the widget or any of its descendents can accept
@@ -9312,9 +9328,9 @@ public enum ListBoxRowPropertyName: String, PropertyNameProtocol {
     case halign = "halign"
     case hasDefault = "has-default"
     case hasFocus = "has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case hasTooltip = "has-tooltip"
     case heightRequest = "height-request"
@@ -9379,11 +9395,11 @@ public enum ListBoxRowPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipMarkup = "tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -9391,11 +9407,11 @@ public enum ListBoxRowPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipText = "tooltip-text"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
@@ -9465,7 +9481,7 @@ public enum ListBoxRowSignalName: String, SignalNameProtocol {
     /// This is a keybinding signal, which will cause this row to be activated.
     /// 
     /// If you want to be notified when the user activates a row (by key or not),
-    /// use the `GtkListBox::row`-activated signal on the row’s parent `GtkListBox`.
+    /// use the `GtkListBox::row-activated` signal on the row’s parent `GtkListBox`.
     case activate = "activate"
     /// Signals that all holders of a reference to the widget should release
     /// the reference that they hold. May result in finalization of the widget
@@ -9473,7 +9489,7 @@ public enum ListBoxRowSignalName: String, SignalNameProtocol {
     /// 
     /// This signal is not suitable for saving widget state.
     case destroy = "destroy"
-    /// The `direction`-changed signal is emitted when the text direction
+    /// The `direction-changed` signal is emitted when the text direction
     /// of a widget changes.
     case directionChanged = "direction-changed"
     /// The `hide` signal is emitted when `widget` is hidden, for example with
@@ -9521,7 +9537,7 @@ public enum ListBoxRowSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
+    /// Emitted when `GtkWidget:has-tooltip` is `true` and the hover timeout
     /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
     /// focus in keyboard mode.
     /// 
@@ -9541,7 +9557,7 @@ public enum ListBoxRowSignalName: String, SignalNameProtocol {
     /// The `show` signal is emitted when `widget` is shown, for example with
     /// `gtk_widget_show()`.
     case show = "show"
-    /// The `state`-flags-changed signal is emitted when the widget state
+    /// The `state-flags-changed` signal is emitted when the widget state
     /// changes, see `gtk_widget_get_state_flags()`.
     case stateFlagsChanged = "state-flags-changed"
     /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
@@ -9556,7 +9572,7 @@ public enum ListBoxRowSignalName: String, SignalNameProtocol {
     /// called or the widget has been unmapped (that is, it is going to be
     /// hidden).
     case unrealize = "unrealize"
-    /// The property determines whether the `GtkListBox::row`-activated
+    /// The property determines whether the `GtkListBox::row-activated`
     /// signal will be emitted for this row.
     case notifyActivatable = "notify::activatable"
     /// Whether the widget or any of its descendents can accept
@@ -9586,9 +9602,9 @@ public enum ListBoxRowSignalName: String, SignalNameProtocol {
     case notifyHalign = "notify::halign"
     case notifyHasDefault = "notify::has-default"
     case notifyHasFocus = "notify::has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case notifyHasTooltip = "notify::has-tooltip"
     case notifyHeightRequest = "notify::height-request"
@@ -9653,11 +9669,11 @@ public enum ListBoxRowSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipMarkup = "notify::tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -9665,11 +9681,11 @@ public enum ListBoxRowSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipText = "notify::tooltip-text"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
@@ -9713,7 +9729,7 @@ public extension ListBoxRowProtocol {
     /// This is a keybinding signal, which will cause this row to be activated.
     /// 
     /// If you want to be notified when the user activates a row (by key or not),
-    /// use the `GtkListBox::row`-activated signal on the row’s parent `GtkListBox`.
+    /// use the `GtkListBox::row-activated` signal on the row’s parent `GtkListBox`.
     /// - Note: This represents the underlying `activate` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -9984,7 +10000,7 @@ public extension ListBoxRowProtocol {
         gtk_list_box_row_set_selectable(list_box_row_ptr, gboolean((selectable) ? 1 : 0))
     
     }
-    /// The property determines whether the `GtkListBox::row`-activated
+    /// The property determines whether the `GtkListBox::row-activated`
     /// signal will be emitted for this row.
     @inlinable var activatable: Bool {
         /// Gets the value of the `GtkListBoxRow:activatable` property
@@ -10104,6 +10120,8 @@ public protocol ListItemProtocol: GLibObject.ObjectProtocol {
     /// Typed pointer to the underlying `GtkListItem` instance.
     var list_item_ptr: UnsafeMutablePointer<GtkListItem>! { get }
 
+    /// Required Initialiser for types conforming to `ListItemProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ListItemRef` type acts as a lightweight Swift reference to an underlying `GtkListItem` instance.
@@ -10325,14 +10343,14 @@ open class ListItem: GLibObject.Object, ListItemProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ListItemProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ListItemProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -10718,6 +10736,8 @@ public protocol ListItemFactoryProtocol: GLibObject.ObjectProtocol {
     /// Typed pointer to the underlying `GtkListItemFactory` instance.
     var list_item_factory_ptr: UnsafeMutablePointer<GtkListItemFactory>! { get }
 
+    /// Required Initialiser for types conforming to `ListItemFactoryProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ListItemFactoryRef` type acts as a lightweight Swift reference to an underlying `GtkListItemFactory` instance.
@@ -10991,14 +11011,14 @@ open class ListItemFactory: GLibObject.Object, ListItemFactoryProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ListItemFactoryProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ListItemFactoryProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -11157,9 +11177,9 @@ public extension ListItemFactoryProtocol {
 /// are atomic, in the sense that the row is being appended to the store and the
 /// values filled in in a single operation with regard to `GtkTreeModel` signaling.
 /// In contrast, using e.g. `gtk_list_store_append()` and then `gtk_list_store_set()`
-/// will first create a row, which triggers the `GtkTreeModel::row`-inserted signal
+/// will first create a row, which triggers the `GtkTreeModel::row-inserted` signal
 /// on `GtkListStore`. The row, however, is still empty, and any signal handler
-/// connecting to `GtkTreeModel::row`-inserted on this particular store should be prepared
+/// connecting to `GtkTreeModel::row-inserted` on this particular store should be prepared
 /// for the situation that the row might be empty. This is especially important
 /// if you are wrapping the `GtkListStore` inside a `GtkTreeModelFilter` and are
 /// using a `GtkTreeModelFilterVisibleFunc`. Using any of the non-atomic operations
@@ -11170,14 +11190,14 @@ public extension ListItemFactoryProtocol {
 /// # GtkListStore as GtkBuildable
 /// 
 /// The GtkListStore implementation of the GtkBuildable interface allows
-/// to specify the model columns with a <columns> element that may contain
-/// multiple <column> elements, each specifying one model column. The “type”
+/// to specify the model columns with a &lt;columns&gt; element that may contain
+/// multiple &lt;column&gt; elements, each specifying one model column. The “type”
 /// attribute specifies the data type for the column.
 /// 
 /// Additionally, it is possible to specify content for the list store
-/// in the UI definition, with the <data> element. It can contain multiple
-/// <row> elements, each specifying to content for one row of the list model.
-/// Inside a <row>, the <col> elements specify the content for individual cells.
+/// in the UI definition, with the &lt;data&gt; element. It can contain multiple
+/// &lt;row&gt; elements, each specifying to content for one row of the list model.
+/// Inside a &lt;row&gt;, the &lt;col&gt; elements specify the content for individual cells.
 /// 
 /// Note that it is probably more common to define your models in the code,
 /// and one might consider it a layering violation to specify the content of
@@ -11215,6 +11235,8 @@ public protocol ListStoreProtocol: GLibObject.ObjectProtocol, BuildableProtocol,
     /// Typed pointer to the underlying `GtkListStore` instance.
     var list_store_ptr: UnsafeMutablePointer<GtkListStore>! { get }
 
+    /// Required Initialiser for types conforming to `ListStoreProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ListStoreRef` type acts as a lightweight Swift reference to an underlying `GtkListStore` instance.
@@ -11308,9 +11330,9 @@ public protocol ListStoreProtocol: GLibObject.ObjectProtocol, BuildableProtocol,
 /// are atomic, in the sense that the row is being appended to the store and the
 /// values filled in in a single operation with regard to `GtkTreeModel` signaling.
 /// In contrast, using e.g. `gtk_list_store_append()` and then `gtk_list_store_set()`
-/// will first create a row, which triggers the `GtkTreeModel::row`-inserted signal
+/// will first create a row, which triggers the `GtkTreeModel::row-inserted` signal
 /// on `GtkListStore`. The row, however, is still empty, and any signal handler
-/// connecting to `GtkTreeModel::row`-inserted on this particular store should be prepared
+/// connecting to `GtkTreeModel::row-inserted` on this particular store should be prepared
 /// for the situation that the row might be empty. This is especially important
 /// if you are wrapping the `GtkListStore` inside a `GtkTreeModelFilter` and are
 /// using a `GtkTreeModelFilterVisibleFunc`. Using any of the non-atomic operations
@@ -11321,14 +11343,14 @@ public protocol ListStoreProtocol: GLibObject.ObjectProtocol, BuildableProtocol,
 /// # GtkListStore as GtkBuildable
 /// 
 /// The GtkListStore implementation of the GtkBuildable interface allows
-/// to specify the model columns with a <columns> element that may contain
-/// multiple <column> elements, each specifying one model column. The “type”
+/// to specify the model columns with a &lt;columns&gt; element that may contain
+/// multiple &lt;column&gt; elements, each specifying one model column. The “type”
 /// attribute specifies the data type for the column.
 /// 
 /// Additionally, it is possible to specify content for the list store
-/// in the UI definition, with the <data> element. It can contain multiple
-/// <row> elements, each specifying to content for one row of the list model.
-/// Inside a <row>, the <col> elements specify the content for individual cells.
+/// in the UI definition, with the &lt;data&gt; element. It can contain multiple
+/// &lt;row&gt; elements, each specifying to content for one row of the list model.
+/// Inside a &lt;row&gt;, the &lt;col&gt; elements specify the content for individual cells.
 /// 
 /// Note that it is probably more common to define your models in the code,
 /// and one might consider it a layering violation to specify the content of
@@ -11545,9 +11567,9 @@ public extension ListStoreRef {
 /// are atomic, in the sense that the row is being appended to the store and the
 /// values filled in in a single operation with regard to `GtkTreeModel` signaling.
 /// In contrast, using e.g. `gtk_list_store_append()` and then `gtk_list_store_set()`
-/// will first create a row, which triggers the `GtkTreeModel::row`-inserted signal
+/// will first create a row, which triggers the `GtkTreeModel::row-inserted` signal
 /// on `GtkListStore`. The row, however, is still empty, and any signal handler
-/// connecting to `GtkTreeModel::row`-inserted on this particular store should be prepared
+/// connecting to `GtkTreeModel::row-inserted` on this particular store should be prepared
 /// for the situation that the row might be empty. This is especially important
 /// if you are wrapping the `GtkListStore` inside a `GtkTreeModelFilter` and are
 /// using a `GtkTreeModelFilterVisibleFunc`. Using any of the non-atomic operations
@@ -11558,14 +11580,14 @@ public extension ListStoreRef {
 /// # GtkListStore as GtkBuildable
 /// 
 /// The GtkListStore implementation of the GtkBuildable interface allows
-/// to specify the model columns with a <columns> element that may contain
-/// multiple <column> elements, each specifying one model column. The “type”
+/// to specify the model columns with a &lt;columns&gt; element that may contain
+/// multiple &lt;column&gt; elements, each specifying one model column. The “type”
 /// attribute specifies the data type for the column.
 /// 
 /// Additionally, it is possible to specify content for the list store
-/// in the UI definition, with the <data> element. It can contain multiple
-/// <row> elements, each specifying to content for one row of the list model.
-/// Inside a <row>, the <col> elements specify the content for individual cells.
+/// in the UI definition, with the &lt;data&gt; element. It can contain multiple
+/// &lt;row&gt; elements, each specifying to content for one row of the list model.
+/// Inside a &lt;row&gt;, the &lt;col&gt; elements specify the content for individual cells.
 /// 
 /// Note that it is probably more common to define your models in the code,
 /// and one might consider it a layering violation to specify the content of
@@ -11696,14 +11718,14 @@ open class ListStore: GLibObject.Object, ListStoreProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ListStoreProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ListStoreProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -11841,8 +11863,8 @@ public extension ListStoreProtocol {
     
     }
 
-    /// > This function is slow. Only use it for debugging and/or testing
-    /// > purposes.
+    /// >&gt; This function is slow. Only use it for debugging and/or testing
+    /// &gt; purposes.
     /// 
     /// Checks if the given iter is a valid iter for this `GtkListStore`.
     @inlinable func iterIsValid<TreeIterT: TreeIterProtocol>(iter: TreeIterT) -> Bool {
@@ -11958,13 +11980,13 @@ public extension ListStoreProtocol {
 /// 
 /// GtkListView uses its factory to generate one row widget for each visible item
 /// and shows them in a linear display, either vertically or horizontally. The
-/// `GtkListView:show`-separators property offers a simple way to display separators
+/// `GtkListView:show-separators` property offers a simple way to display separators
 /// between the rows.
 /// 
 /// GtkListView allows the user to select items according to the selection
 /// characteristics of the model. For models that allow multiple selected items,
 /// it is possible to turn on _rubberband selection_, using
-/// `GtkListView:enable`-rubberband.
+/// `GtkListView:enable-rubberband`.
 /// 
 /// If you need multiple columns with headers, see `GtkColumnView`.
 /// 
@@ -12037,12 +12059,12 @@ public extension ListStoreProtocol {
 /// ```
 /// 
 /// GtkListView uses a single CSS node named listview. It may carry the
-/// .separators style class, when `GtkListView:show`-separators property
+/// .separators style class, when `GtkListView:show-separators` property
 /// is set. Each child widget uses a single CSS node named row. For
 /// rubberband selection, a node with name rubberband is used.
 /// 
 /// The main listview node may also carry style classes to select
-/// the style of [list presentation](ListContainers.html`list`-styles):
+/// the style of [list presentation](ListContainers.html`list-styles`):
 /// .rich-list, .navigation-sidebar or .data-table.
 /// 
 /// # Accessibility
@@ -12056,6 +12078,8 @@ public protocol ListViewProtocol: ListBaseProtocol {
     /// Typed pointer to the underlying `GtkListView` instance.
     var list_view_ptr: UnsafeMutablePointer<GtkListView>! { get }
 
+    /// Required Initialiser for types conforming to `ListViewProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ListViewRef` type acts as a lightweight Swift reference to an underlying `GtkListView` instance.
@@ -12066,13 +12090,13 @@ public protocol ListViewProtocol: ListBaseProtocol {
 /// 
 /// GtkListView uses its factory to generate one row widget for each visible item
 /// and shows them in a linear display, either vertically or horizontally. The
-/// `GtkListView:show`-separators property offers a simple way to display separators
+/// `GtkListView:show-separators` property offers a simple way to display separators
 /// between the rows.
 /// 
 /// GtkListView allows the user to select items according to the selection
 /// characteristics of the model. For models that allow multiple selected items,
 /// it is possible to turn on _rubberband selection_, using
-/// `GtkListView:enable`-rubberband.
+/// `GtkListView:enable-rubberband`.
 /// 
 /// If you need multiple columns with headers, see `GtkColumnView`.
 /// 
@@ -12145,12 +12169,12 @@ public protocol ListViewProtocol: ListBaseProtocol {
 /// ```
 /// 
 /// GtkListView uses a single CSS node named listview. It may carry the
-/// .separators style class, when `GtkListView:show`-separators property
+/// .separators style class, when `GtkListView:show-separators` property
 /// is set. Each child widget uses a single CSS node named row. For
 /// rubberband selection, a node with name rubberband is used.
 /// 
 /// The main listview node may also carry style classes to select
-/// the style of [list presentation](ListContainers.html`list`-styles):
+/// the style of [list presentation](ListContainers.html`list-styles`):
 /// .rich-list, .navigation-sidebar or .data-table.
 /// 
 /// # Accessibility
@@ -12259,13 +12283,13 @@ public extension ListViewRef {
 /// 
 /// GtkListView uses its factory to generate one row widget for each visible item
 /// and shows them in a linear display, either vertically or horizontally. The
-/// `GtkListView:show`-separators property offers a simple way to display separators
+/// `GtkListView:show-separators` property offers a simple way to display separators
 /// between the rows.
 /// 
 /// GtkListView allows the user to select items according to the selection
 /// characteristics of the model. For models that allow multiple selected items,
 /// it is possible to turn on _rubberband selection_, using
-/// `GtkListView:enable`-rubberband.
+/// `GtkListView:enable-rubberband`.
 /// 
 /// If you need multiple columns with headers, see `GtkColumnView`.
 /// 
@@ -12338,12 +12362,12 @@ public extension ListViewRef {
 /// ```
 /// 
 /// GtkListView uses a single CSS node named listview. It may carry the
-/// .separators style class, when `GtkListView:show`-separators property
+/// .separators style class, when `GtkListView:show-separators` property
 /// is set. Each child widget uses a single CSS node named row. For
 /// rubberband selection, a node with name rubberband is used.
 /// 
 /// The main listview node may also carry style classes to select
-/// the style of [list presentation](ListContainers.html`list`-styles):
+/// the style of [list presentation](ListContainers.html`list-styles`):
 /// .rich-list, .navigation-sidebar or .data-table.
 /// 
 /// # Accessibility
@@ -12450,14 +12474,14 @@ open class ListView: ListBase, ListViewProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ListViewProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ListViewProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -12524,9 +12548,9 @@ public enum ListViewPropertyName: String, PropertyNameProtocol {
     case halign = "halign"
     case hasDefault = "has-default"
     case hasFocus = "has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case hasTooltip = "has-tooltip"
     case heightRequest = "height-request"
@@ -12598,11 +12622,11 @@ public enum ListViewPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipMarkup = "tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -12610,11 +12634,11 @@ public enum ListViewPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipText = "tooltip-text"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
@@ -12693,7 +12717,7 @@ public enum ListViewSignalName: String, SignalNameProtocol {
     /// 
     /// This signal is not suitable for saving widget state.
     case destroy = "destroy"
-    /// The `direction`-changed signal is emitted when the text direction
+    /// The `direction-changed` signal is emitted when the text direction
     /// of a widget changes.
     case directionChanged = "direction-changed"
     /// The `hide` signal is emitted when `widget` is hidden, for example with
@@ -12741,7 +12765,7 @@ public enum ListViewSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
+    /// Emitted when `GtkWidget:has-tooltip` is `true` and the hover timeout
     /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
     /// focus in keyboard mode.
     /// 
@@ -12761,7 +12785,7 @@ public enum ListViewSignalName: String, SignalNameProtocol {
     /// The `show` signal is emitted when `widget` is shown, for example with
     /// `gtk_widget_show()`.
     case show = "show"
-    /// The `state`-flags-changed signal is emitted when the widget state
+    /// The `state-flags-changed` signal is emitted when the widget state
     /// changes, see `gtk_widget_get_state_flags()`.
     case stateFlagsChanged = "state-flags-changed"
     /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
@@ -12806,9 +12830,9 @@ public enum ListViewSignalName: String, SignalNameProtocol {
     case notifyHalign = "notify::halign"
     case notifyHasDefault = "notify::has-default"
     case notifyHasFocus = "notify::has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case notifyHasTooltip = "notify::has-tooltip"
     case notifyHeightRequest = "notify::height-request"
@@ -12880,11 +12904,11 @@ public enum ListViewSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipMarkup = "notify::tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -12892,11 +12916,11 @@ public enum ListViewSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipText = "notify::tooltip-text"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
@@ -13402,9 +13426,9 @@ public extension ListViewProtocol {
 /// If the user has the permission and cannot drop it, the button is hidden.
 /// 
 /// The text (and tooltips) that are shown in the various cases can be adjusted
-/// with the `GtkLockButton:text`-lock, `GtkLockButton:text`-unlock,
-/// `GtkLockButton:tooltip`-lock, `GtkLockButton:tooltip`-unlock and
-/// `GtkLockButton:tooltip`-not-authorized properties.
+/// with the `GtkLockButton:text-lock`, `GtkLockButton:text-unlock`,
+/// `GtkLockButton:tooltip-lock`, `GtkLockButton:tooltip-unlock` and
+/// `GtkLockButton:tooltip-not-authorized` properties.
 public protocol LockButtonProtocol: ButtonProtocol {
         /// Untyped pointer to the underlying `GtkLockButton` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -13412,6 +13436,8 @@ public protocol LockButtonProtocol: ButtonProtocol {
     /// Typed pointer to the underlying `GtkLockButton` instance.
     var lock_button_ptr: UnsafeMutablePointer<GtkLockButton>! { get }
 
+    /// Required Initialiser for types conforming to `LockButtonProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `LockButtonRef` type acts as a lightweight Swift reference to an underlying `GtkLockButton` instance.
@@ -13445,9 +13471,9 @@ public protocol LockButtonProtocol: ButtonProtocol {
 /// If the user has the permission and cannot drop it, the button is hidden.
 /// 
 /// The text (and tooltips) that are shown in the various cases can be adjusted
-/// with the `GtkLockButton:text`-lock, `GtkLockButton:text`-unlock,
-/// `GtkLockButton:tooltip`-lock, `GtkLockButton:tooltip`-unlock and
-/// `GtkLockButton:tooltip`-not-authorized properties.
+/// with the `GtkLockButton:text-lock`, `GtkLockButton:text-unlock`,
+/// `GtkLockButton:tooltip-lock`, `GtkLockButton:tooltip-unlock` and
+/// `GtkLockButton:tooltip-not-authorized` properties.
 public struct LockButtonRef: LockButtonProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkLockButton` instance.
     /// For type-safe access, use the generated, typed pointer `lock_button_ptr` property instead.
@@ -13565,9 +13591,9 @@ public extension LockButtonRef {
 /// If the user has the permission and cannot drop it, the button is hidden.
 /// 
 /// The text (and tooltips) that are shown in the various cases can be adjusted
-/// with the `GtkLockButton:text`-lock, `GtkLockButton:text`-unlock,
-/// `GtkLockButton:tooltip`-lock, `GtkLockButton:tooltip`-unlock and
-/// `GtkLockButton:tooltip`-not-authorized properties.
+/// with the `GtkLockButton:text-lock`, `GtkLockButton:text-unlock`,
+/// `GtkLockButton:tooltip-lock`, `GtkLockButton:tooltip-unlock` and
+/// `GtkLockButton:tooltip-not-authorized` properties.
 open class LockButton: Button, LockButtonProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -13668,14 +13694,14 @@ open class LockButton: Button, LockButtonProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `LockButtonProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `LockButtonProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -13732,9 +13758,9 @@ public enum LockButtonPropertyName: String, PropertyNameProtocol {
     case hasDefault = "has-default"
     case hasFocus = "has-focus"
     case hasFrame = "has-frame"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case hasTooltip = "has-tooltip"
     case heightRequest = "height-request"
@@ -13803,11 +13829,11 @@ public enum LockButtonPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipMarkup = "tooltip-markup"
     case tooltipNotAuthorized = "tooltip-not-authorized"
@@ -13816,11 +13842,11 @@ public enum LockButtonPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipText = "tooltip-text"
     case tooltipUnlock = "tooltip-unlock"
@@ -13902,7 +13928,7 @@ public enum LockButtonSignalName: String, SignalNameProtocol {
     /// 
     /// This signal is not suitable for saving widget state.
     case destroy = "destroy"
-    /// The `direction`-changed signal is emitted when the text direction
+    /// The `direction-changed` signal is emitted when the text direction
     /// of a widget changes.
     case directionChanged = "direction-changed"
     /// The `hide` signal is emitted when `widget` is hidden, for example with
@@ -13950,7 +13976,7 @@ public enum LockButtonSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
+    /// Emitted when `GtkWidget:has-tooltip` is `true` and the hover timeout
     /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
     /// focus in keyboard mode.
     /// 
@@ -13970,7 +13996,7 @@ public enum LockButtonSignalName: String, SignalNameProtocol {
     /// The `show` signal is emitted when `widget` is shown, for example with
     /// `gtk_widget_show()`.
     case show = "show"
-    /// The `state`-flags-changed signal is emitted when the widget state
+    /// The `state-flags-changed` signal is emitted when the widget state
     /// changes, see `gtk_widget_get_state_flags()`.
     case stateFlagsChanged = "state-flags-changed"
     /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
@@ -14013,9 +14039,9 @@ public enum LockButtonSignalName: String, SignalNameProtocol {
     case notifyHasDefault = "notify::has-default"
     case notifyHasFocus = "notify::has-focus"
     case notifyHasFrame = "notify::has-frame"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case notifyHasTooltip = "notify::has-tooltip"
     case notifyHeightRequest = "notify::height-request"
@@ -14084,11 +14110,11 @@ public enum LockButtonSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipMarkup = "notify::tooltip-markup"
     case notifyTooltipNotAuthorized = "notify::tooltip-not-authorized"
@@ -14097,11 +14123,11 @@ public enum LockButtonSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipText = "notify::tooltip-text"
     case notifyTooltipUnlock = "notify::tooltip-unlock"
@@ -14196,6 +14222,8 @@ public protocol MapListModelProtocol: GLibObject.ObjectProtocol, GIO.ListModelPr
     /// Typed pointer to the underlying `GtkMapListModel` instance.
     var map_list_model_ptr: UnsafeMutablePointer<GtkMapListModel>! { get }
 
+    /// Required Initialiser for types conforming to `MapListModelProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `MapListModelRef` type acts as a lightweight Swift reference to an underlying `GtkMapListModel` instance.
@@ -14446,14 +14474,14 @@ open class MapListModel: GLibObject.Object, MapListModelProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MapListModelProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MapListModelProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 

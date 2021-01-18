@@ -43,6 +43,8 @@ public protocol OverlayLayoutChildClassProtocol {
     /// Typed pointer to the underlying `GtkOverlayLayoutChildClass` instance.
     var _ptr: UnsafeMutablePointer<GtkOverlayLayoutChildClass>! { get }
 
+    /// Required Initialiser for types conforming to `OverlayLayoutChildClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `OverlayLayoutChildClassRef` type acts as a lightweight Swift reference to an underlying `GtkOverlayLayoutChildClass` instance.
@@ -175,6 +177,8 @@ public protocol OverlayLayoutClassProtocol {
     /// Typed pointer to the underlying `GtkOverlayLayoutClass` instance.
     var _ptr: UnsafeMutablePointer<GtkOverlayLayoutClass>! { get }
 
+    /// Required Initialiser for types conforming to `OverlayLayoutClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `OverlayLayoutClassRef` type acts as a lightweight Swift reference to an underlying `GtkOverlayLayoutClass` instance.
@@ -292,6 +296,8 @@ public protocol PadActionEntryProtocol {
     /// Typed pointer to the underlying `GtkPadActionEntry` instance.
     var _ptr: UnsafeMutablePointer<GtkPadActionEntry>! { get }
 
+    /// Required Initialiser for types conforming to `PadActionEntryProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `PadActionEntryRef` type acts as a lightweight Swift reference to an underlying `GtkPadActionEntry` instance.
@@ -495,7 +501,7 @@ open class PadActionEntry: PadActionEntryProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PadActionEntryProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 

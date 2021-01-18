@@ -757,9 +757,9 @@ public extension BuilderError {
 /// none of these choices are appropriate, simply use `GTK_BUTTONS_NONE`
 /// then call `gtk_dialog_add_buttons()`.
 /// 
-/// > Please note that `GTK_BUTTONS_OK`, `GTK_BUTTONS_YES_NO`
-/// > and `GTK_BUTTONS_OK_CANCEL` are discouraged by the
-/// > [GNOME Human Interface Guidelines](http://library.gnome.org/devel/hig-book/stable/).
+/// &gt; Please note that `GTK_BUTTONS_OK`, `GTK_BUTTONS_YES_NO`
+/// &gt; and `GTK_BUTTONS_OK_CANCEL` are discouraged by the
+/// &gt; [GNOME Human Interface Guidelines](http://library.gnome.org/devel/hig-book/stable/).
 public typealias ButtonsType = GtkButtonsType
 
 public extension ButtonsType {
@@ -1040,7 +1040,7 @@ public extension CssParserWarning {
 
 
 
-/// See also: `GtkEntry::delete`-from-cursor.
+/// See also: `GtkEntry::delete-from-cursor`.
 public typealias DeleteType = GtkDeleteType
 
 public extension DeleteType {
@@ -2708,15 +2708,15 @@ public extension SystemSetting {
         func castToSystemSettingInt<I: BinaryInteger, J: BinaryInteger>(_ param: I) -> J { J(param) }
         self.init(rawValue: castToSystemSettingInt(raw))
     }
-    /// the `GtkSettings:gtk`-xft-dpi setting has changed
+    /// the `GtkSettings:gtk-xft-dpi` setting has changed
     static let dpi = GTK_SYSTEM_SETTING_DPI // 0
-    /// The `GtkSettings:gtk`-font-name setting has changed
+    /// The `GtkSettings:gtk-font-name` setting has changed
     static let fontName = GTK_SYSTEM_SETTING_FONT_NAME // 1
     /// The font configuration has changed in a way that
     ///     requires text to be redrawn. This can be any of the
-    ///     `GtkSettings:gtk`-xft-antialias, `GtkSettings:gtk`-xft-hinting,
-    ///     `GtkSettings:gtk`-xft-hintstyle, `GtkSettings:gtk`-xft-rgba or
-    ///     `GtkSettings:gtk`-fontconfig-timestamp settings
+    ///     `GtkSettings:gtk-xft-antialias`, `GtkSettings:gtk-xft-hinting`,
+    ///     `GtkSettings:gtk-xft-hintstyle`, `GtkSettings:gtk-xft-rgba` or
+    ///     `GtkSettings:gtk-fontconfig-timestamp` settings
     static let fontConfig = GTK_SYSTEM_SETTING_FONT_CONFIG // 2
     /// The display has changed
     static let display = GTK_SYSTEM_SETTING_DISPLAY // 3
@@ -2749,7 +2749,7 @@ public extension TextDirection {
 
 
 /// Granularity types that extend the text selection. Use the
-/// `GtkTextView::extend`-selection signal to customize the selection.
+/// `GtkTextView::extend-selection` signal to customize the selection.
 public typealias TextExtendSelection = GtkTextExtendSelection
 
 public extension TextExtendSelection {

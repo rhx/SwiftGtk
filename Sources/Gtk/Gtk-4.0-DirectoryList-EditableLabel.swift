@@ -47,6 +47,8 @@ public protocol DirectoryListProtocol: GLibObject.ObjectProtocol, GIO.ListModelP
     /// Typed pointer to the underlying `GtkDirectoryList` instance.
     var directory_list_ptr: UnsafeMutablePointer<GtkDirectoryList>! { get }
 
+    /// Required Initialiser for types conforming to `DirectoryListProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `DirectoryListRef` type acts as a lightweight Swift reference to an underlying `GtkDirectoryList` instance.
@@ -284,14 +286,14 @@ open class DirectoryList: GLibObject.Object, DirectoryListProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DirectoryListProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DirectoryListProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -512,7 +514,7 @@ public extension DirectoryListProtocol {
 
     /// Sets whether the directory list will monitor the directory
     /// for changes. If monitoring is enabled, the
-    /// `GListModel::items`-changed signal will be emitted when the
+    /// `GListModel::items-changed` signal will be emitted when the
     /// directory contents change.
     /// 
     /// When monitoring is turned on after the initial creation
@@ -620,7 +622,7 @@ public extension DirectoryListProtocol {
         }
         /// Sets whether the directory list will monitor the directory
         /// for changes. If monitoring is enabled, the
-        /// `GListModel::items`-changed signal will be emitted when the
+        /// `GListModel::items-changed` signal will be emitted when the
         /// directory contents change.
         /// 
         /// When monitoring is turned on after the initial creation
@@ -662,6 +664,8 @@ public protocol DragIconProtocol: WidgetProtocol, NativeProtocol, RootProtocol {
     /// Typed pointer to the underlying `GtkDragIcon` instance.
     var drag_icon_ptr: UnsafeMutablePointer<GtkDragIcon>! { get }
 
+    /// Required Initialiser for types conforming to `DragIconProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `DragIconRef` type acts as a lightweight Swift reference to an underlying `GtkDragIcon` instance.
@@ -898,14 +902,14 @@ open class DragIcon: Widget, DragIconProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DragIconProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DragIconProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -981,9 +985,9 @@ public enum DragIconPropertyName: String, PropertyNameProtocol {
     case halign = "halign"
     case hasDefault = "has-default"
     case hasFocus = "has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case hasTooltip = "has-tooltip"
     case heightRequest = "height-request"
@@ -1046,11 +1050,11 @@ public enum DragIconPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipMarkup = "tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -1058,11 +1062,11 @@ public enum DragIconPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipText = "tooltip-text"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
@@ -1135,7 +1139,7 @@ public enum DragIconSignalName: String, SignalNameProtocol {
     /// 
     /// This signal is not suitable for saving widget state.
     case destroy = "destroy"
-    /// The `direction`-changed signal is emitted when the text direction
+    /// The `direction-changed` signal is emitted when the text direction
     /// of a widget changes.
     case directionChanged = "direction-changed"
     /// The `hide` signal is emitted when `widget` is hidden, for example with
@@ -1183,7 +1187,7 @@ public enum DragIconSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
+    /// Emitted when `GtkWidget:has-tooltip` is `true` and the hover timeout
     /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
     /// focus in keyboard mode.
     /// 
@@ -1203,7 +1207,7 @@ public enum DragIconSignalName: String, SignalNameProtocol {
     /// The `show` signal is emitted when `widget` is shown, for example with
     /// `gtk_widget_show()`.
     case show = "show"
-    /// The `state`-flags-changed signal is emitted when the widget state
+    /// The `state-flags-changed` signal is emitted when the widget state
     /// changes, see `gtk_widget_get_state_flags()`.
     case stateFlagsChanged = "state-flags-changed"
     /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
@@ -1246,9 +1250,9 @@ public enum DragIconSignalName: String, SignalNameProtocol {
     case notifyHalign = "notify::halign"
     case notifyHasDefault = "notify::has-default"
     case notifyHasFocus = "notify::has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case notifyHasTooltip = "notify::has-tooltip"
     case notifyHeightRequest = "notify::height-request"
@@ -1311,11 +1315,11 @@ public enum DragIconSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipMarkup = "notify::tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -1323,11 +1327,11 @@ public enum DragIconSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipText = "notify::tooltip-text"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
@@ -1413,7 +1417,7 @@ public extension DragIconProtocol {
 /// Setting up the content provider and icon ahead of time only
 /// makes sense when the data does not change. More commonly, you
 /// will want to set them up just in time. To do so, `GtkDragSource`
-/// has `GtkDragSource::prepare` and `GtkDragSource::drag`-begin signals.
+/// has `GtkDragSource::prepare` and `GtkDragSource::drag-begin` signals.
 /// 
 /// The `prepare` signal is emitted before a drag is started, and
 /// can be used to set the content provider and actions that the
@@ -1440,7 +1444,7 @@ public extension DragIconProtocol {
 /// }
 /// ```
 /// 
-/// The `drag`-begin signal is emitted after the `GdkDrag` object has
+/// The `drag-begin` signal is emitted after the `GdkDrag` object has
 /// been created, and can be used to set up the drag icon.
 /// 
 /// (C Language Example):
@@ -1462,7 +1466,7 @@ public extension DragIconProtocol {
 /// but it is not normally necessary to connect to any signals,
 /// except for one case: when the supported actions include
 /// `GDK_ACTION_MOVE`, you need to listen for the
-/// `GtkDragSource::drag`-end signal and delete the
+/// `GtkDragSource::drag-end` signal and delete the
 /// data after it has been transferred.
 public protocol DragSourceProtocol: GestureSingleProtocol {
         /// Untyped pointer to the underlying `GtkDragSource` instance.
@@ -1471,6 +1475,8 @@ public protocol DragSourceProtocol: GestureSingleProtocol {
     /// Typed pointer to the underlying `GtkDragSource` instance.
     var drag_source_ptr: UnsafeMutablePointer<GtkDragSource>! { get }
 
+    /// Required Initialiser for types conforming to `DragSourceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `DragSourceRef` type acts as a lightweight Swift reference to an underlying `GtkDragSource` instance.
@@ -1503,7 +1509,7 @@ public protocol DragSourceProtocol: GestureSingleProtocol {
 /// Setting up the content provider and icon ahead of time only
 /// makes sense when the data does not change. More commonly, you
 /// will want to set them up just in time. To do so, `GtkDragSource`
-/// has `GtkDragSource::prepare` and `GtkDragSource::drag`-begin signals.
+/// has `GtkDragSource::prepare` and `GtkDragSource::drag-begin` signals.
 /// 
 /// The `prepare` signal is emitted before a drag is started, and
 /// can be used to set the content provider and actions that the
@@ -1530,7 +1536,7 @@ public protocol DragSourceProtocol: GestureSingleProtocol {
 /// }
 /// ```
 /// 
-/// The `drag`-begin signal is emitted after the `GdkDrag` object has
+/// The `drag-begin` signal is emitted after the `GdkDrag` object has
 /// been created, and can be used to set up the drag icon.
 /// 
 /// (C Language Example):
@@ -1552,7 +1558,7 @@ public protocol DragSourceProtocol: GestureSingleProtocol {
 /// but it is not normally necessary to connect to any signals,
 /// except for one case: when the supported actions include
 /// `GDK_ACTION_MOVE`, you need to listen for the
-/// `GtkDragSource::drag`-end signal and delete the
+/// `GtkDragSource::drag-end` signal and delete the
 /// data after it has been transferred.
 public struct DragSourceRef: DragSourceProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkDragSource` instance.
@@ -1670,7 +1676,7 @@ public extension DragSourceRef {
 /// Setting up the content provider and icon ahead of time only
 /// makes sense when the data does not change. More commonly, you
 /// will want to set them up just in time. To do so, `GtkDragSource`
-/// has `GtkDragSource::prepare` and `GtkDragSource::drag`-begin signals.
+/// has `GtkDragSource::prepare` and `GtkDragSource::drag-begin` signals.
 /// 
 /// The `prepare` signal is emitted before a drag is started, and
 /// can be used to set the content provider and actions that the
@@ -1697,7 +1703,7 @@ public extension DragSourceRef {
 /// }
 /// ```
 /// 
-/// The `drag`-begin signal is emitted after the `GdkDrag` object has
+/// The `drag-begin` signal is emitted after the `GdkDrag` object has
 /// been created, and can be used to set up the drag icon.
 /// 
 /// (C Language Example):
@@ -1719,7 +1725,7 @@ public extension DragSourceRef {
 /// but it is not normally necessary to connect to any signals,
 /// except for one case: when the supported actions include
 /// `GDK_ACTION_MOVE`, you need to listen for the
-/// `GtkDragSource::drag`-end signal and delete the
+/// `GtkDragSource::drag-end` signal and delete the
 /// data after it has been transferred.
 open class DragSource: GestureSingle, DragSourceProtocol {
         /// Designated initialiser from the underlying `C` data type.
@@ -1821,14 +1827,14 @@ open class DragSource: GestureSingle, DragSourceProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DragSourceProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DragSourceProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -1859,7 +1865,7 @@ open class DragSource: GestureSingle, DragSourceProtocol {
 public enum DragSourcePropertyName: String, PropertyNameProtocol {
     /// The actions that are supported by drag operations from the source.
     /// 
-    /// Note that you must handle the `GtkDragSource::drag`-end signal
+    /// Note that you must handle the `GtkDragSource::drag-end` signal
     /// if the actions include `GDK_ACTION_MOVE`.
     case actions = "actions"
     /// Mouse button number to listen to, or 0 to listen for any button.
@@ -1939,7 +1945,7 @@ public extension DragSourceProtocol {
 
 public enum DragSourceSignalName: String, SignalNameProtocol {
     /// This signal is emitted when the gesture is recognized. This means the
-    /// number of touch sequences matches `GtkGesture:n`-points.
+    /// number of touch sequences matches `GtkGesture:n-points`.
     /// 
     /// Note: These conditions may also happen when an extra touch (eg. a third touch
     /// on a 2-touches gesture) is lifted, in that situation `sequence` won't pertain
@@ -1952,26 +1958,26 @@ public enum DragSourceSignalName: String, SignalNameProtocol {
     /// 
     /// `gesture` must forget everything about `sequence` as a reaction to this signal.
     case cancel = "cancel"
-    /// The `drag`-begin signal is emitted on the drag source when a drag
+    /// The `drag-begin` signal is emitted on the drag source when a drag
     /// is started. It can be used to e.g. set a custom drag icon with
     /// `gtk_drag_source_set_icon()`.
     case dragBegin = "drag-begin"
-    /// The `drag`-cancel signal is emitted on the drag source when a drag has
+    /// The `drag-cancel` signal is emitted on the drag source when a drag has
     /// failed. The signal handler may handle a failed drag operation based on
     /// the type of error. It should return `true` if the failure has been handled
     /// and the default "drag operation failed" animation should not be shown.
     case dragCancel = "drag-cancel"
-    /// The `drag`-end signal is emitted on the drag source when a drag is
+    /// The `drag-end` signal is emitted on the drag source when a drag is
     /// finished. A typical reason to connect to this signal is to undo
-    /// things done in `GtkDragSource::prepare` or `GtkDragSource::drag`-begin.
+    /// things done in `GtkDragSource::prepare` or `GtkDragSource::drag-begin`.
     case dragEnd = "drag-end"
     /// This signal is emitted when `gesture` either stopped recognizing the event
     /// sequences as something to be handled, or the number of touch sequences became
-    /// higher or lower than `GtkGesture:n`-points.
+    /// higher or lower than `GtkGesture:n-points`.
     /// 
     /// Note: `sequence` might not pertain to the group of sequences that were
     /// previously triggering recognition on `gesture` (ie. a just pressed touch
-    /// sequence that exceeds `GtkGesture:n`-points). This situation may be detected
+    /// sequence that exceeds `GtkGesture:n-points`). This situation may be detected
     /// by checking through `gtk_gesture_handles_sequence()`.
     case end = "end"
     /// The notify signal is emitted on an object when one of its properties has
@@ -2014,7 +2020,7 @@ public enum DragSourceSignalName: String, SignalNameProtocol {
     case update = "update"
     /// The actions that are supported by drag operations from the source.
     /// 
-    /// Note that you must handle the `GtkDragSource::drag`-end signal
+    /// Note that you must handle the `GtkDragSource::drag-end` signal
     /// if the actions include `GDK_ACTION_MOVE`.
     case notifyActions = "notify::actions"
     /// Mouse button number to listen to, or 0 to listen for any button.
@@ -2081,7 +2087,7 @@ public extension DragSourceProtocol {
     /// - Warning: a `onPrepare` wrapper for this signal could not be generated because it contains unimplemented features: { (8)  nullable argument or return type is not allowed, (9)  Record return type is not yet supported }
     /// - Note: Instead, you can connect `prepareSignal` using the `connect(signal:)` methods
     static var prepareSignal: DragSourceSignalName { .prepare }
-    /// The `drag`-begin signal is emitted on the drag source when a drag
+    /// The `drag-begin` signal is emitted on the drag source when a drag
     /// is started. It can be used to e.g. set a custom drag icon with
     /// `gtk_drag_source_set_icon()`.
     /// - Note: This represents the underlying `drag-begin` signal
@@ -2109,7 +2115,7 @@ public extension DragSourceProtocol {
     /// Typed `drag-begin` signal for using the `connect(signal:)` methods
     static var dragBeginSignal: DragSourceSignalName { .dragBegin }
     
-    /// The `drag`-cancel signal is emitted on the drag source when a drag has
+    /// The `drag-cancel` signal is emitted on the drag source when a drag has
     /// failed. The signal handler may handle a failed drag operation based on
     /// the type of error. It should return `true` if the failure has been handled
     /// and the default "drag operation failed" animation should not be shown.
@@ -2139,9 +2145,9 @@ public extension DragSourceProtocol {
     /// Typed `drag-cancel` signal for using the `connect(signal:)` methods
     static var dragCancelSignal: DragSourceSignalName { .dragCancel }
     
-    /// The `drag`-end signal is emitted on the drag source when a drag is
+    /// The `drag-end` signal is emitted on the drag source when a drag is
     /// finished. A typical reason to connect to this signal is to undo
-    /// things done in `GtkDragSource::prepare` or `GtkDragSource::drag`-begin.
+    /// things done in `GtkDragSource::prepare` or `GtkDragSource::drag-begin`.
     /// - Note: This represents the underlying `drag-end` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -2302,7 +2308,7 @@ public extension DragSourceProtocol {
     /// During a DND operation, the actions are offered
     /// to potential drop targets. If `actions` include
     /// `GDK_ACTION_MOVE`, you need to listen to the
-    /// `GtkDragSource::drag`-end signal and handle
+    /// `GtkDragSource::drag-end` signal and handle
     /// `delete_data` being `true`.
     /// 
     /// This function can be called before a drag is started,
@@ -2322,7 +2328,7 @@ public extension DragSourceProtocol {
     /// or in a handler for the `GtkDragSource::prepare` signal.
     /// 
     /// You may consider setting the content provider back to
-    /// `nil` in a `GtkDragSource::drag`-end signal handler.
+    /// `nil` in a `GtkDragSource::drag-end` signal handler.
     @inlinable func set(content: Gdk.ContentProviderRef? = nil) {
         gtk_drag_source_set_content(drag_source_ptr, content?.content_provider_ptr)
     
@@ -2337,7 +2343,7 @@ public extension DragSourceProtocol {
     /// or in a handler for the `GtkDragSource::prepare` signal.
     /// 
     /// You may consider setting the content provider back to
-    /// `nil` in a `GtkDragSource::drag`-end signal handler.
+    /// `nil` in a `GtkDragSource::drag-end` signal handler.
     @inlinable func set<ContentProviderT: Gdk.ContentProviderProtocol>(content: ContentProviderT?) {
         gtk_drag_source_set_content(drag_source_ptr, content?.content_provider_ptr)
     
@@ -2351,7 +2357,7 @@ public extension DragSourceProtocol {
     /// If `paintable` is `nil`, a default icon is used.
     /// 
     /// This function can be called before a drag is started, or in
-    /// a `GtkDragSource::prepare` or `GtkDragSource::drag`-begin signal handler.
+    /// a `GtkDragSource::prepare` or `GtkDragSource::drag-begin` signal handler.
     @inlinable func setIcon(paintable: Gdk.PaintableRef? = nil, hotX: Int, hotY: Int) {
         gtk_drag_source_set_icon(drag_source_ptr, paintable?.paintable_ptr, gint(hotX), gint(hotY))
     
@@ -2364,14 +2370,14 @@ public extension DragSourceProtocol {
     /// If `paintable` is `nil`, a default icon is used.
     /// 
     /// This function can be called before a drag is started, or in
-    /// a `GtkDragSource::prepare` or `GtkDragSource::drag`-begin signal handler.
+    /// a `GtkDragSource::prepare` or `GtkDragSource::drag-begin` signal handler.
     @inlinable func setIcon<PaintableT: Gdk.PaintableProtocol>(paintable: PaintableT?, hotX: Int, hotY: Int) {
         gtk_drag_source_set_icon(drag_source_ptr, paintable?.paintable_ptr, gint(hotX), gint(hotY))
     
     }
     /// The actions that are supported by drag operations from the source.
     /// 
-    /// Note that you must handle the `GtkDragSource::drag`-end signal
+    /// Note that you must handle the `GtkDragSource::drag-end` signal
     /// if the actions include `GDK_ACTION_MOVE`.
     @inlinable var actions: Gdk.DragAction {
         /// Gets the actions that are currently set on the `GtkDragSource`.
@@ -2384,7 +2390,7 @@ public extension DragSourceProtocol {
         /// During a DND operation, the actions are offered
         /// to potential drop targets. If `actions` include
         /// `GDK_ACTION_MOVE`, you need to listen to the
-        /// `GtkDragSource::drag`-end signal and handle
+        /// `GtkDragSource::drag-end` signal and handle
         /// `delete_data` being `true`.
         /// 
         /// This function can be called before a drag is started,
@@ -2412,7 +2418,7 @@ public extension DragSourceProtocol {
         /// or in a handler for the `GtkDragSource::prepare` signal.
         /// 
         /// You may consider setting the content provider back to
-        /// `nil` in a `GtkDragSource::drag`-end signal handler.
+        /// `nil` in a `GtkDragSource::drag-end` signal handler.
         nonmutating set {
             gtk_drag_source_set_content(drag_source_ptr, UnsafeMutablePointer<GdkContentProvider>(newValue?.content_provider_ptr))
         }
@@ -2524,6 +2530,8 @@ public protocol DrawingAreaProtocol: WidgetProtocol {
     /// Typed pointer to the underlying `GtkDrawingArea` instance.
     var drawing_area_ptr: UnsafeMutablePointer<GtkDrawingArea>! { get }
 
+    /// Required Initialiser for types conforming to `DrawingAreaProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `DrawingAreaRef` type acts as a lightweight Swift reference to an underlying `GtkDrawingArea` instance.
@@ -2876,14 +2884,14 @@ open class DrawingArea: Widget, DrawingAreaProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DrawingAreaProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DrawingAreaProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -2942,9 +2950,9 @@ public enum DrawingAreaPropertyName: String, PropertyNameProtocol {
     case halign = "halign"
     case hasDefault = "has-default"
     case hasFocus = "has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case hasTooltip = "has-tooltip"
     case heightRequest = "height-request"
@@ -3007,11 +3015,11 @@ public enum DrawingAreaPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipMarkup = "tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -3019,11 +3027,11 @@ public enum DrawingAreaPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipText = "tooltip-text"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
@@ -3096,7 +3104,7 @@ public enum DrawingAreaSignalName: String, SignalNameProtocol {
     /// 
     /// This signal is not suitable for saving widget state.
     case destroy = "destroy"
-    /// The `direction`-changed signal is emitted when the text direction
+    /// The `direction-changed` signal is emitted when the text direction
     /// of a widget changes.
     case directionChanged = "direction-changed"
     /// The `hide` signal is emitted when `widget` is hidden, for example with
@@ -3144,7 +3152,7 @@ public enum DrawingAreaSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
+    /// Emitted when `GtkWidget:has-tooltip` is `true` and the hover timeout
     /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
     /// focus in keyboard mode.
     /// 
@@ -3169,7 +3177,7 @@ public enum DrawingAreaSignalName: String, SignalNameProtocol {
     /// The `show` signal is emitted when `widget` is shown, for example with
     /// `gtk_widget_show()`.
     case show = "show"
-    /// The `state`-flags-changed signal is emitted when the widget state
+    /// The `state-flags-changed` signal is emitted when the widget state
     /// changes, see `gtk_widget_get_state_flags()`.
     case stateFlagsChanged = "state-flags-changed"
     /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
@@ -3214,9 +3222,9 @@ public enum DrawingAreaSignalName: String, SignalNameProtocol {
     case notifyHalign = "notify::halign"
     case notifyHasDefault = "notify::has-default"
     case notifyHasFocus = "notify::has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case notifyHasTooltip = "notify::has-tooltip"
     case notifyHeightRequest = "notify::height-request"
@@ -3279,11 +3287,11 @@ public enum DrawingAreaSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipMarkup = "notify::tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -3291,11 +3299,11 @@ public enum DrawingAreaSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipText = "notify::tooltip-text"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
@@ -3594,6 +3602,8 @@ public protocol DropControllerMotionProtocol: EventControllerProtocol {
     /// Typed pointer to the underlying `GtkDropControllerMotion` instance.
     var drop_controller_motion_ptr: UnsafeMutablePointer<GtkDropControllerMotion>! { get }
 
+    /// Required Initialiser for types conforming to `DropControllerMotionProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `DropControllerMotionRef` type acts as a lightweight Swift reference to an underlying `GtkDropControllerMotion` instance.
@@ -3807,14 +3817,14 @@ open class DropControllerMotion: EventController, DropControllerMotionProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DropControllerMotionProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DropControllerMotionProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -3846,7 +3856,7 @@ open class DropControllerMotion: EventController, DropControllerMotionProtocol {
 public enum DropControllerMotionPropertyName: String, PropertyNameProtocol {
     /// Whether the pointer of a drag and drop operation is in the controller's
     /// widget or a descendant.
-    /// See also `GtkDropControllerMotion:is`-pointer.
+    /// See also `GtkDropControllerMotion:is-pointer`.
     /// 
     /// When handling crossing events, this property is updated
     /// before `GtkDropControllerMotion::enter` but after
@@ -3864,7 +3874,7 @@ public enum DropControllerMotionPropertyName: String, PropertyNameProtocol {
     case drop = "drop"
     /// Whether the pointer is in the controllers widget itself,
     /// as opposed to in a descendent widget. See also
-    /// `GtkDropControllerMotion:contains`-pointer.
+    /// `GtkDropControllerMotion:contains-pointer`.
     /// 
     /// When handling crossing events, this property is updated
     /// before `GtkDropControllerMotion::enter` but after
@@ -3967,7 +3977,7 @@ public enum DropControllerMotionSignalName: String, SignalNameProtocol {
     case notify = "notify"
     /// Whether the pointer of a drag and drop operation is in the controller's
     /// widget or a descendant.
-    /// See also `GtkDropControllerMotion:is`-pointer.
+    /// See also `GtkDropControllerMotion:is-pointer`.
     /// 
     /// When handling crossing events, this property is updated
     /// before `GtkDropControllerMotion::enter` but after
@@ -3985,7 +3995,7 @@ public enum DropControllerMotionSignalName: String, SignalNameProtocol {
     case notifyDrop = "notify::drop"
     /// Whether the pointer is in the controllers widget itself,
     /// as opposed to in a descendent widget. See also
-    /// `GtkDropControllerMotion:contains`-pointer.
+    /// `GtkDropControllerMotion:contains-pointer`.
     /// 
     /// When handling crossing events, this property is updated
     /// before `GtkDropControllerMotion::enter` but after
@@ -4342,6 +4352,8 @@ public protocol DropDownProtocol: WidgetProtocol {
     /// Typed pointer to the underlying `GtkDropDown` instance.
     var drop_down_ptr: UnsafeMutablePointer<GtkDropDown>! { get }
 
+    /// Required Initialiser for types conforming to `DropDownProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `DropDownRef` type acts as a lightweight Swift reference to an underlying `GtkDropDown` instance.
@@ -4602,14 +4614,14 @@ open class DropDown: Widget, DropDownProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DropDownProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DropDownProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -4677,7 +4689,7 @@ public enum DropDownPropertyName: String, PropertyNameProtocol {
     /// Note that search requires `GtkDropDown:expression` to be set.
     case enableSearch = "enable-search"
     /// An expression to evaluate to obtain strings to match against the search
-    /// term (see `GtkDropDown:enable`-search). If `GtkDropDown:factory` is not set,
+    /// term (see `GtkDropDown:enable-search`). If `GtkDropDown:factory` is not set,
     /// the expression is also used to bind strings to labels produced by a
     /// default factory.
     case expression = "expression"
@@ -4693,9 +4705,9 @@ public enum DropDownPropertyName: String, PropertyNameProtocol {
     case halign = "halign"
     case hasDefault = "has-default"
     case hasFocus = "has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case hasTooltip = "has-tooltip"
     case heightRequest = "height-request"
@@ -4769,11 +4781,11 @@ public enum DropDownPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipMarkup = "tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -4781,11 +4793,11 @@ public enum DropDownPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipText = "tooltip-text"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
@@ -4858,7 +4870,7 @@ public enum DropDownSignalName: String, SignalNameProtocol {
     /// 
     /// This signal is not suitable for saving widget state.
     case destroy = "destroy"
-    /// The `direction`-changed signal is emitted when the text direction
+    /// The `direction-changed` signal is emitted when the text direction
     /// of a widget changes.
     case directionChanged = "direction-changed"
     /// The `hide` signal is emitted when `widget` is hidden, for example with
@@ -4906,7 +4918,7 @@ public enum DropDownSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
+    /// Emitted when `GtkWidget:has-tooltip` is `true` and the hover timeout
     /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
     /// focus in keyboard mode.
     /// 
@@ -4926,7 +4938,7 @@ public enum DropDownSignalName: String, SignalNameProtocol {
     /// The `show` signal is emitted when `widget` is shown, for example with
     /// `gtk_widget_show()`.
     case show = "show"
-    /// The `state`-flags-changed signal is emitted when the widget state
+    /// The `state-flags-changed` signal is emitted when the widget state
     /// changes, see `gtk_widget_get_state_flags()`.
     case stateFlagsChanged = "state-flags-changed"
     /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
@@ -4962,7 +4974,7 @@ public enum DropDownSignalName: String, SignalNameProtocol {
     /// Note that search requires `GtkDropDown:expression` to be set.
     case notifyEnableSearch = "notify::enable-search"
     /// An expression to evaluate to obtain strings to match against the search
-    /// term (see `GtkDropDown:enable`-search). If `GtkDropDown:factory` is not set,
+    /// term (see `GtkDropDown:enable-search`). If `GtkDropDown:factory` is not set,
     /// the expression is also used to bind strings to labels produced by a
     /// default factory.
     case notifyExpression = "notify::expression"
@@ -4978,9 +4990,9 @@ public enum DropDownSignalName: String, SignalNameProtocol {
     case notifyHalign = "notify::halign"
     case notifyHasDefault = "notify::has-default"
     case notifyHasFocus = "notify::has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case notifyHasTooltip = "notify::has-tooltip"
     case notifyHeightRequest = "notify::height-request"
@@ -5054,11 +5066,11 @@ public enum DropDownSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipMarkup = "notify::tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -5066,11 +5078,11 @@ public enum DropDownSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipText = "notify::tooltip-text"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
@@ -5105,7 +5117,7 @@ public extension DropDownProtocol {
     /// 
     /// The factory returned by this function is always used for the
     /// item in the button. It is also used for items in the popup
-    /// if `GtkDropDown:list`-factory is not set.
+    /// if `GtkDropDown:list-factory` is not set.
     @inlinable func getFactory() -> ListItemFactoryRef! {
         let rv = ListItemFactoryRef(gconstpointer: gconstpointer(gtk_drop_down_get_factory(drop_down_ptr)))
         return rv
@@ -5214,7 +5226,7 @@ public extension DropDownProtocol {
     }
 
     /// An expression to evaluate to obtain strings to match against the search
-    /// term (see `GtkDropDown:enable`-search). If `GtkDropDown:factory` is not set,
+    /// term (see `GtkDropDown:enable-search`). If `GtkDropDown:factory` is not set,
     /// the expression is also used to bind strings to labels produced by a
     /// default factory.
     @inlinable var expression: ExpressionRef! {
@@ -5237,7 +5249,7 @@ public extension DropDownProtocol {
         /// 
         /// The factory returned by this function is always used for the
         /// item in the button. It is also used for items in the popup
-        /// if `GtkDropDown:list`-factory is not set.
+        /// if `GtkDropDown:list-factory` is not set.
         get {
             let rv = ListItemFactoryRef(gconstpointer: gconstpointer(gtk_drop_down_get_factory(drop_down_ptr)))
             return rv
@@ -5384,6 +5396,8 @@ public protocol DropTargetProtocol: EventControllerProtocol {
     /// Typed pointer to the underlying `GtkDropTarget` instance.
     var drop_target_ptr: UnsafeMutablePointer<GtkDropTarget>! { get }
 
+    /// Required Initialiser for types conforming to `DropTargetProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `DropTargetRef` type acts as a lightweight Swift reference to an underlying `GtkDropTarget` instance.
@@ -5720,14 +5734,14 @@ open class DropTarget: EventController, DropTargetProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DropTargetProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DropTargetProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -6574,19 +6588,19 @@ public extension DropTargetProtocol {
 /// on both sides.
 /// 
 /// If it is, and the widget becomes a target, you will receive a
-/// `GtkDropTargetAsync::drag`-enter signal, followed by
-/// `GtkDropTargetAsync::drag`-motion signals as the pointer moves,
+/// `GtkDropTargetAsync::drag-enter` signal, followed by
+/// `GtkDropTargetAsync::drag-motion` signals as the pointer moves,
 /// optionally a `GtkDropTargetAsync::drop` signal when a drop happens,
-/// and finally a `GtkDropTargetAsync::drag`-leave signal when the pointer
+/// and finally a `GtkDropTargetAsync::drag-leave` signal when the pointer
 /// moves off the widget.
 /// 
-/// The `drag`-enter and `drag`-motion handler return a `GdkDragAction`
+/// The `drag-enter` and `drag-motion` handler return a `GdkDragAction`
 /// to update the status of the ongoing operation. The `drop` handler
 /// should decide if it ultimately accepts the drop and if it does, it
 /// should initiate the data transfer and finish the operation by calling
 /// `gdk_drop_finish()`.
 /// 
-/// Between the `drag`-enter and `drag`-leave signals the widget is a
+/// Between the `drag-enter` and `drag-leave` signals the widget is a
 /// current drop target, and will receive the `GTK_STATE_FLAG_DROP_ACTIVE`
 /// state, which can be used by themes to style the widget as a drop target.
 public protocol DropTargetAsyncProtocol: EventControllerProtocol {
@@ -6596,6 +6610,8 @@ public protocol DropTargetAsyncProtocol: EventControllerProtocol {
     /// Typed pointer to the underlying `GtkDropTargetAsync` instance.
     var drop_target_async_ptr: UnsafeMutablePointer<GtkDropTargetAsync>! { get }
 
+    /// Required Initialiser for types conforming to `DropTargetAsyncProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `DropTargetAsyncRef` type acts as a lightweight Swift reference to an underlying `GtkDropTargetAsync` instance.
@@ -6621,19 +6637,19 @@ public protocol DropTargetAsyncProtocol: EventControllerProtocol {
 /// on both sides.
 /// 
 /// If it is, and the widget becomes a target, you will receive a
-/// `GtkDropTargetAsync::drag`-enter signal, followed by
-/// `GtkDropTargetAsync::drag`-motion signals as the pointer moves,
+/// `GtkDropTargetAsync::drag-enter` signal, followed by
+/// `GtkDropTargetAsync::drag-motion` signals as the pointer moves,
 /// optionally a `GtkDropTargetAsync::drop` signal when a drop happens,
-/// and finally a `GtkDropTargetAsync::drag`-leave signal when the pointer
+/// and finally a `GtkDropTargetAsync::drag-leave` signal when the pointer
 /// moves off the widget.
 /// 
-/// The `drag`-enter and `drag`-motion handler return a `GdkDragAction`
+/// The `drag-enter` and `drag-motion` handler return a `GdkDragAction`
 /// to update the status of the ongoing operation. The `drop` handler
 /// should decide if it ultimately accepts the drop and if it does, it
 /// should initiate the data transfer and finish the operation by calling
 /// `gdk_drop_finish()`.
 /// 
-/// Between the `drag`-enter and `drag`-leave signals the widget is a
+/// Between the `drag-enter` and `drag-leave` signals the widget is a
 /// current drop target, and will receive the `GTK_STATE_FLAG_DROP_ACTIVE`
 /// state, which can be used by themes to style the widget as a drop target.
 public struct DropTargetAsyncRef: DropTargetAsyncProtocol, GWeakCapturing {
@@ -6745,19 +6761,19 @@ public extension DropTargetAsyncRef {
 /// on both sides.
 /// 
 /// If it is, and the widget becomes a target, you will receive a
-/// `GtkDropTargetAsync::drag`-enter signal, followed by
-/// `GtkDropTargetAsync::drag`-motion signals as the pointer moves,
+/// `GtkDropTargetAsync::drag-enter` signal, followed by
+/// `GtkDropTargetAsync::drag-motion` signals as the pointer moves,
 /// optionally a `GtkDropTargetAsync::drop` signal when a drop happens,
-/// and finally a `GtkDropTargetAsync::drag`-leave signal when the pointer
+/// and finally a `GtkDropTargetAsync::drag-leave` signal when the pointer
 /// moves off the widget.
 /// 
-/// The `drag`-enter and `drag`-motion handler return a `GdkDragAction`
+/// The `drag-enter` and `drag-motion` handler return a `GdkDragAction`
 /// to update the status of the ongoing operation. The `drop` handler
 /// should decide if it ultimately accepts the drop and if it does, it
 /// should initiate the data transfer and finish the operation by calling
 /// `gdk_drop_finish()`.
 /// 
-/// Between the `drag`-enter and `drag`-leave signals the widget is a
+/// Between the `drag-enter` and `drag-leave` signals the widget is a
 /// current drop target, and will receive the `GTK_STATE_FLAG_DROP_ACTIVE`
 /// state, which can be used by themes to style the widget as a drop target.
 open class DropTargetAsync: EventController, DropTargetAsyncProtocol {
@@ -6860,14 +6876,14 @@ open class DropTargetAsync: EventController, DropTargetAsyncProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DropTargetAsyncProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DropTargetAsyncProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -6980,14 +6996,14 @@ public enum DropTargetAsyncSignalName: String, SignalNameProtocol {
     /// return `true` and proceed as is `drop` was accepted and if it decides to
     /// reject the drop later, it should call `gtk_drop_target_async_reject_drop()`.
     case accept = "accept"
-    /// The `drag`-enter signal is emitted on the drop site when the pointer
+    /// The `drag-enter` signal is emitted on the drop site when the pointer
     /// enters the widget. It can be used to set up custom highlighting.
     case dragEnter = "drag-enter"
-    /// The `drag`-leave signal is emitted on the drop site when the pointer
+    /// The `drag-leave` signal is emitted on the drop site when the pointer
     /// leaves the widget. Its main purpose it to undo things done in
-    /// `GtkDropTargetAsync::drag`-enter.
+    /// `GtkDropTargetAsync::drag-enter`.
     case dragLeave = "drag-leave"
-    /// The `drag`-motion signal is emitted while the pointer is moving
+    /// The `drag-motion` signal is emitted while the pointer is moving
     /// over the drop target.
     case dragMotion = "drag-motion"
     /// The `drop` signal is emitted on the drop site when the user drops
@@ -7110,7 +7126,7 @@ public extension DropTargetAsyncProtocol {
     /// Typed `accept` signal for using the `connect(signal:)` methods
     static var acceptSignal: DropTargetAsyncSignalName { .accept }
     
-    /// The `drag`-enter signal is emitted on the drop site when the pointer
+    /// The `drag-enter` signal is emitted on the drop site when the pointer
     /// enters the widget. It can be used to set up custom highlighting.
     /// - Note: This represents the underlying `drag-enter` signal
     /// - Parameter flags: Flags
@@ -7139,9 +7155,9 @@ public extension DropTargetAsyncProtocol {
     /// Typed `drag-enter` signal for using the `connect(signal:)` methods
     static var dragEnterSignal: DropTargetAsyncSignalName { .dragEnter }
     
-    /// The `drag`-leave signal is emitted on the drop site when the pointer
+    /// The `drag-leave` signal is emitted on the drop site when the pointer
     /// leaves the widget. Its main purpose it to undo things done in
-    /// `GtkDropTargetAsync::drag`-enter.
+    /// `GtkDropTargetAsync::drag-enter`.
     /// - Note: This represents the underlying `drag-leave` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -7167,7 +7183,7 @@ public extension DropTargetAsyncProtocol {
     /// Typed `drag-leave` signal for using the `connect(signal:)` methods
     static var dragLeaveSignal: DropTargetAsyncSignalName { .dragLeave }
     
-    /// The `drag`-motion signal is emitted while the pointer is moving
+    /// The `drag-motion` signal is emitted while the pointer is moving
     /// over the drop target.
     /// - Note: This represents the underlying `drag-motion` signal
     /// - Parameter flags: Flags
@@ -7454,6 +7470,8 @@ public protocol EditableLabelProtocol: WidgetProtocol, EditableProtocol {
     /// Typed pointer to the underlying `GtkEditableLabel` instance.
     var editable_label_ptr: UnsafeMutablePointer<GtkEditableLabel>! { get }
 
+    /// Required Initialiser for types conforming to `EditableLabelProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `EditableLabelRef` type acts as a lightweight Swift reference to an underlying `GtkEditableLabel` instance.
@@ -7704,14 +7722,14 @@ open class EditableLabel: Widget, EditableLabelProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EditableLabelProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EditableLabelProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -7768,9 +7786,9 @@ public enum EditableLabelPropertyName: String, PropertyNameProtocol {
     case halign = "halign"
     case hasDefault = "has-default"
     case hasFocus = "has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case hasTooltip = "has-tooltip"
     case heightRequest = "height-request"
@@ -7833,11 +7851,11 @@ public enum EditableLabelPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipMarkup = "tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -7845,11 +7863,11 @@ public enum EditableLabelPropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipText = "tooltip-text"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
@@ -7922,7 +7940,7 @@ public enum EditableLabelSignalName: String, SignalNameProtocol {
     /// 
     /// This signal is not suitable for saving widget state.
     case destroy = "destroy"
-    /// The `direction`-changed signal is emitted when the text direction
+    /// The `direction-changed` signal is emitted when the text direction
     /// of a widget changes.
     case directionChanged = "direction-changed"
     /// The `hide` signal is emitted when `widget` is hidden, for example with
@@ -7970,7 +7988,7 @@ public enum EditableLabelSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
+    /// Emitted when `GtkWidget:has-tooltip` is `true` and the hover timeout
     /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
     /// focus in keyboard mode.
     /// 
@@ -7990,7 +8008,7 @@ public enum EditableLabelSignalName: String, SignalNameProtocol {
     /// The `show` signal is emitted when `widget` is shown, for example with
     /// `gtk_widget_show()`.
     case show = "show"
-    /// The `state`-flags-changed signal is emitted when the widget state
+    /// The `state-flags-changed` signal is emitted when the widget state
     /// changes, see `gtk_widget_get_state_flags()`.
     case stateFlagsChanged = "state-flags-changed"
     /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
@@ -8033,9 +8051,9 @@ public enum EditableLabelSignalName: String, SignalNameProtocol {
     case notifyHalign = "notify::halign"
     case notifyHasDefault = "notify::has-default"
     case notifyHasFocus = "notify::has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     case notifyHasTooltip = "notify::has-tooltip"
     case notifyHeightRequest = "notify::height-request"
@@ -8098,11 +8116,11 @@ public enum EditableLabelSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipMarkup = "notify::tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -8110,11 +8128,11 @@ public enum EditableLabelSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipText = "notify::tooltip-text"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
