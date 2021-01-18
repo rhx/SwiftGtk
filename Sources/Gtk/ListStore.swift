@@ -3,7 +3,7 @@
 //  Gtk
 //
 //  Created by Rene Hexel on 22/4/17.
-//  Copyright © 2017, 2018, 2019, 2020 Rene Hexel.  All rights reserved.
+//  Copyright © 2017, 2018, 2019, 2020, 2021 Rene Hexel.  All rights reserved.
 //
 import GLibObject
 import CGtk
