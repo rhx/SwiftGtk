@@ -32,6 +32,8 @@ public protocol BindingArgProtocol {
     /// Typed pointer to the underlying `GtkBindingArg` instance.
     var _ptr: UnsafeMutablePointer<GtkBindingArg>! { get }
 
+    /// Required Initialiser for types conforming to `BindingArgProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `BindingArgRef` type acts as a lightweight Swift reference to an underlying `GtkBindingArg` instance.
@@ -239,7 +241,7 @@ open class BindingArg: BindingArgProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BindingArgProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -314,6 +316,8 @@ public protocol BindingEntryProtocol {
     /// Typed pointer to the underlying `GtkBindingEntry` instance.
     var _ptr: UnsafeMutablePointer<GtkBindingEntry>! { get }
 
+    /// Required Initialiser for types conforming to `BindingEntryProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `BindingEntryRef` type acts as a lightweight Swift reference to an underlying `GtkBindingEntry` instance.
@@ -519,7 +523,7 @@ open class BindingEntry: BindingEntryProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BindingEntryProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -702,6 +706,8 @@ public protocol BindingSetProtocol {
     /// Typed pointer to the underlying `GtkBindingSet` instance.
     var _ptr: UnsafeMutablePointer<GtkBindingSet>! { get }
 
+    /// Required Initialiser for types conforming to `BindingSetProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `BindingSetRef` type acts as a lightweight Swift reference to an underlying `GtkBindingSet` instance.
@@ -931,7 +937,7 @@ open class BindingSet: BindingSetProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BindingSetProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -1179,6 +1185,8 @@ public protocol BindingSignalProtocol {
     /// Typed pointer to the underlying `GtkBindingSignal` instance.
     var _ptr: UnsafeMutablePointer<GtkBindingSignal>! { get }
 
+    /// Required Initialiser for types conforming to `BindingSignalProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `BindingSignalRef` type acts as a lightweight Swift reference to an underlying `GtkBindingSignal` instance.
@@ -1386,7 +1394,7 @@ open class BindingSignal: BindingSignalProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BindingSignalProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -1514,6 +1522,8 @@ public protocol BooleanCellAccessibleClassProtocol {
     /// Typed pointer to the underlying `GtkBooleanCellAccessibleClass` instance.
     var _ptr: UnsafeMutablePointer<GtkBooleanCellAccessibleClass>! { get }
 
+    /// Required Initialiser for types conforming to `BooleanCellAccessibleClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `BooleanCellAccessibleClassRef` type acts as a lightweight Swift reference to an underlying `GtkBooleanCellAccessibleClass` instance.
@@ -1632,6 +1642,8 @@ public protocol BorderProtocol {
     /// Typed pointer to the underlying `GtkBorder` instance.
     var border_ptr: UnsafeMutablePointer<GtkBorder>! { get }
 
+    /// Required Initialiser for types conforming to `BorderProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `BorderRef` type acts as a lightweight Swift reference to an underlying `GtkBorder` instance.
@@ -1716,7 +1728,7 @@ public extension BorderRef {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
-        /// Allocates a new `GtkBorder`-struct and initializes its elements to zero.
+        /// Allocates a new `GtkBorder-struct` and initializes its elements to zero.
     @inlinable init() {
         let rv = gtk_border_new()
         ptr = UnsafeMutableRawPointer(rv)
@@ -1842,7 +1854,7 @@ open class Border: BorderProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BorderProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -1869,7 +1881,7 @@ open class Border: BorderProtocol {
         // no reference counting for GtkBorder, cannot ref(border_ptr)
     }
 
-    /// Allocates a new `GtkBorder`-struct and initializes its elements to zero.
+    /// Allocates a new `GtkBorder-struct` and initializes its elements to zero.
     @inlinable public init() {
         let rv = gtk_border_new()
         ptr = UnsafeMutableRawPointer(rv)
@@ -1888,13 +1900,13 @@ public extension BorderProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkBorder` instance.
     @inlinable var border_ptr: UnsafeMutablePointer<GtkBorder>! { return ptr?.assumingMemoryBound(to: GtkBorder.self) }
 
-    /// Copies a `GtkBorder`-struct.
+    /// Copies a `GtkBorder-struct`.
     @inlinable func copy() -> BorderRef! {
         guard let rv = BorderRef(gconstpointer: gconstpointer(gtk_border_copy(border_ptr))) else { return nil }
         return rv
     }
 
-    /// Frees a `GtkBorder`-struct.
+    /// Frees a `GtkBorder-struct`.
     @inlinable func free() {
         gtk_border_free(border_ptr)
     
@@ -1986,6 +1998,8 @@ public protocol BoxClassProtocol {
     /// Typed pointer to the underlying `GtkBoxClass` instance.
     var _ptr: UnsafeMutablePointer<GtkBoxClass>! { get }
 
+    /// Required Initialiser for types conforming to `BoxClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `BoxClassRef` type acts as a lightweight Swift reference to an underlying `GtkBoxClass` instance.
@@ -2130,6 +2144,8 @@ public protocol BuildableIfaceProtocol {
     /// Typed pointer to the underlying `GtkBuildableIface` instance.
     var _ptr: UnsafeMutablePointer<GtkBuildableIface>! { get }
 
+    /// Required Initialiser for types conforming to `BuildableIfaceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `BuildableIfaceRef` type acts as a lightweight Swift reference to an underlying `GtkBuildableIface` instance.
@@ -2286,6 +2302,8 @@ public protocol BuilderClassProtocol {
     /// Typed pointer to the underlying `GtkBuilderClass` instance.
     var _ptr: UnsafeMutablePointer<GtkBuilderClass>! { get }
 
+    /// Required Initialiser for types conforming to `BuilderClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `BuilderClassRef` type acts as a lightweight Swift reference to an underlying `GtkBuilderClass` instance.
@@ -2436,6 +2454,8 @@ public protocol ButtonAccessibleClassProtocol {
     /// Typed pointer to the underlying `GtkButtonAccessibleClass` instance.
     var _ptr: UnsafeMutablePointer<GtkButtonAccessibleClass>! { get }
 
+    /// Required Initialiser for types conforming to `ButtonAccessibleClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ButtonAccessibleClassRef` type acts as a lightweight Swift reference to an underlying `GtkButtonAccessibleClass` instance.
@@ -2568,6 +2588,8 @@ public protocol ButtonBoxClassProtocol {
     /// Typed pointer to the underlying `GtkButtonBoxClass` instance.
     var _ptr: UnsafeMutablePointer<GtkButtonBoxClass>! { get }
 
+    /// Required Initialiser for types conforming to `ButtonBoxClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ButtonBoxClassRef` type acts as a lightweight Swift reference to an underlying `GtkButtonBoxClass` instance.
@@ -2710,6 +2732,8 @@ public protocol ButtonClassProtocol {
     /// Typed pointer to the underlying `GtkButtonClass` instance.
     var _ptr: UnsafeMutablePointer<GtkButtonClass>! { get }
 
+    /// Required Initialiser for types conforming to `ButtonClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ButtonClassRef` type acts as a lightweight Swift reference to an underlying `GtkButtonClass` instance.
@@ -2864,6 +2888,8 @@ public protocol CalendarClassProtocol {
     /// Typed pointer to the underlying `GtkCalendarClass` instance.
     var _ptr: UnsafeMutablePointer<GtkCalendarClass>! { get }
 
+    /// Required Initialiser for types conforming to `CalendarClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `CalendarClassRef` type acts as a lightweight Swift reference to an underlying `GtkCalendarClass` instance.

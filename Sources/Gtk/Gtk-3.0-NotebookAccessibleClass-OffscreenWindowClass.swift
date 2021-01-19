@@ -45,6 +45,8 @@ public protocol NotebookAccessibleClassProtocol {
     /// Typed pointer to the underlying `GtkNotebookAccessibleClass` instance.
     var _ptr: UnsafeMutablePointer<GtkNotebookAccessibleClass>! { get }
 
+    /// Required Initialiser for types conforming to `NotebookAccessibleClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `NotebookAccessibleClassRef` type acts as a lightweight Swift reference to an underlying `GtkNotebookAccessibleClass` instance.
@@ -177,6 +179,8 @@ public protocol NotebookClassProtocol {
     /// Typed pointer to the underlying `GtkNotebookClass` instance.
     var _ptr: UnsafeMutablePointer<GtkNotebookClass>! { get }
 
+    /// Required Initialiser for types conforming to `NotebookClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `NotebookClassRef` type acts as a lightweight Swift reference to an underlying `GtkNotebookClass` instance.
@@ -347,6 +351,8 @@ public protocol NotebookPageAccessibleClassProtocol {
     /// Typed pointer to the underlying `GtkNotebookPageAccessibleClass` instance.
     var _ptr: UnsafeMutablePointer<GtkNotebookPageAccessibleClass>! { get }
 
+    /// Required Initialiser for types conforming to `NotebookPageAccessibleClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `NotebookPageAccessibleClassRef` type acts as a lightweight Swift reference to an underlying `GtkNotebookPageAccessibleClass` instance.
@@ -479,6 +485,8 @@ public protocol NumerableIconClassProtocol {
     /// Typed pointer to the underlying `GtkNumerableIconClass` instance.
     var _ptr: UnsafeMutablePointer<GtkNumerableIconClass>! { get }
 
+    /// Required Initialiser for types conforming to `NumerableIconClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `NumerableIconClassRef` type acts as a lightweight Swift reference to an underlying `GtkNumerableIconClass` instance.
@@ -618,6 +626,8 @@ public protocol OffscreenWindowClassProtocol {
     /// Typed pointer to the underlying `GtkOffscreenWindowClass` instance.
     var _ptr: UnsafeMutablePointer<GtkOffscreenWindowClass>! { get }
 
+    /// Required Initialiser for types conforming to `OffscreenWindowClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `OffscreenWindowClassRef` type acts as a lightweight Swift reference to an underlying `GtkOffscreenWindowClass` instance.

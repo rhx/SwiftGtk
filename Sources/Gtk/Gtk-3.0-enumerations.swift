@@ -321,9 +321,9 @@ public extension ButtonRole {
 /// none of these choices are appropriate, simply use `GTK_BUTTONS_NONE`
 /// then call `gtk_dialog_add_buttons()`.
 /// 
-/// > Please note that `GTK_BUTTONS_OK`, `GTK_BUTTONS_YES_NO`
-/// > and `GTK_BUTTONS_OK_CANCEL` are discouraged by the
-/// > [GNOME Human Interface Guidelines](http://library.gnome.org/devel/hig-book/stable/).
+/// &gt; Please note that `GTK_BUTTONS_OK`, `GTK_BUTTONS_YES_NO`
+/// &gt; and `GTK_BUTTONS_OK_CANCEL` are discouraged by the
+/// &gt; [GNOME Human Interface Guidelines](http://library.gnome.org/devel/hig-book/stable/).
 public typealias ButtonsType = GtkButtonsType
 
 public extension ButtonsType {
@@ -497,7 +497,7 @@ public extension CssSectionType {
 
 
 
-/// See also: `GtkEntry::delete`-from-cursor.
+/// See also: `GtkEntry::delete-from-cursor`.
 public typealias DeleteType = GtkDeleteType
 
 public extension DeleteType {
@@ -563,7 +563,7 @@ public extension DirectionType {
 
 /// Gives an indication why a drag operation failed.
 /// The value can by obtained by connecting to the
-/// `GtkWidget::drag`-failed signal.
+/// `GtkWidget::drag-failed` signal.
 public typealias DragResult = GtkDragResult
 
 public extension DragResult {
@@ -687,7 +687,7 @@ public extension FileChooserAction {
 
 
 /// Used as a return value of handlers for the
-/// `GtkFileChooser::confirm`-overwrite signal of a `GtkFileChooser`. This
+/// `GtkFileChooser::confirm-overwrite` signal of a `GtkFileChooser`. This
 /// value determines whether the file chooser will present the stock
 /// confirmation dialog, accept the user’s choice of a filename, or
 /// let the user choose another filename.
@@ -740,7 +740,7 @@ public extension FileChooserError {
 
 
 /// Style for input method preedit. See also
-/// `GtkSettings:gtk`-im-preedit-style
+/// `GtkSettings:gtk-im-preedit-style`
 ///
 /// **IMPreeditStyle is deprecated:**
 /// This method is deprecated.
@@ -765,7 +765,7 @@ public extension IMPreeditStyle {
 
 
 /// Style for input method status. See also
-/// `GtkSettings:gtk`-im-status-style
+/// `GtkSettings:gtk-im-status-style`
 ///
 /// **IMStatusStyle is deprecated:**
 /// This method is deprecated.
@@ -2455,7 +2455,7 @@ public extension TextDirection {
 
 
 /// Granularity types that extend the text selection. Use the
-/// `GtkTextView::extend`-selection signal to customize the selection.
+/// `GtkTextView::extend-selection` signal to customize the selection.
 public typealias TextExtendSelection = GtkTextExtendSelection
 
 public extension TextExtendSelection {
@@ -2671,7 +2671,7 @@ public extension Unit {
 
 
 
-/// Kinds of widget-specific help. Used by the `show`-help signal.
+/// Kinds of widget-specific help. Used by the `show-help` signal.
 public typealias WidgetHelpType = GtkWidgetHelpType
 
 public extension WidgetHelpType {

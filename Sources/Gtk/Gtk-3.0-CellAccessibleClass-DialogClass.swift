@@ -45,6 +45,8 @@ public protocol CellAccessibleClassProtocol {
     /// Typed pointer to the underlying `GtkCellAccessibleClass` instance.
     var _ptr: UnsafeMutablePointer<GtkCellAccessibleClass>! { get }
 
+    /// Required Initialiser for types conforming to `CellAccessibleClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `CellAccessibleClassRef` type acts as a lightweight Swift reference to an underlying `GtkCellAccessibleClass` instance.
@@ -179,6 +181,8 @@ public protocol CellAccessibleParentIfaceProtocol {
     /// Typed pointer to the underlying `GtkCellAccessibleParentIface` instance.
     var _ptr: UnsafeMutablePointer<GtkCellAccessibleParentIface>! { get }
 
+    /// Required Initialiser for types conforming to `CellAccessibleParentIfaceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `CellAccessibleParentIfaceRef` type acts as a lightweight Swift reference to an underlying `GtkCellAccessibleParentIface` instance.
@@ -335,6 +339,8 @@ public protocol CellAreaBoxClassProtocol {
     /// Typed pointer to the underlying `GtkCellAreaBoxClass` instance.
     var _ptr: UnsafeMutablePointer<GtkCellAreaBoxClass>! { get }
 
+    /// Required Initialiser for types conforming to `CellAreaBoxClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `CellAreaBoxClassRef` type acts as a lightweight Swift reference to an underlying `GtkCellAreaBoxClass` instance.
@@ -470,6 +476,8 @@ public protocol CellAreaClassProtocol {
     /// Typed pointer to the underlying `GtkCellAreaClass` instance.
     var _ptr: UnsafeMutablePointer<GtkCellAreaClass>! { get }
 
+    /// Required Initialiser for types conforming to `CellAreaClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `CellAreaClassRef` type acts as a lightweight Swift reference to an underlying `GtkCellAreaClass` instance.
@@ -668,6 +676,8 @@ public protocol CellAreaContextClassProtocol {
     /// Typed pointer to the underlying `GtkCellAreaContextClass` instance.
     var _ptr: UnsafeMutablePointer<GtkCellAreaContextClass>! { get }
 
+    /// Required Initialiser for types conforming to `CellAreaContextClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `CellAreaContextClassRef` type acts as a lightweight Swift reference to an underlying `GtkCellAreaContextClass` instance.
@@ -815,6 +825,8 @@ public protocol CellEditableIfaceProtocol {
     /// Typed pointer to the underlying `GtkCellEditableIface` instance.
     var _ptr: UnsafeMutablePointer<GtkCellEditableIface>! { get }
 
+    /// Required Initialiser for types conforming to `CellEditableIfaceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `CellEditableIfaceRef` type acts as a lightweight Swift reference to an underlying `GtkCellEditableIface` instance.
@@ -948,6 +960,8 @@ public protocol CellLayoutIfaceProtocol {
     /// Typed pointer to the underlying `GtkCellLayoutIface` instance.
     var _ptr: UnsafeMutablePointer<GtkCellLayoutIface>! { get }
 
+    /// Required Initialiser for types conforming to `CellLayoutIfaceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `CellLayoutIfaceRef` type acts as a lightweight Swift reference to an underlying `GtkCellLayoutIface` instance.
@@ -1093,6 +1107,8 @@ public protocol CellRendererAccelClassProtocol {
     /// Typed pointer to the underlying `GtkCellRendererAccelClass` instance.
     var _ptr: UnsafeMutablePointer<GtkCellRendererAccelClass>! { get }
 
+    /// Required Initialiser for types conforming to `CellRendererAccelClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `CellRendererAccelClassRef` type acts as a lightweight Swift reference to an underlying `GtkCellRendererAccelClass` instance.
@@ -1239,6 +1255,8 @@ public protocol CellRendererClassProtocol {
     /// Typed pointer to the underlying `GtkCellRendererClass` instance.
     var _ptr: UnsafeMutablePointer<GtkCellRendererClass>! { get }
 
+    /// Required Initialiser for types conforming to `CellRendererClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `CellRendererClassRef` type acts as a lightweight Swift reference to an underlying `GtkCellRendererClass` instance.
@@ -1393,6 +1411,8 @@ public protocol CellRendererClassPrivateProtocol {
     /// Typed pointer to the underlying `GtkCellRendererClassPrivate` instance.
     var _ptr: UnsafeMutablePointer<GtkCellRendererClassPrivate>! { get }
 
+    /// Required Initialiser for types conforming to `CellRendererClassPrivateProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `CellRendererClassPrivateRef` type acts as a lightweight Swift reference to an underlying `GtkCellRendererClassPrivate` instance.
@@ -1596,7 +1616,7 @@ open class CellRendererClassPrivate: CellRendererClassPrivateProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `CellRendererClassPrivateProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -1673,6 +1693,8 @@ public protocol CellRendererComboClassProtocol {
     /// Typed pointer to the underlying `GtkCellRendererComboClass` instance.
     var _ptr: UnsafeMutablePointer<GtkCellRendererComboClass>! { get }
 
+    /// Required Initialiser for types conforming to `CellRendererComboClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `CellRendererComboClassRef` type acts as a lightweight Swift reference to an underlying `GtkCellRendererComboClass` instance.
@@ -1813,6 +1835,8 @@ public protocol CellRendererPixbufClassProtocol {
     /// Typed pointer to the underlying `GtkCellRendererPixbufClass` instance.
     var _ptr: UnsafeMutablePointer<GtkCellRendererPixbufClass>! { get }
 
+    /// Required Initialiser for types conforming to `CellRendererPixbufClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `CellRendererPixbufClassRef` type acts as a lightweight Swift reference to an underlying `GtkCellRendererPixbufClass` instance.
@@ -1953,6 +1977,8 @@ public protocol CellRendererProgressClassProtocol {
     /// Typed pointer to the underlying `GtkCellRendererProgressClass` instance.
     var _ptr: UnsafeMutablePointer<GtkCellRendererProgressClass>! { get }
 
+    /// Required Initialiser for types conforming to `CellRendererProgressClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `CellRendererProgressClassRef` type acts as a lightweight Swift reference to an underlying `GtkCellRendererProgressClass` instance.
@@ -2093,6 +2119,8 @@ public protocol CellRendererSpinClassProtocol {
     /// Typed pointer to the underlying `GtkCellRendererSpinClass` instance.
     var _ptr: UnsafeMutablePointer<GtkCellRendererSpinClass>! { get }
 
+    /// Required Initialiser for types conforming to `CellRendererSpinClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `CellRendererSpinClassRef` type acts as a lightweight Swift reference to an underlying `GtkCellRendererSpinClass` instance.
@@ -2233,6 +2261,8 @@ public protocol CellRendererSpinnerClassProtocol {
     /// Typed pointer to the underlying `GtkCellRendererSpinnerClass` instance.
     var _ptr: UnsafeMutablePointer<GtkCellRendererSpinnerClass>! { get }
 
+    /// Required Initialiser for types conforming to `CellRendererSpinnerClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `CellRendererSpinnerClassRef` type acts as a lightweight Swift reference to an underlying `GtkCellRendererSpinnerClass` instance.
@@ -2373,6 +2403,8 @@ public protocol CellRendererTextClassProtocol {
     /// Typed pointer to the underlying `GtkCellRendererTextClass` instance.
     var _ptr: UnsafeMutablePointer<GtkCellRendererTextClass>! { get }
 
+    /// Required Initialiser for types conforming to `CellRendererTextClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `CellRendererTextClassRef` type acts as a lightweight Swift reference to an underlying `GtkCellRendererTextClass` instance.
@@ -2515,6 +2547,8 @@ public protocol CellRendererToggleClassProtocol {
     /// Typed pointer to the underlying `GtkCellRendererToggleClass` instance.
     var _ptr: UnsafeMutablePointer<GtkCellRendererToggleClass>! { get }
 
+    /// Required Initialiser for types conforming to `CellRendererToggleClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `CellRendererToggleClassRef` type acts as a lightweight Swift reference to an underlying `GtkCellRendererToggleClass` instance.
@@ -2657,6 +2691,8 @@ public protocol CellViewClassProtocol {
     /// Typed pointer to the underlying `GtkCellViewClass` instance.
     var _ptr: UnsafeMutablePointer<GtkCellViewClass>! { get }
 
+    /// Required Initialiser for types conforming to `CellViewClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `CellViewClassRef` type acts as a lightweight Swift reference to an underlying `GtkCellViewClass` instance.
@@ -2799,6 +2835,8 @@ public protocol CheckButtonClassProtocol {
     /// Typed pointer to the underlying `GtkCheckButtonClass` instance.
     var _ptr: UnsafeMutablePointer<GtkCheckButtonClass>! { get }
 
+    /// Required Initialiser for types conforming to `CheckButtonClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `CheckButtonClassRef` type acts as a lightweight Swift reference to an underlying `GtkCheckButtonClass` instance.
@@ -2941,6 +2979,8 @@ public protocol CheckMenuItemAccessibleClassProtocol {
     /// Typed pointer to the underlying `GtkCheckMenuItemAccessibleClass` instance.
     var _ptr: UnsafeMutablePointer<GtkCheckMenuItemAccessibleClass>! { get }
 
+    /// Required Initialiser for types conforming to `CheckMenuItemAccessibleClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `CheckMenuItemAccessibleClassRef` type acts as a lightweight Swift reference to an underlying `GtkCheckMenuItemAccessibleClass` instance.
@@ -3073,6 +3113,8 @@ public protocol CheckMenuItemClassProtocol {
     /// Typed pointer to the underlying `GtkCheckMenuItemClass` instance.
     var _ptr: UnsafeMutablePointer<GtkCheckMenuItemClass>! { get }
 
+    /// Required Initialiser for types conforming to `CheckMenuItemClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `CheckMenuItemClassRef` type acts as a lightweight Swift reference to an underlying `GtkCheckMenuItemClass` instance.
@@ -3219,6 +3261,8 @@ public protocol ColorButtonClassProtocol {
     /// Typed pointer to the underlying `GtkColorButtonClass` instance.
     var _ptr: UnsafeMutablePointer<GtkColorButtonClass>! { get }
 
+    /// Required Initialiser for types conforming to `ColorButtonClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ColorButtonClassRef` type acts as a lightweight Swift reference to an underlying `GtkColorButtonClass` instance.
@@ -3361,6 +3405,8 @@ public protocol ColorChooserDialogClassProtocol {
     /// Typed pointer to the underlying `GtkColorChooserDialogClass` instance.
     var _ptr: UnsafeMutablePointer<GtkColorChooserDialogClass>! { get }
 
+    /// Required Initialiser for types conforming to `ColorChooserDialogClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ColorChooserDialogClassRef` type acts as a lightweight Swift reference to an underlying `GtkColorChooserDialogClass` instance.
@@ -3501,6 +3547,8 @@ public protocol ColorChooserInterfaceProtocol {
     /// Typed pointer to the underlying `GtkColorChooserInterface` instance.
     var _ptr: UnsafeMutablePointer<GtkColorChooserInterface>! { get }
 
+    /// Required Initialiser for types conforming to `ColorChooserInterfaceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ColorChooserInterfaceRef` type acts as a lightweight Swift reference to an underlying `GtkColorChooserInterface` instance.
@@ -3648,6 +3696,8 @@ public protocol ColorChooserWidgetClassProtocol {
     /// Typed pointer to the underlying `GtkColorChooserWidgetClass` instance.
     var _ptr: UnsafeMutablePointer<GtkColorChooserWidgetClass>! { get }
 
+    /// Required Initialiser for types conforming to `ColorChooserWidgetClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ColorChooserWidgetClassRef` type acts as a lightweight Swift reference to an underlying `GtkColorChooserWidgetClass` instance.
@@ -3798,6 +3848,8 @@ public protocol ColorSelectionClassProtocol {
     /// Typed pointer to the underlying `GtkColorSelectionClass` instance.
     var _ptr: UnsafeMutablePointer<GtkColorSelectionClass>! { get }
 
+    /// Required Initialiser for types conforming to `ColorSelectionClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ColorSelectionClassRef` type acts as a lightweight Swift reference to an underlying `GtkColorSelectionClass` instance.
@@ -3942,6 +3994,8 @@ public protocol ColorSelectionDialogClassProtocol {
     /// Typed pointer to the underlying `GtkColorSelectionDialogClass` instance.
     var _ptr: UnsafeMutablePointer<GtkColorSelectionDialogClass>! { get }
 
+    /// Required Initialiser for types conforming to `ColorSelectionDialogClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ColorSelectionDialogClassRef` type acts as a lightweight Swift reference to an underlying `GtkColorSelectionDialogClass` instance.
@@ -4082,6 +4136,8 @@ public protocol ComboBoxAccessibleClassProtocol {
     /// Typed pointer to the underlying `GtkComboBoxAccessibleClass` instance.
     var _ptr: UnsafeMutablePointer<GtkComboBoxAccessibleClass>! { get }
 
+    /// Required Initialiser for types conforming to `ComboBoxAccessibleClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ComboBoxAccessibleClassRef` type acts as a lightweight Swift reference to an underlying `GtkComboBoxAccessibleClass` instance.
@@ -4214,6 +4270,8 @@ public protocol ComboBoxClassProtocol {
     /// Typed pointer to the underlying `GtkComboBoxClass` instance.
     var _ptr: UnsafeMutablePointer<GtkComboBoxClass>! { get }
 
+    /// Required Initialiser for types conforming to `ComboBoxClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ComboBoxClassRef` type acts as a lightweight Swift reference to an underlying `GtkComboBoxClass` instance.
@@ -4358,6 +4416,8 @@ public protocol ComboBoxTextClassProtocol {
     /// Typed pointer to the underlying `GtkComboBoxTextClass` instance.
     var _ptr: UnsafeMutablePointer<GtkComboBoxTextClass>! { get }
 
+    /// Required Initialiser for types conforming to `ComboBoxTextClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ComboBoxTextClassRef` type acts as a lightweight Swift reference to an underlying `GtkComboBoxTextClass` instance.
@@ -4498,6 +4558,8 @@ public protocol ContainerAccessibleClassProtocol {
     /// Typed pointer to the underlying `GtkContainerAccessibleClass` instance.
     var _ptr: UnsafeMutablePointer<GtkContainerAccessibleClass>! { get }
 
+    /// Required Initialiser for types conforming to `ContainerAccessibleClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ContainerAccessibleClassRef` type acts as a lightweight Swift reference to an underlying `GtkContainerAccessibleClass` instance.
@@ -4634,6 +4696,8 @@ public protocol ContainerCellAccessibleClassProtocol {
     /// Typed pointer to the underlying `GtkContainerCellAccessibleClass` instance.
     var _ptr: UnsafeMutablePointer<GtkContainerCellAccessibleClass>! { get }
 
+    /// Required Initialiser for types conforming to `ContainerCellAccessibleClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ContainerCellAccessibleClassRef` type acts as a lightweight Swift reference to an underlying `GtkContainerCellAccessibleClass` instance.
@@ -4766,6 +4830,8 @@ public protocol ContainerClassProtocol {
     /// Typed pointer to the underlying `GtkContainerClass` instance.
     var _ptr: UnsafeMutablePointer<GtkContainerClass>! { get }
 
+    /// Required Initialiser for types conforming to `ContainerClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ContainerClassRef` type acts as a lightweight Swift reference to an underlying `GtkContainerClass` instance.
@@ -4976,6 +5042,8 @@ public protocol CssProviderClassProtocol {
     /// Typed pointer to the underlying `GtkCssProviderClass` instance.
     var _ptr: UnsafeMutablePointer<GtkCssProviderClass>! { get }
 
+    /// Required Initialiser for types conforming to `CssProviderClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `CssProviderClassRef` type acts as a lightweight Swift reference to an underlying `GtkCssProviderClass` instance.
@@ -5103,6 +5171,8 @@ public protocol CssSectionProtocol {
     /// Typed pointer to the underlying `GtkCssSection` instance.
     var css_section_ptr: UnsafeMutablePointer<GtkCssSection>! { get }
 
+    /// Required Initialiser for types conforming to `CssSectionProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `CssSectionRef` type acts as a lightweight Swift reference to an underlying `GtkCssSection` instance.
@@ -5310,7 +5380,7 @@ open class CssSection: CssSectionProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `CssSectionProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -5356,7 +5426,7 @@ public extension CssSectionProtocol {
     /// will return 0.
     /// This value may change in future invocations of this function if
     /// `section` is not yet parsed completely. This will for example
-    /// happen in the GtkCssProvider`parsing`-error signal.
+    /// happen in the GtkCssProvider`parsing-error` signal.
     /// The end position and line may be identical to the start
     /// position and line for sections which failed to parse anything
     /// successfully.
@@ -5369,7 +5439,7 @@ public extension CssSectionProtocol {
     /// returned via `gtk_css_section_get_end_line()`.
     /// This value may change in future invocations of this function if
     /// `section` is not yet parsed completely. This will for example
-    /// happen in the GtkCssProvider`parsing`-error signal.
+    /// happen in the GtkCssProvider`parsing-error` signal.
     /// The end position and line may be identical to the start
     /// position and line for sections which failed to parse anything
     /// successfully.
@@ -5436,7 +5506,7 @@ public extension CssSectionProtocol {
     /// will return 0.
     /// This value may change in future invocations of this function if
     /// `section` is not yet parsed completely. This will for example
-    /// happen in the GtkCssProvider`parsing`-error signal.
+    /// happen in the GtkCssProvider`parsing-error` signal.
     /// The end position and line may be identical to the start
     /// position and line for sections which failed to parse anything
     /// successfully.
@@ -5446,7 +5516,7 @@ public extension CssSectionProtocol {
         /// will return 0.
         /// This value may change in future invocations of this function if
         /// `section` is not yet parsed completely. This will for example
-        /// happen in the GtkCssProvider`parsing`-error signal.
+        /// happen in the GtkCssProvider`parsing-error` signal.
         /// The end position and line may be identical to the start
         /// position and line for sections which failed to parse anything
         /// successfully.
@@ -5460,7 +5530,7 @@ public extension CssSectionProtocol {
     /// returned via `gtk_css_section_get_end_line()`.
     /// This value may change in future invocations of this function if
     /// `section` is not yet parsed completely. This will for example
-    /// happen in the GtkCssProvider`parsing`-error signal.
+    /// happen in the GtkCssProvider`parsing-error` signal.
     /// The end position and line may be identical to the start
     /// position and line for sections which failed to parse anything
     /// successfully.
@@ -5469,7 +5539,7 @@ public extension CssSectionProtocol {
         /// returned via `gtk_css_section_get_end_line()`.
         /// This value may change in future invocations of this function if
         /// `section` is not yet parsed completely. This will for example
-        /// happen in the GtkCssProvider`parsing`-error signal.
+        /// happen in the GtkCssProvider`parsing-error` signal.
         /// The end position and line may be identical to the start
         /// position and line for sections which failed to parse anything
         /// successfully.
@@ -5581,6 +5651,8 @@ public protocol DialogClassProtocol {
     /// Typed pointer to the underlying `GtkDialogClass` instance.
     var _ptr: UnsafeMutablePointer<GtkDialogClass>! { get }
 
+    /// Required Initialiser for types conforming to `DialogClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `DialogClassRef` type acts as a lightweight Swift reference to an underlying `GtkDialogClass` instance.

@@ -45,6 +45,8 @@ public protocol LabelClassProtocol {
     /// Typed pointer to the underlying `GtkLabelClass` instance.
     var _ptr: UnsafeMutablePointer<GtkLabelClass>! { get }
 
+    /// Required Initialiser for types conforming to `LabelClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `LabelClassRef` type acts as a lightweight Swift reference to an underlying `GtkLabelClass` instance.
@@ -186,6 +188,8 @@ public protocol LabelSelectionInfoProtocol {
     /// Typed pointer to the underlying `GtkLabelSelectionInfo` instance.
     var _ptr: UnsafeMutablePointer<GtkLabelSelectionInfo>! { get }
 
+    /// Required Initialiser for types conforming to `LabelSelectionInfoProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `LabelSelectionInfoRef` type acts as a lightweight Swift reference to an underlying `GtkLabelSelectionInfo` instance.
@@ -389,7 +393,7 @@ open class LabelSelectionInfo: LabelSelectionInfoProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `LabelSelectionInfoProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -466,6 +470,8 @@ public protocol LayoutClassProtocol {
     /// Typed pointer to the underlying `GtkLayoutClass` instance.
     var _ptr: UnsafeMutablePointer<GtkLayoutClass>! { get }
 
+    /// Required Initialiser for types conforming to `LayoutClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `LayoutClassRef` type acts as a lightweight Swift reference to an underlying `GtkLayoutClass` instance.
@@ -606,6 +612,8 @@ public protocol LevelBarAccessibleClassProtocol {
     /// Typed pointer to the underlying `GtkLevelBarAccessibleClass` instance.
     var _ptr: UnsafeMutablePointer<GtkLevelBarAccessibleClass>! { get }
 
+    /// Required Initialiser for types conforming to `LevelBarAccessibleClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `LevelBarAccessibleClassRef` type acts as a lightweight Swift reference to an underlying `GtkLevelBarAccessibleClass` instance.
@@ -738,6 +746,8 @@ public protocol LevelBarClassProtocol {
     /// Typed pointer to the underlying `GtkLevelBarClass` instance.
     var _ptr: UnsafeMutablePointer<GtkLevelBarClass>! { get }
 
+    /// Required Initialiser for types conforming to `LevelBarClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `LevelBarClassRef` type acts as a lightweight Swift reference to an underlying `GtkLevelBarClass` instance.
@@ -869,6 +879,8 @@ public protocol LinkButtonAccessibleClassProtocol {
     /// Typed pointer to the underlying `GtkLinkButtonAccessibleClass` instance.
     var _ptr: UnsafeMutablePointer<GtkLinkButtonAccessibleClass>! { get }
 
+    /// Required Initialiser for types conforming to `LinkButtonAccessibleClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `LinkButtonAccessibleClassRef` type acts as a lightweight Swift reference to an underlying `GtkLinkButtonAccessibleClass` instance.
@@ -1002,6 +1014,8 @@ public protocol LinkButtonClassProtocol {
     /// Typed pointer to the underlying `GtkLinkButtonClass` instance.
     var _ptr: UnsafeMutablePointer<GtkLinkButtonClass>! { get }
 
+    /// Required Initialiser for types conforming to `LinkButtonClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `LinkButtonClassRef` type acts as a lightweight Swift reference to an underlying `GtkLinkButtonClass` instance.
@@ -1140,6 +1154,8 @@ public protocol ListBoxAccessibleClassProtocol {
     /// Typed pointer to the underlying `GtkListBoxAccessibleClass` instance.
     var _ptr: UnsafeMutablePointer<GtkListBoxAccessibleClass>! { get }
 
+    /// Required Initialiser for types conforming to `ListBoxAccessibleClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ListBoxAccessibleClassRef` type acts as a lightweight Swift reference to an underlying `GtkListBoxAccessibleClass` instance.
@@ -1272,6 +1288,8 @@ public protocol ListBoxClassProtocol {
     /// Typed pointer to the underlying `GtkListBoxClass` instance.
     var _ptr: UnsafeMutablePointer<GtkListBoxClass>! { get }
 
+    /// Required Initialiser for types conforming to `ListBoxClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ListBoxClassRef` type acts as a lightweight Swift reference to an underlying `GtkListBoxClass` instance.
@@ -1428,6 +1446,8 @@ public protocol ListBoxRowAccessibleClassProtocol {
     /// Typed pointer to the underlying `GtkListBoxRowAccessibleClass` instance.
     var _ptr: UnsafeMutablePointer<GtkListBoxRowAccessibleClass>! { get }
 
+    /// Required Initialiser for types conforming to `ListBoxRowAccessibleClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ListBoxRowAccessibleClassRef` type acts as a lightweight Swift reference to an underlying `GtkListBoxRowAccessibleClass` instance.
@@ -1560,6 +1580,8 @@ public protocol ListBoxRowClassProtocol {
     /// Typed pointer to the underlying `GtkListBoxRowClass` instance.
     var _ptr: UnsafeMutablePointer<GtkListBoxRowClass>! { get }
 
+    /// Required Initialiser for types conforming to `ListBoxRowClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ListBoxRowClassRef` type acts as a lightweight Swift reference to an underlying `GtkListBoxRowClass` instance.
@@ -1700,6 +1722,8 @@ public protocol ListStoreClassProtocol {
     /// Typed pointer to the underlying `GtkListStoreClass` instance.
     var _ptr: UnsafeMutablePointer<GtkListStoreClass>! { get }
 
+    /// Required Initialiser for types conforming to `ListStoreClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ListStoreClassRef` type acts as a lightweight Swift reference to an underlying `GtkListStoreClass` instance.
@@ -1840,6 +1864,8 @@ public protocol LockButtonAccessibleClassProtocol {
     /// Typed pointer to the underlying `GtkLockButtonAccessibleClass` instance.
     var _ptr: UnsafeMutablePointer<GtkLockButtonAccessibleClass>! { get }
 
+    /// Required Initialiser for types conforming to `LockButtonAccessibleClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `LockButtonAccessibleClassRef` type acts as a lightweight Swift reference to an underlying `GtkLockButtonAccessibleClass` instance.
@@ -1972,6 +1998,8 @@ public protocol LockButtonClassProtocol {
     /// Typed pointer to the underlying `GtkLockButtonClass` instance.
     var _ptr: UnsafeMutablePointer<GtkLockButtonClass>! { get }
 
+    /// Required Initialiser for types conforming to `LockButtonClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `LockButtonClassRef` type acts as a lightweight Swift reference to an underlying `GtkLockButtonClass` instance.
@@ -2122,6 +2150,8 @@ public protocol MenuAccessibleClassProtocol {
     /// Typed pointer to the underlying `GtkMenuAccessibleClass` instance.
     var _ptr: UnsafeMutablePointer<GtkMenuAccessibleClass>! { get }
 
+    /// Required Initialiser for types conforming to `MenuAccessibleClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `MenuAccessibleClassRef` type acts as a lightweight Swift reference to an underlying `GtkMenuAccessibleClass` instance.

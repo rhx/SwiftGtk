@@ -45,6 +45,8 @@ public protocol PadControllerClassProtocol {
     /// Typed pointer to the underlying `GtkPadControllerClass` instance.
     var _ptr: UnsafeMutablePointer<GtkPadControllerClass>! { get }
 
+    /// Required Initialiser for types conforming to `PadControllerClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `PadControllerClassRef` type acts as a lightweight Swift reference to an underlying `GtkPadControllerClass` instance.
@@ -156,6 +158,8 @@ public protocol PageRangeProtocol {
     /// Typed pointer to the underlying `GtkPageRange` instance.
     var _ptr: UnsafeMutablePointer<GtkPageRange>! { get }
 
+    /// Required Initialiser for types conforming to `PageRangeProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `PageRangeRef` type acts as a lightweight Swift reference to an underlying `GtkPageRange` instance.
@@ -359,7 +363,7 @@ open class PageRange: PageRangeProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PageRangeProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -461,6 +465,8 @@ public protocol PanedAccessibleClassProtocol {
     /// Typed pointer to the underlying `GtkPanedAccessibleClass` instance.
     var _ptr: UnsafeMutablePointer<GtkPanedAccessibleClass>! { get }
 
+    /// Required Initialiser for types conforming to `PanedAccessibleClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `PanedAccessibleClassRef` type acts as a lightweight Swift reference to an underlying `GtkPanedAccessibleClass` instance.
@@ -593,6 +599,8 @@ public protocol PanedClassProtocol {
     /// Typed pointer to the underlying `GtkPanedClass` instance.
     var _ptr: UnsafeMutablePointer<GtkPanedClass>! { get }
 
+    /// Required Initialiser for types conforming to `PanedClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `PanedClassRef` type acts as a lightweight Swift reference to an underlying `GtkPanedClass` instance.
@@ -740,6 +748,8 @@ public protocol PaperSizeProtocol {
     /// Typed pointer to the underlying `GtkPaperSize` instance.
     var paper_size_ptr: UnsafeMutablePointer<GtkPaperSize>! { get }
 
+    /// Required Initialiser for types conforming to `PaperSizeProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `PaperSizeRef` type acts as a lightweight Swift reference to an underlying `GtkPaperSize` instance.
@@ -1063,7 +1073,7 @@ open class PaperSize: PaperSizeProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PaperSizeProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -1378,6 +1388,8 @@ public protocol PlacesSidebarClassProtocol {
     /// Typed pointer to the underlying `GtkPlacesSidebarClass` instance.
     var _ptr: UnsafeMutablePointer<GtkPlacesSidebarClass>! { get }
 
+    /// Required Initialiser for types conforming to `PlacesSidebarClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `PlacesSidebarClassRef` type acts as a lightweight Swift reference to an underlying `GtkPlacesSidebarClass` instance.
@@ -1504,6 +1516,8 @@ public protocol PlugAccessibleClassProtocol {
     /// Typed pointer to the underlying `GtkPlugAccessibleClass` instance.
     var _ptr: UnsafeMutablePointer<GtkPlugAccessibleClass>! { get }
 
+    /// Required Initialiser for types conforming to `PlugAccessibleClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `PlugAccessibleClassRef` type acts as a lightweight Swift reference to an underlying `GtkPlugAccessibleClass` instance.
@@ -1636,6 +1650,8 @@ public protocol PopoverAccessibleClassProtocol {
     /// Typed pointer to the underlying `GtkPopoverAccessibleClass` instance.
     var _ptr: UnsafeMutablePointer<GtkPopoverAccessibleClass>! { get }
 
+    /// Required Initialiser for types conforming to `PopoverAccessibleClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `PopoverAccessibleClassRef` type acts as a lightweight Swift reference to an underlying `GtkPopoverAccessibleClass` instance.
@@ -1768,6 +1784,8 @@ public protocol PopoverClassProtocol {
     /// Typed pointer to the underlying `GtkPopoverClass` instance.
     var _ptr: UnsafeMutablePointer<GtkPopoverClass>! { get }
 
+    /// Required Initialiser for types conforming to `PopoverClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `PopoverClassRef` type acts as a lightweight Swift reference to an underlying `GtkPopoverClass` instance.
@@ -1904,6 +1922,8 @@ public protocol PopoverMenuClassProtocol {
     /// Typed pointer to the underlying `GtkPopoverMenuClass` instance.
     var _ptr: UnsafeMutablePointer<GtkPopoverMenuClass>! { get }
 
+    /// Required Initialiser for types conforming to `PopoverMenuClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `PopoverMenuClassRef` type acts as a lightweight Swift reference to an underlying `GtkPopoverMenuClass` instance.
@@ -2038,6 +2058,8 @@ public protocol PrintOperationClassProtocol {
     /// Typed pointer to the underlying `GtkPrintOperationClass` instance.
     var _ptr: UnsafeMutablePointer<GtkPrintOperationClass>! { get }
 
+    /// Required Initialiser for types conforming to `PrintOperationClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `PrintOperationClassRef` type acts as a lightweight Swift reference to an underlying `GtkPrintOperationClass` instance.
@@ -2210,6 +2232,8 @@ public protocol PrintOperationPreviewIfaceProtocol {
     /// Typed pointer to the underlying `GtkPrintOperationPreviewIface` instance.
     var _ptr: UnsafeMutablePointer<GtkPrintOperationPreviewIface>! { get }
 
+    /// Required Initialiser for types conforming to `PrintOperationPreviewIfaceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `PrintOperationPreviewIfaceRef` type acts as a lightweight Swift reference to an underlying `GtkPrintOperationPreviewIface` instance.
@@ -2368,6 +2392,8 @@ public protocol ProgressBarAccessibleClassProtocol {
     /// Typed pointer to the underlying `GtkProgressBarAccessibleClass` instance.
     var _ptr: UnsafeMutablePointer<GtkProgressBarAccessibleClass>! { get }
 
+    /// Required Initialiser for types conforming to `ProgressBarAccessibleClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ProgressBarAccessibleClassRef` type acts as a lightweight Swift reference to an underlying `GtkProgressBarAccessibleClass` instance.
@@ -2500,6 +2526,8 @@ public protocol ProgressBarClassProtocol {
     /// Typed pointer to the underlying `GtkProgressBarClass` instance.
     var _ptr: UnsafeMutablePointer<GtkProgressBarClass>! { get }
 
+    /// Required Initialiser for types conforming to `ProgressBarClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ProgressBarClassRef` type acts as a lightweight Swift reference to an underlying `GtkProgressBarClass` instance.
@@ -2640,6 +2668,8 @@ public protocol RadioActionClassProtocol {
     /// Typed pointer to the underlying `GtkRadioActionClass` instance.
     var _ptr: UnsafeMutablePointer<GtkRadioActionClass>! { get }
 
+    /// Required Initialiser for types conforming to `RadioActionClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `RadioActionClassRef` type acts as a lightweight Swift reference to an underlying `GtkRadioActionClass` instance.

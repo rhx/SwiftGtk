@@ -45,6 +45,8 @@ public protocol VBoxClassProtocol {
     /// Typed pointer to the underlying `GtkVBoxClass` instance.
     var _ptr: UnsafeMutablePointer<GtkVBoxClass>! { get }
 
+    /// Required Initialiser for types conforming to `VBoxClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `VBoxClassRef` type acts as a lightweight Swift reference to an underlying `GtkVBoxClass` instance.
@@ -177,6 +179,8 @@ public protocol VButtonBoxClassProtocol {
     /// Typed pointer to the underlying `GtkVButtonBoxClass` instance.
     var _ptr: UnsafeMutablePointer<GtkVButtonBoxClass>! { get }
 
+    /// Required Initialiser for types conforming to `VButtonBoxClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `VButtonBoxClassRef` type acts as a lightweight Swift reference to an underlying `GtkVButtonBoxClass` instance.
@@ -309,6 +313,8 @@ public protocol VPanedClassProtocol {
     /// Typed pointer to the underlying `GtkVPanedClass` instance.
     var _ptr: UnsafeMutablePointer<GtkVPanedClass>! { get }
 
+    /// Required Initialiser for types conforming to `VPanedClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `VPanedClassRef` type acts as a lightweight Swift reference to an underlying `GtkVPanedClass` instance.
@@ -441,6 +447,8 @@ public protocol VScaleClassProtocol {
     /// Typed pointer to the underlying `GtkVScaleClass` instance.
     var _ptr: UnsafeMutablePointer<GtkVScaleClass>! { get }
 
+    /// Required Initialiser for types conforming to `VScaleClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `VScaleClassRef` type acts as a lightweight Swift reference to an underlying `GtkVScaleClass` instance.
@@ -573,6 +581,8 @@ public protocol VScrollbarClassProtocol {
     /// Typed pointer to the underlying `GtkVScrollbarClass` instance.
     var _ptr: UnsafeMutablePointer<GtkVScrollbarClass>! { get }
 
+    /// Required Initialiser for types conforming to `VScrollbarClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `VScrollbarClassRef` type acts as a lightweight Swift reference to an underlying `GtkVScrollbarClass` instance.
@@ -705,6 +715,8 @@ public protocol VSeparatorClassProtocol {
     /// Typed pointer to the underlying `GtkVSeparatorClass` instance.
     var _ptr: UnsafeMutablePointer<GtkVSeparatorClass>! { get }
 
+    /// Required Initialiser for types conforming to `VSeparatorClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `VSeparatorClassRef` type acts as a lightweight Swift reference to an underlying `GtkVSeparatorClass` instance.
@@ -837,6 +849,8 @@ public protocol ViewportClassProtocol {
     /// Typed pointer to the underlying `GtkViewportClass` instance.
     var _ptr: UnsafeMutablePointer<GtkViewportClass>! { get }
 
+    /// Required Initialiser for types conforming to `ViewportClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ViewportClassRef` type acts as a lightweight Swift reference to an underlying `GtkViewportClass` instance.
@@ -979,6 +993,8 @@ public protocol VolumeButtonClassProtocol {
     /// Typed pointer to the underlying `GtkVolumeButtonClass` instance.
     var _ptr: UnsafeMutablePointer<GtkVolumeButtonClass>! { get }
 
+    /// Required Initialiser for types conforming to `VolumeButtonClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `VolumeButtonClassRef` type acts as a lightweight Swift reference to an underlying `GtkVolumeButtonClass` instance.
@@ -1119,6 +1135,8 @@ public protocol WidgetAccessibleClassProtocol {
     /// Typed pointer to the underlying `GtkWidgetAccessibleClass` instance.
     var _ptr: UnsafeMutablePointer<GtkWidgetAccessibleClass>! { get }
 
+    /// Required Initialiser for types conforming to `WidgetAccessibleClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `WidgetAccessibleClassRef` type acts as a lightweight Swift reference to an underlying `GtkWidgetAccessibleClass` instance.

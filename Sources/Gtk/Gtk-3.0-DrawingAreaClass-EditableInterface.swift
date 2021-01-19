@@ -45,6 +45,8 @@ public protocol DrawingAreaClassProtocol {
     /// Typed pointer to the underlying `GtkDrawingAreaClass` instance.
     var _ptr: UnsafeMutablePointer<GtkDrawingAreaClass>! { get }
 
+    /// Required Initialiser for types conforming to `DrawingAreaClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `DrawingAreaClassRef` type acts as a lightweight Swift reference to an underlying `GtkDrawingAreaClass` instance.
@@ -185,6 +187,8 @@ public protocol EditableInterfaceProtocol {
     /// Typed pointer to the underlying `GtkEditableInterface` instance.
     var _ptr: UnsafeMutablePointer<GtkEditableInterface>! { get }
 
+    /// Required Initialiser for types conforming to `EditableInterfaceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `EditableInterfaceRef` type acts as a lightweight Swift reference to an underlying `GtkEditableInterface` instance.

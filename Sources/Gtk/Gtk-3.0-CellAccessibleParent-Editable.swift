@@ -30,6 +30,8 @@ public protocol CellAccessibleParentProtocol {
     /// Typed pointer to the underlying `GtkCellAccessibleParent` instance.
     var cell_accessible_parent_ptr: UnsafeMutablePointer<GtkCellAccessibleParent>! { get }
 
+    /// Required Initialiser for types conforming to `CellAccessibleParentProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `CellAccessibleParentRef` type acts as a lightweight Swift reference to an underlying `GtkCellAccessibleParent` instance.
@@ -233,7 +235,7 @@ open class CellAccessibleParent: CellAccessibleParentProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `CellAccessibleParentProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -356,6 +358,8 @@ public protocol CellEditableProtocol: WidgetProtocol {
     /// Typed pointer to the underlying `GtkCellEditable` instance.
     var cell_editable_ptr: UnsafeMutablePointer<GtkCellEditable>! { get }
 
+    /// Required Initialiser for types conforming to `CellEditableProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `CellEditableRef` type acts as a lightweight Swift reference to an underlying `GtkCellEditable` instance.
@@ -553,14 +557,14 @@ open class CellEditable: Widget, CellEditableProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `CellEditableProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `CellEditableProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -608,9 +612,9 @@ public enum CellEditablePropertyName: String, PropertyNameProtocol {
     case halign = "halign"
     case hasDefault = "has-default"
     case hasFocus = "has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     /// 
     /// Note that setting this property to `true` for the first time will change
@@ -694,11 +698,11 @@ public enum CellEditablePropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipMarkup = "tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -706,11 +710,11 @@ public enum CellEditablePropertyName: String, PropertyNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case tooltipText = "tooltip-text"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
@@ -780,7 +784,7 @@ public extension CellEditableProtocol {
 
 public enum CellEditableSignalName: String, SignalNameProtocol {
     case accelClosuresChanged = "accel-closures-changed"
-    /// The `button`-press-event signal will be emitted when a button
+    /// The `button-press-event` signal will be emitted when a button
     /// (typically from a mouse) is pressed.
     /// 
     /// To receive this signal, the `GdkWindow` associated to the
@@ -788,7 +792,7 @@ public enum CellEditableSignalName: String, SignalNameProtocol {
     /// 
     /// This signal will be sent to the grab widget if there is one.
     case buttonPressEvent = "button-press-event"
-    /// The `button`-release-event signal will be emitted when a button
+    /// The `button-release-event` signal will be emitted when a button
     /// (typically from a mouse) is released.
     /// 
     /// To receive this signal, the `GdkWindow` associated to the
@@ -802,18 +806,18 @@ public enum CellEditableSignalName: String, SignalNameProtocol {
     /// widgets to override the default `GtkWidget` handling
     /// for determining whether an accelerator can be activated.
     case canActivateAccel = "can-activate-accel"
-    /// The `child`-notify signal is emitted for each
+    /// The `child-notify` signal is emitted for each
     /// [child property](#child-properties)  that has
     /// changed on an object. The signal's detail holds the property name.
     case childNotify = "child-notify"
-    /// The `composited`-changed signal is emitted when the composited
+    /// The `composited-changed` signal is emitted when the composited
     /// status of `widgets` screen changes.
     /// See `gdk_screen_is_composited()`.
     ///
     /// **composited-changed is deprecated:**
     /// Use GdkScreen::composited-changed instead.
     case compositedChanged = "composited-changed"
-    /// The `configure`-event signal will be emitted when the size, position or
+    /// The `configure-event` signal will be emitted when the size, position or
     /// stacking of the `widget`'s window has changed.
     /// 
     /// To receive this signal, the `GdkWindow` associated to the widget needs
@@ -824,7 +828,7 @@ public enum CellEditableSignalName: String, SignalNameProtocol {
     /// The region/area members of the event shows what area of the redirected
     /// drawable was drawn into.
     case damageEvent = "damage-event"
-    /// The `delete`-event signal is emitted if a user requests that
+    /// The `delete-event` signal is emitted if a user requests that
     /// a toplevel window is closed. The default handler for this signal
     /// destroys the window. Connecting `gtk_widget_hide_on_delete()` to
     /// this signal will cause the window to be hidden instead, so that
@@ -836,7 +840,7 @@ public enum CellEditableSignalName: String, SignalNameProtocol {
     /// 
     /// This signal is not suitable for saving widget state.
     case destroy = "destroy"
-    /// The `destroy`-event signal is emitted when a `GdkWindow` is destroyed.
+    /// The `destroy-event` signal is emitted when a `GdkWindow` is destroyed.
     /// You rarely get this signal, because most widgets disconnect themselves
     /// from their window before they destroy it, so no widget owns the
     /// window at destroy time.
@@ -845,10 +849,10 @@ public enum CellEditableSignalName: String, SignalNameProtocol {
     /// to enable the `GDK_STRUCTURE_MASK` mask. GDK will enable this mask
     /// automatically for all new windows.
     case destroyEvent = "destroy-event"
-    /// The `direction`-changed signal is emitted when the text direction
+    /// The `direction-changed` signal is emitted when the text direction
     /// of a widget changes.
     case directionChanged = "direction-changed"
-    /// The `drag`-begin signal is emitted on the drag source when a drag is
+    /// The `drag-begin` signal is emitted on the drag source when a drag is
     /// started. A typical reason to connect to this signal is to set up a
     /// custom drag icon with e.g. `gtk_drag_source_set_icon_pixbuf()`.
     /// 
@@ -856,22 +860,22 @@ public enum CellEditableSignalName: String, SignalNameProtocol {
     /// this signal, so you may have to use `g_signal_connect_after()` to
     /// override what the default handler did.
     case dragBegin = "drag-begin"
-    /// The `drag`-data-delete signal is emitted on the drag source when a drag
+    /// The `drag-data-delete` signal is emitted on the drag source when a drag
     /// with the action `GDK_ACTION_MOVE` is successfully completed. The signal
     /// handler is responsible for deleting the data that has been dropped. What
     /// "delete" means depends on the context of the drag operation.
     case dragDataDelete = "drag-data-delete"
-    /// The `drag`-data-get signal is emitted on the drag source when the drop
+    /// The `drag-data-get` signal is emitted on the drag source when the drop
     /// site requests the data which is dragged. It is the responsibility of
     /// the signal handler to fill `data` with the data in the format which
     /// is indicated by `info`. See `gtk_selection_data_set()` and
     /// `gtk_selection_data_set_text()`.
     case dragDataGet = "drag-data-get"
-    /// The `drag`-data-received signal is emitted on the drop site when the
+    /// The `drag-data-received` signal is emitted on the drop site when the
     /// dragged data has been received. If the data was received in order to
     /// determine whether the drop will be accepted, the handler is expected
     /// to call `gdk_drag_status()` and not finish the drag.
-    /// If the data was received in response to a `GtkWidget::drag`-drop signal
+    /// If the data was received in response to a `GtkWidget::drag-drop` signal
     /// (and this is the last target to be received), the handler for this
     /// signal is expected to process the received data and then call
     /// `gtk_drag_finish()`, setting the `success` parameter depending on
@@ -930,38 +934,38 @@ public enum CellEditableSignalName: String, SignalNameProtocol {
     /// ```
     /// 
     case dragDataReceived = "drag-data-received"
-    /// The `drag`-drop signal is emitted on the drop site when the user drops
+    /// The `drag-drop` signal is emitted on the drop site when the user drops
     /// the data onto the widget. The signal handler must determine whether
     /// the cursor position is in a drop zone or not. If it is not in a drop
     /// zone, it returns `false` and no further processing is necessary.
     /// Otherwise, the handler returns `true`. In this case, the handler must
     /// ensure that `gtk_drag_finish()` is called to let the source know that
     /// the drop is done. The call to `gtk_drag_finish()` can be done either
-    /// directly or in a `GtkWidget::drag`-data-received handler which gets
+    /// directly or in a `GtkWidget::drag-data-received` handler which gets
     /// triggered by calling `gtk_drag_get_data()` to receive the data for one
     /// or more of the supported targets.
     case dragDrop = "drag-drop"
-    /// The `drag`-end signal is emitted on the drag source when a drag is
+    /// The `drag-end` signal is emitted on the drag source when a drag is
     /// finished.  A typical reason to connect to this signal is to undo
-    /// things done in `GtkWidget::drag`-begin.
+    /// things done in `GtkWidget::drag-begin`.
     case dragEnd = "drag-end"
-    /// The `drag`-failed signal is emitted on the drag source when a drag has
+    /// The `drag-failed` signal is emitted on the drag source when a drag has
     /// failed. The signal handler may hook custom code to handle a failed DnD
     /// operation based on the type of error, it returns `true` is the failure has
     /// been already handled (not showing the default "drag operation failed"
     /// animation), otherwise it returns `false`.
     case dragFailed = "drag-failed"
-    /// The `drag`-leave signal is emitted on the drop site when the cursor
+    /// The `drag-leave` signal is emitted on the drop site when the cursor
     /// leaves the widget. A typical reason to connect to this signal is to
-    /// undo things done in `GtkWidget::drag`-motion, e.g. undo highlighting
+    /// undo things done in `GtkWidget::drag-motion`, e.g. undo highlighting
     /// with `gtk_drag_unhighlight()`.
     /// 
     /// 
-    /// Likewise, the `GtkWidget::drag`-leave signal is also emitted before the
-    /// `drag`-drop signal, for instance to allow cleaning up of a preview item
-    /// created in the `GtkWidget::drag`-motion signal handler.
+    /// Likewise, the `GtkWidget::drag-leave` signal is also emitted before the
+    /// `drag-drop` signal, for instance to allow cleaning up of a preview item
+    /// created in the `GtkWidget::drag-motion` signal handler.
     case dragLeave = "drag-leave"
-    /// The `drag`-motion signal is emitted on the drop site when the user
+    /// The `drag-motion` signal is emitted on the drop site when the user
     /// moves the cursor over the widget during a drag. The signal handler
     /// must determine whether the cursor position is in a drop zone or not.
     /// If it is not in a drop zone, it returns `false` and no further processing
@@ -972,14 +976,14 @@ public enum CellEditableSignalName: String, SignalNameProtocol {
     /// If the decision whether the drop will be accepted or rejected can't be
     /// made based solely on the cursor position and the type of the data, the
     /// handler may inspect the dragged data by calling `gtk_drag_get_data()` and
-    /// defer the `gdk_drag_status()` call to the `GtkWidget::drag`-data-received
+    /// defer the `gdk_drag_status()` call to the `GtkWidget::drag-data-received`
     /// handler. Note that you must pass `GTK_DEST_DEFAULT_DROP`,
     /// `GTK_DEST_DEFAULT_MOTION` or `GTK_DEST_DEFAULT_ALL` to `gtk_drag_dest_set()`
     /// when using the drag-motion signal that way.
     /// 
     /// Also note that there is no drag-enter signal. The drag receiver has to
     /// keep track of whether he has received any drag-motion signals since the
-    /// last `GtkWidget::drag`-leave and if not, treat the drag-motion signal as
+    /// last `GtkWidget::drag-leave` and if not, treat the drag-motion signal as
     /// an "enter" signal. Upon an "enter", the handler will typically highlight
     /// the drop site with `gtk_drag_highlight()`.
     /// (C Language Example):
@@ -1074,13 +1078,13 @@ public enum CellEditableSignalName: String, SignalNameProtocol {
     /// Implementations of `GtkCellEditable` are responsible for
     /// emitting this signal when they are done editing, e.g.
     /// `GtkEntry` emits this signal when the user presses Enter. Typical things to
-    /// do in a handler for `editing`-done are to capture the edited value,
+    /// do in a handler for `editing-done` are to capture the edited value,
     /// disconnect the `cell_editable` from signals on the `GtkCellRenderer`, etc.
     /// 
     /// `gtk_cell_editable_editing_done()` is a convenience method
-    /// for emitting `GtkCellEditable::editing`-done.
+    /// for emitting `GtkCellEditable::editing-done`.
     case editingDone = "editing-done"
-    /// The `enter`-notify-event will be emitted when the pointer enters
+    /// The `enter-notify-event` will be emitted when the pointer enters
     /// the `widget`'s window.
     /// 
     /// To receive this signal, the `GdkWindow` associated to the widget needs
@@ -1091,21 +1095,21 @@ public enum CellEditableSignalName: String, SignalNameProtocol {
     /// The GTK+ main loop will emit three signals for each GDK event delivered
     /// to a widget: one generic `event` signal, another, more specific,
     /// signal that matches the type of event delivered (e.g.
-    /// `GtkWidget::key`-press-event) and finally a generic
-    /// `GtkWidget::event`-after signal.
+    /// `GtkWidget::key-press-event`) and finally a generic
+    /// `GtkWidget::event-after` signal.
     case event = "event"
     /// After the emission of the `GtkWidget::event` signal and (optionally)
-    /// the second more specific signal, `event`-after will be emitted
+    /// the second more specific signal, `event-after` will be emitted
     /// regardless of the previous two signals handlers return values.
     case eventAfter = "event-after"
     case focus = "focus"
-    /// The `focus`-in-event signal will be emitted when the keyboard focus
+    /// The `focus-in-event` signal will be emitted when the keyboard focus
     /// enters the `widget`'s window.
     /// 
     /// To receive this signal, the `GdkWindow` associated to the widget needs
     /// to enable the `GDK_FOCUS_CHANGE_MASK` mask.
     case focusInEvent = "focus-in-event"
-    /// The `focus`-out-event signal will be emitted when the keyboard focus
+    /// The `focus-out-event` signal will be emitted when the keyboard focus
     /// leaves the `widget`'s window.
     /// 
     /// To receive this signal, the `GdkWindow` associated to the widget needs
@@ -1119,7 +1123,7 @@ public enum CellEditableSignalName: String, SignalNameProtocol {
     /// application grabs the pointer or keyboard again.
     case grabBrokenEvent = "grab-broken-event"
     case grabFocus = "grab-focus"
-    /// The `grab`-notify signal is emitted when a widget becomes
+    /// The `grab-notify` signal is emitted when a widget becomes
     /// shadowed by a GTK+ grab (not a pointer or keyboard grab) on
     /// another widget, or when it becomes unshadowed due to a grab
     /// being removed.
@@ -1131,13 +1135,13 @@ public enum CellEditableSignalName: String, SignalNameProtocol {
     /// The `hide` signal is emitted when `widget` is hidden, for example with
     /// `gtk_widget_hide()`.
     case hide = "hide"
-    /// The `hierarchy`-changed signal is emitted when the
+    /// The `hierarchy-changed` signal is emitted when the
     /// anchored state of a widget changes. A widget is
     /// “anchored” when its toplevel
     /// ancestor is a `GtkWindow`. This signal is emitted when
     /// a widget changes from un-anchored to anchored or vice-versa.
     case hierarchyChanged = "hierarchy-changed"
-    /// The `key`-press-event signal is emitted when a key is pressed. The signal
+    /// The `key-press-event` signal is emitted when a key is pressed. The signal
     /// emission will reoccur at the key-repeat rate when the key is kept pressed.
     /// 
     /// To receive this signal, the `GdkWindow` associated to the widget needs
@@ -1145,7 +1149,7 @@ public enum CellEditableSignalName: String, SignalNameProtocol {
     /// 
     /// This signal will be sent to the grab widget if there is one.
     case keyPressEvent = "key-press-event"
-    /// The `key`-release-event signal is emitted when a key is released.
+    /// The `key-release-event` signal is emitted when a key is released.
     /// 
     /// To receive this signal, the `GdkWindow` associated to the widget needs
     /// to enable the `GDK_KEY_RELEASE_MASK` mask.
@@ -1155,7 +1159,7 @@ public enum CellEditableSignalName: String, SignalNameProtocol {
     /// Gets emitted if keyboard navigation fails.
     /// See `gtk_widget_keynav_failed()` for details.
     case keynavFailed = "keynav-failed"
-    /// The `leave`-notify-event will be emitted when the pointer leaves
+    /// The `leave-notify-event` will be emitted when the pointer leaves
     /// the `widget`'s window.
     /// 
     /// To receive this signal, the `GdkWindow` associated to the widget needs
@@ -1166,14 +1170,14 @@ public enum CellEditableSignalName: String, SignalNameProtocol {
     /// The `map` signal is emitted when `widget` is going to be mapped, that is
     /// when the widget is visible (which is controlled with
     /// `gtk_widget_set_visible()`) and all its parents up to the toplevel widget
-    /// are also visible. Once the map has occurred, `GtkWidget::map`-event will
+    /// are also visible. Once the map has occurred, `GtkWidget::map-event` will
     /// be emitted.
     /// 
     /// The `map` signal can be used to determine whether a widget will be drawn,
     /// for instance it can resume an animation that was stopped during the
     /// emission of `GtkWidget::unmap`.
     case map = "map"
-    /// The `map`-event signal will be emitted when the `widget`'s window is
+    /// The `map-event` signal will be emitted when the `widget`'s window is
     /// mapped. A window is mapped when it becomes visible on the screen.
     /// 
     /// To receive this signal, the `GdkWindow` associated to the widget needs
@@ -1183,7 +1187,7 @@ public enum CellEditableSignalName: String, SignalNameProtocol {
     /// The default handler for this signal activates `widget` if `group_cycling`
     /// is `false`, or just makes `widget` grab focus if `group_cycling` is `true`.
     case mnemonicActivate = "mnemonic-activate"
-    /// The `motion`-notify-event signal is emitted when the pointer moves
+    /// The `motion-notify-event` signal is emitted when the pointer moves
     /// over the widget's `GdkWindow`.
     /// 
     /// To receive this signal, the `GdkWindow` associated to the widget
@@ -1217,7 +1221,7 @@ public enum CellEditableSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// The `parent`-set signal is emitted when a new parent
+    /// The `parent-set` signal is emitted when a new parent
     /// has been set on a widget.
     case parentSet = "parent-set"
     /// This signal gets emitted whenever a widget should pop up a context
@@ -1228,7 +1232,7 @@ public enum CellEditableSignalName: String, SignalNameProtocol {
     /// [Popup Menu Migration Checklist](#checklist-popup-menu)
     /// for an example of how to use this signal.
     case popupMenu = "popup-menu"
-    /// The `property`-notify-event signal will be emitted when a property on
+    /// The `property-notify-event` signal will be emitted when a property on
     /// the `widget`'s window has been changed or deleted.
     /// 
     /// To receive this signal, the `GdkWindow` associated to the widget needs
@@ -1244,7 +1248,7 @@ public enum CellEditableSignalName: String, SignalNameProtocol {
     /// 
     /// This signal will be sent to the grab widget if there is one.
     case proximityOutEvent = "proximity-out-event"
-    /// Emitted when `GtkWidget:has`-tooltip is `true` and the hover timeout
+    /// Emitted when `GtkWidget:has-tooltip` is `true` and the hover timeout
     /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
     /// focus in keyboard mode.
     /// 
@@ -1267,17 +1271,17 @@ public enum CellEditableSignalName: String, SignalNameProtocol {
     /// 
     /// Implementations of `GtkCellEditable` are responsible for
     /// emitting this signal when they are done editing. It must
-    /// be emitted after the `GtkCellEditable::editing`-done signal,
+    /// be emitted after the `GtkCellEditable::editing-done` signal,
     /// to give the cell renderer a chance to update the cell's value
     /// before the widget is removed.
     /// 
     /// `gtk_cell_editable_remove_widget()` is a convenience method
-    /// for emitting `GtkCellEditable::remove`-widget.
+    /// for emitting `GtkCellEditable::remove-widget`.
     case removeWidget = "remove-widget"
-    /// The `screen`-changed signal gets emitted when the
+    /// The `screen-changed` signal gets emitted when the
     /// screen of a widget has changed.
     case screenChanged = "screen-changed"
-    /// The `scroll`-event signal is emitted when a button in the 4 to 7
+    /// The `scroll-event` signal is emitted when a button in the 4 to 7
     /// range is pressed. Wheel mice are usually configured to generate
     /// button press events for buttons 4 and 5 when the wheel is turned.
     /// 
@@ -1286,13 +1290,13 @@ public enum CellEditableSignalName: String, SignalNameProtocol {
     /// 
     /// This signal will be sent to the grab widget if there is one.
     case scrollEvent = "scroll-event"
-    /// The `selection`-clear-event signal will be emitted when the
+    /// The `selection-clear-event` signal will be emitted when the
     /// the `widget`'s window has lost ownership of a selection.
     case selectionClearEvent = "selection-clear-event"
     case selectionGet = "selection-get"
     case selectionNotifyEvent = "selection-notify-event"
     case selectionReceived = "selection-received"
-    /// The `selection`-request-event signal will be emitted when
+    /// The `selection-request-event` signal will be emitted when
     /// another client requests ownership of the selection owned by
     /// the `widget`'s window.
     case selectionRequestEvent = "selection-request-event"
@@ -1301,27 +1305,27 @@ public enum CellEditableSignalName: String, SignalNameProtocol {
     case show = "show"
     case showHelp = "show-help"
     case sizeAllocate = "size-allocate"
-    /// The `state`-changed signal is emitted when the widget state changes.
+    /// The `state-changed` signal is emitted when the widget state changes.
     /// See `gtk_widget_get_state()`.
     ///
     /// **state-changed is deprecated:**
     /// Use #GtkWidget::state-flags-changed instead.
     case stateChanged = "state-changed"
-    /// The `state`-flags-changed signal is emitted when the widget state
+    /// The `state-flags-changed` signal is emitted when the widget state
     /// changes, see `gtk_widget_get_state_flags()`.
     case stateFlagsChanged = "state-flags-changed"
-    /// The `style`-set signal is emitted when a new style has been set
+    /// The `style-set` signal is emitted when a new style has been set
     /// on a widget. Note that style-modifying functions like
     /// `gtk_widget_modify_base()` also cause this signal to be emitted.
     /// 
     /// Note that this signal is emitted for changes to the deprecated
     /// `GtkStyle`. To track changes to the `GtkStyleContext` associated
-    /// with a widget, use the `GtkWidget::style`-updated signal.
+    /// with a widget, use the `GtkWidget::style-updated` signal.
     ///
     /// **style-set is deprecated:**
     /// Use the #GtkWidget::style-updated signal
     case styleSet = "style-set"
-    /// The `style`-updated signal is a convenience signal that is emitted when the
+    /// The `style-updated` signal is a convenience signal that is emitted when the
     /// `GtkStyleContext::changed` signal is emitted on the `widget`'s associated
     /// `GtkStyleContext` as returned by `gtk_widget_get_style_context()`.
     /// 
@@ -1336,7 +1340,7 @@ public enum CellEditableSignalName: String, SignalNameProtocol {
     /// As `unmap` indicates that a widget will not be shown any longer, it can be
     /// used to, for example, stop an animation on the widget.
     case unmap = "unmap"
-    /// The `unmap`-event signal will be emitted when the `widget`'s window is
+    /// The `unmap-event` signal will be emitted when the `widget`'s window is
     /// unmapped. A window is unmapped when it becomes invisible on the screen.
     /// 
     /// To receive this signal, the `GdkWindow` associated to the widget needs
@@ -1348,7 +1352,7 @@ public enum CellEditableSignalName: String, SignalNameProtocol {
     /// called or the widget has been unmapped (that is, it is going to be
     /// hidden).
     case unrealize = "unrealize"
-    /// The `visibility`-notify-event will be emitted when the `widget`'s
+    /// The `visibility-notify-event` will be emitted when the `widget`'s
     /// window is obscured or unobscured.
     /// 
     /// To receive this signal the `GdkWindow` associated to the widget needs
@@ -1360,7 +1364,7 @@ public enum CellEditableSignalName: String, SignalNameProtocol {
     ///     reliably, so this signal can not be guaranteed to provide useful
     ///     information.
     case visibilityNotifyEvent = "visibility-notify-event"
-    /// The `window`-state-event will be emitted when the state of the
+    /// The `window-state-event` will be emitted when the state of the
     /// toplevel window associated to the `widget` changes.
     /// 
     /// To receive this signal the `GdkWindow` associated to the widget
@@ -1392,9 +1396,9 @@ public enum CellEditableSignalName: String, SignalNameProtocol {
     case notifyHalign = "notify::halign"
     case notifyHasDefault = "notify::has-default"
     case notifyHasFocus = "notify::has-focus"
-    /// Enables or disables the emission of `GtkWidget::query`-tooltip on `widget`.
+    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query`-tooltip to determine
+    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
     /// whether it will provide a tooltip or not.
     /// 
     /// Note that setting this property to `true` for the first time will change
@@ -1478,11 +1482,11 @@ public enum CellEditableSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_markup()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipMarkup = "notify::tooltip-markup"
     /// Sets the text of tooltip to be the given string.
@@ -1490,11 +1494,11 @@ public enum CellEditableSignalName: String, SignalNameProtocol {
     /// Also see `gtk_tooltip_set_text()`.
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has`-tooltip
+    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
     /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query`-tooltip in the default signal handler.
+    /// `GtkWidget::query-tooltip` in the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip`-text and `GtkWidget:tooltip`-markup
+    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
     /// are set, the last one wins.
     case notifyTooltipText = "notify::tooltip-text"
     /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
@@ -1543,11 +1547,11 @@ public extension CellEditableProtocol {
     /// Implementations of `GtkCellEditable` are responsible for
     /// emitting this signal when they are done editing, e.g.
     /// `GtkEntry` emits this signal when the user presses Enter. Typical things to
-    /// do in a handler for `editing`-done are to capture the edited value,
+    /// do in a handler for `editing-done` are to capture the edited value,
     /// disconnect the `cell_editable` from signals on the `GtkCellRenderer`, etc.
     /// 
     /// `gtk_cell_editable_editing_done()` is a convenience method
-    /// for emitting `GtkCellEditable::editing`-done.
+    /// for emitting `GtkCellEditable::editing-done`.
     /// - Note: This represents the underlying `editing-done` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -1578,12 +1582,12 @@ public extension CellEditableProtocol {
     /// 
     /// Implementations of `GtkCellEditable` are responsible for
     /// emitting this signal when they are done editing. It must
-    /// be emitted after the `GtkCellEditable::editing`-done signal,
+    /// be emitted after the `GtkCellEditable::editing-done` signal,
     /// to give the cell renderer a chance to update the cell's value
     /// before the widget is removed.
     /// 
     /// `gtk_cell_editable_remove_widget()` is a convenience method
-    /// for emitting `GtkCellEditable::remove`-widget.
+    /// for emitting `GtkCellEditable::remove-widget`.
     /// - Note: This represents the underlying `remove-widget` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -1664,13 +1668,13 @@ public extension CellEditableProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkCellEditable` instance.
     @inlinable var cell_editable_ptr: UnsafeMutablePointer<GtkCellEditable>! { return ptr?.assumingMemoryBound(to: GtkCellEditable.self) }
 
-    /// Emits the `GtkCellEditable::editing`-done signal.
+    /// Emits the `GtkCellEditable::editing-done` signal.
     @inlinable func editingDone() {
         gtk_cell_editable_editing_done(cell_editable_ptr)
     
     }
 
-    /// Emits the `GtkCellEditable::remove`-widget signal.
+    /// Emits the `GtkCellEditable::remove-widget` signal.
     @inlinable func removeWidget() {
         gtk_cell_editable_remove_widget(cell_editable_ptr)
     
@@ -1682,7 +1686,7 @@ public extension CellEditableProtocol {
     /// `gtk_cell_renderer_start_editing()`, configured for the `GtkCellRenderer` type.
     /// 
     /// `gtk_cell_editable_start_editing()` can then set up `cell_editable` suitably for
-    /// editing a cell, e.g. making the Esc key emit `GtkCellEditable::editing`-done.
+    /// editing a cell, e.g. making the Esc key emit `GtkCellEditable::editing-done`.
     /// 
     /// Note that the `cell_editable` is created on-demand for the current edit; its
     /// lifetime is temporary and does not persist across other edits and/or cells.
@@ -1696,7 +1700,7 @@ public extension CellEditableProtocol {
     /// `gtk_cell_renderer_start_editing()`, configured for the `GtkCellRenderer` type.
     /// 
     /// `gtk_cell_editable_start_editing()` can then set up `cell_editable` suitably for
-    /// editing a cell, e.g. making the Esc key emit `GtkCellEditable::editing`-done.
+    /// editing a cell, e.g. making the Esc key emit `GtkCellEditable::editing-done`.
     /// 
     /// Note that the `cell_editable` is created on-demand for the current edit; its
     /// lifetime is temporary and does not persist across other edits and/or cells.
@@ -1736,9 +1740,9 @@ public extension CellEditableProtocol {
 /// Implementations of GtkCellLayout which also implement the GtkBuildable
 /// interface (`GtkCellView`, `GtkIconView`, `GtkComboBox`,
 /// `GtkEntryCompletion`, `GtkTreeViewColumn`) accept GtkCellRenderer objects
-/// as <child> elements in UI definitions. They support a custom <attributes>
-/// element for their children, which can contain multiple <attribute>
-/// elements. Each <attribute> element has a name attribute which specifies
+/// as &lt;child&gt; elements in UI definitions. They support a custom &lt;attributes&gt;
+/// element for their children, which can contain multiple &lt;attribute&gt;
+/// elements. Each &lt;attribute&gt; element has a name attribute which specifies
 /// a property of the cell renderer; the content of the element is the
 /// attribute value.
 /// 
@@ -1757,8 +1761,8 @@ public extension CellEditableProtocol {
 /// Furthermore for implementations of GtkCellLayout that use a `GtkCellArea`
 /// to lay out cells (all GtkCellLayouts in GTK+ use a GtkCellArea)
 /// [cell properties](#cell-properties) can also be defined in the format by
-/// specifying the custom <cell-packing> attribute which can contain multiple
-/// <property> elements defined in the normal way.
+/// specifying the custom &lt;cell-packing&gt; attribute which can contain multiple
+/// &lt;property&gt; elements defined in the normal way.
 /// 
 /// Here is a UI definition fragment specifying cell properties:
 /// 
@@ -1829,6 +1833,8 @@ public protocol CellLayoutProtocol {
     /// Typed pointer to the underlying `GtkCellLayout` instance.
     var cell_layout_ptr: UnsafeMutablePointer<GtkCellLayout>! { get }
 
+    /// Required Initialiser for types conforming to `CellLayoutProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `CellLayoutRef` type acts as a lightweight Swift reference to an underlying `GtkCellLayout` instance.
@@ -1854,9 +1860,9 @@ public protocol CellLayoutProtocol {
 /// Implementations of GtkCellLayout which also implement the GtkBuildable
 /// interface (`GtkCellView`, `GtkIconView`, `GtkComboBox`,
 /// `GtkEntryCompletion`, `GtkTreeViewColumn`) accept GtkCellRenderer objects
-/// as <child> elements in UI definitions. They support a custom <attributes>
-/// element for their children, which can contain multiple <attribute>
-/// elements. Each <attribute> element has a name attribute which specifies
+/// as &lt;child&gt; elements in UI definitions. They support a custom &lt;attributes&gt;
+/// element for their children, which can contain multiple &lt;attribute&gt;
+/// elements. Each &lt;attribute&gt; element has a name attribute which specifies
 /// a property of the cell renderer; the content of the element is the
 /// attribute value.
 /// 
@@ -1875,8 +1881,8 @@ public protocol CellLayoutProtocol {
 /// Furthermore for implementations of GtkCellLayout that use a `GtkCellArea`
 /// to lay out cells (all GtkCellLayouts in GTK+ use a GtkCellArea)
 /// [cell properties](#cell-properties) can also be defined in the format by
-/// specifying the custom <cell-packing> attribute which can contain multiple
-/// <property> elements defined in the normal way.
+/// specifying the custom &lt;cell-packing&gt; attribute which can contain multiple
+/// &lt;property&gt; elements defined in the normal way.
 /// 
 /// Here is a UI definition fragment specifying cell properties:
 /// 
@@ -2041,9 +2047,9 @@ public extension CellLayoutRef {
 /// Implementations of GtkCellLayout which also implement the GtkBuildable
 /// interface (`GtkCellView`, `GtkIconView`, `GtkComboBox`,
 /// `GtkEntryCompletion`, `GtkTreeViewColumn`) accept GtkCellRenderer objects
-/// as <child> elements in UI definitions. They support a custom <attributes>
-/// element for their children, which can contain multiple <attribute>
-/// elements. Each <attribute> element has a name attribute which specifies
+/// as &lt;child&gt; elements in UI definitions. They support a custom &lt;attributes&gt;
+/// element for their children, which can contain multiple &lt;attribute&gt;
+/// elements. Each &lt;attribute&gt; element has a name attribute which specifies
 /// a property of the cell renderer; the content of the element is the
 /// attribute value.
 /// 
@@ -2062,8 +2068,8 @@ public extension CellLayoutRef {
 /// Furthermore for implementations of GtkCellLayout that use a `GtkCellArea`
 /// to lay out cells (all GtkCellLayouts in GTK+ use a GtkCellArea)
 /// [cell properties](#cell-properties) can also be defined in the format by
-/// specifying the custom <cell-packing> attribute which can contain multiple
-/// <property> elements defined in the normal way.
+/// specifying the custom &lt;cell-packing&gt; attribute which can contain multiple
+/// &lt;property&gt; elements defined in the normal way.
 /// 
 /// Here is a UI definition fragment specifying cell properties:
 /// 
@@ -2240,7 +2246,7 @@ open class CellLayout: CellLayoutProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `CellLayoutProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -2411,6 +2417,8 @@ public protocol ColorChooserProtocol {
     /// Typed pointer to the underlying `GtkColorChooser` instance.
     var color_chooser_ptr: UnsafeMutablePointer<GtkColorChooser>! { get }
 
+    /// Required Initialiser for types conforming to `ColorChooserProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ColorChooserRef` type acts as a lightweight Swift reference to an underlying `GtkColorChooser` instance.
@@ -2624,7 +2632,7 @@ open class ColorChooser: ColorChooserProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ColorChooserProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -2660,7 +2668,7 @@ public enum ColorChooserPropertyName: String, PropertyNameProtocol {
     /// as a `GdkRGBA` struct. The property can be set to change
     /// the current selection programmatically.
     case rgba = "rgba"
-    /// When `use`-alpha is `true`, colors may have alpha (translucency)
+    /// When `use-alpha` is `true`, colors may have alpha (translucency)
     /// information. When it is `false`, the `GdkRGBA` struct obtained
     /// via the `GtkColorChooser:rgba` property will be forced to have
     /// alpha == 1.
@@ -2733,7 +2741,7 @@ public enum ColorChooserSignalName: String, SignalNameProtocol {
     /// as a `GdkRGBA` struct. The property can be set to change
     /// the current selection programmatically.
     case notifyRGBA = "notify::rgba"
-    /// When `use`-alpha is `true`, colors may have alpha (translucency)
+    /// When `use-alpha` is `true`, colors may have alpha (translucency)
     /// information. When it is `false`, the `GdkRGBA` struct obtained
     /// via the `GtkColorChooser:rgba` property will be forced to have
     /// alpha == 1.
@@ -2982,7 +2990,7 @@ public extension ColorChooserProtocol {
 /// connect to to modify the behavior of a widget.
 /// 
 /// As an example of the latter usage, by connecting
-/// the following handler to `GtkEditable::insert`-text, an application
+/// the following handler to `GtkEditable::insert-text`, an application
 /// can convert all entry into a widget into uppercase.
 /// 
 /// ## Forcing entry to uppercase.
@@ -3019,6 +3027,8 @@ public protocol EditableProtocol {
     /// Typed pointer to the underlying `GtkEditable` instance.
     var editable_ptr: UnsafeMutablePointer<GtkEditable>! { get }
 
+    /// Required Initialiser for types conforming to `EditableProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `EditableRef` type acts as a lightweight Swift reference to an underlying `GtkEditable` instance.
@@ -3032,7 +3042,7 @@ public protocol EditableProtocol {
 /// connect to to modify the behavior of a widget.
 /// 
 /// As an example of the latter usage, by connecting
-/// the following handler to `GtkEditable::insert`-text, an application
+/// the following handler to `GtkEditable::insert-text`, an application
 /// can convert all entry into a widget into uppercase.
 /// 
 /// ## Forcing entry to uppercase.
@@ -3151,7 +3161,7 @@ public extension EditableRef {
 /// connect to to modify the behavior of a widget.
 /// 
 /// As an example of the latter usage, by connecting
-/// the following handler to `GtkEditable::insert`-text, an application
+/// the following handler to `GtkEditable::insert-text`, an application
 /// can convert all entry into a widget into uppercase.
 /// 
 /// ## Forcing entry to uppercase.
@@ -3294,7 +3304,7 @@ open class Editable: EditableProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EditableProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 

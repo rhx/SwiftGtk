@@ -45,6 +45,8 @@ public protocol WidgetClassProtocol {
     /// Typed pointer to the underlying `GtkWidgetClass` instance.
     var _ptr: UnsafeMutablePointer<GtkWidgetClass>! { get }
 
+    /// Required Initialiser for types conforming to `WidgetClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `WidgetClassRef` type acts as a lightweight Swift reference to an underlying `GtkWidgetClass` instance.
@@ -507,6 +509,8 @@ public protocol WidgetClassPrivateProtocol {
     /// Typed pointer to the underlying `GtkWidgetClassPrivate` instance.
     var _ptr: UnsafeMutablePointer<GtkWidgetClassPrivate>! { get }
 
+    /// Required Initialiser for types conforming to `WidgetClassPrivateProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `WidgetClassPrivateRef` type acts as a lightweight Swift reference to an underlying `GtkWidgetClassPrivate` instance.
@@ -710,7 +714,7 @@ open class WidgetClassPrivate: WidgetClassPrivateProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `WidgetClassPrivateProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -820,6 +824,8 @@ public protocol WidgetPathProtocol {
     /// Typed pointer to the underlying `GtkWidgetPath` instance.
     var widget_path_ptr: UnsafeMutablePointer<GtkWidgetPath>! { get }
 
+    /// Required Initialiser for types conforming to `WidgetPathProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `WidgetPathRef` type acts as a lightweight Swift reference to an underlying `GtkWidgetPath` instance.
@@ -1124,7 +1130,7 @@ open class WidgetPath: WidgetPathProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `WidgetPathProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -1535,6 +1541,8 @@ public protocol WindowAccessibleClassProtocol {
     /// Typed pointer to the underlying `GtkWindowAccessibleClass` instance.
     var _ptr: UnsafeMutablePointer<GtkWindowAccessibleClass>! { get }
 
+    /// Required Initialiser for types conforming to `WindowAccessibleClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `WindowAccessibleClassRef` type acts as a lightweight Swift reference to an underlying `GtkWindowAccessibleClass` instance.
@@ -1667,6 +1675,8 @@ public protocol WindowClassProtocol {
     /// Typed pointer to the underlying `GtkWindowClass` instance.
     var _ptr: UnsafeMutablePointer<GtkWindowClass>! { get }
 
+    /// Required Initialiser for types conforming to `WindowClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `WindowClassRef` type acts as a lightweight Swift reference to an underlying `GtkWindowClass` instance.
@@ -1802,6 +1812,8 @@ public protocol WindowGeometryInfoProtocol {
     /// Typed pointer to the underlying `GtkWindowGeometryInfo` instance.
     var _ptr: UnsafeMutablePointer<GtkWindowGeometryInfo>! { get }
 
+    /// Required Initialiser for types conforming to `WindowGeometryInfoProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `WindowGeometryInfoRef` type acts as a lightweight Swift reference to an underlying `GtkWindowGeometryInfo` instance.
@@ -2005,7 +2017,7 @@ open class WindowGeometryInfo: WindowGeometryInfoProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `WindowGeometryInfoProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -2082,6 +2094,8 @@ public protocol WindowGroupClassProtocol {
     /// Typed pointer to the underlying `GtkWindowGroupClass` instance.
     var _ptr: UnsafeMutablePointer<GtkWindowGroupClass>! { get }
 
+    /// Required Initialiser for types conforming to `WindowGroupClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `WindowGroupClassRef` type acts as a lightweight Swift reference to an underlying `GtkWindowGroupClass` instance.
@@ -2199,7 +2213,7 @@ public extension WindowGroupClassProtocol {
 /// For a concrete class that implements these methods and properties, see `_MountOperationHandler`.
 /// Alternatively, use `_MountOperationHandlerRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Abstract interface type for the D-Bus interface <link linkend="gdbus-interface-org-Gtk-MountOperationHandler.top_of_page">org.Gtk.MountOperationHandler</link>.
+/// Abstract interface type for the D-Bus interface &lt;link linkend="gdbus-interface-org-Gtk-MountOperationHandler.top_of_page"&gt;org.Gtk.MountOperationHandler&lt;/link&gt;.
 public protocol _MountOperationHandlerProtocol {
         /// Untyped pointer to the underlying `_GtkMountOperationHandler` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2207,13 +2221,15 @@ public protocol _MountOperationHandlerProtocol {
     /// Typed pointer to the underlying `_GtkMountOperationHandler` instance.
     var _ptr: UnsafeMutablePointer<_GtkMountOperationHandler>! { get }
 
+    /// Required Initialiser for types conforming to `_MountOperationHandlerProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `_MountOperationHandlerRef` type acts as a lightweight Swift reference to an underlying `_GtkMountOperationHandler` instance.
 /// It exposes methods that can operate on this data type through `_MountOperationHandlerProtocol` conformance.
 /// Use `_MountOperationHandlerRef` only as an `unowned` reference to an existing `_GtkMountOperationHandler` instance.
 ///
-/// Abstract interface type for the D-Bus interface <link linkend="gdbus-interface-org-Gtk-MountOperationHandler.top_of_page">org.Gtk.MountOperationHandler</link>.
+/// Abstract interface type for the D-Bus interface &lt;link linkend="gdbus-interface-org-Gtk-MountOperationHandler.top_of_page"&gt;org.Gtk.MountOperationHandler&lt;/link&gt;.
 public struct _MountOperationHandlerRef: _MountOperationHandlerProtocol {
         /// Untyped pointer to the underlying `_GtkMountOperationHandler` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -2296,7 +2312,7 @@ public extension _MountOperationHandlerRef {
 /// It provides the methods that can operate on this data type through `_MountOperationHandlerProtocol` conformance.
 /// Use `_MountOperationHandler` as a strong reference or owner of a `_GtkMountOperationHandler` instance.
 ///
-/// Abstract interface type for the D-Bus interface <link linkend="gdbus-interface-org-Gtk-MountOperationHandler.top_of_page">org.Gtk.MountOperationHandler</link>.
+/// Abstract interface type for the D-Bus interface &lt;link linkend="gdbus-interface-org-Gtk-MountOperationHandler.top_of_page"&gt;org.Gtk.MountOperationHandler&lt;/link&gt;.
 open class _MountOperationHandler: _MountOperationHandlerProtocol {
         /// Untyped pointer to the underlying `_GtkMountOperationHandler` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -2410,7 +2426,7 @@ open class _MountOperationHandler: _MountOperationHandlerProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `_MountOperationHandlerProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 

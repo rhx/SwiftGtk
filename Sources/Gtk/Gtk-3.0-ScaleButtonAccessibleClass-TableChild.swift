@@ -45,6 +45,8 @@ public protocol ScaleButtonAccessibleClassProtocol {
     /// Typed pointer to the underlying `GtkScaleButtonAccessibleClass` instance.
     var _ptr: UnsafeMutablePointer<GtkScaleButtonAccessibleClass>! { get }
 
+    /// Required Initialiser for types conforming to `ScaleButtonAccessibleClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ScaleButtonAccessibleClassRef` type acts as a lightweight Swift reference to an underlying `GtkScaleButtonAccessibleClass` instance.
@@ -177,6 +179,8 @@ public protocol ScaleButtonClassProtocol {
     /// Typed pointer to the underlying `GtkScaleButtonClass` instance.
     var _ptr: UnsafeMutablePointer<GtkScaleButtonClass>! { get }
 
+    /// Required Initialiser for types conforming to `ScaleButtonClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ScaleButtonClassRef` type acts as a lightweight Swift reference to an underlying `GtkScaleButtonClass` instance.
@@ -319,6 +323,8 @@ public protocol ScaleClassProtocol {
     /// Typed pointer to the underlying `GtkScaleClass` instance.
     var _ptr: UnsafeMutablePointer<GtkScaleClass>! { get }
 
+    /// Required Initialiser for types conforming to `ScaleClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ScaleClassRef` type acts as a lightweight Swift reference to an underlying `GtkScaleClass` instance.
@@ -465,6 +471,8 @@ public protocol ScrollableInterfaceProtocol {
     /// Typed pointer to the underlying `GtkScrollableInterface` instance.
     var _ptr: UnsafeMutablePointer<GtkScrollableInterface>! { get }
 
+    /// Required Initialiser for types conforming to `ScrollableInterfaceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ScrollableInterfaceRef` type acts as a lightweight Swift reference to an underlying `GtkScrollableInterface` instance.
@@ -599,6 +607,8 @@ public protocol ScrollbarClassProtocol {
     /// Typed pointer to the underlying `GtkScrollbarClass` instance.
     var _ptr: UnsafeMutablePointer<GtkScrollbarClass>! { get }
 
+    /// Required Initialiser for types conforming to `ScrollbarClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ScrollbarClassRef` type acts as a lightweight Swift reference to an underlying `GtkScrollbarClass` instance.
@@ -739,6 +749,8 @@ public protocol ScrolledWindowAccessibleClassProtocol {
     /// Typed pointer to the underlying `GtkScrolledWindowAccessibleClass` instance.
     var _ptr: UnsafeMutablePointer<GtkScrolledWindowAccessibleClass>! { get }
 
+    /// Required Initialiser for types conforming to `ScrolledWindowAccessibleClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ScrolledWindowAccessibleClassRef` type acts as a lightweight Swift reference to an underlying `GtkScrolledWindowAccessibleClass` instance.
@@ -871,6 +883,8 @@ public protocol ScrolledWindowClassProtocol {
     /// Typed pointer to the underlying `GtkScrolledWindowClass` instance.
     var _ptr: UnsafeMutablePointer<GtkScrolledWindowClass>! { get }
 
+    /// Required Initialiser for types conforming to `ScrolledWindowClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ScrolledWindowClassRef` type acts as a lightweight Swift reference to an underlying `GtkScrolledWindowClass` instance.
@@ -1024,6 +1038,8 @@ public protocol SearchBarClassProtocol {
     /// Typed pointer to the underlying `GtkSearchBarClass` instance.
     var _ptr: UnsafeMutablePointer<GtkSearchBarClass>! { get }
 
+    /// Required Initialiser for types conforming to `SearchBarClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `SearchBarClassRef` type acts as a lightweight Swift reference to an underlying `GtkSearchBarClass` instance.
@@ -1166,6 +1182,8 @@ public protocol SearchEntryClassProtocol {
     /// Typed pointer to the underlying `GtkSearchEntryClass` instance.
     var _ptr: UnsafeMutablePointer<GtkSearchEntryClass>! { get }
 
+    /// Required Initialiser for types conforming to `SearchEntryClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `SearchEntryClassRef` type acts as a lightweight Swift reference to an underlying `GtkSearchEntryClass` instance.
@@ -1291,6 +1309,8 @@ public protocol SelectionDataProtocol {
     /// Typed pointer to the underlying `GtkSelectionData` instance.
     var selection_data_ptr: UnsafeMutablePointer<GtkSelectionData>! { get }
 
+    /// Required Initialiser for types conforming to `SelectionDataProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `SelectionDataRef` type acts as a lightweight Swift reference to an underlying `GtkSelectionData` instance.
@@ -1494,7 +1514,7 @@ open class SelectionData: SelectionDataProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SelectionDataProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -1535,13 +1555,13 @@ public extension SelectionDataProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkSelectionData` instance.
     @inlinable var selection_data_ptr: UnsafeMutablePointer<GtkSelectionData>! { return ptr?.assumingMemoryBound(to: GtkSelectionData.self) }
 
-    /// Makes a copy of a `GtkSelectionData`-struct and its data.
+    /// Makes a copy of a `GtkSelectionData-struct` and its data.
     @inlinable func copy() -> SelectionDataRef! {
         guard let rv = SelectionDataRef(gconstpointer: gconstpointer(gtk_selection_data_copy(selection_data_ptr))) else { return nil }
         return rv
     }
 
-    /// Frees a `GtkSelectionData`-struct returned from
+    /// Frees a `GtkSelectionData-struct` returned from
     /// `gtk_selection_data_copy()`.
     @inlinable func free() {
         gtk_selection_data_free(selection_data_ptr)
@@ -1633,7 +1653,7 @@ public extension SelectionDataProtocol {
 
     /// Sets the contents of the selection from a `GdkPixbuf`
     /// The pixbuf is converted to the form determined by
-    /// `selection_data`->target.
+    /// `selection_data-`&gt;target.
     @inlinable func set<PixbufT: PixbufProtocol>(pixbuf: PixbufT) -> Bool {
         let rv = ((gtk_selection_data_set_pixbuf(selection_data_ptr, pixbuf.pixbuf_ptr)) != 0)
         return rv
@@ -1641,7 +1661,7 @@ public extension SelectionDataProtocol {
 
     /// Sets the contents of the selection from a UTF-8 encoded string.
     /// The string is converted to the form determined by
-    /// `selection_data`->target.
+    /// `selection_data-`&gt;target.
     @inlinable func set(text str: UnsafePointer<gchar>!, len: Int) -> Bool {
         let rv = ((gtk_selection_data_set_text(selection_data_ptr, str, gint(len))) != 0)
         return rv
@@ -1649,7 +1669,7 @@ public extension SelectionDataProtocol {
 
     /// Sets the contents of the selection from a list of URIs.
     /// The string is converted to the form determined by
-    /// `selection_data`->target.
+    /// `selection_data-`&gt;target.
     @inlinable func set(uris: UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>!) -> Bool {
         let rv = ((gtk_selection_data_set_uris(selection_data_ptr, uris)) != 0)
         return rv
@@ -1761,7 +1781,7 @@ public extension SelectionDataProtocol {
         }
         /// Sets the contents of the selection from a `GdkPixbuf`
         /// The pixbuf is converted to the form determined by
-        /// `selection_data`->target.
+        /// `selection_data-`&gt;target.
         nonmutating set {
             _ = gtk_selection_data_set_pixbuf(selection_data_ptr, UnsafeMutablePointer<GdkPixbuf>(newValue?.pixbuf_ptr))
         }
@@ -1803,7 +1823,7 @@ public extension SelectionDataProtocol {
         }
         /// Sets the contents of the selection from a list of URIs.
         /// The string is converted to the form determined by
-        /// `selection_data`->target.
+        /// `selection_data-`&gt;target.
         nonmutating set {
             _ = gtk_selection_data_set_uris(selection_data_ptr, newValue)
         }
@@ -1844,6 +1864,8 @@ public protocol SeparatorClassProtocol {
     /// Typed pointer to the underlying `GtkSeparatorClass` instance.
     var _ptr: UnsafeMutablePointer<GtkSeparatorClass>! { get }
 
+    /// Required Initialiser for types conforming to `SeparatorClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `SeparatorClassRef` type acts as a lightweight Swift reference to an underlying `GtkSeparatorClass` instance.
@@ -1984,6 +2006,8 @@ public protocol SeparatorMenuItemClassProtocol {
     /// Typed pointer to the underlying `GtkSeparatorMenuItemClass` instance.
     var _ptr: UnsafeMutablePointer<GtkSeparatorMenuItemClass>! { get }
 
+    /// Required Initialiser for types conforming to `SeparatorMenuItemClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `SeparatorMenuItemClassRef` type acts as a lightweight Swift reference to an underlying `GtkSeparatorMenuItemClass` instance.
@@ -2126,6 +2150,8 @@ public protocol SeparatorToolItemClassProtocol {
     /// Typed pointer to the underlying `GtkSeparatorToolItemClass` instance.
     var _ptr: UnsafeMutablePointer<GtkSeparatorToolItemClass>! { get }
 
+    /// Required Initialiser for types conforming to `SeparatorToolItemClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `SeparatorToolItemClassRef` type acts as a lightweight Swift reference to an underlying `GtkSeparatorToolItemClass` instance.
@@ -2268,6 +2294,8 @@ public protocol SettingsClassProtocol {
     /// Typed pointer to the underlying `GtkSettingsClass` instance.
     var _ptr: UnsafeMutablePointer<GtkSettingsClass>! { get }
 
+    /// Required Initialiser for types conforming to `SettingsClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `SettingsClassRef` type acts as a lightweight Swift reference to an underlying `GtkSettingsClass` instance.
@@ -2393,6 +2421,8 @@ public protocol SettingsValueProtocol {
     /// Typed pointer to the underlying `GtkSettingsValue` instance.
     var _ptr: UnsafeMutablePointer<GtkSettingsValue>! { get }
 
+    /// Required Initialiser for types conforming to `SettingsValueProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `SettingsValueRef` type acts as a lightweight Swift reference to an underlying `GtkSettingsValue` instance.
@@ -2596,7 +2626,7 @@ open class SettingsValue: SettingsValueProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SettingsValueProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -2704,6 +2734,8 @@ public protocol ShortcutLabelClassProtocol {
     /// Typed pointer to the underlying `GtkShortcutLabelClass` instance.
     var _ptr: UnsafeMutablePointer<GtkShortcutLabelClass>! { get }
 
+    /// Required Initialiser for types conforming to `ShortcutLabelClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ShortcutLabelClassRef` type acts as a lightweight Swift reference to an underlying `GtkShortcutLabelClass` instance.
@@ -2830,6 +2862,8 @@ public protocol ShortcutsGroupClassProtocol {
     /// Typed pointer to the underlying `GtkShortcutsGroupClass` instance.
     var _ptr: UnsafeMutablePointer<GtkShortcutsGroupClass>! { get }
 
+    /// Required Initialiser for types conforming to `ShortcutsGroupClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ShortcutsGroupClassRef` type acts as a lightweight Swift reference to an underlying `GtkShortcutsGroupClass` instance.
@@ -2956,6 +2990,8 @@ public protocol ShortcutsSectionClassProtocol {
     /// Typed pointer to the underlying `GtkShortcutsSectionClass` instance.
     var _ptr: UnsafeMutablePointer<GtkShortcutsSectionClass>! { get }
 
+    /// Required Initialiser for types conforming to `ShortcutsSectionClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ShortcutsSectionClassRef` type acts as a lightweight Swift reference to an underlying `GtkShortcutsSectionClass` instance.
@@ -3082,6 +3118,8 @@ public protocol ShortcutsShortcutClassProtocol {
     /// Typed pointer to the underlying `GtkShortcutsShortcutClass` instance.
     var _ptr: UnsafeMutablePointer<GtkShortcutsShortcutClass>! { get }
 
+    /// Required Initialiser for types conforming to `ShortcutsShortcutClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ShortcutsShortcutClassRef` type acts as a lightweight Swift reference to an underlying `GtkShortcutsShortcutClass` instance.
@@ -3208,6 +3246,8 @@ public protocol ShortcutsWindowClassProtocol {
     /// Typed pointer to the underlying `GtkShortcutsWindowClass` instance.
     var _ptr: UnsafeMutablePointer<GtkShortcutsWindowClass>! { get }
 
+    /// Required Initialiser for types conforming to `ShortcutsWindowClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ShortcutsWindowClassRef` type acts as a lightweight Swift reference to an underlying `GtkShortcutsWindowClass` instance.
@@ -3344,6 +3384,8 @@ public protocol SizeGroupClassProtocol {
     /// Typed pointer to the underlying `GtkSizeGroupClass` instance.
     var _ptr: UnsafeMutablePointer<GtkSizeGroupClass>! { get }
 
+    /// Required Initialiser for types conforming to `SizeGroupClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `SizeGroupClassRef` type acts as a lightweight Swift reference to an underlying `GtkSizeGroupClass` instance.
@@ -3484,6 +3526,8 @@ public protocol SocketAccessibleClassProtocol {
     /// Typed pointer to the underlying `GtkSocketAccessibleClass` instance.
     var _ptr: UnsafeMutablePointer<GtkSocketAccessibleClass>! { get }
 
+    /// Required Initialiser for types conforming to `SocketAccessibleClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `SocketAccessibleClassRef` type acts as a lightweight Swift reference to an underlying `GtkSocketAccessibleClass` instance.
@@ -3616,6 +3660,8 @@ public protocol SpinButtonAccessibleClassProtocol {
     /// Typed pointer to the underlying `GtkSpinButtonAccessibleClass` instance.
     var _ptr: UnsafeMutablePointer<GtkSpinButtonAccessibleClass>! { get }
 
+    /// Required Initialiser for types conforming to `SpinButtonAccessibleClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `SpinButtonAccessibleClassRef` type acts as a lightweight Swift reference to an underlying `GtkSpinButtonAccessibleClass` instance.
@@ -3748,6 +3794,8 @@ public protocol SpinButtonClassProtocol {
     /// Typed pointer to the underlying `GtkSpinButtonClass` instance.
     var _ptr: UnsafeMutablePointer<GtkSpinButtonClass>! { get }
 
+    /// Required Initialiser for types conforming to `SpinButtonClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `SpinButtonClassRef` type acts as a lightweight Swift reference to an underlying `GtkSpinButtonClass` instance.
@@ -3898,6 +3946,8 @@ public protocol SpinnerAccessibleClassProtocol {
     /// Typed pointer to the underlying `GtkSpinnerAccessibleClass` instance.
     var _ptr: UnsafeMutablePointer<GtkSpinnerAccessibleClass>! { get }
 
+    /// Required Initialiser for types conforming to `SpinnerAccessibleClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `SpinnerAccessibleClassRef` type acts as a lightweight Swift reference to an underlying `GtkSpinnerAccessibleClass` instance.
@@ -4030,6 +4080,8 @@ public protocol SpinnerClassProtocol {
     /// Typed pointer to the underlying `GtkSpinnerClass` instance.
     var _ptr: UnsafeMutablePointer<GtkSpinnerClass>! { get }
 
+    /// Required Initialiser for types conforming to `SpinnerClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `SpinnerClassRef` type acts as a lightweight Swift reference to an underlying `GtkSpinnerClass` instance.
@@ -4170,6 +4222,8 @@ public protocol StackAccessibleClassProtocol {
     /// Typed pointer to the underlying `GtkStackAccessibleClass` instance.
     var _ptr: UnsafeMutablePointer<GtkStackAccessibleClass>! { get }
 
+    /// Required Initialiser for types conforming to `StackAccessibleClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `StackAccessibleClassRef` type acts as a lightweight Swift reference to an underlying `GtkStackAccessibleClass` instance.
@@ -4302,6 +4356,8 @@ public protocol StackClassProtocol {
     /// Typed pointer to the underlying `GtkStackClass` instance.
     var _ptr: UnsafeMutablePointer<GtkStackClass>! { get }
 
+    /// Required Initialiser for types conforming to `StackClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `StackClassRef` type acts as a lightweight Swift reference to an underlying `GtkStackClass` instance.
@@ -4434,6 +4490,8 @@ public protocol StackSidebarClassProtocol {
     /// Typed pointer to the underlying `GtkStackSidebarClass` instance.
     var _ptr: UnsafeMutablePointer<GtkStackSidebarClass>! { get }
 
+    /// Required Initialiser for types conforming to `StackSidebarClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `StackSidebarClassRef` type acts as a lightweight Swift reference to an underlying `GtkStackSidebarClass` instance.
@@ -4574,6 +4632,8 @@ public protocol StackSwitcherClassProtocol {
     /// Typed pointer to the underlying `GtkStackSwitcherClass` instance.
     var _ptr: UnsafeMutablePointer<GtkStackSwitcherClass>! { get }
 
+    /// Required Initialiser for types conforming to `StackSwitcherClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `StackSwitcherClassRef` type acts as a lightweight Swift reference to an underlying `GtkStackSwitcherClass` instance.
@@ -4714,6 +4774,8 @@ public protocol StatusIconClassProtocol {
     /// Typed pointer to the underlying `GtkStatusIconClass` instance.
     var _ptr: UnsafeMutablePointer<GtkStatusIconClass>! { get }
 
+    /// Required Initialiser for types conforming to `StatusIconClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `StatusIconClassRef` type acts as a lightweight Swift reference to an underlying `GtkStatusIconClass` instance.
@@ -4868,6 +4930,8 @@ public protocol StatusbarAccessibleClassProtocol {
     /// Typed pointer to the underlying `GtkStatusbarAccessibleClass` instance.
     var _ptr: UnsafeMutablePointer<GtkStatusbarAccessibleClass>! { get }
 
+    /// Required Initialiser for types conforming to `StatusbarAccessibleClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `StatusbarAccessibleClassRef` type acts as a lightweight Swift reference to an underlying `GtkStatusbarAccessibleClass` instance.
@@ -5000,6 +5064,8 @@ public protocol StatusbarClassProtocol {
     /// Typed pointer to the underlying `GtkStatusbarClass` instance.
     var _ptr: UnsafeMutablePointer<GtkStatusbarClass>! { get }
 
+    /// Required Initialiser for types conforming to `StatusbarClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `StatusbarClassRef` type acts as a lightweight Swift reference to an underlying `GtkStatusbarClass` instance.
@@ -5136,6 +5202,8 @@ public protocol StockItemProtocol {
     /// Typed pointer to the underlying `GtkStockItem` instance.
     var _ptr: UnsafeMutablePointer<GtkStockItem>! { get }
 
+    /// Required Initialiser for types conforming to `StockItemProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `StockItemRef` type acts as a lightweight Swift reference to an underlying `GtkStockItem` instance.
@@ -5339,7 +5407,7 @@ open class StockItem: StockItemProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StockItemProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -5512,6 +5580,8 @@ public protocol StyleClassProtocol {
     /// Typed pointer to the underlying `GtkStyleClass` instance.
     var _ptr: UnsafeMutablePointer<GtkStyleClass>! { get }
 
+    /// Required Initialiser for types conforming to `StyleClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `StyleClassRef` type acts as a lightweight Swift reference to an underlying `GtkStyleClass` instance.
@@ -5722,6 +5792,8 @@ public protocol StyleContextClassProtocol {
     /// Typed pointer to the underlying `GtkStyleContextClass` instance.
     var _ptr: UnsafeMutablePointer<GtkStyleContextClass>! { get }
 
+    /// Required Initialiser for types conforming to `StyleContextClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `StyleContextClassRef` type acts as a lightweight Swift reference to an underlying `GtkStyleContextClass` instance.
@@ -5864,6 +5936,8 @@ public protocol StylePropertiesClassProtocol {
     /// Typed pointer to the underlying `GtkStylePropertiesClass` instance.
     var _ptr: UnsafeMutablePointer<GtkStylePropertiesClass>! { get }
 
+    /// Required Initialiser for types conforming to `StylePropertiesClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `StylePropertiesClassRef` type acts as a lightweight Swift reference to an underlying `GtkStylePropertiesClass` instance.
@@ -5999,6 +6073,8 @@ public protocol StyleProviderIfaceProtocol {
     /// Typed pointer to the underlying `GtkStyleProviderIface` instance.
     var _ptr: UnsafeMutablePointer<GtkStyleProviderIface>! { get }
 
+    /// Required Initialiser for types conforming to `StyleProviderIfaceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `StyleProviderIfaceRef` type acts as a lightweight Swift reference to an underlying `GtkStyleProviderIface` instance.
@@ -6132,6 +6208,8 @@ public protocol SwitchAccessibleClassProtocol {
     /// Typed pointer to the underlying `GtkSwitchAccessibleClass` instance.
     var _ptr: UnsafeMutablePointer<GtkSwitchAccessibleClass>! { get }
 
+    /// Required Initialiser for types conforming to `SwitchAccessibleClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `SwitchAccessibleClassRef` type acts as a lightweight Swift reference to an underlying `GtkSwitchAccessibleClass` instance.
@@ -6264,6 +6342,8 @@ public protocol SwitchClassProtocol {
     /// Typed pointer to the underlying `GtkSwitchClass` instance.
     var _ptr: UnsafeMutablePointer<GtkSwitchClass>! { get }
 
+    /// Required Initialiser for types conforming to `SwitchClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `SwitchClassRef` type acts as a lightweight Swift reference to an underlying `GtkSwitchClass` instance.
@@ -6411,6 +6491,8 @@ public protocol SymbolicColorProtocol {
     /// Typed pointer to the underlying `GtkSymbolicColor` instance.
     var symbolic_color_ptr: UnsafeMutablePointer<GtkSymbolicColor>! { get }
 
+    /// Required Initialiser for types conforming to `SymbolicColorProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `SymbolicColorRef` type acts as a lightweight Swift reference to an underlying `GtkSymbolicColor` instance.
@@ -6714,7 +6796,7 @@ open class SymbolicColor: SymbolicColorProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SymbolicColorProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -6915,6 +6997,8 @@ public protocol TableChildProtocol {
     /// Typed pointer to the underlying `GtkTableChild` instance.
     var _ptr: UnsafeMutablePointer<GtkTableChild>! { get }
 
+    /// Required Initialiser for types conforming to `TableChildProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TableChildRef` type acts as a lightweight Swift reference to an underlying `GtkTableChild` instance.
@@ -7118,7 +7202,7 @@ open class TableChild: TableChildProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TableChildProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 

@@ -31,6 +31,8 @@ public protocol RadioActionEntryProtocol {
     /// Typed pointer to the underlying `GtkRadioActionEntry` instance.
     var _ptr: UnsafeMutablePointer<GtkRadioActionEntry>! { get }
 
+    /// Required Initialiser for types conforming to `RadioActionEntryProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `RadioActionEntryRef` type acts as a lightweight Swift reference to an underlying `GtkRadioActionEntry` instance.
@@ -236,7 +238,7 @@ open class RadioActionEntry: RadioActionEntryProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RadioActionEntryProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -405,6 +407,8 @@ public protocol RadioButtonAccessibleClassProtocol {
     /// Typed pointer to the underlying `GtkRadioButtonAccessibleClass` instance.
     var _ptr: UnsafeMutablePointer<GtkRadioButtonAccessibleClass>! { get }
 
+    /// Required Initialiser for types conforming to `RadioButtonAccessibleClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `RadioButtonAccessibleClassRef` type acts as a lightweight Swift reference to an underlying `GtkRadioButtonAccessibleClass` instance.
@@ -537,6 +541,8 @@ public protocol RadioButtonClassProtocol {
     /// Typed pointer to the underlying `GtkRadioButtonClass` instance.
     var _ptr: UnsafeMutablePointer<GtkRadioButtonClass>! { get }
 
+    /// Required Initialiser for types conforming to `RadioButtonClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `RadioButtonClassRef` type acts as a lightweight Swift reference to an underlying `GtkRadioButtonClass` instance.
@@ -679,6 +685,8 @@ public protocol RadioMenuItemAccessibleClassProtocol {
     /// Typed pointer to the underlying `GtkRadioMenuItemAccessibleClass` instance.
     var _ptr: UnsafeMutablePointer<GtkRadioMenuItemAccessibleClass>! { get }
 
+    /// Required Initialiser for types conforming to `RadioMenuItemAccessibleClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `RadioMenuItemAccessibleClassRef` type acts as a lightweight Swift reference to an underlying `GtkRadioMenuItemAccessibleClass` instance.
@@ -811,6 +819,8 @@ public protocol RadioMenuItemClassProtocol {
     /// Typed pointer to the underlying `GtkRadioMenuItemClass` instance.
     var _ptr: UnsafeMutablePointer<GtkRadioMenuItemClass>! { get }
 
+    /// Required Initialiser for types conforming to `RadioMenuItemClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `RadioMenuItemClassRef` type acts as a lightweight Swift reference to an underlying `GtkRadioMenuItemClass` instance.
@@ -953,6 +963,8 @@ public protocol RadioToolButtonClassProtocol {
     /// Typed pointer to the underlying `GtkRadioToolButtonClass` instance.
     var _ptr: UnsafeMutablePointer<GtkRadioToolButtonClass>! { get }
 
+    /// Required Initialiser for types conforming to `RadioToolButtonClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `RadioToolButtonClassRef` type acts as a lightweight Swift reference to an underlying `GtkRadioToolButtonClass` instance.
@@ -1093,6 +1105,8 @@ public protocol RangeAccessibleClassProtocol {
     /// Typed pointer to the underlying `GtkRangeAccessibleClass` instance.
     var _ptr: UnsafeMutablePointer<GtkRangeAccessibleClass>! { get }
 
+    /// Required Initialiser for types conforming to `RangeAccessibleClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `RangeAccessibleClassRef` type acts as a lightweight Swift reference to an underlying `GtkRangeAccessibleClass` instance.
@@ -1225,6 +1239,8 @@ public protocol RangeClassProtocol {
     /// Typed pointer to the underlying `GtkRangeClass` instance.
     var _ptr: UnsafeMutablePointer<GtkRangeClass>! { get }
 
+    /// Required Initialiser for types conforming to `RangeClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `RangeClassRef` type acts as a lightweight Swift reference to an underlying `GtkRangeClass` instance.
@@ -1374,6 +1390,8 @@ public protocol RcContextProtocol {
     /// Typed pointer to the underlying `GtkRcContext` instance.
     var _ptr: UnsafeMutablePointer<GtkRcContext>! { get }
 
+    /// Required Initialiser for types conforming to `RcContextProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `RcContextRef` type acts as a lightweight Swift reference to an underlying `GtkRcContext` instance.
@@ -1577,7 +1595,7 @@ open class RcContext: RcContextProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RcContextProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -1639,6 +1657,8 @@ public protocol RcPropertyProtocol {
     /// Typed pointer to the underlying `GtkRcProperty` instance.
     var _ptr: UnsafeMutablePointer<GtkRcProperty>! { get }
 
+    /// Required Initialiser for types conforming to `RcPropertyProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `RcPropertyRef` type acts as a lightweight Swift reference to an underlying `GtkRcProperty` instance.
@@ -1842,7 +1862,7 @@ open class RcProperty: RcPropertyProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RcPropertyProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -1973,6 +1993,8 @@ public protocol RcStyleClassProtocol {
     /// Typed pointer to the underlying `GtkRcStyleClass` instance.
     var _ptr: UnsafeMutablePointer<GtkRcStyleClass>! { get }
 
+    /// Required Initialiser for types conforming to `RcStyleClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `RcStyleClassRef` type acts as a lightweight Swift reference to an underlying `GtkRcStyleClass` instance.
@@ -2123,6 +2145,8 @@ public protocol RecentActionClassProtocol {
     /// Typed pointer to the underlying `GtkRecentActionClass` instance.
     var _ptr: UnsafeMutablePointer<GtkRecentActionClass>! { get }
 
+    /// Required Initialiser for types conforming to `RecentActionClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `RecentActionClassRef` type acts as a lightweight Swift reference to an underlying `GtkRecentActionClass` instance.
@@ -2263,6 +2287,8 @@ public protocol RecentChooserDialogClassProtocol {
     /// Typed pointer to the underlying `GtkRecentChooserDialogClass` instance.
     var _ptr: UnsafeMutablePointer<GtkRecentChooserDialogClass>! { get }
 
+    /// Required Initialiser for types conforming to `RecentChooserDialogClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `RecentChooserDialogClassRef` type acts as a lightweight Swift reference to an underlying `GtkRecentChooserDialogClass` instance.
@@ -2403,6 +2429,8 @@ public protocol RecentChooserIfaceProtocol {
     /// Typed pointer to the underlying `GtkRecentChooserIface` instance.
     var _ptr: UnsafeMutablePointer<GtkRecentChooserIface>! { get }
 
+    /// Required Initialiser for types conforming to `RecentChooserIfaceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `RecentChooserIfaceRef` type acts as a lightweight Swift reference to an underlying `GtkRecentChooserIface` instance.
@@ -2558,6 +2586,8 @@ public protocol RecentChooserMenuClassProtocol {
     /// Typed pointer to the underlying `GtkRecentChooserMenuClass` instance.
     var _ptr: UnsafeMutablePointer<GtkRecentChooserMenuClass>! { get }
 
+    /// Required Initialiser for types conforming to `RecentChooserMenuClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `RecentChooserMenuClassRef` type acts as a lightweight Swift reference to an underlying `GtkRecentChooserMenuClass` instance.
@@ -2698,6 +2728,8 @@ public protocol RecentChooserWidgetClassProtocol {
     /// Typed pointer to the underlying `GtkRecentChooserWidgetClass` instance.
     var _ptr: UnsafeMutablePointer<GtkRecentChooserWidgetClass>! { get }
 
+    /// Required Initialiser for types conforming to `RecentChooserWidgetClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `RecentChooserWidgetClassRef` type acts as a lightweight Swift reference to an underlying `GtkRecentChooserWidgetClass` instance.
@@ -2824,6 +2856,8 @@ public protocol RecentDataProtocol {
     /// Typed pointer to the underlying `GtkRecentData` instance.
     var _ptr: UnsafeMutablePointer<GtkRecentData>! { get }
 
+    /// Required Initialiser for types conforming to `RecentDataProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `RecentDataRef` type acts as a lightweight Swift reference to an underlying `GtkRecentData` instance.
@@ -3029,7 +3063,7 @@ open class RecentData: RecentDataProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RecentDataProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -3206,6 +3240,8 @@ public protocol RecentFilterInfoProtocol {
     /// Typed pointer to the underlying `GtkRecentFilterInfo` instance.
     var _ptr: UnsafeMutablePointer<GtkRecentFilterInfo>! { get }
 
+    /// Required Initialiser for types conforming to `RecentFilterInfoProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `RecentFilterInfoRef` type acts as a lightweight Swift reference to an underlying `GtkRecentFilterInfo` instance.
@@ -3411,7 +3447,7 @@ open class RecentFilterInfo: RecentFilterInfoProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RecentFilterInfoProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -3567,7 +3603,7 @@ public extension RecentFilterInfoProtocol {
 /// For a concrete class that implements these methods and properties, see `RecentInfo`.
 /// Alternatively, use `RecentInfoRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// `GtkRecentInfo`-struct contains private data only, and should
+/// `GtkRecentInfo-struct` contains private data only, and should
 /// be accessed using the provided API.
 /// 
 /// `GtkRecentInfo` constains all the meta-data
@@ -3579,13 +3615,15 @@ public protocol RecentInfoProtocol {
     /// Typed pointer to the underlying `GtkRecentInfo` instance.
     var recent_info_ptr: UnsafeMutablePointer<GtkRecentInfo>! { get }
 
+    /// Required Initialiser for types conforming to `RecentInfoProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `RecentInfoRef` type acts as a lightweight Swift reference to an underlying `GtkRecentInfo` instance.
 /// It exposes methods that can operate on this data type through `RecentInfoProtocol` conformance.
 /// Use `RecentInfoRef` only as an `unowned` reference to an existing `GtkRecentInfo` instance.
 ///
-/// `GtkRecentInfo`-struct contains private data only, and should
+/// `GtkRecentInfo-struct` contains private data only, and should
 /// be accessed using the provided API.
 /// 
 /// `GtkRecentInfo` constains all the meta-data
@@ -3672,7 +3710,7 @@ public extension RecentInfoRef {
 /// It provides the methods that can operate on this data type through `RecentInfoProtocol` conformance.
 /// Use `RecentInfo` as a strong reference or owner of a `GtkRecentInfo` instance.
 ///
-/// `GtkRecentInfo`-struct contains private data only, and should
+/// `GtkRecentInfo-struct` contains private data only, and should
 /// be accessed using the provided API.
 /// 
 /// `GtkRecentInfo` constains all the meta-data
@@ -3790,7 +3828,7 @@ open class RecentInfo: RecentInfoProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RecentInfoProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -3981,7 +4019,7 @@ public extension RecentInfoProtocol {
         return rv
     }
 
-    /// Checks whether two `GtkRecentInfo`-struct point to the same
+    /// Checks whether two `GtkRecentInfo-struct` point to the same
     /// resource.
     @inlinable func match<RecentInfoT: RecentInfoProtocol>(infoB: RecentInfoT) -> Bool {
         let rv = ((gtk_recent_info_match(recent_info_ptr, infoB.recent_info_ptr)) != 0)
@@ -4178,6 +4216,8 @@ public protocol RecentManagerClassProtocol {
     /// Typed pointer to the underlying `GtkRecentManagerClass` instance.
     var _ptr: UnsafeMutablePointer<GtkRecentManagerClass>! { get }
 
+    /// Required Initialiser for types conforming to `RecentManagerClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `RecentManagerClassRef` type acts as a lightweight Swift reference to an underlying `GtkRecentManagerClass` instance.
@@ -4315,6 +4355,8 @@ public protocol RendererCellAccessibleClassProtocol {
     /// Typed pointer to the underlying `GtkRendererCellAccessibleClass` instance.
     var _ptr: UnsafeMutablePointer<GtkRendererCellAccessibleClass>! { get }
 
+    /// Required Initialiser for types conforming to `RendererCellAccessibleClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `RendererCellAccessibleClassRef` type acts as a lightweight Swift reference to an underlying `GtkRendererCellAccessibleClass` instance.
@@ -4434,6 +4476,8 @@ public protocol RequestedSizeProtocol {
     /// Typed pointer to the underlying `GtkRequestedSize` instance.
     var _ptr: UnsafeMutablePointer<GtkRequestedSize>! { get }
 
+    /// Required Initialiser for types conforming to `RequestedSizeProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `RequestedSizeRef` type acts as a lightweight Swift reference to an underlying `GtkRequestedSize` instance.
@@ -4641,7 +4685,7 @@ open class RequestedSize: RequestedSizeProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RequestedSizeProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -4743,7 +4787,7 @@ public extension RequestedSizeProtocol {
 /// For a concrete class that implements these methods and properties, see `Requisition`.
 /// Alternatively, use `RequisitionRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// A `GtkRequisition`-struct represents the desired size of a widget. See
+/// A `GtkRequisition-struct` represents the desired size of a widget. See
 /// [GtkWidget’s geometry management section](#geometry-management) for
 /// more information.
 public protocol RequisitionProtocol {
@@ -4753,13 +4797,15 @@ public protocol RequisitionProtocol {
     /// Typed pointer to the underlying `GtkRequisition` instance.
     var requisition_ptr: UnsafeMutablePointer<GtkRequisition>! { get }
 
+    /// Required Initialiser for types conforming to `RequisitionProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `RequisitionRef` type acts as a lightweight Swift reference to an underlying `GtkRequisition` instance.
 /// It exposes methods that can operate on this data type through `RequisitionProtocol` conformance.
 /// Use `RequisitionRef` only as an `unowned` reference to an existing `GtkRequisition` instance.
 ///
-/// A `GtkRequisition`-struct represents the desired size of a widget. See
+/// A `GtkRequisition-struct` represents the desired size of a widget. See
 /// [GtkWidget’s geometry management section](#geometry-management) for
 /// more information.
 public struct RequisitionRef: RequisitionProtocol {
@@ -4838,7 +4884,7 @@ public extension RequisitionRef {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
-        /// Allocates a new `GtkRequisition`-struct and initializes its elements to zero.
+        /// Allocates a new `GtkRequisition-struct` and initializes its elements to zero.
     @inlinable init() {
         let rv = gtk_requisition_new()
         ptr = UnsafeMutableRawPointer(rv)
@@ -4849,7 +4895,7 @@ public extension RequisitionRef {
 /// It provides the methods that can operate on this data type through `RequisitionProtocol` conformance.
 /// Use `Requisition` as a strong reference or owner of a `GtkRequisition` instance.
 ///
-/// A `GtkRequisition`-struct represents the desired size of a widget. See
+/// A `GtkRequisition-struct` represents the desired size of a widget. See
 /// [GtkWidget’s geometry management section](#geometry-management) for
 /// more information.
 open class Requisition: RequisitionProtocol {
@@ -4965,7 +5011,7 @@ open class Requisition: RequisitionProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RequisitionProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -4992,7 +5038,7 @@ open class Requisition: RequisitionProtocol {
         // no reference counting for GtkRequisition, cannot ref(requisition_ptr)
     }
 
-    /// Allocates a new `GtkRequisition`-struct and initializes its elements to zero.
+    /// Allocates a new `GtkRequisition-struct` and initializes its elements to zero.
     @inlinable public init() {
         let rv = gtk_requisition_new()
         ptr = UnsafeMutableRawPointer(rv)
@@ -5083,6 +5129,8 @@ public protocol RevealerClassProtocol {
     /// Typed pointer to the underlying `GtkRevealerClass` instance.
     var _ptr: UnsafeMutablePointer<GtkRevealerClass>! { get }
 
+    /// Required Initialiser for types conforming to `RevealerClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `RevealerClassRef` type acts as a lightweight Swift reference to an underlying `GtkRevealerClass` instance.
@@ -5217,6 +5265,8 @@ public protocol ScaleAccessibleClassProtocol {
     /// Typed pointer to the underlying `GtkScaleAccessibleClass` instance.
     var _ptr: UnsafeMutablePointer<GtkScaleAccessibleClass>! { get }
 
+    /// Required Initialiser for types conforming to `ScaleAccessibleClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ScaleAccessibleClassRef` type acts as a lightweight Swift reference to an underlying `GtkScaleAccessibleClass` instance.

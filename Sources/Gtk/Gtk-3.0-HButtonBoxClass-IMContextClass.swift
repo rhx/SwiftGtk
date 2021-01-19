@@ -45,6 +45,8 @@ public protocol HButtonBoxClassProtocol {
     /// Typed pointer to the underlying `GtkHButtonBoxClass` instance.
     var _ptr: UnsafeMutablePointer<GtkHButtonBoxClass>! { get }
 
+    /// Required Initialiser for types conforming to `HButtonBoxClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `HButtonBoxClassRef` type acts as a lightweight Swift reference to an underlying `GtkHButtonBoxClass` instance.
@@ -177,6 +179,8 @@ public protocol HPanedClassProtocol {
     /// Typed pointer to the underlying `GtkHPanedClass` instance.
     var _ptr: UnsafeMutablePointer<GtkHPanedClass>! { get }
 
+    /// Required Initialiser for types conforming to `HPanedClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `HPanedClassRef` type acts as a lightweight Swift reference to an underlying `GtkHPanedClass` instance.
@@ -309,6 +313,8 @@ public protocol HSVClassProtocol {
     /// Typed pointer to the underlying `GtkHSVClass` instance.
     var _ptr: UnsafeMutablePointer<GtkHSVClass>! { get }
 
+    /// Required Initialiser for types conforming to `HSVClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `HSVClassRef` type acts as a lightweight Swift reference to an underlying `GtkHSVClass` instance.
@@ -453,6 +459,8 @@ public protocol HScaleClassProtocol {
     /// Typed pointer to the underlying `GtkHScaleClass` instance.
     var _ptr: UnsafeMutablePointer<GtkHScaleClass>! { get }
 
+    /// Required Initialiser for types conforming to `HScaleClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `HScaleClassRef` type acts as a lightweight Swift reference to an underlying `GtkHScaleClass` instance.
@@ -585,6 +593,8 @@ public protocol HScrollbarClassProtocol {
     /// Typed pointer to the underlying `GtkHScrollbarClass` instance.
     var _ptr: UnsafeMutablePointer<GtkHScrollbarClass>! { get }
 
+    /// Required Initialiser for types conforming to `HScrollbarClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `HScrollbarClassRef` type acts as a lightweight Swift reference to an underlying `GtkHScrollbarClass` instance.
@@ -717,6 +727,8 @@ public protocol HSeparatorClassProtocol {
     /// Typed pointer to the underlying `GtkHSeparatorClass` instance.
     var _ptr: UnsafeMutablePointer<GtkHSeparatorClass>! { get }
 
+    /// Required Initialiser for types conforming to `HSeparatorClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `HSeparatorClassRef` type acts as a lightweight Swift reference to an underlying `GtkHSeparatorClass` instance.
@@ -849,6 +861,8 @@ public protocol HandleBoxClassProtocol {
     /// Typed pointer to the underlying `GtkHandleBoxClass` instance.
     var _ptr: UnsafeMutablePointer<GtkHandleBoxClass>! { get }
 
+    /// Required Initialiser for types conforming to `HandleBoxClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `HandleBoxClassRef` type acts as a lightweight Swift reference to an underlying `GtkHandleBoxClass` instance.
@@ -995,6 +1009,8 @@ public protocol HeaderBarAccessibleClassProtocol {
     /// Typed pointer to the underlying `GtkHeaderBarAccessibleClass` instance.
     var _ptr: UnsafeMutablePointer<GtkHeaderBarAccessibleClass>! { get }
 
+    /// Required Initialiser for types conforming to `HeaderBarAccessibleClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `HeaderBarAccessibleClassRef` type acts as a lightweight Swift reference to an underlying `GtkHeaderBarAccessibleClass` instance.
@@ -1127,6 +1143,8 @@ public protocol HeaderBarClassProtocol {
     /// Typed pointer to the underlying `GtkHeaderBarClass` instance.
     var _ptr: UnsafeMutablePointer<GtkHeaderBarClass>! { get }
 
+    /// Required Initialiser for types conforming to `HeaderBarClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `HeaderBarClassRef` type acts as a lightweight Swift reference to an underlying `GtkHeaderBarClass` instance.
@@ -1267,6 +1285,8 @@ public protocol IMContextClassProtocol {
     /// Typed pointer to the underlying `GtkIMContextClass` instance.
     var _ptr: UnsafeMutablePointer<GtkIMContextClass>! { get }
 
+    /// Required Initialiser for types conforming to `IMContextClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `IMContextClassRef` type acts as a lightweight Swift reference to an underlying `GtkIMContextClass` instance.

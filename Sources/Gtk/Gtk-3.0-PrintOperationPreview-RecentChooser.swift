@@ -30,6 +30,8 @@ public protocol PrintOperationPreviewProtocol {
     /// Typed pointer to the underlying `GtkPrintOperationPreview` instance.
     var print_operation_preview_ptr: UnsafeMutablePointer<GtkPrintOperationPreview>! { get }
 
+    /// Required Initialiser for types conforming to `PrintOperationPreviewProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `PrintOperationPreviewRef` type acts as a lightweight Swift reference to an underlying `GtkPrintOperationPreview` instance.
@@ -233,7 +235,7 @@ open class PrintOperationPreview: PrintOperationPreviewProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PrintOperationPreviewProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -267,7 +269,7 @@ open class PrintOperationPreview: PrintOperationPreviewProtocol {
 // MARK: no PrintOperationPreview properties
 
 public enum PrintOperationPreviewSignalName: String, SignalNameProtocol {
-    /// The `got`-page-size signal is emitted once for each page
+    /// The `got-page-size` signal is emitted once for each page
     /// that gets rendered to the preview.
     /// 
     /// A handler for this signal should update the `context`
@@ -310,7 +312,7 @@ public extension PrintOperationPreviewProtocol {
     }
     
     
-    /// The `got`-page-size signal is emitted once for each page
+    /// The `got-page-size` signal is emitted once for each page
     /// that gets rendered to the preview.
     /// 
     /// A handler for this signal should update the `context`
@@ -433,6 +435,8 @@ public protocol RecentChooserProtocol {
     /// Typed pointer to the underlying `GtkRecentChooser` instance.
     var recent_chooser_ptr: UnsafeMutablePointer<GtkRecentChooser>! { get }
 
+    /// Required Initialiser for types conforming to `RecentChooserProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `RecentChooserRef` type acts as a lightweight Swift reference to an underlying `GtkRecentChooser` instance.
@@ -646,7 +650,7 @@ open class RecentChooser: RecentChooserProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RecentChooserProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 

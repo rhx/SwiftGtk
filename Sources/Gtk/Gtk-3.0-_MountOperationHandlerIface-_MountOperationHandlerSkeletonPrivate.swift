@@ -22,7 +22,7 @@ import Atk
 /// For a concrete class that implements these methods and properties, see `_MountOperationHandlerIface`.
 /// Alternatively, use `_MountOperationHandlerIfaceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Virtual table for the D-Bus interface <link linkend="gdbus-interface-org-Gtk-MountOperationHandler.top_of_page">org.Gtk.MountOperationHandler</link>.
+/// Virtual table for the D-Bus interface &lt;link linkend="gdbus-interface-org-Gtk-MountOperationHandler.top_of_page"&gt;org.Gtk.MountOperationHandler&lt;/link&gt;.
 public protocol _MountOperationHandlerIfaceProtocol {
         /// Untyped pointer to the underlying `_GtkMountOperationHandlerIface` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -30,13 +30,15 @@ public protocol _MountOperationHandlerIfaceProtocol {
     /// Typed pointer to the underlying `_GtkMountOperationHandlerIface` instance.
     var _ptr: UnsafeMutablePointer<_GtkMountOperationHandlerIface>! { get }
 
+    /// Required Initialiser for types conforming to `_MountOperationHandlerIfaceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `_MountOperationHandlerIfaceRef` type acts as a lightweight Swift reference to an underlying `_GtkMountOperationHandlerIface` instance.
 /// It exposes methods that can operate on this data type through `_MountOperationHandlerIfaceProtocol` conformance.
 /// Use `_MountOperationHandlerIfaceRef` only as an `unowned` reference to an existing `_GtkMountOperationHandlerIface` instance.
 ///
-/// Virtual table for the D-Bus interface <link linkend="gdbus-interface-org-Gtk-MountOperationHandler.top_of_page">org.Gtk.MountOperationHandler</link>.
+/// Virtual table for the D-Bus interface &lt;link linkend="gdbus-interface-org-Gtk-MountOperationHandler.top_of_page"&gt;org.Gtk.MountOperationHandler&lt;/link&gt;.
 public struct _MountOperationHandlerIfaceRef: _MountOperationHandlerIfaceProtocol {
         /// Untyped pointer to the underlying `_GtkMountOperationHandlerIface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -119,7 +121,7 @@ public extension _MountOperationHandlerIfaceRef {
 /// It provides the methods that can operate on this data type through `_MountOperationHandlerIfaceProtocol` conformance.
 /// Use `_MountOperationHandlerIface` as a strong reference or owner of a `_GtkMountOperationHandlerIface` instance.
 ///
-/// Virtual table for the D-Bus interface <link linkend="gdbus-interface-org-Gtk-MountOperationHandler.top_of_page">org.Gtk.MountOperationHandler</link>.
+/// Virtual table for the D-Bus interface &lt;link linkend="gdbus-interface-org-Gtk-MountOperationHandler.top_of_page"&gt;org.Gtk.MountOperationHandler&lt;/link&gt;.
 open class _MountOperationHandlerIface: _MountOperationHandlerIfaceProtocol {
         /// Untyped pointer to the underlying `_GtkMountOperationHandlerIface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -233,7 +235,7 @@ open class _MountOperationHandlerIface: _MountOperationHandlerIfaceProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `_MountOperationHandlerIfaceProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -317,6 +319,8 @@ public protocol _MountOperationHandlerProxyProtocol {
     /// Typed pointer to the underlying `_GtkMountOperationHandlerProxy` instance.
     var _ptr: UnsafeMutablePointer<_GtkMountOperationHandlerProxy>! { get }
 
+    /// Required Initialiser for types conforming to `_MountOperationHandlerProxyProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `_MountOperationHandlerProxyRef` type acts as a lightweight Swift reference to an underlying `_GtkMountOperationHandlerProxy` instance.
@@ -520,7 +524,7 @@ open class _MountOperationHandlerProxy: _MountOperationHandlerProxyProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `_MountOperationHandlerProxyProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -585,6 +589,8 @@ public protocol _MountOperationHandlerProxyClassProtocol {
     /// Typed pointer to the underlying `_GtkMountOperationHandlerProxyClass` instance.
     var _ptr: UnsafeMutablePointer<_GtkMountOperationHandlerProxyClass>! { get }
 
+    /// Required Initialiser for types conforming to `_MountOperationHandlerProxyClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `_MountOperationHandlerProxyClassRef` type acts as a lightweight Swift reference to an underlying `_GtkMountOperationHandlerProxyClass` instance.
@@ -788,7 +794,7 @@ open class _MountOperationHandlerProxyClass: _MountOperationHandlerProxyClassPro
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `_MountOperationHandlerProxyClassProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -864,6 +870,8 @@ public protocol _MountOperationHandlerProxyPrivateProtocol {
     /// Typed pointer to the underlying `_GtkMountOperationHandlerProxyPrivate` instance.
     var _ptr: UnsafeMutablePointer<_GtkMountOperationHandlerProxyPrivate>! { get }
 
+    /// Required Initialiser for types conforming to `_MountOperationHandlerProxyPrivateProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `_MountOperationHandlerProxyPrivateRef` type acts as a lightweight Swift reference to an underlying `_GtkMountOperationHandlerProxyPrivate` instance.
@@ -1067,7 +1075,7 @@ open class _MountOperationHandlerProxyPrivate: _MountOperationHandlerProxyPrivat
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `_MountOperationHandlerProxyPrivateProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -1129,6 +1137,8 @@ public protocol _MountOperationHandlerSkeletonProtocol {
     /// Typed pointer to the underlying `_GtkMountOperationHandlerSkeleton` instance.
     var _ptr: UnsafeMutablePointer<_GtkMountOperationHandlerSkeleton>! { get }
 
+    /// Required Initialiser for types conforming to `_MountOperationHandlerSkeletonProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `_MountOperationHandlerSkeletonRef` type acts as a lightweight Swift reference to an underlying `_GtkMountOperationHandlerSkeleton` instance.
@@ -1332,7 +1342,7 @@ open class _MountOperationHandlerSkeleton: _MountOperationHandlerSkeletonProtoco
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `_MountOperationHandlerSkeletonProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -1397,6 +1407,8 @@ public protocol _MountOperationHandlerSkeletonClassProtocol {
     /// Typed pointer to the underlying `_GtkMountOperationHandlerSkeletonClass` instance.
     var _ptr: UnsafeMutablePointer<_GtkMountOperationHandlerSkeletonClass>! { get }
 
+    /// Required Initialiser for types conforming to `_MountOperationHandlerSkeletonClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `_MountOperationHandlerSkeletonClassRef` type acts as a lightweight Swift reference to an underlying `_GtkMountOperationHandlerSkeletonClass` instance.
@@ -1600,7 +1612,7 @@ open class _MountOperationHandlerSkeletonClass: _MountOperationHandlerSkeletonCl
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `_MountOperationHandlerSkeletonClassProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -1676,6 +1688,8 @@ public protocol _MountOperationHandlerSkeletonPrivateProtocol {
     /// Typed pointer to the underlying `_GtkMountOperationHandlerSkeletonPrivate` instance.
     var _ptr: UnsafeMutablePointer<_GtkMountOperationHandlerSkeletonPrivate>! { get }
 
+    /// Required Initialiser for types conforming to `_MountOperationHandlerSkeletonPrivateProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `_MountOperationHandlerSkeletonPrivateRef` type acts as a lightweight Swift reference to an underlying `_GtkMountOperationHandlerSkeletonPrivate` instance.
@@ -1879,7 +1893,7 @@ open class _MountOperationHandlerSkeletonPrivate: _MountOperationHandlerSkeleton
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `_MountOperationHandlerSkeletonPrivateProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 

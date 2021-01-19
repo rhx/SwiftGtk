@@ -45,6 +45,8 @@ public protocol MenuBarClassProtocol {
     /// Typed pointer to the underlying `GtkMenuBarClass` instance.
     var _ptr: UnsafeMutablePointer<GtkMenuBarClass>! { get }
 
+    /// Required Initialiser for types conforming to `MenuBarClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `MenuBarClassRef` type acts as a lightweight Swift reference to an underlying `GtkMenuBarClass` instance.
@@ -185,6 +187,8 @@ public protocol MenuButtonAccessibleClassProtocol {
     /// Typed pointer to the underlying `GtkMenuButtonAccessibleClass` instance.
     var _ptr: UnsafeMutablePointer<GtkMenuButtonAccessibleClass>! { get }
 
+    /// Required Initialiser for types conforming to `MenuButtonAccessibleClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `MenuButtonAccessibleClassRef` type acts as a lightweight Swift reference to an underlying `GtkMenuButtonAccessibleClass` instance.
@@ -317,6 +321,8 @@ public protocol MenuButtonClassProtocol {
     /// Typed pointer to the underlying `GtkMenuButtonClass` instance.
     var _ptr: UnsafeMutablePointer<GtkMenuButtonClass>! { get }
 
+    /// Required Initialiser for types conforming to `MenuButtonClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `MenuButtonClassRef` type acts as a lightweight Swift reference to an underlying `GtkMenuButtonClass` instance.
@@ -457,6 +463,8 @@ public protocol MenuClassProtocol {
     /// Typed pointer to the underlying `GtkMenuClass` instance.
     var _ptr: UnsafeMutablePointer<GtkMenuClass>! { get }
 
+    /// Required Initialiser for types conforming to `MenuClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `MenuClassRef` type acts as a lightweight Swift reference to an underlying `GtkMenuClass` instance.
@@ -597,6 +605,8 @@ public protocol MenuItemAccessibleClassProtocol {
     /// Typed pointer to the underlying `GtkMenuItemAccessibleClass` instance.
     var _ptr: UnsafeMutablePointer<GtkMenuItemAccessibleClass>! { get }
 
+    /// Required Initialiser for types conforming to `MenuItemAccessibleClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `MenuItemAccessibleClassRef` type acts as a lightweight Swift reference to an underlying `GtkMenuItemAccessibleClass` instance.
@@ -729,6 +739,8 @@ public protocol MenuItemClassProtocol {
     /// Typed pointer to the underlying `GtkMenuItemClass` instance.
     var _ptr: UnsafeMutablePointer<GtkMenuItemClass>! { get }
 
+    /// Required Initialiser for types conforming to `MenuItemClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `MenuItemClassRef` type acts as a lightweight Swift reference to an underlying `GtkMenuItemClass` instance.
@@ -900,6 +912,8 @@ public protocol MenuShellAccessibleClassProtocol {
     /// Typed pointer to the underlying `GtkMenuShellAccessibleClass` instance.
     var _ptr: UnsafeMutablePointer<GtkMenuShellAccessibleClass>! { get }
 
+    /// Required Initialiser for types conforming to `MenuShellAccessibleClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `MenuShellAccessibleClassRef` type acts as a lightweight Swift reference to an underlying `GtkMenuShellAccessibleClass` instance.
@@ -1032,6 +1046,8 @@ public protocol MenuShellClassProtocol {
     /// Typed pointer to the underlying `GtkMenuShellClass` instance.
     var _ptr: UnsafeMutablePointer<GtkMenuShellClass>! { get }
 
+    /// Required Initialiser for types conforming to `MenuShellClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `MenuShellClassRef` type acts as a lightweight Swift reference to an underlying `GtkMenuShellClass` instance.
@@ -1197,6 +1213,8 @@ public protocol MenuToolButtonClassProtocol {
     /// Typed pointer to the underlying `GtkMenuToolButtonClass` instance.
     var _ptr: UnsafeMutablePointer<GtkMenuToolButtonClass>! { get }
 
+    /// Required Initialiser for types conforming to `MenuToolButtonClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `MenuToolButtonClassRef` type acts as a lightweight Swift reference to an underlying `GtkMenuToolButtonClass` instance.
@@ -1341,6 +1359,8 @@ public protocol MessageDialogClassProtocol {
     /// Typed pointer to the underlying `GtkMessageDialogClass` instance.
     var _ptr: UnsafeMutablePointer<GtkMessageDialogClass>! { get }
 
+    /// Required Initialiser for types conforming to `MessageDialogClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `MessageDialogClassRef` type acts as a lightweight Swift reference to an underlying `GtkMessageDialogClass` instance.
@@ -1481,6 +1501,8 @@ public protocol MiscClassProtocol {
     /// Typed pointer to the underlying `GtkMiscClass` instance.
     var _ptr: UnsafeMutablePointer<GtkMiscClass>! { get }
 
+    /// Required Initialiser for types conforming to `MiscClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `MiscClassRef` type acts as a lightweight Swift reference to an underlying `GtkMiscClass` instance.
@@ -1621,6 +1643,8 @@ public protocol MountOperationClassProtocol {
     /// Typed pointer to the underlying `GtkMountOperationClass` instance.
     var _ptr: UnsafeMutablePointer<GtkMountOperationClass>! { get }
 
+    /// Required Initialiser for types conforming to `MountOperationClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `MountOperationClassRef` type acts as a lightweight Swift reference to an underlying `GtkMountOperationClass` instance.
@@ -1763,6 +1787,8 @@ public protocol NativeDialogClassProtocol {
     /// Typed pointer to the underlying `GtkNativeDialogClass` instance.
     var _ptr: UnsafeMutablePointer<GtkNativeDialogClass>! { get }
 
+    /// Required Initialiser for types conforming to `NativeDialogClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `NativeDialogClassRef` type acts as a lightweight Swift reference to an underlying `GtkNativeDialogClass` instance.

@@ -72,7 +72,7 @@ import Atk
 /// get notification about when the preview needs to be updated.
 /// To install a preview widget, use
 /// `gtk_file_chooser_set_preview_widget()`.  Then, connect to the
-/// `GtkFileChooser::update`-preview signal to get notified when
+/// `GtkFileChooser::update-preview` signal to get notified when
 /// you need to update the contents of the preview.
 /// 
 /// Your callback should use
@@ -155,6 +155,8 @@ public protocol FileChooserProtocol {
     /// Typed pointer to the underlying `GtkFileChooser` instance.
     var file_chooser_ptr: UnsafeMutablePointer<GtkFileChooser>! { get }
 
+    /// Required Initialiser for types conforming to `FileChooserProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `FileChooserRef` type acts as a lightweight Swift reference to an underlying `GtkFileChooser` instance.
@@ -211,7 +213,7 @@ public protocol FileChooserProtocol {
 /// get notification about when the preview needs to be updated.
 /// To install a preview widget, use
 /// `gtk_file_chooser_set_preview_widget()`.  Then, connect to the
-/// `GtkFileChooser::update`-preview signal to get notified when
+/// `GtkFileChooser::update-preview` signal to get notified when
 /// you need to update the contents of the preview.
 /// 
 /// Your callback should use
@@ -419,7 +421,7 @@ public extension FileChooserRef {
 /// get notification about when the preview needs to be updated.
 /// To install a preview widget, use
 /// `gtk_file_chooser_set_preview_widget()`.  Then, connect to the
-/// `GtkFileChooser::update`-preview signal to get notified when
+/// `GtkFileChooser::update-preview` signal to get notified when
 /// you need to update the contents of the preview.
 /// 
 /// Your callback should use
@@ -608,7 +610,7 @@ open class FileChooser: FileChooserProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileChooserProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -718,11 +720,11 @@ public enum FileChooserSignalName: String, SignalNameProtocol {
     /// chooser is in `GTK_FILE_CHOOSER_ACTION_SAVE` mode.
     /// 
     /// Most applications just need to turn on the
-    /// `GtkFileChooser:do`-overwrite-confirmation property (or call the
+    /// `GtkFileChooser:do-overwrite-confirmation` property (or call the
     /// `gtk_file_chooser_set_do_overwrite_confirmation()` function), and
     /// they will automatically get a stock confirmation dialog.
     /// Applications which need to customize this behavior should do
-    /// that, and also connect to the `GtkFileChooser::confirm`-overwrite
+    /// that, and also connect to the `GtkFileChooser::confirm-overwrite`
     /// signal.
     /// 
     /// A signal handler for this signal must return a
@@ -889,11 +891,11 @@ public extension FileChooserProtocol {
     /// chooser is in `GTK_FILE_CHOOSER_ACTION_SAVE` mode.
     /// 
     /// Most applications just need to turn on the
-    /// `GtkFileChooser:do`-overwrite-confirmation property (or call the
+    /// `GtkFileChooser:do-overwrite-confirmation` property (or call the
     /// `gtk_file_chooser_set_do_overwrite_confirmation()` function), and
     /// they will automatically get a stock confirmation dialog.
     /// Applications which need to customize this behavior should do
-    /// that, and also connect to the `GtkFileChooser::confirm`-overwrite
+    /// that, and also connect to the `GtkFileChooser::confirm-overwrite`
     /// signal.
     /// 
     /// A signal handler for this signal must return a
@@ -2084,11 +2086,11 @@ public extension FileChooserProtocol {
     /// is `false` by default.
     /// 
     /// If set to `true`, the `chooser` will emit the
-    /// `GtkFileChooser::confirm`-overwrite signal when appropriate.
+    /// `GtkFileChooser::confirm-overwrite` signal when appropriate.
     /// 
     /// If all you need is the stock confirmation dialog, set this property to `true`.
     /// You can override the way confirmation is done by actually handling the
-    /// `GtkFileChooser::confirm`-overwrite signal; please refer to its documentation
+    /// `GtkFileChooser::confirm-overwrite` signal; please refer to its documentation
     /// for the details.
     @inlinable func set(doOverwriteConfirmation: Bool) {
         gtk_file_chooser_set_do_overwrite_confirmation(file_chooser_ptr, gboolean((doOverwriteConfirmation) ? 1 : 0))
@@ -2212,7 +2214,7 @@ public extension FileChooserProtocol {
 
     /// Sets an application-supplied widget to use to display a custom preview
     /// of the currently selected file. To implement a preview, after setting the
-    /// preview widget, you connect to the `GtkFileChooser::update`-preview
+    /// preview widget, you connect to the `GtkFileChooser::update-preview`
     /// signal, and call `gtk_file_chooser_get_preview_filename()` or
     /// `gtk_file_chooser_get_preview_uri()` on each change. If you can
     /// display a preview of the new file, update your widget and
@@ -2505,11 +2507,11 @@ public extension FileChooserProtocol {
         /// is `false` by default.
         /// 
         /// If set to `true`, the `chooser` will emit the
-        /// `GtkFileChooser::confirm`-overwrite signal when appropriate.
+        /// `GtkFileChooser::confirm-overwrite` signal when appropriate.
         /// 
         /// If all you need is the stock confirmation dialog, set this property to `true`.
         /// You can override the way confirmation is done by actually handling the
-        /// `GtkFileChooser::confirm`-overwrite signal; please refer to its documentation
+        /// `GtkFileChooser::confirm-overwrite` signal; please refer to its documentation
         /// for the details.
         nonmutating set {
             gtk_file_chooser_set_do_overwrite_confirmation(file_chooser_ptr, gboolean((newValue) ? 1 : 0))
@@ -2761,7 +2763,7 @@ public extension FileChooserProtocol {
         }
         /// Sets an application-supplied widget to use to display a custom preview
         /// of the currently selected file. To implement a preview, after setting the
-        /// preview widget, you connect to the `GtkFileChooser::update`-preview
+        /// preview widget, you connect to the `GtkFileChooser::update-preview`
         /// signal, and call `gtk_file_chooser_get_preview_filename()` or
         /// `gtk_file_chooser_get_preview_uri()` on each change. If you can
         /// display a preview of the new file, update your widget and
@@ -2940,6 +2942,8 @@ public protocol FontChooserProtocol {
     /// Typed pointer to the underlying `GtkFontChooser` instance.
     var font_chooser_ptr: UnsafeMutablePointer<GtkFontChooser>! { get }
 
+    /// Required Initialiser for types conforming to `FontChooserProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `FontChooserRef` type acts as a lightweight Swift reference to an underlying `GtkFontChooser` instance.
@@ -3151,7 +3155,7 @@ open class FontChooser: FontChooserProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FontChooserProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -3190,7 +3194,7 @@ public enum FontChooserPropertyName: String, PropertyNameProtocol {
     /// The selected font features, in a format that is compatible with
     /// CSS and with Pango attributes.
     case fontFeatures = "font-features"
-    /// The language for which the `GtkFontChooser:font`-features were
+    /// The language for which the `GtkFontChooser:font-features` were
     /// selected, in a format that is compatible with CSS and with Pango
     /// attributes.
     case language = "language"
@@ -3268,7 +3272,7 @@ public enum FontChooserSignalName: String, SignalNameProtocol {
     /// The selected font features, in a format that is compatible with
     /// CSS and with Pango attributes.
     case notifyFontFeatures = "notify::font-features"
-    /// The language for which the `GtkFontChooser:font`-features were
+    /// The language for which the `GtkFontChooser:font-features` were
     /// selected, in a format that is compatible with CSS and with Pango
     /// attributes.
     case notifyLanguage = "notify::language"
@@ -4023,7 +4027,7 @@ public extension FontChooserProtocol {
         }
     }
 
-    /// The language for which the `GtkFontChooser:font`-features were
+    /// The language for which the `GtkFontChooser:font-features` were
     /// selected, in a format that is compatible with CSS and with Pango
     /// attributes.
     @inlinable var language: String! {
@@ -4105,6 +4109,8 @@ public protocol OrientableProtocol {
     /// Typed pointer to the underlying `GtkOrientable` instance.
     var orientable_ptr: UnsafeMutablePointer<GtkOrientable>! { get }
 
+    /// Required Initialiser for types conforming to `OrientableProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `OrientableRef` type acts as a lightweight Swift reference to an underlying `GtkOrientable` instance.
@@ -4322,7 +4328,7 @@ open class Orientable: OrientableProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `OrientableProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 

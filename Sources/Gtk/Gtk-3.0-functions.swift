@@ -85,7 +85,7 @@ import Atk
 
 /// Converts an accelerator keyval and modifier mask into a string
 /// parseable by `gtk_accelerator_parse()`. For example, if you pass in
-/// `GDK_KEY_q` and `GDK_CONTROL_MASK`, this function returns “<Control>q”.
+/// `GDK_KEY_q` and `GDK_CONTROL_MASK`, this function returns “&lt;Control&gt;q”.
 /// 
 /// If you need to display accelerators in the user interface,
 /// see `gtk_accelerator_get_label()`.
@@ -120,14 +120,14 @@ import Atk
 
 
 /// Parses a string representing an accelerator. The format looks like
-/// “<Control>a” or “<Shift><Alt>F1” or “<Release>z” (the last one is
+/// “&lt;Control&gt;a” or “&lt;Shift&gt;&lt;Alt&gt;F1” or “&lt;Release&gt;z” (the last one is
 /// for key release).
 /// 
 /// The parser is fairly liberal and allows lower or upper case, and also
-/// abbreviations such as “<Ctl>” and “<Ctrl>”. Key names are parsed using
+/// abbreviations such as “&lt;Ctl&gt;” and “&lt;Ctrl&gt;”. Key names are parsed using
 /// `gdk_keyval_from_name()`. For character keys the name is not the symbol,
-/// but the lowercase name, e.g. one would use “<Ctrl>minus” instead of
-/// “<Ctrl>-”.
+/// but the lowercase name, e.g. one would use “&lt;Ctrl&gt;minus” instead of
+/// “&lt;Ctrl&gt;-”.
 /// 
 /// If the parse fails, `accelerator_key` and `accelerator_mods` will
 /// be set to 0 (zero).
@@ -199,7 +199,7 @@ import Atk
 /// about alternative button order.
 /// 
 /// If you need to use this function, you should probably connect
-/// to the `notify:gtk`-alternative-button-order signal on the
+/// to the `notify:gtk-alternative-button-order` signal on the
 /// `GtkSettings` object associated to `screen`, in order to be
 /// notified if the button order setting changes.
 ///
@@ -216,7 +216,7 @@ import Atk
 /// about alternative button order.
 /// 
 /// If you need to use this function, you should probably connect
-/// to the `notify:gtk`-alternative-button-order signal on the
+/// to the `notify:gtk-alternative-button-order` signal on the
 /// `GtkSettings` object associated to `screen`, in order to be
 /// notified if the button order setting changes.
 ///
@@ -367,8 +367,8 @@ import Atk
 
 
 
-/// Transforms the given cairo context `cr` that from `widget`-relative
-/// coordinates to `window`-relative coordinates.
+/// Transforms the given cairo context `cr` that from `widget-relative`
+/// coordinates to `window-relative` coordinates.
 /// If the `widget`’s window is not an ancestor of `window`, no
 /// modification will be applied.
 /// 
@@ -2990,7 +2990,7 @@ import Atk
 /// to `widget`.
 /// For windowless widgets like `GtkButton` (which returns `false` from
 /// `gtk_widget_get_has_window()`), this will often be an
-/// input-only event window. For other widgets, this is usually widget->window.
+/// input-only event window. For other widgets, this is usually widget-&gt;window.
 /// Certain caveats should be considered when using this function, in
 /// particular because the mouse pointer is warped to the button click
 /// location, see `gdk_test_simulate_button()` for details.
@@ -3010,7 +3010,7 @@ import Atk
 /// the middle of the first GdkWindow found that belongs to `widget`.
 /// For windowless widgets like `GtkButton` (which returns `false` from
 /// `gtk_widget_get_has_window()`), this will often be an
-/// input-only event window. For other widgets, this is usually widget->window.
+/// input-only event window. For other widgets, this is usually widget-&gt;window.
 /// Certain caveats should be considered when using this function, in
 /// particular because the mouse pointer is warped to the key press
 /// location, see `gdk_test_simulate_key()` for details.
@@ -3056,7 +3056,7 @@ import Atk
 
 /// Lets a set of row reference created by
 /// `gtk_tree_row_reference_new_proxy()` know that the
-/// model emitted the `GtkTreeModel::row`-deleted signal.
+/// model emitted the `GtkTreeModel::row-deleted` signal.
 @inlinable public func treeRowReferenceDeleted<ObjectT: GLibObject.ObjectProtocol, TreePathT: TreePathProtocol>(proxy: ObjectT, path: TreePathT) {
     gtk_tree_row_reference_deleted(proxy.object_ptr, path.tree_path_ptr)
 
@@ -3067,7 +3067,7 @@ import Atk
 
 /// Lets a set of row reference created by
 /// `gtk_tree_row_reference_new_proxy()` know that the
-/// model emitted the `GtkTreeModel::row`-inserted signal.
+/// model emitted the `GtkTreeModel::row-inserted` signal.
 @inlinable public func treeRowReferenceInserted<ObjectT: GLibObject.ObjectProtocol, TreePathT: TreePathProtocol>(proxy: ObjectT, path: TreePathT) {
     gtk_tree_row_reference_inserted(proxy.object_ptr, path.tree_path_ptr)
 
@@ -3078,7 +3078,7 @@ import Atk
 
 /// Lets a set of row reference created by
 /// `gtk_tree_row_reference_new_proxy()` know that the
-/// model emitted the `GtkTreeModel::rows`-reordered signal.
+/// model emitted the `GtkTreeModel::rows-reordered` signal.
 @inlinable public func treeRowReferenceReordered<ObjectT: GLibObject.ObjectProtocol, TreeIterT: TreeIterProtocol, TreePathT: TreePathProtocol>(proxy: ObjectT, path: TreePathT, iter: TreeIterT, newOrder: UnsafeMutablePointer<gint>!) {
     gtk_tree_row_reference_reordered(proxy.object_ptr, path.tree_path_ptr, iter.tree_iter_ptr, newOrder)
 

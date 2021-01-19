@@ -30,6 +30,8 @@ public protocol IMContextInfoProtocol {
     /// Typed pointer to the underlying `GtkIMContextInfo` instance.
     var _ptr: UnsafeMutablePointer<GtkIMContextInfo>! { get }
 
+    /// Required Initialiser for types conforming to `IMContextInfoProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `IMContextInfoRef` type acts as a lightweight Swift reference to an underlying `GtkIMContextInfo` instance.
@@ -233,7 +235,7 @@ open class IMContextInfo: IMContextInfoProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IMContextInfoProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -377,6 +379,8 @@ public protocol IMContextSimpleClassProtocol {
     /// Typed pointer to the underlying `GtkIMContextSimpleClass` instance.
     var _ptr: UnsafeMutablePointer<GtkIMContextSimpleClass>! { get }
 
+    /// Required Initialiser for types conforming to `IMContextSimpleClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `IMContextSimpleClassRef` type acts as a lightweight Swift reference to an underlying `GtkIMContextSimpleClass` instance.
@@ -509,6 +513,8 @@ public protocol IMMulticontextClassProtocol {
     /// Typed pointer to the underlying `GtkIMMulticontextClass` instance.
     var _ptr: UnsafeMutablePointer<GtkIMMulticontextClass>! { get }
 
+    /// Required Initialiser for types conforming to `IMMulticontextClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `IMMulticontextClassRef` type acts as a lightweight Swift reference to an underlying `GtkIMMulticontextClass` instance.
@@ -649,6 +655,8 @@ public protocol IconFactoryClassProtocol {
     /// Typed pointer to the underlying `GtkIconFactoryClass` instance.
     var _ptr: UnsafeMutablePointer<GtkIconFactoryClass>! { get }
 
+    /// Required Initialiser for types conforming to `IconFactoryClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `IconFactoryClassRef` type acts as a lightweight Swift reference to an underlying `GtkIconFactoryClass` instance.
@@ -791,6 +799,8 @@ public protocol IconInfoClassProtocol {
     /// Typed pointer to the underlying `GtkIconInfoClass` instance.
     var _ptr: UnsafeMutablePointer<GtkIconInfoClass>! { get }
 
+    /// Required Initialiser for types conforming to `IconInfoClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `IconInfoClassRef` type acts as a lightweight Swift reference to an underlying `GtkIconInfoClass` instance.
@@ -902,6 +912,8 @@ public protocol IconSetProtocol {
     /// Typed pointer to the underlying `GtkIconSet` instance.
     var icon_set_ptr: UnsafeMutablePointer<GtkIconSet>! { get }
 
+    /// Required Initialiser for types conforming to `IconSetProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `IconSetRef` type acts as a lightweight Swift reference to an underlying `GtkIconSet` instance.
@@ -1149,7 +1161,7 @@ open class IconSet: IconSetProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IconSetProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -1403,6 +1415,8 @@ public protocol IconSourceProtocol {
     /// Typed pointer to the underlying `GtkIconSource` instance.
     var icon_source_ptr: UnsafeMutablePointer<GtkIconSource>! { get }
 
+    /// Required Initialiser for types conforming to `IconSourceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `IconSourceRef` type acts as a lightweight Swift reference to an underlying `GtkIconSource` instance.
@@ -1642,7 +1656,7 @@ open class IconSource: IconSourceProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IconSourceProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -2330,6 +2344,8 @@ public protocol IconThemeClassProtocol {
     /// Typed pointer to the underlying `GtkIconThemeClass` instance.
     var _ptr: UnsafeMutablePointer<GtkIconThemeClass>! { get }
 
+    /// Required Initialiser for types conforming to `IconThemeClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `IconThemeClassRef` type acts as a lightweight Swift reference to an underlying `GtkIconThemeClass` instance.
@@ -2474,6 +2490,8 @@ public protocol IconViewAccessibleClassProtocol {
     /// Typed pointer to the underlying `GtkIconViewAccessibleClass` instance.
     var _ptr: UnsafeMutablePointer<GtkIconViewAccessibleClass>! { get }
 
+    /// Required Initialiser for types conforming to `IconViewAccessibleClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `IconViewAccessibleClassRef` type acts as a lightweight Swift reference to an underlying `GtkIconViewAccessibleClass` instance.
@@ -2606,6 +2624,8 @@ public protocol IconViewClassProtocol {
     /// Typed pointer to the underlying `GtkIconViewClass` instance.
     var _ptr: UnsafeMutablePointer<GtkIconViewClass>! { get }
 
+    /// Required Initialiser for types conforming to `IconViewClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `IconViewClassRef` type acts as a lightweight Swift reference to an underlying `GtkIconViewClass` instance.
@@ -2762,6 +2782,8 @@ public protocol ImageAccessibleClassProtocol {
     /// Typed pointer to the underlying `GtkImageAccessibleClass` instance.
     var _ptr: UnsafeMutablePointer<GtkImageAccessibleClass>! { get }
 
+    /// Required Initialiser for types conforming to `ImageAccessibleClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ImageAccessibleClassRef` type acts as a lightweight Swift reference to an underlying `GtkImageAccessibleClass` instance.
@@ -2894,6 +2916,8 @@ public protocol ImageCellAccessibleClassProtocol {
     /// Typed pointer to the underlying `GtkImageCellAccessibleClass` instance.
     var _ptr: UnsafeMutablePointer<GtkImageCellAccessibleClass>! { get }
 
+    /// Required Initialiser for types conforming to `ImageCellAccessibleClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ImageCellAccessibleClassRef` type acts as a lightweight Swift reference to an underlying `GtkImageCellAccessibleClass` instance.
@@ -3026,6 +3050,8 @@ public protocol ImageClassProtocol {
     /// Typed pointer to the underlying `GtkImageClass` instance.
     var _ptr: UnsafeMutablePointer<GtkImageClass>! { get }
 
+    /// Required Initialiser for types conforming to `ImageClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ImageClassRef` type acts as a lightweight Swift reference to an underlying `GtkImageClass` instance.
@@ -3166,6 +3192,8 @@ public protocol ImageMenuItemClassProtocol {
     /// Typed pointer to the underlying `GtkImageMenuItemClass` instance.
     var _ptr: UnsafeMutablePointer<GtkImageMenuItemClass>! { get }
 
+    /// Required Initialiser for types conforming to `ImageMenuItemClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ImageMenuItemClassRef` type acts as a lightweight Swift reference to an underlying `GtkImageMenuItemClass` instance.
@@ -3308,6 +3336,8 @@ public protocol InfoBarClassProtocol {
     /// Typed pointer to the underlying `GtkInfoBarClass` instance.
     var _ptr: UnsafeMutablePointer<GtkInfoBarClass>! { get }
 
+    /// Required Initialiser for types conforming to `InfoBarClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `InfoBarClassRef` type acts as a lightweight Swift reference to an underlying `GtkInfoBarClass` instance.
@@ -3452,6 +3482,8 @@ public protocol InvisibleClassProtocol {
     /// Typed pointer to the underlying `GtkInvisibleClass` instance.
     var _ptr: UnsafeMutablePointer<GtkInvisibleClass>! { get }
 
+    /// Required Initialiser for types conforming to `InvisibleClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `InvisibleClassRef` type acts as a lightweight Swift reference to an underlying `GtkInvisibleClass` instance.
@@ -3592,6 +3624,8 @@ public protocol LabelAccessibleClassProtocol {
     /// Typed pointer to the underlying `GtkLabelAccessibleClass` instance.
     var _ptr: UnsafeMutablePointer<GtkLabelAccessibleClass>! { get }
 
+    /// Required Initialiser for types conforming to `LabelAccessibleClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `LabelAccessibleClassRef` type acts as a lightweight Swift reference to an underlying `GtkLabelAccessibleClass` instance.

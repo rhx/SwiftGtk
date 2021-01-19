@@ -45,6 +45,8 @@ public protocol FileChooserDialogClassProtocol {
     /// Typed pointer to the underlying `GtkFileChooserDialogClass` instance.
     var _ptr: UnsafeMutablePointer<GtkFileChooserDialogClass>! { get }
 
+    /// Required Initialiser for types conforming to `FileChooserDialogClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `FileChooserDialogClassRef` type acts as a lightweight Swift reference to an underlying `GtkFileChooserDialogClass` instance.
@@ -185,6 +187,8 @@ public protocol FileChooserNativeClassProtocol {
     /// Typed pointer to the underlying `GtkFileChooserNativeClass` instance.
     var _ptr: UnsafeMutablePointer<GtkFileChooserNativeClass>! { get }
 
+    /// Required Initialiser for types conforming to `FileChooserNativeClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `FileChooserNativeClassRef` type acts as a lightweight Swift reference to an underlying `GtkFileChooserNativeClass` instance.
@@ -317,6 +321,8 @@ public protocol FileChooserWidgetClassProtocol {
     /// Typed pointer to the underlying `GtkFileChooserWidgetClass` instance.
     var _ptr: UnsafeMutablePointer<GtkFileChooserWidgetClass>! { get }
 
+    /// Required Initialiser for types conforming to `FileChooserWidgetClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `FileChooserWidgetClassRef` type acts as a lightweight Swift reference to an underlying `GtkFileChooserWidgetClass` instance.
@@ -436,7 +442,7 @@ public extension FileChooserWidgetClassProtocol {
 /// For a concrete class that implements these methods and properties, see `FileFilterInfo`.
 /// Alternatively, use `FileFilterInfoRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// A `GtkFileFilterInfo`-struct is used to pass information about the
+/// A `GtkFileFilterInfo-struct` is used to pass information about the
 /// tested file to `gtk_file_filter_filter()`.
 public protocol FileFilterInfoProtocol {
         /// Untyped pointer to the underlying `GtkFileFilterInfo` instance.
@@ -445,13 +451,15 @@ public protocol FileFilterInfoProtocol {
     /// Typed pointer to the underlying `GtkFileFilterInfo` instance.
     var _ptr: UnsafeMutablePointer<GtkFileFilterInfo>! { get }
 
+    /// Required Initialiser for types conforming to `FileFilterInfoProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `FileFilterInfoRef` type acts as a lightweight Swift reference to an underlying `GtkFileFilterInfo` instance.
 /// It exposes methods that can operate on this data type through `FileFilterInfoProtocol` conformance.
 /// Use `FileFilterInfoRef` only as an `unowned` reference to an existing `GtkFileFilterInfo` instance.
 ///
-/// A `GtkFileFilterInfo`-struct is used to pass information about the
+/// A `GtkFileFilterInfo-struct` is used to pass information about the
 /// tested file to `gtk_file_filter_filter()`.
 public struct FileFilterInfoRef: FileFilterInfoProtocol {
         /// Untyped pointer to the underlying `GtkFileFilterInfo` instance.
@@ -535,7 +543,7 @@ public extension FileFilterInfoRef {
 /// It provides the methods that can operate on this data type through `FileFilterInfoProtocol` conformance.
 /// Use `FileFilterInfo` as a strong reference or owner of a `GtkFileFilterInfo` instance.
 ///
-/// A `GtkFileFilterInfo`-struct is used to pass information about the
+/// A `GtkFileFilterInfo-struct` is used to pass information about the
 /// tested file to `gtk_file_filter_filter()`.
 open class FileFilterInfo: FileFilterInfoProtocol {
         /// Untyped pointer to the underlying `GtkFileFilterInfo` instance.
@@ -650,7 +658,7 @@ open class FileFilterInfo: FileFilterInfoProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileFilterInfoProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -782,6 +790,8 @@ public protocol FixedChildProtocol {
     /// Typed pointer to the underlying `GtkFixedChild` instance.
     var _ptr: UnsafeMutablePointer<GtkFixedChild>! { get }
 
+    /// Required Initialiser for types conforming to `FixedChildProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `FixedChildRef` type acts as a lightweight Swift reference to an underlying `GtkFixedChild` instance.
@@ -985,7 +995,7 @@ open class FixedChild: FixedChildProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FixedChildProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -1091,6 +1101,8 @@ public protocol FixedClassProtocol {
     /// Typed pointer to the underlying `GtkFixedClass` instance.
     var _ptr: UnsafeMutablePointer<GtkFixedClass>! { get }
 
+    /// Required Initialiser for types conforming to `FixedClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `FixedClassRef` type acts as a lightweight Swift reference to an underlying `GtkFixedClass` instance.
@@ -1231,6 +1243,8 @@ public protocol FlowBoxAccessibleClassProtocol {
     /// Typed pointer to the underlying `GtkFlowBoxAccessibleClass` instance.
     var _ptr: UnsafeMutablePointer<GtkFlowBoxAccessibleClass>! { get }
 
+    /// Required Initialiser for types conforming to `FlowBoxAccessibleClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `FlowBoxAccessibleClassRef` type acts as a lightweight Swift reference to an underlying `GtkFlowBoxAccessibleClass` instance.
@@ -1363,6 +1377,8 @@ public protocol FlowBoxChildAccessibleClassProtocol {
     /// Typed pointer to the underlying `GtkFlowBoxChildAccessibleClass` instance.
     var _ptr: UnsafeMutablePointer<GtkFlowBoxChildAccessibleClass>! { get }
 
+    /// Required Initialiser for types conforming to `FlowBoxChildAccessibleClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `FlowBoxChildAccessibleClassRef` type acts as a lightweight Swift reference to an underlying `GtkFlowBoxChildAccessibleClass` instance.
@@ -1495,6 +1511,8 @@ public protocol FlowBoxChildClassProtocol {
     /// Typed pointer to the underlying `GtkFlowBoxChildClass` instance.
     var _ptr: UnsafeMutablePointer<GtkFlowBoxChildClass>! { get }
 
+    /// Required Initialiser for types conforming to `FlowBoxChildClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `FlowBoxChildClassRef` type acts as a lightweight Swift reference to an underlying `GtkFlowBoxChildClass` instance.
@@ -1633,6 +1651,8 @@ public protocol FlowBoxClassProtocol {
     /// Typed pointer to the underlying `GtkFlowBoxClass` instance.
     var _ptr: UnsafeMutablePointer<GtkFlowBoxClass>! { get }
 
+    /// Required Initialiser for types conforming to `FlowBoxClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `FlowBoxClassRef` type acts as a lightweight Swift reference to an underlying `GtkFlowBoxClass` instance.
@@ -1791,6 +1811,8 @@ public protocol FontButtonClassProtocol {
     /// Typed pointer to the underlying `GtkFontButtonClass` instance.
     var _ptr: UnsafeMutablePointer<GtkFontButtonClass>! { get }
 
+    /// Required Initialiser for types conforming to `FontButtonClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `FontButtonClassRef` type acts as a lightweight Swift reference to an underlying `GtkFontButtonClass` instance.
@@ -1933,6 +1955,8 @@ public protocol FontChooserDialogClassProtocol {
     /// Typed pointer to the underlying `GtkFontChooserDialogClass` instance.
     var _ptr: UnsafeMutablePointer<GtkFontChooserDialogClass>! { get }
 
+    /// Required Initialiser for types conforming to `FontChooserDialogClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `FontChooserDialogClassRef` type acts as a lightweight Swift reference to an underlying `GtkFontChooserDialogClass` instance.
@@ -2075,6 +2099,8 @@ public protocol FontChooserIfaceProtocol {
     /// Typed pointer to the underlying `GtkFontChooserIface` instance.
     var _ptr: UnsafeMutablePointer<GtkFontChooserIface>! { get }
 
+    /// Required Initialiser for types conforming to `FontChooserIfaceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `FontChooserIfaceRef` type acts as a lightweight Swift reference to an underlying `GtkFontChooserIface` instance.
@@ -2228,6 +2254,8 @@ public protocol FontChooserWidgetClassProtocol {
     /// Typed pointer to the underlying `GtkFontChooserWidgetClass` instance.
     var _ptr: UnsafeMutablePointer<GtkFontChooserWidgetClass>! { get }
 
+    /// Required Initialiser for types conforming to `FontChooserWidgetClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `FontChooserWidgetClassRef` type acts as a lightweight Swift reference to an underlying `GtkFontChooserWidgetClass` instance.
@@ -2378,6 +2406,8 @@ public protocol FontSelectionClassProtocol {
     /// Typed pointer to the underlying `GtkFontSelectionClass` instance.
     var _ptr: UnsafeMutablePointer<GtkFontSelectionClass>! { get }
 
+    /// Required Initialiser for types conforming to `FontSelectionClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `FontSelectionClassRef` type acts as a lightweight Swift reference to an underlying `GtkFontSelectionClass` instance.
@@ -2518,6 +2548,8 @@ public protocol FontSelectionDialogClassProtocol {
     /// Typed pointer to the underlying `GtkFontSelectionDialogClass` instance.
     var _ptr: UnsafeMutablePointer<GtkFontSelectionDialogClass>! { get }
 
+    /// Required Initialiser for types conforming to `FontSelectionDialogClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `FontSelectionDialogClassRef` type acts as a lightweight Swift reference to an underlying `GtkFontSelectionDialogClass` instance.
@@ -2658,6 +2690,8 @@ public protocol FrameAccessibleClassProtocol {
     /// Typed pointer to the underlying `GtkFrameAccessibleClass` instance.
     var _ptr: UnsafeMutablePointer<GtkFrameAccessibleClass>! { get }
 
+    /// Required Initialiser for types conforming to `FrameAccessibleClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `FrameAccessibleClassRef` type acts as a lightweight Swift reference to an underlying `GtkFrameAccessibleClass` instance.
@@ -2790,6 +2824,8 @@ public protocol FrameClassProtocol {
     /// Typed pointer to the underlying `GtkFrameClass` instance.
     var _ptr: UnsafeMutablePointer<GtkFrameClass>! { get }
 
+    /// Required Initialiser for types conforming to `FrameClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `FrameClassRef` type acts as a lightweight Swift reference to an underlying `GtkFrameClass` instance.
@@ -2934,6 +2970,8 @@ public protocol GLAreaClassProtocol {
     /// Typed pointer to the underlying `GtkGLAreaClass` instance.
     var _ptr: UnsafeMutablePointer<GtkGLAreaClass>! { get }
 
+    /// Required Initialiser for types conforming to `GLAreaClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `GLAreaClassRef` type acts as a lightweight Swift reference to an underlying `GtkGLAreaClass` instance.

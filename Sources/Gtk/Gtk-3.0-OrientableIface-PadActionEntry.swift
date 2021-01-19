@@ -45,6 +45,8 @@ public protocol OrientableIfaceProtocol {
     /// Typed pointer to the underlying `GtkOrientableIface` instance.
     var _ptr: UnsafeMutablePointer<GtkOrientableIface>! { get }
 
+    /// Required Initialiser for types conforming to `OrientableIfaceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `OrientableIfaceRef` type acts as a lightweight Swift reference to an underlying `GtkOrientableIface` instance.
@@ -177,6 +179,8 @@ public protocol OverlayClassProtocol {
     /// Typed pointer to the underlying `GtkOverlayClass` instance.
     var _ptr: UnsafeMutablePointer<GtkOverlayClass>! { get }
 
+    /// Required Initialiser for types conforming to `OverlayClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `OverlayClassRef` type acts as a lightweight Swift reference to an underlying `GtkOverlayClass` instance.
@@ -314,6 +318,8 @@ public protocol PadActionEntryProtocol {
     /// Typed pointer to the underlying `GtkPadActionEntry` instance.
     var _ptr: UnsafeMutablePointer<GtkPadActionEntry>! { get }
 
+    /// Required Initialiser for types conforming to `PadActionEntryProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `PadActionEntryRef` type acts as a lightweight Swift reference to an underlying `GtkPadActionEntry` instance.
@@ -517,7 +523,7 @@ open class PadActionEntry: PadActionEntryProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PadActionEntryProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
