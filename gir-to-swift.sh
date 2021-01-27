@@ -7,7 +7,7 @@
 mkdir -p Sources/${Mod}
 GOBJECT_LIBDIR=`pkg-config --libs-only-L gobject-introspection-1.0 2>/dev/null | tr ' ' '\n' | grep gobject-introspection | tail -n1 | cut -c3-`
 GOBJECT_DIR=`dirname "${GOBJECT_LIBDIR}"`
-for prefix in $PREFIX GOBJECT_DIR /usr/local /usr ; do
+for prefix in $PREFIX /opt/homebrew /usr/local /usr $GOBJECT_DIR ; do
 	gir_dir=${prefix}/share/gir-1.0
 	gir=${gir_dir}/${Module}.gir
 	if [ -e "${gir}" ] ; then
