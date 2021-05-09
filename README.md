@@ -126,7 +126,7 @@ on macOS, or on Linux you should get something like:
 
 ### Gtk 3.22 or higher
 
-The Swift wrappers have been tested with glib-2.56, 2.58, 2.60, 2.62, and 2.64, and gdk/gtk 3.22, 3.24, and 4.0 on the `gtk4` branch.  They should work with higher versions, but YMMV.  Also make sure you have `gobject-introspection` and its `.gir` files installed.
+The Swift wrappers have been tested with glib-2.56, 2.58, 2.60, 2.62, 2.64, 2.66 and 2.68, and gdk/gtk 3.22, 3.24, and 4.0 on the `gtk4` branch.  They should work with higher versions, but YMMV.  Also make sure you have `gobject-introspection` and its `.gir` files installed.
 
 #### Linux
 
@@ -135,7 +135,7 @@ The Swift wrappers have been tested with glib-2.56, 2.58, 2.60, 2.62, and 2.64, 
 On Ubuntu 20.04 and 18.04, you can use the gtk that comes with the distribution.  Just install with the `apt` package manager:
 
 	sudo apt update
-	sudo apt install libgtk-3-dev gir1.2-gtksource-3.0 gobject-introspection libgirepository1.0-dev libxml2-dev
+	sudo apt install libgtk-3-dev gir1.2-gtksource-3.0 gobject-introspection libgirepository1.0-dev libxml2-dev jq
 
 ##### Fedora
 
