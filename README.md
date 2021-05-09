@@ -180,10 +180,16 @@ After that, use the (usual) Build and Test buttons to build/test this package.
 
 ## Documentation
 
-You can find reference documentation inside the [docs](https://rhx.github.io/SwiftGtk/) folder.
+You can find reference documentation inside the [docs](https://rhx.github.io/SwiftGLib/) folder.
 This was generated using the [jazzy](https://github.com/realm/jazzy) tool.
 If you want to generate your own documentation, matching your local installation,
 you can use the `generate-documentation.sh` script in the repository.
+Make sure you have [sourcekitten](https://github.com/jpsim/SourceKitten) and [jazzy](https://github.com/realm/jazzy) installed, e.g. on macOS:
+
+	brew install sourcekitten
+	sudo gem install jazzy
+	./run-gir2swift.sh
+	./generate-documentation.sh
 
 
 ## Troubleshooting
