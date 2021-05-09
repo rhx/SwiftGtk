@@ -11,7 +11,7 @@ let package = Package(
         .package(name: "PangoCairo", url: "https://github.com/rhx/SwiftPangoCairo.git", .branch("development")),
     ],
     targets: [
-        .systemLibrary(name: "CGtk", pkgConfig: "gtk4",
+        .systemLibrary(name: "CGtk", pkgConfig: "gtk4-unix-print",
 	    providers: [
 		.brew(["gtk4", "glib", "glib-networking", "gobject-introspection"]),
 		.apt(["libgtk-4-dev", "libglib2.0-dev", "glib-networking", "gobject-introspection", "libgirepository1.0-dev"])

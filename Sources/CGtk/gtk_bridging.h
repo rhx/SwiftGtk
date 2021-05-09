@@ -570,6 +570,7 @@ struct _GtkWindowHandle {};
 #include <gsk/gsk.h>
 #include <gtk/gtkimmodule.h>
 #include <gtk/gtk.h>
+#include <gtk/gtkunixprint.h>
 
 typedef void (*GObjectNotifyQueueDispatcher) (GObject *object, guint n_pspecs, GParamSpec **pspecs);
 
