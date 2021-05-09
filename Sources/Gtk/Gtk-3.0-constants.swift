@@ -18,7 +18,7 @@ import Atk
 /// Like `gtk_get_binary_age()`, but from the headers used at
 /// application compile time, rather than from the library linked
 /// against at application run time.
-public let BINARY_AGE = GTK_BINARY_AGE // 2424
+public let BINARY_AGE = GTK_BINARY_AGE // 2429
 
 /// Constant to return from a signal handler for the `GtkSpinButton::input`
 /// signal in case of conversion failure.
@@ -27,7 +27,7 @@ public let INPUT_ERROR = GTK_INPUT_ERROR // -1
 /// Like `gtk_get_interface_age()`, but from the headers used at
 /// application compile time, rather than from the library linked
 /// against at application run time.
-public let INTERFACE_AGE = GTK_INTERFACE_AGE // 20
+public let INTERFACE_AGE = GTK_INTERFACE_AGE // 25
 
 /// The name used for the stock full offset included by `GtkLevelBar`.
 public let LEVEL_BAR_OFFSET_FULL = GTK_LEVEL_BAR_OFFSET_FULL // 3
@@ -49,7 +49,7 @@ public let MAX_COMPOSE_LEN = GTK_MAX_COMPOSE_LEN // 7
 /// Like `gtk_get_micro_version()`, but from the headers used at
 /// application compile time, rather than from the library linked
 /// against at application run time.
-public let MICRO_VERSION = GTK_MICRO_VERSION // 24
+public let MICRO_VERSION = GTK_MICRO_VERSION // 29
 
 /// Like `gtk_get_minor_version()`, but from the headers used at
 /// application compile time, rather than from the library linked

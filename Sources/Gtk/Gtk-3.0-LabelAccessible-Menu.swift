@@ -6430,7 +6430,7 @@ public extension LinkButtonAccessibleProtocol {
 /// Alternatively, use `ListBoxRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
 /// A GtkListBox is a vertical container that contains GtkListBoxRow
-/// children. These rows can by dynamically sorted and filtered, and
+/// children. These rows can be dynamically sorted and filtered, and
 /// headers can be added dynamically depending on the row content.
 /// It also allows keyboard and mouse navigation and selection like
 /// a typical list.
@@ -6484,7 +6484,7 @@ public protocol ListBoxProtocol: ContainerProtocol {
 /// Use `ListBoxRef` only as an `unowned` reference to an existing `GtkListBox` instance.
 ///
 /// A GtkListBox is a vertical container that contains GtkListBoxRow
-/// children. These rows can by dynamically sorted and filtered, and
+/// children. These rows can be dynamically sorted and filtered, and
 /// headers can be added dynamically depending on the row content.
 /// It also allows keyboard and mouse navigation and selection like
 /// a typical list.
@@ -6613,7 +6613,7 @@ public extension ListBoxRef {
 /// Use `ListBox` as a strong reference or owner of a `GtkListBox` instance.
 ///
 /// A GtkListBox is a vertical container that contains GtkListBoxRow
-/// children. These rows can by dynamically sorted and filtered, and
+/// children. These rows can be dynamically sorted and filtered, and
 /// headers can be added dynamically depending on the row content.
 /// It also allows keyboard and mouse navigation and selection like
 /// a typical list.

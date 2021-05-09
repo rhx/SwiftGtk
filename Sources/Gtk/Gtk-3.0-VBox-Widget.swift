@@ -171,10 +171,8 @@ public extension VBoxRef {
         /// Creates a new `GtkVBox`.
     ///
     /// **new is deprecated:**
-    /// You can use gtk_box_new() with %GTK_ORIENTATION_VERTICAL instead,
-    ///   which is a quick and easy change. But the recommendation is to switch to
-    ///   #GtkGrid, since #GtkBox is going to go away eventually.
-    ///   See [Migrating from other containers to GtkGrid][gtk-migrating-GtkGrid].
+    /// You should use gtk_box_new() with a %GTK_ORIENTATION_VERTICAL
+    ///   #GtkOrientable:orientation instead
     @available(*, deprecated)
     @inlinable init( homogeneous: Bool, spacing: Int) {
         let rv = gtk_vbox_new(gboolean((homogeneous) ? 1 : 0), gint(spacing))
@@ -340,10 +338,8 @@ open class VBox: Box, VBoxProtocol {
     /// Creates a new `GtkVBox`.
     ///
     /// **new is deprecated:**
-    /// You can use gtk_box_new() with %GTK_ORIENTATION_VERTICAL instead,
-    ///   which is a quick and easy change. But the recommendation is to switch to
-    ///   #GtkGrid, since #GtkBox is going to go away eventually.
-    ///   See [Migrating from other containers to GtkGrid][gtk-migrating-GtkGrid].
+    /// You should use gtk_box_new() with a %GTK_ORIENTATION_VERTICAL
+    ///   #GtkOrientable:orientation instead
     @available(*, deprecated)
     @inlinable public init( homogeneous: Bool, spacing: Int) {
         let rv = gtk_vbox_new(gboolean((homogeneous) ? 1 : 0), gint(spacing))

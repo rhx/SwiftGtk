@@ -32,6 +32,8 @@ import Atk
 /// Compose file). The syntax of these files is described in the `Compose(5)`
 /// manual page.
 /// 
+/// ## Unicode characters
+/// 
 /// GtkIMContextSimple also supports numeric entry of Unicode characters
 /// by typing Ctrl-Shift-u, followed by a hexadecimal Unicode codepoint.
 /// For example, Ctrl-Shift-u 1 2 3 Enter yields U+0123 LATIN SMALL LETTER
@@ -60,6 +62,8 @@ public protocol IMContextSimpleProtocol: IMContextProtocol {
 /// /usr/share/X11/locale/$locale/Compose (for locales that have a nontrivial
 /// Compose file). The syntax of these files is described in the `Compose(5)`
 /// manual page.
+/// 
+/// ## Unicode characters
 /// 
 /// GtkIMContextSimple also supports numeric entry of Unicode characters
 /// by typing Ctrl-Shift-u, followed by a hexadecimal Unicode codepoint.
@@ -164,6 +168,8 @@ public extension IMContextSimpleRef {
 /// /usr/share/X11/locale/$locale/Compose (for locales that have a nontrivial
 /// Compose file). The syntax of these files is described in the `Compose(5)`
 /// manual page.
+/// 
+/// ## Unicode characters
 /// 
 /// GtkIMContextSimple also supports numeric entry of Unicode characters
 /// by typing Ctrl-Shift-u, followed by a hexadecimal Unicode codepoint.
@@ -421,6 +427,7 @@ public extension IMContextSimpleProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkIMContextSimple` instance.
     @inlinable var im_context_simple_ptr: UnsafeMutablePointer<GtkIMContextSimple>! { return ptr?.assumingMemoryBound(to: GtkIMContextSimple.self) }
 
+    /// Adds an additional table from the X11 compose file.
     @inlinable func add(composeFile: UnsafePointer<gchar>!) {
         gtk_im_context_simple_add_compose_file(im_context_simple_ptr, composeFile)
     

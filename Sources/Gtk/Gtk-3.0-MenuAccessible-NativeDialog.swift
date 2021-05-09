@@ -16411,7 +16411,7 @@ public extension NativeDialogProtocol {
     /// modal dialog (it prevents the user from interacting with other
     /// windows in the same window group while the dialog is run), callbacks
     /// such as timeouts, IO channel watches, DND drops, etc, will
-    /// be triggered during a `gtk_nautilus_dialog_run()` call.
+    /// be triggered during a `gtk_native_dialog_run()` call.
     @inlinable func run() -> Int {
         let rv = Int(gtk_native_dialog_run(native_dialog_ptr))
         return rv
