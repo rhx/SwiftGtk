@@ -51,7 +51,7 @@ was compiled against libraries built with earlier versions of `gir2swift`.
 
 ## Usage
 
-Normally, you don't build this package directly (but for testing you can - see 'Building' below), but you embed it into your own project.  To use SwiftGtk, you need to use the [Swift Package Manager](https://swift.org/package-manager/).  After installing the prerequisites (see 'Prerequisites' below), add `SwiftGtk` as a dependency to your `Package.swift` file, e.g.:
+Normally, you don't build this package directly (but for testing you can - see 'Building' below). Instead you need to embed SwiftGtk into your own project using the [Swift Package Manager](https://swift.org/package-manager/).  After installing the prerequisites (see 'Prerequisites' below), add `SwiftGtk` as a dependency to your `Package.swift` file, e.g.:
 
 ```Swift
 // swift-tools-version:5.3
@@ -141,7 +141,7 @@ On Ubuntu 20.04 and 18.04, you can use the gtk that comes with the distribution.
 
 On Fedora 29, you can use the gtk that comes with the distribution.  Just install with the `dnf` package manager:
 
-	sudo dnf install gtk3-devel pango-devel cairo-devel cairo-gobject-devel glib2-devel gobject-introspection-devel libxml2-devel
+	sudo dnf install gtk3-devel pango-devel cairo-devel cairo-gobject-devel glib2-devel gobject-introspection-devel libxml2-devel jq
 
 #### macOS
 
