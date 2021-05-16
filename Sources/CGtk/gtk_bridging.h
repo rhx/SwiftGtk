@@ -172,6 +172,7 @@ struct _GtkNumerableIconPrivate {};
 struct _GtkOrientable {};
 struct _GtkOverlayPrivate {};
 struct _GtkPageSetup {};
+struct _GtkPageSetupUnixDialog {};
 struct _GtkPanedAccessiblePrivate {};
 struct _GtkPanedPrivate {};
 struct _GtkPaperSize {};
@@ -180,10 +181,14 @@ struct _GtkPlacesSidebarClass {};
 struct _GtkPlugAccessiblePrivate {};
 struct _GtkPopoverMenu {};
 struct _GtkPopoverPrivate {};
+struct _GtkPrintBackend {};
 struct _GtkPrintContext {};
+struct _GtkPrintJob {};
 struct _GtkPrintOperationPreview {};
 struct _GtkPrintOperationPrivate {};
 struct _GtkPrintSettings {};
+struct _GtkPrintUnixDialog {};
+struct _GtkPrinter {};
 struct _GtkProgressBarAccessiblePrivate {};
 struct _GtkProgressBarPrivate {};
 struct _GtkRadioActionPrivate {};
@@ -570,6 +575,7 @@ struct _GtkWindowHandle {};
 #include <gsk/gsk.h>
 #include <gtk/gtkimmodule.h>
 #include <gtk/gtk.h>
+#include <gtk/gtkunixprint.h>
 
 typedef void (*GObjectNotifyQueueDispatcher) (GObject *object, guint n_pspecs, GParamSpec **pspecs);
 
