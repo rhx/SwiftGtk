@@ -1572,6 +1572,8 @@ public extension CheckButtonClassProtocol {
 
     // var toggled is unavailable because toggled is void
 
+    // var activate is unavailable because activate is void
+
     // var padding is unavailable because padding is private
 
 }
@@ -1716,12 +1718,7 @@ public extension ColorChooserInterfaceProtocol {
 
     // var colorActivated is unavailable because color_activated is void
 
-    @inlinable var padding: (gpointer?, gpointer?, gpointer?, gpointer?, gpointer?, gpointer?, gpointer?, gpointer?, gpointer?, gpointer?, gpointer?, gpointer?) {
-        get {
-            let rv = _ptr.pointee.padding
-            return rv
-        }
-    }
+    // var padding is unavailable because padding is private
 
 }
 
@@ -2796,8 +2793,8 @@ public extension ConstraintTargetInterfaceProtocol {
 /// For a concrete class that implements these methods and properties, see `CssLocation`.
 /// Alternatively, use `CssLocationRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// `GtkCssLocation` is used to present a location in a file - or other
-/// source of data parsed by the CSS engine.
+/// Represents a location in a file or other source of data parsed
+/// by the CSS engine.
 /// 
 /// The `bytes` and `line_bytes` offsets are meant to be used to
 /// programmatically match data. The `lines` and `line_chars` offsets
@@ -2823,8 +2820,8 @@ public protocol CssLocationProtocol {
 /// It exposes methods that can operate on this data type through `CssLocationProtocol` conformance.
 /// Use `CssLocationRef` only as an `unowned` reference to an existing `GtkCssLocation` instance.
 ///
-/// `GtkCssLocation` is used to present a location in a file - or other
-/// source of data parsed by the CSS engine.
+/// Represents a location in a file or other source of data parsed
+/// by the CSS engine.
 /// 
 /// The `bytes` and `line_bytes` offsets are meant to be used to
 /// programmatically match data. The `lines` and `line_chars` offsets
@@ -2917,8 +2914,8 @@ public extension CssLocationRef {
 /// It provides the methods that can operate on this data type through `CssLocationProtocol` conformance.
 /// Use `CssLocation` as a strong reference or owner of a `GtkCssLocation` instance.
 ///
-/// `GtkCssLocation` is used to present a location in a file - or other
-/// source of data parsed by the CSS engine.
+/// Represents a location in a file or other source of data parsed
+/// by the CSS engine.
 /// 
 /// The `bytes` and `line_bytes` offsets are meant to be used to
 /// programmatically match data. The `lines` and `line_chars` offsets
@@ -3297,9 +3294,10 @@ public extension CssProviderClassProtocol {
 /// For a concrete class that implements these methods and properties, see `CssSection`.
 /// Alternatively, use `CssSectionRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Defines a part of a CSS document. Because sections are nested into
-/// one another, you can use `gtk_css_section_get_parent()` to get the
-/// containing region.
+/// Defines a part of a CSS document.
+/// 
+/// Because sections are nested into one another, you can use
+/// `gtk_css_section_get_parent()` to get the containing region.
 public protocol CssSectionProtocol {
         /// Untyped pointer to the underlying `GtkCssSection` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3315,9 +3313,10 @@ public protocol CssSectionProtocol {
 /// It exposes methods that can operate on this data type through `CssSectionProtocol` conformance.
 /// Use `CssSectionRef` only as an `unowned` reference to an existing `GtkCssSection` instance.
 ///
-/// Defines a part of a CSS document. Because sections are nested into
-/// one another, you can use `gtk_css_section_get_parent()` to get the
-/// containing region.
+/// Defines a part of a CSS document.
+/// 
+/// Because sections are nested into one another, you can use
+/// `gtk_css_section_get_parent()` to get the containing region.
 public struct CssSectionRef: CssSectionProtocol {
         /// Untyped pointer to the underlying `GtkCssSection` instance.
     /// For type-safe access, use the generated, typed pointer `css_section_ptr` property instead.
@@ -3407,9 +3406,10 @@ public extension CssSectionRef {
 /// It provides the methods that can operate on this data type through `CssSectionProtocol` conformance.
 /// Use `CssSection` as a strong reference or owner of a `GtkCssSection` instance.
 ///
-/// Defines a part of a CSS document. Because sections are nested into
-/// one another, you can use `gtk_css_section_get_parent()` to get the
-/// containing region.
+/// Defines a part of a CSS document.
+/// 
+/// Because sections are nested into one another, you can use
+/// `gtk_css_section_get_parent()` to get the containing region.
 open class CssSection: CssSectionProtocol {
         /// Untyped pointer to the underlying `GtkCssSection` instance.
     /// For type-safe access, use the generated, typed pointer `css_section_ptr` property instead.
@@ -3577,20 +3577,22 @@ public extension CssSectionProtocol {
         return rv
     }
 
-    /// Gets the file that `section` was parsed from. If no such file exists,
-    /// for example because the CSS was loaded via
-    /// `gtk_css_provider_load_from_data``()`, then `nil` is returned.
+    /// Gets the file that `section` was parsed from.
+    /// 
+    /// If no such file exists, for example because the CSS was loaded via
+    /// [method`Gtk.CssProvider.load_from_data`], then `NULL` is returned.
     @inlinable func getFile() -> GIO.FileRef! {
         let rv = GIO.FileRef(gtk_css_section_get_file(css_section_ptr))
         return rv
     }
 
-    /// Gets the parent section for the given `section`. The parent section is
-    /// the section that contains this `section`. A special case are sections of
-    /// type `GTK_CSS_SECTION_DOCUMENT`. Their parent will either be `nil`
-    /// if they are the original CSS document that was loaded by
-    /// `gtk_css_provider_load_from_file()` or a section of type
-    /// `GTK_CSS_SECTION_IMPORT` if it was loaded with an import rule from
+    /// Gets the parent section for the given `section`.
+    /// 
+    /// The parent section is the section that contains this `section`. A special
+    /// case are sections of  type `GTK_CSS_SECTION_DOCUMEN`T. Their parent will
+    /// either be `NULL` if they are the original CSS document that was loaded by
+    /// [method`Gtk.CssProvider.load_from_file`] or a section of type
+    /// `GTK_CSS_SECTION_IMPORT` if it was loaded with an ``import`` rule from
     /// a different file.
     @inlinable func getParent() -> CssSectionRef! {
         guard let rv = CssSectionRef(gconstpointer: gconstpointer(gtk_css_section_get_parent(css_section_ptr))) else { return nil }
@@ -3603,9 +3605,10 @@ public extension CssSectionProtocol {
         return rv
     }
 
-    /// Prints the `section` into `string` in a human-readable form. This
-    /// is a form like `gtk.css:32:1-23` to denote line 32, characters
-    /// 1 to 23 in the file gtk.css.
+    /// Prints the `section` into `string` in a human-readable form.
+    /// 
+    /// This is a form like `gtk.css:32:1-23` to denote line 32, characters
+    /// 1 to 23 in the file `gtk.css`.
     @inlinable func print<StringTypeT: StringProtocol>(string: StringTypeT) {
         gtk_css_section_print(css_section_ptr, string.gstring_ptr)
     
@@ -3618,7 +3621,7 @@ public extension CssSectionProtocol {
     }
 
     /// Prints the section into a human-readable text form using
-    /// `gtk_css_section_print()`.
+    /// [method`Gtk.CssSection.print`].
     @inlinable func toString() -> String! {
         let rv = gtk_css_section_to_string(css_section_ptr).map({ String(cString: $0) })
         return rv
@@ -3639,33 +3642,37 @@ public extension CssSectionProtocol {
         }
     }
 
-    /// Gets the file that `section` was parsed from. If no such file exists,
-    /// for example because the CSS was loaded via
-    /// `gtk_css_provider_load_from_data``()`, then `nil` is returned.
+    /// Gets the file that `section` was parsed from.
+    /// 
+    /// If no such file exists, for example because the CSS was loaded via
+    /// [method`Gtk.CssProvider.load_from_data`], then `NULL` is returned.
     @inlinable var file: GIO.FileRef! {
-        /// Gets the file that `section` was parsed from. If no such file exists,
-        /// for example because the CSS was loaded via
-        /// `gtk_css_provider_load_from_data``()`, then `nil` is returned.
+        /// Gets the file that `section` was parsed from.
+        /// 
+        /// If no such file exists, for example because the CSS was loaded via
+        /// [method`Gtk.CssProvider.load_from_data`], then `NULL` is returned.
         get {
             let rv = GIO.FileRef(gtk_css_section_get_file(css_section_ptr))
             return rv
         }
     }
 
-    /// Gets the parent section for the given `section`. The parent section is
-    /// the section that contains this `section`. A special case are sections of
-    /// type `GTK_CSS_SECTION_DOCUMENT`. Their parent will either be `nil`
-    /// if they are the original CSS document that was loaded by
-    /// `gtk_css_provider_load_from_file()` or a section of type
-    /// `GTK_CSS_SECTION_IMPORT` if it was loaded with an import rule from
+    /// Gets the parent section for the given `section`.
+    /// 
+    /// The parent section is the section that contains this `section`. A special
+    /// case are sections of  type `GTK_CSS_SECTION_DOCUMEN`T. Their parent will
+    /// either be `NULL` if they are the original CSS document that was loaded by
+    /// [method`Gtk.CssProvider.load_from_file`] or a section of type
+    /// `GTK_CSS_SECTION_IMPORT` if it was loaded with an ``import`` rule from
     /// a different file.
     @inlinable var parent: CssSectionRef! {
-        /// Gets the parent section for the given `section`. The parent section is
-        /// the section that contains this `section`. A special case are sections of
-        /// type `GTK_CSS_SECTION_DOCUMENT`. Their parent will either be `nil`
-        /// if they are the original CSS document that was loaded by
-        /// `gtk_css_provider_load_from_file()` or a section of type
-        /// `GTK_CSS_SECTION_IMPORT` if it was loaded with an import rule from
+        /// Gets the parent section for the given `section`.
+        /// 
+        /// The parent section is the section that contains this `section`. A special
+        /// case are sections of  type `GTK_CSS_SECTION_DOCUMEN`T. Their parent will
+        /// either be `NULL` if they are the original CSS document that was loaded by
+        /// [method`Gtk.CssProvider.load_from_file`] or a section of type
+        /// `GTK_CSS_SECTION_IMPORT` if it was loaded with an ``import`` rule from
         /// a different file.
         get {
             guard let rv = CssSectionRef(gconstpointer: gconstpointer(gtk_css_section_get_parent(css_section_ptr))) else { return nil }

@@ -147,9 +147,10 @@ public extension WidgetClassProtocol {
     // *** addBindingSignal() is not available because it has a varargs (...) parameter!
 
 
-    /// Installs a shortcut in `widget_class`. Every instance created for
-    /// `widget_class` or its subclasses will inherit this shortcut and
-    /// trigger it.
+    /// Installs a shortcut in `widget_class`.
+    /// 
+    /// Every instance created for `widget_class` or its subclasses will
+    /// inherit this shortcut and trigger it.
     /// 
     /// Shortcuts added this way will be triggered in the `GTK_PHASE_BUBBLE`
     /// phase, which means they may also trigger if child widgets have focus.
@@ -161,40 +162,47 @@ public extension WidgetClassProtocol {
     
     }
 
-    /// Declares a `callback_symbol` to handle `callback_name` from the template XML
-    /// defined for `widget_type`. This function is not supported after
-    /// `gtk_widget_class_set_template_scope()` has been used on `widget_class`.
-    /// See `gtk_builder_cscope_add_callback_symbol()`.
+    /// Declares a `callback_symbol` to handle `callback_name` from
+    /// the template XML defined for `widget_type`.
     /// 
-    /// Note that this must be called from a composite widget classes class
-    /// initializer after calling `gtk_widget_class_set_template()`.
+    /// This function is not supported after [method`Gtk.WidgetClass.set_template_scope`]
+    /// has been used on `widget_class`. See [method`Gtk.BuilderCScope.add_callback_symbol`].
+    /// 
+    /// Note that this must be called from a composite widget classes
+    /// class initializer after calling [method`Gtk.WidgetClass.set_template`].
     @inlinable func bindTemplateCallbackFull(callbackName: UnsafePointer<CChar>!, callbackSymbol: GCallback?) {
         gtk_widget_class_bind_template_callback_full(_ptr, callbackName, callbackSymbol)
     
     }
 
-    /// Automatically assign an object declared in the class template XML to be set to a location
-    /// on a freshly built instance’s private data, or alternatively accessible via `gtk_widget_get_template_child()`.
+    /// Automatically assign an object declared in the class template XML to be
+    /// set to a location on a freshly built instance’s private data, or
+    /// alternatively accessible via [method`Gtk.Widget.get_template_child`].
     /// 
-    /// The struct can point either into the public instance, then you should use `G_STRUCT_OFFSET(WidgetType, member)`
-    /// for `struct_offset`,  or in the private struct, then you should use `G_PRIVATE_OFFSET(WidgetType, member)`.
+    /// The struct can point either into the public instance, then you should
+    /// use ``G_STRUCT_OFFSET(WidgetType, member)`` for `struct_offset`, or in the
+    /// private struct, then you should use ``G_PRIVATE_OFFSET(WidgetType, member)``.
     /// 
-    /// An explicit strong reference will be held automatically for the duration of your
-    /// instance’s life cycle, it will be released automatically when `GObjectClass.dispose``()` runs
-    /// on your instance and if a `struct_offset` that is != 0 is specified, then the automatic location
-    /// in your instance public or private data will be set to `nil`. You can however access an automated child
-    /// pointer the first time your classes `GObjectClass.dispose``()` runs, or alternatively in
-    /// `GtkWidgetClass.destroy``()`.
+    /// An explicit strong reference will be held automatically for the duration
+    /// of your instance’s life cycle, it will be released automatically when
+    /// ``GObjectClass.dispose()`` runs on your instance and if a `struct_offset`
+    /// that is `!= 0` is specified, then the automatic location in your instance
+    /// public or private data will be set to `nil`. You can however access an
+    /// automated child pointer the first time your classes ``GObjectClass.dispose()``
+    /// runs, or alternatively in [signal`Gtk.Widget::destroy`].
     /// 
-    /// If `internal_child` is specified, `GtkBuildableIface.get_internal_child``()` will be automatically
-    /// implemented by the `GtkWidget` class so there is no need to implement it manually.
+    /// If `internal_child` is specified, [vfunc`Gtk.Buildable.get_internal_child`]
+    /// will be automatically implemented by the `GtkWidget` class so there is no
+    /// need to implement it manually.
     /// 
-    /// The wrapper macros `gtk_widget_class_bind_template_child()`, `gtk_widget_class_bind_template_child_internal()`,
-    /// `gtk_widget_class_bind_template_child_private()` and `gtk_widget_class_bind_template_child_internal_private()`
+    /// The wrapper macros [func`Gtk.widget_class_bind_template_child`],
+    /// [func`Gtk.widget_class_bind_template_child_internal`],
+    /// [func`Gtk.widget_class_bind_template_child_private`] and
+    /// [func`Gtk.widget_class_bind_template_child_internal_private`]
     /// might be more convenient to use.
     /// 
     /// Note that this must be called from a composite widget classes class
-    /// initializer after calling `gtk_widget_class_set_template()`.
+    /// initializer after calling [method`Gtk.WidgetClass.set_template`].
     @inlinable func bindTemplateChildFull(name: UnsafePointer<CChar>!, internalChild: Bool, structOffset: gssize) {
         gtk_widget_class_bind_template_child_full(_ptr, name, gboolean((internalChild) ? 1 : 0), structOffset)
     
@@ -205,7 +213,7 @@ public extension WidgetClassProtocol {
     /// Different accessible roles have different states, and are rendered
     /// differently by assistive technologies.
     /// 
-    /// See also: `gtk_accessible_get_accessible_role()`
+    /// See also: [method`Gtk.Accessible.get_accessible_role`].
     @inlinable func getAccessibleRole() -> GtkAccessibleRole {
         let rv = gtk_widget_class_get_accessible_role(_ptr)
         return rv
@@ -218,14 +226,16 @@ public extension WidgetClassProtocol {
         return rv
     }
 
-    /// Gets the name used by this class for matching in CSS code. See
-    /// `gtk_widget_class_set_css_name()` for details.
+    /// Gets the name used by this class for matching in CSS code.
+    /// 
+    /// See `gtk_widget_class_set_css_name()` for details.
     @inlinable func getCssName() -> String! {
         let rv = gtk_widget_class_get_css_name(_ptr).map({ String(cString: $0) })
         return rv
     }
 
-    /// Retrieves the type of the `GtkLayoutManager` used by the `GtkWidget` class.
+    /// Retrieves the type of the [class`Gtk.LayoutManager`]
+    /// used by the `GtkWidget` class.
     /// 
     /// See also: `gtk_widget_class_set_layout_manager_type()`
     @inlinable func getLayoutManagerType() -> GType {
@@ -243,8 +253,8 @@ public extension WidgetClassProtocol {
     
     }
 
-    /// Installs an action called `action_name` on `widget_class` and binds its
-    /// state to the value of the `property_name` property.
+    /// Installs an action called `action_name` on `widget_class` and
+    /// binds its state to the value of the `property_name` property.
     /// 
     /// This function will perform a few santity checks on the property selected
     /// via `property_name`. Namely, the property must exist, must be readable,
@@ -264,27 +274,27 @@ public extension WidgetClassProtocol {
     }
 
     /// Queries the actions that have been installed for
-    /// a widget class using `gtk_widget_class_install_action()`
+    /// a widget class using [method`Gtk.WidgetClass.install_action`]
     /// during class initialization.
     /// 
     /// Note that this function will also return actions defined
     /// by parent classes. You can identify those by looking
     /// at `owner`.
-    @inlinable func queryAction(index_: Int, owner: UnsafeMutablePointer<GType>!, actionName: UnsafeMutablePointer<UnsafePointer<CChar>?>!, parameterType: UnsafeMutablePointer<UnsafePointer<GVariantType>?>!, propertyName: UnsafeMutablePointer<UnsafePointer<CChar>?>!) -> Bool {
+    @inlinable func queryAction(index_: Int, owner: UnsafeMutablePointer<GType>!, actionName: UnsafeMutablePointer<UnsafePointer<CChar>?>!, parameterType: UnsafeMutablePointer<UnsafePointer<GVariantType>?>?, propertyName: UnsafeMutablePointer<UnsafePointer<CChar>?>?) -> Bool {
         let rv = ((gtk_widget_class_query_action(_ptr, guint(index_), owner, actionName, parameterType, propertyName)) != 0)
         return rv
     }
 
     /// Sets the accessible role used by the given `GtkWidget` class.
     /// 
-    /// Different accessible roles have different states, and are rendered
-    /// differently by assistive technologies.
+    /// Different accessible roles have different states, and are
+    /// rendered differently by assistive technologies.
     @inlinable func set(accessibleRole: GtkAccessibleRole) {
         gtk_widget_class_set_accessible_role(_ptr, accessibleRole)
     
     }
 
-    /// Sets the `GtkWidgetClass.activate_signal` field with the
+    /// Sets the GtkWidgetClass.activate_signal field with the
     /// given `signal_id`; the signal will be emitted when calling
     /// `gtk_widget_activate()`.
     /// 
@@ -295,7 +305,7 @@ public extension WidgetClassProtocol {
     
     }
 
-    /// Sets the `GtkWidgetClass.activate_signal` field with the signal id for
+    /// Sets the GtkWidgetClass.activate_signal field with the signal id for
     /// the given `signal_name`; the signal will be emitted when calling
     /// `gtk_widget_activate()`.
     /// 
@@ -309,45 +319,52 @@ public extension WidgetClassProtocol {
     /// Sets the name to be used for CSS matching of widgets.
     /// 
     /// If this function is not called for a given class, the name
-    /// set on the parent class is used. By default, GtkWidget uses
-    /// the name "widget".
+    /// set on the parent class is used. By default, `GtkWidget`
+    /// uses the name "widget".
     @inlinable func setCss(name: UnsafePointer<CChar>!) {
         gtk_widget_class_set_css_name(_ptr, name)
     
     }
 
     /// Sets the type to be used for creating layout managers for widgets of
-    /// `widget_class`. The given `type` must be a subtype of `GtkLayoutManager`.
+    /// `widget_class`.
     /// 
-    /// This function should only be called from class init functions of widgets.
+    /// The given `type` must be a subtype of [class`Gtk.LayoutManager`].
+    /// 
+    /// This function should only be called from class init functions
+    /// of widgets.
     @inlinable func setLayoutManager(type: GType) {
         gtk_widget_class_set_layout_manager_type(_ptr, type)
     
     }
 
     /// This should be called at class initialization time to specify
-    /// the GtkBuilder XML to be used to extend a widget.
+    /// the `GtkBuilder` XML to be used to extend a widget.
     /// 
-    /// For convenience, `gtk_widget_class_set_template_from_resource()` is also provided.
+    /// For convenience, [method`Gtk.WidgetClass.set_template_from_resource`]
+    /// is also provided.
     /// 
-    /// Note that any class that installs templates must call `gtk_widget_init_template()`
-    /// in the widget’s instance initializer.
+    /// Note that any class that installs templates must call
+    /// [method`Gtk.Widget.init_template`] in the widget’s instance initializer.
     @inlinable func setTemplate<BytesT: GLib.BytesProtocol>(templateBytes: BytesT) {
         gtk_widget_class_set_template(_ptr, templateBytes.bytes_ptr)
     
     }
 
-    /// A convenience function to call `gtk_widget_class_set_template()`.
+    /// A convenience function that calls [method`Gtk.WidgetClass.set_template`]
+    /// with the contents of a `GResource`.
     /// 
-    /// Note that any class that installs templates must call `gtk_widget_init_template()`
-    /// in the widget’s instance initializer.
+    /// Note that any class that installs templates must call
+    /// [method`Gtk.Widget.init_template`] in the widget’s instance
+    /// initializer.
     @inlinable func setTemplateFromResource(resourceName: UnsafePointer<CChar>!) {
         gtk_widget_class_set_template_from_resource(_ptr, resourceName)
     
     }
 
-    /// For use in language bindings, this will override the default `GtkBuilderScope` to be
-    /// used when parsing GtkBuilder XML from this class’s template data.
+    /// For use in language bindings, this will override the default
+    /// `GtkBuilderScope` to be used when parsing GtkBuilder XML from
+    /// this class’s template data.
     /// 
     /// Note that this must be called from a composite widget classes class
     /// initializer after calling `gtk_widget_class_set_template()`.
@@ -360,22 +377,22 @@ public extension WidgetClassProtocol {
     /// Different accessible roles have different states, and are rendered
     /// differently by assistive technologies.
     /// 
-    /// See also: `gtk_accessible_get_accessible_role()`
+    /// See also: [method`Gtk.Accessible.get_accessible_role`].
     @inlinable var accessibleRole: GtkAccessibleRole {
         /// Retrieves the accessible role used by the given `GtkWidget` class.
         /// 
         /// Different accessible roles have different states, and are rendered
         /// differently by assistive technologies.
         /// 
-        /// See also: `gtk_accessible_get_accessible_role()`
+        /// See also: [method`Gtk.Accessible.get_accessible_role`].
         get {
             let rv = gtk_widget_class_get_accessible_role(_ptr)
             return rv
         }
         /// Sets the accessible role used by the given `GtkWidget` class.
         /// 
-        /// Different accessible roles have different states, and are rendered
-        /// differently by assistive technologies.
+        /// Different accessible roles have different states, and are
+        /// rendered differently by assistive technologies.
         nonmutating set {
             gtk_widget_class_set_accessible_role(_ptr, newValue)
         }
@@ -390,7 +407,7 @@ public extension WidgetClassProtocol {
             let rv = Int(gtk_widget_class_get_activate_signal(_ptr))
             return rv
         }
-        /// Sets the `GtkWidgetClass.activate_signal` field with the
+        /// Sets the GtkWidgetClass.activate_signal field with the
         /// given `signal_id`; the signal will be emitted when calling
         /// `gtk_widget_activate()`.
         /// 
@@ -401,11 +418,13 @@ public extension WidgetClassProtocol {
         }
     }
 
-    /// Gets the name used by this class for matching in CSS code. See
-    /// `gtk_widget_class_set_css_name()` for details.
+    /// Gets the name used by this class for matching in CSS code.
+    /// 
+    /// See `gtk_widget_class_set_css_name()` for details.
     @inlinable var cssName: String! {
-        /// Gets the name used by this class for matching in CSS code. See
-        /// `gtk_widget_class_set_css_name()` for details.
+        /// Gets the name used by this class for matching in CSS code.
+        /// 
+        /// See `gtk_widget_class_set_css_name()` for details.
         get {
             let rv = gtk_widget_class_get_css_name(_ptr).map({ String(cString: $0) })
             return rv
@@ -413,18 +432,20 @@ public extension WidgetClassProtocol {
         /// Sets the name to be used for CSS matching of widgets.
         /// 
         /// If this function is not called for a given class, the name
-        /// set on the parent class is used. By default, GtkWidget uses
-        /// the name "widget".
+        /// set on the parent class is used. By default, `GtkWidget`
+        /// uses the name "widget".
         nonmutating set {
             gtk_widget_class_set_css_name(_ptr, newValue)
         }
     }
 
-    /// Retrieves the type of the `GtkLayoutManager` used by the `GtkWidget` class.
+    /// Retrieves the type of the [class`Gtk.LayoutManager`]
+    /// used by the `GtkWidget` class.
     /// 
     /// See also: `gtk_widget_class_set_layout_manager_type()`
     @inlinable var layoutManagerType: GType {
-        /// Retrieves the type of the `GtkLayoutManager` used by the `GtkWidget` class.
+        /// Retrieves the type of the [class`Gtk.LayoutManager`]
+        /// used by the `GtkWidget` class.
         /// 
         /// See also: `gtk_widget_class_set_layout_manager_type()`
         get {
@@ -432,9 +453,12 @@ public extension WidgetClassProtocol {
             return rv
         }
         /// Sets the type to be used for creating layout managers for widgets of
-        /// `widget_class`. The given `type` must be a subtype of `GtkLayoutManager`.
+        /// `widget_class`.
         /// 
-        /// This function should only be called from class init functions of widgets.
+        /// The given `type` must be a subtype of [class`Gtk.LayoutManager`].
+        /// 
+        /// This function should only be called from class init functions
+        /// of widgets.
         nonmutating set {
             gtk_widget_class_set_layout_manager_type(_ptr, newValue)
         }

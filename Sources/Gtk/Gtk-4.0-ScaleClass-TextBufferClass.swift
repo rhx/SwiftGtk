@@ -590,304 +590,6 @@ public extension SelectionModelInterfaceProtocol {
 
 
 
-// MARK: - SettingsValue Record
-
-/// The `SettingsValueProtocol` protocol exposes the methods and properties of an underlying `GtkSettingsValue` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `SettingsValue`.
-/// Alternatively, use `SettingsValueRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
-
-public protocol SettingsValueProtocol {
-        /// Untyped pointer to the underlying `GtkSettingsValue` instance.
-    var ptr: UnsafeMutableRawPointer! { get }
-
-    /// Typed pointer to the underlying `GtkSettingsValue` instance.
-    var _ptr: UnsafeMutablePointer<GtkSettingsValue>! { get }
-
-    /// Required Initialiser for types conforming to `SettingsValueProtocol`
-    init(raw: UnsafeMutableRawPointer)
-}
-
-/// The `SettingsValueRef` type acts as a lightweight Swift reference to an underlying `GtkSettingsValue` instance.
-/// It exposes methods that can operate on this data type through `SettingsValueProtocol` conformance.
-/// Use `SettingsValueRef` only as an `unowned` reference to an existing `GtkSettingsValue` instance.
-///
-
-public struct SettingsValueRef: SettingsValueProtocol {
-        /// Untyped pointer to the underlying `GtkSettingsValue` instance.
-    /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer!
-}
-
-public extension SettingsValueRef {
-    /// Designated initialiser from the underlying `C` data type
-    @inlinable init(_ p: UnsafeMutablePointer<GtkSettingsValue>) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Designated initialiser from a constant pointer to the underlying `C` data type
-    @inlinable init(_ p: UnsafePointer<GtkSettingsValue>) {
-        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
-    }
-
-    /// Conditional initialiser from an optional pointer to the underlying `C` data type
-    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GtkSettingsValue>?) {
-        guard let p = maybePointer else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
-    @inlinable init!(_ maybePointer: UnsafePointer<GtkSettingsValue>?) {
-        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Conditional initialiser from an optional `gpointer`
-    @inlinable init!(gpointer g: gpointer?) {
-        guard let p = g else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
-    @inlinable init!(gconstpointer g: gconstpointer?) {
-        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
-        ptr = p
-    }
-
-    /// Reference intialiser for a related type that implements `SettingsValueProtocol`
-    @inlinable init<T: SettingsValueProtocol>(_ other: T) {
-        ptr = other.ptr
-    }
-
-    /// Unsafe typed initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SettingsValueProtocol`.**
-    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(cPointer)
-    }
-
-    /// Unsafe typed initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SettingsValueProtocol`.**
-    @inlinable init<T>(constPointer: UnsafePointer<T>) {
-        ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SettingsValueProtocol`.**
-    @inlinable init(mutating raw: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: raw)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SettingsValueProtocol`.**
-    @inlinable init(raw: UnsafeMutableRawPointer) {
-        ptr = raw
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SettingsValueProtocol`.**
-    @inlinable init(opaquePointer: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(opaquePointer)
-    }
-
-    }
-
-/// The `SettingsValue` type acts as an owner of an underlying `GtkSettingsValue` instance.
-/// It provides the methods that can operate on this data type through `SettingsValueProtocol` conformance.
-/// Use `SettingsValue` as a strong reference or owner of a `GtkSettingsValue` instance.
-///
-
-open class SettingsValue: SettingsValueProtocol {
-        /// Untyped pointer to the underlying `GtkSettingsValue` instance.
-    /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer!
-
-    /// Designated initialiser from the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `SettingsValue` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(_ op: UnsafeMutablePointer<GtkSettingsValue>) {
-        ptr = UnsafeMutableRawPointer(op)
-    }
-
-    /// Designated initialiser from a constant pointer to the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `SettingsValue` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(_ op: UnsafePointer<GtkSettingsValue>) {
-        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
-    }
-
-    /// Optional initialiser from a non-mutating `gpointer` to
-    /// the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `SettingsValue` instance.
-    /// - Parameter op: gpointer to the underlying object
-    @inlinable public init!(gpointer op: gpointer?) {
-        guard let p = UnsafeMutableRawPointer(op) else { return nil }
-        ptr = p
-    }
-
-    /// Optional initialiser from a non-mutating `gconstpointer` to
-    /// the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `SettingsValue` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(gconstpointer op: gconstpointer?) {
-        guard let p = op else { return nil }
-        ptr = UnsafeMutableRawPointer(mutating: p)
-    }
-
-    /// Optional initialiser from a constant pointer to the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `SettingsValue` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(_ op: UnsafePointer<GtkSettingsValue>?) {
-        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Optional initialiser from the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `SettingsValue` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(_ op: UnsafeMutablePointer<GtkSettingsValue>?) {
-        guard let p = op else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Designated initialiser from the underlying `C` data type.
-    /// `GtkSettingsValue` does not allow reference counting, so despite the name no actual retaining will occur.
-    /// i.e., ownership is transferred to the `SettingsValue` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(retaining op: UnsafeMutablePointer<GtkSettingsValue>) {
-        ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GtkSettingsValue, cannot ref(_ptr)
-    }
-
-    /// Reference intialiser for a related type that implements `SettingsValueProtocol`
-    /// `GtkSettingsValue` does not allow reference counting.
-    /// - Parameter other: an instance of a related type that implements `SettingsValueProtocol`
-    @inlinable public init<T: SettingsValueProtocol>(_ other: T) {
-        ptr = other.ptr
-        // no reference counting for GtkSettingsValue, cannot ref(_ptr)
-    }
-
-    /// Do-nothing destructor for `GtkSettingsValue`.
-    deinit {
-        // no reference counting for GtkSettingsValue, cannot unref(_ptr)
-    }
-
-    /// Unsafe typed initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SettingsValueProtocol`.**
-    /// - Parameter cPointer: pointer to the underlying object
-    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Unsafe typed, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SettingsValueProtocol`.**
-    /// - Parameter cPointer: pointer to the underlying object
-    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GtkSettingsValue, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SettingsValueProtocol`.**
-    /// - Parameter p: raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: p)
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SettingsValueProtocol`.**
-    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GtkSettingsValue, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SettingsValueProtocol`.**
-    /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
-        ptr = p
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SettingsValueProtocol`.**
-    /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
-        ptr = raw
-        // no reference counting for GtkSettingsValue, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SettingsValueProtocol`.**
-    /// - Parameter p: opaque pointer to the underlying object
-    @inlinable public init(opaquePointer p: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SettingsValueProtocol`.**
-    /// - Parameter p: opaque pointer to the underlying object
-    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GtkSettingsValue, cannot ref(_ptr)
-    }
-
-
-
-}
-
-// MARK: no SettingsValue properties
-
-// MARK: no SettingsValue signals
-
-// MARK: SettingsValue has no signals
-// MARK: SettingsValue Record: SettingsValueProtocol extension (methods and fields)
-public extension SettingsValueProtocol {
-    /// Return the stored, untyped pointer as a typed pointer to the `GtkSettingsValue` instance.
-    @inlinable var _ptr: UnsafeMutablePointer<GtkSettingsValue>! { return ptr?.assumingMemoryBound(to: GtkSettingsValue.self) }
-
-
-    /// Origin should be something like “filename:linenumber” for
-    ///    rc files, or e.g. “XProperty” for other sources.
-    @inlinable var origin: UnsafeMutablePointer<CChar>! {
-        /// Origin should be something like “filename:linenumber” for
-        ///    rc files, or e.g. “XProperty” for other sources.
-        get {
-            let rv = _ptr.pointee.origin
-            return rv
-        }
-        /// Origin should be something like “filename:linenumber” for
-        ///    rc files, or e.g. “XProperty” for other sources.
-         set {
-            _ptr.pointee.origin = newValue
-        }
-    }
-
-    /// Valid types are LONG, DOUBLE and STRING corresponding to
-    ///    the token parsed, or a GSTRING holding an unparsed statement
-    @inlinable var value: GValue {
-        /// Valid types are LONG, DOUBLE and STRING corresponding to
-        ///    the token parsed, or a GSTRING holding an unparsed statement
-        get {
-            let rv = _ptr.pointee.value
-            return rv
-        }
-        /// Valid types are LONG, DOUBLE and STRING corresponding to
-        ///    the token parsed, or a GSTRING holding an unparsed statement
-         set {
-            _ptr.pointee.value = newValue
-        }
-    }
-
-}
-
-
-
 /// Metatype/GType declaration for ShortcutAction
 public extension ShortcutActionClassRef {
     
@@ -3677,55 +3379,70 @@ public extension StyleContextClassProtocol {
 
 
 
-// MARK: - TextBTree Record
+/// Metatype/GType declaration for TextBuffer
+public extension TextBufferClassRef {
+    
+    /// This getter returns the GLib type identifier registered for `TextBuffer`
+    static var metatypeReference: GType { gtk_text_buffer_get_type() }
+    
+    private static var metatypePointer: UnsafeMutablePointer<GtkTextBufferClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkTextBufferClass.self) }
+    
+    static var metatype: GtkTextBufferClass? { metatypePointer?.pointee } 
+    
+    static var wrapper: TextBufferClassRef? { TextBufferClassRef(metatypePointer) }
+    
+    
+}
 
-/// The `TextBTreeProtocol` protocol exposes the methods and properties of an underlying `GtkTextBTree` instance.
+// MARK: - TextBufferClass Record
+
+/// The `TextBufferClassProtocol` protocol exposes the methods and properties of an underlying `GtkTextBufferClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `TextBTree`.
-/// Alternatively, use `TextBTreeRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+/// For a concrete class that implements these methods and properties, see `TextBufferClass`.
+/// Alternatively, use `TextBufferClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
-public protocol TextBTreeProtocol {
-        /// Untyped pointer to the underlying `GtkTextBTree` instance.
+/// The class structure for `GtkTextBuffer`.
+public protocol TextBufferClassProtocol {
+        /// Untyped pointer to the underlying `GtkTextBufferClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
 
-    /// Typed pointer to the underlying `GtkTextBTree` instance.
-    var _ptr: UnsafeMutablePointer<GtkTextBTree>! { get }
+    /// Typed pointer to the underlying `GtkTextBufferClass` instance.
+    var _ptr: UnsafeMutablePointer<GtkTextBufferClass>! { get }
 
-    /// Required Initialiser for types conforming to `TextBTreeProtocol`
+    /// Required Initialiser for types conforming to `TextBufferClassProtocol`
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `TextBTreeRef` type acts as a lightweight Swift reference to an underlying `GtkTextBTree` instance.
-/// It exposes methods that can operate on this data type through `TextBTreeProtocol` conformance.
-/// Use `TextBTreeRef` only as an `unowned` reference to an existing `GtkTextBTree` instance.
+/// The `TextBufferClassRef` type acts as a lightweight Swift reference to an underlying `GtkTextBufferClass` instance.
+/// It exposes methods that can operate on this data type through `TextBufferClassProtocol` conformance.
+/// Use `TextBufferClassRef` only as an `unowned` reference to an existing `GtkTextBufferClass` instance.
 ///
-
-public struct TextBTreeRef: TextBTreeProtocol {
-        /// Untyped pointer to the underlying `GtkTextBTree` instance.
+/// The class structure for `GtkTextBuffer`.
+public struct TextBufferClassRef: TextBufferClassProtocol {
+        /// Untyped pointer to the underlying `GtkTextBufferClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer!
 }
 
-public extension TextBTreeRef {
+public extension TextBufferClassRef {
     /// Designated initialiser from the underlying `C` data type
-    @inlinable init(_ p: UnsafeMutablePointer<GtkTextBTree>) {
+    @inlinable init(_ p: UnsafeMutablePointer<GtkTextBufferClass>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from a constant pointer to the underlying `C` data type
-    @inlinable init(_ p: UnsafePointer<GtkTextBTree>) {
+    @inlinable init(_ p: UnsafePointer<GtkTextBufferClass>) {
         ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
     }
 
     /// Conditional initialiser from an optional pointer to the underlying `C` data type
-    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GtkTextBTree>?) {
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GtkTextBufferClass>?) {
         guard let p = maybePointer else { return nil }
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
-    @inlinable init!(_ maybePointer: UnsafePointer<GtkTextBTree>?) {
+    @inlinable init!(_ maybePointer: UnsafePointer<GtkTextBufferClass>?) {
         guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
         ptr = UnsafeMutableRawPointer(p)
     }
@@ -3742,203 +3459,95 @@ public extension TextBTreeRef {
         ptr = p
     }
 
-    /// Reference intialiser for a related type that implements `TextBTreeProtocol`
-    @inlinable init<T: TextBTreeProtocol>(_ other: T) {
+    /// Reference intialiser for a related type that implements `TextBufferClassProtocol`
+    @inlinable init<T: TextBufferClassProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextBTreeProtocol`.**
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextBufferClassProtocol`.**
     @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextBTreeProtocol`.**
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextBufferClassProtocol`.**
     @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextBTreeProtocol`.**
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextBufferClassProtocol`.**
     @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextBTreeProtocol`.**
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextBufferClassProtocol`.**
     @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextBTreeProtocol`.**
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextBufferClassProtocol`.**
     @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
     }
 
-/// The `TextBTree` type acts as an owner of an underlying `GtkTextBTree` instance.
-/// It provides the methods that can operate on this data type through `TextBTreeProtocol` conformance.
-/// Use `TextBTree` as a strong reference or owner of a `GtkTextBTree` instance.
-///
+// MARK: TextBufferClass Record: TextBufferClassProtocol extension (methods and fields)
+public extension TextBufferClassProtocol {
+    /// Return the stored, untyped pointer as a typed pointer to the `GtkTextBufferClass` instance.
+    @inlinable var _ptr: UnsafeMutablePointer<GtkTextBufferClass>! { return ptr?.assumingMemoryBound(to: GtkTextBufferClass.self) }
 
-open class TextBTree: TextBTreeProtocol {
-        /// Untyped pointer to the underlying `GtkTextBTree` instance.
-    /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer!
 
-    /// Designated initialiser from the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `TextBTree` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(_ op: UnsafeMutablePointer<GtkTextBTree>) {
-        ptr = UnsafeMutableRawPointer(op)
+    /// The object class structure needs to be the first.
+    @inlinable var parentClass: GObjectClass {
+        /// The object class structure needs to be the first.
+        get {
+            let rv = _ptr.pointee.parent_class
+            return rv
+        }
     }
 
-    /// Designated initialiser from a constant pointer to the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `TextBTree` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(_ op: UnsafePointer<GtkTextBTree>) {
-        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
-    }
+    // var insertText is unavailable because insert_text is void
 
-    /// Optional initialiser from a non-mutating `gpointer` to
-    /// the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `TextBTree` instance.
-    /// - Parameter op: gpointer to the underlying object
-    @inlinable public init!(gpointer op: gpointer?) {
-        guard let p = UnsafeMutableRawPointer(op) else { return nil }
-        ptr = p
-    }
+    // var insertPaintable is unavailable because insert_paintable is void
 
-    /// Optional initialiser from a non-mutating `gconstpointer` to
-    /// the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `TextBTree` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(gconstpointer op: gconstpointer?) {
-        guard let p = op else { return nil }
-        ptr = UnsafeMutableRawPointer(mutating: p)
-    }
+    // var insertChildAnchor is unavailable because insert_child_anchor is void
 
-    /// Optional initialiser from a constant pointer to the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `TextBTree` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(_ op: UnsafePointer<GtkTextBTree>?) {
-        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
+    // var deleteRange is unavailable because delete_range is void
 
-    /// Optional initialiser from the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `TextBTree` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(_ op: UnsafeMutablePointer<GtkTextBTree>?) {
-        guard let p = op else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
+    // var changed is unavailable because changed is void
 
-    /// Designated initialiser from the underlying `C` data type.
-    /// `GtkTextBTree` does not allow reference counting, so despite the name no actual retaining will occur.
-    /// i.e., ownership is transferred to the `TextBTree` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(retaining op: UnsafeMutablePointer<GtkTextBTree>) {
-        ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GtkTextBTree, cannot ref(_ptr)
-    }
+    // var modifiedChanged is unavailable because modified_changed is void
 
-    /// Reference intialiser for a related type that implements `TextBTreeProtocol`
-    /// `GtkTextBTree` does not allow reference counting.
-    /// - Parameter other: an instance of a related type that implements `TextBTreeProtocol`
-    @inlinable public init<T: TextBTreeProtocol>(_ other: T) {
-        ptr = other.ptr
-        // no reference counting for GtkTextBTree, cannot ref(_ptr)
-    }
+    // var markSet is unavailable because mark_set is void
 
-    /// Do-nothing destructor for `GtkTextBTree`.
-    deinit {
-        // no reference counting for GtkTextBTree, cannot unref(_ptr)
-    }
+    // var markDeleted is unavailable because mark_deleted is void
 
-    /// Unsafe typed initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextBTreeProtocol`.**
-    /// - Parameter cPointer: pointer to the underlying object
-    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
+    // var applyTag is unavailable because apply_tag is void
 
-    /// Unsafe typed, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextBTreeProtocol`.**
-    /// - Parameter cPointer: pointer to the underlying object
-    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GtkTextBTree, cannot ref(_ptr)
-    }
+    // var removeTag is unavailable because remove_tag is void
 
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextBTreeProtocol`.**
-    /// - Parameter p: raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: p)
-    }
+    // var beginUserAction is unavailable because begin_user_action is void
 
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextBTreeProtocol`.**
-    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GtkTextBTree, cannot ref(_ptr)
-    }
+    // var endUserAction is unavailable because end_user_action is void
 
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextBTreeProtocol`.**
-    /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
-        ptr = p
-    }
+    // var pasteDone is unavailable because paste_done is void
 
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextBTreeProtocol`.**
-    /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
-        ptr = raw
-        // no reference counting for GtkTextBTree, cannot ref(_ptr)
-    }
+    // var undo is unavailable because undo is void
 
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextBTreeProtocol`.**
-    /// - Parameter p: opaque pointer to the underlying object
-    @inlinable public init(opaquePointer p: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
+    // var redo is unavailable because redo is void
 
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextBTreeProtocol`.**
-    /// - Parameter p: opaque pointer to the underlying object
-    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GtkTextBTree, cannot ref(_ptr)
-    }
+    // var GtkReserved1 is unavailable because _gtk_reserved1 is void
 
+    // var GtkReserved2 is unavailable because _gtk_reserved2 is void
 
+    // var GtkReserved3 is unavailable because _gtk_reserved3 is void
 
-}
-
-// MARK: no TextBTree properties
-
-// MARK: no TextBTree signals
-
-// MARK: TextBTree has no signals
-// MARK: TextBTree Record: TextBTreeProtocol extension (methods and fields)
-public extension TextBTreeProtocol {
-    /// Return the stored, untyped pointer as a typed pointer to the `GtkTextBTree` instance.
-    @inlinable var _ptr: UnsafeMutablePointer<GtkTextBTree>! { return ptr?.assumingMemoryBound(to: GtkTextBTree.self) }
-
-
+    // var GtkReserved4 is unavailable because _gtk_reserved4 is void
 
 }
 

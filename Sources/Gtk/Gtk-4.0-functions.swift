@@ -37,9 +37,12 @@ import Gdk
 
 
 /// Converts an accelerator keyval and modifier mask
-/// into a (possibly translated) string that can be displayed to
-/// a user, similarly to `gtk_accelerator_get_label()`, but handling
-/// keycodes.
+/// into a string that can be displayed to the user.
+/// 
+/// The string may be translated.
+/// 
+/// This function is similar to [func`Gtk.accelerator_get_label`],
+/// but handling keycodes.
 /// 
 /// This is only useful for system-level components, applications
 /// should use `gtk_accelerator_parse()` instead.
@@ -48,9 +51,12 @@ import Gdk
     return rv
 }
 /// Converts an accelerator keyval and modifier mask
-/// into a (possibly translated) string that can be displayed to
-/// a user, similarly to `gtk_accelerator_get_label()`, but handling
-/// keycodes.
+/// into a string that can be displayed to the user.
+/// 
+/// The string may be translated.
+/// 
+/// This function is similar to [func`Gtk.accelerator_get_label`],
+/// but handling keycodes.
 /// 
 /// This is only useful for system-level components, applications
 /// should use `gtk_accelerator_parse()` instead.
@@ -63,11 +69,13 @@ import Gdk
 
 
 /// Converts an accelerator keyval and modifier mask into a string
-/// parseable by `gtk_accelerator_parse()`. For example, if you pass in
-/// `GDK_KEY_q` and `GDK_CONTROL_MASK`, this function returns “&lt;Control&gt;q”.
+/// parseable by `gtk_accelerator_parse()`.
+/// 
+/// For example, if you pass in `GDK_KEY_q` and `GDK_CONTROL_MASK`,
+/// this function returns `&lt;Control&gt;q`.
 /// 
 /// If you need to display accelerators in the user interface,
-/// see `gtk_accelerator_get_label()`.
+/// see [func`Gtk.accelerator_get_label`].
 @inlinable public func acceleratorName(acceleratorKey: Int, acceleratorMods: Gdk.ModifierType) -> String! {
     guard let rv = gtk_accelerator_name(guint(acceleratorKey), acceleratorMods.value).map({ String(cString: $0) }) else { return nil }
     return rv
@@ -77,8 +85,9 @@ import Gdk
 
 
 /// Converts an accelerator keyval and modifier mask
-/// into a string parseable by `gtk_accelerator_parse_with_keycode()`,
-/// similarly to `gtk_accelerator_name()` but handling keycodes.
+/// into a string parseable by `gtk_accelerator_parse_with_keycode()`.
+/// 
+/// This is similar to [func`Gtk.accelerator_name`] but handling keycodes.
 /// This is only useful for system-level components, applications
 /// should use `gtk_accelerator_parse()` instead.
 @inlinable public func acceleratorNameWithKeycode(display: Gdk.DisplayRef? = nil, acceleratorKey: Int, keycode: Int, acceleratorMods: Gdk.ModifierType) -> String! {
@@ -86,8 +95,9 @@ import Gdk
     return rv
 }
 /// Converts an accelerator keyval and modifier mask
-/// into a string parseable by `gtk_accelerator_parse_with_keycode()`,
-/// similarly to `gtk_accelerator_name()` but handling keycodes.
+/// into a string parseable by `gtk_accelerator_parse_with_keycode()`.
+/// 
+/// This is similar to [func`Gtk.accelerator_name`] but handling keycodes.
 /// This is only useful for system-level components, applications
 /// should use `gtk_accelerator_parse()` instead.
 @inlinable public func acceleratorNameWithKeycode<DisplayT: Gdk.DisplayProtocol>(display: DisplayT?, acceleratorKey: Int, keycode: Int, acceleratorMods: Gdk.ModifierType) -> String! {
@@ -98,12 +108,13 @@ import Gdk
 
 
 
-/// Parses a string representing an accelerator. The format looks like
-/// “&lt;Control&gt;a” or “&lt;Shift&gt;&lt;Alt&gt;F1”.
+/// Parses a string representing an accelerator.
+/// 
+/// The format looks like “&lt;Control&gt;a” or “&lt;Shift&gt;&lt;Alt&gt;F1”.
 /// 
 /// The parser is fairly liberal and allows lower or upper case, and also
 /// abbreviations such as “&lt;Ctl&gt;” and “&lt;Ctrl&gt;”. Key names are parsed using
-/// `gdk_keyval_from_name()`. For character keys the name is not the symbol,
+/// [func`Gdk.keyval_from_name`]. For character keys the name is not the symbol,
 /// but the lowercase name, e.g. one would use “&lt;Ctrl&gt;minus” instead of
 /// “&lt;Ctrl&gt;-”.
 /// 
@@ -117,10 +128,11 @@ import Gdk
 
 
 
-/// Parses a string representing an accelerator, similarly to
-/// `gtk_accelerator_parse()` but handles keycodes as well. This is only
-/// useful for system-level components, applications should use
-/// `gtk_accelerator_parse()` instead.
+/// Parses a string representing an accelerator.
+/// 
+/// This is similar to [func`Gtk.accelerator_parse`] but handles keycodes as
+/// well. This is only useful for system-level components, applications should
+/// use `gtk_accelerator_parse()` instead.
 /// 
 /// If `accelerator_codes` is given and the result stored in it is non-`nil`,
 /// the result must be freed with `g_free()`.
@@ -134,10 +146,11 @@ import Gdk
     let rv = ((gtk_accelerator_parse_with_keycode(accelerator, display?.display_ptr, acceleratorKey, acceleratorCodes, acceleratorMods)) != 0)
     return rv
 }
-/// Parses a string representing an accelerator, similarly to
-/// `gtk_accelerator_parse()` but handles keycodes as well. This is only
-/// useful for system-level components, applications should use
-/// `gtk_accelerator_parse()` instead.
+/// Parses a string representing an accelerator.
+/// 
+/// This is similar to [func`Gtk.accelerator_parse`] but handles keycodes as
+/// well. This is only useful for system-level components, applications should
+/// use `gtk_accelerator_parse()` instead.
 /// 
 /// If `accelerator_codes` is given and the result stored in it is non-`nil`,
 /// the result must be freed with `g_free()`.
@@ -156,10 +169,11 @@ import Gdk
 
 
 /// Determines whether a given keyval and modifier mask constitute
-/// a valid keyboard accelerator. For example, the `GDK_KEY_a` keyval
-/// plus `GDK_CONTROL_MASK` is valid - this is a “Ctrl+a” accelerator.
-/// But, you can't, for instance, use the `GDK_KEY_Control_L` keyval
-/// as an accelerator.
+/// a valid keyboard accelerator.
+/// 
+/// For example, the `GDK_KEY_a` keyval plus `GDK_CONTROL_MASK` mark is valid,
+/// and matches the “Ctrl+a” accelerator. But, you can't, for instance, use
+/// the `GDK_KEY_Control_L` keyval as an accelerator.
 @inlinable public func acceleratorValid(keyval: Int, modifiers: Gdk.ModifierType) -> Bool {
     let rv = ((gtk_accelerator_valid(guint(keyval), modifiers.value)) != 0)
     return rv
@@ -192,9 +206,10 @@ import Gdk
 
 
 
-/// Initializes `iter` to point to `target`. If `target` is not found, finds
-/// the next value after it. If no value &gt;= `target` exists in `set`, this
-/// function returns `false`.
+/// Initializes `iter` to point to `target`.
+/// 
+/// If `target` is not found, finds the next value after it.
+/// If no value &gt;= `target` exists in `set`, this function returns `false`.
 @inlinable public func bitsetIterInitAt<BitsetIterT: BitsetIterProtocol, BitsetT: BitsetProtocol>(iter: BitsetIterT, set: BitsetT, target: Int, value: UnsafeMutablePointer<guint>! = nil) -> Bool {
     let rv = ((gtk_bitset_iter_init_at(iter._ptr, set.bitset_ptr, guint(target), value)) != 0)
     return rv
@@ -204,8 +219,9 @@ import Gdk
 
 
 /// Initializes an iterator for `set` and points it to the first
-/// value in `set`. If `set` is empty, `false` is returned and `value`
-/// is set to `G_MAXUINT`.
+/// value in `set`.
+/// 
+/// If `set` is empty, `false` is returned and `value` is set to `G_MAXUINT`.
 @inlinable public func bitsetIterInitFirst<BitsetIterT: BitsetIterProtocol, BitsetT: BitsetProtocol>(iter: BitsetIterT, set: BitsetT, value: UnsafeMutablePointer<guint>! = nil) -> Bool {
     let rv = ((gtk_bitset_iter_init_first(iter._ptr, set.bitset_ptr, value)) != 0)
     return rv
@@ -215,7 +231,9 @@ import Gdk
 
 
 /// Initializes an iterator for `set` and points it to the last
-/// value in `set`. If `set` is empty, `false` is returned.
+/// value in `set`.
+/// 
+/// If `set` is empty, `false` is returned.
 @inlinable public func bitsetIterInitLast<BitsetIterT: BitsetIterProtocol, BitsetT: BitsetProtocol>(iter: BitsetIterT, set: BitsetT, value: UnsafeMutablePointer<guint>! = nil) -> Bool {
     let rv = ((gtk_bitset_iter_init_last(iter._ptr, set.bitset_ptr, value)) != 0)
     return rv
@@ -256,10 +274,10 @@ import Gdk
 
 
 
-/// Prevents `gtk_init()`, `gtk_init_check()` and
-/// `gtk_parse_args()` from automatically
-/// calling `setlocale (LC_ALL, "")`. You would
-/// want to use this function if you wanted to set the locale for
+/// Prevents [id`gtk_init`] and [id`gtk_init_check`] from automatically calling
+/// `setlocale (LC_ALL, "")`.
+/// 
+/// You would want to use this function if you wanted to set the locale for
 /// your program to something other than the user’s locale, or if
 /// you wanted to set different values for different locale categories.
 /// 
@@ -276,10 +294,10 @@ import Gdk
 /// children up to natural size first.
 /// 
 /// The remaining space will be added to the `minimum_size` member of the
-/// GtkRequestedSize struct. If all sizes reach their natural size then
+/// `GtkRequestedSize` struct. If all sizes reach their natural size then
 /// the remaining space is returned.
-@inlinable public func distributeNaturalAllocation<RequestedSizeT: RequestedSizeProtocol>(extraSpace: Int, nRequestedSizes: Int, sizes: RequestedSizeT) -> Int {
-    let rv = Int(gtk_distribute_natural_allocation(gint(extraSpace), guint(nRequestedSizes), sizes._ptr))
+@inlinable public func distributeNaturalAllocation(extraSpace: Int, nRequestedSizes: Int, sizes: UnsafeMutablePointer<GtkRequestedSize>!) -> Int {
+    let rv = Int(gtk_distribute_natural_allocation(gint(extraSpace), guint(nRequestedSizes), sizes))
     return rv
 }
 
@@ -288,8 +306,9 @@ import Gdk
 
 /// Gets a property of the `GtkEditable` delegate for `object`.
 /// 
-/// This is helper function that should be called in get_property,
-/// before handling your own properties.
+/// This is helper function that should be called in the `get_property`
+/// function of your `GtkEditable` implementation, before handling your
+/// own properties.
 @inlinable public func editableDelegateGetProperty<ObjectT: GLibObject.ObjectProtocol, ParamSpecT: GLibObject.ParamSpecProtocol, ValueT: GLibObject.ValueProtocol>(object: ObjectT, propId: Int, value: ValueT, pspec: ParamSpecT) -> Bool {
     let rv = ((gtk_editable_delegate_get_property(object.object_ptr, guint(propId), value.value_ptr, pspec.param_spec_ptr)) != 0)
     return rv
@@ -300,8 +319,9 @@ import Gdk
 
 /// Sets a property on the `GtkEditable` delegate for `object`.
 /// 
-/// This is a helper function that should be called in set_property,
-/// before handling your own properties.
+/// This is a helper function that should be called in the `set_property`
+/// function of your `GtkEditable` implementation, before handling your
+/// own properties.
 @inlinable public func editableDelegateSetProperty<ObjectT: GLibObject.ObjectProtocol, ParamSpecT: GLibObject.ParamSpecProtocol, ValueT: GLibObject.ValueProtocol>(object: ObjectT, propId: Int, value: ValueT, pspec: ParamSpecT) -> Bool {
     let rv = ((gtk_editable_delegate_set_property(object.object_ptr, guint(propId), value.value_ptr, pspec.param_spec_ptr)) != 0)
     return rv
@@ -310,17 +330,17 @@ import Gdk
 
 
 
-/// Installs the GtkEditable properties for `class`.
+/// Installs the `GtkEditable` properties for `class`.
 /// 
 /// This is a helper function that should be called in class_init,
 /// after installing your own properties.
 /// 
 /// To handle the properties in your set_property and get_property
-/// functions, you can either use `gtk_editable_delegate_set_property()`
-/// and `gtk_editable_delegate_get_property()` (if you are using a delegate),
-/// or remember the `first_prop` offset and add it to the values in the
-/// `GtkEditableProperties` enumeration to get the property IDs for these
-/// properties.
+/// functions, you can either use [func`Gtk.Editable.delegate_set_property`]
+/// and [func`Gtk.Editable.delegate_get_property`] (if you are using
+/// a delegate), or remember the `first_prop` offset and add it to the
+/// values in the [enum`Gtk.EditableProperties`] enumeration to get the
+/// property IDs for these properties.
 @inlinable public func editableInstallProperties<ObjectClassT: GLibObject.ObjectClassProtocol>(objectClass: ObjectClassT, firstProp: Int) -> Int {
     let rv = Int(gtk_editable_install_properties(objectClass._ptr, guint(firstProp)))
     return rv
@@ -329,7 +349,18 @@ import Gdk
 
 
 
-/// Registers an error quark for `GtkFileChooser` if necessary.
+/// Calls a function for all `GtkPrinter`s.
+/// 
+/// If `func` returns `true`, the enumeration is stopped.
+@inlinable public func enumeratePrinters(`func`: GtkPrinterFunc?, data: gpointer! = nil, destroy: GDestroyNotify?, wait: Bool) {
+    gtk_enumerate_printers(`func`, data, destroy, gboolean((wait) ? 1 : 0))
+
+}
+
+
+
+
+/// Registers an error quark for `GtkFileChooser` errors.
 @inlinable public func fileChooserErrorQuark() -> GQuark {
     let rv = gtk_file_chooser_error_quark()
     return rv
@@ -338,10 +369,9 @@ import Gdk
 
 
 
-/// Returns the binary age as passed to `libtool`
-/// when building the GTK library the process is running against.
-/// If `libtool` means nothing to you, don't
-/// worry about it.
+/// Returns the binary age as passed to `libtool`.
+/// 
+/// If `libtool` means nothing to you, don't worry about it.
 @inlinable public func getBinaryAge() -> Int {
     let rv = Int(gtk_get_binary_age())
     return rv
@@ -378,10 +408,9 @@ import Gdk
 
 
 
-/// Returns the interface age as passed to `libtool`
-/// when building the GTK library the process is running against.
-/// If `libtool` means nothing to you, don't
-/// worry about it.
+/// Returns the interface age as passed to `libtool`.
+/// 
+/// If `libtool` means nothing to you, don't worry about it.
 @inlinable public func getInterfaceAge() -> Int {
     let rv = Int(gtk_get_interface_age())
     return rv
@@ -422,7 +451,8 @@ import Gdk
 
 
 /// Returns the major version number of the GTK library.
-/// (e.g. in GTK version 3.1.5 this is 3.)
+/// 
+/// For example, in GTK version 3.1.5 this is 3.
 /// 
 /// This function is in the library, so it represents the GTK library
 /// your code is running against. Contrast with the `GTK_MAJOR_VERSION`
@@ -437,7 +467,8 @@ import Gdk
 
 
 /// Returns the micro version number of the GTK library.
-/// (e.g. in GTK version 3.1.5 this is 5.)
+/// 
+/// For example, in GTK version 3.1.5 this is 5.
 /// 
 /// This function is in the library, so it represents the GTK library
 /// your code is are running against. Contrast with the
@@ -452,7 +483,8 @@ import Gdk
 
 
 /// Returns the minor version number of the GTK library.
-/// (e.g. in GTK version 3.1.5 this is 1.)
+/// 
+/// For example, in GTK version 3.1.5 this is 1.
 /// 
 /// This function is in the library, so it represents the GTK library
 /// your code is are running against. Contrast with the
@@ -481,14 +513,6 @@ import Gdk
 @inlinable public func iconThemeErrorQuark() -> GQuark {
     let rv = gtk_icon_theme_error_quark()
     return rv
-}
-
-
-
-
-@inlinable public func imModulesInit() {
-    gtk_im_modules_init()
-
 }
 
 
@@ -546,9 +570,19 @@ import Gdk
 
 
 
-/// Finds the GtkNative associated with the surface.
+/// Finds the `GtkNative` associated with the surface.
 @inlinable public func nativeGetFor<SurfaceT: Gdk.SurfaceProtocol>(surface: SurfaceT) -> NativeRef! {
     guard let rv = NativeRef(gconstpointer: gconstpointer(gtk_native_get_for_surface(surface.surface_ptr))) else { return nil }
+    return rv
+}
+
+
+
+
+/// Converts the result of a `GCompareFunc` like `strcmp()` to a
+/// `GtkOrdering` value.
+@inlinable public func orderingFromCmpfunc(cmpfuncResult: Int) -> GtkOrdering {
+    let rv = gtk_ordering_from_cmpfunc(gint(cmpfuncResult))
     return rv
 }
 
@@ -576,7 +610,7 @@ import Gdk
 
 /// Creates a new `GParamSpec` instance for a property holding a `GtkExpression`.
 /// 
-/// See `g_param_spec_internal()` for details on the property strings.
+/// See ``g_param_spec_internal()`` for details on the property strings.
 @inlinable public func paramSpecExpression(name: UnsafePointer<CChar>!, nick: UnsafePointer<CChar>!, blurb: UnsafePointer<CChar>!, flags: GLibObject.ParamFlags) -> GLibObject.ParamSpecRef! {
     guard let rv = GLibObject.ParamSpecRef(gtk_param_spec_expression(name, nick, blurb, flags.value)) else { return nil }
     return rv
@@ -882,7 +916,7 @@ import Gdk
 
 
 
-/// Finished the `gtk_show_uri()` call and returns the result
+/// Finishes the `gtk_show_uri()` call and returns the result
 /// of the operation.
 @inlinable public func showUriFullFinish<AsyncResultT: GIO.AsyncResultProtocol, WindowT: WindowProtocol>(parent: WindowT, result: AsyncResultT) throws -> Bool {
     var error: UnsafeMutablePointer<GError>?
@@ -982,9 +1016,10 @@ import Gdk
 
 
 
-/// Enters the main loop and waits for `widget` to be “drawn”. In this
-/// context that means it waits for the frame clock of `widget` to have
-/// run a full styling, layout and drawing cycle.
+/// Enters the main loop and waits for `widget` to be “drawn”.
+/// 
+/// In this context that means it waits for the frame clock of
+/// `widget` to have run a full styling, layout and drawing cycle.
 /// 
 /// This function is intended to be used for syncing with actions that
 /// depend on `widget` relayouting or on interaction with the display

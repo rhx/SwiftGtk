@@ -20,7 +20,7 @@ import Gdk
 /// For a concrete class that implements these methods and properties, see `TreeDragSource`.
 /// Alternatively, use `TreeDragSourceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
+/// Interface for Drag-and-Drop destinations in `GtkTreeView`.
 public protocol TreeDragSourceProtocol {
         /// Untyped pointer to the underlying `GtkTreeDragSource` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -36,7 +36,7 @@ public protocol TreeDragSourceProtocol {
 /// It exposes methods that can operate on this data type through `TreeDragSourceProtocol` conformance.
 /// Use `TreeDragSourceRef` only as an `unowned` reference to an existing `GtkTreeDragSource` instance.
 ///
-
+/// Interface for Drag-and-Drop destinations in `GtkTreeView`.
 public struct TreeDragSourceRef: TreeDragSourceProtocol {
         /// Untyped pointer to the underlying `GtkTreeDragSource` instance.
     /// For type-safe access, use the generated, typed pointer `tree_drag_source_ptr` property instead.
@@ -119,7 +119,7 @@ public extension TreeDragSourceRef {
 /// It provides the methods that can operate on this data type through `TreeDragSourceProtocol` conformance.
 /// Use `TreeDragSource` as a strong reference or owner of a `GtkTreeDragSource` instance.
 ///
-
+/// Interface for Drag-and-Drop destinations in `GtkTreeView`.
 open class TreeDragSource: TreeDragSourceProtocol {
         /// Untyped pointer to the underlying `GtkTreeDragSource` instance.
     /// For type-safe access, use the generated, typed pointer `tree_drag_source_ptr` property instead.
@@ -312,6 +312,8 @@ public extension TreeDragSourceProtocol {
 /// For a concrete class that implements these methods and properties, see `TreeModel`.
 /// Alternatively, use `TreeModelRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
+/// The tree interface used by GtkTreeView
+/// 
 /// The `GtkTreeModel` interface defines a generic tree interface for
 /// use by the `GtkTreeView` widget. It is an abstract interface, and
 /// is designed to be usable with any appropriate data structure. The
@@ -340,20 +342,20 @@ public extension TreeDragSourceProtocol {
 /// Models are accessed on a node/column level of granularity. One can
 /// query for the value of a model at a certain node and a certain
 /// column on that node. There are two structures used to reference a
-/// particular node in a model. They are the `GtkTreePath-struct` and
-/// the `GtkTreeIter-struct` (“iter” is short for iterator). Most of the
-/// interface consists of operations on a `GtkTreeIter-struct`.
+/// particular node in a model. They are the [struct`Gtk.TreePath`] and
+/// the [struct`Gtk.TreeIter`] (“iter” is short for iterator). Most of the
+/// interface consists of operations on a [struct`Gtk.TreeIter`].
 /// 
 /// A path is essentially a potential node. It is a location on a model
 /// that may or may not actually correspond to a node on a specific
-/// model. The `GtkTreePath-struct` can be converted into either an
+/// model. A [struct`Gtk.TreePath`] can be converted into either an
 /// array of unsigned integers or a string. The string form is a list
 /// of numbers separated by a colon. Each number refers to the offset
 /// at that level. Thus, the path `0` refers to the root
 /// node and the path `2:4` refers to the fifth child of
 /// the third node.
 /// 
-/// By contrast, a `GtkTreeIter-struct` is a reference to a specific node on
+/// By contrast, a [struct`Gtk.TreeIter`] is a reference to a specific node on
 /// a specific model. It is a generic struct with an integer and three
 /// generic pointers. These are filled in by the model in a model-specific
 /// way. One can convert a path to an iterator by calling
@@ -390,10 +392,9 @@ public extension TreeDragSourceProtocol {
 /// easier, the second is much more common, as you often get paths from
 /// callbacks.
 /// 
-/// ## Acquiring a `GtkTreeIter-struct`
+/// ## Acquiring a `GtkTreeIter`
 /// 
-/// (C Language Example):
-/// ```C
+/// ```c
 /// // Three ways of getting the iter pointing to the location
 /// GtkTreePath *path;
 /// GtkTreeIter iter;
@@ -428,8 +429,7 @@ public extension TreeDragSourceProtocol {
 /// 
 /// ## Reading data from a `GtkTreeModel`
 /// 
-/// (C Language Example):
-/// ```C
+/// ```c
 /// enum
 /// {
 ///   STRING_COLUMN,
@@ -462,14 +462,14 @@ public extension TreeDragSourceProtocol {
 ///    char *str_data;
 ///    int    int_data;
 /// 
-///    // Make sure you terminate calls to gtk_tree_model_get() with a “-1” value
+///    // Make sure you terminate calls to `gtk_tree_model_get()` with a “-1” value
 ///    gtk_tree_model_get (list_store, &iter,
 ///                        STRING_COLUMN, &str_data,
 ///                        INT_COLUMN, &int_data,
 ///                        -1);
 /// 
 ///    // Do something with the data
-///    g_print ("Row %d: (%s,%d)\n",
+///    g_print ("Row `d:` (`s`,`d`)\n",
 ///             row_count, str_data, int_data);
 ///    g_free (str_data);
 /// 
@@ -523,6 +523,8 @@ public protocol TreeModelProtocol {
 /// It exposes methods that can operate on this data type through `TreeModelProtocol` conformance.
 /// Use `TreeModelRef` only as an `unowned` reference to an existing `GtkTreeModel` instance.
 ///
+/// The tree interface used by GtkTreeView
+/// 
 /// The `GtkTreeModel` interface defines a generic tree interface for
 /// use by the `GtkTreeView` widget. It is an abstract interface, and
 /// is designed to be usable with any appropriate data structure. The
@@ -551,20 +553,20 @@ public protocol TreeModelProtocol {
 /// Models are accessed on a node/column level of granularity. One can
 /// query for the value of a model at a certain node and a certain
 /// column on that node. There are two structures used to reference a
-/// particular node in a model. They are the `GtkTreePath-struct` and
-/// the `GtkTreeIter-struct` (“iter” is short for iterator). Most of the
-/// interface consists of operations on a `GtkTreeIter-struct`.
+/// particular node in a model. They are the [struct`Gtk.TreePath`] and
+/// the [struct`Gtk.TreeIter`] (“iter” is short for iterator). Most of the
+/// interface consists of operations on a [struct`Gtk.TreeIter`].
 /// 
 /// A path is essentially a potential node. It is a location on a model
 /// that may or may not actually correspond to a node on a specific
-/// model. The `GtkTreePath-struct` can be converted into either an
+/// model. A [struct`Gtk.TreePath`] can be converted into either an
 /// array of unsigned integers or a string. The string form is a list
 /// of numbers separated by a colon. Each number refers to the offset
 /// at that level. Thus, the path `0` refers to the root
 /// node and the path `2:4` refers to the fifth child of
 /// the third node.
 /// 
-/// By contrast, a `GtkTreeIter-struct` is a reference to a specific node on
+/// By contrast, a [struct`Gtk.TreeIter`] is a reference to a specific node on
 /// a specific model. It is a generic struct with an integer and three
 /// generic pointers. These are filled in by the model in a model-specific
 /// way. One can convert a path to an iterator by calling
@@ -601,10 +603,9 @@ public protocol TreeModelProtocol {
 /// easier, the second is much more common, as you often get paths from
 /// callbacks.
 /// 
-/// ## Acquiring a `GtkTreeIter-struct`
+/// ## Acquiring a `GtkTreeIter`
 /// 
-/// (C Language Example):
-/// ```C
+/// ```c
 /// // Three ways of getting the iter pointing to the location
 /// GtkTreePath *path;
 /// GtkTreeIter iter;
@@ -639,8 +640,7 @@ public protocol TreeModelProtocol {
 /// 
 /// ## Reading data from a `GtkTreeModel`
 /// 
-/// (C Language Example):
-/// ```C
+/// ```c
 /// enum
 /// {
 ///   STRING_COLUMN,
@@ -673,14 +673,14 @@ public protocol TreeModelProtocol {
 ///    char *str_data;
 ///    int    int_data;
 /// 
-///    // Make sure you terminate calls to gtk_tree_model_get() with a “-1” value
+///    // Make sure you terminate calls to `gtk_tree_model_get()` with a “-1” value
 ///    gtk_tree_model_get (list_store, &iter,
 ///                        STRING_COLUMN, &str_data,
 ///                        INT_COLUMN, &int_data,
 ///                        -1);
 /// 
 ///    // Do something with the data
-///    g_print ("Row %d: (%s,%d)\n",
+///    g_print ("Row `d:` (`s`,`d`)\n",
 ///             row_count, str_data, int_data);
 ///    g_free (str_data);
 /// 
@@ -801,6 +801,8 @@ public extension TreeModelRef {
 /// It provides the methods that can operate on this data type through `TreeModelProtocol` conformance.
 /// Use `TreeModel` as a strong reference or owner of a `GtkTreeModel` instance.
 ///
+/// The tree interface used by GtkTreeView
+/// 
 /// The `GtkTreeModel` interface defines a generic tree interface for
 /// use by the `GtkTreeView` widget. It is an abstract interface, and
 /// is designed to be usable with any appropriate data structure. The
@@ -829,20 +831,20 @@ public extension TreeModelRef {
 /// Models are accessed on a node/column level of granularity. One can
 /// query for the value of a model at a certain node and a certain
 /// column on that node. There are two structures used to reference a
-/// particular node in a model. They are the `GtkTreePath-struct` and
-/// the `GtkTreeIter-struct` (“iter” is short for iterator). Most of the
-/// interface consists of operations on a `GtkTreeIter-struct`.
+/// particular node in a model. They are the [struct`Gtk.TreePath`] and
+/// the [struct`Gtk.TreeIter`] (“iter” is short for iterator). Most of the
+/// interface consists of operations on a [struct`Gtk.TreeIter`].
 /// 
 /// A path is essentially a potential node. It is a location on a model
 /// that may or may not actually correspond to a node on a specific
-/// model. The `GtkTreePath-struct` can be converted into either an
+/// model. A [struct`Gtk.TreePath`] can be converted into either an
 /// array of unsigned integers or a string. The string form is a list
 /// of numbers separated by a colon. Each number refers to the offset
 /// at that level. Thus, the path `0` refers to the root
 /// node and the path `2:4` refers to the fifth child of
 /// the third node.
 /// 
-/// By contrast, a `GtkTreeIter-struct` is a reference to a specific node on
+/// By contrast, a [struct`Gtk.TreeIter`] is a reference to a specific node on
 /// a specific model. It is a generic struct with an integer and three
 /// generic pointers. These are filled in by the model in a model-specific
 /// way. One can convert a path to an iterator by calling
@@ -879,10 +881,9 @@ public extension TreeModelRef {
 /// easier, the second is much more common, as you often get paths from
 /// callbacks.
 /// 
-/// ## Acquiring a `GtkTreeIter-struct`
+/// ## Acquiring a `GtkTreeIter`
 /// 
-/// (C Language Example):
-/// ```C
+/// ```c
 /// // Three ways of getting the iter pointing to the location
 /// GtkTreePath *path;
 /// GtkTreeIter iter;
@@ -917,8 +918,7 @@ public extension TreeModelRef {
 /// 
 /// ## Reading data from a `GtkTreeModel`
 /// 
-/// (C Language Example):
-/// ```C
+/// ```c
 /// enum
 /// {
 ///   STRING_COLUMN,
@@ -951,14 +951,14 @@ public extension TreeModelRef {
 ///    char *str_data;
 ///    int    int_data;
 /// 
-///    // Make sure you terminate calls to gtk_tree_model_get() with a “-1” value
+///    // Make sure you terminate calls to `gtk_tree_model_get()` with a “-1” value
 ///    gtk_tree_model_get (list_store, &iter,
 ///                        STRING_COLUMN, &str_data,
 ///                        INT_COLUMN, &int_data,
 ///                        -1);
 /// 
 ///    // Do something with the data
-///    g_print ("Row %d: (%s,%d)\n",
+///    g_print ("Row `d:` (`s`,`d`)\n",
 ///             row_count, str_data, int_data);
 ///    g_free (str_data);
 /// 
@@ -1668,6 +1668,8 @@ public extension TreeModelProtocol {
 /// For a concrete class that implements these methods and properties, see `TreeSortable`.
 /// Alternatively, use `TreeSortableRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
+/// The interface for sortable models used by GtkTreeView
+/// 
 /// `GtkTreeSortable` is an interface to be implemented by tree models which
 /// support sorting. The `GtkTreeView` uses the methods provided by this interface
 /// to sort the model.
@@ -1686,6 +1688,8 @@ public protocol TreeSortableProtocol: TreeModelProtocol {
 /// It exposes methods that can operate on this data type through `TreeSortableProtocol` conformance.
 /// Use `TreeSortableRef` only as an `unowned` reference to an existing `GtkTreeSortable` instance.
 ///
+/// The interface for sortable models used by GtkTreeView
+/// 
 /// `GtkTreeSortable` is an interface to be implemented by tree models which
 /// support sorting. The `GtkTreeView` uses the methods provided by this interface
 /// to sort the model.
@@ -1771,6 +1775,8 @@ public extension TreeSortableRef {
 /// It provides the methods that can operate on this data type through `TreeSortableProtocol` conformance.
 /// Use `TreeSortable` as a strong reference or owner of a `GtkTreeSortable` instance.
 ///
+/// The interface for sortable models used by GtkTreeView
+/// 
 /// `GtkTreeSortable` is an interface to be implemented by tree models which
 /// support sorting. The `GtkTreeView` uses the methods provided by this interface
 /// to sort the model.

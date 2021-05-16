@@ -20,50 +20,55 @@ import Gdk
 /// For a concrete class that implements these methods and properties, see `Gesture`.
 /// Alternatively, use `GestureRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// `GtkGesture` is the base object for gesture recognition, although this
-/// object is quite generalized to serve as a base for multi-touch gestures,
-/// it is suitable to implement single-touch and pointer-based gestures (using
-/// the special `nil` `GdkEventSequence` value for these).
+/// `GtkGesture` is the base class for gesture recognition.
 /// 
-/// The number of touches that a `GtkGesture` need to be recognized is controlled
-/// by the `GtkGesture:n-points` property, if a gesture is keeping track of less
-/// or more than that number of sequences, it won't check whether the gesture
-/// is recognized.
+/// Although `GtkGesture` is quite generalized to serve as a base for
+/// multi-touch gestures, it is suitable to implement single-touch and
+/// pointer-based gestures (using the special `nil` `GdkEventSequence`
+/// value for these).
+/// 
+/// The number of touches that a `GtkGesture` need to be recognized is
+/// controlled by the [property`Gtk.Gesture:n-points`] property, if a
+/// gesture is keeping track of less or more than that number of sequences,
+/// it won't check whether the gesture is recognized.
 /// 
 /// As soon as the gesture has the expected number of touches, it will check
 /// regularly if it is recognized, the criteria to consider a gesture as
 /// "recognized" is left to `GtkGesture` subclasses.
 /// 
 /// A recognized gesture will then emit the following signals:
-/// - `GtkGesture::begin` when the gesture is recognized.
-/// - A number of `GtkGesture::update`, whenever an input event is processed.
-/// - `GtkGesture::end` when the gesture is no longer recognized.
+/// 
+/// - [signal`Gtk.Gesture::begin`] when the gesture is recognized.
+/// - [signal`Gtk.Gesture::update`], whenever an input event is processed.
+/// - [signal`Gtk.Gesture::end`] when the gesture is no longer recognized.
 /// 
 /// ## Event propagation
 /// 
 /// In order to receive events, a gesture needs to set a propagation phase
-/// through `gtk_event_controller_set_propagation_phase()`.
+/// through [method`Gtk.EventController.set_propagation_phase`].
 /// 
-/// In the capture phase, events are propagated from the toplevel down to the
-/// target widget, and gestures that are attached to containers above the widget
-/// get a chance to interact with the event before it reaches the target.
+/// In the capture phase, events are propagated from the toplevel down
+/// to the target widget, and gestures that are attached to containers
+/// above the widget get a chance to interact with the event before it
+/// reaches the target.
 /// 
-/// In the bubble phase, events are propagated up from the target widget to the
-/// toplevel, and gestures that are attached to containers above the widget get
-/// a chance to interact with events that have not been handled yet.
+/// In the bubble phase, events are propagated up from the target widget
+/// to the toplevel, and gestures that are attached to containers above
+/// the widget get a chance to interact with events that have not been
+/// handled yet.
 /// 
-/// ## States of a sequence # <a name="touch-sequence-states"></a>
+/// ## States of a sequence
 /// 
-/// Whenever input interaction happens, a single event may trigger a cascade of
-/// `GtkGestures`, both across the parents of the widget receiving the event and
-/// in parallel within an individual widget. It is a responsibility of the
-/// widgets using those gestures to set the state of touch sequences accordingly
-/// in order to enable cooperation of gestures around the `GdkEventSequences`
-/// triggering those.
+/// Whenever input interaction happens, a single event may trigger a cascade
+/// of `GtkGesture`s, both across the parents of the widget receiving the
+/// event and in parallel within an individual widget. It is a responsibility
+/// of the widgets using those gestures to set the state of touch sequences
+/// accordingly in order to enable cooperation of gestures around the
+/// `GdkEventSequence`s triggering those.
 /// 
-/// Within a widget, gestures can be grouped through `gtk_gesture_group()`,
-/// grouped gestures synchronize the state of sequences, so calling
-/// `gtk_gesture_set_sequence_state()` on one will effectively propagate
+/// Within a widget, gestures can be grouped through [method`Gtk.Gesture.group`].
+/// Grouped gestures synchronize the state of sequences, so calling
+/// [method`Gtk.Gesture.set_sequence_state`] on one will effectively propagate
 /// the state throughout the group.
 /// 
 /// By default, all sequences start out in the `GTK_EVENT_SEQUENCE_NONE` state,
@@ -77,11 +82,12 @@ import Gdk
 /// 
 /// If a sequence enters in the `GTK_EVENT_SEQUENCE_CLAIMED` state, the gesture
 /// group will grab all interaction on the sequence, by:
-/// - Setting the same sequence to `GTK_EVENT_SEQUENCE_DENIED` on every other gesture
-///   group within the widget, and every gesture on parent widgets in the propagation
-///   chain.
-/// - calling `GtkGesture::cancel` on every gesture in widgets underneath in the
-///   propagation chain.
+/// 
+/// - Setting the same sequence to `GTK_EVENT_SEQUENCE_DENIED` on every other
+///   gesture group within the widget, and every gesture on parent widgets
+///   in the propagation chain.
+/// - Emitting [signal`Gtk.Gesture::cancel`] on every gesture in widgets
+///   underneath in the propagation chain.
 /// - Stopping event propagation after the gesture group handles the event.
 /// 
 /// Note: if a sequence is set early to `GTK_EVENT_SEQUENCE_CLAIMED` on
@@ -91,15 +97,16 @@ import Gdk
 /// This way event coherence is preserved before event propagation is unstopped
 /// again.
 /// 
-/// Sequence states can't be changed freely, see `gtk_gesture_set_sequence_state()`
-/// to know about the possible lifetimes of a `GdkEventSequence`.
+/// Sequence states can't be changed freely.
+/// See [method`Gtk.Gesture.set_sequence_state`] to know about the possible
+/// lifetimes of a `GdkEventSequence`.
 /// 
 /// ## Touchpad gestures
 /// 
 /// On the platforms that support it, `GtkGesture` will handle transparently
-/// touchpad gesture events. The only precautions users of `GtkGesture` should do
-/// to enable this support are:
-/// - Enabling `GDK_TOUCHPAD_GESTURE_MASK` on their `GdkSurfaces`
+/// touchpad gesture events. The only precautions users of `GtkGesture` should
+/// do to enable this support are:
+/// 
 /// - If the gesture has `GTK_PHASE_NONE`, ensuring events of type
 ///   `GDK_TOUCHPAD_SWIPE` and `GDK_TOUCHPAD_PINCH` are handled by the `GtkGesture`
 public protocol GestureProtocol: EventControllerProtocol {
@@ -117,50 +124,55 @@ public protocol GestureProtocol: EventControllerProtocol {
 /// It exposes methods that can operate on this data type through `GestureProtocol` conformance.
 /// Use `GestureRef` only as an `unowned` reference to an existing `GtkGesture` instance.
 ///
-/// `GtkGesture` is the base object for gesture recognition, although this
-/// object is quite generalized to serve as a base for multi-touch gestures,
-/// it is suitable to implement single-touch and pointer-based gestures (using
-/// the special `nil` `GdkEventSequence` value for these).
+/// `GtkGesture` is the base class for gesture recognition.
 /// 
-/// The number of touches that a `GtkGesture` need to be recognized is controlled
-/// by the `GtkGesture:n-points` property, if a gesture is keeping track of less
-/// or more than that number of sequences, it won't check whether the gesture
-/// is recognized.
+/// Although `GtkGesture` is quite generalized to serve as a base for
+/// multi-touch gestures, it is suitable to implement single-touch and
+/// pointer-based gestures (using the special `nil` `GdkEventSequence`
+/// value for these).
+/// 
+/// The number of touches that a `GtkGesture` need to be recognized is
+/// controlled by the [property`Gtk.Gesture:n-points`] property, if a
+/// gesture is keeping track of less or more than that number of sequences,
+/// it won't check whether the gesture is recognized.
 /// 
 /// As soon as the gesture has the expected number of touches, it will check
 /// regularly if it is recognized, the criteria to consider a gesture as
 /// "recognized" is left to `GtkGesture` subclasses.
 /// 
 /// A recognized gesture will then emit the following signals:
-/// - `GtkGesture::begin` when the gesture is recognized.
-/// - A number of `GtkGesture::update`, whenever an input event is processed.
-/// - `GtkGesture::end` when the gesture is no longer recognized.
+/// 
+/// - [signal`Gtk.Gesture::begin`] when the gesture is recognized.
+/// - [signal`Gtk.Gesture::update`], whenever an input event is processed.
+/// - [signal`Gtk.Gesture::end`] when the gesture is no longer recognized.
 /// 
 /// ## Event propagation
 /// 
 /// In order to receive events, a gesture needs to set a propagation phase
-/// through `gtk_event_controller_set_propagation_phase()`.
+/// through [method`Gtk.EventController.set_propagation_phase`].
 /// 
-/// In the capture phase, events are propagated from the toplevel down to the
-/// target widget, and gestures that are attached to containers above the widget
-/// get a chance to interact with the event before it reaches the target.
+/// In the capture phase, events are propagated from the toplevel down
+/// to the target widget, and gestures that are attached to containers
+/// above the widget get a chance to interact with the event before it
+/// reaches the target.
 /// 
-/// In the bubble phase, events are propagated up from the target widget to the
-/// toplevel, and gestures that are attached to containers above the widget get
-/// a chance to interact with events that have not been handled yet.
+/// In the bubble phase, events are propagated up from the target widget
+/// to the toplevel, and gestures that are attached to containers above
+/// the widget get a chance to interact with events that have not been
+/// handled yet.
 /// 
-/// ## States of a sequence # <a name="touch-sequence-states"></a>
+/// ## States of a sequence
 /// 
-/// Whenever input interaction happens, a single event may trigger a cascade of
-/// `GtkGestures`, both across the parents of the widget receiving the event and
-/// in parallel within an individual widget. It is a responsibility of the
-/// widgets using those gestures to set the state of touch sequences accordingly
-/// in order to enable cooperation of gestures around the `GdkEventSequences`
-/// triggering those.
+/// Whenever input interaction happens, a single event may trigger a cascade
+/// of `GtkGesture`s, both across the parents of the widget receiving the
+/// event and in parallel within an individual widget. It is a responsibility
+/// of the widgets using those gestures to set the state of touch sequences
+/// accordingly in order to enable cooperation of gestures around the
+/// `GdkEventSequence`s triggering those.
 /// 
-/// Within a widget, gestures can be grouped through `gtk_gesture_group()`,
-/// grouped gestures synchronize the state of sequences, so calling
-/// `gtk_gesture_set_sequence_state()` on one will effectively propagate
+/// Within a widget, gestures can be grouped through [method`Gtk.Gesture.group`].
+/// Grouped gestures synchronize the state of sequences, so calling
+/// [method`Gtk.Gesture.set_sequence_state`] on one will effectively propagate
 /// the state throughout the group.
 /// 
 /// By default, all sequences start out in the `GTK_EVENT_SEQUENCE_NONE` state,
@@ -174,11 +186,12 @@ public protocol GestureProtocol: EventControllerProtocol {
 /// 
 /// If a sequence enters in the `GTK_EVENT_SEQUENCE_CLAIMED` state, the gesture
 /// group will grab all interaction on the sequence, by:
-/// - Setting the same sequence to `GTK_EVENT_SEQUENCE_DENIED` on every other gesture
-///   group within the widget, and every gesture on parent widgets in the propagation
-///   chain.
-/// - calling `GtkGesture::cancel` on every gesture in widgets underneath in the
-///   propagation chain.
+/// 
+/// - Setting the same sequence to `GTK_EVENT_SEQUENCE_DENIED` on every other
+///   gesture group within the widget, and every gesture on parent widgets
+///   in the propagation chain.
+/// - Emitting [signal`Gtk.Gesture::cancel`] on every gesture in widgets
+///   underneath in the propagation chain.
 /// - Stopping event propagation after the gesture group handles the event.
 /// 
 /// Note: if a sequence is set early to `GTK_EVENT_SEQUENCE_CLAIMED` on
@@ -188,15 +201,16 @@ public protocol GestureProtocol: EventControllerProtocol {
 /// This way event coherence is preserved before event propagation is unstopped
 /// again.
 /// 
-/// Sequence states can't be changed freely, see `gtk_gesture_set_sequence_state()`
-/// to know about the possible lifetimes of a `GdkEventSequence`.
+/// Sequence states can't be changed freely.
+/// See [method`Gtk.Gesture.set_sequence_state`] to know about the possible
+/// lifetimes of a `GdkEventSequence`.
 /// 
 /// ## Touchpad gestures
 /// 
 /// On the platforms that support it, `GtkGesture` will handle transparently
-/// touchpad gesture events. The only precautions users of `GtkGesture` should do
-/// to enable this support are:
-/// - Enabling `GDK_TOUCHPAD_GESTURE_MASK` on their `GdkSurfaces`
+/// touchpad gesture events. The only precautions users of `GtkGesture` should
+/// do to enable this support are:
+/// 
 /// - If the gesture has `GTK_PHASE_NONE`, ensuring events of type
 ///   `GDK_TOUCHPAD_SWIPE` and `GDK_TOUCHPAD_PINCH` are handled by the `GtkGesture`
 public struct GestureRef: GestureProtocol, GWeakCapturing {
@@ -284,50 +298,55 @@ public extension GestureRef {
 /// It provides the methods that can operate on this data type through `GestureProtocol` conformance.
 /// Use `Gesture` as a strong reference or owner of a `GtkGesture` instance.
 ///
-/// `GtkGesture` is the base object for gesture recognition, although this
-/// object is quite generalized to serve as a base for multi-touch gestures,
-/// it is suitable to implement single-touch and pointer-based gestures (using
-/// the special `nil` `GdkEventSequence` value for these).
+/// `GtkGesture` is the base class for gesture recognition.
 /// 
-/// The number of touches that a `GtkGesture` need to be recognized is controlled
-/// by the `GtkGesture:n-points` property, if a gesture is keeping track of less
-/// or more than that number of sequences, it won't check whether the gesture
-/// is recognized.
+/// Although `GtkGesture` is quite generalized to serve as a base for
+/// multi-touch gestures, it is suitable to implement single-touch and
+/// pointer-based gestures (using the special `nil` `GdkEventSequence`
+/// value for these).
+/// 
+/// The number of touches that a `GtkGesture` need to be recognized is
+/// controlled by the [property`Gtk.Gesture:n-points`] property, if a
+/// gesture is keeping track of less or more than that number of sequences,
+/// it won't check whether the gesture is recognized.
 /// 
 /// As soon as the gesture has the expected number of touches, it will check
 /// regularly if it is recognized, the criteria to consider a gesture as
 /// "recognized" is left to `GtkGesture` subclasses.
 /// 
 /// A recognized gesture will then emit the following signals:
-/// - `GtkGesture::begin` when the gesture is recognized.
-/// - A number of `GtkGesture::update`, whenever an input event is processed.
-/// - `GtkGesture::end` when the gesture is no longer recognized.
+/// 
+/// - [signal`Gtk.Gesture::begin`] when the gesture is recognized.
+/// - [signal`Gtk.Gesture::update`], whenever an input event is processed.
+/// - [signal`Gtk.Gesture::end`] when the gesture is no longer recognized.
 /// 
 /// ## Event propagation
 /// 
 /// In order to receive events, a gesture needs to set a propagation phase
-/// through `gtk_event_controller_set_propagation_phase()`.
+/// through [method`Gtk.EventController.set_propagation_phase`].
 /// 
-/// In the capture phase, events are propagated from the toplevel down to the
-/// target widget, and gestures that are attached to containers above the widget
-/// get a chance to interact with the event before it reaches the target.
+/// In the capture phase, events are propagated from the toplevel down
+/// to the target widget, and gestures that are attached to containers
+/// above the widget get a chance to interact with the event before it
+/// reaches the target.
 /// 
-/// In the bubble phase, events are propagated up from the target widget to the
-/// toplevel, and gestures that are attached to containers above the widget get
-/// a chance to interact with events that have not been handled yet.
+/// In the bubble phase, events are propagated up from the target widget
+/// to the toplevel, and gestures that are attached to containers above
+/// the widget get a chance to interact with events that have not been
+/// handled yet.
 /// 
-/// ## States of a sequence # <a name="touch-sequence-states"></a>
+/// ## States of a sequence
 /// 
-/// Whenever input interaction happens, a single event may trigger a cascade of
-/// `GtkGestures`, both across the parents of the widget receiving the event and
-/// in parallel within an individual widget. It is a responsibility of the
-/// widgets using those gestures to set the state of touch sequences accordingly
-/// in order to enable cooperation of gestures around the `GdkEventSequences`
-/// triggering those.
+/// Whenever input interaction happens, a single event may trigger a cascade
+/// of `GtkGesture`s, both across the parents of the widget receiving the
+/// event and in parallel within an individual widget. It is a responsibility
+/// of the widgets using those gestures to set the state of touch sequences
+/// accordingly in order to enable cooperation of gestures around the
+/// `GdkEventSequence`s triggering those.
 /// 
-/// Within a widget, gestures can be grouped through `gtk_gesture_group()`,
-/// grouped gestures synchronize the state of sequences, so calling
-/// `gtk_gesture_set_sequence_state()` on one will effectively propagate
+/// Within a widget, gestures can be grouped through [method`Gtk.Gesture.group`].
+/// Grouped gestures synchronize the state of sequences, so calling
+/// [method`Gtk.Gesture.set_sequence_state`] on one will effectively propagate
 /// the state throughout the group.
 /// 
 /// By default, all sequences start out in the `GTK_EVENT_SEQUENCE_NONE` state,
@@ -341,11 +360,12 @@ public extension GestureRef {
 /// 
 /// If a sequence enters in the `GTK_EVENT_SEQUENCE_CLAIMED` state, the gesture
 /// group will grab all interaction on the sequence, by:
-/// - Setting the same sequence to `GTK_EVENT_SEQUENCE_DENIED` on every other gesture
-///   group within the widget, and every gesture on parent widgets in the propagation
-///   chain.
-/// - calling `GtkGesture::cancel` on every gesture in widgets underneath in the
-///   propagation chain.
+/// 
+/// - Setting the same sequence to `GTK_EVENT_SEQUENCE_DENIED` on every other
+///   gesture group within the widget, and every gesture on parent widgets
+///   in the propagation chain.
+/// - Emitting [signal`Gtk.Gesture::cancel`] on every gesture in widgets
+///   underneath in the propagation chain.
 /// - Stopping event propagation after the gesture group handles the event.
 /// 
 /// Note: if a sequence is set early to `GTK_EVENT_SEQUENCE_CLAIMED` on
@@ -355,15 +375,16 @@ public extension GestureRef {
 /// This way event coherence is preserved before event propagation is unstopped
 /// again.
 /// 
-/// Sequence states can't be changed freely, see `gtk_gesture_set_sequence_state()`
-/// to know about the possible lifetimes of a `GdkEventSequence`.
+/// Sequence states can't be changed freely.
+/// See [method`Gtk.Gesture.set_sequence_state`] to know about the possible
+/// lifetimes of a `GdkEventSequence`.
 /// 
 /// ## Touchpad gestures
 /// 
 /// On the platforms that support it, `GtkGesture` will handle transparently
-/// touchpad gesture events. The only precautions users of `GtkGesture` should do
-/// to enable this support are:
-/// - Enabling `GDK_TOUCHPAD_GESTURE_MASK` on their `GdkSurfaces`
+/// touchpad gesture events. The only precautions users of `GtkGesture` should
+/// do to enable this support are:
+/// 
 /// - If the gesture has `GTK_PHASE_NONE`, ensuring events of type
 ///   `GDK_TOUCHPAD_SWIPE` and `GDK_TOUCHPAD_PINCH` are handled by the `GtkGesture`
 open class Gesture: EventController, GestureProtocol {
@@ -496,7 +517,8 @@ open class Gesture: EventController, GestureProtocol {
 }
 
 public enum GesturePropertyName: String, PropertyNameProtocol {
-    /// The number of touch points that trigger recognition on this gesture,
+    /// The number of touch points that trigger
+    /// recognition on this gesture.
     case nPoints = "n-points"
     /// The name for this controller, typically used for debugging purposes.
     case name = "name"
@@ -562,28 +584,36 @@ public extension GestureProtocol {
 }
 
 public enum GestureSignalName: String, SignalNameProtocol {
-    /// This signal is emitted when the gesture is recognized. This means the
-    /// number of touch sequences matches `GtkGesture:n-points`.
+    /// Emitted when the gesture is recognized.
     /// 
-    /// Note: These conditions may also happen when an extra touch (eg. a third touch
-    /// on a 2-touches gesture) is lifted, in that situation `sequence` won't pertain
-    /// to the current set of active touches, so don't rely on this being true.
+    /// This means the number of touch sequences matches
+    /// [property`Gtk.Gesture:n-points`].
+    /// 
+    /// Note: These conditions may also happen when an extra touch
+    /// (eg. a third touch on a 2-touches gesture) is lifted, in that
+    /// situation `sequence` won't pertain to the current set of active
+    /// touches, so don't rely on this being true.
     case begin = "begin"
-    /// This signal is emitted whenever a sequence is cancelled. This usually
-    /// happens on active touches when `gtk_event_controller_reset()` is called
-    /// on `gesture` (manually, due to grabs...), or the individual `sequence`
-    /// was claimed by parent widgets' controllers (see `gtk_gesture_set_sequence_state()`).
+    /// Emitted whenever a sequence is cancelled.
     /// 
-    /// `gesture` must forget everything about `sequence` as a reaction to this signal.
+    /// This usually happens on active touches when
+    /// [method`Gtk.EventController.reset`] is called on `gesture`
+    /// (manually, due to grabs...), or the individual `sequence`
+    /// was claimed by parent widgets' controllers (see
+    /// [method`Gtk.Gesture.set_sequence_state`]).
+    /// 
+    /// `gesture` must forget everything about `sequence` as in
+    /// response to this signal.
     case cancel = "cancel"
-    /// This signal is emitted when `gesture` either stopped recognizing the event
-    /// sequences as something to be handled, or the number of touch sequences became
-    /// higher or lower than `GtkGesture:n-points`.
+    /// Emitted when `gesture` either stopped recognizing the event
+    /// sequences as something to be handled, or the number of touch
+    /// sequences became higher or lower than [property`Gtk.Gesture:n-points`].
     /// 
-    /// Note: `sequence` might not pertain to the group of sequences that were
-    /// previously triggering recognition on `gesture` (ie. a just pressed touch
-    /// sequence that exceeds `GtkGesture:n-points`). This situation may be detected
-    /// by checking through `gtk_gesture_handles_sequence()`.
+    /// Note: `sequence` might not pertain to the group of sequences that
+    /// were previously triggering recognition on `gesture` (ie. a just
+    /// pressed touch sequence that exceeds [property`Gtk.Gesture:n-points`]).
+    /// This situation may be detected by checking through
+    /// [method`Gtk.Gesture.handles_sequence`].
     case end = "end"
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -610,14 +640,17 @@ public enum GestureSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// This signal is emitted whenever a sequence state changes. See
-    /// `gtk_gesture_set_sequence_state()` to know more about the expectable
-    /// sequence lifetimes.
+    /// Emitted whenever a sequence state changes.
+    /// 
+    /// See [method`Gtk.Gesture.set_sequence_state`] to know
+    /// more about the expectable sequence lifetimes.
     case sequenceStateChanged = "sequence-state-changed"
-    /// This signal is emitted whenever an event is handled while the gesture is
-    /// recognized. `sequence` is guaranteed to pertain to the set of active touches.
+    /// Emitted whenever an event is handled while the gesture is recognized.
+    /// 
+    /// `sequence` is guaranteed to pertain to the set of active touches.
     case update = "update"
-    /// The number of touch points that trigger recognition on this gesture,
+    /// The number of touch points that trigger
+    /// recognition on this gesture.
     case notifyNPoints = "notify::n-points"
     /// The name for this controller, typically used for debugging purposes.
     case notifyName = "notify::name"
@@ -657,16 +690,19 @@ public extension GestureProtocol {
     }
     
     
-    /// This signal is emitted when the gesture is recognized. This means the
-    /// number of touch sequences matches `GtkGesture:n-points`.
+    /// Emitted when the gesture is recognized.
     /// 
-    /// Note: These conditions may also happen when an extra touch (eg. a third touch
-    /// on a 2-touches gesture) is lifted, in that situation `sequence` won't pertain
-    /// to the current set of active touches, so don't rely on this being true.
+    /// This means the number of touch sequences matches
+    /// [property`Gtk.Gesture:n-points`].
+    /// 
+    /// Note: These conditions may also happen when an extra touch
+    /// (eg. a third touch on a 2-touches gesture) is lifted, in that
+    /// situation `sequence` won't pertain to the current set of active
+    /// touches, so don't rely on this being true.
     /// - Note: This represents the underlying `begin` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
-    /// - Parameter sequence: the `GdkEventSequence` that made the gesture to be recognized
+    /// - Parameter sequence: the `GdkEventSequence` that made the gesture   to be recognized
     /// - Parameter handler: The signal handler to call
     /// Run the given callback whenever the `begin` signal is emitted
     @discardableResult @inlinable func onBegin(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: GestureRef, _ sequence: Gdk.EventSequenceRef?) -> Void ) -> Int {
@@ -688,12 +724,16 @@ public extension GestureProtocol {
     /// Typed `begin` signal for using the `connect(signal:)` methods
     static var beginSignal: GestureSignalName { .begin }
     
-    /// This signal is emitted whenever a sequence is cancelled. This usually
-    /// happens on active touches when `gtk_event_controller_reset()` is called
-    /// on `gesture` (manually, due to grabs...), or the individual `sequence`
-    /// was claimed by parent widgets' controllers (see `gtk_gesture_set_sequence_state()`).
+    /// Emitted whenever a sequence is cancelled.
     /// 
-    /// `gesture` must forget everything about `sequence` as a reaction to this signal.
+    /// This usually happens on active touches when
+    /// [method`Gtk.EventController.reset`] is called on `gesture`
+    /// (manually, due to grabs...), or the individual `sequence`
+    /// was claimed by parent widgets' controllers (see
+    /// [method`Gtk.Gesture.set_sequence_state`]).
+    /// 
+    /// `gesture` must forget everything about `sequence` as in
+    /// response to this signal.
     /// - Note: This represents the underlying `cancel` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -719,18 +759,19 @@ public extension GestureProtocol {
     /// Typed `cancel` signal for using the `connect(signal:)` methods
     static var cancelSignal: GestureSignalName { .cancel }
     
-    /// This signal is emitted when `gesture` either stopped recognizing the event
-    /// sequences as something to be handled, or the number of touch sequences became
-    /// higher or lower than `GtkGesture:n-points`.
+    /// Emitted when `gesture` either stopped recognizing the event
+    /// sequences as something to be handled, or the number of touch
+    /// sequences became higher or lower than [property`Gtk.Gesture:n-points`].
     /// 
-    /// Note: `sequence` might not pertain to the group of sequences that were
-    /// previously triggering recognition on `gesture` (ie. a just pressed touch
-    /// sequence that exceeds `GtkGesture:n-points`). This situation may be detected
-    /// by checking through `gtk_gesture_handles_sequence()`.
+    /// Note: `sequence` might not pertain to the group of sequences that
+    /// were previously triggering recognition on `gesture` (ie. a just
+    /// pressed touch sequence that exceeds [property`Gtk.Gesture:n-points`]).
+    /// This situation may be detected by checking through
+    /// [method`Gtk.Gesture.handles_sequence`].
     /// - Note: This represents the underlying `end` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
-    /// - Parameter sequence: the `GdkEventSequence` that made gesture recognition to finish
+    /// - Parameter sequence: the `GdkEventSequence` that made gesture   recognition to finish
     /// - Parameter handler: The signal handler to call
     /// Run the given callback whenever the `end` signal is emitted
     @discardableResult @inlinable func onEnd(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: GestureRef, _ sequence: Gdk.EventSequenceRef?) -> Void ) -> Int {
@@ -752,9 +793,10 @@ public extension GestureProtocol {
     /// Typed `end` signal for using the `connect(signal:)` methods
     static var endSignal: GestureSignalName { .end }
     
-    /// This signal is emitted whenever a sequence state changes. See
-    /// `gtk_gesture_set_sequence_state()` to know more about the expectable
-    /// sequence lifetimes.
+    /// Emitted whenever a sequence state changes.
+    /// 
+    /// See [method`Gtk.Gesture.set_sequence_state`] to know
+    /// more about the expectable sequence lifetimes.
     /// - Note: This represents the underlying `sequence-state-changed` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -781,8 +823,9 @@ public extension GestureProtocol {
     /// Typed `sequence-state-changed` signal for using the `connect(signal:)` methods
     static var sequenceStateChangedSignal: GestureSignalName { .sequenceStateChanged }
     
-    /// This signal is emitted whenever an event is handled while the gesture is
-    /// recognized. `sequence` is guaranteed to pertain to the set of active touches.
+    /// Emitted whenever an event is handled while the gesture is recognized.
+    /// 
+    /// `sequence` is guaranteed to pertain to the set of active touches.
     /// - Note: This represents the underlying `update` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -865,9 +908,10 @@ public extension GestureProtocol {
     @inlinable var gesture_ptr: UnsafeMutablePointer<GtkGesture>! { return ptr?.assumingMemoryBound(to: GtkGesture.self) }
 
     /// If there are touch sequences being currently handled by `gesture`,
-    /// this function returns `true` and fills in `rect` with the bounding
-    /// box containing all active touches. Otherwise, `false` will be
-    /// returned.
+    /// returns `true` and fills in `rect` with the bounding box containing
+    /// all active touches.
+    /// 
+    /// Otherwise, `false` will be returned.
     /// 
     /// Note: This function will yield unexpected results on touchpad
     /// gestures. Since there is no correlation between physical and
@@ -880,16 +924,19 @@ public extension GestureProtocol {
     }
 
     /// If there are touch sequences being currently handled by `gesture`,
-    /// this function returns `true` and fills in `x` and `y` with the center
-    /// of the bounding box containing all active touches. Otherwise, `false`
-    /// will be returned.
+    /// returns `true` and fills in `x` and `y` with the center of the bounding
+    /// box containing all active touches.
+    /// 
+    /// Otherwise, `false` will be returned.
     @inlinable func getBoundingBoxCenter(x: UnsafeMutablePointer<CDouble>!, y: UnsafeMutablePointer<CDouble>!) -> Bool {
         let rv = ((gtk_gesture_get_bounding_box_center(gesture_ptr, x, y)) != 0)
         return rv
     }
 
     /// Returns the logical `GdkDevice` that is currently operating
-    /// on `gesture`, or `nil` if the gesture is not being interacted.
+    /// on `gesture`.
+    /// 
+    /// This returns `nil` if the gesture is not being interacted.
     @inlinable func getDevice() -> Gdk.DeviceRef! {
         let rv = Gdk.DeviceRef(gtk_gesture_get_device(gesture_ptr))
         return rv
@@ -903,18 +950,18 @@ public extension GestureProtocol {
 
     /// Returns the last event that was processed for `sequence`.
     /// 
-    /// Note that the returned pointer is only valid as long as the `sequence`
-    /// is still interpreted by the `gesture`. If in doubt, you should make
-    /// a copy of the event.
+    /// Note that the returned pointer is only valid as long as the
+    /// `sequence` is still interpreted by the `gesture`. If in doubt,
+    /// you should make a copy of the event.
     @inlinable func getLastEvent(sequence: Gdk.EventSequenceRef? = nil) -> Gdk.EventRef! {
         let rv = Gdk.EventRef(gtk_gesture_get_last_event(gesture_ptr, sequence?.event_sequence_ptr))
         return rv
     }
     /// Returns the last event that was processed for `sequence`.
     /// 
-    /// Note that the returned pointer is only valid as long as the `sequence`
-    /// is still interpreted by the `gesture`. If in doubt, you should make
-    /// a copy of the event.
+    /// Note that the returned pointer is only valid as long as the
+    /// `sequence` is still interpreted by the `gesture`. If in doubt,
+    /// you should make a copy of the event.
     @inlinable func getLastEvent<EventSequenceT: Gdk.EventSequenceProtocol>(sequence: EventSequenceT?) -> Gdk.EventRef! {
         let rv = Gdk.EventRef(gtk_gesture_get_last_event(gesture_ptr, sequence?.event_sequence_ptr))
         return rv
@@ -926,18 +973,20 @@ public extension GestureProtocol {
         return rv
     }
 
-    /// If `sequence` is currently being interpreted by `gesture`, this
-    /// function returns `true` and fills in `x` and `y` with the last coordinates
-    /// stored for that event sequence. The coordinates are always relative to the
-    /// widget allocation.
+    /// If `sequence` is currently being interpreted by `gesture`,
+    /// returns `true` and fills in `x` and `y` with the last coordinates
+    /// stored for that event sequence.
+    /// 
+    /// The coordinates are always relative to the widget allocation.
     @inlinable func getPoint(sequence: Gdk.EventSequenceRef? = nil, x: UnsafeMutablePointer<CDouble>! = nil, y: UnsafeMutablePointer<CDouble>! = nil) -> Bool {
         let rv = ((gtk_gesture_get_point(gesture_ptr, sequence?.event_sequence_ptr, x, y)) != 0)
         return rv
     }
-    /// If `sequence` is currently being interpreted by `gesture`, this
-    /// function returns `true` and fills in `x` and `y` with the last coordinates
-    /// stored for that event sequence. The coordinates are always relative to the
-    /// widget allocation.
+    /// If `sequence` is currently being interpreted by `gesture`,
+    /// returns `true` and fills in `x` and `y` with the last coordinates
+    /// stored for that event sequence.
+    /// 
+    /// The coordinates are always relative to the widget allocation.
     @inlinable func getPoint<EventSequenceT: Gdk.EventSequenceProtocol>(sequence: EventSequenceT?, x: UnsafeMutablePointer<CDouble>! = nil, y: UnsafeMutablePointer<CDouble>! = nil) -> Bool {
         let rv = ((gtk_gesture_get_point(gesture_ptr, sequence?.event_sequence_ptr, x, y)) != 0)
         return rv
@@ -956,33 +1005,36 @@ public extension GestureProtocol {
         return rv
     }
 
-    /// Adds `gesture` to the same group than `group_gesture`. Gestures
-    /// are by default isolated in their own groups.
+    /// Adds `gesture` to the same group than `group_gesture`.
     /// 
-    /// Both gestures must have been added to the same widget before they
-    /// can be grouped.
+    /// Gestures are by default isolated in their own groups.
+    /// 
+    /// Both gestures must have been added to the same widget before
+    /// they can be grouped.
     /// 
     /// When gestures are grouped, the state of `GdkEventSequences`
-    /// is kept in sync for all of those, so calling `gtk_gesture_set_sequence_state()`,
-    /// on one will transfer the same value to the others.
+    /// is kept in sync for all of those, so calling
+    /// [method`Gtk.Gesture.set_sequence_state`], on one will transfer
+    /// the same value to the others.
     /// 
     /// Groups also perform an "implicit grabbing" of sequences, if a
-    /// `GdkEventSequence` state is set to `GTK_EVENT_SEQUENCE_CLAIMED` on one group,
-    /// every other gesture group attached to the same `GtkWidget` will switch the
-    /// state for that sequence to `GTK_EVENT_SEQUENCE_DENIED`.
+    /// `GdkEventSequence` state is set to `GTK_EVENT_SEQUENCE_CLAIMED`
+    /// on one group, every other gesture group attached to the same
+    /// `GtkWidget` will switch the state for that sequence to
+    /// `GTK_EVENT_SEQUENCE_DENIED`.
     @inlinable func getGroup<GestureT: GestureProtocol>(gesture: GestureT) {
         gtk_gesture_group(gesture_ptr, gesture.gesture_ptr)
     
     }
 
-    /// Returns `true` if `gesture` is currently handling events corresponding to
-    /// `sequence`.
+    /// Returns `true` if `gesture` is currently handling events
+    /// corresponding to `sequence`.
     @inlinable func handles(sequence: Gdk.EventSequenceRef? = nil) -> Bool {
         let rv = ((gtk_gesture_handles_sequence(gesture_ptr, sequence?.event_sequence_ptr)) != 0)
         return rv
     }
-    /// Returns `true` if `gesture` is currently handling events corresponding to
-    /// `sequence`.
+    /// Returns `true` if `gesture` is currently handling events
+    /// corresponding to `sequence`.
     @inlinable func handles<EventSequenceT: Gdk.EventSequenceProtocol>(sequence: EventSequenceT?) -> Bool {
         let rv = ((gtk_gesture_handles_sequence(gesture_ptr, sequence?.event_sequence_ptr)) != 0)
         return rv
@@ -994,25 +1046,25 @@ public extension GestureProtocol {
         return rv
     }
 
-    /// Sets the state of `sequence` in `gesture`. Sequences start
-    /// in state `GTK_EVENT_SEQUENCE_NONE`, and whenever they change
-    /// state, they can never go back to that state. Likewise,
-    /// sequences in state `GTK_EVENT_SEQUENCE_DENIED` cannot turn
-    /// back to a not denied state. With these rules, the lifetime
-    /// of an event sequence is constrained to the next four:
+    /// Sets the state of `sequence` in `gesture`.
+    /// 
+    /// Sequences start in state `GTK_EVENT_SEQUENCE_NONE`, and whenever
+    /// they change state, they can never go back to that state. Likewise,
+    /// sequences in state `GTK_EVENT_SEQUENCE_DENIED` cannot turn back to
+    /// a not denied state. With these rules, the lifetime of an event
+    /// sequence is constrained to the next four:
     /// 
     /// * None
     /// * None → Denied
     /// * None → Claimed
     /// * None → Claimed → Denied
     /// 
-    /// Note: Due to event handling ordering, it may be unsafe to
-    /// set the state on another gesture within a `GtkGesture::begin`
-    /// signal handler, as the callback might be executed before
-    /// the other gesture knows about the sequence. A safe way to
-    /// perform this could be:
+    /// Note: Due to event handling ordering, it may be unsafe to set the
+    /// state on another gesture within a [signal`Gtk.Gesture::begin`] signal
+    /// handler, as the callback might be executed before the other gesture
+    /// knows about the sequence. A safe way to perform this could be:
     /// 
-    /// ```
+    /// ```c
     /// static void
     /// first_gesture_begin_cb (GtkGesture       *first_gesture,
     ///                         GdkEventSequence *sequence,
@@ -1042,8 +1094,10 @@ public extension GestureProtocol {
     }
 
     /// Sets the state of all sequences that `gesture` is currently
-    /// interacting with. See `gtk_gesture_set_sequence_state()`
-    /// for more details on sequence states.
+    /// interacting with.
+    /// 
+    /// See [method`Gtk.Gesture.set_sequence_state`] for more details
+    /// on sequence states.
     @inlinable func set(state: GtkEventSequenceState) -> Bool {
         let rv = ((gtk_gesture_set_state(gesture_ptr, state)) != 0)
         return rv
@@ -1055,10 +1109,14 @@ public extension GestureProtocol {
     
     }
     /// Returns the logical `GdkDevice` that is currently operating
-    /// on `gesture`, or `nil` if the gesture is not being interacted.
+    /// on `gesture`.
+    /// 
+    /// This returns `nil` if the gesture is not being interacted.
     @inlinable var device: Gdk.DeviceRef! {
         /// Returns the logical `GdkDevice` that is currently operating
-        /// on `gesture`, or `nil` if the gesture is not being interacted.
+        /// on `gesture`.
+        /// 
+        /// This returns `nil` if the gesture is not being interacted.
         get {
             let rv = Gdk.DeviceRef(gtk_gesture_get_device(gesture_ptr))
             return rv
@@ -1075,11 +1133,13 @@ public extension GestureProtocol {
     }
 
     /// Returns `true` if the gesture is currently active.
-    /// A gesture is active meanwhile there are touch sequences
+    /// 
+    /// A gesture is active while there are touch sequences
     /// interacting with it.
     @inlinable var isActive: Bool {
         /// Returns `true` if the gesture is currently active.
-        /// A gesture is active meanwhile there are touch sequences
+        /// 
+        /// A gesture is active while there are touch sequences
         /// interacting with it.
         get {
             let rv = ((gtk_gesture_is_active(gesture_ptr)) != 0)
@@ -1088,10 +1148,12 @@ public extension GestureProtocol {
     }
 
     /// Returns `true` if the gesture is currently recognized.
+    /// 
     /// A gesture is recognized if there are as many interacting
     /// touch sequences as required by `gesture`.
     @inlinable var isRecognized: Bool {
         /// Returns `true` if the gesture is currently recognized.
+        /// 
         /// A gesture is recognized if there are as many interacting
         /// touch sequences as required by `gesture`.
         get {
@@ -1132,11 +1194,13 @@ public extension GestureProtocol {
 /// For a concrete class that implements these methods and properties, see `GestureClick`.
 /// Alternatively, use `GestureClickRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// `GtkGestureClick` is a `GtkGesture` implementation able to recognize
-/// multiple clicks on a nearby zone, which can be listened for through
-/// the `GtkGestureClick::pressed` signal. Whenever time or distance
-/// between clicks exceed the GTK defaults, `GtkGestureClick::stopped`
-/// is emitted, and the click counter is reset.
+/// `GtkGestureClick` is a `GtkGesture` implementation for clicks.
+/// 
+/// It is able to recognize multiple clicks on a nearby zone, which
+/// can be listened for through the [signal`Gtk.GestureClick::pressed`]
+/// signal. Whenever time or distance between clicks exceed the GTK
+/// defaults, [signal`Gtk.GestureClick::stopped`] is emitted, and the
+/// click counter is reset.
 public protocol GestureClickProtocol: GestureSingleProtocol {
         /// Untyped pointer to the underlying `GtkGestureClick` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1152,11 +1216,13 @@ public protocol GestureClickProtocol: GestureSingleProtocol {
 /// It exposes methods that can operate on this data type through `GestureClickProtocol` conformance.
 /// Use `GestureClickRef` only as an `unowned` reference to an existing `GtkGestureClick` instance.
 ///
-/// `GtkGestureClick` is a `GtkGesture` implementation able to recognize
-/// multiple clicks on a nearby zone, which can be listened for through
-/// the `GtkGestureClick::pressed` signal. Whenever time or distance
-/// between clicks exceed the GTK defaults, `GtkGestureClick::stopped`
-/// is emitted, and the click counter is reset.
+/// `GtkGestureClick` is a `GtkGesture` implementation for clicks.
+/// 
+/// It is able to recognize multiple clicks on a nearby zone, which
+/// can be listened for through the [signal`Gtk.GestureClick::pressed`]
+/// signal. Whenever time or distance between clicks exceed the GTK
+/// defaults, [signal`Gtk.GestureClick::stopped`] is emitted, and the
+/// click counter is reset.
 public struct GestureClickRef: GestureClickProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkGestureClick` instance.
     /// For type-safe access, use the generated, typed pointer `gesture_click_ptr` property instead.
@@ -1236,8 +1302,8 @@ public extension GestureClickRef {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
-        /// Returns a newly created `GtkGesture` that recognizes single and multiple
-    /// presses.
+        /// Returns a newly created `GtkGesture` that recognizes
+    /// single and multiple presses.
     @inlinable init() {
         let rv = gtk_gesture_click_new()
         ptr = UnsafeMutableRawPointer(rv)
@@ -1248,11 +1314,13 @@ public extension GestureClickRef {
 /// It provides the methods that can operate on this data type through `GestureClickProtocol` conformance.
 /// Use `GestureClick` as a strong reference or owner of a `GtkGestureClick` instance.
 ///
-/// `GtkGestureClick` is a `GtkGesture` implementation able to recognize
-/// multiple clicks on a nearby zone, which can be listened for through
-/// the `GtkGestureClick::pressed` signal. Whenever time or distance
-/// between clicks exceed the GTK defaults, `GtkGestureClick::stopped`
-/// is emitted, and the click counter is reset.
+/// `GtkGestureClick` is a `GtkGesture` implementation for clicks.
+/// 
+/// It is able to recognize multiple clicks on a nearby zone, which
+/// can be listened for through the [signal`Gtk.GestureClick::pressed`]
+/// signal. Whenever time or distance between clicks exceed the GTK
+/// defaults, [signal`Gtk.GestureClick::stopped`] is emitted, and the
+/// click counter is reset.
 open class GestureClick: GestureSingle, GestureClickProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -1378,8 +1446,8 @@ open class GestureClick: GestureSingle, GestureClickProtocol {
         super.init(retainingOpaquePointer: p)
     }
 
-    /// Returns a newly created `GtkGesture` that recognizes single and multiple
-    /// presses.
+    /// Returns a newly created `GtkGesture` that recognizes
+    /// single and multiple presses.
     @inlinable public init() {
         let rv = gtk_gesture_click_new()
         super.init(gpointer: gpointer(rv))
@@ -1392,10 +1460,12 @@ open class GestureClick: GestureSingle, GestureClickProtocol {
 public enum GestureClickPropertyName: String, PropertyNameProtocol {
     /// Mouse button number to listen to, or 0 to listen for any button.
     case button = "button"
-    /// Whether the gesture is exclusive. Exclusive gestures only listen to pointer
-    /// and pointer emulated events.
+    /// Whether the gesture is exclusive.
+    /// 
+    /// Exclusive gestures only listen to pointer and pointer emulated events.
     case exclusive = "exclusive"
-    /// The number of touch points that trigger recognition on this gesture,
+    /// The number of touch points that trigger
+    /// recognition on this gesture.
     case nPoints = "n-points"
     /// The name for this controller, typically used for debugging purposes.
     case name = "name"
@@ -1463,28 +1533,36 @@ public extension GestureClickProtocol {
 }
 
 public enum GestureClickSignalName: String, SignalNameProtocol {
-    /// This signal is emitted when the gesture is recognized. This means the
-    /// number of touch sequences matches `GtkGesture:n-points`.
+    /// Emitted when the gesture is recognized.
     /// 
-    /// Note: These conditions may also happen when an extra touch (eg. a third touch
-    /// on a 2-touches gesture) is lifted, in that situation `sequence` won't pertain
-    /// to the current set of active touches, so don't rely on this being true.
+    /// This means the number of touch sequences matches
+    /// [property`Gtk.Gesture:n-points`].
+    /// 
+    /// Note: These conditions may also happen when an extra touch
+    /// (eg. a third touch on a 2-touches gesture) is lifted, in that
+    /// situation `sequence` won't pertain to the current set of active
+    /// touches, so don't rely on this being true.
     case begin = "begin"
-    /// This signal is emitted whenever a sequence is cancelled. This usually
-    /// happens on active touches when `gtk_event_controller_reset()` is called
-    /// on `gesture` (manually, due to grabs...), or the individual `sequence`
-    /// was claimed by parent widgets' controllers (see `gtk_gesture_set_sequence_state()`).
+    /// Emitted whenever a sequence is cancelled.
     /// 
-    /// `gesture` must forget everything about `sequence` as a reaction to this signal.
+    /// This usually happens on active touches when
+    /// [method`Gtk.EventController.reset`] is called on `gesture`
+    /// (manually, due to grabs...), or the individual `sequence`
+    /// was claimed by parent widgets' controllers (see
+    /// [method`Gtk.Gesture.set_sequence_state`]).
+    /// 
+    /// `gesture` must forget everything about `sequence` as in
+    /// response to this signal.
     case cancel = "cancel"
-    /// This signal is emitted when `gesture` either stopped recognizing the event
-    /// sequences as something to be handled, or the number of touch sequences became
-    /// higher or lower than `GtkGesture:n-points`.
+    /// Emitted when `gesture` either stopped recognizing the event
+    /// sequences as something to be handled, or the number of touch
+    /// sequences became higher or lower than [property`Gtk.Gesture:n-points`].
     /// 
-    /// Note: `sequence` might not pertain to the group of sequences that were
-    /// previously triggering recognition on `gesture` (ie. a just pressed touch
-    /// sequence that exceeds `GtkGesture:n-points`). This situation may be detected
-    /// by checking through `gtk_gesture_handles_sequence()`.
+    /// Note: `sequence` might not pertain to the group of sequences that
+    /// were previously triggering recognition on `gesture` (ie. a just
+    /// pressed touch sequence that exceeds [property`Gtk.Gesture:n-points`]).
+    /// This situation may be detected by checking through
+    /// [method`Gtk.Gesture.handles_sequence`].
     case end = "end"
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -1511,35 +1589,41 @@ public enum GestureClickSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// This signal is emitted whenever a button or touch press happens.
+    /// Emitted whenever a button or touch press happens.
     case pressed = "pressed"
-    /// This signal is emitted when a button or touch is released. `n_press`
-    /// will report the number of press that is paired to this event, note
-    /// that `GtkGestureClick::stopped` may have been emitted between the
-    /// press and its release, `n_press` will only start over at the next press.
+    /// Emitted when a button or touch is released.
+    /// 
+    /// `n_press` will report the number of press that is paired to
+    /// this event, note that [signal`Gtk.GestureClick::stopped`] may
+    /// have been emitted between the press and its release, `n_press`
+    /// will only start over at the next press.
     case released = "released"
-    /// This signal is emitted whenever a sequence state changes. See
-    /// `gtk_gesture_set_sequence_state()` to know more about the expectable
-    /// sequence lifetimes.
+    /// Emitted whenever a sequence state changes.
+    /// 
+    /// See [method`Gtk.Gesture.set_sequence_state`] to know
+    /// more about the expectable sequence lifetimes.
     case sequenceStateChanged = "sequence-state-changed"
-    /// This signal is emitted whenever any time/distance threshold has
-    /// been exceeded.
+    /// Emitted whenever any time/distance threshold has been exceeded.
     case stopped = "stopped"
-    /// This signal is emitted whenever the gesture receives a release
-    /// event that had no previous corresponding press. Due to implicit
-    /// grabs, this can only happen on situations where input is grabbed
-    /// elsewhere mid-press or the pressed widget voluntarily relinquishes
-    /// its implicit grab.
+    /// Emitted whenever the gesture receives a release
+    /// event that had no previous corresponding press.
+    /// 
+    /// Due to implicit grabs, this can only happen on situations
+    /// where input is grabbed elsewhere mid-press or the pressed
+    /// widget voluntarily relinquishes its implicit grab.
     case unpairedRelease = "unpaired-release"
-    /// This signal is emitted whenever an event is handled while the gesture is
-    /// recognized. `sequence` is guaranteed to pertain to the set of active touches.
+    /// Emitted whenever an event is handled while the gesture is recognized.
+    /// 
+    /// `sequence` is guaranteed to pertain to the set of active touches.
     case update = "update"
     /// Mouse button number to listen to, or 0 to listen for any button.
     case notifyButton = "notify::button"
-    /// Whether the gesture is exclusive. Exclusive gestures only listen to pointer
-    /// and pointer emulated events.
+    /// Whether the gesture is exclusive.
+    /// 
+    /// Exclusive gestures only listen to pointer and pointer emulated events.
     case notifyExclusive = "notify::exclusive"
-    /// The number of touch points that trigger recognition on this gesture,
+    /// The number of touch points that trigger
+    /// recognition on this gesture.
     case notifyNPoints = "notify::n-points"
     /// The name for this controller, typically used for debugging purposes.
     case notifyName = "notify::name"
@@ -1581,7 +1665,7 @@ public extension GestureClickProtocol {
     }
     
     
-    /// This signal is emitted whenever a button or touch press happens.
+    /// Emitted whenever a button or touch press happens.
     /// - Note: This represents the underlying `pressed` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -1609,10 +1693,12 @@ public extension GestureClickProtocol {
     /// Typed `pressed` signal for using the `connect(signal:)` methods
     static var pressedSignal: GestureClickSignalName { .pressed }
     
-    /// This signal is emitted when a button or touch is released. `n_press`
-    /// will report the number of press that is paired to this event, note
-    /// that `GtkGestureClick::stopped` may have been emitted between the
-    /// press and its release, `n_press` will only start over at the next press.
+    /// Emitted when a button or touch is released.
+    /// 
+    /// `n_press` will report the number of press that is paired to
+    /// this event, note that [signal`Gtk.GestureClick::stopped`] may
+    /// have been emitted between the press and its release, `n_press`
+    /// will only start over at the next press.
     /// - Note: This represents the underlying `released` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -1640,8 +1726,7 @@ public extension GestureClickProtocol {
     /// Typed `released` signal for using the `connect(signal:)` methods
     static var releasedSignal: GestureClickSignalName { .released }
     
-    /// This signal is emitted whenever any time/distance threshold has
-    /// been exceeded.
+    /// Emitted whenever any time/distance threshold has been exceeded.
     /// - Note: This represents the underlying `stopped` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -1666,11 +1751,12 @@ public extension GestureClickProtocol {
     /// Typed `stopped` signal for using the `connect(signal:)` methods
     static var stoppedSignal: GestureClickSignalName { .stopped }
     
-    /// This signal is emitted whenever the gesture receives a release
-    /// event that had no previous corresponding press. Due to implicit
-    /// grabs, this can only happen on situations where input is grabbed
-    /// elsewhere mid-press or the pressed widget voluntarily relinquishes
-    /// its implicit grab.
+    /// Emitted whenever the gesture receives a release
+    /// event that had no previous corresponding press.
+    /// 
+    /// Due to implicit grabs, this can only happen on situations
+    /// where input is grabbed elsewhere mid-press or the pressed
+    /// widget voluntarily relinquishes its implicit grab.
     /// - Note: This represents the underlying `unpaired-release` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -1720,12 +1806,15 @@ public extension GestureClickProtocol {
 /// For a concrete class that implements these methods and properties, see `GestureDrag`.
 /// Alternatively, use `GestureDragRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// `GtkGestureDrag` is a `GtkGesture` implementation that recognizes drag
-/// operations. The drag operation itself can be tracked throughout the
-/// `GtkGestureDrag::drag-begin`, `GtkGestureDrag::drag-update` and
-/// `GtkGestureDrag::drag-end` signals, or the relevant coordinates be
-/// extracted through `gtk_gesture_drag_get_offset()` and
-/// `gtk_gesture_drag_get_start_point()`.
+/// `GtkGestureDrag` is a `GtkGesture` implementation for drags.
+/// 
+/// The drag operation itself can be tracked throughout the
+/// [signal`Gtk.GestureDrag::drag-begin`],
+/// [signal`Gtk.GestureDrag::drag-update`] and
+/// [signal`Gtk.GestureDrag::drag-end`] signals, and the relevant
+/// coordinates can be extracted through
+/// [method`Gtk.GestureDrag.get_offset`] and
+/// [method`Gtk.GestureDrag.get_start_point`].
 public protocol GestureDragProtocol: GestureSingleProtocol {
         /// Untyped pointer to the underlying `GtkGestureDrag` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1741,12 +1830,15 @@ public protocol GestureDragProtocol: GestureSingleProtocol {
 /// It exposes methods that can operate on this data type through `GestureDragProtocol` conformance.
 /// Use `GestureDragRef` only as an `unowned` reference to an existing `GtkGestureDrag` instance.
 ///
-/// `GtkGestureDrag` is a `GtkGesture` implementation that recognizes drag
-/// operations. The drag operation itself can be tracked throughout the
-/// `GtkGestureDrag::drag-begin`, `GtkGestureDrag::drag-update` and
-/// `GtkGestureDrag::drag-end` signals, or the relevant coordinates be
-/// extracted through `gtk_gesture_drag_get_offset()` and
-/// `gtk_gesture_drag_get_start_point()`.
+/// `GtkGestureDrag` is a `GtkGesture` implementation for drags.
+/// 
+/// The drag operation itself can be tracked throughout the
+/// [signal`Gtk.GestureDrag::drag-begin`],
+/// [signal`Gtk.GestureDrag::drag-update`] and
+/// [signal`Gtk.GestureDrag::drag-end`] signals, and the relevant
+/// coordinates can be extracted through
+/// [method`Gtk.GestureDrag.get_offset`] and
+/// [method`Gtk.GestureDrag.get_start_point`].
 public struct GestureDragRef: GestureDragProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkGestureDrag` instance.
     /// For type-safe access, use the generated, typed pointer `gesture_drag_ptr` property instead.
@@ -1837,12 +1929,15 @@ public extension GestureDragRef {
 /// It provides the methods that can operate on this data type through `GestureDragProtocol` conformance.
 /// Use `GestureDrag` as a strong reference or owner of a `GtkGestureDrag` instance.
 ///
-/// `GtkGestureDrag` is a `GtkGesture` implementation that recognizes drag
-/// operations. The drag operation itself can be tracked throughout the
-/// `GtkGestureDrag::drag-begin`, `GtkGestureDrag::drag-update` and
-/// `GtkGestureDrag::drag-end` signals, or the relevant coordinates be
-/// extracted through `gtk_gesture_drag_get_offset()` and
-/// `gtk_gesture_drag_get_start_point()`.
+/// `GtkGestureDrag` is a `GtkGesture` implementation for drags.
+/// 
+/// The drag operation itself can be tracked throughout the
+/// [signal`Gtk.GestureDrag::drag-begin`],
+/// [signal`Gtk.GestureDrag::drag-update`] and
+/// [signal`Gtk.GestureDrag::drag-end`] signals, and the relevant
+/// coordinates can be extracted through
+/// [method`Gtk.GestureDrag.get_offset`] and
+/// [method`Gtk.GestureDrag.get_start_point`].
 open class GestureDrag: GestureSingle, GestureDragProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -1981,10 +2076,12 @@ open class GestureDrag: GestureSingle, GestureDragProtocol {
 public enum GestureDragPropertyName: String, PropertyNameProtocol {
     /// Mouse button number to listen to, or 0 to listen for any button.
     case button = "button"
-    /// Whether the gesture is exclusive. Exclusive gestures only listen to pointer
-    /// and pointer emulated events.
+    /// Whether the gesture is exclusive.
+    /// 
+    /// Exclusive gestures only listen to pointer and pointer emulated events.
     case exclusive = "exclusive"
-    /// The number of touch points that trigger recognition on this gesture,
+    /// The number of touch points that trigger
+    /// recognition on this gesture.
     case nPoints = "n-points"
     /// The name for this controller, typically used for debugging purposes.
     case name = "name"
@@ -2052,34 +2149,42 @@ public extension GestureDragProtocol {
 }
 
 public enum GestureDragSignalName: String, SignalNameProtocol {
-    /// This signal is emitted when the gesture is recognized. This means the
-    /// number of touch sequences matches `GtkGesture:n-points`.
+    /// Emitted when the gesture is recognized.
     /// 
-    /// Note: These conditions may also happen when an extra touch (eg. a third touch
-    /// on a 2-touches gesture) is lifted, in that situation `sequence` won't pertain
-    /// to the current set of active touches, so don't rely on this being true.
+    /// This means the number of touch sequences matches
+    /// [property`Gtk.Gesture:n-points`].
+    /// 
+    /// Note: These conditions may also happen when an extra touch
+    /// (eg. a third touch on a 2-touches gesture) is lifted, in that
+    /// situation `sequence` won't pertain to the current set of active
+    /// touches, so don't rely on this being true.
     case begin = "begin"
-    /// This signal is emitted whenever a sequence is cancelled. This usually
-    /// happens on active touches when `gtk_event_controller_reset()` is called
-    /// on `gesture` (manually, due to grabs...), or the individual `sequence`
-    /// was claimed by parent widgets' controllers (see `gtk_gesture_set_sequence_state()`).
+    /// Emitted whenever a sequence is cancelled.
     /// 
-    /// `gesture` must forget everything about `sequence` as a reaction to this signal.
+    /// This usually happens on active touches when
+    /// [method`Gtk.EventController.reset`] is called on `gesture`
+    /// (manually, due to grabs...), or the individual `sequence`
+    /// was claimed by parent widgets' controllers (see
+    /// [method`Gtk.Gesture.set_sequence_state`]).
+    /// 
+    /// `gesture` must forget everything about `sequence` as in
+    /// response to this signal.
     case cancel = "cancel"
-    /// This signal is emitted whenever dragging starts.
+    /// Emitted whenever dragging starts.
     case dragBegin = "drag-begin"
-    /// This signal is emitted whenever the dragging is finished.
+    /// Emitted whenever the dragging is finished.
     case dragEnd = "drag-end"
-    /// This signal is emitted whenever the dragging point moves.
+    /// Emitted whenever the dragging point moves.
     case dragUpdate = "drag-update"
-    /// This signal is emitted when `gesture` either stopped recognizing the event
-    /// sequences as something to be handled, or the number of touch sequences became
-    /// higher or lower than `GtkGesture:n-points`.
+    /// Emitted when `gesture` either stopped recognizing the event
+    /// sequences as something to be handled, or the number of touch
+    /// sequences became higher or lower than [property`Gtk.Gesture:n-points`].
     /// 
-    /// Note: `sequence` might not pertain to the group of sequences that were
-    /// previously triggering recognition on `gesture` (ie. a just pressed touch
-    /// sequence that exceeds `GtkGesture:n-points`). This situation may be detected
-    /// by checking through `gtk_gesture_handles_sequence()`.
+    /// Note: `sequence` might not pertain to the group of sequences that
+    /// were previously triggering recognition on `gesture` (ie. a just
+    /// pressed touch sequence that exceeds [property`Gtk.Gesture:n-points`]).
+    /// This situation may be detected by checking through
+    /// [method`Gtk.Gesture.handles_sequence`].
     case end = "end"
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -2106,19 +2211,23 @@ public enum GestureDragSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// This signal is emitted whenever a sequence state changes. See
-    /// `gtk_gesture_set_sequence_state()` to know more about the expectable
-    /// sequence lifetimes.
+    /// Emitted whenever a sequence state changes.
+    /// 
+    /// See [method`Gtk.Gesture.set_sequence_state`] to know
+    /// more about the expectable sequence lifetimes.
     case sequenceStateChanged = "sequence-state-changed"
-    /// This signal is emitted whenever an event is handled while the gesture is
-    /// recognized. `sequence` is guaranteed to pertain to the set of active touches.
+    /// Emitted whenever an event is handled while the gesture is recognized.
+    /// 
+    /// `sequence` is guaranteed to pertain to the set of active touches.
     case update = "update"
     /// Mouse button number to listen to, or 0 to listen for any button.
     case notifyButton = "notify::button"
-    /// Whether the gesture is exclusive. Exclusive gestures only listen to pointer
-    /// and pointer emulated events.
+    /// Whether the gesture is exclusive.
+    /// 
+    /// Exclusive gestures only listen to pointer and pointer emulated events.
     case notifyExclusive = "notify::exclusive"
-    /// The number of touch points that trigger recognition on this gesture,
+    /// The number of touch points that trigger
+    /// recognition on this gesture.
     case notifyNPoints = "notify::n-points"
     /// The name for this controller, typically used for debugging purposes.
     case notifyName = "notify::name"
@@ -2160,7 +2269,7 @@ public extension GestureDragProtocol {
     }
     
     
-    /// This signal is emitted whenever dragging starts.
+    /// Emitted whenever dragging starts.
     /// - Note: This represents the underlying `drag-begin` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -2187,7 +2296,7 @@ public extension GestureDragProtocol {
     /// Typed `drag-begin` signal for using the `connect(signal:)` methods
     static var dragBeginSignal: GestureDragSignalName { .dragBegin }
     
-    /// This signal is emitted whenever the dragging is finished.
+    /// Emitted whenever the dragging is finished.
     /// - Note: This represents the underlying `drag-end` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -2214,7 +2323,7 @@ public extension GestureDragProtocol {
     /// Typed `drag-end` signal for using the `connect(signal:)` methods
     static var dragEndSignal: GestureDragSignalName { .dragEnd }
     
-    /// This signal is emitted whenever the dragging point moves.
+    /// Emitted whenever the dragging point moves.
     /// - Note: This represents the underlying `drag-update` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -2249,6 +2358,8 @@ public extension GestureDragProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkGestureDrag` instance.
     @inlinable var gesture_drag_ptr: UnsafeMutablePointer<GtkGestureDrag>! { return ptr?.assumingMemoryBound(to: GtkGestureDrag.self) }
 
+    /// Gets the offset from the start point.
+    /// 
     /// If the `gesture` is active, this function returns `true` and
     /// fills in `x` and `y` with the coordinates of the current point,
     /// as an offset to the starting drag point.
@@ -2257,9 +2368,11 @@ public extension GestureDragProtocol {
         return rv
     }
 
+    /// Gets the point where the drag started.
+    /// 
     /// If the `gesture` is active, this function returns `true`
     /// and fills in `x` and `y` with the drag start coordinates,
-    /// in window-relative coordinates.
+    /// in surface-relative coordinates.
     @inlinable func getStartPoint(x: UnsafeMutablePointer<CDouble>?, y: UnsafeMutablePointer<CDouble>?) -> Bool {
         let rv = ((gtk_gesture_drag_get_start_point(gesture_drag_ptr, x, y)) != 0)
         return rv
@@ -2277,13 +2390,21 @@ public extension GestureDragProtocol {
 /// For a concrete class that implements these methods and properties, see `GestureLongPress`.
 /// Alternatively, use `GestureLongPressRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// `GtkGestureLongPress` is a `GtkGesture` implementation able to recognize
-/// long presses, triggering the `GtkGestureLongPress::pressed` after the
-/// timeout is exceeded.
+/// `GtkGestureLongPress` is a `GtkGesture` for long presses.
 /// 
-/// If the touchpoint is lifted before the timeout passes, or if it drifts
-/// too far of the initial press point, the `GtkGestureLongPress::cancelled`
-/// signal will be emitted.
+/// This gesture is also known as “Press and Hold”.
+/// 
+/// When the timeout is exceeded, the gesture is triggering the
+/// [signal`Gtk.GestureLongPress::pressed`] signal.
+/// 
+/// If the touchpoint is lifted before the timeout passes, or if
+/// it drifts too far of the initial press point, the
+/// [signal`Gtk.GestureLongPress::cancelled`] signal will be emitted.
+/// 
+/// How long the timeout is before the `pressed` signal gets emitted is
+/// determined by the [property`Gtk.Settings:gtk-long-press-time`] setting.
+/// It can be modified by the [property`Gtk.GestureLongPress:delay-factor`]
+/// property.
 public protocol GestureLongPressProtocol: GestureSingleProtocol {
         /// Untyped pointer to the underlying `GtkGestureLongPress` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2299,13 +2420,21 @@ public protocol GestureLongPressProtocol: GestureSingleProtocol {
 /// It exposes methods that can operate on this data type through `GestureLongPressProtocol` conformance.
 /// Use `GestureLongPressRef` only as an `unowned` reference to an existing `GtkGestureLongPress` instance.
 ///
-/// `GtkGestureLongPress` is a `GtkGesture` implementation able to recognize
-/// long presses, triggering the `GtkGestureLongPress::pressed` after the
-/// timeout is exceeded.
+/// `GtkGestureLongPress` is a `GtkGesture` for long presses.
 /// 
-/// If the touchpoint is lifted before the timeout passes, or if it drifts
-/// too far of the initial press point, the `GtkGestureLongPress::cancelled`
-/// signal will be emitted.
+/// This gesture is also known as “Press and Hold”.
+/// 
+/// When the timeout is exceeded, the gesture is triggering the
+/// [signal`Gtk.GestureLongPress::pressed`] signal.
+/// 
+/// If the touchpoint is lifted before the timeout passes, or if
+/// it drifts too far of the initial press point, the
+/// [signal`Gtk.GestureLongPress::cancelled`] signal will be emitted.
+/// 
+/// How long the timeout is before the `pressed` signal gets emitted is
+/// determined by the [property`Gtk.Settings:gtk-long-press-time`] setting.
+/// It can be modified by the [property`Gtk.GestureLongPress:delay-factor`]
+/// property.
 public struct GestureLongPressRef: GestureLongPressProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkGestureLongPress` instance.
     /// For type-safe access, use the generated, typed pointer `gesture_long_press_ptr` property instead.
@@ -2396,13 +2525,21 @@ public extension GestureLongPressRef {
 /// It provides the methods that can operate on this data type through `GestureLongPressProtocol` conformance.
 /// Use `GestureLongPress` as a strong reference or owner of a `GtkGestureLongPress` instance.
 ///
-/// `GtkGestureLongPress` is a `GtkGesture` implementation able to recognize
-/// long presses, triggering the `GtkGestureLongPress::pressed` after the
-/// timeout is exceeded.
+/// `GtkGestureLongPress` is a `GtkGesture` for long presses.
 /// 
-/// If the touchpoint is lifted before the timeout passes, or if it drifts
-/// too far of the initial press point, the `GtkGestureLongPress::cancelled`
-/// signal will be emitted.
+/// This gesture is also known as “Press and Hold”.
+/// 
+/// When the timeout is exceeded, the gesture is triggering the
+/// [signal`Gtk.GestureLongPress::pressed`] signal.
+/// 
+/// If the touchpoint is lifted before the timeout passes, or if
+/// it drifts too far of the initial press point, the
+/// [signal`Gtk.GestureLongPress::cancelled`] signal will be emitted.
+/// 
+/// How long the timeout is before the `pressed` signal gets emitted is
+/// determined by the [property`Gtk.Settings:gtk-long-press-time`] setting.
+/// It can be modified by the [property`Gtk.GestureLongPress:delay-factor`]
+/// property.
 open class GestureLongPress: GestureSingle, GestureLongPressProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -2541,11 +2678,14 @@ open class GestureLongPress: GestureSingle, GestureLongPressProtocol {
 public enum GestureLongPressPropertyName: String, PropertyNameProtocol {
     /// Mouse button number to listen to, or 0 to listen for any button.
     case button = "button"
+    /// Factor by which to modify the default timeout.
     case delayFactor = "delay-factor"
-    /// Whether the gesture is exclusive. Exclusive gestures only listen to pointer
-    /// and pointer emulated events.
+    /// Whether the gesture is exclusive.
+    /// 
+    /// Exclusive gestures only listen to pointer and pointer emulated events.
     case exclusive = "exclusive"
-    /// The number of touch points that trigger recognition on this gesture,
+    /// The number of touch points that trigger
+    /// recognition on this gesture.
     case nPoints = "n-points"
     /// The name for this controller, typically used for debugging purposes.
     case name = "name"
@@ -2613,31 +2753,39 @@ public extension GestureLongPressProtocol {
 }
 
 public enum GestureLongPressSignalName: String, SignalNameProtocol {
-    /// This signal is emitted when the gesture is recognized. This means the
-    /// number of touch sequences matches `GtkGesture:n-points`.
+    /// Emitted when the gesture is recognized.
     /// 
-    /// Note: These conditions may also happen when an extra touch (eg. a third touch
-    /// on a 2-touches gesture) is lifted, in that situation `sequence` won't pertain
-    /// to the current set of active touches, so don't rely on this being true.
+    /// This means the number of touch sequences matches
+    /// [property`Gtk.Gesture:n-points`].
+    /// 
+    /// Note: These conditions may also happen when an extra touch
+    /// (eg. a third touch on a 2-touches gesture) is lifted, in that
+    /// situation `sequence` won't pertain to the current set of active
+    /// touches, so don't rely on this being true.
     case begin = "begin"
-    /// This signal is emitted whenever a sequence is cancelled. This usually
-    /// happens on active touches when `gtk_event_controller_reset()` is called
-    /// on `gesture` (manually, due to grabs...), or the individual `sequence`
-    /// was claimed by parent widgets' controllers (see `gtk_gesture_set_sequence_state()`).
+    /// Emitted whenever a sequence is cancelled.
     /// 
-    /// `gesture` must forget everything about `sequence` as a reaction to this signal.
+    /// This usually happens on active touches when
+    /// [method`Gtk.EventController.reset`] is called on `gesture`
+    /// (manually, due to grabs...), or the individual `sequence`
+    /// was claimed by parent widgets' controllers (see
+    /// [method`Gtk.Gesture.set_sequence_state`]).
+    /// 
+    /// `gesture` must forget everything about `sequence` as in
+    /// response to this signal.
     case cancel = "cancel"
-    /// This signal is emitted whenever a press moved too far, or was released
-    /// before `GtkGestureLongPress::pressed` happened.
+    /// Emitted whenever a press moved too far, or was released
+    /// before [signal`Gtk.GestureLongPress::pressed`] happened.
     case cancelled = "cancelled"
-    /// This signal is emitted when `gesture` either stopped recognizing the event
-    /// sequences as something to be handled, or the number of touch sequences became
-    /// higher or lower than `GtkGesture:n-points`.
+    /// Emitted when `gesture` either stopped recognizing the event
+    /// sequences as something to be handled, or the number of touch
+    /// sequences became higher or lower than [property`Gtk.Gesture:n-points`].
     /// 
-    /// Note: `sequence` might not pertain to the group of sequences that were
-    /// previously triggering recognition on `gesture` (ie. a just pressed touch
-    /// sequence that exceeds `GtkGesture:n-points`). This situation may be detected
-    /// by checking through `gtk_gesture_handles_sequence()`.
+    /// Note: `sequence` might not pertain to the group of sequences that
+    /// were previously triggering recognition on `gesture` (ie. a just
+    /// pressed touch sequence that exceeds [property`Gtk.Gesture:n-points`]).
+    /// This situation may be detected by checking through
+    /// [method`Gtk.Gesture.handles_sequence`].
     case end = "end"
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -2664,23 +2812,28 @@ public enum GestureLongPressSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// This signal is emitted whenever a press goes unmoved/unreleased longer than
+    /// Emitted whenever a press goes unmoved/unreleased longer than
     /// what the GTK defaults tell.
     case pressed = "pressed"
-    /// This signal is emitted whenever a sequence state changes. See
-    /// `gtk_gesture_set_sequence_state()` to know more about the expectable
-    /// sequence lifetimes.
+    /// Emitted whenever a sequence state changes.
+    /// 
+    /// See [method`Gtk.Gesture.set_sequence_state`] to know
+    /// more about the expectable sequence lifetimes.
     case sequenceStateChanged = "sequence-state-changed"
-    /// This signal is emitted whenever an event is handled while the gesture is
-    /// recognized. `sequence` is guaranteed to pertain to the set of active touches.
+    /// Emitted whenever an event is handled while the gesture is recognized.
+    /// 
+    /// `sequence` is guaranteed to pertain to the set of active touches.
     case update = "update"
     /// Mouse button number to listen to, or 0 to listen for any button.
     case notifyButton = "notify::button"
+    /// Factor by which to modify the default timeout.
     case notifyDelayFactor = "notify::delay-factor"
-    /// Whether the gesture is exclusive. Exclusive gestures only listen to pointer
-    /// and pointer emulated events.
+    /// Whether the gesture is exclusive.
+    /// 
+    /// Exclusive gestures only listen to pointer and pointer emulated events.
     case notifyExclusive = "notify::exclusive"
-    /// The number of touch points that trigger recognition on this gesture,
+    /// The number of touch points that trigger
+    /// recognition on this gesture.
     case notifyNPoints = "notify::n-points"
     /// The name for this controller, typically used for debugging purposes.
     case notifyName = "notify::name"
@@ -2722,8 +2875,8 @@ public extension GestureLongPressProtocol {
     }
     
     
-    /// This signal is emitted whenever a press moved too far, or was released
-    /// before `GtkGestureLongPress::pressed` happened.
+    /// Emitted whenever a press moved too far, or was released
+    /// before [signal`Gtk.GestureLongPress::pressed`] happened.
     /// - Note: This represents the underlying `cancelled` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -2748,7 +2901,7 @@ public extension GestureLongPressProtocol {
     /// Typed `cancelled` signal for using the `connect(signal:)` methods
     static var cancelledSignal: GestureLongPressSignalName { .cancelled }
     
-    /// This signal is emitted whenever a press goes unmoved/unreleased longer than
+    /// Emitted whenever a press goes unmoved/unreleased longer than
     /// what the GTK defaults tell.
     /// - Note: This represents the underlying `pressed` signal
     /// - Parameter flags: Flags
@@ -2832,27 +2985,31 @@ public extension GestureLongPressProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkGestureLongPress` instance.
     @inlinable var gesture_long_press_ptr: UnsafeMutablePointer<GtkGestureLongPress>! { return ptr?.assumingMemoryBound(to: GtkGestureLongPress.self) }
 
-    /// Returns the delay factor as set by `gtk_gesture_long_press_set_delay_factor()`.
+    /// Returns the delay factor.
     @inlinable func getDelayFactor() -> CDouble {
         let rv = gtk_gesture_long_press_get_delay_factor(gesture_long_press_ptr)
         return rv
     }
 
-    /// Applies the given delay factor. The default long press time will be
-    /// multiplied by this value. Valid values are in the range [0.5..2.0].
+    /// Applies the given delay factor.
+    /// 
+    /// The default long press time will be multiplied by this value.
+    /// Valid values are in the range [0.5..2.0].
     @inlinable func set(delayFactor: CDouble) {
         gtk_gesture_long_press_set_delay_factor(gesture_long_press_ptr, delayFactor)
     
     }
-    /// Returns the delay factor as set by `gtk_gesture_long_press_set_delay_factor()`.
+    /// Returns the delay factor.
     @inlinable var delayFactor: CDouble {
-        /// Returns the delay factor as set by `gtk_gesture_long_press_set_delay_factor()`.
+        /// Returns the delay factor.
         get {
             let rv = gtk_gesture_long_press_get_delay_factor(gesture_long_press_ptr)
             return rv
         }
-        /// Applies the given delay factor. The default long press time will be
-        /// multiplied by this value. Valid values are in the range [0.5..2.0].
+        /// Applies the given delay factor.
+        /// 
+        /// The default long press time will be multiplied by this value.
+        /// Valid values are in the range [0.5..2.0].
         nonmutating set {
             gtk_gesture_long_press_set_delay_factor(gesture_long_press_ptr, newValue)
         }
@@ -2870,11 +3027,11 @@ public extension GestureLongPressProtocol {
 /// For a concrete class that implements these methods and properties, see `GesturePan`.
 /// Alternatively, use `GesturePanRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// `GtkGesturePan` is a `GtkGesture` implementation able to recognize
-/// pan gestures, those are drags that are locked to happen along one
-/// axis. The axis that a `GtkGesturePan` handles is defined at
-/// construct time, and can be changed through
-/// `gtk_gesture_pan_set_orientation()`.
+/// `GtkGesturePan` is a `GtkGesture` for pan gestures.
+/// 
+/// These are drags that are locked to happen along one axis. The axis
+/// that a `GtkGesturePan` handles is defined at construct time, and
+/// can be changed through [method`Gtk.GesturePan.set_orientation`].
 /// 
 /// When the gesture starts to be recognized, `GtkGesturePan` will
 /// attempt to determine as early as possible whether the sequence
@@ -2882,8 +3039,8 @@ public extension GestureLongPressProtocol {
 /// this does not happen.
 /// 
 /// Once a panning gesture along the expected axis is recognized,
-/// the `GtkGesturePan::pan` signal will be emitted as input events
-/// are received, containing the offset in the given axis.
+/// the [signal`Gtk.GesturePan::pan`] signal will be emitted as input
+/// events are received, containing the offset in the given axis.
 public protocol GesturePanProtocol: GestureDragProtocol {
         /// Untyped pointer to the underlying `GtkGesturePan` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2899,11 +3056,11 @@ public protocol GesturePanProtocol: GestureDragProtocol {
 /// It exposes methods that can operate on this data type through `GesturePanProtocol` conformance.
 /// Use `GesturePanRef` only as an `unowned` reference to an existing `GtkGesturePan` instance.
 ///
-/// `GtkGesturePan` is a `GtkGesture` implementation able to recognize
-/// pan gestures, those are drags that are locked to happen along one
-/// axis. The axis that a `GtkGesturePan` handles is defined at
-/// construct time, and can be changed through
-/// `gtk_gesture_pan_set_orientation()`.
+/// `GtkGesturePan` is a `GtkGesture` for pan gestures.
+/// 
+/// These are drags that are locked to happen along one axis. The axis
+/// that a `GtkGesturePan` handles is defined at construct time, and
+/// can be changed through [method`Gtk.GesturePan.set_orientation`].
 /// 
 /// When the gesture starts to be recognized, `GtkGesturePan` will
 /// attempt to determine as early as possible whether the sequence
@@ -2911,8 +3068,8 @@ public protocol GesturePanProtocol: GestureDragProtocol {
 /// this does not happen.
 /// 
 /// Once a panning gesture along the expected axis is recognized,
-/// the `GtkGesturePan::pan` signal will be emitted as input events
-/// are received, containing the offset in the given axis.
+/// the [signal`Gtk.GesturePan::pan`] signal will be emitted as input
+/// events are received, containing the offset in the given axis.
 public struct GesturePanRef: GesturePanProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkGesturePan` instance.
     /// For type-safe access, use the generated, typed pointer `gesture_pan_ptr` property instead.
@@ -3003,11 +3160,11 @@ public extension GesturePanRef {
 /// It provides the methods that can operate on this data type through `GesturePanProtocol` conformance.
 /// Use `GesturePan` as a strong reference or owner of a `GtkGesturePan` instance.
 ///
-/// `GtkGesturePan` is a `GtkGesture` implementation able to recognize
-/// pan gestures, those are drags that are locked to happen along one
-/// axis. The axis that a `GtkGesturePan` handles is defined at
-/// construct time, and can be changed through
-/// `gtk_gesture_pan_set_orientation()`.
+/// `GtkGesturePan` is a `GtkGesture` for pan gestures.
+/// 
+/// These are drags that are locked to happen along one axis. The axis
+/// that a `GtkGesturePan` handles is defined at construct time, and
+/// can be changed through [method`Gtk.GesturePan.set_orientation`].
 /// 
 /// When the gesture starts to be recognized, `GtkGesturePan` will
 /// attempt to determine as early as possible whether the sequence
@@ -3015,8 +3172,8 @@ public extension GesturePanRef {
 /// this does not happen.
 /// 
 /// Once a panning gesture along the expected axis is recognized,
-/// the `GtkGesturePan::pan` signal will be emitted as input events
-/// are received, containing the offset in the given axis.
+/// the [signal`Gtk.GesturePan::pan`] signal will be emitted as input
+/// events are received, containing the offset in the given axis.
 open class GesturePan: GestureDrag, GesturePanProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -3155,10 +3312,12 @@ open class GesturePan: GestureDrag, GesturePanProtocol {
 public enum GesturePanPropertyName: String, PropertyNameProtocol {
     /// Mouse button number to listen to, or 0 to listen for any button.
     case button = "button"
-    /// Whether the gesture is exclusive. Exclusive gestures only listen to pointer
-    /// and pointer emulated events.
+    /// Whether the gesture is exclusive.
+    /// 
+    /// Exclusive gestures only listen to pointer and pointer emulated events.
     case exclusive = "exclusive"
-    /// The number of touch points that trigger recognition on this gesture,
+    /// The number of touch points that trigger
+    /// recognition on this gesture.
     case nPoints = "n-points"
     /// The name for this controller, typically used for debugging purposes.
     case name = "name"
@@ -3228,34 +3387,42 @@ public extension GesturePanProtocol {
 }
 
 public enum GesturePanSignalName: String, SignalNameProtocol {
-    /// This signal is emitted when the gesture is recognized. This means the
-    /// number of touch sequences matches `GtkGesture:n-points`.
+    /// Emitted when the gesture is recognized.
     /// 
-    /// Note: These conditions may also happen when an extra touch (eg. a third touch
-    /// on a 2-touches gesture) is lifted, in that situation `sequence` won't pertain
-    /// to the current set of active touches, so don't rely on this being true.
+    /// This means the number of touch sequences matches
+    /// [property`Gtk.Gesture:n-points`].
+    /// 
+    /// Note: These conditions may also happen when an extra touch
+    /// (eg. a third touch on a 2-touches gesture) is lifted, in that
+    /// situation `sequence` won't pertain to the current set of active
+    /// touches, so don't rely on this being true.
     case begin = "begin"
-    /// This signal is emitted whenever a sequence is cancelled. This usually
-    /// happens on active touches when `gtk_event_controller_reset()` is called
-    /// on `gesture` (manually, due to grabs...), or the individual `sequence`
-    /// was claimed by parent widgets' controllers (see `gtk_gesture_set_sequence_state()`).
+    /// Emitted whenever a sequence is cancelled.
     /// 
-    /// `gesture` must forget everything about `sequence` as a reaction to this signal.
+    /// This usually happens on active touches when
+    /// [method`Gtk.EventController.reset`] is called on `gesture`
+    /// (manually, due to grabs...), or the individual `sequence`
+    /// was claimed by parent widgets' controllers (see
+    /// [method`Gtk.Gesture.set_sequence_state`]).
+    /// 
+    /// `gesture` must forget everything about `sequence` as in
+    /// response to this signal.
     case cancel = "cancel"
-    /// This signal is emitted whenever dragging starts.
+    /// Emitted whenever dragging starts.
     case dragBegin = "drag-begin"
-    /// This signal is emitted whenever the dragging is finished.
+    /// Emitted whenever the dragging is finished.
     case dragEnd = "drag-end"
-    /// This signal is emitted whenever the dragging point moves.
+    /// Emitted whenever the dragging point moves.
     case dragUpdate = "drag-update"
-    /// This signal is emitted when `gesture` either stopped recognizing the event
-    /// sequences as something to be handled, or the number of touch sequences became
-    /// higher or lower than `GtkGesture:n-points`.
+    /// Emitted when `gesture` either stopped recognizing the event
+    /// sequences as something to be handled, or the number of touch
+    /// sequences became higher or lower than [property`Gtk.Gesture:n-points`].
     /// 
-    /// Note: `sequence` might not pertain to the group of sequences that were
-    /// previously triggering recognition on `gesture` (ie. a just pressed touch
-    /// sequence that exceeds `GtkGesture:n-points`). This situation may be detected
-    /// by checking through `gtk_gesture_handles_sequence()`.
+    /// Note: `sequence` might not pertain to the group of sequences that
+    /// were previously triggering recognition on `gesture` (ie. a just
+    /// pressed touch sequence that exceeds [property`Gtk.Gesture:n-points`]).
+    /// This situation may be detected by checking through
+    /// [method`Gtk.Gesture.handles_sequence`].
     case end = "end"
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -3282,22 +3449,25 @@ public enum GesturePanSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// This signal is emitted once a panning gesture along the
-    /// expected axis is detected.
+    /// Emitted once a panning gesture along the expected axis is detected.
     case pan = "pan"
-    /// This signal is emitted whenever a sequence state changes. See
-    /// `gtk_gesture_set_sequence_state()` to know more about the expectable
-    /// sequence lifetimes.
+    /// Emitted whenever a sequence state changes.
+    /// 
+    /// See [method`Gtk.Gesture.set_sequence_state`] to know
+    /// more about the expectable sequence lifetimes.
     case sequenceStateChanged = "sequence-state-changed"
-    /// This signal is emitted whenever an event is handled while the gesture is
-    /// recognized. `sequence` is guaranteed to pertain to the set of active touches.
+    /// Emitted whenever an event is handled while the gesture is recognized.
+    /// 
+    /// `sequence` is guaranteed to pertain to the set of active touches.
     case update = "update"
     /// Mouse button number to listen to, or 0 to listen for any button.
     case notifyButton = "notify::button"
-    /// Whether the gesture is exclusive. Exclusive gestures only listen to pointer
-    /// and pointer emulated events.
+    /// Whether the gesture is exclusive.
+    /// 
+    /// Exclusive gestures only listen to pointer and pointer emulated events.
     case notifyExclusive = "notify::exclusive"
-    /// The number of touch points that trigger recognition on this gesture,
+    /// The number of touch points that trigger
+    /// recognition on this gesture.
     case notifyNPoints = "notify::n-points"
     /// The name for this controller, typically used for debugging purposes.
     case notifyName = "notify::name"
@@ -3341,8 +3511,7 @@ public extension GesturePanProtocol {
     }
     
     
-    /// This signal is emitted once a panning gesture along the
-    /// expected axis is detected.
+    /// Emitted once a panning gesture along the expected axis is detected.
     /// - Note: This represents the underlying `pan` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -3461,9 +3630,10 @@ public extension GesturePanProtocol {
 /// For a concrete class that implements these methods and properties, see `GestureRotate`.
 /// Alternatively, use `GestureRotateRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// `GtkGestureRotate` is a `GtkGesture` implementation able to recognize
-/// 2-finger rotations, whenever the angle between both handled sequences
-/// changes, the `GtkGestureRotate::angle-changed` signal is emitted.
+/// `GtkGestureRotate` is a `GtkGesture` for 2-finger rotations.
+/// 
+/// Whenever the angle between both handled sequences changes, the
+/// [signal`Gtk.GestureRotate::angle-changed`] signal is emitted.
 public protocol GestureRotateProtocol: GestureProtocol {
         /// Untyped pointer to the underlying `GtkGestureRotate` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3479,9 +3649,10 @@ public protocol GestureRotateProtocol: GestureProtocol {
 /// It exposes methods that can operate on this data type through `GestureRotateProtocol` conformance.
 /// Use `GestureRotateRef` only as an `unowned` reference to an existing `GtkGestureRotate` instance.
 ///
-/// `GtkGestureRotate` is a `GtkGesture` implementation able to recognize
-/// 2-finger rotations, whenever the angle between both handled sequences
-/// changes, the `GtkGestureRotate::angle-changed` signal is emitted.
+/// `GtkGestureRotate` is a `GtkGesture` for 2-finger rotations.
+/// 
+/// Whenever the angle between both handled sequences changes, the
+/// [signal`Gtk.GestureRotate::angle-changed`] signal is emitted.
 public struct GestureRotateRef: GestureRotateProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkGestureRotate` instance.
     /// For type-safe access, use the generated, typed pointer `gesture_rotate_ptr` property instead.
@@ -3573,9 +3744,10 @@ public extension GestureRotateRef {
 /// It provides the methods that can operate on this data type through `GestureRotateProtocol` conformance.
 /// Use `GestureRotate` as a strong reference or owner of a `GtkGestureRotate` instance.
 ///
-/// `GtkGestureRotate` is a `GtkGesture` implementation able to recognize
-/// 2-finger rotations, whenever the angle between both handled sequences
-/// changes, the `GtkGestureRotate::angle-changed` signal is emitted.
+/// `GtkGestureRotate` is a `GtkGesture` for 2-finger rotations.
+/// 
+/// Whenever the angle between both handled sequences changes, the
+/// [signal`Gtk.GestureRotate::angle-changed`] signal is emitted.
 open class GestureRotate: Gesture, GestureRotateProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -3713,7 +3885,8 @@ open class GestureRotate: Gesture, GestureRotateProtocol {
 }
 
 public enum GestureRotatePropertyName: String, PropertyNameProtocol {
-    /// The number of touch points that trigger recognition on this gesture,
+    /// The number of touch points that trigger
+    /// recognition on this gesture.
     case nPoints = "n-points"
     /// The name for this controller, typically used for debugging purposes.
     case name = "name"
@@ -3779,31 +3952,38 @@ public extension GestureRotateProtocol {
 }
 
 public enum GestureRotateSignalName: String, SignalNameProtocol {
-    /// This signal is emitted when the angle between both tracked points
-    /// changes.
+    /// Emitted when the angle between both tracked points changes.
     case angleChanged = "angle-changed"
-    /// This signal is emitted when the gesture is recognized. This means the
-    /// number of touch sequences matches `GtkGesture:n-points`.
+    /// Emitted when the gesture is recognized.
     /// 
-    /// Note: These conditions may also happen when an extra touch (eg. a third touch
-    /// on a 2-touches gesture) is lifted, in that situation `sequence` won't pertain
-    /// to the current set of active touches, so don't rely on this being true.
+    /// This means the number of touch sequences matches
+    /// [property`Gtk.Gesture:n-points`].
+    /// 
+    /// Note: These conditions may also happen when an extra touch
+    /// (eg. a third touch on a 2-touches gesture) is lifted, in that
+    /// situation `sequence` won't pertain to the current set of active
+    /// touches, so don't rely on this being true.
     case begin = "begin"
-    /// This signal is emitted whenever a sequence is cancelled. This usually
-    /// happens on active touches when `gtk_event_controller_reset()` is called
-    /// on `gesture` (manually, due to grabs...), or the individual `sequence`
-    /// was claimed by parent widgets' controllers (see `gtk_gesture_set_sequence_state()`).
+    /// Emitted whenever a sequence is cancelled.
     /// 
-    /// `gesture` must forget everything about `sequence` as a reaction to this signal.
+    /// This usually happens on active touches when
+    /// [method`Gtk.EventController.reset`] is called on `gesture`
+    /// (manually, due to grabs...), or the individual `sequence`
+    /// was claimed by parent widgets' controllers (see
+    /// [method`Gtk.Gesture.set_sequence_state`]).
+    /// 
+    /// `gesture` must forget everything about `sequence` as in
+    /// response to this signal.
     case cancel = "cancel"
-    /// This signal is emitted when `gesture` either stopped recognizing the event
-    /// sequences as something to be handled, or the number of touch sequences became
-    /// higher or lower than `GtkGesture:n-points`.
+    /// Emitted when `gesture` either stopped recognizing the event
+    /// sequences as something to be handled, or the number of touch
+    /// sequences became higher or lower than [property`Gtk.Gesture:n-points`].
     /// 
-    /// Note: `sequence` might not pertain to the group of sequences that were
-    /// previously triggering recognition on `gesture` (ie. a just pressed touch
-    /// sequence that exceeds `GtkGesture:n-points`). This situation may be detected
-    /// by checking through `gtk_gesture_handles_sequence()`.
+    /// Note: `sequence` might not pertain to the group of sequences that
+    /// were previously triggering recognition on `gesture` (ie. a just
+    /// pressed touch sequence that exceeds [property`Gtk.Gesture:n-points`]).
+    /// This situation may be detected by checking through
+    /// [method`Gtk.Gesture.handles_sequence`].
     case end = "end"
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -3830,14 +4010,17 @@ public enum GestureRotateSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// This signal is emitted whenever a sequence state changes. See
-    /// `gtk_gesture_set_sequence_state()` to know more about the expectable
-    /// sequence lifetimes.
+    /// Emitted whenever a sequence state changes.
+    /// 
+    /// See [method`Gtk.Gesture.set_sequence_state`] to know
+    /// more about the expectable sequence lifetimes.
     case sequenceStateChanged = "sequence-state-changed"
-    /// This signal is emitted whenever an event is handled while the gesture is
-    /// recognized. `sequence` is guaranteed to pertain to the set of active touches.
+    /// Emitted whenever an event is handled while the gesture is recognized.
+    /// 
+    /// `sequence` is guaranteed to pertain to the set of active touches.
     case update = "update"
-    /// The number of touch points that trigger recognition on this gesture,
+    /// The number of touch points that trigger
+    /// recognition on this gesture.
     case notifyNPoints = "notify::n-points"
     /// The name for this controller, typically used for debugging purposes.
     case notifyName = "notify::name"
@@ -3877,8 +4060,7 @@ public extension GestureRotateProtocol {
     }
     
     
-    /// This signal is emitted when the angle between both tracked points
-    /// changes.
+    /// Emitted when the angle between both tracked points changes.
     /// - Note: This represents the underlying `angle-changed` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -3913,6 +4095,8 @@ public extension GestureRotateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkGestureRotate` instance.
     @inlinable var gesture_rotate_ptr: UnsafeMutablePointer<GtkGestureRotate>! { return ptr?.assumingMemoryBound(to: GtkGestureRotate.self) }
 
+    /// Gets the angle delta in radians.
+    /// 
     /// If `gesture` is active, this function returns the angle difference
     /// in radians since the gesture was first recognized. If `gesture` is
     /// not active, 0 is returned.
@@ -3920,10 +4104,14 @@ public extension GestureRotateProtocol {
         let rv = gtk_gesture_rotate_get_angle_delta(gesture_rotate_ptr)
         return rv
     }
+    /// Gets the angle delta in radians.
+    /// 
     /// If `gesture` is active, this function returns the angle difference
     /// in radians since the gesture was first recognized. If `gesture` is
     /// not active, 0 is returned.
     @inlinable var angleDelta: CDouble {
+        /// Gets the angle delta in radians.
+        /// 
         /// If `gesture` is active, this function returns the angle difference
         /// in radians since the gesture was first recognized. If `gesture` is
         /// not active, 0 is returned.
@@ -3945,18 +4133,20 @@ public extension GestureRotateProtocol {
 /// For a concrete class that implements these methods and properties, see `GestureSingle`.
 /// Alternatively, use `GestureSingleRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// `GtkGestureSingle` is a subclass of `GtkGesture`, optimized (although
-/// not restricted) for dealing with mouse and single-touch gestures. Under
-/// interaction, these gestures stick to the first interacting sequence, which
-/// is accessible through `gtk_gesture_single_get_current_sequence()` while the
-/// gesture is being interacted with.
+/// `GtkGestureSingle` is a `GtkGestures` subclass optimized for singe-touch
+/// and mouse gestures.
 /// 
-/// By default gestures react to both `GDK_BUTTON_PRIMARY` and touch
-/// events, `gtk_gesture_single_set_touch_only()` can be used to change the
+/// Under interaction, these gestures stick to the first interacting sequence,
+/// which is accessible through [method`Gtk.GestureSingle.get_current_sequence`]
+/// while the gesture is being interacted with.
+/// 
+/// By default gestures react to both `GDK_BUTTON_PRIMARY` and touch events.
+/// [method`Gtk.GestureSingle.set_touch_only`] can be used to change the
 /// touch behavior. Callers may also specify a different mouse button number
-/// to interact with through `gtk_gesture_single_set_button()`, or react to any
-/// mouse button by setting 0. While the gesture is active, the button being
-/// currently pressed can be known through `gtk_gesture_single_get_current_button()`.
+/// to interact with through [method`Gtk.GestureSingle.set_button`], or react
+/// to any mouse button by setting it to 0. While the gesture is active, the
+/// button being currently pressed can be known through
+/// [method`Gtk.GestureSingle.get_current_button`].
 public protocol GestureSingleProtocol: GestureProtocol {
         /// Untyped pointer to the underlying `GtkGestureSingle` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3972,18 +4162,20 @@ public protocol GestureSingleProtocol: GestureProtocol {
 /// It exposes methods that can operate on this data type through `GestureSingleProtocol` conformance.
 /// Use `GestureSingleRef` only as an `unowned` reference to an existing `GtkGestureSingle` instance.
 ///
-/// `GtkGestureSingle` is a subclass of `GtkGesture`, optimized (although
-/// not restricted) for dealing with mouse and single-touch gestures. Under
-/// interaction, these gestures stick to the first interacting sequence, which
-/// is accessible through `gtk_gesture_single_get_current_sequence()` while the
-/// gesture is being interacted with.
+/// `GtkGestureSingle` is a `GtkGestures` subclass optimized for singe-touch
+/// and mouse gestures.
 /// 
-/// By default gestures react to both `GDK_BUTTON_PRIMARY` and touch
-/// events, `gtk_gesture_single_set_touch_only()` can be used to change the
+/// Under interaction, these gestures stick to the first interacting sequence,
+/// which is accessible through [method`Gtk.GestureSingle.get_current_sequence`]
+/// while the gesture is being interacted with.
+/// 
+/// By default gestures react to both `GDK_BUTTON_PRIMARY` and touch events.
+/// [method`Gtk.GestureSingle.set_touch_only`] can be used to change the
 /// touch behavior. Callers may also specify a different mouse button number
-/// to interact with through `gtk_gesture_single_set_button()`, or react to any
-/// mouse button by setting 0. While the gesture is active, the button being
-/// currently pressed can be known through `gtk_gesture_single_get_current_button()`.
+/// to interact with through [method`Gtk.GestureSingle.set_button`], or react
+/// to any mouse button by setting it to 0. While the gesture is active, the
+/// button being currently pressed can be known through
+/// [method`Gtk.GestureSingle.get_current_button`].
 public struct GestureSingleRef: GestureSingleProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkGestureSingle` instance.
     /// For type-safe access, use the generated, typed pointer `gesture_single_ptr` property instead.
@@ -4069,18 +4261,20 @@ public extension GestureSingleRef {
 /// It provides the methods that can operate on this data type through `GestureSingleProtocol` conformance.
 /// Use `GestureSingle` as a strong reference or owner of a `GtkGestureSingle` instance.
 ///
-/// `GtkGestureSingle` is a subclass of `GtkGesture`, optimized (although
-/// not restricted) for dealing with mouse and single-touch gestures. Under
-/// interaction, these gestures stick to the first interacting sequence, which
-/// is accessible through `gtk_gesture_single_get_current_sequence()` while the
-/// gesture is being interacted with.
+/// `GtkGestureSingle` is a `GtkGestures` subclass optimized for singe-touch
+/// and mouse gestures.
 /// 
-/// By default gestures react to both `GDK_BUTTON_PRIMARY` and touch
-/// events, `gtk_gesture_single_set_touch_only()` can be used to change the
+/// Under interaction, these gestures stick to the first interacting sequence,
+/// which is accessible through [method`Gtk.GestureSingle.get_current_sequence`]
+/// while the gesture is being interacted with.
+/// 
+/// By default gestures react to both `GDK_BUTTON_PRIMARY` and touch events.
+/// [method`Gtk.GestureSingle.set_touch_only`] can be used to change the
 /// touch behavior. Callers may also specify a different mouse button number
-/// to interact with through `gtk_gesture_single_set_button()`, or react to any
-/// mouse button by setting 0. While the gesture is active, the button being
-/// currently pressed can be known through `gtk_gesture_single_get_current_button()`.
+/// to interact with through [method`Gtk.GestureSingle.set_button`], or react
+/// to any mouse button by setting it to 0. While the gesture is active, the
+/// button being currently pressed can be known through
+/// [method`Gtk.GestureSingle.get_current_button`].
 open class GestureSingle: Gesture, GestureSingleProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -4213,10 +4407,12 @@ open class GestureSingle: Gesture, GestureSingleProtocol {
 public enum GestureSinglePropertyName: String, PropertyNameProtocol {
     /// Mouse button number to listen to, or 0 to listen for any button.
     case button = "button"
-    /// Whether the gesture is exclusive. Exclusive gestures only listen to pointer
-    /// and pointer emulated events.
+    /// Whether the gesture is exclusive.
+    /// 
+    /// Exclusive gestures only listen to pointer and pointer emulated events.
     case exclusive = "exclusive"
-    /// The number of touch points that trigger recognition on this gesture,
+    /// The number of touch points that trigger
+    /// recognition on this gesture.
     case nPoints = "n-points"
     /// The name for this controller, typically used for debugging purposes.
     case name = "name"
@@ -4284,28 +4480,36 @@ public extension GestureSingleProtocol {
 }
 
 public enum GestureSingleSignalName: String, SignalNameProtocol {
-    /// This signal is emitted when the gesture is recognized. This means the
-    /// number of touch sequences matches `GtkGesture:n-points`.
+    /// Emitted when the gesture is recognized.
     /// 
-    /// Note: These conditions may also happen when an extra touch (eg. a third touch
-    /// on a 2-touches gesture) is lifted, in that situation `sequence` won't pertain
-    /// to the current set of active touches, so don't rely on this being true.
+    /// This means the number of touch sequences matches
+    /// [property`Gtk.Gesture:n-points`].
+    /// 
+    /// Note: These conditions may also happen when an extra touch
+    /// (eg. a third touch on a 2-touches gesture) is lifted, in that
+    /// situation `sequence` won't pertain to the current set of active
+    /// touches, so don't rely on this being true.
     case begin = "begin"
-    /// This signal is emitted whenever a sequence is cancelled. This usually
-    /// happens on active touches when `gtk_event_controller_reset()` is called
-    /// on `gesture` (manually, due to grabs...), or the individual `sequence`
-    /// was claimed by parent widgets' controllers (see `gtk_gesture_set_sequence_state()`).
+    /// Emitted whenever a sequence is cancelled.
     /// 
-    /// `gesture` must forget everything about `sequence` as a reaction to this signal.
+    /// This usually happens on active touches when
+    /// [method`Gtk.EventController.reset`] is called on `gesture`
+    /// (manually, due to grabs...), or the individual `sequence`
+    /// was claimed by parent widgets' controllers (see
+    /// [method`Gtk.Gesture.set_sequence_state`]).
+    /// 
+    /// `gesture` must forget everything about `sequence` as in
+    /// response to this signal.
     case cancel = "cancel"
-    /// This signal is emitted when `gesture` either stopped recognizing the event
-    /// sequences as something to be handled, or the number of touch sequences became
-    /// higher or lower than `GtkGesture:n-points`.
+    /// Emitted when `gesture` either stopped recognizing the event
+    /// sequences as something to be handled, or the number of touch
+    /// sequences became higher or lower than [property`Gtk.Gesture:n-points`].
     /// 
-    /// Note: `sequence` might not pertain to the group of sequences that were
-    /// previously triggering recognition on `gesture` (ie. a just pressed touch
-    /// sequence that exceeds `GtkGesture:n-points`). This situation may be detected
-    /// by checking through `gtk_gesture_handles_sequence()`.
+    /// Note: `sequence` might not pertain to the group of sequences that
+    /// were previously triggering recognition on `gesture` (ie. a just
+    /// pressed touch sequence that exceeds [property`Gtk.Gesture:n-points`]).
+    /// This situation may be detected by checking through
+    /// [method`Gtk.Gesture.handles_sequence`].
     case end = "end"
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -4332,19 +4536,23 @@ public enum GestureSingleSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// This signal is emitted whenever a sequence state changes. See
-    /// `gtk_gesture_set_sequence_state()` to know more about the expectable
-    /// sequence lifetimes.
+    /// Emitted whenever a sequence state changes.
+    /// 
+    /// See [method`Gtk.Gesture.set_sequence_state`] to know
+    /// more about the expectable sequence lifetimes.
     case sequenceStateChanged = "sequence-state-changed"
-    /// This signal is emitted whenever an event is handled while the gesture is
-    /// recognized. `sequence` is guaranteed to pertain to the set of active touches.
+    /// Emitted whenever an event is handled while the gesture is recognized.
+    /// 
+    /// `sequence` is guaranteed to pertain to the set of active touches.
     case update = "update"
     /// Mouse button number to listen to, or 0 to listen for any button.
     case notifyButton = "notify::button"
-    /// Whether the gesture is exclusive. Exclusive gestures only listen to pointer
-    /// and pointer emulated events.
+    /// Whether the gesture is exclusive.
+    /// 
+    /// Exclusive gestures only listen to pointer and pointer emulated events.
     case notifyExclusive = "notify::exclusive"
-    /// The number of touch points that trigger recognition on this gesture,
+    /// The number of touch points that trigger
+    /// recognition on this gesture.
     case notifyNPoints = "notify::n-points"
     /// The name for this controller, typically used for debugging purposes.
     case notifyName = "notify::name"
@@ -4364,29 +4572,33 @@ public extension GestureSingleProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkGestureSingle` instance.
     @inlinable var gesture_single_ptr: UnsafeMutablePointer<GtkGestureSingle>! { return ptr?.assumingMemoryBound(to: GtkGestureSingle.self) }
 
-    /// Returns the button number `gesture` listens for, or 0 if `gesture`
-    /// reacts to any button press.
+    /// Returns the button number `gesture` listens for.
+    /// 
+    /// If this is 0, the gesture reacts to any button press.
     @inlinable func getButton() -> Int {
         let rv = Int(gtk_gesture_single_get_button(gesture_single_ptr))
         return rv
     }
 
-    /// Returns the button number currently interacting with `gesture`, or 0 if there
-    /// is none.
+    /// Returns the button number currently interacting
+    /// with `gesture`, or 0 if there is none.
     @inlinable func getCurrentButton() -> Int {
         let rv = Int(gtk_gesture_single_get_current_button(gesture_single_ptr))
         return rv
     }
 
     /// Returns the event sequence currently interacting with `gesture`.
-    /// This is only meaningful if `gtk_gesture_is_active()` returns `true`.
+    /// 
+    /// This is only meaningful if [method`Gtk.Gesture.is_active`]
+    /// returns `true`.
     @inlinable func getCurrentSequence() -> Gdk.EventSequenceRef! {
         let rv = Gdk.EventSequenceRef(gtk_gesture_single_get_current_sequence(gesture_single_ptr))
         return rv
     }
 
-    /// Gets whether a gesture is exclusive. For more information, see
-    /// `gtk_gesture_single_set_exclusive()`.
+    /// Gets whether a gesture is exclusive.
+    /// 
+    /// For more information, see [method`Gtk.GestureSingle.set_exclusive`].
     @inlinable func getExclusive() -> Bool {
         let rv = ((gtk_gesture_single_get_exclusive(gesture_single_ptr)) != 0)
         return rv
@@ -4398,23 +4610,28 @@ public extension GestureSingleProtocol {
         return rv
     }
 
-    /// Sets the button number `gesture` listens to. If non-0, every
-    /// button press from a different button number will be ignored.
-    /// Touch events implicitly match with button 1.
+    /// Sets the button number `gesture` listens to.
+    /// 
+    /// If non-0, every button press from a different button
+    /// number will be ignored. Touch events implicitly match
+    /// with button 1.
     @inlinable func set(button: Int) {
         gtk_gesture_single_set_button(gesture_single_ptr, guint(button))
     
     }
 
-    /// Sets whether `gesture` is exclusive. An exclusive gesture will
-    /// only handle pointer and "pointer emulated" touch events, so at
-    /// any given time, there is only one sequence able to interact with
-    /// those.
+    /// Sets whether `gesture` is exclusive.
+    /// 
+    /// An exclusive gesture will only handle pointer and "pointer emulated"
+    /// touch events, so at any given time, there is only one sequence able
+    /// to interact with those.
     @inlinable func set(exclusive: Bool) {
         gtk_gesture_single_set_exclusive(gesture_single_ptr, gboolean((exclusive) ? 1 : 0))
     
     }
 
+    /// Sets whether to handle only touch events.
+    /// 
     /// If `touch_only` is `true`, `gesture` will only handle events of type
     /// `GDK_TOUCH_BEGIN`, `GDK_TOUCH_UPDATE` or `GDK_TOUCH_END`. If `false`,
     /// mouse events will be handled too.
@@ -4424,25 +4641,28 @@ public extension GestureSingleProtocol {
     }
     /// Mouse button number to listen to, or 0 to listen for any button.
     @inlinable var button: Int {
-        /// Returns the button number `gesture` listens for, or 0 if `gesture`
-        /// reacts to any button press.
+        /// Returns the button number `gesture` listens for.
+        /// 
+        /// If this is 0, the gesture reacts to any button press.
         get {
             let rv = Int(gtk_gesture_single_get_button(gesture_single_ptr))
             return rv
         }
-        /// Sets the button number `gesture` listens to. If non-0, every
-        /// button press from a different button number will be ignored.
-        /// Touch events implicitly match with button 1.
+        /// Sets the button number `gesture` listens to.
+        /// 
+        /// If non-0, every button press from a different button
+        /// number will be ignored. Touch events implicitly match
+        /// with button 1.
         nonmutating set {
             gtk_gesture_single_set_button(gesture_single_ptr, guint(newValue))
         }
     }
 
-    /// Returns the button number currently interacting with `gesture`, or 0 if there
-    /// is none.
+    /// Returns the button number currently interacting
+    /// with `gesture`, or 0 if there is none.
     @inlinable var currentButton: Int {
-        /// Returns the button number currently interacting with `gesture`, or 0 if there
-        /// is none.
+        /// Returns the button number currently interacting
+        /// with `gesture`, or 0 if there is none.
         get {
             let rv = Int(gtk_gesture_single_get_current_button(gesture_single_ptr))
             return rv
@@ -4450,29 +4670,36 @@ public extension GestureSingleProtocol {
     }
 
     /// Returns the event sequence currently interacting with `gesture`.
-    /// This is only meaningful if `gtk_gesture_is_active()` returns `true`.
+    /// 
+    /// This is only meaningful if [method`Gtk.Gesture.is_active`]
+    /// returns `true`.
     @inlinable var currentSequence: Gdk.EventSequenceRef! {
         /// Returns the event sequence currently interacting with `gesture`.
-        /// This is only meaningful if `gtk_gesture_is_active()` returns `true`.
+        /// 
+        /// This is only meaningful if [method`Gtk.Gesture.is_active`]
+        /// returns `true`.
         get {
             let rv = Gdk.EventSequenceRef(gtk_gesture_single_get_current_sequence(gesture_single_ptr))
             return rv
         }
     }
 
-    /// Whether the gesture is exclusive. Exclusive gestures only listen to pointer
-    /// and pointer emulated events.
+    /// Whether the gesture is exclusive.
+    /// 
+    /// Exclusive gestures only listen to pointer and pointer emulated events.
     @inlinable var exclusive: Bool {
-        /// Gets whether a gesture is exclusive. For more information, see
-        /// `gtk_gesture_single_set_exclusive()`.
+        /// Gets whether a gesture is exclusive.
+        /// 
+        /// For more information, see [method`Gtk.GestureSingle.set_exclusive`].
         get {
             let rv = ((gtk_gesture_single_get_exclusive(gesture_single_ptr)) != 0)
             return rv
         }
-        /// Sets whether `gesture` is exclusive. An exclusive gesture will
-        /// only handle pointer and "pointer emulated" touch events, so at
-        /// any given time, there is only one sequence able to interact with
-        /// those.
+        /// Sets whether `gesture` is exclusive.
+        /// 
+        /// An exclusive gesture will only handle pointer and "pointer emulated"
+        /// touch events, so at any given time, there is only one sequence able
+        /// to interact with those.
         nonmutating set {
             gtk_gesture_single_set_exclusive(gesture_single_ptr, gboolean((newValue) ? 1 : 0))
         }
@@ -4485,6 +4712,8 @@ public extension GestureSingleProtocol {
             let rv = ((gtk_gesture_single_get_touch_only(gesture_single_ptr)) != 0)
             return rv
         }
+        /// Sets whether to handle only touch events.
+        /// 
         /// If `touch_only` is `true`, `gesture` will only handle events of type
         /// `GDK_TOUCH_BEGIN`, `GDK_TOUCH_UPDATE` or `GDK_TOUCH_END`. If `false`,
         /// mouse events will be handled too.
@@ -4505,8 +4734,9 @@ public extension GestureSingleProtocol {
 /// For a concrete class that implements these methods and properties, see `GestureStylus`.
 /// Alternatively, use `GestureStylusRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// `GtkGestureStylus` is a `GtkGesture` implementation specific to stylus
-/// input. The provided signals just relay the basic information of the
+/// `GtkGestureStylus` is a `GtkGesture` specific to stylus input.
+/// 
+/// The provided signals just relay the basic information of the
 /// stylus events.
 public protocol GestureStylusProtocol: GestureSingleProtocol {
         /// Untyped pointer to the underlying `GtkGestureStylus` instance.
@@ -4523,8 +4753,9 @@ public protocol GestureStylusProtocol: GestureSingleProtocol {
 /// It exposes methods that can operate on this data type through `GestureStylusProtocol` conformance.
 /// Use `GestureStylusRef` only as an `unowned` reference to an existing `GtkGestureStylus` instance.
 ///
-/// `GtkGestureStylus` is a `GtkGesture` implementation specific to stylus
-/// input. The provided signals just relay the basic information of the
+/// `GtkGestureStylus` is a `GtkGesture` specific to stylus input.
+/// 
+/// The provided signals just relay the basic information of the
 /// stylus events.
 public struct GestureStylusRef: GestureStylusProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkGestureStylus` instance.
@@ -4616,8 +4847,9 @@ public extension GestureStylusRef {
 /// It provides the methods that can operate on this data type through `GestureStylusProtocol` conformance.
 /// Use `GestureStylus` as a strong reference or owner of a `GtkGestureStylus` instance.
 ///
-/// `GtkGestureStylus` is a `GtkGesture` implementation specific to stylus
-/// input. The provided signals just relay the basic information of the
+/// `GtkGestureStylus` is a `GtkGesture` specific to stylus input.
+/// 
+/// The provided signals just relay the basic information of the
 /// stylus events.
 open class GestureStylus: GestureSingle, GestureStylusProtocol {
         /// Designated initialiser from the underlying `C` data type.
@@ -4757,10 +4989,12 @@ open class GestureStylus: GestureSingle, GestureStylusProtocol {
 public enum GestureStylusPropertyName: String, PropertyNameProtocol {
     /// Mouse button number to listen to, or 0 to listen for any button.
     case button = "button"
-    /// Whether the gesture is exclusive. Exclusive gestures only listen to pointer
-    /// and pointer emulated events.
+    /// Whether the gesture is exclusive.
+    /// 
+    /// Exclusive gestures only listen to pointer and pointer emulated events.
     case exclusive = "exclusive"
-    /// The number of touch points that trigger recognition on this gesture,
+    /// The number of touch points that trigger
+    /// recognition on this gesture.
     case nPoints = "n-points"
     /// The name for this controller, typically used for debugging purposes.
     case name = "name"
@@ -4828,32 +5062,40 @@ public extension GestureStylusProtocol {
 }
 
 public enum GestureStylusSignalName: String, SignalNameProtocol {
-    /// This signal is emitted when the gesture is recognized. This means the
-    /// number of touch sequences matches `GtkGesture:n-points`.
+    /// Emitted when the gesture is recognized.
     /// 
-    /// Note: These conditions may also happen when an extra touch (eg. a third touch
-    /// on a 2-touches gesture) is lifted, in that situation `sequence` won't pertain
-    /// to the current set of active touches, so don't rely on this being true.
+    /// This means the number of touch sequences matches
+    /// [property`Gtk.Gesture:n-points`].
+    /// 
+    /// Note: These conditions may also happen when an extra touch
+    /// (eg. a third touch on a 2-touches gesture) is lifted, in that
+    /// situation `sequence` won't pertain to the current set of active
+    /// touches, so don't rely on this being true.
     case begin = "begin"
-    /// This signal is emitted whenever a sequence is cancelled. This usually
-    /// happens on active touches when `gtk_event_controller_reset()` is called
-    /// on `gesture` (manually, due to grabs...), or the individual `sequence`
-    /// was claimed by parent widgets' controllers (see `gtk_gesture_set_sequence_state()`).
+    /// Emitted whenever a sequence is cancelled.
     /// 
-    /// `gesture` must forget everything about `sequence` as a reaction to this signal.
+    /// This usually happens on active touches when
+    /// [method`Gtk.EventController.reset`] is called on `gesture`
+    /// (manually, due to grabs...), or the individual `sequence`
+    /// was claimed by parent widgets' controllers (see
+    /// [method`Gtk.Gesture.set_sequence_state`]).
+    /// 
+    /// `gesture` must forget everything about `sequence` as in
+    /// response to this signal.
     case cancel = "cancel"
-    /// A signal emitted when the stylus touches the device.
+    /// Emitted when the stylus touches the device.
     case down = "down"
-    /// This signal is emitted when `gesture` either stopped recognizing the event
-    /// sequences as something to be handled, or the number of touch sequences became
-    /// higher or lower than `GtkGesture:n-points`.
+    /// Emitted when `gesture` either stopped recognizing the event
+    /// sequences as something to be handled, or the number of touch
+    /// sequences became higher or lower than [property`Gtk.Gesture:n-points`].
     /// 
-    /// Note: `sequence` might not pertain to the group of sequences that were
-    /// previously triggering recognition on `gesture` (ie. a just pressed touch
-    /// sequence that exceeds `GtkGesture:n-points`). This situation may be detected
-    /// by checking through `gtk_gesture_handles_sequence()`.
+    /// Note: `sequence` might not pertain to the group of sequences that
+    /// were previously triggering recognition on `gesture` (ie. a just
+    /// pressed touch sequence that exceeds [property`Gtk.Gesture:n-points`]).
+    /// This situation may be detected by checking through
+    /// [method`Gtk.Gesture.handles_sequence`].
     case end = "end"
-    /// A signal emitted when the stylus moves while touching the device.
+    /// Emitted when the stylus moves while touching the device.
     case motion = "motion"
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -4880,23 +5122,27 @@ public enum GestureStylusSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// A signal emitted when the stylus is in proximity of the device.
+    /// Emitted when the stylus is in proximity of the device.
     case proximity = "proximity"
-    /// This signal is emitted whenever a sequence state changes. See
-    /// `gtk_gesture_set_sequence_state()` to know more about the expectable
-    /// sequence lifetimes.
+    /// Emitted whenever a sequence state changes.
+    /// 
+    /// See [method`Gtk.Gesture.set_sequence_state`] to know
+    /// more about the expectable sequence lifetimes.
     case sequenceStateChanged = "sequence-state-changed"
-    /// A signal emitted when the stylus no longer touches the device.
+    /// Emitted when the stylus no longer touches the device.
     case up = "up"
-    /// This signal is emitted whenever an event is handled while the gesture is
-    /// recognized. `sequence` is guaranteed to pertain to the set of active touches.
+    /// Emitted whenever an event is handled while the gesture is recognized.
+    /// 
+    /// `sequence` is guaranteed to pertain to the set of active touches.
     case update = "update"
     /// Mouse button number to listen to, or 0 to listen for any button.
     case notifyButton = "notify::button"
-    /// Whether the gesture is exclusive. Exclusive gestures only listen to pointer
-    /// and pointer emulated events.
+    /// Whether the gesture is exclusive.
+    /// 
+    /// Exclusive gestures only listen to pointer and pointer emulated events.
     case notifyExclusive = "notify::exclusive"
-    /// The number of touch points that trigger recognition on this gesture,
+    /// The number of touch points that trigger
+    /// recognition on this gesture.
     case notifyNPoints = "notify::n-points"
     /// The name for this controller, typically used for debugging purposes.
     case notifyName = "notify::name"
@@ -4938,7 +5184,7 @@ public extension GestureStylusProtocol {
     }
     
     
-    /// A signal emitted when the stylus touches the device.
+    /// Emitted when the stylus touches the device.
     /// - Note: This represents the underlying `down` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -4965,7 +5211,7 @@ public extension GestureStylusProtocol {
     /// Typed `down` signal for using the `connect(signal:)` methods
     static var downSignal: GestureStylusSignalName { .down }
     
-    /// A signal emitted when the stylus moves while touching the device.
+    /// Emitted when the stylus moves while touching the device.
     /// - Note: This represents the underlying `motion` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -4992,7 +5238,7 @@ public extension GestureStylusProtocol {
     /// Typed `motion` signal for using the `connect(signal:)` methods
     static var motionSignal: GestureStylusSignalName { .motion }
     
-    /// A signal emitted when the stylus is in proximity of the device.
+    /// Emitted when the stylus is in proximity of the device.
     /// - Note: This represents the underlying `proximity` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -5019,7 +5265,7 @@ public extension GestureStylusProtocol {
     /// Typed `proximity` signal for using the `connect(signal:)` methods
     static var proximitySignal: GestureStylusSignalName { .proximity }
     
-    /// A signal emitted when the stylus no longer touches the device.
+    /// Emitted when the stylus no longer touches the device.
     /// - Note: This represents the underlying `up` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -5054,9 +5300,11 @@ public extension GestureStylusProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkGestureStylus` instance.
     @inlinable var gesture_stylus_ptr: UnsafeMutablePointer<GtkGestureStylus>! { return ptr?.assumingMemoryBound(to: GtkGestureStylus.self) }
 
-    /// Returns the current values for the requested `axes`. This function
-    /// must be called from either the `GtkGestureStylus::down`,
-    /// `GtkGestureStylus::motion`, `GtkGestureStylus::up` or `GtkGestureStylus::proximity`
+    /// Returns the current values for the requested `axes`.
+    /// 
+    /// This function must be called from the handler of one of the
+    /// [signal`Gtk.GestureStylus::down`], [signal`Gtk.GestureStylus::motion`],
+    /// [signal`Gtk.GestureStylus::up`] or [signal`Gtk.GestureStylus::proximity`]
     /// signals.
     @inlinable func get(axes: UnsafeMutablePointer<GdkAxisUse>!, values: UnsafeMutablePointer<UnsafeMutablePointer<CDouble>?>!) -> Bool {
         let rv = ((gtk_gesture_stylus_get_axes(gesture_stylus_ptr, axes, values)) != 0)
@@ -5066,21 +5314,24 @@ public extension GestureStylusProtocol {
     /// Returns the current value for the requested `axis`.
     /// 
     /// This function must be called from the handler of one of the
-    /// `GtkGestureStylus::down`, `GtkGestureStylus::motion`,
-    /// `GtkGestureStylus::up` or `GtkGestureStylus::proximity` signals.
+    /// [signal`Gtk.GestureStylus::down`], [signal`Gtk.GestureStylus::motion`],
+    /// [signal`Gtk.GestureStylus::up`] or [signal`Gtk.GestureStylus::proximity`]
+    /// signals.
     @inlinable func get(axis: GdkAxisUse, value: UnsafeMutablePointer<CDouble>!) -> Bool {
         let rv = ((gtk_gesture_stylus_get_axis(gesture_stylus_ptr, axis, value)) != 0)
         return rv
     }
 
-    /// By default, GTK will limit rate of input events. On stylus input where
-    /// accuracy of strokes is paramount, this function returns the accumulated
-    /// coordinate/timing state before the emission of the current
-    /// `GtkGestureStylus::motion` signal.
+    /// Returns the accumulated backlog of tracking information.
     /// 
-    /// This function may only be called within a `GtkGestureStylus::motion`
+    /// By default, GTK will limit rate of input events. On stylus input
+    /// where accuracy of strokes is paramount, this function returns the
+    /// accumulated coordinate/timing state before the emission of the
+    /// current [Gtk.GestureStylus`motion`] signal.
+    /// 
+    /// This function may only be called within a [signal`Gtk.GestureStylus::motion`]
     /// signal handler, the state given in this signal and obtainable through
-    /// `gtk_gesture_stylus_get_axis()` call express the latest (most up-to-date)
+    /// [method`Gtk.GestureStylus.get_axis`] express the latest (most up-to-date)
     /// state in motion history.
     /// 
     /// The `backlog` is provided in chronological order.
@@ -5090,22 +5341,28 @@ public extension GestureStylusProtocol {
     }
 
     /// Returns the `GdkDeviceTool` currently driving input through this gesture.
-    /// This function must be called from either the `GtkGestureStylus::down`,
-    /// `GtkGestureStylus::motion`, `GtkGestureStylus::up` or `GtkGestureStylus::proximity`
-    /// signal handlers.
+    /// 
+    /// This function must be called from the handler of one of the
+    /// [signal`Gtk.GestureStylus::down`], [signal`Gtk.GestureStylus::motion`],
+    /// [signal`Gtk.GestureStylus::up`] or [signal`Gtk.GestureStylus::proximity`]
+    /// signals.
     @inlinable func getDeviceTool() -> Gdk.DeviceToolRef! {
         let rv = Gdk.DeviceToolRef(gtk_gesture_stylus_get_device_tool(gesture_stylus_ptr))
         return rv
     }
     /// Returns the `GdkDeviceTool` currently driving input through this gesture.
-    /// This function must be called from either the `GtkGestureStylus::down`,
-    /// `GtkGestureStylus::motion`, `GtkGestureStylus::up` or `GtkGestureStylus::proximity`
-    /// signal handlers.
+    /// 
+    /// This function must be called from the handler of one of the
+    /// [signal`Gtk.GestureStylus::down`], [signal`Gtk.GestureStylus::motion`],
+    /// [signal`Gtk.GestureStylus::up`] or [signal`Gtk.GestureStylus::proximity`]
+    /// signals.
     @inlinable var deviceTool: Gdk.DeviceToolRef! {
         /// Returns the `GdkDeviceTool` currently driving input through this gesture.
-        /// This function must be called from either the `GtkGestureStylus::down`,
-        /// `GtkGestureStylus::motion`, `GtkGestureStylus::up` or `GtkGestureStylus::proximity`
-        /// signal handlers.
+        /// 
+        /// This function must be called from the handler of one of the
+        /// [signal`Gtk.GestureStylus::down`], [signal`Gtk.GestureStylus::motion`],
+        /// [signal`Gtk.GestureStylus::up`] or [signal`Gtk.GestureStylus::proximity`]
+        /// signals.
         get {
             let rv = Gdk.DeviceToolRef(gtk_gesture_stylus_get_device_tool(gesture_stylus_ptr))
             return rv
@@ -5124,14 +5381,16 @@ public extension GestureStylusProtocol {
 /// For a concrete class that implements these methods and properties, see `GestureSwipe`.
 /// Alternatively, use `GestureSwipeRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// `GtkGestureSwipe` is a `GtkGesture` implementation able to recognize
-/// swipes, after a press/move/.../move/release sequence happens, the
-/// `GtkGestureSwipe::swipe` signal will be emitted, providing the velocity
-/// and directionality of the sequence at the time it was lifted.
+/// `GtkGestureSwipe` is a `GtkGesture` for swipe gestures.
+/// 
+/// After a press/move/.../move/release sequence happens, the
+/// [signal`Gtk.GestureSwipe::swipe`] signal will be emitted,
+/// providing the velocity and directionality of the sequence
+/// at the time it was lifted.
 /// 
 /// If the velocity is desired in intermediate points,
-/// `gtk_gesture_swipe_get_velocity()` can be called on eg. a
-/// `GtkGesture::update` handler.
+/// [method`Gtk.GestureSwipe.get_velocity`] can be called in a
+/// [signal`Gtk.Gesture::update`] handler.
 /// 
 /// All velocities are reported in pixels/sec units.
 public protocol GestureSwipeProtocol: GestureSingleProtocol {
@@ -5149,14 +5408,16 @@ public protocol GestureSwipeProtocol: GestureSingleProtocol {
 /// It exposes methods that can operate on this data type through `GestureSwipeProtocol` conformance.
 /// Use `GestureSwipeRef` only as an `unowned` reference to an existing `GtkGestureSwipe` instance.
 ///
-/// `GtkGestureSwipe` is a `GtkGesture` implementation able to recognize
-/// swipes, after a press/move/.../move/release sequence happens, the
-/// `GtkGestureSwipe::swipe` signal will be emitted, providing the velocity
-/// and directionality of the sequence at the time it was lifted.
+/// `GtkGestureSwipe` is a `GtkGesture` for swipe gestures.
+/// 
+/// After a press/move/.../move/release sequence happens, the
+/// [signal`Gtk.GestureSwipe::swipe`] signal will be emitted,
+/// providing the velocity and directionality of the sequence
+/// at the time it was lifted.
 /// 
 /// If the velocity is desired in intermediate points,
-/// `gtk_gesture_swipe_get_velocity()` can be called on eg. a
-/// `GtkGesture::update` handler.
+/// [method`Gtk.GestureSwipe.get_velocity`] can be called in a
+/// [signal`Gtk.Gesture::update`] handler.
 /// 
 /// All velocities are reported in pixels/sec units.
 public struct GestureSwipeRef: GestureSwipeProtocol, GWeakCapturing {
@@ -5249,14 +5510,16 @@ public extension GestureSwipeRef {
 /// It provides the methods that can operate on this data type through `GestureSwipeProtocol` conformance.
 /// Use `GestureSwipe` as a strong reference or owner of a `GtkGestureSwipe` instance.
 ///
-/// `GtkGestureSwipe` is a `GtkGesture` implementation able to recognize
-/// swipes, after a press/move/.../move/release sequence happens, the
-/// `GtkGestureSwipe::swipe` signal will be emitted, providing the velocity
-/// and directionality of the sequence at the time it was lifted.
+/// `GtkGestureSwipe` is a `GtkGesture` for swipe gestures.
+/// 
+/// After a press/move/.../move/release sequence happens, the
+/// [signal`Gtk.GestureSwipe::swipe`] signal will be emitted,
+/// providing the velocity and directionality of the sequence
+/// at the time it was lifted.
 /// 
 /// If the velocity is desired in intermediate points,
-/// `gtk_gesture_swipe_get_velocity()` can be called on eg. a
-/// `GtkGesture::update` handler.
+/// [method`Gtk.GestureSwipe.get_velocity`] can be called in a
+/// [signal`Gtk.Gesture::update`] handler.
 /// 
 /// All velocities are reported in pixels/sec units.
 open class GestureSwipe: GestureSingle, GestureSwipeProtocol {
@@ -5397,10 +5660,12 @@ open class GestureSwipe: GestureSingle, GestureSwipeProtocol {
 public enum GestureSwipePropertyName: String, PropertyNameProtocol {
     /// Mouse button number to listen to, or 0 to listen for any button.
     case button = "button"
-    /// Whether the gesture is exclusive. Exclusive gestures only listen to pointer
-    /// and pointer emulated events.
+    /// Whether the gesture is exclusive.
+    /// 
+    /// Exclusive gestures only listen to pointer and pointer emulated events.
     case exclusive = "exclusive"
-    /// The number of touch points that trigger recognition on this gesture,
+    /// The number of touch points that trigger
+    /// recognition on this gesture.
     case nPoints = "n-points"
     /// The name for this controller, typically used for debugging purposes.
     case name = "name"
@@ -5468,28 +5733,36 @@ public extension GestureSwipeProtocol {
 }
 
 public enum GestureSwipeSignalName: String, SignalNameProtocol {
-    /// This signal is emitted when the gesture is recognized. This means the
-    /// number of touch sequences matches `GtkGesture:n-points`.
+    /// Emitted when the gesture is recognized.
     /// 
-    /// Note: These conditions may also happen when an extra touch (eg. a third touch
-    /// on a 2-touches gesture) is lifted, in that situation `sequence` won't pertain
-    /// to the current set of active touches, so don't rely on this being true.
+    /// This means the number of touch sequences matches
+    /// [property`Gtk.Gesture:n-points`].
+    /// 
+    /// Note: These conditions may also happen when an extra touch
+    /// (eg. a third touch on a 2-touches gesture) is lifted, in that
+    /// situation `sequence` won't pertain to the current set of active
+    /// touches, so don't rely on this being true.
     case begin = "begin"
-    /// This signal is emitted whenever a sequence is cancelled. This usually
-    /// happens on active touches when `gtk_event_controller_reset()` is called
-    /// on `gesture` (manually, due to grabs...), or the individual `sequence`
-    /// was claimed by parent widgets' controllers (see `gtk_gesture_set_sequence_state()`).
+    /// Emitted whenever a sequence is cancelled.
     /// 
-    /// `gesture` must forget everything about `sequence` as a reaction to this signal.
+    /// This usually happens on active touches when
+    /// [method`Gtk.EventController.reset`] is called on `gesture`
+    /// (manually, due to grabs...), or the individual `sequence`
+    /// was claimed by parent widgets' controllers (see
+    /// [method`Gtk.Gesture.set_sequence_state`]).
+    /// 
+    /// `gesture` must forget everything about `sequence` as in
+    /// response to this signal.
     case cancel = "cancel"
-    /// This signal is emitted when `gesture` either stopped recognizing the event
-    /// sequences as something to be handled, or the number of touch sequences became
-    /// higher or lower than `GtkGesture:n-points`.
+    /// Emitted when `gesture` either stopped recognizing the event
+    /// sequences as something to be handled, or the number of touch
+    /// sequences became higher or lower than [property`Gtk.Gesture:n-points`].
     /// 
-    /// Note: `sequence` might not pertain to the group of sequences that were
-    /// previously triggering recognition on `gesture` (ie. a just pressed touch
-    /// sequence that exceeds `GtkGesture:n-points`). This situation may be detected
-    /// by checking through `gtk_gesture_handles_sequence()`.
+    /// Note: `sequence` might not pertain to the group of sequences that
+    /// were previously triggering recognition on `gesture` (ie. a just
+    /// pressed touch sequence that exceeds [property`Gtk.Gesture:n-points`]).
+    /// This situation may be detected by checking through
+    /// [method`Gtk.Gesture.handles_sequence`].
     case end = "end"
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -5516,22 +5789,27 @@ public enum GestureSwipeSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// This signal is emitted whenever a sequence state changes. See
-    /// `gtk_gesture_set_sequence_state()` to know more about the expectable
-    /// sequence lifetimes.
+    /// Emitted whenever a sequence state changes.
+    /// 
+    /// See [method`Gtk.Gesture.set_sequence_state`] to know
+    /// more about the expectable sequence lifetimes.
     case sequenceStateChanged = "sequence-state-changed"
-    /// This signal is emitted when the recognized gesture is finished, velocity
-    /// and direction are a product of previously recorded events.
+    /// Emitted when the recognized gesture is finished.
+    /// 
+    /// Velocity and direction are a product of previously recorded events.
     case swipe = "swipe"
-    /// This signal is emitted whenever an event is handled while the gesture is
-    /// recognized. `sequence` is guaranteed to pertain to the set of active touches.
+    /// Emitted whenever an event is handled while the gesture is recognized.
+    /// 
+    /// `sequence` is guaranteed to pertain to the set of active touches.
     case update = "update"
     /// Mouse button number to listen to, or 0 to listen for any button.
     case notifyButton = "notify::button"
-    /// Whether the gesture is exclusive. Exclusive gestures only listen to pointer
-    /// and pointer emulated events.
+    /// Whether the gesture is exclusive.
+    /// 
+    /// Exclusive gestures only listen to pointer and pointer emulated events.
     case notifyExclusive = "notify::exclusive"
-    /// The number of touch points that trigger recognition on this gesture,
+    /// The number of touch points that trigger
+    /// recognition on this gesture.
     case notifyNPoints = "notify::n-points"
     /// The name for this controller, typically used for debugging purposes.
     case notifyName = "notify::name"
@@ -5573,8 +5851,9 @@ public extension GestureSwipeProtocol {
     }
     
     
-    /// This signal is emitted when the recognized gesture is finished, velocity
-    /// and direction are a product of previously recorded events.
+    /// Emitted when the recognized gesture is finished.
+    /// 
+    /// Velocity and direction are a product of previously recorded events.
     /// - Note: This represents the underlying `swipe` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -5609,9 +5888,11 @@ public extension GestureSwipeProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkGestureSwipe` instance.
     @inlinable var gesture_swipe_ptr: UnsafeMutablePointer<GtkGestureSwipe>! { return ptr?.assumingMemoryBound(to: GtkGestureSwipe.self) }
 
-    /// If the gesture is recognized, this function returns `true` and fill in
-    /// `velocity_x` and `velocity_y` with the recorded velocity, as per the
-    /// last `event(s)` processed.
+    /// Gets the current velocity.
+    /// 
+    /// If the gesture is recognized, this function returns `true` and fills
+    /// in `velocity_x` and `velocity_y` with the recorded velocity, as per the
+    /// last events processed.
     @inlinable func getVelocity(velocityX: UnsafeMutablePointer<CDouble>!, velocityY: UnsafeMutablePointer<CDouble>!) -> Bool {
         let rv = ((gtk_gesture_swipe_get_velocity(gesture_swipe_ptr, velocityX, velocityY)) != 0)
         return rv
@@ -5629,10 +5910,11 @@ public extension GestureSwipeProtocol {
 /// For a concrete class that implements these methods and properties, see `GestureZoom`.
 /// Alternatively, use `GestureZoomRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// `GtkGestureZoom` is a `GtkGesture` implementation able to recognize
-/// pinch/zoom gestures, whenever the distance between both tracked
-/// sequences changes, the `GtkGestureZoom::scale-changed` signal is
-/// emitted to report the scale factor.
+/// `GtkGestureZoom` is a `GtkGesture` for 2-finger pinch/zoom gestures.
+/// 
+/// Whenever the distance between both tracked sequences changes, the
+/// [signal`Gtk.GestureZoom::scale-changed`] signal is emitted to report
+/// the scale factor.
 public protocol GestureZoomProtocol: GestureProtocol {
         /// Untyped pointer to the underlying `GtkGestureZoom` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -5648,10 +5930,11 @@ public protocol GestureZoomProtocol: GestureProtocol {
 /// It exposes methods that can operate on this data type through `GestureZoomProtocol` conformance.
 /// Use `GestureZoomRef` only as an `unowned` reference to an existing `GtkGestureZoom` instance.
 ///
-/// `GtkGestureZoom` is a `GtkGesture` implementation able to recognize
-/// pinch/zoom gestures, whenever the distance between both tracked
-/// sequences changes, the `GtkGestureZoom::scale-changed` signal is
-/// emitted to report the scale factor.
+/// `GtkGestureZoom` is a `GtkGesture` for 2-finger pinch/zoom gestures.
+/// 
+/// Whenever the distance between both tracked sequences changes, the
+/// [signal`Gtk.GestureZoom::scale-changed`] signal is emitted to report
+/// the scale factor.
 public struct GestureZoomRef: GestureZoomProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkGestureZoom` instance.
     /// For type-safe access, use the generated, typed pointer `gesture_zoom_ptr` property instead.
@@ -5731,8 +6014,8 @@ public extension GestureZoomRef {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
-        /// Returns a newly created `GtkGesture` that recognizes zoom
-    /// in/out gestures (usually known as pinch/zoom).
+        /// Returns a newly created `GtkGesture` that recognizes
+    /// pinch/zoom gestures.
     @inlinable init() {
         let rv = gtk_gesture_zoom_new()
         ptr = UnsafeMutableRawPointer(rv)
@@ -5743,10 +6026,11 @@ public extension GestureZoomRef {
 /// It provides the methods that can operate on this data type through `GestureZoomProtocol` conformance.
 /// Use `GestureZoom` as a strong reference or owner of a `GtkGestureZoom` instance.
 ///
-/// `GtkGestureZoom` is a `GtkGesture` implementation able to recognize
-/// pinch/zoom gestures, whenever the distance between both tracked
-/// sequences changes, the `GtkGestureZoom::scale-changed` signal is
-/// emitted to report the scale factor.
+/// `GtkGestureZoom` is a `GtkGesture` for 2-finger pinch/zoom gestures.
+/// 
+/// Whenever the distance between both tracked sequences changes, the
+/// [signal`Gtk.GestureZoom::scale-changed`] signal is emitted to report
+/// the scale factor.
 open class GestureZoom: Gesture, GestureZoomProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -5872,8 +6156,8 @@ open class GestureZoom: Gesture, GestureZoomProtocol {
         super.init(retainingOpaquePointer: p)
     }
 
-    /// Returns a newly created `GtkGesture` that recognizes zoom
-    /// in/out gestures (usually known as pinch/zoom).
+    /// Returns a newly created `GtkGesture` that recognizes
+    /// pinch/zoom gestures.
     @inlinable public init() {
         let rv = gtk_gesture_zoom_new()
         super.init(gpointer: gpointer(rv))
@@ -5884,7 +6168,8 @@ open class GestureZoom: Gesture, GestureZoomProtocol {
 }
 
 public enum GestureZoomPropertyName: String, PropertyNameProtocol {
-    /// The number of touch points that trigger recognition on this gesture,
+    /// The number of touch points that trigger
+    /// recognition on this gesture.
     case nPoints = "n-points"
     /// The name for this controller, typically used for debugging purposes.
     case name = "name"
@@ -5950,28 +6235,36 @@ public extension GestureZoomProtocol {
 }
 
 public enum GestureZoomSignalName: String, SignalNameProtocol {
-    /// This signal is emitted when the gesture is recognized. This means the
-    /// number of touch sequences matches `GtkGesture:n-points`.
+    /// Emitted when the gesture is recognized.
     /// 
-    /// Note: These conditions may also happen when an extra touch (eg. a third touch
-    /// on a 2-touches gesture) is lifted, in that situation `sequence` won't pertain
-    /// to the current set of active touches, so don't rely on this being true.
+    /// This means the number of touch sequences matches
+    /// [property`Gtk.Gesture:n-points`].
+    /// 
+    /// Note: These conditions may also happen when an extra touch
+    /// (eg. a third touch on a 2-touches gesture) is lifted, in that
+    /// situation `sequence` won't pertain to the current set of active
+    /// touches, so don't rely on this being true.
     case begin = "begin"
-    /// This signal is emitted whenever a sequence is cancelled. This usually
-    /// happens on active touches when `gtk_event_controller_reset()` is called
-    /// on `gesture` (manually, due to grabs...), or the individual `sequence`
-    /// was claimed by parent widgets' controllers (see `gtk_gesture_set_sequence_state()`).
+    /// Emitted whenever a sequence is cancelled.
     /// 
-    /// `gesture` must forget everything about `sequence` as a reaction to this signal.
+    /// This usually happens on active touches when
+    /// [method`Gtk.EventController.reset`] is called on `gesture`
+    /// (manually, due to grabs...), or the individual `sequence`
+    /// was claimed by parent widgets' controllers (see
+    /// [method`Gtk.Gesture.set_sequence_state`]).
+    /// 
+    /// `gesture` must forget everything about `sequence` as in
+    /// response to this signal.
     case cancel = "cancel"
-    /// This signal is emitted when `gesture` either stopped recognizing the event
-    /// sequences as something to be handled, or the number of touch sequences became
-    /// higher or lower than `GtkGesture:n-points`.
+    /// Emitted when `gesture` either stopped recognizing the event
+    /// sequences as something to be handled, or the number of touch
+    /// sequences became higher or lower than [property`Gtk.Gesture:n-points`].
     /// 
-    /// Note: `sequence` might not pertain to the group of sequences that were
-    /// previously triggering recognition on `gesture` (ie. a just pressed touch
-    /// sequence that exceeds `GtkGesture:n-points`). This situation may be detected
-    /// by checking through `gtk_gesture_handles_sequence()`.
+    /// Note: `sequence` might not pertain to the group of sequences that
+    /// were previously triggering recognition on `gesture` (ie. a just
+    /// pressed touch sequence that exceeds [property`Gtk.Gesture:n-points`]).
+    /// This situation may be detected by checking through
+    /// [method`Gtk.Gesture.handles_sequence`].
     case end = "end"
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -5998,17 +6291,19 @@ public enum GestureZoomSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// This signal is emitted whenever the distance between both tracked
-    /// sequences changes.
+    /// Emitted whenever the distance between both tracked sequences changes.
     case scaleChanged = "scale-changed"
-    /// This signal is emitted whenever a sequence state changes. See
-    /// `gtk_gesture_set_sequence_state()` to know more about the expectable
-    /// sequence lifetimes.
+    /// Emitted whenever a sequence state changes.
+    /// 
+    /// See [method`Gtk.Gesture.set_sequence_state`] to know
+    /// more about the expectable sequence lifetimes.
     case sequenceStateChanged = "sequence-state-changed"
-    /// This signal is emitted whenever an event is handled while the gesture is
-    /// recognized. `sequence` is guaranteed to pertain to the set of active touches.
+    /// Emitted whenever an event is handled while the gesture is recognized.
+    /// 
+    /// `sequence` is guaranteed to pertain to the set of active touches.
     case update = "update"
-    /// The number of touch points that trigger recognition on this gesture,
+    /// The number of touch points that trigger
+    /// recognition on this gesture.
     case notifyNPoints = "notify::n-points"
     /// The name for this controller, typically used for debugging purposes.
     case notifyName = "notify::name"
@@ -6048,8 +6343,7 @@ public extension GestureZoomProtocol {
     }
     
     
-    /// This signal is emitted whenever the distance between both tracked
-    /// sequences changes.
+    /// Emitted whenever the distance between both tracked sequences changes.
     /// - Note: This represents the underlying `scale-changed` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -6083,20 +6377,29 @@ public extension GestureZoomProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkGestureZoom` instance.
     @inlinable var gesture_zoom_ptr: UnsafeMutablePointer<GtkGestureZoom>! { return ptr?.assumingMemoryBound(to: GtkGestureZoom.self) }
 
-    /// If `gesture` is active, this function returns the zooming difference
-    /// since the gesture was recognized (hence the starting point is
-    /// considered 1:1). If `gesture` is not active, 1 is returned.
+    /// Gets the scale delta.
+    /// 
+    /// If `gesture` is active, this function returns the zooming
+    /// difference since the gesture was recognized (hence the
+    /// starting point is considered 1:1). If `gesture` is not
+    /// active, 1 is returned.
     @inlinable func getScaleDelta() -> CDouble {
         let rv = gtk_gesture_zoom_get_scale_delta(gesture_zoom_ptr)
         return rv
     }
-    /// If `gesture` is active, this function returns the zooming difference
-    /// since the gesture was recognized (hence the starting point is
-    /// considered 1:1). If `gesture` is not active, 1 is returned.
+    /// Gets the scale delta.
+    /// 
+    /// If `gesture` is active, this function returns the zooming
+    /// difference since the gesture was recognized (hence the
+    /// starting point is considered 1:1). If `gesture` is not
+    /// active, 1 is returned.
     @inlinable var scaleDelta: CDouble {
-        /// If `gesture` is active, this function returns the zooming difference
-        /// since the gesture was recognized (hence the starting point is
-        /// considered 1:1). If `gesture` is not active, 1 is returned.
+        /// Gets the scale delta.
+        /// 
+        /// If `gesture` is active, this function returns the zooming
+        /// difference since the gesture was recognized (hence the
+        /// starting point is considered 1:1). If `gesture` is not
+        /// active, 1 is returned.
         get {
             let rv = gtk_gesture_zoom_get_scale_delta(gesture_zoom_ptr)
             return rv
@@ -6115,22 +6418,88 @@ public extension GestureZoomProtocol {
 /// For a concrete class that implements these methods and properties, see `Grid`.
 /// Alternatively, use `GridRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// GtkGrid is a container which arranges its child widgets in
-/// rows and columns, with arbitrary positions and horizontal/vertical spans.
+/// `GtkGrid` is a container which arranges its child widgets in
+/// rows and columns.
 /// 
-/// Children are added using `gtk_grid_attach()`. They can span multiple
-/// rows or columns. It is also possible to add a child next to an
-/// existing child, using `gtk_grid_attach_next_to()`. To remove a child
-/// from the grid, use `gtk_grid_remove()`. The behaviour of GtkGrid when
-/// several children occupy the same grid cell is undefined.
+/// ![An example GtkGrid](grid.png)
+/// 
+/// It supports arbitrary positions and horizontal/vertical spans.
+/// 
+/// Children are added using [method`Gtk.Grid.attach`]. They can span multiple
+/// rows or columns. It is also possible to add a child next to an existing
+/// child, using [method`Gtk.Grid.attach_next_to`]. To remove a child from the
+/// grid, use [method`Gtk.Grid.remove`].
+/// 
+/// The behaviour of `GtkGrid` when several children occupy the same grid
+/// cell is undefined.
+/// 
+/// # GtkGrid as GtkBuildable
+/// 
+/// Every child in a `GtkGrid` has access to a custom [iface`Gtk.Buildable`]
+/// element, called ´&lt;layout&gt;´. It can by used to specify a position in the
+/// grid and optionally spans. All properties that can be used in the ´&lt;layout&gt;´
+/// element are implemented by [class`Gtk.GridLayoutChild`].
+/// 
+/// It is implemented by `GtkWidget` using [class`Gtk.LayoutManager`].
+/// 
+/// To showcase it, here is a simple example:
+/// 
+/// ```xml
+/// &lt;object class="GtkGrid" id="my_grid"&gt;
+///   &lt;child&gt;
+///     &lt;object class="GtkButton" id="button1"&gt;
+///       &lt;property name="label"&gt;Button 1&lt;/property&gt;
+///       &lt;layout&gt;
+///         &lt;property name="column"&gt;0&lt;/property&gt;
+///         &lt;property name="row"&gt;0&lt;/property&gt;
+///       &lt;/layout&gt;
+///     &lt;/object&gt;
+///   &lt;/child&gt;
+///   &lt;child&gt;
+///     &lt;object class="GtkButton" id="button2"&gt;
+///       &lt;property name="label"&gt;Button 2&lt;/property&gt;
+///       &lt;layout&gt;
+///         &lt;property name="column"&gt;1&lt;/property&gt;
+///         &lt;property name="row"&gt;0&lt;/property&gt;
+///       &lt;/layout&gt;
+///     &lt;/object&gt;
+///   &lt;/child&gt;
+///   &lt;child&gt;
+///     &lt;object class="GtkButton" id="button3"&gt;
+///       &lt;property name="label"&gt;Button 3&lt;/property&gt;
+///       &lt;layout&gt;
+///         &lt;property name="column"&gt;2&lt;/property&gt;
+///         &lt;property name="row"&gt;0&lt;/property&gt;
+///         &lt;property name="row-span"&gt;2&lt;/property&gt;
+///       &lt;/layout&gt;
+///     &lt;/object&gt;
+///   &lt;/child&gt;
+///   &lt;child&gt;
+///     &lt;object class="GtkButton" id="button4"&gt;
+///       &lt;property name="label"&gt;Button 4&lt;/property&gt;
+///       &lt;layout&gt;
+///         &lt;property name="column"&gt;0&lt;/property&gt;
+///         &lt;property name="row"&gt;1&lt;/property&gt;
+///         &lt;property name="column-span"&gt;2&lt;/property&gt;
+///       &lt;/layout&gt;
+///     &lt;/object&gt;
+///   &lt;/child&gt;
+/// &lt;/object&gt;
+/// ```
+/// 
+/// It organizes the first two buttons side-by-side in one cell each.
+/// The third button is in the last column but spans across two rows.
+/// This is defined by the ´row-span´ property. The last button is
+/// located in the second row and spans across two columns, which is
+/// defined by the ´column-span´ property.
 /// 
 /// # CSS nodes
 /// 
-/// GtkGrid uses a single CSS node with name `grid`.
+/// `GtkGrid` uses a single CSS node with name `grid`.
 /// 
 /// # Accessibility
 /// 
-/// GtkGrid uses the `GTK_ACCESSIBLE_ROLE_GROUP` role.
+/// `GtkGrid` uses the `GTK_ACCESSIBLE_ROLE_GROUP` role.
 public protocol GridProtocol: WidgetProtocol, OrientableProtocol {
         /// Untyped pointer to the underlying `GtkGrid` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -6146,22 +6515,88 @@ public protocol GridProtocol: WidgetProtocol, OrientableProtocol {
 /// It exposes methods that can operate on this data type through `GridProtocol` conformance.
 /// Use `GridRef` only as an `unowned` reference to an existing `GtkGrid` instance.
 ///
-/// GtkGrid is a container which arranges its child widgets in
-/// rows and columns, with arbitrary positions and horizontal/vertical spans.
+/// `GtkGrid` is a container which arranges its child widgets in
+/// rows and columns.
 /// 
-/// Children are added using `gtk_grid_attach()`. They can span multiple
-/// rows or columns. It is also possible to add a child next to an
-/// existing child, using `gtk_grid_attach_next_to()`. To remove a child
-/// from the grid, use `gtk_grid_remove()`. The behaviour of GtkGrid when
-/// several children occupy the same grid cell is undefined.
+/// ![An example GtkGrid](grid.png)
+/// 
+/// It supports arbitrary positions and horizontal/vertical spans.
+/// 
+/// Children are added using [method`Gtk.Grid.attach`]. They can span multiple
+/// rows or columns. It is also possible to add a child next to an existing
+/// child, using [method`Gtk.Grid.attach_next_to`]. To remove a child from the
+/// grid, use [method`Gtk.Grid.remove`].
+/// 
+/// The behaviour of `GtkGrid` when several children occupy the same grid
+/// cell is undefined.
+/// 
+/// # GtkGrid as GtkBuildable
+/// 
+/// Every child in a `GtkGrid` has access to a custom [iface`Gtk.Buildable`]
+/// element, called ´&lt;layout&gt;´. It can by used to specify a position in the
+/// grid and optionally spans. All properties that can be used in the ´&lt;layout&gt;´
+/// element are implemented by [class`Gtk.GridLayoutChild`].
+/// 
+/// It is implemented by `GtkWidget` using [class`Gtk.LayoutManager`].
+/// 
+/// To showcase it, here is a simple example:
+/// 
+/// ```xml
+/// &lt;object class="GtkGrid" id="my_grid"&gt;
+///   &lt;child&gt;
+///     &lt;object class="GtkButton" id="button1"&gt;
+///       &lt;property name="label"&gt;Button 1&lt;/property&gt;
+///       &lt;layout&gt;
+///         &lt;property name="column"&gt;0&lt;/property&gt;
+///         &lt;property name="row"&gt;0&lt;/property&gt;
+///       &lt;/layout&gt;
+///     &lt;/object&gt;
+///   &lt;/child&gt;
+///   &lt;child&gt;
+///     &lt;object class="GtkButton" id="button2"&gt;
+///       &lt;property name="label"&gt;Button 2&lt;/property&gt;
+///       &lt;layout&gt;
+///         &lt;property name="column"&gt;1&lt;/property&gt;
+///         &lt;property name="row"&gt;0&lt;/property&gt;
+///       &lt;/layout&gt;
+///     &lt;/object&gt;
+///   &lt;/child&gt;
+///   &lt;child&gt;
+///     &lt;object class="GtkButton" id="button3"&gt;
+///       &lt;property name="label"&gt;Button 3&lt;/property&gt;
+///       &lt;layout&gt;
+///         &lt;property name="column"&gt;2&lt;/property&gt;
+///         &lt;property name="row"&gt;0&lt;/property&gt;
+///         &lt;property name="row-span"&gt;2&lt;/property&gt;
+///       &lt;/layout&gt;
+///     &lt;/object&gt;
+///   &lt;/child&gt;
+///   &lt;child&gt;
+///     &lt;object class="GtkButton" id="button4"&gt;
+///       &lt;property name="label"&gt;Button 4&lt;/property&gt;
+///       &lt;layout&gt;
+///         &lt;property name="column"&gt;0&lt;/property&gt;
+///         &lt;property name="row"&gt;1&lt;/property&gt;
+///         &lt;property name="column-span"&gt;2&lt;/property&gt;
+///       &lt;/layout&gt;
+///     &lt;/object&gt;
+///   &lt;/child&gt;
+/// &lt;/object&gt;
+/// ```
+/// 
+/// It organizes the first two buttons side-by-side in one cell each.
+/// The third button is in the last column but spans across two rows.
+/// This is defined by the ´row-span´ property. The last button is
+/// located in the second row and spans across two columns, which is
+/// defined by the ´column-span´ property.
 /// 
 /// # CSS nodes
 /// 
-/// GtkGrid uses a single CSS node with name `grid`.
+/// `GtkGrid` uses a single CSS node with name `grid`.
 /// 
 /// # Accessibility
 /// 
-/// GtkGrid uses the `GTK_ACCESSIBLE_ROLE_GROUP` role.
+/// `GtkGrid` uses the `GTK_ACCESSIBLE_ROLE_GROUP` role.
 public struct GridRef: GridProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkGrid` instance.
     /// For type-safe access, use the generated, typed pointer `grid_ptr` property instead.
@@ -6252,22 +6687,88 @@ public extension GridRef {
 /// It provides the methods that can operate on this data type through `GridProtocol` conformance.
 /// Use `Grid` as a strong reference or owner of a `GtkGrid` instance.
 ///
-/// GtkGrid is a container which arranges its child widgets in
-/// rows and columns, with arbitrary positions and horizontal/vertical spans.
+/// `GtkGrid` is a container which arranges its child widgets in
+/// rows and columns.
 /// 
-/// Children are added using `gtk_grid_attach()`. They can span multiple
-/// rows or columns. It is also possible to add a child next to an
-/// existing child, using `gtk_grid_attach_next_to()`. To remove a child
-/// from the grid, use `gtk_grid_remove()`. The behaviour of GtkGrid when
-/// several children occupy the same grid cell is undefined.
+/// ![An example GtkGrid](grid.png)
+/// 
+/// It supports arbitrary positions and horizontal/vertical spans.
+/// 
+/// Children are added using [method`Gtk.Grid.attach`]. They can span multiple
+/// rows or columns. It is also possible to add a child next to an existing
+/// child, using [method`Gtk.Grid.attach_next_to`]. To remove a child from the
+/// grid, use [method`Gtk.Grid.remove`].
+/// 
+/// The behaviour of `GtkGrid` when several children occupy the same grid
+/// cell is undefined.
+/// 
+/// # GtkGrid as GtkBuildable
+/// 
+/// Every child in a `GtkGrid` has access to a custom [iface`Gtk.Buildable`]
+/// element, called ´&lt;layout&gt;´. It can by used to specify a position in the
+/// grid and optionally spans. All properties that can be used in the ´&lt;layout&gt;´
+/// element are implemented by [class`Gtk.GridLayoutChild`].
+/// 
+/// It is implemented by `GtkWidget` using [class`Gtk.LayoutManager`].
+/// 
+/// To showcase it, here is a simple example:
+/// 
+/// ```xml
+/// &lt;object class="GtkGrid" id="my_grid"&gt;
+///   &lt;child&gt;
+///     &lt;object class="GtkButton" id="button1"&gt;
+///       &lt;property name="label"&gt;Button 1&lt;/property&gt;
+///       &lt;layout&gt;
+///         &lt;property name="column"&gt;0&lt;/property&gt;
+///         &lt;property name="row"&gt;0&lt;/property&gt;
+///       &lt;/layout&gt;
+///     &lt;/object&gt;
+///   &lt;/child&gt;
+///   &lt;child&gt;
+///     &lt;object class="GtkButton" id="button2"&gt;
+///       &lt;property name="label"&gt;Button 2&lt;/property&gt;
+///       &lt;layout&gt;
+///         &lt;property name="column"&gt;1&lt;/property&gt;
+///         &lt;property name="row"&gt;0&lt;/property&gt;
+///       &lt;/layout&gt;
+///     &lt;/object&gt;
+///   &lt;/child&gt;
+///   &lt;child&gt;
+///     &lt;object class="GtkButton" id="button3"&gt;
+///       &lt;property name="label"&gt;Button 3&lt;/property&gt;
+///       &lt;layout&gt;
+///         &lt;property name="column"&gt;2&lt;/property&gt;
+///         &lt;property name="row"&gt;0&lt;/property&gt;
+///         &lt;property name="row-span"&gt;2&lt;/property&gt;
+///       &lt;/layout&gt;
+///     &lt;/object&gt;
+///   &lt;/child&gt;
+///   &lt;child&gt;
+///     &lt;object class="GtkButton" id="button4"&gt;
+///       &lt;property name="label"&gt;Button 4&lt;/property&gt;
+///       &lt;layout&gt;
+///         &lt;property name="column"&gt;0&lt;/property&gt;
+///         &lt;property name="row"&gt;1&lt;/property&gt;
+///         &lt;property name="column-span"&gt;2&lt;/property&gt;
+///       &lt;/layout&gt;
+///     &lt;/object&gt;
+///   &lt;/child&gt;
+/// &lt;/object&gt;
+/// ```
+/// 
+/// It organizes the first two buttons side-by-side in one cell each.
+/// The third button is in the last column but spans across two rows.
+/// This is defined by the ´row-span´ property. The last button is
+/// located in the second row and spans across two columns, which is
+/// defined by the ´column-span´ property.
 /// 
 /// # CSS nodes
 /// 
-/// GtkGrid uses a single CSS node with name `grid`.
+/// `GtkGrid` uses a single CSS node with name `grid`.
 /// 
 /// # Accessibility
 /// 
-/// GtkGrid uses the `GTK_ACCESSIBLE_ROLE_GROUP` role.
+/// `GtkGrid` uses the `GTK_ACCESSIBLE_ROLE_GROUP` role.
 open class Grid: Widget, GridProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -6404,6 +6905,7 @@ open class Grid: Widget, GridProtocol {
 }
 
 public enum GridPropertyName: String, PropertyNameProtocol {
+    /// The row to align to the baseline when valign is `GTK_ALIGN_BASELINE`.
     case baselineRow = "baseline-row"
     /// Whether the widget or any of its descendents can accept
     /// the input focus.
@@ -6411,8 +6913,11 @@ public enum GridPropertyName: String, PropertyNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case canFocus = "can-focus"
+    /// Whether the widget can receive pointer events.
     case canTarget = "can-target"
+    /// If `true`, the columns are all the same width.
     case columnHomogeneous = "column-homogeneous"
+    /// The amount of space between two consecutive columns.
     case columnSpacing = "column-spacing"
     /// A list of css classes applied to this widget.
     case cssClasses = "css-classes"
@@ -6421,7 +6926,7 @@ public enum GridPropertyName: String, PropertyNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case cssName = "css-name"
-    /// The cursor used by `widget`. See `gtk_widget_set_cursor()` for details.
+    /// The cursor used by `widget`.
     case cursor = "cursor"
     /// Whether the widget should grab focus when it is clicked with the mouse.
     /// 
@@ -6429,19 +6934,25 @@ public enum GridPropertyName: String, PropertyNameProtocol {
     case focusOnClick = "focus-on-click"
     /// Whether this widget itself will accept the input focus.
     case focusable = "focusable"
-    /// How to distribute horizontal space if widget gets extra space, see `GtkAlign`
+    /// How to distribute horizontal space if widget gets extra space.
     case halign = "halign"
+    /// Whether the widget is the default widget.
     case hasDefault = "has-default"
+    /// Whether the widget has the input focus.
     case hasFocus = "has-focus"
-    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
+    /// Enables or disables the emission of the `query-tooltip` signal on `widget`.
+    /// 
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
-    /// whether it will provide a tooltip or not.
+    /// the widget will be queried using [signal`Gtk.Widget::query-tooltip`] to
+    /// determine whether it will provide a tooltip or not.
     case hasTooltip = "has-tooltip"
+    /// Override for height request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case heightRequest = "height-request"
-    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
+    /// Whether to expand horizontally.
     case hexpand = "hexpand"
-    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
+    /// Whether to use the `hexpand` property.
     case hexpandSet = "hexpand-set"
     /// The `GtkLayoutManager` instance to use to compute the preferred size
     /// of the widget, and allocate its children.
@@ -6453,79 +6964,95 @@ public enum GridPropertyName: String, PropertyNameProtocol {
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginBottom = "margin-bottom"
-    /// Margin on end of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on end of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginEnd = "margin-end"
-    /// Margin on start of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on start of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginStart = "margin-start"
     /// Margin on top side of widget.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginTop = "margin-top"
+    /// The name of the widget.
     case name = "name"
-    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
-    /// more details about window opacity.
+    /// The requested opacity of the widget.
     case opacity = "opacity"
     /// How content outside the widget's content area is treated.
     /// 
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case overflow = "overflow"
+    /// The parent widget of this widget.
     case parent = "parent"
+    /// Whether the widget will receive the default action when it is focused.
     case receivesDefault = "receives-default"
-    /// The `GtkRoot` widget of the widget tree containing this widget or `nil` if
-    /// the widget is not contained in a root widget.
+    /// The `GtkRoot` widget of the widget tree containing this widget.
+    /// 
+    /// This will be `nil` if the widget is not contained in a root widget.
     case root = "root"
+    /// If `true`, the rows are all the same height.
     case rowHomogeneous = "row-homogeneous"
+    /// The amount of space between two consecutive rows.
     case rowSpacing = "row-spacing"
-    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
-    /// more details about widget scaling.
+    /// The scale factor of the widget.
     case scaleFactor = "scale-factor"
+    /// Whether the widget responds to input.
     case sensitive = "sensitive"
     /// Sets the text of tooltip to be the given string, which is marked up
-    /// with the [Pango text markup language](#PangoMarkupFormat).
-    /// Also see `gtk_tooltip_set_markup()`.
+    /// with Pango markup.
+    /// 
+    /// Also see [method`Gtk.Tooltip.set_markup`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case tooltipMarkup = "tooltip-markup"
     /// Sets the text of tooltip to be the given string.
     /// 
-    /// Also see `gtk_tooltip_set_text()`.
+    /// Also see [method`Gtk.Tooltip.set_text`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case tooltipText = "tooltip-text"
-    /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
+    /// How to distribute vertical space if widget gets extra space.
     case valign = "valign"
-    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
+    /// Whether to expand vertically.
     case vexpand = "vexpand"
-    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
+    /// Whether to use the `vexpand` property.
     case vexpandSet = "vexpand-set"
+    /// Whether the widget is visible.
     case visible = "visible"
+    /// Override for width request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case widthRequest = "width-request"
 }
 
@@ -6584,29 +7111,32 @@ public extension GridProtocol {
 
 public enum GridSignalName: String, SignalNameProtocol {
     /// Signals that all holders of a reference to the widget should release
-    /// the reference that they hold. May result in finalization of the widget
-    /// if all references are released.
+    /// the reference that they hold.
+    /// 
+    /// May result in finalization of the widget if all references are released.
     /// 
     /// This signal is not suitable for saving widget state.
     case destroy = "destroy"
-    /// The `direction-changed` signal is emitted when the text direction
-    /// of a widget changes.
+    /// Emitted when the text direction of a widget changes.
     case directionChanged = "direction-changed"
-    /// The `hide` signal is emitted when `widget` is hidden, for example with
-    /// `gtk_widget_hide()`.
+    /// Emitted when `widget` is hidden.
     case hide = "hide"
-    /// Gets emitted if keyboard navigation fails.
-    /// See `gtk_widget_keynav_failed()` for details.
+    /// Emitted if keyboard navigation fails.
+    /// 
+    /// See [method`Gtk.Widget.keynav_failed`] for details.
     case keynavFailed = "keynav-failed"
-    /// The `map` signal is emitted when `widget` is going to be mapped, that is
-    /// when the widget is visible (which is controlled with
-    /// `gtk_widget_set_visible()`) and all its parents up to the toplevel widget
+    /// Emitted when `widget` is going to be mapped.
+    /// 
+    /// A widget is mapped when the widget is visible (which is controlled with
+    /// [property`Gtk.Widget:visible`]) and all its parents up to the toplevel widget
     /// are also visible.
     /// 
     /// The `map` signal can be used to determine whether a widget will be drawn,
     /// for instance it can resume an animation that was stopped during the
-    /// emission of `GtkWidget::unmap`.
+    /// emission of [signal`Gtk.Widget::unmap`].
     case map = "map"
+    /// Emitted when a widget is activated via a mnemonic.
+    /// 
     /// The default handler for this signal activates `widget` if `group_cycling`
     /// is `false`, or just makes `widget` grab focus if `group_cycling` is `true`.
     case mnemonicActivate = "mnemonic-activate"
@@ -6637,9 +7167,11 @@ public enum GridSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// Emitted when `GtkWidget:has-tooltip` is `true` and the hover timeout
-    /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
-    /// focus in keyboard mode.
+    /// Emitted when the widgets tooltip is about to be shown.
+    /// 
+    /// This happens when the [property`Gtk.Widget:has-tooltip`] property
+    /// is `true` and the hover timeout has expired with the cursor hovering
+    /// "above" `widget`; or emitted when `widget` got focus in keyboard mode.
     /// 
     /// Using the given coordinates, the signal handler should determine
     /// whether a tooltip should be shown for `widget`. If this is the case
@@ -6650,28 +7182,31 @@ public enum GridSignalName: String, SignalNameProtocol {
     /// The signal handler is free to manipulate `tooltip` with the therefore
     /// destined function calls.
     case queryTooltip = "query-tooltip"
-    /// The `realize` signal is emitted when `widget` is associated with a
-    /// `GdkSurface`, which means that `gtk_widget_realize()` has been called or the
-    /// widget has been mapped (that is, it is going to be drawn).
-    case realize = "realize"
-    /// The `show` signal is emitted when `widget` is shown, for example with
-    /// `gtk_widget_show()`.
-    case show = "show"
-    /// The `state-flags-changed` signal is emitted when the widget state
-    /// changes, see `gtk_widget_get_state_flags()`.
-    case stateFlagsChanged = "state-flags-changed"
-    /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
-    /// means that either it or any of its parents up to the toplevel widget have
-    /// been set as hidden.
+    /// Emitted when `widget` is associated with a `GdkSurface`.
     /// 
-    /// As `unmap` indicates that a widget will not be shown any longer, it can be
-    /// used to, for example, stop an animation on the widget.
+    /// This means that [method`Gtk.Widget.realize`] has been called
+    /// or the widget has been mapped (that is, it is going to be drawn).
+    case realize = "realize"
+    /// Emitted when `widget` is shown.
+    case show = "show"
+    /// Emitted when the widget state changes.
+    /// 
+    /// See [method`Gtk.Widget.get_state_flags`].
+    case stateFlagsChanged = "state-flags-changed"
+    /// Emitted when `widget` is going to be unmapped.
+    /// 
+    /// A widget is unmapped when either it or any of its parents up to the
+    /// toplevel widget have been set as hidden.
+    /// 
+    /// As `unmap` indicates that a widget will not be shown any longer,
+    /// it can be used to, for example, stop an animation on the widget.
     case unmap = "unmap"
-    /// The `unrealize` signal is emitted when the `GdkSurface` associated with
-    /// `widget` is destroyed, which means that `gtk_widget_unrealize()` has been
-    /// called or the widget has been unmapped (that is, it is going to be
-    /// hidden).
+    /// Emitted when the `GdkSurface` associated with `widget` is destroyed.
+    /// 
+    /// This means that [method`Gtk.Widget.unrealize`] has been called
+    /// or the widget has been unmapped (that is, it is going to be hidden).
     case unrealize = "unrealize"
+    /// The row to align to the baseline when valign is `GTK_ALIGN_BASELINE`.
     case notifyBaselineRow = "notify::baseline-row"
     /// Whether the widget or any of its descendents can accept
     /// the input focus.
@@ -6679,8 +7214,11 @@ public enum GridSignalName: String, SignalNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case notifyCanFocus = "notify::can-focus"
+    /// Whether the widget can receive pointer events.
     case notifyCanTarget = "notify::can-target"
+    /// If `true`, the columns are all the same width.
     case notifyColumnHomogeneous = "notify::column-homogeneous"
+    /// The amount of space between two consecutive columns.
     case notifyColumnSpacing = "notify::column-spacing"
     /// A list of css classes applied to this widget.
     case notifyCssClasses = "notify::css-classes"
@@ -6689,7 +7227,7 @@ public enum GridSignalName: String, SignalNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case notifyCssName = "notify::css-name"
-    /// The cursor used by `widget`. See `gtk_widget_set_cursor()` for details.
+    /// The cursor used by `widget`.
     case notifyCursor = "notify::cursor"
     /// Whether the widget should grab focus when it is clicked with the mouse.
     /// 
@@ -6697,19 +7235,25 @@ public enum GridSignalName: String, SignalNameProtocol {
     case notifyFocusOnClick = "notify::focus-on-click"
     /// Whether this widget itself will accept the input focus.
     case notifyFocusable = "notify::focusable"
-    /// How to distribute horizontal space if widget gets extra space, see `GtkAlign`
+    /// How to distribute horizontal space if widget gets extra space.
     case notifyHalign = "notify::halign"
+    /// Whether the widget is the default widget.
     case notifyHasDefault = "notify::has-default"
+    /// Whether the widget has the input focus.
     case notifyHasFocus = "notify::has-focus"
-    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
+    /// Enables or disables the emission of the `query-tooltip` signal on `widget`.
+    /// 
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
-    /// whether it will provide a tooltip or not.
+    /// the widget will be queried using [signal`Gtk.Widget::query-tooltip`] to
+    /// determine whether it will provide a tooltip or not.
     case notifyHasTooltip = "notify::has-tooltip"
+    /// Override for height request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case notifyHeightRequest = "notify::height-request"
-    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
+    /// Whether to expand horizontally.
     case notifyHexpand = "notify::hexpand"
-    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
+    /// Whether to use the `hexpand` property.
     case notifyHexpandSet = "notify::hexpand-set"
     /// The `GtkLayoutManager` instance to use to compute the preferred size
     /// of the widget, and allocate its children.
@@ -6721,79 +7265,95 @@ public enum GridSignalName: String, SignalNameProtocol {
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginBottom = "notify::margin-bottom"
-    /// Margin on end of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on end of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginEnd = "notify::margin-end"
-    /// Margin on start of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on start of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginStart = "notify::margin-start"
     /// Margin on top side of widget.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginTop = "notify::margin-top"
+    /// The name of the widget.
     case notifyName = "notify::name"
-    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
-    /// more details about window opacity.
+    /// The requested opacity of the widget.
     case notifyOpacity = "notify::opacity"
     /// How content outside the widget's content area is treated.
     /// 
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case notifyOverflow = "notify::overflow"
+    /// The parent widget of this widget.
     case notifyParent = "notify::parent"
+    /// Whether the widget will receive the default action when it is focused.
     case notifyReceivesDefault = "notify::receives-default"
-    /// The `GtkRoot` widget of the widget tree containing this widget or `nil` if
-    /// the widget is not contained in a root widget.
+    /// The `GtkRoot` widget of the widget tree containing this widget.
+    /// 
+    /// This will be `nil` if the widget is not contained in a root widget.
     case notifyRoot = "notify::root"
+    /// If `true`, the rows are all the same height.
     case notifyRowHomogeneous = "notify::row-homogeneous"
+    /// The amount of space between two consecutive rows.
     case notifyRowSpacing = "notify::row-spacing"
-    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
-    /// more details about widget scaling.
+    /// The scale factor of the widget.
     case notifyScaleFactor = "notify::scale-factor"
+    /// Whether the widget responds to input.
     case notifySensitive = "notify::sensitive"
     /// Sets the text of tooltip to be the given string, which is marked up
-    /// with the [Pango text markup language](#PangoMarkupFormat).
-    /// Also see `gtk_tooltip_set_markup()`.
+    /// with Pango markup.
+    /// 
+    /// Also see [method`Gtk.Tooltip.set_markup`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case notifyTooltipMarkup = "notify::tooltip-markup"
     /// Sets the text of tooltip to be the given string.
     /// 
-    /// Also see `gtk_tooltip_set_text()`.
+    /// Also see [method`Gtk.Tooltip.set_text`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case notifyTooltipText = "notify::tooltip-text"
-    /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
+    /// How to distribute vertical space if widget gets extra space.
     case notifyValign = "notify::valign"
-    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
+    /// Whether to expand vertically.
     case notifyVexpand = "notify::vexpand"
-    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
+    /// Whether to use the `vexpand` property.
     case notifyVexpandSet = "notify::vexpand-set"
+    /// Whether the widget is visible.
     case notifyVisible = "notify::visible"
+    /// Override for width request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case notifyWidthRequest = "notify::width-request"
 }
 
@@ -6852,9 +7412,9 @@ public extension GridProtocol {
         return rv
     }
 
-    /// Returns the baseline position of `row` as set
-    /// by `gtk_grid_set_row_baseline_position()` or the default value
-    /// `GTK_BASELINE_POSITION_CENTER`.
+    /// Returns the baseline position of `row`.
+    /// 
+    /// See [method`Gtk.Grid.set_row_baseline_position`].
     @inlinable func getRowBaselinePosition(row: Int) -> GtkBaselinePosition {
         let rv = gtk_grid_get_row_baseline_position(grid_ptr, gint(row))
         return rv
@@ -6909,8 +7469,10 @@ public extension GridProtocol {
     
     }
 
-    /// Removes a child from `grid`, after it has been added
-    /// with `gtk_grid_attach()` or `gtk_grid_attach_next_to()`.
+    /// Removes a child from `grid`.
+    /// 
+    /// The child must have been added with
+    /// [method`Gtk.Grid.attach`] or [method`Gtk.Grid.attach_next_to`].
     @inlinable func remove<WidgetT: WidgetProtocol>(child: WidgetT) {
         gtk_grid_remove(grid_ptr, child.widget_ptr)
     
@@ -6939,6 +7501,7 @@ public extension GridProtocol {
     }
 
     /// Sets which row defines the global baseline for the entire grid.
+    /// 
     /// Each row in the grid can have its own local baseline, but only
     /// one of those is global, meaning it will be the baseline in the
     /// parent of the `grid`.
@@ -6961,6 +7524,8 @@ public extension GridProtocol {
 
     /// Sets how the baseline should be positioned on `row` of the
     /// grid, in case that row is assigned more space than is requested.
+    /// 
+    /// The default baseline position is `GTK_BASELINE_POSITION_CENTER`.
     @inlinable func setRowBaselinePosition(row: Int, pos: GtkBaselinePosition) {
         gtk_grid_set_row_baseline_position(grid_ptr, gint(row), pos)
     
@@ -6985,6 +7550,7 @@ public extension GridProtocol {
             return rv
         }
         /// Sets which row defines the global baseline for the entire grid.
+        /// 
         /// Each row in the grid can have its own local baseline, but only
         /// one of those is global, meaning it will be the baseline in the
         /// parent of the `grid`.
@@ -7058,21 +7624,20 @@ public extension GridProtocol {
 /// For a concrete class that implements these methods and properties, see `GridLayout`.
 /// Alternatively, use `GridLayoutRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// GtkGridLayout is a layout manager which arranges child widgets in
-/// rows and columns, with arbitrary positions and horizontal/vertical
-/// spans.
+/// `GtkGridLayout` is a layout manager which arranges child widgets in
+/// rows and columns.
 /// 
 /// Children have an "attach point" defined by the horizontal and vertical
 /// index of the cell they occupy; children can span multiple rows or columns.
 /// The layout properties for setting the attach points and spans are set
-/// using the `GtkGridLayoutChild` associated to each child widget.
+/// using the [class`Gtk.GridLayoutChild`] associated to each child widget.
 /// 
-/// The behaviour of GtkGrid when several children occupy the same grid cell
-/// is undefined.
+/// The behaviour of `GtkGridLayout` when several children occupy the same
+/// grid cell is undefined.
 /// 
-/// GtkGridLayout can be used like a `GtkBoxLayout` if all children are attached
-/// to the same row or column; however, if you only ever need a single row or
-/// column, you should consider using `GtkBoxLayout`.
+/// `GtkGridLayout` can be used like a `GtkBoxLayout` if all children are
+/// attached to the same row or column; however, if you only ever need a
+/// single row or column, you should consider using `GtkBoxLayout`.
 public protocol GridLayoutProtocol: LayoutManagerProtocol {
         /// Untyped pointer to the underlying `GtkGridLayout` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -7088,21 +7653,20 @@ public protocol GridLayoutProtocol: LayoutManagerProtocol {
 /// It exposes methods that can operate on this data type through `GridLayoutProtocol` conformance.
 /// Use `GridLayoutRef` only as an `unowned` reference to an existing `GtkGridLayout` instance.
 ///
-/// GtkGridLayout is a layout manager which arranges child widgets in
-/// rows and columns, with arbitrary positions and horizontal/vertical
-/// spans.
+/// `GtkGridLayout` is a layout manager which arranges child widgets in
+/// rows and columns.
 /// 
 /// Children have an "attach point" defined by the horizontal and vertical
 /// index of the cell they occupy; children can span multiple rows or columns.
 /// The layout properties for setting the attach points and spans are set
-/// using the `GtkGridLayoutChild` associated to each child widget.
+/// using the [class`Gtk.GridLayoutChild`] associated to each child widget.
 /// 
-/// The behaviour of GtkGrid when several children occupy the same grid cell
-/// is undefined.
+/// The behaviour of `GtkGridLayout` when several children occupy the same
+/// grid cell is undefined.
 /// 
-/// GtkGridLayout can be used like a `GtkBoxLayout` if all children are attached
-/// to the same row or column; however, if you only ever need a single row or
-/// column, you should consider using `GtkBoxLayout`.
+/// `GtkGridLayout` can be used like a `GtkBoxLayout` if all children are
+/// attached to the same row or column; however, if you only ever need a
+/// single row or column, you should consider using `GtkBoxLayout`.
 public struct GridLayoutRef: GridLayoutProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkGridLayout` instance.
     /// For type-safe access, use the generated, typed pointer `grid_layout_ptr` property instead.
@@ -7193,21 +7757,20 @@ public extension GridLayoutRef {
 /// It provides the methods that can operate on this data type through `GridLayoutProtocol` conformance.
 /// Use `GridLayout` as a strong reference or owner of a `GtkGridLayout` instance.
 ///
-/// GtkGridLayout is a layout manager which arranges child widgets in
-/// rows and columns, with arbitrary positions and horizontal/vertical
-/// spans.
+/// `GtkGridLayout` is a layout manager which arranges child widgets in
+/// rows and columns.
 /// 
 /// Children have an "attach point" defined by the horizontal and vertical
 /// index of the cell they occupy; children can span multiple rows or columns.
 /// The layout properties for setting the attach points and spans are set
-/// using the `GtkGridLayoutChild` associated to each child widget.
+/// using the [class`Gtk.GridLayoutChild`] associated to each child widget.
 /// 
-/// The behaviour of GtkGrid when several children occupy the same grid cell
-/// is undefined.
+/// The behaviour of `GtkGridLayout` when several children occupy the same
+/// grid cell is undefined.
 /// 
-/// GtkGridLayout can be used like a `GtkBoxLayout` if all children are attached
-/// to the same row or column; however, if you only ever need a single row or
-/// column, you should consider using `GtkBoxLayout`.
+/// `GtkGridLayout` can be used like a `GtkBoxLayout` if all children are
+/// attached to the same row or column; however, if you only ever need a
+/// single row or column, you should consider using `GtkBoxLayout`.
 open class GridLayout: LayoutManager, GridLayoutProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -7473,9 +8036,12 @@ public extension GridLayoutProtocol {
         return rv
     }
 
-    /// Returns the baseline position of `row` as set by
-    /// `gtk_grid_layout_set_row_baseline_position()`, or the default value
-    /// of `GTK_BASELINE_POSITION_CENTER`.
+    /// Returns the baseline position of `row`.
+    /// 
+    /// If no value has been set with
+    /// [method`Gtk.GridLayout.set_row_baseline_position`],
+    /// the default value of `GTK_BASELINE_POSITION_CENTER`
+    /// is returned.
     @inlinable func getRowBaselinePosition(row: Int) -> GtkBaselinePosition {
         let rv = gtk_grid_layout_get_row_baseline_position(grid_layout_ptr, gint(row))
         return rv
@@ -7614,7 +8180,7 @@ public extension GridLayoutProtocol {
 /// For a concrete class that implements these methods and properties, see `GridLayoutChild`.
 /// Alternatively, use `GridLayoutChildRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Layout properties for children of `GtkGridLayout`.
+/// `GtkLayoutChild` subclass for children in a `GtkGridLayout`.
 public protocol GridLayoutChildProtocol: LayoutChildProtocol {
         /// Untyped pointer to the underlying `GtkGridLayoutChild` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -7630,7 +8196,7 @@ public protocol GridLayoutChildProtocol: LayoutChildProtocol {
 /// It exposes methods that can operate on this data type through `GridLayoutChildProtocol` conformance.
 /// Use `GridLayoutChildRef` only as an `unowned` reference to an existing `GtkGridLayoutChild` instance.
 ///
-/// Layout properties for children of `GtkGridLayout`.
+/// `GtkLayoutChild` subclass for children in a `GtkGridLayout`.
 public struct GridLayoutChildRef: GridLayoutChildProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkGridLayoutChild` instance.
     /// For type-safe access, use the generated, typed pointer `grid_layout_child_ptr` property instead.
@@ -7716,7 +8282,7 @@ public extension GridLayoutChildRef {
 /// It provides the methods that can operate on this data type through `GridLayoutChildProtocol` conformance.
 /// Use `GridLayoutChild` as a strong reference or owner of a `GtkGridLayoutChild` instance.
 ///
-/// Layout properties for children of `GtkGridLayout`.
+/// `GtkLayoutChild` subclass for children in a `GtkGridLayout`.
 open class GridLayoutChild: LayoutChild, GridLayoutChildProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -8071,23 +8637,23 @@ public extension GridLayoutChildProtocol {
 /// For a concrete class that implements these methods and properties, see `GridView`.
 /// Alternatively, use `GridViewRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// GtkGridView is a widget to present a view into a large dynamic grid of items.
+/// `GtkGridView` presents a large dynamic grid of items.
 /// 
-/// GtkGridView uses its factory to generate one child widget for each visible item
-/// and shows them in a grid. The orientation of the grid view determines if the
-/// grid reflows vertically or horizontally.
+/// `GtkGridView` uses its factory to generate one child widget for each
+/// visible item and shows them in a grid. The orientation of the grid view
+/// determines if the grid reflows vertically or horizontally.
 /// 
-/// GtkGridView allows the user to select items according to the selection
+/// `GtkGridView` allows the user to select items according to the selection
 /// characteristics of the model. For models that allow multiple selected items,
 /// it is possible to turn on _rubberband selection_, using
-/// `GtkGridView:enable-rubberband`.
+/// [property`Gtk.GridView:enable-rubberband`].
 /// 
-/// To learn more about the list widget framework, see the [overview](`ListWidget`).
+/// To learn more about the list widget framework, see the
+/// [overview](section-list-widget.html).
 /// 
 /// # CSS nodes
 /// 
-/// (plain Language Example):
-/// ```plain
+/// ```
 /// gridview
 /// ├── child
 /// │
@@ -8097,13 +8663,13 @@ public extension GridLayoutChildProtocol {
 /// ╰── [rubberband]
 /// ```
 /// 
-/// GtkGridView uses a single CSS node with name gridview. Each child
+/// `GtkGridView` uses a single CSS node with name gridview. Each child
 /// uses a single CSS node with name child. For rubberband selection,
 /// a subnode with name rubberband is used.
 /// 
 /// # Accessibility
 /// 
-/// GtkGridView uses the `GTK_ACCESSIBLE_ROLE_GRID` role, and the items
+/// `GtkGridView` uses the `GTK_ACCESSIBLE_ROLE_GRID` role, and the items
 /// use the `GTK_ACCESSIBLE_ROLE_GRID_CELL` role.
 public protocol GridViewProtocol: ListBaseProtocol {
         /// Untyped pointer to the underlying `GtkGridView` instance.
@@ -8120,23 +8686,23 @@ public protocol GridViewProtocol: ListBaseProtocol {
 /// It exposes methods that can operate on this data type through `GridViewProtocol` conformance.
 /// Use `GridViewRef` only as an `unowned` reference to an existing `GtkGridView` instance.
 ///
-/// GtkGridView is a widget to present a view into a large dynamic grid of items.
+/// `GtkGridView` presents a large dynamic grid of items.
 /// 
-/// GtkGridView uses its factory to generate one child widget for each visible item
-/// and shows them in a grid. The orientation of the grid view determines if the
-/// grid reflows vertically or horizontally.
+/// `GtkGridView` uses its factory to generate one child widget for each
+/// visible item and shows them in a grid. The orientation of the grid view
+/// determines if the grid reflows vertically or horizontally.
 /// 
-/// GtkGridView allows the user to select items according to the selection
+/// `GtkGridView` allows the user to select items according to the selection
 /// characteristics of the model. For models that allow multiple selected items,
 /// it is possible to turn on _rubberband selection_, using
-/// `GtkGridView:enable-rubberband`.
+/// [property`Gtk.GridView:enable-rubberband`].
 /// 
-/// To learn more about the list widget framework, see the [overview](`ListWidget`).
+/// To learn more about the list widget framework, see the
+/// [overview](section-list-widget.html).
 /// 
 /// # CSS nodes
 /// 
-/// (plain Language Example):
-/// ```plain
+/// ```
 /// gridview
 /// ├── child
 /// │
@@ -8146,13 +8712,13 @@ public protocol GridViewProtocol: ListBaseProtocol {
 /// ╰── [rubberband]
 /// ```
 /// 
-/// GtkGridView uses a single CSS node with name gridview. Each child
+/// `GtkGridView` uses a single CSS node with name gridview. Each child
 /// uses a single CSS node with name child. For rubberband selection,
 /// a subnode with name rubberband is used.
 /// 
 /// # Accessibility
 /// 
-/// GtkGridView uses the `GTK_ACCESSIBLE_ROLE_GRID` role, and the items
+/// `GtkGridView` uses the `GTK_ACCESSIBLE_ROLE_GRID` role, and the items
 /// use the `GTK_ACCESSIBLE_ROLE_GRID_CELL` role.
 public struct GridViewRef: GridViewProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkGridView` instance.
@@ -8238,9 +8804,9 @@ public extension GridViewRef {
     /// 
     /// The function takes ownership of the
     /// arguments, so you can write code like
-    /// ```
-    ///   grid_view = gtk_grid_view_new (create_model (),
-    ///     gtk_builder_list_item_factory_new_from_resource ("/resource.ui"));
+    /// ```c
+    /// grid_view = gtk_grid_view_new (create_model (),
+    ///   gtk_builder_list_item_factory_new_from_resource ("/resource.ui"));
     /// ```
     @inlinable init<ListItemFactoryT: ListItemFactoryProtocol, SelectionModelT: SelectionModelProtocol>( model: SelectionModelT?, factory: ListItemFactoryT?) {
         let rv = gtk_grid_view_new(model?.selection_model_ptr, factory?.list_item_factory_ptr)
@@ -8252,23 +8818,23 @@ public extension GridViewRef {
 /// It provides the methods that can operate on this data type through `GridViewProtocol` conformance.
 /// Use `GridView` as a strong reference or owner of a `GtkGridView` instance.
 ///
-/// GtkGridView is a widget to present a view into a large dynamic grid of items.
+/// `GtkGridView` presents a large dynamic grid of items.
 /// 
-/// GtkGridView uses its factory to generate one child widget for each visible item
-/// and shows them in a grid. The orientation of the grid view determines if the
-/// grid reflows vertically or horizontally.
+/// `GtkGridView` uses its factory to generate one child widget for each
+/// visible item and shows them in a grid. The orientation of the grid view
+/// determines if the grid reflows vertically or horizontally.
 /// 
-/// GtkGridView allows the user to select items according to the selection
+/// `GtkGridView` allows the user to select items according to the selection
 /// characteristics of the model. For models that allow multiple selected items,
 /// it is possible to turn on _rubberband selection_, using
-/// `GtkGridView:enable-rubberband`.
+/// [property`Gtk.GridView:enable-rubberband`].
 /// 
-/// To learn more about the list widget framework, see the [overview](`ListWidget`).
+/// To learn more about the list widget framework, see the
+/// [overview](section-list-widget.html).
 /// 
 /// # CSS nodes
 /// 
-/// (plain Language Example):
-/// ```plain
+/// ```
 /// gridview
 /// ├── child
 /// │
@@ -8278,13 +8844,13 @@ public extension GridViewRef {
 /// ╰── [rubberband]
 /// ```
 /// 
-/// GtkGridView uses a single CSS node with name gridview. Each child
+/// `GtkGridView` uses a single CSS node with name gridview. Each child
 /// uses a single CSS node with name child. For rubberband selection,
 /// a subnode with name rubberband is used.
 /// 
 /// # Accessibility
 /// 
-/// GtkGridView uses the `GTK_ACCESSIBLE_ROLE_GRID` role, and the items
+/// `GtkGridView` uses the `GTK_ACCESSIBLE_ROLE_GRID` role, and the items
 /// use the `GTK_ACCESSIBLE_ROLE_GRID_CELL` role.
 open class GridView: ListBase, GridViewProtocol {
         /// Designated initialiser from the underlying `C` data type.
@@ -8416,9 +8982,9 @@ open class GridView: ListBase, GridViewProtocol {
     /// 
     /// The function takes ownership of the
     /// arguments, so you can write code like
-    /// ```
-    ///   grid_view = gtk_grid_view_new (create_model (),
-    ///     gtk_builder_list_item_factory_new_from_resource ("/resource.ui"));
+    /// ```c
+    /// grid_view = gtk_grid_view_new (create_model (),
+    ///   gtk_builder_list_item_factory_new_from_resource ("/resource.ui"));
     /// ```
     @inlinable public init<ListItemFactoryT: ListItemFactoryProtocol, SelectionModelT: SelectionModelProtocol>( model: SelectionModelT?, factory: ListItemFactoryT?) {
         let rv = gtk_grid_view_new(model?.selection_model_ptr, factory?.list_item_factory_ptr)
@@ -8436,6 +9002,7 @@ public enum GridViewPropertyName: String, PropertyNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case canFocus = "can-focus"
+    /// Whether the widget can receive pointer events.
     case canTarget = "can-target"
     /// A list of css classes applied to this widget.
     case cssClasses = "css-classes"
@@ -8444,11 +9011,11 @@ public enum GridViewPropertyName: String, PropertyNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case cssName = "css-name"
-    /// The cursor used by `widget`. See `gtk_widget_set_cursor()` for details.
+    /// The cursor used by `widget`.
     case cursor = "cursor"
-    /// Allow rubberband selection
+    /// Allow rubberband selection.
     case enableRubberband = "enable-rubberband"
-    /// Factory for populating list items
+    /// Factory for populating list items.
     case factory = "factory"
     /// Whether the widget should grab focus when it is clicked with the mouse.
     /// 
@@ -8456,19 +9023,25 @@ public enum GridViewPropertyName: String, PropertyNameProtocol {
     case focusOnClick = "focus-on-click"
     /// Whether this widget itself will accept the input focus.
     case focusable = "focusable"
-    /// How to distribute horizontal space if widget gets extra space, see `GtkAlign`
+    /// How to distribute horizontal space if widget gets extra space.
     case halign = "halign"
+    /// Whether the widget is the default widget.
     case hasDefault = "has-default"
+    /// Whether the widget has the input focus.
     case hasFocus = "has-focus"
-    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
+    /// Enables or disables the emission of the `query-tooltip` signal on `widget`.
+    /// 
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
-    /// whether it will provide a tooltip or not.
+    /// the widget will be queried using [signal`Gtk.Widget::query-tooltip`] to
+    /// determine whether it will provide a tooltip or not.
     case hasTooltip = "has-tooltip"
+    /// Override for height request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case heightRequest = "height-request"
-    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
+    /// Whether to expand horizontally.
     case hexpand = "hexpand"
-    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
+    /// Whether to use the `hexpand` property.
     case hexpandSet = "hexpand-set"
     /// The `GtkLayoutManager` instance to use to compute the preferred size
     /// of the widget, and allocate its children.
@@ -8480,40 +9053,44 @@ public enum GridViewPropertyName: String, PropertyNameProtocol {
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginBottom = "margin-bottom"
-    /// Margin on end of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on end of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginEnd = "margin-end"
-    /// Margin on start of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on start of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginStart = "margin-start"
     /// Margin on top side of widget.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginTop = "margin-top"
-    /// Maximum number of columns per row
+    /// Maximum number of columns per row.
     /// 
-    /// If this number is smaller than GtkGridView:min-columns, that value
-    /// is used instead.
+    /// If this number is smaller than [property`Gtk.GridView:min-columns`],
+    /// that value is used instead.
     case maxColumns = "max-columns"
-    /// Minimum number of columns per row
+    /// Minimum number of columns per row.
     case minColumns = "min-columns"
-    /// Model for the items displayed
+    /// Model for the items displayed.
     case model = "model"
+    /// The name of the widget.
     case name = "name"
-    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
-    /// more details about window opacity.
+    /// The requested opacity of the widget.
     case opacity = "opacity"
     /// The orientation of the list. See GtkOrientable:orientation
     /// for details.
@@ -8523,48 +9100,58 @@ public enum GridViewPropertyName: String, PropertyNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case overflow = "overflow"
+    /// The parent widget of this widget.
     case parent = "parent"
+    /// Whether the widget will receive the default action when it is focused.
     case receivesDefault = "receives-default"
-    /// The `GtkRoot` widget of the widget tree containing this widget or `nil` if
-    /// the widget is not contained in a root widget.
+    /// The `GtkRoot` widget of the widget tree containing this widget.
+    /// 
+    /// This will be `nil` if the widget is not contained in a root widget.
     case root = "root"
-    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
-    /// more details about widget scaling.
+    /// The scale factor of the widget.
     case scaleFactor = "scale-factor"
+    /// Whether the widget responds to input.
     case sensitive = "sensitive"
-    /// Activate rows on single click and select them on hover
+    /// Activate rows on single click and select them on hover.
     case singleClickActivate = "single-click-activate"
     /// Sets the text of tooltip to be the given string, which is marked up
-    /// with the [Pango text markup language](#PangoMarkupFormat).
-    /// Also see `gtk_tooltip_set_markup()`.
+    /// with Pango markup.
+    /// 
+    /// Also see [method`Gtk.Tooltip.set_markup`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case tooltipMarkup = "tooltip-markup"
     /// Sets the text of tooltip to be the given string.
     /// 
-    /// Also see `gtk_tooltip_set_text()`.
+    /// Also see [method`Gtk.Tooltip.set_text`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case tooltipText = "tooltip-text"
-    /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
+    /// How to distribute vertical space if widget gets extra space.
     case valign = "valign"
-    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
+    /// Whether to expand vertically.
     case vexpand = "vexpand"
-    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
+    /// Whether to use the `vexpand` property.
     case vexpandSet = "vexpand-set"
+    /// Whether the widget is visible.
     case visible = "visible"
+    /// Override for width request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case widthRequest = "width-request"
 }
 
@@ -8622,36 +9209,40 @@ public extension GridViewProtocol {
 }
 
 public enum GridViewSignalName: String, SignalNameProtocol {
-    /// The `activate` signal is emitted when a cell has been activated by the user,
+    /// Emitted when a cell has been activated by the user,
     /// usually via activating the GtkGridView|list.activate-item action.
     /// 
     /// This allows for a convenient way to handle activation in a gridview.
-    /// See GtkListItem:activatable for details on how to use this signal.
+    /// See [property`Gtk.ListItem:activatable`] for details on how to use
+    /// this signal.
     case activate = "activate"
     /// Signals that all holders of a reference to the widget should release
-    /// the reference that they hold. May result in finalization of the widget
-    /// if all references are released.
+    /// the reference that they hold.
+    /// 
+    /// May result in finalization of the widget if all references are released.
     /// 
     /// This signal is not suitable for saving widget state.
     case destroy = "destroy"
-    /// The `direction-changed` signal is emitted when the text direction
-    /// of a widget changes.
+    /// Emitted when the text direction of a widget changes.
     case directionChanged = "direction-changed"
-    /// The `hide` signal is emitted when `widget` is hidden, for example with
-    /// `gtk_widget_hide()`.
+    /// Emitted when `widget` is hidden.
     case hide = "hide"
-    /// Gets emitted if keyboard navigation fails.
-    /// See `gtk_widget_keynav_failed()` for details.
+    /// Emitted if keyboard navigation fails.
+    /// 
+    /// See [method`Gtk.Widget.keynav_failed`] for details.
     case keynavFailed = "keynav-failed"
-    /// The `map` signal is emitted when `widget` is going to be mapped, that is
-    /// when the widget is visible (which is controlled with
-    /// `gtk_widget_set_visible()`) and all its parents up to the toplevel widget
+    /// Emitted when `widget` is going to be mapped.
+    /// 
+    /// A widget is mapped when the widget is visible (which is controlled with
+    /// [property`Gtk.Widget:visible`]) and all its parents up to the toplevel widget
     /// are also visible.
     /// 
     /// The `map` signal can be used to determine whether a widget will be drawn,
     /// for instance it can resume an animation that was stopped during the
-    /// emission of `GtkWidget::unmap`.
+    /// emission of [signal`Gtk.Widget::unmap`].
     case map = "map"
+    /// Emitted when a widget is activated via a mnemonic.
+    /// 
     /// The default handler for this signal activates `widget` if `group_cycling`
     /// is `false`, or just makes `widget` grab focus if `group_cycling` is `true`.
     case mnemonicActivate = "mnemonic-activate"
@@ -8682,9 +9273,11 @@ public enum GridViewSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// Emitted when `GtkWidget:has-tooltip` is `true` and the hover timeout
-    /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
-    /// focus in keyboard mode.
+    /// Emitted when the widgets tooltip is about to be shown.
+    /// 
+    /// This happens when the [property`Gtk.Widget:has-tooltip`] property
+    /// is `true` and the hover timeout has expired with the cursor hovering
+    /// "above" `widget`; or emitted when `widget` got focus in keyboard mode.
     /// 
     /// Using the given coordinates, the signal handler should determine
     /// whether a tooltip should be shown for `widget`. If this is the case
@@ -8695,27 +9288,29 @@ public enum GridViewSignalName: String, SignalNameProtocol {
     /// The signal handler is free to manipulate `tooltip` with the therefore
     /// destined function calls.
     case queryTooltip = "query-tooltip"
-    /// The `realize` signal is emitted when `widget` is associated with a
-    /// `GdkSurface`, which means that `gtk_widget_realize()` has been called or the
-    /// widget has been mapped (that is, it is going to be drawn).
-    case realize = "realize"
-    /// The `show` signal is emitted when `widget` is shown, for example with
-    /// `gtk_widget_show()`.
-    case show = "show"
-    /// The `state-flags-changed` signal is emitted when the widget state
-    /// changes, see `gtk_widget_get_state_flags()`.
-    case stateFlagsChanged = "state-flags-changed"
-    /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
-    /// means that either it or any of its parents up to the toplevel widget have
-    /// been set as hidden.
+    /// Emitted when `widget` is associated with a `GdkSurface`.
     /// 
-    /// As `unmap` indicates that a widget will not be shown any longer, it can be
-    /// used to, for example, stop an animation on the widget.
+    /// This means that [method`Gtk.Widget.realize`] has been called
+    /// or the widget has been mapped (that is, it is going to be drawn).
+    case realize = "realize"
+    /// Emitted when `widget` is shown.
+    case show = "show"
+    /// Emitted when the widget state changes.
+    /// 
+    /// See [method`Gtk.Widget.get_state_flags`].
+    case stateFlagsChanged = "state-flags-changed"
+    /// Emitted when `widget` is going to be unmapped.
+    /// 
+    /// A widget is unmapped when either it or any of its parents up to the
+    /// toplevel widget have been set as hidden.
+    /// 
+    /// As `unmap` indicates that a widget will not be shown any longer,
+    /// it can be used to, for example, stop an animation on the widget.
     case unmap = "unmap"
-    /// The `unrealize` signal is emitted when the `GdkSurface` associated with
-    /// `widget` is destroyed, which means that `gtk_widget_unrealize()` has been
-    /// called or the widget has been unmapped (that is, it is going to be
-    /// hidden).
+    /// Emitted when the `GdkSurface` associated with `widget` is destroyed.
+    /// 
+    /// This means that [method`Gtk.Widget.unrealize`] has been called
+    /// or the widget has been unmapped (that is, it is going to be hidden).
     case unrealize = "unrealize"
     /// Whether the widget or any of its descendents can accept
     /// the input focus.
@@ -8723,6 +9318,7 @@ public enum GridViewSignalName: String, SignalNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case notifyCanFocus = "notify::can-focus"
+    /// Whether the widget can receive pointer events.
     case notifyCanTarget = "notify::can-target"
     /// A list of css classes applied to this widget.
     case notifyCssClasses = "notify::css-classes"
@@ -8731,11 +9327,11 @@ public enum GridViewSignalName: String, SignalNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case notifyCssName = "notify::css-name"
-    /// The cursor used by `widget`. See `gtk_widget_set_cursor()` for details.
+    /// The cursor used by `widget`.
     case notifyCursor = "notify::cursor"
-    /// Allow rubberband selection
+    /// Allow rubberband selection.
     case notifyEnableRubberband = "notify::enable-rubberband"
-    /// Factory for populating list items
+    /// Factory for populating list items.
     case notifyFactory = "notify::factory"
     /// Whether the widget should grab focus when it is clicked with the mouse.
     /// 
@@ -8743,19 +9339,25 @@ public enum GridViewSignalName: String, SignalNameProtocol {
     case notifyFocusOnClick = "notify::focus-on-click"
     /// Whether this widget itself will accept the input focus.
     case notifyFocusable = "notify::focusable"
-    /// How to distribute horizontal space if widget gets extra space, see `GtkAlign`
+    /// How to distribute horizontal space if widget gets extra space.
     case notifyHalign = "notify::halign"
+    /// Whether the widget is the default widget.
     case notifyHasDefault = "notify::has-default"
+    /// Whether the widget has the input focus.
     case notifyHasFocus = "notify::has-focus"
-    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
+    /// Enables or disables the emission of the `query-tooltip` signal on `widget`.
+    /// 
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
-    /// whether it will provide a tooltip or not.
+    /// the widget will be queried using [signal`Gtk.Widget::query-tooltip`] to
+    /// determine whether it will provide a tooltip or not.
     case notifyHasTooltip = "notify::has-tooltip"
+    /// Override for height request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case notifyHeightRequest = "notify::height-request"
-    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
+    /// Whether to expand horizontally.
     case notifyHexpand = "notify::hexpand"
-    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
+    /// Whether to use the `hexpand` property.
     case notifyHexpandSet = "notify::hexpand-set"
     /// The `GtkLayoutManager` instance to use to compute the preferred size
     /// of the widget, and allocate its children.
@@ -8767,40 +9369,44 @@ public enum GridViewSignalName: String, SignalNameProtocol {
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginBottom = "notify::margin-bottom"
-    /// Margin on end of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on end of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginEnd = "notify::margin-end"
-    /// Margin on start of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on start of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginStart = "notify::margin-start"
     /// Margin on top side of widget.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginTop = "notify::margin-top"
-    /// Maximum number of columns per row
+    /// Maximum number of columns per row.
     /// 
-    /// If this number is smaller than GtkGridView:min-columns, that value
-    /// is used instead.
+    /// If this number is smaller than [property`Gtk.GridView:min-columns`],
+    /// that value is used instead.
     case notifyMaxColumns = "notify::max-columns"
-    /// Minimum number of columns per row
+    /// Minimum number of columns per row.
     case notifyMinColumns = "notify::min-columns"
-    /// Model for the items displayed
+    /// Model for the items displayed.
     case notifyModel = "notify::model"
+    /// The name of the widget.
     case notifyName = "notify::name"
-    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
-    /// more details about window opacity.
+    /// The requested opacity of the widget.
     case notifyOpacity = "notify::opacity"
     /// The orientation of the list. See GtkOrientable:orientation
     /// for details.
@@ -8810,48 +9416,58 @@ public enum GridViewSignalName: String, SignalNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case notifyOverflow = "notify::overflow"
+    /// The parent widget of this widget.
     case notifyParent = "notify::parent"
+    /// Whether the widget will receive the default action when it is focused.
     case notifyReceivesDefault = "notify::receives-default"
-    /// The `GtkRoot` widget of the widget tree containing this widget or `nil` if
-    /// the widget is not contained in a root widget.
+    /// The `GtkRoot` widget of the widget tree containing this widget.
+    /// 
+    /// This will be `nil` if the widget is not contained in a root widget.
     case notifyRoot = "notify::root"
-    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
-    /// more details about widget scaling.
+    /// The scale factor of the widget.
     case notifyScaleFactor = "notify::scale-factor"
+    /// Whether the widget responds to input.
     case notifySensitive = "notify::sensitive"
-    /// Activate rows on single click and select them on hover
+    /// Activate rows on single click and select them on hover.
     case notifySingleClickActivate = "notify::single-click-activate"
     /// Sets the text of tooltip to be the given string, which is marked up
-    /// with the [Pango text markup language](#PangoMarkupFormat).
-    /// Also see `gtk_tooltip_set_markup()`.
+    /// with Pango markup.
+    /// 
+    /// Also see [method`Gtk.Tooltip.set_markup`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case notifyTooltipMarkup = "notify::tooltip-markup"
     /// Sets the text of tooltip to be the given string.
     /// 
-    /// Also see `gtk_tooltip_set_text()`.
+    /// Also see [method`Gtk.Tooltip.set_text`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case notifyTooltipText = "notify::tooltip-text"
-    /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
+    /// How to distribute vertical space if widget gets extra space.
     case notifyValign = "notify::valign"
-    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
+    /// Whether to expand vertically.
     case notifyVexpand = "notify::vexpand"
-    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
+    /// Whether to use the `vexpand` property.
     case notifyVexpandSet = "notify::vexpand-set"
+    /// Whether the widget is visible.
     case notifyVisible = "notify::visible"
+    /// Override for width request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case notifyWidthRequest = "notify::width-request"
 }
 
@@ -8883,11 +9499,12 @@ public extension GridViewProtocol {
     }
     
     
-    /// The `activate` signal is emitted when a cell has been activated by the user,
+    /// Emitted when a cell has been activated by the user,
     /// usually via activating the GtkGridView|list.activate-item action.
     /// 
     /// This allows for a convenient way to handle activation in a gridview.
-    /// See GtkListItem:activatable for details on how to use this signal.
+    /// See [property`Gtk.ListItem:activatable`] for details on how to use
+    /// this signal.
     /// - Note: This represents the underlying `activate` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -9268,30 +9885,38 @@ public extension GridViewProtocol {
     
     }
 
-    /// Sets the maximum number of columns to use. This number must be at least 1.
+    /// Sets the maximum number of columns to use.
+    /// 
+    /// This number must be at least 1.
     /// 
     /// If `max_columns` is smaller than the minimum set via
-    /// `gtk_grid_view_set_min_columns()`, that value is used instead.
+    /// [method`Gtk.GridView.set_min_columns`], that value is used instead.
     @inlinable func set(maxColumns: Int) {
         gtk_grid_view_set_max_columns(grid_view_ptr, guint(maxColumns))
     
     }
 
-    /// Sets the minimum number of columns to use. This number must be at least 1.
+    /// Sets the minimum number of columns to use.
+    /// 
+    /// This number must be at least 1.
     /// 
     /// If `min_columns` is smaller than the minimum set via
-    /// `gtk_grid_view_set_max_columns()`, that value is ignored.
+    /// [method`Gtk.GridView.set_max_columns`], that value is ignored.
     @inlinable func set(minColumns: Int) {
         gtk_grid_view_set_min_columns(grid_view_ptr, guint(minColumns))
     
     }
 
-    /// Sets the `GtkSelectionModel` to use for
+    /// Sets the imodel to use.
+    /// 
+    /// This must be a [iface`Gtk.SelectionModel`].
     @inlinable func set(model: SelectionModelRef? = nil) {
         gtk_grid_view_set_model(grid_view_ptr, model?.selection_model_ptr)
     
     }
-    /// Sets the `GtkSelectionModel` to use for
+    /// Sets the imodel to use.
+    /// 
+    /// This must be a [iface`Gtk.SelectionModel`].
     @inlinable func set<SelectionModelT: SelectionModelProtocol>(model: SelectionModelT?) {
         gtk_grid_view_set_model(grid_view_ptr, model?.selection_model_ptr)
     
@@ -9316,7 +9941,7 @@ public extension GridViewProtocol {
         }
     }
 
-    /// Factory for populating list items
+    /// Factory for populating list items.
     @inlinable var factory: ListItemFactoryRef! {
         /// Gets the factory that's currently used to populate list items.
         get {
@@ -9336,10 +9961,12 @@ public extension GridViewProtocol {
             let rv = Int(gtk_grid_view_get_max_columns(grid_view_ptr))
             return rv
         }
-        /// Sets the maximum number of columns to use. This number must be at least 1.
+        /// Sets the maximum number of columns to use.
+        /// 
+        /// This number must be at least 1.
         /// 
         /// If `max_columns` is smaller than the minimum set via
-        /// `gtk_grid_view_set_min_columns()`, that value is used instead.
+        /// [method`Gtk.GridView.set_min_columns`], that value is used instead.
         nonmutating set {
             gtk_grid_view_set_max_columns(grid_view_ptr, guint(newValue))
         }
@@ -9352,23 +9979,27 @@ public extension GridViewProtocol {
             let rv = Int(gtk_grid_view_get_min_columns(grid_view_ptr))
             return rv
         }
-        /// Sets the minimum number of columns to use. This number must be at least 1.
+        /// Sets the minimum number of columns to use.
+        /// 
+        /// This number must be at least 1.
         /// 
         /// If `min_columns` is smaller than the minimum set via
-        /// `gtk_grid_view_set_max_columns()`, that value is ignored.
+        /// [method`Gtk.GridView.set_max_columns`], that value is ignored.
         nonmutating set {
             gtk_grid_view_set_min_columns(grid_view_ptr, guint(newValue))
         }
     }
 
-    /// Model for the items displayed
+    /// Model for the items displayed.
     @inlinable var model: SelectionModelRef! {
         /// Gets the model that's currently used to read the items displayed.
         get {
             let rv = SelectionModelRef(gconstpointer: gconstpointer(gtk_grid_view_get_model(grid_view_ptr)))
             return rv
         }
-        /// Sets the `GtkSelectionModel` to use for
+        /// Sets the imodel to use.
+        /// 
+        /// This must be a [iface`Gtk.SelectionModel`].
         nonmutating set {
             gtk_grid_view_set_model(grid_view_ptr, UnsafeMutablePointer<GtkSelectionModel>(newValue?.selection_model_ptr))
         }
@@ -9402,48 +10033,54 @@ public extension GridViewProtocol {
 /// For a concrete class that implements these methods and properties, see `HeaderBar`.
 /// Alternatively, use `HeaderBarRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// GtkHeaderBar is similar to a horizontal `GtkBox`. It allows children to
-/// be placed at the start or the end. In addition, it allows the window
-/// title to be displayed. The title will be centered with respect to the
-/// width of the box, even if the children at either side take up different
-/// amounts of space.
+/// `GtkHeaderBar` is a widget for creating custom title bars for windows.
 /// 
-/// GtkHeaderBar can add typical window frame controls, such as minimize,
+/// ![An example GtkHeaderBar](headerbar.png)
+/// 
+/// `GtkHeaderBar` is similar to a horizontal `GtkCenterBox`. It allows
+/// children to be placed at the start or the end. In addition, it allows
+/// the window title to be displayed. The title will be centered with respect
+/// to the width of the box, even if the children at either side take up
+/// different amounts of space.
+/// 
+/// `GtkHeaderBar` can add typical window frame controls, such as minimize,
 /// maximize and close buttons, or the window icon.
 /// 
-/// For these reasons, GtkHeaderBar is the natural choice for use as the custom
-/// titlebar widget of a `GtkWindow` (see `gtk_window_set_titlebar()`), as it gives
-/// features typical of titlebars while allowing the addition of child widgets.
+/// For these reasons, `GtkHeaderBar` is the natural choice for use as the
+/// custom titlebar widget of a `GtkWindow (see [method`Gtk.Window.set_titlebar`]),
+/// as it gives features typical of titlebars while allowing the addition of
+/// child widgets.
 /// 
-/// The GtkHeaderBar implementation of the `GtkBuildable` interface supports
+/// ## GtkHeaderBar as GtkBuildable
+/// 
+/// The `GtkHeaderBar` implementation of the `GtkBuildable` interface supports
 /// adding children at the start or end sides by specifying “start” or “end” as
 /// the “type” attribute of a &lt;child&gt; element, or setting the title widget by
 /// specifying “title” value.
 /// 
-/// By default the GtkHeaderBar uses a `GtkLabel` displaying the title of the
+/// By default the `GtkHeaderBar` uses a `GtkLabel` displaying the title of the
 /// window it is contained in as the title widget, equivalent to the following
 /// UI definition:
 /// 
-/// ```
-/// <object class="GtkHeaderBar">
-///   <property name="title-widget">
-///     <object class="GtkLabel">
-///       <property name="label" translatable="yes">Label</property>
-///       <property name="single-line-mode">True</property>
-///       <property name="ellipsize">end</property>
-///       <property name="width-chars">5</property>
-///       <style>
-///         <class name="title"/>
-///       </style>
-///     </object>
-///   </property>
-/// </object>
+/// ```xml
+/// &lt;object class="GtkHeaderBar"&gt;
+///   &lt;property name="title-widget"&gt;
+///     &lt;object class="GtkLabel"&gt;
+///       &lt;property name="label" translatable="yes"&gt;Label&lt;/property&gt;
+///       &lt;property name="single-line-mode"&gt;True&lt;/property&gt;
+///       &lt;property name="ellipsize"&gt;end&lt;/property&gt;
+///       &lt;property name="width-chars"&gt;5&lt;/property&gt;
+///       &lt;style&gt;
+///         &lt;class name="title"/&gt;
+///       &lt;/style&gt;
+///     &lt;/object&gt;
+///   &lt;/property&gt;
+/// &lt;/object&gt;
 /// ```
 /// 
 /// # CSS nodes
 /// 
-/// (plain Language Example):
-/// ```plain
+/// ```
 /// headerbar
 /// ╰── windowhandle
 ///     ╰── box
@@ -9461,12 +10098,12 @@ public extension GridViewProtocol {
 /// the start and end of the header bar, as well as a center node that represents
 /// the title.
 /// 
-/// Each of the boxes contains a `windowcontrols` subnode, see `GtkWindowControls`
-/// for details, as well as other children.
+/// Each of the boxes contains a `windowcontrols` subnode, see
+/// [class`Gtk.WindowControls`] for details, as well as other children.
 /// 
 /// # Accessibility
 /// 
-/// GtkHeaderBar uses the `GTK_ACCESSIBLE_ROLE_GROUP` role.
+/// `GtkHeaderBar` uses the `GTK_ACCESSIBLE_ROLE_GROUP` role.
 public protocol HeaderBarProtocol: WidgetProtocol {
         /// Untyped pointer to the underlying `GtkHeaderBar` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -9482,48 +10119,54 @@ public protocol HeaderBarProtocol: WidgetProtocol {
 /// It exposes methods that can operate on this data type through `HeaderBarProtocol` conformance.
 /// Use `HeaderBarRef` only as an `unowned` reference to an existing `GtkHeaderBar` instance.
 ///
-/// GtkHeaderBar is similar to a horizontal `GtkBox`. It allows children to
-/// be placed at the start or the end. In addition, it allows the window
-/// title to be displayed. The title will be centered with respect to the
-/// width of the box, even if the children at either side take up different
-/// amounts of space.
+/// `GtkHeaderBar` is a widget for creating custom title bars for windows.
 /// 
-/// GtkHeaderBar can add typical window frame controls, such as minimize,
+/// ![An example GtkHeaderBar](headerbar.png)
+/// 
+/// `GtkHeaderBar` is similar to a horizontal `GtkCenterBox`. It allows
+/// children to be placed at the start or the end. In addition, it allows
+/// the window title to be displayed. The title will be centered with respect
+/// to the width of the box, even if the children at either side take up
+/// different amounts of space.
+/// 
+/// `GtkHeaderBar` can add typical window frame controls, such as minimize,
 /// maximize and close buttons, or the window icon.
 /// 
-/// For these reasons, GtkHeaderBar is the natural choice for use as the custom
-/// titlebar widget of a `GtkWindow` (see `gtk_window_set_titlebar()`), as it gives
-/// features typical of titlebars while allowing the addition of child widgets.
+/// For these reasons, `GtkHeaderBar` is the natural choice for use as the
+/// custom titlebar widget of a `GtkWindow (see [method`Gtk.Window.set_titlebar`]),
+/// as it gives features typical of titlebars while allowing the addition of
+/// child widgets.
 /// 
-/// The GtkHeaderBar implementation of the `GtkBuildable` interface supports
+/// ## GtkHeaderBar as GtkBuildable
+/// 
+/// The `GtkHeaderBar` implementation of the `GtkBuildable` interface supports
 /// adding children at the start or end sides by specifying “start” or “end” as
 /// the “type” attribute of a &lt;child&gt; element, or setting the title widget by
 /// specifying “title” value.
 /// 
-/// By default the GtkHeaderBar uses a `GtkLabel` displaying the title of the
+/// By default the `GtkHeaderBar` uses a `GtkLabel` displaying the title of the
 /// window it is contained in as the title widget, equivalent to the following
 /// UI definition:
 /// 
-/// ```
-/// <object class="GtkHeaderBar">
-///   <property name="title-widget">
-///     <object class="GtkLabel">
-///       <property name="label" translatable="yes">Label</property>
-///       <property name="single-line-mode">True</property>
-///       <property name="ellipsize">end</property>
-///       <property name="width-chars">5</property>
-///       <style>
-///         <class name="title"/>
-///       </style>
-///     </object>
-///   </property>
-/// </object>
+/// ```xml
+/// &lt;object class="GtkHeaderBar"&gt;
+///   &lt;property name="title-widget"&gt;
+///     &lt;object class="GtkLabel"&gt;
+///       &lt;property name="label" translatable="yes"&gt;Label&lt;/property&gt;
+///       &lt;property name="single-line-mode"&gt;True&lt;/property&gt;
+///       &lt;property name="ellipsize"&gt;end&lt;/property&gt;
+///       &lt;property name="width-chars"&gt;5&lt;/property&gt;
+///       &lt;style&gt;
+///         &lt;class name="title"/&gt;
+///       &lt;/style&gt;
+///     &lt;/object&gt;
+///   &lt;/property&gt;
+/// &lt;/object&gt;
 /// ```
 /// 
 /// # CSS nodes
 /// 
-/// (plain Language Example):
-/// ```plain
+/// ```
 /// headerbar
 /// ╰── windowhandle
 ///     ╰── box
@@ -9541,12 +10184,12 @@ public protocol HeaderBarProtocol: WidgetProtocol {
 /// the start and end of the header bar, as well as a center node that represents
 /// the title.
 /// 
-/// Each of the boxes contains a `windowcontrols` subnode, see `GtkWindowControls`
-/// for details, as well as other children.
+/// Each of the boxes contains a `windowcontrols` subnode, see
+/// [class`Gtk.WindowControls`] for details, as well as other children.
 /// 
 /// # Accessibility
 /// 
-/// GtkHeaderBar uses the `GTK_ACCESSIBLE_ROLE_GROUP` role.
+/// `GtkHeaderBar` uses the `GTK_ACCESSIBLE_ROLE_GROUP` role.
 public struct HeaderBarRef: HeaderBarProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkHeaderBar` instance.
     /// For type-safe access, use the generated, typed pointer `header_bar_ptr` property instead.
@@ -9637,48 +10280,54 @@ public extension HeaderBarRef {
 /// It provides the methods that can operate on this data type through `HeaderBarProtocol` conformance.
 /// Use `HeaderBar` as a strong reference or owner of a `GtkHeaderBar` instance.
 ///
-/// GtkHeaderBar is similar to a horizontal `GtkBox`. It allows children to
-/// be placed at the start or the end. In addition, it allows the window
-/// title to be displayed. The title will be centered with respect to the
-/// width of the box, even if the children at either side take up different
-/// amounts of space.
+/// `GtkHeaderBar` is a widget for creating custom title bars for windows.
 /// 
-/// GtkHeaderBar can add typical window frame controls, such as minimize,
+/// ![An example GtkHeaderBar](headerbar.png)
+/// 
+/// `GtkHeaderBar` is similar to a horizontal `GtkCenterBox`. It allows
+/// children to be placed at the start or the end. In addition, it allows
+/// the window title to be displayed. The title will be centered with respect
+/// to the width of the box, even if the children at either side take up
+/// different amounts of space.
+/// 
+/// `GtkHeaderBar` can add typical window frame controls, such as minimize,
 /// maximize and close buttons, or the window icon.
 /// 
-/// For these reasons, GtkHeaderBar is the natural choice for use as the custom
-/// titlebar widget of a `GtkWindow` (see `gtk_window_set_titlebar()`), as it gives
-/// features typical of titlebars while allowing the addition of child widgets.
+/// For these reasons, `GtkHeaderBar` is the natural choice for use as the
+/// custom titlebar widget of a `GtkWindow (see [method`Gtk.Window.set_titlebar`]),
+/// as it gives features typical of titlebars while allowing the addition of
+/// child widgets.
 /// 
-/// The GtkHeaderBar implementation of the `GtkBuildable` interface supports
+/// ## GtkHeaderBar as GtkBuildable
+/// 
+/// The `GtkHeaderBar` implementation of the `GtkBuildable` interface supports
 /// adding children at the start or end sides by specifying “start” or “end” as
 /// the “type” attribute of a &lt;child&gt; element, or setting the title widget by
 /// specifying “title” value.
 /// 
-/// By default the GtkHeaderBar uses a `GtkLabel` displaying the title of the
+/// By default the `GtkHeaderBar` uses a `GtkLabel` displaying the title of the
 /// window it is contained in as the title widget, equivalent to the following
 /// UI definition:
 /// 
-/// ```
-/// <object class="GtkHeaderBar">
-///   <property name="title-widget">
-///     <object class="GtkLabel">
-///       <property name="label" translatable="yes">Label</property>
-///       <property name="single-line-mode">True</property>
-///       <property name="ellipsize">end</property>
-///       <property name="width-chars">5</property>
-///       <style>
-///         <class name="title"/>
-///       </style>
-///     </object>
-///   </property>
-/// </object>
+/// ```xml
+/// &lt;object class="GtkHeaderBar"&gt;
+///   &lt;property name="title-widget"&gt;
+///     &lt;object class="GtkLabel"&gt;
+///       &lt;property name="label" translatable="yes"&gt;Label&lt;/property&gt;
+///       &lt;property name="single-line-mode"&gt;True&lt;/property&gt;
+///       &lt;property name="ellipsize"&gt;end&lt;/property&gt;
+///       &lt;property name="width-chars"&gt;5&lt;/property&gt;
+///       &lt;style&gt;
+///         &lt;class name="title"/&gt;
+///       &lt;/style&gt;
+///     &lt;/object&gt;
+///   &lt;/property&gt;
+/// &lt;/object&gt;
 /// ```
 /// 
 /// # CSS nodes
 /// 
-/// (plain Language Example):
-/// ```plain
+/// ```
 /// headerbar
 /// ╰── windowhandle
 ///     ╰── box
@@ -9696,12 +10345,12 @@ public extension HeaderBarRef {
 /// the start and end of the header bar, as well as a center node that represents
 /// the title.
 /// 
-/// Each of the boxes contains a `windowcontrols` subnode, see `GtkWindowControls`
-/// for details, as well as other children.
+/// Each of the boxes contains a `windowcontrols` subnode, see
+/// [class`Gtk.WindowControls`] for details, as well as other children.
 /// 
 /// # Accessibility
 /// 
-/// GtkHeaderBar uses the `GTK_ACCESSIBLE_ROLE_GROUP` role.
+/// `GtkHeaderBar` uses the `GTK_ACCESSIBLE_ROLE_GROUP` role.
 open class HeaderBar: Widget, HeaderBarProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -9844,6 +10493,7 @@ public enum HeaderBarPropertyName: String, PropertyNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case canFocus = "can-focus"
+    /// Whether the widget can receive pointer events.
     case canTarget = "can-target"
     /// A list of css classes applied to this widget.
     case cssClasses = "css-classes"
@@ -9852,14 +10502,12 @@ public enum HeaderBarPropertyName: String, PropertyNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case cssName = "css-name"
-    /// The cursor used by `widget`. See `gtk_widget_set_cursor()` for details.
+    /// The cursor used by `widget`.
     case cursor = "cursor"
-    /// The decoration layout for buttons. If this property is
-    /// not set, the `GtkSettings:gtk-decoration-layout` setting
-    /// is used.
+    /// The decoration layout for buttons.
     /// 
-    /// See `gtk_header_bar_set_decoration_layout()` for information
-    /// about the format of this string.
+    /// If this property is not set, the
+    /// [property`Gtk.Settings:gtk-decoration-layout`] setting is used.
     case decorationLayout = "decoration-layout"
     /// Whether the widget should grab focus when it is clicked with the mouse.
     /// 
@@ -9867,19 +10515,25 @@ public enum HeaderBarPropertyName: String, PropertyNameProtocol {
     case focusOnClick = "focus-on-click"
     /// Whether this widget itself will accept the input focus.
     case focusable = "focusable"
-    /// How to distribute horizontal space if widget gets extra space, see `GtkAlign`
+    /// How to distribute horizontal space if widget gets extra space.
     case halign = "halign"
+    /// Whether the widget is the default widget.
     case hasDefault = "has-default"
+    /// Whether the widget has the input focus.
     case hasFocus = "has-focus"
-    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
+    /// Enables or disables the emission of the `query-tooltip` signal on `widget`.
+    /// 
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
-    /// whether it will provide a tooltip or not.
+    /// the widget will be queried using [signal`Gtk.Widget::query-tooltip`] to
+    /// determine whether it will provide a tooltip or not.
     case hasTooltip = "has-tooltip"
+    /// Override for height request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case heightRequest = "height-request"
-    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
+    /// Whether to expand horizontally.
     case hexpand = "hexpand"
-    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
+    /// Whether to use the `hexpand` property.
     case hexpandSet = "hexpand-set"
     /// The `GtkLayoutManager` instance to use to compute the preferred size
     /// of the widget, and allocate its children.
@@ -9891,85 +10545,99 @@ public enum HeaderBarPropertyName: String, PropertyNameProtocol {
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginBottom = "margin-bottom"
-    /// Margin on end of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on end of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginEnd = "margin-end"
-    /// Margin on start of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on start of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginStart = "margin-start"
     /// Margin on top side of widget.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginTop = "margin-top"
+    /// The name of the widget.
     case name = "name"
-    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
-    /// more details about window opacity.
+    /// The requested opacity of the widget.
     case opacity = "opacity"
     /// How content outside the widget's content area is treated.
     /// 
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case overflow = "overflow"
+    /// The parent widget of this widget.
     case parent = "parent"
+    /// Whether the widget will receive the default action when it is focused.
     case receivesDefault = "receives-default"
-    /// The `GtkRoot` widget of the widget tree containing this widget or `nil` if
-    /// the widget is not contained in a root widget.
+    /// The `GtkRoot` widget of the widget tree containing this widget.
+    /// 
+    /// This will be `nil` if the widget is not contained in a root widget.
     case root = "root"
-    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
-    /// more details about widget scaling.
+    /// The scale factor of the widget.
     case scaleFactor = "scale-factor"
+    /// Whether the widget responds to input.
     case sensitive = "sensitive"
     /// Whether to show title buttons like close, minimize, maximize.
     /// 
     /// Which buttons are actually shown and where is determined
-    /// by the `GtkHeaderBar:decoration-layout` property, and by
-    /// the state of the window (e.g. a close button will not be
-    /// shown if the window can't be closed).
+    /// by the [property`Gtk.HeaderBar:decoration-layout`] property,
+    /// and by the state of the window (e.g. a close button will not
+    /// be shown if the window can't be closed).
     case showTitleButtons = "show-title-buttons"
     case titleWidget = "title-widget"
     /// Sets the text of tooltip to be the given string, which is marked up
-    /// with the [Pango text markup language](#PangoMarkupFormat).
-    /// Also see `gtk_tooltip_set_markup()`.
+    /// with Pango markup.
+    /// 
+    /// Also see [method`Gtk.Tooltip.set_markup`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case tooltipMarkup = "tooltip-markup"
     /// Sets the text of tooltip to be the given string.
     /// 
-    /// Also see `gtk_tooltip_set_text()`.
+    /// Also see [method`Gtk.Tooltip.set_text`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case tooltipText = "tooltip-text"
-    /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
+    /// How to distribute vertical space if widget gets extra space.
     case valign = "valign"
-    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
+    /// Whether to expand vertically.
     case vexpand = "vexpand"
-    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
+    /// Whether to use the `vexpand` property.
     case vexpandSet = "vexpand-set"
+    /// Whether the widget is visible.
     case visible = "visible"
+    /// Override for width request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case widthRequest = "width-request"
 }
 
@@ -10028,29 +10696,32 @@ public extension HeaderBarProtocol {
 
 public enum HeaderBarSignalName: String, SignalNameProtocol {
     /// Signals that all holders of a reference to the widget should release
-    /// the reference that they hold. May result in finalization of the widget
-    /// if all references are released.
+    /// the reference that they hold.
+    /// 
+    /// May result in finalization of the widget if all references are released.
     /// 
     /// This signal is not suitable for saving widget state.
     case destroy = "destroy"
-    /// The `direction-changed` signal is emitted when the text direction
-    /// of a widget changes.
+    /// Emitted when the text direction of a widget changes.
     case directionChanged = "direction-changed"
-    /// The `hide` signal is emitted when `widget` is hidden, for example with
-    /// `gtk_widget_hide()`.
+    /// Emitted when `widget` is hidden.
     case hide = "hide"
-    /// Gets emitted if keyboard navigation fails.
-    /// See `gtk_widget_keynav_failed()` for details.
+    /// Emitted if keyboard navigation fails.
+    /// 
+    /// See [method`Gtk.Widget.keynav_failed`] for details.
     case keynavFailed = "keynav-failed"
-    /// The `map` signal is emitted when `widget` is going to be mapped, that is
-    /// when the widget is visible (which is controlled with
-    /// `gtk_widget_set_visible()`) and all its parents up to the toplevel widget
+    /// Emitted when `widget` is going to be mapped.
+    /// 
+    /// A widget is mapped when the widget is visible (which is controlled with
+    /// [property`Gtk.Widget:visible`]) and all its parents up to the toplevel widget
     /// are also visible.
     /// 
     /// The `map` signal can be used to determine whether a widget will be drawn,
     /// for instance it can resume an animation that was stopped during the
-    /// emission of `GtkWidget::unmap`.
+    /// emission of [signal`Gtk.Widget::unmap`].
     case map = "map"
+    /// Emitted when a widget is activated via a mnemonic.
+    /// 
     /// The default handler for this signal activates `widget` if `group_cycling`
     /// is `false`, or just makes `widget` grab focus if `group_cycling` is `true`.
     case mnemonicActivate = "mnemonic-activate"
@@ -10081,9 +10752,11 @@ public enum HeaderBarSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// Emitted when `GtkWidget:has-tooltip` is `true` and the hover timeout
-    /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
-    /// focus in keyboard mode.
+    /// Emitted when the widgets tooltip is about to be shown.
+    /// 
+    /// This happens when the [property`Gtk.Widget:has-tooltip`] property
+    /// is `true` and the hover timeout has expired with the cursor hovering
+    /// "above" `widget`; or emitted when `widget` got focus in keyboard mode.
     /// 
     /// Using the given coordinates, the signal handler should determine
     /// whether a tooltip should be shown for `widget`. If this is the case
@@ -10094,27 +10767,29 @@ public enum HeaderBarSignalName: String, SignalNameProtocol {
     /// The signal handler is free to manipulate `tooltip` with the therefore
     /// destined function calls.
     case queryTooltip = "query-tooltip"
-    /// The `realize` signal is emitted when `widget` is associated with a
-    /// `GdkSurface`, which means that `gtk_widget_realize()` has been called or the
-    /// widget has been mapped (that is, it is going to be drawn).
-    case realize = "realize"
-    /// The `show` signal is emitted when `widget` is shown, for example with
-    /// `gtk_widget_show()`.
-    case show = "show"
-    /// The `state-flags-changed` signal is emitted when the widget state
-    /// changes, see `gtk_widget_get_state_flags()`.
-    case stateFlagsChanged = "state-flags-changed"
-    /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
-    /// means that either it or any of its parents up to the toplevel widget have
-    /// been set as hidden.
+    /// Emitted when `widget` is associated with a `GdkSurface`.
     /// 
-    /// As `unmap` indicates that a widget will not be shown any longer, it can be
-    /// used to, for example, stop an animation on the widget.
+    /// This means that [method`Gtk.Widget.realize`] has been called
+    /// or the widget has been mapped (that is, it is going to be drawn).
+    case realize = "realize"
+    /// Emitted when `widget` is shown.
+    case show = "show"
+    /// Emitted when the widget state changes.
+    /// 
+    /// See [method`Gtk.Widget.get_state_flags`].
+    case stateFlagsChanged = "state-flags-changed"
+    /// Emitted when `widget` is going to be unmapped.
+    /// 
+    /// A widget is unmapped when either it or any of its parents up to the
+    /// toplevel widget have been set as hidden.
+    /// 
+    /// As `unmap` indicates that a widget will not be shown any longer,
+    /// it can be used to, for example, stop an animation on the widget.
     case unmap = "unmap"
-    /// The `unrealize` signal is emitted when the `GdkSurface` associated with
-    /// `widget` is destroyed, which means that `gtk_widget_unrealize()` has been
-    /// called or the widget has been unmapped (that is, it is going to be
-    /// hidden).
+    /// Emitted when the `GdkSurface` associated with `widget` is destroyed.
+    /// 
+    /// This means that [method`Gtk.Widget.unrealize`] has been called
+    /// or the widget has been unmapped (that is, it is going to be hidden).
     case unrealize = "unrealize"
     /// Whether the widget or any of its descendents can accept
     /// the input focus.
@@ -10122,6 +10797,7 @@ public enum HeaderBarSignalName: String, SignalNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case notifyCanFocus = "notify::can-focus"
+    /// Whether the widget can receive pointer events.
     case notifyCanTarget = "notify::can-target"
     /// A list of css classes applied to this widget.
     case notifyCssClasses = "notify::css-classes"
@@ -10130,14 +10806,12 @@ public enum HeaderBarSignalName: String, SignalNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case notifyCssName = "notify::css-name"
-    /// The cursor used by `widget`. See `gtk_widget_set_cursor()` for details.
+    /// The cursor used by `widget`.
     case notifyCursor = "notify::cursor"
-    /// The decoration layout for buttons. If this property is
-    /// not set, the `GtkSettings:gtk-decoration-layout` setting
-    /// is used.
+    /// The decoration layout for buttons.
     /// 
-    /// See `gtk_header_bar_set_decoration_layout()` for information
-    /// about the format of this string.
+    /// If this property is not set, the
+    /// [property`Gtk.Settings:gtk-decoration-layout`] setting is used.
     case notifyDecorationLayout = "notify::decoration-layout"
     /// Whether the widget should grab focus when it is clicked with the mouse.
     /// 
@@ -10145,19 +10819,25 @@ public enum HeaderBarSignalName: String, SignalNameProtocol {
     case notifyFocusOnClick = "notify::focus-on-click"
     /// Whether this widget itself will accept the input focus.
     case notifyFocusable = "notify::focusable"
-    /// How to distribute horizontal space if widget gets extra space, see `GtkAlign`
+    /// How to distribute horizontal space if widget gets extra space.
     case notifyHalign = "notify::halign"
+    /// Whether the widget is the default widget.
     case notifyHasDefault = "notify::has-default"
+    /// Whether the widget has the input focus.
     case notifyHasFocus = "notify::has-focus"
-    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
+    /// Enables or disables the emission of the `query-tooltip` signal on `widget`.
+    /// 
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
-    /// whether it will provide a tooltip or not.
+    /// the widget will be queried using [signal`Gtk.Widget::query-tooltip`] to
+    /// determine whether it will provide a tooltip or not.
     case notifyHasTooltip = "notify::has-tooltip"
+    /// Override for height request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case notifyHeightRequest = "notify::height-request"
-    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
+    /// Whether to expand horizontally.
     case notifyHexpand = "notify::hexpand"
-    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
+    /// Whether to use the `hexpand` property.
     case notifyHexpandSet = "notify::hexpand-set"
     /// The `GtkLayoutManager` instance to use to compute the preferred size
     /// of the widget, and allocate its children.
@@ -10169,85 +10849,99 @@ public enum HeaderBarSignalName: String, SignalNameProtocol {
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginBottom = "notify::margin-bottom"
-    /// Margin on end of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on end of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginEnd = "notify::margin-end"
-    /// Margin on start of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on start of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginStart = "notify::margin-start"
     /// Margin on top side of widget.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginTop = "notify::margin-top"
+    /// The name of the widget.
     case notifyName = "notify::name"
-    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
-    /// more details about window opacity.
+    /// The requested opacity of the widget.
     case notifyOpacity = "notify::opacity"
     /// How content outside the widget's content area is treated.
     /// 
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case notifyOverflow = "notify::overflow"
+    /// The parent widget of this widget.
     case notifyParent = "notify::parent"
+    /// Whether the widget will receive the default action when it is focused.
     case notifyReceivesDefault = "notify::receives-default"
-    /// The `GtkRoot` widget of the widget tree containing this widget or `nil` if
-    /// the widget is not contained in a root widget.
+    /// The `GtkRoot` widget of the widget tree containing this widget.
+    /// 
+    /// This will be `nil` if the widget is not contained in a root widget.
     case notifyRoot = "notify::root"
-    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
-    /// more details about widget scaling.
+    /// The scale factor of the widget.
     case notifyScaleFactor = "notify::scale-factor"
+    /// Whether the widget responds to input.
     case notifySensitive = "notify::sensitive"
     /// Whether to show title buttons like close, minimize, maximize.
     /// 
     /// Which buttons are actually shown and where is determined
-    /// by the `GtkHeaderBar:decoration-layout` property, and by
-    /// the state of the window (e.g. a close button will not be
-    /// shown if the window can't be closed).
+    /// by the [property`Gtk.HeaderBar:decoration-layout`] property,
+    /// and by the state of the window (e.g. a close button will not
+    /// be shown if the window can't be closed).
     case notifyShowTitleButtons = "notify::show-title-buttons"
     case notifyTitleWidget = "notify::title-widget"
     /// Sets the text of tooltip to be the given string, which is marked up
-    /// with the [Pango text markup language](#PangoMarkupFormat).
-    /// Also see `gtk_tooltip_set_markup()`.
+    /// with Pango markup.
+    /// 
+    /// Also see [method`Gtk.Tooltip.set_markup`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case notifyTooltipMarkup = "notify::tooltip-markup"
     /// Sets the text of tooltip to be the given string.
     /// 
-    /// Also see `gtk_tooltip_set_text()`.
+    /// Also see [method`Gtk.Tooltip.set_text`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case notifyTooltipText = "notify::tooltip-text"
-    /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
+    /// How to distribute vertical space if widget gets extra space.
     case notifyValign = "notify::valign"
-    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
+    /// Whether to expand vertically.
     case notifyVexpand = "notify::vexpand"
-    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
+    /// Whether to use the `vexpand` property.
     case notifyVexpandSet = "notify::vexpand-set"
+    /// Whether the widget is visible.
     case notifyVisible = "notify::visible"
+    /// Override for width request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case notifyWidthRequest = "notify::width-request"
 }
 
@@ -10257,8 +10951,7 @@ public extension HeaderBarProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkHeaderBar` instance.
     @inlinable var header_bar_ptr: UnsafeMutablePointer<GtkHeaderBar>! { return ptr?.assumingMemoryBound(to: GtkHeaderBar.self) }
 
-    /// Gets the decoration layout set with
-    /// `gtk_header_bar_set_decoration_layout()`.
+    /// Gets the decoration layout of the `GtkHeaderBar`.
     @inlinable func getDecorationLayout() -> String! {
         let rv = gtk_header_bar_get_decoration_layout(header_bar_ptr).map({ String(cString: $0) })
         return rv
@@ -10271,8 +10964,9 @@ public extension HeaderBarProtocol {
         return rv
     }
 
-    /// Retrieves the title widget of the header. See
-    /// `gtk_header_bar_set_title_widget()`.
+    /// Retrieves the title widget of the header.
+    /// 
+    /// See [method`Gtk.HeaderBar.set_title_widget`].
     @inlinable func getTitleWidget() -> WidgetRef! {
         guard let rv = WidgetRef(gconstpointer: gconstpointer(gtk_header_bar_get_title_widget(header_bar_ptr))) else { return nil }
         return rv
@@ -10292,22 +10986,26 @@ public extension HeaderBarProtocol {
     
     }
 
-    /// Removes a child from `bar`, after it has been added
-    /// with `gtk_header_bar_pack_start()`, `gtk_header_bar_pack_end()`
-    /// or `gtk_header_bar_set_title_widget()`.
+    /// Removes a child from the `GtkHeaderBar`.
+    /// 
+    /// The child must have been added with
+    /// [method`Gtk.HeaderBar.pack_start`],
+    /// [method`Gtk.HeaderBar.pack_end`] or
+    /// [method`Gtk.HeaderBar.set_title_widget`].
     @inlinable func remove<WidgetT: WidgetProtocol>(child: WidgetT) {
         gtk_header_bar_remove(header_bar_ptr, child.widget_ptr)
     
     }
 
-    /// Sets the decoration layout for this header bar, overriding
-    /// the `GtkSettings:gtk-decoration-layout` setting.
+    /// Sets the decoration layout for this header bar.
+    /// 
+    /// This property overrides the
+    /// [property`Gtk.Settings:gtk-decoration-layout`] setting.
     /// 
     /// There can be valid reasons for overriding the setting, such
     /// as a header bar design that does not allow for buttons to take
     /// room on the right, or only offers room for a single close button.
-    /// Split header bars are another example for overriding the
-    /// setting.
+    /// Split header bars are another example for overriding the setting.
     /// 
     /// The format of the string is button names, separated by commas.
     /// A colon separates the buttons that should appear on the left
@@ -10322,7 +11020,7 @@ public extension HeaderBarProtocol {
     }
 
     /// Sets whether this header bar shows the standard window
-    /// title buttons including close, maximize, and minimize.
+    /// title buttons.
     @inlinable func setShowTitleButtons(setting: Bool) {
         gtk_header_bar_set_show_title_buttons(header_bar_ptr, gboolean((setting) ? 1 : 0))
     
@@ -10330,49 +11028,50 @@ public extension HeaderBarProtocol {
 
     /// Sets the title for the `GtkHeaderBar`.
     /// 
-    /// When set to `nil`, the headerbar will display the title of the window it is
-    /// contained in.
+    /// When set to `nil`, the headerbar will display the title of
+    /// the window it is contained in.
     /// 
-    /// The title should help a user identify the current view. To achieve the same
-    /// style as the builtin title, use the “title” style class.
+    /// The title should help a user identify the current view.
+    /// To achieve the same style as the builtin title, use the
+    /// “title” style class.
     /// 
-    /// You should set the title widget to `nil`, for the window title label to be
-    /// visible again.
+    /// You should set the title widget to `nil`, for the window
+    /// title label to be visible again.
     @inlinable func set(titleWidget: WidgetRef? = nil) {
         gtk_header_bar_set_title_widget(header_bar_ptr, titleWidget?.widget_ptr)
     
     }
     /// Sets the title for the `GtkHeaderBar`.
     /// 
-    /// When set to `nil`, the headerbar will display the title of the window it is
-    /// contained in.
+    /// When set to `nil`, the headerbar will display the title of
+    /// the window it is contained in.
     /// 
-    /// The title should help a user identify the current view. To achieve the same
-    /// style as the builtin title, use the “title” style class.
+    /// The title should help a user identify the current view.
+    /// To achieve the same style as the builtin title, use the
+    /// “title” style class.
     /// 
-    /// You should set the title widget to `nil`, for the window title label to be
-    /// visible again.
+    /// You should set the title widget to `nil`, for the window
+    /// title label to be visible again.
     @inlinable func set<WidgetT: WidgetProtocol>(titleWidget: WidgetT?) {
         gtk_header_bar_set_title_widget(header_bar_ptr, titleWidget?.widget_ptr)
     
     }
-    /// Gets the decoration layout set with
-    /// `gtk_header_bar_set_decoration_layout()`.
+    /// Gets the decoration layout of the `GtkHeaderBar`.
     @inlinable var decorationLayout: String! {
-        /// Gets the decoration layout set with
-        /// `gtk_header_bar_set_decoration_layout()`.
+        /// Gets the decoration layout of the `GtkHeaderBar`.
         get {
             let rv = gtk_header_bar_get_decoration_layout(header_bar_ptr).map({ String(cString: $0) })
             return rv
         }
-        /// Sets the decoration layout for this header bar, overriding
-        /// the `GtkSettings:gtk-decoration-layout` setting.
+        /// Sets the decoration layout for this header bar.
+        /// 
+        /// This property overrides the
+        /// [property`Gtk.Settings:gtk-decoration-layout`] setting.
         /// 
         /// There can be valid reasons for overriding the setting, such
         /// as a header bar design that does not allow for buttons to take
         /// room on the right, or only offers room for a single close button.
-        /// Split header bars are another example for overriding the
-        /// setting.
+        /// Split header bars are another example for overriding the setting.
         /// 
         /// The format of the string is button names, separated by commas.
         /// A colon separates the buttons that should appear on the left
@@ -10396,31 +11095,34 @@ public extension HeaderBarProtocol {
             return rv
         }
         /// Sets whether this header bar shows the standard window
-        /// title buttons including close, maximize, and minimize.
+        /// title buttons.
         nonmutating set {
             gtk_header_bar_set_show_title_buttons(header_bar_ptr, gboolean((newValue) ? 1 : 0))
         }
     }
 
-    /// Retrieves the title widget of the header. See
-    /// `gtk_header_bar_set_title_widget()`.
+    /// Retrieves the title widget of the header.
+    /// 
+    /// See [method`Gtk.HeaderBar.set_title_widget`].
     @inlinable var titleWidget: WidgetRef! {
-        /// Retrieves the title widget of the header. See
-        /// `gtk_header_bar_set_title_widget()`.
+        /// Retrieves the title widget of the header.
+        /// 
+        /// See [method`Gtk.HeaderBar.set_title_widget`].
         get {
             guard let rv = WidgetRef(gconstpointer: gconstpointer(gtk_header_bar_get_title_widget(header_bar_ptr))) else { return nil }
             return rv
         }
         /// Sets the title for the `GtkHeaderBar`.
         /// 
-        /// When set to `nil`, the headerbar will display the title of the window it is
-        /// contained in.
+        /// When set to `nil`, the headerbar will display the title of
+        /// the window it is contained in.
         /// 
-        /// The title should help a user identify the current view. To achieve the same
-        /// style as the builtin title, use the “title” style class.
+        /// The title should help a user identify the current view.
+        /// To achieve the same style as the builtin title, use the
+        /// “title” style class.
         /// 
-        /// You should set the title widget to `nil`, for the window title label to be
-        /// visible again.
+        /// You should set the title widget to `nil`, for the window
+        /// title label to be visible again.
         nonmutating set {
             gtk_header_bar_set_title_widget(header_bar_ptr, UnsafeMutablePointer<GtkWidget>(newValue?.widget_ptr))
         }

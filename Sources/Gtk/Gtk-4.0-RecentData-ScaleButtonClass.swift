@@ -404,11 +404,8 @@ public extension RecentDataProtocol {
 /// For a concrete class that implements these methods and properties, see `RecentInfo`.
 /// Alternatively, use `RecentInfoRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// `GtkRecentInfo` contains private data only, and should be accessed using the
-/// provided API.
-/// 
-/// `GtkRecentInfo` contains all the meta-data
-/// associated with an entry in the recently used files list.
+/// `GtkRecentInfo` contains the metadata associated with an item in the
+/// recently used files list.
 public protocol RecentInfoProtocol {
         /// Untyped pointer to the underlying `GtkRecentInfo` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -424,11 +421,8 @@ public protocol RecentInfoProtocol {
 /// It exposes methods that can operate on this data type through `RecentInfoProtocol` conformance.
 /// Use `RecentInfoRef` only as an `unowned` reference to an existing `GtkRecentInfo` instance.
 ///
-/// `GtkRecentInfo` contains private data only, and should be accessed using the
-/// provided API.
-/// 
-/// `GtkRecentInfo` contains all the meta-data
-/// associated with an entry in the recently used files list.
+/// `GtkRecentInfo` contains the metadata associated with an item in the
+/// recently used files list.
 public struct RecentInfoRef: RecentInfoProtocol {
         /// Untyped pointer to the underlying `GtkRecentInfo` instance.
     /// For type-safe access, use the generated, typed pointer `recent_info_ptr` property instead.
@@ -511,11 +505,8 @@ public extension RecentInfoRef {
 /// It provides the methods that can operate on this data type through `RecentInfoProtocol` conformance.
 /// Use `RecentInfo` as a strong reference or owner of a `GtkRecentInfo` instance.
 ///
-/// `GtkRecentInfo` contains private data only, and should be accessed using the
-/// provided API.
-/// 
-/// `GtkRecentInfo` contains all the meta-data
-/// associated with an entry in the recently used files list.
+/// `GtkRecentInfo` contains the metadata associated with an item in the
+/// recently used files list.
 open class RecentInfo: RecentInfoProtocol {
         /// Untyped pointer to the underlying `GtkRecentInfo` instance.
     /// For type-safe access, use the generated, typed pointer `recent_info_ptr` property instead.
@@ -722,7 +713,9 @@ public extension RecentInfoProtocol {
         return rv
     }
 
-    /// Gets the name of the resource. If none has been defined, the basename
+    /// Gets the name of the resource.
+    /// 
+    /// If none has been defined, the basename
     /// of the resource is obtained.
     @inlinable func getDisplayName() -> String! {
         let rv = gtk_recent_info_get_display_name(recent_info_ptr).map({ String(cString: $0) })
@@ -736,6 +729,7 @@ public extension RecentInfoProtocol {
     }
 
     /// Returns all groups registered for the recently used item `info`.
+    /// 
     /// The array of returned group names will be `nil` terminated, so
     /// length might optionally be `nil`.
     @inlinable func getGroups(length: UnsafeMutablePointer<gsize>! = nil) -> UnsafeMutablePointer<UnsafeMutablePointer<CChar>?>! {
@@ -756,18 +750,21 @@ public extension RecentInfoProtocol {
         return rv
     }
 
-    /// Gets the value of the “private” flag. Resources in the recently used
-    /// list that have this flag set to `true` should only be displayed by the
-    /// applications that have registered them.
+    /// Gets the value of the “private” flag.
+    /// 
+    /// Resources in the recently used list that have this flag
+    /// set to `true` should only be displayed by the applications
+    /// that have registered them.
     @inlinable func getPrivateHint() -> Bool {
         let rv = ((gtk_recent_info_get_private_hint(recent_info_ptr)) != 0)
         return rv
     }
 
     /// Computes a valid UTF-8 string that can be used as the
-    /// name of the item in a menu or list. For example, calling
-    /// this function on an item that refers to
-    /// “file:///foo/bar.txt” will yield “bar.txt”.
+    /// name of the item in a menu or list.
+    /// 
+    /// For example, calling this function on an item that refers
+    /// to “file:///foo/bar.txt” will yield “bar.txt”.
     @inlinable func getShortName() -> String! {
         let rv = gtk_recent_info_get_short_name(recent_info_ptr).map({ String(cString: $0) })
         return rv
@@ -779,9 +776,11 @@ public extension RecentInfoProtocol {
         return rv
     }
 
-    /// Gets a displayable version of the resource’s URI. If the resource
-    /// is local, it returns a local path; if the resource is not local,
-    /// it returns the UTF-8 encoded content of `gtk_recent_info_get_uri()`.
+    /// Gets a displayable version of the resource’s URI.
+    /// 
+    /// If the resource is local, it returns a local path; if the
+    /// resource is not local, it returns the UTF-8 encoded content
+    /// of [method`Gtk.RecentInfo.get_uri`].
     @inlinable func getUriDisplay() -> String! {
         let rv = gtk_recent_info_get_uri_display(recent_info_ptr).map({ String(cString: $0) })
         return rv
@@ -826,8 +825,10 @@ public extension RecentInfoProtocol {
         return rv
     }
 
-    /// Decreases the reference count of `info` by one. If the reference
-    /// count reaches zero, `info` is deallocated, and the memory freed.
+    /// Decreases the reference count of `info` by one.
+    /// 
+    /// If the reference count reaches zero, `info` is
+    /// deallocated, and the memory freed.
     @inlinable func unref() {
         gtk_recent_info_unref(recent_info_ptr)
     
@@ -863,10 +864,14 @@ public extension RecentInfoProtocol {
         }
     }
 
-    /// Gets the name of the resource. If none has been defined, the basename
+    /// Gets the name of the resource.
+    /// 
+    /// If none has been defined, the basename
     /// of the resource is obtained.
     @inlinable var displayName: String! {
-        /// Gets the name of the resource. If none has been defined, the basename
+        /// Gets the name of the resource.
+        /// 
+        /// If none has been defined, the basename
         /// of the resource is obtained.
         get {
             let rv = gtk_recent_info_get_display_name(recent_info_ptr).map({ String(cString: $0) })
@@ -914,13 +919,17 @@ public extension RecentInfoProtocol {
         }
     }
 
-    /// Gets the value of the “private” flag. Resources in the recently used
-    /// list that have this flag set to `true` should only be displayed by the
-    /// applications that have registered them.
+    /// Gets the value of the “private” flag.
+    /// 
+    /// Resources in the recently used list that have this flag
+    /// set to `true` should only be displayed by the applications
+    /// that have registered them.
     @inlinable var privateHint: Bool {
-        /// Gets the value of the “private” flag. Resources in the recently used
-        /// list that have this flag set to `true` should only be displayed by the
-        /// applications that have registered them.
+        /// Gets the value of the “private” flag.
+        /// 
+        /// Resources in the recently used list that have this flag
+        /// set to `true` should only be displayed by the applications
+        /// that have registered them.
         get {
             let rv = ((gtk_recent_info_get_private_hint(recent_info_ptr)) != 0)
             return rv
@@ -928,14 +937,16 @@ public extension RecentInfoProtocol {
     }
 
     /// Computes a valid UTF-8 string that can be used as the
-    /// name of the item in a menu or list. For example, calling
-    /// this function on an item that refers to
-    /// “file:///foo/bar.txt” will yield “bar.txt”.
+    /// name of the item in a menu or list.
+    /// 
+    /// For example, calling this function on an item that refers
+    /// to “file:///foo/bar.txt” will yield “bar.txt”.
     @inlinable var shortName: String! {
         /// Computes a valid UTF-8 string that can be used as the
-        /// name of the item in a menu or list. For example, calling
-        /// this function on an item that refers to
-        /// “file:///foo/bar.txt” will yield “bar.txt”.
+        /// name of the item in a menu or list.
+        /// 
+        /// For example, calling this function on an item that refers
+        /// to “file:///foo/bar.txt” will yield “bar.txt”.
         get {
             let rv = gtk_recent_info_get_short_name(recent_info_ptr).map({ String(cString: $0) })
             return rv
@@ -951,13 +962,17 @@ public extension RecentInfoProtocol {
         }
     }
 
-    /// Gets a displayable version of the resource’s URI. If the resource
-    /// is local, it returns a local path; if the resource is not local,
-    /// it returns the UTF-8 encoded content of `gtk_recent_info_get_uri()`.
+    /// Gets a displayable version of the resource’s URI.
+    /// 
+    /// If the resource is local, it returns a local path; if the
+    /// resource is not local, it returns the UTF-8 encoded content
+    /// of [method`Gtk.RecentInfo.get_uri`].
     @inlinable var uriDisplay: String! {
-        /// Gets a displayable version of the resource’s URI. If the resource
-        /// is local, it returns a local path; if the resource is not local,
-        /// it returns the UTF-8 encoded content of `gtk_recent_info_get_uri()`.
+        /// Gets a displayable version of the resource’s URI.
+        /// 
+        /// If the resource is local, it returns a local path; if the
+        /// resource is not local, it returns the UTF-8 encoded content
+        /// of [method`Gtk.RecentInfo.get_uri`].
         get {
             let rv = gtk_recent_info_get_uri_display(recent_info_ptr).map({ String(cString: $0) })
             return rv
@@ -1386,16 +1401,6 @@ public extension RequestedSizeProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkRequestedSize` instance.
     @inlinable var _ptr: UnsafeMutablePointer<GtkRequestedSize>! { return ptr?.assumingMemoryBound(to: GtkRequestedSize.self) }
 
-    /// Distributes `extra_space` to child `sizes` by bringing smaller
-    /// children up to natural size first.
-    /// 
-    /// The remaining space will be added to the `minimum_size` member of the
-    /// GtkRequestedSize struct. If all sizes reach their natural size then
-    /// the remaining space is returned.
-    @inlinable func distributeNaturalAllocation(extraSpace: Int, nRequestedSizes: Int) -> Int {
-        let rv = Int(gtk_distribute_natural_allocation(gint(extraSpace), guint(nRequestedSizes), _ptr))
-        return rv
-    }
 
     /// A client pointer
     @inlinable var data: gpointer! {
@@ -1544,7 +1549,9 @@ public extension RequisitionRef {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
-        /// Allocates a new `GtkRequisition-struct` and initializes its elements to zero.
+        /// Allocates a new `GtkRequisition`.
+    /// 
+    /// The struct is initialized to zero.
     @inlinable init() {
         let rv = gtk_requisition_new()
         ptr = UnsafeMutableRawPointer(rv)
@@ -1698,7 +1705,9 @@ open class Requisition: RequisitionProtocol {
         // no reference counting for GtkRequisition, cannot ref(requisition_ptr)
     }
 
-    /// Allocates a new `GtkRequisition-struct` and initializes its elements to zero.
+    /// Allocates a new `GtkRequisition`.
+    /// 
+    /// The struct is initialized to zero.
     @inlinable public init() {
         let rv = gtk_requisition_new()
         ptr = UnsafeMutableRawPointer(rv)

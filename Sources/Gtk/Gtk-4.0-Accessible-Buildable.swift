@@ -20,21 +20,23 @@ import Gdk
 /// For a concrete class that implements these methods and properties, see `Accessible`.
 /// Alternatively, use `AccessibleRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// GtkAccessible provides an interface for describing a UI element, like a
-/// `GtkWidget`, in a way that can be consumed by Assistive Technologies, or
-/// “AT”. Every accessible implementation has:
+/// `GtkAccessible` is an interface for describing UI elements for
+/// Assistive Technologies.
 /// 
-///  - a “role”, represented by a value of the `GtkAccessibleRole` enumeration
-///  - an “attribute”, represented by a set of `GtkAccessibleState`,
-///    `GtkAccessibleProperty` and `GtkAccessibleRelation` values
+/// Every accessible implementation has:
+/// 
+///  - a “role”, represented by a value of the [enum`Gtk.AccessibleRole`]
+///    enumeration
+///  - an “attribute”, represented by a set of [enum`Gtk.AccessibleState`],
+///    [enum`Gtk.AccessibleProperty`] and [enum`Gtk.AccessibleRelation`] values
 /// 
 /// The role cannot be changed after instantiating a `GtkAccessible`
 /// implementation.
 /// 
-/// The attributes are updated every time a UI element's state changes in a way that
-/// should be reflected by assistive technologies. For instance, if a `GtkWidget`
-/// visibility changes, the `GTK_ACCESSIBLE_STATE_HIDDEN` state will also change
-/// to reflect the `GtkWidget:visible` property.
+/// The attributes are updated every time a UI element's state changes in
+/// a way that should be reflected by assistive technologies. For instance,
+/// if a `GtkWidget` visibility changes, the `GTK_ACCESSIBLE_STATE_HIDDEN`
+/// state will also change to reflect the [property`Gtk.Widget:visible`] property.
 public protocol AccessibleProtocol {
         /// Untyped pointer to the underlying `GtkAccessible` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -50,21 +52,23 @@ public protocol AccessibleProtocol {
 /// It exposes methods that can operate on this data type through `AccessibleProtocol` conformance.
 /// Use `AccessibleRef` only as an `unowned` reference to an existing `GtkAccessible` instance.
 ///
-/// GtkAccessible provides an interface for describing a UI element, like a
-/// `GtkWidget`, in a way that can be consumed by Assistive Technologies, or
-/// “AT”. Every accessible implementation has:
+/// `GtkAccessible` is an interface for describing UI elements for
+/// Assistive Technologies.
 /// 
-///  - a “role”, represented by a value of the `GtkAccessibleRole` enumeration
-///  - an “attribute”, represented by a set of `GtkAccessibleState`,
-///    `GtkAccessibleProperty` and `GtkAccessibleRelation` values
+/// Every accessible implementation has:
+/// 
+///  - a “role”, represented by a value of the [enum`Gtk.AccessibleRole`]
+///    enumeration
+///  - an “attribute”, represented by a set of [enum`Gtk.AccessibleState`],
+///    [enum`Gtk.AccessibleProperty`] and [enum`Gtk.AccessibleRelation`] values
 /// 
 /// The role cannot be changed after instantiating a `GtkAccessible`
 /// implementation.
 /// 
-/// The attributes are updated every time a UI element's state changes in a way that
-/// should be reflected by assistive technologies. For instance, if a `GtkWidget`
-/// visibility changes, the `GTK_ACCESSIBLE_STATE_HIDDEN` state will also change
-/// to reflect the `GtkWidget:visible` property.
+/// The attributes are updated every time a UI element's state changes in
+/// a way that should be reflected by assistive technologies. For instance,
+/// if a `GtkWidget` visibility changes, the `GTK_ACCESSIBLE_STATE_HIDDEN`
+/// state will also change to reflect the [property`Gtk.Widget:visible`] property.
 public struct AccessibleRef: AccessibleProtocol {
         /// Untyped pointer to the underlying `GtkAccessible` instance.
     /// For type-safe access, use the generated, typed pointer `accessible_ptr` property instead.
@@ -147,21 +151,23 @@ public extension AccessibleRef {
 /// It provides the methods that can operate on this data type through `AccessibleProtocol` conformance.
 /// Use `Accessible` as a strong reference or owner of a `GtkAccessible` instance.
 ///
-/// GtkAccessible provides an interface for describing a UI element, like a
-/// `GtkWidget`, in a way that can be consumed by Assistive Technologies, or
-/// “AT”. Every accessible implementation has:
+/// `GtkAccessible` is an interface for describing UI elements for
+/// Assistive Technologies.
 /// 
-///  - a “role”, represented by a value of the `GtkAccessibleRole` enumeration
-///  - an “attribute”, represented by a set of `GtkAccessibleState`,
-///    `GtkAccessibleProperty` and `GtkAccessibleRelation` values
+/// Every accessible implementation has:
+/// 
+///  - a “role”, represented by a value of the [enum`Gtk.AccessibleRole`]
+///    enumeration
+///  - an “attribute”, represented by a set of [enum`Gtk.AccessibleState`],
+///    [enum`Gtk.AccessibleProperty`] and [enum`Gtk.AccessibleRelation`] values
 /// 
 /// The role cannot be changed after instantiating a `GtkAccessible`
 /// implementation.
 /// 
-/// The attributes are updated every time a UI element's state changes in a way that
-/// should be reflected by assistive technologies. For instance, if a `GtkWidget`
-/// visibility changes, the `GTK_ACCESSIBLE_STATE_HIDDEN` state will also change
-/// to reflect the `GtkWidget:visible` property.
+/// The attributes are updated every time a UI element's state changes in
+/// a way that should be reflected by assistive technologies. For instance,
+/// if a `GtkWidget` visibility changes, the `GTK_ACCESSIBLE_STATE_HIDDEN`
+/// state will also change to reflect the [property`Gtk.Widget:visible`] property.
 open class Accessible: AccessibleProtocol {
         /// Untyped pointer to the underlying `GtkAccessible` instance.
     /// For type-safe access, use the generated, typed pointer `accessible_ptr` property instead.
@@ -511,18 +517,19 @@ public extension AccessibleProtocol {
 /// For a concrete class that implements these methods and properties, see `Actionable`.
 /// Alternatively, use `ActionableRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// This interface provides a convenient way of associating widgets with
-/// actions on a `GtkApplicationWindow` or `GtkApplication`.
+/// The `GtkActionable` interface provides a convenient way of asscociating
+/// widgets with actions.
 /// 
-/// It primarily consists of two properties: `GtkActionable:action-name`
-/// and `GtkActionable:action-target`. There are also some convenience APIs
-/// for setting these properties.
+/// It primarily consists of two properties: [property`Gtk.Actionable:action-name`]
+/// and [property`Gtk.Actionable:action-target`]. There are also some convenience
+/// APIs for setting these properties.
 /// 
 /// The action will be looked up in action groups that are found among
 /// the widgets ancestors. Most commonly, these will be the actions with
-/// the “win.” or “app.” prefix that are associated with the `GtkApplicationWindow`
-/// or `GtkApplication`, but other action groups that are added with
-/// `gtk_widget_insert_action_group()` will be consulted as well.
+/// the “win.” or “app.” prefix that are associated with the
+/// `GtkApplicationWindow` or `GtkApplication`, but other action groups that
+/// are added with [method`Gtk.Widget.insert_action_group`] will be consulted
+/// as well.
 public protocol ActionableProtocol: WidgetProtocol {
         /// Untyped pointer to the underlying `GtkActionable` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -538,18 +545,19 @@ public protocol ActionableProtocol: WidgetProtocol {
 /// It exposes methods that can operate on this data type through `ActionableProtocol` conformance.
 /// Use `ActionableRef` only as an `unowned` reference to an existing `GtkActionable` instance.
 ///
-/// This interface provides a convenient way of associating widgets with
-/// actions on a `GtkApplicationWindow` or `GtkApplication`.
+/// The `GtkActionable` interface provides a convenient way of asscociating
+/// widgets with actions.
 /// 
-/// It primarily consists of two properties: `GtkActionable:action-name`
-/// and `GtkActionable:action-target`. There are also some convenience APIs
-/// for setting these properties.
+/// It primarily consists of two properties: [property`Gtk.Actionable:action-name`]
+/// and [property`Gtk.Actionable:action-target`]. There are also some convenience
+/// APIs for setting these properties.
 /// 
 /// The action will be looked up in action groups that are found among
 /// the widgets ancestors. Most commonly, these will be the actions with
-/// the “win.” or “app.” prefix that are associated with the `GtkApplicationWindow`
-/// or `GtkApplication`, but other action groups that are added with
-/// `gtk_widget_insert_action_group()` will be consulted as well.
+/// the “win.” or “app.” prefix that are associated with the
+/// `GtkApplicationWindow` or `GtkApplication`, but other action groups that
+/// are added with [method`Gtk.Widget.insert_action_group`] will be consulted
+/// as well.
 public struct ActionableRef: ActionableProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkActionable` instance.
     /// For type-safe access, use the generated, typed pointer `actionable_ptr` property instead.
@@ -635,18 +643,19 @@ public extension ActionableRef {
 /// It provides the methods that can operate on this data type through `ActionableProtocol` conformance.
 /// Use `Actionable` as a strong reference or owner of a `GtkActionable` instance.
 ///
-/// This interface provides a convenient way of associating widgets with
-/// actions on a `GtkApplicationWindow` or `GtkApplication`.
+/// The `GtkActionable` interface provides a convenient way of asscociating
+/// widgets with actions.
 /// 
-/// It primarily consists of two properties: `GtkActionable:action-name`
-/// and `GtkActionable:action-target`. There are also some convenience APIs
-/// for setting these properties.
+/// It primarily consists of two properties: [property`Gtk.Actionable:action-name`]
+/// and [property`Gtk.Actionable:action-target`]. There are also some convenience
+/// APIs for setting these properties.
 /// 
 /// The action will be looked up in action groups that are found among
 /// the widgets ancestors. Most commonly, these will be the actions with
-/// the “win.” or “app.” prefix that are associated with the `GtkApplicationWindow`
-/// or `GtkApplication`, but other action groups that are added with
-/// `gtk_widget_insert_action_group()` will be consulted as well.
+/// the “win.” or “app.” prefix that are associated with the
+/// `GtkApplicationWindow` or `GtkApplication`, but other action groups that
+/// are added with [method`Gtk.Widget.insert_action_group`] will be consulted
+/// as well.
 open class Actionable: Widget, ActionableProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -785,6 +794,7 @@ public enum ActionablePropertyName: String, PropertyNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case canFocus = "can-focus"
+    /// Whether the widget can receive pointer events.
     case canTarget = "can-target"
     /// A list of css classes applied to this widget.
     case cssClasses = "css-classes"
@@ -793,7 +803,7 @@ public enum ActionablePropertyName: String, PropertyNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case cssName = "css-name"
-    /// The cursor used by `widget`. See `gtk_widget_set_cursor()` for details.
+    /// The cursor used by `widget`.
     case cursor = "cursor"
     /// Whether the widget should grab focus when it is clicked with the mouse.
     /// 
@@ -801,19 +811,25 @@ public enum ActionablePropertyName: String, PropertyNameProtocol {
     case focusOnClick = "focus-on-click"
     /// Whether this widget itself will accept the input focus.
     case focusable = "focusable"
-    /// How to distribute horizontal space if widget gets extra space, see `GtkAlign`
+    /// How to distribute horizontal space if widget gets extra space.
     case halign = "halign"
+    /// Whether the widget is the default widget.
     case hasDefault = "has-default"
+    /// Whether the widget has the input focus.
     case hasFocus = "has-focus"
-    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
+    /// Enables or disables the emission of the `query-tooltip` signal on `widget`.
+    /// 
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
-    /// whether it will provide a tooltip or not.
+    /// the widget will be queried using [signal`Gtk.Widget::query-tooltip`] to
+    /// determine whether it will provide a tooltip or not.
     case hasTooltip = "has-tooltip"
+    /// Override for height request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case heightRequest = "height-request"
-    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
+    /// Whether to expand horizontally.
     case hexpand = "hexpand"
-    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
+    /// Whether to use the `hexpand` property.
     case hexpandSet = "hexpand-set"
     /// The `GtkLayoutManager` instance to use to compute the preferred size
     /// of the widget, and allocate its children.
@@ -825,77 +841,91 @@ public enum ActionablePropertyName: String, PropertyNameProtocol {
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginBottom = "margin-bottom"
-    /// Margin on end of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on end of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginEnd = "margin-end"
-    /// Margin on start of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on start of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginStart = "margin-start"
     /// Margin on top side of widget.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginTop = "margin-top"
+    /// The name of the widget.
     case name = "name"
-    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
-    /// more details about window opacity.
+    /// The requested opacity of the widget.
     case opacity = "opacity"
     /// How content outside the widget's content area is treated.
     /// 
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case overflow = "overflow"
+    /// The parent widget of this widget.
     case parent = "parent"
+    /// Whether the widget will receive the default action when it is focused.
     case receivesDefault = "receives-default"
-    /// The `GtkRoot` widget of the widget tree containing this widget or `nil` if
-    /// the widget is not contained in a root widget.
+    /// The `GtkRoot` widget of the widget tree containing this widget.
+    /// 
+    /// This will be `nil` if the widget is not contained in a root widget.
     case root = "root"
-    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
-    /// more details about widget scaling.
+    /// The scale factor of the widget.
     case scaleFactor = "scale-factor"
+    /// Whether the widget responds to input.
     case sensitive = "sensitive"
     /// Sets the text of tooltip to be the given string, which is marked up
-    /// with the [Pango text markup language](#PangoMarkupFormat).
-    /// Also see `gtk_tooltip_set_markup()`.
+    /// with Pango markup.
+    /// 
+    /// Also see [method`Gtk.Tooltip.set_markup`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case tooltipMarkup = "tooltip-markup"
     /// Sets the text of tooltip to be the given string.
     /// 
-    /// Also see `gtk_tooltip_set_text()`.
+    /// Also see [method`Gtk.Tooltip.set_text`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case tooltipText = "tooltip-text"
-    /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
+    /// How to distribute vertical space if widget gets extra space.
     case valign = "valign"
-    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
+    /// Whether to expand vertically.
     case vexpand = "vexpand"
-    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
+    /// Whether to use the `vexpand` property.
     case vexpandSet = "vexpand-set"
+    /// Whether the widget is visible.
     case visible = "visible"
+    /// Override for width request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case widthRequest = "width-request"
 }
 
@@ -954,29 +984,32 @@ public extension ActionableProtocol {
 
 public enum ActionableSignalName: String, SignalNameProtocol {
     /// Signals that all holders of a reference to the widget should release
-    /// the reference that they hold. May result in finalization of the widget
-    /// if all references are released.
+    /// the reference that they hold.
+    /// 
+    /// May result in finalization of the widget if all references are released.
     /// 
     /// This signal is not suitable for saving widget state.
     case destroy = "destroy"
-    /// The `direction-changed` signal is emitted when the text direction
-    /// of a widget changes.
+    /// Emitted when the text direction of a widget changes.
     case directionChanged = "direction-changed"
-    /// The `hide` signal is emitted when `widget` is hidden, for example with
-    /// `gtk_widget_hide()`.
+    /// Emitted when `widget` is hidden.
     case hide = "hide"
-    /// Gets emitted if keyboard navigation fails.
-    /// See `gtk_widget_keynav_failed()` for details.
+    /// Emitted if keyboard navigation fails.
+    /// 
+    /// See [method`Gtk.Widget.keynav_failed`] for details.
     case keynavFailed = "keynav-failed"
-    /// The `map` signal is emitted when `widget` is going to be mapped, that is
-    /// when the widget is visible (which is controlled with
-    /// `gtk_widget_set_visible()`) and all its parents up to the toplevel widget
+    /// Emitted when `widget` is going to be mapped.
+    /// 
+    /// A widget is mapped when the widget is visible (which is controlled with
+    /// [property`Gtk.Widget:visible`]) and all its parents up to the toplevel widget
     /// are also visible.
     /// 
     /// The `map` signal can be used to determine whether a widget will be drawn,
     /// for instance it can resume an animation that was stopped during the
-    /// emission of `GtkWidget::unmap`.
+    /// emission of [signal`Gtk.Widget::unmap`].
     case map = "map"
+    /// Emitted when a widget is activated via a mnemonic.
+    /// 
     /// The default handler for this signal activates `widget` if `group_cycling`
     /// is `false`, or just makes `widget` grab focus if `group_cycling` is `true`.
     case mnemonicActivate = "mnemonic-activate"
@@ -1007,9 +1040,11 @@ public enum ActionableSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// Emitted when `GtkWidget:has-tooltip` is `true` and the hover timeout
-    /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
-    /// focus in keyboard mode.
+    /// Emitted when the widgets tooltip is about to be shown.
+    /// 
+    /// This happens when the [property`Gtk.Widget:has-tooltip`] property
+    /// is `true` and the hover timeout has expired with the cursor hovering
+    /// "above" `widget`; or emitted when `widget` got focus in keyboard mode.
     /// 
     /// Using the given coordinates, the signal handler should determine
     /// whether a tooltip should be shown for `widget`. If this is the case
@@ -1020,27 +1055,29 @@ public enum ActionableSignalName: String, SignalNameProtocol {
     /// The signal handler is free to manipulate `tooltip` with the therefore
     /// destined function calls.
     case queryTooltip = "query-tooltip"
-    /// The `realize` signal is emitted when `widget` is associated with a
-    /// `GdkSurface`, which means that `gtk_widget_realize()` has been called or the
-    /// widget has been mapped (that is, it is going to be drawn).
-    case realize = "realize"
-    /// The `show` signal is emitted when `widget` is shown, for example with
-    /// `gtk_widget_show()`.
-    case show = "show"
-    /// The `state-flags-changed` signal is emitted when the widget state
-    /// changes, see `gtk_widget_get_state_flags()`.
-    case stateFlagsChanged = "state-flags-changed"
-    /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
-    /// means that either it or any of its parents up to the toplevel widget have
-    /// been set as hidden.
+    /// Emitted when `widget` is associated with a `GdkSurface`.
     /// 
-    /// As `unmap` indicates that a widget will not be shown any longer, it can be
-    /// used to, for example, stop an animation on the widget.
+    /// This means that [method`Gtk.Widget.realize`] has been called
+    /// or the widget has been mapped (that is, it is going to be drawn).
+    case realize = "realize"
+    /// Emitted when `widget` is shown.
+    case show = "show"
+    /// Emitted when the widget state changes.
+    /// 
+    /// See [method`Gtk.Widget.get_state_flags`].
+    case stateFlagsChanged = "state-flags-changed"
+    /// Emitted when `widget` is going to be unmapped.
+    /// 
+    /// A widget is unmapped when either it or any of its parents up to the
+    /// toplevel widget have been set as hidden.
+    /// 
+    /// As `unmap` indicates that a widget will not be shown any longer,
+    /// it can be used to, for example, stop an animation on the widget.
     case unmap = "unmap"
-    /// The `unrealize` signal is emitted when the `GdkSurface` associated with
-    /// `widget` is destroyed, which means that `gtk_widget_unrealize()` has been
-    /// called or the widget has been unmapped (that is, it is going to be
-    /// hidden).
+    /// Emitted when the `GdkSurface` associated with `widget` is destroyed.
+    /// 
+    /// This means that [method`Gtk.Widget.unrealize`] has been called
+    /// or the widget has been unmapped (that is, it is going to be hidden).
     case unrealize = "unrealize"
     case notifyActionName = "notify::action-name"
     case notifyActionTarget = "notify::action-target"
@@ -1050,6 +1087,7 @@ public enum ActionableSignalName: String, SignalNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case notifyCanFocus = "notify::can-focus"
+    /// Whether the widget can receive pointer events.
     case notifyCanTarget = "notify::can-target"
     /// A list of css classes applied to this widget.
     case notifyCssClasses = "notify::css-classes"
@@ -1058,7 +1096,7 @@ public enum ActionableSignalName: String, SignalNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case notifyCssName = "notify::css-name"
-    /// The cursor used by `widget`. See `gtk_widget_set_cursor()` for details.
+    /// The cursor used by `widget`.
     case notifyCursor = "notify::cursor"
     /// Whether the widget should grab focus when it is clicked with the mouse.
     /// 
@@ -1066,19 +1104,25 @@ public enum ActionableSignalName: String, SignalNameProtocol {
     case notifyFocusOnClick = "notify::focus-on-click"
     /// Whether this widget itself will accept the input focus.
     case notifyFocusable = "notify::focusable"
-    /// How to distribute horizontal space if widget gets extra space, see `GtkAlign`
+    /// How to distribute horizontal space if widget gets extra space.
     case notifyHalign = "notify::halign"
+    /// Whether the widget is the default widget.
     case notifyHasDefault = "notify::has-default"
+    /// Whether the widget has the input focus.
     case notifyHasFocus = "notify::has-focus"
-    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
+    /// Enables or disables the emission of the `query-tooltip` signal on `widget`.
+    /// 
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
-    /// whether it will provide a tooltip or not.
+    /// the widget will be queried using [signal`Gtk.Widget::query-tooltip`] to
+    /// determine whether it will provide a tooltip or not.
     case notifyHasTooltip = "notify::has-tooltip"
+    /// Override for height request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case notifyHeightRequest = "notify::height-request"
-    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
+    /// Whether to expand horizontally.
     case notifyHexpand = "notify::hexpand"
-    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
+    /// Whether to use the `hexpand` property.
     case notifyHexpandSet = "notify::hexpand-set"
     /// The `GtkLayoutManager` instance to use to compute the preferred size
     /// of the widget, and allocate its children.
@@ -1090,77 +1134,91 @@ public enum ActionableSignalName: String, SignalNameProtocol {
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginBottom = "notify::margin-bottom"
-    /// Margin on end of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on end of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginEnd = "notify::margin-end"
-    /// Margin on start of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on start of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginStart = "notify::margin-start"
     /// Margin on top side of widget.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginTop = "notify::margin-top"
+    /// The name of the widget.
     case notifyName = "notify::name"
-    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
-    /// more details about window opacity.
+    /// The requested opacity of the widget.
     case notifyOpacity = "notify::opacity"
     /// How content outside the widget's content area is treated.
     /// 
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case notifyOverflow = "notify::overflow"
+    /// The parent widget of this widget.
     case notifyParent = "notify::parent"
+    /// Whether the widget will receive the default action when it is focused.
     case notifyReceivesDefault = "notify::receives-default"
-    /// The `GtkRoot` widget of the widget tree containing this widget or `nil` if
-    /// the widget is not contained in a root widget.
+    /// The `GtkRoot` widget of the widget tree containing this widget.
+    /// 
+    /// This will be `nil` if the widget is not contained in a root widget.
     case notifyRoot = "notify::root"
-    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
-    /// more details about widget scaling.
+    /// The scale factor of the widget.
     case notifyScaleFactor = "notify::scale-factor"
+    /// Whether the widget responds to input.
     case notifySensitive = "notify::sensitive"
     /// Sets the text of tooltip to be the given string, which is marked up
-    /// with the [Pango text markup language](#PangoMarkupFormat).
-    /// Also see `gtk_tooltip_set_markup()`.
+    /// with Pango markup.
+    /// 
+    /// Also see [method`Gtk.Tooltip.set_markup`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case notifyTooltipMarkup = "notify::tooltip-markup"
     /// Sets the text of tooltip to be the given string.
     /// 
-    /// Also see `gtk_tooltip_set_text()`.
+    /// Also see [method`Gtk.Tooltip.set_text`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case notifyTooltipText = "notify::tooltip-text"
-    /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
+    /// How to distribute vertical space if widget gets extra space.
     case notifyValign = "notify::valign"
-    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
+    /// Whether to expand vertically.
     case notifyVexpand = "notify::vexpand"
-    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
+    /// Whether to use the `vexpand` property.
     case notifyVexpandSet = "notify::vexpand-set"
+    /// Whether the widget is visible.
     case notifyVisible = "notify::visible"
+    /// Override for width request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case notifyWidthRequest = "notify::width-request"
 }
 
@@ -1171,31 +1229,29 @@ public extension ActionableProtocol {
     @inlinable var actionable_ptr: UnsafeMutablePointer<GtkActionable>! { return ptr?.assumingMemoryBound(to: GtkActionable.self) }
 
     /// Gets the action name for `actionable`.
-    /// 
-    /// See `gtk_actionable_set_action_name()` for more information.
     @inlinable func getActionName() -> String! {
         let rv = gtk_actionable_get_action_name(actionable_ptr).map({ String(cString: $0) })
         return rv
     }
 
     /// Gets the current target value of `actionable`.
-    /// 
-    /// See `gtk_actionable_set_action_target_value()` for more information.
     @inlinable func getActionTargetValue() -> GLib.VariantRef! {
         let rv = GLib.VariantRef(gtk_actionable_get_action_target_value(actionable_ptr))
         return rv
     }
 
     /// Specifies the name of the action with which this widget should be
-    /// associated.  If `action_name` is `nil` then the widget will be
-    /// unassociated from any previous action.
+    /// associated.
+    /// 
+    /// If `action_name` is `nil` then the widget will be unassociated from
+    /// any previous action.
     /// 
     /// Usually this function is used when the widget is located (or will be
     /// located) within the hierarchy of a `GtkApplicationWindow`.
     /// 
     /// Names are of the form “win.save” or “app.quit” for actions on the
     /// containing `GtkApplicationWindow` or its associated `GtkApplication`,
-    /// respectively.  This is the same form used for actions in the `GMenu`
+    /// respectively. This is the same form used for actions in the `GMenu`
     /// associated with the window.
     @inlinable func set(actionName: UnsafePointer<CChar>? = nil) {
         gtk_actionable_set_action_name(actionable_ptr, actionName)
@@ -1210,16 +1266,15 @@ public extension ActionableProtocol {
     /// 
     /// If `target_value` is `nil` then the target value is unset.
     /// 
-    /// The target value has two purposes.  First, it is used as the
-    /// parameter to activation of the action associated with the
-    /// `GtkActionable` widget. Second, it is used to determine if the widget
-    /// should be rendered as “active” — the widget is active if the state
-    /// is equal to the given target.
+    /// The target value has two purposes. First, it is used as the parameter
+    /// to activation of the action associated with the `GtkActionable` widget.
+    /// Second, it is used to determine if the widget should be rendered as
+    /// “active” — the widget is active if the state is equal to the given target.
     /// 
     /// Consider the example of associating a set of buttons with a `GAction`
-    /// with string state in a typical “radio button” situation.  Each button
+    /// with string state in a typical “radio button” situation. Each button
     /// will be associated with the same action, but with a different target
-    /// value for that action.  Clicking on a particular button will activate
+    /// value for that action. Clicking on a particular button will activate
     /// the action with the target of that button, which will typically cause
     /// the action’s state to change to that value. Since the action’s state
     /// is now equal to the target value of the button, the button will now
@@ -1233,16 +1288,15 @@ public extension ActionableProtocol {
     /// 
     /// If `target_value` is `nil` then the target value is unset.
     /// 
-    /// The target value has two purposes.  First, it is used as the
-    /// parameter to activation of the action associated with the
-    /// `GtkActionable` widget. Second, it is used to determine if the widget
-    /// should be rendered as “active” — the widget is active if the state
-    /// is equal to the given target.
+    /// The target value has two purposes. First, it is used as the parameter
+    /// to activation of the action associated with the `GtkActionable` widget.
+    /// Second, it is used to determine if the widget should be rendered as
+    /// “active” — the widget is active if the state is equal to the given target.
     /// 
     /// Consider the example of associating a set of buttons with a `GAction`
-    /// with string state in a typical “radio button” situation.  Each button
+    /// with string state in a typical “radio button” situation. Each button
     /// will be associated with the same action, but with a different target
-    /// value for that action.  Clicking on a particular button will activate
+    /// value for that action. Clicking on a particular button will activate
     /// the action with the target of that button, which will typically cause
     /// the action’s state to change to that value. Since the action’s state
     /// is now equal to the target value of the button, the button will now
@@ -1258,37 +1312,29 @@ public extension ActionableProtocol {
     /// 
     /// `detailed_action_name` is a string in the format accepted by
     /// `g_action_parse_detailed_name()`.
-    /// 
-    /// (Note that prior to version 3.22.25,
-    /// this function is only usable for actions with a simple "s" target, and
-    /// `detailed_action_name` must be of the form `"action`target`"` where
-    /// `action` is the action name and `target` is the string to use
-    /// as the target.)
     @inlinable func set(detailedActionName: UnsafePointer<CChar>!) {
         gtk_actionable_set_detailed_action_name(actionable_ptr, detailedActionName)
     
     }
     /// Gets the action name for `actionable`.
-    /// 
-    /// See `gtk_actionable_set_action_name()` for more information.
     @inlinable var actionName: String! {
         /// Gets the action name for `actionable`.
-        /// 
-        /// See `gtk_actionable_set_action_name()` for more information.
         get {
             let rv = gtk_actionable_get_action_name(actionable_ptr).map({ String(cString: $0) })
             return rv
         }
         /// Specifies the name of the action with which this widget should be
-        /// associated.  If `action_name` is `nil` then the widget will be
-        /// unassociated from any previous action.
+        /// associated.
+        /// 
+        /// If `action_name` is `nil` then the widget will be unassociated from
+        /// any previous action.
         /// 
         /// Usually this function is used when the widget is located (or will be
         /// located) within the hierarchy of a `GtkApplicationWindow`.
         /// 
         /// Names are of the form “win.save” or “app.quit” for actions on the
         /// containing `GtkApplicationWindow` or its associated `GtkApplication`,
-        /// respectively.  This is the same form used for actions in the `GMenu`
+        /// respectively. This is the same form used for actions in the `GMenu`
         /// associated with the window.
         nonmutating set {
             gtk_actionable_set_action_name(actionable_ptr, newValue)
@@ -1296,12 +1342,8 @@ public extension ActionableProtocol {
     }
 
     /// Gets the current target value of `actionable`.
-    /// 
-    /// See `gtk_actionable_set_action_target_value()` for more information.
     @inlinable var actionTargetValue: GLib.VariantRef! {
         /// Gets the current target value of `actionable`.
-        /// 
-        /// See `gtk_actionable_set_action_target_value()` for more information.
         get {
             let rv = GLib.VariantRef(gtk_actionable_get_action_target_value(actionable_ptr))
             return rv
@@ -1310,16 +1352,15 @@ public extension ActionableProtocol {
         /// 
         /// If `target_value` is `nil` then the target value is unset.
         /// 
-        /// The target value has two purposes.  First, it is used as the
-        /// parameter to activation of the action associated with the
-        /// `GtkActionable` widget. Second, it is used to determine if the widget
-        /// should be rendered as “active” — the widget is active if the state
-        /// is equal to the given target.
+        /// The target value has two purposes. First, it is used as the parameter
+        /// to activation of the action associated with the `GtkActionable` widget.
+        /// Second, it is used to determine if the widget should be rendered as
+        /// “active” — the widget is active if the state is equal to the given target.
         /// 
         /// Consider the example of associating a set of buttons with a `GAction`
-        /// with string state in a typical “radio button” situation.  Each button
+        /// with string state in a typical “radio button” situation. Each button
         /// will be associated with the same action, but with a different target
-        /// value for that action.  Clicking on a particular button will activate
+        /// value for that action. Clicking on a particular button will activate
         /// the action with the target of that button, which will typically cause
         /// the action’s state to change to that value. Since the action’s state
         /// is now equal to the target value of the button, the button will now
@@ -1342,10 +1383,12 @@ public extension ActionableProtocol {
 /// For a concrete class that implements these methods and properties, see `AppChooser`.
 /// Alternatively, use `AppChooserRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// `GtkAppChooser` is an interface that can be implemented by widgets which
-/// allow the user to choose an application (typically for the purpose of
-/// opening a file). The main objects that implement this interface are
-/// `GtkAppChooserWidget`, `GtkAppChooserDialog` and `GtkAppChooserButton`.
+/// `GtkAppChooser` is an interface for widgets which allow the user to
+/// choose an application.
+/// 
+/// The main objects that implement this interface are
+/// [class`Gtk.AppChooserWidget`],
+/// [class`Gtk.AppChooserDialog`] and [class`Gtk.AppChooserButton`].
 /// 
 /// Applications are represented by GIO `GAppInfo` objects here.
 /// GIO has a concept of recommended and fallback applications for a
@@ -1358,7 +1401,7 @@ public extension ActionableProtocol {
 /// recommended or fallback applications.
 /// 
 /// To obtain the application that has been selected in a `GtkAppChooser`,
-/// use `gtk_app_chooser_get_app_info()`.
+/// use [method`Gtk.AppChooser.get_app_info`].
 public protocol AppChooserProtocol: WidgetProtocol {
         /// Untyped pointer to the underlying `GtkAppChooser` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1374,10 +1417,12 @@ public protocol AppChooserProtocol: WidgetProtocol {
 /// It exposes methods that can operate on this data type through `AppChooserProtocol` conformance.
 /// Use `AppChooserRef` only as an `unowned` reference to an existing `GtkAppChooser` instance.
 ///
-/// `GtkAppChooser` is an interface that can be implemented by widgets which
-/// allow the user to choose an application (typically for the purpose of
-/// opening a file). The main objects that implement this interface are
-/// `GtkAppChooserWidget`, `GtkAppChooserDialog` and `GtkAppChooserButton`.
+/// `GtkAppChooser` is an interface for widgets which allow the user to
+/// choose an application.
+/// 
+/// The main objects that implement this interface are
+/// [class`Gtk.AppChooserWidget`],
+/// [class`Gtk.AppChooserDialog`] and [class`Gtk.AppChooserButton`].
 /// 
 /// Applications are represented by GIO `GAppInfo` objects here.
 /// GIO has a concept of recommended and fallback applications for a
@@ -1390,7 +1435,7 @@ public protocol AppChooserProtocol: WidgetProtocol {
 /// recommended or fallback applications.
 /// 
 /// To obtain the application that has been selected in a `GtkAppChooser`,
-/// use `gtk_app_chooser_get_app_info()`.
+/// use [method`Gtk.AppChooser.get_app_info`].
 public struct AppChooserRef: AppChooserProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkAppChooser` instance.
     /// For type-safe access, use the generated, typed pointer `app_chooser_ptr` property instead.
@@ -1476,10 +1521,12 @@ public extension AppChooserRef {
 /// It provides the methods that can operate on this data type through `AppChooserProtocol` conformance.
 /// Use `AppChooser` as a strong reference or owner of a `GtkAppChooser` instance.
 ///
-/// `GtkAppChooser` is an interface that can be implemented by widgets which
-/// allow the user to choose an application (typically for the purpose of
-/// opening a file). The main objects that implement this interface are
-/// `GtkAppChooserWidget`, `GtkAppChooserDialog` and `GtkAppChooserButton`.
+/// `GtkAppChooser` is an interface for widgets which allow the user to
+/// choose an application.
+/// 
+/// The main objects that implement this interface are
+/// [class`Gtk.AppChooserWidget`],
+/// [class`Gtk.AppChooserDialog`] and [class`Gtk.AppChooserButton`].
 /// 
 /// Applications are represented by GIO `GAppInfo` objects here.
 /// GIO has a concept of recommended and fallback applications for a
@@ -1492,7 +1539,7 @@ public extension AppChooserRef {
 /// recommended or fallback applications.
 /// 
 /// To obtain the application that has been selected in a `GtkAppChooser`,
-/// use `gtk_app_chooser_get_app_info()`.
+/// use [method`Gtk.AppChooser.get_app_info`].
 open class AppChooser: Widget, AppChooserProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -1629,11 +1676,11 @@ public enum AppChooserPropertyName: String, PropertyNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case canFocus = "can-focus"
+    /// Whether the widget can receive pointer events.
     case canTarget = "can-target"
     /// The content type of the `GtkAppChooser` object.
     /// 
-    /// See [GContentType](#gio-GContentType)
-    /// for more information about content types.
+    /// See `GContentType` for more information about content types.
     case contentType = "content-type"
     /// A list of css classes applied to this widget.
     case cssClasses = "css-classes"
@@ -1642,7 +1689,7 @@ public enum AppChooserPropertyName: String, PropertyNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case cssName = "css-name"
-    /// The cursor used by `widget`. See `gtk_widget_set_cursor()` for details.
+    /// The cursor used by `widget`.
     case cursor = "cursor"
     /// Whether the widget should grab focus when it is clicked with the mouse.
     /// 
@@ -1650,19 +1697,25 @@ public enum AppChooserPropertyName: String, PropertyNameProtocol {
     case focusOnClick = "focus-on-click"
     /// Whether this widget itself will accept the input focus.
     case focusable = "focusable"
-    /// How to distribute horizontal space if widget gets extra space, see `GtkAlign`
+    /// How to distribute horizontal space if widget gets extra space.
     case halign = "halign"
+    /// Whether the widget is the default widget.
     case hasDefault = "has-default"
+    /// Whether the widget has the input focus.
     case hasFocus = "has-focus"
-    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
+    /// Enables or disables the emission of the `query-tooltip` signal on `widget`.
+    /// 
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
-    /// whether it will provide a tooltip or not.
+    /// the widget will be queried using [signal`Gtk.Widget::query-tooltip`] to
+    /// determine whether it will provide a tooltip or not.
     case hasTooltip = "has-tooltip"
+    /// Override for height request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case heightRequest = "height-request"
-    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
+    /// Whether to expand horizontally.
     case hexpand = "hexpand"
-    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
+    /// Whether to use the `hexpand` property.
     case hexpandSet = "hexpand-set"
     /// The `GtkLayoutManager` instance to use to compute the preferred size
     /// of the widget, and allocate its children.
@@ -1674,77 +1727,91 @@ public enum AppChooserPropertyName: String, PropertyNameProtocol {
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginBottom = "margin-bottom"
-    /// Margin on end of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on end of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginEnd = "margin-end"
-    /// Margin on start of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on start of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginStart = "margin-start"
     /// Margin on top side of widget.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginTop = "margin-top"
+    /// The name of the widget.
     case name = "name"
-    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
-    /// more details about window opacity.
+    /// The requested opacity of the widget.
     case opacity = "opacity"
     /// How content outside the widget's content area is treated.
     /// 
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case overflow = "overflow"
+    /// The parent widget of this widget.
     case parent = "parent"
+    /// Whether the widget will receive the default action when it is focused.
     case receivesDefault = "receives-default"
-    /// The `GtkRoot` widget of the widget tree containing this widget or `nil` if
-    /// the widget is not contained in a root widget.
+    /// The `GtkRoot` widget of the widget tree containing this widget.
+    /// 
+    /// This will be `nil` if the widget is not contained in a root widget.
     case root = "root"
-    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
-    /// more details about widget scaling.
+    /// The scale factor of the widget.
     case scaleFactor = "scale-factor"
+    /// Whether the widget responds to input.
     case sensitive = "sensitive"
     /// Sets the text of tooltip to be the given string, which is marked up
-    /// with the [Pango text markup language](#PangoMarkupFormat).
-    /// Also see `gtk_tooltip_set_markup()`.
+    /// with Pango markup.
+    /// 
+    /// Also see [method`Gtk.Tooltip.set_markup`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case tooltipMarkup = "tooltip-markup"
     /// Sets the text of tooltip to be the given string.
     /// 
-    /// Also see `gtk_tooltip_set_text()`.
+    /// Also see [method`Gtk.Tooltip.set_text`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case tooltipText = "tooltip-text"
-    /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
+    /// How to distribute vertical space if widget gets extra space.
     case valign = "valign"
-    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
+    /// Whether to expand vertically.
     case vexpand = "vexpand"
-    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
+    /// Whether to use the `vexpand` property.
     case vexpandSet = "vexpand-set"
+    /// Whether the widget is visible.
     case visible = "visible"
+    /// Override for width request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case widthRequest = "width-request"
 }
 
@@ -1803,29 +1870,32 @@ public extension AppChooserProtocol {
 
 public enum AppChooserSignalName: String, SignalNameProtocol {
     /// Signals that all holders of a reference to the widget should release
-    /// the reference that they hold. May result in finalization of the widget
-    /// if all references are released.
+    /// the reference that they hold.
+    /// 
+    /// May result in finalization of the widget if all references are released.
     /// 
     /// This signal is not suitable for saving widget state.
     case destroy = "destroy"
-    /// The `direction-changed` signal is emitted when the text direction
-    /// of a widget changes.
+    /// Emitted when the text direction of a widget changes.
     case directionChanged = "direction-changed"
-    /// The `hide` signal is emitted when `widget` is hidden, for example with
-    /// `gtk_widget_hide()`.
+    /// Emitted when `widget` is hidden.
     case hide = "hide"
-    /// Gets emitted if keyboard navigation fails.
-    /// See `gtk_widget_keynav_failed()` for details.
+    /// Emitted if keyboard navigation fails.
+    /// 
+    /// See [method`Gtk.Widget.keynav_failed`] for details.
     case keynavFailed = "keynav-failed"
-    /// The `map` signal is emitted when `widget` is going to be mapped, that is
-    /// when the widget is visible (which is controlled with
-    /// `gtk_widget_set_visible()`) and all its parents up to the toplevel widget
+    /// Emitted when `widget` is going to be mapped.
+    /// 
+    /// A widget is mapped when the widget is visible (which is controlled with
+    /// [property`Gtk.Widget:visible`]) and all its parents up to the toplevel widget
     /// are also visible.
     /// 
     /// The `map` signal can be used to determine whether a widget will be drawn,
     /// for instance it can resume an animation that was stopped during the
-    /// emission of `GtkWidget::unmap`.
+    /// emission of [signal`Gtk.Widget::unmap`].
     case map = "map"
+    /// Emitted when a widget is activated via a mnemonic.
+    /// 
     /// The default handler for this signal activates `widget` if `group_cycling`
     /// is `false`, or just makes `widget` grab focus if `group_cycling` is `true`.
     case mnemonicActivate = "mnemonic-activate"
@@ -1856,9 +1926,11 @@ public enum AppChooserSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// Emitted when `GtkWidget:has-tooltip` is `true` and the hover timeout
-    /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
-    /// focus in keyboard mode.
+    /// Emitted when the widgets tooltip is about to be shown.
+    /// 
+    /// This happens when the [property`Gtk.Widget:has-tooltip`] property
+    /// is `true` and the hover timeout has expired with the cursor hovering
+    /// "above" `widget`; or emitted when `widget` got focus in keyboard mode.
     /// 
     /// Using the given coordinates, the signal handler should determine
     /// whether a tooltip should be shown for `widget`. If this is the case
@@ -1869,27 +1941,29 @@ public enum AppChooserSignalName: String, SignalNameProtocol {
     /// The signal handler is free to manipulate `tooltip` with the therefore
     /// destined function calls.
     case queryTooltip = "query-tooltip"
-    /// The `realize` signal is emitted when `widget` is associated with a
-    /// `GdkSurface`, which means that `gtk_widget_realize()` has been called or the
-    /// widget has been mapped (that is, it is going to be drawn).
-    case realize = "realize"
-    /// The `show` signal is emitted when `widget` is shown, for example with
-    /// `gtk_widget_show()`.
-    case show = "show"
-    /// The `state-flags-changed` signal is emitted when the widget state
-    /// changes, see `gtk_widget_get_state_flags()`.
-    case stateFlagsChanged = "state-flags-changed"
-    /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
-    /// means that either it or any of its parents up to the toplevel widget have
-    /// been set as hidden.
+    /// Emitted when `widget` is associated with a `GdkSurface`.
     /// 
-    /// As `unmap` indicates that a widget will not be shown any longer, it can be
-    /// used to, for example, stop an animation on the widget.
+    /// This means that [method`Gtk.Widget.realize`] has been called
+    /// or the widget has been mapped (that is, it is going to be drawn).
+    case realize = "realize"
+    /// Emitted when `widget` is shown.
+    case show = "show"
+    /// Emitted when the widget state changes.
+    /// 
+    /// See [method`Gtk.Widget.get_state_flags`].
+    case stateFlagsChanged = "state-flags-changed"
+    /// Emitted when `widget` is going to be unmapped.
+    /// 
+    /// A widget is unmapped when either it or any of its parents up to the
+    /// toplevel widget have been set as hidden.
+    /// 
+    /// As `unmap` indicates that a widget will not be shown any longer,
+    /// it can be used to, for example, stop an animation on the widget.
     case unmap = "unmap"
-    /// The `unrealize` signal is emitted when the `GdkSurface` associated with
-    /// `widget` is destroyed, which means that `gtk_widget_unrealize()` has been
-    /// called or the widget has been unmapped (that is, it is going to be
-    /// hidden).
+    /// Emitted when the `GdkSurface` associated with `widget` is destroyed.
+    /// 
+    /// This means that [method`Gtk.Widget.unrealize`] has been called
+    /// or the widget has been unmapped (that is, it is going to be hidden).
     case unrealize = "unrealize"
     /// Whether the widget or any of its descendents can accept
     /// the input focus.
@@ -1897,11 +1971,11 @@ public enum AppChooserSignalName: String, SignalNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case notifyCanFocus = "notify::can-focus"
+    /// Whether the widget can receive pointer events.
     case notifyCanTarget = "notify::can-target"
     /// The content type of the `GtkAppChooser` object.
     /// 
-    /// See [GContentType](#gio-GContentType)
-    /// for more information about content types.
+    /// See `GContentType` for more information about content types.
     case notifyContentType = "notify::content-type"
     /// A list of css classes applied to this widget.
     case notifyCssClasses = "notify::css-classes"
@@ -1910,7 +1984,7 @@ public enum AppChooserSignalName: String, SignalNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case notifyCssName = "notify::css-name"
-    /// The cursor used by `widget`. See `gtk_widget_set_cursor()` for details.
+    /// The cursor used by `widget`.
     case notifyCursor = "notify::cursor"
     /// Whether the widget should grab focus when it is clicked with the mouse.
     /// 
@@ -1918,19 +1992,25 @@ public enum AppChooserSignalName: String, SignalNameProtocol {
     case notifyFocusOnClick = "notify::focus-on-click"
     /// Whether this widget itself will accept the input focus.
     case notifyFocusable = "notify::focusable"
-    /// How to distribute horizontal space if widget gets extra space, see `GtkAlign`
+    /// How to distribute horizontal space if widget gets extra space.
     case notifyHalign = "notify::halign"
+    /// Whether the widget is the default widget.
     case notifyHasDefault = "notify::has-default"
+    /// Whether the widget has the input focus.
     case notifyHasFocus = "notify::has-focus"
-    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
+    /// Enables or disables the emission of the `query-tooltip` signal on `widget`.
+    /// 
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
-    /// whether it will provide a tooltip or not.
+    /// the widget will be queried using [signal`Gtk.Widget::query-tooltip`] to
+    /// determine whether it will provide a tooltip or not.
     case notifyHasTooltip = "notify::has-tooltip"
+    /// Override for height request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case notifyHeightRequest = "notify::height-request"
-    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
+    /// Whether to expand horizontally.
     case notifyHexpand = "notify::hexpand"
-    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
+    /// Whether to use the `hexpand` property.
     case notifyHexpandSet = "notify::hexpand-set"
     /// The `GtkLayoutManager` instance to use to compute the preferred size
     /// of the widget, and allocate its children.
@@ -1942,77 +2022,91 @@ public enum AppChooserSignalName: String, SignalNameProtocol {
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginBottom = "notify::margin-bottom"
-    /// Margin on end of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on end of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginEnd = "notify::margin-end"
-    /// Margin on start of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on start of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginStart = "notify::margin-start"
     /// Margin on top side of widget.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginTop = "notify::margin-top"
+    /// The name of the widget.
     case notifyName = "notify::name"
-    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
-    /// more details about window opacity.
+    /// The requested opacity of the widget.
     case notifyOpacity = "notify::opacity"
     /// How content outside the widget's content area is treated.
     /// 
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case notifyOverflow = "notify::overflow"
+    /// The parent widget of this widget.
     case notifyParent = "notify::parent"
+    /// Whether the widget will receive the default action when it is focused.
     case notifyReceivesDefault = "notify::receives-default"
-    /// The `GtkRoot` widget of the widget tree containing this widget or `nil` if
-    /// the widget is not contained in a root widget.
+    /// The `GtkRoot` widget of the widget tree containing this widget.
+    /// 
+    /// This will be `nil` if the widget is not contained in a root widget.
     case notifyRoot = "notify::root"
-    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
-    /// more details about widget scaling.
+    /// The scale factor of the widget.
     case notifyScaleFactor = "notify::scale-factor"
+    /// Whether the widget responds to input.
     case notifySensitive = "notify::sensitive"
     /// Sets the text of tooltip to be the given string, which is marked up
-    /// with the [Pango text markup language](#PangoMarkupFormat).
-    /// Also see `gtk_tooltip_set_markup()`.
+    /// with Pango markup.
+    /// 
+    /// Also see [method`Gtk.Tooltip.set_markup`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case notifyTooltipMarkup = "notify::tooltip-markup"
     /// Sets the text of tooltip to be the given string.
     /// 
-    /// Also see `gtk_tooltip_set_text()`.
+    /// Also see [method`Gtk.Tooltip.set_text`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case notifyTooltipText = "notify::tooltip-text"
-    /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
+    /// How to distribute vertical space if widget gets extra space.
     case notifyValign = "notify::valign"
-    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
+    /// Whether to expand vertically.
     case notifyVexpand = "notify::vexpand"
-    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
+    /// Whether to use the `vexpand` property.
     case notifyVexpandSet = "notify::vexpand-set"
+    /// Whether the widget is visible.
     case notifyVisible = "notify::visible"
+    /// Override for width request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case notifyWidthRequest = "notify::width-request"
 }
 
@@ -2028,7 +2122,8 @@ public extension AppChooserProtocol {
         return rv
     }
 
-    /// Returns the current value of the `GtkAppChooser:content-type` property.
+    /// Returns the content type for which the `GtkAppChooser`
+    /// shows applications.
     @inlinable func getContentType() -> String! {
         let rv = gtk_app_chooser_get_content_type(app_chooser_ptr).map({ String(cString: $0) })
         return rv
@@ -2048,9 +2143,11 @@ public extension AppChooserProtocol {
         }
     }
 
-    /// Returns the current value of the `GtkAppChooser:content-type` property.
+    /// Returns the content type for which the `GtkAppChooser`
+    /// shows applications.
     @inlinable var contentType: String! {
-        /// Returns the current value of the `GtkAppChooser:content-type` property.
+        /// Returns the content type for which the `GtkAppChooser`
+        /// shows applications.
         get {
             let rv = gtk_app_chooser_get_content_type(app_chooser_ptr).map({ String(cString: $0) })
             return rv
@@ -2069,18 +2166,19 @@ public extension AppChooserProtocol {
 /// For a concrete class that implements these methods and properties, see `Buildable`.
 /// Alternatively, use `BuildableRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// GtkBuildable allows objects to extend and customize their deserialization
-/// from [GtkBuilder UI descriptions](#BUILDER-UI).
+/// `GtkBuildable` allows objects to extend and customize their deserialization
+/// from ui files.
+/// 
 /// The interface includes methods for setting names and properties of objects,
 /// parsing custom tags and constructing child objects.
 /// 
-/// The GtkBuildable interface is implemented by all widgets and
+/// The `GtkBuildable` interface is implemented by all widgets and
 /// many of the non-widget objects that are provided by GTK. The
-/// main user of this interface is `GtkBuilder`. There should be
+/// main user of this interface is [class`Gtk.Builder`]. There should be
 /// very little need for applications to call any of these functions directly.
 /// 
 /// An object only needs to implement this interface if it needs to extend the
-/// `GtkBuilder` format or run any extra routines at deserialization time.
+/// `GtkBuilder` XML format or run any extra routines at deserialization time.
 public protocol BuildableProtocol {
         /// Untyped pointer to the underlying `GtkBuildable` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2096,18 +2194,19 @@ public protocol BuildableProtocol {
 /// It exposes methods that can operate on this data type through `BuildableProtocol` conformance.
 /// Use `BuildableRef` only as an `unowned` reference to an existing `GtkBuildable` instance.
 ///
-/// GtkBuildable allows objects to extend and customize their deserialization
-/// from [GtkBuilder UI descriptions](#BUILDER-UI).
+/// `GtkBuildable` allows objects to extend and customize their deserialization
+/// from ui files.
+/// 
 /// The interface includes methods for setting names and properties of objects,
 /// parsing custom tags and constructing child objects.
 /// 
-/// The GtkBuildable interface is implemented by all widgets and
+/// The `GtkBuildable` interface is implemented by all widgets and
 /// many of the non-widget objects that are provided by GTK. The
-/// main user of this interface is `GtkBuilder`. There should be
+/// main user of this interface is [class`Gtk.Builder`]. There should be
 /// very little need for applications to call any of these functions directly.
 /// 
 /// An object only needs to implement this interface if it needs to extend the
-/// `GtkBuilder` format or run any extra routines at deserialization time.
+/// `GtkBuilder` XML format or run any extra routines at deserialization time.
 public struct BuildableRef: BuildableProtocol {
         /// Untyped pointer to the underlying `GtkBuildable` instance.
     /// For type-safe access, use the generated, typed pointer `buildable_ptr` property instead.
@@ -2190,18 +2289,19 @@ public extension BuildableRef {
 /// It provides the methods that can operate on this data type through `BuildableProtocol` conformance.
 /// Use `Buildable` as a strong reference or owner of a `GtkBuildable` instance.
 ///
-/// GtkBuildable allows objects to extend and customize their deserialization
-/// from [GtkBuilder UI descriptions](#BUILDER-UI).
+/// `GtkBuildable` allows objects to extend and customize their deserialization
+/// from ui files.
+/// 
 /// The interface includes methods for setting names and properties of objects,
 /// parsing custom tags and constructing child objects.
 /// 
-/// The GtkBuildable interface is implemented by all widgets and
+/// The `GtkBuildable` interface is implemented by all widgets and
 /// many of the non-widget objects that are provided by GTK. The
-/// main user of this interface is `GtkBuilder`. There should be
+/// main user of this interface is [class`Gtk.Builder`]. There should be
 /// very little need for applications to call any of these functions directly.
 /// 
 /// An object only needs to implement this interface if it needs to extend the
-/// `GtkBuilder` format or run any extra routines at deserialization time.
+/// `GtkBuilder` XML format or run any extra routines at deserialization time.
 open class Buildable: BuildableProtocol {
         /// Untyped pointer to the underlying `GtkBuildable` instance.
     /// For type-safe access, use the generated, typed pointer `buildable_ptr` property instead.
@@ -2358,24 +2458,21 @@ public extension BuildableProtocol {
 
     /// Gets the ID of the `buildable` object.
     /// 
-    /// `GtkBuilder` sets the name based on the
-    /// [GtkBuilder UI definition](#BUILDER-UI)
-    /// used to construct the `buildable`.
+    /// `GtkBuilder` sets the name based on the ID attribute
+    /// of the &lt;object&gt; tag used to construct the `buildable`.
     @inlinable func getBuildableId() -> String! {
         let rv = gtk_buildable_get_buildable_id(buildable_ptr).map({ String(cString: $0) })
         return rv
     }
     /// Gets the ID of the `buildable` object.
     /// 
-    /// `GtkBuilder` sets the name based on the
-    /// [GtkBuilder UI definition](#BUILDER-UI)
-    /// used to construct the `buildable`.
+    /// `GtkBuilder` sets the name based on the ID attribute
+    /// of the &lt;object&gt; tag used to construct the `buildable`.
     @inlinable var buildableId: String! {
         /// Gets the ID of the `buildable` object.
         /// 
-        /// `GtkBuilder` sets the name based on the
-        /// [GtkBuilder UI definition](#BUILDER-UI)
-        /// used to construct the `buildable`.
+        /// `GtkBuilder` sets the name based on the ID attribute
+        /// of the &lt;object&gt; tag used to construct the `buildable`.
         get {
             let rv = gtk_buildable_get_buildable_id(buildable_ptr).map({ String(cString: $0) })
             return rv

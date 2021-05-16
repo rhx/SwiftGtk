@@ -20,8 +20,11 @@ import Gdk
 /// For a concrete class that implements these methods and properties, see `MediaControls`.
 /// Alternatively, use `MediaControlsRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// GtkMediaControls is a widget to show controls for a `GtkMediaStream`
-/// and giving users a way to use it.
+/// `GtkMediaControls` is a widget to show controls for a video.
+/// 
+/// ![An example GtkMediaControls](media-controls.png)
+/// 
+/// Usually, `GtkMediaControls` is used as part of [class`Gtk.Video`].
 public protocol MediaControlsProtocol: WidgetProtocol {
         /// Untyped pointer to the underlying `GtkMediaControls` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -37,8 +40,11 @@ public protocol MediaControlsProtocol: WidgetProtocol {
 /// It exposes methods that can operate on this data type through `MediaControlsProtocol` conformance.
 /// Use `MediaControlsRef` only as an `unowned` reference to an existing `GtkMediaControls` instance.
 ///
-/// GtkMediaControls is a widget to show controls for a `GtkMediaStream`
-/// and giving users a way to use it.
+/// `GtkMediaControls` is a widget to show controls for a video.
+/// 
+/// ![An example GtkMediaControls](media-controls.png)
+/// 
+/// Usually, `GtkMediaControls` is used as part of [class`Gtk.Video`].
 public struct MediaControlsRef: MediaControlsProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkMediaControls` instance.
     /// For type-safe access, use the generated, typed pointer `media_controls_ptr` property instead.
@@ -129,8 +135,11 @@ public extension MediaControlsRef {
 /// It provides the methods that can operate on this data type through `MediaControlsProtocol` conformance.
 /// Use `MediaControls` as a strong reference or owner of a `GtkMediaControls` instance.
 ///
-/// GtkMediaControls is a widget to show controls for a `GtkMediaStream`
-/// and giving users a way to use it.
+/// `GtkMediaControls` is a widget to show controls for a video.
+/// 
+/// ![An example GtkMediaControls](media-controls.png)
+/// 
+/// Usually, `GtkMediaControls` is used as part of [class`Gtk.Video`].
 open class MediaControls: Widget, MediaControlsProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -273,6 +282,7 @@ public enum MediaControlsPropertyName: String, PropertyNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case canFocus = "can-focus"
+    /// Whether the widget can receive pointer events.
     case canTarget = "can-target"
     /// A list of css classes applied to this widget.
     case cssClasses = "css-classes"
@@ -281,7 +291,7 @@ public enum MediaControlsPropertyName: String, PropertyNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case cssName = "css-name"
-    /// The cursor used by `widget`. See `gtk_widget_set_cursor()` for details.
+    /// The cursor used by `widget`.
     case cursor = "cursor"
     /// Whether the widget should grab focus when it is clicked with the mouse.
     /// 
@@ -289,19 +299,25 @@ public enum MediaControlsPropertyName: String, PropertyNameProtocol {
     case focusOnClick = "focus-on-click"
     /// Whether this widget itself will accept the input focus.
     case focusable = "focusable"
-    /// How to distribute horizontal space if widget gets extra space, see `GtkAlign`
+    /// How to distribute horizontal space if widget gets extra space.
     case halign = "halign"
+    /// Whether the widget is the default widget.
     case hasDefault = "has-default"
+    /// Whether the widget has the input focus.
     case hasFocus = "has-focus"
-    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
+    /// Enables or disables the emission of the `query-tooltip` signal on `widget`.
+    /// 
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
-    /// whether it will provide a tooltip or not.
+    /// the widget will be queried using [signal`Gtk.Widget::query-tooltip`] to
+    /// determine whether it will provide a tooltip or not.
     case hasTooltip = "has-tooltip"
+    /// Override for height request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case heightRequest = "height-request"
-    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
+    /// Whether to expand horizontally.
     case hexpand = "hexpand"
-    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
+    /// Whether to use the `hexpand` property.
     case hexpandSet = "hexpand-set"
     /// The `GtkLayoutManager` instance to use to compute the preferred size
     /// of the widget, and allocate its children.
@@ -313,79 +329,93 @@ public enum MediaControlsPropertyName: String, PropertyNameProtocol {
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginBottom = "margin-bottom"
-    /// Margin on end of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on end of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginEnd = "margin-end"
-    /// Margin on start of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on start of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginStart = "margin-start"
     /// Margin on top side of widget.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginTop = "margin-top"
     /// The media-stream managed by this object or `nil` if none.
     case mediaStream = "media-stream"
+    /// The name of the widget.
     case name = "name"
-    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
-    /// more details about window opacity.
+    /// The requested opacity of the widget.
     case opacity = "opacity"
     /// How content outside the widget's content area is treated.
     /// 
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case overflow = "overflow"
+    /// The parent widget of this widget.
     case parent = "parent"
+    /// Whether the widget will receive the default action when it is focused.
     case receivesDefault = "receives-default"
-    /// The `GtkRoot` widget of the widget tree containing this widget or `nil` if
-    /// the widget is not contained in a root widget.
+    /// The `GtkRoot` widget of the widget tree containing this widget.
+    /// 
+    /// This will be `nil` if the widget is not contained in a root widget.
     case root = "root"
-    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
-    /// more details about widget scaling.
+    /// The scale factor of the widget.
     case scaleFactor = "scale-factor"
+    /// Whether the widget responds to input.
     case sensitive = "sensitive"
     /// Sets the text of tooltip to be the given string, which is marked up
-    /// with the [Pango text markup language](#PangoMarkupFormat).
-    /// Also see `gtk_tooltip_set_markup()`.
+    /// with Pango markup.
+    /// 
+    /// Also see [method`Gtk.Tooltip.set_markup`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case tooltipMarkup = "tooltip-markup"
     /// Sets the text of tooltip to be the given string.
     /// 
-    /// Also see `gtk_tooltip_set_text()`.
+    /// Also see [method`Gtk.Tooltip.set_text`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case tooltipText = "tooltip-text"
-    /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
+    /// How to distribute vertical space if widget gets extra space.
     case valign = "valign"
-    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
+    /// Whether to expand vertically.
     case vexpand = "vexpand"
-    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
+    /// Whether to use the `vexpand` property.
     case vexpandSet = "vexpand-set"
+    /// Whether the widget is visible.
     case visible = "visible"
+    /// Override for width request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case widthRequest = "width-request"
 }
 
@@ -444,29 +474,32 @@ public extension MediaControlsProtocol {
 
 public enum MediaControlsSignalName: String, SignalNameProtocol {
     /// Signals that all holders of a reference to the widget should release
-    /// the reference that they hold. May result in finalization of the widget
-    /// if all references are released.
+    /// the reference that they hold.
+    /// 
+    /// May result in finalization of the widget if all references are released.
     /// 
     /// This signal is not suitable for saving widget state.
     case destroy = "destroy"
-    /// The `direction-changed` signal is emitted when the text direction
-    /// of a widget changes.
+    /// Emitted when the text direction of a widget changes.
     case directionChanged = "direction-changed"
-    /// The `hide` signal is emitted when `widget` is hidden, for example with
-    /// `gtk_widget_hide()`.
+    /// Emitted when `widget` is hidden.
     case hide = "hide"
-    /// Gets emitted if keyboard navigation fails.
-    /// See `gtk_widget_keynav_failed()` for details.
+    /// Emitted if keyboard navigation fails.
+    /// 
+    /// See [method`Gtk.Widget.keynav_failed`] for details.
     case keynavFailed = "keynav-failed"
-    /// The `map` signal is emitted when `widget` is going to be mapped, that is
-    /// when the widget is visible (which is controlled with
-    /// `gtk_widget_set_visible()`) and all its parents up to the toplevel widget
+    /// Emitted when `widget` is going to be mapped.
+    /// 
+    /// A widget is mapped when the widget is visible (which is controlled with
+    /// [property`Gtk.Widget:visible`]) and all its parents up to the toplevel widget
     /// are also visible.
     /// 
     /// The `map` signal can be used to determine whether a widget will be drawn,
     /// for instance it can resume an animation that was stopped during the
-    /// emission of `GtkWidget::unmap`.
+    /// emission of [signal`Gtk.Widget::unmap`].
     case map = "map"
+    /// Emitted when a widget is activated via a mnemonic.
+    /// 
     /// The default handler for this signal activates `widget` if `group_cycling`
     /// is `false`, or just makes `widget` grab focus if `group_cycling` is `true`.
     case mnemonicActivate = "mnemonic-activate"
@@ -497,9 +530,11 @@ public enum MediaControlsSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// Emitted when `GtkWidget:has-tooltip` is `true` and the hover timeout
-    /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
-    /// focus in keyboard mode.
+    /// Emitted when the widgets tooltip is about to be shown.
+    /// 
+    /// This happens when the [property`Gtk.Widget:has-tooltip`] property
+    /// is `true` and the hover timeout has expired with the cursor hovering
+    /// "above" `widget`; or emitted when `widget` got focus in keyboard mode.
     /// 
     /// Using the given coordinates, the signal handler should determine
     /// whether a tooltip should be shown for `widget`. If this is the case
@@ -510,27 +545,29 @@ public enum MediaControlsSignalName: String, SignalNameProtocol {
     /// The signal handler is free to manipulate `tooltip` with the therefore
     /// destined function calls.
     case queryTooltip = "query-tooltip"
-    /// The `realize` signal is emitted when `widget` is associated with a
-    /// `GdkSurface`, which means that `gtk_widget_realize()` has been called or the
-    /// widget has been mapped (that is, it is going to be drawn).
-    case realize = "realize"
-    /// The `show` signal is emitted when `widget` is shown, for example with
-    /// `gtk_widget_show()`.
-    case show = "show"
-    /// The `state-flags-changed` signal is emitted when the widget state
-    /// changes, see `gtk_widget_get_state_flags()`.
-    case stateFlagsChanged = "state-flags-changed"
-    /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
-    /// means that either it or any of its parents up to the toplevel widget have
-    /// been set as hidden.
+    /// Emitted when `widget` is associated with a `GdkSurface`.
     /// 
-    /// As `unmap` indicates that a widget will not be shown any longer, it can be
-    /// used to, for example, stop an animation on the widget.
+    /// This means that [method`Gtk.Widget.realize`] has been called
+    /// or the widget has been mapped (that is, it is going to be drawn).
+    case realize = "realize"
+    /// Emitted when `widget` is shown.
+    case show = "show"
+    /// Emitted when the widget state changes.
+    /// 
+    /// See [method`Gtk.Widget.get_state_flags`].
+    case stateFlagsChanged = "state-flags-changed"
+    /// Emitted when `widget` is going to be unmapped.
+    /// 
+    /// A widget is unmapped when either it or any of its parents up to the
+    /// toplevel widget have been set as hidden.
+    /// 
+    /// As `unmap` indicates that a widget will not be shown any longer,
+    /// it can be used to, for example, stop an animation on the widget.
     case unmap = "unmap"
-    /// The `unrealize` signal is emitted when the `GdkSurface` associated with
-    /// `widget` is destroyed, which means that `gtk_widget_unrealize()` has been
-    /// called or the widget has been unmapped (that is, it is going to be
-    /// hidden).
+    /// Emitted when the `GdkSurface` associated with `widget` is destroyed.
+    /// 
+    /// This means that [method`Gtk.Widget.unrealize`] has been called
+    /// or the widget has been unmapped (that is, it is going to be hidden).
     case unrealize = "unrealize"
     /// Whether the widget or any of its descendents can accept
     /// the input focus.
@@ -538,6 +575,7 @@ public enum MediaControlsSignalName: String, SignalNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case notifyCanFocus = "notify::can-focus"
+    /// Whether the widget can receive pointer events.
     case notifyCanTarget = "notify::can-target"
     /// A list of css classes applied to this widget.
     case notifyCssClasses = "notify::css-classes"
@@ -546,7 +584,7 @@ public enum MediaControlsSignalName: String, SignalNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case notifyCssName = "notify::css-name"
-    /// The cursor used by `widget`. See `gtk_widget_set_cursor()` for details.
+    /// The cursor used by `widget`.
     case notifyCursor = "notify::cursor"
     /// Whether the widget should grab focus when it is clicked with the mouse.
     /// 
@@ -554,19 +592,25 @@ public enum MediaControlsSignalName: String, SignalNameProtocol {
     case notifyFocusOnClick = "notify::focus-on-click"
     /// Whether this widget itself will accept the input focus.
     case notifyFocusable = "notify::focusable"
-    /// How to distribute horizontal space if widget gets extra space, see `GtkAlign`
+    /// How to distribute horizontal space if widget gets extra space.
     case notifyHalign = "notify::halign"
+    /// Whether the widget is the default widget.
     case notifyHasDefault = "notify::has-default"
+    /// Whether the widget has the input focus.
     case notifyHasFocus = "notify::has-focus"
-    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
+    /// Enables or disables the emission of the `query-tooltip` signal on `widget`.
+    /// 
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
-    /// whether it will provide a tooltip or not.
+    /// the widget will be queried using [signal`Gtk.Widget::query-tooltip`] to
+    /// determine whether it will provide a tooltip or not.
     case notifyHasTooltip = "notify::has-tooltip"
+    /// Override for height request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case notifyHeightRequest = "notify::height-request"
-    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
+    /// Whether to expand horizontally.
     case notifyHexpand = "notify::hexpand"
-    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
+    /// Whether to use the `hexpand` property.
     case notifyHexpandSet = "notify::hexpand-set"
     /// The `GtkLayoutManager` instance to use to compute the preferred size
     /// of the widget, and allocate its children.
@@ -578,79 +622,93 @@ public enum MediaControlsSignalName: String, SignalNameProtocol {
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginBottom = "notify::margin-bottom"
-    /// Margin on end of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on end of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginEnd = "notify::margin-end"
-    /// Margin on start of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on start of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginStart = "notify::margin-start"
     /// Margin on top side of widget.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginTop = "notify::margin-top"
     /// The media-stream managed by this object or `nil` if none.
     case notifyMediaStream = "notify::media-stream"
+    /// The name of the widget.
     case notifyName = "notify::name"
-    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
-    /// more details about window opacity.
+    /// The requested opacity of the widget.
     case notifyOpacity = "notify::opacity"
     /// How content outside the widget's content area is treated.
     /// 
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case notifyOverflow = "notify::overflow"
+    /// The parent widget of this widget.
     case notifyParent = "notify::parent"
+    /// Whether the widget will receive the default action when it is focused.
     case notifyReceivesDefault = "notify::receives-default"
-    /// The `GtkRoot` widget of the widget tree containing this widget or `nil` if
-    /// the widget is not contained in a root widget.
+    /// The `GtkRoot` widget of the widget tree containing this widget.
+    /// 
+    /// This will be `nil` if the widget is not contained in a root widget.
     case notifyRoot = "notify::root"
-    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
-    /// more details about widget scaling.
+    /// The scale factor of the widget.
     case notifyScaleFactor = "notify::scale-factor"
+    /// Whether the widget responds to input.
     case notifySensitive = "notify::sensitive"
     /// Sets the text of tooltip to be the given string, which is marked up
-    /// with the [Pango text markup language](#PangoMarkupFormat).
-    /// Also see `gtk_tooltip_set_markup()`.
+    /// with Pango markup.
+    /// 
+    /// Also see [method`Gtk.Tooltip.set_markup`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case notifyTooltipMarkup = "notify::tooltip-markup"
     /// Sets the text of tooltip to be the given string.
     /// 
-    /// Also see `gtk_tooltip_set_text()`.
+    /// Also see [method`Gtk.Tooltip.set_text`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case notifyTooltipText = "notify::tooltip-text"
-    /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
+    /// How to distribute vertical space if widget gets extra space.
     case notifyValign = "notify::valign"
-    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
+    /// Whether to expand vertically.
     case notifyVexpand = "notify::vexpand"
-    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
+    /// Whether to use the `vexpand` property.
     case notifyVexpandSet = "notify::vexpand-set"
+    /// Whether the widget is visible.
     case notifyVisible = "notify::visible"
+    /// Override for width request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case notifyWidthRequest = "notify::width-request"
 }
 
@@ -701,12 +759,13 @@ public extension MediaControlsProtocol {
 /// For a concrete class that implements these methods and properties, see `MediaFile`.
 /// Alternatively, use `MediaFileRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// `GtkMediaFile` is the implementation for media file usage with `GtkMediaStream`.
+/// `GtkMediaFile` implements `GtkMediaStream` for files.
 /// 
 /// This provides a simple way to play back video files with GTK.
 /// 
 /// GTK provides a GIO extension point for `GtkMediaFile` implementations
 /// to allow for external implementations using various media frameworks.
+/// 
 /// GTK itself includes implementations using GStreamer and ffmpeg.
 public protocol MediaFileProtocol: MediaStreamProtocol {
         /// Untyped pointer to the underlying `GtkMediaFile` instance.
@@ -723,12 +782,13 @@ public protocol MediaFileProtocol: MediaStreamProtocol {
 /// It exposes methods that can operate on this data type through `MediaFileProtocol` conformance.
 /// Use `MediaFileRef` only as an `unowned` reference to an existing `GtkMediaFile` instance.
 ///
-/// `GtkMediaFile` is the implementation for media file usage with `GtkMediaStream`.
+/// `GtkMediaFile` implements `GtkMediaStream` for files.
 /// 
 /// This provides a simple way to play back video files with GTK.
 /// 
 /// GTK provides a GIO extension point for `GtkMediaFile` implementations
 /// to allow for external implementations using various media frameworks.
+/// 
 /// GTK itself includes implementations using GStreamer and ffmpeg.
 public struct MediaFileRef: MediaFileProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkMediaFile` instance.
@@ -815,12 +875,13 @@ public extension MediaFileRef {
 /// It provides the methods that can operate on this data type through `MediaFileProtocol` conformance.
 /// Use `MediaFile` as a strong reference or owner of a `GtkMediaFile` instance.
 ///
-/// `GtkMediaFile` is the implementation for media file usage with `GtkMediaStream`.
+/// `GtkMediaFile` implements `GtkMediaStream` for files.
 /// 
 /// This provides a simple way to play back video files with GTK.
 /// 
 /// GTK provides a GIO extension point for `GtkMediaFile` implementations
 /// to allow for external implementations using various media frameworks.
+/// 
 /// GTK itself includes implementations using GStreamer and ffmpeg.
 open class MediaFile: MediaStream, MediaFileProtocol {
         /// Designated initialiser from the underlying `C` data type.
@@ -956,15 +1017,18 @@ public enum MediaFilePropertyName: String, PropertyNameProtocol {
     case duration = "duration"
     /// Set when playback has finished.
     case ended = "ended"
-    /// `nil` for a properly working stream or the `GError` that the stream is in.
+    /// `nil` for a properly working stream or the `GError`
+    /// that the stream is in.
     case error = "error"
     /// The file being played back or `nil` if not playing a file.
     case file = "file"
-    /// Whether the stream contains audio
+    /// Whether the stream contains audio.
     case hasAudio = "has-audio"
-    /// Whether the stream contains video
+    /// Whether the stream contains video.
     case hasVideo = "has-video"
-    /// The stream being played back or `nil` if not playing a stream, like when playing a file.
+    /// The stream being played back or `nil` if not playing a stream.
+    /// 
+    /// This is `nil` when playing a file.
     case inputStream = "input-stream"
     /// Try to restart the media from the beginning once it ended.
     case loop = "loop"
@@ -1068,15 +1132,18 @@ public enum MediaFileSignalName: String, SignalNameProtocol {
     case notifyDuration = "notify::duration"
     /// Set when playback has finished.
     case notifyEnded = "notify::ended"
-    /// `nil` for a properly working stream or the `GError` that the stream is in.
+    /// `nil` for a properly working stream or the `GError`
+    /// that the stream is in.
     case notifyError = "notify::error"
     /// The file being played back or `nil` if not playing a file.
     case notifyFile = "notify::file"
-    /// Whether the stream contains audio
+    /// Whether the stream contains audio.
     case notifyHasAudio = "notify::has-audio"
-    /// Whether the stream contains video
+    /// Whether the stream contains video.
     case notifyHasVideo = "notify::has-video"
-    /// The stream being played back or `nil` if not playing a stream, like when playing a file.
+    /// The stream being played back or `nil` if not playing a stream.
+    /// 
+    /// This is `nil` when playing a file.
     case notifyInputStream = "notify::input-stream"
     /// Try to restart the media from the beginning once it ended.
     case notifyLoop = "notify::loop"
@@ -1127,49 +1194,55 @@ public extension MediaFileProtocol {
         return rv
     }
 
-    /// If any file is still playing, stop playing it.
+    /// Sets the `GtkMediaFile` to play the given file.
     /// 
-    /// Then start playing the given `file`.
+    /// If any file is still playing, stop playing it.
     @inlinable func set(file: GIO.FileRef? = nil) {
         gtk_media_file_set_file(media_file_ptr, file?.file_ptr)
     
     }
-    /// If any file is still playing, stop playing it.
+    /// Sets the `GtkMediaFile` to play the given file.
     /// 
-    /// Then start playing the given `file`.
+    /// If any file is still playing, stop playing it.
     @inlinable func set<FileT: GIO.FileProtocol>(file: FileT?) {
         gtk_media_file_set_file(media_file_ptr, file?.file_ptr)
     
     }
 
+    /// Sets the `GtkMediaFile to play the given file.
+    /// 
     /// This is a utility function that converts the given `filename`
-    /// to a `GFile` and calls `gtk_media_file_set_file()`.
+    /// to a `GFile` and calls [method`Gtk.MediaFile.set_file`].
     @inlinable func set(filename: UnsafePointer<CChar>? = nil) {
         gtk_media_file_set_filename(media_file_ptr, filename)
     
     }
 
-    /// If anything is still playing, stop playing it. Then start
-    /// playing the given `stream`.
+    /// Sets the `GtkMediaFile` to play the given stream.
+    /// 
+    /// If anything is still playing, stop playing it.
     /// 
     /// Full control about the `stream` is assumed for the duration of
-    /// playback. The stream will not bt be closed.
+    /// playback. The stream will not be closed.
     @inlinable func setInput(stream: GIO.InputStreamRef? = nil) {
         gtk_media_file_set_input_stream(media_file_ptr, stream?.input_stream_ptr)
     
     }
-    /// If anything is still playing, stop playing it. Then start
-    /// playing the given `stream`.
+    /// Sets the `GtkMediaFile` to play the given stream.
+    /// 
+    /// If anything is still playing, stop playing it.
     /// 
     /// Full control about the `stream` is assumed for the duration of
-    /// playback. The stream will not bt be closed.
+    /// playback. The stream will not be closed.
     @inlinable func setInput<InputStreamT: GIO.InputStreamProtocol>(stream: InputStreamT?) {
         gtk_media_file_set_input_stream(media_file_ptr, stream?.input_stream_ptr)
     
     }
 
+    /// Sets the `GtkMediaFile to play the given resource.
+    /// 
     /// This is a utility function that converts the given `resource_path`
-    /// to a `GFile` and calls `gtk_media_file_set_file()`.
+    /// to a `GFile` and calls [method`Gtk.MediaFile.set_file`].
     @inlinable func setResource(resourcePath: UnsafePointer<CChar>? = nil) {
         gtk_media_file_set_resource(media_file_ptr, resourcePath)
     
@@ -1184,9 +1257,9 @@ public extension MediaFileProtocol {
             let rv = GIO.FileRef(gtk_media_file_get_file(media_file_ptr))
             return rv
         }
-        /// If any file is still playing, stop playing it.
+        /// Sets the `GtkMediaFile` to play the given file.
         /// 
-        /// Then start playing the given `file`.
+        /// If any file is still playing, stop playing it.
         nonmutating set {
             gtk_media_file_set_file(media_file_ptr, UnsafeMutablePointer<GFile>(newValue?.file_ptr))
         }
@@ -1205,11 +1278,12 @@ public extension MediaFileProtocol {
             let rv = GIO.InputStreamRef(gtk_media_file_get_input_stream(media_file_ptr))
             return rv
         }
-        /// If anything is still playing, stop playing it. Then start
-        /// playing the given `stream`.
+        /// Sets the `GtkMediaFile` to play the given stream.
+        /// 
+        /// If anything is still playing, stop playing it.
         /// 
         /// Full control about the `stream` is assumed for the duration of
-        /// playback. The stream will not bt be closed.
+        /// playback. The stream will not be closed.
         nonmutating set {
             gtk_media_file_set_input_stream(media_file_ptr, UnsafeMutablePointer<GInputStream>(newValue?.input_stream_ptr))
         }
@@ -1236,20 +1310,20 @@ public extension MediaFileProtocol {
 /// `GtkMediaStream` is the integration point for media playback inside GTK.
 /// 
 /// GTK provides an implementation of the `GtkMediaStream` interface that
-/// is called `GtkMediaFile`.
+/// is called [class`Gtk.MediaFile`].
 /// 
 /// Apart from application-facing API for stream playback, `GtkMediaStream`
 /// has a number of APIs that are only useful for implementations and should
 /// not be used in applications:
-/// `gtk_media_stream_prepared()`,
-/// `gtk_media_stream_unprepared()`,
-/// `gtk_media_stream_update()`,
-/// `gtk_media_stream_ended()`,
-/// `gtk_media_stream_seek_success()`,
-/// `gtk_media_stream_seek_failed()`,
-/// `gtk_media_stream_gerror()`,
-/// `gtk_media_stream_error()`,
-/// `gtk_media_stream_error_valist()`.
+/// [method`Gtk.MediaStream.prepared`],
+/// [method`Gtk.MediaStream.unprepared`],
+/// [method`Gtk.MediaStream.update`],
+/// [method`Gtk.MediaStream.ended`],
+/// [method`Gtk.MediaStream.seek_success`],
+/// [method`Gtk.MediaStream.seek_failed`],
+/// [method`Gtk.MediaStream.gerror`],
+/// [method`Gtk.MediaStream.error`],
+/// [method`Gtk.MediaStream.error_valist`].
 public protocol MediaStreamProtocol: GLibObject.ObjectProtocol, Gdk.PaintableProtocol {
         /// Untyped pointer to the underlying `GtkMediaStream` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1268,20 +1342,20 @@ public protocol MediaStreamProtocol: GLibObject.ObjectProtocol, Gdk.PaintablePro
 /// `GtkMediaStream` is the integration point for media playback inside GTK.
 /// 
 /// GTK provides an implementation of the `GtkMediaStream` interface that
-/// is called `GtkMediaFile`.
+/// is called [class`Gtk.MediaFile`].
 /// 
 /// Apart from application-facing API for stream playback, `GtkMediaStream`
 /// has a number of APIs that are only useful for implementations and should
 /// not be used in applications:
-/// `gtk_media_stream_prepared()`,
-/// `gtk_media_stream_unprepared()`,
-/// `gtk_media_stream_update()`,
-/// `gtk_media_stream_ended()`,
-/// `gtk_media_stream_seek_success()`,
-/// `gtk_media_stream_seek_failed()`,
-/// `gtk_media_stream_gerror()`,
-/// `gtk_media_stream_error()`,
-/// `gtk_media_stream_error_valist()`.
+/// [method`Gtk.MediaStream.prepared`],
+/// [method`Gtk.MediaStream.unprepared`],
+/// [method`Gtk.MediaStream.update`],
+/// [method`Gtk.MediaStream.ended`],
+/// [method`Gtk.MediaStream.seek_success`],
+/// [method`Gtk.MediaStream.seek_failed`],
+/// [method`Gtk.MediaStream.gerror`],
+/// [method`Gtk.MediaStream.error`],
+/// [method`Gtk.MediaStream.error_valist`].
 public struct MediaStreamRef: MediaStreamProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkMediaStream` instance.
     /// For type-safe access, use the generated, typed pointer `media_stream_ptr` property instead.
@@ -1370,20 +1444,20 @@ public extension MediaStreamRef {
 /// `GtkMediaStream` is the integration point for media playback inside GTK.
 /// 
 /// GTK provides an implementation of the `GtkMediaStream` interface that
-/// is called `GtkMediaFile`.
+/// is called [class`Gtk.MediaFile`].
 /// 
 /// Apart from application-facing API for stream playback, `GtkMediaStream`
 /// has a number of APIs that are only useful for implementations and should
 /// not be used in applications:
-/// `gtk_media_stream_prepared()`,
-/// `gtk_media_stream_unprepared()`,
-/// `gtk_media_stream_update()`,
-/// `gtk_media_stream_ended()`,
-/// `gtk_media_stream_seek_success()`,
-/// `gtk_media_stream_seek_failed()`,
-/// `gtk_media_stream_gerror()`,
-/// `gtk_media_stream_error()`,
-/// `gtk_media_stream_error_valist()`.
+/// [method`Gtk.MediaStream.prepared`],
+/// [method`Gtk.MediaStream.unprepared`],
+/// [method`Gtk.MediaStream.update`],
+/// [method`Gtk.MediaStream.ended`],
+/// [method`Gtk.MediaStream.seek_success`],
+/// [method`Gtk.MediaStream.seek_failed`],
+/// [method`Gtk.MediaStream.gerror`],
+/// [method`Gtk.MediaStream.error`],
+/// [method`Gtk.MediaStream.error_valist`].
 open class MediaStream: GLibObject.Object, MediaStreamProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -1518,11 +1592,12 @@ public enum MediaStreamPropertyName: String, PropertyNameProtocol {
     case duration = "duration"
     /// Set when playback has finished.
     case ended = "ended"
-    /// `nil` for a properly working stream or the `GError` that the stream is in.
+    /// `nil` for a properly working stream or the `GError`
+    /// that the stream is in.
     case error = "error"
-    /// Whether the stream contains audio
+    /// Whether the stream contains audio.
     case hasAudio = "has-audio"
-    /// Whether the stream contains video
+    /// Whether the stream contains video.
     case hasVideo = "has-video"
     /// Try to restart the media from the beginning once it ended.
     case loop = "loop"
@@ -1626,11 +1701,12 @@ public enum MediaStreamSignalName: String, SignalNameProtocol {
     case notifyDuration = "notify::duration"
     /// Set when playback has finished.
     case notifyEnded = "notify::ended"
-    /// `nil` for a properly working stream or the `GError` that the stream is in.
+    /// `nil` for a properly working stream or the `GError`
+    /// that the stream is in.
     case notifyError = "notify::error"
-    /// Whether the stream contains audio
+    /// Whether the stream contains audio.
     case notifyHasAudio = "notify::has-audio"
-    /// Whether the stream contains video
+    /// Whether the stream contains video.
     case notifyHasVideo = "notify::has-video"
     /// Try to restart the media from the beginning once it ended.
     case notifyLoop = "notify::loop"
@@ -1657,8 +1733,12 @@ public extension MediaStreamProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkMediaStream` instance.
     @inlinable var media_stream_ptr: UnsafeMutablePointer<GtkMediaStream>! { return ptr?.assumingMemoryBound(to: GtkMediaStream.self) }
 
-    /// Pauses the media stream and marks it as ended. This is a hint only, calls
-    /// to `GtkMediaStream.play()` may still happen.
+    /// Pauses the media stream and marks it as ended.
+    /// 
+    /// This is a hint only, calls to `GtkMediaStream.play()`
+    /// may still happen.
+    /// 
+    /// The media stream must be prepared when this function is called.
     @inlinable func getEnded() {
         gtk_media_stream_ended(media_stream_ptr)
     
@@ -1670,31 +1750,33 @@ public extension MediaStreamProtocol {
 
     /// Sets `self` into an error state using a `printf()`-style format string.
     /// 
-    /// This is a utility function that calls `gtk_media_stream_gerror()`. See
-    /// that function for details.
+    /// This is a utility function that calls [method`Gtk.MediaStream.gerror`].
+    /// See that function for details.
     @inlinable func errorValist(domain: GQuark, code: Int, format: UnsafePointer<CChar>!, args: CVaListPointer) {
         gtk_media_stream_error_valist(media_stream_ptr, domain, gint(code), format, args)
     
     }
 
-    /// Sets `self` into an error state. This will pause the stream
-    /// (you can check for an error via `gtk_media_stream_get_error()` in
-    /// your `GtkMediaStream.pause()` implementation), abort pending seeks
-    /// and mark the stream as prepared.
+    /// Sets `self` into an error state.
     /// 
-    /// if the stream is already in an error state, this call will be ignored
-    /// and the existing error will be retained.
-    /// FIXME: Or do we want to set the new error?
+    /// This will pause the stream (you can check for an error
+    /// via [method`Gtk.MediaStream.get_error`] in your
+    /// `GtkMediaStream.pause()` implementation), abort pending
+    /// seeks and mark the stream as prepared.
+    /// 
+    /// if the stream is already in an error state, this call
+    /// will be ignored and the existing error will be retained.
     /// 
     /// To unset an error, the stream must be reset via a call to
-    /// `gtk_media_stream_unprepared()`.
+    /// [method`Gtk.MediaStream.unprepared`].
     @inlinable func gerror<GLibErrorT: ErrorProtocol>(error: GLibErrorT) {
         gtk_media_stream_gerror(media_stream_ptr, error.error_ptr)
     
     }
 
-    /// Gets the duration of the stream. If the duration is not known,
-    /// 0 will be returned.
+    /// Gets the duration of the stream.
+    /// 
+    /// If the duration is not known, 0 will be returned.
     @inlinable func getDuration() -> gint64 {
         let rv = gtk_media_stream_get_duration(media_stream_ptr)
         return rv
@@ -1706,30 +1788,36 @@ public extension MediaStreamProtocol {
         return rv
     }
 
-    /// If the stream is in an error state, returns the `GError` explaining that state.
-    /// Any type of error can be reported here depending on the implementation of the
-    /// media stream.
+    /// If the stream is in an error state, returns the `GError`
+    /// explaining that state.
     /// 
-    /// A media stream in an error cannot be operated on, calls like
-    /// `gtk_media_stream_play()` or `gtk_media_stream_seek()` will not have any effect.
+    /// Any type of error can be reported here depending on the
+    /// implementation of the media stream.
     /// 
-    /// `GtkMediaStream` itself does not provide a way to unset an error, but
-    /// implementations may provide options. For example, a `GtkMediaFile` will unset
-    /// errors when a new source is set with ie `gtk_media_file_set_file()`.
+    /// A media stream in an error cannot be operated on, calls
+    /// like [method`Gtk.MediaStream.play`] or
+    /// [method`Gtk.MediaStream.seek`] will not have any effect.
+    /// 
+    /// `GtkMediaStream` itself does not provide a way to unset
+    /// an error, but implementations may provide options. For example,
+    /// a [class`Gtk.MediaFile`] will unset errors when a new source is
+    /// set, e.g. with [method`Gtk.MediaFile.set_file`].
     @inlinable func getError() -> GLib.ErrorRef! {
         let rv = GLib.ErrorRef(gtk_media_stream_get_error(media_stream_ptr))
         return rv
     }
 
-    /// Returns whether the stream is set to loop. See
-    /// `gtk_media_stream_set_loop()` for details.
+    /// Returns whether the stream is set to loop.
+    /// 
+    /// See [method`Gtk.MediaStream.set_loop`] for details.
     @inlinable func getLoop() -> Bool {
         let rv = ((gtk_media_stream_get_loop(media_stream_ptr)) != 0)
         return rv
     }
 
     /// Returns whether the audio for the stream is muted.
-    /// See `gtk_media_stream_set_muted()` for details.
+    /// 
+    /// See [method`Gtk.MediaStream.set_muted`] for details.
     @inlinable func getMuted() -> Bool {
         let rv = ((gtk_media_stream_get_muted(media_stream_ptr)) != 0)
         return rv
@@ -1748,7 +1836,8 @@ public extension MediaStreamProtocol {
     }
 
     /// Returns the volume of the audio for the stream.
-    /// See `gtk_media_stream_set_volume()` for details.
+    /// 
+    /// See [method`Gtk.MediaStream.set_volume`] for details.
     @inlinable func getVolume() -> CDouble {
         let rv = gtk_media_stream_get_volume(media_stream_ptr)
         return rv
@@ -1766,15 +1855,17 @@ public extension MediaStreamProtocol {
         return rv
     }
 
-    /// Pauses playback of the stream. If the stream
-    /// is not playing, do nothing.
+    /// Pauses playback of the stream.
+    /// 
+    /// If the stream is not playing, do nothing.
     @inlinable func pause() {
         gtk_media_stream_pause(media_stream_ptr)
     
     }
 
-    /// Starts playing the stream. If the stream
-    /// is in error or already playing, do nothing.
+    /// Starts playing the stream.
+    /// 
+    /// If the stream is in error or already playing, do nothing.
     @inlinable func play() {
         gtk_media_stream_play(media_stream_ptr)
     
@@ -1789,24 +1880,26 @@ public extension MediaStreamProtocol {
     /// values to determine what controls to show.
     /// 
     /// This function may not be called again until the stream has been
-    /// reset via `gtk_media_stream_unprepared()`.
+    /// reset via [method`Gtk.MediaStream.unprepared`].
     @inlinable func prepared(hasAudio: Bool, hasVideo: Bool, seekable: Bool, duration: gint64) {
         gtk_media_stream_prepared(media_stream_ptr, gboolean((hasAudio) ? 1 : 0), gboolean((hasVideo) ? 1 : 0), gboolean((seekable) ? 1 : 0), duration)
     
     }
 
     /// Called by users to attach the media stream to a `GdkSurface` they manage.
-    /// The stream can then access the resources of `surface` for its rendering
-    /// purposes. In particular, media streams might want to create
-    /// `GdkGLContexts` or sync to the `GdkFrameClock`.
+    /// 
+    /// The stream can then access the resources of `surface` for its
+    /// rendering purposes. In particular, media streams might want to
+    /// create a `GdkGLContext` or sync to the `GdkFrameClock`.
     /// 
     /// Whoever calls this function is responsible for calling
-    /// `gtk_media_stream_unrealize()` before either the stream or `surface` get
-    /// destroyed.
+    /// [method`Gtk.MediaStream.unrealize`] before either the stream
+    /// or `surface` get destroyed.
     /// 
-    /// Multiple calls to this function may happen from different users of the
-    /// video, even with the same `surface`. Each of these calls must be followed
-    /// by its own call to `gtk_media_stream_unrealize()`.
+    /// Multiple calls to this function may happen from different
+    /// users of the video, even with the same `surface`. Each of these
+    /// calls must be followed by its own call to
+    /// [method`Gtk.MediaStream.unrealize`].
     /// 
     /// It is not required to call this function to make a media stream work.
     @inlinable func realize<SurfaceT: Gdk.SurfaceProtocol>(surface: SurfaceT) {
@@ -1814,24 +1907,28 @@ public extension MediaStreamProtocol {
     
     }
 
-    /// Start a seek operation on `self` to `timestamp`. If `timestamp` is out of range,
-    /// it will be clamped.
+    /// Start a seek operation on `self` to `timestamp`.
     /// 
-    /// Seek operations may not finish instantly. While a seek operation is
-    /// in process, the GtkMediaStream:seeking property will be set.
+    /// If `timestamp` is out of range, it will be clamped.
     /// 
-    /// When calling `gtk_media_stream_seek()` during an ongoing seek operation,
-    /// the new seek will override any pending seek.
+    /// Seek operations may not finish instantly. While a
+    /// seek operation is in process, the [property`Gtk.MediaStream:seeking`]
+    /// property will be set.
+    /// 
+    /// When calling `gtk_media_stream_seek()` during an
+    /// ongoing seek operation, the new seek will override
+    /// any pending seek.
     @inlinable func seek(timestamp: gint64) {
         gtk_media_stream_seek(media_stream_ptr, timestamp)
     
     }
 
     /// Ends a seek operation started via `GtkMediaStream.seek()` as a failure.
+    /// 
     /// This will not cause an error on the stream and will assume that
     /// playback continues as if no seek had happened.
     /// 
-    /// See `gtk_media_stream_seek_success()` for the other way of
+    /// See [method`Gtk.MediaStream.seek_success`] for the other way of
     /// ending a seek.
     @inlinable func seekFailed() {
         gtk_media_stream_seek_failed(media_stream_ptr)
@@ -1839,33 +1936,38 @@ public extension MediaStreamProtocol {
     }
 
     /// Ends a seek operation started via `GtkMediaStream.seek()` successfully.
-    /// This function will unset the GtkMediaStream:ended property if it was
-    /// set.
     /// 
-    /// See `gtk_media_stream_seek_failed()` for the other way of
+    /// This function will unset the GtkMediaStream:ended property
+    /// if it was set.
+    /// 
+    /// See [method`Gtk.MediaStream.seek_failed`] for the other way of
     /// ending a seek.
     @inlinable func seekSuccess() {
         gtk_media_stream_seek_success(media_stream_ptr)
     
     }
 
-    /// Sets whether the stream should loop, ie restart playback from
-    /// the beginning instead of stopping at the end.
+    /// Sets whether the stream should loop.
     /// 
-    /// Not all streams may support looping, in particular non-seekable
-    /// streams. Those streams will ignore the loop setting and just end.
+    /// In this case, it will attempt to restart playback
+    /// from the beginning instead of stopping at the end.
+    /// 
+    /// Not all streams may support looping, in particular
+    /// non-seekable streams. Those streams will ignore the
+    /// loop setting and just end.
     @inlinable func set(loop: Bool) {
         gtk_media_stream_set_loop(media_stream_ptr, gboolean((loop) ? 1 : 0))
     
     }
 
-    /// Sets whether the audio stream should be muted. Muting a stream will
-    /// cause no audio to be played, but it does not modify the volume.
-    /// This means that muting and then unmuting the stream will restore
-    /// the volume settings.
+    /// Sets whether the audio stream should be muted.
     /// 
-    /// If the stream has no audio, calling this function will still work
-    /// but it will not have an audible effect.
+    /// Muting a stream will cause no audio to be played, but it
+    /// does not modify the volume. This means that muting and
+    /// then unmuting the stream will restore the volume settings.
+    /// 
+    /// If the stream has no audio, calling this function will
+    /// still work but it will not have an audible effect.
     @inlinable func set(muted: Bool) {
         gtk_media_stream_set_muted(media_stream_ptr, gboolean((muted) ? 1 : 0))
     
@@ -1877,23 +1979,25 @@ public extension MediaStreamProtocol {
     
     }
 
-    /// Sets the volume of the audio stream. This function call will work even if
-    /// the stream is muted.
+    /// Sets the volume of the audio stream.
     /// 
-    /// The given `volume` should range from 0.0 for silence to 1.0 for as loud as
-    /// possible. Values outside of this range will be clamped to the nearest
-    /// value.
+    /// This function call will work even if the stream is muted.
     /// 
-    /// If the stream has no audio or is muted, calling this function will still
-    /// work but it will not have an immediate audible effect. When the stream is
-    /// unmuted, the new volume setting will take effect.
+    /// The given `volume` should range from 0.0 for silence to 1.0
+    /// for as loud as possible. Values outside of this range will
+    /// be clamped to the nearest value.
+    /// 
+    /// If the stream has no audio or is muted, calling this function
+    /// will still work but it will not have an immediate audible effect.
+    /// When the stream is unmuted, the new volume setting will take effect.
     @inlinable func set(volume: CDouble) {
         gtk_media_stream_set_volume(media_stream_ptr, volume)
     
     }
 
-    /// Resets a given media stream implementation. `gtk_media_stream_prepared()`
-    /// can now be called again.
+    /// Resets a given media stream implementation.
+    /// 
+    /// [method`Gtk.MediaStream.prepared`] can then be called again.
     /// 
     /// This function will also reset any error state the stream was in.
     @inlinable func unprepared() {
@@ -1901,24 +2005,31 @@ public extension MediaStreamProtocol {
     
     }
 
-    /// Undoes a previous call to `gtk_media_stream_realize()` and causes
-    /// the stream to release all resources it had allocated from `surface`.
+    /// Undoes a previous call to `gtk_media_stream_realize()`.
+    /// 
+    /// This causes the stream to release all resources it had
+    /// allocated from `surface`.
     @inlinable func unrealize<SurfaceT: Gdk.SurfaceProtocol>(surface: SurfaceT) {
         gtk_media_stream_unrealize(media_stream_ptr, surface.surface_ptr)
     
     }
 
-    /// Media stream implementations should regularly call this function to
-    /// update the timestamp reported by the stream. It is up to
-    /// implementations to call this at the frequency they deem appropriate.
+    /// Media stream implementations should regularly call this
+    /// function to update the timestamp reported by the stream.
+    /// 
+    /// It is up to implementations to call this at the frequency
+    /// they deem appropriate.
+    /// 
+    /// The media stream must be prepared when this function is called.
     @inlinable func update(timestamp: gint64) {
         gtk_media_stream_update(media_stream_ptr, timestamp)
     
     }
     /// The stream's duration in microseconds or 0 if unknown.
     @inlinable var duration: gint64 {
-        /// Gets the duration of the stream. If the duration is not known,
-        /// 0 will be returned.
+        /// Gets the duration of the stream.
+        /// 
+        /// If the duration is not known, 0 will be returned.
         get {
             let rv = gtk_media_stream_get_duration(media_stream_ptr)
             return rv
@@ -1934,29 +2045,36 @@ public extension MediaStreamProtocol {
         }
     }
 
-    /// `nil` for a properly working stream or the `GError` that the stream is in.
+    /// `nil` for a properly working stream or the `GError`
+    /// that the stream is in.
     @inlinable var error: GLib.ErrorRef! {
-        /// If the stream is in an error state, returns the `GError` explaining that state.
-        /// Any type of error can be reported here depending on the implementation of the
-        /// media stream.
+        /// If the stream is in an error state, returns the `GError`
+        /// explaining that state.
         /// 
-        /// A media stream in an error cannot be operated on, calls like
-        /// `gtk_media_stream_play()` or `gtk_media_stream_seek()` will not have any effect.
+        /// Any type of error can be reported here depending on the
+        /// implementation of the media stream.
         /// 
-        /// `GtkMediaStream` itself does not provide a way to unset an error, but
-        /// implementations may provide options. For example, a `GtkMediaFile` will unset
-        /// errors when a new source is set with ie `gtk_media_file_set_file()`.
+        /// A media stream in an error cannot be operated on, calls
+        /// like [method`Gtk.MediaStream.play`] or
+        /// [method`Gtk.MediaStream.seek`] will not have any effect.
+        /// 
+        /// `GtkMediaStream` itself does not provide a way to unset
+        /// an error, but implementations may provide options. For example,
+        /// a [class`Gtk.MediaFile`] will unset errors when a new source is
+        /// set, e.g. with [method`Gtk.MediaFile.set_file`].
         get {
             let rv = GLib.ErrorRef(gtk_media_stream_get_error(media_stream_ptr))
             return rv
         }
     }
 
-    /// Returns whether the stream has finished initializing and existence of
-    /// audio and video is known.
+    /// Returns whether the stream has finished initializing.
+    /// 
+    /// At this point the existence of audio and video is known.
     @inlinable var isPrepared: Bool {
-        /// Returns whether the stream has finished initializing and existence of
-        /// audio and video is known.
+        /// Returns whether the stream has finished initializing.
+        /// 
+        /// At this point the existence of audio and video is known.
         get {
             let rv = ((gtk_media_stream_is_prepared(media_stream_ptr)) != 0)
             return rv
@@ -1970,7 +2088,7 @@ public extension MediaStreamProtocol {
     /// `false`, streams are guaranteed to not be seekable and user interfaces
     /// may hide controls that allow seeking.
     /// 
-    /// It is allowed to call `gtk_media_stream_seek()` on a non-seekable
+    /// It is allowed to call [method`Gtk.MediaStream.seek`] on a non-seekable
     /// stream, though it will not do anything.
     @inlinable var isSeekable: Bool {
         /// Checks if a stream may be seekable.
@@ -1980,7 +2098,7 @@ public extension MediaStreamProtocol {
         /// `false`, streams are guaranteed to not be seekable and user interfaces
         /// may hide controls that allow seeking.
         /// 
-        /// It is allowed to call `gtk_media_stream_seek()` on a non-seekable
+        /// It is allowed to call [method`Gtk.MediaStream.seek`] on a non-seekable
         /// stream, though it will not do anything.
         get {
             let rv = ((gtk_media_stream_is_seekable(media_stream_ptr)) != 0)
@@ -1999,17 +2117,21 @@ public extension MediaStreamProtocol {
 
     /// Try to restart the media from the beginning once it ended.
     @inlinable var loop: Bool {
-        /// Returns whether the stream is set to loop. See
-        /// `gtk_media_stream_set_loop()` for details.
+        /// Returns whether the stream is set to loop.
+        /// 
+        /// See [method`Gtk.MediaStream.set_loop`] for details.
         get {
             let rv = ((gtk_media_stream_get_loop(media_stream_ptr)) != 0)
             return rv
         }
-        /// Sets whether the stream should loop, ie restart playback from
-        /// the beginning instead of stopping at the end.
+        /// Sets whether the stream should loop.
         /// 
-        /// Not all streams may support looping, in particular non-seekable
-        /// streams. Those streams will ignore the loop setting and just end.
+        /// In this case, it will attempt to restart playback
+        /// from the beginning instead of stopping at the end.
+        /// 
+        /// Not all streams may support looping, in particular
+        /// non-seekable streams. Those streams will ignore the
+        /// loop setting and just end.
         nonmutating set {
             gtk_media_stream_set_loop(media_stream_ptr, gboolean((newValue) ? 1 : 0))
         }
@@ -2018,18 +2140,20 @@ public extension MediaStreamProtocol {
     /// Whether the audio stream should be muted.
     @inlinable var muted: Bool {
         /// Returns whether the audio for the stream is muted.
-        /// See `gtk_media_stream_set_muted()` for details.
+        /// 
+        /// See [method`Gtk.MediaStream.set_muted`] for details.
         get {
             let rv = ((gtk_media_stream_get_muted(media_stream_ptr)) != 0)
             return rv
         }
-        /// Sets whether the audio stream should be muted. Muting a stream will
-        /// cause no audio to be played, but it does not modify the volume.
-        /// This means that muting and then unmuting the stream will restore
-        /// the volume settings.
+        /// Sets whether the audio stream should be muted.
         /// 
-        /// If the stream has no audio, calling this function will still work
-        /// but it will not have an audible effect.
+        /// Muting a stream will cause no audio to be played, but it
+        /// does not modify the volume. This means that muting and
+        /// then unmuting the stream will restore the volume settings.
+        /// 
+        /// If the stream has no audio, calling this function will
+        /// still work but it will not have an audible effect.
         nonmutating set {
             gtk_media_stream_set_muted(media_stream_ptr, gboolean((newValue) ? 1 : 0))
         }
@@ -2060,21 +2184,23 @@ public extension MediaStreamProtocol {
     /// Volume of the audio stream.
     @inlinable var volume: CDouble {
         /// Returns the volume of the audio for the stream.
-        /// See `gtk_media_stream_set_volume()` for details.
+        /// 
+        /// See [method`Gtk.MediaStream.set_volume`] for details.
         get {
             let rv = gtk_media_stream_get_volume(media_stream_ptr)
             return rv
         }
-        /// Sets the volume of the audio stream. This function call will work even if
-        /// the stream is muted.
+        /// Sets the volume of the audio stream.
         /// 
-        /// The given `volume` should range from 0.0 for silence to 1.0 for as loud as
-        /// possible. Values outside of this range will be clamped to the nearest
-        /// value.
+        /// This function call will work even if the stream is muted.
         /// 
-        /// If the stream has no audio or is muted, calling this function will still
-        /// work but it will not have an immediate audible effect. When the stream is
-        /// unmuted, the new volume setting will take effect.
+        /// The given `volume` should range from 0.0 for silence to 1.0
+        /// for as loud as possible. Values outside of this range will
+        /// be clamped to the nearest value.
+        /// 
+        /// If the stream has no audio or is muted, calling this function
+        /// will still work but it will not have an immediate audible effect.
+        /// When the stream is unmuted, the new volume setting will take effect.
         nonmutating set {
             gtk_media_stream_set_volume(media_stream_ptr, newValue)
         }
@@ -2098,100 +2224,63 @@ public extension MediaStreamProtocol {
 /// For a concrete class that implements these methods and properties, see `MenuButton`.
 /// Alternatively, use `MenuButtonRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// The `GtkMenuButton` widget is used to display a popup when clicked on.
+/// The `GtkMenuButton` widget is used to display a popup when clicked.
+/// 
+/// ![An example GtkMenuButton](menu-button.png)
+/// 
 /// This popup can be provided either as a `GtkPopover` or as an abstract
 /// `GMenuModel`.
 /// 
 /// The `GtkMenuButton` widget can show either an icon (set with the
-/// `GtkMenuButton:icon-name` property) or a label (set with the
-/// `GtkMenuButton:label` property). If neither is explicitly set,
-/// a `GtkImage` is automatically created, using an arrow image oriented
-/// according to `GtkMenuButton:direction` or the generic “open-menu-symbolic”
-/// icon if the direction is not set.
+/// [property`Gtk.MenuButton:icon-name`] property) or a label (set with the
+/// [property`Gtk.MenuButton:label`] property). If neither is explicitly set,
+/// a [class`Gtk.Image`] is automatically created, using an arrow image oriented
+/// according to [property`Gtk.MenuButton:direction`] or the generic
+/// “open-menu-symbolic” icon if the direction is not set.
 /// 
-/// The positioning of the popup is determined by the `GtkMenuButton:direction`
-/// property of the menu button.
+/// The positioning of the popup is determined by the
+/// [property`Gtk.MenuButton:direction`] property of the menu button.
 /// 
-/// For menus, the `GtkWidget:halign` and `GtkWidget:valign` properties of the
-/// menu are also taken into account. For example, when the direction is
-/// `GTK_ARROW_DOWN` and the horizontal alignment is `GTK_ALIGN_START`, the
-/// menu will be positioned below the button, with the starting edge
+/// For menus, the [property`Gtk.Widget:halign`] and [property`Gtk.Widget:valign`]
+/// properties of the menu are also taken into account. For example, when the
+/// direction is `GTK_ARROW_DOWN` and the horizontal alignment is `GTK_ALIGN_START`,
+/// the menu will be positioned below the button, with the starting edge
 /// (depending on the text direction) of the menu aligned with the starting
 /// edge of the button. If there is not enough space below the button, the
 /// menu is popped up above the button instead. If the alignment would move
 /// part of the menu offscreen, it is “pushed in”.
 /// 
-/// ## Direction = Down
-/// 
-/// - halign = start
-/// 
-///     ![](down-start.png)
-/// 
-/// - halign = center
-/// 
-///     ![](down-center.png)
-/// 
-/// - halign = end
-/// 
-///     ![](down-end.png)
-/// 
-/// ## Direction = Up
-/// 
-/// - halign = start
-/// 
-///     ![](up-start.png)
-/// 
-/// - halign = center
-/// 
-///     ![](up-center.png)
-/// 
-/// - halign = end
-/// 
-///     ![](up-end.png)
-/// 
-/// ## Direction = Left
-/// 
-/// - valign = start
-/// 
-///     ![](left-start.png)
-/// 
-/// - valign = center
-/// 
-///     ![](left-center.png)
-/// 
-/// - valign = end
-/// 
-///     ![](left-end.png)
-/// 
-/// ## Direction = Right
-/// 
-/// - valign = start
-/// 
-///     ![](right-start.png)
-/// 
-/// - valign = center
-/// 
-///     ![](right-center.png)
-/// 
-/// - valign = end
-/// 
-///     ![](right-end.png)
+/// |           | start                | center                | end                |
+/// | -         | ---                  | ---                   | ---                |
+/// | **down**  | ![](down-start.png)  | ![](down-center.png)  | ![](down-end.png)  |
+/// | **up**    | ![](up-start.png)    | ![](up-center.png)    | ![](up-end.png)    |
+/// | **left**  | ![](left-start.png)  | ![](left-center.png)  | ![](left-end.png)  |
+/// | **right** | ![](right-start.png) | ![](right-center.png) | ![](right-end.png) |
 /// 
 /// # CSS nodes
 /// 
-/// (plain Language Example):
-/// ```plain
+/// ```
 /// menubutton
 /// ╰── button.toggle
-///     ╰── [content]
+///     ╰── &lt;content&gt;
+///          ╰── [arrow]
 /// ```
 /// 
-/// GtkMenuButton has a single CSS node with name menubutton
-/// which contains a toggle button node.
+/// `GtkMenuButton` has a single CSS node with name `menubutton`
+/// which contains a `button` node with a `.toggle` style class.
+/// 
+/// Inside the toggle button content, there is an `arrow` node for
+/// the indicator, which will carry one of the `.none`, `.up`, `.down`,
+/// `.left` or `.right` style classes to indicate the direction that
+/// the menu will appear in. The CSS is expected to provide a suitable
+/// image for each of these cases using the `-gtk-icon-source` property.
+/// 
+/// Optionally, the `menubutton` node can carry the `.circular` style class
+/// to request a round appearance.
 /// 
 /// # Accessibility
 /// 
-/// GtkMenuButton uses the `GTK_ACCESSIBLE_ROLE_BUTTON` role.
+/// `GtkMenuButton` uses the `GTK_ACCESSIBLE_ROLE_BUTTON` role.
 public protocol MenuButtonProtocol: WidgetProtocol {
         /// Untyped pointer to the underlying `GtkMenuButton` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2207,100 +2296,63 @@ public protocol MenuButtonProtocol: WidgetProtocol {
 /// It exposes methods that can operate on this data type through `MenuButtonProtocol` conformance.
 /// Use `MenuButtonRef` only as an `unowned` reference to an existing `GtkMenuButton` instance.
 ///
-/// The `GtkMenuButton` widget is used to display a popup when clicked on.
+/// The `GtkMenuButton` widget is used to display a popup when clicked.
+/// 
+/// ![An example GtkMenuButton](menu-button.png)
+/// 
 /// This popup can be provided either as a `GtkPopover` or as an abstract
 /// `GMenuModel`.
 /// 
 /// The `GtkMenuButton` widget can show either an icon (set with the
-/// `GtkMenuButton:icon-name` property) or a label (set with the
-/// `GtkMenuButton:label` property). If neither is explicitly set,
-/// a `GtkImage` is automatically created, using an arrow image oriented
-/// according to `GtkMenuButton:direction` or the generic “open-menu-symbolic”
-/// icon if the direction is not set.
+/// [property`Gtk.MenuButton:icon-name`] property) or a label (set with the
+/// [property`Gtk.MenuButton:label`] property). If neither is explicitly set,
+/// a [class`Gtk.Image`] is automatically created, using an arrow image oriented
+/// according to [property`Gtk.MenuButton:direction`] or the generic
+/// “open-menu-symbolic” icon if the direction is not set.
 /// 
-/// The positioning of the popup is determined by the `GtkMenuButton:direction`
-/// property of the menu button.
+/// The positioning of the popup is determined by the
+/// [property`Gtk.MenuButton:direction`] property of the menu button.
 /// 
-/// For menus, the `GtkWidget:halign` and `GtkWidget:valign` properties of the
-/// menu are also taken into account. For example, when the direction is
-/// `GTK_ARROW_DOWN` and the horizontal alignment is `GTK_ALIGN_START`, the
-/// menu will be positioned below the button, with the starting edge
+/// For menus, the [property`Gtk.Widget:halign`] and [property`Gtk.Widget:valign`]
+/// properties of the menu are also taken into account. For example, when the
+/// direction is `GTK_ARROW_DOWN` and the horizontal alignment is `GTK_ALIGN_START`,
+/// the menu will be positioned below the button, with the starting edge
 /// (depending on the text direction) of the menu aligned with the starting
 /// edge of the button. If there is not enough space below the button, the
 /// menu is popped up above the button instead. If the alignment would move
 /// part of the menu offscreen, it is “pushed in”.
 /// 
-/// ## Direction = Down
-/// 
-/// - halign = start
-/// 
-///     ![](down-start.png)
-/// 
-/// - halign = center
-/// 
-///     ![](down-center.png)
-/// 
-/// - halign = end
-/// 
-///     ![](down-end.png)
-/// 
-/// ## Direction = Up
-/// 
-/// - halign = start
-/// 
-///     ![](up-start.png)
-/// 
-/// - halign = center
-/// 
-///     ![](up-center.png)
-/// 
-/// - halign = end
-/// 
-///     ![](up-end.png)
-/// 
-/// ## Direction = Left
-/// 
-/// - valign = start
-/// 
-///     ![](left-start.png)
-/// 
-/// - valign = center
-/// 
-///     ![](left-center.png)
-/// 
-/// - valign = end
-/// 
-///     ![](left-end.png)
-/// 
-/// ## Direction = Right
-/// 
-/// - valign = start
-/// 
-///     ![](right-start.png)
-/// 
-/// - valign = center
-/// 
-///     ![](right-center.png)
-/// 
-/// - valign = end
-/// 
-///     ![](right-end.png)
+/// |           | start                | center                | end                |
+/// | -         | ---                  | ---                   | ---                |
+/// | **down**  | ![](down-start.png)  | ![](down-center.png)  | ![](down-end.png)  |
+/// | **up**    | ![](up-start.png)    | ![](up-center.png)    | ![](up-end.png)    |
+/// | **left**  | ![](left-start.png)  | ![](left-center.png)  | ![](left-end.png)  |
+/// | **right** | ![](right-start.png) | ![](right-center.png) | ![](right-end.png) |
 /// 
 /// # CSS nodes
 /// 
-/// (plain Language Example):
-/// ```plain
+/// ```
 /// menubutton
 /// ╰── button.toggle
-///     ╰── [content]
+///     ╰── &lt;content&gt;
+///          ╰── [arrow]
 /// ```
 /// 
-/// GtkMenuButton has a single CSS node with name menubutton
-/// which contains a toggle button node.
+/// `GtkMenuButton` has a single CSS node with name `menubutton`
+/// which contains a `button` node with a `.toggle` style class.
+/// 
+/// Inside the toggle button content, there is an `arrow` node for
+/// the indicator, which will carry one of the `.none`, `.up`, `.down`,
+/// `.left` or `.right` style classes to indicate the direction that
+/// the menu will appear in. The CSS is expected to provide a suitable
+/// image for each of these cases using the `-gtk-icon-source` property.
+/// 
+/// Optionally, the `menubutton` node can carry the `.circular` style class
+/// to request a round appearance.
 /// 
 /// # Accessibility
 /// 
-/// GtkMenuButton uses the `GTK_ACCESSIBLE_ROLE_BUTTON` role.
+/// `GtkMenuButton` uses the `GTK_ACCESSIBLE_ROLE_BUTTON` role.
 public struct MenuButtonRef: MenuButtonProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkMenuButton` instance.
     /// For type-safe access, use the generated, typed pointer `menu_button_ptr` property instead.
@@ -2381,8 +2433,10 @@ public extension MenuButtonRef {
     }
 
         /// Creates a new `GtkMenuButton` widget with downwards-pointing
-    /// arrow as the only child. You can replace the child widget
-    /// with another `GtkWidget` should you wish to.
+    /// arrow as the only child.
+    /// 
+    /// You can replace the child widget with another `GtkWidget`
+    /// should you wish to.
     @inlinable init() {
         let rv = gtk_menu_button_new()
         ptr = UnsafeMutableRawPointer(rv)
@@ -2393,100 +2447,63 @@ public extension MenuButtonRef {
 /// It provides the methods that can operate on this data type through `MenuButtonProtocol` conformance.
 /// Use `MenuButton` as a strong reference or owner of a `GtkMenuButton` instance.
 ///
-/// The `GtkMenuButton` widget is used to display a popup when clicked on.
+/// The `GtkMenuButton` widget is used to display a popup when clicked.
+/// 
+/// ![An example GtkMenuButton](menu-button.png)
+/// 
 /// This popup can be provided either as a `GtkPopover` or as an abstract
 /// `GMenuModel`.
 /// 
 /// The `GtkMenuButton` widget can show either an icon (set with the
-/// `GtkMenuButton:icon-name` property) or a label (set with the
-/// `GtkMenuButton:label` property). If neither is explicitly set,
-/// a `GtkImage` is automatically created, using an arrow image oriented
-/// according to `GtkMenuButton:direction` or the generic “open-menu-symbolic”
-/// icon if the direction is not set.
+/// [property`Gtk.MenuButton:icon-name`] property) or a label (set with the
+/// [property`Gtk.MenuButton:label`] property). If neither is explicitly set,
+/// a [class`Gtk.Image`] is automatically created, using an arrow image oriented
+/// according to [property`Gtk.MenuButton:direction`] or the generic
+/// “open-menu-symbolic” icon if the direction is not set.
 /// 
-/// The positioning of the popup is determined by the `GtkMenuButton:direction`
-/// property of the menu button.
+/// The positioning of the popup is determined by the
+/// [property`Gtk.MenuButton:direction`] property of the menu button.
 /// 
-/// For menus, the `GtkWidget:halign` and `GtkWidget:valign` properties of the
-/// menu are also taken into account. For example, when the direction is
-/// `GTK_ARROW_DOWN` and the horizontal alignment is `GTK_ALIGN_START`, the
-/// menu will be positioned below the button, with the starting edge
+/// For menus, the [property`Gtk.Widget:halign`] and [property`Gtk.Widget:valign`]
+/// properties of the menu are also taken into account. For example, when the
+/// direction is `GTK_ARROW_DOWN` and the horizontal alignment is `GTK_ALIGN_START`,
+/// the menu will be positioned below the button, with the starting edge
 /// (depending on the text direction) of the menu aligned with the starting
 /// edge of the button. If there is not enough space below the button, the
 /// menu is popped up above the button instead. If the alignment would move
 /// part of the menu offscreen, it is “pushed in”.
 /// 
-/// ## Direction = Down
-/// 
-/// - halign = start
-/// 
-///     ![](down-start.png)
-/// 
-/// - halign = center
-/// 
-///     ![](down-center.png)
-/// 
-/// - halign = end
-/// 
-///     ![](down-end.png)
-/// 
-/// ## Direction = Up
-/// 
-/// - halign = start
-/// 
-///     ![](up-start.png)
-/// 
-/// - halign = center
-/// 
-///     ![](up-center.png)
-/// 
-/// - halign = end
-/// 
-///     ![](up-end.png)
-/// 
-/// ## Direction = Left
-/// 
-/// - valign = start
-/// 
-///     ![](left-start.png)
-/// 
-/// - valign = center
-/// 
-///     ![](left-center.png)
-/// 
-/// - valign = end
-/// 
-///     ![](left-end.png)
-/// 
-/// ## Direction = Right
-/// 
-/// - valign = start
-/// 
-///     ![](right-start.png)
-/// 
-/// - valign = center
-/// 
-///     ![](right-center.png)
-/// 
-/// - valign = end
-/// 
-///     ![](right-end.png)
+/// |           | start                | center                | end                |
+/// | -         | ---                  | ---                   | ---                |
+/// | **down**  | ![](down-start.png)  | ![](down-center.png)  | ![](down-end.png)  |
+/// | **up**    | ![](up-start.png)    | ![](up-center.png)    | ![](up-end.png)    |
+/// | **left**  | ![](left-start.png)  | ![](left-center.png)  | ![](left-end.png)  |
+/// | **right** | ![](right-start.png) | ![](right-center.png) | ![](right-end.png) |
 /// 
 /// # CSS nodes
 /// 
-/// (plain Language Example):
-/// ```plain
+/// ```
 /// menubutton
 /// ╰── button.toggle
-///     ╰── [content]
+///     ╰── &lt;content&gt;
+///          ╰── [arrow]
 /// ```
 /// 
-/// GtkMenuButton has a single CSS node with name menubutton
-/// which contains a toggle button node.
+/// `GtkMenuButton` has a single CSS node with name `menubutton`
+/// which contains a `button` node with a `.toggle` style class.
+/// 
+/// Inside the toggle button content, there is an `arrow` node for
+/// the indicator, which will carry one of the `.none`, `.up`, `.down`,
+/// `.left` or `.right` style classes to indicate the direction that
+/// the menu will appear in. The CSS is expected to provide a suitable
+/// image for each of these cases using the `-gtk-icon-source` property.
+/// 
+/// Optionally, the `menubutton` node can carry the `.circular` style class
+/// to request a round appearance.
 /// 
 /// # Accessibility
 /// 
-/// GtkMenuButton uses the `GTK_ACCESSIBLE_ROLE_BUTTON` role.
+/// `GtkMenuButton` uses the `GTK_ACCESSIBLE_ROLE_BUTTON` role.
 open class MenuButton: Widget, MenuButtonProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -2613,8 +2630,10 @@ open class MenuButton: Widget, MenuButtonProtocol {
     }
 
     /// Creates a new `GtkMenuButton` widget with downwards-pointing
-    /// arrow as the only child. You can replace the child widget
-    /// with another `GtkWidget` should you wish to.
+    /// arrow as the only child.
+    /// 
+    /// You can replace the child widget with another `GtkWidget`
+    /// should you wish to.
     @inlinable public init() {
         let rv = gtk_menu_button_new()
         super.init(gpointer: gpointer(rv))
@@ -2631,6 +2650,7 @@ public enum MenuButtonPropertyName: String, PropertyNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case canFocus = "can-focus"
+    /// Whether the widget can receive pointer events.
     case canTarget = "can-target"
     /// A list of css classes applied to this widget.
     case cssClasses = "css-classes"
@@ -2639,7 +2659,7 @@ public enum MenuButtonPropertyName: String, PropertyNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case cssName = "css-name"
-    /// The cursor used by `widget`. See `gtk_widget_set_cursor()` for details.
+    /// The cursor used by `widget`.
     case cursor = "cursor"
     /// The `GtkArrowType` representing the direction in which the
     /// menu or popover will be popped out.
@@ -2650,22 +2670,31 @@ public enum MenuButtonPropertyName: String, PropertyNameProtocol {
     case focusOnClick = "focus-on-click"
     /// Whether this widget itself will accept the input focus.
     case focusable = "focusable"
-    /// How to distribute horizontal space if widget gets extra space, see `GtkAlign`
+    /// How to distribute horizontal space if widget gets extra space.
     case halign = "halign"
+    /// Whether the widget is the default widget.
     case hasDefault = "has-default"
+    /// Whether the widget has the input focus.
     case hasFocus = "has-focus"
+    /// Whether the button has a frame.
     case hasFrame = "has-frame"
-    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
+    /// Enables or disables the emission of the `query-tooltip` signal on `widget`.
+    /// 
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
-    /// whether it will provide a tooltip or not.
+    /// the widget will be queried using [signal`Gtk.Widget::query-tooltip`] to
+    /// determine whether it will provide a tooltip or not.
     case hasTooltip = "has-tooltip"
+    /// Override for height request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case heightRequest = "height-request"
-    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
+    /// Whether to expand horizontally.
     case hexpand = "hexpand"
-    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
+    /// Whether to use the `hexpand` property.
     case hexpandSet = "hexpand-set"
+    /// The name of the icon used to automatically populate the button.
     case iconName = "icon-name"
+    /// The label for the button.
     case label = "label"
     /// The `GtkLayoutManager` instance to use to compute the preferred size
     /// of the widget, and allocate its children.
@@ -2677,85 +2706,100 @@ public enum MenuButtonPropertyName: String, PropertyNameProtocol {
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginBottom = "margin-bottom"
-    /// Margin on end of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on end of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginEnd = "margin-end"
-    /// Margin on start of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on start of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginStart = "margin-start"
     /// Margin on top side of widget.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginTop = "margin-top"
     /// The `GMenuModel` from which the popup will be created.
     /// 
-    /// See `gtk_menu_button_set_menu_model()` for the interaction with the
-    /// `GtkMenuButton:popup` property.
+    /// See [method`Gtk.MenuButton.set_menu_model`] for the interaction
+    /// with the [property`Gtk.MenuButton:popover`] property.
     case menuModel = "menu-model"
+    /// The name of the widget.
     case name = "name"
-    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
-    /// more details about window opacity.
+    /// The requested opacity of the widget.
     case opacity = "opacity"
     /// How content outside the widget's content area is treated.
     /// 
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case overflow = "overflow"
+    /// The parent widget of this widget.
     case parent = "parent"
     /// The `GtkPopover` that will be popped up when the button is clicked.
     case popover = "popover"
+    /// Whether the widget will receive the default action when it is focused.
     case receivesDefault = "receives-default"
-    /// The `GtkRoot` widget of the widget tree containing this widget or `nil` if
-    /// the widget is not contained in a root widget.
+    /// The `GtkRoot` widget of the widget tree containing this widget.
+    /// 
+    /// This will be `nil` if the widget is not contained in a root widget.
     case root = "root"
-    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
-    /// more details about widget scaling.
+    /// The scale factor of the widget.
     case scaleFactor = "scale-factor"
+    /// Whether the widget responds to input.
     case sensitive = "sensitive"
     /// Sets the text of tooltip to be the given string, which is marked up
-    /// with the [Pango text markup language](#PangoMarkupFormat).
-    /// Also see `gtk_tooltip_set_markup()`.
+    /// with Pango markup.
+    /// 
+    /// Also see [method`Gtk.Tooltip.set_markup`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case tooltipMarkup = "tooltip-markup"
     /// Sets the text of tooltip to be the given string.
     /// 
-    /// Also see `gtk_tooltip_set_text()`.
+    /// Also see [method`Gtk.Tooltip.set_text`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case tooltipText = "tooltip-text"
+    /// If set an underscore in the text indicates a mnemonic.
     case useUnderline = "use-underline"
-    /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
+    /// How to distribute vertical space if widget gets extra space.
     case valign = "valign"
-    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
+    /// Whether to expand vertically.
     case vexpand = "vexpand"
-    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
+    /// Whether to use the `vexpand` property.
     case vexpandSet = "vexpand-set"
+    /// Whether the widget is visible.
     case visible = "visible"
+    /// Override for width request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case widthRequest = "width-request"
 }
 
@@ -2814,29 +2858,32 @@ public extension MenuButtonProtocol {
 
 public enum MenuButtonSignalName: String, SignalNameProtocol {
     /// Signals that all holders of a reference to the widget should release
-    /// the reference that they hold. May result in finalization of the widget
-    /// if all references are released.
+    /// the reference that they hold.
+    /// 
+    /// May result in finalization of the widget if all references are released.
     /// 
     /// This signal is not suitable for saving widget state.
     case destroy = "destroy"
-    /// The `direction-changed` signal is emitted when the text direction
-    /// of a widget changes.
+    /// Emitted when the text direction of a widget changes.
     case directionChanged = "direction-changed"
-    /// The `hide` signal is emitted when `widget` is hidden, for example with
-    /// `gtk_widget_hide()`.
+    /// Emitted when `widget` is hidden.
     case hide = "hide"
-    /// Gets emitted if keyboard navigation fails.
-    /// See `gtk_widget_keynav_failed()` for details.
+    /// Emitted if keyboard navigation fails.
+    /// 
+    /// See [method`Gtk.Widget.keynav_failed`] for details.
     case keynavFailed = "keynav-failed"
-    /// The `map` signal is emitted when `widget` is going to be mapped, that is
-    /// when the widget is visible (which is controlled with
-    /// `gtk_widget_set_visible()`) and all its parents up to the toplevel widget
+    /// Emitted when `widget` is going to be mapped.
+    /// 
+    /// A widget is mapped when the widget is visible (which is controlled with
+    /// [property`Gtk.Widget:visible`]) and all its parents up to the toplevel widget
     /// are also visible.
     /// 
     /// The `map` signal can be used to determine whether a widget will be drawn,
     /// for instance it can resume an animation that was stopped during the
-    /// emission of `GtkWidget::unmap`.
+    /// emission of [signal`Gtk.Widget::unmap`].
     case map = "map"
+    /// Emitted when a widget is activated via a mnemonic.
+    /// 
     /// The default handler for this signal activates `widget` if `group_cycling`
     /// is `false`, or just makes `widget` grab focus if `group_cycling` is `true`.
     case mnemonicActivate = "mnemonic-activate"
@@ -2867,9 +2914,11 @@ public enum MenuButtonSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// Emitted when `GtkWidget:has-tooltip` is `true` and the hover timeout
-    /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
-    /// focus in keyboard mode.
+    /// Emitted when the widgets tooltip is about to be shown.
+    /// 
+    /// This happens when the [property`Gtk.Widget:has-tooltip`] property
+    /// is `true` and the hover timeout has expired with the cursor hovering
+    /// "above" `widget`; or emitted when `widget` got focus in keyboard mode.
     /// 
     /// Using the given coordinates, the signal handler should determine
     /// whether a tooltip should be shown for `widget`. If this is the case
@@ -2880,27 +2929,29 @@ public enum MenuButtonSignalName: String, SignalNameProtocol {
     /// The signal handler is free to manipulate `tooltip` with the therefore
     /// destined function calls.
     case queryTooltip = "query-tooltip"
-    /// The `realize` signal is emitted when `widget` is associated with a
-    /// `GdkSurface`, which means that `gtk_widget_realize()` has been called or the
-    /// widget has been mapped (that is, it is going to be drawn).
-    case realize = "realize"
-    /// The `show` signal is emitted when `widget` is shown, for example with
-    /// `gtk_widget_show()`.
-    case show = "show"
-    /// The `state-flags-changed` signal is emitted when the widget state
-    /// changes, see `gtk_widget_get_state_flags()`.
-    case stateFlagsChanged = "state-flags-changed"
-    /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
-    /// means that either it or any of its parents up to the toplevel widget have
-    /// been set as hidden.
+    /// Emitted when `widget` is associated with a `GdkSurface`.
     /// 
-    /// As `unmap` indicates that a widget will not be shown any longer, it can be
-    /// used to, for example, stop an animation on the widget.
+    /// This means that [method`Gtk.Widget.realize`] has been called
+    /// or the widget has been mapped (that is, it is going to be drawn).
+    case realize = "realize"
+    /// Emitted when `widget` is shown.
+    case show = "show"
+    /// Emitted when the widget state changes.
+    /// 
+    /// See [method`Gtk.Widget.get_state_flags`].
+    case stateFlagsChanged = "state-flags-changed"
+    /// Emitted when `widget` is going to be unmapped.
+    /// 
+    /// A widget is unmapped when either it or any of its parents up to the
+    /// toplevel widget have been set as hidden.
+    /// 
+    /// As `unmap` indicates that a widget will not be shown any longer,
+    /// it can be used to, for example, stop an animation on the widget.
     case unmap = "unmap"
-    /// The `unrealize` signal is emitted when the `GdkSurface` associated with
-    /// `widget` is destroyed, which means that `gtk_widget_unrealize()` has been
-    /// called or the widget has been unmapped (that is, it is going to be
-    /// hidden).
+    /// Emitted when the `GdkSurface` associated with `widget` is destroyed.
+    /// 
+    /// This means that [method`Gtk.Widget.unrealize`] has been called
+    /// or the widget has been unmapped (that is, it is going to be hidden).
     case unrealize = "unrealize"
     /// Whether the widget or any of its descendents can accept
     /// the input focus.
@@ -2908,6 +2959,7 @@ public enum MenuButtonSignalName: String, SignalNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case notifyCanFocus = "notify::can-focus"
+    /// Whether the widget can receive pointer events.
     case notifyCanTarget = "notify::can-target"
     /// A list of css classes applied to this widget.
     case notifyCssClasses = "notify::css-classes"
@@ -2916,7 +2968,7 @@ public enum MenuButtonSignalName: String, SignalNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case notifyCssName = "notify::css-name"
-    /// The cursor used by `widget`. See `gtk_widget_set_cursor()` for details.
+    /// The cursor used by `widget`.
     case notifyCursor = "notify::cursor"
     /// The `GtkArrowType` representing the direction in which the
     /// menu or popover will be popped out.
@@ -2927,22 +2979,31 @@ public enum MenuButtonSignalName: String, SignalNameProtocol {
     case notifyFocusOnClick = "notify::focus-on-click"
     /// Whether this widget itself will accept the input focus.
     case notifyFocusable = "notify::focusable"
-    /// How to distribute horizontal space if widget gets extra space, see `GtkAlign`
+    /// How to distribute horizontal space if widget gets extra space.
     case notifyHalign = "notify::halign"
+    /// Whether the widget is the default widget.
     case notifyHasDefault = "notify::has-default"
+    /// Whether the widget has the input focus.
     case notifyHasFocus = "notify::has-focus"
+    /// Whether the button has a frame.
     case notifyHasFrame = "notify::has-frame"
-    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
+    /// Enables or disables the emission of the `query-tooltip` signal on `widget`.
+    /// 
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
-    /// whether it will provide a tooltip or not.
+    /// the widget will be queried using [signal`Gtk.Widget::query-tooltip`] to
+    /// determine whether it will provide a tooltip or not.
     case notifyHasTooltip = "notify::has-tooltip"
+    /// Override for height request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case notifyHeightRequest = "notify::height-request"
-    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
+    /// Whether to expand horizontally.
     case notifyHexpand = "notify::hexpand"
-    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
+    /// Whether to use the `hexpand` property.
     case notifyHexpandSet = "notify::hexpand-set"
+    /// The name of the icon used to automatically populate the button.
     case notifyIconName = "notify::icon-name"
+    /// The label for the button.
     case notifyLabel = "notify::label"
     /// The `GtkLayoutManager` instance to use to compute the preferred size
     /// of the widget, and allocate its children.
@@ -2954,85 +3015,100 @@ public enum MenuButtonSignalName: String, SignalNameProtocol {
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginBottom = "notify::margin-bottom"
-    /// Margin on end of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on end of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginEnd = "notify::margin-end"
-    /// Margin on start of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on start of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginStart = "notify::margin-start"
     /// Margin on top side of widget.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginTop = "notify::margin-top"
     /// The `GMenuModel` from which the popup will be created.
     /// 
-    /// See `gtk_menu_button_set_menu_model()` for the interaction with the
-    /// `GtkMenuButton:popup` property.
+    /// See [method`Gtk.MenuButton.set_menu_model`] for the interaction
+    /// with the [property`Gtk.MenuButton:popover`] property.
     case notifyMenuModel = "notify::menu-model"
+    /// The name of the widget.
     case notifyName = "notify::name"
-    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
-    /// more details about window opacity.
+    /// The requested opacity of the widget.
     case notifyOpacity = "notify::opacity"
     /// How content outside the widget's content area is treated.
     /// 
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case notifyOverflow = "notify::overflow"
+    /// The parent widget of this widget.
     case notifyParent = "notify::parent"
     /// The `GtkPopover` that will be popped up when the button is clicked.
     case notifyPopover = "notify::popover"
+    /// Whether the widget will receive the default action when it is focused.
     case notifyReceivesDefault = "notify::receives-default"
-    /// The `GtkRoot` widget of the widget tree containing this widget or `nil` if
-    /// the widget is not contained in a root widget.
+    /// The `GtkRoot` widget of the widget tree containing this widget.
+    /// 
+    /// This will be `nil` if the widget is not contained in a root widget.
     case notifyRoot = "notify::root"
-    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
-    /// more details about widget scaling.
+    /// The scale factor of the widget.
     case notifyScaleFactor = "notify::scale-factor"
+    /// Whether the widget responds to input.
     case notifySensitive = "notify::sensitive"
     /// Sets the text of tooltip to be the given string, which is marked up
-    /// with the [Pango text markup language](#PangoMarkupFormat).
-    /// Also see `gtk_tooltip_set_markup()`.
+    /// with Pango markup.
+    /// 
+    /// Also see [method`Gtk.Tooltip.set_markup`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case notifyTooltipMarkup = "notify::tooltip-markup"
     /// Sets the text of tooltip to be the given string.
     /// 
-    /// Also see `gtk_tooltip_set_text()`.
+    /// Also see [method`Gtk.Tooltip.set_text`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case notifyTooltipText = "notify::tooltip-text"
+    /// If set an underscore in the text indicates a mnemonic.
     case notifyUseUnderline = "notify::use-underline"
-    /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
+    /// How to distribute vertical space if widget gets extra space.
     case notifyValign = "notify::valign"
-    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
+    /// Whether to expand vertically.
     case notifyVexpand = "notify::vexpand"
-    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
+    /// Whether to use the `vexpand` property.
     case notifyVexpandSet = "notify::vexpand-set"
+    /// Whether the widget is visible.
     case notifyVisible = "notify::visible"
+    /// Override for width request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case notifyWidthRequest = "notify::width-request"
 }
 
@@ -3073,6 +3149,7 @@ public extension MenuButtonProtocol {
     }
 
     /// Returns the `GtkPopover` that pops out of the button.
+    /// 
     /// If the button is not using a `GtkPopover`, this function
     /// returns `nil`.
     @inlinable func getPopover() -> PopoverRef! {
@@ -3081,7 +3158,7 @@ public extension MenuButtonProtocol {
     }
 
     /// Returns whether an embedded underline in the text indicates a
-    /// mnemonic. See `gtk_menu_button_set_use_underline()`.
+    /// mnemonic.
     @inlinable func getUseUnderline() -> Bool {
         let rv = ((gtk_menu_button_get_use_underline(menu_button_ptr)) != 0)
         return rv
@@ -3100,24 +3177,26 @@ public extension MenuButtonProtocol {
     }
 
     /// Sets `func` to be called when a popup is about to be shown.
+    /// 
     /// `func` should use one of
     /// 
-    ///  - `gtk_menu_button_set_popover()`
-    ///  - `gtk_menu_button_set_menu_model()`
+    ///  - [method`Gtk.MenuButton.set_popover`]
+    ///  - [method`Gtk.MenuButton.set_menu_model`]
     /// 
     /// to set a popup for `menu_button`.
     /// If `func` is non-`nil`, `menu_button` will always be sensitive.
     /// 
-    /// Using this function will not reset the menu widget attached to `menu_button`.
-    /// Instead, this can be done manually in `func`.
+    /// Using this function will not reset the menu widget attached to
+    /// `menu_button`. Instead, this can be done manually in `func`.
     @inlinable func setCreatePopupFunc(`func`: GtkMenuButtonCreatePopupFunc? = nil, userData: gpointer! = nil, destroyNotify: GDestroyNotify? = nil) {
         gtk_menu_button_set_create_popup_func(menu_button_ptr, `func`, userData, destroyNotify)
     
     }
 
-    /// Sets the direction in which the popup will be popped up, as
-    /// well as changing the arrow’s direction. The child will not
-    /// be changed to an arrow if it was customized.
+    /// Sets the direction in which the popup will be popped up.
+    /// 
+    /// If the button is automatically populated with an arrow icon,
+    /// its direction will be changed to match.
     /// 
     /// If the does not fit in the available space in the given direction,
     /// GTK will its best to keep it inside the screen and fully visible.
@@ -3147,52 +3226,57 @@ public extension MenuButtonProtocol {
     
     }
 
-    /// Sets the `GMenuModel` from which the popup will be constructed,
-    /// or `nil` to dissociate any existing menu model and disable the button.
+    /// Sets the `GMenuModel` from which the popup will be constructed.
     /// 
-    /// A `GtkPopover` will be created from the menu model with `gtk_popover_menu_new_from_model()`.
-    /// Actions will be connected as documented for this function.
+    /// If `menu_model` is `nil`, the button is disabled.
     /// 
-    /// If `GtkMenuButton:popover` is already set, it will be dissociated from the `menu_button`,
-    /// and the property is set to `nil`.
+    /// A [class`Gtk.Popover`] will be created from the menu model with
+    /// [ctor`Gtk.PopoverMenu.new_from_model`]. Actions will be connected
+    /// as documented for this function.
+    /// 
+    /// If [property`Gtk.MenuButton:popover`] is already set, it will be
+    /// dissociated from the `menu_button`, and the property is set to `nil`.
     @inlinable func set(menuModel: GIO.MenuModelRef? = nil) {
         gtk_menu_button_set_menu_model(menu_button_ptr, menuModel?.menu_model_ptr)
     
     }
-    /// Sets the `GMenuModel` from which the popup will be constructed,
-    /// or `nil` to dissociate any existing menu model and disable the button.
+    /// Sets the `GMenuModel` from which the popup will be constructed.
     /// 
-    /// A `GtkPopover` will be created from the menu model with `gtk_popover_menu_new_from_model()`.
-    /// Actions will be connected as documented for this function.
+    /// If `menu_model` is `nil`, the button is disabled.
     /// 
-    /// If `GtkMenuButton:popover` is already set, it will be dissociated from the `menu_button`,
-    /// and the property is set to `nil`.
+    /// A [class`Gtk.Popover`] will be created from the menu model with
+    /// [ctor`Gtk.PopoverMenu.new_from_model`]. Actions will be connected
+    /// as documented for this function.
+    /// 
+    /// If [property`Gtk.MenuButton:popover`] is already set, it will be
+    /// dissociated from the `menu_button`, and the property is set to `nil`.
     @inlinable func set<MenuModelT: GIO.MenuModelProtocol>(menuModel: MenuModelT?) {
         gtk_menu_button_set_menu_model(menu_button_ptr, menuModel?.menu_model_ptr)
     
     }
 
-    /// Sets the `GtkPopover` that will be popped up when the `menu_button` is clicked,
-    /// or `nil` to dissociate any existing popover and disable the button.
+    /// Sets the `GtkPopover` that will be popped up when the `menu_button` is clicked.
     /// 
-    /// If `GtkMenuButton:menu-model` is set, the menu model is dissociated from the
-    /// `menu_button`, and the property is set to `nil`.
+    /// If `popover` is `nil`, the button is disabled.
+    /// 
+    /// If [property`Gtk.MenuButton:menu-model`] is set, the menu model is dissociated
+    /// from the `menu_button`, and the property is set to `nil`.
     @inlinable func set(popover: WidgetRef? = nil) {
         gtk_menu_button_set_popover(menu_button_ptr, popover?.widget_ptr)
     
     }
-    /// Sets the `GtkPopover` that will be popped up when the `menu_button` is clicked,
-    /// or `nil` to dissociate any existing popover and disable the button.
+    /// Sets the `GtkPopover` that will be popped up when the `menu_button` is clicked.
     /// 
-    /// If `GtkMenuButton:menu-model` is set, the menu model is dissociated from the
-    /// `menu_button`, and the property is set to `nil`.
+    /// If `popover` is `nil`, the button is disabled.
+    /// 
+    /// If [property`Gtk.MenuButton:menu-model`] is set, the menu model is dissociated
+    /// from the `menu_button`, and the property is set to `nil`.
     @inlinable func set<WidgetT: WidgetProtocol>(popover: WidgetT?) {
         gtk_menu_button_set_popover(menu_button_ptr, popover?.widget_ptr)
     
     }
 
-    /// If true, an underline in the text indicates the next character should be
-    /// used for the mnemonic accelerator key.
+    /// If true, an underline in the text indicates a mnemonic.
     @inlinable func set(useUnderline: Bool) {
         gtk_menu_button_set_use_underline(menu_button_ptr, gboolean((useUnderline) ? 1 : 0))
     
@@ -3205,9 +3289,10 @@ public extension MenuButtonProtocol {
             let rv = gtk_menu_button_get_direction(menu_button_ptr)
             return rv
         }
-        /// Sets the direction in which the popup will be popped up, as
-        /// well as changing the arrow’s direction. The child will not
-        /// be changed to an arrow if it was customized.
+        /// Sets the direction in which the popup will be popped up.
+        /// 
+        /// If the button is automatically populated with an arrow icon,
+        /// its direction will be changed to match.
         /// 
         /// If the does not fit in the available space in the given direction,
         /// GTK will its best to keep it inside the screen and fully visible.
@@ -3245,6 +3330,7 @@ public extension MenuButtonProtocol {
         }
     }
 
+    /// The label for the button.
     @inlinable var label: String! {
         /// Gets the label shown in the button
         get {
@@ -3264,14 +3350,16 @@ public extension MenuButtonProtocol {
             let rv = GIO.MenuModelRef(gtk_menu_button_get_menu_model(menu_button_ptr))
             return rv
         }
-        /// Sets the `GMenuModel` from which the popup will be constructed,
-        /// or `nil` to dissociate any existing menu model and disable the button.
+        /// Sets the `GMenuModel` from which the popup will be constructed.
         /// 
-        /// A `GtkPopover` will be created from the menu model with `gtk_popover_menu_new_from_model()`.
-        /// Actions will be connected as documented for this function.
+        /// If `menu_model` is `nil`, the button is disabled.
         /// 
-        /// If `GtkMenuButton:popover` is already set, it will be dissociated from the `menu_button`,
-        /// and the property is set to `nil`.
+        /// A [class`Gtk.Popover`] will be created from the menu model with
+        /// [ctor`Gtk.PopoverMenu.new_from_model`]. Actions will be connected
+        /// as documented for this function.
+        /// 
+        /// If [property`Gtk.MenuButton:popover`] is already set, it will be
+        /// dissociated from the `menu_button`, and the property is set to `nil`.
         nonmutating set {
             gtk_menu_button_set_menu_model(menu_button_ptr, UnsafeMutablePointer<GMenuModel>(newValue?.menu_model_ptr))
         }
@@ -3280,33 +3368,34 @@ public extension MenuButtonProtocol {
     /// The `GtkPopover` that will be popped up when the button is clicked.
     @inlinable var popover: PopoverRef! {
         /// Returns the `GtkPopover` that pops out of the button.
+        /// 
         /// If the button is not using a `GtkPopover`, this function
         /// returns `nil`.
         get {
             let rv = PopoverRef(gconstpointer: gconstpointer(gtk_menu_button_get_popover(menu_button_ptr)))
             return rv
         }
-        /// Sets the `GtkPopover` that will be popped up when the `menu_button` is clicked,
-        /// or `nil` to dissociate any existing popover and disable the button.
+        /// Sets the `GtkPopover` that will be popped up when the `menu_button` is clicked.
         /// 
-        /// If `GtkMenuButton:menu-model` is set, the menu model is dissociated from the
-        /// `menu_button`, and the property is set to `nil`.
+        /// If `popover` is `nil`, the button is disabled.
+        /// 
+        /// If [property`Gtk.MenuButton:menu-model`] is set, the menu model is dissociated
+        /// from the `menu_button`, and the property is set to `nil`.
         nonmutating set {
             gtk_menu_button_set_popover(menu_button_ptr, UnsafeMutablePointer<GtkWidget>(newValue?.widget_ptr))
         }
     }
 
     /// Returns whether an embedded underline in the text indicates a
-    /// mnemonic. See `gtk_menu_button_set_use_underline()`.
+    /// mnemonic.
     @inlinable var useUnderline: Bool {
         /// Returns whether an embedded underline in the text indicates a
-        /// mnemonic. See `gtk_menu_button_set_use_underline()`.
+        /// mnemonic.
         get {
             let rv = ((gtk_menu_button_get_use_underline(menu_button_ptr)) != 0)
             return rv
         }
-        /// If true, an underline in the text indicates the next character should be
-        /// used for the mnemonic accelerator key.
+        /// If true, an underline in the text indicates a mnemonic.
         nonmutating set {
             gtk_menu_button_set_use_underline(menu_button_ptr, gboolean((newValue) ? 1 : 0))
         }
@@ -3324,59 +3413,61 @@ public extension MenuButtonProtocol {
 /// For a concrete class that implements these methods and properties, see `MessageDialog`.
 /// Alternatively, use `MessageDialogRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// `GtkMessageDialog` presents a dialog with some message text. It’s simply a
-/// convenience widget; you could construct the equivalent of `GtkMessageDialog`
-/// from `GtkDialog` without too much effort, but `GtkMessageDialog` saves typing.
+/// `GtkMessageDialog` presents a dialog with some message text.
+/// 
+/// ![An example GtkMessageDialog](messagedialog.png)
+/// 
+/// It’s simply a convenience widget; you could construct the equivalent of
+/// `GtkMessageDialog` from `GtkDialog` without too much effort, but
+/// `GtkMessageDialog` saves typing.
 /// 
 /// The easiest way to do a modal message dialog is to use the `GTK_DIALOG_MODAL`
-/// flag, which will call `gtk_window_set_modal()` internally. The dialog will
+/// flag, which will call [method`Gtk.Window.set_modal`] internally. The dialog will
 /// prevent interaction with the parent window until it's hidden or destroyed.
-/// You can use the `GtkDialog::response` signal to know when the user dismissed
-/// the dialog.
+/// You can use the [signal`Gtk.Dialog::response`] signal to know when the user
+/// dismissed the dialog.
 /// 
 /// An example for using a modal dialog:
-/// (C Language Example):
-/// ```C
-///  GtkDialogFlags flags = GTK_DIALOG_DESTROY_WITH_PARENT | GTK_DIALOG_MODAL;
-///  dialog = gtk_message_dialog_new (parent_window,
-///                                   flags,
-///                                   GTK_MESSAGE_ERROR,
-///                                   GTK_BUTTONS_CLOSE,
-///                                   "Error reading “%s”: %s",
-///                                   filename,
-///                                   g_strerror (errno));
-///  // Destroy the dialog when the user responds to it
-///  // (e.g. clicks a button)
+/// ```c
+/// GtkDialogFlags flags = GTK_DIALOG_DESTROY_WITH_PARENT | GTK_DIALOG_MODAL;
+/// dialog = gtk_message_dialog_new (parent_window,
+///                                  flags,
+///                                  GTK_MESSAGE_ERROR,
+///                                  GTK_BUTTONS_CLOSE,
+///                                  "Error reading “`s`”: `s`",
+///                                  filename,
+///                                  g_strerror (errno));
+/// // Destroy the dialog when the user responds to it
+/// // (e.g. clicks a button)
 /// 
-///  g_signal_connect (dialog, "response",
-///                    G_CALLBACK (gtk_window_destroy),
-///                    NULL);
+/// g_signal_connect (dialog, "response",
+///                   G_CALLBACK (gtk_window_destroy),
+///                   NULL);
 /// ```
 /// 
 /// You might do a non-modal `GtkMessageDialog` simply by omitting the
 /// `GTK_DIALOG_MODAL` flag:
 /// 
-/// (C Language Example):
-/// ```C
-///  GtkDialogFlags flags = GTK_DIALOG_DESTROY_WITH_PARENT;
-///  dialog = gtk_message_dialog_new (parent_window,
-///                                   flags,
-///                                   GTK_MESSAGE_ERROR,
-///                                   GTK_BUTTONS_CLOSE,
-///                                   "Error reading “%s”: %s",
-///                                   filename,
-///                                   g_strerror (errno));
+/// ```c
+/// GtkDialogFlags flags = GTK_DIALOG_DESTROY_WITH_PARENT;
+/// dialog = gtk_message_dialog_new (parent_window,
+///                                  flags,
+///                                  GTK_MESSAGE_ERROR,
+///                                  GTK_BUTTONS_CLOSE,
+///                                  "Error reading “`s`”: `s`",
+///                                  filename,
+///                                  g_strerror (errno));
 /// 
-///  // Destroy the dialog when the user responds to it
-///  // (e.g. clicks a button)
-///  g_signal_connect (dialog, "response",
-///                    G_CALLBACK (gtk_window_destroy),
-///                    NULL);
+/// // Destroy the dialog when the user responds to it
+/// // (e.g. clicks a button)
+/// g_signal_connect (dialog, "response",
+///                   G_CALLBACK (gtk_window_destroy),
+///                   NULL);
 /// ```
 /// 
 /// # GtkMessageDialog as GtkBuildable
 /// 
-/// The GtkMessageDialog implementation of the GtkBuildable interface exposes
+/// The `GtkMessageDialog` implementation of the `GtkBuildable` interface exposes
 /// the message area as an internal child with the name “message_area”.
 public protocol MessageDialogProtocol: DialogProtocol {
         /// Untyped pointer to the underlying `GtkMessageDialog` instance.
@@ -3393,59 +3484,61 @@ public protocol MessageDialogProtocol: DialogProtocol {
 /// It exposes methods that can operate on this data type through `MessageDialogProtocol` conformance.
 /// Use `MessageDialogRef` only as an `unowned` reference to an existing `GtkMessageDialog` instance.
 ///
-/// `GtkMessageDialog` presents a dialog with some message text. It’s simply a
-/// convenience widget; you could construct the equivalent of `GtkMessageDialog`
-/// from `GtkDialog` without too much effort, but `GtkMessageDialog` saves typing.
+/// `GtkMessageDialog` presents a dialog with some message text.
+/// 
+/// ![An example GtkMessageDialog](messagedialog.png)
+/// 
+/// It’s simply a convenience widget; you could construct the equivalent of
+/// `GtkMessageDialog` from `GtkDialog` without too much effort, but
+/// `GtkMessageDialog` saves typing.
 /// 
 /// The easiest way to do a modal message dialog is to use the `GTK_DIALOG_MODAL`
-/// flag, which will call `gtk_window_set_modal()` internally. The dialog will
+/// flag, which will call [method`Gtk.Window.set_modal`] internally. The dialog will
 /// prevent interaction with the parent window until it's hidden or destroyed.
-/// You can use the `GtkDialog::response` signal to know when the user dismissed
-/// the dialog.
+/// You can use the [signal`Gtk.Dialog::response`] signal to know when the user
+/// dismissed the dialog.
 /// 
 /// An example for using a modal dialog:
-/// (C Language Example):
-/// ```C
-///  GtkDialogFlags flags = GTK_DIALOG_DESTROY_WITH_PARENT | GTK_DIALOG_MODAL;
-///  dialog = gtk_message_dialog_new (parent_window,
-///                                   flags,
-///                                   GTK_MESSAGE_ERROR,
-///                                   GTK_BUTTONS_CLOSE,
-///                                   "Error reading “%s”: %s",
-///                                   filename,
-///                                   g_strerror (errno));
-///  // Destroy the dialog when the user responds to it
-///  // (e.g. clicks a button)
+/// ```c
+/// GtkDialogFlags flags = GTK_DIALOG_DESTROY_WITH_PARENT | GTK_DIALOG_MODAL;
+/// dialog = gtk_message_dialog_new (parent_window,
+///                                  flags,
+///                                  GTK_MESSAGE_ERROR,
+///                                  GTK_BUTTONS_CLOSE,
+///                                  "Error reading “`s`”: `s`",
+///                                  filename,
+///                                  g_strerror (errno));
+/// // Destroy the dialog when the user responds to it
+/// // (e.g. clicks a button)
 /// 
-///  g_signal_connect (dialog, "response",
-///                    G_CALLBACK (gtk_window_destroy),
-///                    NULL);
+/// g_signal_connect (dialog, "response",
+///                   G_CALLBACK (gtk_window_destroy),
+///                   NULL);
 /// ```
 /// 
 /// You might do a non-modal `GtkMessageDialog` simply by omitting the
 /// `GTK_DIALOG_MODAL` flag:
 /// 
-/// (C Language Example):
-/// ```C
-///  GtkDialogFlags flags = GTK_DIALOG_DESTROY_WITH_PARENT;
-///  dialog = gtk_message_dialog_new (parent_window,
-///                                   flags,
-///                                   GTK_MESSAGE_ERROR,
-///                                   GTK_BUTTONS_CLOSE,
-///                                   "Error reading “%s”: %s",
-///                                   filename,
-///                                   g_strerror (errno));
+/// ```c
+/// GtkDialogFlags flags = GTK_DIALOG_DESTROY_WITH_PARENT;
+/// dialog = gtk_message_dialog_new (parent_window,
+///                                  flags,
+///                                  GTK_MESSAGE_ERROR,
+///                                  GTK_BUTTONS_CLOSE,
+///                                  "Error reading “`s`”: `s`",
+///                                  filename,
+///                                  g_strerror (errno));
 /// 
-///  // Destroy the dialog when the user responds to it
-///  // (e.g. clicks a button)
-///  g_signal_connect (dialog, "response",
-///                    G_CALLBACK (gtk_window_destroy),
-///                    NULL);
+/// // Destroy the dialog when the user responds to it
+/// // (e.g. clicks a button)
+/// g_signal_connect (dialog, "response",
+///                   G_CALLBACK (gtk_window_destroy),
+///                   NULL);
 /// ```
 /// 
 /// # GtkMessageDialog as GtkBuildable
 /// 
-/// The GtkMessageDialog implementation of the GtkBuildable interface exposes
+/// The `GtkMessageDialog` implementation of the `GtkBuildable` interface exposes
 /// the message area as an internal child with the name “message_area”.
 public struct MessageDialogRef: MessageDialogProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkMessageDialog` instance.
@@ -3542,59 +3635,61 @@ public extension MessageDialogRef {
 /// It provides the methods that can operate on this data type through `MessageDialogProtocol` conformance.
 /// Use `MessageDialog` as a strong reference or owner of a `GtkMessageDialog` instance.
 ///
-/// `GtkMessageDialog` presents a dialog with some message text. It’s simply a
-/// convenience widget; you could construct the equivalent of `GtkMessageDialog`
-/// from `GtkDialog` without too much effort, but `GtkMessageDialog` saves typing.
+/// `GtkMessageDialog` presents a dialog with some message text.
+/// 
+/// ![An example GtkMessageDialog](messagedialog.png)
+/// 
+/// It’s simply a convenience widget; you could construct the equivalent of
+/// `GtkMessageDialog` from `GtkDialog` without too much effort, but
+/// `GtkMessageDialog` saves typing.
 /// 
 /// The easiest way to do a modal message dialog is to use the `GTK_DIALOG_MODAL`
-/// flag, which will call `gtk_window_set_modal()` internally. The dialog will
+/// flag, which will call [method`Gtk.Window.set_modal`] internally. The dialog will
 /// prevent interaction with the parent window until it's hidden or destroyed.
-/// You can use the `GtkDialog::response` signal to know when the user dismissed
-/// the dialog.
+/// You can use the [signal`Gtk.Dialog::response`] signal to know when the user
+/// dismissed the dialog.
 /// 
 /// An example for using a modal dialog:
-/// (C Language Example):
-/// ```C
-///  GtkDialogFlags flags = GTK_DIALOG_DESTROY_WITH_PARENT | GTK_DIALOG_MODAL;
-///  dialog = gtk_message_dialog_new (parent_window,
-///                                   flags,
-///                                   GTK_MESSAGE_ERROR,
-///                                   GTK_BUTTONS_CLOSE,
-///                                   "Error reading “%s”: %s",
-///                                   filename,
-///                                   g_strerror (errno));
-///  // Destroy the dialog when the user responds to it
-///  // (e.g. clicks a button)
+/// ```c
+/// GtkDialogFlags flags = GTK_DIALOG_DESTROY_WITH_PARENT | GTK_DIALOG_MODAL;
+/// dialog = gtk_message_dialog_new (parent_window,
+///                                  flags,
+///                                  GTK_MESSAGE_ERROR,
+///                                  GTK_BUTTONS_CLOSE,
+///                                  "Error reading “`s`”: `s`",
+///                                  filename,
+///                                  g_strerror (errno));
+/// // Destroy the dialog when the user responds to it
+/// // (e.g. clicks a button)
 /// 
-///  g_signal_connect (dialog, "response",
-///                    G_CALLBACK (gtk_window_destroy),
-///                    NULL);
+/// g_signal_connect (dialog, "response",
+///                   G_CALLBACK (gtk_window_destroy),
+///                   NULL);
 /// ```
 /// 
 /// You might do a non-modal `GtkMessageDialog` simply by omitting the
 /// `GTK_DIALOG_MODAL` flag:
 /// 
-/// (C Language Example):
-/// ```C
-///  GtkDialogFlags flags = GTK_DIALOG_DESTROY_WITH_PARENT;
-///  dialog = gtk_message_dialog_new (parent_window,
-///                                   flags,
-///                                   GTK_MESSAGE_ERROR,
-///                                   GTK_BUTTONS_CLOSE,
-///                                   "Error reading “%s”: %s",
-///                                   filename,
-///                                   g_strerror (errno));
+/// ```c
+/// GtkDialogFlags flags = GTK_DIALOG_DESTROY_WITH_PARENT;
+/// dialog = gtk_message_dialog_new (parent_window,
+///                                  flags,
+///                                  GTK_MESSAGE_ERROR,
+///                                  GTK_BUTTONS_CLOSE,
+///                                  "Error reading “`s`”: `s`",
+///                                  filename,
+///                                  g_strerror (errno));
 /// 
-///  // Destroy the dialog when the user responds to it
-///  // (e.g. clicks a button)
-///  g_signal_connect (dialog, "response",
-///                    G_CALLBACK (gtk_window_destroy),
-///                    NULL);
+/// // Destroy the dialog when the user responds to it
+/// // (e.g. clicks a button)
+/// g_signal_connect (dialog, "response",
+///                   G_CALLBACK (gtk_window_destroy),
+///                   NULL);
 /// ```
 /// 
 /// # GtkMessageDialog as GtkBuildable
 /// 
-/// The GtkMessageDialog implementation of the GtkBuildable interface exposes
+/// The `GtkMessageDialog` implementation of the `GtkBuildable` interface exposes
 /// the message area as an internal child with the name “message_area”.
 open class MessageDialog: Dialog, MessageDialogProtocol {
         /// Designated initialiser from the underlying `C` data type.
@@ -3753,7 +3848,9 @@ public enum MessageDialogPropertyName: String, PropertyNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case canFocus = "can-focus"
+    /// Whether the widget can receive pointer events.
     case canTarget = "can-target"
+    /// The child widget.
     case child = "child"
     /// A list of css classes applied to this widget.
     case cssClasses = "css-classes"
@@ -3762,16 +3859,21 @@ public enum MessageDialogPropertyName: String, PropertyNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case cssName = "css-name"
-    /// The cursor used by `widget`. See `gtk_widget_set_cursor()` for details.
+    /// The cursor used by `widget`.
     case cursor = "cursor"
-    /// Whether the window should be decorated by the window manager.
+    /// Whether the window should have a frame (also known as *decorations*).
     case decorated = "decorated"
+    /// The default height of the window.
     case defaultHeight = "default-height"
+    /// The default widget.
     case defaultWidget = "default-widget"
+    /// The default width of the window.
     case defaultWidth = "default-width"
     /// Whether the window frame should have a close button.
     case deletable = "deletable"
+    /// If this window should be destroyed when the parent is destroyed.
     case destroyWithParent = "destroy-with-parent"
+    /// The display that will display this window.
     case display = "display"
     /// Whether the widget should grab focus when it is clicked with the mouse.
     /// 
@@ -3782,34 +3884,48 @@ public enum MessageDialogPropertyName: String, PropertyNameProtocol {
     /// This property is maintained by GTK based on user input
     /// and should not be set by applications.
     case focusVisible = "focus-visible"
+    /// The focus widget.
     case focusWidget = "focus-widget"
     /// Whether this widget itself will accept the input focus.
     case focusable = "focusable"
     /// Whether the window is fullscreen.
     /// 
-    /// Setting this property is the equivalent of calling `gtk_window_fullscreen()`
-    /// and `gtk_window_unfullscreen()`; either operation is asynchronous, which
-    /// means you will need to connect to the `GObject::notify` signal in order to
-    /// know whether the operation was successful.
+    /// Setting this property is the equivalent of calling
+    /// [method`Gtk.Window.fullscreen`] or [method`Gtk.Window.unfullscreen`];
+    /// either operation is asynchronous, which means you will need to
+    /// connect to the `notify` signal in order to know whether the
+    /// operation was successful.
     case fullscreened = "fullscreened"
-    /// How to distribute horizontal space if widget gets extra space, see `GtkAlign`
+    /// How to distribute horizontal space if widget gets extra space.
     case halign = "halign"
+    /// Whether the window frame should handle F10 for activating
+    /// menubars.
+    case handleMenubarAccel = "handle-menubar-accel"
+    /// Whether the widget is the default widget.
     case hasDefault = "has-default"
+    /// Whether the widget has the input focus.
     case hasFocus = "has-focus"
-    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
+    /// Enables or disables the emission of the `query-tooltip` signal on `widget`.
+    /// 
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
-    /// whether it will provide a tooltip or not.
+    /// the widget will be queried using [signal`Gtk.Widget::query-tooltip`] to
+    /// determine whether it will provide a tooltip or not.
     case hasTooltip = "has-tooltip"
+    /// Override for height request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case heightRequest = "height-request"
-    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
+    /// Whether to expand horizontally.
     case hexpand = "hexpand"
-    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
+    /// Whether to use the `hexpand` property.
     case hexpandSet = "hexpand-set"
+    /// If this window should be hidden when the users clicks the close button.
     case hideOnClose = "hide-on-close"
-    /// The :icon-name property specifies the name of the themed icon to
-    /// use as the window icon. See `GtkIconTheme` for more details.
+    /// Specifies the name of the themed icon to use as the window icon.
+    /// 
+    /// See [class`Gtk.IconTheme`] for more details.
     case iconName = "icon-name"
+    /// Whether the toplevel is the currently active window.
     case isActive = "is-active"
     /// The `GtkLayoutManager` instance to use to compute the preferred size
     /// of the widget, and allocate its children.
@@ -3821,38 +3937,44 @@ public enum MessageDialogPropertyName: String, PropertyNameProtocol {
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginBottom = "margin-bottom"
-    /// Margin on end of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on end of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginEnd = "margin-end"
-    /// Margin on start of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on start of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginStart = "margin-start"
     /// Margin on top side of widget.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginTop = "margin-top"
     /// Whether the window is maximized.
     /// 
-    /// Setting this property is the equivalent of calling `gtk_window_maximize()`
-    /// and `gtk_window_unmaximize()`; either operation is asynchronous, which
-    /// means you will need to connect to the `GObject::notify` signal in order to
-    /// know whether the operation was successful.
+    /// Setting this property is the equivalent of calling
+    /// [method`Gtk.Window.maximize`] or [method`Gtk.Window.unmaximize`];
+    /// either operation is asynchronous, which means you will need to
+    /// connect to the `notify` signal in order to know whether the
+    /// operation was successful.
     case maximized = "maximized"
-    /// The `GtkBox` that corresponds to the message area of this dialog.  See
-    /// `gtk_message_dialog_get_message_area()` for a detailed description of this
-    /// area.
+    /// The `GtkBox` that corresponds to the message area of this dialog.
+    /// 
+    /// See [method`Gtk.MessageDialog.get_message_area`] for a detailed
+    /// description of this area.
     case messageArea = "message-area"
     /// The type of the message.
     case messageType = "message-type"
@@ -3861,82 +3983,108 @@ public enum MessageDialogPropertyName: String, PropertyNameProtocol {
     /// This property is maintained by GTK based on user input,
     /// and should not be set by applications.
     case mnemonicsVisible = "mnemonics-visible"
+    /// If `true`, the window is modal.
     case modal = "modal"
+    /// The name of the widget.
     case name = "name"
-    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
-    /// more details about window opacity.
+    /// The requested opacity of the widget.
     case opacity = "opacity"
     /// How content outside the widget's content area is treated.
     /// 
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case overflow = "overflow"
+    /// The parent widget of this widget.
     case parent = "parent"
+    /// Whether the widget will receive the default action when it is focused.
     case receivesDefault = "receives-default"
+    /// If `true`, users can resize the window.
     case resizable = "resizable"
-    /// The `GtkRoot` widget of the widget tree containing this widget or `nil` if
-    /// the widget is not contained in a root widget.
+    /// The `GtkRoot` widget of the widget tree containing this widget.
+    /// 
+    /// This will be `nil` if the widget is not contained in a root widget.
     case root = "root"
-    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
-    /// more details about widget scaling.
+    /// The scale factor of the widget.
     case scaleFactor = "scale-factor"
     /// The secondary text of the message dialog.
     case secondaryText = "secondary-text"
     /// `true` if the secondary text of the dialog includes Pango markup.
-    /// See `pango_parse_markup()`.
+    /// 
+    /// See [func`Pango.parse_markup`].
     case secondaryUseMarkup = "secondary-use-markup"
+    /// Whether the widget responds to input.
     case sensitive = "sensitive"
-    /// The :startup-id is a write-only property for setting window's
-    /// startup notification identifier. See `gtk_window_set_startup_id()`
-    /// for more details.
+    /// A write-only property for setting window's startup notification identifier.
     case startupId = "startup-id"
-    /// The primary text of the message dialog. If the dialog has
-    /// a secondary text, this will appear as the title.
+    /// The primary text of the message dialog.
+    /// 
+    /// If the dialog has a secondary text, this will appear as the title.
     case text = "text"
+    /// The title of the window.
     case title = "title"
     /// Sets the text of tooltip to be the given string, which is marked up
-    /// with the [Pango text markup language](#PangoMarkupFormat).
-    /// Also see `gtk_tooltip_set_markup()`.
+    /// with Pango markup.
+    /// 
+    /// Also see [method`Gtk.Tooltip.set_markup`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case tooltipMarkup = "tooltip-markup"
     /// Sets the text of tooltip to be the given string.
     /// 
-    /// Also see `gtk_tooltip_set_text()`.
+    /// Also see [method`Gtk.Tooltip.set_text`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case tooltipText = "tooltip-text"
-    /// The transient parent of the window. See `gtk_window_set_transient_for()` for
-    /// more details about transient windows.
+    /// The transient parent of the window.
     case transientFor = "transient-for"
-    /// `true` if the dialog uses a `GtkHeaderBar` for action buttons
+    /// `true` if the dialog uses a headerbar for action buttons
     /// instead of the action-area.
     /// 
     /// For technical reasons, this property is declared as an integer
     /// property, but you should only set it to `true` or `false`.
+    /// 
+    /// ## Creating a dialog with headerbar
+    /// 
+    /// Builtin `GtkDialog` subclasses such as [class`Gtk.ColorChooserDialog`]
+    /// set this property according to platform conventions (using the
+    /// [property`Gtk.Settings:gtk-dialogs-use-header`] setting).
+    /// 
+    /// Here is how you can achieve the same:
+    /// 
+    /// ```c
+    /// g_object_get (settings, "gtk-dialogs-use-header", &header, NULL);
+    /// dialog = g_object_new (GTK_TYPE_DIALOG, header, TRUE, NULL);
+    /// ```
     case useHeaderBar = "use-header-bar"
     /// `true` if the primary text of the dialog includes Pango markup.
-    /// See `pango_parse_markup()`.
+    /// 
+    /// See [func`Pango.parse_markup`].
     case useMarkup = "use-markup"
-    /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
+    /// How to distribute vertical space if widget gets extra space.
     case valign = "valign"
-    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
+    /// Whether to expand vertically.
     case vexpand = "vexpand"
-    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
+    /// Whether to use the `vexpand` property.
     case vexpandSet = "vexpand-set"
+    /// Whether the widget is visible.
     case visible = "visible"
+    /// Override for width request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case widthRequest = "width-request"
 }
 
@@ -3994,62 +4142,65 @@ public extension MessageDialogProtocol {
 }
 
 public enum MessageDialogSignalName: String, SignalNameProtocol {
-    /// The `activate-default` signal is a
-    /// [keybinding signal](#GtkSignalAction)
-    /// which gets emitted when the user activates the default widget
+    /// Emitted when the user activates the default widget
     /// of `window`.
+    /// 
+    /// This is a [keybinding signal](class.SignalAction.html).
     case activateDefault = "activate-default"
-    /// The `activate-focus` signal is a
-    /// [keybinding signal](#GtkSignalAction)
-    /// which gets emitted when the user activates the currently
-    /// focused widget of `window`.
+    /// Emitted when the user activates the currently focused
+    /// widget of `window`.
+    /// 
+    /// This is a [keybinding signal](class.SignalAction.html).
     case activateFocus = "activate-focus"
-    /// The `close` signal is a
-    /// [keybinding signal](#GtkSignalAction)
-    /// which gets emitted when the user uses a keybinding to close
-    /// the dialog.
+    /// Emitted when the user uses a keybinding to close the dialog.
+    /// 
+    /// This is a [keybinding signal](class.SignalAction.html).
     /// 
     /// The default binding for this signal is the Escape key.
     case close = "close"
-    /// The `close-request` signal is emitted when the user clicks on the close
-    /// button of the window.
+    /// Emitted when the user clicks on the close button of the window.
     case closeRequest = "close-request"
     /// Signals that all holders of a reference to the widget should release
-    /// the reference that they hold. May result in finalization of the widget
-    /// if all references are released.
+    /// the reference that they hold.
+    /// 
+    /// May result in finalization of the widget if all references are released.
     /// 
     /// This signal is not suitable for saving widget state.
     case destroy = "destroy"
-    /// The `direction-changed` signal is emitted when the text direction
-    /// of a widget changes.
+    /// Emitted when the text direction of a widget changes.
     case directionChanged = "direction-changed"
-    /// The `enable-debugging` signal is a [keybinding signal](#GtkSignalAction)
-    /// which gets emitted when the user enables or disables interactive
-    /// debugging. When `toggle` is `true`, interactive debugging is toggled
-    /// on or off, when it is `false`, the debugger will be pointed at the
-    /// widget under the pointer.
+    /// Emitted when the user enables or disables interactive debugging.
+    /// 
+    /// When `toggle` is `true`, interactive debugging is toggled on or off,
+    /// when it is `false`, the debugger will be pointed at the widget
+    /// under the pointer.
+    /// 
+    /// This is a [keybinding signal](class.SignalAction.html).
     /// 
     /// The default bindings for this signal are Ctrl-Shift-I
     /// and Ctrl-Shift-D.
     case enableDebugging = "enable-debugging"
-    /// The `hide` signal is emitted when `widget` is hidden, for example with
-    /// `gtk_widget_hide()`.
+    /// Emitted when `widget` is hidden.
     case hide = "hide"
-    /// Gets emitted if keyboard navigation fails.
-    /// See `gtk_widget_keynav_failed()` for details.
+    /// Emitted if keyboard navigation fails.
+    /// 
+    /// See [method`Gtk.Widget.keynav_failed`] for details.
     case keynavFailed = "keynav-failed"
-    /// The `keys-changed` signal gets emitted when the set of accelerators
-    /// or mnemonics that are associated with `window` changes.
+    /// emitted when the set of accelerators or mnemonics that
+    /// are associated with `window` changes.
     case keysChanged = "keys-changed"
-    /// The `map` signal is emitted when `widget` is going to be mapped, that is
-    /// when the widget is visible (which is controlled with
-    /// `gtk_widget_set_visible()`) and all its parents up to the toplevel widget
+    /// Emitted when `widget` is going to be mapped.
+    /// 
+    /// A widget is mapped when the widget is visible (which is controlled with
+    /// [property`Gtk.Widget:visible`]) and all its parents up to the toplevel widget
     /// are also visible.
     /// 
     /// The `map` signal can be used to determine whether a widget will be drawn,
     /// for instance it can resume an animation that was stopped during the
-    /// emission of `GtkWidget::unmap`.
+    /// emission of [signal`Gtk.Widget::unmap`].
     case map = "map"
+    /// Emitted when a widget is activated via a mnemonic.
+    /// 
     /// The default handler for this signal activates `widget` if `group_cycling`
     /// is `false`, or just makes `widget` grab focus if `group_cycling` is `true`.
     case mnemonicActivate = "mnemonic-activate"
@@ -4080,9 +4231,11 @@ public enum MessageDialogSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// Emitted when `GtkWidget:has-tooltip` is `true` and the hover timeout
-    /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
-    /// focus in keyboard mode.
+    /// Emitted when the widgets tooltip is about to be shown.
+    /// 
+    /// This happens when the [property`Gtk.Widget:has-tooltip`] property
+    /// is `true` and the hover timeout has expired with the cursor hovering
+    /// "above" `widget`; or emitted when `widget` got focus in keyboard mode.
     /// 
     /// Using the given coordinates, the signal handler should determine
     /// whether a tooltip should be shown for `widget`. If this is the case
@@ -4093,32 +4246,36 @@ public enum MessageDialogSignalName: String, SignalNameProtocol {
     /// The signal handler is free to manipulate `tooltip` with the therefore
     /// destined function calls.
     case queryTooltip = "query-tooltip"
-    /// The `realize` signal is emitted when `widget` is associated with a
-    /// `GdkSurface`, which means that `gtk_widget_realize()` has been called or the
-    /// widget has been mapped (that is, it is going to be drawn).
+    /// Emitted when `widget` is associated with a `GdkSurface`.
+    /// 
+    /// This means that [method`Gtk.Widget.realize`] has been called
+    /// or the widget has been mapped (that is, it is going to be drawn).
     case realize = "realize"
-    /// Emitted when an action widget is clicked, the dialog receives a
-    /// delete event, or the application programmer calls `gtk_dialog_response()`.
+    /// Emitted when an action widget is clicked.
+    /// 
+    /// The signal is also emitted when the dialog receives a
+    /// delete event, and when [method`Gtk.Dialog.response`] is called.
     /// On a delete event, the response ID is `GTK_RESPONSE_DELETE_EVENT`.
     /// Otherwise, it depends on which action widget was clicked.
     case response = "response"
-    /// The `show` signal is emitted when `widget` is shown, for example with
-    /// `gtk_widget_show()`.
+    /// Emitted when `widget` is shown.
     case show = "show"
-    /// The `state-flags-changed` signal is emitted when the widget state
-    /// changes, see `gtk_widget_get_state_flags()`.
-    case stateFlagsChanged = "state-flags-changed"
-    /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
-    /// means that either it or any of its parents up to the toplevel widget have
-    /// been set as hidden.
+    /// Emitted when the widget state changes.
     /// 
-    /// As `unmap` indicates that a widget will not be shown any longer, it can be
-    /// used to, for example, stop an animation on the widget.
+    /// See [method`Gtk.Widget.get_state_flags`].
+    case stateFlagsChanged = "state-flags-changed"
+    /// Emitted when `widget` is going to be unmapped.
+    /// 
+    /// A widget is unmapped when either it or any of its parents up to the
+    /// toplevel widget have been set as hidden.
+    /// 
+    /// As `unmap` indicates that a widget will not be shown any longer,
+    /// it can be used to, for example, stop an animation on the widget.
     case unmap = "unmap"
-    /// The `unrealize` signal is emitted when the `GdkSurface` associated with
-    /// `widget` is destroyed, which means that `gtk_widget_unrealize()` has been
-    /// called or the widget has been unmapped (that is, it is going to be
-    /// hidden).
+    /// Emitted when the `GdkSurface` associated with `widget` is destroyed.
+    /// 
+    /// This means that [method`Gtk.Widget.unrealize`] has been called
+    /// or the widget has been unmapped (that is, it is going to be hidden).
     case unrealize = "unrealize"
     /// The `GtkApplication` associated with the window.
     /// 
@@ -4137,7 +4294,9 @@ public enum MessageDialogSignalName: String, SignalNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case notifyCanFocus = "notify::can-focus"
+    /// Whether the widget can receive pointer events.
     case notifyCanTarget = "notify::can-target"
+    /// The child widget.
     case notifyChild = "notify::child"
     /// A list of css classes applied to this widget.
     case notifyCssClasses = "notify::css-classes"
@@ -4146,16 +4305,21 @@ public enum MessageDialogSignalName: String, SignalNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case notifyCssName = "notify::css-name"
-    /// The cursor used by `widget`. See `gtk_widget_set_cursor()` for details.
+    /// The cursor used by `widget`.
     case notifyCursor = "notify::cursor"
-    /// Whether the window should be decorated by the window manager.
+    /// Whether the window should have a frame (also known as *decorations*).
     case notifyDecorated = "notify::decorated"
+    /// The default height of the window.
     case notifyDefaultHeight = "notify::default-height"
+    /// The default widget.
     case notifyDefaultWidget = "notify::default-widget"
+    /// The default width of the window.
     case notifyDefaultWidth = "notify::default-width"
     /// Whether the window frame should have a close button.
     case notifyDeletable = "notify::deletable"
+    /// If this window should be destroyed when the parent is destroyed.
     case notifyDestroyWithParent = "notify::destroy-with-parent"
+    /// The display that will display this window.
     case notifyDisplay = "notify::display"
     /// Whether the widget should grab focus when it is clicked with the mouse.
     /// 
@@ -4166,34 +4330,48 @@ public enum MessageDialogSignalName: String, SignalNameProtocol {
     /// This property is maintained by GTK based on user input
     /// and should not be set by applications.
     case notifyFocusVisible = "notify::focus-visible"
+    /// The focus widget.
     case notifyFocusWidget = "notify::focus-widget"
     /// Whether this widget itself will accept the input focus.
     case notifyFocusable = "notify::focusable"
     /// Whether the window is fullscreen.
     /// 
-    /// Setting this property is the equivalent of calling `gtk_window_fullscreen()`
-    /// and `gtk_window_unfullscreen()`; either operation is asynchronous, which
-    /// means you will need to connect to the `GObject::notify` signal in order to
-    /// know whether the operation was successful.
+    /// Setting this property is the equivalent of calling
+    /// [method`Gtk.Window.fullscreen`] or [method`Gtk.Window.unfullscreen`];
+    /// either operation is asynchronous, which means you will need to
+    /// connect to the `notify` signal in order to know whether the
+    /// operation was successful.
     case notifyFullscreened = "notify::fullscreened"
-    /// How to distribute horizontal space if widget gets extra space, see `GtkAlign`
+    /// How to distribute horizontal space if widget gets extra space.
     case notifyHalign = "notify::halign"
+    /// Whether the window frame should handle F10 for activating
+    /// menubars.
+    case notifyHandleMenubarAccel = "notify::handle-menubar-accel"
+    /// Whether the widget is the default widget.
     case notifyHasDefault = "notify::has-default"
+    /// Whether the widget has the input focus.
     case notifyHasFocus = "notify::has-focus"
-    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
+    /// Enables or disables the emission of the `query-tooltip` signal on `widget`.
+    /// 
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
-    /// whether it will provide a tooltip or not.
+    /// the widget will be queried using [signal`Gtk.Widget::query-tooltip`] to
+    /// determine whether it will provide a tooltip or not.
     case notifyHasTooltip = "notify::has-tooltip"
+    /// Override for height request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case notifyHeightRequest = "notify::height-request"
-    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
+    /// Whether to expand horizontally.
     case notifyHexpand = "notify::hexpand"
-    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
+    /// Whether to use the `hexpand` property.
     case notifyHexpandSet = "notify::hexpand-set"
+    /// If this window should be hidden when the users clicks the close button.
     case notifyHideOnClose = "notify::hide-on-close"
-    /// The :icon-name property specifies the name of the themed icon to
-    /// use as the window icon. See `GtkIconTheme` for more details.
+    /// Specifies the name of the themed icon to use as the window icon.
+    /// 
+    /// See [class`Gtk.IconTheme`] for more details.
     case notifyIconName = "notify::icon-name"
+    /// Whether the toplevel is the currently active window.
     case notifyIsActive = "notify::is-active"
     /// The `GtkLayoutManager` instance to use to compute the preferred size
     /// of the widget, and allocate its children.
@@ -4205,38 +4383,44 @@ public enum MessageDialogSignalName: String, SignalNameProtocol {
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginBottom = "notify::margin-bottom"
-    /// Margin on end of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on end of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginEnd = "notify::margin-end"
-    /// Margin on start of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on start of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginStart = "notify::margin-start"
     /// Margin on top side of widget.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginTop = "notify::margin-top"
     /// Whether the window is maximized.
     /// 
-    /// Setting this property is the equivalent of calling `gtk_window_maximize()`
-    /// and `gtk_window_unmaximize()`; either operation is asynchronous, which
-    /// means you will need to connect to the `GObject::notify` signal in order to
-    /// know whether the operation was successful.
+    /// Setting this property is the equivalent of calling
+    /// [method`Gtk.Window.maximize`] or [method`Gtk.Window.unmaximize`];
+    /// either operation is asynchronous, which means you will need to
+    /// connect to the `notify` signal in order to know whether the
+    /// operation was successful.
     case notifyMaximized = "notify::maximized"
-    /// The `GtkBox` that corresponds to the message area of this dialog.  See
-    /// `gtk_message_dialog_get_message_area()` for a detailed description of this
-    /// area.
+    /// The `GtkBox` that corresponds to the message area of this dialog.
+    /// 
+    /// See [method`Gtk.MessageDialog.get_message_area`] for a detailed
+    /// description of this area.
     case notifyMessageArea = "notify::message-area"
     /// The type of the message.
     case notifyMessageType = "notify::message-type"
@@ -4245,82 +4429,108 @@ public enum MessageDialogSignalName: String, SignalNameProtocol {
     /// This property is maintained by GTK based on user input,
     /// and should not be set by applications.
     case notifyMnemonicsVisible = "notify::mnemonics-visible"
+    /// If `true`, the window is modal.
     case notifyModal = "notify::modal"
+    /// The name of the widget.
     case notifyName = "notify::name"
-    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
-    /// more details about window opacity.
+    /// The requested opacity of the widget.
     case notifyOpacity = "notify::opacity"
     /// How content outside the widget's content area is treated.
     /// 
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case notifyOverflow = "notify::overflow"
+    /// The parent widget of this widget.
     case notifyParent = "notify::parent"
+    /// Whether the widget will receive the default action when it is focused.
     case notifyReceivesDefault = "notify::receives-default"
+    /// If `true`, users can resize the window.
     case notifyResizable = "notify::resizable"
-    /// The `GtkRoot` widget of the widget tree containing this widget or `nil` if
-    /// the widget is not contained in a root widget.
+    /// The `GtkRoot` widget of the widget tree containing this widget.
+    /// 
+    /// This will be `nil` if the widget is not contained in a root widget.
     case notifyRoot = "notify::root"
-    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
-    /// more details about widget scaling.
+    /// The scale factor of the widget.
     case notifyScaleFactor = "notify::scale-factor"
     /// The secondary text of the message dialog.
     case notifySecondaryText = "notify::secondary-text"
     /// `true` if the secondary text of the dialog includes Pango markup.
-    /// See `pango_parse_markup()`.
+    /// 
+    /// See [func`Pango.parse_markup`].
     case notifySecondaryUseMarkup = "notify::secondary-use-markup"
+    /// Whether the widget responds to input.
     case notifySensitive = "notify::sensitive"
-    /// The :startup-id is a write-only property for setting window's
-    /// startup notification identifier. See `gtk_window_set_startup_id()`
-    /// for more details.
+    /// A write-only property for setting window's startup notification identifier.
     case notifyStartupId = "notify::startup-id"
-    /// The primary text of the message dialog. If the dialog has
-    /// a secondary text, this will appear as the title.
+    /// The primary text of the message dialog.
+    /// 
+    /// If the dialog has a secondary text, this will appear as the title.
     case notifyText = "notify::text"
+    /// The title of the window.
     case notifyTitle = "notify::title"
     /// Sets the text of tooltip to be the given string, which is marked up
-    /// with the [Pango text markup language](#PangoMarkupFormat).
-    /// Also see `gtk_tooltip_set_markup()`.
+    /// with Pango markup.
+    /// 
+    /// Also see [method`Gtk.Tooltip.set_markup`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case notifyTooltipMarkup = "notify::tooltip-markup"
     /// Sets the text of tooltip to be the given string.
     /// 
-    /// Also see `gtk_tooltip_set_text()`.
+    /// Also see [method`Gtk.Tooltip.set_text`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case notifyTooltipText = "notify::tooltip-text"
-    /// The transient parent of the window. See `gtk_window_set_transient_for()` for
-    /// more details about transient windows.
+    /// The transient parent of the window.
     case notifyTransientFor = "notify::transient-for"
-    /// `true` if the dialog uses a `GtkHeaderBar` for action buttons
+    /// `true` if the dialog uses a headerbar for action buttons
     /// instead of the action-area.
     /// 
     /// For technical reasons, this property is declared as an integer
     /// property, but you should only set it to `true` or `false`.
+    /// 
+    /// ## Creating a dialog with headerbar
+    /// 
+    /// Builtin `GtkDialog` subclasses such as [class`Gtk.ColorChooserDialog`]
+    /// set this property according to platform conventions (using the
+    /// [property`Gtk.Settings:gtk-dialogs-use-header`] setting).
+    /// 
+    /// Here is how you can achieve the same:
+    /// 
+    /// ```c
+    /// g_object_get (settings, "gtk-dialogs-use-header", &header, NULL);
+    /// dialog = g_object_new (GTK_TYPE_DIALOG, header, TRUE, NULL);
+    /// ```
     case notifyUseHeaderBar = "notify::use-header-bar"
     /// `true` if the primary text of the dialog includes Pango markup.
-    /// See `pango_parse_markup()`.
+    /// 
+    /// See [func`Pango.parse_markup`].
     case notifyUseMarkup = "notify::use-markup"
-    /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
+    /// How to distribute vertical space if widget gets extra space.
     case notifyValign = "notify::valign"
-    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
+    /// Whether to expand vertically.
     case notifyVexpand = "notify::vexpand"
-    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
+    /// Whether to use the `vexpand` property.
     case notifyVexpandSet = "notify::vexpand-set"
+    /// Whether the widget is visible.
     case notifyVisible = "notify::visible"
+    /// Override for width request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case notifyWidthRequest = "notify::width-request"
 }
 
@@ -4338,33 +4548,35 @@ public extension MessageDialogProtocol {
     // *** formatSecondaryText() is not available because it has a varargs (...) parameter!
 
 
-    /// Returns the message area of the dialog. This is the box where the
-    /// dialog’s primary and secondary labels are packed. You can add your
-    /// own extra content to that box and it will appear below those labels.
-    /// See `gtk_dialog_get_content_area()` for the corresponding
-    /// function in the parent `GtkDialog`.
+    /// Returns the message area of the dialog.
+    /// 
+    /// This is the box where the dialog’s primary and secondary labels
+    /// are packed. You can add your own extra content to that box and it
+    /// will appear below those labels. See [method`Gtk.Dialog.get_content_area`]
+    /// for the corresponding function in the parent [class`Gtk.Dialog`].
     @inlinable func getMessageArea() -> WidgetRef! {
         guard let rv = WidgetRef(gconstpointer: gconstpointer(gtk_message_dialog_get_message_area(message_dialog_ptr))) else { return nil }
         return rv
     }
 
-    /// Sets the text of the message dialog to be `str`, which is marked
-    /// up with the [Pango text markup language](#PangoMarkupFormat).
+    /// Sets the text of the message dialog.
     @inlinable func setMarkup(str: UnsafePointer<CChar>!) {
         gtk_message_dialog_set_markup(message_dialog_ptr, str)
     
     }
-    /// Returns the message area of the dialog. This is the box where the
-    /// dialog’s primary and secondary labels are packed. You can add your
-    /// own extra content to that box and it will appear below those labels.
-    /// See `gtk_dialog_get_content_area()` for the corresponding
-    /// function in the parent `GtkDialog`.
+    /// Returns the message area of the dialog.
+    /// 
+    /// This is the box where the dialog’s primary and secondary labels
+    /// are packed. You can add your own extra content to that box and it
+    /// will appear below those labels. See [method`Gtk.Dialog.get_content_area`]
+    /// for the corresponding function in the parent [class`Gtk.Dialog`].
     @inlinable var messageArea: WidgetRef! {
-        /// Returns the message area of the dialog. This is the box where the
-        /// dialog’s primary and secondary labels are packed. You can add your
-        /// own extra content to that box and it will appear below those labels.
-        /// See `gtk_dialog_get_content_area()` for the corresponding
-        /// function in the parent `GtkDialog`.
+        /// Returns the message area of the dialog.
+        /// 
+        /// This is the box where the dialog’s primary and secondary labels
+        /// are packed. You can add your own extra content to that box and it
+        /// will appear below those labels. See [method`Gtk.Dialog.get_content_area`]
+        /// for the corresponding function in the parent [class`Gtk.Dialog`].
         get {
             guard let rv = WidgetRef(gconstpointer: gconstpointer(gtk_message_dialog_get_message_area(message_dialog_ptr))) else { return nil }
             return rv
@@ -4671,8 +4883,10 @@ public extension MnemonicActionProtocol {
 /// For a concrete class that implements these methods and properties, see `MnemonicTrigger`.
 /// Alternatively, use `MnemonicTriggerRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// A `GtkShortcutTrigger` that triggers when a specific mnemonic
-/// is pressed.
+/// A `GtkShortcutTrigger` that triggers when a specific mnemonic is pressed.
+/// 
+/// Mnemonics require a *mnemonic modifier* (typically &lt;kbd&gt;Alt&lt;/kbd&gt;) to be
+/// pressed together with the mnemonic key.
 public protocol MnemonicTriggerProtocol: ShortcutTriggerProtocol {
         /// Untyped pointer to the underlying `GtkMnemonicTrigger` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -4688,8 +4902,10 @@ public protocol MnemonicTriggerProtocol: ShortcutTriggerProtocol {
 /// It exposes methods that can operate on this data type through `MnemonicTriggerProtocol` conformance.
 /// Use `MnemonicTriggerRef` only as an `unowned` reference to an existing `GtkMnemonicTrigger` instance.
 ///
-/// A `GtkShortcutTrigger` that triggers when a specific mnemonic
-/// is pressed.
+/// A `GtkShortcutTrigger` that triggers when a specific mnemonic is pressed.
+/// 
+/// Mnemonics require a *mnemonic modifier* (typically &lt;kbd&gt;Alt&lt;/kbd&gt;) to be
+/// pressed together with the mnemonic key.
 public struct MnemonicTriggerRef: MnemonicTriggerProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkMnemonicTrigger` instance.
     /// For type-safe access, use the generated, typed pointer `mnemonic_trigger_ptr` property instead.
@@ -4775,8 +4991,10 @@ public extension MnemonicTriggerRef {
 /// It provides the methods that can operate on this data type through `MnemonicTriggerProtocol` conformance.
 /// Use `MnemonicTrigger` as a strong reference or owner of a `GtkMnemonicTrigger` instance.
 ///
-/// A `GtkShortcutTrigger` that triggers when a specific mnemonic
-/// is pressed.
+/// A `GtkShortcutTrigger` that triggers when a specific mnemonic is pressed.
+/// 
+/// Mnemonics require a *mnemonic modifier* (typically &lt;kbd&gt;Alt&lt;/kbd&gt;) to be
+/// pressed together with the mnemonic key.
 open class MnemonicTrigger: ShortcutTrigger, MnemonicTriggerProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -5026,7 +5244,19 @@ public extension MnemonicTriggerProtocol {
 /// For a concrete class that implements these methods and properties, see `MountOperation`.
 /// Alternatively, use `MountOperationRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// This should not be accessed directly. Use the accessor functions below.
+/// `GtkMountOperation` is an implementation of `GMountOperation`.
+/// 
+/// The functions and objects described here make working with GTK and
+/// GIO more convenient.
+/// 
+/// `GtkMountOperation` is needed when mounting volumes:
+/// It is an implementation of `GMountOperation` that can be used with
+/// GIO functions for mounting volumes such as
+/// `g_file_mount_enclosing_volume()`, `g_file_mount_mountable()`,
+/// `g_volume_mount()`, `g_mount_unmount_with_operation()` and others.
+/// 
+/// When necessary, `GtkMountOperation` shows dialogs to let the user
+/// enter passwords, ask questions or show processes blocking unmount.
 public protocol MountOperationProtocol: GIO.MountOperationProtocol {
         /// Untyped pointer to the underlying `GtkMountOperation` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -5042,7 +5272,19 @@ public protocol MountOperationProtocol: GIO.MountOperationProtocol {
 /// It exposes methods that can operate on this data type through `MountOperationProtocol` conformance.
 /// Use `MountOperationRef` only as an `unowned` reference to an existing `GtkMountOperation` instance.
 ///
-/// This should not be accessed directly. Use the accessor functions below.
+/// `GtkMountOperation` is an implementation of `GMountOperation`.
+/// 
+/// The functions and objects described here make working with GTK and
+/// GIO more convenient.
+/// 
+/// `GtkMountOperation` is needed when mounting volumes:
+/// It is an implementation of `GMountOperation` that can be used with
+/// GIO functions for mounting volumes such as
+/// `g_file_mount_enclosing_volume()`, `g_file_mount_mountable()`,
+/// `g_volume_mount()`, `g_mount_unmount_with_operation()` and others.
+/// 
+/// When necessary, `GtkMountOperation` shows dialogs to let the user
+/// enter passwords, ask questions or show processes blocking unmount.
 public struct MountOperationRef: MountOperationProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkMountOperation` instance.
     /// For type-safe access, use the generated, typed pointer `mount_operation_ptr` property instead.
@@ -5128,7 +5370,19 @@ public extension MountOperationRef {
 /// It provides the methods that can operate on this data type through `MountOperationProtocol` conformance.
 /// Use `MountOperation` as a strong reference or owner of a `GtkMountOperation` instance.
 ///
-/// This should not be accessed directly. Use the accessor functions below.
+/// `GtkMountOperation` is an implementation of `GMountOperation`.
+/// 
+/// The functions and objects described here make working with GTK and
+/// GIO more convenient.
+/// 
+/// `GtkMountOperation` is needed when mounting volumes:
+/// It is an implementation of `GMountOperation` that can be used with
+/// GIO functions for mounting volumes such as
+/// `g_file_mount_enclosing_volume()`, `g_file_mount_mountable()`,
+/// `g_volume_mount()`, `g_mount_unmount_with_operation()` and others.
+/// 
+/// When necessary, `GtkMountOperation` shows dialogs to let the user
+/// enter passwords, ask questions or show processes blocking unmount.
 open class MountOperation: GIO.MountOperation, MountOperationProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -5264,9 +5518,11 @@ public enum MountOperationPropertyName: String, PropertyNameProtocol {
     /// The index of the user's choice when a question is asked during the
     /// mount operation. See the `GMountOperation::ask-question` signal.
     case choice = "choice"
+    /// The display where dialogs will be shown.
     case display = "display"
     /// The domain to use for the mount operation.
     case domain = "domain"
+    /// Whether a dialog is currently shown.
     case isShowing = "is-showing"
     /// Whether the device to be unlocked is a TCRYPT hidden volume.
     /// See [the VeraCrypt documentation](https://www.veracrypt.fr/en/Hidden`20Volume.html`).
@@ -5277,6 +5533,7 @@ public enum MountOperationPropertyName: String, PropertyNameProtocol {
     /// operating systems. For further documentation, see
     /// [the VeraCrypt documentation](https://www.veracrypt.fr/en/System`20Encryption.html`).
     case isTcryptSystemVolume = "is-tcrypt-system-volume"
+    /// The parent window.
     case parent = "parent"
     /// The password that is used for authentication when carrying out
     /// the mount operation.
@@ -5426,9 +5683,11 @@ public enum MountOperationSignalName: String, SignalNameProtocol {
     /// The index of the user's choice when a question is asked during the
     /// mount operation. See the `GMountOperation::ask-question` signal.
     case notifyChoice = "notify::choice"
+    /// The display where dialogs will be shown.
     case notifyDisplay = "notify::display"
     /// The domain to use for the mount operation.
     case notifyDomain = "notify::domain"
+    /// Whether a dialog is currently shown.
     case notifyIsShowing = "notify::is-showing"
     /// Whether the device to be unlocked is a TCRYPT hidden volume.
     /// See [the VeraCrypt documentation](https://www.veracrypt.fr/en/Hidden`20Volume.html`).
@@ -5439,6 +5698,7 @@ public enum MountOperationSignalName: String, SignalNameProtocol {
     /// operating systems. For further documentation, see
     /// [the VeraCrypt documentation](https://www.veracrypt.fr/en/System`20Encryption.html`).
     case notifyIsTcryptSystemVolume = "notify::is-tcrypt-system-volume"
+    /// The parent window.
     case notifyParent = "notify::parent"
     /// The password that is used for authentication when carrying out
     /// the mount operation.
@@ -5466,7 +5726,7 @@ public extension MountOperationProtocol {
         return rv
     }
 
-    /// Gets the transient parent used by the `GtkMountOperation`
+    /// Gets the transient parent used by the `GtkMountOperation`.
     @inlinable func getParent() -> WindowRef! {
         let rv = WindowRef(gconstpointer: gconstpointer(gtk_mount_operation_get_parent(mount_operation_ptr)))
         return rv
@@ -5490,6 +5750,7 @@ public extension MountOperationProtocol {
         gtk_mount_operation_set_parent(mount_operation_ptr, parent?.window_ptr)
     
     }
+    /// The display where dialogs will be shown.
     @inlinable var display: Gdk.DisplayRef! {
         /// Gets the display on which windows of the `GtkMountOperation`
         /// will be shown.
@@ -5514,8 +5775,9 @@ public extension MountOperationProtocol {
         }
     }
 
+    /// The parent window.
     @inlinable var parent: WindowRef! {
-        /// Gets the transient parent used by the `GtkMountOperation`
+        /// Gets the transient parent used by the `GtkMountOperation`.
         get {
             let rv = WindowRef(gconstpointer: gconstpointer(gtk_mount_operation_get_parent(mount_operation_ptr)))
             return rv
@@ -5547,14 +5809,7 @@ public extension MountOperationProtocol {
 /// For a concrete class that implements these methods and properties, see `MultiFilter`.
 /// Alternatively, use `MultiFilterRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// GtkMultiFilter is the base type that implements support for handling
-/// multiple filters.
-/// 
-/// GtkAnyFilter is a subclass of GtkMultiFilter that matches an item
-/// when at least one of its filters matches.
-/// 
-/// GtkEveryFilter is a subclass of GtkMultiFilter that matches an item
-/// when each of its filters matches.
+/// `GtkMultiFilter` is the base class for filters that combine multiple filters.
 public protocol MultiFilterProtocol: FilterProtocol, GIO.ListModelProtocol, BuildableProtocol {
         /// Untyped pointer to the underlying `GtkMultiFilter` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -5570,14 +5825,7 @@ public protocol MultiFilterProtocol: FilterProtocol, GIO.ListModelProtocol, Buil
 /// It exposes methods that can operate on this data type through `MultiFilterProtocol` conformance.
 /// Use `MultiFilterRef` only as an `unowned` reference to an existing `GtkMultiFilter` instance.
 ///
-/// GtkMultiFilter is the base type that implements support for handling
-/// multiple filters.
-/// 
-/// GtkAnyFilter is a subclass of GtkMultiFilter that matches an item
-/// when at least one of its filters matches.
-/// 
-/// GtkEveryFilter is a subclass of GtkMultiFilter that matches an item
-/// when each of its filters matches.
+/// `GtkMultiFilter` is the base class for filters that combine multiple filters.
 public struct MultiFilterRef: MultiFilterProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkMultiFilter` instance.
     /// For type-safe access, use the generated, typed pointer `multi_filter_ptr` property instead.
@@ -5663,14 +5911,7 @@ public extension MultiFilterRef {
 /// It provides the methods that can operate on this data type through `MultiFilterProtocol` conformance.
 /// Use `MultiFilter` as a strong reference or owner of a `GtkMultiFilter` instance.
 ///
-/// GtkMultiFilter is the base type that implements support for handling
-/// multiple filters.
-/// 
-/// GtkAnyFilter is a subclass of GtkMultiFilter that matches an item
-/// when at least one of its filters matches.
-/// 
-/// GtkEveryFilter is a subclass of GtkMultiFilter that matches an item
-/// when each of its filters matches.
+/// `GtkMultiFilter` is the base class for filters that combine multiple filters.
 open class MultiFilter: Filter, MultiFilterProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -5803,13 +6044,16 @@ open class MultiFilter: Filter, MultiFilterProtocol {
 // MARK: no MultiFilter properties
 
 public enum MultiFilterSignalName: String, SignalNameProtocol {
-    /// This signal is emitted whenever the filter changed. Users of the filter
-    /// should then check items again via `gtk_filter_match()`.
+    /// Emitted whenever the filter changed.
+    /// 
+    /// Users of the filter should then check items again via
+    /// [method`Gtk.Filter.match`].
     /// 
     /// `GtkFilterListModel` handles this signal automatically.
     /// 
-    /// Depending on the `change` parameter, not all items need to be changed, but
-    /// only some. Refer to the `GtkFilterChange` documentation for details.
+    /// Depending on the `change` parameter, not all items need
+    /// to be checked, but only some. Refer to the [enum`Gtk.FilterChange`]
+    /// documentation for details.
     case changed = "changed"
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -5853,6 +6097,7 @@ public extension MultiFilterProtocol {
 
     /// Removes the filter at the given `position` from the list of filters used
     /// by `self`.
+    /// 
     /// If `position` is larger than the number of filters, nothing happens and
     /// the function returns.
     @inlinable func remove(position: Int) {
@@ -5872,8 +6117,8 @@ public extension MultiFilterProtocol {
 /// For a concrete class that implements these methods and properties, see `MultiSelection`.
 /// Alternatively, use `MultiSelectionRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// GtkMultiSelection is an implementation of the `GtkSelectionModel` interface
-/// that allows selecting multiple elements.
+/// `GtkMultiSelection` is a `GtkSelectionModel` that allows selecting multiple
+/// elements.
 public protocol MultiSelectionProtocol: GLibObject.ObjectProtocol, GIO.ListModelProtocol, SelectionModelProtocol {
         /// Untyped pointer to the underlying `GtkMultiSelection` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -5889,8 +6134,8 @@ public protocol MultiSelectionProtocol: GLibObject.ObjectProtocol, GIO.ListModel
 /// It exposes methods that can operate on this data type through `MultiSelectionProtocol` conformance.
 /// Use `MultiSelectionRef` only as an `unowned` reference to an existing `GtkMultiSelection` instance.
 ///
-/// GtkMultiSelection is an implementation of the `GtkSelectionModel` interface
-/// that allows selecting multiple elements.
+/// `GtkMultiSelection` is a `GtkSelectionModel` that allows selecting multiple
+/// elements.
 public struct MultiSelectionRef: MultiSelectionProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkMultiSelection` instance.
     /// For type-safe access, use the generated, typed pointer `multi_selection_ptr` property instead.
@@ -5981,8 +6226,8 @@ public extension MultiSelectionRef {
 /// It provides the methods that can operate on this data type through `MultiSelectionProtocol` conformance.
 /// Use `MultiSelection` as a strong reference or owner of a `GtkMultiSelection` instance.
 ///
-/// GtkMultiSelection is an implementation of the `GtkSelectionModel` interface
-/// that allows selecting multiple elements.
+/// `GtkMultiSelection` is a `GtkSelectionModel` that allows selecting multiple
+/// elements.
 open class MultiSelection: GLibObject.Object, MultiSelectionProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -6119,7 +6364,7 @@ open class MultiSelection: GLibObject.Object, MultiSelectionProtocol {
 }
 
 public enum MultiSelectionPropertyName: String, PropertyNameProtocol {
-    /// The list managed by this selection
+    /// The list managed by this selection.
     case model = "model"
 }
 
@@ -6202,7 +6447,7 @@ public enum MultiSelectionSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// The list managed by this selection
+    /// The list managed by this selection.
     case notifyModel = "notify::model"
 }
 
@@ -6218,27 +6463,30 @@ public extension MultiSelectionProtocol {
         return rv
     }
 
-    /// Sets the model that `self` should wrap. If `model` is `nil`, `self`
-    /// will be empty.
+    /// Sets the model that `self` should wrap.
+    /// 
+    /// If `model` is `nil`, `self` will be empty.
     @inlinable func set(model: GIO.ListModelRef? = nil) {
         gtk_multi_selection_set_model(multi_selection_ptr, model?.list_model_ptr)
     
     }
-    /// Sets the model that `self` should wrap. If `model` is `nil`, `self`
-    /// will be empty.
+    /// Sets the model that `self` should wrap.
+    /// 
+    /// If `model` is `nil`, `self` will be empty.
     @inlinable func set<ListModelT: GIO.ListModelProtocol>(model: ListModelT?) {
         gtk_multi_selection_set_model(multi_selection_ptr, model?.list_model_ptr)
     
     }
-    /// The list managed by this selection
+    /// The list managed by this selection.
     @inlinable var model: GIO.ListModelRef! {
         /// Returns the underlying model of `self`.
         get {
             let rv = GIO.ListModelRef(gtk_multi_selection_get_model(multi_selection_ptr))
             return rv
         }
-        /// Sets the model that `self` should wrap. If `model` is `nil`, `self`
-        /// will be empty.
+        /// Sets the model that `self` should wrap.
+        /// 
+        /// If `model` is `nil`, `self` will be empty.
         nonmutating set {
             gtk_multi_selection_set_model(multi_selection_ptr, UnsafeMutablePointer<GListModel>(newValue?.list_model_ptr))
         }
@@ -6256,8 +6504,10 @@ public extension MultiSelectionProtocol {
 /// For a concrete class that implements these methods and properties, see `MultiSorter`.
 /// Alternatively, use `MultiSorterRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// GtkMultiSorter combines multiple sorters by trying them
-/// in turn. If the first sorter compares two items as equal,
+/// `GtkMultiSorter` combines multiple sorters by trying them
+/// in turn.
+/// 
+/// If the first sorter compares two items as equal,
 /// the second is tried next, and so on.
 public protocol MultiSorterProtocol: SorterProtocol, GIO.ListModelProtocol, BuildableProtocol {
         /// Untyped pointer to the underlying `GtkMultiSorter` instance.
@@ -6274,8 +6524,10 @@ public protocol MultiSorterProtocol: SorterProtocol, GIO.ListModelProtocol, Buil
 /// It exposes methods that can operate on this data type through `MultiSorterProtocol` conformance.
 /// Use `MultiSorterRef` only as an `unowned` reference to an existing `GtkMultiSorter` instance.
 ///
-/// GtkMultiSorter combines multiple sorters by trying them
-/// in turn. If the first sorter compares two items as equal,
+/// `GtkMultiSorter` combines multiple sorters by trying them
+/// in turn.
+/// 
+/// If the first sorter compares two items as equal,
 /// the second is tried next, and so on.
 public struct MultiSorterRef: MultiSorterProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkMultiSorter` instance.
@@ -6372,8 +6624,10 @@ public extension MultiSorterRef {
 /// It provides the methods that can operate on this data type through `MultiSorterProtocol` conformance.
 /// Use `MultiSorter` as a strong reference or owner of a `GtkMultiSorter` instance.
 ///
-/// GtkMultiSorter combines multiple sorters by trying them
-/// in turn. If the first sorter compares two items as equal,
+/// `GtkMultiSorter` combines multiple sorters by trying them
+/// in turn.
+/// 
+/// If the first sorter compares two items as equal,
 /// the second is tried next, and so on.
 open class MultiSorter: Sorter, MultiSorterProtocol {
         /// Designated initialiser from the underlying `C` data type.
@@ -6518,14 +6772,16 @@ open class MultiSorter: Sorter, MultiSorterProtocol {
 // MARK: no MultiSorter properties
 
 public enum MultiSorterSignalName: String, SignalNameProtocol {
-    /// This signal is emitted whenever the sorter changed. Users of the sorter
-    /// should then update the sort order again via `gtk_sorter_compare()`.
+    /// Emitted whenever the sorter changed.
     /// 
-    /// `GtkSortListModel` handles this signal automatically.
+    /// Users of the sorter should then update the sort order
+    /// again via `gtk_sorter_compare()`.
+    /// 
+    /// [class`Gtk.SortListModel`] handles this signal automatically.
     /// 
     /// Depending on the `change` parameter, it may be possible to update
-    /// the sort order without a full resorting. Refer to the `GtkSorterChange`
-    /// documentation for details.
+    /// the sort order without a full resorting. Refer to the
+    /// [enum`Gtk.SorterChange`] documentation for details.
     case changed = "changed"
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -6561,9 +6817,10 @@ public extension MultiSorterProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkMultiSorter` instance.
     @inlinable var multi_sorter_ptr: UnsafeMutablePointer<GtkMultiSorter>! { return ptr?.assumingMemoryBound(to: GtkMultiSorter.self) }
 
-    /// Add `sorter` to `self` to use for sorting at the end. `self`
-    /// will consult all existing sorters before it will sort with
-    /// the given `sorter`.
+    /// Add `sorter` to `self` to use for sorting at the end.
+    /// 
+    /// `self` will consult all existing sorters before it will
+    /// sort with the given `sorter`.
     @inlinable func append<SorterT: SorterProtocol>(sorter: SorterT) {
         gtk_multi_sorter_append(multi_sorter_ptr, sorter.sorter_ptr)
     

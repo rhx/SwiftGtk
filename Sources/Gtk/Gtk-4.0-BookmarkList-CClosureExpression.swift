@@ -20,12 +20,14 @@ import Gdk
 /// For a concrete class that implements these methods and properties, see `BookmarkList`.
 /// Alternatively, use `BookmarkListRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// `GtkBookmarkList` is a list model that wraps GBookmarkFile.
-/// It presents a `GListModel` and fills it asynchronously with the `GFileInfos`
-/// returned from that function.
+/// `GtkBookmarkList` is a list model that wraps `GBookmarkFile`.
 /// 
-/// The `GFileInfos` in the list have some attributes in the recent namespace
-/// added: recent`private` (boolean) and recent:applications (stringv).
+/// It presents a `GListModel` and fills it asynchronously with the
+/// `GFileInfo`s returned from that function.
+/// 
+/// The `GFileInfo`s in the list have some attributes in the recent
+/// namespace added: `recent`private`` (boolean) and `recent:applications`
+/// (stringv).
 public protocol BookmarkListProtocol: GLibObject.ObjectProtocol, GIO.ListModelProtocol {
         /// Untyped pointer to the underlying `GtkBookmarkList` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -41,12 +43,14 @@ public protocol BookmarkListProtocol: GLibObject.ObjectProtocol, GIO.ListModelPr
 /// It exposes methods that can operate on this data type through `BookmarkListProtocol` conformance.
 /// Use `BookmarkListRef` only as an `unowned` reference to an existing `GtkBookmarkList` instance.
 ///
-/// `GtkBookmarkList` is a list model that wraps GBookmarkFile.
-/// It presents a `GListModel` and fills it asynchronously with the `GFileInfos`
-/// returned from that function.
+/// `GtkBookmarkList` is a list model that wraps `GBookmarkFile`.
 /// 
-/// The `GFileInfos` in the list have some attributes in the recent namespace
-/// added: recent`private` (boolean) and recent:applications (stringv).
+/// It presents a `GListModel` and fills it asynchronously with the
+/// `GFileInfo`s returned from that function.
+/// 
+/// The `GFileInfo`s in the list have some attributes in the recent
+/// namespace added: `recent`private`` (boolean) and `recent:applications`
+/// (stringv).
 public struct BookmarkListRef: BookmarkListProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkBookmarkList` instance.
     /// For type-safe access, use the generated, typed pointer `bookmark_list_ptr` property instead.
@@ -137,12 +141,14 @@ public extension BookmarkListRef {
 /// It provides the methods that can operate on this data type through `BookmarkListProtocol` conformance.
 /// Use `BookmarkList` as a strong reference or owner of a `GtkBookmarkList` instance.
 ///
-/// `GtkBookmarkList` is a list model that wraps GBookmarkFile.
-/// It presents a `GListModel` and fills it asynchronously with the `GFileInfos`
-/// returned from that function.
+/// `GtkBookmarkList` is a list model that wraps `GBookmarkFile`.
 /// 
-/// The `GFileInfos` in the list have some attributes in the recent namespace
-/// added: recent`private` (boolean) and recent:applications (stringv).
+/// It presents a `GListModel` and fills it asynchronously with the
+/// `GFileInfo`s returned from that function.
+/// 
+/// The `GFileInfo`s in the list have some attributes in the recent
+/// namespace added: `recent`private`` (boolean) and `recent:applications`
+/// (stringv).
 open class BookmarkList: GLibObject.Object, BookmarkListProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -279,12 +285,13 @@ open class BookmarkList: GLibObject.Object, BookmarkListProtocol {
 }
 
 public enum BookmarkListPropertyName: String, PropertyNameProtocol {
-    /// The attributes to query
+    /// The attributes to query.
     case attributes = "attributes"
+    /// The bookmark file to load.
     case String = "filename"
-    /// Priority used when loading
+    /// Priority used when loading.
     case ioPriority = "io-priority"
-    /// `true` if files are being loaded
+    /// `true` if files are being loaded.
     case loading = "loading"
 }
 
@@ -367,12 +374,13 @@ public enum BookmarkListSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// The attributes to query
+    /// The attributes to query.
     case notifyAttributes = "notify::attributes"
+    /// The bookmark file to load.
     case notifyFilename = "notify::filename"
-    /// Priority used when loading
+    /// Priority used when loading.
     case notifyIoPriority = "notify::io-priority"
-    /// `true` if files are being loaded
+    /// `true` if files are being loaded.
     case notifyLoading = "notify::loading"
 }
 
@@ -395,7 +403,7 @@ public extension BookmarkListProtocol {
         return rv
     }
 
-    /// Gets the IO priority set via `gtk_bookmark_list_set_io_priority()`.
+    /// Gets the IO priority to use while loading file.
     @inlinable func getIoPriority() -> Int {
         let rv = Int(gtk_bookmark_list_get_io_priority(bookmark_list_ptr))
         return rv
@@ -417,7 +425,7 @@ public extension BookmarkListProtocol {
         gtk_bookmark_list_set_io_priority(bookmark_list_ptr, gint(ioPriority))
     
     }
-    /// The attributes to query
+    /// The attributes to query.
     @inlinable var attributes: String! {
         /// Gets the attributes queried on the children.
         get {
@@ -433,6 +441,7 @@ public extension BookmarkListProtocol {
         }
     }
 
+    /// The bookmark file to load.
     @inlinable var filename: String! {
         /// Returns the filename of the bookmark file that
         /// this list is loading.
@@ -442,9 +451,9 @@ public extension BookmarkListProtocol {
         }
     }
 
-    /// Gets the IO priority set via `gtk_bookmark_list_set_io_priority()`.
+    /// Gets the IO priority to use while loading file.
     @inlinable var ioPriority: Int {
-        /// Gets the IO priority set via `gtk_bookmark_list_set_io_priority()`.
+        /// Gets the IO priority to use while loading file.
         get {
             let rv = Int(gtk_bookmark_list_get_io_priority(bookmark_list_ptr))
             return rv
@@ -486,7 +495,7 @@ public extension BookmarkListProtocol {
 /// For a concrete class that implements these methods and properties, see `BoolFilter`.
 /// Alternatively, use `BoolFilterRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// GtkBoolFilter is a simple filter that takes a boolean `GtkExpression`
+/// `GtkBoolFilter` evaluates a boolean `GtkExpression`
 /// to determine whether to include items.
 public protocol BoolFilterProtocol: FilterProtocol {
         /// Untyped pointer to the underlying `GtkBoolFilter` instance.
@@ -503,7 +512,7 @@ public protocol BoolFilterProtocol: FilterProtocol {
 /// It exposes methods that can operate on this data type through `BoolFilterProtocol` conformance.
 /// Use `BoolFilterRef` only as an `unowned` reference to an existing `GtkBoolFilter` instance.
 ///
-/// GtkBoolFilter is a simple filter that takes a boolean `GtkExpression`
+/// `GtkBoolFilter` evaluates a boolean `GtkExpression`
 /// to determine whether to include items.
 public struct BoolFilterRef: BoolFilterProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkBoolFilter` instance.
@@ -595,7 +604,7 @@ public extension BoolFilterRef {
 /// It provides the methods that can operate on this data type through `BoolFilterProtocol` conformance.
 /// Use `BoolFilter` as a strong reference or owner of a `GtkBoolFilter` instance.
 ///
-/// GtkBoolFilter is a simple filter that takes a boolean `GtkExpression`
+/// `GtkBoolFilter` evaluates a boolean `GtkExpression`
 /// to determine whether to include items.
 open class BoolFilter: Filter, BoolFilterProtocol {
         /// Designated initialiser from the underlying `C` data type.
@@ -733,9 +742,9 @@ open class BoolFilter: Filter, BoolFilterProtocol {
 }
 
 public enum BoolFilterPropertyName: String, PropertyNameProtocol {
-    /// The boolean expression to evaluate on item
+    /// The boolean expression to evaluate on item.
     case expression = "expression"
-    /// If the expression result should be inverted
+    /// If the expression result should be inverted.
     case invert = "invert"
 }
 
@@ -793,13 +802,16 @@ public extension BoolFilterProtocol {
 }
 
 public enum BoolFilterSignalName: String, SignalNameProtocol {
-    /// This signal is emitted whenever the filter changed. Users of the filter
-    /// should then check items again via `gtk_filter_match()`.
+    /// Emitted whenever the filter changed.
+    /// 
+    /// Users of the filter should then check items again via
+    /// [method`Gtk.Filter.match`].
     /// 
     /// `GtkFilterListModel` handles this signal automatically.
     /// 
-    /// Depending on the `change` parameter, not all items need to be changed, but
-    /// only some. Refer to the `GtkFilterChange` documentation for details.
+    /// Depending on the `change` parameter, not all items need
+    /// to be checked, but only some. Refer to the [enum`Gtk.FilterChange`]
+    /// documentation for details.
     case changed = "changed"
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -826,9 +838,9 @@ public enum BoolFilterSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// The boolean expression to evaluate on item
+    /// The boolean expression to evaluate on item.
     case notifyExpression = "notify::expression"
-    /// If the expression result should be inverted
+    /// If the expression result should be inverted.
     case notifyInvert = "notify::invert"
 }
 
@@ -851,11 +863,20 @@ public extension BoolFilterProtocol {
         return rv
     }
 
-    /// Sets the expression that the filter uses to
-    /// check if items should be filtered. The expression must have
-    /// a value type of `G_TYPE_BOOLEAN`.
-    @inlinable func set<ExpressionT: ExpressionProtocol>(expression: ExpressionT) {
-        gtk_bool_filter_set_expression(bool_filter_ptr, expression.expression_ptr)
+    /// Sets the expression that the filter uses to check if items
+    /// should be filtered.
+    /// 
+    /// The expression must have a value type of `G_TYPE_BOOLEAN`.
+    @inlinable func set(expression: ExpressionRef? = nil) {
+        gtk_bool_filter_set_expression(bool_filter_ptr, expression?.expression_ptr)
+    
+    }
+    /// Sets the expression that the filter uses to check if items
+    /// should be filtered.
+    /// 
+    /// The expression must have a value type of `G_TYPE_BOOLEAN`.
+    @inlinable func set<ExpressionT: ExpressionProtocol>(expression: ExpressionT?) {
+        gtk_bool_filter_set_expression(bool_filter_ptr, expression?.expression_ptr)
     
     }
 
@@ -864,7 +885,7 @@ public extension BoolFilterProtocol {
         gtk_bool_filter_set_invert(bool_filter_ptr, gboolean((invert) ? 1 : 0))
     
     }
-    /// The boolean expression to evaluate on item
+    /// The boolean expression to evaluate on item.
     @inlinable var expression: ExpressionRef! {
         /// Gets the expression that the filter uses to evaluate if
         /// an item should be filtered.
@@ -872,15 +893,16 @@ public extension BoolFilterProtocol {
             let rv = ExpressionRef(gconstpointer: gconstpointer(gtk_bool_filter_get_expression(bool_filter_ptr)))
             return rv
         }
-        /// Sets the expression that the filter uses to
-        /// check if items should be filtered. The expression must have
-        /// a value type of `G_TYPE_BOOLEAN`.
+        /// Sets the expression that the filter uses to check if items
+        /// should be filtered.
+        /// 
+        /// The expression must have a value type of `G_TYPE_BOOLEAN`.
         nonmutating set {
             gtk_bool_filter_set_expression(bool_filter_ptr, UnsafeMutablePointer<GtkExpression>(newValue?.expression_ptr))
         }
     }
 
-    /// If the expression result should be inverted
+    /// If the expression result should be inverted.
     @inlinable var invert: Bool {
         /// Returns whether the filter inverts the expression.
         get {
@@ -905,33 +927,38 @@ public extension BoolFilterProtocol {
 /// For a concrete class that implements these methods and properties, see `Box`.
 /// Alternatively, use `BoxRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// The GtkBox widget arranges child widgets into a single row or column,
-/// depending upon the value of its `GtkOrientable:orientation` property. Within
-/// the other dimension, all children are allocated the same size. Of course,
-/// the `GtkWidget:halign` and `GtkWidget:valign` properties can be used on
-/// the children to influence their allocation.
+/// The `GtkBox` widget arranges child widgets into a single row or column.
 /// 
-/// Use repeated calls to `gtk_box_append()` to pack widgets into a GtkBox
-/// from start to end. Use `gtk_box_remove()` to remove widgets from the GtkBox.
-/// `gtk_box_insert_child_after()` can be used to add a child at a particular position.
+/// ![An example GtkBox](box.png)
 /// 
-/// Use `gtk_box_set_homogeneous()` to specify whether or not all children
-/// of the GtkBox are forced to get the same amount of space.
+/// Whether it is a row or column depends on the value of its
+/// [property`Gtk.Orientable:orientation`] property. Within the other
+/// dimension, all children are allocated the same size. Of course, the
+/// [property`Gtk.Widget:halign`] and [property`Gtk.Widget:valign`] properties
+/// can be used on the children to influence their allocation.
 /// 
-/// Use `gtk_box_set_spacing()` to determine how much space will be
-/// minimally placed between all children in the GtkBox. Note that
-/// spacing is added between the children.
+/// Use repeated calls to [method`Gtk.Box.append`] to pack widgets into a
+/// `GtkBox` from start to end. Use [method`Gtk.Box.remove`] to remove widgets
+/// from the `GtkBox`. [method`Gtk.Box.insert_child_after`] can be used to add
+/// a child at a particular position.
 /// 
-/// Use `gtk_box_reorder_child_after()` to move a child to a different
+/// Use [method`Gtk.Box.set_homogeneous`] to specify whether or not all children
+/// of the `GtkBox` are forced to get the same amount of space.
+/// 
+/// Use [method`Gtk.Box.set_spacing`] to determine how much space will be minimally
+/// placed between all children in the `GtkBox`. Note that spacing is added
+/// *between* the children.
+/// 
+/// Use [method`Gtk.Box.reorder_child_after`] to move a child to a different
 /// place in the box.
 /// 
 /// # CSS nodes
 /// 
-/// GtkBox uses a single CSS node with name box.
+/// `GtkBox` uses a single CSS node with name box.
 /// 
 /// # Accessibility
 /// 
-/// GtkBox uses the `GTK_ACCESSIBLE_ROLE_GROUP` role.
+/// `GtkBox` uses the `GTK_ACCESSIBLE_ROLE_GROUP` role.
 public protocol BoxProtocol: WidgetProtocol, OrientableProtocol {
         /// Untyped pointer to the underlying `GtkBox` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -947,33 +974,38 @@ public protocol BoxProtocol: WidgetProtocol, OrientableProtocol {
 /// It exposes methods that can operate on this data type through `BoxProtocol` conformance.
 /// Use `BoxRef` only as an `unowned` reference to an existing `GtkBox` instance.
 ///
-/// The GtkBox widget arranges child widgets into a single row or column,
-/// depending upon the value of its `GtkOrientable:orientation` property. Within
-/// the other dimension, all children are allocated the same size. Of course,
-/// the `GtkWidget:halign` and `GtkWidget:valign` properties can be used on
-/// the children to influence their allocation.
+/// The `GtkBox` widget arranges child widgets into a single row or column.
 /// 
-/// Use repeated calls to `gtk_box_append()` to pack widgets into a GtkBox
-/// from start to end. Use `gtk_box_remove()` to remove widgets from the GtkBox.
-/// `gtk_box_insert_child_after()` can be used to add a child at a particular position.
+/// ![An example GtkBox](box.png)
 /// 
-/// Use `gtk_box_set_homogeneous()` to specify whether or not all children
-/// of the GtkBox are forced to get the same amount of space.
+/// Whether it is a row or column depends on the value of its
+/// [property`Gtk.Orientable:orientation`] property. Within the other
+/// dimension, all children are allocated the same size. Of course, the
+/// [property`Gtk.Widget:halign`] and [property`Gtk.Widget:valign`] properties
+/// can be used on the children to influence their allocation.
 /// 
-/// Use `gtk_box_set_spacing()` to determine how much space will be
-/// minimally placed between all children in the GtkBox. Note that
-/// spacing is added between the children.
+/// Use repeated calls to [method`Gtk.Box.append`] to pack widgets into a
+/// `GtkBox` from start to end. Use [method`Gtk.Box.remove`] to remove widgets
+/// from the `GtkBox`. [method`Gtk.Box.insert_child_after`] can be used to add
+/// a child at a particular position.
 /// 
-/// Use `gtk_box_reorder_child_after()` to move a child to a different
+/// Use [method`Gtk.Box.set_homogeneous`] to specify whether or not all children
+/// of the `GtkBox` are forced to get the same amount of space.
+/// 
+/// Use [method`Gtk.Box.set_spacing`] to determine how much space will be minimally
+/// placed between all children in the `GtkBox`. Note that spacing is added
+/// *between* the children.
+/// 
+/// Use [method`Gtk.Box.reorder_child_after`] to move a child to a different
 /// place in the box.
 /// 
 /// # CSS nodes
 /// 
-/// GtkBox uses a single CSS node with name box.
+/// `GtkBox` uses a single CSS node with name box.
 /// 
 /// # Accessibility
 /// 
-/// GtkBox uses the `GTK_ACCESSIBLE_ROLE_GROUP` role.
+/// `GtkBox` uses the `GTK_ACCESSIBLE_ROLE_GROUP` role.
 public struct BoxRef: BoxProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkBox` instance.
     /// For type-safe access, use the generated, typed pointer `box_ptr` property instead.
@@ -1064,33 +1096,38 @@ public extension BoxRef {
 /// It provides the methods that can operate on this data type through `BoxProtocol` conformance.
 /// Use `Box` as a strong reference or owner of a `GtkBox` instance.
 ///
-/// The GtkBox widget arranges child widgets into a single row or column,
-/// depending upon the value of its `GtkOrientable:orientation` property. Within
-/// the other dimension, all children are allocated the same size. Of course,
-/// the `GtkWidget:halign` and `GtkWidget:valign` properties can be used on
-/// the children to influence their allocation.
+/// The `GtkBox` widget arranges child widgets into a single row or column.
 /// 
-/// Use repeated calls to `gtk_box_append()` to pack widgets into a GtkBox
-/// from start to end. Use `gtk_box_remove()` to remove widgets from the GtkBox.
-/// `gtk_box_insert_child_after()` can be used to add a child at a particular position.
+/// ![An example GtkBox](box.png)
 /// 
-/// Use `gtk_box_set_homogeneous()` to specify whether or not all children
-/// of the GtkBox are forced to get the same amount of space.
+/// Whether it is a row or column depends on the value of its
+/// [property`Gtk.Orientable:orientation`] property. Within the other
+/// dimension, all children are allocated the same size. Of course, the
+/// [property`Gtk.Widget:halign`] and [property`Gtk.Widget:valign`] properties
+/// can be used on the children to influence their allocation.
 /// 
-/// Use `gtk_box_set_spacing()` to determine how much space will be
-/// minimally placed between all children in the GtkBox. Note that
-/// spacing is added between the children.
+/// Use repeated calls to [method`Gtk.Box.append`] to pack widgets into a
+/// `GtkBox` from start to end. Use [method`Gtk.Box.remove`] to remove widgets
+/// from the `GtkBox`. [method`Gtk.Box.insert_child_after`] can be used to add
+/// a child at a particular position.
 /// 
-/// Use `gtk_box_reorder_child_after()` to move a child to a different
+/// Use [method`Gtk.Box.set_homogeneous`] to specify whether or not all children
+/// of the `GtkBox` are forced to get the same amount of space.
+/// 
+/// Use [method`Gtk.Box.set_spacing`] to determine how much space will be minimally
+/// placed between all children in the `GtkBox`. Note that spacing is added
+/// *between* the children.
+/// 
+/// Use [method`Gtk.Box.reorder_child_after`] to move a child to a different
 /// place in the box.
 /// 
 /// # CSS nodes
 /// 
-/// GtkBox uses a single CSS node with name box.
+/// `GtkBox` uses a single CSS node with name box.
 /// 
 /// # Accessibility
 /// 
-/// GtkBox uses the `GTK_ACCESSIBLE_ROLE_GROUP` role.
+/// `GtkBox` uses the `GTK_ACCESSIBLE_ROLE_GROUP` role.
 open class Box: Widget, BoxProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -1227,6 +1264,7 @@ open class Box: Widget, BoxProtocol {
 }
 
 public enum BoxPropertyName: String, PropertyNameProtocol {
+    /// The position of the baseline aligned widgets if extra space is available.
     case baselinePosition = "baseline-position"
     /// Whether the widget or any of its descendents can accept
     /// the input focus.
@@ -1234,6 +1272,7 @@ public enum BoxPropertyName: String, PropertyNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case canFocus = "can-focus"
+    /// Whether the widget can receive pointer events.
     case canTarget = "can-target"
     /// A list of css classes applied to this widget.
     case cssClasses = "css-classes"
@@ -1242,7 +1281,7 @@ public enum BoxPropertyName: String, PropertyNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case cssName = "css-name"
-    /// The cursor used by `widget`. See `gtk_widget_set_cursor()` for details.
+    /// The cursor used by `widget`.
     case cursor = "cursor"
     /// Whether the widget should grab focus when it is clicked with the mouse.
     /// 
@@ -1250,20 +1289,27 @@ public enum BoxPropertyName: String, PropertyNameProtocol {
     case focusOnClick = "focus-on-click"
     /// Whether this widget itself will accept the input focus.
     case focusable = "focusable"
-    /// How to distribute horizontal space if widget gets extra space, see `GtkAlign`
+    /// How to distribute horizontal space if widget gets extra space.
     case halign = "halign"
+    /// Whether the widget is the default widget.
     case hasDefault = "has-default"
+    /// Whether the widget has the input focus.
     case hasFocus = "has-focus"
-    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
+    /// Enables or disables the emission of the `query-tooltip` signal on `widget`.
+    /// 
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
-    /// whether it will provide a tooltip or not.
+    /// the widget will be queried using [signal`Gtk.Widget::query-tooltip`] to
+    /// determine whether it will provide a tooltip or not.
     case hasTooltip = "has-tooltip"
+    /// Override for height request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case heightRequest = "height-request"
-    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
+    /// Whether to expand horizontally.
     case hexpand = "hexpand"
-    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
+    /// Whether to use the `hexpand` property.
     case hexpandSet = "hexpand-set"
+    /// Whether the children should all be the same size.
     case homogeneous = "homogeneous"
     /// The `GtkLayoutManager` instance to use to compute the preferred size
     /// of the widget, and allocate its children.
@@ -1275,78 +1321,93 @@ public enum BoxPropertyName: String, PropertyNameProtocol {
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginBottom = "margin-bottom"
-    /// Margin on end of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on end of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginEnd = "margin-end"
-    /// Margin on start of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on start of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginStart = "margin-start"
     /// Margin on top side of widget.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginTop = "margin-top"
+    /// The name of the widget.
     case name = "name"
-    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
-    /// more details about window opacity.
+    /// The requested opacity of the widget.
     case opacity = "opacity"
     /// How content outside the widget's content area is treated.
     /// 
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case overflow = "overflow"
+    /// The parent widget of this widget.
     case parent = "parent"
+    /// Whether the widget will receive the default action when it is focused.
     case receivesDefault = "receives-default"
-    /// The `GtkRoot` widget of the widget tree containing this widget or `nil` if
-    /// the widget is not contained in a root widget.
+    /// The `GtkRoot` widget of the widget tree containing this widget.
+    /// 
+    /// This will be `nil` if the widget is not contained in a root widget.
     case root = "root"
-    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
-    /// more details about widget scaling.
+    /// The scale factor of the widget.
     case scaleFactor = "scale-factor"
+    /// Whether the widget responds to input.
     case sensitive = "sensitive"
+    /// The amount of space between children.
     case spacing = "spacing"
     /// Sets the text of tooltip to be the given string, which is marked up
-    /// with the [Pango text markup language](#PangoMarkupFormat).
-    /// Also see `gtk_tooltip_set_markup()`.
+    /// with Pango markup.
+    /// 
+    /// Also see [method`Gtk.Tooltip.set_markup`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case tooltipMarkup = "tooltip-markup"
     /// Sets the text of tooltip to be the given string.
     /// 
-    /// Also see `gtk_tooltip_set_text()`.
+    /// Also see [method`Gtk.Tooltip.set_text`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case tooltipText = "tooltip-text"
-    /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
+    /// How to distribute vertical space if widget gets extra space.
     case valign = "valign"
-    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
+    /// Whether to expand vertically.
     case vexpand = "vexpand"
-    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
+    /// Whether to use the `vexpand` property.
     case vexpandSet = "vexpand-set"
+    /// Whether the widget is visible.
     case visible = "visible"
+    /// Override for width request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case widthRequest = "width-request"
 }
 
@@ -1405,29 +1466,32 @@ public extension BoxProtocol {
 
 public enum BoxSignalName: String, SignalNameProtocol {
     /// Signals that all holders of a reference to the widget should release
-    /// the reference that they hold. May result in finalization of the widget
-    /// if all references are released.
+    /// the reference that they hold.
+    /// 
+    /// May result in finalization of the widget if all references are released.
     /// 
     /// This signal is not suitable for saving widget state.
     case destroy = "destroy"
-    /// The `direction-changed` signal is emitted when the text direction
-    /// of a widget changes.
+    /// Emitted when the text direction of a widget changes.
     case directionChanged = "direction-changed"
-    /// The `hide` signal is emitted when `widget` is hidden, for example with
-    /// `gtk_widget_hide()`.
+    /// Emitted when `widget` is hidden.
     case hide = "hide"
-    /// Gets emitted if keyboard navigation fails.
-    /// See `gtk_widget_keynav_failed()` for details.
+    /// Emitted if keyboard navigation fails.
+    /// 
+    /// See [method`Gtk.Widget.keynav_failed`] for details.
     case keynavFailed = "keynav-failed"
-    /// The `map` signal is emitted when `widget` is going to be mapped, that is
-    /// when the widget is visible (which is controlled with
-    /// `gtk_widget_set_visible()`) and all its parents up to the toplevel widget
+    /// Emitted when `widget` is going to be mapped.
+    /// 
+    /// A widget is mapped when the widget is visible (which is controlled with
+    /// [property`Gtk.Widget:visible`]) and all its parents up to the toplevel widget
     /// are also visible.
     /// 
     /// The `map` signal can be used to determine whether a widget will be drawn,
     /// for instance it can resume an animation that was stopped during the
-    /// emission of `GtkWidget::unmap`.
+    /// emission of [signal`Gtk.Widget::unmap`].
     case map = "map"
+    /// Emitted when a widget is activated via a mnemonic.
+    /// 
     /// The default handler for this signal activates `widget` if `group_cycling`
     /// is `false`, or just makes `widget` grab focus if `group_cycling` is `true`.
     case mnemonicActivate = "mnemonic-activate"
@@ -1458,9 +1522,11 @@ public enum BoxSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// Emitted when `GtkWidget:has-tooltip` is `true` and the hover timeout
-    /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
-    /// focus in keyboard mode.
+    /// Emitted when the widgets tooltip is about to be shown.
+    /// 
+    /// This happens when the [property`Gtk.Widget:has-tooltip`] property
+    /// is `true` and the hover timeout has expired with the cursor hovering
+    /// "above" `widget`; or emitted when `widget` got focus in keyboard mode.
     /// 
     /// Using the given coordinates, the signal handler should determine
     /// whether a tooltip should be shown for `widget`. If this is the case
@@ -1471,28 +1537,31 @@ public enum BoxSignalName: String, SignalNameProtocol {
     /// The signal handler is free to manipulate `tooltip` with the therefore
     /// destined function calls.
     case queryTooltip = "query-tooltip"
-    /// The `realize` signal is emitted when `widget` is associated with a
-    /// `GdkSurface`, which means that `gtk_widget_realize()` has been called or the
-    /// widget has been mapped (that is, it is going to be drawn).
-    case realize = "realize"
-    /// The `show` signal is emitted when `widget` is shown, for example with
-    /// `gtk_widget_show()`.
-    case show = "show"
-    /// The `state-flags-changed` signal is emitted when the widget state
-    /// changes, see `gtk_widget_get_state_flags()`.
-    case stateFlagsChanged = "state-flags-changed"
-    /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
-    /// means that either it or any of its parents up to the toplevel widget have
-    /// been set as hidden.
+    /// Emitted when `widget` is associated with a `GdkSurface`.
     /// 
-    /// As `unmap` indicates that a widget will not be shown any longer, it can be
-    /// used to, for example, stop an animation on the widget.
+    /// This means that [method`Gtk.Widget.realize`] has been called
+    /// or the widget has been mapped (that is, it is going to be drawn).
+    case realize = "realize"
+    /// Emitted when `widget` is shown.
+    case show = "show"
+    /// Emitted when the widget state changes.
+    /// 
+    /// See [method`Gtk.Widget.get_state_flags`].
+    case stateFlagsChanged = "state-flags-changed"
+    /// Emitted when `widget` is going to be unmapped.
+    /// 
+    /// A widget is unmapped when either it or any of its parents up to the
+    /// toplevel widget have been set as hidden.
+    /// 
+    /// As `unmap` indicates that a widget will not be shown any longer,
+    /// it can be used to, for example, stop an animation on the widget.
     case unmap = "unmap"
-    /// The `unrealize` signal is emitted when the `GdkSurface` associated with
-    /// `widget` is destroyed, which means that `gtk_widget_unrealize()` has been
-    /// called or the widget has been unmapped (that is, it is going to be
-    /// hidden).
+    /// Emitted when the `GdkSurface` associated with `widget` is destroyed.
+    /// 
+    /// This means that [method`Gtk.Widget.unrealize`] has been called
+    /// or the widget has been unmapped (that is, it is going to be hidden).
     case unrealize = "unrealize"
+    /// The position of the baseline aligned widgets if extra space is available.
     case notifyBaselinePosition = "notify::baseline-position"
     /// Whether the widget or any of its descendents can accept
     /// the input focus.
@@ -1500,6 +1569,7 @@ public enum BoxSignalName: String, SignalNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case notifyCanFocus = "notify::can-focus"
+    /// Whether the widget can receive pointer events.
     case notifyCanTarget = "notify::can-target"
     /// A list of css classes applied to this widget.
     case notifyCssClasses = "notify::css-classes"
@@ -1508,7 +1578,7 @@ public enum BoxSignalName: String, SignalNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case notifyCssName = "notify::css-name"
-    /// The cursor used by `widget`. See `gtk_widget_set_cursor()` for details.
+    /// The cursor used by `widget`.
     case notifyCursor = "notify::cursor"
     /// Whether the widget should grab focus when it is clicked with the mouse.
     /// 
@@ -1516,20 +1586,27 @@ public enum BoxSignalName: String, SignalNameProtocol {
     case notifyFocusOnClick = "notify::focus-on-click"
     /// Whether this widget itself will accept the input focus.
     case notifyFocusable = "notify::focusable"
-    /// How to distribute horizontal space if widget gets extra space, see `GtkAlign`
+    /// How to distribute horizontal space if widget gets extra space.
     case notifyHalign = "notify::halign"
+    /// Whether the widget is the default widget.
     case notifyHasDefault = "notify::has-default"
+    /// Whether the widget has the input focus.
     case notifyHasFocus = "notify::has-focus"
-    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
+    /// Enables or disables the emission of the `query-tooltip` signal on `widget`.
+    /// 
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
-    /// whether it will provide a tooltip or not.
+    /// the widget will be queried using [signal`Gtk.Widget::query-tooltip`] to
+    /// determine whether it will provide a tooltip or not.
     case notifyHasTooltip = "notify::has-tooltip"
+    /// Override for height request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case notifyHeightRequest = "notify::height-request"
-    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
+    /// Whether to expand horizontally.
     case notifyHexpand = "notify::hexpand"
-    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
+    /// Whether to use the `hexpand` property.
     case notifyHexpandSet = "notify::hexpand-set"
+    /// Whether the children should all be the same size.
     case notifyHomogeneous = "notify::homogeneous"
     /// The `GtkLayoutManager` instance to use to compute the preferred size
     /// of the widget, and allocate its children.
@@ -1541,78 +1618,93 @@ public enum BoxSignalName: String, SignalNameProtocol {
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginBottom = "notify::margin-bottom"
-    /// Margin on end of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on end of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginEnd = "notify::margin-end"
-    /// Margin on start of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on start of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginStart = "notify::margin-start"
     /// Margin on top side of widget.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginTop = "notify::margin-top"
+    /// The name of the widget.
     case notifyName = "notify::name"
-    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
-    /// more details about window opacity.
+    /// The requested opacity of the widget.
     case notifyOpacity = "notify::opacity"
     /// How content outside the widget's content area is treated.
     /// 
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case notifyOverflow = "notify::overflow"
+    /// The parent widget of this widget.
     case notifyParent = "notify::parent"
+    /// Whether the widget will receive the default action when it is focused.
     case notifyReceivesDefault = "notify::receives-default"
-    /// The `GtkRoot` widget of the widget tree containing this widget or `nil` if
-    /// the widget is not contained in a root widget.
+    /// The `GtkRoot` widget of the widget tree containing this widget.
+    /// 
+    /// This will be `nil` if the widget is not contained in a root widget.
     case notifyRoot = "notify::root"
-    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
-    /// more details about widget scaling.
+    /// The scale factor of the widget.
     case notifyScaleFactor = "notify::scale-factor"
+    /// Whether the widget responds to input.
     case notifySensitive = "notify::sensitive"
+    /// The amount of space between children.
     case notifySpacing = "notify::spacing"
     /// Sets the text of tooltip to be the given string, which is marked up
-    /// with the [Pango text markup language](#PangoMarkupFormat).
-    /// Also see `gtk_tooltip_set_markup()`.
+    /// with Pango markup.
+    /// 
+    /// Also see [method`Gtk.Tooltip.set_markup`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case notifyTooltipMarkup = "notify::tooltip-markup"
     /// Sets the text of tooltip to be the given string.
     /// 
-    /// Also see `gtk_tooltip_set_text()`.
+    /// Also see [method`Gtk.Tooltip.set_text`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case notifyTooltipText = "notify::tooltip-text"
-    /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
+    /// How to distribute vertical space if widget gets extra space.
     case notifyValign = "notify::valign"
-    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
+    /// Whether to expand vertically.
     case notifyVexpand = "notify::vexpand"
-    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
+    /// Whether to use the `vexpand` property.
     case notifyVexpandSet = "notify::vexpand-set"
+    /// Whether the widget is visible.
     case notifyVisible = "notify::visible"
+    /// Override for width request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case notifyWidthRequest = "notify::width-request"
 }
 
@@ -1635,7 +1727,7 @@ public extension BoxProtocol {
     }
 
     /// Returns whether the box is homogeneous (all children are the
-    /// same size). See `gtk_box_set_homogeneous()`.
+    /// same size).
     @inlinable func getHomogeneous() -> Bool {
         let rv = ((gtk_box_get_homogeneous(box_ptr)) != 0)
         return rv
@@ -1648,8 +1740,9 @@ public extension BoxProtocol {
     }
 
     /// Inserts `child` in the position after `sibling` in the list
-    /// of `box` children. If `sibling` is `nil`, insert `child` at
-    /// the first position.
+    /// of `box` children.
+    /// 
+    /// If `sibling` is `nil`, insert `child` at the first position.
     @inlinable func insertChildAfter<WidgetT: WidgetProtocol>(child: WidgetT, sibling: WidgetT?) {
         gtk_box_insert_child_after(box_ptr, child.widget_ptr, sibling?.widget_ptr)
     
@@ -1661,43 +1754,45 @@ public extension BoxProtocol {
     
     }
 
-    /// Removes a child widget from `box`, after it has been
-    /// added with `gtk_box_append()`, `gtk_box_prepend()`, or
-    /// `gtk_box_insert_child_after()`.
+    /// Removes a child widget from `box`.
+    /// 
+    /// The child must have been added before with
+    /// [method`Gtk.Box.append`], [method`Gtk.Box.prepend`], or
+    /// [method`Gtk.Box.insert_child_after`].
     @inlinable func remove<WidgetT: WidgetProtocol>(child: WidgetT) {
         gtk_box_remove(box_ptr, child.widget_ptr)
     
     }
 
     /// Moves `child` to the position after `sibling` in the list
-    /// of `box` children. If `sibling` is `nil`, move `child` to
-    /// the first position.
+    /// of `box` children.
+    /// 
+    /// If `sibling` is `nil`, move `child` to the first position.
     @inlinable func reorderChildAfter<WidgetT: WidgetProtocol>(child: WidgetT, sibling: WidgetT?) {
         gtk_box_reorder_child_after(box_ptr, child.widget_ptr, sibling?.widget_ptr)
     
     }
 
-    /// Sets the baseline position of a box. This affects
-    /// only horizontal boxes with at least one baseline aligned
-    /// child. If there is more vertical space available than requested,
-    /// and the baseline is not allocated by the parent then
-    /// `position` is used to allocate the baseline wrt the
+    /// Sets the baseline position of a box.
+    /// 
+    /// This affects only horizontal boxes with at least one baseline
+    /// aligned child. If there is more vertical space available than
+    /// requested, and the baseline is not allocated by the parent then
+    /// `position` is used to allocate the baseline with respect to the
     /// extra space available.
     @inlinable func setBaseline(position: GtkBaselinePosition) {
         gtk_box_set_baseline_position(box_ptr, position)
     
     }
 
-    /// Sets the `GtkBox:homogeneous` property of `box`, controlling
-    /// whether or not all children of `box` are given equal space
+    /// Sets whether or not all children of `box` are given equal space
     /// in the box.
     @inlinable func set(homogeneous: Bool) {
         gtk_box_set_homogeneous(box_ptr, gboolean((homogeneous) ? 1 : 0))
     
     }
 
-    /// Sets the `GtkBox:spacing` property of `box`, which is the
-    /// number of pixels to place between children of `box`.
+    /// Sets the number of pixels to place between children of `box`.
     @inlinable func set(spacing: Int) {
         gtk_box_set_spacing(box_ptr, gint(spacing))
     
@@ -1709,40 +1804,41 @@ public extension BoxProtocol {
             let rv = gtk_box_get_baseline_position(box_ptr)
             return rv
         }
-        /// Sets the baseline position of a box. This affects
-        /// only horizontal boxes with at least one baseline aligned
-        /// child. If there is more vertical space available than requested,
-        /// and the baseline is not allocated by the parent then
-        /// `position` is used to allocate the baseline wrt the
+        /// Sets the baseline position of a box.
+        /// 
+        /// This affects only horizontal boxes with at least one baseline
+        /// aligned child. If there is more vertical space available than
+        /// requested, and the baseline is not allocated by the parent then
+        /// `position` is used to allocate the baseline with respect to the
         /// extra space available.
         nonmutating set {
             gtk_box_set_baseline_position(box_ptr, newValue)
         }
     }
 
+    /// Whether the children should all be the same size.
     @inlinable var homogeneous: Bool {
         /// Returns whether the box is homogeneous (all children are the
-        /// same size). See `gtk_box_set_homogeneous()`.
+        /// same size).
         get {
             let rv = ((gtk_box_get_homogeneous(box_ptr)) != 0)
             return rv
         }
-        /// Sets the `GtkBox:homogeneous` property of `box`, controlling
-        /// whether or not all children of `box` are given equal space
+        /// Sets whether or not all children of `box` are given equal space
         /// in the box.
         nonmutating set {
             gtk_box_set_homogeneous(box_ptr, gboolean((newValue) ? 1 : 0))
         }
     }
 
+    /// The amount of space between children.
     @inlinable var spacing: Int {
         /// Gets the value set by `gtk_box_set_spacing()`.
         get {
             let rv = Int(gtk_box_get_spacing(box_ptr))
             return rv
         }
-        /// Sets the `GtkBox:spacing` property of `box`, which is the
-        /// number of pixels to place between children of `box`.
+        /// Sets the number of pixels to place between children of `box`.
         nonmutating set {
             gtk_box_set_spacing(box_ptr, gint(newValue))
         }
@@ -1766,18 +1862,20 @@ public extension BoxProtocol {
 /// For a concrete class that implements these methods and properties, see `BoxLayout`.
 /// Alternatively, use `BoxLayoutRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// A GtkBoxLayout is a layout manager that arranges the children of any
-/// widget using it into a single row or column, depending on the value
-/// of its `GtkOrientable:orientation` property. Within the other dimension
-/// all children all allocated the same size. The GtkBoxLayout will respect
-/// the `GtkWidget:halign` and `GtkWidget:valign` properties of each child
-/// widget.
+/// `GtkBoxLayout` is a layout manager that arranges children in a single
+/// row or column.
+/// 
+/// Whether it is a row or column depends on the value of its
+/// [property`Gtk.Orientable:orientation`] property. Within the other dimension
+/// all children all allocated the same size. The `GtkBoxLayout` will respect
+/// the [property`Gtk.Widget:halign`] and [property`Gtk.Widget:valign`]
+/// properties of each child widget.
 /// 
 /// If you want all children to be assigned the same size, you can use
-/// the `GtkBoxLayout:homogeneous` property.
+/// the [property`Gtk.BoxLayout:homogeneous`] property.
 /// 
 /// If you want to specify the amount of space placed between each child,
-/// you can use the `GtkBoxLayout:spacing` property.
+/// you can use the [property`Gtk.BoxLayout:spacing`] property.
 public protocol BoxLayoutProtocol: LayoutManagerProtocol, OrientableProtocol {
         /// Untyped pointer to the underlying `GtkBoxLayout` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1793,18 +1891,20 @@ public protocol BoxLayoutProtocol: LayoutManagerProtocol, OrientableProtocol {
 /// It exposes methods that can operate on this data type through `BoxLayoutProtocol` conformance.
 /// Use `BoxLayoutRef` only as an `unowned` reference to an existing `GtkBoxLayout` instance.
 ///
-/// A GtkBoxLayout is a layout manager that arranges the children of any
-/// widget using it into a single row or column, depending on the value
-/// of its `GtkOrientable:orientation` property. Within the other dimension
-/// all children all allocated the same size. The GtkBoxLayout will respect
-/// the `GtkWidget:halign` and `GtkWidget:valign` properties of each child
-/// widget.
+/// `GtkBoxLayout` is a layout manager that arranges children in a single
+/// row or column.
+/// 
+/// Whether it is a row or column depends on the value of its
+/// [property`Gtk.Orientable:orientation`] property. Within the other dimension
+/// all children all allocated the same size. The `GtkBoxLayout` will respect
+/// the [property`Gtk.Widget:halign`] and [property`Gtk.Widget:valign`]
+/// properties of each child widget.
 /// 
 /// If you want all children to be assigned the same size, you can use
-/// the `GtkBoxLayout:homogeneous` property.
+/// the [property`Gtk.BoxLayout:homogeneous`] property.
 /// 
 /// If you want to specify the amount of space placed between each child,
-/// you can use the `GtkBoxLayout:spacing` property.
+/// you can use the [property`Gtk.BoxLayout:spacing`] property.
 public struct BoxLayoutRef: BoxLayoutProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkBoxLayout` instance.
     /// For type-safe access, use the generated, typed pointer `box_layout_ptr` property instead.
@@ -1884,7 +1984,7 @@ public extension BoxLayoutRef {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
-        /// Creates a new box layout.
+        /// Creates a new `GtkBoxLayout`.
     @inlinable init( orientation: GtkOrientation) {
         let rv = gtk_box_layout_new(orientation)
         ptr = UnsafeMutableRawPointer(rv)
@@ -1895,18 +1995,20 @@ public extension BoxLayoutRef {
 /// It provides the methods that can operate on this data type through `BoxLayoutProtocol` conformance.
 /// Use `BoxLayout` as a strong reference or owner of a `GtkBoxLayout` instance.
 ///
-/// A GtkBoxLayout is a layout manager that arranges the children of any
-/// widget using it into a single row or column, depending on the value
-/// of its `GtkOrientable:orientation` property. Within the other dimension
-/// all children all allocated the same size. The GtkBoxLayout will respect
-/// the `GtkWidget:halign` and `GtkWidget:valign` properties of each child
-/// widget.
+/// `GtkBoxLayout` is a layout manager that arranges children in a single
+/// row or column.
+/// 
+/// Whether it is a row or column depends on the value of its
+/// [property`Gtk.Orientable:orientation`] property. Within the other dimension
+/// all children all allocated the same size. The `GtkBoxLayout` will respect
+/// the [property`Gtk.Widget:halign`] and [property`Gtk.Widget:valign`]
+/// properties of each child widget.
 /// 
 /// If you want all children to be assigned the same size, you can use
-/// the `GtkBoxLayout:homogeneous` property.
+/// the [property`Gtk.BoxLayout:homogeneous`] property.
 /// 
 /// If you want to specify the amount of space placed between each child,
-/// you can use the `GtkBoxLayout:spacing` property.
+/// you can use the [property`Gtk.BoxLayout:spacing`] property.
 open class BoxLayout: LayoutManager, BoxLayoutProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -2032,7 +2134,7 @@ open class BoxLayout: LayoutManager, BoxLayoutProtocol {
         super.init(retainingOpaquePointer: p)
     }
 
-    /// Creates a new box layout.
+    /// Creates a new `GtkBoxLayout`.
     @inlinable public init( orientation: GtkOrientation) {
         let rv = gtk_box_layout_new(orientation)
         super.init(gpointer: gpointer(rv))
@@ -2044,18 +2146,15 @@ open class BoxLayout: LayoutManager, BoxLayoutProtocol {
 
 public enum BoxLayoutPropertyName: String, PropertyNameProtocol {
     /// The position of the allocated baseline within the extra space
-    /// allocated to each child of the widget using a box layout
-    /// manager.
+    /// allocated to each child.
     /// 
     /// This property is only relevant for horizontal layouts containing
     /// at least one child with a baseline alignment.
     case baselinePosition = "baseline-position"
     /// Whether the box layout should distribute the available space
-    /// homogeneously among the children of the widget using it as a
-    /// layout manager.
+    /// equally among the children.
     case homogeneous = "homogeneous"
-    /// The space between each child of the widget using the box
-    /// layout as its layout manager.
+    /// The space to put between the children.
     case spacing = "spacing"
 }
 
@@ -2139,18 +2238,15 @@ public enum BoxLayoutSignalName: String, SignalNameProtocol {
     /// detail strings for the notify signal.
     case notify = "notify"
     /// The position of the allocated baseline within the extra space
-    /// allocated to each child of the widget using a box layout
-    /// manager.
+    /// allocated to each child.
     /// 
     /// This property is only relevant for horizontal layouts containing
     /// at least one child with a baseline alignment.
     case notifyBaselinePosition = "notify::baseline-position"
     /// Whether the box layout should distribute the available space
-    /// homogeneously among the children of the widget using it as a
-    /// layout manager.
+    /// equally among the children.
     case notifyHomogeneous = "notify::homogeneous"
-    /// The space between each child of the widget using the box
-    /// layout as its layout manager.
+    /// The space to put between the children.
     case notifySpacing = "notify::spacing"
 }
 
@@ -2222,8 +2318,7 @@ public extension BoxLayoutProtocol {
     }
 
     /// Whether the box layout should distribute the available space
-    /// homogeneously among the children of the widget using it as a
-    /// layout manager.
+    /// equally among the children.
     @inlinable var homogeneous: Bool {
         /// Returns whether the layout is set to be homogeneous.
         get {
@@ -2237,8 +2332,7 @@ public extension BoxLayoutProtocol {
         }
     }
 
-    /// The space between each child of the widget using the box
-    /// layout as its layout manager.
+    /// The space to put between the children.
     @inlinable var spacing: Int {
         /// Returns the space that `box_layout` puts between children.
         get {
@@ -2263,73 +2357,79 @@ public extension BoxLayoutProtocol {
 /// For a concrete class that implements these methods and properties, see `Builder`.
 /// Alternatively, use `BuilderRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// A GtkBuilder is an auxiliary object that reads textual descriptions
-/// of a user interface and instantiates the described objects. To create
-/// a GtkBuilder from a user interface description, call
-/// `gtk_builder_new_from_file()`, `gtk_builder_new_from_resource()` or
-/// `gtk_builder_new_from_string()`.
+/// A `GtkBuilder` reads XML descriptions of a user interface and
+/// instantiates the described objects.
+/// 
+/// To create a `GtkBuilder` from a user interface description, call
+/// [ctor`Gtk.Builder.new_from_file`], [ctor`Gtk.Builder.new_from_resource`]
+/// or [ctor`Gtk.Builder.new_from_string`].
 /// 
 /// In the (unusual) case that you want to add user interface
-/// descriptions from multiple sources to the same GtkBuilder you can
-/// call `gtk_builder_new()` to get an empty builder and populate it by
-/// (multiple) calls to `gtk_builder_add_from_file()`,
-/// `gtk_builder_add_from_resource()` or `gtk_builder_add_from_string()`.
+/// descriptions from multiple sources to the same `GtkBuilder` you can
+/// call [ctor`Gtk.Builder.new`] to get an empty builder and populate it by
+/// (multiple) calls to [method`Gtk.Builder.add_from_file`],
+/// [method`Gtk.Builder.add_from_resource`] or
+/// [method`Gtk.Builder.add_from_string`].
 /// 
-/// A GtkBuilder holds a reference to all objects that it has constructed
+/// A `GtkBuilder` holds a reference to all objects that it has constructed
 /// and drops these references when it is finalized. This finalization can
 /// cause the destruction of non-widget objects or widgets which are not
 /// contained in a toplevel window. For toplevel windows constructed by a
-/// builder, it is the responsibility of the user to call `gtk_window_destroy()`
-/// to get rid of them and all the widgets they contain.
+/// builder, it is the responsibility of the user to call
+/// [method`Gtk.Window.destroy`] to get rid of them and all the widgets
+/// they contain.
 /// 
-/// The functions `gtk_builder_get_object()` and `gtk_builder_get_objects()`
-/// can be used to access the widgets in the interface by the names assigned
-/// to them inside the UI description. Toplevel windows returned by these
-/// functions will stay around until the user explicitly destroys them
-/// with `gtk_window_destroy()`. Other widgets will either be part of a
-/// larger hierarchy constructed by the builder (in which case you should
-/// not have to worry about their lifecycle), or without a parent, in which
-/// case they have to be added to some container to make use of them.
-/// Non-widget objects need to be reffed with `g_object_ref()` to keep them
-/// beyond the lifespan of the builder.
+/// The functions [method`Gtk.Builder.get_object`] and
+/// [method`Gtk.Builder.get_objects`] can be used to access the widgets in
+/// the interface by the names assigned to them inside the UI description.
+/// Toplevel windows returned by these functions will stay around until the
+/// user explicitly destroys them with [method`Gtk.Window.destroy`]. Other
+/// widgets will either be part of a larger hierarchy constructed by the
+/// builder (in which case you should not have to worry about their lifecycle),
+/// or without a parent, in which case they have to be added to some container
+/// to make use of them. Non-widget objects need to be reffed with
+/// `g_object_ref()` to keep them beyond the lifespan of the builder.
 /// 
-/// # GtkBuilder UI Definitions # <a name="BUILDER-UI"></a>
+/// # GtkBuilder UI Definitions
 /// 
-/// GtkBuilder parses textual descriptions of user interfaces which are
+/// `GtkBuilder` parses textual descriptions of user interfaces which are
 /// specified in XML format. We refer to these descriptions as “GtkBuilder
 /// UI definitions” or just “UI definitions” if the context is clear.
 /// 
 /// The toplevel element is `&lt;interface&gt;`. It optionally takes a “domain”
 /// attribute, which will make the builder look for translated strings
 /// using ``dgettext()`` in the domain specified. This can also be done by
-/// calling `gtk_builder_set_translation_domain()` on the builder.
+/// calling [method`Gtk.Builder.set_translation_domain`] on the builder.
+/// 
 /// Objects are described by `&lt;object&gt;` elements, which can contain
-/// &lt;property&gt; elements to set properties, `&lt;signal&gt;` elements which
+/// `&lt;property&gt;` elements to set properties, `&lt;signal&gt;` elements which
 /// connect signals to handlers, and `&lt;child&gt;` elements, which describe
 /// child objects (most often widgets inside a container, but also e.g.
 /// actions in an action group, or columns in a tree model). A `&lt;child&gt;`
 /// element contains an `&lt;object&gt;` element which describes the child object.
-/// The target toolkit `version(s)` are described by &lt;requires&gt; elements,
+/// 
+/// The target toolkit `version(s)` are described by `&lt;requires&gt;` elements,
 /// the “lib” attribute specifies the widget library in question (currently
 /// the only supported value is “gtk”) and the “version” attribute specifies
-/// the target version in the form “`&lt;major&gt;`.`&lt;minor&gt;`”. The builder will error
-/// out if the version requirements are not met.
+/// the target version in the form “`&lt;major&gt;`.`&lt;minor&gt;`”. `GtkBuilder` will
+/// error out if the version requirements are not met.
 /// 
 /// Typically, the specific kind of object represented by an `&lt;object&gt;`
 /// element is specified by the “class” attribute. If the type has not
 /// been loaded yet, GTK tries to find the ``get_type()`` function from the
 /// class name by applying heuristics. This works in most cases, but if
-/// necessary, it is possible to specify the name of the ``get_type()`` function
-/// explicitly with the "type-func" attribute.
+/// necessary, it is possible to specify the name of the ``get_type()``
+/// function explicitly with the "type-func" attribute.
 /// 
 /// Objects may be given a name with the “id” attribute, which allows the
-/// application to retrieve them from the builder with `gtk_builder_get_object()`.
-/// An id is also necessary to use the object as property value in other
-/// parts of the UI definition. GTK reserves ids starting and ending
-/// with `___` (three consecutive underscores) for its own purposes.
+/// application to retrieve them from the builder with
+/// [method`Gtk.Builder.get_object`]. An id is also necessary to use the
+/// object as property value in other parts of the UI definition. GTK
+/// reserves ids starting and ending with `___` (three consecutive
+/// underscores) for its own purposes.
 /// 
 /// Setting properties of objects is pretty straightforward with the
-/// &lt;property&gt; element: the “name” attribute specifies the name of the
+/// `&lt;property&gt;` element: the “name” attribute specifies the name of the
 /// property, and the content of the element specifies the value.
 /// If the “translatable” attribute is set to a true value, GTK uses
 /// ``gettext()`` (or ``dgettext()`` if the builder has a translation domain set)
@@ -2345,27 +2445,28 @@ public extension BoxLayoutProtocol {
 /// as `true`, strings like “FALSE”, “f”, “no”, “n”, “0” are interpreted
 /// as `false`), enumerations (can be specified by their name, nick or
 /// integer value), flags (can be specified by their name, nick, integer
-/// value, optionally combined with “|”, e.g. “GTK_INPUT_HINT_EMOJI|GTK_INPUT_HINT_LOWERCASE”)
-/// and colors (in a format understood by `gdk_rgba_parse()`).
+/// value, optionally combined with “|”, e.g.
+/// “GTK_INPUT_HINT_EMOJI|GTK_INPUT_HINT_LOWERCASE”)
+/// and colors (in a format understood by [method`Gdk.RGBA.parse`]).
 /// 
-/// GVariants can be specified in the format understood by `g_variant_parse()`,
-/// and pixbufs can be specified as a filename of an image file to load.
+/// `GVariant`s can be specified in the format understood by
+/// `g_variant_parse()`, and pixbufs can be specified as a filename of an
+/// image file to load.
 /// 
 /// Objects can be referred to by their name and by default refer to
 /// objects declared in the local XML fragment and objects exposed via
-/// `gtk_builder_expose_object()`. In general, GtkBuilder allows forward
-/// references to objects — declared in the local XML; an object doesn’t
-/// have to be constructed before it can be referred to. The exception
-/// to this rule is that an object has to be constructed before it can
-/// be used as the value of a construct-only property.
+/// [method`Gtk.Builder.expose_object`]. In general, `GtkBuilder` allows
+/// forward references to objects — declared in the local XML; an object
+/// doesn’t have to be constructed before it can be referred to. The
+/// exception to this rule is that an object has to be constructed before
+/// it can be used as the value of a construct-only property.
 /// 
 /// It is also possible to bind a property value to another object's
-/// property value using the attributes
-/// "bind-source" to specify the source object of the binding, and
-/// optionally, "bind-property" and "bind-flags" to specify the
-/// source property and source binding flags respectively.
-/// Internally builder implements this using `GBinding` objects.
-/// For more information see `g_object_bind_property()`
+/// property value using the attributes "bind-source" to specify the
+/// source object of the binding, and optionally, "bind-property" and
+/// "bind-flags" to specify the source property and source binding flags
+/// respectively. Internally, `GtkBuilder` implements this using `GBinding`
+/// objects. For more information see `g_object_bind_property()`.
 /// 
 /// Sometimes it is necessary to refer to widgets which have implicitly
 /// been constructed by GTK as part of a composite widget, to set
@@ -2383,7 +2484,7 @@ public extension BoxLayoutProtocol {
 /// 
 /// # Signal handlers and function pointers
 /// 
-/// Signal handlers are set up with the &lt;signal&gt; element. The “name”
+/// Signal handlers are set up with the `&lt;signal&gt;` element. The “name”
 /// attribute specifies the name of the signal, and the “handler” attribute
 /// specifies the function to connect to the signal.
 /// The remaining attributes, “after”, “swapped” and “object”, have the
@@ -2397,31 +2498,31 @@ public extension BoxLayoutProtocol {
 /// 
 /// When compiling applications for Windows, you must declare signal callbacks
 /// with `G_MODULE_EXPORT`, or they will not be put in the symbol table.
-/// On Linux and Unices, this is not necessary; applications should instead
-/// be compiled with the -Wl,--export-dynamic CFLAGS, and linked against
-/// gmodule-export-2.0.
+/// On Linux and Unix, this is not necessary; applications should instead
+/// be compiled with the -Wl,--export-dynamic `CFLAGS`, and linked against
+/// `gmodule-export-2.0`.
 /// 
 /// # A GtkBuilder UI Definition
 /// 
-/// ```
-/// <interface>
-///   <object class="GtkDialog" id="dialog1">
-///     <child internal-child="vbox">
-///       <object class="GtkBox" id="vbox1">
-///         <child internal-child="action_area">
-///           <object class="GtkBox" id="hbuttonbox1">
-///             <child>
-///               <object class="GtkButton" id="ok_button">
-///                 <property name="label">gtk-ok</property>
-///                 <signal name="clicked" handler="ok_button_clicked"/>
-///               </object>
-///             </child>
-///           </object>
-///         </child>
-///       </object>
-///     </child>
-///   </object>
-/// </interface>
+/// ```xml
+/// &lt;interface&gt;
+///   &lt;object class="GtkDialog" id="dialog1"&gt;
+///     &lt;child internal-child="vbox"&gt;
+///       &lt;object class="GtkBox" id="vbox1"&gt;
+///         &lt;child internal-child="action_area"&gt;
+///           &lt;object class="GtkBox" id="hbuttonbox1"&gt;
+///             &lt;child&gt;
+///               &lt;object class="GtkButton" id="ok_button"&gt;
+///                 &lt;property name="label"&gt;gtk-ok&lt;/property&gt;
+///                 &lt;signal name="clicked" handler="ok_button_clicked"/&gt;
+///               &lt;/object&gt;
+///             &lt;/child&gt;
+///           &lt;/object&gt;
+///         &lt;/child&gt;
+///       &lt;/object&gt;
+///     &lt;/child&gt;
+///   &lt;/object&gt;
+/// &lt;/interface&gt;
 /// ```
 /// 
 /// Beyond this general structure, several object classes define their
@@ -2433,9 +2534,8 @@ public extension BoxLayoutProtocol {
 /// These XML fragments are explained in the documentation of the
 /// respective objects.
 /// 
-/// Additionally, since 3.10 a special &lt;template&gt; tag has been added
-/// to the format allowing one to define a widget class’s components.
-/// See the [GtkWidget documentation](#composite-templates) for details.
+/// A `&lt;template&gt;` tag can be used to define a widget class’s components.
+/// See the [GtkWidget documentation](class.Widget.html`building-composite-widgets-from-template-xml`) for details.
 public protocol BuilderProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GtkBuilder` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2451,73 +2551,79 @@ public protocol BuilderProtocol: GLibObject.ObjectProtocol {
 /// It exposes methods that can operate on this data type through `BuilderProtocol` conformance.
 /// Use `BuilderRef` only as an `unowned` reference to an existing `GtkBuilder` instance.
 ///
-/// A GtkBuilder is an auxiliary object that reads textual descriptions
-/// of a user interface and instantiates the described objects. To create
-/// a GtkBuilder from a user interface description, call
-/// `gtk_builder_new_from_file()`, `gtk_builder_new_from_resource()` or
-/// `gtk_builder_new_from_string()`.
+/// A `GtkBuilder` reads XML descriptions of a user interface and
+/// instantiates the described objects.
+/// 
+/// To create a `GtkBuilder` from a user interface description, call
+/// [ctor`Gtk.Builder.new_from_file`], [ctor`Gtk.Builder.new_from_resource`]
+/// or [ctor`Gtk.Builder.new_from_string`].
 /// 
 /// In the (unusual) case that you want to add user interface
-/// descriptions from multiple sources to the same GtkBuilder you can
-/// call `gtk_builder_new()` to get an empty builder and populate it by
-/// (multiple) calls to `gtk_builder_add_from_file()`,
-/// `gtk_builder_add_from_resource()` or `gtk_builder_add_from_string()`.
+/// descriptions from multiple sources to the same `GtkBuilder` you can
+/// call [ctor`Gtk.Builder.new`] to get an empty builder and populate it by
+/// (multiple) calls to [method`Gtk.Builder.add_from_file`],
+/// [method`Gtk.Builder.add_from_resource`] or
+/// [method`Gtk.Builder.add_from_string`].
 /// 
-/// A GtkBuilder holds a reference to all objects that it has constructed
+/// A `GtkBuilder` holds a reference to all objects that it has constructed
 /// and drops these references when it is finalized. This finalization can
 /// cause the destruction of non-widget objects or widgets which are not
 /// contained in a toplevel window. For toplevel windows constructed by a
-/// builder, it is the responsibility of the user to call `gtk_window_destroy()`
-/// to get rid of them and all the widgets they contain.
+/// builder, it is the responsibility of the user to call
+/// [method`Gtk.Window.destroy`] to get rid of them and all the widgets
+/// they contain.
 /// 
-/// The functions `gtk_builder_get_object()` and `gtk_builder_get_objects()`
-/// can be used to access the widgets in the interface by the names assigned
-/// to them inside the UI description. Toplevel windows returned by these
-/// functions will stay around until the user explicitly destroys them
-/// with `gtk_window_destroy()`. Other widgets will either be part of a
-/// larger hierarchy constructed by the builder (in which case you should
-/// not have to worry about their lifecycle), or without a parent, in which
-/// case they have to be added to some container to make use of them.
-/// Non-widget objects need to be reffed with `g_object_ref()` to keep them
-/// beyond the lifespan of the builder.
+/// The functions [method`Gtk.Builder.get_object`] and
+/// [method`Gtk.Builder.get_objects`] can be used to access the widgets in
+/// the interface by the names assigned to them inside the UI description.
+/// Toplevel windows returned by these functions will stay around until the
+/// user explicitly destroys them with [method`Gtk.Window.destroy`]. Other
+/// widgets will either be part of a larger hierarchy constructed by the
+/// builder (in which case you should not have to worry about their lifecycle),
+/// or without a parent, in which case they have to be added to some container
+/// to make use of them. Non-widget objects need to be reffed with
+/// `g_object_ref()` to keep them beyond the lifespan of the builder.
 /// 
-/// # GtkBuilder UI Definitions # <a name="BUILDER-UI"></a>
+/// # GtkBuilder UI Definitions
 /// 
-/// GtkBuilder parses textual descriptions of user interfaces which are
+/// `GtkBuilder` parses textual descriptions of user interfaces which are
 /// specified in XML format. We refer to these descriptions as “GtkBuilder
 /// UI definitions” or just “UI definitions” if the context is clear.
 /// 
 /// The toplevel element is `&lt;interface&gt;`. It optionally takes a “domain”
 /// attribute, which will make the builder look for translated strings
 /// using ``dgettext()`` in the domain specified. This can also be done by
-/// calling `gtk_builder_set_translation_domain()` on the builder.
+/// calling [method`Gtk.Builder.set_translation_domain`] on the builder.
+/// 
 /// Objects are described by `&lt;object&gt;` elements, which can contain
-/// &lt;property&gt; elements to set properties, `&lt;signal&gt;` elements which
+/// `&lt;property&gt;` elements to set properties, `&lt;signal&gt;` elements which
 /// connect signals to handlers, and `&lt;child&gt;` elements, which describe
 /// child objects (most often widgets inside a container, but also e.g.
 /// actions in an action group, or columns in a tree model). A `&lt;child&gt;`
 /// element contains an `&lt;object&gt;` element which describes the child object.
-/// The target toolkit `version(s)` are described by &lt;requires&gt; elements,
+/// 
+/// The target toolkit `version(s)` are described by `&lt;requires&gt;` elements,
 /// the “lib” attribute specifies the widget library in question (currently
 /// the only supported value is “gtk”) and the “version” attribute specifies
-/// the target version in the form “`&lt;major&gt;`.`&lt;minor&gt;`”. The builder will error
-/// out if the version requirements are not met.
+/// the target version in the form “`&lt;major&gt;`.`&lt;minor&gt;`”. `GtkBuilder` will
+/// error out if the version requirements are not met.
 /// 
 /// Typically, the specific kind of object represented by an `&lt;object&gt;`
 /// element is specified by the “class” attribute. If the type has not
 /// been loaded yet, GTK tries to find the ``get_type()`` function from the
 /// class name by applying heuristics. This works in most cases, but if
-/// necessary, it is possible to specify the name of the ``get_type()`` function
-/// explicitly with the "type-func" attribute.
+/// necessary, it is possible to specify the name of the ``get_type()``
+/// function explicitly with the "type-func" attribute.
 /// 
 /// Objects may be given a name with the “id” attribute, which allows the
-/// application to retrieve them from the builder with `gtk_builder_get_object()`.
-/// An id is also necessary to use the object as property value in other
-/// parts of the UI definition. GTK reserves ids starting and ending
-/// with `___` (three consecutive underscores) for its own purposes.
+/// application to retrieve them from the builder with
+/// [method`Gtk.Builder.get_object`]. An id is also necessary to use the
+/// object as property value in other parts of the UI definition. GTK
+/// reserves ids starting and ending with `___` (three consecutive
+/// underscores) for its own purposes.
 /// 
 /// Setting properties of objects is pretty straightforward with the
-/// &lt;property&gt; element: the “name” attribute specifies the name of the
+/// `&lt;property&gt;` element: the “name” attribute specifies the name of the
 /// property, and the content of the element specifies the value.
 /// If the “translatable” attribute is set to a true value, GTK uses
 /// ``gettext()`` (or ``dgettext()`` if the builder has a translation domain set)
@@ -2533,27 +2639,28 @@ public protocol BuilderProtocol: GLibObject.ObjectProtocol {
 /// as `true`, strings like “FALSE”, “f”, “no”, “n”, “0” are interpreted
 /// as `false`), enumerations (can be specified by their name, nick or
 /// integer value), flags (can be specified by their name, nick, integer
-/// value, optionally combined with “|”, e.g. “GTK_INPUT_HINT_EMOJI|GTK_INPUT_HINT_LOWERCASE”)
-/// and colors (in a format understood by `gdk_rgba_parse()`).
+/// value, optionally combined with “|”, e.g.
+/// “GTK_INPUT_HINT_EMOJI|GTK_INPUT_HINT_LOWERCASE”)
+/// and colors (in a format understood by [method`Gdk.RGBA.parse`]).
 /// 
-/// GVariants can be specified in the format understood by `g_variant_parse()`,
-/// and pixbufs can be specified as a filename of an image file to load.
+/// `GVariant`s can be specified in the format understood by
+/// `g_variant_parse()`, and pixbufs can be specified as a filename of an
+/// image file to load.
 /// 
 /// Objects can be referred to by their name and by default refer to
 /// objects declared in the local XML fragment and objects exposed via
-/// `gtk_builder_expose_object()`. In general, GtkBuilder allows forward
-/// references to objects — declared in the local XML; an object doesn’t
-/// have to be constructed before it can be referred to. The exception
-/// to this rule is that an object has to be constructed before it can
-/// be used as the value of a construct-only property.
+/// [method`Gtk.Builder.expose_object`]. In general, `GtkBuilder` allows
+/// forward references to objects — declared in the local XML; an object
+/// doesn’t have to be constructed before it can be referred to. The
+/// exception to this rule is that an object has to be constructed before
+/// it can be used as the value of a construct-only property.
 /// 
 /// It is also possible to bind a property value to another object's
-/// property value using the attributes
-/// "bind-source" to specify the source object of the binding, and
-/// optionally, "bind-property" and "bind-flags" to specify the
-/// source property and source binding flags respectively.
-/// Internally builder implements this using `GBinding` objects.
-/// For more information see `g_object_bind_property()`
+/// property value using the attributes "bind-source" to specify the
+/// source object of the binding, and optionally, "bind-property" and
+/// "bind-flags" to specify the source property and source binding flags
+/// respectively. Internally, `GtkBuilder` implements this using `GBinding`
+/// objects. For more information see `g_object_bind_property()`.
 /// 
 /// Sometimes it is necessary to refer to widgets which have implicitly
 /// been constructed by GTK as part of a composite widget, to set
@@ -2571,7 +2678,7 @@ public protocol BuilderProtocol: GLibObject.ObjectProtocol {
 /// 
 /// # Signal handlers and function pointers
 /// 
-/// Signal handlers are set up with the &lt;signal&gt; element. The “name”
+/// Signal handlers are set up with the `&lt;signal&gt;` element. The “name”
 /// attribute specifies the name of the signal, and the “handler” attribute
 /// specifies the function to connect to the signal.
 /// The remaining attributes, “after”, “swapped” and “object”, have the
@@ -2585,31 +2692,31 @@ public protocol BuilderProtocol: GLibObject.ObjectProtocol {
 /// 
 /// When compiling applications for Windows, you must declare signal callbacks
 /// with `G_MODULE_EXPORT`, or they will not be put in the symbol table.
-/// On Linux and Unices, this is not necessary; applications should instead
-/// be compiled with the -Wl,--export-dynamic CFLAGS, and linked against
-/// gmodule-export-2.0.
+/// On Linux and Unix, this is not necessary; applications should instead
+/// be compiled with the -Wl,--export-dynamic `CFLAGS`, and linked against
+/// `gmodule-export-2.0`.
 /// 
 /// # A GtkBuilder UI Definition
 /// 
-/// ```
-/// <interface>
-///   <object class="GtkDialog" id="dialog1">
-///     <child internal-child="vbox">
-///       <object class="GtkBox" id="vbox1">
-///         <child internal-child="action_area">
-///           <object class="GtkBox" id="hbuttonbox1">
-///             <child>
-///               <object class="GtkButton" id="ok_button">
-///                 <property name="label">gtk-ok</property>
-///                 <signal name="clicked" handler="ok_button_clicked"/>
-///               </object>
-///             </child>
-///           </object>
-///         </child>
-///       </object>
-///     </child>
-///   </object>
-/// </interface>
+/// ```xml
+/// &lt;interface&gt;
+///   &lt;object class="GtkDialog" id="dialog1"&gt;
+///     &lt;child internal-child="vbox"&gt;
+///       &lt;object class="GtkBox" id="vbox1"&gt;
+///         &lt;child internal-child="action_area"&gt;
+///           &lt;object class="GtkBox" id="hbuttonbox1"&gt;
+///             &lt;child&gt;
+///               &lt;object class="GtkButton" id="ok_button"&gt;
+///                 &lt;property name="label"&gt;gtk-ok&lt;/property&gt;
+///                 &lt;signal name="clicked" handler="ok_button_clicked"/&gt;
+///               &lt;/object&gt;
+///             &lt;/child&gt;
+///           &lt;/object&gt;
+///         &lt;/child&gt;
+///       &lt;/object&gt;
+///     &lt;/child&gt;
+///   &lt;/object&gt;
+/// &lt;/interface&gt;
 /// ```
 /// 
 /// Beyond this general structure, several object classes define their
@@ -2621,9 +2728,8 @@ public protocol BuilderProtocol: GLibObject.ObjectProtocol {
 /// These XML fragments are explained in the documentation of the
 /// respective objects.
 /// 
-/// Additionally, since 3.10 a special &lt;template&gt; tag has been added
-/// to the format allowing one to define a widget class’s components.
-/// See the [GtkWidget documentation](#composite-templates) for details.
+/// A `&lt;template&gt;` tag can be used to define a widget class’s components.
+/// See the [GtkWidget documentation](class.Widget.html`building-composite-widgets-from-template-xml`) for details.
 public struct BuilderRef: BuilderProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkBuilder` instance.
     /// For type-safe access, use the generated, typed pointer `builder_ptr` property instead.
@@ -2706,27 +2812,25 @@ public extension BuilderRef {
         /// Creates a new empty builder object.
     /// 
     /// This function is only useful if you intend to make multiple calls
-    /// to `gtk_builder_add_from_file()`, `gtk_builder_add_from_resource()`
-    /// or `gtk_builder_add_from_string()` in order to merge multiple UI
+    /// to [method`Gtk.Builder.add_from_file`], [method`Gtk.Builder.add_from_resource`]
+    /// or [method`Gtk.Builder.add_from_string`] in order to merge multiple UI
     /// descriptions into a single builder.
     @inlinable init() {
         let rv = gtk_builder_new()
         ptr = UnsafeMutableRawPointer(rv)
     }
 
-    /// Builds the [GtkBuilder UI definition](#BUILDER-UI)
-    /// in the file `filename`.
+    /// Parses the UI definition in the file `filename`.
     /// 
     /// If there is an error opening the file or parsing the description then
-    /// the program will be aborted.  You should only ever attempt to parse
+    /// the program will be aborted. You should only ever attempt to parse
     /// user interface descriptions that are shipped as part of your program.
     @inlinable init(file filename: UnsafePointer<CChar>!) {
         let rv = gtk_builder_new_from_file(filename)
         ptr = UnsafeMutableRawPointer(rv)
     }
 
-    /// Builds the [GtkBuilder UI definition](#BUILDER-UI)
-    /// at `resource_path`.
+    /// Parses the UI definition at `resource_path`.
     /// 
     /// If there is an error locating the resource or parsing the
     /// description, then the program will be aborted.
@@ -2735,8 +2839,7 @@ public extension BuilderRef {
         ptr = UnsafeMutableRawPointer(rv)
     }
 
-    /// Builds the user interface described by `string` (in the
-    /// [GtkBuilder UI definition](#BUILDER-UI) format).
+    /// Parses the UI definition in `string`.
     /// 
     /// If `string` is `nil`-terminated, then `length` should be -1.
     /// If `length` is not -1, then it is the length of `string`.
@@ -2748,19 +2851,17 @@ public extension BuilderRef {
         let rv = gtk_builder_new_from_string(string, length)
         ptr = UnsafeMutableRawPointer(rv)
     }
-    /// Builds the [GtkBuilder UI definition](#BUILDER-UI)
-    /// in the file `filename`.
+    /// Parses the UI definition in the file `filename`.
     /// 
     /// If there is an error opening the file or parsing the description then
-    /// the program will be aborted.  You should only ever attempt to parse
+    /// the program will be aborted. You should only ever attempt to parse
     /// user interface descriptions that are shipped as part of your program.
     @inlinable static func newFrom(file filename: UnsafePointer<CChar>!) -> BuilderRef! {
         guard let rv = BuilderRef(gconstpointer: gconstpointer(gtk_builder_new_from_file(filename))) else { return nil }
         return rv
     }
 
-    /// Builds the [GtkBuilder UI definition](#BUILDER-UI)
-    /// at `resource_path`.
+    /// Parses the UI definition at `resource_path`.
     /// 
     /// If there is an error locating the resource or parsing the
     /// description, then the program will be aborted.
@@ -2769,8 +2870,7 @@ public extension BuilderRef {
         return rv
     }
 
-    /// Builds the user interface described by `string` (in the
-    /// [GtkBuilder UI definition](#BUILDER-UI) format).
+    /// Parses the UI definition in `string`.
     /// 
     /// If `string` is `nil`-terminated, then `length` should be -1.
     /// If `length` is not -1, then it is the length of `string`.
@@ -2788,73 +2888,79 @@ public extension BuilderRef {
 /// It provides the methods that can operate on this data type through `BuilderProtocol` conformance.
 /// Use `Builder` as a strong reference or owner of a `GtkBuilder` instance.
 ///
-/// A GtkBuilder is an auxiliary object that reads textual descriptions
-/// of a user interface and instantiates the described objects. To create
-/// a GtkBuilder from a user interface description, call
-/// `gtk_builder_new_from_file()`, `gtk_builder_new_from_resource()` or
-/// `gtk_builder_new_from_string()`.
+/// A `GtkBuilder` reads XML descriptions of a user interface and
+/// instantiates the described objects.
+/// 
+/// To create a `GtkBuilder` from a user interface description, call
+/// [ctor`Gtk.Builder.new_from_file`], [ctor`Gtk.Builder.new_from_resource`]
+/// or [ctor`Gtk.Builder.new_from_string`].
 /// 
 /// In the (unusual) case that you want to add user interface
-/// descriptions from multiple sources to the same GtkBuilder you can
-/// call `gtk_builder_new()` to get an empty builder and populate it by
-/// (multiple) calls to `gtk_builder_add_from_file()`,
-/// `gtk_builder_add_from_resource()` or `gtk_builder_add_from_string()`.
+/// descriptions from multiple sources to the same `GtkBuilder` you can
+/// call [ctor`Gtk.Builder.new`] to get an empty builder and populate it by
+/// (multiple) calls to [method`Gtk.Builder.add_from_file`],
+/// [method`Gtk.Builder.add_from_resource`] or
+/// [method`Gtk.Builder.add_from_string`].
 /// 
-/// A GtkBuilder holds a reference to all objects that it has constructed
+/// A `GtkBuilder` holds a reference to all objects that it has constructed
 /// and drops these references when it is finalized. This finalization can
 /// cause the destruction of non-widget objects or widgets which are not
 /// contained in a toplevel window. For toplevel windows constructed by a
-/// builder, it is the responsibility of the user to call `gtk_window_destroy()`
-/// to get rid of them and all the widgets they contain.
+/// builder, it is the responsibility of the user to call
+/// [method`Gtk.Window.destroy`] to get rid of them and all the widgets
+/// they contain.
 /// 
-/// The functions `gtk_builder_get_object()` and `gtk_builder_get_objects()`
-/// can be used to access the widgets in the interface by the names assigned
-/// to them inside the UI description. Toplevel windows returned by these
-/// functions will stay around until the user explicitly destroys them
-/// with `gtk_window_destroy()`. Other widgets will either be part of a
-/// larger hierarchy constructed by the builder (in which case you should
-/// not have to worry about their lifecycle), or without a parent, in which
-/// case they have to be added to some container to make use of them.
-/// Non-widget objects need to be reffed with `g_object_ref()` to keep them
-/// beyond the lifespan of the builder.
+/// The functions [method`Gtk.Builder.get_object`] and
+/// [method`Gtk.Builder.get_objects`] can be used to access the widgets in
+/// the interface by the names assigned to them inside the UI description.
+/// Toplevel windows returned by these functions will stay around until the
+/// user explicitly destroys them with [method`Gtk.Window.destroy`]. Other
+/// widgets will either be part of a larger hierarchy constructed by the
+/// builder (in which case you should not have to worry about their lifecycle),
+/// or without a parent, in which case they have to be added to some container
+/// to make use of them. Non-widget objects need to be reffed with
+/// `g_object_ref()` to keep them beyond the lifespan of the builder.
 /// 
-/// # GtkBuilder UI Definitions # <a name="BUILDER-UI"></a>
+/// # GtkBuilder UI Definitions
 /// 
-/// GtkBuilder parses textual descriptions of user interfaces which are
+/// `GtkBuilder` parses textual descriptions of user interfaces which are
 /// specified in XML format. We refer to these descriptions as “GtkBuilder
 /// UI definitions” or just “UI definitions” if the context is clear.
 /// 
 /// The toplevel element is `&lt;interface&gt;`. It optionally takes a “domain”
 /// attribute, which will make the builder look for translated strings
 /// using ``dgettext()`` in the domain specified. This can also be done by
-/// calling `gtk_builder_set_translation_domain()` on the builder.
+/// calling [method`Gtk.Builder.set_translation_domain`] on the builder.
+/// 
 /// Objects are described by `&lt;object&gt;` elements, which can contain
-/// &lt;property&gt; elements to set properties, `&lt;signal&gt;` elements which
+/// `&lt;property&gt;` elements to set properties, `&lt;signal&gt;` elements which
 /// connect signals to handlers, and `&lt;child&gt;` elements, which describe
 /// child objects (most often widgets inside a container, but also e.g.
 /// actions in an action group, or columns in a tree model). A `&lt;child&gt;`
 /// element contains an `&lt;object&gt;` element which describes the child object.
-/// The target toolkit `version(s)` are described by &lt;requires&gt; elements,
+/// 
+/// The target toolkit `version(s)` are described by `&lt;requires&gt;` elements,
 /// the “lib” attribute specifies the widget library in question (currently
 /// the only supported value is “gtk”) and the “version” attribute specifies
-/// the target version in the form “`&lt;major&gt;`.`&lt;minor&gt;`”. The builder will error
-/// out if the version requirements are not met.
+/// the target version in the form “`&lt;major&gt;`.`&lt;minor&gt;`”. `GtkBuilder` will
+/// error out if the version requirements are not met.
 /// 
 /// Typically, the specific kind of object represented by an `&lt;object&gt;`
 /// element is specified by the “class” attribute. If the type has not
 /// been loaded yet, GTK tries to find the ``get_type()`` function from the
 /// class name by applying heuristics. This works in most cases, but if
-/// necessary, it is possible to specify the name of the ``get_type()`` function
-/// explicitly with the "type-func" attribute.
+/// necessary, it is possible to specify the name of the ``get_type()``
+/// function explicitly with the "type-func" attribute.
 /// 
 /// Objects may be given a name with the “id” attribute, which allows the
-/// application to retrieve them from the builder with `gtk_builder_get_object()`.
-/// An id is also necessary to use the object as property value in other
-/// parts of the UI definition. GTK reserves ids starting and ending
-/// with `___` (three consecutive underscores) for its own purposes.
+/// application to retrieve them from the builder with
+/// [method`Gtk.Builder.get_object`]. An id is also necessary to use the
+/// object as property value in other parts of the UI definition. GTK
+/// reserves ids starting and ending with `___` (three consecutive
+/// underscores) for its own purposes.
 /// 
 /// Setting properties of objects is pretty straightforward with the
-/// &lt;property&gt; element: the “name” attribute specifies the name of the
+/// `&lt;property&gt;` element: the “name” attribute specifies the name of the
 /// property, and the content of the element specifies the value.
 /// If the “translatable” attribute is set to a true value, GTK uses
 /// ``gettext()`` (or ``dgettext()`` if the builder has a translation domain set)
@@ -2870,27 +2976,28 @@ public extension BuilderRef {
 /// as `true`, strings like “FALSE”, “f”, “no”, “n”, “0” are interpreted
 /// as `false`), enumerations (can be specified by their name, nick or
 /// integer value), flags (can be specified by their name, nick, integer
-/// value, optionally combined with “|”, e.g. “GTK_INPUT_HINT_EMOJI|GTK_INPUT_HINT_LOWERCASE”)
-/// and colors (in a format understood by `gdk_rgba_parse()`).
+/// value, optionally combined with “|”, e.g.
+/// “GTK_INPUT_HINT_EMOJI|GTK_INPUT_HINT_LOWERCASE”)
+/// and colors (in a format understood by [method`Gdk.RGBA.parse`]).
 /// 
-/// GVariants can be specified in the format understood by `g_variant_parse()`,
-/// and pixbufs can be specified as a filename of an image file to load.
+/// `GVariant`s can be specified in the format understood by
+/// `g_variant_parse()`, and pixbufs can be specified as a filename of an
+/// image file to load.
 /// 
 /// Objects can be referred to by their name and by default refer to
 /// objects declared in the local XML fragment and objects exposed via
-/// `gtk_builder_expose_object()`. In general, GtkBuilder allows forward
-/// references to objects — declared in the local XML; an object doesn’t
-/// have to be constructed before it can be referred to. The exception
-/// to this rule is that an object has to be constructed before it can
-/// be used as the value of a construct-only property.
+/// [method`Gtk.Builder.expose_object`]. In general, `GtkBuilder` allows
+/// forward references to objects — declared in the local XML; an object
+/// doesn’t have to be constructed before it can be referred to. The
+/// exception to this rule is that an object has to be constructed before
+/// it can be used as the value of a construct-only property.
 /// 
 /// It is also possible to bind a property value to another object's
-/// property value using the attributes
-/// "bind-source" to specify the source object of the binding, and
-/// optionally, "bind-property" and "bind-flags" to specify the
-/// source property and source binding flags respectively.
-/// Internally builder implements this using `GBinding` objects.
-/// For more information see `g_object_bind_property()`
+/// property value using the attributes "bind-source" to specify the
+/// source object of the binding, and optionally, "bind-property" and
+/// "bind-flags" to specify the source property and source binding flags
+/// respectively. Internally, `GtkBuilder` implements this using `GBinding`
+/// objects. For more information see `g_object_bind_property()`.
 /// 
 /// Sometimes it is necessary to refer to widgets which have implicitly
 /// been constructed by GTK as part of a composite widget, to set
@@ -2908,7 +3015,7 @@ public extension BuilderRef {
 /// 
 /// # Signal handlers and function pointers
 /// 
-/// Signal handlers are set up with the &lt;signal&gt; element. The “name”
+/// Signal handlers are set up with the `&lt;signal&gt;` element. The “name”
 /// attribute specifies the name of the signal, and the “handler” attribute
 /// specifies the function to connect to the signal.
 /// The remaining attributes, “after”, “swapped” and “object”, have the
@@ -2922,31 +3029,31 @@ public extension BuilderRef {
 /// 
 /// When compiling applications for Windows, you must declare signal callbacks
 /// with `G_MODULE_EXPORT`, or they will not be put in the symbol table.
-/// On Linux and Unices, this is not necessary; applications should instead
-/// be compiled with the -Wl,--export-dynamic CFLAGS, and linked against
-/// gmodule-export-2.0.
+/// On Linux and Unix, this is not necessary; applications should instead
+/// be compiled with the -Wl,--export-dynamic `CFLAGS`, and linked against
+/// `gmodule-export-2.0`.
 /// 
 /// # A GtkBuilder UI Definition
 /// 
-/// ```
-/// <interface>
-///   <object class="GtkDialog" id="dialog1">
-///     <child internal-child="vbox">
-///       <object class="GtkBox" id="vbox1">
-///         <child internal-child="action_area">
-///           <object class="GtkBox" id="hbuttonbox1">
-///             <child>
-///               <object class="GtkButton" id="ok_button">
-///                 <property name="label">gtk-ok</property>
-///                 <signal name="clicked" handler="ok_button_clicked"/>
-///               </object>
-///             </child>
-///           </object>
-///         </child>
-///       </object>
-///     </child>
-///   </object>
-/// </interface>
+/// ```xml
+/// &lt;interface&gt;
+///   &lt;object class="GtkDialog" id="dialog1"&gt;
+///     &lt;child internal-child="vbox"&gt;
+///       &lt;object class="GtkBox" id="vbox1"&gt;
+///         &lt;child internal-child="action_area"&gt;
+///           &lt;object class="GtkBox" id="hbuttonbox1"&gt;
+///             &lt;child&gt;
+///               &lt;object class="GtkButton" id="ok_button"&gt;
+///                 &lt;property name="label"&gt;gtk-ok&lt;/property&gt;
+///                 &lt;signal name="clicked" handler="ok_button_clicked"/&gt;
+///               &lt;/object&gt;
+///             &lt;/child&gt;
+///           &lt;/object&gt;
+///         &lt;/child&gt;
+///       &lt;/object&gt;
+///     &lt;/child&gt;
+///   &lt;/object&gt;
+/// &lt;/interface&gt;
 /// ```
 /// 
 /// Beyond this general structure, several object classes define their
@@ -2958,9 +3065,8 @@ public extension BuilderRef {
 /// These XML fragments are explained in the documentation of the
 /// respective objects.
 /// 
-/// Additionally, since 3.10 a special &lt;template&gt; tag has been added
-/// to the format allowing one to define a widget class’s components.
-/// See the [GtkWidget documentation](#composite-templates) for details.
+/// A `&lt;template&gt;` tag can be used to define a widget class’s components.
+/// See the [GtkWidget documentation](class.Widget.html`building-composite-widgets-from-template-xml`) for details.
 open class Builder: GLibObject.Object, BuilderProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -3089,8 +3195,8 @@ open class Builder: GLibObject.Object, BuilderProtocol {
     /// Creates a new empty builder object.
     /// 
     /// This function is only useful if you intend to make multiple calls
-    /// to `gtk_builder_add_from_file()`, `gtk_builder_add_from_resource()`
-    /// or `gtk_builder_add_from_string()` in order to merge multiple UI
+    /// to [method`Gtk.Builder.add_from_file`], [method`Gtk.Builder.add_from_resource`]
+    /// or [method`Gtk.Builder.add_from_string`] in order to merge multiple UI
     /// descriptions into a single builder.
     @inlinable public init() {
         let rv = gtk_builder_new()
@@ -3098,11 +3204,10 @@ open class Builder: GLibObject.Object, BuilderProtocol {
         if typeIsA(type: self.type, isAType: InitiallyUnownedClassRef.metatypeReference) { _ = self.refSink() } 
     }
 
-    /// Builds the [GtkBuilder UI definition](#BUILDER-UI)
-    /// in the file `filename`.
+    /// Parses the UI definition in the file `filename`.
     /// 
     /// If there is an error opening the file or parsing the description then
-    /// the program will be aborted.  You should only ever attempt to parse
+    /// the program will be aborted. You should only ever attempt to parse
     /// user interface descriptions that are shipped as part of your program.
     @inlinable public init(file filename: UnsafePointer<CChar>!) {
         let rv = gtk_builder_new_from_file(filename)
@@ -3110,8 +3215,7 @@ open class Builder: GLibObject.Object, BuilderProtocol {
         if typeIsA(type: self.type, isAType: InitiallyUnownedClassRef.metatypeReference) { _ = self.refSink() } 
     }
 
-    /// Builds the [GtkBuilder UI definition](#BUILDER-UI)
-    /// at `resource_path`.
+    /// Parses the UI definition at `resource_path`.
     /// 
     /// If there is an error locating the resource or parsing the
     /// description, then the program will be aborted.
@@ -3121,8 +3225,7 @@ open class Builder: GLibObject.Object, BuilderProtocol {
         if typeIsA(type: self.type, isAType: InitiallyUnownedClassRef.metatypeReference) { _ = self.refSink() } 
     }
 
-    /// Builds the user interface described by `string` (in the
-    /// [GtkBuilder UI definition](#BUILDER-UI) format).
+    /// Parses the UI definition in `string`.
     /// 
     /// If `string` is `nil`-terminated, then `length` should be -1.
     /// If `length` is not -1, then it is the length of `string`.
@@ -3136,11 +3239,10 @@ open class Builder: GLibObject.Object, BuilderProtocol {
         if typeIsA(type: self.type, isAType: InitiallyUnownedClassRef.metatypeReference) { _ = self.refSink() } 
     }
 
-    /// Builds the [GtkBuilder UI definition](#BUILDER-UI)
-    /// in the file `filename`.
+    /// Parses the UI definition in the file `filename`.
     /// 
     /// If there is an error opening the file or parsing the description then
-    /// the program will be aborted.  You should only ever attempt to parse
+    /// the program will be aborted. You should only ever attempt to parse
     /// user interface descriptions that are shipped as part of your program.
     @inlinable public static func newFrom(file filename: UnsafePointer<CChar>!) -> Builder! {
         guard let rv = Builder(gconstpointer: gconstpointer(gtk_builder_new_from_file(filename))) else { return nil }
@@ -3148,8 +3250,7 @@ open class Builder: GLibObject.Object, BuilderProtocol {
         return rv
     }
 
-    /// Builds the [GtkBuilder UI definition](#BUILDER-UI)
-    /// at `resource_path`.
+    /// Parses the UI definition at `resource_path`.
     /// 
     /// If there is an error locating the resource or parsing the
     /// description, then the program will be aborted.
@@ -3159,8 +3260,7 @@ open class Builder: GLibObject.Object, BuilderProtocol {
         return rv
     }
 
-    /// Builds the user interface described by `string` (in the
-    /// [GtkBuilder UI definition](#BUILDER-UI) format).
+    /// Parses the UI definition in `string`.
     /// 
     /// If `string` is `nil`-terminated, then `length` should be -1.
     /// If `length` is not -1, then it is the length of `string`.
@@ -3182,7 +3282,8 @@ public enum BuilderPropertyName: String, PropertyNameProtocol {
     /// The scope the builder is operating in
     case scope = "scope"
     /// The translation domain used when translating property values that
-    /// have been marked as translatable in interface descriptions.
+    /// have been marked as translatable.
+    /// 
     /// If the translation domain is `nil`, `GtkBuilder` uses `gettext()`,
     /// otherwise `g_dgettext()`.
     case translationDomain = "translation-domain"
@@ -3272,7 +3373,8 @@ public enum BuilderSignalName: String, SignalNameProtocol {
     /// The scope the builder is operating in
     case notifyScope = "notify::scope"
     /// The translation domain used when translating property values that
-    /// have been marked as translatable in interface descriptions.
+    /// have been marked as translatable.
+    /// 
     /// If the translation domain is `nil`, `GtkBuilder` uses `gettext()`,
     /// otherwise `g_dgettext()`.
     case notifyTranslationDomain = "notify::translation-domain"
@@ -3284,23 +3386,24 @@ public extension BuilderProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkBuilder` instance.
     @inlinable var builder_ptr: UnsafeMutablePointer<GtkBuilder>! { return ptr?.assumingMemoryBound(to: GtkBuilder.self) }
 
-    /// Parses a file containing a [GtkBuilder UI definition](#BUILDER-UI)
-    /// and merges it with the current contents of `builder`.
+    /// Parses a file containing a UI definition and merges it with
+    /// the current contents of `builder`.
     /// 
-    /// This function is useful if you need to call `gtk_builder_set_current_object()`
-    /// to add user data to callbacks before loading GtkBuilder UI.
-    /// Otherwise, you probably want `gtk_builder_new_from_file()` instead.
+    /// This function is useful if you need to call
+    /// [method`Gtk.Builder.set_current_object`]) to add user data to
+    /// callbacks before loading GtkBuilder UI. Otherwise, you probably
+    /// want [ctor`Gtk.Builder.new_from_file`] instead.
     /// 
     /// If an error occurs, 0 will be returned and `error` will be assigned a
     /// `GError` from the `GTK_BUILDER_ERROR`, `G_MARKUP_ERROR` or `G_FILE_ERROR`
-    /// domain.
+    /// domains.
     /// 
     /// It’s not really reasonable to attempt to handle failures of this
     /// call. You should not use this function with untrusted files (ie:
     /// files that are not part of your application). Broken `GtkBuilder`
     /// files can easily crash your program, and it’s possible that memory
     /// was leaked leading up to the reported failure. The only reasonable
-    /// thing to do when an error is detected is to call `g_error()`.
+    /// thing to do when an error is detected is to call ``g_error()``.
     @inlinable func addFromFile(filename: UnsafePointer<CChar>!) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
         let rv = ((gtk_builder_add_from_file(builder_ptr, filename, &error)) != 0)
@@ -3308,12 +3411,13 @@ public extension BuilderProtocol {
         return rv
     }
 
-    /// Parses a resource file containing a [GtkBuilder UI definition](#BUILDER-UI)
+    /// Parses a resource file containing a UI definition
     /// and merges it with the current contents of `builder`.
     /// 
-    /// This function is useful if you need to call `gtk_builder_set_current_object()`
-    /// to add user data to callbacks before loading GtkBuilder UI.
-    /// Otherwise, you probably want `gtk_builder_new_from_resource()` instead.
+    /// This function is useful if you need to call
+    /// [method`Gtk.Builder.set_current_object`] to add user data to
+    /// callbacks before loading GtkBuilder UI. Otherwise, you probably
+    /// want [ctor`Gtk.Builder.new_from_resource`] instead.
     /// 
     /// If an error occurs, 0 will be returned and `error` will be assigned a
     /// `GError` from the `GTK_BUILDER_ERROR`, `G_MARKUP_ERROR` or `G_RESOURCE_ERROR`
@@ -3329,12 +3433,13 @@ public extension BuilderProtocol {
         return rv
     }
 
-    /// Parses a string containing a [GtkBuilder UI definition](#BUILDER-UI)
-    /// and merges it with the current contents of `builder`.
+    /// Parses a string containing a UI definition and merges it
+    /// with the current contents of `builder`.
     /// 
-    /// This function is useful if you need to call `gtk_builder_set_current_object()`
-    /// to add user data to callbacks before loading GtkBuilder UI.
-    /// Otherwise, you probably want `gtk_builder_new_from_string()` instead.
+    /// This function is useful if you need to call
+    /// [method`Gtk.Builder.set_current_object`] to add user data to
+    /// callbacks before loading `GtkBuilder` UI. Otherwise, you probably
+    /// want [ctor`Gtk.Builder.new_from_string`] instead.
     /// 
     /// Upon errors `false` will be returned and `error` will be assigned a
     /// `GError` from the `GTK_BUILDER_ERROR`, `G_MARKUP_ERROR` or
@@ -3350,11 +3455,11 @@ public extension BuilderProtocol {
         return rv
     }
 
-    /// Parses a file containing a [GtkBuilder UI definition](#BUILDER-UI)
-    /// building only the requested objects and merges
-    /// them with the current contents of `builder`.
+    /// Parses a file containing a UI definition building only the
+    /// requested objects and merges them with the current contents
+    /// of `builder`.
     /// 
-    /// Upon errors 0 will be returned and `error` will be assigned a
+    /// Upon errors, 0 will be returned and `error` will be assigned a
     /// `GError` from the `GTK_BUILDER_ERROR`, `G_MARKUP_ERROR` or `G_FILE_ERROR`
     /// domain.
     /// 
@@ -3368,11 +3473,11 @@ public extension BuilderProtocol {
         return rv
     }
 
-    /// Parses a resource file containing a [GtkBuilder UI definition](#BUILDER-UI)
-    /// building only the requested objects and merges
-    /// them with the current contents of `builder`.
+    /// Parses a resource file containing a UI definition, building
+    /// only the requested objects and merges them with the current
+    /// contents of `builder`.
     /// 
-    /// Upon errors 0 will be returned and `error` will be assigned a
+    /// Upon errors, 0 will be returned and `error` will be assigned a
     /// `GError` from the `GTK_BUILDER_ERROR`, `G_MARKUP_ERROR` or `G_RESOURCE_ERROR`
     /// domain.
     /// 
@@ -3386,9 +3491,9 @@ public extension BuilderProtocol {
         return rv
     }
 
-    /// Parses a string containing a [GtkBuilder UI definition](#BUILDER-UI)
-    /// building only the requested objects and merges
-    /// them with the current contents of `builder`.
+    /// Parses a string containing a UI definition, building only the
+    /// requested objects and merges them with the current contents of
+    /// `builder`.
     /// 
     /// Upon errors `false` will be returned and `error` will be assigned a
     /// `GError` from the `GTK_BUILDER_ERROR` or `G_MARKUP_ERROR` domain.
@@ -3403,9 +3508,10 @@ public extension BuilderProtocol {
         return rv
     }
 
-    /// Creates a closure to invoke the function called `function_name`,
-    /// by using the `create_closure()` implementation of `builder`'s
-    /// `GtkBuilderScope`.
+    /// Creates a closure to invoke the function called `function_name`.
+    /// 
+    /// This is using the `create_closure()` implementation of `builder`'s
+    /// [class`Gtk.BuilderScope`].
     /// 
     /// If no closure could be created, `nil` will be returned and `error`
     /// will be set.
@@ -3415,9 +3521,10 @@ public extension BuilderProtocol {
         if let error = error { throw GLibError(error) }
         return rv
     }
-    /// Creates a closure to invoke the function called `function_name`,
-    /// by using the `create_closure()` implementation of `builder`'s
-    /// `GtkBuilderScope`.
+    /// Creates a closure to invoke the function called `function_name`.
+    /// 
+    /// This is using the `create_closure()` implementation of `builder`'s
+    /// [class`Gtk.BuilderScope`].
     /// 
     /// If no closure could be created, `nil` will be returned and `error`
     /// will be set.
@@ -3428,17 +3535,17 @@ public extension BuilderProtocol {
         return rv
     }
 
-    /// Add `object` to the `builder` object pool so it can be referenced just like any
-    /// other object built by builder.
+    /// Add `object` to the `builder` object pool so it can be
+    /// referenced just like any other object built by builder.
     @inlinable func exposeObject<ObjectT: GLibObject.ObjectProtocol>(name: UnsafePointer<CChar>!, object: ObjectT) {
         gtk_builder_expose_object(builder_ptr, name, object.object_ptr)
     
     }
 
-    /// Main private entry point for building composite container
-    /// components from template XML.
+    /// Main private entry point for building composite components
+    /// from template XML.
     /// 
-    /// This is exported purely to let gtk-builder-tool validate
+    /// This is exported purely to let `gtk-builder-tool` validate
     /// templates, applications have no need to call this function.
     @inlinable func extendWithTemplate<ObjectT: GLibObject.ObjectProtocol>(object: ObjectT, templateType: GType, buffer: UnsafePointer<CChar>!, length: gssize) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
@@ -3453,24 +3560,25 @@ public extension BuilderProtocol {
         return rv
     }
 
-    /// Gets the object named `name`. Note that this function does not
-    /// increment the reference count of the returned object.
+    /// Gets the object named `name`.
+    /// 
+    /// Note that this function does not increment the reference count
+    /// of the returned object.
     @inlinable func getObject(name: UnsafePointer<CChar>!) -> GLibObject.ObjectRef! {
         let rv = GLibObject.ObjectRef(gtk_builder_get_object(builder_ptr, name))
         return rv
     }
 
-    /// Gets all objects that have been constructed by `builder`. Note that
-    /// this function does not increment the reference counts of the returned
-    /// objects.
+    /// Gets all objects that have been constructed by `builder`.
+    /// 
+    /// Note that this function does not increment the reference
+    /// counts of the returned objects.
     @inlinable func getObjects() -> GLib.SListRef! {
         let rv = GLib.SListRef(gtk_builder_get_objects(builder_ptr))
         return rv
     }
 
     /// Gets the scope in use that was set via `gtk_builder_set_scope()`.
-    /// 
-    /// See the `GtkBuilderScope` documentation for details.
     @inlinable func getScope() -> BuilderScopeRef! {
         let rv = BuilderScopeRef(gconstpointer: gconstpointer(gtk_builder_get_scope(builder_ptr)))
         return rv
@@ -3482,34 +3590,38 @@ public extension BuilderProtocol {
         return rv
     }
 
-    /// Looks up a type by name, using the virtual function that
-    /// `GtkBuilder` has for that purpose. This is mainly used when
-    /// implementing the `GtkBuildable` interface on a type.
+    /// Looks up a type by name.
+    /// 
+    /// This is using the virtual function that `GtkBuilder` has
+    /// for that purpose. This is mainly used when implementing
+    /// the `GtkBuildable` interface on a type.
     @inlinable func getTypeFromName(typeName: UnsafePointer<CChar>!) -> GType {
         let rv = gtk_builder_get_type_from_name(builder_ptr, typeName)
         return rv
     }
 
-    /// Sets the current object for the `builder`. The current object can be
-    /// thought of as the `this` object that the builder is working for and
-    /// will often be used as the default object when an object is optional.
+    /// Sets the current object for the `builder`.
     /// 
-    /// `gtk_widget_init_template()` for example will set the current object to
-    /// the widget the template is inited for.
-    /// For functions like `gtk_builder_new_from_resource()`, the current object
-    /// will be `nil`.
+    /// The current object can be thought of as the `this` object that the
+    /// builder is working for and will often be used as the default object
+    /// when an object is optional.
+    /// 
+    /// [method`Gtk.Widget.init_template`] for example will set the current
+    /// object to the widget the template is inited for. For functions like
+    /// [ctor`Gtk.Builder.new_from_resource`], the current object will be `nil`.
     @inlinable func set(currentObject: GLibObject.ObjectRef? = nil) {
         gtk_builder_set_current_object(builder_ptr, currentObject?.object_ptr)
     
     }
-    /// Sets the current object for the `builder`. The current object can be
-    /// thought of as the `this` object that the builder is working for and
-    /// will often be used as the default object when an object is optional.
+    /// Sets the current object for the `builder`.
     /// 
-    /// `gtk_widget_init_template()` for example will set the current object to
-    /// the widget the template is inited for.
-    /// For functions like `gtk_builder_new_from_resource()`, the current object
-    /// will be `nil`.
+    /// The current object can be thought of as the `this` object that the
+    /// builder is working for and will often be used as the default object
+    /// when an object is optional.
+    /// 
+    /// [method`Gtk.Widget.init_template`] for example will set the current
+    /// object to the widget the template is inited for. For functions like
+    /// [ctor`Gtk.Builder.new_from_resource`], the current object will be `nil`.
     @inlinable func set<ObjectT: GLibObject.ObjectProtocol>(currentObject: ObjectT?) {
         gtk_builder_set_current_object(builder_ptr, currentObject?.object_ptr)
     
@@ -3517,41 +3629,36 @@ public extension BuilderProtocol {
 
     /// Sets the scope the builder should operate in.
     /// 
-    /// If `scope` is `nil` a new `GtkBuilderCScope` will be created.
-    /// 
-    /// See the `GtkBuilderScope` documentation for details.
+    /// If `scope` is `nil` a new [class`Gtk.BuilderCScope`] will be created.
     @inlinable func set(scope: BuilderScopeRef? = nil) {
         gtk_builder_set_scope(builder_ptr, scope?.builder_scope_ptr)
     
     }
     /// Sets the scope the builder should operate in.
     /// 
-    /// If `scope` is `nil` a new `GtkBuilderCScope` will be created.
-    /// 
-    /// See the `GtkBuilderScope` documentation for details.
+    /// If `scope` is `nil` a new [class`Gtk.BuilderCScope`] will be created.
     @inlinable func set<BuilderScopeT: BuilderScopeProtocol>(scope: BuilderScopeT?) {
         gtk_builder_set_scope(builder_ptr, scope?.builder_scope_ptr)
     
     }
 
     /// Sets the translation domain of `builder`.
-    /// See `GtkBuilder:translation-domain`.
     @inlinable func setTranslation(domain: UnsafePointer<CChar>? = nil) {
         gtk_builder_set_translation_domain(builder_ptr, domain)
     
     }
 
-    /// This function demarshals a value from a string. This function
-    /// calls `g_value_init()` on the `value` argument, so it need not be
-    /// initialised beforehand.
+    /// Demarshals a value from a string.
     /// 
-    /// This function can handle char, uchar, boolean, int, uint, long,
+    /// This function calls `g_value_init()` on the `value` argument,
+    /// so it need not be initialised beforehand.
+    /// 
+    /// Can handle char, uchar, boolean, int, uint, long,
     /// ulong, enum, flags, float, double, string, `GdkRGBA` and
-    /// `GtkAdjustment` type values. Support for `GtkWidget` type values is
-    /// still to come.
+    /// `GtkAdjustment` type values.
     /// 
-    /// Upon errors `false` will be returned and `error` will be assigned a
-    /// `GError` from the `GTK_BUILDER_ERROR` domain.
+    /// Upon errors `false` will be returned and `error` will be
+    /// assigned a `GError` from the `GTK_BUILDER_ERROR` domain.
     @inlinable func valueFromString<ParamSpecT: GLibObject.ParamSpecProtocol, ValueT: GLibObject.ValueProtocol>(pspec: ParamSpecT, string: UnsafePointer<CChar>!, value: ValueT) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
         let rv = ((gtk_builder_value_from_string(builder_ptr, pspec.param_spec_ptr, string, value.value_ptr, &error)) != 0)
@@ -3559,13 +3666,16 @@ public extension BuilderProtocol {
         return rv
     }
 
-    /// Like `gtk_builder_value_from_string()`, this function demarshals
-    /// a value from a string, but takes a `GType` instead of `GParamSpec`.
-    /// This function calls `g_value_init()` on the `value` argument, so it
+    /// Demarshals a value from a string.
+    /// 
+    /// Unlike [method`Gtk.Builder.value_from_string`], this function
+    /// takes a `GType` instead of `GParamSpec`.
+    /// 
+    /// Calls `g_value_init()` on the `value` argument, so it
     /// need not be initialised beforehand.
     /// 
-    /// Upon errors `false` will be returned and `error` will be assigned a
-    /// `GError` from the `GTK_BUILDER_ERROR` domain.
+    /// Upon errors `false` will be returned and `error` will be
+    /// assigned a `GError` from the `GTK_BUILDER_ERROR` domain.
     @inlinable func valueFromString<ValueT: GLibObject.ValueProtocol>(type: GType, string: UnsafePointer<CChar>!, value: ValueT) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
         let rv = ((gtk_builder_value_from_string_type(builder_ptr, type, string, value.value_ptr, &error)) != 0)
@@ -3579,26 +3689,29 @@ public extension BuilderProtocol {
             let rv = GLibObject.ObjectRef(gtk_builder_get_current_object(builder_ptr))
             return rv
         }
-        /// Sets the current object for the `builder`. The current object can be
-        /// thought of as the `this` object that the builder is working for and
-        /// will often be used as the default object when an object is optional.
+        /// Sets the current object for the `builder`.
         /// 
-        /// `gtk_widget_init_template()` for example will set the current object to
-        /// the widget the template is inited for.
-        /// For functions like `gtk_builder_new_from_resource()`, the current object
-        /// will be `nil`.
+        /// The current object can be thought of as the `this` object that the
+        /// builder is working for and will often be used as the default object
+        /// when an object is optional.
+        /// 
+        /// [method`Gtk.Widget.init_template`] for example will set the current
+        /// object to the widget the template is inited for. For functions like
+        /// [ctor`Gtk.Builder.new_from_resource`], the current object will be `nil`.
         nonmutating set {
             gtk_builder_set_current_object(builder_ptr, UnsafeMutablePointer<GObject>(newValue?.object_ptr))
         }
     }
 
-    /// Gets all objects that have been constructed by `builder`. Note that
-    /// this function does not increment the reference counts of the returned
-    /// objects.
+    /// Gets all objects that have been constructed by `builder`.
+    /// 
+    /// Note that this function does not increment the reference
+    /// counts of the returned objects.
     @inlinable var objects: GLib.SListRef! {
-        /// Gets all objects that have been constructed by `builder`. Note that
-        /// this function does not increment the reference counts of the returned
-        /// objects.
+        /// Gets all objects that have been constructed by `builder`.
+        /// 
+        /// Note that this function does not increment the reference
+        /// counts of the returned objects.
         get {
             let rv = GLib.SListRef(gtk_builder_get_objects(builder_ptr))
             return rv
@@ -3608,17 +3721,13 @@ public extension BuilderProtocol {
     /// The scope the builder is operating in
     @inlinable var scope: BuilderScopeRef! {
         /// Gets the scope in use that was set via `gtk_builder_set_scope()`.
-        /// 
-        /// See the `GtkBuilderScope` documentation for details.
         get {
             let rv = BuilderScopeRef(gconstpointer: gconstpointer(gtk_builder_get_scope(builder_ptr)))
             return rv
         }
         /// Sets the scope the builder should operate in.
         /// 
-        /// If `scope` is `nil` a new `GtkBuilderCScope` will be created.
-        /// 
-        /// See the `GtkBuilderScope` documentation for details.
+        /// If `scope` is `nil` a new [class`Gtk.BuilderCScope`] will be created.
         nonmutating set {
             gtk_builder_set_scope(builder_ptr, UnsafeMutablePointer<GtkBuilderScope>(newValue?.builder_scope_ptr))
         }
@@ -3632,7 +3741,6 @@ public extension BuilderProtocol {
             return rv
         }
         /// Sets the translation domain of `builder`.
-        /// See `GtkBuilder:translation-domain`.
         nonmutating set {
             gtk_builder_set_translation_domain(builder_ptr, newValue)
         }
@@ -3650,7 +3758,22 @@ public extension BuilderProtocol {
 /// For a concrete class that implements these methods and properties, see `BuilderCScope`.
 /// Alternatively, use `BuilderCScopeRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
+/// A `GtkBuilderScope` implementation for the C language.
+/// 
+/// `GtkBuilderCScope` instances use symbols explicitly added to `builder`
+/// with prior calls to [method`Gtk.BuilderCScope.add_callback_symbol`].
+/// If developers want to do that, they are encouraged to create their
+/// own scopes for that purpose.
+/// 
+/// In the case that symbols are not explicitly added; GTK will uses
+/// `GModule`’s introspective features (by opening the module `nil`) to
+/// look at the application’s symbol table. From here it tries to match
+/// the signal function names given in the interface description with
+/// symbols in the application.
+/// 
+/// Note that unless [method`Gtk.BuilderCScope.add_callback_symbol`] is
+/// called for all signal callbacks which are referenced by the loaded XML,
+/// this functionality will require that `GModule` be supported on the platform.
 public protocol BuilderCScopeProtocol: GLibObject.ObjectProtocol, BuilderScopeProtocol {
         /// Untyped pointer to the underlying `GtkBuilderCScope` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3666,7 +3789,22 @@ public protocol BuilderCScopeProtocol: GLibObject.ObjectProtocol, BuilderScopePr
 /// It exposes methods that can operate on this data type through `BuilderCScopeProtocol` conformance.
 /// Use `BuilderCScopeRef` only as an `unowned` reference to an existing `GtkBuilderCScope` instance.
 ///
-
+/// A `GtkBuilderScope` implementation for the C language.
+/// 
+/// `GtkBuilderCScope` instances use symbols explicitly added to `builder`
+/// with prior calls to [method`Gtk.BuilderCScope.add_callback_symbol`].
+/// If developers want to do that, they are encouraged to create their
+/// own scopes for that purpose.
+/// 
+/// In the case that symbols are not explicitly added; GTK will uses
+/// `GModule`’s introspective features (by opening the module `nil`) to
+/// look at the application’s symbol table. From here it tries to match
+/// the signal function names given in the interface description with
+/// symbols in the application.
+/// 
+/// Note that unless [method`Gtk.BuilderCScope.add_callback_symbol`] is
+/// called for all signal callbacks which are referenced by the loaded XML,
+/// this functionality will require that `GModule` be supported on the platform.
 public struct BuilderCScopeRef: BuilderCScopeProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkBuilderCScope` instance.
     /// For type-safe access, use the generated, typed pointer `builder_cscope_ptr` property instead.
@@ -3752,7 +3890,22 @@ public extension BuilderCScopeRef {
 /// It provides the methods that can operate on this data type through `BuilderCScopeProtocol` conformance.
 /// Use `BuilderCScope` as a strong reference or owner of a `GtkBuilderCScope` instance.
 ///
-
+/// A `GtkBuilderScope` implementation for the C language.
+/// 
+/// `GtkBuilderCScope` instances use symbols explicitly added to `builder`
+/// with prior calls to [method`Gtk.BuilderCScope.add_callback_symbol`].
+/// If developers want to do that, they are encouraged to create their
+/// own scopes for that purpose.
+/// 
+/// In the case that symbols are not explicitly added; GTK will uses
+/// `GModule`’s introspective features (by opening the module `nil`) to
+/// look at the application’s symbol table. From here it tries to match
+/// the signal function names given in the interface description with
+/// symbols in the application.
+/// 
+/// Note that unless [method`Gtk.BuilderCScope.add_callback_symbol`] is
+/// called for all signal callbacks which are referenced by the loaded XML,
+/// this functionality will require that `GModule` be supported on the platform.
 open class BuilderCScope: GLibObject.Object, BuilderCScopeProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -3919,12 +4072,14 @@ public extension BuilderCScopeProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkBuilderCScope` instance.
     @inlinable var builder_cscope_ptr: UnsafeMutablePointer<GtkBuilderCScope>! { return ptr?.assumingMemoryBound(to: GtkBuilderCScope.self) }
 
-    /// Adds the `callback_symbol` to the scope of `builder` under the given `callback_name`.
+    /// Adds the `callback_symbol` to the scope of `builder` under the
+    /// given `callback_name`.
     /// 
-    /// Using this function overrides the behavior of `gtk_builder_create_closure()`
-    /// for any callback symbols that are added. Using this method allows for better
-    /// encapsulation as it does not require that callback symbols be declared in
-    /// the global namespace.
+    /// Using this function overrides the behavior of
+    /// [method`Gtk.Builder.create_closure`] for any callback symbols that
+    /// are added. Using this method allows for better encapsulation as it
+    /// does not require that callback symbols be declared in the global
+    /// namespace.
     @inlinable func addCallbackSymbol(callbackName: UnsafePointer<CChar>!, callbackSymbol: GCallback?) {
         gtk_builder_cscope_add_callback_symbol(builder_cscope_ptr, callbackName, callbackSymbol)
     
@@ -3934,8 +4089,8 @@ public extension BuilderCScopeProtocol {
     // *** addCallbackSymbols() is not available because it has a varargs (...) parameter!
 
 
-    /// Fetches a symbol previously added to `self`
-    /// with `gtk_builder_cscope_add_callback_symbol()`.
+    /// Fetches a symbol previously added with
+    /// `gtk_builder_cscope_add_callback_symbol()`.
     @inlinable func lookupCallbackSymbol(callbackName: UnsafePointer<CChar>!) -> GCallback! {
         let rv = gtk_builder_cscope_lookup_callback_symbol(builder_cscope_ptr, callbackName)
         return rv
@@ -3960,28 +4115,28 @@ public extension BuilderCScopeProtocol {
 /// Alternatively, use `BuilderListItemFactoryRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
 /// `GtkBuilderListItemFactory` is a `GtkListItemFactory` that creates
-/// widgets by instantiating `GtkBuilder` UI templates. The templates
-/// must be extending `GtkListItem`, and typically use `GtkExpressions`
-/// to obtain data from the items in the model.
+/// widgets by instantiating `GtkBuilder` UI templates.
+/// 
+/// The templates must be extending `GtkListItem`, and typically use
+/// `GtkExpression`s to obtain data from the items in the model.
 /// 
 /// Example:
+/// ```xml
+///   &lt;interface&gt;
+///     &lt;template class="GtkListItem"&gt;
+///       &lt;property name="child"&gt;
+///         &lt;object class="GtkLabel"&gt;
+///           &lt;property name="xalign"&gt;0&lt;/property&gt;
+///           &lt;binding name="label"&gt;
+///             &lt;lookup name="name" type="SettingsKey"&gt;
+///               &lt;lookup name="item"&gt;GtkListItem&lt;/lookup&gt;
+///             &lt;/lookup&gt;
+///           &lt;/binding&gt;
+///         &lt;/object&gt;
+///       &lt;/property&gt;
+///     &lt;/template&gt;
+///   &lt;/interface&gt;
 /// ```
-///   <interface>
-///     <template class="GtkListItem">
-///       <property name="child">
-///         <object class="GtkLabel">
-///           <property name="xalign">0</property>
-///           <binding name="label">
-///             <lookup name="name" type="SettingsKey">
-///               <lookup name="item">GtkListItem</lookup>
-///             </lookup>
-///           </binding>
-///         </object>
-///       </property>
-///     </template>
-///   </interface>
-/// ```
-/// 
 public protocol BuilderListItemFactoryProtocol: ListItemFactoryProtocol {
         /// Untyped pointer to the underlying `GtkBuilderListItemFactory` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3998,28 +4153,28 @@ public protocol BuilderListItemFactoryProtocol: ListItemFactoryProtocol {
 /// Use `BuilderListItemFactoryRef` only as an `unowned` reference to an existing `GtkBuilderListItemFactory` instance.
 ///
 /// `GtkBuilderListItemFactory` is a `GtkListItemFactory` that creates
-/// widgets by instantiating `GtkBuilder` UI templates. The templates
-/// must be extending `GtkListItem`, and typically use `GtkExpressions`
-/// to obtain data from the items in the model.
+/// widgets by instantiating `GtkBuilder` UI templates.
+/// 
+/// The templates must be extending `GtkListItem`, and typically use
+/// `GtkExpression`s to obtain data from the items in the model.
 /// 
 /// Example:
+/// ```xml
+///   &lt;interface&gt;
+///     &lt;template class="GtkListItem"&gt;
+///       &lt;property name="child"&gt;
+///         &lt;object class="GtkLabel"&gt;
+///           &lt;property name="xalign"&gt;0&lt;/property&gt;
+///           &lt;binding name="label"&gt;
+///             &lt;lookup name="name" type="SettingsKey"&gt;
+///               &lt;lookup name="item"&gt;GtkListItem&lt;/lookup&gt;
+///             &lt;/lookup&gt;
+///           &lt;/binding&gt;
+///         &lt;/object&gt;
+///       &lt;/property&gt;
+///     &lt;/template&gt;
+///   &lt;/interface&gt;
 /// ```
-///   <interface>
-///     <template class="GtkListItem">
-///       <property name="child">
-///         <object class="GtkLabel">
-///           <property name="xalign">0</property>
-///           <binding name="label">
-///             <lookup name="name" type="SettingsKey">
-///               <lookup name="item">GtkListItem</lookup>
-///             </lookup>
-///           </binding>
-///         </object>
-///       </property>
-///     </template>
-///   </interface>
-/// ```
-/// 
 public struct BuilderListItemFactoryRef: BuilderListItemFactoryProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkBuilderListItemFactory` instance.
     /// For type-safe access, use the generated, typed pointer `builder_list_item_factory_ptr` property instead.
@@ -4099,27 +4254,27 @@ public extension BuilderListItemFactoryRef {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
-        /// Creates s new `GtkBuilderListItemFactory` that instantiates widgets
+        /// Creates a new `GtkBuilderListItemFactory` that instantiates widgets
     /// using `bytes` as the data to pass to `GtkBuilder`.
     @inlinable init<BuilderScopeT: BuilderScopeProtocol, BytesT: GLib.BytesProtocol>(bytes scope: BuilderScopeT?, bytes: BytesT) {
         let rv = gtk_builder_list_item_factory_new_from_bytes(scope?.builder_scope_ptr, bytes.bytes_ptr)
         ptr = UnsafeMutableRawPointer(rv)
     }
 
-    /// Creates s new `GtkBuilderListItemFactory` that instantiates widgets
+    /// Creates a new `GtkBuilderListItemFactory` that instantiates widgets
     /// using data read from the given `resource_path` to pass to `GtkBuilder`.
     @inlinable init<BuilderScopeT: BuilderScopeProtocol>(resource scope: BuilderScopeT?, resourcePath: UnsafePointer<CChar>!) {
         let rv = gtk_builder_list_item_factory_new_from_resource(scope?.builder_scope_ptr, resourcePath)
         ptr = UnsafeMutableRawPointer(rv)
     }
-    /// Creates s new `GtkBuilderListItemFactory` that instantiates widgets
+    /// Creates a new `GtkBuilderListItemFactory` that instantiates widgets
     /// using `bytes` as the data to pass to `GtkBuilder`.
     @inlinable static func newFrom<BuilderScopeT: BuilderScopeProtocol, BytesT: GLib.BytesProtocol>(bytes scope: BuilderScopeT?, bytes: BytesT) -> ListItemFactoryRef! {
         guard let rv = ListItemFactoryRef(gconstpointer: gconstpointer(gtk_builder_list_item_factory_new_from_bytes(scope?.builder_scope_ptr, bytes.bytes_ptr))) else { return nil }
         return rv
     }
 
-    /// Creates s new `GtkBuilderListItemFactory` that instantiates widgets
+    /// Creates a new `GtkBuilderListItemFactory` that instantiates widgets
     /// using data read from the given `resource_path` to pass to `GtkBuilder`.
     @inlinable static func newFrom<BuilderScopeT: BuilderScopeProtocol>(resource scope: BuilderScopeT?, resourcePath: UnsafePointer<CChar>!) -> ListItemFactoryRef! {
         guard let rv = ListItemFactoryRef(gconstpointer: gconstpointer(gtk_builder_list_item_factory_new_from_resource(scope?.builder_scope_ptr, resourcePath))) else { return nil }
@@ -4132,28 +4287,28 @@ public extension BuilderListItemFactoryRef {
 /// Use `BuilderListItemFactory` as a strong reference or owner of a `GtkBuilderListItemFactory` instance.
 ///
 /// `GtkBuilderListItemFactory` is a `GtkListItemFactory` that creates
-/// widgets by instantiating `GtkBuilder` UI templates. The templates
-/// must be extending `GtkListItem`, and typically use `GtkExpressions`
-/// to obtain data from the items in the model.
+/// widgets by instantiating `GtkBuilder` UI templates.
+/// 
+/// The templates must be extending `GtkListItem`, and typically use
+/// `GtkExpression`s to obtain data from the items in the model.
 /// 
 /// Example:
+/// ```xml
+///   &lt;interface&gt;
+///     &lt;template class="GtkListItem"&gt;
+///       &lt;property name="child"&gt;
+///         &lt;object class="GtkLabel"&gt;
+///           &lt;property name="xalign"&gt;0&lt;/property&gt;
+///           &lt;binding name="label"&gt;
+///             &lt;lookup name="name" type="SettingsKey"&gt;
+///               &lt;lookup name="item"&gt;GtkListItem&lt;/lookup&gt;
+///             &lt;/lookup&gt;
+///           &lt;/binding&gt;
+///         &lt;/object&gt;
+///       &lt;/property&gt;
+///     &lt;/template&gt;
+///   &lt;/interface&gt;
 /// ```
-///   <interface>
-///     <template class="GtkListItem">
-///       <property name="child">
-///         <object class="GtkLabel">
-///           <property name="xalign">0</property>
-///           <binding name="label">
-///             <lookup name="name" type="SettingsKey">
-///               <lookup name="item">GtkListItem</lookup>
-///             </lookup>
-///           </binding>
-///         </object>
-///       </property>
-///     </template>
-///   </interface>
-/// ```
-/// 
 open class BuilderListItemFactory: ListItemFactory, BuilderListItemFactoryProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -4279,7 +4434,7 @@ open class BuilderListItemFactory: ListItemFactory, BuilderListItemFactoryProtoc
         super.init(retainingOpaquePointer: p)
     }
 
-    /// Creates s new `GtkBuilderListItemFactory` that instantiates widgets
+    /// Creates a new `GtkBuilderListItemFactory` that instantiates widgets
     /// using `bytes` as the data to pass to `GtkBuilder`.
     @inlinable public init<BuilderScopeT: BuilderScopeProtocol, BytesT: GLib.BytesProtocol>(bytes scope: BuilderScopeT?, bytes: BytesT) {
         let rv = gtk_builder_list_item_factory_new_from_bytes(scope?.builder_scope_ptr, bytes.bytes_ptr)
@@ -4287,7 +4442,7 @@ open class BuilderListItemFactory: ListItemFactory, BuilderListItemFactoryProtoc
         if typeIsA(type: self.type, isAType: InitiallyUnownedClassRef.metatypeReference) { _ = self.refSink() } 
     }
 
-    /// Creates s new `GtkBuilderListItemFactory` that instantiates widgets
+    /// Creates a new `GtkBuilderListItemFactory` that instantiates widgets
     /// using data read from the given `resource_path` to pass to `GtkBuilder`.
     @inlinable public init<BuilderScopeT: BuilderScopeProtocol>(resource scope: BuilderScopeT?, resourcePath: UnsafePointer<CChar>!) {
         let rv = gtk_builder_list_item_factory_new_from_resource(scope?.builder_scope_ptr, resourcePath)
@@ -4295,7 +4450,7 @@ open class BuilderListItemFactory: ListItemFactory, BuilderListItemFactoryProtoc
         if typeIsA(type: self.type, isAType: InitiallyUnownedClassRef.metatypeReference) { _ = self.refSink() } 
     }
 
-    /// Creates s new `GtkBuilderListItemFactory` that instantiates widgets
+    /// Creates a new `GtkBuilderListItemFactory` that instantiates widgets
     /// using `bytes` as the data to pass to `GtkBuilder`.
     @inlinable public static func newFrom<BuilderScopeT: BuilderScopeProtocol, BytesT: GLib.BytesProtocol>(bytes scope: BuilderScopeT?, bytes: BytesT) -> ListItemFactory! {
         guard let rv = ListItemFactory(gconstpointer: gconstpointer(gtk_builder_list_item_factory_new_from_bytes(scope?.builder_scope_ptr, bytes.bytes_ptr))) else { return nil }
@@ -4303,7 +4458,7 @@ open class BuilderListItemFactory: ListItemFactory, BuilderListItemFactoryProtoc
         return rv
     }
 
-    /// Creates s new `GtkBuilderListItemFactory` that instantiates widgets
+    /// Creates a new `GtkBuilderListItemFactory` that instantiates widgets
     /// using data read from the given `resource_path` to pass to `GtkBuilder`.
     @inlinable public static func newFrom<BuilderScopeT: BuilderScopeProtocol>(resource scope: BuilderScopeT?, resourcePath: UnsafePointer<CChar>!) -> ListItemFactory! {
         guard let rv = ListItemFactory(gconstpointer: gconstpointer(gtk_builder_list_item_factory_new_from_resource(scope?.builder_scope_ptr, resourcePath))) else { return nil }
@@ -4314,11 +4469,11 @@ open class BuilderListItemFactory: ListItemFactory, BuilderListItemFactoryProtoc
 }
 
 public enum BuilderListItemFactoryPropertyName: String, PropertyNameProtocol {
-    /// bytes containing the UI definition
+    /// `GBytes` containing the UI definition.
     case bytes = "bytes"
-    /// resource containing the UI definition
+    /// Path of the resource containing the UI definition.
     case resource = "resource"
-    /// scope to use when instantiating listitems
+    /// `GtkBuilderScope` to use when instantiating listitems
     case scope = "scope"
 }
 
@@ -4401,11 +4556,11 @@ public enum BuilderListItemFactorySignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// bytes containing the UI definition
+    /// `GBytes` containing the UI definition.
     case notifyBytes = "notify::bytes"
-    /// resource containing the UI definition
+    /// Path of the resource containing the UI definition.
     case notifyResource = "notify::resource"
-    /// scope to use when instantiating listitems
+    /// `GtkBuilderScope` to use when instantiating listitems
     case notifyScope = "notify::scope"
 }
 
@@ -4433,7 +4588,7 @@ public extension BuilderListItemFactoryProtocol {
         let rv = BuilderScopeRef(gconstpointer: gconstpointer(gtk_builder_list_item_factory_get_scope(builder_list_item_factory_ptr)))
         return rv
     }
-    /// bytes containing the UI definition
+    /// `GBytes` containing the UI definition.
     @inlinable var bytes: GLib.BytesRef! {
         /// Gets the data used as the `GtkBuilder` UI template for constructing
         /// listitems.
@@ -4443,7 +4598,7 @@ public extension BuilderListItemFactoryProtocol {
         }
     }
 
-    /// resource containing the UI definition
+    /// Path of the resource containing the UI definition.
     @inlinable var resource: String! {
         /// If the data references a resource, gets the path of that resource.
         get {
@@ -4452,7 +4607,7 @@ public extension BuilderListItemFactoryProtocol {
         }
     }
 
-    /// scope to use when instantiating listitems
+    /// `GtkBuilderScope` to use when instantiating listitems
     @inlinable var scope: BuilderScopeRef! {
         /// Gets the scope used when constructing listitems.
         get {
@@ -4474,31 +4629,35 @@ public extension BuilderListItemFactoryProtocol {
 /// Alternatively, use `ButtonRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
 /// The `GtkButton` widget is generally used to trigger a callback function that is
-/// called when the button is pressed.  The various signals and how to use them
-/// are outlined below.
+/// called when the button is pressed.
 /// 
-/// The `GtkButton` widget can hold any valid child widget.  That is, it can hold
-/// almost any other standard `GtkWidget`.  The most commonly used child is the
+/// ![An example GtkButton](button.png)
+/// 
+/// The `GtkButton` widget can hold any valid child widget. That is, it can hold
+/// almost any other standard `GtkWidget`. The most commonly used child is the
 /// `GtkLabel`.
 /// 
 /// # CSS nodes
 /// 
-/// GtkButton has a single CSS node with name button. The node will get the
+/// `GtkButton` has a single CSS node with name button. The node will get the
 /// style classes .image-button or .text-button, if the content is just an
 /// image or label, respectively. It may also receive the .flat style class.
+/// When activating a button via the keyboard, the button will temporarily
+/// gain the .keyboard-activating style class.
 /// 
-/// Other style classes that are commonly used with GtkButton include
+/// Other style classes that are commonly used with `GtkButton` include
 /// .suggested-action and .destructive-action. In special cases, buttons
 /// can be made round by adding the .circular style class.
 /// 
-/// Button-like widgets like `GtkToggleButton`, `GtkMenuButton`, `GtkVolumeButton`,
-/// `GtkLockButton`, `GtkColorButton` or `GtkFontButton` use style classes such as
-/// .toggle, .popup, .scale, .lock, .color on the button node
-/// to differentiate themselves from a plain GtkButton.
+/// Button-like widgets like [class`Gtk.ToggleButton`], [class`Gtk.MenuButton`],
+/// [class`Gtk.VolumeButton`], [class`Gtk.LockButton`], [class`Gtk.ColorButton`]
+/// or [class`Gtk.FontButton`] use style classes such as .toggle, .popup, .scale,
+/// .lock, .color on the button node to differentiate themselves from a plain
+/// `GtkButton`.
 /// 
 /// # Accessibility
 /// 
-/// GtkButton uses the `GTK_ACCESSIBLE_ROLE_BUTTON` role.
+/// `GtkButton` uses the `GTK_ACCESSIBLE_ROLE_BUTTON` role.
 public protocol ButtonProtocol: WidgetProtocol, ActionableProtocol {
         /// Untyped pointer to the underlying `GtkButton` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -4515,31 +4674,35 @@ public protocol ButtonProtocol: WidgetProtocol, ActionableProtocol {
 /// Use `ButtonRef` only as an `unowned` reference to an existing `GtkButton` instance.
 ///
 /// The `GtkButton` widget is generally used to trigger a callback function that is
-/// called when the button is pressed.  The various signals and how to use them
-/// are outlined below.
+/// called when the button is pressed.
 /// 
-/// The `GtkButton` widget can hold any valid child widget.  That is, it can hold
-/// almost any other standard `GtkWidget`.  The most commonly used child is the
+/// ![An example GtkButton](button.png)
+/// 
+/// The `GtkButton` widget can hold any valid child widget. That is, it can hold
+/// almost any other standard `GtkWidget`. The most commonly used child is the
 /// `GtkLabel`.
 /// 
 /// # CSS nodes
 /// 
-/// GtkButton has a single CSS node with name button. The node will get the
+/// `GtkButton` has a single CSS node with name button. The node will get the
 /// style classes .image-button or .text-button, if the content is just an
 /// image or label, respectively. It may also receive the .flat style class.
+/// When activating a button via the keyboard, the button will temporarily
+/// gain the .keyboard-activating style class.
 /// 
-/// Other style classes that are commonly used with GtkButton include
+/// Other style classes that are commonly used with `GtkButton` include
 /// .suggested-action and .destructive-action. In special cases, buttons
 /// can be made round by adding the .circular style class.
 /// 
-/// Button-like widgets like `GtkToggleButton`, `GtkMenuButton`, `GtkVolumeButton`,
-/// `GtkLockButton`, `GtkColorButton` or `GtkFontButton` use style classes such as
-/// .toggle, .popup, .scale, .lock, .color on the button node
-/// to differentiate themselves from a plain GtkButton.
+/// Button-like widgets like [class`Gtk.ToggleButton`], [class`Gtk.MenuButton`],
+/// [class`Gtk.VolumeButton`], [class`Gtk.LockButton`], [class`Gtk.ColorButton`]
+/// or [class`Gtk.FontButton`] use style classes such as .toggle, .popup, .scale,
+/// .lock, .color on the button node to differentiate themselves from a plain
+/// `GtkButton`.
 /// 
 /// # Accessibility
 /// 
-/// GtkButton uses the `GTK_ACCESSIBLE_ROLE_BUTTON` role.
+/// `GtkButton` uses the `GTK_ACCESSIBLE_ROLE_BUTTON` role.
 public struct ButtonRef: ButtonProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkButton` instance.
     /// For type-safe access, use the generated, typed pointer `button_ptr` property instead.
@@ -4619,8 +4782,9 @@ public extension ButtonRef {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
-        /// Creates a new `GtkButton` widget. To add a child widget to the button,
-    /// use `gtk_button_set_child()`.
+        /// Creates a new `GtkButton` widget.
+    /// 
+    /// To add a child widget to the button, use [method`Gtk.Button.set_child`].
     @inlinable init() {
         let rv = gtk_button_new()
         ptr = UnsafeMutableRawPointer(rv)
@@ -4636,19 +4800,18 @@ public extension ButtonRef {
         ptr = UnsafeMutableRawPointer(rv)
     }
 
-    /// Creates a `GtkButton` widget with a `GtkLabel` child containing the given
-    /// text.
+    /// Creates a `GtkButton` widget with a `GtkLabel` child.
     @inlinable init(label: UnsafePointer<CChar>!) {
         let rv = gtk_button_new_with_label(label)
         ptr = UnsafeMutableRawPointer(rv)
     }
 
     /// Creates a new `GtkButton` containing a label.
+    /// 
     /// If characters in `label` are preceded by an underscore, they are underlined.
     /// If you need a literal underscore character in a label, use “__” (two
     /// underscores). The first underlined character represents a keyboard
-    /// accelerator called a mnemonic.
-    /// Pressing Alt and that key activates the button.
+    /// accelerator called a mnemonic. Pressing Alt and that key activates the button.
     @inlinable init(mnemonic label: UnsafePointer<CChar>!) {
         let rv = gtk_button_new_with_mnemonic(label)
         ptr = UnsafeMutableRawPointer(rv)
@@ -4663,19 +4826,18 @@ public extension ButtonRef {
         return rv
     }
 
-    /// Creates a `GtkButton` widget with a `GtkLabel` child containing the given
-    /// text.
+    /// Creates a `GtkButton` widget with a `GtkLabel` child.
     @inlinable static func newWith(label: UnsafePointer<CChar>!) -> WidgetRef! {
         guard let rv = WidgetRef(gconstpointer: gconstpointer(gtk_button_new_with_label(label))) else { return nil }
         return rv
     }
 
     /// Creates a new `GtkButton` containing a label.
+    /// 
     /// If characters in `label` are preceded by an underscore, they are underlined.
     /// If you need a literal underscore character in a label, use “__” (two
     /// underscores). The first underlined character represents a keyboard
-    /// accelerator called a mnemonic.
-    /// Pressing Alt and that key activates the button.
+    /// accelerator called a mnemonic. Pressing Alt and that key activates the button.
     @inlinable static func newWith(mnemonic label: UnsafePointer<CChar>!) -> WidgetRef! {
         guard let rv = WidgetRef(gconstpointer: gconstpointer(gtk_button_new_with_mnemonic(label))) else { return nil }
         return rv
@@ -4687,31 +4849,35 @@ public extension ButtonRef {
 /// Use `Button` as a strong reference or owner of a `GtkButton` instance.
 ///
 /// The `GtkButton` widget is generally used to trigger a callback function that is
-/// called when the button is pressed.  The various signals and how to use them
-/// are outlined below.
+/// called when the button is pressed.
 /// 
-/// The `GtkButton` widget can hold any valid child widget.  That is, it can hold
-/// almost any other standard `GtkWidget`.  The most commonly used child is the
+/// ![An example GtkButton](button.png)
+/// 
+/// The `GtkButton` widget can hold any valid child widget. That is, it can hold
+/// almost any other standard `GtkWidget`. The most commonly used child is the
 /// `GtkLabel`.
 /// 
 /// # CSS nodes
 /// 
-/// GtkButton has a single CSS node with name button. The node will get the
+/// `GtkButton` has a single CSS node with name button. The node will get the
 /// style classes .image-button or .text-button, if the content is just an
 /// image or label, respectively. It may also receive the .flat style class.
+/// When activating a button via the keyboard, the button will temporarily
+/// gain the .keyboard-activating style class.
 /// 
-/// Other style classes that are commonly used with GtkButton include
+/// Other style classes that are commonly used with `GtkButton` include
 /// .suggested-action and .destructive-action. In special cases, buttons
 /// can be made round by adding the .circular style class.
 /// 
-/// Button-like widgets like `GtkToggleButton`, `GtkMenuButton`, `GtkVolumeButton`,
-/// `GtkLockButton`, `GtkColorButton` or `GtkFontButton` use style classes such as
-/// .toggle, .popup, .scale, .lock, .color on the button node
-/// to differentiate themselves from a plain GtkButton.
+/// Button-like widgets like [class`Gtk.ToggleButton`], [class`Gtk.MenuButton`],
+/// [class`Gtk.VolumeButton`], [class`Gtk.LockButton`], [class`Gtk.ColorButton`]
+/// or [class`Gtk.FontButton`] use style classes such as .toggle, .popup, .scale,
+/// .lock, .color on the button node to differentiate themselves from a plain
+/// `GtkButton`.
 /// 
 /// # Accessibility
 /// 
-/// GtkButton uses the `GTK_ACCESSIBLE_ROLE_BUTTON` role.
+/// `GtkButton` uses the `GTK_ACCESSIBLE_ROLE_BUTTON` role.
 open class Button: Widget, ButtonProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -4837,8 +5003,9 @@ open class Button: Widget, ButtonProtocol {
         super.init(retainingOpaquePointer: p)
     }
 
-    /// Creates a new `GtkButton` widget. To add a child widget to the button,
-    /// use `gtk_button_set_child()`.
+    /// Creates a new `GtkButton` widget.
+    /// 
+    /// To add a child widget to the button, use [method`Gtk.Button.set_child`].
     @inlinable public init() {
         let rv = gtk_button_new()
         super.init(gpointer: gpointer(rv))
@@ -4856,8 +5023,7 @@ open class Button: Widget, ButtonProtocol {
         if typeIsA(type: self.type, isAType: InitiallyUnownedClassRef.metatypeReference) { _ = self.refSink() } 
     }
 
-    /// Creates a `GtkButton` widget with a `GtkLabel` child containing the given
-    /// text.
+    /// Creates a `GtkButton` widget with a `GtkLabel` child.
     @inlinable public init(label: UnsafePointer<CChar>!) {
         let rv = gtk_button_new_with_label(label)
         super.init(gpointer: gpointer(rv))
@@ -4865,11 +5031,11 @@ open class Button: Widget, ButtonProtocol {
     }
 
     /// Creates a new `GtkButton` containing a label.
+    /// 
     /// If characters in `label` are preceded by an underscore, they are underlined.
     /// If you need a literal underscore character in a label, use “__” (two
     /// underscores). The first underlined character represents a keyboard
-    /// accelerator called a mnemonic.
-    /// Pressing Alt and that key activates the button.
+    /// accelerator called a mnemonic. Pressing Alt and that key activates the button.
     @inlinable public init(mnemonic label: UnsafePointer<CChar>!) {
         let rv = gtk_button_new_with_mnemonic(label)
         super.init(gpointer: gpointer(rv))
@@ -4887,8 +5053,7 @@ open class Button: Widget, ButtonProtocol {
         return rv
     }
 
-    /// Creates a `GtkButton` widget with a `GtkLabel` child containing the given
-    /// text.
+    /// Creates a `GtkButton` widget with a `GtkLabel` child.
     @inlinable public static func newWith(label: UnsafePointer<CChar>!) -> Widget! {
         guard let rv = Widget(gconstpointer: gconstpointer(gtk_button_new_with_label(label))) else { return nil }
         if typeIsA(type: rv.type, isAType: InitiallyUnownedClassRef.metatypeReference) { _ = rv.refSink() } 
@@ -4896,11 +5061,11 @@ open class Button: Widget, ButtonProtocol {
     }
 
     /// Creates a new `GtkButton` containing a label.
+    /// 
     /// If characters in `label` are preceded by an underscore, they are underlined.
     /// If you need a literal underscore character in a label, use “__” (two
     /// underscores). The first underlined character represents a keyboard
-    /// accelerator called a mnemonic.
-    /// Pressing Alt and that key activates the button.
+    /// accelerator called a mnemonic. Pressing Alt and that key activates the button.
     @inlinable public static func newWith(mnemonic label: UnsafePointer<CChar>!) -> Widget! {
         guard let rv = Widget(gconstpointer: gconstpointer(gtk_button_new_with_mnemonic(label))) else { return nil }
         if typeIsA(type: rv.type, isAType: InitiallyUnownedClassRef.metatypeReference) { _ = rv.refSink() } 
@@ -4916,7 +5081,9 @@ public enum ButtonPropertyName: String, PropertyNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case canFocus = "can-focus"
+    /// Whether the widget can receive pointer events.
     case canTarget = "can-target"
+    /// The child widget.
     case child = "child"
     /// A list of css classes applied to this widget.
     case cssClasses = "css-classes"
@@ -4925,7 +5092,7 @@ public enum ButtonPropertyName: String, PropertyNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case cssName = "css-name"
-    /// The cursor used by `widget`. See `gtk_widget_set_cursor()` for details.
+    /// The cursor used by `widget`.
     case cursor = "cursor"
     /// Whether the widget should grab focus when it is clicked with the mouse.
     /// 
@@ -4933,22 +5100,31 @@ public enum ButtonPropertyName: String, PropertyNameProtocol {
     case focusOnClick = "focus-on-click"
     /// Whether this widget itself will accept the input focus.
     case focusable = "focusable"
-    /// How to distribute horizontal space if widget gets extra space, see `GtkAlign`
+    /// How to distribute horizontal space if widget gets extra space.
     case halign = "halign"
+    /// Whether the widget is the default widget.
     case hasDefault = "has-default"
+    /// Whether the widget has the input focus.
     case hasFocus = "has-focus"
+    /// Whether the button has a frame.
     case hasFrame = "has-frame"
-    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
+    /// Enables or disables the emission of the `query-tooltip` signal on `widget`.
+    /// 
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
-    /// whether it will provide a tooltip or not.
+    /// the widget will be queried using [signal`Gtk.Widget::query-tooltip`] to
+    /// determine whether it will provide a tooltip or not.
     case hasTooltip = "has-tooltip"
+    /// Override for height request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case heightRequest = "height-request"
-    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
+    /// Whether to expand horizontally.
     case hexpand = "hexpand"
-    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
+    /// Whether to use the `hexpand` property.
     case hexpandSet = "hexpand-set"
+    /// The name of the icon used to automatically populate the button.
     case iconName = "icon-name"
+    /// Text of the label inside the button, if the button contains a label widget.
     case label = "label"
     /// The `GtkLayoutManager` instance to use to compute the preferred size
     /// of the widget, and allocate its children.
@@ -4960,78 +5136,94 @@ public enum ButtonPropertyName: String, PropertyNameProtocol {
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginBottom = "margin-bottom"
-    /// Margin on end of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on end of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginEnd = "margin-end"
-    /// Margin on start of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on start of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginStart = "margin-start"
     /// Margin on top side of widget.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginTop = "margin-top"
+    /// The name of the widget.
     case name = "name"
-    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
-    /// more details about window opacity.
+    /// The requested opacity of the widget.
     case opacity = "opacity"
     /// How content outside the widget's content area is treated.
     /// 
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case overflow = "overflow"
+    /// The parent widget of this widget.
     case parent = "parent"
+    /// Whether the widget will receive the default action when it is focused.
     case receivesDefault = "receives-default"
-    /// The `GtkRoot` widget of the widget tree containing this widget or `nil` if
-    /// the widget is not contained in a root widget.
+    /// The `GtkRoot` widget of the widget tree containing this widget.
+    /// 
+    /// This will be `nil` if the widget is not contained in a root widget.
     case root = "root"
-    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
-    /// more details about widget scaling.
+    /// The scale factor of the widget.
     case scaleFactor = "scale-factor"
+    /// Whether the widget responds to input.
     case sensitive = "sensitive"
     /// Sets the text of tooltip to be the given string, which is marked up
-    /// with the [Pango text markup language](#PangoMarkupFormat).
-    /// Also see `gtk_tooltip_set_markup()`.
+    /// with Pango markup.
+    /// 
+    /// Also see [method`Gtk.Tooltip.set_markup`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case tooltipMarkup = "tooltip-markup"
     /// Sets the text of tooltip to be the given string.
     /// 
-    /// Also see `gtk_tooltip_set_text()`.
+    /// Also see [method`Gtk.Tooltip.set_text`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case tooltipText = "tooltip-text"
+    /// If set, an underline in the text indicates that the following character is
+    /// to be used as mnemonic.
     case useUnderline = "use-underline"
-    /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
+    /// How to distribute vertical space if widget gets extra space.
     case valign = "valign"
-    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
+    /// Whether to expand vertically.
     case vexpand = "vexpand"
-    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
+    /// Whether to use the `vexpand` property.
     case vexpandSet = "vexpand-set"
+    /// Whether the widget is visible.
     case visible = "visible"
+    /// Override for width request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case widthRequest = "width-request"
 }
 
@@ -5089,37 +5281,40 @@ public extension ButtonProtocol {
 }
 
 public enum ButtonSignalName: String, SignalNameProtocol {
-    /// The `activate` signal on GtkButton is an action signal and
-    /// emitting it causes the button to animate press then release.
-    /// Applications should never connect to this signal, but use the
-    /// `GtkButton::clicked` signal.
+    /// Emitted to animate press then release.
+    /// 
+    /// This is an action signal. Applications should never connect
+    /// to this signal, but use the [signal`Gtk.Button::clicked`] signal.
     case activate = "activate"
     /// Emitted when the button has been activated (pressed and released).
     case clicked = "clicked"
     /// Signals that all holders of a reference to the widget should release
-    /// the reference that they hold. May result in finalization of the widget
-    /// if all references are released.
+    /// the reference that they hold.
+    /// 
+    /// May result in finalization of the widget if all references are released.
     /// 
     /// This signal is not suitable for saving widget state.
     case destroy = "destroy"
-    /// The `direction-changed` signal is emitted when the text direction
-    /// of a widget changes.
+    /// Emitted when the text direction of a widget changes.
     case directionChanged = "direction-changed"
-    /// The `hide` signal is emitted when `widget` is hidden, for example with
-    /// `gtk_widget_hide()`.
+    /// Emitted when `widget` is hidden.
     case hide = "hide"
-    /// Gets emitted if keyboard navigation fails.
-    /// See `gtk_widget_keynav_failed()` for details.
+    /// Emitted if keyboard navigation fails.
+    /// 
+    /// See [method`Gtk.Widget.keynav_failed`] for details.
     case keynavFailed = "keynav-failed"
-    /// The `map` signal is emitted when `widget` is going to be mapped, that is
-    /// when the widget is visible (which is controlled with
-    /// `gtk_widget_set_visible()`) and all its parents up to the toplevel widget
+    /// Emitted when `widget` is going to be mapped.
+    /// 
+    /// A widget is mapped when the widget is visible (which is controlled with
+    /// [property`Gtk.Widget:visible`]) and all its parents up to the toplevel widget
     /// are also visible.
     /// 
     /// The `map` signal can be used to determine whether a widget will be drawn,
     /// for instance it can resume an animation that was stopped during the
-    /// emission of `GtkWidget::unmap`.
+    /// emission of [signal`Gtk.Widget::unmap`].
     case map = "map"
+    /// Emitted when a widget is activated via a mnemonic.
+    /// 
     /// The default handler for this signal activates `widget` if `group_cycling`
     /// is `false`, or just makes `widget` grab focus if `group_cycling` is `true`.
     case mnemonicActivate = "mnemonic-activate"
@@ -5150,9 +5345,11 @@ public enum ButtonSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// Emitted when `GtkWidget:has-tooltip` is `true` and the hover timeout
-    /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
-    /// focus in keyboard mode.
+    /// Emitted when the widgets tooltip is about to be shown.
+    /// 
+    /// This happens when the [property`Gtk.Widget:has-tooltip`] property
+    /// is `true` and the hover timeout has expired with the cursor hovering
+    /// "above" `widget`; or emitted when `widget` got focus in keyboard mode.
     /// 
     /// Using the given coordinates, the signal handler should determine
     /// whether a tooltip should be shown for `widget`. If this is the case
@@ -5163,27 +5360,29 @@ public enum ButtonSignalName: String, SignalNameProtocol {
     /// The signal handler is free to manipulate `tooltip` with the therefore
     /// destined function calls.
     case queryTooltip = "query-tooltip"
-    /// The `realize` signal is emitted when `widget` is associated with a
-    /// `GdkSurface`, which means that `gtk_widget_realize()` has been called or the
-    /// widget has been mapped (that is, it is going to be drawn).
-    case realize = "realize"
-    /// The `show` signal is emitted when `widget` is shown, for example with
-    /// `gtk_widget_show()`.
-    case show = "show"
-    /// The `state-flags-changed` signal is emitted when the widget state
-    /// changes, see `gtk_widget_get_state_flags()`.
-    case stateFlagsChanged = "state-flags-changed"
-    /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
-    /// means that either it or any of its parents up to the toplevel widget have
-    /// been set as hidden.
+    /// Emitted when `widget` is associated with a `GdkSurface`.
     /// 
-    /// As `unmap` indicates that a widget will not be shown any longer, it can be
-    /// used to, for example, stop an animation on the widget.
+    /// This means that [method`Gtk.Widget.realize`] has been called
+    /// or the widget has been mapped (that is, it is going to be drawn).
+    case realize = "realize"
+    /// Emitted when `widget` is shown.
+    case show = "show"
+    /// Emitted when the widget state changes.
+    /// 
+    /// See [method`Gtk.Widget.get_state_flags`].
+    case stateFlagsChanged = "state-flags-changed"
+    /// Emitted when `widget` is going to be unmapped.
+    /// 
+    /// A widget is unmapped when either it or any of its parents up to the
+    /// toplevel widget have been set as hidden.
+    /// 
+    /// As `unmap` indicates that a widget will not be shown any longer,
+    /// it can be used to, for example, stop an animation on the widget.
     case unmap = "unmap"
-    /// The `unrealize` signal is emitted when the `GdkSurface` associated with
-    /// `widget` is destroyed, which means that `gtk_widget_unrealize()` has been
-    /// called or the widget has been unmapped (that is, it is going to be
-    /// hidden).
+    /// Emitted when the `GdkSurface` associated with `widget` is destroyed.
+    /// 
+    /// This means that [method`Gtk.Widget.unrealize`] has been called
+    /// or the widget has been unmapped (that is, it is going to be hidden).
     case unrealize = "unrealize"
     /// Whether the widget or any of its descendents can accept
     /// the input focus.
@@ -5191,7 +5390,9 @@ public enum ButtonSignalName: String, SignalNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case notifyCanFocus = "notify::can-focus"
+    /// Whether the widget can receive pointer events.
     case notifyCanTarget = "notify::can-target"
+    /// The child widget.
     case notifyChild = "notify::child"
     /// A list of css classes applied to this widget.
     case notifyCssClasses = "notify::css-classes"
@@ -5200,7 +5401,7 @@ public enum ButtonSignalName: String, SignalNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case notifyCssName = "notify::css-name"
-    /// The cursor used by `widget`. See `gtk_widget_set_cursor()` for details.
+    /// The cursor used by `widget`.
     case notifyCursor = "notify::cursor"
     /// Whether the widget should grab focus when it is clicked with the mouse.
     /// 
@@ -5208,22 +5409,31 @@ public enum ButtonSignalName: String, SignalNameProtocol {
     case notifyFocusOnClick = "notify::focus-on-click"
     /// Whether this widget itself will accept the input focus.
     case notifyFocusable = "notify::focusable"
-    /// How to distribute horizontal space if widget gets extra space, see `GtkAlign`
+    /// How to distribute horizontal space if widget gets extra space.
     case notifyHalign = "notify::halign"
+    /// Whether the widget is the default widget.
     case notifyHasDefault = "notify::has-default"
+    /// Whether the widget has the input focus.
     case notifyHasFocus = "notify::has-focus"
+    /// Whether the button has a frame.
     case notifyHasFrame = "notify::has-frame"
-    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
+    /// Enables or disables the emission of the `query-tooltip` signal on `widget`.
+    /// 
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
-    /// whether it will provide a tooltip or not.
+    /// the widget will be queried using [signal`Gtk.Widget::query-tooltip`] to
+    /// determine whether it will provide a tooltip or not.
     case notifyHasTooltip = "notify::has-tooltip"
+    /// Override for height request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case notifyHeightRequest = "notify::height-request"
-    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
+    /// Whether to expand horizontally.
     case notifyHexpand = "notify::hexpand"
-    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
+    /// Whether to use the `hexpand` property.
     case notifyHexpandSet = "notify::hexpand-set"
+    /// The name of the icon used to automatically populate the button.
     case notifyIconName = "notify::icon-name"
+    /// Text of the label inside the button, if the button contains a label widget.
     case notifyLabel = "notify::label"
     /// The `GtkLayoutManager` instance to use to compute the preferred size
     /// of the widget, and allocate its children.
@@ -5235,78 +5445,94 @@ public enum ButtonSignalName: String, SignalNameProtocol {
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginBottom = "notify::margin-bottom"
-    /// Margin on end of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on end of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginEnd = "notify::margin-end"
-    /// Margin on start of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on start of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginStart = "notify::margin-start"
     /// Margin on top side of widget.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginTop = "notify::margin-top"
+    /// The name of the widget.
     case notifyName = "notify::name"
-    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
-    /// more details about window opacity.
+    /// The requested opacity of the widget.
     case notifyOpacity = "notify::opacity"
     /// How content outside the widget's content area is treated.
     /// 
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case notifyOverflow = "notify::overflow"
+    /// The parent widget of this widget.
     case notifyParent = "notify::parent"
+    /// Whether the widget will receive the default action when it is focused.
     case notifyReceivesDefault = "notify::receives-default"
-    /// The `GtkRoot` widget of the widget tree containing this widget or `nil` if
-    /// the widget is not contained in a root widget.
+    /// The `GtkRoot` widget of the widget tree containing this widget.
+    /// 
+    /// This will be `nil` if the widget is not contained in a root widget.
     case notifyRoot = "notify::root"
-    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
-    /// more details about widget scaling.
+    /// The scale factor of the widget.
     case notifyScaleFactor = "notify::scale-factor"
+    /// Whether the widget responds to input.
     case notifySensitive = "notify::sensitive"
     /// Sets the text of tooltip to be the given string, which is marked up
-    /// with the [Pango text markup language](#PangoMarkupFormat).
-    /// Also see `gtk_tooltip_set_markup()`.
+    /// with Pango markup.
+    /// 
+    /// Also see [method`Gtk.Tooltip.set_markup`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case notifyTooltipMarkup = "notify::tooltip-markup"
     /// Sets the text of tooltip to be the given string.
     /// 
-    /// Also see `gtk_tooltip_set_text()`.
+    /// Also see [method`Gtk.Tooltip.set_text`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case notifyTooltipText = "notify::tooltip-text"
+    /// If set, an underline in the text indicates that the following character is
+    /// to be used as mnemonic.
     case notifyUseUnderline = "notify::use-underline"
-    /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
+    /// How to distribute vertical space if widget gets extra space.
     case notifyValign = "notify::valign"
-    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
+    /// Whether to expand vertically.
     case notifyVexpand = "notify::vexpand"
-    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
+    /// Whether to use the `vexpand` property.
     case notifyVexpandSet = "notify::vexpand-set"
+    /// Whether the widget is visible.
     case notifyVisible = "notify::visible"
+    /// Override for width request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case notifyWidthRequest = "notify::width-request"
 }
 
@@ -5338,10 +5564,10 @@ public extension ButtonProtocol {
     }
     
     
-    /// The `activate` signal on GtkButton is an action signal and
-    /// emitting it causes the button to animate press then release.
-    /// Applications should never connect to this signal, but use the
-    /// `GtkButton::clicked` signal.
+    /// Emitted to animate press then release.
+    /// 
+    /// This is an action signal. Applications should never connect
+    /// to this signal, but use the [signal`Gtk.Button::clicked`] signal.
     /// - Note: This represents the underlying `activate` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -5655,24 +5881,29 @@ public extension ButtonProtocol {
         return rv
     }
 
-    /// Returns the icon name set via `gtk_button_set_icon_name()`.
+    /// Returns the icon name of the button.
+    /// 
+    /// If the icon name has not been set with [method`Gtk.Button.set_icon_name`]
+    /// the return value will be `nil`. This will be the case if you create
+    /// an empty button with [ctor`Gtk.Button.new`] to use as a container.
     @inlinable func getIconName() -> String! {
         let rv = gtk_button_get_icon_name(button_ptr).map({ String(cString: $0) })
         return rv
     }
 
-    /// Fetches the text from the label of the button, as set by
-    /// `gtk_button_set_label()`. If the label text has not
-    /// been set the return value will be `nil`. This will be the
-    /// case if you create an empty button with `gtk_button_new()` to
-    /// use as a container.
+    /// Fetches the text from the label of the button.
+    /// 
+    /// If the label text has not been set with [method`Gtk.Button.set_label`]
+    /// the return value will be `nil`. This will be the case if you create
+    /// an empty button with [ctor`Gtk.Button.new`] to use as a container.
     @inlinable func getLabel() -> String! {
         let rv = gtk_button_get_label(button_ptr).map({ String(cString: $0) })
         return rv
     }
 
-    /// Returns whether an embedded underline in the button label indicates a
-    /// mnemonic. See `gtk_button_set_use_underline()`.
+    /// gets whether underlines are interpreted as mnemonics.
+    /// 
+    /// See [method`Gtk.Button.set_use_underline`].
     @inlinable func getUseUnderline() -> Bool {
         let rv = ((gtk_button_get_use_underline(button_ptr)) != 0)
         return rv
@@ -5689,16 +5920,18 @@ public extension ButtonProtocol {
     
     }
 
-    /// Sets the style of the button. Buttons can has a flat appearance
-    /// or have a frame drawn around them.
+    /// Sets the style of the button.
+    /// 
+    /// Buttons can has a flat appearance or have a frame drawn around them.
     @inlinable func set(hasFrame: Bool) {
         gtk_button_set_has_frame(button_ptr, gboolean((hasFrame) ? 1 : 0))
     
     }
 
-    /// Adds a `GtkImage` with the given icon name as a child. If `button` already
-    /// contains a child widget, that child widget will be removed and replaced
-    /// with the image.
+    /// Adds a `GtkImage` with the given icon name as a child.
+    /// 
+    /// If `button` already contains a child widget, that child widget will
+    /// be removed and replaced with the image.
     @inlinable func set(iconName: UnsafePointer<CChar>!) {
         gtk_button_set_icon_name(button_ptr, iconName)
     
@@ -5712,12 +5945,15 @@ public extension ButtonProtocol {
     
     }
 
+    /// Sets whether to use underlines as mnemonics.
+    /// 
     /// If true, an underline in the text of the button label indicates
     /// the next character should be used for the mnemonic accelerator key.
     @inlinable func set(useUnderline: Bool) {
         gtk_button_set_use_underline(button_ptr, gboolean((useUnderline) ? 1 : 0))
     
     }
+    /// The child widget.
     @inlinable var child: WidgetRef! {
         /// Gets the child widget of `button`.
         get {
@@ -5737,34 +5973,45 @@ public extension ButtonProtocol {
             let rv = ((gtk_button_get_has_frame(button_ptr)) != 0)
             return rv
         }
-        /// Sets the style of the button. Buttons can has a flat appearance
-        /// or have a frame drawn around them.
+        /// Sets the style of the button.
+        /// 
+        /// Buttons can has a flat appearance or have a frame drawn around them.
         nonmutating set {
             gtk_button_set_has_frame(button_ptr, gboolean((newValue) ? 1 : 0))
         }
     }
 
-    /// Returns the icon name set via `gtk_button_set_icon_name()`.
+    /// Returns the icon name of the button.
+    /// 
+    /// If the icon name has not been set with [method`Gtk.Button.set_icon_name`]
+    /// the return value will be `nil`. This will be the case if you create
+    /// an empty button with [ctor`Gtk.Button.new`] to use as a container.
     @inlinable var iconName: String! {
-        /// Returns the icon name set via `gtk_button_set_icon_name()`.
+        /// Returns the icon name of the button.
+        /// 
+        /// If the icon name has not been set with [method`Gtk.Button.set_icon_name`]
+        /// the return value will be `nil`. This will be the case if you create
+        /// an empty button with [ctor`Gtk.Button.new`] to use as a container.
         get {
             let rv = gtk_button_get_icon_name(button_ptr).map({ String(cString: $0) })
             return rv
         }
-        /// Adds a `GtkImage` with the given icon name as a child. If `button` already
-        /// contains a child widget, that child widget will be removed and replaced
-        /// with the image.
+        /// Adds a `GtkImage` with the given icon name as a child.
+        /// 
+        /// If `button` already contains a child widget, that child widget will
+        /// be removed and replaced with the image.
         nonmutating set {
             gtk_button_set_icon_name(button_ptr, newValue)
         }
     }
 
+    /// Text of the label inside the button, if the button contains a label widget.
     @inlinable var label: String! {
-        /// Fetches the text from the label of the button, as set by
-        /// `gtk_button_set_label()`. If the label text has not
-        /// been set the return value will be `nil`. This will be the
-        /// case if you create an empty button with `gtk_button_new()` to
-        /// use as a container.
+        /// Fetches the text from the label of the button.
+        /// 
+        /// If the label text has not been set with [method`Gtk.Button.set_label`]
+        /// the return value will be `nil`. This will be the case if you create
+        /// an empty button with [ctor`Gtk.Button.new`] to use as a container.
         get {
             let rv = gtk_button_get_label(button_ptr).map({ String(cString: $0) })
             return rv
@@ -5777,15 +6024,19 @@ public extension ButtonProtocol {
         }
     }
 
-    /// Returns whether an embedded underline in the button label indicates a
-    /// mnemonic. See `gtk_button_set_use_underline()`.
+    /// gets whether underlines are interpreted as mnemonics.
+    /// 
+    /// See [method`Gtk.Button.set_use_underline`].
     @inlinable var useUnderline: Bool {
-        /// Returns whether an embedded underline in the button label indicates a
-        /// mnemonic. See `gtk_button_set_use_underline()`.
+        /// gets whether underlines are interpreted as mnemonics.
+        /// 
+        /// See [method`Gtk.Button.set_use_underline`].
         get {
             let rv = ((gtk_button_get_use_underline(button_ptr)) != 0)
             return rv
         }
+        /// Sets whether to use underlines as mnemonics.
+        /// 
         /// If true, an underline in the text of the button label indicates
         /// the next character should be used for the mnemonic accelerator key.
         nonmutating set {
@@ -5806,7 +6057,7 @@ public extension ButtonProtocol {
 /// For a concrete class that implements these methods and properties, see `CClosureExpression`.
 /// Alternatively, use `CClosureExpressionRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
+/// A variant of `GtkClosureExpression` using a C closure.
 public protocol CClosureExpressionProtocol: ExpressionProtocol {
         /// Untyped pointer to the underlying `GtkCClosureExpression` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -5822,7 +6073,7 @@ public protocol CClosureExpressionProtocol: ExpressionProtocol {
 /// It exposes methods that can operate on this data type through `CClosureExpressionProtocol` conformance.
 /// Use `CClosureExpressionRef` only as an `unowned` reference to an existing `GtkCClosureExpression` instance.
 ///
-
+/// A variant of `GtkClosureExpression` using a C closure.
 public struct CClosureExpressionRef: CClosureExpressionProtocol {
         /// Untyped pointer to the underlying `GtkCClosureExpression` instance.
     /// For type-safe access, use the generated, typed pointer `cclosure_expression_ptr` property instead.
@@ -5899,20 +6150,13 @@ public extension CClosureExpressionRef {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
-        /// This function is a variant of `gtk_closure_expression_new()` that
-    /// creates a `GClosure` by calling `g_cclosure_new()` with the given
-    /// `callback_func`, `user_data` and `user_destroy`.
-    @inlinable init( valueType: GType, marshal: GClosureMarshal! = nil, nParams: Int, params: UnsafeMutablePointer<UnsafeMutablePointer<GtkExpression>?>!, callbackFunc: GCallback?, userData: gpointer! = nil, userDestroy: GClosureNotify? = nil) {
-        let rv = gtk_cclosure_expression_new(valueType, marshal, guint(nParams), params, callbackFunc, userData, userDestroy)
-        ptr = UnsafeMutableRawPointer(rv)
     }
-}
 
 /// The `CClosureExpression` type acts as a reference-counted owner of an underlying `GtkCClosureExpression` instance.
 /// It provides the methods that can operate on this data type through `CClosureExpressionProtocol` conformance.
 /// Use `CClosureExpression` as a strong reference or owner of a `GtkCClosureExpression` instance.
 ///
-
+/// A variant of `GtkClosureExpression` using a C closure.
 open class CClosureExpression: Expression, CClosureExpressionProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -6038,13 +6282,6 @@ open class CClosureExpression: Expression, CClosureExpressionProtocol {
         super.init(retainingOpaquePointer: p)
     }
 
-    /// This function is a variant of `gtk_closure_expression_new()` that
-    /// creates a `GClosure` by calling `g_cclosure_new()` with the given
-    /// `callback_func`, `user_data` and `user_destroy`.
-    @inlinable public init( valueType: GType, marshal: GClosureMarshal! = nil, nParams: Int, params: UnsafeMutablePointer<UnsafeMutablePointer<GtkExpression>?>!, callbackFunc: GCallback?, userData: gpointer! = nil, userDestroy: GClosureNotify? = nil) {
-        let rv = gtk_cclosure_expression_new(valueType, marshal, guint(nParams), params, callbackFunc, userData, userDestroy)
-        super.init(gpointer: gpointer(rv))
-    }
 
 
 }

@@ -21,9 +21,10 @@ import Gdk
 /// Alternatively, use `OrientableRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
 /// The `GtkOrientable` interface is implemented by all widgets that can be
-/// oriented horizontally or vertically. `GtkOrientable` is more flexible in that
-/// it allows the orientation to be changed at runtime, allowing the widgets
-/// to “flip”.
+/// oriented horizontally or vertically.
+/// 
+/// `GtkOrientable` is more flexible in that it allows the orientation to be
+/// changed at runtime, allowing the widgets to “flip”.
 public protocol OrientableProtocol {
         /// Untyped pointer to the underlying `GtkOrientable` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -40,9 +41,10 @@ public protocol OrientableProtocol {
 /// Use `OrientableRef` only as an `unowned` reference to an existing `GtkOrientable` instance.
 ///
 /// The `GtkOrientable` interface is implemented by all widgets that can be
-/// oriented horizontally or vertically. `GtkOrientable` is more flexible in that
-/// it allows the orientation to be changed at runtime, allowing the widgets
-/// to “flip”.
+/// oriented horizontally or vertically.
+/// 
+/// `GtkOrientable` is more flexible in that it allows the orientation to be
+/// changed at runtime, allowing the widgets to “flip”.
 public struct OrientableRef: OrientableProtocol {
         /// Untyped pointer to the underlying `GtkOrientable` instance.
     /// For type-safe access, use the generated, typed pointer `orientable_ptr` property instead.
@@ -126,9 +128,10 @@ public extension OrientableRef {
 /// Use `Orientable` as a strong reference or owner of a `GtkOrientable` instance.
 ///
 /// The `GtkOrientable` interface is implemented by all widgets that can be
-/// oriented horizontally or vertically. `GtkOrientable` is more flexible in that
-/// it allows the orientation to be changed at runtime, allowing the widgets
-/// to “flip”.
+/// oriented horizontally or vertically.
+/// 
+/// `GtkOrientable` is more flexible in that it allows the orientation to be
+/// changed at runtime, allowing the widgets to “flip”.
 open class Orientable: OrientableProtocol {
         /// Untyped pointer to the underlying `GtkOrientable` instance.
     /// For type-safe access, use the generated, typed pointer `orientable_ptr` property instead.
@@ -379,7 +382,12 @@ public extension OrientableProtocol {
 /// For a concrete class that implements these methods and properties, see `PrintOperationPreview`.
 /// Alternatively, use `PrintOperationPreviewRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
+/// `GtkPrintOperationPreview` is the interface that is used to
+/// implement print preview.
+/// 
+/// A `GtkPrintOperationPreview` object is passed to the
+/// [signal`Gtk.PrintOperation::preview`] signal by
+/// [class`Gtk.PrintOperation`].
 public protocol PrintOperationPreviewProtocol {
         /// Untyped pointer to the underlying `GtkPrintOperationPreview` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -395,7 +403,12 @@ public protocol PrintOperationPreviewProtocol {
 /// It exposes methods that can operate on this data type through `PrintOperationPreviewProtocol` conformance.
 /// Use `PrintOperationPreviewRef` only as an `unowned` reference to an existing `GtkPrintOperationPreview` instance.
 ///
-
+/// `GtkPrintOperationPreview` is the interface that is used to
+/// implement print preview.
+/// 
+/// A `GtkPrintOperationPreview` object is passed to the
+/// [signal`Gtk.PrintOperation::preview`] signal by
+/// [class`Gtk.PrintOperation`].
 public struct PrintOperationPreviewRef: PrintOperationPreviewProtocol {
         /// Untyped pointer to the underlying `GtkPrintOperationPreview` instance.
     /// For type-safe access, use the generated, typed pointer `print_operation_preview_ptr` property instead.
@@ -478,7 +491,12 @@ public extension PrintOperationPreviewRef {
 /// It provides the methods that can operate on this data type through `PrintOperationPreviewProtocol` conformance.
 /// Use `PrintOperationPreview` as a strong reference or owner of a `GtkPrintOperationPreview` instance.
 ///
-
+/// `GtkPrintOperationPreview` is the interface that is used to
+/// implement print preview.
+/// 
+/// A `GtkPrintOperationPreview` object is passed to the
+/// [signal`Gtk.PrintOperation::preview`] signal by
+/// [class`Gtk.PrintOperation`].
 open class PrintOperationPreview: PrintOperationPreviewProtocol {
         /// Untyped pointer to the underlying `GtkPrintOperationPreview` instance.
     /// For type-safe access, use the generated, typed pointer `print_operation_preview_ptr` property instead.
@@ -626,12 +644,11 @@ open class PrintOperationPreview: PrintOperationPreviewProtocol {
 // MARK: no PrintOperationPreview properties
 
 public enum PrintOperationPreviewSignalName: String, SignalNameProtocol {
-    /// The `got-page-size` signal is emitted once for each page
-    /// that gets rendered to the preview.
+    /// Emitted once for each page that gets rendered to the preview.
     /// 
     /// A handler for this signal should update the `context`
     /// according to `page_setup` and set up a suitable cairo
-    /// context, using `gtk_print_context_set_cairo_context()`.
+    /// context, using [method`Gtk.PrintContext.set_cairo_context`].
     case gotPageSize = "got-page-size"
     /// The `ready` signal gets emitted once per preview operation,
     /// before the first page is rendered.
@@ -669,12 +686,11 @@ public extension PrintOperationPreviewProtocol {
     }
     
     
-    /// The `got-page-size` signal is emitted once for each page
-    /// that gets rendered to the preview.
+    /// Emitted once for each page that gets rendered to the preview.
     /// 
     /// A handler for this signal should update the `context`
     /// according to `page_setup` and set up a suitable cairo
-    /// context, using `gtk_print_context_set_cairo_context()`.
+    /// context, using [method`Gtk.PrintContext.set_cairo_context`].
     /// - Note: This represents the underlying `got-page-size` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -753,12 +769,14 @@ public extension PrintOperationPreviewProtocol {
         return rv
     }
 
-    /// Renders a page to the preview, using the print context that
-    /// was passed to the `GtkPrintOperation::preview` handler together
+    /// Renders a page to the preview.
+    /// 
+    /// This is using the print context that was passed to the
+    /// [signal`Gtk.PrintOperation::preview`] handler together
     /// with `preview`.
     /// 
-    /// A custom iprint preview should use this function in its `expose`
-    /// handler to render the currently selected page.
+    /// A custom print preview should use this function to render
+    /// the currently selected page.
     /// 
     /// Note that this function requires a suitable cairo context to
     /// be associated with the print context.

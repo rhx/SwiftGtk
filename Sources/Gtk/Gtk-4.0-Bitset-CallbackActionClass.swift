@@ -20,7 +20,8 @@ import Gdk
 /// For a concrete class that implements these methods and properties, see `Bitset`.
 /// Alternatively, use `BitsetRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// `GtkBitset` is a data structure for representing a set of unsigned integers.
+/// A `GtkBitset` represents a set of unsigned integers.
+/// 
 /// Another name for this data structure is "bitmap".
 /// 
 /// The current implementation is based on [roaring bitmaps](https://roaringbitmap.org/).
@@ -30,10 +31,10 @@ import Gdk
 /// in the set. `GtkBitset` also contains various functions to query metadata about
 /// the bitset, such as the minimum or maximum values or its size.
 /// 
-/// The fastest way to iterate values in a bitset is `GtkBitsetIter`.
+/// The fastest way to iterate values in a bitset is [struct`Gtk.BitsetIter`].
 /// 
 /// The main use case for `GtkBitset` is implementing complex selections for
-/// `GtkSelectionModel`.
+/// [iface`Gtk.SelectionModel`].
 public protocol BitsetProtocol {
         /// Untyped pointer to the underlying `GtkBitset` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -49,7 +50,8 @@ public protocol BitsetProtocol {
 /// It exposes methods that can operate on this data type through `BitsetProtocol` conformance.
 /// Use `BitsetRef` only as an `unowned` reference to an existing `GtkBitset` instance.
 ///
-/// `GtkBitset` is a data structure for representing a set of unsigned integers.
+/// A `GtkBitset` represents a set of unsigned integers.
+/// 
 /// Another name for this data structure is "bitmap".
 /// 
 /// The current implementation is based on [roaring bitmaps](https://roaringbitmap.org/).
@@ -59,10 +61,10 @@ public protocol BitsetProtocol {
 /// in the set. `GtkBitset` also contains various functions to query metadata about
 /// the bitset, such as the minimum or maximum values or its size.
 /// 
-/// The fastest way to iterate values in a bitset is `GtkBitsetIter`.
+/// The fastest way to iterate values in a bitset is [struct`Gtk.BitsetIter`].
 /// 
 /// The main use case for `GtkBitset` is implementing complex selections for
-/// `GtkSelectionModel`.
+/// [iface`Gtk.SelectionModel`].
 public struct BitsetRef: BitsetProtocol {
         /// Untyped pointer to the underlying `GtkBitset` instance.
     /// For type-safe access, use the generated, typed pointer `bitset_ptr` property instead.
@@ -161,7 +163,8 @@ public extension BitsetRef {
 /// It provides the methods that can operate on this data type through `BitsetProtocol` conformance.
 /// Use `Bitset` as a strong reference or owner of a `GtkBitset` instance.
 ///
-/// `GtkBitset` is a data structure for representing a set of unsigned integers.
+/// A `GtkBitset` represents a set of unsigned integers.
+/// 
 /// Another name for this data structure is "bitmap".
 /// 
 /// The current implementation is based on [roaring bitmaps](https://roaringbitmap.org/).
@@ -171,10 +174,10 @@ public extension BitsetRef {
 /// in the set. `GtkBitset` also contains various functions to query metadata about
 /// the bitset, such as the minimum or maximum values or its size.
 /// 
-/// The fastest way to iterate values in a bitset is `GtkBitsetIter`.
+/// The fastest way to iterate values in a bitset is [struct`Gtk.BitsetIter`].
 /// 
 /// The main use case for `GtkBitset` is implementing complex selections for
-/// `GtkSelectionModel`.
+/// [iface`Gtk.SelectionModel`].
 open class Bitset: BitsetProtocol {
         /// Untyped pointer to the underlying `GtkBitset` instance.
     /// For type-safe access, use the generated, typed pointer `bitset_ptr` property instead.
@@ -384,9 +387,10 @@ public extension BitsetProtocol {
         return rv
     }
 
-    /// Sets `self` to be the symmetric difference of `self` and `other`, that
-    /// is set `self` to contain all values that were either contained in `self`
-    /// or in `other`, but not in both.
+    /// Sets `self` to be the symmetric difference of `self` and `other`.
+    /// 
+    /// The symmetric difference is set `self` to contain all values that
+    /// were either contained in `self` or in `other`, but not in both.
     /// This operation is also called an XOR.
     /// 
     /// It is allowed for `self` and `other` to be the same bitset. The bitset
@@ -402,15 +406,17 @@ public extension BitsetProtocol {
         return rv
     }
 
-    /// Returns the largest value in `self`. If `self` is empty,
-    /// 0 is returned.
+    /// Returns the largest value in `self`.
+    /// 
+    /// If `self` is empty, 0 is returned.
     @inlinable func getMaximum() -> Int {
         let rv = Int(gtk_bitset_get_maximum(bitset_ptr))
         return rv
     }
 
-    /// Returns the smallest value in `self`. If `self` is empty,
-    /// G_MAXUINT is returned.
+    /// Returns the smallest value in `self`.
+    /// 
+    /// If `self` is empty, `G_MAXUINT` is returned.
     @inlinable func getMinimum() -> Int {
         let rv = Int(gtk_bitset_get_minimum(bitset_ptr))
         return rv
@@ -425,11 +431,13 @@ public extension BitsetProtocol {
     }
 
     /// Gets the number of values that were added to the set.
+    /// 
     /// For example, if the set is empty, 0 is returned.
     /// 
-    /// Note that this function returns a `guint64`, because when all values are
-    /// set, the return value is `G_MAXUINT` + 1. Unless you are sure this cannot
-    /// happen (it can't with `GListModel`), be sure to use a 64bit type.
+    /// Note that this function returns a `guint64`, because when all
+    /// values are set, the return value is `G_MAXUINT + 1`. Unless you
+    /// are sure this cannot happen (it can't with `GListModel`), be sure
+    /// to use a 64bit type.
     @inlinable func getSize() -> guint64 {
         let rv = gtk_bitset_get_size(bitset_ptr)
         return rv
@@ -439,15 +447,16 @@ public extension BitsetProtocol {
     /// (inclusive).
     /// 
     /// Note that this function returns a `guint64`, because when all values are
-    /// set, the return value is `G_MAXUINT` + 1. Unless you are sure this cannot
+    /// set, the return value is `G_MAXUINT + 1`. Unless you are sure this cannot
     /// happen (it can't with `GListModel`), be sure to use a 64bit type.
     @inlinable func getSizeInRange(first: Int, last: Int) -> guint64 {
         let rv = gtk_bitset_get_size_in_range(bitset_ptr, guint(first), guint(last))
         return rv
     }
 
-    /// Sets `self` to be the intersection of `self` and `other`, that is remove
-    /// all values from `self` that are not part of `other`.
+    /// Sets `self` to be the intersection of `self` and `other`.
+    /// 
+    /// In other words, remove all values from `self` that are not part of `other`.
     /// 
     /// It is allowed for `self` and `other` to be the same bitset. Nothing will
     /// happen in that case.
@@ -495,22 +504,24 @@ public extension BitsetProtocol {
     
     }
 
-    /// Shifts all values in `self` to the left by `amount`. Values
-    /// smaller than `amount` are discarded.
+    /// Shifts all values in `self` to the left by `amount`.
+    /// 
+    /// Values smaller than `amount` are discarded.
     @inlinable func shiftLeft(amount: Int) {
         gtk_bitset_shift_left(bitset_ptr, guint(amount))
     
     }
 
-    /// Shifts all values in `self` to the right by `amount`. Values
-    /// that end up too large to be held in a `guint` are discarded.
+    /// Shifts all values in `self` to the right by `amount`.
+    /// 
+    /// Values that end up too large to be held in a `guint` are discarded.
     @inlinable func shiftRight(amount: Int) {
         gtk_bitset_shift_right(bitset_ptr, guint(amount))
     
     }
 
     /// This is a support function for `GListModel` handling, by mirroring
-    /// the `GlistModel::items-changed` signal.
+    /// the `GlistModel`items-changed`` signal.
     /// 
     /// First, it "cuts" the values from `position` to `removed` from
     /// the bitset. That is, it removes all those values and shifts
@@ -524,8 +535,9 @@ public extension BitsetProtocol {
     
     }
 
-    /// Sets `self` to be the subtraction of `other` from `self`, that is remove
-    /// all values from `self` that are part of `other`.
+    /// Sets `self` to be the subtraction of `other` from `self`.
+    /// 
+    /// In other words, remove all values from `self` that are part of `other`.
     /// 
     /// It is allowed for `self` and `other` to be the same bitset. The bitset
     /// will be emptied in that case.
@@ -534,8 +546,9 @@ public extension BitsetProtocol {
     
     }
 
-    /// Sets `self` to be the union of `self` and `other`, that is add all values
-    /// from `other` into `self` that weren't part of it.
+    /// Sets `self` to be the union of `self` and `other`.
+    /// 
+    /// That is, add all values from `other` into `self` that weren't part of it.
     /// 
     /// It is allowed for `self` and `other` to be the same bitset. Nothing will
     /// happen in that case.
@@ -553,24 +566,28 @@ public extension BitsetProtocol {
     
     }
 
-    /// Initializes `iter` to point to `target`. If `target` is not found, finds
-    /// the next value after it. If no value &gt;= `target` exists in `set`, this
-    /// function returns `false`.
+    /// Initializes `iter` to point to `target`.
+    /// 
+    /// If `target` is not found, finds the next value after it.
+    /// If no value &gt;= `target` exists in `set`, this function returns `false`.
     @inlinable func bitsetIterInitAt<BitsetIterT: BitsetIterProtocol>(iter: BitsetIterT, target: Int, value: UnsafeMutablePointer<guint>! = nil) -> Bool {
         let rv = ((gtk_bitset_iter_init_at(iter._ptr, bitset_ptr, guint(target), value)) != 0)
         return rv
     }
 
     /// Initializes an iterator for `set` and points it to the first
-    /// value in `set`. If `set` is empty, `false` is returned and `value`
-    /// is set to `G_MAXUINT`.
+    /// value in `set`.
+    /// 
+    /// If `set` is empty, `false` is returned and `value` is set to `G_MAXUINT`.
     @inlinable func bitsetIterInitFirst<BitsetIterT: BitsetIterProtocol>(iter: BitsetIterT, value: UnsafeMutablePointer<guint>! = nil) -> Bool {
         let rv = ((gtk_bitset_iter_init_first(iter._ptr, bitset_ptr, value)) != 0)
         return rv
     }
 
     /// Initializes an iterator for `set` and points it to the last
-    /// value in `set`. If `set` is empty, `false` is returned.
+    /// value in `set`.
+    /// 
+    /// If `set` is empty, `false` is returned.
     @inlinable func bitsetIterInitLast<BitsetIterT: BitsetIterProtocol>(iter: BitsetIterT, value: UnsafeMutablePointer<guint>! = nil) -> Bool {
         let rv = ((gtk_bitset_iter_init_last(iter._ptr, bitset_ptr, value)) != 0)
         return rv
@@ -584,22 +601,26 @@ public extension BitsetProtocol {
         }
     }
 
-    /// Returns the largest value in `self`. If `self` is empty,
-    /// 0 is returned.
+    /// Returns the largest value in `self`.
+    /// 
+    /// If `self` is empty, 0 is returned.
     @inlinable var maximum: Int {
-        /// Returns the largest value in `self`. If `self` is empty,
-        /// 0 is returned.
+        /// Returns the largest value in `self`.
+        /// 
+        /// If `self` is empty, 0 is returned.
         get {
             let rv = Int(gtk_bitset_get_maximum(bitset_ptr))
             return rv
         }
     }
 
-    /// Returns the smallest value in `self`. If `self` is empty,
-    /// G_MAXUINT is returned.
+    /// Returns the smallest value in `self`.
+    /// 
+    /// If `self` is empty, `G_MAXUINT` is returned.
     @inlinable var minimum: Int {
-        /// Returns the smallest value in `self`. If `self` is empty,
-        /// G_MAXUINT is returned.
+        /// Returns the smallest value in `self`.
+        /// 
+        /// If `self` is empty, `G_MAXUINT` is returned.
         get {
             let rv = Int(gtk_bitset_get_minimum(bitset_ptr))
             return rv
@@ -607,18 +628,22 @@ public extension BitsetProtocol {
     }
 
     /// Gets the number of values that were added to the set.
+    /// 
     /// For example, if the set is empty, 0 is returned.
     /// 
-    /// Note that this function returns a `guint64`, because when all values are
-    /// set, the return value is `G_MAXUINT` + 1. Unless you are sure this cannot
-    /// happen (it can't with `GListModel`), be sure to use a 64bit type.
+    /// Note that this function returns a `guint64`, because when all
+    /// values are set, the return value is `G_MAXUINT + 1`. Unless you
+    /// are sure this cannot happen (it can't with `GListModel`), be sure
+    /// to use a 64bit type.
     @inlinable var size: guint64 {
         /// Gets the number of values that were added to the set.
+        /// 
         /// For example, if the set is empty, 0 is returned.
         /// 
-        /// Note that this function returns a `guint64`, because when all values are
-        /// set, the return value is `G_MAXUINT` + 1. Unless you are sure this cannot
-        /// happen (it can't with `GListModel`), be sure to use a 64bit type.
+        /// Note that this function returns a `guint64`, because when all
+        /// values are set, the return value is `G_MAXUINT + 1`. Unless you
+        /// are sure this cannot happen (it can't with `GListModel`), be sure
+        /// to use a 64bit type.
         get {
             let rv = gtk_bitset_get_size(bitset_ptr)
             return rv
@@ -638,10 +663,11 @@ public extension BitsetProtocol {
 /// Alternatively, use `BitsetIterRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
 /// An opaque, stack-allocated struct for iterating
-/// over the elements of a `GtkBitset`. Before a GtkBitsetIter
-/// can be used, it needs to be initialized with
-/// `gtk_bitset_iter_init_first()`, `gtk_bitset_iter_init_last()`
-/// or `gtk_bitset_iter_init_at()`.
+/// over the elements of a `GtkBitset`.
+/// 
+/// Before a `GtkBitsetIter` can be used, it needs to be initialized with
+/// [func`Gtk.BitsetIter.init_first`], [func`Gtk.BitsetIter.init_last`]
+/// or [func`Gtk.BitsetIter.init_at`].
 public protocol BitsetIterProtocol {
         /// Untyped pointer to the underlying `GtkBitsetIter` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -658,10 +684,11 @@ public protocol BitsetIterProtocol {
 /// Use `BitsetIterRef` only as an `unowned` reference to an existing `GtkBitsetIter` instance.
 ///
 /// An opaque, stack-allocated struct for iterating
-/// over the elements of a `GtkBitset`. Before a GtkBitsetIter
-/// can be used, it needs to be initialized with
-/// `gtk_bitset_iter_init_first()`, `gtk_bitset_iter_init_last()`
-/// or `gtk_bitset_iter_init_at()`.
+/// over the elements of a `GtkBitset`.
+/// 
+/// Before a `GtkBitsetIter` can be used, it needs to be initialized with
+/// [func`Gtk.BitsetIter.init_first`], [func`Gtk.BitsetIter.init_last`]
+/// or [func`Gtk.BitsetIter.init_at`].
 public struct BitsetIterRef: BitsetIterProtocol {
         /// Untyped pointer to the underlying `GtkBitsetIter` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -745,10 +772,11 @@ public extension BitsetIterRef {
 /// Use `BitsetIter` as a strong reference or owner of a `GtkBitsetIter` instance.
 ///
 /// An opaque, stack-allocated struct for iterating
-/// over the elements of a `GtkBitset`. Before a GtkBitsetIter
-/// can be used, it needs to be initialized with
-/// `gtk_bitset_iter_init_first()`, `gtk_bitset_iter_init_last()`
-/// or `gtk_bitset_iter_init_at()`.
+/// over the elements of a `GtkBitset`.
+/// 
+/// Before a `GtkBitsetIter` can be used, it needs to be initialized with
+/// [func`Gtk.BitsetIter.init_first`], [func`Gtk.BitsetIter.init_last`]
+/// or [func`Gtk.BitsetIter.init_at`].
 open class BitsetIter: BitsetIterProtocol {
         /// Untyped pointer to the underlying `GtkBitsetIter` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -905,70 +933,80 @@ public extension BitsetIterProtocol {
 
     /// Gets the current value that `iter` points to.
     /// 
-    /// If `iter` is not valid and `gtk_bitset_iter_is_valid()` returns
-    /// `false`, this function returns 0.
+    /// If `iter` is not valid and [method`Gtk.BitsetIter.is_valid`]
+    /// returns `false`, this function returns 0.
     @inlinable func getValue() -> Int {
         let rv = Int(gtk_bitset_iter_get_value(_ptr))
         return rv
     }
 
-    /// Moves `iter` to the next value in the set. If it was already
-    /// pointing to the last value in the set, `false` is returned and
-    /// `iter` is invalidated.
+    /// Moves `iter` to the next value in the set.
+    /// 
+    /// If it was already pointing to the last value in the set,
+    /// `false` is returned and `iter` is invalidated.
     @inlinable func next(value: UnsafeMutablePointer<guint>! = nil) -> Bool {
         let rv = ((gtk_bitset_iter_next(_ptr, value)) != 0)
         return rv
     }
 
-    /// Moves `iter` to the previous value in the set. If it was already
-    /// pointing to the first value in the set, `false` is returned and
-    /// `iter` is invalidated.
+    /// Moves `iter` to the previous value in the set.
+    /// 
+    /// If it was already pointing to the first value in the set,
+    /// `false` is returned and `iter` is invalidated.
     @inlinable func previous(value: UnsafeMutablePointer<guint>! = nil) -> Bool {
         let rv = ((gtk_bitset_iter_previous(_ptr, value)) != 0)
         return rv
     }
 
-    /// Initializes `iter` to point to `target`. If `target` is not found, finds
-    /// the next value after it. If no value &gt;= `target` exists in `set`, this
-    /// function returns `false`.
+    /// Initializes `iter` to point to `target`.
+    /// 
+    /// If `target` is not found, finds the next value after it.
+    /// If no value &gt;= `target` exists in `set`, this function returns `false`.
     @inlinable func initAt<BitsetT: BitsetProtocol>(set: BitsetT, target: Int, value: UnsafeMutablePointer<guint>! = nil) -> Bool {
         let rv = ((gtk_bitset_iter_init_at(_ptr, set.bitset_ptr, guint(target), value)) != 0)
         return rv
     }
 
     /// Initializes an iterator for `set` and points it to the first
-    /// value in `set`. If `set` is empty, `false` is returned and `value`
-    /// is set to `G_MAXUINT`.
+    /// value in `set`.
+    /// 
+    /// If `set` is empty, `false` is returned and `value` is set to `G_MAXUINT`.
     @inlinable func initFirst<BitsetT: BitsetProtocol>(set: BitsetT, value: UnsafeMutablePointer<guint>! = nil) -> Bool {
         let rv = ((gtk_bitset_iter_init_first(_ptr, set.bitset_ptr, value)) != 0)
         return rv
     }
 
     /// Initializes an iterator for `set` and points it to the last
-    /// value in `set`. If `set` is empty, `false` is returned.
+    /// value in `set`.
+    /// 
+    /// If `set` is empty, `false` is returned.
     @inlinable func initLast<BitsetT: BitsetProtocol>(set: BitsetT, value: UnsafeMutablePointer<guint>! = nil) -> Bool {
         let rv = ((gtk_bitset_iter_init_last(_ptr, set.bitset_ptr, value)) != 0)
         return rv
     }
 
-    /// Initializes `iter` to point to `target`. If `target` is not found, finds
-    /// the next value after it. If no value &gt;= `target` exists in `set`, this
-    /// function returns `false`.
+    /// Initializes `iter` to point to `target`.
+    /// 
+    /// If `target` is not found, finds the next value after it.
+    /// If no value &gt;= `target` exists in `set`, this function returns `false`.
     @inlinable func bitsetIterInitAt<BitsetT: BitsetProtocol>(set: BitsetT, target: Int, value: UnsafeMutablePointer<guint>! = nil) -> Bool {
         let rv = ((gtk_bitset_iter_init_at(_ptr, set.bitset_ptr, guint(target), value)) != 0)
         return rv
     }
 
     /// Initializes an iterator for `set` and points it to the first
-    /// value in `set`. If `set` is empty, `false` is returned and `value`
-    /// is set to `G_MAXUINT`.
+    /// value in `set`.
+    /// 
+    /// If `set` is empty, `false` is returned and `value` is set to `G_MAXUINT`.
     @inlinable func bitsetIterInitFirst<BitsetT: BitsetProtocol>(set: BitsetT, value: UnsafeMutablePointer<guint>! = nil) -> Bool {
         let rv = ((gtk_bitset_iter_init_first(_ptr, set.bitset_ptr, value)) != 0)
         return rv
     }
 
     /// Initializes an iterator for `set` and points it to the last
-    /// value in `set`. If `set` is empty, `false` is returned.
+    /// value in `set`.
+    /// 
+    /// If `set` is empty, `false` is returned.
     @inlinable func bitsetIterInitLast<BitsetT: BitsetProtocol>(set: BitsetT, value: UnsafeMutablePointer<guint>! = nil) -> Bool {
         let rv = ((gtk_bitset_iter_init_last(_ptr, set.bitset_ptr, value)) != 0)
         return rv
@@ -984,13 +1022,13 @@ public extension BitsetIterProtocol {
 
     /// Gets the current value that `iter` points to.
     /// 
-    /// If `iter` is not valid and `gtk_bitset_iter_is_valid()` returns
-    /// `false`, this function returns 0.
+    /// If `iter` is not valid and [method`Gtk.BitsetIter.is_valid`]
+    /// returns `false`, this function returns 0.
     @inlinable var value: Int {
         /// Gets the current value that `iter` points to.
         /// 
-        /// If `iter` is not valid and `gtk_bitset_iter_is_valid()` returns
-        /// `false`, this function returns 0.
+        /// If `iter` is not valid and [method`Gtk.BitsetIter.is_valid`]
+        /// returns `false`, this function returns 0.
         get {
             let rv = Int(gtk_bitset_iter_get_value(_ptr))
             return rv
@@ -1278,8 +1316,9 @@ public extension BoolFilterClassProtocol {
 /// For a concrete class that implements these methods and properties, see `Border`.
 /// Alternatively, use `BorderRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// A struct that specifies a border around a rectangular area
-/// that can be of different width on each side.
+/// A struct that specifies a border around a rectangular area.
+/// 
+/// Each side can have different width.
 public protocol BorderProtocol {
         /// Untyped pointer to the underlying `GtkBorder` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1295,8 +1334,9 @@ public protocol BorderProtocol {
 /// It exposes methods that can operate on this data type through `BorderProtocol` conformance.
 /// Use `BorderRef` only as an `unowned` reference to an existing `GtkBorder` instance.
 ///
-/// A struct that specifies a border around a rectangular area
-/// that can be of different width on each side.
+/// A struct that specifies a border around a rectangular area.
+/// 
+/// Each side can have different width.
 public struct BorderRef: BorderProtocol {
         /// Untyped pointer to the underlying `GtkBorder` instance.
     /// For type-safe access, use the generated, typed pointer `border_ptr` property instead.
@@ -1384,8 +1424,9 @@ public extension BorderRef {
 /// It provides the methods that can operate on this data type through `BorderProtocol` conformance.
 /// Use `Border` as a strong reference or owner of a `GtkBorder` instance.
 ///
-/// A struct that specifies a border around a rectangular area
-/// that can be of different width on each side.
+/// A struct that specifies a border around a rectangular area.
+/// 
+/// Each side can have different width.
 open class Border: BorderProtocol {
         /// Untyped pointer to the underlying `GtkBorder` instance.
     /// For type-safe access, use the generated, typed pointer `border_ptr` property instead.
@@ -1907,7 +1948,7 @@ public extension BuildableIfaceRef {
 /// For a concrete class that implements these methods and properties, see `BuildableIface`.
 /// Alternatively, use `BuildableIfaceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// The `GtkBuildableIface` interface contains method that are
+/// The `GtkBuildableIface` interface contains methods that are
 /// necessary to allow `GtkBuilder` to construct an object from
 /// a `GtkBuilder` UI definition.
 public protocol BuildableIfaceProtocol {
@@ -1925,7 +1966,7 @@ public protocol BuildableIfaceProtocol {
 /// It exposes methods that can operate on this data type through `BuildableIfaceProtocol` conformance.
 /// Use `BuildableIfaceRef` only as an `unowned` reference to an existing `GtkBuildableIface` instance.
 ///
-/// The `GtkBuildableIface` interface contains method that are
+/// The `GtkBuildableIface` interface contains methods that are
 /// necessary to allow `GtkBuilder` to construct an object from
 /// a `GtkBuilder` UI definition.
 public struct BuildableIfaceRef: BuildableIfaceProtocol {
@@ -2052,7 +2093,7 @@ public extension BuildableIfaceProtocol {
 /// For a concrete class that implements these methods and properties, see `BuildableParseContext`.
 /// Alternatively, use `BuildableParseContextRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
+/// An opaque context struct for `GtkBuildableParser`.
 public protocol BuildableParseContextProtocol {
         /// Untyped pointer to the underlying `GtkBuildableParseContext` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2068,7 +2109,7 @@ public protocol BuildableParseContextProtocol {
 /// It exposes methods that can operate on this data type through `BuildableParseContextProtocol` conformance.
 /// Use `BuildableParseContextRef` only as an `unowned` reference to an existing `GtkBuildableParseContext` instance.
 ///
-
+/// An opaque context struct for `GtkBuildableParser`.
 public struct BuildableParseContextRef: BuildableParseContextProtocol {
         /// Untyped pointer to the underlying `GtkBuildableParseContext` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -2151,7 +2192,7 @@ public extension BuildableParseContextRef {
 /// It provides the methods that can operate on this data type through `BuildableParseContextProtocol` conformance.
 /// Use `BuildableParseContext` as a strong reference or owner of a `GtkBuildableParseContext` instance.
 ///
-
+/// An opaque context struct for `GtkBuildableParser`.
 open class BuildableParseContext: BuildableParseContextProtocol {
         /// Untyped pointer to the underlying `GtkBuildableParseContext` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.

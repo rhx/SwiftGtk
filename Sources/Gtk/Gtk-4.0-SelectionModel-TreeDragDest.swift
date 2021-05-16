@@ -20,30 +20,31 @@ import Gdk
 /// For a concrete class that implements these methods and properties, see `SelectionModel`.
 /// Alternatively, use `SelectionModelRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// `GtkSelectionModel` is an interface that extends the `GListModel` interface by
-/// adding support for selections. This support is then used by widgets using list
-/// models to add the ability to select and unselect various items.
+/// `GtkSelectionModel` is an interface that add support for selection to list models.
+/// 
+/// This support is then used by widgets using list models to add the ability
+/// to select and unselect various items.
 /// 
 /// GTK provides default implementations of the most common selection modes such
-/// as `GtkSingleSelection`, so you will only need to implement this interface if
-/// you want detailed control about how selections should be handled.
+/// as [class`Gtk.SingleSelection`], so you will only need to implement this
+/// interface if you want detailed control about how selections should be handled.
 /// 
-/// A `GtkSelectionModel` supports a single boolean per item indicating if an item
-/// is selected or not. This can be queried via `gtk_selection_model_is_selected()`.
+/// A `GtkSelectionModel` supports a single boolean per item indicating if an item is
+/// selected or not. This can be queried via [method`Gtk.SelectionModel.is_selected`].
 /// When the selected state of one or more items changes, the model will emit the
-/// `GtkSelectionModel::selection-changed` signal by calling the
-/// `gtk_selection_model_selection_changed()` function. The positions given in that
-/// signal may have their selection state changed, though that is not a requirement.
-/// If new items added to the model via the `GListModel::items-changed` signal are
-/// selected or not is up to the implementation.
+/// [signal`Gtk.SelectionModel::selection-changed`] signal by calling the
+/// [method`Gtk.SelectionModel.selection_changed`] function. The positions given
+/// in that signal may have their selection state changed, though that is not a
+/// requirement. If new items added to the model via the `items-changed` signal
+/// are selected or not is up to the implementation.
 /// 
-/// Note that items added via `GListModel::items-changed` may already be selected
-/// and no `GtkSelectionModel::selection-changed` will be emitted for them. So to
+/// Note that items added via `items-changed` may already be selected and no
+/// [Gtk.SelectionModel`selection-changed`] will be emitted for them. So to
 /// track which items are selected, it is necessary to listen to both signals.
 /// 
 /// Additionally, the interface can expose functionality to select and unselect
 /// items. If these functions are implemented, GTK's list widgets will allow users
-/// to select and unselect items. However, `GtkSelectionModels` are free to only
+/// to select and unselect items. However, `GtkSelectionModel`s are free to only
 /// implement them partially or not at all. In that case the widgets will not
 /// support the unimplemented operations.
 /// 
@@ -69,30 +70,31 @@ public protocol SelectionModelProtocol: GIO.ListModelProtocol {
 /// It exposes methods that can operate on this data type through `SelectionModelProtocol` conformance.
 /// Use `SelectionModelRef` only as an `unowned` reference to an existing `GtkSelectionModel` instance.
 ///
-/// `GtkSelectionModel` is an interface that extends the `GListModel` interface by
-/// adding support for selections. This support is then used by widgets using list
-/// models to add the ability to select and unselect various items.
+/// `GtkSelectionModel` is an interface that add support for selection to list models.
+/// 
+/// This support is then used by widgets using list models to add the ability
+/// to select and unselect various items.
 /// 
 /// GTK provides default implementations of the most common selection modes such
-/// as `GtkSingleSelection`, so you will only need to implement this interface if
-/// you want detailed control about how selections should be handled.
+/// as [class`Gtk.SingleSelection`], so you will only need to implement this
+/// interface if you want detailed control about how selections should be handled.
 /// 
-/// A `GtkSelectionModel` supports a single boolean per item indicating if an item
-/// is selected or not. This can be queried via `gtk_selection_model_is_selected()`.
+/// A `GtkSelectionModel` supports a single boolean per item indicating if an item is
+/// selected or not. This can be queried via [method`Gtk.SelectionModel.is_selected`].
 /// When the selected state of one or more items changes, the model will emit the
-/// `GtkSelectionModel::selection-changed` signal by calling the
-/// `gtk_selection_model_selection_changed()` function. The positions given in that
-/// signal may have their selection state changed, though that is not a requirement.
-/// If new items added to the model via the `GListModel::items-changed` signal are
-/// selected or not is up to the implementation.
+/// [signal`Gtk.SelectionModel::selection-changed`] signal by calling the
+/// [method`Gtk.SelectionModel.selection_changed`] function. The positions given
+/// in that signal may have their selection state changed, though that is not a
+/// requirement. If new items added to the model via the `items-changed` signal
+/// are selected or not is up to the implementation.
 /// 
-/// Note that items added via `GListModel::items-changed` may already be selected
-/// and no `GtkSelectionModel::selection-changed` will be emitted for them. So to
+/// Note that items added via `items-changed` may already be selected and no
+/// [Gtk.SelectionModel`selection-changed`] will be emitted for them. So to
 /// track which items are selected, it is necessary to listen to both signals.
 /// 
 /// Additionally, the interface can expose functionality to select and unselect
 /// items. If these functions are implemented, GTK's list widgets will allow users
-/// to select and unselect items. However, `GtkSelectionModels` are free to only
+/// to select and unselect items. However, `GtkSelectionModel`s are free to only
 /// implement them partially or not at all. In that case the widgets will not
 /// support the unimplemented operations.
 /// 
@@ -185,30 +187,31 @@ public extension SelectionModelRef {
 /// It provides the methods that can operate on this data type through `SelectionModelProtocol` conformance.
 /// Use `SelectionModel` as a strong reference or owner of a `GtkSelectionModel` instance.
 ///
-/// `GtkSelectionModel` is an interface that extends the `GListModel` interface by
-/// adding support for selections. This support is then used by widgets using list
-/// models to add the ability to select and unselect various items.
+/// `GtkSelectionModel` is an interface that add support for selection to list models.
+/// 
+/// This support is then used by widgets using list models to add the ability
+/// to select and unselect various items.
 /// 
 /// GTK provides default implementations of the most common selection modes such
-/// as `GtkSingleSelection`, so you will only need to implement this interface if
-/// you want detailed control about how selections should be handled.
+/// as [class`Gtk.SingleSelection`], so you will only need to implement this
+/// interface if you want detailed control about how selections should be handled.
 /// 
-/// A `GtkSelectionModel` supports a single boolean per item indicating if an item
-/// is selected or not. This can be queried via `gtk_selection_model_is_selected()`.
+/// A `GtkSelectionModel` supports a single boolean per item indicating if an item is
+/// selected or not. This can be queried via [method`Gtk.SelectionModel.is_selected`].
 /// When the selected state of one or more items changes, the model will emit the
-/// `GtkSelectionModel::selection-changed` signal by calling the
-/// `gtk_selection_model_selection_changed()` function. The positions given in that
-/// signal may have their selection state changed, though that is not a requirement.
-/// If new items added to the model via the `GListModel::items-changed` signal are
-/// selected or not is up to the implementation.
+/// [signal`Gtk.SelectionModel::selection-changed`] signal by calling the
+/// [method`Gtk.SelectionModel.selection_changed`] function. The positions given
+/// in that signal may have their selection state changed, though that is not a
+/// requirement. If new items added to the model via the `items-changed` signal
+/// are selected or not is up to the implementation.
 /// 
-/// Note that items added via `GListModel::items-changed` may already be selected
-/// and no `GtkSelectionModel::selection-changed` will be emitted for them. So to
+/// Note that items added via `items-changed` may already be selected and no
+/// [Gtk.SelectionModel`selection-changed`] will be emitted for them. So to
 /// track which items are selected, it is necessary to listen to both signals.
 /// 
 /// Additionally, the interface can expose functionality to select and unselect
 /// items. If these functions are implemented, GTK's list widgets will allow users
-/// to select and unselect items. However, `GtkSelectionModels` are free to only
+/// to select and unselect items. However, `GtkSelectionModel`s are free to only
 /// implement them partially or not at all. In that case the widgets will not
 /// support the unimplemented operations.
 /// 
@@ -360,11 +363,10 @@ public enum SelectionModelSignalName: String, SignalNameProtocol {
     case itemsChanged = "items-changed"
     /// Emitted when the selection state of some of the items in `model` changes.
     /// 
-    /// Note that this signal does not specify the new selection state of the items,
-    /// they need to be queried manually.
-    /// It is also not necessary for a model to change the selection state of any of
-    /// the items in the selection model, though it would be rather useless to emit
-    /// such a signal.
+    /// Note that this signal does not specify the new selection state of the
+    /// items, they need to be queried manually. It is also not necessary for
+    /// a model to change the selection state of any of the items in the selection
+    /// model, though it would be rather useless to emit such a signal.
     case selectionChanged = "selection-changed"
 
 }
@@ -399,11 +401,10 @@ public extension SelectionModelProtocol {
     
     /// Emitted when the selection state of some of the items in `model` changes.
     /// 
-    /// Note that this signal does not specify the new selection state of the items,
-    /// they need to be queried manually.
-    /// It is also not necessary for a model to change the selection state of any of
-    /// the items in the selection model, though it would be rather useless to emit
-    /// such a signal.
+    /// Note that this signal does not specify the new selection state of the
+    /// items, they need to be queried manually. It is also not necessary for
+    /// a model to change the selection state of any of the items in the selection
+    /// model, though it would be rather useless to emit such a signal.
     /// - Note: This represents the underlying `selection-changed` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -441,20 +442,20 @@ public extension SelectionModelProtocol {
     /// Gets the set containing all currently selected items in the model.
     /// 
     /// This function may be slow, so if you are only interested in single item,
-    /// consider using `gtk_selection_model_is_selected()` or if you are only
-    /// interested in a few consider `gtk_selection_model_get_selection_in_range()`.
+    /// consider using [method`Gtk.SelectionModel.is_selected`] or if you are only
+    /// interested in a few, consider [method`Gtk.SelectionModel.get_selection_in_range`].
     @inlinable func getSelection() -> BitsetRef! {
         let rv = BitsetRef(gconstpointer: gconstpointer(gtk_selection_model_get_selection(selection_model_ptr)))
         return rv
     }
 
-    /// Gets a set containing a set where the values in the range `[position,
-    /// position + n_items)` match the selected state of the items in that range.
-    /// All values outside that range are undefined.
+    /// Gets the set of selected items in a range.
     /// 
-    /// This function is an optimization for `gtk_selection_model_get_selection()` when
-    /// you are only interested in part of the model's selected state. A common use
-    /// case is in response to the `GtkSelectionModel::selection-changed` signal.
+    /// This function is an optimization for
+    /// [method`Gtk.SelectionModel.get_selection`] when you are only
+    /// interested in part of the model's selected state. A common use
+    /// case is in response to the [signal`Gtk.SelectionModel::selection-changed`]
+    /// signal.
     @inlinable func getSelectionInRange(position: Int, nItems: Int) -> BitsetRef! {
         let rv = BitsetRef(gconstpointer: gconstpointer(gtk_selection_model_get_selection_in_range(selection_model_ptr, guint(position), guint(nItems))))
         return rv
@@ -485,26 +486,28 @@ public extension SelectionModelProtocol {
     }
 
     /// Helper function for implementations of `GtkSelectionModel`.
+    /// 
     /// Call this when a the selection changes to emit the
-    /// `GtkSelectionModel::selection-changed` signal.
+    /// [signal`Gtk.SelectionModel::selection-changed`] signal.
     @inlinable func selectionChanged(position: Int, nItems: Int) {
         gtk_selection_model_selection_changed(selection_model_ptr, guint(position), guint(nItems))
     
     }
 
-    /// This is the most advanced selection updating method that allows
-    /// the most fine-grained control over selection changes.
-    /// If you can, you should try the simpler versions, as implementations
-    /// are more likely to implement support for those.
+    /// Make selection changes.
     /// 
-    /// Requests that the selection state of all positions set in `mask` be
-    /// updated to the respective value in the `selected` bitmask.
+    /// This is the most advanced selection updating method that allows
+    /// the most fine-grained control over selection changes. If you can,
+    /// you should try the simpler versions, as implementations are more
+    /// likely to implement support for those.
+    /// 
+    /// Requests that the selection state of all positions set in `mask`
+    /// be updated to the respective value in the `selected` bitmask.
     /// 
     /// In pseudocode, it would look something like this:
     /// 
-    /// (C Language Example):
-    /// ```C
-    /// for (i = 0; i < n_items; i++)
+    /// ```c
+    /// for (i = 0; i &lt; n_items; i++)
     ///   {
     ///     // don't change values not in the mask
     ///     if (!gtk_bitset_contains (mask, i))
@@ -516,11 +519,14 @@ public extension SelectionModelProtocol {
     ///       unselect_item (i);
     ///   }
     /// 
-    /// gtk_selection_model_selection_changed (model, first_changed_item, n_changed_items);
+    /// gtk_selection_model_selection_changed (model,
+    ///                                        first_changed_item,
+    ///                                        n_changed_items);
     /// ```
     /// 
-    /// `mask` and `selected` must not be modified. They may refer to the same bitset,
-    /// which would mean that every item in the set should be selected.
+    /// `mask` and `selected` must not be modified. They may refer to the
+    /// same bitset, which would mean that every item in the set should
+    /// be selected.
     @inlinable func setSelection<BitsetT: BitsetProtocol>(selected: BitsetT, mask: BitsetT) -> Bool {
         let rv = ((gtk_selection_model_set_selection(selection_model_ptr, selected.bitset_ptr, mask.bitset_ptr)) != 0)
         return rv
@@ -546,14 +552,14 @@ public extension SelectionModelProtocol {
     /// Gets the set containing all currently selected items in the model.
     /// 
     /// This function may be slow, so if you are only interested in single item,
-    /// consider using `gtk_selection_model_is_selected()` or if you are only
-    /// interested in a few consider `gtk_selection_model_get_selection_in_range()`.
+    /// consider using [method`Gtk.SelectionModel.is_selected`] or if you are only
+    /// interested in a few, consider [method`Gtk.SelectionModel.get_selection_in_range`].
     @inlinable var selection: BitsetRef! {
         /// Gets the set containing all currently selected items in the model.
         /// 
         /// This function may be slow, so if you are only interested in single item,
-        /// consider using `gtk_selection_model_is_selected()` or if you are only
-        /// interested in a few consider `gtk_selection_model_get_selection_in_range()`.
+        /// consider using [method`Gtk.SelectionModel.is_selected`] or if you are only
+        /// interested in a few, consider [method`Gtk.SelectionModel.get_selection_in_range`].
         get {
             let rv = BitsetRef(gconstpointer: gconstpointer(gtk_selection_model_get_selection(selection_model_ptr)))
             return rv
@@ -572,15 +578,18 @@ public extension SelectionModelProtocol {
 /// For a concrete class that implements these methods and properties, see `ShortcutManager`.
 /// Alternatively, use `ShortcutManagerRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// The GtkShortcutManager interface is used to implement
+/// The `GtkShortcutManager` interface is used to implement
 /// shortcut scopes.
 /// 
-/// This is important for `GtkNative` widgets that have their own surface,
-/// since the event controllers that are used to implement managed and
-/// global scopes are limited to the same native.
+/// This is important for [iface`Gtk.Native`] widgets that have their
+/// own surface, since the event controllers that are used to implement
+/// managed and global scopes are limited to the same native.
 /// 
-/// Examples for widgets implementing `GtkShortcutManager` are `GtkWindow`
-/// and `GtkPopover`.
+/// Examples for widgets implementing `GtkShortcutManager` are
+/// [class`Gtk.Window`] and [class`Gtk.Popover`].
+/// 
+/// Every widget that implements `GtkShortcutManager` will be used as a
+/// `GTK_SHORTCUT_SCOPE_MANAGED`.
 public protocol ShortcutManagerProtocol {
         /// Untyped pointer to the underlying `GtkShortcutManager` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -596,15 +605,18 @@ public protocol ShortcutManagerProtocol {
 /// It exposes methods that can operate on this data type through `ShortcutManagerProtocol` conformance.
 /// Use `ShortcutManagerRef` only as an `unowned` reference to an existing `GtkShortcutManager` instance.
 ///
-/// The GtkShortcutManager interface is used to implement
+/// The `GtkShortcutManager` interface is used to implement
 /// shortcut scopes.
 /// 
-/// This is important for `GtkNative` widgets that have their own surface,
-/// since the event controllers that are used to implement managed and
-/// global scopes are limited to the same native.
+/// This is important for [iface`Gtk.Native`] widgets that have their
+/// own surface, since the event controllers that are used to implement
+/// managed and global scopes are limited to the same native.
 /// 
-/// Examples for widgets implementing `GtkShortcutManager` are `GtkWindow`
-/// and `GtkPopover`.
+/// Examples for widgets implementing `GtkShortcutManager` are
+/// [class`Gtk.Window`] and [class`Gtk.Popover`].
+/// 
+/// Every widget that implements `GtkShortcutManager` will be used as a
+/// `GTK_SHORTCUT_SCOPE_MANAGED`.
 public struct ShortcutManagerRef: ShortcutManagerProtocol {
         /// Untyped pointer to the underlying `GtkShortcutManager` instance.
     /// For type-safe access, use the generated, typed pointer `shortcut_manager_ptr` property instead.
@@ -687,15 +699,18 @@ public extension ShortcutManagerRef {
 /// It provides the methods that can operate on this data type through `ShortcutManagerProtocol` conformance.
 /// Use `ShortcutManager` as a strong reference or owner of a `GtkShortcutManager` instance.
 ///
-/// The GtkShortcutManager interface is used to implement
+/// The `GtkShortcutManager` interface is used to implement
 /// shortcut scopes.
 /// 
-/// This is important for `GtkNative` widgets that have their own surface,
-/// since the event controllers that are used to implement managed and
-/// global scopes are limited to the same native.
+/// This is important for [iface`Gtk.Native`] widgets that have their
+/// own surface, since the event controllers that are used to implement
+/// managed and global scopes are limited to the same native.
 /// 
-/// Examples for widgets implementing `GtkShortcutManager` are `GtkWindow`
-/// and `GtkPopover`.
+/// Examples for widgets implementing `GtkShortcutManager` are
+/// [class`Gtk.Window`] and [class`Gtk.Popover`].
+/// 
+/// Every widget that implements `GtkShortcutManager` will be used as a
+/// `GTK_SHORTCUT_SCOPE_MANAGED`.
 open class ShortcutManager: ShortcutManagerProtocol {
         /// Untyped pointer to the underlying `GtkShortcutManager` instance.
     /// For type-safe access, use the generated, typed pointer `shortcut_manager_ptr` property instead.
@@ -863,8 +878,15 @@ public extension ShortcutManagerProtocol {
 /// For a concrete class that implements these methods and properties, see `StyleProvider`.
 /// Alternatively, use `StyleProviderRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// GtkStyleProvider is an interface used to provide style information to a `GtkStyleContext`.
-/// See `gtk_style_context_add_provider()` and `gtk_style_context_add_provider_for_display()`.
+/// `GtkStyleProvider` is an interface for style information used by
+/// `GtkStyleContext`.
+/// 
+/// See [method`Gtk.StyleContext.add_provider`] and
+/// [func`Gtk.StyleContext.add_provider_for_display`] for
+/// adding `GtkStyleProviders`.
+/// 
+/// GTK uses the `GtkStyleProvider` implementation for CSS in
+/// [iface`Gtk.CssProvider`].
 public protocol StyleProviderProtocol {
         /// Untyped pointer to the underlying `GtkStyleProvider` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -880,8 +902,15 @@ public protocol StyleProviderProtocol {
 /// It exposes methods that can operate on this data type through `StyleProviderProtocol` conformance.
 /// Use `StyleProviderRef` only as an `unowned` reference to an existing `GtkStyleProvider` instance.
 ///
-/// GtkStyleProvider is an interface used to provide style information to a `GtkStyleContext`.
-/// See `gtk_style_context_add_provider()` and `gtk_style_context_add_provider_for_display()`.
+/// `GtkStyleProvider` is an interface for style information used by
+/// `GtkStyleContext`.
+/// 
+/// See [method`Gtk.StyleContext.add_provider`] and
+/// [func`Gtk.StyleContext.add_provider_for_display`] for
+/// adding `GtkStyleProviders`.
+/// 
+/// GTK uses the `GtkStyleProvider` implementation for CSS in
+/// [iface`Gtk.CssProvider`].
 public struct StyleProviderRef: StyleProviderProtocol {
         /// Untyped pointer to the underlying `GtkStyleProvider` instance.
     /// For type-safe access, use the generated, typed pointer `style_provider_ptr` property instead.
@@ -964,8 +993,15 @@ public extension StyleProviderRef {
 /// It provides the methods that can operate on this data type through `StyleProviderProtocol` conformance.
 /// Use `StyleProvider` as a strong reference or owner of a `GtkStyleProvider` instance.
 ///
-/// GtkStyleProvider is an interface used to provide style information to a `GtkStyleContext`.
-/// See `gtk_style_context_add_provider()` and `gtk_style_context_add_provider_for_display()`.
+/// `GtkStyleProvider` is an interface for style information used by
+/// `GtkStyleContext`.
+/// 
+/// See [method`Gtk.StyleContext.add_provider`] and
+/// [func`Gtk.StyleContext.add_provider_for_display`] for
+/// adding `GtkStyleProviders`.
+/// 
+/// GTK uses the `GtkStyleProvider` implementation for CSS in
+/// [iface`Gtk.CssProvider`].
 open class StyleProvider: StyleProviderProtocol {
         /// Untyped pointer to the underlying `GtkStyleProvider` instance.
     /// For type-safe access, use the generated, typed pointer `style_provider_ptr` property instead.
@@ -1190,7 +1226,7 @@ public extension StyleProviderProtocol {
 /// For a concrete class that implements these methods and properties, see `TreeDragDest`.
 /// Alternatively, use `TreeDragDestRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
+/// Interface for Drag-and-Drop destinations in `GtkTreeView`.
 public protocol TreeDragDestProtocol {
         /// Untyped pointer to the underlying `GtkTreeDragDest` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1206,7 +1242,7 @@ public protocol TreeDragDestProtocol {
 /// It exposes methods that can operate on this data type through `TreeDragDestProtocol` conformance.
 /// Use `TreeDragDestRef` only as an `unowned` reference to an existing `GtkTreeDragDest` instance.
 ///
-
+/// Interface for Drag-and-Drop destinations in `GtkTreeView`.
 public struct TreeDragDestRef: TreeDragDestProtocol {
         /// Untyped pointer to the underlying `GtkTreeDragDest` instance.
     /// For type-safe access, use the generated, typed pointer `tree_drag_dest_ptr` property instead.
@@ -1289,7 +1325,7 @@ public extension TreeDragDestRef {
 /// It provides the methods that can operate on this data type through `TreeDragDestProtocol` conformance.
 /// Use `TreeDragDest` as a strong reference or owner of a `GtkTreeDragDest` instance.
 ///
-
+/// Interface for Drag-and-Drop destinations in `GtkTreeView`.
 open class TreeDragDest: TreeDragDestProtocol {
         /// Untyped pointer to the underlying `GtkTreeDragDest` instance.
     /// For type-safe access, use the generated, typed pointer `tree_drag_dest_ptr` property instead.

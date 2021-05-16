@@ -962,21 +962,11 @@ public extension FlowBoxChildClassProtocol {
     @inlinable var _ptr: UnsafeMutablePointer<GtkFlowBoxChildClass>! { return ptr?.assumingMemoryBound(to: GtkFlowBoxChildClass.self) }
 
 
-    @inlinable var parentClass: GtkWidgetClass {
-        get {
-            let rv = _ptr.pointee.parent_class
-            return rv
-        }
-    }
+    // var parentClass is unavailable because parent_class is private
 
     // var activate is unavailable because activate is void
 
-    @inlinable var padding: (gpointer?, gpointer?, gpointer?, gpointer?, gpointer?, gpointer?, gpointer?, gpointer?) {
-        get {
-            let rv = _ptr.pointee.padding
-            return rv
-        }
-    }
+    // var padding is unavailable because padding is private
 
 }
 
@@ -1126,12 +1116,7 @@ public extension FontChooserIfaceProtocol {
 
     // var getFontMap is unavailable because get_font_map is void
 
-    @inlinable var padding: (gpointer?, gpointer?, gpointer?, gpointer?, gpointer?, gpointer?, gpointer?, gpointer?, gpointer?, gpointer?) {
-        get {
-            let rv = _ptr.pointee.padding
-            return rv
-        }
-    }
+    // var padding is unavailable because padding is private
 
 }
 

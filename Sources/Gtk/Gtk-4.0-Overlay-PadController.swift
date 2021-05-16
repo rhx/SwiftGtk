@@ -20,31 +20,36 @@ import Gdk
 /// For a concrete class that implements these methods and properties, see `Overlay`.
 /// Alternatively, use `OverlayRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// GtkOverlay is a container which contains a single main child, on top
-/// of which it can place “overlay” widgets. The position of each overlay
-/// widget is determined by its `GtkWidget:halign` and `GtkWidget:valign`
+/// `GtkOverlay` is a container which contains a single main child, on top
+/// of which it can place “overlay” widgets.
+/// 
+/// ![An example GtkOverlay](overlay.png)
+/// 
+/// The position of each overlay widget is determined by its
+/// [property`Gtk.Widget:halign`] and [property`Gtk.Widget:valign`]
 /// properties. E.g. a widget with both alignments set to `GTK_ALIGN_START`
-/// will be placed at the top left corner of the GtkOverlay container,
+/// will be placed at the top left corner of the `GtkOverlay` container,
 /// whereas an overlay with halign set to `GTK_ALIGN_CENTER` and valign set
-/// to `GTK_ALIGN_END` will be placed a the bottom edge of the GtkOverlay,
+/// to `GTK_ALIGN_END` will be placed a the bottom edge of the `GtkOverlay`,
 /// horizontally centered. The position can be adjusted by setting the margin
 /// properties of the child to non-zero values.
 /// 
 /// More complicated placement of overlays is possible by connecting
-/// to the `GtkOverlay::get-child-position` signal.
+/// to the [signal`Gtk.Overlay::get-child-position`] signal.
 /// 
-/// An overlay’s minimum and natural sizes are those of its main child. The sizes
-/// of overlay children are not considered when measuring these preferred sizes.
+/// An overlay’s minimum and natural sizes are those of its main child.
+/// The sizes of overlay children are not considered when measuring these
+/// preferred sizes.
 /// 
 /// # GtkOverlay as GtkBuildable
 /// 
-/// The GtkOverlay implementation of the GtkBuildable interface
+/// The `GtkOverlay` implementation of the `GtkBuildable` interface
 /// supports placing a child as an overlay by specifying “overlay” as
 /// the “type” attribute of a `&lt;child&gt;` element.
 /// 
 /// # CSS nodes
 /// 
-/// GtkOverlay has a single CSS node with the name “overlay”. Overlay children
+/// `GtkOverlay` has a single CSS node with the name “overlay”. Overlay children
 /// whose alignments cause them to be positioned at an edge get the style classes
 /// “.left”, “.right”, “.top”, and/or “.bottom” according to their position.
 public protocol OverlayProtocol: WidgetProtocol {
@@ -62,31 +67,36 @@ public protocol OverlayProtocol: WidgetProtocol {
 /// It exposes methods that can operate on this data type through `OverlayProtocol` conformance.
 /// Use `OverlayRef` only as an `unowned` reference to an existing `GtkOverlay` instance.
 ///
-/// GtkOverlay is a container which contains a single main child, on top
-/// of which it can place “overlay” widgets. The position of each overlay
-/// widget is determined by its `GtkWidget:halign` and `GtkWidget:valign`
+/// `GtkOverlay` is a container which contains a single main child, on top
+/// of which it can place “overlay” widgets.
+/// 
+/// ![An example GtkOverlay](overlay.png)
+/// 
+/// The position of each overlay widget is determined by its
+/// [property`Gtk.Widget:halign`] and [property`Gtk.Widget:valign`]
 /// properties. E.g. a widget with both alignments set to `GTK_ALIGN_START`
-/// will be placed at the top left corner of the GtkOverlay container,
+/// will be placed at the top left corner of the `GtkOverlay` container,
 /// whereas an overlay with halign set to `GTK_ALIGN_CENTER` and valign set
-/// to `GTK_ALIGN_END` will be placed a the bottom edge of the GtkOverlay,
+/// to `GTK_ALIGN_END` will be placed a the bottom edge of the `GtkOverlay`,
 /// horizontally centered. The position can be adjusted by setting the margin
 /// properties of the child to non-zero values.
 /// 
 /// More complicated placement of overlays is possible by connecting
-/// to the `GtkOverlay::get-child-position` signal.
+/// to the [signal`Gtk.Overlay::get-child-position`] signal.
 /// 
-/// An overlay’s minimum and natural sizes are those of its main child. The sizes
-/// of overlay children are not considered when measuring these preferred sizes.
+/// An overlay’s minimum and natural sizes are those of its main child.
+/// The sizes of overlay children are not considered when measuring these
+/// preferred sizes.
 /// 
 /// # GtkOverlay as GtkBuildable
 /// 
-/// The GtkOverlay implementation of the GtkBuildable interface
+/// The `GtkOverlay` implementation of the `GtkBuildable` interface
 /// supports placing a child as an overlay by specifying “overlay” as
 /// the “type” attribute of a `&lt;child&gt;` element.
 /// 
 /// # CSS nodes
 /// 
-/// GtkOverlay has a single CSS node with the name “overlay”. Overlay children
+/// `GtkOverlay` has a single CSS node with the name “overlay”. Overlay children
 /// whose alignments cause them to be positioned at an edge get the style classes
 /// “.left”, “.right”, “.top”, and/or “.bottom” according to their position.
 public struct OverlayRef: OverlayProtocol, GWeakCapturing {
@@ -179,31 +189,36 @@ public extension OverlayRef {
 /// It provides the methods that can operate on this data type through `OverlayProtocol` conformance.
 /// Use `Overlay` as a strong reference or owner of a `GtkOverlay` instance.
 ///
-/// GtkOverlay is a container which contains a single main child, on top
-/// of which it can place “overlay” widgets. The position of each overlay
-/// widget is determined by its `GtkWidget:halign` and `GtkWidget:valign`
+/// `GtkOverlay` is a container which contains a single main child, on top
+/// of which it can place “overlay” widgets.
+/// 
+/// ![An example GtkOverlay](overlay.png)
+/// 
+/// The position of each overlay widget is determined by its
+/// [property`Gtk.Widget:halign`] and [property`Gtk.Widget:valign`]
 /// properties. E.g. a widget with both alignments set to `GTK_ALIGN_START`
-/// will be placed at the top left corner of the GtkOverlay container,
+/// will be placed at the top left corner of the `GtkOverlay` container,
 /// whereas an overlay with halign set to `GTK_ALIGN_CENTER` and valign set
-/// to `GTK_ALIGN_END` will be placed a the bottom edge of the GtkOverlay,
+/// to `GTK_ALIGN_END` will be placed a the bottom edge of the `GtkOverlay`,
 /// horizontally centered. The position can be adjusted by setting the margin
 /// properties of the child to non-zero values.
 /// 
 /// More complicated placement of overlays is possible by connecting
-/// to the `GtkOverlay::get-child-position` signal.
+/// to the [signal`Gtk.Overlay::get-child-position`] signal.
 /// 
-/// An overlay’s minimum and natural sizes are those of its main child. The sizes
-/// of overlay children are not considered when measuring these preferred sizes.
+/// An overlay’s minimum and natural sizes are those of its main child.
+/// The sizes of overlay children are not considered when measuring these
+/// preferred sizes.
 /// 
 /// # GtkOverlay as GtkBuildable
 /// 
-/// The GtkOverlay implementation of the GtkBuildable interface
+/// The `GtkOverlay` implementation of the `GtkBuildable` interface
 /// supports placing a child as an overlay by specifying “overlay” as
 /// the “type” attribute of a `&lt;child&gt;` element.
 /// 
 /// # CSS nodes
 /// 
-/// GtkOverlay has a single CSS node with the name “overlay”. Overlay children
+/// `GtkOverlay` has a single CSS node with the name “overlay”. Overlay children
 /// whose alignments cause them to be positioned at an edge get the style classes
 /// “.left”, “.right”, “.top”, and/or “.bottom” according to their position.
 open class Overlay: Widget, OverlayProtocol {
@@ -348,6 +363,7 @@ public enum OverlayPropertyName: String, PropertyNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case canFocus = "can-focus"
+    /// Whether the widget can receive pointer events.
     case canTarget = "can-target"
     case child = "child"
     /// A list of css classes applied to this widget.
@@ -357,7 +373,7 @@ public enum OverlayPropertyName: String, PropertyNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case cssName = "css-name"
-    /// The cursor used by `widget`. See `gtk_widget_set_cursor()` for details.
+    /// The cursor used by `widget`.
     case cursor = "cursor"
     /// Whether the widget should grab focus when it is clicked with the mouse.
     /// 
@@ -365,19 +381,25 @@ public enum OverlayPropertyName: String, PropertyNameProtocol {
     case focusOnClick = "focus-on-click"
     /// Whether this widget itself will accept the input focus.
     case focusable = "focusable"
-    /// How to distribute horizontal space if widget gets extra space, see `GtkAlign`
+    /// How to distribute horizontal space if widget gets extra space.
     case halign = "halign"
+    /// Whether the widget is the default widget.
     case hasDefault = "has-default"
+    /// Whether the widget has the input focus.
     case hasFocus = "has-focus"
-    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
+    /// Enables or disables the emission of the `query-tooltip` signal on `widget`.
+    /// 
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
-    /// whether it will provide a tooltip or not.
+    /// the widget will be queried using [signal`Gtk.Widget::query-tooltip`] to
+    /// determine whether it will provide a tooltip or not.
     case hasTooltip = "has-tooltip"
+    /// Override for height request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case heightRequest = "height-request"
-    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
+    /// Whether to expand horizontally.
     case hexpand = "hexpand"
-    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
+    /// Whether to use the `hexpand` property.
     case hexpandSet = "hexpand-set"
     /// The `GtkLayoutManager` instance to use to compute the preferred size
     /// of the widget, and allocate its children.
@@ -389,77 +411,91 @@ public enum OverlayPropertyName: String, PropertyNameProtocol {
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginBottom = "margin-bottom"
-    /// Margin on end of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on end of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginEnd = "margin-end"
-    /// Margin on start of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on start of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginStart = "margin-start"
     /// Margin on top side of widget.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginTop = "margin-top"
+    /// The name of the widget.
     case name = "name"
-    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
-    /// more details about window opacity.
+    /// The requested opacity of the widget.
     case opacity = "opacity"
     /// How content outside the widget's content area is treated.
     /// 
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case overflow = "overflow"
+    /// The parent widget of this widget.
     case parent = "parent"
+    /// Whether the widget will receive the default action when it is focused.
     case receivesDefault = "receives-default"
-    /// The `GtkRoot` widget of the widget tree containing this widget or `nil` if
-    /// the widget is not contained in a root widget.
+    /// The `GtkRoot` widget of the widget tree containing this widget.
+    /// 
+    /// This will be `nil` if the widget is not contained in a root widget.
     case root = "root"
-    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
-    /// more details about widget scaling.
+    /// The scale factor of the widget.
     case scaleFactor = "scale-factor"
+    /// Whether the widget responds to input.
     case sensitive = "sensitive"
     /// Sets the text of tooltip to be the given string, which is marked up
-    /// with the [Pango text markup language](#PangoMarkupFormat).
-    /// Also see `gtk_tooltip_set_markup()`.
+    /// with Pango markup.
+    /// 
+    /// Also see [method`Gtk.Tooltip.set_markup`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case tooltipMarkup = "tooltip-markup"
     /// Sets the text of tooltip to be the given string.
     /// 
-    /// Also see `gtk_tooltip_set_text()`.
+    /// Also see [method`Gtk.Tooltip.set_text`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case tooltipText = "tooltip-text"
-    /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
+    /// How to distribute vertical space if widget gets extra space.
     case valign = "valign"
-    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
+    /// Whether to expand vertically.
     case vexpand = "vexpand"
-    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
+    /// Whether to use the `vexpand` property.
     case vexpandSet = "vexpand-set"
+    /// Whether the widget is visible.
     case visible = "visible"
+    /// Override for width request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case widthRequest = "width-request"
 }
 
@@ -518,17 +554,18 @@ public extension OverlayProtocol {
 
 public enum OverlaySignalName: String, SignalNameProtocol {
     /// Signals that all holders of a reference to the widget should release
-    /// the reference that they hold. May result in finalization of the widget
-    /// if all references are released.
+    /// the reference that they hold.
+    /// 
+    /// May result in finalization of the widget if all references are released.
     /// 
     /// This signal is not suitable for saving widget state.
     case destroy = "destroy"
-    /// The `direction-changed` signal is emitted when the text direction
-    /// of a widget changes.
+    /// Emitted when the text direction of a widget changes.
     case directionChanged = "direction-changed"
-    /// The `get-child-position` signal is emitted to determine
-    /// the position and size of any overlay child widgets. A
-    /// handler for this signal should fill `allocation` with
+    /// Emitted to determine the position and size of any overlay
+    /// child widgets.
+    /// 
+    /// A handler for this signal should fill `allocation` with
     /// the desired position and size for `widget`, relative to
     /// the 'main' child of `overlay`.
     /// 
@@ -540,21 +577,24 @@ public enum OverlaySignalName: String, SignalNameProtocol {
     /// `GtkScrolledWindow`, the overlays are placed relative
     /// to its contents.
     case getChildPosition = "get-child-position"
-    /// The `hide` signal is emitted when `widget` is hidden, for example with
-    /// `gtk_widget_hide()`.
+    /// Emitted when `widget` is hidden.
     case hide = "hide"
-    /// Gets emitted if keyboard navigation fails.
-    /// See `gtk_widget_keynav_failed()` for details.
+    /// Emitted if keyboard navigation fails.
+    /// 
+    /// See [method`Gtk.Widget.keynav_failed`] for details.
     case keynavFailed = "keynav-failed"
-    /// The `map` signal is emitted when `widget` is going to be mapped, that is
-    /// when the widget is visible (which is controlled with
-    /// `gtk_widget_set_visible()`) and all its parents up to the toplevel widget
+    /// Emitted when `widget` is going to be mapped.
+    /// 
+    /// A widget is mapped when the widget is visible (which is controlled with
+    /// [property`Gtk.Widget:visible`]) and all its parents up to the toplevel widget
     /// are also visible.
     /// 
     /// The `map` signal can be used to determine whether a widget will be drawn,
     /// for instance it can resume an animation that was stopped during the
-    /// emission of `GtkWidget::unmap`.
+    /// emission of [signal`Gtk.Widget::unmap`].
     case map = "map"
+    /// Emitted when a widget is activated via a mnemonic.
+    /// 
     /// The default handler for this signal activates `widget` if `group_cycling`
     /// is `false`, or just makes `widget` grab focus if `group_cycling` is `true`.
     case mnemonicActivate = "mnemonic-activate"
@@ -585,9 +625,11 @@ public enum OverlaySignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// Emitted when `GtkWidget:has-tooltip` is `true` and the hover timeout
-    /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
-    /// focus in keyboard mode.
+    /// Emitted when the widgets tooltip is about to be shown.
+    /// 
+    /// This happens when the [property`Gtk.Widget:has-tooltip`] property
+    /// is `true` and the hover timeout has expired with the cursor hovering
+    /// "above" `widget`; or emitted when `widget` got focus in keyboard mode.
     /// 
     /// Using the given coordinates, the signal handler should determine
     /// whether a tooltip should be shown for `widget`. If this is the case
@@ -598,27 +640,29 @@ public enum OverlaySignalName: String, SignalNameProtocol {
     /// The signal handler is free to manipulate `tooltip` with the therefore
     /// destined function calls.
     case queryTooltip = "query-tooltip"
-    /// The `realize` signal is emitted when `widget` is associated with a
-    /// `GdkSurface`, which means that `gtk_widget_realize()` has been called or the
-    /// widget has been mapped (that is, it is going to be drawn).
-    case realize = "realize"
-    /// The `show` signal is emitted when `widget` is shown, for example with
-    /// `gtk_widget_show()`.
-    case show = "show"
-    /// The `state-flags-changed` signal is emitted when the widget state
-    /// changes, see `gtk_widget_get_state_flags()`.
-    case stateFlagsChanged = "state-flags-changed"
-    /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
-    /// means that either it or any of its parents up to the toplevel widget have
-    /// been set as hidden.
+    /// Emitted when `widget` is associated with a `GdkSurface`.
     /// 
-    /// As `unmap` indicates that a widget will not be shown any longer, it can be
-    /// used to, for example, stop an animation on the widget.
+    /// This means that [method`Gtk.Widget.realize`] has been called
+    /// or the widget has been mapped (that is, it is going to be drawn).
+    case realize = "realize"
+    /// Emitted when `widget` is shown.
+    case show = "show"
+    /// Emitted when the widget state changes.
+    /// 
+    /// See [method`Gtk.Widget.get_state_flags`].
+    case stateFlagsChanged = "state-flags-changed"
+    /// Emitted when `widget` is going to be unmapped.
+    /// 
+    /// A widget is unmapped when either it or any of its parents up to the
+    /// toplevel widget have been set as hidden.
+    /// 
+    /// As `unmap` indicates that a widget will not be shown any longer,
+    /// it can be used to, for example, stop an animation on the widget.
     case unmap = "unmap"
-    /// The `unrealize` signal is emitted when the `GdkSurface` associated with
-    /// `widget` is destroyed, which means that `gtk_widget_unrealize()` has been
-    /// called or the widget has been unmapped (that is, it is going to be
-    /// hidden).
+    /// Emitted when the `GdkSurface` associated with `widget` is destroyed.
+    /// 
+    /// This means that [method`Gtk.Widget.unrealize`] has been called
+    /// or the widget has been unmapped (that is, it is going to be hidden).
     case unrealize = "unrealize"
     /// Whether the widget or any of its descendents can accept
     /// the input focus.
@@ -626,6 +670,7 @@ public enum OverlaySignalName: String, SignalNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case notifyCanFocus = "notify::can-focus"
+    /// Whether the widget can receive pointer events.
     case notifyCanTarget = "notify::can-target"
     case notifyChild = "notify::child"
     /// A list of css classes applied to this widget.
@@ -635,7 +680,7 @@ public enum OverlaySignalName: String, SignalNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case notifyCssName = "notify::css-name"
-    /// The cursor used by `widget`. See `gtk_widget_set_cursor()` for details.
+    /// The cursor used by `widget`.
     case notifyCursor = "notify::cursor"
     /// Whether the widget should grab focus when it is clicked with the mouse.
     /// 
@@ -643,19 +688,25 @@ public enum OverlaySignalName: String, SignalNameProtocol {
     case notifyFocusOnClick = "notify::focus-on-click"
     /// Whether this widget itself will accept the input focus.
     case notifyFocusable = "notify::focusable"
-    /// How to distribute horizontal space if widget gets extra space, see `GtkAlign`
+    /// How to distribute horizontal space if widget gets extra space.
     case notifyHalign = "notify::halign"
+    /// Whether the widget is the default widget.
     case notifyHasDefault = "notify::has-default"
+    /// Whether the widget has the input focus.
     case notifyHasFocus = "notify::has-focus"
-    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
+    /// Enables or disables the emission of the `query-tooltip` signal on `widget`.
+    /// 
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
-    /// whether it will provide a tooltip or not.
+    /// the widget will be queried using [signal`Gtk.Widget::query-tooltip`] to
+    /// determine whether it will provide a tooltip or not.
     case notifyHasTooltip = "notify::has-tooltip"
+    /// Override for height request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case notifyHeightRequest = "notify::height-request"
-    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
+    /// Whether to expand horizontally.
     case notifyHexpand = "notify::hexpand"
-    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
+    /// Whether to use the `hexpand` property.
     case notifyHexpandSet = "notify::hexpand-set"
     /// The `GtkLayoutManager` instance to use to compute the preferred size
     /// of the widget, and allocate its children.
@@ -667,77 +718,91 @@ public enum OverlaySignalName: String, SignalNameProtocol {
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginBottom = "notify::margin-bottom"
-    /// Margin on end of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on end of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginEnd = "notify::margin-end"
-    /// Margin on start of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on start of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginStart = "notify::margin-start"
     /// Margin on top side of widget.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginTop = "notify::margin-top"
+    /// The name of the widget.
     case notifyName = "notify::name"
-    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
-    /// more details about window opacity.
+    /// The requested opacity of the widget.
     case notifyOpacity = "notify::opacity"
     /// How content outside the widget's content area is treated.
     /// 
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case notifyOverflow = "notify::overflow"
+    /// The parent widget of this widget.
     case notifyParent = "notify::parent"
+    /// Whether the widget will receive the default action when it is focused.
     case notifyReceivesDefault = "notify::receives-default"
-    /// The `GtkRoot` widget of the widget tree containing this widget or `nil` if
-    /// the widget is not contained in a root widget.
+    /// The `GtkRoot` widget of the widget tree containing this widget.
+    /// 
+    /// This will be `nil` if the widget is not contained in a root widget.
     case notifyRoot = "notify::root"
-    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
-    /// more details about widget scaling.
+    /// The scale factor of the widget.
     case notifyScaleFactor = "notify::scale-factor"
+    /// Whether the widget responds to input.
     case notifySensitive = "notify::sensitive"
     /// Sets the text of tooltip to be the given string, which is marked up
-    /// with the [Pango text markup language](#PangoMarkupFormat).
-    /// Also see `gtk_tooltip_set_markup()`.
+    /// with Pango markup.
+    /// 
+    /// Also see [method`Gtk.Tooltip.set_markup`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case notifyTooltipMarkup = "notify::tooltip-markup"
     /// Sets the text of tooltip to be the given string.
     /// 
-    /// Also see `gtk_tooltip_set_text()`.
+    /// Also see [method`Gtk.Tooltip.set_text`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case notifyTooltipText = "notify::tooltip-text"
-    /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
+    /// How to distribute vertical space if widget gets extra space.
     case notifyValign = "notify::valign"
-    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
+    /// Whether to expand vertically.
     case notifyVexpand = "notify::vexpand"
-    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
+    /// Whether to use the `vexpand` property.
     case notifyVexpandSet = "notify::vexpand-set"
+    /// Whether the widget is visible.
     case notifyVisible = "notify::visible"
+    /// Override for width request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case notifyWidthRequest = "notify::width-request"
 }
 
@@ -769,9 +834,10 @@ public extension OverlayProtocol {
     }
     
     
-    /// The `get-child-position` signal is emitted to determine
-    /// the position and size of any overlay child widgets. A
-    /// handler for this signal should fill `allocation` with
+    /// Emitted to determine the position and size of any overlay
+    /// child widgets.
+    /// 
+    /// A handler for this signal should fill `allocation` with
     /// the desired position and size for `widget`, relative to
     /// the 'main' child of `overlay`.
     /// 
@@ -850,10 +916,11 @@ public extension OverlayProtocol {
     /// Adds `widget` to `overlay`.
     /// 
     /// The widget will be stacked on top of the main widget
-    /// added with `gtk_overlay_set_child()`.
+    /// added with [method`Gtk.Overlay.set_child`].
     /// 
     /// The position at which `widget` is placed is determined
-    /// from its `GtkWidget:halign` and `GtkWidget:valign` properties.
+    /// from its [property`Gtk.Widget:halign`] and
+    /// [property`Gtk.Widget:valign`] properties.
     @inlinable func addOverlay<WidgetT: WidgetProtocol>(widget: WidgetT) {
         gtk_overlay_add_overlay(overlay_ptr, widget.widget_ptr)
     
@@ -934,7 +1001,8 @@ public extension OverlayProtocol {
 /// For a concrete class that implements these methods and properties, see `OverlayLayout`.
 /// Alternatively, use `OverlayLayoutRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// GtkOverlayLayout is the layout manager used by `GtkOverlay`.
+/// `GtkOverlayLayout` is the layout manager used by `GtkOverlay`.
+/// 
 /// It places widgets as overlays on top of the main child.
 /// 
 /// This is not a reusable layout manager, since it expects its widget
@@ -955,7 +1023,8 @@ public protocol OverlayLayoutProtocol: LayoutManagerProtocol {
 /// It exposes methods that can operate on this data type through `OverlayLayoutProtocol` conformance.
 /// Use `OverlayLayoutRef` only as an `unowned` reference to an existing `GtkOverlayLayout` instance.
 ///
-/// GtkOverlayLayout is the layout manager used by `GtkOverlay`.
+/// `GtkOverlayLayout` is the layout manager used by `GtkOverlay`.
+/// 
 /// It places widgets as overlays on top of the main child.
 /// 
 /// This is not a reusable layout manager, since it expects its widget
@@ -1051,7 +1120,8 @@ public extension OverlayLayoutRef {
 /// It provides the methods that can operate on this data type through `OverlayLayoutProtocol` conformance.
 /// Use `OverlayLayout` as a strong reference or owner of a `GtkOverlayLayout` instance.
 ///
-/// GtkOverlayLayout is the layout manager used by `GtkOverlay`.
+/// `GtkOverlayLayout` is the layout manager used by `GtkOverlay`.
+/// 
 /// It places widgets as overlays on top of the main child.
 /// 
 /// This is not a reusable layout manager, since it expects its widget
@@ -1242,7 +1312,7 @@ public extension OverlayLayoutProtocol {
 /// For a concrete class that implements these methods and properties, see `OverlayLayoutChild`.
 /// Alternatively, use `OverlayLayoutChildRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
+/// `GtkLayoutChild` subclass for children in a `GtkOverlayLayout`.
 public protocol OverlayLayoutChildProtocol: LayoutChildProtocol {
         /// Untyped pointer to the underlying `GtkOverlayLayoutChild` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1258,7 +1328,7 @@ public protocol OverlayLayoutChildProtocol: LayoutChildProtocol {
 /// It exposes methods that can operate on this data type through `OverlayLayoutChildProtocol` conformance.
 /// Use `OverlayLayoutChildRef` only as an `unowned` reference to an existing `GtkOverlayLayoutChild` instance.
 ///
-
+/// `GtkLayoutChild` subclass for children in a `GtkOverlayLayout`.
 public struct OverlayLayoutChildRef: OverlayLayoutChildProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkOverlayLayoutChild` instance.
     /// For type-safe access, use the generated, typed pointer `overlay_layout_child_ptr` property instead.
@@ -1344,7 +1414,7 @@ public extension OverlayLayoutChildRef {
 /// It provides the methods that can operate on this data type through `OverlayLayoutChildProtocol` conformance.
 /// Use `OverlayLayoutChild` as a strong reference or owner of a `GtkOverlayLayoutChild` instance.
 ///
-
+/// `GtkLayoutChild` subclass for children in a `GtkOverlayLayout`.
 open class OverlayLayoutChild: LayoutChild, OverlayLayoutChildProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -1645,42 +1715,47 @@ public extension OverlayLayoutChildProtocol {
 /// Alternatively, use `PadControllerRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
 /// `GtkPadController` is an event controller for the pads found in drawing
-/// tablets (The collection of buttons and tactile sensors often found around
-/// the stylus-sensitive area).
+/// tablets.
+/// 
+/// Pads are the collection of buttons and tactile sensors often found around
+/// the stylus-sensitive area.
 /// 
 /// These buttons and sensors have no implicit meaning, and by default they
-/// perform no action, this event controller is provided to map those to
-/// `GAction` objects, thus letting the application give those a more semantic
-/// meaning.
+/// perform no action. `GtkPadController` is provided to map those to
+/// `GAction` objects, thus letting the application give them a more
+/// semantic meaning.
 /// 
-/// Buttons and sensors are not constrained to triggering a single action, some
-/// `GDK_SOURCE_TABLET_PAD` devices feature multiple "modes", all these input
-/// elements have one current mode, which may determine the final action
-/// being triggered. Pad devices often divide buttons and sensors into groups,
-/// all elements in a group share the same current mode, but different groups
-/// may have different modes. See `gdk_device_pad_get_n_groups()` and
-/// `gdk_device_pad_get_group_n_modes()`.
+/// Buttons and sensors are not constrained to triggering a single action,
+/// some `GDK_SOURCE_TABLET_PAD` devices feature multiple "modes". All these
+/// input elements have one current mode, which may determine the final action
+/// being triggered.
+/// 
+/// Pad devices often divide buttons and sensors into groups. All elements
+/// in a group share the same current mode, but different groups may have
+/// different modes. See [method`Gdk.DevicePad.get_n_groups`] and
+/// [method`Gdk.DevicePad.get_group_n_modes`].
 /// 
 /// Each of the actions that a given button/strip/ring performs for a given
-/// mode is defined by `GtkPadActionEntry`, it contains an action name that
-/// will be looked up in the given `GActionGroup` and activated whenever the
-/// specified input element and mode are triggered.
+/// mode is defined by a [struct`Gtk.PadActionEntry`]. It contains an action
+/// name that will be looked up in the given `GActionGroup` and activated
+/// whenever the specified input element and mode are triggered.
 /// 
-/// A simple example of `GtkPadController` usage, assigning button 1 in all
+/// A simple example of `GtkPadController` usage: Assigning button 1 in all
 /// modes and pad devices to an "invert-selection" action:
-/// ```
-///   GtkPadActionEntry *pad_actions[] = {
-///     { GTK_PAD_ACTION_BUTTON, 1, -1, "Invert selection", "pad-actions.invert-selection" },
-///     …
-///   };
 /// 
+/// ```c
+/// GtkPadActionEntry *pad_actions[] = {
+///   { GTK_PAD_ACTION_BUTTON, 1, -1, "Invert selection", "pad-actions.invert-selection" },
 ///   …
-///   action_group = g_simple_action_group_new ();
-///   action = g_simple_action_new ("pad-actions.invert-selection", NULL);
-///   g_signal_connect (action, "activate", on_invert_selection_activated, NULL);
-///   g_action_map_add_action (G_ACTION_MAP (action_group), action);
-///   …
-///   pad_controller = gtk_pad_controller_new (action_group, NULL);
+/// };
+/// 
+/// …
+/// action_group = g_simple_action_group_new ();
+/// action = g_simple_action_new ("pad-actions.invert-selection", NULL);
+/// g_signal_connect (action, "activate", on_invert_selection_activated, NULL);
+/// g_action_map_add_action (G_ACTION_MAP (action_group), action);
+/// …
+/// pad_controller = gtk_pad_controller_new (action_group, NULL);
 /// ```
 /// 
 /// The actions belonging to rings/strips will be activated with a parameter
@@ -1702,42 +1777,47 @@ public protocol PadControllerProtocol: EventControllerProtocol {
 /// Use `PadControllerRef` only as an `unowned` reference to an existing `GtkPadController` instance.
 ///
 /// `GtkPadController` is an event controller for the pads found in drawing
-/// tablets (The collection of buttons and tactile sensors often found around
-/// the stylus-sensitive area).
+/// tablets.
+/// 
+/// Pads are the collection of buttons and tactile sensors often found around
+/// the stylus-sensitive area.
 /// 
 /// These buttons and sensors have no implicit meaning, and by default they
-/// perform no action, this event controller is provided to map those to
-/// `GAction` objects, thus letting the application give those a more semantic
-/// meaning.
+/// perform no action. `GtkPadController` is provided to map those to
+/// `GAction` objects, thus letting the application give them a more
+/// semantic meaning.
 /// 
-/// Buttons and sensors are not constrained to triggering a single action, some
-/// `GDK_SOURCE_TABLET_PAD` devices feature multiple "modes", all these input
-/// elements have one current mode, which may determine the final action
-/// being triggered. Pad devices often divide buttons and sensors into groups,
-/// all elements in a group share the same current mode, but different groups
-/// may have different modes. See `gdk_device_pad_get_n_groups()` and
-/// `gdk_device_pad_get_group_n_modes()`.
+/// Buttons and sensors are not constrained to triggering a single action,
+/// some `GDK_SOURCE_TABLET_PAD` devices feature multiple "modes". All these
+/// input elements have one current mode, which may determine the final action
+/// being triggered.
+/// 
+/// Pad devices often divide buttons and sensors into groups. All elements
+/// in a group share the same current mode, but different groups may have
+/// different modes. See [method`Gdk.DevicePad.get_n_groups`] and
+/// [method`Gdk.DevicePad.get_group_n_modes`].
 /// 
 /// Each of the actions that a given button/strip/ring performs for a given
-/// mode is defined by `GtkPadActionEntry`, it contains an action name that
-/// will be looked up in the given `GActionGroup` and activated whenever the
-/// specified input element and mode are triggered.
+/// mode is defined by a [struct`Gtk.PadActionEntry`]. It contains an action
+/// name that will be looked up in the given `GActionGroup` and activated
+/// whenever the specified input element and mode are triggered.
 /// 
-/// A simple example of `GtkPadController` usage, assigning button 1 in all
+/// A simple example of `GtkPadController` usage: Assigning button 1 in all
 /// modes and pad devices to an "invert-selection" action:
-/// ```
-///   GtkPadActionEntry *pad_actions[] = {
-///     { GTK_PAD_ACTION_BUTTON, 1, -1, "Invert selection", "pad-actions.invert-selection" },
-///     …
-///   };
 /// 
+/// ```c
+/// GtkPadActionEntry *pad_actions[] = {
+///   { GTK_PAD_ACTION_BUTTON, 1, -1, "Invert selection", "pad-actions.invert-selection" },
 ///   …
-///   action_group = g_simple_action_group_new ();
-///   action = g_simple_action_new ("pad-actions.invert-selection", NULL);
-///   g_signal_connect (action, "activate", on_invert_selection_activated, NULL);
-///   g_action_map_add_action (G_ACTION_MAP (action_group), action);
-///   …
-///   pad_controller = gtk_pad_controller_new (action_group, NULL);
+/// };
+/// 
+/// …
+/// action_group = g_simple_action_group_new ();
+/// action = g_simple_action_new ("pad-actions.invert-selection", NULL);
+/// g_signal_connect (action, "activate", on_invert_selection_activated, NULL);
+/// g_action_map_add_action (G_ACTION_MAP (action_group), action);
+/// …
+/// pad_controller = gtk_pad_controller_new (action_group, NULL);
 /// ```
 /// 
 /// The actions belonging to rings/strips will be activated with a parameter
@@ -1823,17 +1903,19 @@ public extension PadControllerRef {
     }
 
         /// Creates a new `GtkPadController` that will associate events from `pad` to
-    /// actions. A `nil` pad may be provided so the controller manages all pad devices
-    /// generically, it is discouraged to mix `GtkPadController` objects with `nil`
-    /// and non-`nil` `pad` argument on the same toplevel window, as execution order
-    /// is not guaranteed.
+    /// actions.
     /// 
-    /// The `GtkPadController` is created with no mapped actions. In order to map pad
-    /// events to actions, use `gtk_pad_controller_set_action_entries()` or
-    /// `gtk_pad_controller_set_action()`.
+    /// A `nil` pad may be provided so the controller manages all pad devices
+    /// generically, it is discouraged to mix `GtkPadController` objects with
+    /// `nil` and non-`nil` `pad` argument on the same toplevel window, as execution
+    /// order is not guaranteed.
     /// 
-    /// Be aware that pad events will only be delivered to `GtkWindows`, so adding a pad
-    /// controller to any other type of widget will not have an effect.
+    /// The `GtkPadController` is created with no mapped actions. In order to
+    /// map pad events to actions, use [method`Gtk.PadController.set_action_entries`]
+    /// or [method`Gtk.PadController.set_action`].
+    /// 
+    /// Be aware that pad events will only be delivered to `GtkWindow`s, so adding
+    /// a pad controller to any other type of widget will not have an effect.
     @inlinable init<ActionGroupT: GIO.ActionGroupProtocol, DeviceT: Gdk.DeviceProtocol>( group: ActionGroupT, pad: DeviceT?) {
         let rv = gtk_pad_controller_new(group.action_group_ptr, pad?.device_ptr)
         ptr = UnsafeMutableRawPointer(rv)
@@ -1845,42 +1927,47 @@ public extension PadControllerRef {
 /// Use `PadController` as a strong reference or owner of a `GtkPadController` instance.
 ///
 /// `GtkPadController` is an event controller for the pads found in drawing
-/// tablets (The collection of buttons and tactile sensors often found around
-/// the stylus-sensitive area).
+/// tablets.
+/// 
+/// Pads are the collection of buttons and tactile sensors often found around
+/// the stylus-sensitive area.
 /// 
 /// These buttons and sensors have no implicit meaning, and by default they
-/// perform no action, this event controller is provided to map those to
-/// `GAction` objects, thus letting the application give those a more semantic
-/// meaning.
+/// perform no action. `GtkPadController` is provided to map those to
+/// `GAction` objects, thus letting the application give them a more
+/// semantic meaning.
 /// 
-/// Buttons and sensors are not constrained to triggering a single action, some
-/// `GDK_SOURCE_TABLET_PAD` devices feature multiple "modes", all these input
-/// elements have one current mode, which may determine the final action
-/// being triggered. Pad devices often divide buttons and sensors into groups,
-/// all elements in a group share the same current mode, but different groups
-/// may have different modes. See `gdk_device_pad_get_n_groups()` and
-/// `gdk_device_pad_get_group_n_modes()`.
+/// Buttons and sensors are not constrained to triggering a single action,
+/// some `GDK_SOURCE_TABLET_PAD` devices feature multiple "modes". All these
+/// input elements have one current mode, which may determine the final action
+/// being triggered.
+/// 
+/// Pad devices often divide buttons and sensors into groups. All elements
+/// in a group share the same current mode, but different groups may have
+/// different modes. See [method`Gdk.DevicePad.get_n_groups`] and
+/// [method`Gdk.DevicePad.get_group_n_modes`].
 /// 
 /// Each of the actions that a given button/strip/ring performs for a given
-/// mode is defined by `GtkPadActionEntry`, it contains an action name that
-/// will be looked up in the given `GActionGroup` and activated whenever the
-/// specified input element and mode are triggered.
+/// mode is defined by a [struct`Gtk.PadActionEntry`]. It contains an action
+/// name that will be looked up in the given `GActionGroup` and activated
+/// whenever the specified input element and mode are triggered.
 /// 
-/// A simple example of `GtkPadController` usage, assigning button 1 in all
+/// A simple example of `GtkPadController` usage: Assigning button 1 in all
 /// modes and pad devices to an "invert-selection" action:
-/// ```
-///   GtkPadActionEntry *pad_actions[] = {
-///     { GTK_PAD_ACTION_BUTTON, 1, -1, "Invert selection", "pad-actions.invert-selection" },
-///     …
-///   };
 /// 
+/// ```c
+/// GtkPadActionEntry *pad_actions[] = {
+///   { GTK_PAD_ACTION_BUTTON, 1, -1, "Invert selection", "pad-actions.invert-selection" },
 ///   …
-///   action_group = g_simple_action_group_new ();
-///   action = g_simple_action_new ("pad-actions.invert-selection", NULL);
-///   g_signal_connect (action, "activate", on_invert_selection_activated, NULL);
-///   g_action_map_add_action (G_ACTION_MAP (action_group), action);
-///   …
-///   pad_controller = gtk_pad_controller_new (action_group, NULL);
+/// };
+/// 
+/// …
+/// action_group = g_simple_action_group_new ();
+/// action = g_simple_action_new ("pad-actions.invert-selection", NULL);
+/// g_signal_connect (action, "activate", on_invert_selection_activated, NULL);
+/// g_action_map_add_action (G_ACTION_MAP (action_group), action);
+/// …
+/// pad_controller = gtk_pad_controller_new (action_group, NULL);
 /// ```
 /// 
 /// The actions belonging to rings/strips will be activated with a parameter
@@ -2012,17 +2099,19 @@ open class PadController: EventController, PadControllerProtocol {
     }
 
     /// Creates a new `GtkPadController` that will associate events from `pad` to
-    /// actions. A `nil` pad may be provided so the controller manages all pad devices
-    /// generically, it is discouraged to mix `GtkPadController` objects with `nil`
-    /// and non-`nil` `pad` argument on the same toplevel window, as execution order
-    /// is not guaranteed.
+    /// actions.
     /// 
-    /// The `GtkPadController` is created with no mapped actions. In order to map pad
-    /// events to actions, use `gtk_pad_controller_set_action_entries()` or
-    /// `gtk_pad_controller_set_action()`.
+    /// A `nil` pad may be provided so the controller manages all pad devices
+    /// generically, it is discouraged to mix `GtkPadController` objects with
+    /// `nil` and non-`nil` `pad` argument on the same toplevel window, as execution
+    /// order is not guaranteed.
     /// 
-    /// Be aware that pad events will only be delivered to `GtkWindows`, so adding a pad
-    /// controller to any other type of widget will not have an effect.
+    /// The `GtkPadController` is created with no mapped actions. In order to
+    /// map pad events to actions, use [method`Gtk.PadController.set_action_entries`]
+    /// or [method`Gtk.PadController.set_action`].
+    /// 
+    /// Be aware that pad events will only be delivered to `GtkWindow`s, so adding
+    /// a pad controller to any other type of widget will not have an effect.
     @inlinable public init<ActionGroupT: GIO.ActionGroupProtocol, DeviceT: Gdk.DeviceProtocol>( group: ActionGroupT, pad: DeviceT?) {
         let rv = gtk_pad_controller_new(group.action_group_ptr, pad?.device_ptr)
         super.init(gpointer: gpointer(rv))
@@ -2142,10 +2231,11 @@ public extension PadControllerProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkPadController` instance.
     @inlinable var pad_controller_ptr: UnsafeMutablePointer<GtkPadController>! { return ptr?.assumingMemoryBound(to: GtkPadController.self) }
 
-    /// Adds an individual action to `controller`. This action will only be activated
-    /// if the given button/ring/strip number in `index` is interacted while
-    /// the current mode is `mode`. -1 may be used for simple cases, so the action
-    /// is triggered on all modes.
+    /// Adds an individual action to `controller`.
+    /// 
+    /// This action will only be activated if the given button/ring/strip number
+    /// in `index` is interacted while the current mode is `mode`. -1 may be used
+    /// for simple cases, so the action is triggered on all modes.
     /// 
     /// The given `label` should be considered user-visible, so internationalization
     /// rules apply. Some windowing systems may be able to use those for user
@@ -2155,8 +2245,10 @@ public extension PadControllerProtocol {
     
     }
 
-    /// This is a convenience function to add a group of action entries on
-    /// `controller`. See `GtkPadActionEntry` and `gtk_pad_controller_set_action()`.
+    /// A convenience function to add a group of action entries on
+    /// `controller`.
+    /// 
+    /// See [struct`Gtk.PadActionEntry`] and [method`Gtk.PadController.set_action`].
     @inlinable func setAction(entries: UnsafePointer<GtkPadActionEntry>!, nEntries: Int) {
         gtk_pad_controller_set_action_entries(pad_controller_ptr, entries, gint(nEntries))
     

@@ -13,7 +13,9 @@ import PangoCairo
 import GdkPixbuf
 import Gdk
 
-/// Types of user actions that may be blocked by `gtk_application_inhibit()`.
+/// Types of user actions that may be blocked by `GtkApplication`.
+/// 
+/// See [method`Gtk.Application.inhibit`].
 public struct ApplicationInhibitFlags: OptionSet {
     /// The corresponding value of the raw type
     public var rawValue: UInt32 = 0
@@ -53,10 +55,11 @@ public struct ApplicationInhibitFlags: OptionSet {
 
 
 /// The list of flags that can be passed to `gtk_builder_create_closure()`.
+/// 
 /// New values may be added in the future for new features, so external
-/// implementations of GtkBuilderScopeInterface should test the flags for unknown
-/// values and raise a `GTK_BUILDER_ERROR_INVALID_ATTRIBUTE` error when they
-/// encounter one.
+/// implementations of [interface`Gtk.BuilderScope`] should test the flags
+/// for unknown values and raise a `GTK_BUILDER_ERROR_INVALID_ATTRIBUTE` error
+/// when they encounter one.
 public struct BuilderClosureFlags: OptionSet {
     /// The corresponding value of the raw type
     public var rawValue: UInt32 = 0
@@ -171,6 +174,7 @@ public struct DebugFlags: OptionSet {
     public static let constraints = DebugFlags(32768) // GTK_DEBUG_CONSTRAINTS
     public static let builderObjects = DebugFlags(65536) // GTK_DEBUG_BUILDER_OBJECTS
     public static let a11y = DebugFlags(131072) // GTK_DEBUG_A11Y
+    public static let iconfallback = DebugFlags(262144) // GTK_DEBUG_ICONFALLBACK
 }
 
 
@@ -199,11 +203,9 @@ public struct DialogFlags: OptionSet {
     /// Creates a new instance with the specified Int value
     @inlinable public init<I: BinaryInteger>(_ intValue: I) { self.rawValue = UInt32(intValue)  }
 
-    /// Make the constructed dialog modal,
-    ///     see `gtk_window_set_modal()`
+    /// Make the constructed dialog modal
     public static let modal = DialogFlags(1) // GTK_DIALOG_MODAL
-    /// Destroy the dialog when its
-    ///     parent is destroyed, see `gtk_window_set_destroy_with_parent()`
+    /// Destroy the dialog when its parent is destroyed
     public static let destroyWithParent = DialogFlags(2) // GTK_DIALOG_DESTROY_WITH_PARENT
     /// Create dialog with actions in header
     ///     bar instead of action area
@@ -244,8 +246,7 @@ public struct EventControllerScrollFlags: OptionSet {
     public static let horizontal = EventControllerScrollFlags(2) // GTK_EVENT_CONTROLLER_SCROLL_HORIZONTAL
     /// Only emit deltas that are multiples of 1.
     public static let discrete = EventControllerScrollFlags(4) // GTK_EVENT_CONTROLLER_SCROLL_DISCRETE
-    /// Emit `GtkEventControllerScroll::decelerate`
-    ///   after continuous scroll finishes.
+    /// Emit `decelerate` after continuous scroll finishes.
     public static let kinetic = EventControllerScrollFlags(8) // GTK_EVENT_CONTROLLER_SCROLL_KINETIC
     /// Emit scroll on both axes.
     public static let bothAxes = EventControllerScrollFlags(3) // GTK_EVENT_CONTROLLER_SCROLL_BOTH_AXES
@@ -253,8 +254,8 @@ public struct EventControllerScrollFlags: OptionSet {
 
 
 
-/// This enumeration specifies the granularity of font selection
-/// that is desired in a font chooser.
+/// Specifies the granularity of font selection
+/// that is desired in a `GtkFontChooser`.
 /// 
 /// This enumeration may be extended in the future; applications should
 /// ignore unknown values.
@@ -295,7 +296,7 @@ public struct FontChooserLevel: OptionSet {
 
 
 
-/// Used to specify options for `gtk_icon_theme_lookup_icon()`
+/// Used to specify options for `gtk_icon_theme_lookup_icon()`.
 public struct IconLookupFlags: OptionSet {
     /// The corresponding value of the raw type
     public var rawValue: UInt32 = 0
@@ -333,8 +334,10 @@ public struct IconLookupFlags: OptionSet {
 
 
 /// Describes hints that might be taken into account by input methods
-/// or applications. Note that input methods may already tailor their
-/// behaviour according to the `GtkInputPurpose` of the entry.
+/// or applications.
+/// 
+/// Note that input methods may already tailor their behaviour according
+/// to the `GtkInputPurpose` of the entry.
 /// 
 /// Some common sense is expected when using these flags - mixing
 /// `GTK_INPUT_HINT_LOWERCASE` with any of the uppercase hints makes no sense.
@@ -398,7 +401,7 @@ public struct InputHints: OptionSet {
 
 
 
-/// Flags that influence the behavior of `gtk_widget_pick()`
+/// Flags that influence the behavior of `gtk_widget_pick()`.
 public struct PickFlags: OptionSet {
     /// The corresponding value of the raw type
     public var rawValue: UInt32 = 0
@@ -465,7 +468,64 @@ public struct PopoverMenuFlags: OptionSet {
 
 
 
+/// Specifies which features the print dialog should offer.
+/// 
+/// If neither `GTK_PRINT_CAPABILITY_GENERATE_PDF` nor
+/// `GTK_PRINT_CAPABILITY_GENERATE_PS` is specified, GTK assumes that all
+/// formats are supported.
+public struct PrintCapabilities: OptionSet {
+    /// The corresponding value of the raw type
+    public var rawValue: UInt32 = 0
+    /// The equivalent raw Int value
+    @inlinable public var intValue: Int { get { Int(rawValue) } set { rawValue = UInt32(newValue) } }
+    /// The equivalent raw `gint` value
+    @inlinable public var int: gint { get { gint(rawValue) } set { rawValue = UInt32(newValue) } }
+    /// The equivalent underlying `GtkPrintCapabilities` enum value
+    @inlinable public var value: GtkPrintCapabilities {
+        get {
+            func castToGtkPrintCapabilitiesInt<I: BinaryInteger, J: BinaryInteger>(_ param: I) -> J { J(param) }
+            return GtkPrintCapabilities(rawValue: castToGtkPrintCapabilitiesInt(rawValue))
+        }
+        set { rawValue = UInt32(newValue.rawValue) }
+    }
+
+    /// Creates a new instance with the specified raw value
+    @inlinable public init(rawValue: UInt32) { self.rawValue = rawValue }
+    /// Creates a new instance with the specified `GtkPrintCapabilities` enum value
+    @inlinable public init(_ enumValue: GtkPrintCapabilities) { self.rawValue = UInt32(enumValue.rawValue) }
+    /// Creates a new instance with the specified Int value
+    @inlinable public init<I: BinaryInteger>(_ intValue: I) { self.rawValue = UInt32(intValue)  }
+
+    /// Print dialog will offer printing even/odd pages.
+    public static let pageSet = PrintCapabilities(1) // GTK_PRINT_CAPABILITY_PAGE_SET
+    /// Print dialog will allow to print multiple copies.
+    public static let copies = PrintCapabilities(2) // GTK_PRINT_CAPABILITY_COPIES
+    /// Print dialog will allow to collate multiple copies.
+    public static let collate = PrintCapabilities(4) // GTK_PRINT_CAPABILITY_COLLATE
+    /// Print dialog will allow to print pages in reverse order.
+    public static let reverse = PrintCapabilities(8) // GTK_PRINT_CAPABILITY_REVERSE
+    /// Print dialog will allow to scale the output.
+    public static let scale = PrintCapabilities(16) // GTK_PRINT_CAPABILITY_SCALE
+    /// The program will send the document to
+    ///   the printer in PDF format
+    public static let generatePdf = PrintCapabilities(32) // GTK_PRINT_CAPABILITY_GENERATE_PDF
+    /// The program will send the document to
+    ///   the printer in Postscript format
+    public static let generatePs = PrintCapabilities(64) // GTK_PRINT_CAPABILITY_GENERATE_PS
+    /// Print dialog will offer a preview
+    public static let preview = PrintCapabilities(128) // GTK_PRINT_CAPABILITY_PREVIEW
+    /// Print dialog will offer printing multiple
+    ///   pages per sheet
+    public static let numberUp = PrintCapabilities(256) // GTK_PRINT_CAPABILITY_NUMBER_UP
+    /// Print dialog will allow to rearrange
+    ///   pages when printing multiple pages per sheet
+    public static let numberUpLayout = PrintCapabilities(512) // GTK_PRINT_CAPABILITY_NUMBER_UP_LAYOUT
+}
+
+
+
 /// List of flags that can be passed to action activation.
+/// 
 /// More flags may be added in the future.
 public struct ShortcutActionFlags: OptionSet {
     /// The corresponding value of the raw type
@@ -498,9 +558,11 @@ public struct ShortcutActionFlags: OptionSet {
 
 
 
-/// Describes a widget state. Widget states are used to match the widget
-/// against CSS pseudo-classes. Note that GTK extends the regular CSS
-/// classes and sometimes uses different names.
+/// Describes a widget state.
+/// 
+/// Widget states are used to match the widget against CSS pseudo-classes.
+/// Note that GTK extends the regular CSS classes and sometimes uses
+/// different names.
 public struct StateFlags: OptionSet {
     /// The corresponding value of the raw type
     public var rawValue: UInt32 = 0
@@ -561,6 +623,7 @@ public struct StateFlags: OptionSet {
 
 
 /// Flags that modify the behavior of `gtk_style_context_to_string()`.
+/// 
 /// New values may be added to this enumeration.
 public struct StyleContextPrintFlags: OptionSet {
     /// The corresponding value of the raw type

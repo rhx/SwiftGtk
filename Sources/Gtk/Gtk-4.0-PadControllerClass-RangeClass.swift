@@ -148,7 +148,9 @@ public extension PadControllerClassProtocol {
 /// For a concrete class that implements these methods and properties, see `PageRange`.
 /// Alternatively, use `PageRangeRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// See also `gtk_print_settings_set_page_ranges()`.
+/// A range of pages to print.
+/// 
+/// See also [method`Gtk.PrintSettings.set_page_ranges`].
 public protocol PageRangeProtocol {
         /// Untyped pointer to the underlying `GtkPageRange` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -164,7 +166,9 @@ public protocol PageRangeProtocol {
 /// It exposes methods that can operate on this data type through `PageRangeProtocol` conformance.
 /// Use `PageRangeRef` only as an `unowned` reference to an existing `GtkPageRange` instance.
 ///
-/// See also `gtk_print_settings_set_page_ranges()`.
+/// A range of pages to print.
+/// 
+/// See also [method`Gtk.PrintSettings.set_page_ranges`].
 public struct PageRangeRef: PageRangeProtocol {
         /// Untyped pointer to the underlying `GtkPageRange` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -247,7 +251,9 @@ public extension PageRangeRef {
 /// It provides the methods that can operate on this data type through `PageRangeProtocol` conformance.
 /// Use `PageRange` as a strong reference or owner of a `GtkPageRange` instance.
 ///
-/// See also `gtk_print_settings_set_page_ranges()`.
+/// A range of pages to print.
+/// 
+/// See also [method`Gtk.PrintSettings.set_page_ranges`].
 open class PageRange: PageRangeProtocol {
         /// Untyped pointer to the underlying `GtkPageRange` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -440,15 +446,17 @@ public extension PageRangeProtocol {
 /// For a concrete class that implements these methods and properties, see `PaperSize`.
 /// Alternatively, use `PaperSizeRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// GtkPaperSize handles paper sizes. It uses the standard called
+/// `GtkPaperSize` handles paper sizes.
+/// 
+/// It uses the standard called
 /// [PWG 5101.1-2002 PWG: Standard for Media Standardized Names](http://www.pwg.org/standards.html)
 /// to name the paper sizes (and to get the data for the page sizes).
-/// In addition to standard paper sizes, GtkPaperSize allows to
+/// In addition to standard paper sizes, `GtkPaperSize` allows to
 /// construct custom paper sizes with arbitrary dimensions.
 /// 
 /// The `GtkPaperSize` object stores not only the dimensions (width
 /// and height) of a paper size and its name, it also provides
-/// default [print margins](#print-margins).
+/// default print margins.
 public protocol PaperSizeProtocol {
         /// Untyped pointer to the underlying `GtkPaperSize` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -464,15 +472,17 @@ public protocol PaperSizeProtocol {
 /// It exposes methods that can operate on this data type through `PaperSizeProtocol` conformance.
 /// Use `PaperSizeRef` only as an `unowned` reference to an existing `GtkPaperSize` instance.
 ///
-/// GtkPaperSize handles paper sizes. It uses the standard called
+/// `GtkPaperSize` handles paper sizes.
+/// 
+/// It uses the standard called
 /// [PWG 5101.1-2002 PWG: Standard for Media Standardized Names](http://www.pwg.org/standards.html)
 /// to name the paper sizes (and to get the data for the page sizes).
-/// In addition to standard paper sizes, GtkPaperSize allows to
+/// In addition to standard paper sizes, `GtkPaperSize` allows to
 /// construct custom paper sizes with arbitrary dimensions.
 /// 
 /// The `GtkPaperSize` object stores not only the dimensions (width
 /// and height) of a paper size and its name, it also provides
-/// default [print margins](#print-margins).
+/// default print margins.
 public struct PaperSizeRef: PaperSizeProtocol {
         /// Untyped pointer to the underlying `GtkPaperSize` instance.
     /// For type-safe access, use the generated, typed pointer `paper_size_ptr` property instead.
@@ -554,7 +564,7 @@ public extension PaperSizeRef {
     /// paper name.
     /// 
     /// If `name` is `nil`, the default paper size is returned,
-    /// see `gtk_paper_size_get_default()`.
+    /// see [func`Gtk.PaperSize.get_default`].
     @inlinable init( name: UnsafePointer<CChar>? = nil) {
         let rv = gtk_paper_size_new(name)
         ptr = UnsafeMutableRawPointer(rv)
@@ -567,8 +577,10 @@ public extension PaperSizeRef {
         ptr = UnsafeMutableRawPointer(rv)
     }
 
-    /// Deserialize a paper size from an a{sv} variant in
-    /// the format produced by `gtk_paper_size_to_gvariant()`.
+    /// Deserialize a paper size from a `GVariant`.
+    /// 
+    /// The `GVariant must be in the format produced by
+    /// [method`Gtk.PaperSize.to_gvariant`].
     @inlinable init<VariantT: GLib.VariantProtocol>(gvariant variant: VariantT) {
         let rv = gtk_paper_size_new_from_gvariant(variant.variant_ptr)
         ptr = UnsafeMutableRawPointer(rv)
@@ -611,8 +623,10 @@ public extension PaperSizeRef {
         return rv
     }
 
-    /// Deserialize a paper size from an a{sv} variant in
-    /// the format produced by `gtk_paper_size_to_gvariant()`.
+    /// Deserialize a paper size from a `GVariant`.
+    /// 
+    /// The `GVariant must be in the format produced by
+    /// [method`Gtk.PaperSize.to_gvariant`].
     @inlinable static func newFromG<VariantT: GLib.VariantProtocol>(gvariant variant: VariantT) -> PaperSizeRef! {
         guard let rv = PaperSizeRef(gconstpointer: gconstpointer(gtk_paper_size_new_from_gvariant(variant.variant_ptr))) else { return nil }
         return rv
@@ -655,15 +669,17 @@ public extension PaperSizeRef {
 /// It provides the methods that can operate on this data type through `PaperSizeProtocol` conformance.
 /// Use `PaperSize` as a strong reference or owner of a `GtkPaperSize` instance.
 ///
-/// GtkPaperSize handles paper sizes. It uses the standard called
+/// `GtkPaperSize` handles paper sizes.
+/// 
+/// It uses the standard called
 /// [PWG 5101.1-2002 PWG: Standard for Media Standardized Names](http://www.pwg.org/standards.html)
 /// to name the paper sizes (and to get the data for the page sizes).
-/// In addition to standard paper sizes, GtkPaperSize allows to
+/// In addition to standard paper sizes, `GtkPaperSize` allows to
 /// construct custom paper sizes with arbitrary dimensions.
 /// 
 /// The `GtkPaperSize` object stores not only the dimensions (width
 /// and height) of a paper size and its name, it also provides
-/// default [print margins](#print-margins).
+/// default print margins.
 open class PaperSize: PaperSizeProtocol {
         /// Untyped pointer to the underlying `GtkPaperSize` instance.
     /// For type-safe access, use the generated, typed pointer `paper_size_ptr` property instead.
@@ -809,7 +825,7 @@ open class PaperSize: PaperSizeProtocol {
     /// paper name.
     /// 
     /// If `name` is `nil`, the default paper size is returned,
-    /// see `gtk_paper_size_get_default()`.
+    /// see [func`Gtk.PaperSize.get_default`].
     @inlinable public init( name: UnsafePointer<CChar>? = nil) {
         let rv = gtk_paper_size_new(name)
         ptr = UnsafeMutableRawPointer(rv)
@@ -822,8 +838,10 @@ open class PaperSize: PaperSizeProtocol {
         ptr = UnsafeMutableRawPointer(rv)
     }
 
-    /// Deserialize a paper size from an a{sv} variant in
-    /// the format produced by `gtk_paper_size_to_gvariant()`.
+    /// Deserialize a paper size from a `GVariant`.
+    /// 
+    /// The `GVariant must be in the format produced by
+    /// [method`Gtk.PaperSize.to_gvariant`].
     @inlinable public init<VariantT: GLib.VariantProtocol>(gvariant variant: VariantT) {
         let rv = gtk_paper_size_new_from_gvariant(variant.variant_ptr)
         ptr = UnsafeMutableRawPointer(rv)
@@ -867,8 +885,10 @@ open class PaperSize: PaperSizeProtocol {
         return rv
     }
 
-    /// Deserialize a paper size from an a{sv} variant in
-    /// the format produced by `gtk_paper_size_to_gvariant()`.
+    /// Deserialize a paper size from a `GVariant`.
+    /// 
+    /// The `GVariant must be in the format produced by
+    /// [method`Gtk.PaperSize.to_gvariant`].
     @inlinable public static func newFromG<VariantT: GLib.VariantProtocol>(gvariant variant: VariantT) -> PaperSize! {
         guard let rv = PaperSize(gconstpointer: gconstpointer(gtk_paper_size_new_from_gvariant(variant.variant_ptr))) else { return nil }
         return rv
@@ -999,7 +1019,7 @@ public extension PaperSizeProtocol {
     
     }
 
-    /// Serialize a paper size to an a{sv} variant.
+    /// Serialize a paper size to an `a{sv}` variant.
     @inlinable func toGvariant() -> GLib.VariantRef! {
         let rv = GLib.VariantRef(gtk_paper_size_to_gvariant(paper_size_ptr))
         return rv
@@ -1459,6 +1479,273 @@ public extension PopoverClassProtocol {
     // var activateDefault is unavailable because activate_default is void
 
     // var reserved is unavailable because reserved is private
+
+}
+
+
+
+// MARK: - PrintBackend Record
+
+/// The `PrintBackendProtocol` protocol exposes the methods and properties of an underlying `GtkPrintBackend` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `PrintBackend`.
+/// Alternatively, use `PrintBackendRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
+
+public protocol PrintBackendProtocol {
+        /// Untyped pointer to the underlying `GtkPrintBackend` instance.
+    var ptr: UnsafeMutableRawPointer! { get }
+
+    /// Typed pointer to the underlying `GtkPrintBackend` instance.
+    var _ptr: UnsafeMutablePointer<GtkPrintBackend>! { get }
+
+    /// Required Initialiser for types conforming to `PrintBackendProtocol`
+    init(raw: UnsafeMutableRawPointer)
+}
+
+/// The `PrintBackendRef` type acts as a lightweight Swift reference to an underlying `GtkPrintBackend` instance.
+/// It exposes methods that can operate on this data type through `PrintBackendProtocol` conformance.
+/// Use `PrintBackendRef` only as an `unowned` reference to an existing `GtkPrintBackend` instance.
+///
+
+public struct PrintBackendRef: PrintBackendProtocol {
+        /// Untyped pointer to the underlying `GtkPrintBackend` instance.
+    /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
+    public let ptr: UnsafeMutableRawPointer!
+}
+
+public extension PrintBackendRef {
+    /// Designated initialiser from the underlying `C` data type
+    @inlinable init(_ p: UnsafeMutablePointer<GtkPrintBackend>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GtkPrintBackend>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GtkPrintBackend>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GtkPrintBackend>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
+
+    /// Reference intialiser for a related type that implements `PrintBackendProtocol`
+    @inlinable init<T: PrintBackendProtocol>(_ other: T) {
+        ptr = other.ptr
+    }
+
+    /// Unsafe typed initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `PrintBackendProtocol`.**
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+    }
+
+    /// Unsafe typed initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `PrintBackendProtocol`.**
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
+        ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `PrintBackendProtocol`.**
+    @inlinable init(mutating raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `PrintBackendProtocol`.**
+    @inlinable init(raw: UnsafeMutableRawPointer) {
+        ptr = raw
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `PrintBackendProtocol`.**
+    @inlinable init(opaquePointer: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(opaquePointer)
+    }
+
+    }
+
+/// The `PrintBackend` type acts as an owner of an underlying `GtkPrintBackend` instance.
+/// It provides the methods that can operate on this data type through `PrintBackendProtocol` conformance.
+/// Use `PrintBackend` as a strong reference or owner of a `GtkPrintBackend` instance.
+///
+
+open class PrintBackend: PrintBackendProtocol {
+        /// Untyped pointer to the underlying `GtkPrintBackend` instance.
+    /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
+    public let ptr: UnsafeMutableRawPointer!
+
+    /// Designated initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `PrintBackend` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafeMutablePointer<GtkPrintBackend>) {
+        ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `PrintBackend` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GtkPrintBackend>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `PrintBackend` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `PrintBackend` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `PrintBackend` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GtkPrintBackend>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `PrintBackend` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GtkPrintBackend>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from the underlying `C` data type.
+    /// `GtkPrintBackend` does not allow reference counting, so despite the name no actual retaining will occur.
+    /// i.e., ownership is transferred to the `PrintBackend` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(retaining op: UnsafeMutablePointer<GtkPrintBackend>) {
+        ptr = UnsafeMutableRawPointer(op)
+        // no reference counting for GtkPrintBackend, cannot ref(_ptr)
+    }
+
+    /// Reference intialiser for a related type that implements `PrintBackendProtocol`
+    /// `GtkPrintBackend` does not allow reference counting.
+    /// - Parameter other: an instance of a related type that implements `PrintBackendProtocol`
+    @inlinable public init<T: PrintBackendProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for GtkPrintBackend, cannot ref(_ptr)
+    }
+
+    /// Do-nothing destructor for `GtkPrintBackend`.
+    deinit {
+        // no reference counting for GtkPrintBackend, cannot unref(_ptr)
+    }
+
+    /// Unsafe typed initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `PrintBackendProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `PrintBackendProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+        // no reference counting for GtkPrintBackend, cannot ref(_ptr)
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `PrintBackendProtocol`.**
+    /// - Parameter p: raw pointer to the underlying object
+    @inlinable public init(raw p: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `PrintBackendProtocol`.**
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+        // no reference counting for GtkPrintBackend, cannot ref(_ptr)
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `PrintBackendProtocol`.**
+    /// - Parameter p: mutable raw pointer to the underlying object
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
+        ptr = p
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `PrintBackendProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        ptr = raw
+        // no reference counting for GtkPrintBackend, cannot ref(_ptr)
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `PrintBackendProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    @inlinable public init(opaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `PrintBackendProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+        // no reference counting for GtkPrintBackend, cannot ref(_ptr)
+    }
+
+
+
+}
+
+// MARK: no PrintBackend properties
+
+// MARK: no PrintBackend signals
+
+// MARK: PrintBackend has no signals
+// MARK: PrintBackend Record: PrintBackendProtocol extension (methods and fields)
+public extension PrintBackendProtocol {
+    /// Return the stored, untyped pointer as a typed pointer to the `GtkPrintBackend` instance.
+    @inlinable var _ptr: UnsafeMutablePointer<GtkPrintBackend>! { return ptr?.assumingMemoryBound(to: GtkPrintBackend.self) }
+
+
 
 }
 

@@ -13,10 +13,12 @@ import PangoCairo
 import GdkPixbuf
 import Gdk
 
-/// A function used by `gtk_assistant_set_forward_page_func()` to know which
-/// is the next page given a current one. It’s called both for computing the
-/// next page when the user presses the “forward” button and for handling
-/// the behavior of the “last” button.
+/// Type of callback used to calculate the next page in a `GtkAssistant`.
+/// 
+/// It’s called both for computing the next page when the user presses the
+/// “forward” button and for handling the behavior of the “last” button.
+/// 
+/// See [method`Gtk.Assistant.set_forward_page_func`].
 public typealias AssistantPageFunc = GtkAssistantPageFunc
 
 /// The type of the callback functions used for iterating over the
@@ -36,6 +38,7 @@ public typealias CellLayoutDataFunc = GtkCellLayoutDataFunc
 public typealias CustomAllocateFunc = GtkCustomAllocateFunc
 
 /// User function that is called to determine if the `item` should be matched.
+/// 
 /// If the filter matches the item, this function must return `true`. If the
 /// item should be filtered out, `false` must be returned.
 public typealias CustomFilterFunc = GtkCustomFilterFunc
@@ -54,6 +57,7 @@ public typealias DrawingAreaDrawFunc = GtkDrawingAreaDrawFunc
 
 /// A function which decides whether the row indicated by `iter` matches
 /// a given `key`, and should be displayed as a possible completion for `key`.
+/// 
 /// Note that `key` is normalized and case-folded (see `g_utf8_normalize()`
 /// and `g_utf8_casefold()`). If this is not appropriate, match functions
 /// have access to the unmodified key via
@@ -64,16 +68,19 @@ public typealias EntryCompletionMatchFunc = GtkEntryCompletionMatchFunc
 /// expression value changes.
 public typealias ExpressionNotify = GtkExpressionNotify
 
-/// Called for flow boxes that are bound to a `GListModel` with
-/// `gtk_flow_box_bind_model()` for each item that gets added to the model.
+/// Called for flow boxes that are bound to a `GListModel`.
+/// 
+/// This function is called for each item that gets added to the model.
 public typealias FlowBoxCreateWidgetFunc = GtkFlowBoxCreateWidgetFunc
 
 /// A function that will be called whenever a child changes
-/// or is added. It lets you control if the child should be
-/// visible or not.
+/// or is added.
+/// 
+/// It lets you control if the child should be visible or not.
 public typealias FlowBoxFilterFunc = GtkFlowBoxFilterFunc
 
 /// A function used by `gtk_flow_box_selected_foreach()`.
+/// 
 /// It will be called on every selected child of the `box`.
 public typealias FlowBoxForeachFunc = GtkFlowBoxForeachFunc
 
@@ -82,11 +89,15 @@ public typealias FlowBoxForeachFunc = GtkFlowBoxForeachFunc
 public typealias FlowBoxSortFunc = GtkFlowBoxSortFunc
 
 /// The type of function that is used for deciding what fonts get
-/// shown in a `GtkFontChooser`. See `gtk_font_chooser_set_filter_func()`.
+/// shown in a `GtkFontChooser`.
+/// 
+/// See [method`Gtk.FontChooser.set_filter_func`].
 public typealias FontFilterFunc = GtkFontFilterFunc
 
 /// A function used by `gtk_icon_view_selected_foreach()` to map all
-/// selected rows.  It will be called on every selected row in the view.
+/// selected rows.
+/// 
+/// It will be called on every selected row in the view.
 public typealias IconViewForeachFunc = GtkIconViewForeachFunc
 
 /// Called for list boxes that are bound to a `GListModel` with
@@ -98,6 +109,7 @@ public typealias ListBoxCreateWidgetFunc = GtkListBoxCreateWidgetFunc
 public typealias ListBoxFilterFunc = GtkListBoxFilterFunc
 
 /// A function used by `gtk_list_box_selected_foreach()`.
+/// 
 /// It will be called on every selected child of the `box`.
 public typealias ListBoxForeachFunc = GtkListBoxForeachFunc
 
@@ -105,9 +117,10 @@ public typealias ListBoxForeachFunc = GtkListBoxForeachFunc
 public typealias ListBoxSortFunc = GtkListBoxSortFunc
 
 /// Whenever `row` changes or which row is before `row` changes this
-/// is called, which lets you update the header on `row`. You may
-/// remove or set a new one via `gtk_list_box_row_set_header()` or
-/// just change the state of the current header widget.
+/// is called, which lets you update the header on `row`.
+/// 
+/// You may remove or set a new one via [method`Gtk.ListBoxRow.set_header`]
+/// or just change the state of the current header widget.
 public typealias ListBoxUpdateHeaderFunc = GtkListBoxUpdateHeaderFunc
 
 /// User function that is called to map an `item` of the original model to
@@ -117,9 +130,12 @@ public typealias ListBoxUpdateHeaderFunc = GtkListBoxUpdateHeaderFunc
 /// used with.
 public typealias MapListModelMapFunc = GtkMapListModelMapFunc
 
-/// User-provided callback function to create a popup for `menu_button` on demand.
-/// This function is called when the popup of `menu_button` is shown, but none has
-/// been provided via `gtk_menu_button_set_popover()` or `gtk_menu_button_set_menu_model()`.
+/// User-provided callback function to create a popup for a
+/// `GtkMenuButton` on demand.
+/// 
+/// This function is called when the popup of `menu_button` is shown,
+/// but none has been provided via [method`Gtk.MenuButton.set_popover`]
+/// or [method`Gtk.MenuButton.set_menu_model`].
 public typealias MenuButtonCreatePopupFunc = GtkMenuButtonCreatePopupFunc
 
 /// The type of function that is passed to
@@ -129,7 +145,18 @@ public typealias MenuButtonCreatePopupFunc = GtkMenuButtonCreatePopupFunc
 /// is dismissed, and also serves as destroy notify for `data`.
 public typealias PageSetupDoneFunc = GtkPageSetupDoneFunc
 
+/// The type of callback that is passed to `gtk_print_job_send()`.
+/// 
+/// It is called when the print job has been completely sent.
+public typealias PrintJobCompleteFunc = GtkPrintJobCompleteFunc
+
 public typealias PrintSettingsFunc = GtkPrintSettingsFunc
+
+/// The type of function passed to `gtk_enumerate_printers()`.
+/// 
+/// Note that you need to ref `printer`, if you want to keep
+/// a reference to it after the function has returned.
+public typealias PrinterFunc = GtkPrinterFunc
 
 public typealias ScaleFormatValueFunc = GtkScaleFormatValueFunc
 
@@ -140,24 +167,28 @@ public typealias ShortcutFunc = GtkShortcutFunc
 /// `gtk_text_iter_backward_find_char()`.
 public typealias TextCharPredicate = GtkTextCharPredicate
 
-/// A function used with `gtk_text_tag_table_foreach()`, to iterate over every
-/// `GtkTextTag` inside a `GtkTextTagTable`.
+/// A function used with `gtk_text_tag_table_foreach()`,
+/// to iterate over every `GtkTextTag` inside a `GtkTextTagTable`.
 public typealias TextTagTableForeach = GtkTextTagTableForeach
 
 /// Callback type for adding a function to update animations. See `gtk_widget_add_tick_callback()`.
 public typealias TickCallback = GtkTickCallback
 
 /// A function to set the properties of a cell instead of just using the
-/// straight mapping between the cell and the model.  This is useful for
-/// customizing the cell renderer.  For example, a function might get an
-/// integer from the `tree_model`, and render it to the “text” attribute of
-/// “cell” by converting it to its written equivalent.  This is set by
-/// calling `gtk_tree_view_column_set_cell_data_func()`
+/// straight mapping between the cell and the model.
+/// 
+/// This function is useful for customizing the cell renderer. For example,
+/// a function might get an* integer from the `tree_model`, and render it to
+/// the “text” attribute of “cell” by converting it to its written equivalent.
+/// 
+/// See also: `gtk_tree_view_column_set_cell_data_func()`
 public typealias TreeCellDataFunc = GtkTreeCellDataFunc
 
 /// A GtkTreeIterCompareFunc should return a negative integer, zero, or a positive
 /// integer if `a` sorts before `b`, `a` sorts with `b`, or `a` sorts after `b`
-/// respectively. If two iters compare as equal, their order in the sorted model
+/// respectively.
+/// 
+/// If two iters compare as equal, their order in the sorted model
 /// is undefined. In order to ensure that the `GtkTreeSortable` behaves as
 /// expected, the GtkTreeIterCompareFunc must define a partial order on
 /// the model, i.e. it must be reflexive, antisymmetric and transitive.
@@ -196,9 +227,11 @@ public typealias TreeModelForeachFunc = GtkTreeModelForeachFunc
 public typealias TreeSelectionForeachFunc = GtkTreeSelectionForeachFunc
 
 /// A function used by `gtk_tree_selection_set_select_function()` to filter
-/// whether or not a row may be selected.  It is called whenever a row's
-/// state might change.  A return value of `true` indicates to `selection`
-/// that it is okay to change the selection.
+/// whether or not a row may be selected. It is called whenever a row's
+/// state might change.
+/// 
+/// A return value of `true` indicates to `selection` that it is okay to
+/// change the selection.
 public typealias TreeSelectionFunc = GtkTreeSelectionFunc
 
 /// Function type for determining whether `column` can be dropped in a

@@ -155,6 +155,7 @@ public extension AccessibleProperty {
 
 
 /// The possible accessible relations of a `GtkAccessible`.
+/// 
 /// Accessible relations can be references to other widgets,
 /// integers or strings.
 public typealias AccessibleRelation = GtkAccessibleRelation
@@ -521,11 +522,10 @@ public extension AccessibleTristate {
 
 
 
-/// Controls how a widget deals with extra space in a single (x or y)
-/// dimension.
+/// Controls how a widget deals with extra space in a single dimension.
 /// 
 /// Alignment only matters if the widget receives a “too large” allocation,
-/// for example if you packed the widget with the `GtkWidget:hexpand`
+/// for example if you packed the widget with the [property`Gtk.Widget:hexpand`]
 /// property inside a `GtkBox`, then the widget might get extra space.
 /// If you have for example a 16x16 icon inside a 32x32 space, the icon
 /// could be scaled and stretched, it could be centered, or it could be
@@ -591,8 +591,9 @@ public extension ArrowType {
 
 
 
-/// An enum for determining the page role inside the `GtkAssistant`. It's
-/// used to handle buttons sensitivity and visibility.
+/// Determines the page role inside a `GtkAssistant`.
+/// 
+/// The role is used to handle buttons sensitivity and visibility.
 /// 
 /// Note that an assistant needs to end its page flow with a page of type
 /// `GTK_ASSISTANT_PAGE_CONFIRM`, `GTK_ASSISTANT_PAGE_SUMMARY` or
@@ -635,6 +636,8 @@ public extension AssistantPageType {
 
 
 
+/// Baseline position in a row of widgets.
+/// 
 /// Whenever a container has some form of natural row it may align
 /// children in that row along a common typographical baseline. If
 /// the amount of vertical space in the row is taller than the total
@@ -753,9 +756,10 @@ public extension BuilderError {
 
 
 
-/// Prebuilt sets of buttons for the dialog. If
-/// none of these choices are appropriate, simply use `GTK_BUTTONS_NONE`
-/// then call `gtk_dialog_add_buttons()`.
+/// Prebuilt sets of buttons for `GtkDialog`.
+/// 
+/// If none of these choices are appropriate, simply use
+/// `GTK_BUTTONS_NONE` and call [method`Gtk.Dialog.add_buttons`].
 /// 
 /// &gt; Please note that `GTK_BUTTONS_OK`, `GTK_BUTTONS_YES_NO`
 /// &gt; and `GTK_BUTTONS_OK_CANCEL` are discouraged by the
@@ -955,8 +959,9 @@ public extension ConstraintVflParserError {
 
 
 /// Specifies which corner a child widget should be placed in when packed into
-/// a `GtkScrolledWindow`. This is effectively the opposite of where the scroll
-/// bars are placed.
+/// a `GtkScrolledWindow.`
+/// 
+/// This is effectively the opposite of where the scroll bars are placed.
 public typealias CornerType = GtkCornerType
 
 public extension CornerType {
@@ -968,16 +973,16 @@ public extension CornerType {
         self.init(rawValue: castToCornerTypeInt(raw))
     }
     /// Place the scrollbars on the right and bottom of the
-    ///  widget (default behaviour).
+    ///   widget (default behaviour).
     static let topLeft = GTK_CORNER_TOP_LEFT // 0
     /// Place the scrollbars on the top and right of the
-    ///  widget.
+    ///   widget.
     static let bottomLeft = GTK_CORNER_BOTTOM_LEFT // 1
     /// Place the scrollbars on the left and bottom of the
-    ///  widget.
+    ///   widget.
     static let topRight = GTK_CORNER_TOP_RIGHT // 2
     /// Place the scrollbars on the top and left of the
-    ///  widget.
+    ///   widget.
     static let bottomRight = GTK_CORNER_BOTTOM_RIGHT // 3
 }
 
@@ -1040,7 +1045,7 @@ public extension CssParserWarning {
 
 
 
-/// See also: `GtkEntry::delete-from-cursor`.
+/// Passed to various keybinding signals for deleting text.
 public typealias DeleteType = GtkDeleteType
 
 public extension DeleteType {
@@ -1284,9 +1289,10 @@ public extension FilterMatch {
 /// Icon sizes default to being inherited. Where they cannot be
 /// inherited, text size is the default.
 /// 
-/// All widgets which use GtkIconSize set the normal-icons or large-icons
-/// style classes correspondingly, and let themes determine the actual size
-/// to be used with the -gtk-icon-size CSS property.
+/// All widgets which use `GtkIconSize` set the normal-icons or
+/// large-icons style classes correspondingly, and let themes
+/// determine the actual size to be used with the
+/// `-gtk-icon-size` CSS property.
 public typealias IconSize = GtkIconSize
 
 public extension IconSize {
@@ -1307,7 +1313,7 @@ public extension IconSize {
 
 
 
-/// Error codes for GtkIconTheme operations.
+/// Error codes for `GtkIconTheme` operations.
 public typealias IconThemeError = GtkIconThemeError
 
 public extension IconThemeError {
@@ -1353,13 +1359,14 @@ public extension IconViewDropPosition {
 
 
 
-/// Describes the image data representation used by a `GtkImage`. If you
-/// want to get the image from the widget, you can only get the
-/// currently-stored representation. e.g.  if the
-/// `gtk_image_get_storage_type()` returns `GTK_IMAGE_PAINTABLE`, then you can
-/// call `gtk_image_get_paintable()`.  For empty images, you can request any
-/// storage type (call any of the "get" functions), but they will all
-/// return `nil` values.
+/// Describes the image data representation used by a [class`Gtk.Image`].
+/// 
+/// If you want to get the image from the widget, you can only get the
+/// currently-stored representation; for instance, if the `gtk_image_get_storage_type()`
+/// returns `GTK_IMAGE_PAINTABLE`, then you can call `gtk_image_get_paintable()`.
+/// 
+/// For empty images, you can request any storage type (call any of the "get"
+/// functions), but they will all return `nil` values.
 public typealias ImageType = GtkImageType
 
 public extension ImageType {
@@ -1382,9 +1389,10 @@ public extension ImageType {
 
 
 
-/// Describes primary purpose of the input widget. This information is
-/// useful for on-screen keyboards and similar input methods to decide
-/// which keys should be presented to the user.
+/// Describes primary purpose of the input widget.
+/// 
+/// This information is useful for on-screen keyboards and similar input
+/// methods to decide which keys should be presented to the user.
 /// 
 /// Note that the purpose is not meant to impose a totally strict rule
 /// about allowed characters, and does not replace input validation.
@@ -1460,6 +1468,7 @@ public extension Justification {
 
 
 /// Describes how `GtkLevelBar` contents should be rendered.
+/// 
 /// Note that this enumeration could be extended with additional modes
 /// in the future.
 public typealias LevelBarMode = GtkLevelBarMode
@@ -1534,7 +1543,7 @@ public extension License {
 
 
 
-/// The type of message being displayed in the dialog.
+/// The type of message being displayed in a `GtkMessageDialog`.
 public typealias MessageType = GtkMessageType
 
 public extension MessageType {
@@ -1559,6 +1568,8 @@ public extension MessageType {
 
 
 
+/// Passed as argument to various keybinding signals for moving the
+/// cursor position.
 public typealias MovementStep = GtkMovementStep
 
 public extension MovementStep {
@@ -1646,10 +1657,10 @@ public extension NumberUpLayout {
 
 /// Describes the way two values can be compared.
 /// 
-/// These values can be used with a `GCompareFunc`. However, a
-/// `GCompareFunc` is allowed to return any integer values.
-/// For converting such a value to a `GtkOrdering`, use
-/// `gtk_ordering_from_cmpfunc()`.
+/// These values can be used with a `GCompareFunc`. However,
+/// a `GCompareFunc` is allowed to return any integer values.
+/// For converting such a value to a `GtkOrdering` value, use
+/// [func`Gtk.Ordering.from_cmpfunc`].
 public typealias Ordering = GtkOrdering
 
 public extension Ordering {
@@ -1670,9 +1681,9 @@ public extension Ordering {
 
 
 
-/// Represents the orientation of widgets and other objects which can be switched
-/// between horizontal and vertical orientation on the fly, like `GtkBox` or
-/// `GtkGesturePan`.
+/// Represents the orientation of widgets and other objects.
+/// 
+/// Typical examples are `GtkBox or `GtkGesturePan`.
 public typealias Orientation = GtkOrientation
 
 public extension Orientation {
@@ -1691,9 +1702,11 @@ public extension Orientation {
 
 
 
-/// Defines how content overflowing a given area should be handled, such as
-/// with `gtk_widget_set_overflow()`. This property is modeled after the CSS overflow
-/// property, but implements it only partially.
+/// Defines how content overflowing a given area should be handled.
+/// 
+/// This is used in [method`Gtk.Widget.set_overflow`]. The
+/// [property`Gtk.Widget:overflow`] property is modeled after the
+/// CSS overflow property, but implements it only partially.
 public typealias Overflow = GtkOverflow
 
 public extension Overflow {
@@ -1715,6 +1728,7 @@ public extension Overflow {
 
 
 /// Represents the packing location of a children in its parent.
+/// 
 /// See `GtkWindowControls` for example.
 public typealias PackType = GtkPackType
 
@@ -1835,24 +1849,26 @@ public extension PolicyType {
         self.init(rawValue: castToPolicyTypeInt(raw))
     }
     /// The scrollbar is always visible. The view size is
-    ///  independent of the content.
+    ///   independent of the content.
     static let always = GTK_POLICY_ALWAYS // 0
     /// The scrollbar will appear and disappear as necessary.
-    ///  For example, when all of a `GtkTreeView` can not be seen.
+    ///   For example, when all of a `GtkTreeView` can not be seen.
     static let automatic = GTK_POLICY_AUTOMATIC // 1
     /// The scrollbar should never appear. In this mode the
-    ///  content determines the size.
+    ///   content determines the size.
     static let never = GTK_POLICY_NEVER // 2
     /// Don't show a scrollbar, but don't force the
-    ///  size to follow the content. This can be used e.g. to make multiple
-    ///  scrolled windows share a scrollbar.
+    ///   size to follow the content. This can be used e.g. to make multiple
+    ///   scrolled windows share a scrollbar.
     static let external = GTK_POLICY_EXTERNAL // 3
 }
 
 
 
-/// Describes which edge of a widget a certain feature is positioned at, e.g.
-/// the tabs of a `GtkNotebook`, or the label of a `GtkScale`.
+/// Describes which edge of a widget a certain feature is positioned at.
+/// 
+/// For examples, see the tabs of a `GtkNotebook`, or the label
+/// of a `GtkScale`.
 public typealias PositionType = GtkPositionType
 
 public extension PositionType {
@@ -1921,8 +1937,9 @@ public extension PrintError {
 
 
 
-/// The `action` parameter to `gtk_print_operation_run()`
-/// determines what action the print operation should perform.
+/// Determines what action the print operation should perform.
+/// 
+/// A parameter of this typs is passed to [method`Gtk.PrintOperation.run`].
 public typealias PrintOperationAction = GtkPrintOperationAction
 
 public extension PrintOperationAction {
@@ -1947,7 +1964,9 @@ public extension PrintOperationAction {
 
 
 
-/// A value of this type is returned by `gtk_print_operation_run()`.
+/// The result of a print operation.
+/// 
+/// A value of this type is returned by [method`Gtk.PrintOperation.run`].
 public typealias PrintOperationResult = GtkPrintOperationResult
 
 public extension PrintOperationResult {
@@ -2146,6 +2165,7 @@ public extension RecentManagerError {
 
 
 /// Predefined values for use as response ids in `gtk_dialog_add_button()`.
+/// 
 /// All predefined values are negative; GTK leaves values of 0 or greater for
 /// application-defined response ids.
 public typealias ResponseType = GtkResponseType
@@ -2221,6 +2241,7 @@ public extension RevealerTransitionType {
 
 
 
+/// Passed as argument to various keybinding signals.
 public typealias ScrollStep = GtkScrollStep
 
 public extension ScrollStep {
@@ -2368,7 +2389,7 @@ public extension SensitivityType {
 
 
 
-/// Describes where `GtkShortcuts` added to a
+/// Describes where `GtkShortcut`s added to a
 /// `GtkShortcutController` get handled.
 public typealias ShortcutScope = GtkShortcutScope
 
@@ -2394,6 +2415,7 @@ public extension ShortcutScope {
 
 
 /// GtkShortcutType specifies the kind of shortcut that is being described.
+/// 
 /// More values may be added to this enumeration over time.
 public typealias ShortcutType = GtkShortcutType
 
@@ -2405,27 +2427,27 @@ public extension ShortcutType {
         func castToShortcutTypeInt<I: BinaryInteger, J: BinaryInteger>(_ param: I) -> J { J(param) }
         self.init(rawValue: castToShortcutTypeInt(raw))
     }
-    /// The shortcut is a keyboard accelerator. The `GtkShortcutsShortcut:accelerator`
+    /// The shortcut is a keyboard accelerator. The GtkShortcutsShortcut:accelerator
     ///   property will be used.
     static let accelerator = GTK_SHORTCUT_ACCELERATOR // 0
-    /// The shortcut is a pinch gesture. GTK+ provides an icon and subtitle.
+    /// The shortcut is a pinch gesture. GTK provides an icon and subtitle.
     static let gesturePinch = GTK_SHORTCUT_GESTURE_PINCH // 1
-    /// The shortcut is a stretch gesture. GTK+ provides an icon and subtitle.
+    /// The shortcut is a stretch gesture. GTK provides an icon and subtitle.
     static let gestureStretch = GTK_SHORTCUT_GESTURE_STRETCH // 2
-    /// The shortcut is a clockwise rotation gesture. GTK+ provides an icon and subtitle.
+    /// The shortcut is a clockwise rotation gesture. GTK provides an icon and subtitle.
     static let gestureRotateClockwise = GTK_SHORTCUT_GESTURE_ROTATE_CLOCKWISE // 3
-    /// The shortcut is a counterclockwise rotation gesture. GTK+ provides an icon and subtitle.
+    /// The shortcut is a counterclockwise rotation gesture. GTK provides an icon and subtitle.
     static let gestureRotateCounterclockwise = GTK_SHORTCUT_GESTURE_ROTATE_COUNTERCLOCKWISE // 4
-    /// The shortcut is a two-finger swipe gesture. GTK+ provides an icon and subtitle.
+    /// The shortcut is a two-finger swipe gesture. GTK provides an icon and subtitle.
     static let gestureTwoFingerSwipeLeft = GTK_SHORTCUT_GESTURE_TWO_FINGER_SWIPE_LEFT // 5
-    /// The shortcut is a two-finger swipe gesture. GTK+ provides an icon and subtitle.
+    /// The shortcut is a two-finger swipe gesture. GTK provides an icon and subtitle.
     static let gestureTwoFingerSwipeRight = GTK_SHORTCUT_GESTURE_TWO_FINGER_SWIPE_RIGHT // 6
-    /// The shortcut is a gesture. The `GtkShortcutsShortcut:icon` property will be
+    /// The shortcut is a gesture. The GtkShortcutsShortcut:icon property will be
     ///   used.
     static let gesture = GTK_SHORTCUT_GESTURE // 7
-    /// The shortcut is a swipe gesture. GTK+ provides an icon and subtitle.
+    /// The shortcut is a swipe gesture. GTK provides an icon and subtitle.
     static let gestureSwipeLeft = GTK_SHORTCUT_GESTURE_SWIPE_LEFT // 8
-    /// The shortcut is a swipe gesture. GTK+ provides an icon and subtitle.
+    /// The shortcut is a swipe gesture. GTK provides an icon and subtitle.
     static let gestureSwipeRight = GTK_SHORTCUT_GESTURE_SWIPE_RIGHT // 9
 }
 
@@ -2525,7 +2547,7 @@ public extension SorterChange {
 
 
 
-/// Describes the type of order that a `GtkSorter` may describe.
+/// Describes the type of order that a `GtkSorter` may produce.
 public typealias SorterOrder = GtkSorterOrder
 
 public extension SorterOrder {
@@ -2549,9 +2571,10 @@ public extension SorterOrder {
 
 
 
-/// The spin button update policy determines whether the spin button displays
-/// values even if they are outside the bounds of its adjustment.
-/// See `gtk_spin_button_set_update_policy()`.
+/// Determines whether the spin button displays values outside the adjustment
+/// bounds.
+/// 
+/// See [method`Gtk.SpinButton.set_update_policy`].
 public typealias SpinButtonUpdatePolicy = GtkSpinButtonUpdatePolicy
 
 public extension SpinButtonUpdatePolicy {
@@ -2603,8 +2626,7 @@ public extension SpinType {
 
 
 
-/// These enumeration values describe the possible transitions
-/// between pages in a `GtkStack` widget.
+/// Possible transitions between pages in a `GtkStack` widget.
 /// 
 /// New values may be added to this enumeration over time.
 public typealias StackTransitionType = GtkStackTransitionType
@@ -2692,8 +2714,10 @@ public extension StringFilterMatchMode {
 
 
 /// Values that can be passed to the GtkWidgetClass.system_setting_changed
-/// vfunc to indicate that a system setting has changed and widgets may
-/// need to drop caches, or react otherwise.
+/// vfunc.
+/// 
+/// The values indicate which system setting has changed.
+/// Widgets may need to drop caches, or react otherwise.
 /// 
 /// Most of the values correspond to `GtkSettings` properties.
 /// 

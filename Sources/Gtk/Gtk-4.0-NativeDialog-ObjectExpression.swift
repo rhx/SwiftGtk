@@ -20,17 +20,23 @@ import Gdk
 /// For a concrete class that implements these methods and properties, see `NativeDialog`.
 /// Alternatively, use `NativeDialogRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Native dialogs are platform dialogs that don't use `GtkDialog` or
-/// `GtkWindow`. They are used in order to integrate better with a
-/// platform, by looking the same as other native applications and
-/// supporting platform specific features.
+/// Native dialogs are platform dialogs that don't use `GtkDialog`.
 /// 
-/// The `GtkDialog` functions cannot be used on such objects, but we
-/// need a similar API in order to drive them. The `GtkNativeDialog`
+/// They are used in order to integrate better with a platform, by
+/// looking the same as other native applications and supporting
+/// platform specific features.
+/// 
+/// The [class`Gtk.Dialog`] functions cannot be used on such objects,
+/// but we need a similar API in order to drive them. The `GtkNativeDialog`
 /// object is an API that allows you to do this. It allows you to set
 /// various common properties on the dialog, as well as show and hide
-/// it and get a `GtkNativeDialog::response` signal when the user finished
-/// with the dialog.
+/// it and get a [signal`Gtk.NativeDialog::response`] signal when the user
+/// finished with the dialog.
+/// 
+/// Note that unlike `GtkDialog`, `GtkNativeDialog` objects are not
+/// toplevel widgets, and GTK does not keep them alive. It is your
+/// responsibility to keep a reference until you are done with the
+/// object.
 public protocol NativeDialogProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GtkNativeDialog` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -46,17 +52,23 @@ public protocol NativeDialogProtocol: GLibObject.ObjectProtocol {
 /// It exposes methods that can operate on this data type through `NativeDialogProtocol` conformance.
 /// Use `NativeDialogRef` only as an `unowned` reference to an existing `GtkNativeDialog` instance.
 ///
-/// Native dialogs are platform dialogs that don't use `GtkDialog` or
-/// `GtkWindow`. They are used in order to integrate better with a
-/// platform, by looking the same as other native applications and
-/// supporting platform specific features.
+/// Native dialogs are platform dialogs that don't use `GtkDialog`.
 /// 
-/// The `GtkDialog` functions cannot be used on such objects, but we
-/// need a similar API in order to drive them. The `GtkNativeDialog`
+/// They are used in order to integrate better with a platform, by
+/// looking the same as other native applications and supporting
+/// platform specific features.
+/// 
+/// The [class`Gtk.Dialog`] functions cannot be used on such objects,
+/// but we need a similar API in order to drive them. The `GtkNativeDialog`
 /// object is an API that allows you to do this. It allows you to set
 /// various common properties on the dialog, as well as show and hide
-/// it and get a `GtkNativeDialog::response` signal when the user finished
-/// with the dialog.
+/// it and get a [signal`Gtk.NativeDialog::response`] signal when the user
+/// finished with the dialog.
+/// 
+/// Note that unlike `GtkDialog`, `GtkNativeDialog` objects are not
+/// toplevel widgets, and GTK does not keep them alive. It is your
+/// responsibility to keep a reference until you are done with the
+/// object.
 public struct NativeDialogRef: NativeDialogProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkNativeDialog` instance.
     /// For type-safe access, use the generated, typed pointer `native_dialog_ptr` property instead.
@@ -142,17 +154,23 @@ public extension NativeDialogRef {
 /// It provides the methods that can operate on this data type through `NativeDialogProtocol` conformance.
 /// Use `NativeDialog` as a strong reference or owner of a `GtkNativeDialog` instance.
 ///
-/// Native dialogs are platform dialogs that don't use `GtkDialog` or
-/// `GtkWindow`. They are used in order to integrate better with a
-/// platform, by looking the same as other native applications and
-/// supporting platform specific features.
+/// Native dialogs are platform dialogs that don't use `GtkDialog`.
 /// 
-/// The `GtkDialog` functions cannot be used on such objects, but we
-/// need a similar API in order to drive them. The `GtkNativeDialog`
+/// They are used in order to integrate better with a platform, by
+/// looking the same as other native applications and supporting
+/// platform specific features.
+/// 
+/// The [class`Gtk.Dialog`] functions cannot be used on such objects,
+/// but we need a similar API in order to drive them. The `GtkNativeDialog`
 /// object is an API that allows you to do this. It allows you to set
 /// various common properties on the dialog, as well as show and hide
-/// it and get a `GtkNativeDialog::response` signal when the user finished
-/// with the dialog.
+/// it and get a [signal`Gtk.NativeDialog::response`] signal when the user
+/// finished with the dialog.
+/// 
+/// Note that unlike `GtkDialog`, `GtkNativeDialog` objects are not
+/// toplevel widgets, and GTK does not keep them alive. It is your
+/// responsibility to keep a reference until you are done with the
+/// object.
 open class NativeDialog: GLibObject.Object, NativeDialogProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -376,8 +394,8 @@ public enum NativeDialogSignalName: String, SignalNameProtocol {
     /// 
     /// When this is called the dialog has been hidden.
     /// 
-    /// If you call `gtk_native_dialog_hide()` before the user responds to
-    /// the dialog this signal will not be emitted.
+    /// If you call [method`Gtk.NativeDialog.hide`] before the user
+    /// responds to the dialog this signal will not be emitted.
     case response = "response"
     /// Whether the window should be modal with respect to its transient parent.
     case notifyModal = "notify::modal"
@@ -421,8 +439,8 @@ public extension NativeDialogProtocol {
     /// 
     /// When this is called the dialog has been hidden.
     /// 
-    /// If you call `gtk_native_dialog_hide()` before the user responds to
-    /// the dialog this signal will not be emitted.
+    /// If you call [method`Gtk.NativeDialog.hide`] before the user
+    /// responds to the dialog this signal will not be emitted.
     /// - Note: This represents the underlying `response` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -654,18 +672,20 @@ public extension NativeDialogProtocol {
     /// Destroys a dialog.
     /// 
     /// When a dialog is destroyed, it will break any references it holds
-    /// to other objects. If it is visible it will be hidden and any underlying
-    /// window system resources will be destroyed.
+    /// to other objects.
     /// 
-    /// Note that this does not release any reference to the object (as opposed to
-    /// destroying a GtkWindow) because there is no reference from the windowing
-    /// system to the `GtkNativeDialog`.
+    /// If it is visible it will be hidden and any underlying window system
+    /// resources will be destroyed.
+    /// 
+    /// Note that this does not release any reference to the object (as opposed
+    /// to destroying a `GtkWindow`) because there is no reference from the
+    /// windowing system to the `GtkNativeDialog`.
     @inlinable func destroy() {
         gtk_native_dialog_destroy(native_dialog_ptr)
     
     }
 
-    /// Returns whether the dialog is modal. See `gtk_native_dialog_set_modal()`.
+    /// Returns whether the dialog is modal.
     @inlinable func getModal() -> Bool {
         let rv = ((gtk_native_dialog_get_modal(native_dialog_ptr)) != 0)
         return rv
@@ -677,8 +697,7 @@ public extension NativeDialogProtocol {
         return rv
     }
 
-    /// Fetches the transient parent for this window. See
-    /// `gtk_native_dialog_set_transient_for()`.
+    /// Fetches the transient parent for this window.
     @inlinable func getTransientFor() -> WindowRef! {
         let rv = WindowRef(gconstpointer: gconstpointer(gtk_native_dialog_get_transient_for(native_dialog_ptr)))
         return rv
@@ -690,9 +709,11 @@ public extension NativeDialogProtocol {
         return rv
     }
 
-    /// Hides the dialog if it is visilbe, aborting any interaction. Once this
-    /// is called the  `GtkNativeDialog::response` signal will not be emitted
-    /// until after the next call to `gtk_native_dialog_show()`.
+    /// Hides the dialog if it is visible, aborting any interaction.
+    /// 
+    /// Once this is called the [signal`Gtk.NativeDialog::response`] signal
+    /// will *not* be emitted until after the next call to
+    /// [method`Gtk.NativeDialog.show`].
     /// 
     /// If the dialog is not visible this does nothing.
     @inlinable func hide() {
@@ -700,28 +721,29 @@ public extension NativeDialogProtocol {
     
     }
 
-    /// Sets a dialog modal or non-modal. Modal dialogs prevent interaction
-    /// with other windows in the same application. To keep modal dialogs
-    /// on top of main application windows, use
-    /// `gtk_native_dialog_set_transient_for()` to make the dialog transient for the
-    /// parent; most [window managers](#gtk-X11-arch)
-    /// will then disallow lowering the dialog below the parent.
+    /// Sets a dialog modal or non-modal.
+    /// 
+    /// Modal dialogs prevent interaction with other windows in the same
+    /// application. To keep modal dialogs on top of main application
+    /// windows, use [method`Gtk.NativeDialog.set_transient_for`] to make
+    /// the dialog transient for the parent; most window managers will
+    /// then disallow lowering the dialog below the parent.
     @inlinable func set(modal: Bool) {
         gtk_native_dialog_set_modal(native_dialog_ptr, gboolean((modal) ? 1 : 0))
     
     }
 
-    /// Sets the title of the `GtkNativeDialog`.
+    /// Sets the title of the `GtkNativeDialog.`
     @inlinable func set(title: UnsafePointer<CChar>!) {
         gtk_native_dialog_set_title(native_dialog_ptr, title)
     
     }
 
     /// Dialog windows should be set transient for the main application
-    /// window they were spawned from. This allows
-    /// [window managers](#gtk-X11-arch) to e.g. keep the
-    /// dialog on top of the main window, or center the dialog over the
-    /// main window.
+    /// window they were spawned from.
+    /// 
+    /// This allows window managers to e.g. keep the dialog on top of the
+    /// main window, or center the dialog over the main window.
     /// 
     /// Passing `nil` for `parent` unsets the current transient window.
     @inlinable func setTransientFor(parent: WindowRef? = nil) {
@@ -729,10 +751,10 @@ public extension NativeDialogProtocol {
     
     }
     /// Dialog windows should be set transient for the main application
-    /// window they were spawned from. This allows
-    /// [window managers](#gtk-X11-arch) to e.g. keep the
-    /// dialog on top of the main window, or center the dialog over the
-    /// main window.
+    /// window they were spawned from.
+    /// 
+    /// This allows window managers to e.g. keep the dialog on top of the
+    /// main window, or center the dialog over the main window.
     /// 
     /// Passing `nil` for `parent` unsets the current transient window.
     @inlinable func setTransientFor<WindowT: WindowProtocol>(parent: WindowT?) {
@@ -740,10 +762,11 @@ public extension NativeDialogProtocol {
     
     }
 
-    /// Shows the dialog on the display, allowing the user to interact with
-    /// it. When the user accepts the state of the dialog the dialog will
-    /// be automatically hidden and the `GtkNativeDialog::response` signal
-    /// will be emitted.
+    /// Shows the dialog on the display.
+    /// 
+    /// When the user accepts the state of the dialog the dialog will
+    /// be automatically hidden and the [signal`Gtk.NativeDialog::response`]
+    /// signal will be emitted.
     /// 
     /// Multiple calls while the dialog is visible will be ignored.
     @inlinable func show() {
@@ -752,17 +775,18 @@ public extension NativeDialogProtocol {
     }
     /// Whether the window should be modal with respect to its transient parent.
     @inlinable var modal: Bool {
-        /// Returns whether the dialog is modal. See `gtk_native_dialog_set_modal()`.
+        /// Returns whether the dialog is modal.
         get {
             let rv = ((gtk_native_dialog_get_modal(native_dialog_ptr)) != 0)
             return rv
         }
-        /// Sets a dialog modal or non-modal. Modal dialogs prevent interaction
-        /// with other windows in the same application. To keep modal dialogs
-        /// on top of main application windows, use
-        /// `gtk_native_dialog_set_transient_for()` to make the dialog transient for the
-        /// parent; most [window managers](#gtk-X11-arch)
-        /// will then disallow lowering the dialog below the parent.
+        /// Sets a dialog modal or non-modal.
+        /// 
+        /// Modal dialogs prevent interaction with other windows in the same
+        /// application. To keep modal dialogs on top of main application
+        /// windows, use [method`Gtk.NativeDialog.set_transient_for`] to make
+        /// the dialog transient for the parent; most window managers will
+        /// then disallow lowering the dialog below the parent.
         nonmutating set {
             gtk_native_dialog_set_modal(native_dialog_ptr, gboolean((newValue) ? 1 : 0))
         }
@@ -775,26 +799,24 @@ public extension NativeDialogProtocol {
             let rv = gtk_native_dialog_get_title(native_dialog_ptr).map({ String(cString: $0) })
             return rv
         }
-        /// Sets the title of the `GtkNativeDialog`.
+        /// Sets the title of the `GtkNativeDialog.`
         nonmutating set {
             gtk_native_dialog_set_title(native_dialog_ptr, newValue)
         }
     }
 
-    /// Fetches the transient parent for this window. See
-    /// `gtk_native_dialog_set_transient_for()`.
+    /// Fetches the transient parent for this window.
     @inlinable var transientFor: WindowRef! {
-        /// Fetches the transient parent for this window. See
-        /// `gtk_native_dialog_set_transient_for()`.
+        /// Fetches the transient parent for this window.
         get {
             let rv = WindowRef(gconstpointer: gconstpointer(gtk_native_dialog_get_transient_for(native_dialog_ptr)))
             return rv
         }
         /// Dialog windows should be set transient for the main application
-        /// window they were spawned from. This allows
-        /// [window managers](#gtk-X11-arch) to e.g. keep the
-        /// dialog on top of the main window, or center the dialog over the
-        /// main window.
+        /// window they were spawned from.
+        /// 
+        /// This allows window managers to e.g. keep the dialog on top of the
+        /// main window, or center the dialog over the main window.
         /// 
         /// Passing `nil` for `parent` unsets the current transient window.
         nonmutating set {
@@ -1111,11 +1133,11 @@ public extension NeverTriggerProtocol {
 /// For a concrete class that implements these methods and properties, see `NoSelection`.
 /// Alternatively, use `NoSelectionRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// GtkNoSelection is an implementation of the `GtkSelectionModel` interface
-/// that does not allow selecting anything.
+/// `GtkNoSelection` is a `GtkSelectionModel` that does not allow selecting
+/// anything.
 /// 
-/// This model is meant to be used as a simple wrapper to `GListModels` when a
-/// `GtkSelectionModel` is required.
+/// This model is meant to be used as a simple wrapper around a `GListModel`
+/// when a `GtkSelectionModel` is required.
 public protocol NoSelectionProtocol: GLibObject.ObjectProtocol, GIO.ListModelProtocol, SelectionModelProtocol {
         /// Untyped pointer to the underlying `GtkNoSelection` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1131,11 +1153,11 @@ public protocol NoSelectionProtocol: GLibObject.ObjectProtocol, GIO.ListModelPro
 /// It exposes methods that can operate on this data type through `NoSelectionProtocol` conformance.
 /// Use `NoSelectionRef` only as an `unowned` reference to an existing `GtkNoSelection` instance.
 ///
-/// GtkNoSelection is an implementation of the `GtkSelectionModel` interface
-/// that does not allow selecting anything.
+/// `GtkNoSelection` is a `GtkSelectionModel` that does not allow selecting
+/// anything.
 /// 
-/// This model is meant to be used as a simple wrapper to `GListModels` when a
-/// `GtkSelectionModel` is required.
+/// This model is meant to be used as a simple wrapper around a `GListModel`
+/// when a `GtkSelectionModel` is required.
 public struct NoSelectionRef: NoSelectionProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkNoSelection` instance.
     /// For type-safe access, use the generated, typed pointer `no_selection_ptr` property instead.
@@ -1226,11 +1248,11 @@ public extension NoSelectionRef {
 /// It provides the methods that can operate on this data type through `NoSelectionProtocol` conformance.
 /// Use `NoSelection` as a strong reference or owner of a `GtkNoSelection` instance.
 ///
-/// GtkNoSelection is an implementation of the `GtkSelectionModel` interface
-/// that does not allow selecting anything.
+/// `GtkNoSelection` is a `GtkSelectionModel` that does not allow selecting
+/// anything.
 /// 
-/// This model is meant to be used as a simple wrapper to `GListModels` when a
-/// `GtkSelectionModel` is required.
+/// This model is meant to be used as a simple wrapper around a `GListModel`
+/// when a `GtkSelectionModel` is required.
 open class NoSelection: GLibObject.Object, NoSelectionProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -1367,7 +1389,7 @@ open class NoSelection: GLibObject.Object, NoSelectionProtocol {
 }
 
 public enum NoSelectionPropertyName: String, PropertyNameProtocol {
-    /// The model being managed
+    /// The model being managed.
     case model = "model"
 }
 
@@ -1450,7 +1472,7 @@ public enum NoSelectionSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// The model being managed
+    /// The model being managed.
     case notifyModel = "notify::model"
 }
 
@@ -1467,18 +1489,20 @@ public extension NoSelectionProtocol {
     }
 
     /// Sets the model that `self` should wrap.
+    /// 
     /// If `model` is `nil`, this model will be empty.
     @inlinable func set(model: GIO.ListModelRef? = nil) {
         gtk_no_selection_set_model(no_selection_ptr, model?.list_model_ptr)
     
     }
     /// Sets the model that `self` should wrap.
+    /// 
     /// If `model` is `nil`, this model will be empty.
     @inlinable func set<ListModelT: GIO.ListModelProtocol>(model: ListModelT?) {
         gtk_no_selection_set_model(no_selection_ptr, model?.list_model_ptr)
     
     }
-    /// The model being managed
+    /// The model being managed.
     @inlinable var model: GIO.ListModelRef! {
         /// Gets the model that `self` is wrapping.
         get {
@@ -1486,6 +1510,7 @@ public extension NoSelectionProtocol {
             return rv
         }
         /// Sets the model that `self` should wrap.
+        /// 
         /// If `model` is `nil`, this model will be empty.
         nonmutating set {
             gtk_no_selection_set_model(no_selection_ptr, UnsafeMutablePointer<GListModel>(newValue?.list_model_ptr))
@@ -1504,20 +1529,22 @@ public extension NoSelectionProtocol {
 /// For a concrete class that implements these methods and properties, see `Notebook`.
 /// Alternatively, use `NotebookRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// The `GtkNotebook` widget is a layout container whose children are
-/// pages that can be switched between using tab labels along one edge.
+/// `GtkNotebook` is a container whose children are pages switched
+/// between using tabs.
 /// 
-/// There are many configuration options for GtkNotebook. Among other
-/// things, you can choose on which edge the tabs appear
-/// (see `gtk_notebook_set_tab_pos()`), whether, if there are too many
-/// tabs to fit the notebook should be made bigger or scrolling
-/// arrows added (see `gtk_notebook_set_scrollable()`), and whether there
-/// will be a popup menu allowing the users to switch pages.
-/// (see `gtk_notebook_popup_enable()`, `gtk_notebook_popup_disable()`)
+/// ![An example GtkNotebook](notebook.png)
+/// 
+/// There are many configuration options for `GtkNotebook`. Among
+/// other things, you can choose on which edge the tabs appear
+/// (see [method`Gtk.Notebook.set_tab_pos`]), whether, if there are
+/// too many tabs to fit the notebook should be made bigger or scrolling
+/// arrows added (see [method`Gtk.Notebook.set_scrollable`]), and whether
+/// there will be a popup menu allowing the users to switch pages.
+/// (see [method`Gtk.Notebook.popup_enable`]).
 /// 
 /// # GtkNotebook as GtkBuildable
 /// 
-/// The GtkNotebook implementation of the `GtkBuildable` interface
+/// The `GtkNotebook` implementation of the `GtkBuildable` interface
 /// supports placing children into tabs by specifying “tab” as the
 /// “type” attribute of a &lt;child&gt; element. Note that the content
 /// of the tab must be created before the tab can be filled.
@@ -1528,46 +1555,46 @@ public extension NoSelectionProtocol {
 /// "action-start" or “action-end” as the “type” attribute of the
 /// &lt;child&gt; element.
 /// 
-/// An example of a UI definition fragment with GtkNotebook:
-/// ```
-/// <object class="GtkNotebook">
-///   <child>
-///     <object class="GtkLabel" id="notebook-content">
-///       <property name="label">Content</property>
-///     </object>
-///   </child>
-///   <child type="tab">
-///     <object class="GtkLabel" id="notebook-tab">
-///       <property name="label">Tab</property>
-///     </object>
-///   </child>
-/// </object>
+/// An example of a UI definition fragment with `GtkNotebook`:
+/// 
+/// ```xml
+/// &lt;object class="GtkNotebook"&gt;
+///   &lt;child&gt;
+///     &lt;object class="GtkLabel" id="notebook-content"&gt;
+///       &lt;property name="label"&gt;Content&lt;/property&gt;
+///     &lt;/object&gt;
+///   &lt;/child&gt;
+///   &lt;child type="tab"&gt;
+///     &lt;object class="GtkLabel" id="notebook-tab"&gt;
+///       &lt;property name="label"&gt;Tab&lt;/property&gt;
+///     &lt;/object&gt;
+///   &lt;/child&gt;
+/// &lt;/object&gt;
 /// ```
 /// 
 /// # CSS nodes
 /// 
-/// (plain Language Example):
-/// ```plain
+/// ```
 /// notebook
 /// ├── header.top
-/// │   ├── [<action widget>]
+/// │   ├── [&lt;action widget&gt;]
 /// │   ├── tabs
 /// │   │   ├── [arrow]
 /// │   │   ├── tab
-/// │   │   │   ╰── <tab label>
+/// │   │   │   ╰── &lt;tab label&gt;
 /// ┊   ┊   ┊
 /// │   │   ├── tab[.reorderable-page]
-/// │   │   │   ╰── <tab label>
+/// │   │   │   ╰── &lt;tab label&gt;
 /// │   │   ╰── [arrow]
-/// │   ╰── [<action widget>]
+/// │   ╰── [&lt;action widget&gt;]
 /// │
 /// ╰── stack
-///     ├── <child>
+///     ├── &lt;child&gt;
 ///     ┊
-///     ╰── <child>
+///     ╰── &lt;child&gt;
 /// ```
 /// 
-/// GtkNotebook has a main CSS node with name `notebook`, a subnode
+/// `GtkNotebook` has a main CSS node with name `notebook`, a subnode
 /// with name `header` and below that a subnode with name `tabs` which
 /// contains one subnode per tab with name `tab`.
 /// 
@@ -1576,7 +1603,7 @@ public extension NoSelectionProtocol {
 /// name `arrow` are placed as first and last child of the `tabs` node.
 /// 
 /// The main node gets the `.frame` style class when the notebook
-/// has a border (see `gtk_notebook_set_show_border()`).
+/// has a border (see [method`Gtk.Notebook.set_show_border`]).
 /// 
 /// The header node gets one of the style class `.top`, `.bottom`,
 /// `.left` or `.right`, depending on where the tabs are placed. For
@@ -1588,7 +1615,7 @@ public extension NoSelectionProtocol {
 /// 
 /// # Accessibility
 /// 
-/// GtkNotebook uses the following roles:
+/// `GtkNotebook` uses the following roles:
 /// 
 ///  - `GTK_ACCESSIBLE_ROLE_GROUP` for the notebook widget
 ///  - `GTK_ACCESSIBLE_ROLE_TAB_LIST` for the list of tabs
@@ -1609,20 +1636,22 @@ public protocol NotebookProtocol: WidgetProtocol {
 /// It exposes methods that can operate on this data type through `NotebookProtocol` conformance.
 /// Use `NotebookRef` only as an `unowned` reference to an existing `GtkNotebook` instance.
 ///
-/// The `GtkNotebook` widget is a layout container whose children are
-/// pages that can be switched between using tab labels along one edge.
+/// `GtkNotebook` is a container whose children are pages switched
+/// between using tabs.
 /// 
-/// There are many configuration options for GtkNotebook. Among other
-/// things, you can choose on which edge the tabs appear
-/// (see `gtk_notebook_set_tab_pos()`), whether, if there are too many
-/// tabs to fit the notebook should be made bigger or scrolling
-/// arrows added (see `gtk_notebook_set_scrollable()`), and whether there
-/// will be a popup menu allowing the users to switch pages.
-/// (see `gtk_notebook_popup_enable()`, `gtk_notebook_popup_disable()`)
+/// ![An example GtkNotebook](notebook.png)
+/// 
+/// There are many configuration options for `GtkNotebook`. Among
+/// other things, you can choose on which edge the tabs appear
+/// (see [method`Gtk.Notebook.set_tab_pos`]), whether, if there are
+/// too many tabs to fit the notebook should be made bigger or scrolling
+/// arrows added (see [method`Gtk.Notebook.set_scrollable`]), and whether
+/// there will be a popup menu allowing the users to switch pages.
+/// (see [method`Gtk.Notebook.popup_enable`]).
 /// 
 /// # GtkNotebook as GtkBuildable
 /// 
-/// The GtkNotebook implementation of the `GtkBuildable` interface
+/// The `GtkNotebook` implementation of the `GtkBuildable` interface
 /// supports placing children into tabs by specifying “tab” as the
 /// “type” attribute of a &lt;child&gt; element. Note that the content
 /// of the tab must be created before the tab can be filled.
@@ -1633,46 +1662,46 @@ public protocol NotebookProtocol: WidgetProtocol {
 /// "action-start" or “action-end” as the “type” attribute of the
 /// &lt;child&gt; element.
 /// 
-/// An example of a UI definition fragment with GtkNotebook:
-/// ```
-/// <object class="GtkNotebook">
-///   <child>
-///     <object class="GtkLabel" id="notebook-content">
-///       <property name="label">Content</property>
-///     </object>
-///   </child>
-///   <child type="tab">
-///     <object class="GtkLabel" id="notebook-tab">
-///       <property name="label">Tab</property>
-///     </object>
-///   </child>
-/// </object>
+/// An example of a UI definition fragment with `GtkNotebook`:
+/// 
+/// ```xml
+/// &lt;object class="GtkNotebook"&gt;
+///   &lt;child&gt;
+///     &lt;object class="GtkLabel" id="notebook-content"&gt;
+///       &lt;property name="label"&gt;Content&lt;/property&gt;
+///     &lt;/object&gt;
+///   &lt;/child&gt;
+///   &lt;child type="tab"&gt;
+///     &lt;object class="GtkLabel" id="notebook-tab"&gt;
+///       &lt;property name="label"&gt;Tab&lt;/property&gt;
+///     &lt;/object&gt;
+///   &lt;/child&gt;
+/// &lt;/object&gt;
 /// ```
 /// 
 /// # CSS nodes
 /// 
-/// (plain Language Example):
-/// ```plain
+/// ```
 /// notebook
 /// ├── header.top
-/// │   ├── [<action widget>]
+/// │   ├── [&lt;action widget&gt;]
 /// │   ├── tabs
 /// │   │   ├── [arrow]
 /// │   │   ├── tab
-/// │   │   │   ╰── <tab label>
+/// │   │   │   ╰── &lt;tab label&gt;
 /// ┊   ┊   ┊
 /// │   │   ├── tab[.reorderable-page]
-/// │   │   │   ╰── <tab label>
+/// │   │   │   ╰── &lt;tab label&gt;
 /// │   │   ╰── [arrow]
-/// │   ╰── [<action widget>]
+/// │   ╰── [&lt;action widget&gt;]
 /// │
 /// ╰── stack
-///     ├── <child>
+///     ├── &lt;child&gt;
 ///     ┊
-///     ╰── <child>
+///     ╰── &lt;child&gt;
 /// ```
 /// 
-/// GtkNotebook has a main CSS node with name `notebook`, a subnode
+/// `GtkNotebook` has a main CSS node with name `notebook`, a subnode
 /// with name `header` and below that a subnode with name `tabs` which
 /// contains one subnode per tab with name `tab`.
 /// 
@@ -1681,7 +1710,7 @@ public protocol NotebookProtocol: WidgetProtocol {
 /// name `arrow` are placed as first and last child of the `tabs` node.
 /// 
 /// The main node gets the `.frame` style class when the notebook
-/// has a border (see `gtk_notebook_set_show_border()`).
+/// has a border (see [method`Gtk.Notebook.set_show_border`]).
 /// 
 /// The header node gets one of the style class `.top`, `.bottom`,
 /// `.left` or `.right`, depending on where the tabs are placed. For
@@ -1693,7 +1722,7 @@ public protocol NotebookProtocol: WidgetProtocol {
 /// 
 /// # Accessibility
 /// 
-/// GtkNotebook uses the following roles:
+/// `GtkNotebook` uses the following roles:
 /// 
 ///  - `GTK_ACCESSIBLE_ROLE_GROUP` for the notebook widget
 ///  - `GTK_ACCESSIBLE_ROLE_TAB_LIST` for the list of tabs
@@ -1789,20 +1818,22 @@ public extension NotebookRef {
 /// It provides the methods that can operate on this data type through `NotebookProtocol` conformance.
 /// Use `Notebook` as a strong reference or owner of a `GtkNotebook` instance.
 ///
-/// The `GtkNotebook` widget is a layout container whose children are
-/// pages that can be switched between using tab labels along one edge.
+/// `GtkNotebook` is a container whose children are pages switched
+/// between using tabs.
 /// 
-/// There are many configuration options for GtkNotebook. Among other
-/// things, you can choose on which edge the tabs appear
-/// (see `gtk_notebook_set_tab_pos()`), whether, if there are too many
-/// tabs to fit the notebook should be made bigger or scrolling
-/// arrows added (see `gtk_notebook_set_scrollable()`), and whether there
-/// will be a popup menu allowing the users to switch pages.
-/// (see `gtk_notebook_popup_enable()`, `gtk_notebook_popup_disable()`)
+/// ![An example GtkNotebook](notebook.png)
+/// 
+/// There are many configuration options for `GtkNotebook`. Among
+/// other things, you can choose on which edge the tabs appear
+/// (see [method`Gtk.Notebook.set_tab_pos`]), whether, if there are
+/// too many tabs to fit the notebook should be made bigger or scrolling
+/// arrows added (see [method`Gtk.Notebook.set_scrollable`]), and whether
+/// there will be a popup menu allowing the users to switch pages.
+/// (see [method`Gtk.Notebook.popup_enable`]).
 /// 
 /// # GtkNotebook as GtkBuildable
 /// 
-/// The GtkNotebook implementation of the `GtkBuildable` interface
+/// The `GtkNotebook` implementation of the `GtkBuildable` interface
 /// supports placing children into tabs by specifying “tab” as the
 /// “type” attribute of a &lt;child&gt; element. Note that the content
 /// of the tab must be created before the tab can be filled.
@@ -1813,46 +1844,46 @@ public extension NotebookRef {
 /// "action-start" or “action-end” as the “type” attribute of the
 /// &lt;child&gt; element.
 /// 
-/// An example of a UI definition fragment with GtkNotebook:
-/// ```
-/// <object class="GtkNotebook">
-///   <child>
-///     <object class="GtkLabel" id="notebook-content">
-///       <property name="label">Content</property>
-///     </object>
-///   </child>
-///   <child type="tab">
-///     <object class="GtkLabel" id="notebook-tab">
-///       <property name="label">Tab</property>
-///     </object>
-///   </child>
-/// </object>
+/// An example of a UI definition fragment with `GtkNotebook`:
+/// 
+/// ```xml
+/// &lt;object class="GtkNotebook"&gt;
+///   &lt;child&gt;
+///     &lt;object class="GtkLabel" id="notebook-content"&gt;
+///       &lt;property name="label"&gt;Content&lt;/property&gt;
+///     &lt;/object&gt;
+///   &lt;/child&gt;
+///   &lt;child type="tab"&gt;
+///     &lt;object class="GtkLabel" id="notebook-tab"&gt;
+///       &lt;property name="label"&gt;Tab&lt;/property&gt;
+///     &lt;/object&gt;
+///   &lt;/child&gt;
+/// &lt;/object&gt;
 /// ```
 /// 
 /// # CSS nodes
 /// 
-/// (plain Language Example):
-/// ```plain
+/// ```
 /// notebook
 /// ├── header.top
-/// │   ├── [<action widget>]
+/// │   ├── [&lt;action widget&gt;]
 /// │   ├── tabs
 /// │   │   ├── [arrow]
 /// │   │   ├── tab
-/// │   │   │   ╰── <tab label>
+/// │   │   │   ╰── &lt;tab label&gt;
 /// ┊   ┊   ┊
 /// │   │   ├── tab[.reorderable-page]
-/// │   │   │   ╰── <tab label>
+/// │   │   │   ╰── &lt;tab label&gt;
 /// │   │   ╰── [arrow]
-/// │   ╰── [<action widget>]
+/// │   ╰── [&lt;action widget&gt;]
 /// │
 /// ╰── stack
-///     ├── <child>
+///     ├── &lt;child&gt;
 ///     ┊
-///     ╰── <child>
+///     ╰── &lt;child&gt;
 /// ```
 /// 
-/// GtkNotebook has a main CSS node with name `notebook`, a subnode
+/// `GtkNotebook` has a main CSS node with name `notebook`, a subnode
 /// with name `header` and below that a subnode with name `tabs` which
 /// contains one subnode per tab with name `tab`.
 /// 
@@ -1861,7 +1892,7 @@ public extension NotebookRef {
 /// name `arrow` are placed as first and last child of the `tabs` node.
 /// 
 /// The main node gets the `.frame` style class when the notebook
-/// has a border (see `gtk_notebook_set_show_border()`).
+/// has a border (see [method`Gtk.Notebook.set_show_border`]).
 /// 
 /// The header node gets one of the style class `.top`, `.bottom`,
 /// `.left` or `.right`, depending on where the tabs are placed. For
@@ -1873,7 +1904,7 @@ public extension NotebookRef {
 /// 
 /// # Accessibility
 /// 
-/// GtkNotebook uses the following roles:
+/// `GtkNotebook` uses the following roles:
 /// 
 ///  - `GTK_ACCESSIBLE_ROLE_GROUP` for the notebook widget
 ///  - `GTK_ACCESSIBLE_ROLE_TAB_LIST` for the list of tabs
@@ -2021,6 +2052,7 @@ public enum NotebookPropertyName: String, PropertyNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case canFocus = "can-focus"
+    /// Whether the widget can receive pointer events.
     case canTarget = "can-target"
     /// A list of css classes applied to this widget.
     case cssClasses = "css-classes"
@@ -2029,8 +2061,9 @@ public enum NotebookPropertyName: String, PropertyNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case cssName = "css-name"
-    /// The cursor used by `widget`. See `gtk_widget_set_cursor()` for details.
+    /// The cursor used by `widget`.
     case cursor = "cursor"
+    /// If `true`, pressing the right mouse button on the notebook shows a page switching menu.
     case enablePopup = "enable-popup"
     /// Whether the widget should grab focus when it is clicked with the mouse.
     /// 
@@ -2040,19 +2073,25 @@ public enum NotebookPropertyName: String, PropertyNameProtocol {
     case focusable = "focusable"
     /// Group name for tab drag and drop.
     case groupName = "group-name"
-    /// How to distribute horizontal space if widget gets extra space, see `GtkAlign`
+    /// How to distribute horizontal space if widget gets extra space.
     case halign = "halign"
+    /// Whether the widget is the default widget.
     case hasDefault = "has-default"
+    /// Whether the widget has the input focus.
     case hasFocus = "has-focus"
-    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
+    /// Enables or disables the emission of the `query-tooltip` signal on `widget`.
+    /// 
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
-    /// whether it will provide a tooltip or not.
+    /// the widget will be queried using [signal`Gtk.Widget::query-tooltip`] to
+    /// determine whether it will provide a tooltip or not.
     case hasTooltip = "has-tooltip"
+    /// Override for height request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case heightRequest = "height-request"
-    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
+    /// Whether to expand horizontally.
     case hexpand = "hexpand"
-    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
+    /// Whether to use the `hexpand` property.
     case hexpandSet = "hexpand-set"
     /// The `GtkLayoutManager` instance to use to compute the preferred size
     /// of the widget, and allocate its children.
@@ -2064,83 +2103,103 @@ public enum NotebookPropertyName: String, PropertyNameProtocol {
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginBottom = "margin-bottom"
-    /// Margin on end of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on end of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginEnd = "margin-end"
-    /// Margin on start of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on start of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginStart = "margin-start"
     /// Margin on top side of widget.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginTop = "margin-top"
+    /// The name of the widget.
     case name = "name"
-    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
-    /// more details about window opacity.
+    /// The requested opacity of the widget.
     case opacity = "opacity"
     /// How content outside the widget's content area is treated.
     /// 
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case overflow = "overflow"
+    /// The index of the current page.
     case page = "page"
+    /// A selection model with the pages.
     case pages = "pages"
+    /// The parent widget of this widget.
     case parent = "parent"
+    /// Whether the widget will receive the default action when it is focused.
     case receivesDefault = "receives-default"
-    /// The `GtkRoot` widget of the widget tree containing this widget or `nil` if
-    /// the widget is not contained in a root widget.
+    /// The `GtkRoot` widget of the widget tree containing this widget.
+    /// 
+    /// This will be `nil` if the widget is not contained in a root widget.
     case root = "root"
-    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
-    /// more details about widget scaling.
+    /// The scale factor of the widget.
     case scaleFactor = "scale-factor"
+    /// If `true`, scroll arrows are added if there are too many pages to fit.
     case scrollable = "scrollable"
+    /// Whether the widget responds to input.
     case sensitive = "sensitive"
+    /// Whether the border should be shown.
     case showBorder = "show-border"
+    /// Whether tabs should be shown.
     case showTabs = "show-tabs"
+    /// Which side of the notebook holds the tabs.
     case tabPos = "tab-pos"
     /// Sets the text of tooltip to be the given string, which is marked up
-    /// with the [Pango text markup language](#PangoMarkupFormat).
-    /// Also see `gtk_tooltip_set_markup()`.
+    /// with Pango markup.
+    /// 
+    /// Also see [method`Gtk.Tooltip.set_markup`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case tooltipMarkup = "tooltip-markup"
     /// Sets the text of tooltip to be the given string.
     /// 
-    /// Also see `gtk_tooltip_set_text()`.
+    /// Also see [method`Gtk.Tooltip.set_text`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case tooltipText = "tooltip-text"
-    /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
+    /// How to distribute vertical space if widget gets extra space.
     case valign = "valign"
-    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
+    /// Whether to expand vertically.
     case vexpand = "vexpand"
-    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
+    /// Whether to use the `vexpand` property.
     case vexpandSet = "vexpand-set"
+    /// Whether the widget is visible.
     case visible = "visible"
+    /// Override for width request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case widthRequest = "width-request"
 }
 
@@ -2206,33 +2265,36 @@ public enum NotebookSignalName: String, SignalNameProtocol {
     /// a notebook where the tab will be attached. It is also
     /// responsible for moving/resizing the window and adding the
     /// necessary properties to the notebook (e.g. the
-    /// `GtkNotebook:group-name` ).
+    /// `GtkNotebook`:group-name ).
     case createWindow = "create-window"
     /// Signals that all holders of a reference to the widget should release
-    /// the reference that they hold. May result in finalization of the widget
-    /// if all references are released.
+    /// the reference that they hold.
+    /// 
+    /// May result in finalization of the widget if all references are released.
     /// 
     /// This signal is not suitable for saving widget state.
     case destroy = "destroy"
-    /// The `direction-changed` signal is emitted when the text direction
-    /// of a widget changes.
+    /// Emitted when the text direction of a widget changes.
     case directionChanged = "direction-changed"
     case focusTab = "focus-tab"
-    /// The `hide` signal is emitted when `widget` is hidden, for example with
-    /// `gtk_widget_hide()`.
+    /// Emitted when `widget` is hidden.
     case hide = "hide"
-    /// Gets emitted if keyboard navigation fails.
-    /// See `gtk_widget_keynav_failed()` for details.
+    /// Emitted if keyboard navigation fails.
+    /// 
+    /// See [method`Gtk.Widget.keynav_failed`] for details.
     case keynavFailed = "keynav-failed"
-    /// The `map` signal is emitted when `widget` is going to be mapped, that is
-    /// when the widget is visible (which is controlled with
-    /// `gtk_widget_set_visible()`) and all its parents up to the toplevel widget
+    /// Emitted when `widget` is going to be mapped.
+    /// 
+    /// A widget is mapped when the widget is visible (which is controlled with
+    /// [property`Gtk.Widget:visible`]) and all its parents up to the toplevel widget
     /// are also visible.
     /// 
     /// The `map` signal can be used to determine whether a widget will be drawn,
     /// for instance it can resume an animation that was stopped during the
-    /// emission of `GtkWidget::unmap`.
+    /// emission of [signal`Gtk.Widget::unmap`].
     case map = "map"
+    /// Emitted when a widget is activated via a mnemonic.
+    /// 
     /// The default handler for this signal activates `widget` if `group_cycling`
     /// is `false`, or just makes `widget` grab focus if `group_cycling` is `true`.
     case mnemonicActivate = "mnemonic-activate"
@@ -2273,9 +2335,11 @@ public enum NotebookSignalName: String, SignalNameProtocol {
     /// the `page-reordered` signal is emitted in the notebook
     /// right after a page has been reordered.
     case pageReordered = "page-reordered"
-    /// Emitted when `GtkWidget:has-tooltip` is `true` and the hover timeout
-    /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
-    /// focus in keyboard mode.
+    /// Emitted when the widgets tooltip is about to be shown.
+    /// 
+    /// This happens when the [property`Gtk.Widget:has-tooltip`] property
+    /// is `true` and the hover timeout has expired with the cursor hovering
+    /// "above" `widget`; or emitted when `widget` got focus in keyboard mode.
     /// 
     /// Using the given coordinates, the signal handler should determine
     /// whether a tooltip should be shown for `widget`. If this is the case
@@ -2286,31 +2350,33 @@ public enum NotebookSignalName: String, SignalNameProtocol {
     /// The signal handler is free to manipulate `tooltip` with the therefore
     /// destined function calls.
     case queryTooltip = "query-tooltip"
-    /// The `realize` signal is emitted when `widget` is associated with a
-    /// `GdkSurface`, which means that `gtk_widget_realize()` has been called or the
-    /// widget has been mapped (that is, it is going to be drawn).
+    /// Emitted when `widget` is associated with a `GdkSurface`.
+    /// 
+    /// This means that [method`Gtk.Widget.realize`] has been called
+    /// or the widget has been mapped (that is, it is going to be drawn).
     case realize = "realize"
     case reorderTab = "reorder-tab"
     case selectPage = "select-page"
-    /// The `show` signal is emitted when `widget` is shown, for example with
-    /// `gtk_widget_show()`.
+    /// Emitted when `widget` is shown.
     case show = "show"
-    /// The `state-flags-changed` signal is emitted when the widget state
-    /// changes, see `gtk_widget_get_state_flags()`.
+    /// Emitted when the widget state changes.
+    /// 
+    /// See [method`Gtk.Widget.get_state_flags`].
     case stateFlagsChanged = "state-flags-changed"
     /// Emitted when the user or a function changes the current page.
     case switchPage = "switch-page"
-    /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
-    /// means that either it or any of its parents up to the toplevel widget have
-    /// been set as hidden.
+    /// Emitted when `widget` is going to be unmapped.
     /// 
-    /// As `unmap` indicates that a widget will not be shown any longer, it can be
-    /// used to, for example, stop an animation on the widget.
+    /// A widget is unmapped when either it or any of its parents up to the
+    /// toplevel widget have been set as hidden.
+    /// 
+    /// As `unmap` indicates that a widget will not be shown any longer,
+    /// it can be used to, for example, stop an animation on the widget.
     case unmap = "unmap"
-    /// The `unrealize` signal is emitted when the `GdkSurface` associated with
-    /// `widget` is destroyed, which means that `gtk_widget_unrealize()` has been
-    /// called or the widget has been unmapped (that is, it is going to be
-    /// hidden).
+    /// Emitted when the `GdkSurface` associated with `widget` is destroyed.
+    /// 
+    /// This means that [method`Gtk.Widget.unrealize`] has been called
+    /// or the widget has been unmapped (that is, it is going to be hidden).
     case unrealize = "unrealize"
     /// Whether the widget or any of its descendents can accept
     /// the input focus.
@@ -2318,6 +2384,7 @@ public enum NotebookSignalName: String, SignalNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case notifyCanFocus = "notify::can-focus"
+    /// Whether the widget can receive pointer events.
     case notifyCanTarget = "notify::can-target"
     /// A list of css classes applied to this widget.
     case notifyCssClasses = "notify::css-classes"
@@ -2326,8 +2393,9 @@ public enum NotebookSignalName: String, SignalNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case notifyCssName = "notify::css-name"
-    /// The cursor used by `widget`. See `gtk_widget_set_cursor()` for details.
+    /// The cursor used by `widget`.
     case notifyCursor = "notify::cursor"
+    /// If `true`, pressing the right mouse button on the notebook shows a page switching menu.
     case notifyEnablePopup = "notify::enable-popup"
     /// Whether the widget should grab focus when it is clicked with the mouse.
     /// 
@@ -2337,19 +2405,25 @@ public enum NotebookSignalName: String, SignalNameProtocol {
     case notifyFocusable = "notify::focusable"
     /// Group name for tab drag and drop.
     case notifyGroupName = "notify::group-name"
-    /// How to distribute horizontal space if widget gets extra space, see `GtkAlign`
+    /// How to distribute horizontal space if widget gets extra space.
     case notifyHalign = "notify::halign"
+    /// Whether the widget is the default widget.
     case notifyHasDefault = "notify::has-default"
+    /// Whether the widget has the input focus.
     case notifyHasFocus = "notify::has-focus"
-    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
+    /// Enables or disables the emission of the `query-tooltip` signal on `widget`.
+    /// 
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
-    /// whether it will provide a tooltip or not.
+    /// the widget will be queried using [signal`Gtk.Widget::query-tooltip`] to
+    /// determine whether it will provide a tooltip or not.
     case notifyHasTooltip = "notify::has-tooltip"
+    /// Override for height request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case notifyHeightRequest = "notify::height-request"
-    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
+    /// Whether to expand horizontally.
     case notifyHexpand = "notify::hexpand"
-    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
+    /// Whether to use the `hexpand` property.
     case notifyHexpandSet = "notify::hexpand-set"
     /// The `GtkLayoutManager` instance to use to compute the preferred size
     /// of the widget, and allocate its children.
@@ -2361,83 +2435,103 @@ public enum NotebookSignalName: String, SignalNameProtocol {
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginBottom = "notify::margin-bottom"
-    /// Margin on end of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on end of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginEnd = "notify::margin-end"
-    /// Margin on start of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on start of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginStart = "notify::margin-start"
     /// Margin on top side of widget.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginTop = "notify::margin-top"
+    /// The name of the widget.
     case notifyName = "notify::name"
-    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
-    /// more details about window opacity.
+    /// The requested opacity of the widget.
     case notifyOpacity = "notify::opacity"
     /// How content outside the widget's content area is treated.
     /// 
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case notifyOverflow = "notify::overflow"
+    /// The index of the current page.
     case notifyPage = "notify::page"
+    /// A selection model with the pages.
     case notifyPages = "notify::pages"
+    /// The parent widget of this widget.
     case notifyParent = "notify::parent"
+    /// Whether the widget will receive the default action when it is focused.
     case notifyReceivesDefault = "notify::receives-default"
-    /// The `GtkRoot` widget of the widget tree containing this widget or `nil` if
-    /// the widget is not contained in a root widget.
+    /// The `GtkRoot` widget of the widget tree containing this widget.
+    /// 
+    /// This will be `nil` if the widget is not contained in a root widget.
     case notifyRoot = "notify::root"
-    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
-    /// more details about widget scaling.
+    /// The scale factor of the widget.
     case notifyScaleFactor = "notify::scale-factor"
+    /// If `true`, scroll arrows are added if there are too many pages to fit.
     case notifyScrollable = "notify::scrollable"
+    /// Whether the widget responds to input.
     case notifySensitive = "notify::sensitive"
+    /// Whether the border should be shown.
     case notifyShowBorder = "notify::show-border"
+    /// Whether tabs should be shown.
     case notifyShowTabs = "notify::show-tabs"
+    /// Which side of the notebook holds the tabs.
     case notifyTabPos = "notify::tab-pos"
     /// Sets the text of tooltip to be the given string, which is marked up
-    /// with the [Pango text markup language](#PangoMarkupFormat).
-    /// Also see `gtk_tooltip_set_markup()`.
+    /// with Pango markup.
+    /// 
+    /// Also see [method`Gtk.Tooltip.set_markup`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case notifyTooltipMarkup = "notify::tooltip-markup"
     /// Sets the text of tooltip to be the given string.
     /// 
-    /// Also see `gtk_tooltip_set_text()`.
+    /// Also see [method`Gtk.Tooltip.set_text`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case notifyTooltipText = "notify::tooltip-text"
-    /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
+    /// How to distribute vertical space if widget gets extra space.
     case notifyValign = "notify::valign"
-    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
+    /// Whether to expand vertically.
     case notifyVexpand = "notify::vexpand"
-    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
+    /// Whether to use the `vexpand` property.
     case notifyVexpandSet = "notify::vexpand-set"
+    /// Whether the widget is visible.
     case notifyVisible = "notify::visible"
+    /// Override for width request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case notifyWidthRequest = "notify::width-request"
 }
 
@@ -2476,7 +2570,7 @@ public extension NotebookProtocol {
     /// a notebook where the tab will be attached. It is also
     /// responsible for moving/resizing the window and adding the
     /// necessary properties to the notebook (e.g. the
-    /// `GtkNotebook:group-name` ).
+    /// `GtkNotebook`:group-name ).
     /// - Note: This represents the underlying `create-window` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -3136,7 +3230,7 @@ public extension NotebookProtocol {
 
     /// Removes the child from the notebook.
     /// 
-    /// This function is very similar to `gtk_notebook_remove_page()`,
+    /// This function is very similar to [method`Gtk.Notebook.remove_page`],
     /// but additionally informs the notebook that the removal
     /// is happening as part of a tab DND operation, which should
     /// not be cancelled.
@@ -3145,7 +3239,9 @@ public extension NotebookProtocol {
     
     }
 
-    /// Gets one of the action widgets. See `gtk_notebook_set_action_widget()`.
+    /// Gets one of the action widgets.
+    /// 
+    /// See [method`Gtk.Notebook.set_action_widget`].
     @inlinable func getActionWidget(packType: GtkPackType) -> WidgetRef! {
         guard let rv = WidgetRef(gconstpointer: gconstpointer(gtk_notebook_get_action_widget(notebook_ptr, packType))) else { return nil }
         return rv
@@ -3194,29 +3290,29 @@ public extension NotebookProtocol {
         return rv
     }
 
-    /// Returns a `GListModel` that contains the pages of the notebook,
-    /// and can be used to keep an up-to-date view.
+    /// Returns a `GListModel` that contains the pages of the notebook.
+    /// 
+    /// This can be used to keep an up-to-date view. The model also
+    /// implements [iface`Gtk.SelectionModel`] and can be used to track
+    /// and modify the visible page.
     @inlinable func getPages() -> GIO.ListModelRef! {
         let rv = GIO.ListModelRef(gtk_notebook_get_pages(notebook_ptr))
         return rv
     }
 
     /// Returns whether the tab label area has arrows for scrolling.
-    /// See `gtk_notebook_set_scrollable()`.
     @inlinable func getScrollable() -> Bool {
         let rv = ((gtk_notebook_get_scrollable(notebook_ptr)) != 0)
         return rv
     }
 
     /// Returns whether a bevel will be drawn around the notebook pages.
-    /// See `gtk_notebook_set_show_border()`.
     @inlinable func getShowBorder() -> Bool {
         let rv = ((gtk_notebook_get_show_border(notebook_ptr)) != 0)
         return rv
     }
 
     /// Returns whether the tabs of the notebook are shown.
-    /// See `gtk_notebook_set_show_tabs()`.
     @inlinable func getShowTabs() -> Bool {
         let rv = ((gtk_notebook_get_show_tabs(notebook_ptr)) != 0)
         return rv
@@ -3229,6 +3325,7 @@ public extension NotebookProtocol {
     }
 
     /// Returns the tab label widget for the page `child`.
+    /// 
     /// `nil` is returned if `child` is not in `notebook` or
     /// if no tab label has specifically been set for `child`.
     @inlinable func getTabLabel<WidgetT: WidgetProtocol>(child: WidgetT) -> WidgetRef! {
@@ -3243,8 +3340,7 @@ public extension NotebookProtocol {
         return rv
     }
 
-    /// Gets the edge at which the tabs for switching pages in the
-    /// notebook are drawn.
+    /// Gets the edge at which the tabs are drawn.
     @inlinable func getTabPos() -> GtkPositionType {
         let rv = gtk_notebook_get_tab_pos(notebook_ptr)
         return rv
@@ -3269,8 +3365,9 @@ public extension NotebookProtocol {
         return rv
     }
 
-    /// Switches to the next page. Nothing happens if the current page is
-    /// the last page.
+    /// Switches to the next page.
+    /// 
+    /// Nothing happens if the current page is the last page.
     @inlinable func nextPage() {
         gtk_notebook_next_page(notebook_ptr)
     
@@ -3289,9 +3386,10 @@ public extension NotebookProtocol {
     
     }
 
-    /// Enables the popup menu: if the user clicks with the right
-    /// mouse button on the tab labels, a menu with all the pages
-    /// will be popped up.
+    /// Enables the popup menu.
+    /// 
+    /// If the user clicks with the right mouse button on the tab labels,
+    /// a menu with all the pages will be popped up.
     @inlinable func popupEnable() {
         gtk_notebook_popup_enable(notebook_ptr)
     
@@ -3310,8 +3408,9 @@ public extension NotebookProtocol {
         return rv
     }
 
-    /// Switches to the previous page. Nothing happens if the current page
-    /// is the first page.
+    /// Switches to the previous page.
+    /// 
+    /// Nothing happens if the current page is the first page.
     @inlinable func prevPage() {
         gtk_notebook_prev_page(notebook_ptr)
     
@@ -3325,17 +3424,20 @@ public extension NotebookProtocol {
     }
 
     /// Reorders the page containing `child`, so that it appears in position
-    /// `position`. If `position` is greater than or equal to the number of
-    /// children in the list or negative, `child` will be moved to the end
-    /// of the list.
+    /// `position`.
+    /// 
+    /// If `position` is greater than or equal to the number of children in
+    /// the list or negative, `child` will be moved to the end of the list.
     @inlinable func reorder<WidgetT: WidgetProtocol>(child: WidgetT, position: Int) {
         gtk_notebook_reorder_child(notebook_ptr, child.widget_ptr, gint(position))
     
     }
 
-    /// Sets `widget` as one of the action widgets. Depending on the pack type
-    /// the widget will be placed before or after the tabs. You can use
-    /// a `GtkBox` if you need to pack more than one widget on the same side.
+    /// Sets `widget` as one of the action widgets.
+    /// 
+    /// Depending on the pack type the widget will be placed before
+    /// or after the tabs. You can use a `GtkBox` if you need to pack
+    /// more than one widget on the same side.
     @inlinable func setAction<WidgetT: WidgetProtocol>(widget: WidgetT, packType: GtkPackType) {
         gtk_notebook_set_action_widget(notebook_ptr, widget.widget_ptr, packType)
     
@@ -3382,8 +3484,8 @@ public extension NotebookProtocol {
     }
 
     /// Sets whether a bevel will be drawn around the notebook pages.
+    /// 
     /// This only has a visual effect when the tabs are not shown.
-    /// See `gtk_notebook_set_show_tabs()`.
     @inlinable func set(showBorder: Bool) {
         gtk_notebook_set_show_border(notebook_ptr, gboolean((showBorder) ? 1 : 0))
     
@@ -3398,8 +3500,8 @@ public extension NotebookProtocol {
     /// Sets whether the tab can be detached from `notebook` to another
     /// notebook or widget.
     /// 
-    /// Note that 2 notebooks must share a common group identificator
-    /// (see `gtk_notebook_set_group_name()`) to allow automatic tabs
+    /// Note that two notebooks must share a common group identificator
+    /// (see [method`Gtk.Notebook.set_group_name`]) to allow automatic tabs
     /// interchange between them.
     /// 
     /// If you want a widget to interact with a notebook through DnD
@@ -3408,34 +3510,33 @@ public extension NotebookProtocol {
     /// will fill the selection with a GtkWidget** pointing to the child
     /// widget that corresponds to the dropped tab.
     /// 
-    /// Note that you should use `gtk_notebook_detach_tab()` instead of
-    /// `gtk_notebook_remove_page()` if you want to remove the tab from
-    /// the source notebook as part of accepting a drop. Otherwise,
-    /// the source notebook will think that the dragged tab was
-    /// removed from underneath the ongoing drag operation, and
-    /// will initiate a drag cancel animation.
+    /// Note that you should use [method`Gtk.Notebook.detach_tab`] instead
+    /// of [method`Gtk.Notebook.remove_page`] if you want to remove the tab
+    /// from the source notebook as part of accepting a drop. Otherwise,
+    /// the source notebook will think that the dragged tab was removed
+    /// from underneath the ongoing drag operation, and will initiate a
+    /// drag cancel animation.
     /// 
-    /// (C Language Example):
-    /// ```C
-    ///  static void
-    ///  on_drag_data_received (GtkWidget        *widget,
-    ///                         GdkDrop          *drop,
-    ///                         GtkSelectionData *data,
-    ///                         guint             time,
-    ///                         gpointer          user_data)
-    ///  {
-    ///    GtkDrag *drag;
-    ///    GtkWidget *notebook;
-    ///    GtkWidget **child;
+    /// ```c
+    /// static void
+    /// on_drag_data_received (GtkWidget        *widget,
+    ///                        GdkDrop          *drop,
+    ///                        GtkSelectionData *data,
+    ///                        guint             time,
+    ///                        gpointer          user_data)
+    /// {
+    ///   GtkDrag *drag;
+    ///   GtkWidget *notebook;
+    ///   GtkWidget **child;
     /// 
-    ///    drag = gtk_drop_get_drag (drop);
-    ///    notebook = g_object_get_data (drag, "gtk-notebook-drag-origin");
-    ///    child = (void*) gtk_selection_data_get_data (data);
+    ///   drag = gtk_drop_get_drag (drop);
+    ///   notebook = g_object_get_data (drag, "gtk-notebook-drag-origin");
+    ///   child = (void*) gtk_selection_data_get_data (data);
     /// 
-    ///    // process_widget (*child);
+    ///   // process_widget (*child);
     /// 
-    ///    gtk_notebook_detach_tab (GTK_NOTEBOOK (notebook), *child);
-    ///  }
+    ///   gtk_notebook_detach_tab (GTK_NOTEBOOK (notebook), *child);
+    /// }
     /// ```
     /// 
     /// If you want a notebook to accept drags from other widgets,
@@ -3446,6 +3547,7 @@ public extension NotebookProtocol {
     }
 
     /// Changes the tab label for `child`.
+    /// 
     /// If `nil` is specified for `tab_label`, then the page will
     /// have the label “page N”.
     @inlinable func setTabLabel<WidgetT: WidgetProtocol>(child: WidgetT, tabLabel: WidgetT?) {
@@ -3460,8 +3562,7 @@ public extension NotebookProtocol {
     
     }
 
-    /// Sets the edge at which the tabs for switching pages in the
-    /// notebook are drawn.
+    /// Sets the edge at which the tabs are drawn.
     @inlinable func setTab(pos: GtkPositionType) {
         gtk_notebook_set_tab_pos(notebook_ptr, pos)
     
@@ -3517,18 +3618,22 @@ public extension NotebookProtocol {
         }
     }
 
+    /// A selection model with the pages.
     @inlinable var pages: GIO.ListModelRef! {
-        /// Returns a `GListModel` that contains the pages of the notebook,
-        /// and can be used to keep an up-to-date view.
+        /// Returns a `GListModel` that contains the pages of the notebook.
+        /// 
+        /// This can be used to keep an up-to-date view. The model also
+        /// implements [iface`Gtk.SelectionModel`] and can be used to track
+        /// and modify the visible page.
         get {
             let rv = GIO.ListModelRef(gtk_notebook_get_pages(notebook_ptr))
             return rv
         }
     }
 
+    /// If `true`, scroll arrows are added if there are too many pages to fit.
     @inlinable var scrollable: Bool {
         /// Returns whether the tab label area has arrows for scrolling.
-        /// See `gtk_notebook_set_scrollable()`.
         get {
             let rv = ((gtk_notebook_get_scrollable(notebook_ptr)) != 0)
             return rv
@@ -3541,27 +3646,23 @@ public extension NotebookProtocol {
     }
 
     /// Returns whether a bevel will be drawn around the notebook pages.
-    /// See `gtk_notebook_set_show_border()`.
     @inlinable var showBorder: Bool {
         /// Returns whether a bevel will be drawn around the notebook pages.
-        /// See `gtk_notebook_set_show_border()`.
         get {
             let rv = ((gtk_notebook_get_show_border(notebook_ptr)) != 0)
             return rv
         }
         /// Sets whether a bevel will be drawn around the notebook pages.
+        /// 
         /// This only has a visual effect when the tabs are not shown.
-        /// See `gtk_notebook_set_show_tabs()`.
         nonmutating set {
             gtk_notebook_set_show_border(notebook_ptr, gboolean((newValue) ? 1 : 0))
         }
     }
 
     /// Returns whether the tabs of the notebook are shown.
-    /// See `gtk_notebook_set_show_tabs()`.
     @inlinable var showTabs: Bool {
         /// Returns whether the tabs of the notebook are shown.
-        /// See `gtk_notebook_set_show_tabs()`.
         get {
             let rv = ((gtk_notebook_get_show_tabs(notebook_ptr)) != 0)
             return rv
@@ -3572,17 +3673,14 @@ public extension NotebookProtocol {
         }
     }
 
-    /// Gets the edge at which the tabs for switching pages in the
-    /// notebook are drawn.
+    /// Gets the edge at which the tabs are drawn.
     @inlinable var tabPos: GtkPositionType {
-        /// Gets the edge at which the tabs for switching pages in the
-        /// notebook are drawn.
+        /// Gets the edge at which the tabs are drawn.
         get {
             let rv = gtk_notebook_get_tab_pos(notebook_ptr)
             return rv
         }
-        /// Sets the edge at which the tabs for switching pages in the
-        /// notebook are drawn.
+        /// Sets the edge at which the tabs are drawn.
         nonmutating set {
             gtk_notebook_set_tab_pos(notebook_ptr, newValue)
         }
@@ -3600,9 +3698,7 @@ public extension NotebookProtocol {
 /// For a concrete class that implements these methods and properties, see `NotebookPage`.
 /// Alternatively, use `NotebookPageRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// A page in the `GtkNotebook`.
-/// 
-/// The `GtkNotebookPage` structure only contains private data.
+/// `GtkNotebookPage` is an auxiliary object used by `GtkNotebook`.
 public protocol NotebookPageProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GtkNotebookPage` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3618,9 +3714,7 @@ public protocol NotebookPageProtocol: GLibObject.ObjectProtocol {
 /// It exposes methods that can operate on this data type through `NotebookPageProtocol` conformance.
 /// Use `NotebookPageRef` only as an `unowned` reference to an existing `GtkNotebookPage` instance.
 ///
-/// A page in the `GtkNotebook`.
-/// 
-/// The `GtkNotebookPage` structure only contains private data.
+/// `GtkNotebookPage` is an auxiliary object used by `GtkNotebook`.
 public struct NotebookPageRef: NotebookPageProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkNotebookPage` instance.
     /// For type-safe access, use the generated, typed pointer `notebook_page_ptr` property instead.
@@ -3706,9 +3800,7 @@ public extension NotebookPageRef {
 /// It provides the methods that can operate on this data type through `NotebookPageProtocol` conformance.
 /// Use `NotebookPage` as a strong reference or owner of a `GtkNotebookPage` instance.
 ///
-/// A page in the `GtkNotebook`.
-/// 
-/// The `GtkNotebookPage` structure only contains private data.
+/// `GtkNotebookPage` is an auxiliary object used by `GtkNotebook`.
 open class NotebookPage: GLibObject.Object, NotebookPageProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -3839,15 +3931,25 @@ open class NotebookPage: GLibObject.Object, NotebookPageProtocol {
 }
 
 public enum NotebookPagePropertyName: String, PropertyNameProtocol {
+    /// The child for this page.
     case child = "child"
+    /// Whether the tab is detachable.
     case detachable = "detachable"
+    /// The label widget displayed in the childs menu entry.
     case menu = "menu"
+    /// The text of the menu widget.
     case menuLabel = "menu-label"
+    /// The index of the child in the parent.
     case position = "position"
+    /// Whether the tab is reorderable by user action.
     case reorderable = "reorderable"
+    /// The tab widget for tihs page.
     case tab = "tab"
+    /// Whether to expand the childs tab.
     case tabExpand = "tab-expand"
+    /// Whether the childs tab should fill the allocated area.
     case tabFill = "tab-fill"
+    /// The text of the tab widget.
     case tabLabel = "tab-label"
 }
 
@@ -3930,15 +4032,25 @@ public enum NotebookPageSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
+    /// The child for this page.
     case notifyChild = "notify::child"
+    /// Whether the tab is detachable.
     case notifyDetachable = "notify::detachable"
+    /// The label widget displayed in the childs menu entry.
     case notifyMenu = "notify::menu"
+    /// The text of the menu widget.
     case notifyMenuLabel = "notify::menu-label"
+    /// The index of the child in the parent.
     case notifyPosition = "notify::position"
+    /// Whether the tab is reorderable by user action.
     case notifyReorderable = "notify::reorderable"
+    /// The tab widget for tihs page.
     case notifyTab = "notify::tab"
+    /// Whether to expand the childs tab.
     case notifyTabExpand = "notify::tab-expand"
+    /// Whether the childs tab should fill the allocated area.
     case notifyTabFill = "notify::tab-fill"
+    /// The text of the tab widget.
     case notifyTabLabel = "notify::tab-label"
 }
 
@@ -3953,6 +4065,7 @@ public extension NotebookPageProtocol {
         let rv = WidgetRef(gconstpointer: gconstpointer(gtk_notebook_page_get_child(notebook_page_ptr)))
         return rv
     }
+    /// The child for this page.
     @inlinable var child: WidgetRef! {
         /// Returns the notebook child to which `page` belongs.
         get {
@@ -4255,9 +4368,10 @@ public extension NothingActionProtocol {
 /// For a concrete class that implements these methods and properties, see `NumericSorter`.
 /// Alternatively, use `NumericSorterRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// GtkNumericSorter is a `GtkSorter` that compares numbers.
+/// `GtkNumericSorter` is a `GtkSorter` that compares numbers.
 /// 
-/// To obtain the numbers to compare, this sorter evaluates a `GtkExpression`.
+/// To obtain the numbers to compare, this sorter evaluates a
+/// [class`Gtk.Expression`].
 public protocol NumericSorterProtocol: SorterProtocol {
         /// Untyped pointer to the underlying `GtkNumericSorter` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -4273,9 +4387,10 @@ public protocol NumericSorterProtocol: SorterProtocol {
 /// It exposes methods that can operate on this data type through `NumericSorterProtocol` conformance.
 /// Use `NumericSorterRef` only as an `unowned` reference to an existing `GtkNumericSorter` instance.
 ///
-/// GtkNumericSorter is a `GtkSorter` that compares numbers.
+/// `GtkNumericSorter` is a `GtkSorter` that compares numbers.
 /// 
-/// To obtain the numbers to compare, this sorter evaluates a `GtkExpression`.
+/// To obtain the numbers to compare, this sorter evaluates a
+/// [class`Gtk.Expression`].
 public struct NumericSorterRef: NumericSorterProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkNumericSorter` instance.
     /// For type-safe access, use the generated, typed pointer `numeric_sorter_ptr` property instead.
@@ -4358,7 +4473,7 @@ public extension NumericSorterRef {
         /// Creates a new numeric sorter using the given `expression`.
     /// 
     /// Smaller numbers will be sorted first. You can call
-    /// `gtk_numeric_sorter_set_sort_order()` to change this.
+    /// [method`Gtk.NumericSorter.set_sort_order`] to change this.
     @inlinable init<ExpressionT: ExpressionProtocol>( expression: ExpressionT?) {
         let rv = gtk_numeric_sorter_new(expression?.expression_ptr)
         ptr = UnsafeMutableRawPointer(rv)
@@ -4369,9 +4484,10 @@ public extension NumericSorterRef {
 /// It provides the methods that can operate on this data type through `NumericSorterProtocol` conformance.
 /// Use `NumericSorter` as a strong reference or owner of a `GtkNumericSorter` instance.
 ///
-/// GtkNumericSorter is a `GtkSorter` that compares numbers.
+/// `GtkNumericSorter` is a `GtkSorter` that compares numbers.
 /// 
-/// To obtain the numbers to compare, this sorter evaluates a `GtkExpression`.
+/// To obtain the numbers to compare, this sorter evaluates a
+/// [class`Gtk.Expression`].
 open class NumericSorter: Sorter, NumericSorterProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -4500,7 +4616,7 @@ open class NumericSorter: Sorter, NumericSorterProtocol {
     /// Creates a new numeric sorter using the given `expression`.
     /// 
     /// Smaller numbers will be sorted first. You can call
-    /// `gtk_numeric_sorter_set_sort_order()` to change this.
+    /// [method`Gtk.NumericSorter.set_sort_order`] to change this.
     @inlinable public init<ExpressionT: ExpressionProtocol>( expression: ExpressionT?) {
         let rv = gtk_numeric_sorter_new(expression?.expression_ptr)
         super.init(gpointer: gpointer(rv))
@@ -4511,9 +4627,9 @@ open class NumericSorter: Sorter, NumericSorterProtocol {
 }
 
 public enum NumericSorterPropertyName: String, PropertyNameProtocol {
-    /// The expression to evaluate on items to get a number to compare with
+    /// The expression to evaluate on items to get a number to compare with.
     case expression = "expression"
-    /// Whether the sorter will sort smaller numbers first
+    /// Whether the sorter will sort smaller numbers first.
     case sortOrder = "sort-order"
 }
 
@@ -4571,14 +4687,16 @@ public extension NumericSorterProtocol {
 }
 
 public enum NumericSorterSignalName: String, SignalNameProtocol {
-    /// This signal is emitted whenever the sorter changed. Users of the sorter
-    /// should then update the sort order again via `gtk_sorter_compare()`.
+    /// Emitted whenever the sorter changed.
     /// 
-    /// `GtkSortListModel` handles this signal automatically.
+    /// Users of the sorter should then update the sort order
+    /// again via `gtk_sorter_compare()`.
+    /// 
+    /// [class`Gtk.SortListModel`] handles this signal automatically.
     /// 
     /// Depending on the `change` parameter, it may be possible to update
-    /// the sort order without a full resorting. Refer to the `GtkSorterChange`
-    /// documentation for details.
+    /// the sort order without a full resorting. Refer to the
+    /// [enum`Gtk.SorterChange`] documentation for details.
     case changed = "changed"
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -4605,9 +4723,9 @@ public enum NumericSorterSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// The expression to evaluate on items to get a number to compare with
+    /// The expression to evaluate on items to get a number to compare with.
     case notifyExpression = "notify::expression"
-    /// Whether the sorter will sort smaller numbers first
+    /// Whether the sorter will sort smaller numbers first.
     case notifySortOrder = "notify::sort-order"
 }
 
@@ -4657,7 +4775,7 @@ public extension NumericSorterProtocol {
         gtk_numeric_sorter_set_sort_order(numeric_sorter_ptr, sortOrder)
     
     }
-    /// The expression to evaluate on items to get a number to compare with
+    /// The expression to evaluate on items to get a number to compare with.
     @inlinable var expression: ExpressionRef! {
         /// Gets the expression that is evaluated to obtain numbers from items.
         get {
@@ -4701,7 +4819,7 @@ public extension NumericSorterProtocol {
 /// For a concrete class that implements these methods and properties, see `ObjectExpression`.
 /// Alternatively, use `ObjectExpressionRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
+/// A `GObject` value in a `GtkExpression`.
 public protocol ObjectExpressionProtocol: ExpressionProtocol {
         /// Untyped pointer to the underlying `GtkObjectExpression` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -4717,7 +4835,7 @@ public protocol ObjectExpressionProtocol: ExpressionProtocol {
 /// It exposes methods that can operate on this data type through `ObjectExpressionProtocol` conformance.
 /// Use `ObjectExpressionRef` only as an `unowned` reference to an existing `GtkObjectExpression` instance.
 ///
-
+/// A `GObject` value in a `GtkExpression`.
 public struct ObjectExpressionRef: ObjectExpressionProtocol {
         /// Untyped pointer to the underlying `GtkObjectExpression` instance.
     /// For type-safe access, use the generated, typed pointer `object_expression_ptr` property instead.
@@ -4794,22 +4912,13 @@ public extension ObjectExpressionRef {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
-        /// Creates an expression evaluating to the given `object` with a weak reference.
-    /// Once the `object` is disposed, it will fail to evaluate.
-    /// This expression is meant to break reference cycles.
-    /// 
-    /// If you want to keep a reference to `object`, use `gtk_constant_expression_new()`.
-    @inlinable init<ObjectT: GLibObject.ObjectProtocol>( object: ObjectT) {
-        let rv = gtk_object_expression_new(object.object_ptr)
-        ptr = UnsafeMutableRawPointer(rv)
     }
-}
 
 /// The `ObjectExpression` type acts as a reference-counted owner of an underlying `GtkObjectExpression` instance.
 /// It provides the methods that can operate on this data type through `ObjectExpressionProtocol` conformance.
 /// Use `ObjectExpression` as a strong reference or owner of a `GtkObjectExpression` instance.
 ///
-
+/// A `GObject` value in a `GtkExpression`.
 open class ObjectExpression: Expression, ObjectExpressionProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -4935,15 +5044,6 @@ open class ObjectExpression: Expression, ObjectExpressionProtocol {
         super.init(retainingOpaquePointer: p)
     }
 
-    /// Creates an expression evaluating to the given `object` with a weak reference.
-    /// Once the `object` is disposed, it will fail to evaluate.
-    /// This expression is meant to break reference cycles.
-    /// 
-    /// If you want to keep a reference to `object`, use `gtk_constant_expression_new()`.
-    @inlinable public init<ObjectT: GLibObject.ObjectProtocol>( object: ObjectT) {
-        let rv = gtk_object_expression_new(object.object_ptr)
-        super.init(gpointer: gpointer(rv))
-    }
 
 
 }

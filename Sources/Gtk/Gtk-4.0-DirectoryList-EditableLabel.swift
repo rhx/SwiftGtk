@@ -21,23 +21,25 @@ import Gdk
 /// Alternatively, use `DirectoryListRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
 /// `GtkDirectoryList` is a list model that wraps `g_file_enumerate_children_async()`.
-/// It presents a `GListModel` and fills it asynchronously with the `GFileInfos`
+/// 
+/// It presents a `GListModel` and fills it asynchronously with the `GFileInfo`s
 /// returned from that function.
 /// 
-/// Enumeration will start automatically when a the `GtkDirectoryList:file` property
-/// is set.
+/// Enumeration will start automatically when a the
+/// [property`Gtk.DirectoryList:file`] property is set.
 /// 
-/// While the `GtkDirectoryList` is being filled, the `GtkDirectoryList:loading`
-/// property will be set to `true`. You can listen to that property if you want
-/// to show information like a `GtkSpinner` or a "Loading..." text.
+/// While the `GtkDirectoryList` is being filled, the
+/// [property`Gtk.DirectoryList:loading`] property will be set to `true`. You can
+/// listen to that property if you want to show information like a `GtkSpinner`
+/// or a "Loading..." text.
 /// 
-/// If loading fails at any point, the `GtkDirectoryList:error` property will be
-/// set to give more indication about the failure.
+/// If loading fails at any point, the [property`Gtk.DirectoryList:error`]
+/// property will be set to give more indication about the failure.
 /// 
-/// The `GFileInfos` returned from a `GtkDirectoryList` have the "standard`file`"
+/// The `GFileInfo`s returned from a `GtkDirectoryList` have the "standard`file`"
 /// attribute set to the `GFile` they refer to. This way you can get at the file
 /// that is referred to in the same way you would via `g_file_enumerator_get_child()`.
-/// This means you do not need access to the `GtkDirectoryList` but can access
+/// This means you do not need access to the `GtkDirectoryList`, but can access
 /// the `GFile` directly from the `GFileInfo` when operating with a `GtkListView`
 /// or similar.
 public protocol DirectoryListProtocol: GLibObject.ObjectProtocol, GIO.ListModelProtocol {
@@ -56,23 +58,25 @@ public protocol DirectoryListProtocol: GLibObject.ObjectProtocol, GIO.ListModelP
 /// Use `DirectoryListRef` only as an `unowned` reference to an existing `GtkDirectoryList` instance.
 ///
 /// `GtkDirectoryList` is a list model that wraps `g_file_enumerate_children_async()`.
-/// It presents a `GListModel` and fills it asynchronously with the `GFileInfos`
+/// 
+/// It presents a `GListModel` and fills it asynchronously with the `GFileInfo`s
 /// returned from that function.
 /// 
-/// Enumeration will start automatically when a the `GtkDirectoryList:file` property
-/// is set.
+/// Enumeration will start automatically when a the
+/// [property`Gtk.DirectoryList:file`] property is set.
 /// 
-/// While the `GtkDirectoryList` is being filled, the `GtkDirectoryList:loading`
-/// property will be set to `true`. You can listen to that property if you want
-/// to show information like a `GtkSpinner` or a "Loading..." text.
+/// While the `GtkDirectoryList` is being filled, the
+/// [property`Gtk.DirectoryList:loading`] property will be set to `true`. You can
+/// listen to that property if you want to show information like a `GtkSpinner`
+/// or a "Loading..." text.
 /// 
-/// If loading fails at any point, the `GtkDirectoryList:error` property will be
-/// set to give more indication about the failure.
+/// If loading fails at any point, the [property`Gtk.DirectoryList:error`]
+/// property will be set to give more indication about the failure.
 /// 
-/// The `GFileInfos` returned from a `GtkDirectoryList` have the "standard`file`"
+/// The `GFileInfo`s returned from a `GtkDirectoryList` have the "standard`file`"
 /// attribute set to the `GFile` they refer to. This way you can get at the file
 /// that is referred to in the same way you would via `g_file_enumerator_get_child()`.
-/// This means you do not need access to the `GtkDirectoryList` but can access
+/// This means you do not need access to the `GtkDirectoryList`, but can access
 /// the `GFile` directly from the `GFileInfo` when operating with a `GtkListView`
 /// or similar.
 public struct DirectoryListRef: DirectoryListProtocol, GWeakCapturing {
@@ -154,8 +158,10 @@ public extension DirectoryListRef {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
-        /// Creates a new `GtkDirectoryList` querying the given `file` with the given
-    /// `attributes`.
+        /// Creates a new `GtkDirectoryList`.
+    /// 
+    /// The `GtkDirectoryList` is querying the given `file`
+    /// with the given `attributes`.
     @inlinable init<FileT: GIO.FileProtocol>( attributes: UnsafePointer<CChar>? = nil, file: FileT?) {
         let rv = gtk_directory_list_new(attributes, file?.file_ptr)
         ptr = UnsafeMutableRawPointer(rv)
@@ -167,23 +173,25 @@ public extension DirectoryListRef {
 /// Use `DirectoryList` as a strong reference or owner of a `GtkDirectoryList` instance.
 ///
 /// `GtkDirectoryList` is a list model that wraps `g_file_enumerate_children_async()`.
-/// It presents a `GListModel` and fills it asynchronously with the `GFileInfos`
+/// 
+/// It presents a `GListModel` and fills it asynchronously with the `GFileInfo`s
 /// returned from that function.
 /// 
-/// Enumeration will start automatically when a the `GtkDirectoryList:file` property
-/// is set.
+/// Enumeration will start automatically when a the
+/// [property`Gtk.DirectoryList:file`] property is set.
 /// 
-/// While the `GtkDirectoryList` is being filled, the `GtkDirectoryList:loading`
-/// property will be set to `true`. You can listen to that property if you want
-/// to show information like a `GtkSpinner` or a "Loading..." text.
+/// While the `GtkDirectoryList` is being filled, the
+/// [property`Gtk.DirectoryList:loading`] property will be set to `true`. You can
+/// listen to that property if you want to show information like a `GtkSpinner`
+/// or a "Loading..." text.
 /// 
-/// If loading fails at any point, the `GtkDirectoryList:error` property will be
-/// set to give more indication about the failure.
+/// If loading fails at any point, the [property`Gtk.DirectoryList:error`]
+/// property will be set to give more indication about the failure.
 /// 
-/// The `GFileInfos` returned from a `GtkDirectoryList` have the "standard`file`"
+/// The `GFileInfo`s returned from a `GtkDirectoryList` have the "standard`file`"
 /// attribute set to the `GFile` they refer to. This way you can get at the file
 /// that is referred to in the same way you would via `g_file_enumerator_get_child()`.
-/// This means you do not need access to the `GtkDirectoryList` but can access
+/// This means you do not need access to the `GtkDirectoryList`, but can access
 /// the `GFile` directly from the `GFileInfo` when operating with a `GtkListView`
 /// or similar.
 open class DirectoryList: GLibObject.Object, DirectoryListProtocol {
@@ -311,8 +319,10 @@ open class DirectoryList: GLibObject.Object, DirectoryListProtocol {
         super.init(retainingOpaquePointer: p)
     }
 
-    /// Creates a new `GtkDirectoryList` querying the given `file` with the given
-    /// `attributes`.
+    /// Creates a new `GtkDirectoryList`.
+    /// 
+    /// The `GtkDirectoryList` is querying the given `file`
+    /// with the given `attributes`.
     @inlinable public init<FileT: GIO.FileProtocol>( attributes: UnsafePointer<CChar>? = nil, file: FileT?) {
         let rv = gtk_directory_list_new(attributes, file?.file_ptr)
         super.init(gpointer: gpointer(rv))
@@ -323,17 +333,17 @@ open class DirectoryList: GLibObject.Object, DirectoryListProtocol {
 }
 
 public enum DirectoryListPropertyName: String, PropertyNameProtocol {
-    /// The attributes to query
+    /// The attributes to query.
     case attributes = "attributes"
-    /// Error encountered while loading files
+    /// Error encountered while loading files.
     case error = "error"
-    /// File to query
+    /// File to query.
     case file = "file"
-    /// Priority used when loading
+    /// Priority used when loading.
     case ioPriority = "io-priority"
-    /// `true` if files are being loaded
+    /// `true` if files are being loaded.
     case loading = "loading"
-    /// `true` if the directory is monitored for changed
+    /// `true` if the directory is monitored for changed.
     case monitored = "monitored"
 }
 
@@ -416,17 +426,17 @@ public enum DirectoryListSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// The attributes to query
+    /// The attributes to query.
     case notifyAttributes = "notify::attributes"
-    /// Error encountered while loading files
+    /// Error encountered while loading files.
     case notifyError = "notify::error"
-    /// File to query
+    /// File to query.
     case notifyFile = "notify::file"
-    /// Priority used when loading
+    /// Priority used when loading.
     case notifyIoPriority = "notify::io-priority"
-    /// `true` if files are being loaded
+    /// `true` if files are being loaded.
     case notifyLoading = "notify::loading"
-    /// `true` if the directory is monitored for changed
+    /// `true` if the directory is monitored for changed.
     case notifyMonitored = "notify::monitored"
 }
 
@@ -477,7 +487,7 @@ public extension DirectoryListProtocol {
     /// Sets the `attributes` to be enumerated and starts the enumeration.
     /// 
     /// If `attributes` is `nil`, no attributes will be queried, but a list
-    /// of `GFileInfos` will still be created.
+    /// of `GFileInfo`s will still be created.
     @inlinable func set(attributes: UnsafePointer<CChar>? = nil) {
         gtk_directory_list_set_attributes(directory_list_ptr, attributes)
     
@@ -513,9 +523,8 @@ public extension DirectoryListProtocol {
     }
 
     /// Sets whether the directory list will monitor the directory
-    /// for changes. If monitoring is enabled, the
-    /// `GListModel::items-changed` signal will be emitted when the
-    /// directory contents change.
+    /// for changes. If monitoring is enabled, the `items-changed`
+    /// signal will be emitted when the directory contents change.
     /// 
     /// When monitoring is turned on after the initial creation
     /// of the directory list, the directory is reloaded to avoid
@@ -525,7 +534,7 @@ public extension DirectoryListProtocol {
         gtk_directory_list_set_monitored(directory_list_ptr, gboolean((monitored) ? 1 : 0))
     
     }
-    /// The attributes to query
+    /// The attributes to query.
     @inlinable var attributes: String! {
         /// Gets the attributes queried on the children.
         get {
@@ -535,13 +544,13 @@ public extension DirectoryListProtocol {
         /// Sets the `attributes` to be enumerated and starts the enumeration.
         /// 
         /// If `attributes` is `nil`, no attributes will be queried, but a list
-        /// of `GFileInfos` will still be created.
+        /// of `GFileInfo`s will still be created.
         nonmutating set {
             gtk_directory_list_set_attributes(directory_list_ptr, newValue)
         }
     }
 
-    /// Error encountered while loading files
+    /// Error encountered while loading files.
     @inlinable var error: GLib.ErrorRef! {
         /// Gets the loading error, if any.
         /// 
@@ -557,7 +566,7 @@ public extension DirectoryListProtocol {
         }
     }
 
-    /// File to query
+    /// File to query.
     @inlinable var file: GIO.FileRef! {
         /// Gets the file whose children are currently enumerated.
         get {
@@ -612,7 +621,7 @@ public extension DirectoryListProtocol {
         }
     }
 
-    /// `true` if the directory is monitored for changed
+    /// `true` if the directory is monitored for changed.
     @inlinable var monitored: Bool {
         /// Returns whether the directory list is monitoring
         /// the directory for changes.
@@ -621,9 +630,8 @@ public extension DirectoryListProtocol {
             return rv
         }
         /// Sets whether the directory list will monitor the directory
-        /// for changes. If monitoring is enabled, the
-        /// `GListModel::items-changed` signal will be emitted when the
-        /// directory contents change.
+        /// for changes. If monitoring is enabled, the `items-changed`
+        /// signal will be emitted when the directory contents change.
         /// 
         /// When monitoring is turned on after the initial creation
         /// of the directory list, the directory is reloaded to avoid
@@ -646,15 +654,15 @@ public extension DirectoryListProtocol {
 /// For a concrete class that implements these methods and properties, see `DragIcon`.
 /// Alternatively, use `DragIconRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// GtkDragIcon is a `GtkRoot` implementation with the sole purpose
-/// to serve as a drag icon during DND operations. A drag icon moves
-/// with the pointer during a drag operation and is destroyed when
-/// the drag ends.
+/// `GtkDragIcon` is a `GtkRoot` implementation for drag icons.
+/// 
+/// A drag icon moves with the pointer during a Drag-and-Drop operation
+/// and is destroyed when the drag ends.
 /// 
 /// To set up a drag icon and associate it with an ongoing drag operation,
-/// use `gtk_drag_icon_get_for_drag()` to get the icon for a drag. You can
-/// then use it like any other widget and use `gtk_drag_icon_set_child()` to
-/// set whatever widget should be used for the drag icon.
+/// use [func`Gtk.DragIcon.get_for_drag`] to get the icon for a drag. You can
+/// then use it like any other widget and use [method`Gtk.DragIcon.set_child`]
+/// to set whatever widget should be used for the drag icon.
 /// 
 /// Keep in mind that drag icons do not allow user input.
 public protocol DragIconProtocol: WidgetProtocol, NativeProtocol, RootProtocol {
@@ -672,15 +680,15 @@ public protocol DragIconProtocol: WidgetProtocol, NativeProtocol, RootProtocol {
 /// It exposes methods that can operate on this data type through `DragIconProtocol` conformance.
 /// Use `DragIconRef` only as an `unowned` reference to an existing `GtkDragIcon` instance.
 ///
-/// GtkDragIcon is a `GtkRoot` implementation with the sole purpose
-/// to serve as a drag icon during DND operations. A drag icon moves
-/// with the pointer during a drag operation and is destroyed when
-/// the drag ends.
+/// `GtkDragIcon` is a `GtkRoot` implementation for drag icons.
+/// 
+/// A drag icon moves with the pointer during a Drag-and-Drop operation
+/// and is destroyed when the drag ends.
 /// 
 /// To set up a drag icon and associate it with an ongoing drag operation,
-/// use `gtk_drag_icon_get_for_drag()` to get the icon for a drag. You can
-/// then use it like any other widget and use `gtk_drag_icon_set_child()` to
-/// set whatever widget should be used for the drag icon.
+/// use [func`Gtk.DragIcon.get_for_drag`] to get the icon for a drag. You can
+/// then use it like any other widget and use [method`Gtk.DragIcon.set_child`]
+/// to set whatever widget should be used for the drag icon.
 /// 
 /// Keep in mind that drag icons do not allow user input.
 public struct DragIconRef: DragIconProtocol, GWeakCapturing {
@@ -791,15 +799,15 @@ public extension DragIconRef {
 /// It provides the methods that can operate on this data type through `DragIconProtocol` conformance.
 /// Use `DragIcon` as a strong reference or owner of a `GtkDragIcon` instance.
 ///
-/// GtkDragIcon is a `GtkRoot` implementation with the sole purpose
-/// to serve as a drag icon during DND operations. A drag icon moves
-/// with the pointer during a drag operation and is destroyed when
-/// the drag ends.
+/// `GtkDragIcon` is a `GtkRoot` implementation for drag icons.
+/// 
+/// A drag icon moves with the pointer during a Drag-and-Drop operation
+/// and is destroyed when the drag ends.
 /// 
 /// To set up a drag icon and associate it with an ongoing drag operation,
-/// use `gtk_drag_icon_get_for_drag()` to get the icon for a drag. You can
-/// then use it like any other widget and use `gtk_drag_icon_set_child()` to
-/// set whatever widget should be used for the drag icon.
+/// use [func`Gtk.DragIcon.get_for_drag`] to get the icon for a drag. You can
+/// then use it like any other widget and use [method`Gtk.DragIcon.set_child`]
+/// to set whatever widget should be used for the drag icon.
 /// 
 /// Keep in mind that drag icons do not allow user input.
 open class DragIcon: Widget, DragIconProtocol {
@@ -963,6 +971,7 @@ public enum DragIconPropertyName: String, PropertyNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case canFocus = "can-focus"
+    /// Whether the widget can receive pointer events.
     case canTarget = "can-target"
     /// The widget to display as drag icon.
     case child = "child"
@@ -973,7 +982,7 @@ public enum DragIconPropertyName: String, PropertyNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case cssName = "css-name"
-    /// The cursor used by `widget`. See `gtk_widget_set_cursor()` for details.
+    /// The cursor used by `widget`.
     case cursor = "cursor"
     /// Whether the widget should grab focus when it is clicked with the mouse.
     /// 
@@ -981,19 +990,25 @@ public enum DragIconPropertyName: String, PropertyNameProtocol {
     case focusOnClick = "focus-on-click"
     /// Whether this widget itself will accept the input focus.
     case focusable = "focusable"
-    /// How to distribute horizontal space if widget gets extra space, see `GtkAlign`
+    /// How to distribute horizontal space if widget gets extra space.
     case halign = "halign"
+    /// Whether the widget is the default widget.
     case hasDefault = "has-default"
+    /// Whether the widget has the input focus.
     case hasFocus = "has-focus"
-    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
+    /// Enables or disables the emission of the `query-tooltip` signal on `widget`.
+    /// 
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
-    /// whether it will provide a tooltip or not.
+    /// the widget will be queried using [signal`Gtk.Widget::query-tooltip`] to
+    /// determine whether it will provide a tooltip or not.
     case hasTooltip = "has-tooltip"
+    /// Override for height request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case heightRequest = "height-request"
-    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
+    /// Whether to expand horizontally.
     case hexpand = "hexpand"
-    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
+    /// Whether to use the `hexpand` property.
     case hexpandSet = "hexpand-set"
     /// The `GtkLayoutManager` instance to use to compute the preferred size
     /// of the widget, and allocate its children.
@@ -1005,77 +1020,91 @@ public enum DragIconPropertyName: String, PropertyNameProtocol {
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginBottom = "margin-bottom"
-    /// Margin on end of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on end of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginEnd = "margin-end"
-    /// Margin on start of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on start of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginStart = "margin-start"
     /// Margin on top side of widget.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginTop = "margin-top"
+    /// The name of the widget.
     case name = "name"
-    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
-    /// more details about window opacity.
+    /// The requested opacity of the widget.
     case opacity = "opacity"
     /// How content outside the widget's content area is treated.
     /// 
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case overflow = "overflow"
+    /// The parent widget of this widget.
     case parent = "parent"
+    /// Whether the widget will receive the default action when it is focused.
     case receivesDefault = "receives-default"
-    /// The `GtkRoot` widget of the widget tree containing this widget or `nil` if
-    /// the widget is not contained in a root widget.
+    /// The `GtkRoot` widget of the widget tree containing this widget.
+    /// 
+    /// This will be `nil` if the widget is not contained in a root widget.
     case root = "root"
-    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
-    /// more details about widget scaling.
+    /// The scale factor of the widget.
     case scaleFactor = "scale-factor"
+    /// Whether the widget responds to input.
     case sensitive = "sensitive"
     /// Sets the text of tooltip to be the given string, which is marked up
-    /// with the [Pango text markup language](#PangoMarkupFormat).
-    /// Also see `gtk_tooltip_set_markup()`.
+    /// with Pango markup.
+    /// 
+    /// Also see [method`Gtk.Tooltip.set_markup`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case tooltipMarkup = "tooltip-markup"
     /// Sets the text of tooltip to be the given string.
     /// 
-    /// Also see `gtk_tooltip_set_text()`.
+    /// Also see [method`Gtk.Tooltip.set_text`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case tooltipText = "tooltip-text"
-    /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
+    /// How to distribute vertical space if widget gets extra space.
     case valign = "valign"
-    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
+    /// Whether to expand vertically.
     case vexpand = "vexpand"
-    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
+    /// Whether to use the `vexpand` property.
     case vexpandSet = "vexpand-set"
+    /// Whether the widget is visible.
     case visible = "visible"
+    /// Override for width request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case widthRequest = "width-request"
 }
 
@@ -1134,29 +1163,32 @@ public extension DragIconProtocol {
 
 public enum DragIconSignalName: String, SignalNameProtocol {
     /// Signals that all holders of a reference to the widget should release
-    /// the reference that they hold. May result in finalization of the widget
-    /// if all references are released.
+    /// the reference that they hold.
+    /// 
+    /// May result in finalization of the widget if all references are released.
     /// 
     /// This signal is not suitable for saving widget state.
     case destroy = "destroy"
-    /// The `direction-changed` signal is emitted when the text direction
-    /// of a widget changes.
+    /// Emitted when the text direction of a widget changes.
     case directionChanged = "direction-changed"
-    /// The `hide` signal is emitted when `widget` is hidden, for example with
-    /// `gtk_widget_hide()`.
+    /// Emitted when `widget` is hidden.
     case hide = "hide"
-    /// Gets emitted if keyboard navigation fails.
-    /// See `gtk_widget_keynav_failed()` for details.
+    /// Emitted if keyboard navigation fails.
+    /// 
+    /// See [method`Gtk.Widget.keynav_failed`] for details.
     case keynavFailed = "keynav-failed"
-    /// The `map` signal is emitted when `widget` is going to be mapped, that is
-    /// when the widget is visible (which is controlled with
-    /// `gtk_widget_set_visible()`) and all its parents up to the toplevel widget
+    /// Emitted when `widget` is going to be mapped.
+    /// 
+    /// A widget is mapped when the widget is visible (which is controlled with
+    /// [property`Gtk.Widget:visible`]) and all its parents up to the toplevel widget
     /// are also visible.
     /// 
     /// The `map` signal can be used to determine whether a widget will be drawn,
     /// for instance it can resume an animation that was stopped during the
-    /// emission of `GtkWidget::unmap`.
+    /// emission of [signal`Gtk.Widget::unmap`].
     case map = "map"
+    /// Emitted when a widget is activated via a mnemonic.
+    /// 
     /// The default handler for this signal activates `widget` if `group_cycling`
     /// is `false`, or just makes `widget` grab focus if `group_cycling` is `true`.
     case mnemonicActivate = "mnemonic-activate"
@@ -1187,9 +1219,11 @@ public enum DragIconSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// Emitted when `GtkWidget:has-tooltip` is `true` and the hover timeout
-    /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
-    /// focus in keyboard mode.
+    /// Emitted when the widgets tooltip is about to be shown.
+    /// 
+    /// This happens when the [property`Gtk.Widget:has-tooltip`] property
+    /// is `true` and the hover timeout has expired with the cursor hovering
+    /// "above" `widget`; or emitted when `widget` got focus in keyboard mode.
     /// 
     /// Using the given coordinates, the signal handler should determine
     /// whether a tooltip should be shown for `widget`. If this is the case
@@ -1200,27 +1234,29 @@ public enum DragIconSignalName: String, SignalNameProtocol {
     /// The signal handler is free to manipulate `tooltip` with the therefore
     /// destined function calls.
     case queryTooltip = "query-tooltip"
-    /// The `realize` signal is emitted when `widget` is associated with a
-    /// `GdkSurface`, which means that `gtk_widget_realize()` has been called or the
-    /// widget has been mapped (that is, it is going to be drawn).
-    case realize = "realize"
-    /// The `show` signal is emitted when `widget` is shown, for example with
-    /// `gtk_widget_show()`.
-    case show = "show"
-    /// The `state-flags-changed` signal is emitted when the widget state
-    /// changes, see `gtk_widget_get_state_flags()`.
-    case stateFlagsChanged = "state-flags-changed"
-    /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
-    /// means that either it or any of its parents up to the toplevel widget have
-    /// been set as hidden.
+    /// Emitted when `widget` is associated with a `GdkSurface`.
     /// 
-    /// As `unmap` indicates that a widget will not be shown any longer, it can be
-    /// used to, for example, stop an animation on the widget.
+    /// This means that [method`Gtk.Widget.realize`] has been called
+    /// or the widget has been mapped (that is, it is going to be drawn).
+    case realize = "realize"
+    /// Emitted when `widget` is shown.
+    case show = "show"
+    /// Emitted when the widget state changes.
+    /// 
+    /// See [method`Gtk.Widget.get_state_flags`].
+    case stateFlagsChanged = "state-flags-changed"
+    /// Emitted when `widget` is going to be unmapped.
+    /// 
+    /// A widget is unmapped when either it or any of its parents up to the
+    /// toplevel widget have been set as hidden.
+    /// 
+    /// As `unmap` indicates that a widget will not be shown any longer,
+    /// it can be used to, for example, stop an animation on the widget.
     case unmap = "unmap"
-    /// The `unrealize` signal is emitted when the `GdkSurface` associated with
-    /// `widget` is destroyed, which means that `gtk_widget_unrealize()` has been
-    /// called or the widget has been unmapped (that is, it is going to be
-    /// hidden).
+    /// Emitted when the `GdkSurface` associated with `widget` is destroyed.
+    /// 
+    /// This means that [method`Gtk.Widget.unrealize`] has been called
+    /// or the widget has been unmapped (that is, it is going to be hidden).
     case unrealize = "unrealize"
     /// Whether the widget or any of its descendents can accept
     /// the input focus.
@@ -1228,6 +1264,7 @@ public enum DragIconSignalName: String, SignalNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case notifyCanFocus = "notify::can-focus"
+    /// Whether the widget can receive pointer events.
     case notifyCanTarget = "notify::can-target"
     /// The widget to display as drag icon.
     case notifyChild = "notify::child"
@@ -1238,7 +1275,7 @@ public enum DragIconSignalName: String, SignalNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case notifyCssName = "notify::css-name"
-    /// The cursor used by `widget`. See `gtk_widget_set_cursor()` for details.
+    /// The cursor used by `widget`.
     case notifyCursor = "notify::cursor"
     /// Whether the widget should grab focus when it is clicked with the mouse.
     /// 
@@ -1246,19 +1283,25 @@ public enum DragIconSignalName: String, SignalNameProtocol {
     case notifyFocusOnClick = "notify::focus-on-click"
     /// Whether this widget itself will accept the input focus.
     case notifyFocusable = "notify::focusable"
-    /// How to distribute horizontal space if widget gets extra space, see `GtkAlign`
+    /// How to distribute horizontal space if widget gets extra space.
     case notifyHalign = "notify::halign"
+    /// Whether the widget is the default widget.
     case notifyHasDefault = "notify::has-default"
+    /// Whether the widget has the input focus.
     case notifyHasFocus = "notify::has-focus"
-    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
+    /// Enables or disables the emission of the `query-tooltip` signal on `widget`.
+    /// 
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
-    /// whether it will provide a tooltip or not.
+    /// the widget will be queried using [signal`Gtk.Widget::query-tooltip`] to
+    /// determine whether it will provide a tooltip or not.
     case notifyHasTooltip = "notify::has-tooltip"
+    /// Override for height request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case notifyHeightRequest = "notify::height-request"
-    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
+    /// Whether to expand horizontally.
     case notifyHexpand = "notify::hexpand"
-    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
+    /// Whether to use the `hexpand` property.
     case notifyHexpandSet = "notify::hexpand-set"
     /// The `GtkLayoutManager` instance to use to compute the preferred size
     /// of the widget, and allocate its children.
@@ -1270,77 +1313,91 @@ public enum DragIconSignalName: String, SignalNameProtocol {
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginBottom = "notify::margin-bottom"
-    /// Margin on end of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on end of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginEnd = "notify::margin-end"
-    /// Margin on start of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on start of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginStart = "notify::margin-start"
     /// Margin on top side of widget.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginTop = "notify::margin-top"
+    /// The name of the widget.
     case notifyName = "notify::name"
-    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
-    /// more details about window opacity.
+    /// The requested opacity of the widget.
     case notifyOpacity = "notify::opacity"
     /// How content outside the widget's content area is treated.
     /// 
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case notifyOverflow = "notify::overflow"
+    /// The parent widget of this widget.
     case notifyParent = "notify::parent"
+    /// Whether the widget will receive the default action when it is focused.
     case notifyReceivesDefault = "notify::receives-default"
-    /// The `GtkRoot` widget of the widget tree containing this widget or `nil` if
-    /// the widget is not contained in a root widget.
+    /// The `GtkRoot` widget of the widget tree containing this widget.
+    /// 
+    /// This will be `nil` if the widget is not contained in a root widget.
     case notifyRoot = "notify::root"
-    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
-    /// more details about widget scaling.
+    /// The scale factor of the widget.
     case notifyScaleFactor = "notify::scale-factor"
+    /// Whether the widget responds to input.
     case notifySensitive = "notify::sensitive"
     /// Sets the text of tooltip to be the given string, which is marked up
-    /// with the [Pango text markup language](#PangoMarkupFormat).
-    /// Also see `gtk_tooltip_set_markup()`.
+    /// with Pango markup.
+    /// 
+    /// Also see [method`Gtk.Tooltip.set_markup`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case notifyTooltipMarkup = "notify::tooltip-markup"
     /// Sets the text of tooltip to be the given string.
     /// 
-    /// Also see `gtk_tooltip_set_text()`.
+    /// Also see [method`Gtk.Tooltip.set_text`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case notifyTooltipText = "notify::tooltip-text"
-    /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
+    /// How to distribute vertical space if widget gets extra space.
     case notifyValign = "notify::valign"
-    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
+    /// Whether to expand vertically.
     case notifyVexpand = "notify::vexpand"
-    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
+    /// Whether to use the `vexpand` property.
     case notifyVexpandSet = "notify::vexpand-set"
+    /// Whether the widget is visible.
     case notifyVisible = "notify::visible"
+    /// Override for width request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case notifyWidthRequest = "notify::width-request"
 }
 
@@ -1391,17 +1448,17 @@ public extension DragIconProtocol {
 /// For a concrete class that implements these methods and properties, see `DragSource`.
 /// Alternatively, use `DragSourceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// GtkDragSource is an auxiliary object that is used to initiate
-/// Drag-And-Drop operations. It can be set up with the necessary
+/// `GtkDragSource` is an event controller to initiate Drag-And-Drop operations.
+/// 
+/// `GtkDragSource` can be set up with the necessary
 /// ingredients for a DND operation ahead of time. This includes
 /// the source for the data that is being transferred, in the form
-/// of a `GdkContentProvider`, the desired action, and the icon to
+/// of a [class`Gdk.ContentProvider`], the desired action, and the icon to
 /// use during the drag operation. After setting it up, the drag
 /// source must be added to a widget as an event controller, using
-/// `gtk_widget_add_controller()`.
+/// [method`Gtk.Widget.add_controller`].
 /// 
-/// (C Language Example):
-/// ```C
+/// ```c
 /// static void
 /// my_widget_init (MyWidget *self)
 /// {
@@ -1414,17 +1471,17 @@ public extension DragIconProtocol {
 /// }
 /// ```
 /// 
-/// Setting up the content provider and icon ahead of time only
-/// makes sense when the data does not change. More commonly, you
-/// will want to set them up just in time. To do so, `GtkDragSource`
-/// has `GtkDragSource::prepare` and `GtkDragSource::drag-begin` signals.
+/// Setting up the content provider and icon ahead of time only makes
+/// sense when the data does not change. More commonly, you will want
+/// to set them up just in time. To do so, `GtkDragSource` has
+/// [signal`Gtk.DragSource::prepare`] and [signal`Gtk.DragSource::drag-begin`]
+/// signals.
 /// 
 /// The `prepare` signal is emitted before a drag is started, and
 /// can be used to set the content provider and actions that the
 /// drag should be started with.
 /// 
-/// (C Language Example):
-/// ```C
+/// ```c
 /// static GdkContentProvider *
 /// on_drag_prepare (GtkDragSource *source,
 ///                  double         x,
@@ -1447,8 +1504,7 @@ public extension DragIconProtocol {
 /// The `drag-begin` signal is emitted after the `GdkDrag` object has
 /// been created, and can be used to set up the drag icon.
 /// 
-/// (C Language Example):
-/// ```C
+/// ```c
 /// static void
 /// on_drag_begin (GtkDragSource *source,
 ///                GtkDrag       *drag,
@@ -1461,12 +1517,12 @@ public extension DragIconProtocol {
 /// }
 /// ```
 /// 
-/// During the DND operation, GtkDragSource emits signals that
+/// During the DND operation, `GtkDragSource` emits signals that
 /// can be used to obtain updates about the status of the operation,
 /// but it is not normally necessary to connect to any signals,
 /// except for one case: when the supported actions include
 /// `GDK_ACTION_MOVE`, you need to listen for the
-/// `GtkDragSource::drag-end` signal and delete the
+/// [signal`Gtk.DragSource::drag-end`] signal and delete the
 /// data after it has been transferred.
 public protocol DragSourceProtocol: GestureSingleProtocol {
         /// Untyped pointer to the underlying `GtkDragSource` instance.
@@ -1483,17 +1539,17 @@ public protocol DragSourceProtocol: GestureSingleProtocol {
 /// It exposes methods that can operate on this data type through `DragSourceProtocol` conformance.
 /// Use `DragSourceRef` only as an `unowned` reference to an existing `GtkDragSource` instance.
 ///
-/// GtkDragSource is an auxiliary object that is used to initiate
-/// Drag-And-Drop operations. It can be set up with the necessary
+/// `GtkDragSource` is an event controller to initiate Drag-And-Drop operations.
+/// 
+/// `GtkDragSource` can be set up with the necessary
 /// ingredients for a DND operation ahead of time. This includes
 /// the source for the data that is being transferred, in the form
-/// of a `GdkContentProvider`, the desired action, and the icon to
+/// of a [class`Gdk.ContentProvider`], the desired action, and the icon to
 /// use during the drag operation. After setting it up, the drag
 /// source must be added to a widget as an event controller, using
-/// `gtk_widget_add_controller()`.
+/// [method`Gtk.Widget.add_controller`].
 /// 
-/// (C Language Example):
-/// ```C
+/// ```c
 /// static void
 /// my_widget_init (MyWidget *self)
 /// {
@@ -1506,17 +1562,17 @@ public protocol DragSourceProtocol: GestureSingleProtocol {
 /// }
 /// ```
 /// 
-/// Setting up the content provider and icon ahead of time only
-/// makes sense when the data does not change. More commonly, you
-/// will want to set them up just in time. To do so, `GtkDragSource`
-/// has `GtkDragSource::prepare` and `GtkDragSource::drag-begin` signals.
+/// Setting up the content provider and icon ahead of time only makes
+/// sense when the data does not change. More commonly, you will want
+/// to set them up just in time. To do so, `GtkDragSource` has
+/// [signal`Gtk.DragSource::prepare`] and [signal`Gtk.DragSource::drag-begin`]
+/// signals.
 /// 
 /// The `prepare` signal is emitted before a drag is started, and
 /// can be used to set the content provider and actions that the
 /// drag should be started with.
 /// 
-/// (C Language Example):
-/// ```C
+/// ```c
 /// static GdkContentProvider *
 /// on_drag_prepare (GtkDragSource *source,
 ///                  double         x,
@@ -1539,8 +1595,7 @@ public protocol DragSourceProtocol: GestureSingleProtocol {
 /// The `drag-begin` signal is emitted after the `GdkDrag` object has
 /// been created, and can be used to set up the drag icon.
 /// 
-/// (C Language Example):
-/// ```C
+/// ```c
 /// static void
 /// on_drag_begin (GtkDragSource *source,
 ///                GtkDrag       *drag,
@@ -1553,12 +1608,12 @@ public protocol DragSourceProtocol: GestureSingleProtocol {
 /// }
 /// ```
 /// 
-/// During the DND operation, GtkDragSource emits signals that
+/// During the DND operation, `GtkDragSource` emits signals that
 /// can be used to obtain updates about the status of the operation,
 /// but it is not normally necessary to connect to any signals,
 /// except for one case: when the supported actions include
 /// `GDK_ACTION_MOVE`, you need to listen for the
-/// `GtkDragSource::drag-end` signal and delete the
+/// [signal`Gtk.DragSource::drag-end`] signal and delete the
 /// data after it has been transferred.
 public struct DragSourceRef: DragSourceProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkDragSource` instance.
@@ -1650,17 +1705,17 @@ public extension DragSourceRef {
 /// It provides the methods that can operate on this data type through `DragSourceProtocol` conformance.
 /// Use `DragSource` as a strong reference or owner of a `GtkDragSource` instance.
 ///
-/// GtkDragSource is an auxiliary object that is used to initiate
-/// Drag-And-Drop operations. It can be set up with the necessary
+/// `GtkDragSource` is an event controller to initiate Drag-And-Drop operations.
+/// 
+/// `GtkDragSource` can be set up with the necessary
 /// ingredients for a DND operation ahead of time. This includes
 /// the source for the data that is being transferred, in the form
-/// of a `GdkContentProvider`, the desired action, and the icon to
+/// of a [class`Gdk.ContentProvider`], the desired action, and the icon to
 /// use during the drag operation. After setting it up, the drag
 /// source must be added to a widget as an event controller, using
-/// `gtk_widget_add_controller()`.
+/// [method`Gtk.Widget.add_controller`].
 /// 
-/// (C Language Example):
-/// ```C
+/// ```c
 /// static void
 /// my_widget_init (MyWidget *self)
 /// {
@@ -1673,17 +1728,17 @@ public extension DragSourceRef {
 /// }
 /// ```
 /// 
-/// Setting up the content provider and icon ahead of time only
-/// makes sense when the data does not change. More commonly, you
-/// will want to set them up just in time. To do so, `GtkDragSource`
-/// has `GtkDragSource::prepare` and `GtkDragSource::drag-begin` signals.
+/// Setting up the content provider and icon ahead of time only makes
+/// sense when the data does not change. More commonly, you will want
+/// to set them up just in time. To do so, `GtkDragSource` has
+/// [signal`Gtk.DragSource::prepare`] and [signal`Gtk.DragSource::drag-begin`]
+/// signals.
 /// 
 /// The `prepare` signal is emitted before a drag is started, and
 /// can be used to set the content provider and actions that the
 /// drag should be started with.
 /// 
-/// (C Language Example):
-/// ```C
+/// ```c
 /// static GdkContentProvider *
 /// on_drag_prepare (GtkDragSource *source,
 ///                  double         x,
@@ -1706,8 +1761,7 @@ public extension DragSourceRef {
 /// The `drag-begin` signal is emitted after the `GdkDrag` object has
 /// been created, and can be used to set up the drag icon.
 /// 
-/// (C Language Example):
-/// ```C
+/// ```c
 /// static void
 /// on_drag_begin (GtkDragSource *source,
 ///                GtkDrag       *drag,
@@ -1720,12 +1774,12 @@ public extension DragSourceRef {
 /// }
 /// ```
 /// 
-/// During the DND operation, GtkDragSource emits signals that
+/// During the DND operation, `GtkDragSource` emits signals that
 /// can be used to obtain updates about the status of the operation,
 /// but it is not normally necessary to connect to any signals,
 /// except for one case: when the supported actions include
 /// `GDK_ACTION_MOVE`, you need to listen for the
-/// `GtkDragSource::drag-end` signal and delete the
+/// [signal`Gtk.DragSource::drag-end`] signal and delete the
 /// data after it has been transferred.
 open class DragSource: GestureSingle, DragSourceProtocol {
         /// Designated initialiser from the underlying `C` data type.
@@ -1865,18 +1919,19 @@ open class DragSource: GestureSingle, DragSourceProtocol {
 public enum DragSourcePropertyName: String, PropertyNameProtocol {
     /// The actions that are supported by drag operations from the source.
     /// 
-    /// Note that you must handle the `GtkDragSource::drag-end` signal
+    /// Note that you must handle the [signal`Gtk.DragSource::drag-end`] signal
     /// if the actions include `GDK_ACTION_MOVE`.
     case actions = "actions"
     /// Mouse button number to listen to, or 0 to listen for any button.
     case button = "button"
-    /// The data that is offered by drag operations from this source,
-    /// in the form of a `GdkContentProvider`.
+    /// The data that is offered by drag operations from this source.
     case content = "content"
-    /// Whether the gesture is exclusive. Exclusive gestures only listen to pointer
-    /// and pointer emulated events.
+    /// Whether the gesture is exclusive.
+    /// 
+    /// Exclusive gestures only listen to pointer and pointer emulated events.
     case exclusive = "exclusive"
-    /// The number of touch points that trigger recognition on this gesture,
+    /// The number of touch points that trigger
+    /// recognition on this gesture.
     case nPoints = "n-points"
     /// The name for this controller, typically used for debugging purposes.
     case name = "name"
@@ -1944,41 +1999,53 @@ public extension DragSourceProtocol {
 }
 
 public enum DragSourceSignalName: String, SignalNameProtocol {
-    /// This signal is emitted when the gesture is recognized. This means the
-    /// number of touch sequences matches `GtkGesture:n-points`.
+    /// Emitted when the gesture is recognized.
     /// 
-    /// Note: These conditions may also happen when an extra touch (eg. a third touch
-    /// on a 2-touches gesture) is lifted, in that situation `sequence` won't pertain
-    /// to the current set of active touches, so don't rely on this being true.
+    /// This means the number of touch sequences matches
+    /// [property`Gtk.Gesture:n-points`].
+    /// 
+    /// Note: These conditions may also happen when an extra touch
+    /// (eg. a third touch on a 2-touches gesture) is lifted, in that
+    /// situation `sequence` won't pertain to the current set of active
+    /// touches, so don't rely on this being true.
     case begin = "begin"
-    /// This signal is emitted whenever a sequence is cancelled. This usually
-    /// happens on active touches when `gtk_event_controller_reset()` is called
-    /// on `gesture` (manually, due to grabs...), or the individual `sequence`
-    /// was claimed by parent widgets' controllers (see `gtk_gesture_set_sequence_state()`).
+    /// Emitted whenever a sequence is cancelled.
     /// 
-    /// `gesture` must forget everything about `sequence` as a reaction to this signal.
+    /// This usually happens on active touches when
+    /// [method`Gtk.EventController.reset`] is called on `gesture`
+    /// (manually, due to grabs...), or the individual `sequence`
+    /// was claimed by parent widgets' controllers (see
+    /// [method`Gtk.Gesture.set_sequence_state`]).
+    /// 
+    /// `gesture` must forget everything about `sequence` as in
+    /// response to this signal.
     case cancel = "cancel"
-    /// The `drag-begin` signal is emitted on the drag source when a drag
-    /// is started. It can be used to e.g. set a custom drag icon with
-    /// `gtk_drag_source_set_icon()`.
+    /// Emitted on the drag source when a drag is started.
+    /// 
+    /// It can be used to e.g. set a custom drag icon with
+    /// [method`Gtk.DragSource.set_icon`].
     case dragBegin = "drag-begin"
-    /// The `drag-cancel` signal is emitted on the drag source when a drag has
-    /// failed. The signal handler may handle a failed drag operation based on
+    /// Emitted on the drag source when a drag has failed.
+    /// 
+    /// The signal handler may handle a failed drag operation based on
     /// the type of error. It should return `true` if the failure has been handled
     /// and the default "drag operation failed" animation should not be shown.
     case dragCancel = "drag-cancel"
-    /// The `drag-end` signal is emitted on the drag source when a drag is
-    /// finished. A typical reason to connect to this signal is to undo
-    /// things done in `GtkDragSource::prepare` or `GtkDragSource::drag-begin`.
-    case dragEnd = "drag-end"
-    /// This signal is emitted when `gesture` either stopped recognizing the event
-    /// sequences as something to be handled, or the number of touch sequences became
-    /// higher or lower than `GtkGesture:n-points`.
+    /// Emitted on the drag source when a drag is finished.
     /// 
-    /// Note: `sequence` might not pertain to the group of sequences that were
-    /// previously triggering recognition on `gesture` (ie. a just pressed touch
-    /// sequence that exceeds `GtkGesture:n-points`). This situation may be detected
-    /// by checking through `gtk_gesture_handles_sequence()`.
+    /// A typical reason to connect to this signal is to undo
+    /// things done in [signal`Gtk.DragSource::prepare`] or
+    /// [signal`Gtk.DragSource::drag-begin`] handlers.
+    case dragEnd = "drag-end"
+    /// Emitted when `gesture` either stopped recognizing the event
+    /// sequences as something to be handled, or the number of touch
+    /// sequences became higher or lower than [property`Gtk.Gesture:n-points`].
+    /// 
+    /// Note: `sequence` might not pertain to the group of sequences that
+    /// were previously triggering recognition on `gesture` (ie. a just
+    /// pressed touch sequence that exceeds [property`Gtk.Gesture:n-points`]).
+    /// This situation may be detected by checking through
+    /// [method`Gtk.Gesture.handles_sequence`].
     case end = "end"
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -2005,33 +2072,37 @@ public enum DragSourceSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// The `prepare` signal is emitted when a drag is about to be initiated.
-    /// It returns the * `GdkContentProvider` to use for the drag that is about
+    /// Emitted when a drag is about to be initiated.
+    /// 
+    /// It returns the `GdkContentProvider` to use for the drag that is about
     /// to start. The default handler for this signal returns the value of
-    /// the `GtkDragSource:content` property, so if you set up that property
-    /// ahead of time, you don't need to connect to this signal.
+    /// the [property`Gtk.DragSource:content`] property, so if you set up that
+    /// property ahead of time, you don't need to connect to this signal.
     case prepare = "prepare"
-    /// This signal is emitted whenever a sequence state changes. See
-    /// `gtk_gesture_set_sequence_state()` to know more about the expectable
-    /// sequence lifetimes.
+    /// Emitted whenever a sequence state changes.
+    /// 
+    /// See [method`Gtk.Gesture.set_sequence_state`] to know
+    /// more about the expectable sequence lifetimes.
     case sequenceStateChanged = "sequence-state-changed"
-    /// This signal is emitted whenever an event is handled while the gesture is
-    /// recognized. `sequence` is guaranteed to pertain to the set of active touches.
+    /// Emitted whenever an event is handled while the gesture is recognized.
+    /// 
+    /// `sequence` is guaranteed to pertain to the set of active touches.
     case update = "update"
     /// The actions that are supported by drag operations from the source.
     /// 
-    /// Note that you must handle the `GtkDragSource::drag-end` signal
+    /// Note that you must handle the [signal`Gtk.DragSource::drag-end`] signal
     /// if the actions include `GDK_ACTION_MOVE`.
     case notifyActions = "notify::actions"
     /// Mouse button number to listen to, or 0 to listen for any button.
     case notifyButton = "notify::button"
-    /// The data that is offered by drag operations from this source,
-    /// in the form of a `GdkContentProvider`.
+    /// The data that is offered by drag operations from this source.
     case notifyContent = "notify::content"
-    /// Whether the gesture is exclusive. Exclusive gestures only listen to pointer
-    /// and pointer emulated events.
+    /// Whether the gesture is exclusive.
+    /// 
+    /// Exclusive gestures only listen to pointer and pointer emulated events.
     case notifyExclusive = "notify::exclusive"
-    /// The number of touch points that trigger recognition on this gesture,
+    /// The number of touch points that trigger
+    /// recognition on this gesture.
     case notifyNPoints = "notify::n-points"
     /// The name for this controller, typically used for debugging purposes.
     case notifyName = "notify::name"
@@ -2073,11 +2144,12 @@ public extension DragSourceProtocol {
     }
     
     
-    /// The `prepare` signal is emitted when a drag is about to be initiated.
-    /// It returns the * `GdkContentProvider` to use for the drag that is about
+    /// Emitted when a drag is about to be initiated.
+    /// 
+    /// It returns the `GdkContentProvider` to use for the drag that is about
     /// to start. The default handler for this signal returns the value of
-    /// the `GtkDragSource:content` property, so if you set up that property
-    /// ahead of time, you don't need to connect to this signal.
+    /// the [property`Gtk.DragSource:content`] property, so if you set up that
+    /// property ahead of time, you don't need to connect to this signal.
     /// - Note: This represents the underlying `prepare` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -2087,9 +2159,10 @@ public extension DragSourceProtocol {
     /// - Warning: a `onPrepare` wrapper for this signal could not be generated because it contains unimplemented features: { (8)  nullable argument or return type is not allowed, (9)  Record return type is not yet supported }
     /// - Note: Instead, you can connect `prepareSignal` using the `connect(signal:)` methods
     static var prepareSignal: DragSourceSignalName { .prepare }
-    /// The `drag-begin` signal is emitted on the drag source when a drag
-    /// is started. It can be used to e.g. set a custom drag icon with
-    /// `gtk_drag_source_set_icon()`.
+    /// Emitted on the drag source when a drag is started.
+    /// 
+    /// It can be used to e.g. set a custom drag icon with
+    /// [method`Gtk.DragSource.set_icon`].
     /// - Note: This represents the underlying `drag-begin` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -2115,8 +2188,9 @@ public extension DragSourceProtocol {
     /// Typed `drag-begin` signal for using the `connect(signal:)` methods
     static var dragBeginSignal: DragSourceSignalName { .dragBegin }
     
-    /// The `drag-cancel` signal is emitted on the drag source when a drag has
-    /// failed. The signal handler may handle a failed drag operation based on
+    /// Emitted on the drag source when a drag has failed.
+    /// 
+    /// The signal handler may handle a failed drag operation based on
     /// the type of error. It should return `true` if the failure has been handled
     /// and the default "drag operation failed" animation should not be shown.
     /// - Note: This represents the underlying `drag-cancel` signal
@@ -2145,9 +2219,11 @@ public extension DragSourceProtocol {
     /// Typed `drag-cancel` signal for using the `connect(signal:)` methods
     static var dragCancelSignal: DragSourceSignalName { .dragCancel }
     
-    /// The `drag-end` signal is emitted on the drag source when a drag is
-    /// finished. A typical reason to connect to this signal is to undo
-    /// things done in `GtkDragSource::prepare` or `GtkDragSource::drag-begin`.
+    /// Emitted on the drag source when a drag is finished.
+    /// 
+    /// A typical reason to connect to this signal is to undo
+    /// things done in [signal`Gtk.DragSource::prepare`] or
+    /// [signal`Gtk.DragSource::drag-begin`] handlers.
     /// - Note: This represents the underlying `drag-end` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -2305,14 +2381,13 @@ public extension DragSourceProtocol {
 
     /// Sets the actions on the `GtkDragSource`.
     /// 
-    /// During a DND operation, the actions are offered
-    /// to potential drop targets. If `actions` include
-    /// `GDK_ACTION_MOVE`, you need to listen to the
-    /// `GtkDragSource::drag-end` signal and handle
-    /// `delete_data` being `true`.
+    /// During a DND operation, the actions are offered to potential
+    /// drop targets. If `actions` include `GDK_ACTION_MOVE`, you need
+    /// to listen to the [signal`Gtk.DragSource::drag-end`] signal and
+    /// handle `delete_data` being `true`.
     /// 
     /// This function can be called before a drag is started,
-    /// or in a handler for the `GtkDragSource::prepare` signal.
+    /// or in a handler for the [signal`Gtk.DragSource::prepare`] signal.
     @inlinable func set(actions: Gdk.DragAction) {
         gtk_drag_source_set_actions(drag_source_ptr, actions.value)
     
@@ -2320,30 +2395,28 @@ public extension DragSourceProtocol {
 
     /// Sets a content provider on a `GtkDragSource`.
     /// 
-    /// When the data is requested in the cause of a
-    /// DND operation, it will be obtained from the
-    /// content provider.
+    /// When the data is requested in the cause of a DND operation,
+    /// it will be obtained from the content provider.
     /// 
     /// This function can be called before a drag is started,
-    /// or in a handler for the `GtkDragSource::prepare` signal.
+    /// or in a handler for the [signal`Gtk.DragSource::prepare`] signal.
     /// 
     /// You may consider setting the content provider back to
-    /// `nil` in a `GtkDragSource::drag-end` signal handler.
+    /// `nil` in a [signal`Gtk.DragSource::drag-end`] signal handler.
     @inlinable func set(content: Gdk.ContentProviderRef? = nil) {
         gtk_drag_source_set_content(drag_source_ptr, content?.content_provider_ptr)
     
     }
     /// Sets a content provider on a `GtkDragSource`.
     /// 
-    /// When the data is requested in the cause of a
-    /// DND operation, it will be obtained from the
-    /// content provider.
+    /// When the data is requested in the cause of a DND operation,
+    /// it will be obtained from the content provider.
     /// 
     /// This function can be called before a drag is started,
-    /// or in a handler for the `GtkDragSource::prepare` signal.
+    /// or in a handler for the [signal`Gtk.DragSource::prepare`] signal.
     /// 
     /// You may consider setting the content provider back to
-    /// `nil` in a `GtkDragSource::drag-end` signal handler.
+    /// `nil` in a [signal`Gtk.DragSource::drag-end`] signal handler.
     @inlinable func set<ContentProviderT: Gdk.ContentProviderProtocol>(content: ContentProviderT?) {
         gtk_drag_source_set_content(drag_source_ptr, content?.content_provider_ptr)
     
@@ -2357,7 +2430,8 @@ public extension DragSourceProtocol {
     /// If `paintable` is `nil`, a default icon is used.
     /// 
     /// This function can be called before a drag is started, or in
-    /// a `GtkDragSource::prepare` or `GtkDragSource::drag-begin` signal handler.
+    /// a [signal`Gtk.DragSource::prepare`] or
+    /// [signal`Gtk.DragSource::drag-begin`] signal handler.
     @inlinable func setIcon(paintable: Gdk.PaintableRef? = nil, hotX: Int, hotY: Int) {
         gtk_drag_source_set_icon(drag_source_ptr, paintable?.paintable_ptr, gint(hotX), gint(hotY))
     
@@ -2370,14 +2444,15 @@ public extension DragSourceProtocol {
     /// If `paintable` is `nil`, a default icon is used.
     /// 
     /// This function can be called before a drag is started, or in
-    /// a `GtkDragSource::prepare` or `GtkDragSource::drag-begin` signal handler.
+    /// a [signal`Gtk.DragSource::prepare`] or
+    /// [signal`Gtk.DragSource::drag-begin`] signal handler.
     @inlinable func setIcon<PaintableT: Gdk.PaintableProtocol>(paintable: PaintableT?, hotX: Int, hotY: Int) {
         gtk_drag_source_set_icon(drag_source_ptr, paintable?.paintable_ptr, gint(hotX), gint(hotY))
     
     }
     /// The actions that are supported by drag operations from the source.
     /// 
-    /// Note that you must handle the `GtkDragSource::drag-end` signal
+    /// Note that you must handle the [signal`Gtk.DragSource::drag-end`] signal
     /// if the actions include `GDK_ACTION_MOVE`.
     @inlinable var actions: Gdk.DragAction {
         /// Gets the actions that are currently set on the `GtkDragSource`.
@@ -2387,21 +2462,19 @@ public extension DragSourceProtocol {
         }
         /// Sets the actions on the `GtkDragSource`.
         /// 
-        /// During a DND operation, the actions are offered
-        /// to potential drop targets. If `actions` include
-        /// `GDK_ACTION_MOVE`, you need to listen to the
-        /// `GtkDragSource::drag-end` signal and handle
-        /// `delete_data` being `true`.
+        /// During a DND operation, the actions are offered to potential
+        /// drop targets. If `actions` include `GDK_ACTION_MOVE`, you need
+        /// to listen to the [signal`Gtk.DragSource::drag-end`] signal and
+        /// handle `delete_data` being `true`.
         /// 
         /// This function can be called before a drag is started,
-        /// or in a handler for the `GtkDragSource::prepare` signal.
+        /// or in a handler for the [signal`Gtk.DragSource::prepare`] signal.
         nonmutating set {
             gtk_drag_source_set_actions(drag_source_ptr, newValue.value)
         }
     }
 
-    /// The data that is offered by drag operations from this source,
-    /// in the form of a `GdkContentProvider`.
+    /// The data that is offered by drag operations from this source.
     @inlinable var content: Gdk.ContentProviderRef! {
         /// Gets the current content provider of a `GtkDragSource`.
         get {
@@ -2410,15 +2483,14 @@ public extension DragSourceProtocol {
         }
         /// Sets a content provider on a `GtkDragSource`.
         /// 
-        /// When the data is requested in the cause of a
-        /// DND operation, it will be obtained from the
-        /// content provider.
+        /// When the data is requested in the cause of a DND operation,
+        /// it will be obtained from the content provider.
         /// 
         /// This function can be called before a drag is started,
-        /// or in a handler for the `GtkDragSource::prepare` signal.
+        /// or in a handler for the [signal`Gtk.DragSource::prepare`] signal.
         /// 
         /// You may consider setting the content provider back to
-        /// `nil` in a `GtkDragSource::drag-end` signal handler.
+        /// `nil` in a [signal`Gtk.DragSource::drag-end`] signal handler.
         nonmutating set {
             gtk_drag_source_set_content(drag_source_ptr, UnsafeMutablePointer<GdkContentProvider>(newValue?.content_provider_ptr))
         }
@@ -2445,18 +2517,21 @@ public extension DragSourceProtocol {
 /// For a concrete class that implements these methods and properties, see `DrawingArea`.
 /// Alternatively, use `DrawingAreaRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// The `GtkDrawingArea` widget is used for creating custom user interface
-/// elements. It’s essentially a blank widget; you can draw on it. After
+/// `GtkDrawingArea` is a widget that allows drawing with cairo.
+/// 
+/// ![An example GtkDrawingArea](drawingarea.png)
+/// 
+/// It’s essentially a blank widget; you can draw on it. After
 /// creating a drawing area, the application may want to connect to:
 /// 
-/// - The `GtkWidget::realize` signal to take any necessary actions
+/// - The [signal`Gtk.Widget::realize`] signal to take any necessary actions
 ///   when the widget is instantiated on a particular display.
 ///   (Create GDK resources in response to this signal.)
 /// 
-/// - The `GtkDrawingArea::resize` signal to take any necessary
+/// - The [signal`Gtk.DrawingArea::resize`] signal to take any necessary
 ///   actions when the widget changes size.
 /// 
-/// - Call `gtk_drawing_area_set_draw_func()` to handle redrawing the
+/// - Call [method`Gtk.DrawingArea.set_draw_func`] to handle redrawing the
 ///   contents of the widget.
 /// 
 /// The following code portion demonstrates using a drawing
@@ -2465,8 +2540,7 @@ public extension DragSourceProtocol {
 /// 
 /// ## Simple GtkDrawingArea usage
 /// 
-/// (C Language Example):
-/// ```C
+/// ```c
 /// static void
 /// draw_function (GtkDrawingArea *area,
 ///                cairo_t        *cr,
@@ -2509,7 +2583,7 @@ public extension DragSourceProtocol {
 /// The draw function is normally called when a drawing area first comes
 /// onscreen, or when it’s covered by another window and then uncovered.
 /// You can also force a redraw by adding to the “damage region” of the
-/// drawing area’s window using `gtk_widget_queue_draw()`.
+/// drawing area’s window using [method`Gtk.Widget.queue_draw`].
 /// This will cause the drawing area to call the draw function again.
 /// 
 /// The available routines for drawing are documented on the
@@ -2538,18 +2612,21 @@ public protocol DrawingAreaProtocol: WidgetProtocol {
 /// It exposes methods that can operate on this data type through `DrawingAreaProtocol` conformance.
 /// Use `DrawingAreaRef` only as an `unowned` reference to an existing `GtkDrawingArea` instance.
 ///
-/// The `GtkDrawingArea` widget is used for creating custom user interface
-/// elements. It’s essentially a blank widget; you can draw on it. After
+/// `GtkDrawingArea` is a widget that allows drawing with cairo.
+/// 
+/// ![An example GtkDrawingArea](drawingarea.png)
+/// 
+/// It’s essentially a blank widget; you can draw on it. After
 /// creating a drawing area, the application may want to connect to:
 /// 
-/// - The `GtkWidget::realize` signal to take any necessary actions
+/// - The [signal`Gtk.Widget::realize`] signal to take any necessary actions
 ///   when the widget is instantiated on a particular display.
 ///   (Create GDK resources in response to this signal.)
 /// 
-/// - The `GtkDrawingArea::resize` signal to take any necessary
+/// - The [signal`Gtk.DrawingArea::resize`] signal to take any necessary
 ///   actions when the widget changes size.
 /// 
-/// - Call `gtk_drawing_area_set_draw_func()` to handle redrawing the
+/// - Call [method`Gtk.DrawingArea.set_draw_func`] to handle redrawing the
 ///   contents of the widget.
 /// 
 /// The following code portion demonstrates using a drawing
@@ -2558,8 +2635,7 @@ public protocol DrawingAreaProtocol: WidgetProtocol {
 /// 
 /// ## Simple GtkDrawingArea usage
 /// 
-/// (C Language Example):
-/// ```C
+/// ```c
 /// static void
 /// draw_function (GtkDrawingArea *area,
 ///                cairo_t        *cr,
@@ -2602,7 +2678,7 @@ public protocol DrawingAreaProtocol: WidgetProtocol {
 /// The draw function is normally called when a drawing area first comes
 /// onscreen, or when it’s covered by another window and then uncovered.
 /// You can also force a redraw by adding to the “damage region” of the
-/// drawing area’s window using `gtk_widget_queue_draw()`.
+/// drawing area’s window using [method`Gtk.Widget.queue_draw`].
 /// This will cause the drawing area to call the draw function again.
 /// 
 /// The available routines for drawing are documented on the
@@ -2706,18 +2782,21 @@ public extension DrawingAreaRef {
 /// It provides the methods that can operate on this data type through `DrawingAreaProtocol` conformance.
 /// Use `DrawingArea` as a strong reference or owner of a `GtkDrawingArea` instance.
 ///
-/// The `GtkDrawingArea` widget is used for creating custom user interface
-/// elements. It’s essentially a blank widget; you can draw on it. After
+/// `GtkDrawingArea` is a widget that allows drawing with cairo.
+/// 
+/// ![An example GtkDrawingArea](drawingarea.png)
+/// 
+/// It’s essentially a blank widget; you can draw on it. After
 /// creating a drawing area, the application may want to connect to:
 /// 
-/// - The `GtkWidget::realize` signal to take any necessary actions
+/// - The [signal`Gtk.Widget::realize`] signal to take any necessary actions
 ///   when the widget is instantiated on a particular display.
 ///   (Create GDK resources in response to this signal.)
 /// 
-/// - The `GtkDrawingArea::resize` signal to take any necessary
+/// - The [signal`Gtk.DrawingArea::resize`] signal to take any necessary
 ///   actions when the widget changes size.
 /// 
-/// - Call `gtk_drawing_area_set_draw_func()` to handle redrawing the
+/// - Call [method`Gtk.DrawingArea.set_draw_func`] to handle redrawing the
 ///   contents of the widget.
 /// 
 /// The following code portion demonstrates using a drawing
@@ -2726,8 +2805,7 @@ public extension DrawingAreaRef {
 /// 
 /// ## Simple GtkDrawingArea usage
 /// 
-/// (C Language Example):
-/// ```C
+/// ```c
 /// static void
 /// draw_function (GtkDrawingArea *area,
 ///                cairo_t        *cr,
@@ -2770,7 +2848,7 @@ public extension DrawingAreaRef {
 /// The draw function is normally called when a drawing area first comes
 /// onscreen, or when it’s covered by another window and then uncovered.
 /// You can also force a redraw by adding to the “damage region” of the
-/// drawing area’s window using `gtk_widget_queue_draw()`.
+/// drawing area’s window using [method`Gtk.Widget.queue_draw`].
 /// This will cause the drawing area to call the draw function again.
 /// 
 /// The available routines for drawing are documented on the
@@ -2926,10 +3004,11 @@ public enum DrawingAreaPropertyName: String, PropertyNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case canFocus = "can-focus"
+    /// Whether the widget can receive pointer events.
     case canTarget = "can-target"
-    /// The content height. See `gtk_drawing_area_set_content_height()` for details.
+    /// The content height.
     case contentHeight = "content-height"
-    /// The content width. See `gtk_drawing_area_set_content_width()` for details.
+    /// The content width.
     case contentWidth = "content-width"
     /// A list of css classes applied to this widget.
     case cssClasses = "css-classes"
@@ -2938,7 +3017,7 @@ public enum DrawingAreaPropertyName: String, PropertyNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case cssName = "css-name"
-    /// The cursor used by `widget`. See `gtk_widget_set_cursor()` for details.
+    /// The cursor used by `widget`.
     case cursor = "cursor"
     /// Whether the widget should grab focus when it is clicked with the mouse.
     /// 
@@ -2946,19 +3025,25 @@ public enum DrawingAreaPropertyName: String, PropertyNameProtocol {
     case focusOnClick = "focus-on-click"
     /// Whether this widget itself will accept the input focus.
     case focusable = "focusable"
-    /// How to distribute horizontal space if widget gets extra space, see `GtkAlign`
+    /// How to distribute horizontal space if widget gets extra space.
     case halign = "halign"
+    /// Whether the widget is the default widget.
     case hasDefault = "has-default"
+    /// Whether the widget has the input focus.
     case hasFocus = "has-focus"
-    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
+    /// Enables or disables the emission of the `query-tooltip` signal on `widget`.
+    /// 
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
-    /// whether it will provide a tooltip or not.
+    /// the widget will be queried using [signal`Gtk.Widget::query-tooltip`] to
+    /// determine whether it will provide a tooltip or not.
     case hasTooltip = "has-tooltip"
+    /// Override for height request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case heightRequest = "height-request"
-    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
+    /// Whether to expand horizontally.
     case hexpand = "hexpand"
-    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
+    /// Whether to use the `hexpand` property.
     case hexpandSet = "hexpand-set"
     /// The `GtkLayoutManager` instance to use to compute the preferred size
     /// of the widget, and allocate its children.
@@ -2970,77 +3055,91 @@ public enum DrawingAreaPropertyName: String, PropertyNameProtocol {
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginBottom = "margin-bottom"
-    /// Margin on end of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on end of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginEnd = "margin-end"
-    /// Margin on start of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on start of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginStart = "margin-start"
     /// Margin on top side of widget.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginTop = "margin-top"
+    /// The name of the widget.
     case name = "name"
-    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
-    /// more details about window opacity.
+    /// The requested opacity of the widget.
     case opacity = "opacity"
     /// How content outside the widget's content area is treated.
     /// 
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case overflow = "overflow"
+    /// The parent widget of this widget.
     case parent = "parent"
+    /// Whether the widget will receive the default action when it is focused.
     case receivesDefault = "receives-default"
-    /// The `GtkRoot` widget of the widget tree containing this widget or `nil` if
-    /// the widget is not contained in a root widget.
+    /// The `GtkRoot` widget of the widget tree containing this widget.
+    /// 
+    /// This will be `nil` if the widget is not contained in a root widget.
     case root = "root"
-    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
-    /// more details about widget scaling.
+    /// The scale factor of the widget.
     case scaleFactor = "scale-factor"
+    /// Whether the widget responds to input.
     case sensitive = "sensitive"
     /// Sets the text of tooltip to be the given string, which is marked up
-    /// with the [Pango text markup language](#PangoMarkupFormat).
-    /// Also see `gtk_tooltip_set_markup()`.
+    /// with Pango markup.
+    /// 
+    /// Also see [method`Gtk.Tooltip.set_markup`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case tooltipMarkup = "tooltip-markup"
     /// Sets the text of tooltip to be the given string.
     /// 
-    /// Also see `gtk_tooltip_set_text()`.
+    /// Also see [method`Gtk.Tooltip.set_text`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case tooltipText = "tooltip-text"
-    /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
+    /// How to distribute vertical space if widget gets extra space.
     case valign = "valign"
-    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
+    /// Whether to expand vertically.
     case vexpand = "vexpand"
-    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
+    /// Whether to use the `vexpand` property.
     case vexpandSet = "vexpand-set"
+    /// Whether the widget is visible.
     case visible = "visible"
+    /// Override for width request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case widthRequest = "width-request"
 }
 
@@ -3099,29 +3198,32 @@ public extension DrawingAreaProtocol {
 
 public enum DrawingAreaSignalName: String, SignalNameProtocol {
     /// Signals that all holders of a reference to the widget should release
-    /// the reference that they hold. May result in finalization of the widget
-    /// if all references are released.
+    /// the reference that they hold.
+    /// 
+    /// May result in finalization of the widget if all references are released.
     /// 
     /// This signal is not suitable for saving widget state.
     case destroy = "destroy"
-    /// The `direction-changed` signal is emitted when the text direction
-    /// of a widget changes.
+    /// Emitted when the text direction of a widget changes.
     case directionChanged = "direction-changed"
-    /// The `hide` signal is emitted when `widget` is hidden, for example with
-    /// `gtk_widget_hide()`.
+    /// Emitted when `widget` is hidden.
     case hide = "hide"
-    /// Gets emitted if keyboard navigation fails.
-    /// See `gtk_widget_keynav_failed()` for details.
+    /// Emitted if keyboard navigation fails.
+    /// 
+    /// See [method`Gtk.Widget.keynav_failed`] for details.
     case keynavFailed = "keynav-failed"
-    /// The `map` signal is emitted when `widget` is going to be mapped, that is
-    /// when the widget is visible (which is controlled with
-    /// `gtk_widget_set_visible()`) and all its parents up to the toplevel widget
+    /// Emitted when `widget` is going to be mapped.
+    /// 
+    /// A widget is mapped when the widget is visible (which is controlled with
+    /// [property`Gtk.Widget:visible`]) and all its parents up to the toplevel widget
     /// are also visible.
     /// 
     /// The `map` signal can be used to determine whether a widget will be drawn,
     /// for instance it can resume an animation that was stopped during the
-    /// emission of `GtkWidget::unmap`.
+    /// emission of [signal`Gtk.Widget::unmap`].
     case map = "map"
+    /// Emitted when a widget is activated via a mnemonic.
+    /// 
     /// The default handler for this signal activates `widget` if `group_cycling`
     /// is `false`, or just makes `widget` grab focus if `group_cycling` is `true`.
     case mnemonicActivate = "mnemonic-activate"
@@ -3152,9 +3254,11 @@ public enum DrawingAreaSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// Emitted when `GtkWidget:has-tooltip` is `true` and the hover timeout
-    /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
-    /// focus in keyboard mode.
+    /// Emitted when the widgets tooltip is about to be shown.
+    /// 
+    /// This happens when the [property`Gtk.Widget:has-tooltip`] property
+    /// is `true` and the hover timeout has expired with the cursor hovering
+    /// "above" `widget`; or emitted when `widget` got focus in keyboard mode.
     /// 
     /// Using the given coordinates, the signal handler should determine
     /// whether a tooltip should be shown for `widget`. If this is the case
@@ -3165,32 +3269,35 @@ public enum DrawingAreaSignalName: String, SignalNameProtocol {
     /// The signal handler is free to manipulate `tooltip` with the therefore
     /// destined function calls.
     case queryTooltip = "query-tooltip"
-    /// The `realize` signal is emitted when `widget` is associated with a
-    /// `GdkSurface`, which means that `gtk_widget_realize()` has been called or the
-    /// widget has been mapped (that is, it is going to be drawn).
-    case realize = "realize"
-    /// The `resize` signal is emitted once when the widget is realized, and
-    /// then each time the widget is changed while realized. This is useful
-    /// in order to keep state up to date with the widget size, like for
-    /// instance a backing surface.
-    case resize = "resize"
-    /// The `show` signal is emitted when `widget` is shown, for example with
-    /// `gtk_widget_show()`.
-    case show = "show"
-    /// The `state-flags-changed` signal is emitted when the widget state
-    /// changes, see `gtk_widget_get_state_flags()`.
-    case stateFlagsChanged = "state-flags-changed"
-    /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
-    /// means that either it or any of its parents up to the toplevel widget have
-    /// been set as hidden.
+    /// Emitted when `widget` is associated with a `GdkSurface`.
     /// 
-    /// As `unmap` indicates that a widget will not be shown any longer, it can be
-    /// used to, for example, stop an animation on the widget.
+    /// This means that [method`Gtk.Widget.realize`] has been called
+    /// or the widget has been mapped (that is, it is going to be drawn).
+    case realize = "realize"
+    /// Emitted once when the widget is realized, and then each time the widget
+    /// is changed while realized.
+    /// 
+    /// This is useful in order to keep state up to date with the widget size,
+    /// like for instance a backing surface.
+    case resize = "resize"
+    /// Emitted when `widget` is shown.
+    case show = "show"
+    /// Emitted when the widget state changes.
+    /// 
+    /// See [method`Gtk.Widget.get_state_flags`].
+    case stateFlagsChanged = "state-flags-changed"
+    /// Emitted when `widget` is going to be unmapped.
+    /// 
+    /// A widget is unmapped when either it or any of its parents up to the
+    /// toplevel widget have been set as hidden.
+    /// 
+    /// As `unmap` indicates that a widget will not be shown any longer,
+    /// it can be used to, for example, stop an animation on the widget.
     case unmap = "unmap"
-    /// The `unrealize` signal is emitted when the `GdkSurface` associated with
-    /// `widget` is destroyed, which means that `gtk_widget_unrealize()` has been
-    /// called or the widget has been unmapped (that is, it is going to be
-    /// hidden).
+    /// Emitted when the `GdkSurface` associated with `widget` is destroyed.
+    /// 
+    /// This means that [method`Gtk.Widget.unrealize`] has been called
+    /// or the widget has been unmapped (that is, it is going to be hidden).
     case unrealize = "unrealize"
     /// Whether the widget or any of its descendents can accept
     /// the input focus.
@@ -3198,10 +3305,11 @@ public enum DrawingAreaSignalName: String, SignalNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case notifyCanFocus = "notify::can-focus"
+    /// Whether the widget can receive pointer events.
     case notifyCanTarget = "notify::can-target"
-    /// The content height. See `gtk_drawing_area_set_content_height()` for details.
+    /// The content height.
     case notifyContentHeight = "notify::content-height"
-    /// The content width. See `gtk_drawing_area_set_content_width()` for details.
+    /// The content width.
     case notifyContentWidth = "notify::content-width"
     /// A list of css classes applied to this widget.
     case notifyCssClasses = "notify::css-classes"
@@ -3210,7 +3318,7 @@ public enum DrawingAreaSignalName: String, SignalNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case notifyCssName = "notify::css-name"
-    /// The cursor used by `widget`. See `gtk_widget_set_cursor()` for details.
+    /// The cursor used by `widget`.
     case notifyCursor = "notify::cursor"
     /// Whether the widget should grab focus when it is clicked with the mouse.
     /// 
@@ -3218,19 +3326,25 @@ public enum DrawingAreaSignalName: String, SignalNameProtocol {
     case notifyFocusOnClick = "notify::focus-on-click"
     /// Whether this widget itself will accept the input focus.
     case notifyFocusable = "notify::focusable"
-    /// How to distribute horizontal space if widget gets extra space, see `GtkAlign`
+    /// How to distribute horizontal space if widget gets extra space.
     case notifyHalign = "notify::halign"
+    /// Whether the widget is the default widget.
     case notifyHasDefault = "notify::has-default"
+    /// Whether the widget has the input focus.
     case notifyHasFocus = "notify::has-focus"
-    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
+    /// Enables or disables the emission of the `query-tooltip` signal on `widget`.
+    /// 
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
-    /// whether it will provide a tooltip or not.
+    /// the widget will be queried using [signal`Gtk.Widget::query-tooltip`] to
+    /// determine whether it will provide a tooltip or not.
     case notifyHasTooltip = "notify::has-tooltip"
+    /// Override for height request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case notifyHeightRequest = "notify::height-request"
-    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
+    /// Whether to expand horizontally.
     case notifyHexpand = "notify::hexpand"
-    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
+    /// Whether to use the `hexpand` property.
     case notifyHexpandSet = "notify::hexpand-set"
     /// The `GtkLayoutManager` instance to use to compute the preferred size
     /// of the widget, and allocate its children.
@@ -3242,77 +3356,91 @@ public enum DrawingAreaSignalName: String, SignalNameProtocol {
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginBottom = "notify::margin-bottom"
-    /// Margin on end of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on end of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginEnd = "notify::margin-end"
-    /// Margin on start of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on start of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginStart = "notify::margin-start"
     /// Margin on top side of widget.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginTop = "notify::margin-top"
+    /// The name of the widget.
     case notifyName = "notify::name"
-    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
-    /// more details about window opacity.
+    /// The requested opacity of the widget.
     case notifyOpacity = "notify::opacity"
     /// How content outside the widget's content area is treated.
     /// 
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case notifyOverflow = "notify::overflow"
+    /// The parent widget of this widget.
     case notifyParent = "notify::parent"
+    /// Whether the widget will receive the default action when it is focused.
     case notifyReceivesDefault = "notify::receives-default"
-    /// The `GtkRoot` widget of the widget tree containing this widget or `nil` if
-    /// the widget is not contained in a root widget.
+    /// The `GtkRoot` widget of the widget tree containing this widget.
+    /// 
+    /// This will be `nil` if the widget is not contained in a root widget.
     case notifyRoot = "notify::root"
-    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
-    /// more details about widget scaling.
+    /// The scale factor of the widget.
     case notifyScaleFactor = "notify::scale-factor"
+    /// Whether the widget responds to input.
     case notifySensitive = "notify::sensitive"
     /// Sets the text of tooltip to be the given string, which is marked up
-    /// with the [Pango text markup language](#PangoMarkupFormat).
-    /// Also see `gtk_tooltip_set_markup()`.
+    /// with Pango markup.
+    /// 
+    /// Also see [method`Gtk.Tooltip.set_markup`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case notifyTooltipMarkup = "notify::tooltip-markup"
     /// Sets the text of tooltip to be the given string.
     /// 
-    /// Also see `gtk_tooltip_set_text()`.
+    /// Also see [method`Gtk.Tooltip.set_text`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case notifyTooltipText = "notify::tooltip-text"
-    /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
+    /// How to distribute vertical space if widget gets extra space.
     case notifyValign = "notify::valign"
-    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
+    /// Whether to expand vertically.
     case notifyVexpand = "notify::vexpand"
-    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
+    /// Whether to use the `vexpand` property.
     case notifyVexpandSet = "notify::vexpand-set"
+    /// Whether the widget is visible.
     case notifyVisible = "notify::visible"
+    /// Override for width request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case notifyWidthRequest = "notify::width-request"
 }
 
@@ -3344,10 +3472,11 @@ public extension DrawingAreaProtocol {
     }
     
     
-    /// The `resize` signal is emitted once when the widget is realized, and
-    /// then each time the widget is changed while realized. This is useful
-    /// in order to keep state up to date with the widget size, like for
-    /// instance a backing surface.
+    /// Emitted once when the widget is realized, and then each time the widget
+    /// is changed while realized.
+    /// 
+    /// This is useful in order to keep state up to date with the widget size,
+    /// like for instance a backing surface.
     /// - Note: This represents the underlying `resize` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -3479,23 +3608,24 @@ public extension DrawingAreaProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkDrawingArea` instance.
     @inlinable var drawing_area_ptr: UnsafeMutablePointer<GtkDrawingArea>! { return ptr?.assumingMemoryBound(to: GtkDrawingArea.self) }
 
-    /// Retrieves the value previously set via `gtk_drawing_area_set_content_height()`.
+    /// Retrieves the content height of the `GtkDrawingArea`.
     @inlinable func getContentHeight() -> Int {
         let rv = Int(gtk_drawing_area_get_content_height(drawing_area_ptr))
         return rv
     }
 
-    /// Retrieves the value previously set via `gtk_drawing_area_set_content_width()`.
+    /// Retrieves the content width of the `GtkDrawingArea`.
     @inlinable func getContentWidth() -> Int {
         let rv = Int(gtk_drawing_area_get_content_width(drawing_area_ptr))
         return rv
     }
 
-    /// Sets the desired height of the contents of the drawing area. Note that
-    /// because widgets may be allocated larger sizes than they requested, it is
-    /// possible that the actual height passed to your draw function is larger
-    /// than the height set here. You can use `gtk_widget_set_valign()` to avoid
-    /// that.
+    /// Sets the desired height of the contents of the drawing area.
+    /// 
+    /// Note that because widgets may be allocated larger sizes than they
+    /// requested, it is possible that the actual height passed to your draw
+    /// function is larger than the height set here. You can use
+    /// [method`Gtk.Widget.set_valign`] to avoid that.
     /// 
     /// If the height is set to 0 (the default), the drawing area may disappear.
     @inlinable func setContent(height: Int) {
@@ -3503,11 +3633,12 @@ public extension DrawingAreaProtocol {
     
     }
 
-    /// Sets the desired width of the contents of the drawing area. Note that
-    /// because widgets may be allocated larger sizes than they requested, it is
-    /// possible that the actual width passed to your draw function is larger
-    /// than the width set here. You can use `gtk_widget_set_halign()` to avoid
-    /// that.
+    /// Sets the desired width of the contents of the drawing area.
+    /// 
+    /// Note that because widgets may be allocated larger sizes than they
+    /// requested, it is possible that the actual width passed to your draw
+    /// function is larger than the width set here. You can use
+    /// [method`Gtk.Widget.set_halign`] to avoid that.
     /// 
     /// If the width is set to 0 (the default), the drawing area may disappear.
     @inlinable func setContent(width: Int) {
@@ -3515,34 +3646,37 @@ public extension DrawingAreaProtocol {
     
     }
 
-    /// Setting a draw function is the main thing you want to do when using a drawing
-    /// area. It is called whenever GTK needs to draw the contents of the drawing area
-    /// to the screen.
+    /// Setting a draw function is the main thing you want to do when using
+    /// a drawing area.
     /// 
-    /// The draw function will be called during the drawing stage of GTK. In the
-    /// drawing stage it is not allowed to change properties of any GTK widgets or call
-    /// any functions that would cause any properties to be changed.
-    /// You should restrict yourself exclusively to drawing your contents in the draw
-    /// function.
+    /// The draw function is called whenever GTK needs to draw the contents
+    /// of the drawing area to the screen.
     /// 
-    /// If what you are drawing does change, call `gtk_widget_queue_draw()` on the
-    /// drawing area. This will cause a redraw and will call `draw_func` again.
+    /// The draw function will be called during the drawing stage of GTK.
+    /// In the drawing stage it is not allowed to change properties of any
+    /// GTK widgets or call any functions that would cause any properties
+    /// to be changed. You should restrict yourself exclusively to drawing
+    /// your contents in the draw function.
+    /// 
+    /// If what you are drawing does change, call [method`Gtk.Widget.queue_draw`]
+    /// on the drawing area. This will cause a redraw and will call `draw_func` again.
     @inlinable func set(drawFunc: GtkDrawingAreaDrawFunc? = nil, userData: gpointer! = nil, destroy: GDestroyNotify?) {
         gtk_drawing_area_set_draw_func(drawing_area_ptr, drawFunc, userData, destroy)
     
     }
-    /// Retrieves the value previously set via `gtk_drawing_area_set_content_height()`.
+    /// Retrieves the content height of the `GtkDrawingArea`.
     @inlinable var contentHeight: Int {
-        /// Retrieves the value previously set via `gtk_drawing_area_set_content_height()`.
+        /// Retrieves the content height of the `GtkDrawingArea`.
         get {
             let rv = Int(gtk_drawing_area_get_content_height(drawing_area_ptr))
             return rv
         }
-        /// Sets the desired height of the contents of the drawing area. Note that
-        /// because widgets may be allocated larger sizes than they requested, it is
-        /// possible that the actual height passed to your draw function is larger
-        /// than the height set here. You can use `gtk_widget_set_valign()` to avoid
-        /// that.
+        /// Sets the desired height of the contents of the drawing area.
+        /// 
+        /// Note that because widgets may be allocated larger sizes than they
+        /// requested, it is possible that the actual height passed to your draw
+        /// function is larger than the height set here. You can use
+        /// [method`Gtk.Widget.set_valign`] to avoid that.
         /// 
         /// If the height is set to 0 (the default), the drawing area may disappear.
         nonmutating set {
@@ -3550,18 +3684,19 @@ public extension DrawingAreaProtocol {
         }
     }
 
-    /// Retrieves the value previously set via `gtk_drawing_area_set_content_width()`.
+    /// Retrieves the content width of the `GtkDrawingArea`.
     @inlinable var contentWidth: Int {
-        /// Retrieves the value previously set via `gtk_drawing_area_set_content_width()`.
+        /// Retrieves the content width of the `GtkDrawingArea`.
         get {
             let rv = Int(gtk_drawing_area_get_content_width(drawing_area_ptr))
             return rv
         }
-        /// Sets the desired width of the contents of the drawing area. Note that
-        /// because widgets may be allocated larger sizes than they requested, it is
-        /// possible that the actual width passed to your draw function is larger
-        /// than the width set here. You can use `gtk_widget_set_halign()` to avoid
-        /// that.
+        /// Sets the desired width of the contents of the drawing area.
+        /// 
+        /// Note that because widgets may be allocated larger sizes than they
+        /// requested, it is possible that the actual width passed to your draw
+        /// function is larger than the width set here. You can use
+        /// [method`Gtk.Widget.set_halign`] to avoid that.
         /// 
         /// If the width is set to 0 (the default), the drawing area may disappear.
         nonmutating set {
@@ -3587,13 +3722,13 @@ public extension DrawingAreaProtocol {
 /// For a concrete class that implements these methods and properties, see `DropControllerMotion`.
 /// Alternatively, use `DropControllerMotionRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// `GtkDropControllerMotion` is an event controller meant for tracking
-/// the pointer hovering over a widget during a drag and drop operation.
+/// `GtkDropControllerMotion` is an event controller tracking
+/// the pointer during Drag-and-Drop operations.
 /// 
-/// It is modeled after `GtkEventControllerMotion` so if you have used
-/// that, this should feel really familiar.
+/// It is modeled after [class`Gtk.EventControllerMotion`] so if you
+/// have used that, this should feel really familiar.
 /// 
-/// The drop controller is not able to accept drops, use `GtkDropTarget`
+/// This controller is not able to accept drops, use [class`Gtk.DropTarget`]
 /// for that purpose.
 public protocol DropControllerMotionProtocol: EventControllerProtocol {
         /// Untyped pointer to the underlying `GtkDropControllerMotion` instance.
@@ -3610,13 +3745,13 @@ public protocol DropControllerMotionProtocol: EventControllerProtocol {
 /// It exposes methods that can operate on this data type through `DropControllerMotionProtocol` conformance.
 /// Use `DropControllerMotionRef` only as an `unowned` reference to an existing `GtkDropControllerMotion` instance.
 ///
-/// `GtkDropControllerMotion` is an event controller meant for tracking
-/// the pointer hovering over a widget during a drag and drop operation.
+/// `GtkDropControllerMotion` is an event controller tracking
+/// the pointer during Drag-and-Drop operations.
 /// 
-/// It is modeled after `GtkEventControllerMotion` so if you have used
-/// that, this should feel really familiar.
+/// It is modeled after [class`Gtk.EventControllerMotion`] so if you
+/// have used that, this should feel really familiar.
 /// 
-/// The drop controller is not able to accept drops, use `GtkDropTarget`
+/// This controller is not able to accept drops, use [class`Gtk.DropTarget`]
 /// for that purpose.
 public struct DropControllerMotionRef: DropControllerMotionProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkDropControllerMotion` instance.
@@ -3709,13 +3844,13 @@ public extension DropControllerMotionRef {
 /// It provides the methods that can operate on this data type through `DropControllerMotionProtocol` conformance.
 /// Use `DropControllerMotion` as a strong reference or owner of a `GtkDropControllerMotion` instance.
 ///
-/// `GtkDropControllerMotion` is an event controller meant for tracking
-/// the pointer hovering over a widget during a drag and drop operation.
+/// `GtkDropControllerMotion` is an event controller tracking
+/// the pointer during Drag-and-Drop operations.
 /// 
-/// It is modeled after `GtkEventControllerMotion` so if you have used
-/// that, this should feel really familiar.
+/// It is modeled after [class`Gtk.EventControllerMotion`] so if you
+/// have used that, this should feel really familiar.
 /// 
-/// The drop controller is not able to accept drops, use `GtkDropTarget`
+/// This controller is not able to accept drops, use [class`Gtk.DropTarget`]
 /// for that purpose.
 open class DropControllerMotion: EventController, DropControllerMotionProtocol {
         /// Designated initialiser from the underlying `C` data type.
@@ -3854,31 +3989,35 @@ open class DropControllerMotion: EventController, DropControllerMotionProtocol {
 }
 
 public enum DropControllerMotionPropertyName: String, PropertyNameProtocol {
-    /// Whether the pointer of a drag and drop operation is in the controller's
-    /// widget or a descendant.
-    /// See also `GtkDropControllerMotion:is-pointer`.
+    /// Whether the pointer of a Drag-and-Drop operation is in
+    /// the controller's widget or a descendant.
+    /// 
+    /// See also [property`Gtk.DropControllerMotion:is-pointer`].
     /// 
     /// When handling crossing events, this property is updated
-    /// before `GtkDropControllerMotion::enter` but after
-    /// `GtkDropControllerMotion::leave` is emitted.
+    /// before [signal`Gtk.DropControllerMotion::enter`], but after
+    /// [signal`Gtk.DropControllerMotion::leave`] is emitted.
     case containsPointer = "contains-pointer"
-    /// The ongoing drop operation over the controller's widget or its descendant.
+    /// The ongoing drop operation over the controller's widget or
+    /// its descendant.
+    /// 
     /// If no drop operation is going on, this property returns `nil`.
     /// 
-    /// The event controller should not modify the `drop`, but it might want to query
-    /// its properties.
+    /// The event controller should not modify the `drop`, but it might
+    /// want to query its properties.
     /// 
     /// When handling crossing events, this property is updated
-    /// before `GtkDropControllerMotion::enter` but after
-    /// `GtkDropControllerMotion::leave` is emitted.
+    /// before [signal`Gtk.DropControllerMotion::enter`], but after
+    /// [signal`Gtk.DropControllerMotion::leave`] is emitted.
     case drop = "drop"
     /// Whether the pointer is in the controllers widget itself,
-    /// as opposed to in a descendent widget. See also
-    /// `GtkDropControllerMotion:contains-pointer`.
+    /// as opposed to in a descendent widget.
+    /// 
+    /// See also [property`Gtk.DropControllerMotion:contains-pointer`].
     /// 
     /// When handling crossing events, this property is updated
-    /// before `GtkDropControllerMotion::enter` but after
-    /// `GtkDropControllerMotion::leave` is emitted.
+    /// before [signal`Gtk.DropControllerMotion::enter`], but after
+    /// [signal`Gtk.DropControllerMotion::leave`] is emitted.
     case isPointer = "is-pointer"
     /// The name for this controller, typically used for debugging purposes.
     case name = "name"
@@ -3975,31 +4114,35 @@ public enum DropControllerMotionSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// Whether the pointer of a drag and drop operation is in the controller's
-    /// widget or a descendant.
-    /// See also `GtkDropControllerMotion:is-pointer`.
+    /// Whether the pointer of a Drag-and-Drop operation is in
+    /// the controller's widget or a descendant.
+    /// 
+    /// See also [property`Gtk.DropControllerMotion:is-pointer`].
     /// 
     /// When handling crossing events, this property is updated
-    /// before `GtkDropControllerMotion::enter` but after
-    /// `GtkDropControllerMotion::leave` is emitted.
+    /// before [signal`Gtk.DropControllerMotion::enter`], but after
+    /// [signal`Gtk.DropControllerMotion::leave`] is emitted.
     case notifyContainsPointer = "notify::contains-pointer"
-    /// The ongoing drop operation over the controller's widget or its descendant.
+    /// The ongoing drop operation over the controller's widget or
+    /// its descendant.
+    /// 
     /// If no drop operation is going on, this property returns `nil`.
     /// 
-    /// The event controller should not modify the `drop`, but it might want to query
-    /// its properties.
+    /// The event controller should not modify the `drop`, but it might
+    /// want to query its properties.
     /// 
     /// When handling crossing events, this property is updated
-    /// before `GtkDropControllerMotion::enter` but after
-    /// `GtkDropControllerMotion::leave` is emitted.
+    /// before [signal`Gtk.DropControllerMotion::enter`], but after
+    /// [signal`Gtk.DropControllerMotion::leave`] is emitted.
     case notifyDrop = "notify::drop"
     /// Whether the pointer is in the controllers widget itself,
-    /// as opposed to in a descendent widget. See also
-    /// `GtkDropControllerMotion:contains-pointer`.
+    /// as opposed to in a descendent widget.
+    /// 
+    /// See also [property`Gtk.DropControllerMotion:contains-pointer`].
     /// 
     /// When handling crossing events, this property is updated
-    /// before `GtkDropControllerMotion::enter` but after
-    /// `GtkDropControllerMotion::leave` is emitted.
+    /// before [signal`Gtk.DropControllerMotion::enter`], but after
+    /// [signal`Gtk.DropControllerMotion::leave`] is emitted.
     case notifyIsPointer = "notify::is-pointer"
     /// The name for this controller, typically used for debugging purposes.
     case notifyName = "notify::name"
@@ -4272,37 +4415,44 @@ public extension DropControllerMotionProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkDropControllerMotion` instance.
     @inlinable var drop_controller_motion_ptr: UnsafeMutablePointer<GtkDropControllerMotion>! { return ptr?.assumingMemoryBound(to: GtkDropControllerMotion.self) }
 
-    /// Returns the value of the GtkDropControllerMotion:contains-pointer property.
+    /// Returns if a Drag-and-Drop operation is within the widget
+    /// `self` or one of its children.
     @inlinable func containsPointer() -> Bool {
         let rv = ((gtk_drop_controller_motion_contains_pointer(drop_controller_motion_ptr)) != 0)
         return rv
     }
 
-    /// Returns the value of the GtkDropControllerMotion:drop property.
+    /// Returns the `GdkDrop` of a current Drag-and-Drop operation
+    /// over the widget of `self`.
     @inlinable func getDrop() -> Gdk.DropRef! {
         let rv = Gdk.DropRef(gtk_drop_controller_motion_get_drop(drop_controller_motion_ptr))
         return rv
     }
-    /// The ongoing drop operation over the controller's widget or its descendant.
+    /// The ongoing drop operation over the controller's widget or
+    /// its descendant.
+    /// 
     /// If no drop operation is going on, this property returns `nil`.
     /// 
-    /// The event controller should not modify the `drop`, but it might want to query
-    /// its properties.
+    /// The event controller should not modify the `drop`, but it might
+    /// want to query its properties.
     /// 
     /// When handling crossing events, this property is updated
-    /// before `GtkDropControllerMotion::enter` but after
-    /// `GtkDropControllerMotion::leave` is emitted.
+    /// before [signal`Gtk.DropControllerMotion::enter`], but after
+    /// [signal`Gtk.DropControllerMotion::leave`] is emitted.
     @inlinable var drop: Gdk.DropRef! {
-        /// Returns the value of the GtkDropControllerMotion:drop property.
+        /// Returns the `GdkDrop` of a current Drag-and-Drop operation
+        /// over the widget of `self`.
         get {
             let rv = Gdk.DropRef(gtk_drop_controller_motion_get_drop(drop_controller_motion_ptr))
             return rv
         }
     }
 
-    /// Returns the value of the GtkDropControllerMotion:is-pointer property.
+    /// Returns if a Drag-and-Drop operation is within the widget
+    /// `self`, not one of its children.
     @inlinable var isPointer: Bool {
-        /// Returns the value of the GtkDropControllerMotion:is-pointer property.
+        /// Returns if a Drag-and-Drop operation is within the widget
+        /// `self`, not one of its children.
         get {
             let rv = ((gtk_drop_controller_motion_is_pointer(drop_controller_motion_ptr)) != 0)
             return rv
@@ -4321,30 +4471,33 @@ public extension DropControllerMotionProtocol {
 /// For a concrete class that implements these methods and properties, see `DropDown`.
 /// Alternatively, use `DropDownRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// GtkDropDown is a widget that allows the user to choose an item
-/// from a list of options. The GtkDropDown displays the selected
-/// choice.
+/// `GtkDropDown` is a widget that allows the user to choose an item
+/// from a list of options.
 /// 
-/// The options are given to GtkDropDown in the form of `GListModel`,
+/// ![An example GtkDropDown](drop-down.png)
+/// 
+/// The `GtkDropDown` displays the selected choice.
+/// 
+/// The options are given to `GtkDropDown` in the form of `GListModel`
 /// and how the individual options are represented is determined by
-/// a `GtkListItemFactory`. The default factory displays simple strings.
+/// a [class`Gtk.ListItemFactory`]. The default factory displays simple strings.
 /// 
-/// GtkDropDown knows how to obtain strings from the items in a
-/// `GtkStringList`; for other models, you have to provide an expression
-/// to find the strings via `gtk_drop_down_set_expression()`.
+/// `GtkDropDown` knows how to obtain strings from the items in a
+/// [class`Gtk.StringList`]; for other models, you have to provide an expression
+/// to find the strings via [method`Gtk.DropDown.set_expression`].
 /// 
-/// GtkDropDown can optionally allow search in the popup, which is
+/// `GtkDropDown` can optionally allow search in the popup, which is
 /// useful if the list of options is long. To enable the search entry,
-/// use `gtk_drop_down_set_enable_search()`.
+/// use [method`Gtk.DropDown.set_enable_search`].
 /// 
 /// # CSS nodes
 /// 
-/// GtkDropDown has a single CSS node with name dropdown,
+/// `GtkDropDown` has a single CSS node with name dropdown,
 /// with the button and popover nodes as children.
 /// 
 /// # Accessibility
 /// 
-/// GtkDropDown uses the `GTK_ACCESSIBLE_ROLE_COMBO_BOX` role.
+/// `GtkDropDown` uses the `GTK_ACCESSIBLE_ROLE_COMBO_BOX` role.
 public protocol DropDownProtocol: WidgetProtocol {
         /// Untyped pointer to the underlying `GtkDropDown` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -4360,30 +4513,33 @@ public protocol DropDownProtocol: WidgetProtocol {
 /// It exposes methods that can operate on this data type through `DropDownProtocol` conformance.
 /// Use `DropDownRef` only as an `unowned` reference to an existing `GtkDropDown` instance.
 ///
-/// GtkDropDown is a widget that allows the user to choose an item
-/// from a list of options. The GtkDropDown displays the selected
-/// choice.
+/// `GtkDropDown` is a widget that allows the user to choose an item
+/// from a list of options.
 /// 
-/// The options are given to GtkDropDown in the form of `GListModel`,
+/// ![An example GtkDropDown](drop-down.png)
+/// 
+/// The `GtkDropDown` displays the selected choice.
+/// 
+/// The options are given to `GtkDropDown` in the form of `GListModel`
 /// and how the individual options are represented is determined by
-/// a `GtkListItemFactory`. The default factory displays simple strings.
+/// a [class`Gtk.ListItemFactory`]. The default factory displays simple strings.
 /// 
-/// GtkDropDown knows how to obtain strings from the items in a
-/// `GtkStringList`; for other models, you have to provide an expression
-/// to find the strings via `gtk_drop_down_set_expression()`.
+/// `GtkDropDown` knows how to obtain strings from the items in a
+/// [class`Gtk.StringList`]; for other models, you have to provide an expression
+/// to find the strings via [method`Gtk.DropDown.set_expression`].
 /// 
-/// GtkDropDown can optionally allow search in the popup, which is
+/// `GtkDropDown` can optionally allow search in the popup, which is
 /// useful if the list of options is long. To enable the search entry,
-/// use `gtk_drop_down_set_enable_search()`.
+/// use [method`Gtk.DropDown.set_enable_search`].
 /// 
 /// # CSS nodes
 /// 
-/// GtkDropDown has a single CSS node with name dropdown,
+/// `GtkDropDown` has a single CSS node with name dropdown,
 /// with the button and popover nodes as children.
 /// 
 /// # Accessibility
 /// 
-/// GtkDropDown uses the `GTK_ACCESSIBLE_ROLE_COMBO_BOX` role.
+/// `GtkDropDown` uses the `GTK_ACCESSIBLE_ROLE_COMBO_BOX` role.
 public struct DropDownRef: DropDownProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkDropDown` instance.
     /// For type-safe access, use the generated, typed pointer `drop_down_ptr` property instead.
@@ -4465,7 +4621,7 @@ public extension DropDownRef {
 
         /// Creates a new `GtkDropDown`.
     /// 
-    /// You may want to call `gtk_drop_down_set_factory()`
+    /// You may want to call [method`Gtk.DropDown.set_factory`]
     /// to set up a way to map its items to widgets.
     @inlinable init<ExpressionT: ExpressionProtocol, ListModelT: GIO.ListModelProtocol>( model: ListModelT?, expression: ExpressionT?) {
         let rv = gtk_drop_down_new(model?.list_model_ptr, expression?.expression_ptr)
@@ -4473,13 +4629,13 @@ public extension DropDownRef {
     }
 
     /// Creates a new `GtkDropDown` that is populated with
-    /// the strings in `strings`.
+    /// the strings.
     @inlinable init(strings: UnsafePointer<UnsafePointer<CChar>?>!) {
         let rv = gtk_drop_down_new_from_strings(strings)
         ptr = UnsafeMutableRawPointer(rv)
     }
     /// Creates a new `GtkDropDown` that is populated with
-    /// the strings in `strings`.
+    /// the strings.
     @inlinable static func newFrom(strings: UnsafePointer<UnsafePointer<CChar>?>!) -> WidgetRef! {
         guard let rv = WidgetRef(gconstpointer: gconstpointer(gtk_drop_down_new_from_strings(strings))) else { return nil }
         return rv
@@ -4490,30 +4646,33 @@ public extension DropDownRef {
 /// It provides the methods that can operate on this data type through `DropDownProtocol` conformance.
 /// Use `DropDown` as a strong reference or owner of a `GtkDropDown` instance.
 ///
-/// GtkDropDown is a widget that allows the user to choose an item
-/// from a list of options. The GtkDropDown displays the selected
-/// choice.
+/// `GtkDropDown` is a widget that allows the user to choose an item
+/// from a list of options.
 /// 
-/// The options are given to GtkDropDown in the form of `GListModel`,
+/// ![An example GtkDropDown](drop-down.png)
+/// 
+/// The `GtkDropDown` displays the selected choice.
+/// 
+/// The options are given to `GtkDropDown` in the form of `GListModel`
 /// and how the individual options are represented is determined by
-/// a `GtkListItemFactory`. The default factory displays simple strings.
+/// a [class`Gtk.ListItemFactory`]. The default factory displays simple strings.
 /// 
-/// GtkDropDown knows how to obtain strings from the items in a
-/// `GtkStringList`; for other models, you have to provide an expression
-/// to find the strings via `gtk_drop_down_set_expression()`.
+/// `GtkDropDown` knows how to obtain strings from the items in a
+/// [class`Gtk.StringList`]; for other models, you have to provide an expression
+/// to find the strings via [method`Gtk.DropDown.set_expression`].
 /// 
-/// GtkDropDown can optionally allow search in the popup, which is
+/// `GtkDropDown` can optionally allow search in the popup, which is
 /// useful if the list of options is long. To enable the search entry,
-/// use `gtk_drop_down_set_enable_search()`.
+/// use [method`Gtk.DropDown.set_enable_search`].
 /// 
 /// # CSS nodes
 /// 
-/// GtkDropDown has a single CSS node with name dropdown,
+/// `GtkDropDown` has a single CSS node with name dropdown,
 /// with the button and popover nodes as children.
 /// 
 /// # Accessibility
 /// 
-/// GtkDropDown uses the `GTK_ACCESSIBLE_ROLE_COMBO_BOX` role.
+/// `GtkDropDown` uses the `GTK_ACCESSIBLE_ROLE_COMBO_BOX` role.
 open class DropDown: Widget, DropDownProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -4641,7 +4800,7 @@ open class DropDown: Widget, DropDownProtocol {
 
     /// Creates a new `GtkDropDown`.
     /// 
-    /// You may want to call `gtk_drop_down_set_factory()`
+    /// You may want to call [method`Gtk.DropDown.set_factory`]
     /// to set up a way to map its items to widgets.
     @inlinable public init<ExpressionT: ExpressionProtocol, ListModelT: GIO.ListModelProtocol>( model: ListModelT?, expression: ExpressionT?) {
         let rv = gtk_drop_down_new(model?.list_model_ptr, expression?.expression_ptr)
@@ -4650,7 +4809,7 @@ open class DropDown: Widget, DropDownProtocol {
     }
 
     /// Creates a new `GtkDropDown` that is populated with
-    /// the strings in `strings`.
+    /// the strings.
     @inlinable public init(strings: UnsafePointer<UnsafePointer<CChar>?>!) {
         let rv = gtk_drop_down_new_from_strings(strings)
         super.init(gpointer: gpointer(rv))
@@ -4658,7 +4817,7 @@ open class DropDown: Widget, DropDownProtocol {
     }
 
     /// Creates a new `GtkDropDown` that is populated with
-    /// the strings in `strings`.
+    /// the strings.
     @inlinable public static func newFrom(strings: UnsafePointer<UnsafePointer<CChar>?>!) -> Widget! {
         guard let rv = Widget(gconstpointer: gconstpointer(gtk_drop_down_new_from_strings(strings))) else { return nil }
         if typeIsA(type: rv.type, isAType: InitiallyUnownedClassRef.metatypeReference) { _ = rv.refSink() } 
@@ -4674,6 +4833,7 @@ public enum DropDownPropertyName: String, PropertyNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case canFocus = "can-focus"
+    /// Whether the widget can receive pointer events.
     case canTarget = "can-target"
     /// A list of css classes applied to this widget.
     case cssClasses = "css-classes"
@@ -4682,16 +4842,19 @@ public enum DropDownPropertyName: String, PropertyNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case cssName = "css-name"
-    /// The cursor used by `widget`. See `gtk_widget_set_cursor()` for details.
+    /// The cursor used by `widget`.
     case cursor = "cursor"
     /// Whether to show a search entry in the popup.
     /// 
-    /// Note that search requires `GtkDropDown:expression` to be set.
+    /// Note that search requires [property`Gtk.DropDown:expression`]
+    /// to be set.
     case enableSearch = "enable-search"
     /// An expression to evaluate to obtain strings to match against the search
-    /// term (see `GtkDropDown:enable-search`). If `GtkDropDown:factory` is not set,
-    /// the expression is also used to bind strings to labels produced by a
-    /// default factory.
+    /// term.
+    /// 
+    /// See [property`Gtk.DropDown:enable-search`] for how to enable search.
+    /// If [property`Gtk.DropDown:factory`] is not set, the expression is also
+    /// used to bind strings to labels produced by a default factory.
     case expression = "expression"
     /// Factory for populating list items.
     case factory = "factory"
@@ -4701,19 +4864,25 @@ public enum DropDownPropertyName: String, PropertyNameProtocol {
     case focusOnClick = "focus-on-click"
     /// Whether this widget itself will accept the input focus.
     case focusable = "focusable"
-    /// How to distribute horizontal space if widget gets extra space, see `GtkAlign`
+    /// How to distribute horizontal space if widget gets extra space.
     case halign = "halign"
+    /// Whether the widget is the default widget.
     case hasDefault = "has-default"
+    /// Whether the widget has the input focus.
     case hasFocus = "has-focus"
-    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
+    /// Enables or disables the emission of the `query-tooltip` signal on `widget`.
+    /// 
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
-    /// whether it will provide a tooltip or not.
+    /// the widget will be queried using [signal`Gtk.Widget::query-tooltip`] to
+    /// determine whether it will provide a tooltip or not.
     case hasTooltip = "has-tooltip"
+    /// Override for height request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case heightRequest = "height-request"
-    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
+    /// Whether to expand horizontally.
     case hexpand = "hexpand"
-    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
+    /// Whether to use the `hexpand` property.
     case hexpandSet = "hexpand-set"
     /// The `GtkLayoutManager` instance to use to compute the preferred size
     /// of the widget, and allocate its children.
@@ -4723,90 +4892,106 @@ public enum DropDownPropertyName: String, PropertyNameProtocol {
     case layoutManager = "layout-manager"
     /// The factory for populating list items in the popup.
     /// 
-    /// If this is not set, `GtkDropDown:factory` is used.
+    /// If this is not set, [property`Gtk.DropDown:factory`] is used.
     case listFactory = "list-factory"
     /// Margin on bottom side of widget.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginBottom = "margin-bottom"
-    /// Margin on end of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on end of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginEnd = "margin-end"
-    /// Margin on start of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on start of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginStart = "margin-start"
     /// Margin on top side of widget.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginTop = "margin-top"
     /// Model for the displayed items.
     case model = "model"
+    /// The name of the widget.
     case name = "name"
-    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
-    /// more details about window opacity.
+    /// The requested opacity of the widget.
     case opacity = "opacity"
     /// How content outside the widget's content area is treated.
     /// 
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case overflow = "overflow"
+    /// The parent widget of this widget.
     case parent = "parent"
+    /// Whether the widget will receive the default action when it is focused.
     case receivesDefault = "receives-default"
-    /// The `GtkRoot` widget of the widget tree containing this widget or `nil` if
-    /// the widget is not contained in a root widget.
+    /// The `GtkRoot` widget of the widget tree containing this widget.
+    /// 
+    /// This will be `nil` if the widget is not contained in a root widget.
     case root = "root"
-    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
-    /// more details about widget scaling.
+    /// The scale factor of the widget.
     case scaleFactor = "scale-factor"
-    /// The position of the selected item in `GtkDropDown:model`,
-    /// or `GTK_INVALID_LIST_POSITION` if no item is selected.
+    /// The position of the selected item.
+    /// 
+    /// If no item is selected, the property has the value
+    /// `GTK_INVALID_LIST_POSITION`.
     case selected = "selected"
     /// The selected item.
     case selectedItem = "selected-item"
+    /// Whether the widget responds to input.
     case sensitive = "sensitive"
     /// Sets the text of tooltip to be the given string, which is marked up
-    /// with the [Pango text markup language](#PangoMarkupFormat).
-    /// Also see `gtk_tooltip_set_markup()`.
+    /// with Pango markup.
+    /// 
+    /// Also see [method`Gtk.Tooltip.set_markup`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case tooltipMarkup = "tooltip-markup"
     /// Sets the text of tooltip to be the given string.
     /// 
-    /// Also see `gtk_tooltip_set_text()`.
+    /// Also see [method`Gtk.Tooltip.set_text`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case tooltipText = "tooltip-text"
-    /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
+    /// How to distribute vertical space if widget gets extra space.
     case valign = "valign"
-    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
+    /// Whether to expand vertically.
     case vexpand = "vexpand"
-    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
+    /// Whether to use the `vexpand` property.
     case vexpandSet = "vexpand-set"
+    /// Whether the widget is visible.
     case visible = "visible"
+    /// Override for width request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case widthRequest = "width-request"
 }
 
@@ -4865,29 +5050,32 @@ public extension DropDownProtocol {
 
 public enum DropDownSignalName: String, SignalNameProtocol {
     /// Signals that all holders of a reference to the widget should release
-    /// the reference that they hold. May result in finalization of the widget
-    /// if all references are released.
+    /// the reference that they hold.
+    /// 
+    /// May result in finalization of the widget if all references are released.
     /// 
     /// This signal is not suitable for saving widget state.
     case destroy = "destroy"
-    /// The `direction-changed` signal is emitted when the text direction
-    /// of a widget changes.
+    /// Emitted when the text direction of a widget changes.
     case directionChanged = "direction-changed"
-    /// The `hide` signal is emitted when `widget` is hidden, for example with
-    /// `gtk_widget_hide()`.
+    /// Emitted when `widget` is hidden.
     case hide = "hide"
-    /// Gets emitted if keyboard navigation fails.
-    /// See `gtk_widget_keynav_failed()` for details.
+    /// Emitted if keyboard navigation fails.
+    /// 
+    /// See [method`Gtk.Widget.keynav_failed`] for details.
     case keynavFailed = "keynav-failed"
-    /// The `map` signal is emitted when `widget` is going to be mapped, that is
-    /// when the widget is visible (which is controlled with
-    /// `gtk_widget_set_visible()`) and all its parents up to the toplevel widget
+    /// Emitted when `widget` is going to be mapped.
+    /// 
+    /// A widget is mapped when the widget is visible (which is controlled with
+    /// [property`Gtk.Widget:visible`]) and all its parents up to the toplevel widget
     /// are also visible.
     /// 
     /// The `map` signal can be used to determine whether a widget will be drawn,
     /// for instance it can resume an animation that was stopped during the
-    /// emission of `GtkWidget::unmap`.
+    /// emission of [signal`Gtk.Widget::unmap`].
     case map = "map"
+    /// Emitted when a widget is activated via a mnemonic.
+    /// 
     /// The default handler for this signal activates `widget` if `group_cycling`
     /// is `false`, or just makes `widget` grab focus if `group_cycling` is `true`.
     case mnemonicActivate = "mnemonic-activate"
@@ -4918,9 +5106,11 @@ public enum DropDownSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// Emitted when `GtkWidget:has-tooltip` is `true` and the hover timeout
-    /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
-    /// focus in keyboard mode.
+    /// Emitted when the widgets tooltip is about to be shown.
+    /// 
+    /// This happens when the [property`Gtk.Widget:has-tooltip`] property
+    /// is `true` and the hover timeout has expired with the cursor hovering
+    /// "above" `widget`; or emitted when `widget` got focus in keyboard mode.
     /// 
     /// Using the given coordinates, the signal handler should determine
     /// whether a tooltip should be shown for `widget`. If this is the case
@@ -4931,27 +5121,29 @@ public enum DropDownSignalName: String, SignalNameProtocol {
     /// The signal handler is free to manipulate `tooltip` with the therefore
     /// destined function calls.
     case queryTooltip = "query-tooltip"
-    /// The `realize` signal is emitted when `widget` is associated with a
-    /// `GdkSurface`, which means that `gtk_widget_realize()` has been called or the
-    /// widget has been mapped (that is, it is going to be drawn).
-    case realize = "realize"
-    /// The `show` signal is emitted when `widget` is shown, for example with
-    /// `gtk_widget_show()`.
-    case show = "show"
-    /// The `state-flags-changed` signal is emitted when the widget state
-    /// changes, see `gtk_widget_get_state_flags()`.
-    case stateFlagsChanged = "state-flags-changed"
-    /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
-    /// means that either it or any of its parents up to the toplevel widget have
-    /// been set as hidden.
+    /// Emitted when `widget` is associated with a `GdkSurface`.
     /// 
-    /// As `unmap` indicates that a widget will not be shown any longer, it can be
-    /// used to, for example, stop an animation on the widget.
+    /// This means that [method`Gtk.Widget.realize`] has been called
+    /// or the widget has been mapped (that is, it is going to be drawn).
+    case realize = "realize"
+    /// Emitted when `widget` is shown.
+    case show = "show"
+    /// Emitted when the widget state changes.
+    /// 
+    /// See [method`Gtk.Widget.get_state_flags`].
+    case stateFlagsChanged = "state-flags-changed"
+    /// Emitted when `widget` is going to be unmapped.
+    /// 
+    /// A widget is unmapped when either it or any of its parents up to the
+    /// toplevel widget have been set as hidden.
+    /// 
+    /// As `unmap` indicates that a widget will not be shown any longer,
+    /// it can be used to, for example, stop an animation on the widget.
     case unmap = "unmap"
-    /// The `unrealize` signal is emitted when the `GdkSurface` associated with
-    /// `widget` is destroyed, which means that `gtk_widget_unrealize()` has been
-    /// called or the widget has been unmapped (that is, it is going to be
-    /// hidden).
+    /// Emitted when the `GdkSurface` associated with `widget` is destroyed.
+    /// 
+    /// This means that [method`Gtk.Widget.unrealize`] has been called
+    /// or the widget has been unmapped (that is, it is going to be hidden).
     case unrealize = "unrealize"
     /// Whether the widget or any of its descendents can accept
     /// the input focus.
@@ -4959,6 +5151,7 @@ public enum DropDownSignalName: String, SignalNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case notifyCanFocus = "notify::can-focus"
+    /// Whether the widget can receive pointer events.
     case notifyCanTarget = "notify::can-target"
     /// A list of css classes applied to this widget.
     case notifyCssClasses = "notify::css-classes"
@@ -4967,16 +5160,19 @@ public enum DropDownSignalName: String, SignalNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case notifyCssName = "notify::css-name"
-    /// The cursor used by `widget`. See `gtk_widget_set_cursor()` for details.
+    /// The cursor used by `widget`.
     case notifyCursor = "notify::cursor"
     /// Whether to show a search entry in the popup.
     /// 
-    /// Note that search requires `GtkDropDown:expression` to be set.
+    /// Note that search requires [property`Gtk.DropDown:expression`]
+    /// to be set.
     case notifyEnableSearch = "notify::enable-search"
     /// An expression to evaluate to obtain strings to match against the search
-    /// term (see `GtkDropDown:enable-search`). If `GtkDropDown:factory` is not set,
-    /// the expression is also used to bind strings to labels produced by a
-    /// default factory.
+    /// term.
+    /// 
+    /// See [property`Gtk.DropDown:enable-search`] for how to enable search.
+    /// If [property`Gtk.DropDown:factory`] is not set, the expression is also
+    /// used to bind strings to labels produced by a default factory.
     case notifyExpression = "notify::expression"
     /// Factory for populating list items.
     case notifyFactory = "notify::factory"
@@ -4986,19 +5182,25 @@ public enum DropDownSignalName: String, SignalNameProtocol {
     case notifyFocusOnClick = "notify::focus-on-click"
     /// Whether this widget itself will accept the input focus.
     case notifyFocusable = "notify::focusable"
-    /// How to distribute horizontal space if widget gets extra space, see `GtkAlign`
+    /// How to distribute horizontal space if widget gets extra space.
     case notifyHalign = "notify::halign"
+    /// Whether the widget is the default widget.
     case notifyHasDefault = "notify::has-default"
+    /// Whether the widget has the input focus.
     case notifyHasFocus = "notify::has-focus"
-    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
+    /// Enables or disables the emission of the `query-tooltip` signal on `widget`.
+    /// 
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
-    /// whether it will provide a tooltip or not.
+    /// the widget will be queried using [signal`Gtk.Widget::query-tooltip`] to
+    /// determine whether it will provide a tooltip or not.
     case notifyHasTooltip = "notify::has-tooltip"
+    /// Override for height request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case notifyHeightRequest = "notify::height-request"
-    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
+    /// Whether to expand horizontally.
     case notifyHexpand = "notify::hexpand"
-    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
+    /// Whether to use the `hexpand` property.
     case notifyHexpandSet = "notify::hexpand-set"
     /// The `GtkLayoutManager` instance to use to compute the preferred size
     /// of the widget, and allocate its children.
@@ -5008,90 +5210,106 @@ public enum DropDownSignalName: String, SignalNameProtocol {
     case notifyLayoutManager = "notify::layout-manager"
     /// The factory for populating list items in the popup.
     /// 
-    /// If this is not set, `GtkDropDown:factory` is used.
+    /// If this is not set, [property`Gtk.DropDown:factory`] is used.
     case notifyListFactory = "notify::list-factory"
     /// Margin on bottom side of widget.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginBottom = "notify::margin-bottom"
-    /// Margin on end of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on end of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginEnd = "notify::margin-end"
-    /// Margin on start of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on start of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginStart = "notify::margin-start"
     /// Margin on top side of widget.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginTop = "notify::margin-top"
     /// Model for the displayed items.
     case notifyModel = "notify::model"
+    /// The name of the widget.
     case notifyName = "notify::name"
-    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
-    /// more details about window opacity.
+    /// The requested opacity of the widget.
     case notifyOpacity = "notify::opacity"
     /// How content outside the widget's content area is treated.
     /// 
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case notifyOverflow = "notify::overflow"
+    /// The parent widget of this widget.
     case notifyParent = "notify::parent"
+    /// Whether the widget will receive the default action when it is focused.
     case notifyReceivesDefault = "notify::receives-default"
-    /// The `GtkRoot` widget of the widget tree containing this widget or `nil` if
-    /// the widget is not contained in a root widget.
+    /// The `GtkRoot` widget of the widget tree containing this widget.
+    /// 
+    /// This will be `nil` if the widget is not contained in a root widget.
     case notifyRoot = "notify::root"
-    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
-    /// more details about widget scaling.
+    /// The scale factor of the widget.
     case notifyScaleFactor = "notify::scale-factor"
-    /// The position of the selected item in `GtkDropDown:model`,
-    /// or `GTK_INVALID_LIST_POSITION` if no item is selected.
+    /// The position of the selected item.
+    /// 
+    /// If no item is selected, the property has the value
+    /// `GTK_INVALID_LIST_POSITION`.
     case notifySelected = "notify::selected"
     /// The selected item.
     case notifySelectedItem = "notify::selected-item"
+    /// Whether the widget responds to input.
     case notifySensitive = "notify::sensitive"
     /// Sets the text of tooltip to be the given string, which is marked up
-    /// with the [Pango text markup language](#PangoMarkupFormat).
-    /// Also see `gtk_tooltip_set_markup()`.
+    /// with Pango markup.
+    /// 
+    /// Also see [method`Gtk.Tooltip.set_markup`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case notifyTooltipMarkup = "notify::tooltip-markup"
     /// Sets the text of tooltip to be the given string.
     /// 
-    /// Also see `gtk_tooltip_set_text()`.
+    /// Also see [method`Gtk.Tooltip.set_text`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case notifyTooltipText = "notify::tooltip-text"
-    /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
+    /// How to distribute vertical space if widget gets extra space.
     case notifyValign = "notify::valign"
-    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
+    /// Whether to expand vertically.
     case notifyVexpand = "notify::vexpand"
-    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
+    /// Whether to use the `vexpand` property.
     case notifyVexpandSet = "notify::vexpand-set"
+    /// Whether the widget is visible.
     case notifyVisible = "notify::visible"
+    /// Override for width request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case notifyWidthRequest = "notify::width-request"
 }
 
@@ -5107,7 +5325,9 @@ public extension DropDownProtocol {
         return rv
     }
 
-    /// Gets the expression set with `gtk_drop_down_set_expression()`.
+    /// Gets the expression set that is used to obtain strings from items.
+    /// 
+    /// See [method`Gtk.DropDown.set_expression`].
     @inlinable func getExpression() -> ExpressionRef! {
         let rv = ExpressionRef(gconstpointer: gconstpointer(gtk_drop_down_get_expression(drop_down_ptr)))
         return rv
@@ -5117,7 +5337,7 @@ public extension DropDownProtocol {
     /// 
     /// The factory returned by this function is always used for the
     /// item in the button. It is also used for items in the popup
-    /// if `GtkDropDown:list-factory` is not set.
+    /// if [property`Gtk.DropDown:list-factory`] is not set.
     @inlinable func getFactory() -> ListItemFactoryRef! {
         let rv = ListItemFactoryRef(gconstpointer: gconstpointer(gtk_drop_down_get_factory(drop_down_ptr)))
         return rv
@@ -5150,22 +5370,25 @@ public extension DropDownProtocol {
     /// Sets whether a search entry will be shown in the popup that
     /// allows to search for items in the list.
     /// 
-    /// Note that `GtkDropDown:expression` must be set for search to work.
+    /// Note that [property`Gtk.DropDown:expression`] must be set for
+    /// search to work.
     @inlinable func set(enableSearch: Bool) {
         gtk_drop_down_set_enable_search(drop_down_ptr, gboolean((enableSearch) ? 1 : 0))
     
     }
 
-    /// Sets the expression that gets evaluated to obtain strings from items
-    /// when searching in the popup. The expression must have a value type of
-    /// `G_TYPE_STRING`.
+    /// Sets the expression that gets evaluated to obtain strings from items.
+    /// 
+    /// This is used for search in the popup. The expression must have
+    /// a value type of `G_TYPE_STRING`.
     @inlinable func set(expression: ExpressionRef? = nil) {
         gtk_drop_down_set_expression(drop_down_ptr, expression?.expression_ptr)
     
     }
-    /// Sets the expression that gets evaluated to obtain strings from items
-    /// when searching in the popup. The expression must have a value type of
-    /// `G_TYPE_STRING`.
+    /// Sets the expression that gets evaluated to obtain strings from items.
+    /// 
+    /// This is used for search in the popup. The expression must have
+    /// a value type of `G_TYPE_STRING`.
     @inlinable func set<ExpressionT: ExpressionProtocol>(expression: ExpressionT?) {
         gtk_drop_down_set_expression(drop_down_ptr, expression?.expression_ptr)
     
@@ -5219,25 +5442,31 @@ public extension DropDownProtocol {
         /// Sets whether a search entry will be shown in the popup that
         /// allows to search for items in the list.
         /// 
-        /// Note that `GtkDropDown:expression` must be set for search to work.
+        /// Note that [property`Gtk.DropDown:expression`] must be set for
+        /// search to work.
         nonmutating set {
             gtk_drop_down_set_enable_search(drop_down_ptr, gboolean((newValue) ? 1 : 0))
         }
     }
 
     /// An expression to evaluate to obtain strings to match against the search
-    /// term (see `GtkDropDown:enable-search`). If `GtkDropDown:factory` is not set,
-    /// the expression is also used to bind strings to labels produced by a
-    /// default factory.
+    /// term.
+    /// 
+    /// See [property`Gtk.DropDown:enable-search`] for how to enable search.
+    /// If [property`Gtk.DropDown:factory`] is not set, the expression is also
+    /// used to bind strings to labels produced by a default factory.
     @inlinable var expression: ExpressionRef! {
-        /// Gets the expression set with `gtk_drop_down_set_expression()`.
+        /// Gets the expression set that is used to obtain strings from items.
+        /// 
+        /// See [method`Gtk.DropDown.set_expression`].
         get {
             let rv = ExpressionRef(gconstpointer: gconstpointer(gtk_drop_down_get_expression(drop_down_ptr)))
             return rv
         }
-        /// Sets the expression that gets evaluated to obtain strings from items
-        /// when searching in the popup. The expression must have a value type of
-        /// `G_TYPE_STRING`.
+        /// Sets the expression that gets evaluated to obtain strings from items.
+        /// 
+        /// This is used for search in the popup. The expression must have
+        /// a value type of `G_TYPE_STRING`.
         nonmutating set {
             gtk_drop_down_set_expression(drop_down_ptr, UnsafeMutablePointer<GtkExpression>(newValue?.expression_ptr))
         }
@@ -5249,7 +5478,7 @@ public extension DropDownProtocol {
         /// 
         /// The factory returned by this function is always used for the
         /// item in the button. It is also used for items in the popup
-        /// if `GtkDropDown:list-factory` is not set.
+        /// if [property`Gtk.DropDown:list-factory`] is not set.
         get {
             let rv = ListItemFactoryRef(gconstpointer: gconstpointer(gtk_drop_down_get_factory(drop_down_ptr)))
             return rv
@@ -5286,8 +5515,10 @@ public extension DropDownProtocol {
         }
     }
 
-    /// The position of the selected item in `GtkDropDown:model`,
-    /// or `GTK_INVALID_LIST_POSITION` if no item is selected.
+    /// The position of the selected item.
+    /// 
+    /// If no item is selected, the property has the value
+    /// `GTK_INVALID_LIST_POSITION`.
     @inlinable var selected: Int {
         /// Gets the position of the selected item.
         get {
@@ -5321,16 +5552,14 @@ public extension DropDownProtocol {
 /// For a concrete class that implements these methods and properties, see `DropTarget`.
 /// Alternatively, use `DropTargetRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// GtkDropTarget is an event controller implementing a simple way to
-/// receive Drag-and-Drop operations.
+/// `GtkDropTarget` is an event controller to receive Drag-and-Drop operations.
 /// 
 /// The most basic way to use a `GtkDropTarget` to receive drops on a
-/// widget is to create it via `gtk_drop_target_new()` passing in the
+/// widget is to create it via [ctor`Gtk.DropTarget.new`], passing in the
 /// `GType` of the data you want to receive and connect to the
-/// `GtkDropTarget::drop` signal to receive the data:
+/// [signal`Gtk.DropTarget::drop`] signal to receive the data:
 /// 
-/// (C Language Example):
-/// ```C
+/// ```c
 /// static gboolean
 /// on_drop (GtkDropTarget *target,
 ///          const GValue  *value,
@@ -5371,24 +5600,28 @@ public extension DropDownProtocol {
 /// 
 /// `GtkDropTarget` supports more options, such as:
 /// 
-///  * rejecting potential drops via the `GtkDropTarget::accept` signal
-///    and the `gtk_drop_target_reject()` function to let other drop
+///  * rejecting potential drops via the [signal`Gtk.DropTarget::accept`] signal
+///    and the [method`Gtk.DropTarget.reject`] function to let other drop
 ///    targets handle the drop
 ///  * tracking an ongoing drag operation before the drop via the
-///    `GtkDropTarget::enter`, `GtkDropTarget::motion` and
-///    `GtkDropTarget::leave` signals
+///    [signal`Gtk.DropTarget::enter`], [signal`Gtk.DropTarget::motion`] and
+///    [signal`Gtk.DropTarget::leave`] signals
 ///  * configuring how to receive data by setting the
-///    `GtkDropTarget:preload` property and listening for its availability
-///    via the `GtkDropTarget:value` property
+///    [property`Gtk.DropTarget:preload`] property and listening for its
+///    availability via the [property`Gtk.DropTarget:value`] property
 /// 
 /// However, `GtkDropTarget` is ultimately modeled in a synchronous way
-/// and only supports data transferred via `GType`.
-/// If you want full control over an ongoing drop, the `GtkDropTargetAsync`
-/// object gives you this ability.
+/// and only supports data transferred via `GType`. If you want full control
+/// over an ongoing drop, the [class`Gtk.DropTargetAsync`] object gives you
+/// this ability.
 /// 
 /// While a pointer is dragged over the drop target's widget and the drop
 /// has not been rejected, that widget will receive the
 /// `GTK_STATE_FLAG_DROP_ACTIVE` state, which can be used to style the widget.
+/// 
+/// If you are not interested in receiving the drop, but just want to update
+/// UI state during a Drag-and-Drop operation (e.g. switching tabs), you can
+/// use [class`Gtk.DropControllerMotion`].
 public protocol DropTargetProtocol: EventControllerProtocol {
         /// Untyped pointer to the underlying `GtkDropTarget` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -5404,16 +5637,14 @@ public protocol DropTargetProtocol: EventControllerProtocol {
 /// It exposes methods that can operate on this data type through `DropTargetProtocol` conformance.
 /// Use `DropTargetRef` only as an `unowned` reference to an existing `GtkDropTarget` instance.
 ///
-/// GtkDropTarget is an event controller implementing a simple way to
-/// receive Drag-and-Drop operations.
+/// `GtkDropTarget` is an event controller to receive Drag-and-Drop operations.
 /// 
 /// The most basic way to use a `GtkDropTarget` to receive drops on a
-/// widget is to create it via `gtk_drop_target_new()` passing in the
+/// widget is to create it via [ctor`Gtk.DropTarget.new`], passing in the
 /// `GType` of the data you want to receive and connect to the
-/// `GtkDropTarget::drop` signal to receive the data:
+/// [signal`Gtk.DropTarget::drop`] signal to receive the data:
 /// 
-/// (C Language Example):
-/// ```C
+/// ```c
 /// static gboolean
 /// on_drop (GtkDropTarget *target,
 ///          const GValue  *value,
@@ -5454,24 +5685,28 @@ public protocol DropTargetProtocol: EventControllerProtocol {
 /// 
 /// `GtkDropTarget` supports more options, such as:
 /// 
-///  * rejecting potential drops via the `GtkDropTarget::accept` signal
-///    and the `gtk_drop_target_reject()` function to let other drop
+///  * rejecting potential drops via the [signal`Gtk.DropTarget::accept`] signal
+///    and the [method`Gtk.DropTarget.reject`] function to let other drop
 ///    targets handle the drop
 ///  * tracking an ongoing drag operation before the drop via the
-///    `GtkDropTarget::enter`, `GtkDropTarget::motion` and
-///    `GtkDropTarget::leave` signals
+///    [signal`Gtk.DropTarget::enter`], [signal`Gtk.DropTarget::motion`] and
+///    [signal`Gtk.DropTarget::leave`] signals
 ///  * configuring how to receive data by setting the
-///    `GtkDropTarget:preload` property and listening for its availability
-///    via the `GtkDropTarget:value` property
+///    [property`Gtk.DropTarget:preload`] property and listening for its
+///    availability via the [property`Gtk.DropTarget:value`] property
 /// 
 /// However, `GtkDropTarget` is ultimately modeled in a synchronous way
-/// and only supports data transferred via `GType`.
-/// If you want full control over an ongoing drop, the `GtkDropTargetAsync`
-/// object gives you this ability.
+/// and only supports data transferred via `GType`. If you want full control
+/// over an ongoing drop, the [class`Gtk.DropTargetAsync`] object gives you
+/// this ability.
 /// 
 /// While a pointer is dragged over the drop target's widget and the drop
 /// has not been rejected, that widget will receive the
 /// `GTK_STATE_FLAG_DROP_ACTIVE` state, which can be used to style the widget.
+/// 
+/// If you are not interested in receiving the drop, but just want to update
+/// UI state during a Drag-and-Drop operation (e.g. switching tabs), you can
+/// use [class`Gtk.DropControllerMotion`].
 public struct DropTargetRef: DropTargetProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkDropTarget` instance.
     /// For type-safe access, use the generated, typed pointer `drop_target_ptr` property instead.
@@ -5555,7 +5790,7 @@ public extension DropTargetRef {
     /// 
     /// If the drop target should support more than 1 type, pass
     /// `G_TYPE_INVALID` for `type` and then call
-    /// `gtk_drop_target_set_gtypes()`.
+    /// [method`Gtk.DropTarget.set_gtypes`].
     @inlinable init( type: GType, actions: Gdk.DragAction) {
         let rv = gtk_drop_target_new(type, actions.value)
         ptr = UnsafeMutableRawPointer(rv)
@@ -5566,16 +5801,14 @@ public extension DropTargetRef {
 /// It provides the methods that can operate on this data type through `DropTargetProtocol` conformance.
 /// Use `DropTarget` as a strong reference or owner of a `GtkDropTarget` instance.
 ///
-/// GtkDropTarget is an event controller implementing a simple way to
-/// receive Drag-and-Drop operations.
+/// `GtkDropTarget` is an event controller to receive Drag-and-Drop operations.
 /// 
 /// The most basic way to use a `GtkDropTarget` to receive drops on a
-/// widget is to create it via `gtk_drop_target_new()` passing in the
+/// widget is to create it via [ctor`Gtk.DropTarget.new`], passing in the
 /// `GType` of the data you want to receive and connect to the
-/// `GtkDropTarget::drop` signal to receive the data:
+/// [signal`Gtk.DropTarget::drop`] signal to receive the data:
 /// 
-/// (C Language Example):
-/// ```C
+/// ```c
 /// static gboolean
 /// on_drop (GtkDropTarget *target,
 ///          const GValue  *value,
@@ -5616,24 +5849,28 @@ public extension DropTargetRef {
 /// 
 /// `GtkDropTarget` supports more options, such as:
 /// 
-///  * rejecting potential drops via the `GtkDropTarget::accept` signal
-///    and the `gtk_drop_target_reject()` function to let other drop
+///  * rejecting potential drops via the [signal`Gtk.DropTarget::accept`] signal
+///    and the [method`Gtk.DropTarget.reject`] function to let other drop
 ///    targets handle the drop
 ///  * tracking an ongoing drag operation before the drop via the
-///    `GtkDropTarget::enter`, `GtkDropTarget::motion` and
-///    `GtkDropTarget::leave` signals
+///    [signal`Gtk.DropTarget::enter`], [signal`Gtk.DropTarget::motion`] and
+///    [signal`Gtk.DropTarget::leave`] signals
 ///  * configuring how to receive data by setting the
-///    `GtkDropTarget:preload` property and listening for its availability
-///    via the `GtkDropTarget:value` property
+///    [property`Gtk.DropTarget:preload`] property and listening for its
+///    availability via the [property`Gtk.DropTarget:value`] property
 /// 
 /// However, `GtkDropTarget` is ultimately modeled in a synchronous way
-/// and only supports data transferred via `GType`.
-/// If you want full control over an ongoing drop, the `GtkDropTargetAsync`
-/// object gives you this ability.
+/// and only supports data transferred via `GType`. If you want full control
+/// over an ongoing drop, the [class`Gtk.DropTargetAsync`] object gives you
+/// this ability.
 /// 
 /// While a pointer is dragged over the drop target's widget and the drop
 /// has not been rejected, that widget will receive the
 /// `GTK_STATE_FLAG_DROP_ACTIVE` state, which can be used to style the widget.
+/// 
+/// If you are not interested in receiving the drop, but just want to update
+/// UI state during a Drag-and-Drop operation (e.g. switching tabs), you can
+/// use [class`Gtk.DropControllerMotion`].
 open class DropTarget: EventController, DropTargetProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -5763,7 +6000,7 @@ open class DropTarget: EventController, DropTargetProtocol {
     /// 
     /// If the drop target should support more than 1 type, pass
     /// `G_TYPE_INVALID` for `type` and then call
-    /// `gtk_drop_target_set_gtypes()`.
+    /// [method`Gtk.DropTarget.set_gtypes`].
     @inlinable public init( type: GType, actions: Gdk.DragAction) {
         let rv = gtk_drop_target_new(type, actions.value)
         super.init(gpointer: gpointer(rv))
@@ -5774,11 +6011,11 @@ open class DropTarget: EventController, DropTargetProtocol {
 }
 
 public enum DropTargetPropertyName: String, PropertyNameProtocol {
-    /// The `GdkDragActions` that this drop target supports
+    /// The `GdkDragActions` that this drop target supports.
     case actions = "actions"
-    /// The `GdkDrop` that is currently being performed
+    /// The `GdkDrop` that is currently being performed.
     case drop = "drop"
-    /// The `GdkContentFormats` that determine the supported data formats
+    /// The `GdkContentFormats` that determine the supported data formats.
     case formats = "formats"
     /// The name for this controller, typically used for debugging purposes.
     case name = "name"
@@ -5790,6 +6027,7 @@ public enum DropTargetPropertyName: String, PropertyNameProtocol {
     /// 
     /// The default value for this property is `false` to avoid downloading
     /// huge amounts of data by accident.
+    /// 
     /// For example, if somebody drags a full document of gigabytes of text
     /// from a text editor across a widget with a preloading drop target,
     /// this data will be downloaded, even if the data is ultimately dropped
@@ -5797,19 +6035,22 @@ public enum DropTargetPropertyName: String, PropertyNameProtocol {
     /// 
     /// For a lot of data formats, the amount of data is very small (like
     /// `GDK_TYPE_RGBA`), so enabling this property does not hurt at all.
-    /// And for local-only drag'n'drop operations, no data transfer is done,
+    /// And for local-only Drag-and-Drop operations, no data transfer is done,
     /// so enabling it there is free.
     case preload = "preload"
     /// The limit for which events this controller will handle.
     case propagationLimit = "propagation-limit"
     /// The propagation phase at which this controller will handle events.
     case propagationPhase = "propagation-phase"
-    /// The value for this drop operation or `nil` if the data has not been
-    /// loaded yet or no drop operation is going on.
+    /// The value for this drop operation.
     /// 
-    /// Data may be available before the `GtkDropTarget::drop` signal gets emitted -
-    /// for example when the `GtkDropTarget:preload` property is set.
-    /// You can use the `GObject::notify` signal to be notified of available data.
+    /// This is `nil` if the data has not been loaded yet or no drop
+    /// operation is going on.
+    /// 
+    /// Data may be available before the [signal`Gtk.DropTarget::drop`]
+    /// signal gets emitted - for example when the [property`Gtk.DropTarget:preload`]
+    /// property is set. You can use the `notify` signal to be notified
+    /// of available data.
     case value = "value"
     /// The widget receiving the `GdkEvents` that the controller will handle.
     case widget = "widget"
@@ -5869,40 +6110,43 @@ public extension DropTargetProtocol {
 }
 
 public enum DropTargetSignalName: String, SignalNameProtocol {
-    /// The `accept` signal is emitted on the drop site when a drop operation
-    /// is about to begin.
+    /// Emitted on the drop site when a drop operation is about to begin.
+    /// 
     /// If the drop is not accepted, `false` will be returned and the drop target
     /// will ignore the drop. If `true` is returned, the drop is accepted for now
-    /// but may be rejected later via a call to `gtk_drop_target_reject()` or
-    /// ultimately by returning `false` from `GtkDropTarget::drop`.
+    /// but may be rejected later via a call to [method`Gtk.DropTarget.reject`]
+    /// or ultimately by returning `false` from a [signal`Gtk.DropTarget::drop`]
+    /// handler.
     /// 
     /// The default handler for this signal decides whether to accept the drop
     /// based on the formats provided by the `drop`.
     /// 
     /// If the decision whether the drop will be accepted or rejected depends
-    /// on the data, this function should return `true`, the `GtkDropTarget:preload`
-    /// property should be set and the value should be inspected via the
-    /// `GObject::notify:value` signal, calling `gtk_drop_target_reject()` if
-    /// required.
+    /// on the data, this function should return `true`, the
+    /// [property`Gtk.DropTarget:preload`] property should be set and the value
+    /// should be inspected via the `notify:value` signal, calling
+    /// [method`Gtk.DropTarget.reject`] if required.
     case accept = "accept"
-    /// The `drop` signal is emitted on the drop site when the user drops
-    /// the data onto the widget. The signal handler must determine whether
-    /// the pointer position is in a drop zone or not. If it is not in a drop
-    /// zone, it returns `false` and no further processing is necessary.
+    /// Emitted on the drop site when the user drops the data onto the widget.
+    /// 
+    /// The signal handler must determine whether the pointer position is in
+    /// a drop zone or not. If it is not in a drop zone, it returns `false`
+    /// and no further processing is necessary.
     /// 
     /// Otherwise, the handler returns `true`. In this case, this handler will
     /// accept the drop. The handler is responsible for rading the given `value`
     /// and performing the drop operation.
     case drop = "drop"
-    /// The `enter` signal is emitted on the drop site when the pointer
-    /// enters the widget. It can be used to set up custom highlighting.
+    /// Emitted on the drop site when the pointer enters the widget.
+    /// 
+    /// It can be used to set up custom highlighting.
     case enter = "enter"
-    /// The `leave` signal is emitted on the drop site when the pointer
-    /// leaves the widget. Its main purpose it to undo things done in
-    /// `GtkDropTarget::enter`.
+    /// Emitted on the drop site when the pointer leaves the widget.
+    /// 
+    /// Its main purpose it to undo things done in
+    /// [signal`Gtk.DropTarget::enter`].
     case leave = "leave"
-    /// The `motion` signal is emitted while the pointer is moving
-    /// over the drop target.
+    /// Emitted while the pointer is moving over the drop target.
     case motion = "motion"
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -5929,11 +6173,11 @@ public enum DropTargetSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// The `GdkDragActions` that this drop target supports
+    /// The `GdkDragActions` that this drop target supports.
     case notifyActions = "notify::actions"
-    /// The `GdkDrop` that is currently being performed
+    /// The `GdkDrop` that is currently being performed.
     case notifyDrop = "notify::drop"
-    /// The `GdkContentFormats` that determine the supported data formats
+    /// The `GdkContentFormats` that determine the supported data formats.
     case notifyFormats = "notify::formats"
     /// The name for this controller, typically used for debugging purposes.
     case notifyName = "notify::name"
@@ -5945,6 +6189,7 @@ public enum DropTargetSignalName: String, SignalNameProtocol {
     /// 
     /// The default value for this property is `false` to avoid downloading
     /// huge amounts of data by accident.
+    /// 
     /// For example, if somebody drags a full document of gigabytes of text
     /// from a text editor across a widget with a preloading drop target,
     /// this data will be downloaded, even if the data is ultimately dropped
@@ -5952,19 +6197,22 @@ public enum DropTargetSignalName: String, SignalNameProtocol {
     /// 
     /// For a lot of data formats, the amount of data is very small (like
     /// `GDK_TYPE_RGBA`), so enabling this property does not hurt at all.
-    /// And for local-only drag'n'drop operations, no data transfer is done,
+    /// And for local-only Drag-and-Drop operations, no data transfer is done,
     /// so enabling it there is free.
     case notifyPreload = "notify::preload"
     /// The limit for which events this controller will handle.
     case notifyPropagationLimit = "notify::propagation-limit"
     /// The propagation phase at which this controller will handle events.
     case notifyPropagationPhase = "notify::propagation-phase"
-    /// The value for this drop operation or `nil` if the data has not been
-    /// loaded yet or no drop operation is going on.
+    /// The value for this drop operation.
     /// 
-    /// Data may be available before the `GtkDropTarget::drop` signal gets emitted -
-    /// for example when the `GtkDropTarget:preload` property is set.
-    /// You can use the `GObject::notify` signal to be notified of available data.
+    /// This is `nil` if the data has not been loaded yet or no drop
+    /// operation is going on.
+    /// 
+    /// Data may be available before the [signal`Gtk.DropTarget::drop`]
+    /// signal gets emitted - for example when the [property`Gtk.DropTarget:preload`]
+    /// property is set. You can use the `notify` signal to be notified
+    /// of available data.
     case notifyValue = "notify::value"
     /// The widget receiving the `GdkEvents` that the controller will handle.
     case notifyWidget = "notify::widget"
@@ -5998,21 +6246,22 @@ public extension DropTargetProtocol {
     }
     
     
-    /// The `accept` signal is emitted on the drop site when a drop operation
-    /// is about to begin.
+    /// Emitted on the drop site when a drop operation is about to begin.
+    /// 
     /// If the drop is not accepted, `false` will be returned and the drop target
     /// will ignore the drop. If `true` is returned, the drop is accepted for now
-    /// but may be rejected later via a call to `gtk_drop_target_reject()` or
-    /// ultimately by returning `false` from `GtkDropTarget::drop`.
+    /// but may be rejected later via a call to [method`Gtk.DropTarget.reject`]
+    /// or ultimately by returning `false` from a [signal`Gtk.DropTarget::drop`]
+    /// handler.
     /// 
     /// The default handler for this signal decides whether to accept the drop
     /// based on the formats provided by the `drop`.
     /// 
     /// If the decision whether the drop will be accepted or rejected depends
-    /// on the data, this function should return `true`, the `GtkDropTarget:preload`
-    /// property should be set and the value should be inspected via the
-    /// `GObject::notify:value` signal, calling `gtk_drop_target_reject()` if
-    /// required.
+    /// on the data, this function should return `true`, the
+    /// [property`Gtk.DropTarget:preload`] property should be set and the value
+    /// should be inspected via the `notify:value` signal, calling
+    /// [method`Gtk.DropTarget.reject`] if required.
     /// - Note: This represents the underlying `accept` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -6038,10 +6287,11 @@ public extension DropTargetProtocol {
     /// Typed `accept` signal for using the `connect(signal:)` methods
     static var acceptSignal: DropTargetSignalName { .accept }
     
-    /// The `drop` signal is emitted on the drop site when the user drops
-    /// the data onto the widget. The signal handler must determine whether
-    /// the pointer position is in a drop zone or not. If it is not in a drop
-    /// zone, it returns `false` and no further processing is necessary.
+    /// Emitted on the drop site when the user drops the data onto the widget.
+    /// 
+    /// The signal handler must determine whether the pointer position is in
+    /// a drop zone or not. If it is not in a drop zone, it returns `false`
+    /// and no further processing is necessary.
     /// 
     /// Otherwise, the handler returns `true`. In this case, this handler will
     /// accept the drop. The handler is responsible for rading the given `value`
@@ -6073,14 +6323,15 @@ public extension DropTargetProtocol {
     /// Typed `drop` signal for using the `connect(signal:)` methods
     static var dropSignal: DropTargetSignalName { .drop }
     
-    /// The `enter` signal is emitted on the drop site when the pointer
-    /// enters the widget. It can be used to set up custom highlighting.
+    /// Emitted on the drop site when the pointer enters the widget.
+    /// 
+    /// It can be used to set up custom highlighting.
     /// - Note: This represents the underlying `enter` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter x: the x coordinate of the current pointer position
     /// - Parameter y: the y coordinate of the current pointer position
-    /// - Parameter handler: Preferred action for this drag operation or 0 if dropping is not     supported at the current `x`,`y` location.
+    /// - Parameter handler: Preferred action for this drag operation or 0 if   dropping is not supported at the current `x`,`y` location.
     /// Run the given callback whenever the `enter` signal is emitted
     @discardableResult @inlinable func onEnter(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: DropTargetRef, _ x: Double, _ y: Double) -> Gdk.DragAction ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder3<DropTargetRef, Double, Double, Gdk.DragAction>
@@ -6101,9 +6352,10 @@ public extension DropTargetProtocol {
     /// Typed `enter` signal for using the `connect(signal:)` methods
     static var enterSignal: DropTargetSignalName { .enter }
     
-    /// The `leave` signal is emitted on the drop site when the pointer
-    /// leaves the widget. Its main purpose it to undo things done in
-    /// `GtkDropTarget::enter`.
+    /// Emitted on the drop site when the pointer leaves the widget.
+    /// 
+    /// Its main purpose it to undo things done in
+    /// [signal`Gtk.DropTarget::enter`].
     /// - Note: This represents the underlying `leave` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -6128,14 +6380,13 @@ public extension DropTargetProtocol {
     /// Typed `leave` signal for using the `connect(signal:)` methods
     static var leaveSignal: DropTargetSignalName { .leave }
     
-    /// The `motion` signal is emitted while the pointer is moving
-    /// over the drop target.
+    /// Emitted while the pointer is moving over the drop target.
     /// - Note: This represents the underlying `motion` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter x: the x coordinate of the current pointer position
     /// - Parameter y: the y coordinate of the current pointer position
-    /// - Parameter handler: Preferred action for this drag operation or 0 if dropping is not     supported at the current `x`,`y` location.
+    /// - Parameter handler: Preferred action for this drag operation or 0 if   dropping is not supported at the current `x`,`y` location.
     /// Run the given callback whenever the `motion` signal is emitted
     @discardableResult @inlinable func onMotion(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: DropTargetRef, _ x: Double, _ y: Double) -> Gdk.DragAction ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder3<DropTargetRef, Double, Double, Gdk.DragAction>
@@ -6430,20 +6681,21 @@ public extension DropTargetProtocol {
         return rv
     }
 
-    /// Gets the list of supported `GTypes` for `self`. If no type have been set,
-    /// `nil` will be returned.
+    /// Gets the list of supported `GTypes` for `self`.
+    /// 
+    /// If no type have been set, `nil` will be returned.
     @inlinable func getGtypes(nTypes: UnsafeMutablePointer<gsize>! = nil) -> UnsafePointer<GType>! {
         let rv = gtk_drop_target_get_gtypes(drop_target_ptr, nTypes)
         return rv
     }
 
-    /// Gets the value of the GtkDropTarget:preload property.
+    /// Gets whether data should be preloaded on hover.
     @inlinable func getPreload() -> Bool {
         let rv = ((gtk_drop_target_get_preload(drop_target_ptr)) != 0)
         return rv
     }
 
-    /// Gets the value of the GtkDropTarget:value property.
+    /// Gets the current drop data, as a `GValue`.
     @inlinable func getValue() -> GLibObject.ValueRef! {
         let rv = GLibObject.ValueRef(gtk_drop_target_get_value(drop_target_ptr))
         return rv
@@ -6451,8 +6703,8 @@ public extension DropTargetProtocol {
 
     /// Rejects the ongoing drop operation.
     /// 
-    /// If no drop operation is ongoing - when GdkDropTarget:drop
-    /// returns `nil` - this function does nothing.
+    /// If no drop operation is ongoing, i.e when [property`Gtk.DropTarget:drop`]
+    /// is `nil`, this function does nothing.
     /// 
     /// This function should be used when delaying the decision
     /// on whether to accept a drag or not until after reading
@@ -6474,12 +6726,12 @@ public extension DropTargetProtocol {
     
     }
 
-    /// Sets the GtkDropTarget:preload property.
+    /// Sets whether data should be preloaded on hover.
     @inlinable func set(preload: Bool) {
         gtk_drop_target_set_preload(drop_target_ptr, gboolean((preload) ? 1 : 0))
     
     }
-    /// The `GdkDragActions` that this drop target supports
+    /// The `GdkDragActions` that this drop target supports.
     @inlinable var actions: Gdk.DragAction {
         /// Gets the actions that this drop target supports.
         get {
@@ -6492,7 +6744,7 @@ public extension DropTargetProtocol {
         }
     }
 
-    /// The `GdkDrop` that is currently being performed
+    /// The `GdkDrop` that is currently being performed.
     @inlinable var drop: Gdk.DropRef! {
         /// Gets the currently handled drop operation.
         /// 
@@ -6503,7 +6755,7 @@ public extension DropTargetProtocol {
         }
     }
 
-    /// The `GdkContentFormats` that determine the supported data formats
+    /// The `GdkContentFormats` that determine the supported data formats.
     @inlinable var formats: Gdk.ContentFormatsRef! {
         /// Gets the data formats that this drop target accepts.
         /// 
@@ -6522,6 +6774,7 @@ public extension DropTargetProtocol {
     /// 
     /// The default value for this property is `false` to avoid downloading
     /// huge amounts of data by accident.
+    /// 
     /// For example, if somebody drags a full document of gigabytes of text
     /// from a text editor across a widget with a preloading drop target,
     /// this data will be downloaded, even if the data is ultimately dropped
@@ -6529,28 +6782,31 @@ public extension DropTargetProtocol {
     /// 
     /// For a lot of data formats, the amount of data is very small (like
     /// `GDK_TYPE_RGBA`), so enabling this property does not hurt at all.
-    /// And for local-only drag'n'drop operations, no data transfer is done,
+    /// And for local-only Drag-and-Drop operations, no data transfer is done,
     /// so enabling it there is free.
     @inlinable var preload: Bool {
-        /// Gets the value of the GtkDropTarget:preload property.
+        /// Gets whether data should be preloaded on hover.
         get {
             let rv = ((gtk_drop_target_get_preload(drop_target_ptr)) != 0)
             return rv
         }
-        /// Sets the GtkDropTarget:preload property.
+        /// Sets whether data should be preloaded on hover.
         nonmutating set {
             gtk_drop_target_set_preload(drop_target_ptr, gboolean((newValue) ? 1 : 0))
         }
     }
 
-    /// The value for this drop operation or `nil` if the data has not been
-    /// loaded yet or no drop operation is going on.
+    /// The value for this drop operation.
     /// 
-    /// Data may be available before the `GtkDropTarget::drop` signal gets emitted -
-    /// for example when the `GtkDropTarget:preload` property is set.
-    /// You can use the `GObject::notify` signal to be notified of available data.
+    /// This is `nil` if the data has not been loaded yet or no drop
+    /// operation is going on.
+    /// 
+    /// Data may be available before the [signal`Gtk.DropTarget::drop`]
+    /// signal gets emitted - for example when the [property`Gtk.DropTarget:preload`]
+    /// property is set. You can use the `notify` signal to be notified
+    /// of available data.
     @inlinable var value: GLibObject.ValueRef! {
-        /// Gets the value of the GtkDropTarget:value property.
+        /// Gets the current drop data, as a `GValue`.
         get {
             let rv = GLibObject.ValueRef(gtk_drop_target_get_value(drop_target_ptr))
             return rv
@@ -6569,36 +6825,36 @@ public extension DropTargetProtocol {
 /// For a concrete class that implements these methods and properties, see `DropTargetAsync`.
 /// Alternatively, use `DropTargetAsyncRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// GtkDropTargetAsync is an auxiliary object that can be used to receive
-/// Drag-and-Drop operations.
+/// `GtkDropTargetAsync` is an event controller to receive Drag-and-Drop
+/// operations, asynchronously.
+/// 
 /// It is the more complete but also more complex method of handling drop
-/// operations compared to `GtkDropTarget` and you should only use it if
-/// `GtkDropTarget` doesn't provide all the features you need.
+/// operations compared to [class`Gtk.DropTarget`], and you should only use
+/// it if `GtkDropTarget` doesn't provide all the features you need.
 /// 
 /// To use a `GtkDropTargetAsync` to receive drops on a widget, you create
 /// a `GtkDropTargetAsync` object, configure which data formats and actions
-/// you support, connect to its signals, and then attach
-/// it to the widget with `gtk_widget_add_controller()`.
+/// you support, connect to its signals, and then attach it to the widget
+/// with [method`Gtk.Widget.add_controller`].
 /// 
-/// During a drag operation, the first signal that a GtkDropTargetAsync
-/// emits is `GtkDropTargetAsync::accept`, which is meant to determine
-/// whether the target is a possible drop site for the ongoing drop.
-/// The default handler for the `accept` signal accepts the drop
-/// if it finds a compatible data format and an action that is supported
-/// on both sides.
+/// During a drag operation, the first signal that a `GtkDropTargetAsync`
+/// emits is [signal`Gtk.DropTargetAsync::accept`], which is meant to determine
+/// whether the target is a possible drop site for the ongoing drop. The
+/// default handler for the `accept` signal accepts the drop if it finds
+/// a compatible data format and an action that is supported on both sides.
 /// 
 /// If it is, and the widget becomes a target, you will receive a
-/// `GtkDropTargetAsync::drag-enter` signal, followed by
-/// `GtkDropTargetAsync::drag-motion` signals as the pointer moves,
-/// optionally a `GtkDropTargetAsync::drop` signal when a drop happens,
-/// and finally a `GtkDropTargetAsync::drag-leave` signal when the pointer
-/// moves off the widget.
+/// [signal`Gtk.DropTargetAsync::drag-enter`] signal, followed by
+/// [signal`Gtk.DropTargetAsync::drag-motion`] signals as the pointer moves,
+/// optionally a [signal`Gtk.DropTargetAsync::drop`] signal when a drop happens,
+/// and finally a [signal`Gtk.DropTargetAsync::drag-leave`] signal when the
+/// pointer moves off the widget.
 /// 
 /// The `drag-enter` and `drag-motion` handler return a `GdkDragAction`
 /// to update the status of the ongoing operation. The `drop` handler
 /// should decide if it ultimately accepts the drop and if it does, it
 /// should initiate the data transfer and finish the operation by calling
-/// `gdk_drop_finish()`.
+/// [method`Gdk.Drop.finish`].
 /// 
 /// Between the `drag-enter` and `drag-leave` signals the widget is a
 /// current drop target, and will receive the `GTK_STATE_FLAG_DROP_ACTIVE`
@@ -6618,36 +6874,36 @@ public protocol DropTargetAsyncProtocol: EventControllerProtocol {
 /// It exposes methods that can operate on this data type through `DropTargetAsyncProtocol` conformance.
 /// Use `DropTargetAsyncRef` only as an `unowned` reference to an existing `GtkDropTargetAsync` instance.
 ///
-/// GtkDropTargetAsync is an auxiliary object that can be used to receive
-/// Drag-and-Drop operations.
+/// `GtkDropTargetAsync` is an event controller to receive Drag-and-Drop
+/// operations, asynchronously.
+/// 
 /// It is the more complete but also more complex method of handling drop
-/// operations compared to `GtkDropTarget` and you should only use it if
-/// `GtkDropTarget` doesn't provide all the features you need.
+/// operations compared to [class`Gtk.DropTarget`], and you should only use
+/// it if `GtkDropTarget` doesn't provide all the features you need.
 /// 
 /// To use a `GtkDropTargetAsync` to receive drops on a widget, you create
 /// a `GtkDropTargetAsync` object, configure which data formats and actions
-/// you support, connect to its signals, and then attach
-/// it to the widget with `gtk_widget_add_controller()`.
+/// you support, connect to its signals, and then attach it to the widget
+/// with [method`Gtk.Widget.add_controller`].
 /// 
-/// During a drag operation, the first signal that a GtkDropTargetAsync
-/// emits is `GtkDropTargetAsync::accept`, which is meant to determine
-/// whether the target is a possible drop site for the ongoing drop.
-/// The default handler for the `accept` signal accepts the drop
-/// if it finds a compatible data format and an action that is supported
-/// on both sides.
+/// During a drag operation, the first signal that a `GtkDropTargetAsync`
+/// emits is [signal`Gtk.DropTargetAsync::accept`], which is meant to determine
+/// whether the target is a possible drop site for the ongoing drop. The
+/// default handler for the `accept` signal accepts the drop if it finds
+/// a compatible data format and an action that is supported on both sides.
 /// 
 /// If it is, and the widget becomes a target, you will receive a
-/// `GtkDropTargetAsync::drag-enter` signal, followed by
-/// `GtkDropTargetAsync::drag-motion` signals as the pointer moves,
-/// optionally a `GtkDropTargetAsync::drop` signal when a drop happens,
-/// and finally a `GtkDropTargetAsync::drag-leave` signal when the pointer
-/// moves off the widget.
+/// [signal`Gtk.DropTargetAsync::drag-enter`] signal, followed by
+/// [signal`Gtk.DropTargetAsync::drag-motion`] signals as the pointer moves,
+/// optionally a [signal`Gtk.DropTargetAsync::drop`] signal when a drop happens,
+/// and finally a [signal`Gtk.DropTargetAsync::drag-leave`] signal when the
+/// pointer moves off the widget.
 /// 
 /// The `drag-enter` and `drag-motion` handler return a `GdkDragAction`
 /// to update the status of the ongoing operation. The `drop` handler
 /// should decide if it ultimately accepts the drop and if it does, it
 /// should initiate the data transfer and finish the operation by calling
-/// `gdk_drop_finish()`.
+/// [method`Gdk.Drop.finish`].
 /// 
 /// Between the `drag-enter` and `drag-leave` signals the widget is a
 /// current drop target, and will receive the `GTK_STATE_FLAG_DROP_ACTIVE`
@@ -6742,36 +6998,36 @@ public extension DropTargetAsyncRef {
 /// It provides the methods that can operate on this data type through `DropTargetAsyncProtocol` conformance.
 /// Use `DropTargetAsync` as a strong reference or owner of a `GtkDropTargetAsync` instance.
 ///
-/// GtkDropTargetAsync is an auxiliary object that can be used to receive
-/// Drag-and-Drop operations.
+/// `GtkDropTargetAsync` is an event controller to receive Drag-and-Drop
+/// operations, asynchronously.
+/// 
 /// It is the more complete but also more complex method of handling drop
-/// operations compared to `GtkDropTarget` and you should only use it if
-/// `GtkDropTarget` doesn't provide all the features you need.
+/// operations compared to [class`Gtk.DropTarget`], and you should only use
+/// it if `GtkDropTarget` doesn't provide all the features you need.
 /// 
 /// To use a `GtkDropTargetAsync` to receive drops on a widget, you create
 /// a `GtkDropTargetAsync` object, configure which data formats and actions
-/// you support, connect to its signals, and then attach
-/// it to the widget with `gtk_widget_add_controller()`.
+/// you support, connect to its signals, and then attach it to the widget
+/// with [method`Gtk.Widget.add_controller`].
 /// 
-/// During a drag operation, the first signal that a GtkDropTargetAsync
-/// emits is `GtkDropTargetAsync::accept`, which is meant to determine
-/// whether the target is a possible drop site for the ongoing drop.
-/// The default handler for the `accept` signal accepts the drop
-/// if it finds a compatible data format and an action that is supported
-/// on both sides.
+/// During a drag operation, the first signal that a `GtkDropTargetAsync`
+/// emits is [signal`Gtk.DropTargetAsync::accept`], which is meant to determine
+/// whether the target is a possible drop site for the ongoing drop. The
+/// default handler for the `accept` signal accepts the drop if it finds
+/// a compatible data format and an action that is supported on both sides.
 /// 
 /// If it is, and the widget becomes a target, you will receive a
-/// `GtkDropTargetAsync::drag-enter` signal, followed by
-/// `GtkDropTargetAsync::drag-motion` signals as the pointer moves,
-/// optionally a `GtkDropTargetAsync::drop` signal when a drop happens,
-/// and finally a `GtkDropTargetAsync::drag-leave` signal when the pointer
-/// moves off the widget.
+/// [signal`Gtk.DropTargetAsync::drag-enter`] signal, followed by
+/// [signal`Gtk.DropTargetAsync::drag-motion`] signals as the pointer moves,
+/// optionally a [signal`Gtk.DropTargetAsync::drop`] signal when a drop happens,
+/// and finally a [signal`Gtk.DropTargetAsync::drag-leave`] signal when the
+/// pointer moves off the widget.
 /// 
 /// The `drag-enter` and `drag-motion` handler return a `GdkDragAction`
 /// to update the status of the ongoing operation. The `drop` handler
 /// should decide if it ultimately accepts the drop and if it does, it
 /// should initiate the data transfer and finish the operation by calling
-/// `gdk_drop_finish()`.
+/// [method`Gdk.Drop.finish`].
 /// 
 /// Between the `drag-enter` and `drag-leave` signals the widget is a
 /// current drop target, and will receive the `GTK_STATE_FLAG_DROP_ACTIVE`
@@ -6912,9 +7168,9 @@ open class DropTargetAsync: EventController, DropTargetAsyncProtocol {
 }
 
 public enum DropTargetAsyncPropertyName: String, PropertyNameProtocol {
-    /// The `GdkDragActions` that this drop target supports
+    /// The `GdkDragActions` that this drop target supports.
     case actions = "actions"
-    /// The `GdkContentFormats` that determines the supported data formats
+    /// The `GdkContentFormats` that determines the supported data formats.
     case formats = "formats"
     /// The name for this controller, typically used for debugging purposes.
     case name = "name"
@@ -6980,13 +7236,13 @@ public extension DropTargetAsyncProtocol {
 }
 
 public enum DropTargetAsyncSignalName: String, SignalNameProtocol {
-    /// The `accept` signal is emitted on the drop site when a drop operation
-    /// is about to begin.
+    /// Emitted on the drop site when a drop operation is about to begin.
     /// 
     /// If the drop is not accepted, `false` will be returned and the drop target
     /// will ignore the drop. If `true` is returned, the drop is accepted for now
-    /// but may be rejected later via a call to `gtk_drop_target_async_reject()` or
-    /// ultimately by returning `false` from `GtkDropTargetAsync::drop`.
+    /// but may be rejected later via a call to [method`Gtk.DropTargetAsync.reject_drop`]
+    /// or ultimately by returning `false` from a [signal`Gtk.DropTargetAsync::drop`]
+    /// handler.
     /// 
     /// The default handler for this signal decides whether to accept the drop
     /// based on the formats provided by the `drop`.
@@ -6994,30 +7250,33 @@ public enum DropTargetAsyncSignalName: String, SignalNameProtocol {
     /// If the decision whether the drop will be accepted or rejected needs
     /// further processing, such as inspecting the data, this function should
     /// return `true` and proceed as is `drop` was accepted and if it decides to
-    /// reject the drop later, it should call `gtk_drop_target_async_reject_drop()`.
+    /// reject the drop later, it should call [method`Gtk.DropTargetAsync.reject_drop`].
     case accept = "accept"
-    /// The `drag-enter` signal is emitted on the drop site when the pointer
-    /// enters the widget. It can be used to set up custom highlighting.
+    /// Emitted on the drop site when the pointer enters the widget.
+    /// 
+    /// It can be used to set up custom highlighting.
     case dragEnter = "drag-enter"
-    /// The `drag-leave` signal is emitted on the drop site when the pointer
-    /// leaves the widget. Its main purpose it to undo things done in
-    /// `GtkDropTargetAsync::drag-enter`.
+    /// Emitted on the drop site when the pointer leaves the widget.
+    /// 
+    /// Its main purpose it to undo things done in
+    /// `GtkDropTargetAsync``drag-enter`.
     case dragLeave = "drag-leave"
-    /// The `drag-motion` signal is emitted while the pointer is moving
-    /// over the drop target.
+    /// Emitted while the pointer is moving over the drop target.
     case dragMotion = "drag-motion"
-    /// The `drop` signal is emitted on the drop site when the user drops
-    /// the data onto the widget. The signal handler must determine whether
-    /// the pointer position is in a drop zone or not. If it is not in a drop
-    /// zone, it returns `false` and no further processing is necessary.
+    /// Emitted on the drop site when the user drops the data onto the widget.
+    /// 
+    /// The signal handler must determine whether the pointer position is in a
+    /// drop zone or not. If it is not in a drop zone, it returns `false` and no
+    /// further processing is necessary.
     /// 
     /// Otherwise, the handler returns `true`. In this case, this handler will
-    /// accept the drop. The handler must ensure that `gdk_drop_finish()` is
-    /// called to let the source know that the drop is done. The call to
-    /// `gdk_drop_finish()` must only be done when all data has been received.
+    /// accept the drop. The handler must ensure that [method`Gdk.Drop.finish`]
+    /// is called to let the source know that the drop is done. The call to
+    /// [method`Gdk.Drop.finish`] must only be done when all data has been received.
     /// 
-    /// To receive the data, use one of the read functions provides by `GdkDrop`
-    /// such as `gdk_drop_read_async()` or `gdk_drop_read_value_async()`.
+    /// To receive the data, use one of the read functions provided by
+    /// [class`Gdk.Drop`] such as [method`Gdk.Drop.read_async`] or
+    /// [method`Gdk.Drop.read_value_async`].
     case drop = "drop"
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -7044,9 +7303,9 @@ public enum DropTargetAsyncSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// The `GdkDragActions` that this drop target supports
+    /// The `GdkDragActions` that this drop target supports.
     case notifyActions = "notify::actions"
-    /// The `GdkContentFormats` that determines the supported data formats
+    /// The `GdkContentFormats` that determines the supported data formats.
     case notifyFormats = "notify::formats"
     /// The name for this controller, typically used for debugging purposes.
     case notifyName = "notify::name"
@@ -7086,13 +7345,13 @@ public extension DropTargetAsyncProtocol {
     }
     
     
-    /// The `accept` signal is emitted on the drop site when a drop operation
-    /// is about to begin.
+    /// Emitted on the drop site when a drop operation is about to begin.
     /// 
     /// If the drop is not accepted, `false` will be returned and the drop target
     /// will ignore the drop. If `true` is returned, the drop is accepted for now
-    /// but may be rejected later via a call to `gtk_drop_target_async_reject()` or
-    /// ultimately by returning `false` from `GtkDropTargetAsync::drop`.
+    /// but may be rejected later via a call to [method`Gtk.DropTargetAsync.reject_drop`]
+    /// or ultimately by returning `false` from a [signal`Gtk.DropTargetAsync::drop`]
+    /// handler.
     /// 
     /// The default handler for this signal decides whether to accept the drop
     /// based on the formats provided by the `drop`.
@@ -7100,7 +7359,7 @@ public extension DropTargetAsyncProtocol {
     /// If the decision whether the drop will be accepted or rejected needs
     /// further processing, such as inspecting the data, this function should
     /// return `true` and proceed as is `drop` was accepted and if it decides to
-    /// reject the drop later, it should call `gtk_drop_target_async_reject_drop()`.
+    /// reject the drop later, it should call [method`Gtk.DropTargetAsync.reject_drop`].
     /// - Note: This represents the underlying `accept` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -7126,8 +7385,9 @@ public extension DropTargetAsyncProtocol {
     /// Typed `accept` signal for using the `connect(signal:)` methods
     static var acceptSignal: DropTargetAsyncSignalName { .accept }
     
-    /// The `drag-enter` signal is emitted on the drop site when the pointer
-    /// enters the widget. It can be used to set up custom highlighting.
+    /// Emitted on the drop site when the pointer enters the widget.
+    /// 
+    /// It can be used to set up custom highlighting.
     /// - Note: This represents the underlying `drag-enter` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -7155,9 +7415,10 @@ public extension DropTargetAsyncProtocol {
     /// Typed `drag-enter` signal for using the `connect(signal:)` methods
     static var dragEnterSignal: DropTargetAsyncSignalName { .dragEnter }
     
-    /// The `drag-leave` signal is emitted on the drop site when the pointer
-    /// leaves the widget. Its main purpose it to undo things done in
-    /// `GtkDropTargetAsync::drag-enter`.
+    /// Emitted on the drop site when the pointer leaves the widget.
+    /// 
+    /// Its main purpose it to undo things done in
+    /// `GtkDropTargetAsync``drag-enter`.
     /// - Note: This represents the underlying `drag-leave` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -7183,8 +7444,7 @@ public extension DropTargetAsyncProtocol {
     /// Typed `drag-leave` signal for using the `connect(signal:)` methods
     static var dragLeaveSignal: DropTargetAsyncSignalName { .dragLeave }
     
-    /// The `drag-motion` signal is emitted while the pointer is moving
-    /// over the drop target.
+    /// Emitted while the pointer is moving over the drop target.
     /// - Note: This represents the underlying `drag-motion` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -7212,18 +7472,20 @@ public extension DropTargetAsyncProtocol {
     /// Typed `drag-motion` signal for using the `connect(signal:)` methods
     static var dragMotionSignal: DropTargetAsyncSignalName { .dragMotion }
     
-    /// The `drop` signal is emitted on the drop site when the user drops
-    /// the data onto the widget. The signal handler must determine whether
-    /// the pointer position is in a drop zone or not. If it is not in a drop
-    /// zone, it returns `false` and no further processing is necessary.
+    /// Emitted on the drop site when the user drops the data onto the widget.
+    /// 
+    /// The signal handler must determine whether the pointer position is in a
+    /// drop zone or not. If it is not in a drop zone, it returns `false` and no
+    /// further processing is necessary.
     /// 
     /// Otherwise, the handler returns `true`. In this case, this handler will
-    /// accept the drop. The handler must ensure that `gdk_drop_finish()` is
-    /// called to let the source know that the drop is done. The call to
-    /// `gdk_drop_finish()` must only be done when all data has been received.
+    /// accept the drop. The handler must ensure that [method`Gdk.Drop.finish`]
+    /// is called to let the source know that the drop is done. The call to
+    /// [method`Gdk.Drop.finish`] must only be done when all data has been received.
     /// 
-    /// To receive the data, use one of the read functions provides by `GdkDrop`
-    /// such as `gdk_drop_read_async()` or `gdk_drop_read_value_async()`.
+    /// To receive the data, use one of the read functions provided by
+    /// [class`Gdk.Drop`] such as [method`Gdk.Drop.read_async`] or
+    /// [method`Gdk.Drop.read_value_async`].
     /// - Note: This represents the underlying `drop` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -7396,7 +7658,7 @@ public extension DropTargetAsyncProtocol {
         gtk_drop_target_async_set_formats(drop_target_async_ptr, formats?.content_formats_ptr)
     
     }
-    /// The `GdkDragActions` that this drop target supports
+    /// The `GdkDragActions` that this drop target supports.
     @inlinable var actions: Gdk.DragAction {
         /// Gets the actions that this drop target supports.
         get {
@@ -7409,7 +7671,7 @@ public extension DropTargetAsyncProtocol {
         }
     }
 
-    /// The `GdkContentFormats` that determines the supported data formats
+    /// The `GdkContentFormats` that determines the supported data formats.
     @inlinable var formats: Gdk.ContentFormatsRef! {
         /// Gets the data formats that this drop target accepts.
         /// 
@@ -7436,11 +7698,13 @@ public extension DropTargetAsyncProtocol {
 /// For a concrete class that implements these methods and properties, see `EditableLabel`.
 /// Alternatively, use `EditableLabelRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// A GtkEditableLabel is a `GtkLabel` that allows users to
-/// edit the text by switching the widget to an “edit mode”.
+/// A `GtkEditableLabel` is a label that allows users to
+/// edit the text by switching to an “edit mode”.
 /// 
-/// GtkEditableLabel does not have API of its own, but it
-/// implements the `GtkEditable` interface.
+/// ![An example GtkEditableLabel](editable-label.png)
+/// 
+/// `GtkEditableLabel` does not have API of its own, but it
+/// implements the [iface`Gtk.Editable`] interface.
 /// 
 /// The default bindings for activating the edit mode is
 /// to click or press the Enter key. The default bindings
@@ -7449,20 +7713,19 @@ public extension DropTargetAsyncProtocol {
 /// 
 /// # CSS nodes
 /// 
-/// (plain Language Example):
-/// ```plain
+/// ```
 /// editablelabel[.editing]
 /// ╰── stack
 ///     ├── label
 ///     ╰── text
 /// ```
 /// 
-/// GtkEditableLabel has a main node with the name editablelabel.
+/// `GtkEditableLabel` has a main node with the name editablelabel.
 /// When the entry is in editing mode, it gets the .editing style
 /// class.
 /// 
 /// For all the subnodes added to the text node in various situations,
-/// see `GtkText`.
+/// see [class`Gtk.Text`].
 public protocol EditableLabelProtocol: WidgetProtocol, EditableProtocol {
         /// Untyped pointer to the underlying `GtkEditableLabel` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -7478,11 +7741,13 @@ public protocol EditableLabelProtocol: WidgetProtocol, EditableProtocol {
 /// It exposes methods that can operate on this data type through `EditableLabelProtocol` conformance.
 /// Use `EditableLabelRef` only as an `unowned` reference to an existing `GtkEditableLabel` instance.
 ///
-/// A GtkEditableLabel is a `GtkLabel` that allows users to
-/// edit the text by switching the widget to an “edit mode”.
+/// A `GtkEditableLabel` is a label that allows users to
+/// edit the text by switching to an “edit mode”.
 /// 
-/// GtkEditableLabel does not have API of its own, but it
-/// implements the `GtkEditable` interface.
+/// ![An example GtkEditableLabel](editable-label.png)
+/// 
+/// `GtkEditableLabel` does not have API of its own, but it
+/// implements the [iface`Gtk.Editable`] interface.
 /// 
 /// The default bindings for activating the edit mode is
 /// to click or press the Enter key. The default bindings
@@ -7491,20 +7756,19 @@ public protocol EditableLabelProtocol: WidgetProtocol, EditableProtocol {
 /// 
 /// # CSS nodes
 /// 
-/// (plain Language Example):
-/// ```plain
+/// ```
 /// editablelabel[.editing]
 /// ╰── stack
 ///     ├── label
 ///     ╰── text
 /// ```
 /// 
-/// GtkEditableLabel has a main node with the name editablelabel.
+/// `GtkEditableLabel` has a main node with the name editablelabel.
 /// When the entry is in editing mode, it gets the .editing style
 /// class.
 /// 
 /// For all the subnodes added to the text node in various situations,
-/// see `GtkText`.
+/// see [class`Gtk.Text`].
 public struct EditableLabelRef: EditableLabelProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkEditableLabel` instance.
     /// For type-safe access, use the generated, typed pointer `editable_label_ptr` property instead.
@@ -7595,11 +7859,13 @@ public extension EditableLabelRef {
 /// It provides the methods that can operate on this data type through `EditableLabelProtocol` conformance.
 /// Use `EditableLabel` as a strong reference or owner of a `GtkEditableLabel` instance.
 ///
-/// A GtkEditableLabel is a `GtkLabel` that allows users to
-/// edit the text by switching the widget to an “edit mode”.
+/// A `GtkEditableLabel` is a label that allows users to
+/// edit the text by switching to an “edit mode”.
 /// 
-/// GtkEditableLabel does not have API of its own, but it
-/// implements the `GtkEditable` interface.
+/// ![An example GtkEditableLabel](editable-label.png)
+/// 
+/// `GtkEditableLabel` does not have API of its own, but it
+/// implements the [iface`Gtk.Editable`] interface.
 /// 
 /// The default bindings for activating the edit mode is
 /// to click or press the Enter key. The default bindings
@@ -7608,20 +7874,19 @@ public extension EditableLabelRef {
 /// 
 /// # CSS nodes
 /// 
-/// (plain Language Example):
-/// ```plain
+/// ```
 /// editablelabel[.editing]
 /// ╰── stack
 ///     ├── label
 ///     ╰── text
 /// ```
 /// 
-/// GtkEditableLabel has a main node with the name editablelabel.
+/// `GtkEditableLabel` has a main node with the name editablelabel.
 /// When the entry is in editing mode, it gets the .editing style
 /// class.
 /// 
 /// For all the subnodes added to the text node in various situations,
-/// see `GtkText`.
+/// see [class`Gtk.Text`].
 open class EditableLabel: Widget, EditableLabelProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -7764,6 +8029,7 @@ public enum EditableLabelPropertyName: String, PropertyNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case canFocus = "can-focus"
+    /// Whether the widget can receive pointer events.
     case canTarget = "can-target"
     /// A list of css classes applied to this widget.
     case cssClasses = "css-classes"
@@ -7772,7 +8038,7 @@ public enum EditableLabelPropertyName: String, PropertyNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case cssName = "css-name"
-    /// The cursor used by `widget`. See `gtk_widget_set_cursor()` for details.
+    /// The cursor used by `widget`.
     case cursor = "cursor"
     /// This property is `true` while the widget is in edit mode.
     case editing = "editing"
@@ -7782,19 +8048,25 @@ public enum EditableLabelPropertyName: String, PropertyNameProtocol {
     case focusOnClick = "focus-on-click"
     /// Whether this widget itself will accept the input focus.
     case focusable = "focusable"
-    /// How to distribute horizontal space if widget gets extra space, see `GtkAlign`
+    /// How to distribute horizontal space if widget gets extra space.
     case halign = "halign"
+    /// Whether the widget is the default widget.
     case hasDefault = "has-default"
+    /// Whether the widget has the input focus.
     case hasFocus = "has-focus"
-    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
+    /// Enables or disables the emission of the `query-tooltip` signal on `widget`.
+    /// 
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
-    /// whether it will provide a tooltip or not.
+    /// the widget will be queried using [signal`Gtk.Widget::query-tooltip`] to
+    /// determine whether it will provide a tooltip or not.
     case hasTooltip = "has-tooltip"
+    /// Override for height request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case heightRequest = "height-request"
-    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
+    /// Whether to expand horizontally.
     case hexpand = "hexpand"
-    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
+    /// Whether to use the `hexpand` property.
     case hexpandSet = "hexpand-set"
     /// The `GtkLayoutManager` instance to use to compute the preferred size
     /// of the widget, and allocate its children.
@@ -7806,77 +8078,91 @@ public enum EditableLabelPropertyName: String, PropertyNameProtocol {
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginBottom = "margin-bottom"
-    /// Margin on end of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on end of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginEnd = "margin-end"
-    /// Margin on start of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on start of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginStart = "margin-start"
     /// Margin on top side of widget.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginTop = "margin-top"
+    /// The name of the widget.
     case name = "name"
-    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
-    /// more details about window opacity.
+    /// The requested opacity of the widget.
     case opacity = "opacity"
     /// How content outside the widget's content area is treated.
     /// 
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case overflow = "overflow"
+    /// The parent widget of this widget.
     case parent = "parent"
+    /// Whether the widget will receive the default action when it is focused.
     case receivesDefault = "receives-default"
-    /// The `GtkRoot` widget of the widget tree containing this widget or `nil` if
-    /// the widget is not contained in a root widget.
+    /// The `GtkRoot` widget of the widget tree containing this widget.
+    /// 
+    /// This will be `nil` if the widget is not contained in a root widget.
     case root = "root"
-    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
-    /// more details about widget scaling.
+    /// The scale factor of the widget.
     case scaleFactor = "scale-factor"
+    /// Whether the widget responds to input.
     case sensitive = "sensitive"
     /// Sets the text of tooltip to be the given string, which is marked up
-    /// with the [Pango text markup language](#PangoMarkupFormat).
-    /// Also see `gtk_tooltip_set_markup()`.
+    /// with Pango markup.
+    /// 
+    /// Also see [method`Gtk.Tooltip.set_markup`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case tooltipMarkup = "tooltip-markup"
     /// Sets the text of tooltip to be the given string.
     /// 
-    /// Also see `gtk_tooltip_set_text()`.
+    /// Also see [method`Gtk.Tooltip.set_text`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case tooltipText = "tooltip-text"
-    /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
+    /// How to distribute vertical space if widget gets extra space.
     case valign = "valign"
-    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
+    /// Whether to expand vertically.
     case vexpand = "vexpand"
-    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
+    /// Whether to use the `vexpand` property.
     case vexpandSet = "vexpand-set"
+    /// Whether the widget is visible.
     case visible = "visible"
+    /// Override for width request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case widthRequest = "width-request"
 }
 
@@ -7935,29 +8221,32 @@ public extension EditableLabelProtocol {
 
 public enum EditableLabelSignalName: String, SignalNameProtocol {
     /// Signals that all holders of a reference to the widget should release
-    /// the reference that they hold. May result in finalization of the widget
-    /// if all references are released.
+    /// the reference that they hold.
+    /// 
+    /// May result in finalization of the widget if all references are released.
     /// 
     /// This signal is not suitable for saving widget state.
     case destroy = "destroy"
-    /// The `direction-changed` signal is emitted when the text direction
-    /// of a widget changes.
+    /// Emitted when the text direction of a widget changes.
     case directionChanged = "direction-changed"
-    /// The `hide` signal is emitted when `widget` is hidden, for example with
-    /// `gtk_widget_hide()`.
+    /// Emitted when `widget` is hidden.
     case hide = "hide"
-    /// Gets emitted if keyboard navigation fails.
-    /// See `gtk_widget_keynav_failed()` for details.
+    /// Emitted if keyboard navigation fails.
+    /// 
+    /// See [method`Gtk.Widget.keynav_failed`] for details.
     case keynavFailed = "keynav-failed"
-    /// The `map` signal is emitted when `widget` is going to be mapped, that is
-    /// when the widget is visible (which is controlled with
-    /// `gtk_widget_set_visible()`) and all its parents up to the toplevel widget
+    /// Emitted when `widget` is going to be mapped.
+    /// 
+    /// A widget is mapped when the widget is visible (which is controlled with
+    /// [property`Gtk.Widget:visible`]) and all its parents up to the toplevel widget
     /// are also visible.
     /// 
     /// The `map` signal can be used to determine whether a widget will be drawn,
     /// for instance it can resume an animation that was stopped during the
-    /// emission of `GtkWidget::unmap`.
+    /// emission of [signal`Gtk.Widget::unmap`].
     case map = "map"
+    /// Emitted when a widget is activated via a mnemonic.
+    /// 
     /// The default handler for this signal activates `widget` if `group_cycling`
     /// is `false`, or just makes `widget` grab focus if `group_cycling` is `true`.
     case mnemonicActivate = "mnemonic-activate"
@@ -7988,9 +8277,11 @@ public enum EditableLabelSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// Emitted when `GtkWidget:has-tooltip` is `true` and the hover timeout
-    /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
-    /// focus in keyboard mode.
+    /// Emitted when the widgets tooltip is about to be shown.
+    /// 
+    /// This happens when the [property`Gtk.Widget:has-tooltip`] property
+    /// is `true` and the hover timeout has expired with the cursor hovering
+    /// "above" `widget`; or emitted when `widget` got focus in keyboard mode.
     /// 
     /// Using the given coordinates, the signal handler should determine
     /// whether a tooltip should be shown for `widget`. If this is the case
@@ -8001,27 +8292,29 @@ public enum EditableLabelSignalName: String, SignalNameProtocol {
     /// The signal handler is free to manipulate `tooltip` with the therefore
     /// destined function calls.
     case queryTooltip = "query-tooltip"
-    /// The `realize` signal is emitted when `widget` is associated with a
-    /// `GdkSurface`, which means that `gtk_widget_realize()` has been called or the
-    /// widget has been mapped (that is, it is going to be drawn).
-    case realize = "realize"
-    /// The `show` signal is emitted when `widget` is shown, for example with
-    /// `gtk_widget_show()`.
-    case show = "show"
-    /// The `state-flags-changed` signal is emitted when the widget state
-    /// changes, see `gtk_widget_get_state_flags()`.
-    case stateFlagsChanged = "state-flags-changed"
-    /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
-    /// means that either it or any of its parents up to the toplevel widget have
-    /// been set as hidden.
+    /// Emitted when `widget` is associated with a `GdkSurface`.
     /// 
-    /// As `unmap` indicates that a widget will not be shown any longer, it can be
-    /// used to, for example, stop an animation on the widget.
+    /// This means that [method`Gtk.Widget.realize`] has been called
+    /// or the widget has been mapped (that is, it is going to be drawn).
+    case realize = "realize"
+    /// Emitted when `widget` is shown.
+    case show = "show"
+    /// Emitted when the widget state changes.
+    /// 
+    /// See [method`Gtk.Widget.get_state_flags`].
+    case stateFlagsChanged = "state-flags-changed"
+    /// Emitted when `widget` is going to be unmapped.
+    /// 
+    /// A widget is unmapped when either it or any of its parents up to the
+    /// toplevel widget have been set as hidden.
+    /// 
+    /// As `unmap` indicates that a widget will not be shown any longer,
+    /// it can be used to, for example, stop an animation on the widget.
     case unmap = "unmap"
-    /// The `unrealize` signal is emitted when the `GdkSurface` associated with
-    /// `widget` is destroyed, which means that `gtk_widget_unrealize()` has been
-    /// called or the widget has been unmapped (that is, it is going to be
-    /// hidden).
+    /// Emitted when the `GdkSurface` associated with `widget` is destroyed.
+    /// 
+    /// This means that [method`Gtk.Widget.unrealize`] has been called
+    /// or the widget has been unmapped (that is, it is going to be hidden).
     case unrealize = "unrealize"
     /// Whether the widget or any of its descendents can accept
     /// the input focus.
@@ -8029,6 +8322,7 @@ public enum EditableLabelSignalName: String, SignalNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case notifyCanFocus = "notify::can-focus"
+    /// Whether the widget can receive pointer events.
     case notifyCanTarget = "notify::can-target"
     /// A list of css classes applied to this widget.
     case notifyCssClasses = "notify::css-classes"
@@ -8037,7 +8331,7 @@ public enum EditableLabelSignalName: String, SignalNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case notifyCssName = "notify::css-name"
-    /// The cursor used by `widget`. See `gtk_widget_set_cursor()` for details.
+    /// The cursor used by `widget`.
     case notifyCursor = "notify::cursor"
     /// This property is `true` while the widget is in edit mode.
     case notifyEditing = "notify::editing"
@@ -8047,19 +8341,25 @@ public enum EditableLabelSignalName: String, SignalNameProtocol {
     case notifyFocusOnClick = "notify::focus-on-click"
     /// Whether this widget itself will accept the input focus.
     case notifyFocusable = "notify::focusable"
-    /// How to distribute horizontal space if widget gets extra space, see `GtkAlign`
+    /// How to distribute horizontal space if widget gets extra space.
     case notifyHalign = "notify::halign"
+    /// Whether the widget is the default widget.
     case notifyHasDefault = "notify::has-default"
+    /// Whether the widget has the input focus.
     case notifyHasFocus = "notify::has-focus"
-    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
+    /// Enables or disables the emission of the `query-tooltip` signal on `widget`.
+    /// 
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
-    /// whether it will provide a tooltip or not.
+    /// the widget will be queried using [signal`Gtk.Widget::query-tooltip`] to
+    /// determine whether it will provide a tooltip or not.
     case notifyHasTooltip = "notify::has-tooltip"
+    /// Override for height request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case notifyHeightRequest = "notify::height-request"
-    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
+    /// Whether to expand horizontally.
     case notifyHexpand = "notify::hexpand"
-    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
+    /// Whether to use the `hexpand` property.
     case notifyHexpandSet = "notify::hexpand-set"
     /// The `GtkLayoutManager` instance to use to compute the preferred size
     /// of the widget, and allocate its children.
@@ -8071,77 +8371,91 @@ public enum EditableLabelSignalName: String, SignalNameProtocol {
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginBottom = "notify::margin-bottom"
-    /// Margin on end of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on end of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginEnd = "notify::margin-end"
-    /// Margin on start of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on start of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginStart = "notify::margin-start"
     /// Margin on top side of widget.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginTop = "notify::margin-top"
+    /// The name of the widget.
     case notifyName = "notify::name"
-    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
-    /// more details about window opacity.
+    /// The requested opacity of the widget.
     case notifyOpacity = "notify::opacity"
     /// How content outside the widget's content area is treated.
     /// 
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case notifyOverflow = "notify::overflow"
+    /// The parent widget of this widget.
     case notifyParent = "notify::parent"
+    /// Whether the widget will receive the default action when it is focused.
     case notifyReceivesDefault = "notify::receives-default"
-    /// The `GtkRoot` widget of the widget tree containing this widget or `nil` if
-    /// the widget is not contained in a root widget.
+    /// The `GtkRoot` widget of the widget tree containing this widget.
+    /// 
+    /// This will be `nil` if the widget is not contained in a root widget.
     case notifyRoot = "notify::root"
-    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
-    /// more details about widget scaling.
+    /// The scale factor of the widget.
     case notifyScaleFactor = "notify::scale-factor"
+    /// Whether the widget responds to input.
     case notifySensitive = "notify::sensitive"
     /// Sets the text of tooltip to be the given string, which is marked up
-    /// with the [Pango text markup language](#PangoMarkupFormat).
-    /// Also see `gtk_tooltip_set_markup()`.
+    /// with Pango markup.
+    /// 
+    /// Also see [method`Gtk.Tooltip.set_markup`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case notifyTooltipMarkup = "notify::tooltip-markup"
     /// Sets the text of tooltip to be the given string.
     /// 
-    /// Also see `gtk_tooltip_set_text()`.
+    /// Also see [method`Gtk.Tooltip.set_text`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case notifyTooltipText = "notify::tooltip-text"
-    /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
+    /// How to distribute vertical space if widget gets extra space.
     case notifyValign = "notify::valign"
-    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
+    /// Whether to expand vertically.
     case notifyVexpand = "notify::vexpand"
-    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
+    /// Whether to use the `vexpand` property.
     case notifyVexpandSet = "notify::vexpand-set"
+    /// Whether the widget is visible.
     case notifyVisible = "notify::visible"
+    /// Override for width request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case notifyWidthRequest = "notify::width-request"
 }
 
@@ -8163,10 +8477,12 @@ public extension EditableLabelProtocol {
     
     }
 
-    /// Switches the label out of “editing mode”. If `commit` is `true`,
-    /// the resulting text is kept as the `GtkEditable:text` property
-    /// value, otherwise the resulting text is discarded and the label
-    /// will keep its previous `GtkEditable:text` property value.
+    /// Switches the label out of “editing mode”.
+    /// 
+    /// If `commit` is `true`, the resulting text is kept as the
+    /// [property`Gtk.Editable:text`] property value, otherwise the
+    /// resulting text is discarded and the label will keep its
+    /// previous [property`Gtk.Editable:text`] property value.
     @inlinable func stopEditing(commit: Bool) {
         gtk_editable_label_stop_editing(editable_label_ptr, gboolean((commit) ? 1 : 0))
     

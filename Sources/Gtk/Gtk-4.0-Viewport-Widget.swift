@@ -20,21 +20,22 @@ import Gdk
 /// For a concrete class that implements these methods and properties, see `Viewport`.
 /// Alternatively, use `ViewportRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// The `GtkViewport` widget acts as an adaptor class, implementing
-/// scrollability for child widgets that lack their own scrolling
-/// capabilities. Use GtkViewport to scroll child widgets such as
-/// `GtkGrid`, `GtkBox`, and so on.
+/// `GtkViewport` implements scrollability for widgets that lack their
+/// own scrolling capabilities.
 /// 
-/// The GtkViewport will start scrolling content only if allocated less
-/// than the child widget’s minimum size in a given orientation.
+/// Use `GtkViewport` to scroll child widgets such as `GtkGrid`,
+/// `GtkBox`, and so on.
+/// 
+/// The `GtkViewport` will start scrolling content only if allocated
+/// less than the child widget’s minimum size in a given orientation.
 /// 
 /// # CSS nodes
 /// 
-/// GtkViewport has a single CSS node with name `viewport`.
+/// `GtkViewport` has a single CSS node with name `viewport`.
 /// 
 /// # Accessibility
 /// 
-/// GtkViewport uses the `GTK_ACCESSIBLE_ROLE_GROUP` role.
+/// `GtkViewport` uses the `GTK_ACCESSIBLE_ROLE_GROUP` role.
 public protocol ViewportProtocol: WidgetProtocol, ScrollableProtocol {
         /// Untyped pointer to the underlying `GtkViewport` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -50,21 +51,22 @@ public protocol ViewportProtocol: WidgetProtocol, ScrollableProtocol {
 /// It exposes methods that can operate on this data type through `ViewportProtocol` conformance.
 /// Use `ViewportRef` only as an `unowned` reference to an existing `GtkViewport` instance.
 ///
-/// The `GtkViewport` widget acts as an adaptor class, implementing
-/// scrollability for child widgets that lack their own scrolling
-/// capabilities. Use GtkViewport to scroll child widgets such as
-/// `GtkGrid`, `GtkBox`, and so on.
+/// `GtkViewport` implements scrollability for widgets that lack their
+/// own scrolling capabilities.
 /// 
-/// The GtkViewport will start scrolling content only if allocated less
-/// than the child widget’s minimum size in a given orientation.
+/// Use `GtkViewport` to scroll child widgets such as `GtkGrid`,
+/// `GtkBox`, and so on.
+/// 
+/// The `GtkViewport` will start scrolling content only if allocated
+/// less than the child widget’s minimum size in a given orientation.
 /// 
 /// # CSS nodes
 /// 
-/// GtkViewport has a single CSS node with name `viewport`.
+/// `GtkViewport` has a single CSS node with name `viewport`.
 /// 
 /// # Accessibility
 /// 
-/// GtkViewport uses the `GTK_ACCESSIBLE_ROLE_GROUP` role.
+/// `GtkViewport` uses the `GTK_ACCESSIBLE_ROLE_GROUP` role.
 public struct ViewportRef: ViewportProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkViewport` instance.
     /// For type-safe access, use the generated, typed pointer `viewport_ptr` property instead.
@@ -144,7 +146,9 @@ public extension ViewportRef {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
-        /// Creates a new `GtkViewport` with the given adjustments, or with default
+        /// Creates a new `GtkViewport`.
+    /// 
+    /// The new viewport uses the given adjustments, or default
     /// adjustments if none are given.
     @inlinable init<AdjustmentT: AdjustmentProtocol>( hadjustment: AdjustmentT?, vadjustment: AdjustmentT?) {
         let rv = gtk_viewport_new(hadjustment?.adjustment_ptr, vadjustment?.adjustment_ptr)
@@ -156,21 +160,22 @@ public extension ViewportRef {
 /// It provides the methods that can operate on this data type through `ViewportProtocol` conformance.
 /// Use `Viewport` as a strong reference or owner of a `GtkViewport` instance.
 ///
-/// The `GtkViewport` widget acts as an adaptor class, implementing
-/// scrollability for child widgets that lack their own scrolling
-/// capabilities. Use GtkViewport to scroll child widgets such as
-/// `GtkGrid`, `GtkBox`, and so on.
+/// `GtkViewport` implements scrollability for widgets that lack their
+/// own scrolling capabilities.
 /// 
-/// The GtkViewport will start scrolling content only if allocated less
-/// than the child widget’s minimum size in a given orientation.
+/// Use `GtkViewport` to scroll child widgets such as `GtkGrid`,
+/// `GtkBox`, and so on.
+/// 
+/// The `GtkViewport` will start scrolling content only if allocated
+/// less than the child widget’s minimum size in a given orientation.
 /// 
 /// # CSS nodes
 /// 
-/// GtkViewport has a single CSS node with name `viewport`.
+/// `GtkViewport` has a single CSS node with name `viewport`.
 /// 
 /// # Accessibility
 /// 
-/// GtkViewport uses the `GTK_ACCESSIBLE_ROLE_GROUP` role.
+/// `GtkViewport` uses the `GTK_ACCESSIBLE_ROLE_GROUP` role.
 open class Viewport: Widget, ViewportProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -296,7 +301,9 @@ open class Viewport: Widget, ViewportProtocol {
         super.init(retainingOpaquePointer: p)
     }
 
-    /// Creates a new `GtkViewport` with the given adjustments, or with default
+    /// Creates a new `GtkViewport`.
+    /// 
+    /// The new viewport uses the given adjustments, or default
     /// adjustments if none are given.
     @inlinable public init<AdjustmentT: AdjustmentProtocol>( hadjustment: AdjustmentT?, vadjustment: AdjustmentT?) {
         let rv = gtk_viewport_new(hadjustment?.adjustment_ptr, vadjustment?.adjustment_ptr)
@@ -314,7 +321,9 @@ public enum ViewportPropertyName: String, PropertyNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case canFocus = "can-focus"
+    /// Whether the widget can receive pointer events.
     case canTarget = "can-target"
+    /// The child widget.
     case child = "child"
     /// A list of css classes applied to this widget.
     case cssClasses = "css-classes"
@@ -323,7 +332,7 @@ public enum ViewportPropertyName: String, PropertyNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case cssName = "css-name"
-    /// The cursor used by `widget`. See `gtk_widget_set_cursor()` for details.
+    /// The cursor used by `widget`.
     case cursor = "cursor"
     /// Whether the widget should grab focus when it is clicked with the mouse.
     /// 
@@ -331,19 +340,25 @@ public enum ViewportPropertyName: String, PropertyNameProtocol {
     case focusOnClick = "focus-on-click"
     /// Whether this widget itself will accept the input focus.
     case focusable = "focusable"
-    /// How to distribute horizontal space if widget gets extra space, see `GtkAlign`
+    /// How to distribute horizontal space if widget gets extra space.
     case halign = "halign"
+    /// Whether the widget is the default widget.
     case hasDefault = "has-default"
+    /// Whether the widget has the input focus.
     case hasFocus = "has-focus"
-    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
+    /// Enables or disables the emission of the `query-tooltip` signal on `widget`.
+    /// 
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
-    /// whether it will provide a tooltip or not.
+    /// the widget will be queried using [signal`Gtk.Widget::query-tooltip`] to
+    /// determine whether it will provide a tooltip or not.
     case hasTooltip = "has-tooltip"
+    /// Override for height request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case heightRequest = "height-request"
-    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
+    /// Whether to expand horizontally.
     case hexpand = "hexpand"
-    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
+    /// Whether to use the `hexpand` property.
     case hexpandSet = "hexpand-set"
     /// The `GtkLayoutManager` instance to use to compute the preferred size
     /// of the widget, and allocate its children.
@@ -355,78 +370,93 @@ public enum ViewportPropertyName: String, PropertyNameProtocol {
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginBottom = "margin-bottom"
-    /// Margin on end of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on end of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginEnd = "margin-end"
-    /// Margin on start of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on start of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginStart = "margin-start"
     /// Margin on top side of widget.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginTop = "margin-top"
+    /// The name of the widget.
     case name = "name"
-    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
-    /// more details about window opacity.
+    /// The requested opacity of the widget.
     case opacity = "opacity"
     /// How content outside the widget's content area is treated.
     /// 
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case overflow = "overflow"
+    /// The parent widget of this widget.
     case parent = "parent"
+    /// Whether the widget will receive the default action when it is focused.
     case receivesDefault = "receives-default"
-    /// The `GtkRoot` widget of the widget tree containing this widget or `nil` if
-    /// the widget is not contained in a root widget.
+    /// The `GtkRoot` widget of the widget tree containing this widget.
+    /// 
+    /// This will be `nil` if the widget is not contained in a root widget.
     case root = "root"
-    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
-    /// more details about widget scaling.
+    /// The scale factor of the widget.
     case scaleFactor = "scale-factor"
+    /// Whether to scroll when the focus changes.
     case scrollToFocus = "scroll-to-focus"
+    /// Whether the widget responds to input.
     case sensitive = "sensitive"
     /// Sets the text of tooltip to be the given string, which is marked up
-    /// with the [Pango text markup language](#PangoMarkupFormat).
-    /// Also see `gtk_tooltip_set_markup()`.
+    /// with Pango markup.
+    /// 
+    /// Also see [method`Gtk.Tooltip.set_markup`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case tooltipMarkup = "tooltip-markup"
     /// Sets the text of tooltip to be the given string.
     /// 
-    /// Also see `gtk_tooltip_set_text()`.
+    /// Also see [method`Gtk.Tooltip.set_text`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case tooltipText = "tooltip-text"
-    /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
+    /// How to distribute vertical space if widget gets extra space.
     case valign = "valign"
-    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
+    /// Whether to expand vertically.
     case vexpand = "vexpand"
-    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
+    /// Whether to use the `vexpand` property.
     case vexpandSet = "vexpand-set"
+    /// Whether the widget is visible.
     case visible = "visible"
+    /// Override for width request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case widthRequest = "width-request"
 }
 
@@ -485,29 +515,32 @@ public extension ViewportProtocol {
 
 public enum ViewportSignalName: String, SignalNameProtocol {
     /// Signals that all holders of a reference to the widget should release
-    /// the reference that they hold. May result in finalization of the widget
-    /// if all references are released.
+    /// the reference that they hold.
+    /// 
+    /// May result in finalization of the widget if all references are released.
     /// 
     /// This signal is not suitable for saving widget state.
     case destroy = "destroy"
-    /// The `direction-changed` signal is emitted when the text direction
-    /// of a widget changes.
+    /// Emitted when the text direction of a widget changes.
     case directionChanged = "direction-changed"
-    /// The `hide` signal is emitted when `widget` is hidden, for example with
-    /// `gtk_widget_hide()`.
+    /// Emitted when `widget` is hidden.
     case hide = "hide"
-    /// Gets emitted if keyboard navigation fails.
-    /// See `gtk_widget_keynav_failed()` for details.
+    /// Emitted if keyboard navigation fails.
+    /// 
+    /// See [method`Gtk.Widget.keynav_failed`] for details.
     case keynavFailed = "keynav-failed"
-    /// The `map` signal is emitted when `widget` is going to be mapped, that is
-    /// when the widget is visible (which is controlled with
-    /// `gtk_widget_set_visible()`) and all its parents up to the toplevel widget
+    /// Emitted when `widget` is going to be mapped.
+    /// 
+    /// A widget is mapped when the widget is visible (which is controlled with
+    /// [property`Gtk.Widget:visible`]) and all its parents up to the toplevel widget
     /// are also visible.
     /// 
     /// The `map` signal can be used to determine whether a widget will be drawn,
     /// for instance it can resume an animation that was stopped during the
-    /// emission of `GtkWidget::unmap`.
+    /// emission of [signal`Gtk.Widget::unmap`].
     case map = "map"
+    /// Emitted when a widget is activated via a mnemonic.
+    /// 
     /// The default handler for this signal activates `widget` if `group_cycling`
     /// is `false`, or just makes `widget` grab focus if `group_cycling` is `true`.
     case mnemonicActivate = "mnemonic-activate"
@@ -538,9 +571,11 @@ public enum ViewportSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// Emitted when `GtkWidget:has-tooltip` is `true` and the hover timeout
-    /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
-    /// focus in keyboard mode.
+    /// Emitted when the widgets tooltip is about to be shown.
+    /// 
+    /// This happens when the [property`Gtk.Widget:has-tooltip`] property
+    /// is `true` and the hover timeout has expired with the cursor hovering
+    /// "above" `widget`; or emitted when `widget` got focus in keyboard mode.
     /// 
     /// Using the given coordinates, the signal handler should determine
     /// whether a tooltip should be shown for `widget`. If this is the case
@@ -551,27 +586,29 @@ public enum ViewportSignalName: String, SignalNameProtocol {
     /// The signal handler is free to manipulate `tooltip` with the therefore
     /// destined function calls.
     case queryTooltip = "query-tooltip"
-    /// The `realize` signal is emitted when `widget` is associated with a
-    /// `GdkSurface`, which means that `gtk_widget_realize()` has been called or the
-    /// widget has been mapped (that is, it is going to be drawn).
-    case realize = "realize"
-    /// The `show` signal is emitted when `widget` is shown, for example with
-    /// `gtk_widget_show()`.
-    case show = "show"
-    /// The `state-flags-changed` signal is emitted when the widget state
-    /// changes, see `gtk_widget_get_state_flags()`.
-    case stateFlagsChanged = "state-flags-changed"
-    /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
-    /// means that either it or any of its parents up to the toplevel widget have
-    /// been set as hidden.
+    /// Emitted when `widget` is associated with a `GdkSurface`.
     /// 
-    /// As `unmap` indicates that a widget will not be shown any longer, it can be
-    /// used to, for example, stop an animation on the widget.
+    /// This means that [method`Gtk.Widget.realize`] has been called
+    /// or the widget has been mapped (that is, it is going to be drawn).
+    case realize = "realize"
+    /// Emitted when `widget` is shown.
+    case show = "show"
+    /// Emitted when the widget state changes.
+    /// 
+    /// See [method`Gtk.Widget.get_state_flags`].
+    case stateFlagsChanged = "state-flags-changed"
+    /// Emitted when `widget` is going to be unmapped.
+    /// 
+    /// A widget is unmapped when either it or any of its parents up to the
+    /// toplevel widget have been set as hidden.
+    /// 
+    /// As `unmap` indicates that a widget will not be shown any longer,
+    /// it can be used to, for example, stop an animation on the widget.
     case unmap = "unmap"
-    /// The `unrealize` signal is emitted when the `GdkSurface` associated with
-    /// `widget` is destroyed, which means that `gtk_widget_unrealize()` has been
-    /// called or the widget has been unmapped (that is, it is going to be
-    /// hidden).
+    /// Emitted when the `GdkSurface` associated with `widget` is destroyed.
+    /// 
+    /// This means that [method`Gtk.Widget.unrealize`] has been called
+    /// or the widget has been unmapped (that is, it is going to be hidden).
     case unrealize = "unrealize"
     /// Whether the widget or any of its descendents can accept
     /// the input focus.
@@ -579,7 +616,9 @@ public enum ViewportSignalName: String, SignalNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case notifyCanFocus = "notify::can-focus"
+    /// Whether the widget can receive pointer events.
     case notifyCanTarget = "notify::can-target"
+    /// The child widget.
     case notifyChild = "notify::child"
     /// A list of css classes applied to this widget.
     case notifyCssClasses = "notify::css-classes"
@@ -588,7 +627,7 @@ public enum ViewportSignalName: String, SignalNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case notifyCssName = "notify::css-name"
-    /// The cursor used by `widget`. See `gtk_widget_set_cursor()` for details.
+    /// The cursor used by `widget`.
     case notifyCursor = "notify::cursor"
     /// Whether the widget should grab focus when it is clicked with the mouse.
     /// 
@@ -596,19 +635,25 @@ public enum ViewportSignalName: String, SignalNameProtocol {
     case notifyFocusOnClick = "notify::focus-on-click"
     /// Whether this widget itself will accept the input focus.
     case notifyFocusable = "notify::focusable"
-    /// How to distribute horizontal space if widget gets extra space, see `GtkAlign`
+    /// How to distribute horizontal space if widget gets extra space.
     case notifyHalign = "notify::halign"
+    /// Whether the widget is the default widget.
     case notifyHasDefault = "notify::has-default"
+    /// Whether the widget has the input focus.
     case notifyHasFocus = "notify::has-focus"
-    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
+    /// Enables or disables the emission of the `query-tooltip` signal on `widget`.
+    /// 
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
-    /// whether it will provide a tooltip or not.
+    /// the widget will be queried using [signal`Gtk.Widget::query-tooltip`] to
+    /// determine whether it will provide a tooltip or not.
     case notifyHasTooltip = "notify::has-tooltip"
+    /// Override for height request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case notifyHeightRequest = "notify::height-request"
-    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
+    /// Whether to expand horizontally.
     case notifyHexpand = "notify::hexpand"
-    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
+    /// Whether to use the `hexpand` property.
     case notifyHexpandSet = "notify::hexpand-set"
     /// The `GtkLayoutManager` instance to use to compute the preferred size
     /// of the widget, and allocate its children.
@@ -620,78 +665,93 @@ public enum ViewportSignalName: String, SignalNameProtocol {
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginBottom = "notify::margin-bottom"
-    /// Margin on end of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on end of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginEnd = "notify::margin-end"
-    /// Margin on start of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on start of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginStart = "notify::margin-start"
     /// Margin on top side of widget.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginTop = "notify::margin-top"
+    /// The name of the widget.
     case notifyName = "notify::name"
-    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
-    /// more details about window opacity.
+    /// The requested opacity of the widget.
     case notifyOpacity = "notify::opacity"
     /// How content outside the widget's content area is treated.
     /// 
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case notifyOverflow = "notify::overflow"
+    /// The parent widget of this widget.
     case notifyParent = "notify::parent"
+    /// Whether the widget will receive the default action when it is focused.
     case notifyReceivesDefault = "notify::receives-default"
-    /// The `GtkRoot` widget of the widget tree containing this widget or `nil` if
-    /// the widget is not contained in a root widget.
+    /// The `GtkRoot` widget of the widget tree containing this widget.
+    /// 
+    /// This will be `nil` if the widget is not contained in a root widget.
     case notifyRoot = "notify::root"
-    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
-    /// more details about widget scaling.
+    /// The scale factor of the widget.
     case notifyScaleFactor = "notify::scale-factor"
+    /// Whether to scroll when the focus changes.
     case notifyScrollToFocus = "notify::scroll-to-focus"
+    /// Whether the widget responds to input.
     case notifySensitive = "notify::sensitive"
     /// Sets the text of tooltip to be the given string, which is marked up
-    /// with the [Pango text markup language](#PangoMarkupFormat).
-    /// Also see `gtk_tooltip_set_markup()`.
+    /// with Pango markup.
+    /// 
+    /// Also see [method`Gtk.Tooltip.set_markup`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case notifyTooltipMarkup = "notify::tooltip-markup"
     /// Sets the text of tooltip to be the given string.
     /// 
-    /// Also see `gtk_tooltip_set_text()`.
+    /// Also see [method`Gtk.Tooltip.set_text`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case notifyTooltipText = "notify::tooltip-text"
-    /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
+    /// How to distribute vertical space if widget gets extra space.
     case notifyValign = "notify::valign"
-    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
+    /// Whether to expand vertically.
     case notifyVexpand = "notify::vexpand"
-    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
+    /// Whether to use the `vexpand` property.
     case notifyVexpandSet = "notify::vexpand-set"
+    /// Whether the widget is visible.
     case notifyVisible = "notify::visible"
+    /// Override for width request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case notifyWidthRequest = "notify::width-request"
 }
 
@@ -708,7 +768,7 @@ public extension ViewportProtocol {
     }
 
     /// Gets whether the viewport is scrolling to keep the focused
-    /// child in view. See `gtk_viewport_set_scroll_to_focus()`.
+    /// child in view.
     @inlinable func getScrollToFocus() -> Bool {
         let rv = ((gtk_viewport_get_scroll_to_focus(viewport_ptr)) != 0)
         return rv
@@ -731,6 +791,7 @@ public extension ViewportProtocol {
         gtk_viewport_set_scroll_to_focus(viewport_ptr, gboolean((scrollToFocus) ? 1 : 0))
     
     }
+    /// The child widget.
     @inlinable var child: WidgetRef! {
         /// Gets the child widget of `viewport`.
         get {
@@ -744,10 +805,10 @@ public extension ViewportProtocol {
     }
 
     /// Gets whether the viewport is scrolling to keep the focused
-    /// child in view. See `gtk_viewport_set_scroll_to_focus()`.
+    /// child in view.
     @inlinable var scrollToFocus: Bool {
         /// Gets whether the viewport is scrolling to keep the focused
-        /// child in view. See `gtk_viewport_set_scroll_to_focus()`.
+        /// child in view.
         get {
             let rv = ((gtk_viewport_get_scroll_to_focus(viewport_ptr)) != 0)
             return rv
@@ -771,9 +832,10 @@ public extension ViewportProtocol {
 /// For a concrete class that implements these methods and properties, see `VolumeButton`.
 /// Alternatively, use `VolumeButtonRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// `GtkVolumeButton` is a subclass of `GtkScaleButton` that has
-/// been tailored for use as a volume control widget with suitable
-/// icons, tooltips and accessible labels.
+/// `GtkVolumeButton` is a `GtkScaleButton` subclass tailored for
+/// volume control.
+/// 
+/// ![An example GtkVolumeButton](volumebutton.png)
 public protocol VolumeButtonProtocol: ScaleButtonProtocol {
         /// Untyped pointer to the underlying `GtkVolumeButton` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -789,9 +851,10 @@ public protocol VolumeButtonProtocol: ScaleButtonProtocol {
 /// It exposes methods that can operate on this data type through `VolumeButtonProtocol` conformance.
 /// Use `VolumeButtonRef` only as an `unowned` reference to an existing `GtkVolumeButton` instance.
 ///
-/// `GtkVolumeButton` is a subclass of `GtkScaleButton` that has
-/// been tailored for use as a volume control widget with suitable
-/// icons, tooltips and accessible labels.
+/// `GtkVolumeButton` is a `GtkScaleButton` subclass tailored for
+/// volume control.
+/// 
+/// ![An example GtkVolumeButton](volumebutton.png)
 public struct VolumeButtonRef: VolumeButtonProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkVolumeButton` instance.
     /// For type-safe access, use the generated, typed pointer `volume_button_ptr` property instead.
@@ -871,9 +934,11 @@ public extension VolumeButtonRef {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
-        /// Creates a `GtkVolumeButton`, with a range between 0.0 and 1.0, with
-    /// a stepping of 0.02. Volume values can be obtained and modified using
-    /// the functions from `GtkScaleButton`.
+        /// Creates a `GtkVolumeButton`.
+    /// 
+    /// The button has a range between 0.0 and 1.0, with a stepping of 0.02.
+    /// Volume values can be obtained and modified using the functions from
+    /// [class`Gtk.ScaleButton`].
     @inlinable init() {
         let rv = gtk_volume_button_new()
         ptr = UnsafeMutableRawPointer(rv)
@@ -884,9 +949,10 @@ public extension VolumeButtonRef {
 /// It provides the methods that can operate on this data type through `VolumeButtonProtocol` conformance.
 /// Use `VolumeButton` as a strong reference or owner of a `GtkVolumeButton` instance.
 ///
-/// `GtkVolumeButton` is a subclass of `GtkScaleButton` that has
-/// been tailored for use as a volume control widget with suitable
-/// icons, tooltips and accessible labels.
+/// `GtkVolumeButton` is a `GtkScaleButton` subclass tailored for
+/// volume control.
+/// 
+/// ![An example GtkVolumeButton](volumebutton.png)
 open class VolumeButton: ScaleButton, VolumeButtonProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -1012,9 +1078,11 @@ open class VolumeButton: ScaleButton, VolumeButtonProtocol {
         super.init(retainingOpaquePointer: p)
     }
 
-    /// Creates a `GtkVolumeButton`, with a range between 0.0 and 1.0, with
-    /// a stepping of 0.02. Volume values can be obtained and modified using
-    /// the functions from `GtkScaleButton`.
+    /// Creates a `GtkVolumeButton`.
+    /// 
+    /// The button has a range between 0.0 and 1.0, with a stepping of 0.02.
+    /// Volume values can be obtained and modified using the functions from
+    /// [class`Gtk.ScaleButton`].
     @inlinable public init() {
         let rv = gtk_volume_button_new()
         super.init(gpointer: gpointer(rv))
@@ -1025,6 +1093,7 @@ open class VolumeButton: ScaleButton, VolumeButtonProtocol {
 }
 
 public enum VolumeButtonPropertyName: String, PropertyNameProtocol {
+    /// The `GtkAdjustment` that is used as the model.
     case adjustment = "adjustment"
     /// Whether the widget or any of its descendents can accept
     /// the input focus.
@@ -1032,6 +1101,7 @@ public enum VolumeButtonPropertyName: String, PropertyNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case canFocus = "can-focus"
+    /// Whether the widget can receive pointer events.
     case canTarget = "can-target"
     /// A list of css classes applied to this widget.
     case cssClasses = "css-classes"
@@ -1040,7 +1110,7 @@ public enum VolumeButtonPropertyName: String, PropertyNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case cssName = "css-name"
-    /// The cursor used by `widget`. See `gtk_widget_set_cursor()` for details.
+    /// The cursor used by `widget`.
     case cursor = "cursor"
     /// Whether the widget should grab focus when it is clicked with the mouse.
     /// 
@@ -1048,21 +1118,28 @@ public enum VolumeButtonPropertyName: String, PropertyNameProtocol {
     case focusOnClick = "focus-on-click"
     /// Whether this widget itself will accept the input focus.
     case focusable = "focusable"
-    /// How to distribute horizontal space if widget gets extra space, see `GtkAlign`
+    /// How to distribute horizontal space if widget gets extra space.
     case halign = "halign"
+    /// Whether the widget is the default widget.
     case hasDefault = "has-default"
+    /// Whether the widget has the input focus.
     case hasFocus = "has-focus"
-    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
+    /// Enables or disables the emission of the `query-tooltip` signal on `widget`.
+    /// 
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
-    /// whether it will provide a tooltip or not.
+    /// the widget will be queried using [signal`Gtk.Widget::query-tooltip`] to
+    /// determine whether it will provide a tooltip or not.
     case hasTooltip = "has-tooltip"
+    /// Override for height request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case heightRequest = "height-request"
-    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
+    /// Whether to expand horizontally.
     case hexpand = "hexpand"
-    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
+    /// Whether to use the `hexpand` property.
     case hexpandSet = "hexpand-set"
     /// The names of the icons to be used by the scale button.
+    /// 
     /// The first item in the array will be used in the button
     /// when the current value is the lowest value, the second
     /// item for the highest value. All the subsequent icons will
@@ -1088,83 +1165,98 @@ public enum VolumeButtonPropertyName: String, PropertyNameProtocol {
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginBottom = "margin-bottom"
-    /// Margin on end of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on end of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginEnd = "margin-end"
-    /// Margin on start of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on start of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginStart = "margin-start"
     /// Margin on top side of widget.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginTop = "margin-top"
+    /// The name of the widget.
     case name = "name"
-    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
-    /// more details about window opacity.
+    /// The requested opacity of the widget.
     case opacity = "opacity"
     /// How content outside the widget's content area is treated.
     /// 
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case overflow = "overflow"
+    /// The parent widget of this widget.
     case parent = "parent"
+    /// Whether the widget will receive the default action when it is focused.
     case receivesDefault = "receives-default"
-    /// The `GtkRoot` widget of the widget tree containing this widget or `nil` if
-    /// the widget is not contained in a root widget.
+    /// The `GtkRoot` widget of the widget tree containing this widget.
+    /// 
+    /// This will be `nil` if the widget is not contained in a root widget.
     case root = "root"
-    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
-    /// more details about widget scaling.
+    /// The scale factor of the widget.
     case scaleFactor = "scale-factor"
+    /// Whether the widget responds to input.
     case sensitive = "sensitive"
     /// Sets the text of tooltip to be the given string, which is marked up
-    /// with the [Pango text markup language](#PangoMarkupFormat).
-    /// Also see `gtk_tooltip_set_markup()`.
+    /// with Pango markup.
+    /// 
+    /// Also see [method`Gtk.Tooltip.set_markup`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case tooltipMarkup = "tooltip-markup"
     /// Sets the text of tooltip to be the given string.
     /// 
-    /// Also see `gtk_tooltip_set_text()`.
+    /// Also see [method`Gtk.Tooltip.set_text`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case tooltipText = "tooltip-text"
-    /// Whether to use symbolic icons as the icons. Note that
-    /// if the symbolic icons are not available in your installed
-    /// theme, then the normal (potentially colorful) icons will
-    /// be used.
+    /// Whether to use symbolic icons as the icons.
+    /// 
+    /// Note that if the symbolic icons are not available in your installed
+    /// theme, then the normal (potentially colorful) icons will be used.
     case useSymbolic = "use-symbolic"
-    /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
+    /// How to distribute vertical space if widget gets extra space.
     case valign = "valign"
+    /// The value of the scale.
     case value = "value"
-    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
+    /// Whether to expand vertically.
     case vexpand = "vexpand"
-    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
+    /// Whether to use the `vexpand` property.
     case vexpandSet = "vexpand-set"
+    /// Whether the widget is visible.
     case visible = "visible"
+    /// Override for width request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case widthRequest = "width-request"
 }
 
@@ -1223,29 +1315,32 @@ public extension VolumeButtonProtocol {
 
 public enum VolumeButtonSignalName: String, SignalNameProtocol {
     /// Signals that all holders of a reference to the widget should release
-    /// the reference that they hold. May result in finalization of the widget
-    /// if all references are released.
+    /// the reference that they hold.
+    /// 
+    /// May result in finalization of the widget if all references are released.
     /// 
     /// This signal is not suitable for saving widget state.
     case destroy = "destroy"
-    /// The `direction-changed` signal is emitted when the text direction
-    /// of a widget changes.
+    /// Emitted when the text direction of a widget changes.
     case directionChanged = "direction-changed"
-    /// The `hide` signal is emitted when `widget` is hidden, for example with
-    /// `gtk_widget_hide()`.
+    /// Emitted when `widget` is hidden.
     case hide = "hide"
-    /// Gets emitted if keyboard navigation fails.
-    /// See `gtk_widget_keynav_failed()` for details.
+    /// Emitted if keyboard navigation fails.
+    /// 
+    /// See [method`Gtk.Widget.keynav_failed`] for details.
     case keynavFailed = "keynav-failed"
-    /// The `map` signal is emitted when `widget` is going to be mapped, that is
-    /// when the widget is visible (which is controlled with
-    /// `gtk_widget_set_visible()`) and all its parents up to the toplevel widget
+    /// Emitted when `widget` is going to be mapped.
+    /// 
+    /// A widget is mapped when the widget is visible (which is controlled with
+    /// [property`Gtk.Widget:visible`]) and all its parents up to the toplevel widget
     /// are also visible.
     /// 
     /// The `map` signal can be used to determine whether a widget will be drawn,
     /// for instance it can resume an animation that was stopped during the
-    /// emission of `GtkWidget::unmap`.
+    /// emission of [signal`Gtk.Widget::unmap`].
     case map = "map"
+    /// Emitted when a widget is activated via a mnemonic.
+    /// 
     /// The default handler for this signal activates `widget` if `group_cycling`
     /// is `false`, or just makes `widget` grab focus if `group_cycling` is `true`.
     case mnemonicActivate = "mnemonic-activate"
@@ -1276,21 +1371,24 @@ public enum VolumeButtonSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// The `popdown` signal is a
-    /// [keybinding signal](#GtkSignalAction)
-    /// which gets emitted to popdown the scale widget.
+    /// Emitted to dismiss the popup.
     /// 
-    /// The default binding for this signal is Escape.
+    /// This is a [keybinding signal](class.SignalAction.html).
+    /// 
+    /// The default binding for this signal is &lt;kbd&gt;Escape&lt;/kbd&gt;.
     case popdown = "popdown"
-    /// The `popup` signal is a
-    /// [keybinding signal](#GtkSignalAction)
-    /// which gets emitted to popup the scale widget.
+    /// Emitted to popup the scale widget.
     /// 
-    /// The default bindings for this signal are Space, Enter and Return.
+    /// This is a [keybinding signal](class.SignalAction.html).
+    /// 
+    /// The default bindings for this signal are &lt;kbd&gt;Space&lt;/kbd&gt;,
+    /// &lt;kbd&gt;Enter&lt;/kbd&gt; and &lt;kbd&gt;Return&lt;/kbd&gt;.
     case popup = "popup"
-    /// Emitted when `GtkWidget:has-tooltip` is `true` and the hover timeout
-    /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
-    /// focus in keyboard mode.
+    /// Emitted when the widgets tooltip is about to be shown.
+    /// 
+    /// This happens when the [property`Gtk.Widget:has-tooltip`] property
+    /// is `true` and the hover timeout has expired with the cursor hovering
+    /// "above" `widget`; or emitted when `widget` got focus in keyboard mode.
     /// 
     /// Using the given coordinates, the signal handler should determine
     /// whether a tooltip should be shown for `widget`. If this is the case
@@ -1301,31 +1399,33 @@ public enum VolumeButtonSignalName: String, SignalNameProtocol {
     /// The signal handler is free to manipulate `tooltip` with the therefore
     /// destined function calls.
     case queryTooltip = "query-tooltip"
-    /// The `realize` signal is emitted when `widget` is associated with a
-    /// `GdkSurface`, which means that `gtk_widget_realize()` has been called or the
-    /// widget has been mapped (that is, it is going to be drawn).
-    case realize = "realize"
-    /// The `show` signal is emitted when `widget` is shown, for example with
-    /// `gtk_widget_show()`.
-    case show = "show"
-    /// The `state-flags-changed` signal is emitted when the widget state
-    /// changes, see `gtk_widget_get_state_flags()`.
-    case stateFlagsChanged = "state-flags-changed"
-    /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
-    /// means that either it or any of its parents up to the toplevel widget have
-    /// been set as hidden.
+    /// Emitted when `widget` is associated with a `GdkSurface`.
     /// 
-    /// As `unmap` indicates that a widget will not be shown any longer, it can be
-    /// used to, for example, stop an animation on the widget.
+    /// This means that [method`Gtk.Widget.realize`] has been called
+    /// or the widget has been mapped (that is, it is going to be drawn).
+    case realize = "realize"
+    /// Emitted when `widget` is shown.
+    case show = "show"
+    /// Emitted when the widget state changes.
+    /// 
+    /// See [method`Gtk.Widget.get_state_flags`].
+    case stateFlagsChanged = "state-flags-changed"
+    /// Emitted when `widget` is going to be unmapped.
+    /// 
+    /// A widget is unmapped when either it or any of its parents up to the
+    /// toplevel widget have been set as hidden.
+    /// 
+    /// As `unmap` indicates that a widget will not be shown any longer,
+    /// it can be used to, for example, stop an animation on the widget.
     case unmap = "unmap"
-    /// The `unrealize` signal is emitted when the `GdkSurface` associated with
-    /// `widget` is destroyed, which means that `gtk_widget_unrealize()` has been
-    /// called or the widget has been unmapped (that is, it is going to be
-    /// hidden).
+    /// Emitted when the `GdkSurface` associated with `widget` is destroyed.
+    /// 
+    /// This means that [method`Gtk.Widget.unrealize`] has been called
+    /// or the widget has been unmapped (that is, it is going to be hidden).
     case unrealize = "unrealize"
-    /// The `value-changed` signal is emitted when the value field has
-    /// changed.
+    /// Emitted when the value field has changed.
     case valueChanged = "value-changed"
+    /// The `GtkAdjustment` that is used as the model.
     case notifyAdjustment = "notify::adjustment"
     /// Whether the widget or any of its descendents can accept
     /// the input focus.
@@ -1333,6 +1433,7 @@ public enum VolumeButtonSignalName: String, SignalNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case notifyCanFocus = "notify::can-focus"
+    /// Whether the widget can receive pointer events.
     case notifyCanTarget = "notify::can-target"
     /// A list of css classes applied to this widget.
     case notifyCssClasses = "notify::css-classes"
@@ -1341,7 +1442,7 @@ public enum VolumeButtonSignalName: String, SignalNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case notifyCssName = "notify::css-name"
-    /// The cursor used by `widget`. See `gtk_widget_set_cursor()` for details.
+    /// The cursor used by `widget`.
     case notifyCursor = "notify::cursor"
     /// Whether the widget should grab focus when it is clicked with the mouse.
     /// 
@@ -1349,21 +1450,28 @@ public enum VolumeButtonSignalName: String, SignalNameProtocol {
     case notifyFocusOnClick = "notify::focus-on-click"
     /// Whether this widget itself will accept the input focus.
     case notifyFocusable = "notify::focusable"
-    /// How to distribute horizontal space if widget gets extra space, see `GtkAlign`
+    /// How to distribute horizontal space if widget gets extra space.
     case notifyHalign = "notify::halign"
+    /// Whether the widget is the default widget.
     case notifyHasDefault = "notify::has-default"
+    /// Whether the widget has the input focus.
     case notifyHasFocus = "notify::has-focus"
-    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
+    /// Enables or disables the emission of the `query-tooltip` signal on `widget`.
+    /// 
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
-    /// whether it will provide a tooltip or not.
+    /// the widget will be queried using [signal`Gtk.Widget::query-tooltip`] to
+    /// determine whether it will provide a tooltip or not.
     case notifyHasTooltip = "notify::has-tooltip"
+    /// Override for height request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case notifyHeightRequest = "notify::height-request"
-    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
+    /// Whether to expand horizontally.
     case notifyHexpand = "notify::hexpand"
-    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
+    /// Whether to use the `hexpand` property.
     case notifyHexpandSet = "notify::hexpand-set"
     /// The names of the icons to be used by the scale button.
+    /// 
     /// The first item in the array will be used in the button
     /// when the current value is the lowest value, the second
     /// item for the highest value. All the subsequent icons will
@@ -1389,83 +1497,98 @@ public enum VolumeButtonSignalName: String, SignalNameProtocol {
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginBottom = "notify::margin-bottom"
-    /// Margin on end of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on end of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginEnd = "notify::margin-end"
-    /// Margin on start of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on start of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginStart = "notify::margin-start"
     /// Margin on top side of widget.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginTop = "notify::margin-top"
+    /// The name of the widget.
     case notifyName = "notify::name"
-    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
-    /// more details about window opacity.
+    /// The requested opacity of the widget.
     case notifyOpacity = "notify::opacity"
     /// How content outside the widget's content area is treated.
     /// 
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case notifyOverflow = "notify::overflow"
+    /// The parent widget of this widget.
     case notifyParent = "notify::parent"
+    /// Whether the widget will receive the default action when it is focused.
     case notifyReceivesDefault = "notify::receives-default"
-    /// The `GtkRoot` widget of the widget tree containing this widget or `nil` if
-    /// the widget is not contained in a root widget.
+    /// The `GtkRoot` widget of the widget tree containing this widget.
+    /// 
+    /// This will be `nil` if the widget is not contained in a root widget.
     case notifyRoot = "notify::root"
-    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
-    /// more details about widget scaling.
+    /// The scale factor of the widget.
     case notifyScaleFactor = "notify::scale-factor"
+    /// Whether the widget responds to input.
     case notifySensitive = "notify::sensitive"
     /// Sets the text of tooltip to be the given string, which is marked up
-    /// with the [Pango text markup language](#PangoMarkupFormat).
-    /// Also see `gtk_tooltip_set_markup()`.
+    /// with Pango markup.
+    /// 
+    /// Also see [method`Gtk.Tooltip.set_markup`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case notifyTooltipMarkup = "notify::tooltip-markup"
     /// Sets the text of tooltip to be the given string.
     /// 
-    /// Also see `gtk_tooltip_set_text()`.
+    /// Also see [method`Gtk.Tooltip.set_text`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case notifyTooltipText = "notify::tooltip-text"
-    /// Whether to use symbolic icons as the icons. Note that
-    /// if the symbolic icons are not available in your installed
-    /// theme, then the normal (potentially colorful) icons will
-    /// be used.
+    /// Whether to use symbolic icons as the icons.
+    /// 
+    /// Note that if the symbolic icons are not available in your installed
+    /// theme, then the normal (potentially colorful) icons will be used.
     case notifyUseSymbolic = "notify::use-symbolic"
-    /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
+    /// How to distribute vertical space if widget gets extra space.
     case notifyValign = "notify::valign"
+    /// The value of the scale.
     case notifyValue = "notify::value"
-    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
+    /// Whether to expand vertically.
     case notifyVexpand = "notify::vexpand"
-    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
+    /// Whether to use the `vexpand` property.
     case notifyVexpandSet = "notify::vexpand-set"
+    /// Whether the widget is visible.
     case notifyVisible = "notify::visible"
+    /// Override for width request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case notifyWidthRequest = "notify::width-request"
 }
 
@@ -1494,10 +1617,12 @@ public extension VolumeButtonProtocol {
 /// For a concrete class that implements these methods and properties, see `Widget`.
 /// Alternatively, use `WidgetRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// GtkWidget is the base class all widgets in GTK derive from. It manages the
-/// widget lifecycle, states and style.
+/// The base class for all widgets.
 /// 
-/// # Height-for-width Geometry Management # <a name="geometry-management"></a>
+/// `GtkWidget` is the base class all widgets in GTK derive from. It manages the
+/// widget lifecycle, layout, states and style.
+/// 
+/// ### Height-for-width Geometry Management
 /// 
 /// GTK uses a height-for-width (and width-for-height) geometry management
 /// system. Height-for-width means that a widget can change how much
@@ -1509,36 +1634,36 @@ public extension VolumeButtonProtocol {
 /// Height-for-width geometry management is implemented in GTK by way
 /// of two virtual methods:
 /// 
-/// - `GtkWidgetClass.get_request_mode``()`
-/// - `GtkWidgetClass.measure``()`
+/// - [vfunc`Gtk.Widget.get_request_mode`]
+/// - [vfunc`Gtk.Widget.measure`]
 /// 
 /// There are some important things to keep in mind when implementing
 /// height-for-width and when using it in widget implementations.
 /// 
 /// If you implement a direct `GtkWidget` subclass that supports
-/// height-for-width or width-for-height geometry management for
-/// itself or its child widgets, the `GtkWidgetClass.get_request_mode``()`
-/// virtual function must be implemented as well and return the widget's
-/// preferred request mode. The default implementation of this virtual function
+/// height-for-width or width-for-height geometry management for itself
+/// or its child widgets, the [vfunc`Gtk.Widget.get_request_mode`] virtual
+/// function must be implemented as well and return the widget's preferred
+/// request mode. The default implementation of this virtual function
 /// returns `GTK_SIZE_REQUEST_CONSTANT_SIZE`, which means that the widget will
-/// only ever get -1 passed as the for_size value to its `GtkWidgetClass.measure``()`
-/// implementation.
+/// only ever get -1 passed as the for_size value to its
+/// [vfunc`Gtk.Widget.measure`] implementation.
 /// 
 /// The geometry management system will query a widget hierarchy in
 /// only one orientation at a time. When widgets are initially queried
 /// for their minimum sizes it is generally done in two initial passes
-/// in the `GtkSizeRequestMode` chosen by the toplevel.
+/// in the [enum`Gtk.SizeRequestMode`] chosen by the toplevel.
 /// 
-/// For example, when queried in the normal
-/// `GTK_SIZE_REQUEST_HEIGHT_FOR_WIDTH` mode:
+/// For example, when queried in the normal `GTK_SIZE_REQUEST_HEIGHT_FOR_WIDTH` mode:
+/// 
 /// First, the default minimum and natural width for each widget
-/// in the interface will be computed using `gtk_widget_measure()` with an
+/// in the interface will be computed using [id`gtk_widget_measure`] with an
 /// orientation of `GTK_ORIENTATION_HORIZONTAL` and a for_size of -1.
 /// Because the preferred widths for each widget depend on the preferred
 /// widths of their children, this information propagates up the hierarchy,
 /// and finally a minimum and natural width is determined for the entire
 /// toplevel. Next, the toplevel will use the minimum width to query for the
-/// minimum height contextual to that width using `gtk_widget_measure()` with an
+/// minimum height contextual to that width using [id`gtk_widget_measure`] with an
 /// orientation of `GTK_ORIENTATION_VERTICAL` and a for_size of the just computed
 /// width. This will also be a highly recursive operation. The minimum height
 /// for the minimum width is normally used to set the minimum size constraint
@@ -1546,7 +1671,7 @@ public extension VolumeButtonProtocol {
 /// 
 /// After the toplevel window has initially requested its size in both
 /// dimensions it can go on to allocate itself a reasonable size (or a size
-/// previously specified with `gtk_window_set_default_size()`). During the
+/// previously specified with [method`Gtk.Window.set_default_size`]). During the
 /// recursive allocation process it’s important to note that request cycles
 /// will be recursively executed while widgets allocate their children.
 /// Each widget, once allocated a size, will go on to first share the
@@ -1560,23 +1685,21 @@ public extension VolumeButtonProtocol {
 /// 
 /// If a widget does move content around to intelligently use up the
 /// allocated size then it must support the request in both
-/// `GtkSizeRequestModes` even if the widget in question only
+/// `GtkSizeRequestMode`s even if the widget in question only
 /// trades sizes in a single orientation.
 /// 
-/// For instance, a `GtkLabel` that does height-for-width word wrapping
-/// will not expect to have `GtkWidgetClass.measure``()` with an orientation of
+/// For instance, a [class`Gtk.Label`] that does height-for-width word wrapping
+/// will not expect to have [vfunc`Gtk.Widget.measure`] with an orientation of
 /// `GTK_ORIENTATION_VERTICAL` called because that call is specific to a
-/// width-for-height request. In this
-/// case the label must return the height required for its own minimum
-/// possible width. By following this rule any widget that handles
-/// height-for-width or width-for-height requests will always be allocated
-/// at least enough space to fit its own content.
+/// width-for-height request. In this case the label must return the height
+/// required for its own minimum possible width. By following this rule any
+/// widget that handles height-for-width or width-for-height requests will
+/// always be allocated at least enough space to fit its own content.
 /// 
 /// Here are some examples of how a `GTK_SIZE_REQUEST_HEIGHT_FOR_WIDTH` widget
 /// generally deals with width-for-height requests:
 /// 
-/// (C Language Example):
-/// ```C
+/// ```c
 /// static void
 /// foo_widget_measure (GtkWidget      *widget,
 ///                     GtkOrientation  orientation,
@@ -1592,24 +1715,24 @@ public extension VolumeButtonProtocol {
 ///     }
 ///   else // VERTICAL
 ///     {
-///        if (i_am_in_height_for_width_mode)
-///          {
-///            int min_width, dummy;
+///       if (i_am_in_height_for_width_mode)
+///         {
+///           int min_width, dummy;
 /// 
-///            // First, get the minimum width of our widget
-///            GTK_WIDGET_GET_CLASS (widget)->measure (widget, GTK_ORIENTATION_HORIZONTAL, -1,
-///                                                    &min_width, &dummy, &dummy, &dummy);
+///           // First, get the minimum width of our widget
+///           GTK_WIDGET_GET_CLASS (widget)-&gt;measure (widget, GTK_ORIENTATION_HORIZONTAL, -1,
+///                                                   &min_width, &dummy, &dummy, &dummy);
 /// 
-///            // Now use the minimum width to retrieve the minimum and natural height to display
-///            // that width.
-///            GTK_WIDGET_GET_CLASS (widget)->measure (widget, GTK_ORIENTATION_VERTICAL, min_width,
-///                                                    minimum_size, natural_size, &dummy, &dummy);
-///          }
-///        else
-///          {
-///            // ... some widgets do both.
-///          }
-///    }
+///           // Now use the minimum width to retrieve the minimum and natural height to display
+///           // that width.
+///           GTK_WIDGET_GET_CLASS (widget)-&gt;measure (widget, GTK_ORIENTATION_VERTICAL, min_width,
+///                                                   minimum_size, natural_size, &dummy, &dummy);
+///         }
+///       else
+///         {
+///           // ... some widgets do both.
+///         }
+///     }
 /// }
 /// ```
 /// 
@@ -1620,153 +1743,157 @@ public extension VolumeButtonProtocol {
 /// be careful to call its virtual methods directly, like in the code
 /// example above.
 /// 
-/// It will not work to use the wrapper function `gtk_widget_measure()`
-/// inside your own `GtkWidgetClass.size-allocate``()` implementation.
-/// These return a request adjusted by `GtkSizeGroup`, the widget's align and expand flags
-/// as well as its CSS style.
+/// It will not work to use the wrapper function [method`Gtk.Widget.measure`]
+/// inside your own [vfunc`Gtk.Widget.size_allocate`] implementation.
+/// These return a request adjusted by [class`Gtk.SizeGroup`], the widget's
+/// align and expand flags, as well as its CSS style.
+/// 
 /// If a widget used the wrappers inside its virtual method implementations,
 /// then the adjustments (such as widget margins) would be applied
 /// twice. GTK therefore does not allow this and will warn if you try
 /// to do it.
 /// 
-/// Of course if you are getting the size request for
-/// another widget, such as a child widget, you must use `gtk_widget_measure()`.
-/// Otherwise, you would not properly consider widget margins,
-/// `GtkSizeGroup`, and so forth.
+/// Of course if you are getting the size request for another widget, such
+/// as a child widget, you must use [id`gtk_widget_measure`]; otherwise, you
+/// would not properly consider widget margins, [class`Gtk.SizeGroup`], and
+/// so forth.
 /// 
 /// GTK also supports baseline vertical alignment of widgets. This
 /// means that widgets are positioned such that the typographical baseline of
-/// widgets in the same row are aligned. This happens if a widget supports baselines,
-/// has a vertical alignment of `GTK_ALIGN_BASELINE`, and is inside a widget
-/// that supports baselines and has a natural “row” that it aligns to the baseline,
-/// or a baseline assigned to it by the grandparent.
+/// widgets in the same row are aligned. This happens if a widget supports
+/// baselines, has a vertical alignment of `GTK_ALIGN_BASELINE`, and is inside
+/// a widget that supports baselines and has a natural “row” that it aligns to
+/// the baseline, or a baseline assigned to it by the grandparent.
 /// 
-/// Baseline alignment support for a widget is also done by the `GtkWidgetClass.measure``()`
-/// virtual function. It allows you to report both a minimum and natural size.
+/// Baseline alignment support for a widget is also done by the
+/// [vfunc`Gtk.Widget.measure`] virtual function. It allows you to report
+/// both a minimum and natural size.
 /// 
-/// If a widget ends up baseline aligned it will be allocated all the space in the parent
-/// as if it was `GTK_ALIGN_FILL`, but the selected baseline can be found via `gtk_widget_get_allocated_baseline()`.
-/// If this has a value other than -1 you need to align the widget such that the baseline
+/// If a widget ends up baseline aligned it will be allocated all the space in
+/// the parent as if it was `GTK_ALIGN_FILL`, but the selected baseline can be
+/// found via [id`gtk_widget_get_allocated_baseline`]. If the baseline has a
+/// value other than -1 you need to align the widget such that the baseline
 /// appears at the position.
 /// 
-/// # GtkWidget as GtkBuildable
+/// ### GtkWidget as GtkBuildable
 /// 
-/// The GtkWidget implementation of the `GtkBuildable` interface supports a
-/// custom elements to specify various aspects of widgets that are not
-/// directly expressed as properties.
+/// The `GtkWidget` implementation of the `GtkBuildable` interface
+/// supports various custom elements to specify additional aspects of widgets
+/// that are not directly expressed as properties.
 /// 
-/// If the parent widget uses a `GtkLayoutManager`, `GtkWidget` supports a
-/// custom `&lt;layout&gt;` element, used to define layout properties:
+/// If the widget uses a [class`Gtk.LayoutManager`], `GtkWidget` supports
+/// a custom `&lt;layout&gt;` element, used to define layout properties:
 /// 
+/// ```xml
+/// &lt;object class="GtkGrid" id="my_grid"&gt;
+///   &lt;child&gt;
+///     &lt;object class="GtkLabel" id="label1"&gt;
+///       &lt;property name="label"&gt;Description&lt;/property&gt;
+///       &lt;layout&gt;
+///         &lt;property name="column"&gt;0&lt;/property&gt;
+///         &lt;property name="row"&gt;0&lt;/property&gt;
+///         &lt;property name="row-span"&gt;1&lt;/property&gt;
+///         &lt;property name="column-span"&gt;1&lt;/property&gt;
+///       &lt;/layout&gt;
+///     &lt;/object&gt;
+///   &lt;/child&gt;
+///   &lt;child&gt;
+///     &lt;object class="GtkEntry" id="description_entry"&gt;
+///       &lt;layout&gt;
+///         &lt;property name="column"&gt;1&lt;/property&gt;
+///         &lt;property name="row"&gt;0&lt;/property&gt;
+///         &lt;property name="row-span"&gt;1&lt;/property&gt;
+///         &lt;property name="column-span"&gt;1&lt;/property&gt;
+///       &lt;/layout&gt;
+///     &lt;/object&gt;
+///   &lt;/child&gt;
+/// &lt;/object&gt;
 /// ```
-/// <object class="MyGrid" id="grid1">
-///   <child>
-///     <object class="GtkLabel" id="label1">
-///       <property name="label">Description</property>
-///       <layout>
-///         <property name="column">0</property>
-///         <property name="row">0</property>
-///         <property name="row-span">1</property>
-///         <property name="column-span">1</property>
-///       </layout>
-///     </object>
-///   </child>
-///   <child>
-///     <object class="GtkEntry" id="description_entry">
-///       <layout>
-///         <property name="column">1</property>
-///         <property name="row">0</property>
-///         <property name="row-span">1</property>
-///         <property name="column-span">1</property>
-///       </layout>
-///     </object>
-///   </child>
-/// </object>
-/// ```
 /// 
-/// GtkWidget allows style information such as style classes to
+/// `GtkWidget` allows style information such as style classes to
 /// be associated with widgets, using the custom `&lt;style&gt;` element:
-/// ```
-/// <object class="GtkButton" id="button1">
-///   <style>
-///     <class name="my-special-button-class"/>
-///     <class name="dark-button"/>
-///   </style>
-/// </object>
+/// 
+/// ```xml
+/// &lt;object class="GtkButton" id="button1"&gt;
+///   &lt;style&gt;
+///     &lt;class name="my-special-button-class"/&gt;
+///     &lt;class name="dark-button"/&gt;
+///   &lt;/style&gt;
+/// &lt;/object&gt;
 /// ```
 /// 
-/// GtkWidget allows defining accessibility information, such as properties,
+/// `GtkWidget` allows defining accessibility information, such as properties,
 /// relations, and states, using the custom `&lt;accessibility&gt;` element:
-/// ```
-/// <object class="GtkButton" id="button1">
-///   <accessibility>
-///     <property name="label">Download</property>
-///     <relation name="labelled-by">label1</relation>
-///   </accessibility>
-/// </object>
+/// 
+/// ```xml
+/// &lt;object class="GtkButton" id="button1"&gt;
+///   &lt;accessibility&gt;
+///     &lt;property name="label"&gt;Download&lt;/property&gt;
+///     &lt;relation name="labelled-by"&gt;label1&lt;/relation&gt;
+///   &lt;/accessibility&gt;
+/// &lt;/object&gt;
 /// ```
 /// 
-/// # Building composite widgets from template XML ## <a name="composite-templates"></a>
+/// ### Building composite widgets from template XML
 /// 
-/// GtkWidget exposes some facilities to automate the procedure
-/// of creating composite widgets using `GtkBuilder` interface description
-/// language.
+/// `GtkWidget `exposes some facilities to automate the procedure
+/// of creating composite widgets using "templates".
 /// 
 /// To create composite widgets with `GtkBuilder` XML, one must associate
 /// the interface description with the widget class at class initialization
-/// time using `gtk_widget_class_set_template()`.
+/// time using [method`Gtk.WidgetClass.set_template`].
 /// 
 /// The interface description semantics expected in composite template descriptions
-/// is slightly different from regular `GtkBuilder` XML.
+/// is slightly different from regular [class`Gtk.Builder`] XML.
 /// 
-/// Unlike regular interface descriptions, `gtk_widget_class_set_template()` will
-/// expect a &lt;template&gt; tag as a direct child of the toplevel &lt;interface&gt;
-/// tag. The &lt;template&gt; tag must specify the “class” attribute which must be
+/// Unlike regular interface descriptions, [method`Gtk.WidgetClass.set_template`] will
+/// expect a `&lt;template&gt;` tag as a direct child of the toplevel `&lt;interface&gt;`
+/// tag. The `&lt;template&gt;` tag must specify the “class” attribute which must be
 /// the type name of the widget. Optionally, the “parent” attribute may be
 /// specified to specify the direct parent type of the widget type, this is
-/// ignored by the GtkBuilder but required for Glade to introspect what kind
-/// of properties and internal children exist for a given type when the actual
-/// type does not exist.
+/// ignored by `GtkBuilder` but required for UI design tools like
+/// [Glade](https://glade.gnome.org/) to introspect what kind of properties and
+/// internal children exist for a given type when the actual type does not exist.
 /// 
-/// The XML which is contained inside the &lt;template&gt; tag behaves as if it were
-/// added to the &lt;object&gt; tag defining `widget` itself. You may set properties
-/// on `widget` by inserting &lt;property&gt; tags into the &lt;template&gt; tag, and also
-/// add &lt;child&gt; tags to add children and extend `widget` in the normal way you
-/// would with &lt;object&gt; tags.
+/// The XML which is contained inside the `&lt;template&gt;` tag behaves as if it were
+/// added to the `&lt;object&gt;` tag defining the widget itself. You may set properties
+/// on a widget by inserting `&lt;property&gt;` tags into the `&lt;template&gt;` tag, and also
+/// add `&lt;child&gt;` tags to add children and extend a widget in the normal way you
+/// would with `&lt;object&gt;` tags.
 /// 
-/// Additionally, &lt;object&gt; tags can also be added before and after the initial
-/// &lt;template&gt; tag in the normal way, allowing one to define auxiliary objects
+/// Additionally, `&lt;object&gt;` tags can also be added before and after the initial
+/// `&lt;template&gt;` tag in the normal way, allowing one to define auxiliary objects
 /// which might be referenced by other widgets declared as children of the
-/// &lt;template&gt; tag.
+/// `&lt;template&gt;` tag.
 /// 
-/// An example of a GtkBuilder Template Definition:
-/// ```
-/// <interface>
-///   <template class="FooWidget" parent="GtkBox">
-///     <property name="orientation">horizontal</property>
-///     <property name="spacing">4</property>
-///     <child>
-///       <object class="GtkButton" id="hello_button">
-///         <property name="label">Hello World</property>
-///         <signal name="clicked" handler="hello_button_clicked" object="FooWidget" swapped="yes"/>
-///       </object>
-///     </child>
-///     <child>
-///       <object class="GtkButton" id="goodbye_button">
-///         <property name="label">Goodbye World</property>
-///       </object>
-///     </child>
-///   </template>
-/// </interface>
+/// An example of a template definition:
+/// 
+/// ```xml
+/// &lt;interface&gt;
+///   &lt;template class="FooWidget" parent="GtkBox"&gt;
+///     &lt;property name="orientation"&gt;horizontal&lt;/property&gt;
+///     &lt;property name="spacing"&gt;4&lt;/property&gt;
+///     &lt;child&gt;
+///       &lt;object class="GtkButton" id="hello_button"&gt;
+///         &lt;property name="label"&gt;Hello World&lt;/property&gt;
+///         &lt;signal name="clicked" handler="hello_button_clicked" object="FooWidget" swapped="yes"/&gt;
+///       &lt;/object&gt;
+///     &lt;/child&gt;
+///     &lt;child&gt;
+///       &lt;object class="GtkButton" id="goodbye_button"&gt;
+///         &lt;property name="label"&gt;Goodbye World&lt;/property&gt;
+///       &lt;/object&gt;
+///     &lt;/child&gt;
+///   &lt;/template&gt;
+/// &lt;/interface&gt;
 /// ```
 /// 
 /// Typically, you'll place the template fragment into a file that is
 /// bundled with your project, using `GResource`. In order to load the
-/// template, you need to call `gtk_widget_class_set_template_from_resource()`
+/// template, you need to call [method`Gtk.WidgetClass.set_template_from_resource`]
 /// from the class initialization of your `GtkWidget` type:
 /// 
-/// (C Language Example):
-/// ```C
+/// ```c
 /// static void
 /// foo_widget_class_init (FooWidgetClass *klass)
 /// {
@@ -1777,11 +1904,10 @@ public extension VolumeButtonProtocol {
 /// }
 /// ```
 /// 
-/// You will also need to call `gtk_widget_init_template()` from the instance
-/// initialization function:
+/// You will also need to call [method`Gtk.Widget.init_template`] from the
+/// instance initialization function:
 /// 
-/// (C Language Example):
-/// ```C
+/// ```c
 /// static void
 /// foo_widget_init (FooWidget *self)
 /// {
@@ -1791,13 +1917,14 @@ public extension VolumeButtonProtocol {
 /// ```
 /// 
 /// You can access widgets defined in the template using the
-/// `gtk_widget_get_template_child()` function, but you will typically declare
+/// [id`gtk_widget_get_template_child`] function, but you will typically declare
 /// a pointer in the instance private data structure of your type using the same
 /// name as the widget in the template definition, and call
-/// `gtk_widget_class_bind_template_child_private()` with that name, e.g.
+/// [method`Gtk.WidgetClass.bind_template_child_full`] (or one of its wrapper macros
+/// [func`Gtk.widget_class_bind_template_child`] and [func`Gtk.widget_class_bind_template_child_private`])
+/// with that name, e.g.
 /// 
-/// (C Language Example):
-/// ```C
+/// ```c
 /// typedef struct {
 ///   GtkWidget *hello_button;
 ///   GtkWidget *goodbye_button;
@@ -1824,12 +1951,12 @@ public extension VolumeButtonProtocol {
 /// }
 /// ```
 /// 
-/// You can also use `gtk_widget_class_bind_template_callback()` to connect a signal
-/// callback defined in the template with a function visible in the scope of the
-/// class, e.g.
+/// You can also use [method`Gtk.WidgetClass.bind_template_callback_full`] (or
+/// is wrapper macro [func`Gtk.widget_class_bind_template_callback`]) to connect
+/// a signal callback defined in the template with a function visible in the
+/// scope of the class, e.g.
 /// 
-/// (C Language Example):
-/// ```C
+/// ```c
 /// // the signal handler has the instance and user data swapped
 /// // because of the swapped="yes" attribute in the template XML
 /// static void
@@ -1848,7 +1975,6 @@ public extension VolumeButtonProtocol {
 ///   gtk_widget_class_bind_template_callback (GTK_WIDGET_CLASS (klass), hello_button_clicked);
 /// }
 /// ```
-/// 
 public protocol WidgetProtocol: GLibObject.InitiallyUnownedProtocol, AccessibleProtocol, BuildableProtocol, ConstraintTargetProtocol {
         /// Untyped pointer to the underlying `GtkWidget` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1864,10 +1990,12 @@ public protocol WidgetProtocol: GLibObject.InitiallyUnownedProtocol, AccessibleP
 /// It exposes methods that can operate on this data type through `WidgetProtocol` conformance.
 /// Use `WidgetRef` only as an `unowned` reference to an existing `GtkWidget` instance.
 ///
-/// GtkWidget is the base class all widgets in GTK derive from. It manages the
-/// widget lifecycle, states and style.
+/// The base class for all widgets.
 /// 
-/// # Height-for-width Geometry Management # <a name="geometry-management"></a>
+/// `GtkWidget` is the base class all widgets in GTK derive from. It manages the
+/// widget lifecycle, layout, states and style.
+/// 
+/// ### Height-for-width Geometry Management
 /// 
 /// GTK uses a height-for-width (and width-for-height) geometry management
 /// system. Height-for-width means that a widget can change how much
@@ -1879,36 +2007,36 @@ public protocol WidgetProtocol: GLibObject.InitiallyUnownedProtocol, AccessibleP
 /// Height-for-width geometry management is implemented in GTK by way
 /// of two virtual methods:
 /// 
-/// - `GtkWidgetClass.get_request_mode``()`
-/// - `GtkWidgetClass.measure``()`
+/// - [vfunc`Gtk.Widget.get_request_mode`]
+/// - [vfunc`Gtk.Widget.measure`]
 /// 
 /// There are some important things to keep in mind when implementing
 /// height-for-width and when using it in widget implementations.
 /// 
 /// If you implement a direct `GtkWidget` subclass that supports
-/// height-for-width or width-for-height geometry management for
-/// itself or its child widgets, the `GtkWidgetClass.get_request_mode``()`
-/// virtual function must be implemented as well and return the widget's
-/// preferred request mode. The default implementation of this virtual function
+/// height-for-width or width-for-height geometry management for itself
+/// or its child widgets, the [vfunc`Gtk.Widget.get_request_mode`] virtual
+/// function must be implemented as well and return the widget's preferred
+/// request mode. The default implementation of this virtual function
 /// returns `GTK_SIZE_REQUEST_CONSTANT_SIZE`, which means that the widget will
-/// only ever get -1 passed as the for_size value to its `GtkWidgetClass.measure``()`
-/// implementation.
+/// only ever get -1 passed as the for_size value to its
+/// [vfunc`Gtk.Widget.measure`] implementation.
 /// 
 /// The geometry management system will query a widget hierarchy in
 /// only one orientation at a time. When widgets are initially queried
 /// for their minimum sizes it is generally done in two initial passes
-/// in the `GtkSizeRequestMode` chosen by the toplevel.
+/// in the [enum`Gtk.SizeRequestMode`] chosen by the toplevel.
 /// 
-/// For example, when queried in the normal
-/// `GTK_SIZE_REQUEST_HEIGHT_FOR_WIDTH` mode:
+/// For example, when queried in the normal `GTK_SIZE_REQUEST_HEIGHT_FOR_WIDTH` mode:
+/// 
 /// First, the default minimum and natural width for each widget
-/// in the interface will be computed using `gtk_widget_measure()` with an
+/// in the interface will be computed using [id`gtk_widget_measure`] with an
 /// orientation of `GTK_ORIENTATION_HORIZONTAL` and a for_size of -1.
 /// Because the preferred widths for each widget depend on the preferred
 /// widths of their children, this information propagates up the hierarchy,
 /// and finally a minimum and natural width is determined for the entire
 /// toplevel. Next, the toplevel will use the minimum width to query for the
-/// minimum height contextual to that width using `gtk_widget_measure()` with an
+/// minimum height contextual to that width using [id`gtk_widget_measure`] with an
 /// orientation of `GTK_ORIENTATION_VERTICAL` and a for_size of the just computed
 /// width. This will also be a highly recursive operation. The minimum height
 /// for the minimum width is normally used to set the minimum size constraint
@@ -1916,7 +2044,7 @@ public protocol WidgetProtocol: GLibObject.InitiallyUnownedProtocol, AccessibleP
 /// 
 /// After the toplevel window has initially requested its size in both
 /// dimensions it can go on to allocate itself a reasonable size (or a size
-/// previously specified with `gtk_window_set_default_size()`). During the
+/// previously specified with [method`Gtk.Window.set_default_size`]). During the
 /// recursive allocation process it’s important to note that request cycles
 /// will be recursively executed while widgets allocate their children.
 /// Each widget, once allocated a size, will go on to first share the
@@ -1930,23 +2058,21 @@ public protocol WidgetProtocol: GLibObject.InitiallyUnownedProtocol, AccessibleP
 /// 
 /// If a widget does move content around to intelligently use up the
 /// allocated size then it must support the request in both
-/// `GtkSizeRequestModes` even if the widget in question only
+/// `GtkSizeRequestMode`s even if the widget in question only
 /// trades sizes in a single orientation.
 /// 
-/// For instance, a `GtkLabel` that does height-for-width word wrapping
-/// will not expect to have `GtkWidgetClass.measure``()` with an orientation of
+/// For instance, a [class`Gtk.Label`] that does height-for-width word wrapping
+/// will not expect to have [vfunc`Gtk.Widget.measure`] with an orientation of
 /// `GTK_ORIENTATION_VERTICAL` called because that call is specific to a
-/// width-for-height request. In this
-/// case the label must return the height required for its own minimum
-/// possible width. By following this rule any widget that handles
-/// height-for-width or width-for-height requests will always be allocated
-/// at least enough space to fit its own content.
+/// width-for-height request. In this case the label must return the height
+/// required for its own minimum possible width. By following this rule any
+/// widget that handles height-for-width or width-for-height requests will
+/// always be allocated at least enough space to fit its own content.
 /// 
 /// Here are some examples of how a `GTK_SIZE_REQUEST_HEIGHT_FOR_WIDTH` widget
 /// generally deals with width-for-height requests:
 /// 
-/// (C Language Example):
-/// ```C
+/// ```c
 /// static void
 /// foo_widget_measure (GtkWidget      *widget,
 ///                     GtkOrientation  orientation,
@@ -1962,24 +2088,24 @@ public protocol WidgetProtocol: GLibObject.InitiallyUnownedProtocol, AccessibleP
 ///     }
 ///   else // VERTICAL
 ///     {
-///        if (i_am_in_height_for_width_mode)
-///          {
-///            int min_width, dummy;
+///       if (i_am_in_height_for_width_mode)
+///         {
+///           int min_width, dummy;
 /// 
-///            // First, get the minimum width of our widget
-///            GTK_WIDGET_GET_CLASS (widget)->measure (widget, GTK_ORIENTATION_HORIZONTAL, -1,
-///                                                    &min_width, &dummy, &dummy, &dummy);
+///           // First, get the minimum width of our widget
+///           GTK_WIDGET_GET_CLASS (widget)-&gt;measure (widget, GTK_ORIENTATION_HORIZONTAL, -1,
+///                                                   &min_width, &dummy, &dummy, &dummy);
 /// 
-///            // Now use the minimum width to retrieve the minimum and natural height to display
-///            // that width.
-///            GTK_WIDGET_GET_CLASS (widget)->measure (widget, GTK_ORIENTATION_VERTICAL, min_width,
-///                                                    minimum_size, natural_size, &dummy, &dummy);
-///          }
-///        else
-///          {
-///            // ... some widgets do both.
-///          }
-///    }
+///           // Now use the minimum width to retrieve the minimum and natural height to display
+///           // that width.
+///           GTK_WIDGET_GET_CLASS (widget)-&gt;measure (widget, GTK_ORIENTATION_VERTICAL, min_width,
+///                                                   minimum_size, natural_size, &dummy, &dummy);
+///         }
+///       else
+///         {
+///           // ... some widgets do both.
+///         }
+///     }
 /// }
 /// ```
 /// 
@@ -1990,153 +2116,157 @@ public protocol WidgetProtocol: GLibObject.InitiallyUnownedProtocol, AccessibleP
 /// be careful to call its virtual methods directly, like in the code
 /// example above.
 /// 
-/// It will not work to use the wrapper function `gtk_widget_measure()`
-/// inside your own `GtkWidgetClass.size-allocate``()` implementation.
-/// These return a request adjusted by `GtkSizeGroup`, the widget's align and expand flags
-/// as well as its CSS style.
+/// It will not work to use the wrapper function [method`Gtk.Widget.measure`]
+/// inside your own [vfunc`Gtk.Widget.size_allocate`] implementation.
+/// These return a request adjusted by [class`Gtk.SizeGroup`], the widget's
+/// align and expand flags, as well as its CSS style.
+/// 
 /// If a widget used the wrappers inside its virtual method implementations,
 /// then the adjustments (such as widget margins) would be applied
 /// twice. GTK therefore does not allow this and will warn if you try
 /// to do it.
 /// 
-/// Of course if you are getting the size request for
-/// another widget, such as a child widget, you must use `gtk_widget_measure()`.
-/// Otherwise, you would not properly consider widget margins,
-/// `GtkSizeGroup`, and so forth.
+/// Of course if you are getting the size request for another widget, such
+/// as a child widget, you must use [id`gtk_widget_measure`]; otherwise, you
+/// would not properly consider widget margins, [class`Gtk.SizeGroup`], and
+/// so forth.
 /// 
 /// GTK also supports baseline vertical alignment of widgets. This
 /// means that widgets are positioned such that the typographical baseline of
-/// widgets in the same row are aligned. This happens if a widget supports baselines,
-/// has a vertical alignment of `GTK_ALIGN_BASELINE`, and is inside a widget
-/// that supports baselines and has a natural “row” that it aligns to the baseline,
-/// or a baseline assigned to it by the grandparent.
+/// widgets in the same row are aligned. This happens if a widget supports
+/// baselines, has a vertical alignment of `GTK_ALIGN_BASELINE`, and is inside
+/// a widget that supports baselines and has a natural “row” that it aligns to
+/// the baseline, or a baseline assigned to it by the grandparent.
 /// 
-/// Baseline alignment support for a widget is also done by the `GtkWidgetClass.measure``()`
-/// virtual function. It allows you to report both a minimum and natural size.
+/// Baseline alignment support for a widget is also done by the
+/// [vfunc`Gtk.Widget.measure`] virtual function. It allows you to report
+/// both a minimum and natural size.
 /// 
-/// If a widget ends up baseline aligned it will be allocated all the space in the parent
-/// as if it was `GTK_ALIGN_FILL`, but the selected baseline can be found via `gtk_widget_get_allocated_baseline()`.
-/// If this has a value other than -1 you need to align the widget such that the baseline
+/// If a widget ends up baseline aligned it will be allocated all the space in
+/// the parent as if it was `GTK_ALIGN_FILL`, but the selected baseline can be
+/// found via [id`gtk_widget_get_allocated_baseline`]. If the baseline has a
+/// value other than -1 you need to align the widget such that the baseline
 /// appears at the position.
 /// 
-/// # GtkWidget as GtkBuildable
+/// ### GtkWidget as GtkBuildable
 /// 
-/// The GtkWidget implementation of the `GtkBuildable` interface supports a
-/// custom elements to specify various aspects of widgets that are not
-/// directly expressed as properties.
+/// The `GtkWidget` implementation of the `GtkBuildable` interface
+/// supports various custom elements to specify additional aspects of widgets
+/// that are not directly expressed as properties.
 /// 
-/// If the parent widget uses a `GtkLayoutManager`, `GtkWidget` supports a
-/// custom `&lt;layout&gt;` element, used to define layout properties:
+/// If the widget uses a [class`Gtk.LayoutManager`], `GtkWidget` supports
+/// a custom `&lt;layout&gt;` element, used to define layout properties:
 /// 
+/// ```xml
+/// &lt;object class="GtkGrid" id="my_grid"&gt;
+///   &lt;child&gt;
+///     &lt;object class="GtkLabel" id="label1"&gt;
+///       &lt;property name="label"&gt;Description&lt;/property&gt;
+///       &lt;layout&gt;
+///         &lt;property name="column"&gt;0&lt;/property&gt;
+///         &lt;property name="row"&gt;0&lt;/property&gt;
+///         &lt;property name="row-span"&gt;1&lt;/property&gt;
+///         &lt;property name="column-span"&gt;1&lt;/property&gt;
+///       &lt;/layout&gt;
+///     &lt;/object&gt;
+///   &lt;/child&gt;
+///   &lt;child&gt;
+///     &lt;object class="GtkEntry" id="description_entry"&gt;
+///       &lt;layout&gt;
+///         &lt;property name="column"&gt;1&lt;/property&gt;
+///         &lt;property name="row"&gt;0&lt;/property&gt;
+///         &lt;property name="row-span"&gt;1&lt;/property&gt;
+///         &lt;property name="column-span"&gt;1&lt;/property&gt;
+///       &lt;/layout&gt;
+///     &lt;/object&gt;
+///   &lt;/child&gt;
+/// &lt;/object&gt;
 /// ```
-/// <object class="MyGrid" id="grid1">
-///   <child>
-///     <object class="GtkLabel" id="label1">
-///       <property name="label">Description</property>
-///       <layout>
-///         <property name="column">0</property>
-///         <property name="row">0</property>
-///         <property name="row-span">1</property>
-///         <property name="column-span">1</property>
-///       </layout>
-///     </object>
-///   </child>
-///   <child>
-///     <object class="GtkEntry" id="description_entry">
-///       <layout>
-///         <property name="column">1</property>
-///         <property name="row">0</property>
-///         <property name="row-span">1</property>
-///         <property name="column-span">1</property>
-///       </layout>
-///     </object>
-///   </child>
-/// </object>
-/// ```
 /// 
-/// GtkWidget allows style information such as style classes to
+/// `GtkWidget` allows style information such as style classes to
 /// be associated with widgets, using the custom `&lt;style&gt;` element:
-/// ```
-/// <object class="GtkButton" id="button1">
-///   <style>
-///     <class name="my-special-button-class"/>
-///     <class name="dark-button"/>
-///   </style>
-/// </object>
+/// 
+/// ```xml
+/// &lt;object class="GtkButton" id="button1"&gt;
+///   &lt;style&gt;
+///     &lt;class name="my-special-button-class"/&gt;
+///     &lt;class name="dark-button"/&gt;
+///   &lt;/style&gt;
+/// &lt;/object&gt;
 /// ```
 /// 
-/// GtkWidget allows defining accessibility information, such as properties,
+/// `GtkWidget` allows defining accessibility information, such as properties,
 /// relations, and states, using the custom `&lt;accessibility&gt;` element:
-/// ```
-/// <object class="GtkButton" id="button1">
-///   <accessibility>
-///     <property name="label">Download</property>
-///     <relation name="labelled-by">label1</relation>
-///   </accessibility>
-/// </object>
+/// 
+/// ```xml
+/// &lt;object class="GtkButton" id="button1"&gt;
+///   &lt;accessibility&gt;
+///     &lt;property name="label"&gt;Download&lt;/property&gt;
+///     &lt;relation name="labelled-by"&gt;label1&lt;/relation&gt;
+///   &lt;/accessibility&gt;
+/// &lt;/object&gt;
 /// ```
 /// 
-/// # Building composite widgets from template XML ## <a name="composite-templates"></a>
+/// ### Building composite widgets from template XML
 /// 
-/// GtkWidget exposes some facilities to automate the procedure
-/// of creating composite widgets using `GtkBuilder` interface description
-/// language.
+/// `GtkWidget `exposes some facilities to automate the procedure
+/// of creating composite widgets using "templates".
 /// 
 /// To create composite widgets with `GtkBuilder` XML, one must associate
 /// the interface description with the widget class at class initialization
-/// time using `gtk_widget_class_set_template()`.
+/// time using [method`Gtk.WidgetClass.set_template`].
 /// 
 /// The interface description semantics expected in composite template descriptions
-/// is slightly different from regular `GtkBuilder` XML.
+/// is slightly different from regular [class`Gtk.Builder`] XML.
 /// 
-/// Unlike regular interface descriptions, `gtk_widget_class_set_template()` will
-/// expect a &lt;template&gt; tag as a direct child of the toplevel &lt;interface&gt;
-/// tag. The &lt;template&gt; tag must specify the “class” attribute which must be
+/// Unlike regular interface descriptions, [method`Gtk.WidgetClass.set_template`] will
+/// expect a `&lt;template&gt;` tag as a direct child of the toplevel `&lt;interface&gt;`
+/// tag. The `&lt;template&gt;` tag must specify the “class” attribute which must be
 /// the type name of the widget. Optionally, the “parent” attribute may be
 /// specified to specify the direct parent type of the widget type, this is
-/// ignored by the GtkBuilder but required for Glade to introspect what kind
-/// of properties and internal children exist for a given type when the actual
-/// type does not exist.
+/// ignored by `GtkBuilder` but required for UI design tools like
+/// [Glade](https://glade.gnome.org/) to introspect what kind of properties and
+/// internal children exist for a given type when the actual type does not exist.
 /// 
-/// The XML which is contained inside the &lt;template&gt; tag behaves as if it were
-/// added to the &lt;object&gt; tag defining `widget` itself. You may set properties
-/// on `widget` by inserting &lt;property&gt; tags into the &lt;template&gt; tag, and also
-/// add &lt;child&gt; tags to add children and extend `widget` in the normal way you
-/// would with &lt;object&gt; tags.
+/// The XML which is contained inside the `&lt;template&gt;` tag behaves as if it were
+/// added to the `&lt;object&gt;` tag defining the widget itself. You may set properties
+/// on a widget by inserting `&lt;property&gt;` tags into the `&lt;template&gt;` tag, and also
+/// add `&lt;child&gt;` tags to add children and extend a widget in the normal way you
+/// would with `&lt;object&gt;` tags.
 /// 
-/// Additionally, &lt;object&gt; tags can also be added before and after the initial
-/// &lt;template&gt; tag in the normal way, allowing one to define auxiliary objects
+/// Additionally, `&lt;object&gt;` tags can also be added before and after the initial
+/// `&lt;template&gt;` tag in the normal way, allowing one to define auxiliary objects
 /// which might be referenced by other widgets declared as children of the
-/// &lt;template&gt; tag.
+/// `&lt;template&gt;` tag.
 /// 
-/// An example of a GtkBuilder Template Definition:
-/// ```
-/// <interface>
-///   <template class="FooWidget" parent="GtkBox">
-///     <property name="orientation">horizontal</property>
-///     <property name="spacing">4</property>
-///     <child>
-///       <object class="GtkButton" id="hello_button">
-///         <property name="label">Hello World</property>
-///         <signal name="clicked" handler="hello_button_clicked" object="FooWidget" swapped="yes"/>
-///       </object>
-///     </child>
-///     <child>
-///       <object class="GtkButton" id="goodbye_button">
-///         <property name="label">Goodbye World</property>
-///       </object>
-///     </child>
-///   </template>
-/// </interface>
+/// An example of a template definition:
+/// 
+/// ```xml
+/// &lt;interface&gt;
+///   &lt;template class="FooWidget" parent="GtkBox"&gt;
+///     &lt;property name="orientation"&gt;horizontal&lt;/property&gt;
+///     &lt;property name="spacing"&gt;4&lt;/property&gt;
+///     &lt;child&gt;
+///       &lt;object class="GtkButton" id="hello_button"&gt;
+///         &lt;property name="label"&gt;Hello World&lt;/property&gt;
+///         &lt;signal name="clicked" handler="hello_button_clicked" object="FooWidget" swapped="yes"/&gt;
+///       &lt;/object&gt;
+///     &lt;/child&gt;
+///     &lt;child&gt;
+///       &lt;object class="GtkButton" id="goodbye_button"&gt;
+///         &lt;property name="label"&gt;Goodbye World&lt;/property&gt;
+///       &lt;/object&gt;
+///     &lt;/child&gt;
+///   &lt;/template&gt;
+/// &lt;/interface&gt;
 /// ```
 /// 
 /// Typically, you'll place the template fragment into a file that is
 /// bundled with your project, using `GResource`. In order to load the
-/// template, you need to call `gtk_widget_class_set_template_from_resource()`
+/// template, you need to call [method`Gtk.WidgetClass.set_template_from_resource`]
 /// from the class initialization of your `GtkWidget` type:
 /// 
-/// (C Language Example):
-/// ```C
+/// ```c
 /// static void
 /// foo_widget_class_init (FooWidgetClass *klass)
 /// {
@@ -2147,11 +2277,10 @@ public protocol WidgetProtocol: GLibObject.InitiallyUnownedProtocol, AccessibleP
 /// }
 /// ```
 /// 
-/// You will also need to call `gtk_widget_init_template()` from the instance
-/// initialization function:
+/// You will also need to call [method`Gtk.Widget.init_template`] from the
+/// instance initialization function:
 /// 
-/// (C Language Example):
-/// ```C
+/// ```c
 /// static void
 /// foo_widget_init (FooWidget *self)
 /// {
@@ -2161,13 +2290,14 @@ public protocol WidgetProtocol: GLibObject.InitiallyUnownedProtocol, AccessibleP
 /// ```
 /// 
 /// You can access widgets defined in the template using the
-/// `gtk_widget_get_template_child()` function, but you will typically declare
+/// [id`gtk_widget_get_template_child`] function, but you will typically declare
 /// a pointer in the instance private data structure of your type using the same
 /// name as the widget in the template definition, and call
-/// `gtk_widget_class_bind_template_child_private()` with that name, e.g.
+/// [method`Gtk.WidgetClass.bind_template_child_full`] (or one of its wrapper macros
+/// [func`Gtk.widget_class_bind_template_child`] and [func`Gtk.widget_class_bind_template_child_private`])
+/// with that name, e.g.
 /// 
-/// (C Language Example):
-/// ```C
+/// ```c
 /// typedef struct {
 ///   GtkWidget *hello_button;
 ///   GtkWidget *goodbye_button;
@@ -2194,12 +2324,12 @@ public protocol WidgetProtocol: GLibObject.InitiallyUnownedProtocol, AccessibleP
 /// }
 /// ```
 /// 
-/// You can also use `gtk_widget_class_bind_template_callback()` to connect a signal
-/// callback defined in the template with a function visible in the scope of the
-/// class, e.g.
+/// You can also use [method`Gtk.WidgetClass.bind_template_callback_full`] (or
+/// is wrapper macro [func`Gtk.widget_class_bind_template_callback`]) to connect
+/// a signal callback defined in the template with a function visible in the
+/// scope of the class, e.g.
 /// 
-/// (C Language Example):
-/// ```C
+/// ```c
 /// // the signal handler has the instance and user data swapped
 /// // because of the swapped="yes" attribute in the template XML
 /// static void
@@ -2218,7 +2348,6 @@ public protocol WidgetProtocol: GLibObject.InitiallyUnownedProtocol, AccessibleP
 ///   gtk_widget_class_bind_template_callback (GTK_WIDGET_CLASS (klass), hello_button_clicked);
 /// }
 /// ```
-/// 
 public struct WidgetRef: WidgetProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkWidget` instance.
     /// For type-safe access, use the generated, typed pointer `widget_ptr` property instead.
@@ -2304,10 +2433,12 @@ public extension WidgetRef {
 /// It provides the methods that can operate on this data type through `WidgetProtocol` conformance.
 /// Use `Widget` as a strong reference or owner of a `GtkWidget` instance.
 ///
-/// GtkWidget is the base class all widgets in GTK derive from. It manages the
-/// widget lifecycle, states and style.
+/// The base class for all widgets.
 /// 
-/// # Height-for-width Geometry Management # <a name="geometry-management"></a>
+/// `GtkWidget` is the base class all widgets in GTK derive from. It manages the
+/// widget lifecycle, layout, states and style.
+/// 
+/// ### Height-for-width Geometry Management
 /// 
 /// GTK uses a height-for-width (and width-for-height) geometry management
 /// system. Height-for-width means that a widget can change how much
@@ -2319,36 +2450,36 @@ public extension WidgetRef {
 /// Height-for-width geometry management is implemented in GTK by way
 /// of two virtual methods:
 /// 
-/// - `GtkWidgetClass.get_request_mode``()`
-/// - `GtkWidgetClass.measure``()`
+/// - [vfunc`Gtk.Widget.get_request_mode`]
+/// - [vfunc`Gtk.Widget.measure`]
 /// 
 /// There are some important things to keep in mind when implementing
 /// height-for-width and when using it in widget implementations.
 /// 
 /// If you implement a direct `GtkWidget` subclass that supports
-/// height-for-width or width-for-height geometry management for
-/// itself or its child widgets, the `GtkWidgetClass.get_request_mode``()`
-/// virtual function must be implemented as well and return the widget's
-/// preferred request mode. The default implementation of this virtual function
+/// height-for-width or width-for-height geometry management for itself
+/// or its child widgets, the [vfunc`Gtk.Widget.get_request_mode`] virtual
+/// function must be implemented as well and return the widget's preferred
+/// request mode. The default implementation of this virtual function
 /// returns `GTK_SIZE_REQUEST_CONSTANT_SIZE`, which means that the widget will
-/// only ever get -1 passed as the for_size value to its `GtkWidgetClass.measure``()`
-/// implementation.
+/// only ever get -1 passed as the for_size value to its
+/// [vfunc`Gtk.Widget.measure`] implementation.
 /// 
 /// The geometry management system will query a widget hierarchy in
 /// only one orientation at a time. When widgets are initially queried
 /// for their minimum sizes it is generally done in two initial passes
-/// in the `GtkSizeRequestMode` chosen by the toplevel.
+/// in the [enum`Gtk.SizeRequestMode`] chosen by the toplevel.
 /// 
-/// For example, when queried in the normal
-/// `GTK_SIZE_REQUEST_HEIGHT_FOR_WIDTH` mode:
+/// For example, when queried in the normal `GTK_SIZE_REQUEST_HEIGHT_FOR_WIDTH` mode:
+/// 
 /// First, the default minimum and natural width for each widget
-/// in the interface will be computed using `gtk_widget_measure()` with an
+/// in the interface will be computed using [id`gtk_widget_measure`] with an
 /// orientation of `GTK_ORIENTATION_HORIZONTAL` and a for_size of -1.
 /// Because the preferred widths for each widget depend on the preferred
 /// widths of their children, this information propagates up the hierarchy,
 /// and finally a minimum and natural width is determined for the entire
 /// toplevel. Next, the toplevel will use the minimum width to query for the
-/// minimum height contextual to that width using `gtk_widget_measure()` with an
+/// minimum height contextual to that width using [id`gtk_widget_measure`] with an
 /// orientation of `GTK_ORIENTATION_VERTICAL` and a for_size of the just computed
 /// width. This will also be a highly recursive operation. The minimum height
 /// for the minimum width is normally used to set the minimum size constraint
@@ -2356,7 +2487,7 @@ public extension WidgetRef {
 /// 
 /// After the toplevel window has initially requested its size in both
 /// dimensions it can go on to allocate itself a reasonable size (or a size
-/// previously specified with `gtk_window_set_default_size()`). During the
+/// previously specified with [method`Gtk.Window.set_default_size`]). During the
 /// recursive allocation process it’s important to note that request cycles
 /// will be recursively executed while widgets allocate their children.
 /// Each widget, once allocated a size, will go on to first share the
@@ -2370,23 +2501,21 @@ public extension WidgetRef {
 /// 
 /// If a widget does move content around to intelligently use up the
 /// allocated size then it must support the request in both
-/// `GtkSizeRequestModes` even if the widget in question only
+/// `GtkSizeRequestMode`s even if the widget in question only
 /// trades sizes in a single orientation.
 /// 
-/// For instance, a `GtkLabel` that does height-for-width word wrapping
-/// will not expect to have `GtkWidgetClass.measure``()` with an orientation of
+/// For instance, a [class`Gtk.Label`] that does height-for-width word wrapping
+/// will not expect to have [vfunc`Gtk.Widget.measure`] with an orientation of
 /// `GTK_ORIENTATION_VERTICAL` called because that call is specific to a
-/// width-for-height request. In this
-/// case the label must return the height required for its own minimum
-/// possible width. By following this rule any widget that handles
-/// height-for-width or width-for-height requests will always be allocated
-/// at least enough space to fit its own content.
+/// width-for-height request. In this case the label must return the height
+/// required for its own minimum possible width. By following this rule any
+/// widget that handles height-for-width or width-for-height requests will
+/// always be allocated at least enough space to fit its own content.
 /// 
 /// Here are some examples of how a `GTK_SIZE_REQUEST_HEIGHT_FOR_WIDTH` widget
 /// generally deals with width-for-height requests:
 /// 
-/// (C Language Example):
-/// ```C
+/// ```c
 /// static void
 /// foo_widget_measure (GtkWidget      *widget,
 ///                     GtkOrientation  orientation,
@@ -2402,24 +2531,24 @@ public extension WidgetRef {
 ///     }
 ///   else // VERTICAL
 ///     {
-///        if (i_am_in_height_for_width_mode)
-///          {
-///            int min_width, dummy;
+///       if (i_am_in_height_for_width_mode)
+///         {
+///           int min_width, dummy;
 /// 
-///            // First, get the minimum width of our widget
-///            GTK_WIDGET_GET_CLASS (widget)->measure (widget, GTK_ORIENTATION_HORIZONTAL, -1,
-///                                                    &min_width, &dummy, &dummy, &dummy);
+///           // First, get the minimum width of our widget
+///           GTK_WIDGET_GET_CLASS (widget)-&gt;measure (widget, GTK_ORIENTATION_HORIZONTAL, -1,
+///                                                   &min_width, &dummy, &dummy, &dummy);
 /// 
-///            // Now use the minimum width to retrieve the minimum and natural height to display
-///            // that width.
-///            GTK_WIDGET_GET_CLASS (widget)->measure (widget, GTK_ORIENTATION_VERTICAL, min_width,
-///                                                    minimum_size, natural_size, &dummy, &dummy);
-///          }
-///        else
-///          {
-///            // ... some widgets do both.
-///          }
-///    }
+///           // Now use the minimum width to retrieve the minimum and natural height to display
+///           // that width.
+///           GTK_WIDGET_GET_CLASS (widget)-&gt;measure (widget, GTK_ORIENTATION_VERTICAL, min_width,
+///                                                   minimum_size, natural_size, &dummy, &dummy);
+///         }
+///       else
+///         {
+///           // ... some widgets do both.
+///         }
+///     }
 /// }
 /// ```
 /// 
@@ -2430,153 +2559,157 @@ public extension WidgetRef {
 /// be careful to call its virtual methods directly, like in the code
 /// example above.
 /// 
-/// It will not work to use the wrapper function `gtk_widget_measure()`
-/// inside your own `GtkWidgetClass.size-allocate``()` implementation.
-/// These return a request adjusted by `GtkSizeGroup`, the widget's align and expand flags
-/// as well as its CSS style.
+/// It will not work to use the wrapper function [method`Gtk.Widget.measure`]
+/// inside your own [vfunc`Gtk.Widget.size_allocate`] implementation.
+/// These return a request adjusted by [class`Gtk.SizeGroup`], the widget's
+/// align and expand flags, as well as its CSS style.
+/// 
 /// If a widget used the wrappers inside its virtual method implementations,
 /// then the adjustments (such as widget margins) would be applied
 /// twice. GTK therefore does not allow this and will warn if you try
 /// to do it.
 /// 
-/// Of course if you are getting the size request for
-/// another widget, such as a child widget, you must use `gtk_widget_measure()`.
-/// Otherwise, you would not properly consider widget margins,
-/// `GtkSizeGroup`, and so forth.
+/// Of course if you are getting the size request for another widget, such
+/// as a child widget, you must use [id`gtk_widget_measure`]; otherwise, you
+/// would not properly consider widget margins, [class`Gtk.SizeGroup`], and
+/// so forth.
 /// 
 /// GTK also supports baseline vertical alignment of widgets. This
 /// means that widgets are positioned such that the typographical baseline of
-/// widgets in the same row are aligned. This happens if a widget supports baselines,
-/// has a vertical alignment of `GTK_ALIGN_BASELINE`, and is inside a widget
-/// that supports baselines and has a natural “row” that it aligns to the baseline,
-/// or a baseline assigned to it by the grandparent.
+/// widgets in the same row are aligned. This happens if a widget supports
+/// baselines, has a vertical alignment of `GTK_ALIGN_BASELINE`, and is inside
+/// a widget that supports baselines and has a natural “row” that it aligns to
+/// the baseline, or a baseline assigned to it by the grandparent.
 /// 
-/// Baseline alignment support for a widget is also done by the `GtkWidgetClass.measure``()`
-/// virtual function. It allows you to report both a minimum and natural size.
+/// Baseline alignment support for a widget is also done by the
+/// [vfunc`Gtk.Widget.measure`] virtual function. It allows you to report
+/// both a minimum and natural size.
 /// 
-/// If a widget ends up baseline aligned it will be allocated all the space in the parent
-/// as if it was `GTK_ALIGN_FILL`, but the selected baseline can be found via `gtk_widget_get_allocated_baseline()`.
-/// If this has a value other than -1 you need to align the widget such that the baseline
+/// If a widget ends up baseline aligned it will be allocated all the space in
+/// the parent as if it was `GTK_ALIGN_FILL`, but the selected baseline can be
+/// found via [id`gtk_widget_get_allocated_baseline`]. If the baseline has a
+/// value other than -1 you need to align the widget such that the baseline
 /// appears at the position.
 /// 
-/// # GtkWidget as GtkBuildable
+/// ### GtkWidget as GtkBuildable
 /// 
-/// The GtkWidget implementation of the `GtkBuildable` interface supports a
-/// custom elements to specify various aspects of widgets that are not
-/// directly expressed as properties.
+/// The `GtkWidget` implementation of the `GtkBuildable` interface
+/// supports various custom elements to specify additional aspects of widgets
+/// that are not directly expressed as properties.
 /// 
-/// If the parent widget uses a `GtkLayoutManager`, `GtkWidget` supports a
-/// custom `&lt;layout&gt;` element, used to define layout properties:
+/// If the widget uses a [class`Gtk.LayoutManager`], `GtkWidget` supports
+/// a custom `&lt;layout&gt;` element, used to define layout properties:
 /// 
+/// ```xml
+/// &lt;object class="GtkGrid" id="my_grid"&gt;
+///   &lt;child&gt;
+///     &lt;object class="GtkLabel" id="label1"&gt;
+///       &lt;property name="label"&gt;Description&lt;/property&gt;
+///       &lt;layout&gt;
+///         &lt;property name="column"&gt;0&lt;/property&gt;
+///         &lt;property name="row"&gt;0&lt;/property&gt;
+///         &lt;property name="row-span"&gt;1&lt;/property&gt;
+///         &lt;property name="column-span"&gt;1&lt;/property&gt;
+///       &lt;/layout&gt;
+///     &lt;/object&gt;
+///   &lt;/child&gt;
+///   &lt;child&gt;
+///     &lt;object class="GtkEntry" id="description_entry"&gt;
+///       &lt;layout&gt;
+///         &lt;property name="column"&gt;1&lt;/property&gt;
+///         &lt;property name="row"&gt;0&lt;/property&gt;
+///         &lt;property name="row-span"&gt;1&lt;/property&gt;
+///         &lt;property name="column-span"&gt;1&lt;/property&gt;
+///       &lt;/layout&gt;
+///     &lt;/object&gt;
+///   &lt;/child&gt;
+/// &lt;/object&gt;
 /// ```
-/// <object class="MyGrid" id="grid1">
-///   <child>
-///     <object class="GtkLabel" id="label1">
-///       <property name="label">Description</property>
-///       <layout>
-///         <property name="column">0</property>
-///         <property name="row">0</property>
-///         <property name="row-span">1</property>
-///         <property name="column-span">1</property>
-///       </layout>
-///     </object>
-///   </child>
-///   <child>
-///     <object class="GtkEntry" id="description_entry">
-///       <layout>
-///         <property name="column">1</property>
-///         <property name="row">0</property>
-///         <property name="row-span">1</property>
-///         <property name="column-span">1</property>
-///       </layout>
-///     </object>
-///   </child>
-/// </object>
-/// ```
 /// 
-/// GtkWidget allows style information such as style classes to
+/// `GtkWidget` allows style information such as style classes to
 /// be associated with widgets, using the custom `&lt;style&gt;` element:
-/// ```
-/// <object class="GtkButton" id="button1">
-///   <style>
-///     <class name="my-special-button-class"/>
-///     <class name="dark-button"/>
-///   </style>
-/// </object>
+/// 
+/// ```xml
+/// &lt;object class="GtkButton" id="button1"&gt;
+///   &lt;style&gt;
+///     &lt;class name="my-special-button-class"/&gt;
+///     &lt;class name="dark-button"/&gt;
+///   &lt;/style&gt;
+/// &lt;/object&gt;
 /// ```
 /// 
-/// GtkWidget allows defining accessibility information, such as properties,
+/// `GtkWidget` allows defining accessibility information, such as properties,
 /// relations, and states, using the custom `&lt;accessibility&gt;` element:
-/// ```
-/// <object class="GtkButton" id="button1">
-///   <accessibility>
-///     <property name="label">Download</property>
-///     <relation name="labelled-by">label1</relation>
-///   </accessibility>
-/// </object>
+/// 
+/// ```xml
+/// &lt;object class="GtkButton" id="button1"&gt;
+///   &lt;accessibility&gt;
+///     &lt;property name="label"&gt;Download&lt;/property&gt;
+///     &lt;relation name="labelled-by"&gt;label1&lt;/relation&gt;
+///   &lt;/accessibility&gt;
+/// &lt;/object&gt;
 /// ```
 /// 
-/// # Building composite widgets from template XML ## <a name="composite-templates"></a>
+/// ### Building composite widgets from template XML
 /// 
-/// GtkWidget exposes some facilities to automate the procedure
-/// of creating composite widgets using `GtkBuilder` interface description
-/// language.
+/// `GtkWidget `exposes some facilities to automate the procedure
+/// of creating composite widgets using "templates".
 /// 
 /// To create composite widgets with `GtkBuilder` XML, one must associate
 /// the interface description with the widget class at class initialization
-/// time using `gtk_widget_class_set_template()`.
+/// time using [method`Gtk.WidgetClass.set_template`].
 /// 
 /// The interface description semantics expected in composite template descriptions
-/// is slightly different from regular `GtkBuilder` XML.
+/// is slightly different from regular [class`Gtk.Builder`] XML.
 /// 
-/// Unlike regular interface descriptions, `gtk_widget_class_set_template()` will
-/// expect a &lt;template&gt; tag as a direct child of the toplevel &lt;interface&gt;
-/// tag. The &lt;template&gt; tag must specify the “class” attribute which must be
+/// Unlike regular interface descriptions, [method`Gtk.WidgetClass.set_template`] will
+/// expect a `&lt;template&gt;` tag as a direct child of the toplevel `&lt;interface&gt;`
+/// tag. The `&lt;template&gt;` tag must specify the “class” attribute which must be
 /// the type name of the widget. Optionally, the “parent” attribute may be
 /// specified to specify the direct parent type of the widget type, this is
-/// ignored by the GtkBuilder but required for Glade to introspect what kind
-/// of properties and internal children exist for a given type when the actual
-/// type does not exist.
+/// ignored by `GtkBuilder` but required for UI design tools like
+/// [Glade](https://glade.gnome.org/) to introspect what kind of properties and
+/// internal children exist for a given type when the actual type does not exist.
 /// 
-/// The XML which is contained inside the &lt;template&gt; tag behaves as if it were
-/// added to the &lt;object&gt; tag defining `widget` itself. You may set properties
-/// on `widget` by inserting &lt;property&gt; tags into the &lt;template&gt; tag, and also
-/// add &lt;child&gt; tags to add children and extend `widget` in the normal way you
-/// would with &lt;object&gt; tags.
+/// The XML which is contained inside the `&lt;template&gt;` tag behaves as if it were
+/// added to the `&lt;object&gt;` tag defining the widget itself. You may set properties
+/// on a widget by inserting `&lt;property&gt;` tags into the `&lt;template&gt;` tag, and also
+/// add `&lt;child&gt;` tags to add children and extend a widget in the normal way you
+/// would with `&lt;object&gt;` tags.
 /// 
-/// Additionally, &lt;object&gt; tags can also be added before and after the initial
-/// &lt;template&gt; tag in the normal way, allowing one to define auxiliary objects
+/// Additionally, `&lt;object&gt;` tags can also be added before and after the initial
+/// `&lt;template&gt;` tag in the normal way, allowing one to define auxiliary objects
 /// which might be referenced by other widgets declared as children of the
-/// &lt;template&gt; tag.
+/// `&lt;template&gt;` tag.
 /// 
-/// An example of a GtkBuilder Template Definition:
-/// ```
-/// <interface>
-///   <template class="FooWidget" parent="GtkBox">
-///     <property name="orientation">horizontal</property>
-///     <property name="spacing">4</property>
-///     <child>
-///       <object class="GtkButton" id="hello_button">
-///         <property name="label">Hello World</property>
-///         <signal name="clicked" handler="hello_button_clicked" object="FooWidget" swapped="yes"/>
-///       </object>
-///     </child>
-///     <child>
-///       <object class="GtkButton" id="goodbye_button">
-///         <property name="label">Goodbye World</property>
-///       </object>
-///     </child>
-///   </template>
-/// </interface>
+/// An example of a template definition:
+/// 
+/// ```xml
+/// &lt;interface&gt;
+///   &lt;template class="FooWidget" parent="GtkBox"&gt;
+///     &lt;property name="orientation"&gt;horizontal&lt;/property&gt;
+///     &lt;property name="spacing"&gt;4&lt;/property&gt;
+///     &lt;child&gt;
+///       &lt;object class="GtkButton" id="hello_button"&gt;
+///         &lt;property name="label"&gt;Hello World&lt;/property&gt;
+///         &lt;signal name="clicked" handler="hello_button_clicked" object="FooWidget" swapped="yes"/&gt;
+///       &lt;/object&gt;
+///     &lt;/child&gt;
+///     &lt;child&gt;
+///       &lt;object class="GtkButton" id="goodbye_button"&gt;
+///         &lt;property name="label"&gt;Goodbye World&lt;/property&gt;
+///       &lt;/object&gt;
+///     &lt;/child&gt;
+///   &lt;/template&gt;
+/// &lt;/interface&gt;
 /// ```
 /// 
 /// Typically, you'll place the template fragment into a file that is
 /// bundled with your project, using `GResource`. In order to load the
-/// template, you need to call `gtk_widget_class_set_template_from_resource()`
+/// template, you need to call [method`Gtk.WidgetClass.set_template_from_resource`]
 /// from the class initialization of your `GtkWidget` type:
 /// 
-/// (C Language Example):
-/// ```C
+/// ```c
 /// static void
 /// foo_widget_class_init (FooWidgetClass *klass)
 /// {
@@ -2587,11 +2720,10 @@ public extension WidgetRef {
 /// }
 /// ```
 /// 
-/// You will also need to call `gtk_widget_init_template()` from the instance
-/// initialization function:
+/// You will also need to call [method`Gtk.Widget.init_template`] from the
+/// instance initialization function:
 /// 
-/// (C Language Example):
-/// ```C
+/// ```c
 /// static void
 /// foo_widget_init (FooWidget *self)
 /// {
@@ -2601,13 +2733,14 @@ public extension WidgetRef {
 /// ```
 /// 
 /// You can access widgets defined in the template using the
-/// `gtk_widget_get_template_child()` function, but you will typically declare
+/// [id`gtk_widget_get_template_child`] function, but you will typically declare
 /// a pointer in the instance private data structure of your type using the same
 /// name as the widget in the template definition, and call
-/// `gtk_widget_class_bind_template_child_private()` with that name, e.g.
+/// [method`Gtk.WidgetClass.bind_template_child_full`] (or one of its wrapper macros
+/// [func`Gtk.widget_class_bind_template_child`] and [func`Gtk.widget_class_bind_template_child_private`])
+/// with that name, e.g.
 /// 
-/// (C Language Example):
-/// ```C
+/// ```c
 /// typedef struct {
 ///   GtkWidget *hello_button;
 ///   GtkWidget *goodbye_button;
@@ -2634,12 +2767,12 @@ public extension WidgetRef {
 /// }
 /// ```
 /// 
-/// You can also use `gtk_widget_class_bind_template_callback()` to connect a signal
-/// callback defined in the template with a function visible in the scope of the
-/// class, e.g.
+/// You can also use [method`Gtk.WidgetClass.bind_template_callback_full`] (or
+/// is wrapper macro [func`Gtk.widget_class_bind_template_callback`]) to connect
+/// a signal callback defined in the template with a function visible in the
+/// scope of the class, e.g.
 /// 
-/// (C Language Example):
-/// ```C
+/// ```c
 /// // the signal handler has the instance and user data swapped
 /// // because of the swapped="yes" attribute in the template XML
 /// static void
@@ -2658,7 +2791,6 @@ public extension WidgetRef {
 ///   gtk_widget_class_bind_template_callback (GTK_WIDGET_CLASS (klass), hello_button_clicked);
 /// }
 /// ```
-/// 
 open class Widget: GLibObject.InitiallyUnowned, WidgetProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -2795,6 +2927,7 @@ public enum WidgetPropertyName: String, PropertyNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case canFocus = "can-focus"
+    /// Whether the widget can receive pointer events.
     case canTarget = "can-target"
     /// A list of css classes applied to this widget.
     case cssClasses = "css-classes"
@@ -2803,7 +2936,7 @@ public enum WidgetPropertyName: String, PropertyNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case cssName = "css-name"
-    /// The cursor used by `widget`. See `gtk_widget_set_cursor()` for details.
+    /// The cursor used by `widget`.
     case cursor = "cursor"
     /// Whether the widget should grab focus when it is clicked with the mouse.
     /// 
@@ -2811,19 +2944,25 @@ public enum WidgetPropertyName: String, PropertyNameProtocol {
     case focusOnClick = "focus-on-click"
     /// Whether this widget itself will accept the input focus.
     case focusable = "focusable"
-    /// How to distribute horizontal space if widget gets extra space, see `GtkAlign`
+    /// How to distribute horizontal space if widget gets extra space.
     case halign = "halign"
+    /// Whether the widget is the default widget.
     case hasDefault = "has-default"
+    /// Whether the widget has the input focus.
     case hasFocus = "has-focus"
-    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
+    /// Enables or disables the emission of the `query-tooltip` signal on `widget`.
+    /// 
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
-    /// whether it will provide a tooltip or not.
+    /// the widget will be queried using [signal`Gtk.Widget::query-tooltip`] to
+    /// determine whether it will provide a tooltip or not.
     case hasTooltip = "has-tooltip"
+    /// Override for height request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case heightRequest = "height-request"
-    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
+    /// Whether to expand horizontally.
     case hexpand = "hexpand"
-    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
+    /// Whether to use the `hexpand` property.
     case hexpandSet = "hexpand-set"
     /// The `GtkLayoutManager` instance to use to compute the preferred size
     /// of the widget, and allocate its children.
@@ -2835,77 +2974,91 @@ public enum WidgetPropertyName: String, PropertyNameProtocol {
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginBottom = "margin-bottom"
-    /// Margin on end of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on end of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginEnd = "margin-end"
-    /// Margin on start of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on start of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginStart = "margin-start"
     /// Margin on top side of widget.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginTop = "margin-top"
+    /// The name of the widget.
     case name = "name"
-    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
-    /// more details about window opacity.
+    /// The requested opacity of the widget.
     case opacity = "opacity"
     /// How content outside the widget's content area is treated.
     /// 
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case overflow = "overflow"
+    /// The parent widget of this widget.
     case parent = "parent"
+    /// Whether the widget will receive the default action when it is focused.
     case receivesDefault = "receives-default"
-    /// The `GtkRoot` widget of the widget tree containing this widget or `nil` if
-    /// the widget is not contained in a root widget.
+    /// The `GtkRoot` widget of the widget tree containing this widget.
+    /// 
+    /// This will be `nil` if the widget is not contained in a root widget.
     case root = "root"
-    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
-    /// more details about widget scaling.
+    /// The scale factor of the widget.
     case scaleFactor = "scale-factor"
+    /// Whether the widget responds to input.
     case sensitive = "sensitive"
     /// Sets the text of tooltip to be the given string, which is marked up
-    /// with the [Pango text markup language](#PangoMarkupFormat).
-    /// Also see `gtk_tooltip_set_markup()`.
+    /// with Pango markup.
+    /// 
+    /// Also see [method`Gtk.Tooltip.set_markup`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case tooltipMarkup = "tooltip-markup"
     /// Sets the text of tooltip to be the given string.
     /// 
-    /// Also see `gtk_tooltip_set_text()`.
+    /// Also see [method`Gtk.Tooltip.set_text`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case tooltipText = "tooltip-text"
-    /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
+    /// How to distribute vertical space if widget gets extra space.
     case valign = "valign"
-    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
+    /// Whether to expand vertically.
     case vexpand = "vexpand"
-    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
+    /// Whether to use the `vexpand` property.
     case vexpandSet = "vexpand-set"
+    /// Whether the widget is visible.
     case visible = "visible"
+    /// Override for width request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case widthRequest = "width-request"
 }
 
@@ -2964,29 +3117,32 @@ public extension WidgetProtocol {
 
 public enum WidgetSignalName: String, SignalNameProtocol {
     /// Signals that all holders of a reference to the widget should release
-    /// the reference that they hold. May result in finalization of the widget
-    /// if all references are released.
+    /// the reference that they hold.
+    /// 
+    /// May result in finalization of the widget if all references are released.
     /// 
     /// This signal is not suitable for saving widget state.
     case destroy = "destroy"
-    /// The `direction-changed` signal is emitted when the text direction
-    /// of a widget changes.
+    /// Emitted when the text direction of a widget changes.
     case directionChanged = "direction-changed"
-    /// The `hide` signal is emitted when `widget` is hidden, for example with
-    /// `gtk_widget_hide()`.
+    /// Emitted when `widget` is hidden.
     case hide = "hide"
-    /// Gets emitted if keyboard navigation fails.
-    /// See `gtk_widget_keynav_failed()` for details.
+    /// Emitted if keyboard navigation fails.
+    /// 
+    /// See [method`Gtk.Widget.keynav_failed`] for details.
     case keynavFailed = "keynav-failed"
-    /// The `map` signal is emitted when `widget` is going to be mapped, that is
-    /// when the widget is visible (which is controlled with
-    /// `gtk_widget_set_visible()`) and all its parents up to the toplevel widget
+    /// Emitted when `widget` is going to be mapped.
+    /// 
+    /// A widget is mapped when the widget is visible (which is controlled with
+    /// [property`Gtk.Widget:visible`]) and all its parents up to the toplevel widget
     /// are also visible.
     /// 
     /// The `map` signal can be used to determine whether a widget will be drawn,
     /// for instance it can resume an animation that was stopped during the
-    /// emission of `GtkWidget::unmap`.
+    /// emission of [signal`Gtk.Widget::unmap`].
     case map = "map"
+    /// Emitted when a widget is activated via a mnemonic.
+    /// 
     /// The default handler for this signal activates `widget` if `group_cycling`
     /// is `false`, or just makes `widget` grab focus if `group_cycling` is `true`.
     case mnemonicActivate = "mnemonic-activate"
@@ -3017,9 +3173,11 @@ public enum WidgetSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// Emitted when `GtkWidget:has-tooltip` is `true` and the hover timeout
-    /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
-    /// focus in keyboard mode.
+    /// Emitted when the widgets tooltip is about to be shown.
+    /// 
+    /// This happens when the [property`Gtk.Widget:has-tooltip`] property
+    /// is `true` and the hover timeout has expired with the cursor hovering
+    /// "above" `widget`; or emitted when `widget` got focus in keyboard mode.
     /// 
     /// Using the given coordinates, the signal handler should determine
     /// whether a tooltip should be shown for `widget`. If this is the case
@@ -3030,27 +3188,29 @@ public enum WidgetSignalName: String, SignalNameProtocol {
     /// The signal handler is free to manipulate `tooltip` with the therefore
     /// destined function calls.
     case queryTooltip = "query-tooltip"
-    /// The `realize` signal is emitted when `widget` is associated with a
-    /// `GdkSurface`, which means that `gtk_widget_realize()` has been called or the
-    /// widget has been mapped (that is, it is going to be drawn).
-    case realize = "realize"
-    /// The `show` signal is emitted when `widget` is shown, for example with
-    /// `gtk_widget_show()`.
-    case show = "show"
-    /// The `state-flags-changed` signal is emitted when the widget state
-    /// changes, see `gtk_widget_get_state_flags()`.
-    case stateFlagsChanged = "state-flags-changed"
-    /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
-    /// means that either it or any of its parents up to the toplevel widget have
-    /// been set as hidden.
+    /// Emitted when `widget` is associated with a `GdkSurface`.
     /// 
-    /// As `unmap` indicates that a widget will not be shown any longer, it can be
-    /// used to, for example, stop an animation on the widget.
+    /// This means that [method`Gtk.Widget.realize`] has been called
+    /// or the widget has been mapped (that is, it is going to be drawn).
+    case realize = "realize"
+    /// Emitted when `widget` is shown.
+    case show = "show"
+    /// Emitted when the widget state changes.
+    /// 
+    /// See [method`Gtk.Widget.get_state_flags`].
+    case stateFlagsChanged = "state-flags-changed"
+    /// Emitted when `widget` is going to be unmapped.
+    /// 
+    /// A widget is unmapped when either it or any of its parents up to the
+    /// toplevel widget have been set as hidden.
+    /// 
+    /// As `unmap` indicates that a widget will not be shown any longer,
+    /// it can be used to, for example, stop an animation on the widget.
     case unmap = "unmap"
-    /// The `unrealize` signal is emitted when the `GdkSurface` associated with
-    /// `widget` is destroyed, which means that `gtk_widget_unrealize()` has been
-    /// called or the widget has been unmapped (that is, it is going to be
-    /// hidden).
+    /// Emitted when the `GdkSurface` associated with `widget` is destroyed.
+    /// 
+    /// This means that [method`Gtk.Widget.unrealize`] has been called
+    /// or the widget has been unmapped (that is, it is going to be hidden).
     case unrealize = "unrealize"
     /// Whether the widget or any of its descendents can accept
     /// the input focus.
@@ -3058,6 +3218,7 @@ public enum WidgetSignalName: String, SignalNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case notifyCanFocus = "notify::can-focus"
+    /// Whether the widget can receive pointer events.
     case notifyCanTarget = "notify::can-target"
     /// A list of css classes applied to this widget.
     case notifyCssClasses = "notify::css-classes"
@@ -3066,7 +3227,7 @@ public enum WidgetSignalName: String, SignalNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case notifyCssName = "notify::css-name"
-    /// The cursor used by `widget`. See `gtk_widget_set_cursor()` for details.
+    /// The cursor used by `widget`.
     case notifyCursor = "notify::cursor"
     /// Whether the widget should grab focus when it is clicked with the mouse.
     /// 
@@ -3074,19 +3235,25 @@ public enum WidgetSignalName: String, SignalNameProtocol {
     case notifyFocusOnClick = "notify::focus-on-click"
     /// Whether this widget itself will accept the input focus.
     case notifyFocusable = "notify::focusable"
-    /// How to distribute horizontal space if widget gets extra space, see `GtkAlign`
+    /// How to distribute horizontal space if widget gets extra space.
     case notifyHalign = "notify::halign"
+    /// Whether the widget is the default widget.
     case notifyHasDefault = "notify::has-default"
+    /// Whether the widget has the input focus.
     case notifyHasFocus = "notify::has-focus"
-    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
+    /// Enables or disables the emission of the `query-tooltip` signal on `widget`.
+    /// 
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
-    /// whether it will provide a tooltip or not.
+    /// the widget will be queried using [signal`Gtk.Widget::query-tooltip`] to
+    /// determine whether it will provide a tooltip or not.
     case notifyHasTooltip = "notify::has-tooltip"
+    /// Override for height request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case notifyHeightRequest = "notify::height-request"
-    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
+    /// Whether to expand horizontally.
     case notifyHexpand = "notify::hexpand"
-    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
+    /// Whether to use the `hexpand` property.
     case notifyHexpandSet = "notify::hexpand-set"
     /// The `GtkLayoutManager` instance to use to compute the preferred size
     /// of the widget, and allocate its children.
@@ -3098,77 +3265,91 @@ public enum WidgetSignalName: String, SignalNameProtocol {
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginBottom = "notify::margin-bottom"
-    /// Margin on end of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on end of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginEnd = "notify::margin-end"
-    /// Margin on start of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on start of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginStart = "notify::margin-start"
     /// Margin on top side of widget.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginTop = "notify::margin-top"
+    /// The name of the widget.
     case notifyName = "notify::name"
-    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
-    /// more details about window opacity.
+    /// The requested opacity of the widget.
     case notifyOpacity = "notify::opacity"
     /// How content outside the widget's content area is treated.
     /// 
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case notifyOverflow = "notify::overflow"
+    /// The parent widget of this widget.
     case notifyParent = "notify::parent"
+    /// Whether the widget will receive the default action when it is focused.
     case notifyReceivesDefault = "notify::receives-default"
-    /// The `GtkRoot` widget of the widget tree containing this widget or `nil` if
-    /// the widget is not contained in a root widget.
+    /// The `GtkRoot` widget of the widget tree containing this widget.
+    /// 
+    /// This will be `nil` if the widget is not contained in a root widget.
     case notifyRoot = "notify::root"
-    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
-    /// more details about widget scaling.
+    /// The scale factor of the widget.
     case notifyScaleFactor = "notify::scale-factor"
+    /// Whether the widget responds to input.
     case notifySensitive = "notify::sensitive"
     /// Sets the text of tooltip to be the given string, which is marked up
-    /// with the [Pango text markup language](#PangoMarkupFormat).
-    /// Also see `gtk_tooltip_set_markup()`.
+    /// with Pango markup.
+    /// 
+    /// Also see [method`Gtk.Tooltip.set_markup`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case notifyTooltipMarkup = "notify::tooltip-markup"
     /// Sets the text of tooltip to be the given string.
     /// 
-    /// Also see `gtk_tooltip_set_text()`.
+    /// Also see [method`Gtk.Tooltip.set_text`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case notifyTooltipText = "notify::tooltip-text"
-    /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
+    /// How to distribute vertical space if widget gets extra space.
     case notifyValign = "notify::valign"
-    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
+    /// Whether to expand vertically.
     case notifyVexpand = "notify::vexpand"
-    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
+    /// Whether to use the `vexpand` property.
     case notifyVexpandSet = "notify::vexpand-set"
+    /// Whether the widget is visible.
     case notifyVisible = "notify::visible"
+    /// Override for width request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case notifyWidthRequest = "notify::width-request"
 }
 
@@ -3201,8 +3382,9 @@ public extension WidgetProtocol {
     
     
     /// Signals that all holders of a reference to the widget should release
-    /// the reference that they hold. May result in finalization of the widget
-    /// if all references are released.
+    /// the reference that they hold.
+    /// 
+    /// May result in finalization of the widget if all references are released.
     /// 
     /// This signal is not suitable for saving widget state.
     /// - Note: This represents the underlying `destroy` signal
@@ -3229,8 +3411,7 @@ public extension WidgetProtocol {
     /// Typed `destroy` signal for using the `connect(signal:)` methods
     static var destroySignal: WidgetSignalName { .destroy }
     
-    /// The `direction-changed` signal is emitted when the text direction
-    /// of a widget changes.
+    /// Emitted when the text direction of a widget changes.
     /// - Note: This represents the underlying `direction-changed` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -3256,8 +3437,7 @@ public extension WidgetProtocol {
     /// Typed `direction-changed` signal for using the `connect(signal:)` methods
     static var directionChangedSignal: WidgetSignalName { .directionChanged }
     
-    /// The `hide` signal is emitted when `widget` is hidden, for example with
-    /// `gtk_widget_hide()`.
+    /// Emitted when `widget` is hidden.
     /// - Note: This represents the underlying `hide` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -3282,13 +3462,14 @@ public extension WidgetProtocol {
     /// Typed `hide` signal for using the `connect(signal:)` methods
     static var hideSignal: WidgetSignalName { .hide }
     
-    /// Gets emitted if keyboard navigation fails.
-    /// See `gtk_widget_keynav_failed()` for details.
+    /// Emitted if keyboard navigation fails.
+    /// 
+    /// See [method`Gtk.Widget.keynav_failed`] for details.
     /// - Note: This represents the underlying `keynav-failed` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter direction: the direction of movement
-    /// - Parameter handler: `true` if stopping keyboard navigation is fine, `false`          if the emitting widget should try to handle the keyboard          navigation attempt in its parent `widget(s)`.
+    /// - Parameter handler: `true` if stopping keyboard navigation is fine, `false`   if the emitting widget should try to handle the keyboard   navigation attempt in its parent `widget(s)`.
     /// Run the given callback whenever the `keynavFailed` signal is emitted
     @discardableResult @inlinable func onKeynavFailed(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WidgetRef, _ direction: DirectionType) -> Bool ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<WidgetRef, DirectionType, Bool>
@@ -3309,14 +3490,15 @@ public extension WidgetProtocol {
     /// Typed `keynav-failed` signal for using the `connect(signal:)` methods
     static var keynavFailedSignal: WidgetSignalName { .keynavFailed }
     
-    /// The `map` signal is emitted when `widget` is going to be mapped, that is
-    /// when the widget is visible (which is controlled with
-    /// `gtk_widget_set_visible()`) and all its parents up to the toplevel widget
+    /// Emitted when `widget` is going to be mapped.
+    /// 
+    /// A widget is mapped when the widget is visible (which is controlled with
+    /// [property`Gtk.Widget:visible`]) and all its parents up to the toplevel widget
     /// are also visible.
     /// 
     /// The `map` signal can be used to determine whether a widget will be drawn,
     /// for instance it can resume an animation that was stopped during the
-    /// emission of `GtkWidget::unmap`.
+    /// emission of [signal`Gtk.Widget::unmap`].
     /// - Note: This represents the underlying `map` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -3341,6 +3523,8 @@ public extension WidgetProtocol {
     /// Typed `map` signal for using the `connect(signal:)` methods
     static var mapSignal: WidgetSignalName { .map }
     
+    /// Emitted when a widget is activated via a mnemonic.
+    /// 
     /// The default handler for this signal activates `widget` if `group_cycling`
     /// is `false`, or just makes `widget` grab focus if `group_cycling` is `true`.
     /// - Note: This represents the underlying `mnemonic-activate` signal
@@ -3394,9 +3578,11 @@ public extension WidgetProtocol {
     /// Typed `move-focus` signal for using the `connect(signal:)` methods
     static var moveFocusSignal: WidgetSignalName { .moveFocus }
     
-    /// Emitted when `GtkWidget:has-tooltip` is `true` and the hover timeout
-    /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
-    /// focus in keyboard mode.
+    /// Emitted when the widgets tooltip is about to be shown.
+    /// 
+    /// This happens when the [property`Gtk.Widget:has-tooltip`] property
+    /// is `true` and the hover timeout has expired with the cursor hovering
+    /// "above" `widget`; or emitted when `widget` got focus in keyboard mode.
     /// 
     /// Using the given coordinates, the signal handler should determine
     /// whether a tooltip should be shown for `widget`. If this is the case
@@ -3434,9 +3620,10 @@ public extension WidgetProtocol {
     /// Typed `query-tooltip` signal for using the `connect(signal:)` methods
     static var queryTooltipSignal: WidgetSignalName { .queryTooltip }
     
-    /// The `realize` signal is emitted when `widget` is associated with a
-    /// `GdkSurface`, which means that `gtk_widget_realize()` has been called or the
-    /// widget has been mapped (that is, it is going to be drawn).
+    /// Emitted when `widget` is associated with a `GdkSurface`.
+    /// 
+    /// This means that [method`Gtk.Widget.realize`] has been called
+    /// or the widget has been mapped (that is, it is going to be drawn).
     /// - Note: This represents the underlying `realize` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -3461,8 +3648,7 @@ public extension WidgetProtocol {
     /// Typed `realize` signal for using the `connect(signal:)` methods
     static var realizeSignal: WidgetSignalName { .realize }
     
-    /// The `show` signal is emitted when `widget` is shown, for example with
-    /// `gtk_widget_show()`.
+    /// Emitted when `widget` is shown.
     /// - Note: This represents the underlying `show` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -3487,8 +3673,9 @@ public extension WidgetProtocol {
     /// Typed `show` signal for using the `connect(signal:)` methods
     static var showSignal: WidgetSignalName { .show }
     
-    /// The `state-flags-changed` signal is emitted when the widget state
-    /// changes, see `gtk_widget_get_state_flags()`.
+    /// Emitted when the widget state changes.
+    /// 
+    /// See [method`Gtk.Widget.get_state_flags`].
     /// - Note: This represents the underlying `state-flags-changed` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -3514,12 +3701,13 @@ public extension WidgetProtocol {
     /// Typed `state-flags-changed` signal for using the `connect(signal:)` methods
     static var stateFlagsChangedSignal: WidgetSignalName { .stateFlagsChanged }
     
-    /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
-    /// means that either it or any of its parents up to the toplevel widget have
-    /// been set as hidden.
+    /// Emitted when `widget` is going to be unmapped.
     /// 
-    /// As `unmap` indicates that a widget will not be shown any longer, it can be
-    /// used to, for example, stop an animation on the widget.
+    /// A widget is unmapped when either it or any of its parents up to the
+    /// toplevel widget have been set as hidden.
+    /// 
+    /// As `unmap` indicates that a widget will not be shown any longer,
+    /// it can be used to, for example, stop an animation on the widget.
     /// - Note: This represents the underlying `unmap` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -3544,10 +3732,10 @@ public extension WidgetProtocol {
     /// Typed `unmap` signal for using the `connect(signal:)` methods
     static var unmapSignal: WidgetSignalName { .unmap }
     
-    /// The `unrealize` signal is emitted when the `GdkSurface` associated with
-    /// `widget` is destroyed, which means that `gtk_widget_unrealize()` has been
-    /// called or the widget has been unmapped (that is, it is going to be
-    /// hidden).
+    /// Emitted when the `GdkSurface` associated with `widget` is destroyed.
+    /// 
+    /// This means that [method`Gtk.Widget.unrealize`] has been called
+    /// or the widget has been unmapped (that is, it is going to be hidden).
     /// - Note: This represents the underlying `unrealize` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -5253,9 +5441,10 @@ public extension WidgetProtocol {
     }
 
     /// For widgets that can be “activated” (buttons, menu items, etc.)
-    /// this function activates them. The activation will emit the signal
-    /// set using `gtk_widget_class_set_activate_signal()` during class
-    /// initialization.
+    /// this function activates them.
+    /// 
+    /// The activation will emit the signal set using
+    /// `gtk_widget_class_set_activate_signal()` during class initialization.
     /// 
     /// Activation is what happens when you press Enter on a widget during
     /// key navigation.
@@ -5274,128 +5463,143 @@ public extension WidgetProtocol {
     // *** activateAction() is not available because it has a varargs (...) parameter!
 
 
-    /// Looks up the action in the action groups associated
-    /// with `widget` and its ancestors, and activates it.
+    /// Looks up the action in the action groups associated with
+    /// `widget` and its ancestors, and activates it.
     /// 
     /// If the action is in an action group added with
-    /// `gtk_widget_insert_action_group()`, the `name` is
-    /// expected to be prefixed with the prefix that was
-    /// used when the group was inserted.
+    /// [method`Gtk.Widget.insert_action_group`], the `name` is expected
+    /// to be prefixed with the prefix that was used when the group was
+    /// inserted.
     /// 
-    /// The arguments must match the actions expected parameter
-    /// type, as returned by `g_action_get_parameter_type()`.
+    /// The arguments must match the actions expected parameter type,
+    /// as returned by ``g_action_get_parameter_type()``.
     @inlinable func activateActionVariant(name: UnsafePointer<CChar>!, args: GLib.VariantRef? = nil) -> Bool {
         let rv = ((gtk_widget_activate_action_variant(widget_ptr, name, args?.variant_ptr)) != 0)
         return rv
     }
-    /// Looks up the action in the action groups associated
-    /// with `widget` and its ancestors, and activates it.
+    /// Looks up the action in the action groups associated with
+    /// `widget` and its ancestors, and activates it.
     /// 
     /// If the action is in an action group added with
-    /// `gtk_widget_insert_action_group()`, the `name` is
-    /// expected to be prefixed with the prefix that was
-    /// used when the group was inserted.
+    /// [method`Gtk.Widget.insert_action_group`], the `name` is expected
+    /// to be prefixed with the prefix that was used when the group was
+    /// inserted.
     /// 
-    /// The arguments must match the actions expected parameter
-    /// type, as returned by `g_action_get_parameter_type()`.
+    /// The arguments must match the actions expected parameter type,
+    /// as returned by ``g_action_get_parameter_type()``.
     @inlinable func activateActionVariant<VariantT: GLib.VariantProtocol>(name: UnsafePointer<CChar>!, args: VariantT?) -> Bool {
         let rv = ((gtk_widget_activate_action_variant(widget_ptr, name, args?.variant_ptr)) != 0)
         return rv
     }
 
-    /// Activate the default.activate action from `widget`.
+    /// Activates the `default.activate` action from `widget`.
     @inlinable func activateDefault() {
         gtk_widget_activate_default(widget_ptr)
     
     }
 
-    /// Adds `controller` to `widget` so that it will receive events. You will
-    /// usually want to call this function right after creating any kind of
-    /// `GtkEventController`.
+    /// Adds `controller` to `widget` so that it will receive events.
+    /// 
+    /// You will usually want to call this function right after
+    /// creating any kind of [class`Gtk.EventController`].
     @inlinable func add<EventControllerT: EventControllerProtocol>(controller: EventControllerT) {
         gtk_widget_add_controller(widget_ptr, controller.event_controller_ptr)
     
     }
 
-    /// Adds `css_class` to `widget`. After calling this function, `widget`'s
-    /// style will match for `css_class`, after the CSS matching rules.
+    /// Adds a style class to `widget`.
+    /// 
+    /// After calling this function, the widgets style will match
+    /// for `css_class`, according to CSS matching rules.
+    /// 
+    /// Use [method`Gtk.Widget.remove_css_class`] to remove the
+    /// style again.
     @inlinable func add(cssClass: UnsafePointer<CChar>!) {
         gtk_widget_add_css_class(widget_ptr, cssClass)
     
     }
 
-    /// Adds a widget to the list of mnemonic labels for
-    /// this widget. (See `gtk_widget_list_mnemonic_labels()`). Note the
+    /// Adds a widget to the list of mnemonic labels for this widget.
+    /// 
+    /// See [method`Gtk.Widget.list_mnemonic_labels`]. Note the
     /// list of mnemonic labels for the widget is cleared when the
     /// widget is destroyed, so the caller must make sure to update
     /// its internal state at this point as well, by using a connection
-    /// to the `GtkWidget::destroy` signal or a weak notifier.
+    /// to the [signal`Gtk.Widget::destroy`] signal or a weak notifier.
     @inlinable func addMnemonic<WidgetT: WidgetProtocol>(label: WidgetT) {
         gtk_widget_add_mnemonic_label(widget_ptr, label.widget_ptr)
     
     }
 
     /// Queues an animation frame update and adds a callback to be called
-    /// before each frame. Until the tick callback is removed, it will be
-    /// called frequently (usually at the frame rate of the output device
-    /// or as quickly as the application can be repainted, whichever is
-    /// slower). For this reason, is most suitable for handling graphics
-    /// that change every frame or every few frames. The tick callback does
-    /// not automatically imply a relayout or repaint. If you want a
-    /// repaint or relayout, and aren’t changing widget properties that
-    /// would trigger that (for example, changing the text of a `GtkLabel`),
-    /// then you will have to call `gtk_widget_queue_resize()` or
-    /// `gtk_widget_queue_draw()` yourself.
+    /// before each frame.
     /// 
-    /// `gdk_frame_clock_get_frame_time()` should generally be used for timing
-    /// continuous animations and
-    /// `gdk_frame_timings_get_predicted_presentation_time()` if you are
+    /// Until the tick callback is removed, it will be called frequently
+    /// (usually at the frame rate of the output device or as quickly as
+    /// the application can be repainted, whichever is slower). For this
+    /// reason, is most suitable for handling graphics that change every
+    /// frame or every few frames. The tick callback does not automatically
+    /// imply a relayout or repaint. If you want a repaint or relayout, and
+    /// aren’t changing widget properties that would trigger that (for example,
+    /// changing the text of a `GtkLabel`), then you will have to call
+    /// [method`Gtk.Widget.queue_resize`] or [method`Gtk.Widget.queue_draw`]
+    /// yourself.
+    /// 
+    /// [method`Gdk.FrameClock.get_frame_time`] should generally be used
+    /// for timing continuous animations and
+    /// [method`Gdk.FrameTimings.get_predicted_presentation_time`] if you are
     /// trying to display isolated frames at particular times.
     /// 
     /// This is a more convenient alternative to connecting directly to the
-    /// `GdkFrameClock::update` signal of `GdkFrameClock`, since you don't
-    /// have to worry about when a `GdkFrameClock` is assigned to a widget.
+    /// [signal`Gdk.FrameClock::update`] signal of `GdkFrameClock`, since you
+    /// don't have to worry about when a `GdkFrameClock` is assigned to a widget.
     @inlinable func addTick(callback: GtkTickCallback?, userData: gpointer! = nil, notify: GDestroyNotify?) -> Int {
         let rv = Int(gtk_widget_add_tick_callback(widget_ptr, callback, userData, notify))
         return rv
     }
 
-    /// This function is only used by `GtkWidget` subclasses, to assign a size,
-    /// position and (optionally) baseline to their child widgets.
+    /// This function is only used by `GtkWidget` subclasses, to
+    /// assign a size, position and (optionally) baseline to their
+    /// child widgets.
     /// 
-    /// In this function, the allocation and baseline may be adjusted. The given
-    /// allocation will be forced to be bigger than the widget's minimum size,
-    /// as well as at least 0×0 in size.
+    /// In this function, the allocation and baseline may be adjusted.
+    /// The given allocation will be forced to be bigger than the
+    /// widget's minimum size, as well as at least 0×0 in size.
     /// 
-    /// For a version that does not take a transform, see `gtk_widget_size_allocate()`
+    /// For a version that does not take a transform, see
+    /// [method`Gtk.Widget.size_allocate`].
     @inlinable func allocate(width: Int, height: Int, baseline: Int, transform: UnsafeMutablePointer<GskTransform>? = nil) {
         gtk_widget_allocate(widget_ptr, gint(width), gint(height), gint(baseline), transform)
     
     }
 
+    /// Called by widgets as the user moves around the window using
+    /// keyboard shortcuts.
+    /// 
+    /// The `direction` argument indicates what kind of motion is taking place (up,
+    /// down, left, right, tab forward, tab backward).
+    /// 
+    /// This function calls the [vfunc`Gtk.Widget.focus`] virtual function; widgets
+    /// can override the virtual function in order to implement appropriate focus
+    /// behavior.
+    /// 
+    /// The default ``focus()`` virtual function for a widget should return `TRUE` if
+    /// moving in `direction` left the focus on a focusable location inside that
+    /// widget, and `FALSE` if moving in `direction` moved the focus outside the
+    /// widget. When returning `TRUE`, widgets normallycall [method`Gtk.Widget.grab_focus`]
+    /// to place the focus accordingly; when returning `FALSE`, they don’t modify
+    /// the current focus location.
+    /// 
     /// This function is used by custom widget implementations; if you're
-    /// writing an app, you’d use `gtk_widget_grab_focus()` to move the focus
-    /// to a particular widget.
-    /// 
-    /// `gtk_widget_child_focus()` is called by widgets as the user moves
-    /// around the window using keyboard shortcuts. `direction` indicates
-    /// what kind of motion is taking place (up, down, left, right, tab
-    /// forward, tab backward). `gtk_widget_child_focus()` calls the
-    /// `GtkWidgetClass.focus``()` vfunc; widgets override this vfunc
-    /// in order to implement appropriate focus behavior.
-    /// 
-    /// The default `focus()` vfunc for a widget should return `true` if
-    /// moving in `direction` left the focus on a focusable location inside
-    /// that widget, and `false` if moving in `direction` moved the focus
-    /// outside the widget. If returning `true`, widgets normally
-    /// call `gtk_widget_grab_focus()` to place the focus accordingly;
-    /// if returning `false`, they don’t modify the current focus location.
+    /// writing an app, you’d use [method`Gtk.Widget.grab_focus`] to move
+    /// the focus to a particular widget.
     @inlinable func childFocus(direction: GtkDirectionType) -> Bool {
         let rv = ((gtk_widget_child_focus(widget_ptr, direction)) != 0)
         return rv
     }
 
     /// Computes the bounds for `widget` in the coordinate space of `target`.
+    /// 
     /// FIXME: Explain what "bounds" are.
     /// 
     /// If the operation is successful, `true` is returned. If `widget` has no
@@ -5409,9 +5613,11 @@ public extension WidgetProtocol {
         return rv
     }
 
-    /// Computes whether a container should give this widget extra space
-    /// when possible. Containers should check this, rather than
-    /// looking at `gtk_widget_get_hexpand()` or `gtk_widget_get_vexpand()`.
+    /// Computes whether a container should give this widget
+    /// extra space when possible.
+    /// 
+    /// Containers should check this, rather than looking at
+    /// [method`Gtk.Widget.get_hexpand`] or [method`Gtk.Widget.get_vexpand`].
     /// 
     /// This function already checks whether the widget is visible, so
     /// visibility does not need to be checked separately. Non-visible
@@ -5426,8 +5632,10 @@ public extension WidgetProtocol {
     }
 
     /// Translates the given `point` in `widget`'s coordinates to coordinates
-    /// relative to `target`’s coordinate system. In order to perform this
-    /// operation, both widgets must share a common root.
+    /// relative to `target`’s coordinate system.
+    /// 
+    /// In order to perform this operation, both widgets must share a
+    /// common ancestor.
     @inlinable func computePoint<WidgetT: WidgetProtocol>(target: WidgetT, point: UnsafePointer<graphene_point_t>!, outPoint: UnsafeMutablePointer<graphene_point_t>!) -> Bool {
         let rv = ((gtk_widget_compute_point(widget_ptr, target.widget_ptr, point, outPoint)) != 0)
         return rv
@@ -5451,7 +5659,9 @@ public extension WidgetProtocol {
 
     /// Creates a new `PangoContext` with the appropriate font map,
     /// font options, font description, and base direction for drawing
-    /// text for this widget. See also `gtk_widget_get_pango_context()`.
+    /// text for this widget.
+    /// 
+    /// See also [method`Gtk.Widget.get_pango_context`].
     @inlinable func createPangoContext() -> Pango.ContextRef! {
         let rv = Pango.ContextRef(gtk_widget_create_pango_context(widget_ptr))
         return rv
@@ -5461,39 +5671,39 @@ public extension WidgetProtocol {
     /// font description, and base direction for drawing text for
     /// this widget.
     /// 
-    /// If you keep a `PangoLayout` created in this way around, you need
-    /// to re-create it when the widget `PangoContext` is replaced.
-    /// This can be tracked by listening to changes of the `GtkWidget:root` property
-    /// on the widget.
+    /// If you keep a `PangoLayout` created in this way around,
+    /// you need to re-create it when the widget `PangoContext`
+    /// is replaced. This can be tracked by listening to changes
+    /// of the [property`Gtk.Widget:root`] property on the widget.
     @inlinable func createPangoLayout(text: UnsafePointer<CChar>? = nil) -> Pango.LayoutRef! {
         let rv = Pango.LayoutRef(gtk_widget_create_pango_layout(widget_ptr, text))
         return rv
     }
 
-    /// Checks to see if a mouse drag starting at (`start_x`, `start_y`) and ending
-    /// at (`current_x`, `current_y`) has passed the GTK drag threshold, and thus
-    /// should trigger the beginning of a drag-and-drop operation.
+    /// Checks to see if a drag movement has passed the GTK drag threshold.
     @inlinable func dragCheckThreshold(startX: Int, startY: Int, currentX: Int, currentY: Int) -> Bool {
         let rv = ((gtk_drag_check_threshold(widget_ptr, gint(startX), gint(startY), gint(currentX), gint(currentY))) != 0)
         return rv
     }
 
     /// Notifies the user about an input-related error on this widget.
-    /// If the `GtkSettings:gtk-error-bell` setting is `true`, it calls
-    /// `gdk_surface_beep()`, otherwise it does nothing.
     /// 
-    /// Note that the effect of `gdk_surface_beep()` can be configured in many
-    /// ways, depending on the windowing backend and the desktop environment
-    /// or window manager that is used.
+    /// If the [property`Gtk.Settings:gtk-error-bell`] setting is `true`,
+    /// it calls [method`Gdk.Surface.beep`], otherwise it does nothing.
+    /// 
+    /// Note that the effect of [method`Gdk.Surface.beep`] can be configured
+    /// in many ways, depending on the windowing backend and the desktop
+    /// environment or window manager that is used.
     @inlinable func errorBell() {
         gtk_widget_error_bell(widget_ptr)
     
     }
 
     /// Returns the baseline that has currently been allocated to `widget`.
+    /// 
     /// This function is intended to be used when implementing handlers
-    /// for the `GtkWidgetClass.snapshot``()` function, and when allocating child
-    /// widgets in `GtkWidgetClass.size_allocate``()`.
+    /// for the ``GtkWidget`Class.snapshot()` function, and when allocating
+    /// child widgets in ``GtkWidget`Class.size_allocate()`.
     @inlinable func getAllocatedBaseline() -> Int {
         let rv = Int(gtk_widget_get_allocated_baseline(widget_ptr))
         return rv
@@ -5515,13 +5725,13 @@ public extension WidgetProtocol {
     /// 
     /// Note, when implementing a layout container: a widget’s allocation
     /// will be its “adjusted” allocation, that is, the widget’s parent
-    /// typically calls `gtk_widget_size_allocate()` with an allocation,
+    /// typically calls [method`Gtk.Widget.size_allocate`] with an allocation,
     /// and that allocation is then adjusted (to handle margin
     /// and alignment for example) before assignment to the widget.
-    /// `gtk_widget_get_allocation()` returns the adjusted allocation that
+    /// [method`Gtk.Widget.get_allocation`] returns the adjusted allocation that
     /// was actually assigned to the widget. The adjusted allocation is
     /// guaranteed to be completely contained within the
-    /// `gtk_widget_size_allocate()` allocation, however.
+    /// [method`Gtk.Widget.size_allocate`] allocation, however.
     /// 
     /// So a layout container is guaranteed that its children stay inside
     /// the assigned bounds, but not that they have exactly the bounds the
@@ -5531,12 +5741,14 @@ public extension WidgetProtocol {
     
     }
 
-    /// Gets the first ancestor of `widget` with type `widget_type`. For example,
-    /// `gtk_widget_get_ancestor (widget, GTK_TYPE_BOX)` gets
-    /// the first `GtkBox` that’s an ancestor of `widget`. No reference will be
-    /// added to the returned widget; it should not be unreferenced.
+    /// Gets the first ancestor of `widget` with type `widget_type`.
     /// 
-    /// Note that unlike `gtk_widget_is_ancestor()`, `gtk_widget_get_ancestor()`
+    /// For example, `gtk_widget_get_ancestor (widget, GTK_TYPE_BOX)`
+    /// gets the first `GtkBox` that’s an ancestor of `widget`. No
+    /// reference will be added to the returned widget; it should
+    /// not be unreferenced.
+    /// 
+    /// Note that unlike [method`Gtk.Widget.is_ancestor`], this function
     /// considers `widget` to be an ancestor of itself.
     @inlinable func getAncestor(widgetType: GType) -> WidgetRef! {
         guard let rv = WidgetRef(gconstpointer: gconstpointer(gtk_widget_get_ancestor(widget_ptr, widgetType))) else { return nil }
@@ -5546,7 +5758,7 @@ public extension WidgetProtocol {
     /// Determines whether the input focus can enter `widget` or any
     /// of its children.
     /// 
-    /// See `gtk_widget_set_focusable()`.
+    /// See [method`Gtk.Widget.set_focusable`].
     @inlinable func getCanFocus() -> Bool {
         let rv = ((gtk_widget_get_can_focus(widget_ptr)) != 0)
         return rv
@@ -5559,16 +5771,19 @@ public extension WidgetProtocol {
     }
 
     /// Gets the value set with `gtk_widget_set_child_visible()`.
+    /// 
     /// If you feel a need to use this function, your code probably
     /// needs reorganization.
     /// 
-    /// This function is only useful for container implementations and
-    /// never should be called by an application.
+    /// This function is only useful for container implementations
+    /// and should never be called by an application.
     @inlinable func getChildVisible() -> Bool {
         let rv = ((gtk_widget_get_child_visible(widget_ptr)) != 0)
         return rv
     }
 
+    /// Gets the clipboard object for `widget`.
+    /// 
     /// This is a utility function to get the clipboard object for the
     /// `GdkDisplay` that `widget` is using.
     /// 
@@ -5579,7 +5794,7 @@ public extension WidgetProtocol {
         return rv
     }
 
-    /// Returns the list of css classes applied to `widget`.
+    /// Returns the list of style classes applied to `widget`.
     @inlinable func getCssClasses() -> UnsafeMutablePointer<UnsafeMutablePointer<CChar>?>! {
         let rv = gtk_widget_get_css_classes(widget_ptr)
         return rv
@@ -5591,23 +5806,27 @@ public extension WidgetProtocol {
         return rv
     }
 
-    /// Queries the cursor set via `gtk_widget_set_cursor()`. See that function for
-    /// details.
+    /// Queries the cursor set on `widget`.
+    /// 
+    /// See [method`Gtk.Widget.set_cursor`] for details.
     @inlinable func getCursor() -> Gdk.CursorRef! {
         let rv = Gdk.CursorRef(gtk_widget_get_cursor(widget_ptr))
         return rv
     }
 
-    /// Gets the reading direction for a particular widget. See
-    /// `gtk_widget_set_direction()`.
+    /// Gets the reading direction for a particular widget.
+    /// 
+    /// See [method`Gtk.Widget.set_direction`].
     @inlinable func getDirection() -> GtkTextDirection {
         let rv = gtk_widget_get_direction(widget_ptr)
         return rv
     }
 
     /// Get the `GdkDisplay` for the toplevel window associated with
-    /// this widget. This function can only be called after the widget
-    /// has been added to a widget hierarchy with a `GtkWindow` at the top.
+    /// this widget.
+    /// 
+    /// This function can only be called after the widget has been
+    /// added to a widget hierarchy with a `GtkWindow` at the top.
     /// 
     /// In general, you should only create display specific
     /// resources when a widget has been realized, and you should
@@ -5631,45 +5850,53 @@ public extension WidgetProtocol {
         return rv
     }
 
-    /// Returns whether the widget should grab focus when it is clicked with the mouse.
-    /// See `gtk_widget_set_focus_on_click()`.
+    /// Returns whether the widget should grab focus when it is clicked
+    /// with the mouse.
+    /// 
+    /// See [method`Gtk.Widget.set_focus_on_click`].
     @inlinable func getFocusOnClick() -> Bool {
         let rv = ((gtk_widget_get_focus_on_click(widget_ptr)) != 0)
         return rv
     }
 
     /// Determines whether `widget` can own the input focus.
-    /// See `gtk_widget_set_focusable()`.
+    /// 
+    /// See [method`Gtk.Widget.set_focusable`].
     @inlinable func getFocusable() -> Bool {
         let rv = ((gtk_widget_get_focusable(widget_ptr)) != 0)
         return rv
     }
 
-    /// Gets the font map that has been set with `gtk_widget_set_font_map()`.
+    /// Gets the font map of `widget`.
+    /// 
+    /// See [method`Gtk.Widget.set_font_map`].
     @inlinable func getFontMap() -> Pango.FontMapRef! {
         let rv = Pango.FontMapRef(gtk_widget_get_font_map(widget_ptr))
         return rv
     }
 
-    /// Returns the `cairo_font_options_t` used for Pango rendering. When not set,
-    /// the defaults font options for the `GdkDisplay` will be used.
+    /// Returns the `cairo_font_options_t` used for Pango rendering.
+    /// 
+    /// When not set, the defaults font options for the `GdkDisplay`
+    /// will be used.
     @inlinable func getFontOptions() -> Cairo.FontOptionsRef! {
         let rv = Cairo.FontOptionsRef(gtk_widget_get_font_options(widget_ptr))
         return rv
     }
 
-    /// Obtains the frame clock for a widget. The frame clock is a global
-    /// “ticker” that can be used to drive animations and repaints.  The
-    /// most common reason to get the frame clock is to call
-    /// `gdk_frame_clock_get_frame_time()`, in order to get a time to use for
-    /// animating. For example you might record the start of the animation
-    /// with an initial value from `gdk_frame_clock_get_frame_time()`, and
-    /// then update the animation by calling
-    /// `gdk_frame_clock_get_frame_time()` again during each repaint.
+    /// Obtains the frame clock for a widget.
     /// 
-    /// `gdk_frame_clock_request_phase()` will result in a new frame on the
+    /// The frame clock is a global “ticker” that can be used to drive
+    /// animations and repaints. The most common reason to get the frame
+    /// clock is to call [method`Gdk.FrameClock.get_frame_time`], in order
+    /// to get a time to use for animating. For example you might record
+    /// the start of the animation with an initial value from
+    /// [method`Gdk.FrameClock.get_frame_time`], and then update the animation
+    /// by calling [method`Gdk.FrameClock.get_frame_time`] again during each repaint.
+    /// 
+    /// [method`Gdk.FrameClock.request_phase`] will result in a new frame on the
     /// clock, but won’t necessarily repaint any widgets. To repaint a
-    /// widget, you have to use `gtk_widget_queue_draw()` which invalidates
+    /// widget, you have to use [method`Gtk.Widget.queue_draw`] which invalidates
     /// the widget (thus scheduling it to receive a draw on the next
     /// frame). `gtk_widget_queue_draw()` will also end up requesting a frame
     /// on the appropriate frame clock.
@@ -5684,7 +5911,7 @@ public extension WidgetProtocol {
         return rv
     }
 
-    /// Gets the value of the `GtkWidget:halign` property.
+    /// Gets the horizontal alignment of `widget`.
     /// 
     /// For backwards compatibility reasons this method will never return
     /// `GTK_ALIGN_BASELINE`, but instead it will convert it to
@@ -5695,29 +5922,34 @@ public extension WidgetProtocol {
         return rv
     }
 
-    /// Returns the current value of the has-tooltip property.  See
-    /// `GtkWidget:has-tooltip` for more information.
+    /// Returns the current value of the `has-tooltip` property.
     @inlinable func getHasTooltip() -> Bool {
         let rv = ((gtk_widget_get_has_tooltip(widget_ptr)) != 0)
         return rv
     }
 
-    /// Returns the content height of the widget, as passed to its size-allocate implementation.
-    /// This is the size you should be using in `GtkWidgetClass.snapshot()`. For pointer
-    /// events, see `gtk_widget_contains()`.
+    /// Returns the content height of the widget.
+    /// 
+    /// This function returns the size passed to its
+    /// size-allocate implementation, which is the size you
+    /// should be using in `GtkWidgetClass.snapshot()`.
+    /// 
+    /// For pointer events, see [method`Gtk.Widget.contains`].
     @inlinable func getHeight() -> Int {
         let rv = Int(gtk_widget_get_height(widget_ptr))
         return rv
     }
 
     /// Gets whether the widget would like any available extra horizontal
-    /// space. When a user resizes a `GtkWindow`, widgets with expand=TRUE
+    /// space.
+    /// 
+    /// When a user resizes a `GtkWindow`, widgets with expand=TRUE
     /// generally receive the extra space. For example, a list or
     /// scrollable area or document in your window would often be set to
     /// expand.
     /// 
-    /// Containers should use `gtk_widget_compute_expand()` rather than
-    /// this function, to see whether a widget, or any of its children,
+    /// Containers should use [method`Gtk.Widget.compute_expand`] rather
+    /// than this function, to see whether a widget, or any of its children,
     /// has the expand flag set. If any child of a widget wants to
     /// expand, the parent may ask to expand also.
     /// 
@@ -5729,13 +5961,13 @@ public extension WidgetProtocol {
         return rv
     }
 
-    /// Gets whether `gtk_widget_set_hexpand()` has been used to
-    /// explicitly set the expand flag on this widget.
+    /// Gets whether `gtk_widget_set_hexpand()` has been used
+    /// to explicitly set the expand flag on this widget.
     /// 
-    /// If hexpand is set, then it overrides any computed
-    /// expand value based on child widgets. If hexpand is not
-    /// set, then the expand value depends on whether any
-    /// children of the widget would like to expand.
+    /// If [property`Gtk.Widget:hexpand`] property is set, then it
+    /// overrides any computed expand value based on child widgets.
+    /// If `hexpand` is not set, then the expand value depends on
+    /// whether any children of the widget would like to expand.
     /// 
     /// There are few reasons to use this function, but it’s here
     /// for completeness and consistency.
@@ -5752,7 +5984,9 @@ public extension WidgetProtocol {
         return rv
     }
 
-    /// Retrieves the layout manager set using `gtk_widget_set_layout_manager()`.
+    /// Retrieves the layout manager used by `widget`
+    /// 
+    /// See [method`Gtk.Widget.set_layout_manager`].
     @inlinable func getLayoutManager() -> LayoutManagerRef! {
         let rv = LayoutManagerRef(gconstpointer: gconstpointer(gtk_widget_get_layout_manager(widget_ptr)))
         return rv
@@ -5764,40 +5998,42 @@ public extension WidgetProtocol {
         return rv
     }
 
-    /// Gets the value of the `GtkWidget:margin-bottom` property.
+    /// Gets the bottom margin of `widget`.
     @inlinable func getMarginBottom() -> Int {
         let rv = Int(gtk_widget_get_margin_bottom(widget_ptr))
         return rv
     }
 
-    /// Gets the value of the `GtkWidget:margin-end` property.
+    /// Gets the end margin of `widget`.
     @inlinable func getMarginEnd() -> Int {
         let rv = Int(gtk_widget_get_margin_end(widget_ptr))
         return rv
     }
 
-    /// Gets the value of the `GtkWidget:margin-start` property.
+    /// Gets the start margin of `widget`.
     @inlinable func getMarginStart() -> Int {
         let rv = Int(gtk_widget_get_margin_start(widget_ptr))
         return rv
     }
 
-    /// Gets the value of the `GtkWidget:margin-top` property.
+    /// Gets the top margin of `widget`.
     @inlinable func getMarginTop() -> Int {
         let rv = Int(gtk_widget_get_margin_top(widget_ptr))
         return rv
     }
 
-    /// Retrieves the name of a widget. See `gtk_widget_set_name()` for the
-    /// significance of widget names.
+    /// Retrieves the name of a widget.
+    /// 
+    /// See [method`Gtk.Widget.set_name`] for the significance of widget names.
     @inlinable func getName() -> String! {
         let rv = gtk_widget_get_name(widget_ptr).map({ String(cString: $0) })
         return rv
     }
 
-    /// Returns the GtkNative widget that contains `widget`,
-    /// or `nil` if the widget is not contained inside a
-    /// widget tree with a native ancestor.
+    /// Returns the `GtkNative` widget that contains `widget`.
+    /// 
+    /// This function will return `nil` if the widget is not
+    /// contained inside a widget tree with a native ancestor.
     /// 
     /// `GtkNative` widgets will return themselves here.
     @inlinable func getNative() -> NativeRef! {
@@ -5813,26 +6049,29 @@ public extension WidgetProtocol {
         return rv
     }
 
-    /// Fetches the requested opacity for this widget.
-    /// See `gtk_widget_set_opacity()`.
+    /// `Fetches` the requested opacity for this widget.
+    /// 
+    /// See [method`Gtk.Widget.set_opacity`].
     @inlinable func getOpacity() -> CDouble {
         let rv = gtk_widget_get_opacity(widget_ptr)
         return rv
     }
 
-    /// Returns the value set via `gtk_widget_set_overflow()`.
+    /// Returns the widgets overflow value.
     @inlinable func getOverflow() -> GtkOverflow {
         let rv = gtk_widget_get_overflow(widget_ptr)
         return rv
     }
 
     /// Gets a `PangoContext` with the appropriate font map, font description,
-    /// and base direction for this widget. Unlike the context returned
-    /// by `gtk_widget_create_pango_context()`, this context is owned by
-    /// the widget (it can be used until the screen for the widget changes
-    /// or the widget is removed from its toplevel), and will be updated to
-    /// match any changes to the widget’s attributes. This can be tracked
-    /// by listening to changes of the `GtkWidget:root` property on the widget.
+    /// and base direction for this widget.
+    /// 
+    /// Unlike the context returned by [method`Gtk.Widget.create_pango_context`],
+    /// this context is owned by the widget (it can be used until the screen
+    /// for the widget changes or the widget is removed from its toplevel),
+    /// and will be updated to match any changes to the widget’s attributes.
+    /// This can be tracked by listening to changes of the
+    /// [property`Gtk.Widget:root`] property on the widget.
     @inlinable func getPangoContext() -> Pango.ContextRef! {
         let rv = Pango.ContextRef(gtk_widget_get_pango_context(widget_ptr))
         return rv
@@ -5850,15 +6089,14 @@ public extension WidgetProtocol {
     /// This is used to retrieve a suitable size by container widgets which do
     /// not impose any restrictions on the child placement. It can be used
     /// to deduce toplevel window and menu sizes as well as child widgets in
-    /// free-form containers such as GtkLayout.
+    /// free-form containers such as `GtkFixed`.
     /// 
     /// Handle with care. Note that the natural height of a height-for-width
-    /// widget will generally be a smaller size than the minimum height, since the required
-    /// height for the natural width is generally smaller than the required height for
-    /// the minimum width.
+    /// widget will generally be a smaller size than the minimum height, since
+    /// the required height for the natural width is generally smaller than the
+    /// required height for the minimum width.
     /// 
-    /// Use `gtk_widget_measure()` if you want to support
-    /// baseline alignment.
+    /// Use [id`gtk_widget_measure`] if you want to support baseline alignment.
     @inlinable func getPreferredSize(minimumSize: RequisitionRef? = nil, naturalSize: RequisitionRef? = nil) {
         gtk_widget_get_preferred_size(widget_ptr, minimumSize?.requisition_ptr, naturalSize?.requisition_ptr)
     
@@ -5869,15 +6107,14 @@ public extension WidgetProtocol {
     /// This is used to retrieve a suitable size by container widgets which do
     /// not impose any restrictions on the child placement. It can be used
     /// to deduce toplevel window and menu sizes as well as child widgets in
-    /// free-form containers such as GtkLayout.
+    /// free-form containers such as `GtkFixed`.
     /// 
     /// Handle with care. Note that the natural height of a height-for-width
-    /// widget will generally be a smaller size than the minimum height, since the required
-    /// height for the natural width is generally smaller than the required height for
-    /// the minimum width.
+    /// widget will generally be a smaller size than the minimum height, since
+    /// the required height for the natural width is generally smaller than the
+    /// required height for the minimum width.
     /// 
-    /// Use `gtk_widget_measure()` if you want to support
-    /// baseline alignment.
+    /// Use [id`gtk_widget_measure`] if you want to support baseline alignment.
     @inlinable func getPreferredSize<RequisitionT: RequisitionProtocol>(minimumSize: RequisitionT?, naturalSize: RequisitionT?) {
         gtk_widget_get_preferred_size(widget_ptr, minimumSize?.requisition_ptr, naturalSize?.requisition_ptr)
     
@@ -5891,6 +6128,8 @@ public extension WidgetProtocol {
         return rv
     }
 
+    /// Gets the primary clipboard of `widget`.
+    /// 
     /// This is a utility function to get the primary clipboard object
     /// for the `GdkDisplay` that `widget` is using.
     /// 
@@ -5911,7 +6150,7 @@ public extension WidgetProtocol {
     /// within its toplevel when it has the focus, even if another widget
     /// is the default.
     /// 
-    /// See `gtk_widget_set_receives_default()`.
+    /// See [method`Gtk.Widget.set_receives_default`].
     @inlinable func getReceivesDefault() -> Bool {
         let rv = ((gtk_widget_get_receives_default(widget_ptr)) != 0)
         return rv
@@ -5920,16 +6159,18 @@ public extension WidgetProtocol {
     /// Gets whether the widget prefers a height-for-width layout
     /// or a width-for-height layout.
     /// 
-    /// `GtkBin` widgets generally propagate the preference of
-    /// their child, container widgets need to request something either in
-    /// context of their children or in context of their allocation
-    /// capabilities.
+    /// Single-child widgets generally propagate the preference of
+    /// their child, more complex widgets need to request something
+    /// either in context of their children or in context of their
+    /// allocation capabilities.
     @inlinable func getRequestMode() -> GtkSizeRequestMode {
         let rv = gtk_widget_get_request_mode(widget_ptr)
         return rv
     }
 
-    /// Returns the `GtkRoot` widget of `widget` or `nil` if the widget is not contained
+    /// Returns the `GtkRoot` widget of `widget`.
+    /// 
+    /// This function will return `nil` if the widget is not contained
     /// inside a widget tree with a root widget.
     /// 
     /// `GtkRoot` widgets will return themselves here.
@@ -5938,21 +6179,26 @@ public extension WidgetProtocol {
         return rv
     }
 
-    /// Retrieves the internal scale factor that maps from window coordinates
-    /// to the actual device pixels. On traditional systems this is 1, on
-    /// high density outputs, it can be a higher value (typically 2).
+    /// Retrieves the internal scale factor that maps from window
+    /// coordinates to the actual device pixels.
     /// 
-    /// See `gdk_surface_get_scale_factor()`.
+    /// On traditional systems this is 1, on high density outputs,
+    /// it can be a higher value (typically 2).
+    /// 
+    /// See [method`Gdk.Surface.get_scale_factor`].
     @inlinable func getScaleFactor() -> Int {
         let rv = Int(gtk_widget_get_scale_factor(widget_ptr))
         return rv
     }
 
-    /// Returns the widget’s sensitivity (in the sense of returning
-    /// the value that has been set using `gtk_widget_set_sensitive()`).
+    /// Returns the widget’s sensitivity.
     /// 
-    /// The effective sensitivity of a widget is however determined by both its
-    /// own and its parent widget’s sensitivity. See `gtk_widget_is_sensitive()`.
+    /// This function returns the value that has been set using
+    /// [method`Gtk.Widget.set_sensitive`]).
+    /// 
+    /// The effective sensitivity of a widget is however determined
+    /// by both its own and its parent widget’s sensitivity.
+    /// See [method`Gtk.Widget.is_sensitive`].
     @inlinable func getSensitive() -> Bool {
         let rv = ((gtk_widget_get_sensitive(widget_ptr)) != 0)
         return rv
@@ -5969,64 +6215,77 @@ public extension WidgetProtocol {
         return rv
     }
 
-    /// Returns the content width or height of the widget, depending on `orientation`.
-    /// This is equivalent to calling `gtk_widget_get_width()` for `GTK_ORIENTATION_HORIZONTAL`
-    /// or `gtk_widget_get_height()` for `GTK_ORIENTATION_VERTICAL`, but can be used when
-    /// writing orientation-independent code, such as when implementing `GtkOrientable`
-    /// widgets.
+    /// Returns the content width or height of the widget.
+    /// 
+    /// Which dimension is returned depends on `orientation`.
+    /// 
+    /// This is equivalent to calling [method`Gtk.Widget.get_width`]
+    /// for `GTK_ORIENTATION_HORIZONTAL` or [method`Gtk.Widget.get_height`]
+    /// for `GTK_ORIENTATION_VERTICAL`, but can be used when
+    /// writing orientation-independent code, such as when
+    /// implementing [iface`Gtk.Orientable`] widgets.
     @inlinable func getSize(orientation: GtkOrientation) -> Int {
         let rv = Int(gtk_widget_get_size(widget_ptr, orientation))
         return rv
     }
 
     /// Gets the size request that was explicitly set for the widget using
-    /// `gtk_widget_set_size_request()`. A value of -1 stored in `width` or
-    /// `height` indicates that that dimension has not been set explicitly
-    /// and the natural requisition of the widget will be used instead. See
-    /// `gtk_widget_set_size_request()`. To get the size a widget will
-    /// actually request, call `gtk_widget_measure()` instead of
+    /// `gtk_widget_set_size_request()`.
+    /// 
+    /// A value of -1 stored in `width` or `height` indicates that that
+    /// dimension has not been set explicitly and the natural requisition
+    /// of the widget will be used instead. See
+    /// [method`Gtk.Widget.set_size_request`]. To get the size a widget will
+    /// actually request, call [method`Gtk.Widget.measure`] instead of
     /// this function.
     @inlinable func getSizeRequest(width: UnsafeMutablePointer<gint>! = nil, height: UnsafeMutablePointer<gint>! = nil) {
         gtk_widget_get_size_request(widget_ptr, width, height)
     
     }
 
-    /// Returns the widget state as a flag set. It is worth mentioning
-    /// that the effective `GTK_STATE_FLAG_INSENSITIVE` state will be
-    /// returned, that is, also based on parent insensitivity, even if
-    /// `widget` itself is sensitive.
+    /// Returns the widget state as a flag set.
+    /// 
+    /// It is worth mentioning that the effective `GTK_STATE_FLAG_INSENSITIVE`
+    /// state will be returned, that is, also based on parent insensitivity,
+    /// even if `widget` itself is sensitive.
     /// 
     /// Also note that if you are looking for a way to obtain the
-    /// `GtkStateFlags` to pass to a `GtkStyleContext` method, you
-    /// should look at `gtk_style_context_get_state()`.
+    /// [flags`Gtk.StateFlags`] to pass to a [class`Gtk.StyleContext`]
+    /// method, you should look at [method`Gtk.StyleContext.get_state`].
     @inlinable func getStateFlags() -> StateFlags {
         let rv = StateFlags(gtk_widget_get_state_flags(widget_ptr))
         return rv
     }
 
-    /// Returns the style context associated to `widget`. The returned object is
-    /// guaranteed to be the same for the lifetime of `widget`.
+    /// Returns the style context associated to `widget`.
+    /// 
+    /// The returned object is guaranteed to be the same
+    /// for the lifetime of `widget`.
     @inlinable func getStyleContext() -> StyleContextRef! {
         let rv = StyleContextRef(gconstpointer: gconstpointer(gtk_widget_get_style_context(widget_ptr)))
         return rv
     }
 
-    /// Fetch an object build from the template XML for `widget_type` in this `widget` instance.
+    /// Fetch an object build from the template XML for `widget_type` in
+    /// this `widget` instance.
     /// 
-    /// This will only report children which were previously declared with
-    /// `gtk_widget_class_bind_template_child_full()` or one of its
+    /// This will only report children which were previously declared
+    /// with [method`Gtk.WidgetClass.bind_template_child_full`] or one of its
     /// variants.
     /// 
-    /// This function is only meant to be called for code which is private to the `widget_type` which
-    /// declared the child and is meant for language bindings which cannot easily make use
-    /// of the GObject structure offsets.
+    /// This function is only meant to be called for code which is private
+    /// to the `widget_type` which declared the child and is meant for language
+    /// bindings which cannot easily make use of the GObject structure offsets.
     @inlinable func getTemplateChild(widgetType: GType, name: UnsafePointer<CChar>!) -> GLibObject.ObjectRef! {
         let rv = GLibObject.ObjectRef(gtk_widget_get_template_child(widget_ptr, widgetType, name))
         return rv
     }
 
-    /// Gets the contents of the tooltip for `widget` set using
-    /// `gtk_widget_set_tooltip_markup()`.
+    /// Gets the contents of the tooltip for `widget`.
+    /// 
+    /// If the tooltip has not been set using
+    /// [method`Gtk.Widget.set_tooltip_markup`], this
+    /// function returns `nil`.
     @inlinable func getTooltipMarkup() -> String! {
         let rv = gtk_widget_get_tooltip_markup(widget_ptr).map({ String(cString: $0) })
         return rv
@@ -6034,14 +6293,15 @@ public extension WidgetProtocol {
 
     /// Gets the contents of the tooltip for `widget`.
     /// 
-    /// If the `widget`'s tooltip was set using `gtk_widget_set_tooltip_markup()`,
+    /// If the `widget`'s tooltip was set using
+    /// [method`Gtk.Widget.set_tooltip_markup`],
     /// this function will return the escaped text.
     @inlinable func getTooltipText() -> String! {
         let rv = gtk_widget_get_tooltip_text(widget_ptr).map({ String(cString: $0) })
         return rv
     }
 
-    /// Gets the value of the `GtkWidget:valign` property.
+    /// Gets the vertical alignment of `widget`.
     @inlinable func getValign() -> GtkAlign {
         let rv = gtk_widget_get_valign(widget_ptr)
         return rv
@@ -6050,7 +6310,7 @@ public extension WidgetProtocol {
     /// Gets whether the widget would like any available extra vertical
     /// space.
     /// 
-    /// See `gtk_widget_get_hexpand()` for more detail.
+    /// See [method`Gtk.Widget.get_hexpand`] for more detail.
     @inlinable func getVexpand() -> Bool {
         let rv = ((gtk_widget_get_vexpand(widget_ptr)) != 0)
         return rv
@@ -6059,41 +6319,47 @@ public extension WidgetProtocol {
     /// Gets whether `gtk_widget_set_vexpand()` has been used to
     /// explicitly set the expand flag on this widget.
     /// 
-    /// See `gtk_widget_get_hexpand_set()` for more detail.
+    /// See [method`Gtk.Widget.get_hexpand_set`] for more detail.
     @inlinable func getVexpandSet() -> Bool {
         let rv = ((gtk_widget_get_vexpand_set(widget_ptr)) != 0)
         return rv
     }
 
-    /// Determines whether the widget is visible. If you want to
-    /// take into account whether the widget’s parent is also marked as
-    /// visible, use `gtk_widget_is_visible()` instead.
+    /// Determines whether the widget is visible.
     /// 
-    /// This function does not check if the widget is obscured in any way.
+    /// If you want to take into account whether the widget’s
+    /// parent is also marked as visible, use
+    /// [method`Gtk.Widget.is_visible`] instead.
     /// 
-    /// See `gtk_widget_set_visible()`.
+    /// This function does not check if the widget is
+    /// obscured in any way.
+    /// 
+    /// See [method`Gtk.Widget.set_visible`].
     @inlinable func getVisible() -> Bool {
         let rv = ((gtk_widget_get_visible(widget_ptr)) != 0)
         return rv
     }
 
-    /// Returns the content width of the widget, as passed to its size-allocate implementation.
-    /// This is the size you should be using in `GtkWidgetClass.snapshot()`. For pointer
-    /// events, see `gtk_widget_contains()`.
+    /// Returns the content width of the widget.
+    /// 
+    /// This function returns the size passed to its
+    /// size-allocate implementation, which is the size you
+    /// should be using in `GtkWidgetClass.snapshot()`.
+    /// 
+    /// For pointer events, see [method`Gtk.Widget.contains`].
     @inlinable func getWidth() -> Int {
         let rv = Int(gtk_widget_get_width(widget_ptr))
         return rv
     }
 
-    /// Causes `widget` (or one of its descendents) to have the keyboard focus
-    /// for the `GtkWindow` it's inside.
+    /// Causes `widget` to have the keyboard focus for the `GtkWindow` it's inside.
     /// 
     /// If `widget` is not focusable, or its `grab_focus` implementation cannot
     /// transfer the focus to a descendant of `widget` that is focusable, it will
     /// not take focus and `false` will be returned.
     /// 
-    /// Calling `gtk_widget_grab_focus()` on an already focused widget is allowed,
-    /// should not have an effect, and return `true`.
+    /// Calling [method`Gtk.Widget.grab_focus`] on an already focused widget
+    /// is allowed, should not have an effect, and return `true`.
     @inlinable func grabFocus() -> Bool {
         let rv = ((gtk_widget_grab_focus(widget_ptr)) != 0)
         return rv
@@ -6105,43 +6371,48 @@ public extension WidgetProtocol {
         return rv
     }
 
-    /// Determines whether `widget` is the current default widget within its
-    /// toplevel.
+    /// Determines whether `widget` is the current default widget
+    /// within its toplevel.
     @inlinable func hasDefault() -> Bool {
         let rv = ((gtk_widget_has_default(widget_ptr)) != 0)
         return rv
     }
 
-    /// Determines if the widget has the global input focus. See
-    /// `gtk_widget_is_focus()` for the difference between having the global
-    /// input focus, and only having the focus within a toplevel.
+    /// Determines if the widget has the global input focus.
+    /// 
+    /// See [method`Gtk.Widget.is_focus`] for the difference between
+    /// having the global input focus, and only having the focus
+    /// within a toplevel.
     @inlinable func hasFocus() -> Bool {
         let rv = ((gtk_widget_has_focus(widget_ptr)) != 0)
         return rv
     }
 
     /// Determines if the widget should show a visible indication that
-    /// it has the global input focus. This is a convenience function
-    /// that takes into account whether focus indication should currently
-    /// be shown in the toplevel window of `widget`.
-    /// See `gtk_window_get_focus_visible()` for more information
-    /// about focus indication.
+    /// it has the global input focus.
+    /// 
+    /// This is a convenience function that takes into account whether
+    /// focus indication should currently be shown in the toplevel window
+    /// of `widget`. See [method`Gtk.Window.get_focus_visible`] for more
+    /// information about focus indication.
     /// 
     /// To find out if the widget has the global input focus, use
-    /// `gtk_widget_has_focus()`.
+    /// [method`Gtk.Widget.has_focus`].
     @inlinable func hasVisibleFocus() -> Bool {
         let rv = ((gtk_widget_has_visible_focus(widget_ptr)) != 0)
         return rv
     }
 
-    /// Reverses the effects of `gtk_widget_show()`, causing the widget to be
-    /// hidden (invisible to the user).
+    /// Reverses the effects of `gtk_widget_show()`.
+    /// 
+    /// This is causing the widget to be hidden (invisible to the user).
     @inlinable func hide() {
         gtk_widget_hide(widget_ptr)
     
     }
 
     /// Returns whether the widget is currently being destroyed.
+    /// 
     /// This information can sometimes be used to avoid doing
     /// unnecessary work.
     @inlinable func inDestruction() -> Bool {
@@ -6149,30 +6420,36 @@ public extension WidgetProtocol {
         return rv
     }
 
-    /// Creates and initializes child widgets defined in templates. This
-    /// function must be called in the instance initializer for any
-    /// class which assigned itself a template using `gtk_widget_class_set_template()`
+    /// Creates and initializes child widgets defined in templates.
+    /// 
+    /// This function must be called in the instance initializer
+    /// for any class which assigned itself a template using
+    /// [method`Gtk.WidgetClass.set_template`].
     /// 
     /// It is important to call this function in the instance initializer
-    /// of a `GtkWidget` subclass and not in `GObject.constructed``()` or
-    /// `GObject.constructor``()` for two reasons.
+    /// of a `GtkWidget` subclass and not in ``GObject.constructed()`` or
+    /// ``GObject.constructor()`` for two reasons:
     /// 
-    /// One reason is that generally derived widgets will assume that parent
-    /// class composite widgets have been created in their instance
-    /// initializers.
+    ///  - derived widgets will assume that the composite widgets
+    ///    defined by its parent classes have been created in their
+    ///    relative instance initializers
+    ///  - when calling ``g_object_new()`` on a widget with composite templates,
+    ///    it’s important to build the composite widgets before the construct
+    ///    properties are set. Properties passed to ``g_object_new()`` should
+    ///    take precedence over properties set in the private template XML
     /// 
-    /// Another reason is that when calling `g_object_new()` on a widget with
-    /// composite templates, it’s important to build the composite widgets
-    /// before the construct properties are set. Properties passed to `g_object_new()`
-    /// should take precedence over properties set in the private template XML.
+    /// A good rule of thumb is to call this function as the first thing in
+    /// an instance initialization function.
     @inlinable func initTemplate() {
         gtk_widget_init_template(widget_ptr)
     
     }
 
-    /// Inserts `group` into `widget`. Children of `widget` that implement
-    /// `GtkActionable` can then be associated with actions in `group` by
-    /// setting their “action-name” to `prefix`.`action-name`.
+    /// Inserts `group` into `widget`.
+    /// 
+    /// Children of `widget` that implement [iface`Gtk.Actionable`] can
+    /// then be associated with actions in `group` by setting their
+    /// “action-name” to `prefix`.`action-name`.
     /// 
     /// Note that inheritance is defined for individual actions. I.e.
     /// even if you insert a group with prefix `prefix`, actions with
@@ -6185,9 +6462,11 @@ public extension WidgetProtocol {
         gtk_widget_insert_action_group(widget_ptr, name, group?.action_group_ptr)
     
     }
-    /// Inserts `group` into `widget`. Children of `widget` that implement
-    /// `GtkActionable` can then be associated with actions in `group` by
-    /// setting their “action-name” to `prefix`.`action-name`.
+    /// Inserts `group` into `widget`.
+    /// 
+    /// Children of `widget` that implement [iface`Gtk.Actionable`] can
+    /// then be associated with actions in `group` by setting their
+    /// “action-name” to `prefix`.`action-name`.
     /// 
     /// Note that inheritance is defined for individual actions. I.e.
     /// even if you insert a group with prefix `prefix`, actions with
@@ -6206,11 +6485,12 @@ public extension WidgetProtocol {
     /// It will be placed after `previous_sibling`, or at the beginning if
     /// `previous_sibling` is `nil`.
     /// 
-    /// After calling this function, `gtk_widget_get_prev_sibling(widget)` will
-    /// return `previous_sibling`.
+    /// After calling this function, ``gtk_widget_get_prev_sibling(widget)``
+    /// will return `previous_sibling`.
     /// 
-    /// If `parent` is already set as the parent widget of `widget`, this function
-    /// can also be used to reorder `widget` in the child widget list of `parent`.
+    /// If `parent` is already set as the parent widget of `widget`, this
+    /// function can also be used to reorder `widget` in the child widget
+    /// list of `parent`.
     /// 
     /// This API is primarily meant for widget implementations; if you are
     /// just using a widget, you *must* use its own API for adding children.
@@ -6224,7 +6504,7 @@ public extension WidgetProtocol {
     /// It will be placed before `next_sibling`, or at the end if
     /// `next_sibling` is `nil`.
     /// 
-    /// After calling this function, `gtk_widget_get_next_sibling(widget)`
+    /// After calling this function, ``gtk_widget_get_next_sibling(widget)``
     /// will return `next_sibling`.
     /// 
     /// If `parent` is already set as the parent widget of `widget`, this function
@@ -6237,80 +6517,83 @@ public extension WidgetProtocol {
     
     }
 
-    /// Determines whether `widget` is somewhere inside `ancestor`, possibly with
-    /// intermediate containers.
+    /// Determines whether `widget` is somewhere inside `ancestor`,
+    /// possibly with intermediate containers.
     @inlinable func is_<WidgetT: WidgetProtocol>(ancestor: WidgetT) -> Bool {
         let rv = ((gtk_widget_is_ancestor(widget_ptr, ancestor.widget_ptr)) != 0)
         return rv
     }
 
-    /// This function should be called whenever keyboard navigation within
-    /// a single widget hits a boundary. The function emits the
-    /// `GtkWidget::keynav-failed` signal on the widget and its return
-    /// value should be interpreted in a way similar to the return value of
-    /// `gtk_widget_child_focus()`:
+    /// Emits the ``keynav-failed`` signal on the widget.
     /// 
-    /// When `true` is returned, stay in the widget, the failed keyboard
-    /// navigation is OK and/or there is nowhere we can/should move the
-    /// focus to.
+    /// This function should be called whenever keyboard navigation
+    /// within a single widget hits a boundary.
     /// 
-    /// When `false` is returned, the caller should continue with keyboard
-    /// navigation outside the widget, e.g. by calling
-    /// `gtk_widget_child_focus()` on the widget’s toplevel.
+    /// The return value of this function should be interpreted
+    /// in a way similar to the return value of
+    /// [method`Gtk.Widget.child_focus`]. When `true` is returned,
+    /// stay in the widget, the failed keyboard  navigation is OK
+    /// and/or there is nowhere we can/should move the focus to.
+    /// When `false` is returned, the caller should continue with
+    /// keyboard navigation outside the widget, e.g. by calling
+    /// [method`Gtk.Widget.child_focus`] on the widget’s toplevel.
     /// 
-    /// The default `keynav-failed` handler returns `false` for
-    /// `GTK_DIR_TAB_FORWARD` and `GTK_DIR_TAB_BACKWARD`. For the other
-    /// values of `GtkDirectionType` it returns `true`.
+    /// The default [signal`Gtk.Widget::keynav-failed`] handler returns
+    /// `false` for `GTK_DIR_TAB_FORWARD` and `GTK_DIR_TAB_BACKWARD`.
+    /// For the other values of `GtkDirectionType` it returns `true`.
     /// 
     /// Whenever the default handler returns `true`, it also calls
-    /// `gtk_widget_error_bell()` to notify the user of the failed keyboard
-    /// navigation.
+    /// [method`Gtk.Widget.error_bell`] to notify the user of the
+    /// failed keyboard navigation.
     /// 
     /// A use case for providing an own implementation of `keynav-failed`
     /// (either by connecting to it or by overriding it) would be a row of
-    /// `GtkEntry` widgets where the user should be able to navigate the
-    /// entire row with the cursor keys, as e.g. known from user interfaces
-    /// that require entering license keys.
+    /// [class`Gtk.Entry`] widgets where the user should be able to navigate
+    /// the entire row with the cursor keys, as e.g. known from user
+    /// interfaces that require entering license keys.
     @inlinable func keynavFailed(direction: GtkDirectionType) -> Bool {
         let rv = ((gtk_widget_keynav_failed(widget_ptr, direction)) != 0)
         return rv
     }
 
-    /// Returns a newly allocated list of the widgets, normally labels, for
-    /// which this widget is the target of a mnemonic (see for example,
-    /// `gtk_label_set_mnemonic_widget()`).
+    /// Returns the widgets for which this widget is the target of a
+    /// mnemonic.
     /// 
-    /// The widgets in the list are not individually referenced. If you
-    /// want to iterate through the list and perform actions involving
-    /// callbacks that might destroy the widgets, you
-    /// must call `g_list_foreach (result,
-    /// (GFunc)g_object_ref, NULL)` first, and then unref all the
-    /// widgets afterwards.
+    /// Typically, these widgets will be labels. See, for example,
+    /// [method`Gtk.Label.set_mnemonic_widget`].
+    /// 
+    /// The widgets in the list are not individually referenced.
+    /// If you want to iterate through the list and perform actions
+    /// involving callbacks that might destroy the widgets, you
+    /// must call `g_list_foreach (result, (GFunc)g_object_ref, NULL)`
+    /// first, and then unref all the widgets afterwards.
     @inlinable func listMnemonicLabels() -> GLib.ListRef! {
         let rv = GLib.ListRef(gtk_widget_list_mnemonic_labels(widget_ptr))
         return rv
     }
 
-    /// This function is only for use in widget implementations. Causes
-    /// a widget to be mapped if it isn’t already.
+    /// Causes a widget to be mapped if it isn’t already.
+    /// 
+    /// This function is only for use in widget implementations.
     @inlinable func map() {
         gtk_widget_map(widget_ptr)
     
     }
 
     /// Measures `widget` in the orientation `orientation` and for the given `for_size`.
-    /// As an example, if `orientation` is `GTK_ORIENTATION_HORIZONTAL` and `for_size` is 300,
-    /// this functions will compute the minimum and natural width of `widget` if
-    /// it is allocated at a height of 300 pixels.
     /// 
-    /// See [GtkWidget’s geometry management section](#geometry-management) for
+    /// As an example, if `orientation` is `GTK_ORIENTATION_HORIZONTAL` and `for_size`
+    /// is 300, this functions will compute the minimum and natural width of `widget`
+    /// if it is allocated at a height of 300 pixels.
+    /// 
+    /// See [GtkWidget’s geometry management section](class.Widget.html`height-for-width-geometry-management`) for
     /// a more details on implementing `GtkWidgetClass.measure``()`.
     @inlinable func measure(orientation: GtkOrientation, `for` size: Int, minimum: UnsafeMutablePointer<gint>! = nil, natural: UnsafeMutablePointer<gint>! = nil, minimumBaseline: UnsafeMutablePointer<gint>! = nil, naturalBaseline: UnsafeMutablePointer<gint>! = nil) {
         gtk_widget_measure(widget_ptr, orientation, gint(size), minimum, natural, minimumBaseline, naturalBaseline)
     
     }
 
-    /// Emits the `GtkWidget::mnemonic-activate` signal.
+    /// Emits the `GtkWidget``mnemonic-activate` signal.
     @inlinable func mnemonicActivate(groupCycling: Bool) -> Bool {
         let rv = ((gtk_widget_mnemonic_activate(widget_ptr, gboolean((groupCycling) ? 1 : 0))) != 0)
         return rv
@@ -6318,106 +6601,119 @@ public extension WidgetProtocol {
 
     /// Returns a `GListModel` to track the children of `widget`.
     /// 
-    /// Calling this function will enable extra internal bookkeeping to track
-    /// children and emit signals on the returned listmodel. It may slow down
-    /// operations a lot.
+    /// Calling this function will enable extra internal bookkeeping
+    /// to track children and emit signals on the returned listmodel.
+    /// It may slow down operations a lot.
     /// 
-    /// Applications should try hard to avoid calling this function because of
-    /// the slowdowns.
+    /// Applications should try hard to avoid calling this function
+    /// because of the slowdowns.
     @inlinable func observeChildren() -> GIO.ListModelRef! {
         let rv = GIO.ListModelRef(gtk_widget_observe_children(widget_ptr))
         return rv
     }
 
-    /// Returns a `GListModel` to track the `GtkEventControllers` of `widget`.
+    /// Returns a `GListModel` to track the [class`Gtk.EventController`]s
+    /// of `widget`.
     /// 
-    /// Calling this function will enable extra internal bookkeeping to track
-    /// controllers and emit signals on the returned listmodel. It may slow down
-    /// operations a lot.
+    /// Calling this function will enable extra internal bookkeeping
+    /// to track controllers and emit signals on the returned listmodel.
+    /// It may slow down operations a lot.
     /// 
-    /// Applications should try hard to avoid calling this function because of
-    /// the slowdowns.
+    /// Applications should try hard to avoid calling this function
+    /// because of the slowdowns.
     @inlinable func observeControllers() -> GIO.ListModelRef! {
         let rv = GIO.ListModelRef(gtk_widget_observe_controllers(widget_ptr))
         return rv
     }
 
-    /// Finds the descendant of `widget` (including `widget` itself) closest
-    /// to the screen at the point (`x`, `y`). The point must be given in
-    /// widget coordinates, so (0, 0) is assumed to be the top left of
-    /// `widget`'s content area.
+    /// Finds the descendant of `widget` closest
+    /// to the screen at the point (`x`, `y`).
+    /// 
+    /// The point must be given in widget coordinates, so (0, 0) is assumed
+    /// to be the top left of `widget`'s content area.
     /// 
     /// Usually widgets will return `nil` if the given coordinate is not
-    /// contained in `widget` checked via `gtk_widget_contains()`. Otherwise
-    /// they will recursively try to find a child that does not return `nil`.
-    /// Widgets are however free to customize their picking algorithm.
+    /// contained in `widget` checked via [method`Gtk.Widget.contains`].
+    /// Otherwise they will recursively try to find a child that does
+    /// not return `nil`. Widgets are however free to customize their
+    /// picking algorithm.
     /// 
-    /// This function is used on the toplevel to determine the widget below
-    /// the mouse cursor for purposes of hover highlighting and delivering events.
+    /// This function is used on the toplevel to determine the widget
+    /// below the mouse cursor for purposes of hover highlighting and
+    /// delivering events.
     @inlinable func pick(x: CDouble, y: CDouble, flags: PickFlags) -> WidgetRef! {
         guard let rv = WidgetRef(gconstpointer: gconstpointer(gtk_widget_pick(widget_ptr, x, y, flags.value))) else { return nil }
         return rv
     }
 
-    /// This function is only for use in widget implementations.
-    /// 
     /// Flags the widget for a rerun of the GtkWidgetClass`size_allocate`
-    /// function. Use this function instead of `gtk_widget_queue_resize()`
+    /// function.
+    /// 
+    /// Use this function instead of [method`Gtk.Widget.queue_resize`]
     /// when the `widget`'s size request didn't change but it wants to
     /// reposition its contents.
     /// 
-    /// An example user of this function is `gtk_widget_set_halign()`.
+    /// An example user of this function is [method`Gtk.Widget.set_halign`].
+    /// 
+    /// This function is only for use in widget implementations.
     @inlinable func queueAllocate() {
         gtk_widget_queue_allocate(widget_ptr)
     
     }
 
     /// Schedules this widget to be redrawn in paint phase of the
-    /// current or the next frame. This means `widget`'s `GtkWidgetClass.snapshot()`
+    /// current or the next frame.
+    /// 
+    /// This means `widget`'s `GtkWidgetClass.snapshot()`
     /// implementation will be called.
     @inlinable func queueDraw() {
         gtk_widget_queue_draw(widget_ptr)
     
     }
 
-    /// This function is only for use in widget implementations.
-    /// Flags a widget to have its size renegotiated; should
-    /// be called when a widget for some reason has a new size request.
-    /// For example, when you change the text in a `GtkLabel`, `GtkLabel`
-    /// queues a resize to ensure there’s enough space for the new text.
+    /// Flags a widget to have its size renegotiated.
+    /// 
+    /// This should be called when a widget for some reason has a new
+    /// size request. For example, when you change the text in a
+    /// [class`Gtk.Label`], the label queues a resize to ensure there’s
+    /// enough space for the new text.
     /// 
     /// Note that you cannot call `gtk_widget_queue_resize()` on a widget
     /// from inside its implementation of the GtkWidgetClass`size_allocate`
     /// virtual method. Calls to `gtk_widget_queue_resize()` from inside
     /// GtkWidgetClass`size_allocate` will be silently ignored.
+    /// 
+    /// This function is only for use in widget implementations.
     @inlinable func queueResize() {
         gtk_widget_queue_resize(widget_ptr)
     
     }
 
-    /// Creates the GDK (windowing system) resources associated with a
-    /// widget. Normally realization happens implicitly; if you show
-    /// a widget and all its parent containers, then the widget will be
-    /// realized and mapped automatically.
+    /// Creates the GDK resources associated with a widget.
     /// 
-    /// Realizing a widget requires all
-    /// the widget’s parent widgets to be realized; calling
-    /// `gtk_widget_realize()` realizes the widget’s parents in addition to
-    /// `widget` itself. If a widget is not yet inside a toplevel window
-    /// when you realize it, bad things will happen.
+    /// Normally realization happens implicitly; if you show a widget
+    /// and all its parent containers, then the widget will be realized
+    /// and mapped automatically.
+    /// 
+    /// Realizing a widget requires all the widget’s parent widgets to be
+    /// realized; calling this function realizes the widget’s parents
+    /// in addition to `widget` itself. If a widget is not yet inside a
+    /// toplevel window when you realize it, bad things will happen.
     /// 
     /// This function is primarily used in widget implementations, and
     /// isn’t very useful otherwise. Many times when you think you might
     /// need it, a better approach is to connect to a signal that will be
     /// called after the widget is realized automatically, such as
-    /// `GtkWidget::realize`.
+    /// [signal`Gtk.Widget::realize`].
     @inlinable func realize() {
         gtk_widget_realize(widget_ptr)
     
     }
 
     /// Removes `controller` from `widget`, so that it doesn't process
-    /// events anymore. It should not be used again.
+    /// events anymore.
+    /// 
+    /// It should not be used again.
     /// 
     /// Widgets will remove all event controllers automatically when they
     /// are destroyed, there is normally no need to call this function.
@@ -6426,17 +6722,19 @@ public extension WidgetProtocol {
     
     }
 
-    /// Removes `css_class` from `widget`. After this, the style of `widget`
-    /// will stop matching for `css_class`.
+    /// Removes a style from `widget`.
+    /// 
+    /// After this, the style of `widget` will stop matching for `css_class`.
     @inlinable func remove(cssClass: UnsafePointer<CChar>!) {
         gtk_widget_remove_css_class(widget_ptr, cssClass)
     
     }
 
-    /// Removes a widget from the list of mnemonic labels for
-    /// this widget. (See `gtk_widget_list_mnemonic_labels()`). The widget
-    /// must have previously been added to the list with
-    /// `gtk_widget_add_mnemonic_label()`.
+    /// Removes a widget from the list of mnemonic labels for this widget.
+    /// 
+    /// See [method`Gtk.Widget.list_mnemonic_labels`]. The widget must
+    /// have previously been added to the list with
+    /// [method`Gtk.Widget.add_mnemonic_label`].
     @inlinable func removeMnemonic<WidgetT: WidgetProtocol>(label: WidgetT) {
         gtk_widget_remove_mnemonic_label(widget_ptr, label.widget_ptr)
     
@@ -6461,8 +6759,8 @@ public extension WidgetProtocol {
     /// that is marked as not can-focus in order to receive input
     /// focus.
     /// 
-    /// See `gtk_widget_grab_focus()` for actually setting the input
-    /// focus on a widget.
+    /// See [method`Gtk.Widget.grab_focus`] for actually setting
+    /// the input focus on a widget.
     @inlinable func set(canFocus: Bool) {
         gtk_widget_set_can_focus(widget_ptr, gboolean((canFocus) ? 1 : 0))
     
@@ -6474,14 +6772,13 @@ public extension WidgetProtocol {
     
     }
 
-    /// Sets whether `widget` should be mapped along with its when its parent
-    /// is mapped and `widget` has been shown with `gtk_widget_show()`.
+    /// Sets whether `widget` should be mapped along with its parent.
     /// 
-    /// The child visibility can be set for widget before it is added to
-    /// a container with `gtk_widget_set_parent()`, to avoid mapping
-    /// children unnecessary before immediately unmapping them. However
-    /// it will be reset to its default state of `true` when the widget
-    /// is removed from a container.
+    /// The child visibility can be set for widget before it is added
+    /// to a container with [method`Gtk.Widget.set_parent`], to avoid
+    /// mapping children unnecessary before immediately unmapping them.
+    /// However it will be reset to its default state of `true` when the
+    /// widget is removed from a container.
     /// 
     /// Note that changing the child visibility of a widget does not
     /// queue a resize on the widget. Most of the time, the size of
@@ -6489,92 +6786,102 @@ public extension WidgetProtocol {
     /// not they are mapped. If this is not the case, the container
     /// can queue a resize itself.
     /// 
-    /// This function is only useful for container implementations and
-    /// never should be called by an application.
+    /// This function is only useful for container implementations
+    /// and should never be called by an application.
     @inlinable func set(childVisible: Bool) {
         gtk_widget_set_child_visible(widget_ptr, gboolean((childVisible) ? 1 : 0))
     
     }
 
-    /// Will clear all css classes applied to `widget`
+    /// Will clear all style classes applied to `widget`
     /// and replace them with `classes`.
     @inlinable func setCss(classes: UnsafeMutablePointer<UnsafePointer<CChar>?>!) {
         gtk_widget_set_css_classes(widget_ptr, classes)
     
     }
 
-    /// Sets the cursor to be shown when pointer devices point towards `widget`.
+    /// Sets the cursor to be shown when pointer devices point
+    /// towards `widget`.
     /// 
-    /// If the `cursor` is NULL, `widget` will use the cursor inherited from the
-    /// parent widget.
+    /// If the `cursor` is NULL, `widget` will use the cursor
+    /// inherited from the parent widget.
     @inlinable func set(cursor: Gdk.CursorRef? = nil) {
         gtk_widget_set_cursor(widget_ptr, cursor?.cursor_ptr)
     
     }
-    /// Sets the cursor to be shown when pointer devices point towards `widget`.
+    /// Sets the cursor to be shown when pointer devices point
+    /// towards `widget`.
     /// 
-    /// If the `cursor` is NULL, `widget` will use the cursor inherited from the
-    /// parent widget.
+    /// If the `cursor` is NULL, `widget` will use the cursor
+    /// inherited from the parent widget.
     @inlinable func set<CursorT: Gdk.CursorProtocol>(cursor: CursorT?) {
         gtk_widget_set_cursor(widget_ptr, cursor?.cursor_ptr)
     
     }
 
-    /// Sets a named cursor to be shown when pointer devices point towards `widget`.
+    /// Sets a named cursor to be shown when pointer devices point
+    /// towards `widget`.
     /// 
     /// This is a utility function that creates a cursor via
-    /// `gdk_cursor_new_from_name()` and then sets it on `widget` with
-    /// `gtk_widget_set_cursor()`. See those 2 functions for details.
+    /// [ctor`Gdk.Cursor.new_from_name`] and then sets it on `widget`
+    /// with [method`Gtk.Widget.set_cursor`]. See those functions for
+    /// details.
     /// 
-    /// On top of that, this function allows `name` to be `nil`, which will
-    /// do the same as calling `gtk_widget_set_cursor()` with a `nil` cursor.
+    /// On top of that, this function allows `name` to be `nil`, which
+    /// will do the same as calling [method`Gtk.Widget.set_cursor`]
+    /// with a `nil` cursor.
     @inlinable func setCursorFrom(name: UnsafePointer<CChar>? = nil) {
         gtk_widget_set_cursor_from_name(widget_ptr, name)
     
     }
 
-    /// Sets the reading direction on a particular widget. This direction
-    /// controls the primary direction for widgets containing text,
-    /// and also the direction in which the children of a container are
-    /// packed. The ability to set the direction is present in order
-    /// so that correct localization into languages with right-to-left
-    /// reading directions can be done. Generally, applications will
-    /// let the default reading direction present, except for containers
+    /// Sets the reading direction on a particular widget.
+    /// 
+    /// This direction controls the primary direction for widgets
+    /// containing text, and also the direction in which the children
+    /// of a container are packed. The ability to set the direction is
+    /// present in order so that correct localization into languages with
+    /// right-to-left reading directions can be done. Generally, applications
+    /// will let the default reading direction present, except for containers
     /// where the containers are arranged in an order that is explicitly
     /// visual rather than logical (such as buttons for text justification).
     /// 
     /// If the direction is set to `GTK_TEXT_DIR_NONE`, then the value
-    /// set by `gtk_widget_set_default_direction()` will be used.
+    /// set by [func`Gtk.Widget.set_default_direction`] will be used.
     @inlinable func setDirection(dir: GtkTextDirection) {
         gtk_widget_set_direction(widget_ptr, dir)
     
     }
 
-    /// Set `child` as the current focus child of `widget`. The previous
-    /// focus child will be unset.
+    /// Set `child` as the current focus child of `widget`.
+    /// 
+    /// The previous focus child will be unset.
     /// 
     /// This function is only suitable for widget implementations.
     /// If you want a certain widget to get the input focus, call
-    /// `gtk_widget_grab_focus()` on it.
+    /// [method`Gtk.Widget.grab_focus`] on it.
     @inlinable func setFocus(child: WidgetRef? = nil) {
         gtk_widget_set_focus_child(widget_ptr, child?.widget_ptr)
     
     }
-    /// Set `child` as the current focus child of `widget`. The previous
-    /// focus child will be unset.
+    /// Set `child` as the current focus child of `widget`.
+    /// 
+    /// The previous focus child will be unset.
     /// 
     /// This function is only suitable for widget implementations.
     /// If you want a certain widget to get the input focus, call
-    /// `gtk_widget_grab_focus()` on it.
+    /// [method`Gtk.Widget.grab_focus`] on it.
     @inlinable func setFocus<WidgetT: WidgetProtocol>(child: WidgetT?) {
         gtk_widget_set_focus_child(widget_ptr, child?.widget_ptr)
     
     }
 
-    /// Sets whether the widget should grab focus when it is clicked with the mouse.
-    /// Making mouse clicks not grab focus is useful in places like toolbars where
-    /// you don’t want the keyboard focus removed from the main area of the
-    /// application.
+    /// Sets whether the widget should grab focus when it is clicked
+    /// with the mouse.
+    /// 
+    /// Making mouse clicks not grab focus is useful in places like
+    /// toolbars where you don’t want the keyboard focus removed from
+    /// the main area of the application.
     @inlinable func set(focusOnClick: Bool) {
         gtk_widget_set_focus_on_click(widget_ptr, gboolean((focusOnClick) ? 1 : 0))
     
@@ -6591,27 +6898,31 @@ public extension WidgetProtocol {
     /// that is marked as not can-focus in order to receive input
     /// focus.
     /// 
-    /// See `gtk_widget_grab_focus()` for actually setting the input
-    /// focus on a widget.
+    /// See [method`Gtk.Widget.grab_focus`] for actually setting
+    /// the input focus on a widget.
     @inlinable func set(focusable: Bool) {
         gtk_widget_set_focusable(widget_ptr, gboolean((focusable) ? 1 : 0))
     
     }
 
-    /// Sets the font map to use for Pango rendering. The font map is the
-    /// object that is used to look up fonts. Setting a custom font map
-    /// can be useful in special situations, e.g. when you need to add
-    /// application-specific fonts to the set of available fonts.
+    /// Sets the font map to use for Pango rendering.
+    /// 
+    /// The font map is the object that is used to look up fonts.
+    /// Setting a custom font map can be useful in special situations,
+    /// e.g. when you need to add application-specific fonts to the set
+    /// of available fonts.
     /// 
     /// When not set, the widget will inherit the font map from its parent.
     @inlinable func set(fontMap: Pango.FontMapRef? = nil) {
         gtk_widget_set_font_map(widget_ptr, fontMap?.font_map_ptr)
     
     }
-    /// Sets the font map to use for Pango rendering. The font map is the
-    /// object that is used to look up fonts. Setting a custom font map
-    /// can be useful in special situations, e.g. when you need to add
-    /// application-specific fonts to the set of available fonts.
+    /// Sets the font map to use for Pango rendering.
+    /// 
+    /// The font map is the object that is used to look up fonts.
+    /// Setting a custom font map can be useful in special situations,
+    /// e.g. when you need to add application-specific fonts to the set
+    /// of available fonts.
     /// 
     /// When not set, the widget will inherit the font map from its parent.
     @inlinable func set<FontMapT: Pango.FontMapProtocol>(fontMap: FontMapT?) {
@@ -6619,35 +6930,41 @@ public extension WidgetProtocol {
     
     }
 
-    /// Sets the `cairo_font_options_t` used for Pango rendering in this widget.
-    /// When not set, the default font options for the `GdkDisplay` will be used.
+    /// Sets the `cairo_font_options_t` used for Pango rendering
+    /// in this widget.
+    /// 
+    /// When not set, the default font options for the `GdkDisplay`
+    /// will be used.
     @inlinable func setFont(options: Cairo.FontOptionsRef? = nil) {
         gtk_widget_set_font_options(widget_ptr, options?._ptr)
     
     }
-    /// Sets the `cairo_font_options_t` used for Pango rendering in this widget.
-    /// When not set, the default font options for the `GdkDisplay` will be used.
+    /// Sets the `cairo_font_options_t` used for Pango rendering
+    /// in this widget.
+    /// 
+    /// When not set, the default font options for the `GdkDisplay`
+    /// will be used.
     @inlinable func setFont<FontOptionsT: Cairo.FontOptionsProtocol>(options: FontOptionsT?) {
         gtk_widget_set_font_options(widget_ptr, options?._ptr)
     
     }
 
     /// Sets the horizontal alignment of `widget`.
-    /// See the `GtkWidget:halign` property.
     @inlinable func setHalign(align: GtkAlign) {
         gtk_widget_set_halign(widget_ptr, align)
     
     }
 
-    /// Sets the has-tooltip property on `widget` to `has_tooltip`.  See
-    /// `GtkWidget:has-tooltip` for more information.
+    /// Sets the `has-tooltip` property on `widget` to `has_tooltip`.
     @inlinable func set(hasTooltip: Bool) {
         gtk_widget_set_has_tooltip(widget_ptr, gboolean((hasTooltip) ? 1 : 0))
     
     }
 
     /// Sets whether the widget would like any available extra horizontal
-    /// space. When a user resizes a `GtkWindow`, widgets with expand=TRUE
+    /// space.
+    /// 
+    /// When a user resizes a `GtkWindow`, widgets with expand=TRUE
     /// generally receive the extra space. For example, a list or
     /// scrollable area or document in your window would often be set to
     /// expand.
@@ -6658,8 +6975,8 @@ public extension WidgetProtocol {
     /// 
     /// By default, widgets automatically expand if any of their children
     /// want to expand. (To see if a widget will automatically expand given
-    /// its current children and state, call `gtk_widget_compute_expand()`. A
-    /// container can decide how the expandability of children affects the
+    /// its current children and state, call [method`Gtk.Widget.compute_expand`].
+    /// A container can decide how the expandability of children affects the
     /// expansion of the container by overriding the compute_expand virtual
     /// method on `GtkWidget`.).
     /// 
@@ -6668,21 +6985,20 @@ public extension WidgetProtocol {
     /// 
     /// This function forces the widget to expand or not to expand,
     /// regardless of children.  The override occurs because
-    /// `gtk_widget_set_hexpand()` sets the hexpand-set property (see
-    /// `gtk_widget_set_hexpand_set()`) which causes the widget’s hexpand
+    /// [method`Gtk.Widget.set_hexpand`] sets the hexpand-set property (see
+    /// [method`Gtk.Widget.set_hexpand_set`]) which causes the widget’s hexpand
     /// value to be used, rather than looking at children and widget state.
     @inlinable func setHexpand(expand: Bool) {
         gtk_widget_set_hexpand(widget_ptr, gboolean((expand) ? 1 : 0))
     
     }
 
-    /// Sets whether the hexpand flag (see `gtk_widget_get_hexpand()`) will
-    /// be used.
+    /// Sets whether the hexpand flag will be used.
     /// 
-    /// The hexpand-set property will be set automatically when you call
-    /// `gtk_widget_set_hexpand()` to set hexpand, so the most likely
-    /// reason to use this function would be to unset an explicit expand
-    /// flag.
+    /// The [property`Gtk.Widget:hexpand-set`] property will be set
+    /// automatically when you call [method`Gtk.Widget.set_hexpand`]
+    /// to set hexpand, so the most likely reason to use this function
+    /// would be to unset an explicit expand flag.
     /// 
     /// If hexpand is set, then it overrides any computed
     /// expand value based on child widgets. If hexpand is not
@@ -6696,51 +7012,51 @@ public extension WidgetProtocol {
     
     }
 
-    /// Sets the layout manager delegate instance that provides an implementation
-    /// for measuring and allocating the children of `widget`.
+    /// Sets the layout manager delegate instance that
+    /// provides an implementation for measuring and
+    /// allocating the children of `widget`.
     @inlinable func set(layoutManager: LayoutManagerRef? = nil) {
         gtk_widget_set_layout_manager(widget_ptr, layoutManager?.layout_manager_ptr)
     
     }
-    /// Sets the layout manager delegate instance that provides an implementation
-    /// for measuring and allocating the children of `widget`.
+    /// Sets the layout manager delegate instance that
+    /// provides an implementation for measuring and
+    /// allocating the children of `widget`.
     @inlinable func set<LayoutManagerT: LayoutManagerProtocol>(layoutManager: LayoutManagerT?) {
         gtk_widget_set_layout_manager(widget_ptr, layoutManager?.layout_manager_ptr)
     
     }
 
     /// Sets the bottom margin of `widget`.
-    /// See the `GtkWidget:margin-bottom` property.
     @inlinable func setMarginBottom(margin: Int) {
         gtk_widget_set_margin_bottom(widget_ptr, gint(margin))
     
     }
 
     /// Sets the end margin of `widget`.
-    /// See the `GtkWidget:margin-end` property.
     @inlinable func setMarginEnd(margin: Int) {
         gtk_widget_set_margin_end(widget_ptr, gint(margin))
     
     }
 
     /// Sets the start margin of `widget`.
-    /// See the `GtkWidget:margin-start` property.
     @inlinable func setMarginStart(margin: Int) {
         gtk_widget_set_margin_start(widget_ptr, gint(margin))
     
     }
 
     /// Sets the top margin of `widget`.
-    /// See the `GtkWidget:margin-top` property.
     @inlinable func setMarginTop(margin: Int) {
         gtk_widget_set_margin_top(widget_ptr, gint(margin))
     
     }
 
-    /// Widgets can be named, which allows you to refer to them from a
+    /// Sets a widgets name.
+    /// 
+    /// Setting a name allows you to refer to the widget from a
     /// CSS file. You can apply a style to widgets with a particular name
     /// in the CSS file. See the documentation for the CSS syntax (on the
-    /// same page as the docs for `GtkStyleContext`).
+    /// same page as the docs for [class`Gtk.StyleContext`].
     /// 
     /// Note that the CSS syntax has certain special characters to delimit
     /// and represent elements in a selector (period, #, &gt;, *...), so using
@@ -6751,9 +7067,10 @@ public extension WidgetProtocol {
     
     }
 
-    /// Request the `widget` to be rendered partially transparent, with
-    /// opacity 0 being fully transparent and 1 fully opaque. (Opacity
-    /// values are clamped to the [0,1] range).
+    /// Request the `widget` to be rendered partially transparent.
+    /// 
+    /// An opacity of 0 is fully transparent and an opacity of 1
+    /// is fully opaque.
     /// 
     /// Opacity works on both toplevel widgets and child widgets, although
     /// there are some limitations: For toplevel widgets, applying opacity
@@ -6768,8 +7085,8 @@ public extension WidgetProtocol {
     /// appear translucent, since it is ultimatively rendered on that
     /// toplevel. The opacity value itself is not inherited by child
     /// widgets (since that would make widgets deeper in the hierarchy
-    /// progressively more translucent). As a consequence, `GtkPopovers`
-    /// and other `GtkNative` widgets with their own surface will use their
+    /// progressively more translucent). As a consequence, [class`Gtk.Popover`]s
+    /// and other [class`Gtk.Native`] widgets with their own surface will use their
     /// own opacity value, and thus by default appear non-translucent,
     /// even if they are attached to a toplevel that is translucent.
     @inlinable func set(opacity: CDouble) {
@@ -6777,11 +7094,13 @@ public extension WidgetProtocol {
     
     }
 
-    /// Sets how `widget` treats content that is drawn outside the widget's content area.
-    /// See the definition of `GtkOverflow` for details.
+    /// Sets how `widget` treats content that is drawn outside the
+    /// widget's content area.
     /// 
-    /// This setting is provided for widget implementations and should not be used by
-    /// application code.
+    /// See the definition of [enum`Gtk.Overflow`] for details.
+    /// 
+    /// This setting is provided for widget implementations and
+    /// should not be used by application code.
     /// 
     /// The default value is `GTK_OVERFLOW_VISIBLE`.
     @inlinable func set(overflow: GtkOverflow) {
@@ -6789,13 +7108,14 @@ public extension WidgetProtocol {
     
     }
 
+    /// Sets `parent` as the parent widget of `widget`.
+    /// 
+    /// This takes care of details such as updating the state and style
+    /// of the child to reflect its new location and resizing the parent.
+    /// The opposite function is [method`Gtk.Widget.unparent`].
+    /// 
     /// This function is useful only when implementing subclasses of
     /// `GtkWidget`.
-    /// 
-    /// Sets `parent` as the parent widget of `widget`, and takes care of
-    /// some details such as updating the state and style of the child
-    /// to reflect its new location and resizing the parent. The opposite
-    /// function is `gtk_widget_unparent()`.
     @inlinable func set<WidgetT: WidgetProtocol>(parent: WidgetT) {
         gtk_widget_set_parent(widget_ptr, parent.widget_ptr)
     
@@ -6809,25 +7129,28 @@ public extension WidgetProtocol {
     
     }
 
-    /// Sets the sensitivity of a widget. A widget is sensitive if the user
-    /// can interact with it. Insensitive widgets are “grayed out” and the
-    /// user can’t interact with them. Insensitive widgets are known as
+    /// Sets the sensitivity of a widget.
+    /// 
+    /// A widget is sensitive if the user can interact with it.
+    /// Insensitive widgets are “grayed out” and the user can’t
+    /// interact with them. Insensitive widgets are known as
     /// “inactive”, “disabled”, or “ghosted” in some other toolkits.
     @inlinable func set(sensitive: Bool) {
         gtk_widget_set_sensitive(widget_ptr, gboolean((sensitive) ? 1 : 0))
     
     }
 
-    /// Sets the minimum size of a widget; that is, the widget’s size
-    /// request will be at least `width` by `height`. You can use this
-    /// function to force a widget to be larger than it normally would be.
+    /// Sets the minimum size of a widget.
     /// 
-    /// In most cases, `gtk_window_set_default_size()` is a better choice for
-    /// toplevel windows than this function; setting the default size will
-    /// still allow users to shrink the window. Setting the size request
-    /// will force them to leave the window at least as large as the size
-    /// request. When dealing with window sizes,
-    /// `gtk_window_set_geometry_hints()` can be a useful function as well.
+    /// That is, the widget’s size request will be at least `width`
+    /// by `height`. You can use this function to force a widget to
+    /// be larger than it normally would be.
+    /// 
+    /// In most cases, [method`Gtk.Window.set_default_size`] is a better
+    /// choice for toplevel windows than this function; setting the default
+    /// size will still allow users to shrink the window. Setting the size
+    /// request will force them to leave the window at least as large as
+    /// the size request.
     /// 
     /// Note the inherent danger of setting any fixed size - themes,
     /// translations into other languages, different fonts, and user action
@@ -6845,33 +7168,40 @@ public extension WidgetProtocol {
     /// the “natural” size request of the widget will be used instead.
     /// 
     /// The size request set here does not include any margin from the
-    /// `GtkWidget` properties margin-left, margin-right, margin-top, and
-    /// margin-bottom, but it does include pretty much all other padding
-    /// or border properties set by any subclass of `GtkWidget`.
+    /// properties
+    /// [property`Gtk.Widget:margin-start`],
+    /// [property`Gtk.Widget:margin-end`],
+    /// [property`Gtk.Widget:margin-top`], and
+    /// [property`Gtk.Widget:margin-bottom`], but it does include pretty
+    /// much all other padding or border properties set by any subclass
+    /// of `GtkWidget`.
     @inlinable func setSizeRequest(width: Int, height: Int) {
         gtk_widget_set_size_request(widget_ptr, gint(width), gint(height))
     
     }
 
-    /// This function is for use in widget implementations. Turns on flag
-    /// values in the current widget state (insensitive, prelighted, etc.).
+    /// Turns on flag values in the current widget state.
+    /// 
+    /// Typical widget states are insensitive, prelighted, etc.
     /// 
     /// This function accepts the values `GTK_STATE_FLAG_DIR_LTR` and
     /// `GTK_STATE_FLAG_DIR_RTL` but ignores them. If you want to set
-    /// the widget's direction, use `gtk_widget_set_direction()`.
+    /// the widget's direction, use [method`Gtk.Widget.set_direction`].
+    /// 
+    /// This function is for use in widget implementations.
     @inlinable func setState(flags: StateFlags, clear: Bool) {
         gtk_widget_set_state_flags(widget_ptr, flags.value, gboolean((clear) ? 1 : 0))
     
     }
 
-    /// Sets `markup` as the contents of the tooltip, which is marked up with
-    /// the [Pango text markup language](#PangoMarkupFormat).
+    /// Sets `markup` as the contents of the tooltip, which is marked
+    /// up with Pango markup.
     /// 
-    /// This function will take care of setting the `GtkWidget:has-tooltip` as
-    /// a side effect, and of the default handler for the `GtkWidget::query-tooltip` signal.
+    /// This function will take care of setting the
+    /// [property`Gtk.Widget:has-tooltip`] as a side effect, and of the
+    /// default handler for the [signal`Gtk.Widget::query-tooltip`] signal.
     /// 
-    /// See also the `GtkWidget:tooltip-markup` property and
-    /// `gtk_tooltip_set_markup()`.
+    /// See also [method`Gtk.Tooltip.set_markup`].
     @inlinable func setTooltip(markup: UnsafePointer<CChar>? = nil) {
         gtk_widget_set_tooltip_markup(widget_ptr, markup)
     
@@ -6881,19 +7211,18 @@ public extension WidgetProtocol {
     /// 
     /// If `text` contains any markup, it will be escaped.
     /// 
-    /// This function will take care of setting `GtkWidget:has-tooltip`
-    /// as a side effect, and of the default handler for the
-    /// `GtkWidget::query-tooltip` signal.
+    /// This function will take care of setting
+    /// [property`Gtk.Widget:has-tooltip`] as a side effect,
+    /// and of the default handler for the
+    /// [signal`Gtk.Widget::query-tooltip`] signal.
     /// 
-    /// See also the `GtkWidget:tooltip-text` property and
-    /// `gtk_tooltip_set_text()`.
+    /// See also [method`Gtk.Tooltip.set_text`].
     @inlinable func setTooltip(text: UnsafePointer<CChar>? = nil) {
         gtk_widget_set_tooltip_text(widget_ptr, text)
     
     }
 
     /// Sets the vertical alignment of `widget`.
-    /// See the `GtkWidget:valign` property.
     @inlinable func setValign(align: GtkAlign) {
         gtk_widget_set_valign(widget_ptr, align)
     
@@ -6902,28 +7231,28 @@ public extension WidgetProtocol {
     /// Sets whether the widget would like any available extra vertical
     /// space.
     /// 
-    /// See `gtk_widget_set_hexpand()` for more detail.
+    /// See [method`Gtk.Widget.set_hexpand`] for more detail.
     @inlinable func setVexpand(expand: Bool) {
         gtk_widget_set_vexpand(widget_ptr, gboolean((expand) ? 1 : 0))
     
     }
 
-    /// Sets whether the vexpand flag (see `gtk_widget_get_vexpand()`) will
-    /// be used.
+    /// Sets whether the vexpand flag will be used.
     /// 
-    /// See `gtk_widget_set_hexpand_set()` for more detail.
+    /// See [method`Gtk.Widget.set_hexpand_set`] for more detail.
     @inlinable func setVexpand(set: Bool) {
         gtk_widget_set_vexpand_set(widget_ptr, gboolean((set) ? 1 : 0))
     
     }
 
-    /// Sets the visibility state of `widget`. Note that setting this to
-    /// `true` doesn’t mean the widget is actually viewable, see
-    /// `gtk_widget_get_visible()`.
+    /// Sets the visibility state of `widget`.
     /// 
-    /// This function simply calls `gtk_widget_show()` or `gtk_widget_hide()`
-    /// but is nicer to use when the visibility of the widget depends on
-    /// some condition.
+    /// Note that setting this to `true` doesn’t mean the widget is
+    /// actually viewable, see [method`Gtk.Widget.get_visible`].
+    /// 
+    /// This function simply calls [method`Gtk.Widget.show`] or
+    /// [method`Gtk.Widget.hide`] but is nicer to use when the
+    /// visibility of the widget depends on some condition.
     @inlinable func set(visible: Bool) {
         gtk_widget_set_visible(widget_ptr, gboolean((visible) ? 1 : 0))
     
@@ -6931,6 +7260,7 @@ public extension WidgetProtocol {
 
     /// Returns whether `widget` should contribute to
     /// the measuring and allocation of its parent.
+    /// 
     /// This is `false` for invisible children, but also
     /// for children that have their own surface.
     @inlinable func shouldLayout() -> Bool {
@@ -6938,8 +7268,9 @@ public extension WidgetProtocol {
         return rv
     }
 
-    /// Flags a widget to be displayed. Any widget that isn’t shown will
-    /// not appear on the screen.
+    /// Flags a widget to be displayed.
+    /// 
+    /// Any widget that isn’t shown will not appear on the screen.
     /// 
     /// Remember that you have to show the containers containing a widget,
     /// in addition to the widget itself, before it will appear onscreen.
@@ -6952,17 +7283,22 @@ public extension WidgetProtocol {
     
     }
 
-    /// This is a simple form of `gtk_widget_allocate()` that takes the new position
-    /// of `widget` as part of `allocation`.
+    /// Allocates widget with a transformation that translates
+    /// the origin to the position in `allocation`.
+    /// 
+    /// This is a simple form of [method`Gtk.Widget.allocate`].
     @inlinable func sizeAllocate(allocation: UnsafePointer<GtkAllocation>!, baseline: Int) {
         gtk_widget_size_allocate(widget_ptr, allocation, gint(baseline))
     
     }
 
-    /// When a widget receives a call to the snapshot function, it must send
-    /// synthetic `GtkWidgetClass.snapshot``()` calls to all children. This function
-    /// provides a convenient way of doing this. A widget, when it receives
-    /// a call to its `GtkWidgetClass.snapshot``()` function, calls
+    /// Snapshot the a child of `widget`.
+    /// 
+    /// When a widget receives a call to the snapshot function,
+    /// it must send synthetic ``GtkWidget`Class.snapshot()` calls
+    /// to all children. This function provides a convenient way
+    /// of doing this. A widget, when it receives a call to its
+    /// ``GtkWidget`Class.snapshot()` function, calls
     /// `gtk_widget_snapshot_child()` once for each child, passing in
     /// the `snapshot` the widget received.
     /// 
@@ -6975,9 +7311,11 @@ public extension WidgetProtocol {
     
     }
 
-    /// Translate coordinates relative to `src_widget`’s allocation to coordinates
-    /// relative to `dest_widget`’s allocations. In order to perform this
-    /// operation, both widget must share a common toplevel.
+    /// Translate coordinates relative to `src_widget`’s allocation
+    /// to coordinates relative to `dest_widget`’s allocations.
+    /// 
+    /// In order to perform this operation, both widget must share
+    /// a common ancestor.
     @inlinable func translateCoordinates<WidgetT: WidgetProtocol>(destWidget: WidgetT, srcX: CDouble, srcY: CDouble, destX: UnsafeMutablePointer<CDouble>! = nil, destY: UnsafeMutablePointer<CDouble>! = nil) -> Bool {
         let rv = ((gtk_widget_translate_coordinates(widget_ptr, destWidget.widget_ptr, srcX, srcY, destX, destY)) != 0)
         return rv
@@ -6990,40 +7328,46 @@ public extension WidgetProtocol {
     
     }
 
-    /// This function is only for use in widget implementations. Causes
-    /// a widget to be unmapped if it’s currently mapped.
+    /// Causes a widget to be unmapped if it’s currently mapped.
+    /// 
+    /// This function is only for use in widget implementations.
     @inlinable func unmap() {
         gtk_widget_unmap(widget_ptr)
     
     }
 
-    /// This function is only for use in widget implementations.
-    /// It should be called by parent widgets to dissociate `widget`
-    /// from the parent, typically in dispose.
+    /// Dissociate `widget` from its parent.
+    /// 
+    /// This function is only for use in widget implementations,
+    /// typically in dispose.
     @inlinable func unparent() {
         gtk_widget_unparent(widget_ptr)
     
     }
 
-    /// This function is only useful in widget implementations.
     /// Causes a widget to be unrealized (frees all GDK resources
     /// associated with the widget).
+    /// 
+    /// This function is only useful in widget implementations.
     @inlinable func unrealize() {
         gtk_widget_unrealize(widget_ptr)
     
     }
 
-    /// This function is for use in widget implementations. Turns off flag
-    /// values for the current widget state (insensitive, prelighted, etc.).
-    /// See `gtk_widget_set_state_flags()`.
+    /// Turns off flag values for the current widget state.
+    /// 
+    /// See [method`Gtk.Widget.set_state_flags`].
+    /// 
+    /// This function is for use in widget implementations.
     @inlinable func unsetState(flags: StateFlags) {
         gtk_widget_unset_state_flags(widget_ptr, flags.value)
     
     }
 
-    /// Enters the main loop and waits for `widget` to be “drawn”. In this
-    /// context that means it waits for the frame clock of `widget` to have
-    /// run a full styling, layout and drawing cycle.
+    /// Enters the main loop and waits for `widget` to be “drawn”.
+    /// 
+    /// In this context that means it waits for the frame clock of
+    /// `widget` to have run a full styling, layout and drawing cycle.
     /// 
     /// This function is intended to be used for syncing with actions that
     /// depend on `widget` relayouting or on interaction with the display
@@ -7033,14 +7377,16 @@ public extension WidgetProtocol {
     
     }
     /// Returns the baseline that has currently been allocated to `widget`.
+    /// 
     /// This function is intended to be used when implementing handlers
-    /// for the `GtkWidgetClass.snapshot``()` function, and when allocating child
-    /// widgets in `GtkWidgetClass.size_allocate``()`.
+    /// for the ``GtkWidget`Class.snapshot()` function, and when allocating
+    /// child widgets in ``GtkWidget`Class.size_allocate()`.
     @inlinable var allocatedBaseline: Int {
         /// Returns the baseline that has currently been allocated to `widget`.
+        /// 
         /// This function is intended to be used when implementing handlers
-        /// for the `GtkWidgetClass.snapshot``()` function, and when allocating child
-        /// widgets in `GtkWidgetClass.size_allocate``()`.
+        /// for the ``GtkWidget`Class.snapshot()` function, and when allocating
+        /// child widgets in ``GtkWidget`Class.size_allocate()`.
         get {
             let rv = Int(gtk_widget_get_allocated_baseline(widget_ptr))
             return rv
@@ -7068,12 +7414,12 @@ public extension WidgetProtocol {
     /// Determines whether the input focus can enter `widget` or any
     /// of its children.
     /// 
-    /// See `gtk_widget_set_focusable()`.
+    /// See [method`Gtk.Widget.set_focusable`].
     @inlinable var canFocus: Bool {
         /// Determines whether the input focus can enter `widget` or any
         /// of its children.
         /// 
-        /// See `gtk_widget_set_focusable()`.
+        /// See [method`Gtk.Widget.set_focusable`].
         get {
             let rv = ((gtk_widget_get_can_focus(widget_ptr)) != 0)
             return rv
@@ -7090,8 +7436,8 @@ public extension WidgetProtocol {
         /// that is marked as not can-focus in order to receive input
         /// focus.
         /// 
-        /// See `gtk_widget_grab_focus()` for actually setting the input
-        /// focus on a widget.
+        /// See [method`Gtk.Widget.grab_focus`] for actually setting
+        /// the input focus on a widget.
         nonmutating set {
             gtk_widget_set_can_focus(widget_ptr, gboolean((newValue) ? 1 : 0))
         }
@@ -7111,30 +7457,31 @@ public extension WidgetProtocol {
     }
 
     /// Gets the value set with `gtk_widget_set_child_visible()`.
+    /// 
     /// If you feel a need to use this function, your code probably
     /// needs reorganization.
     /// 
-    /// This function is only useful for container implementations and
-    /// never should be called by an application.
+    /// This function is only useful for container implementations
+    /// and should never be called by an application.
     @inlinable var childVisible: Bool {
         /// Gets the value set with `gtk_widget_set_child_visible()`.
+        /// 
         /// If you feel a need to use this function, your code probably
         /// needs reorganization.
         /// 
-        /// This function is only useful for container implementations and
-        /// never should be called by an application.
+        /// This function is only useful for container implementations
+        /// and should never be called by an application.
         get {
             let rv = ((gtk_widget_get_child_visible(widget_ptr)) != 0)
             return rv
         }
-        /// Sets whether `widget` should be mapped along with its when its parent
-        /// is mapped and `widget` has been shown with `gtk_widget_show()`.
+        /// Sets whether `widget` should be mapped along with its parent.
         /// 
-        /// The child visibility can be set for widget before it is added to
-        /// a container with `gtk_widget_set_parent()`, to avoid mapping
-        /// children unnecessary before immediately unmapping them. However
-        /// it will be reset to its default state of `true` when the widget
-        /// is removed from a container.
+        /// The child visibility can be set for widget before it is added
+        /// to a container with [method`Gtk.Widget.set_parent`], to avoid
+        /// mapping children unnecessary before immediately unmapping them.
+        /// However it will be reset to its default state of `true` when the
+        /// widget is removed from a container.
         /// 
         /// Note that changing the child visibility of a widget does not
         /// queue a resize on the widget. Most of the time, the size of
@@ -7142,19 +7489,23 @@ public extension WidgetProtocol {
         /// not they are mapped. If this is not the case, the container
         /// can queue a resize itself.
         /// 
-        /// This function is only useful for container implementations and
-        /// never should be called by an application.
+        /// This function is only useful for container implementations
+        /// and should never be called by an application.
         nonmutating set {
             gtk_widget_set_child_visible(widget_ptr, gboolean((newValue) ? 1 : 0))
         }
     }
 
+    /// Gets the clipboard object for `widget`.
+    /// 
     /// This is a utility function to get the clipboard object for the
     /// `GdkDisplay` that `widget` is using.
     /// 
     /// Note that this function always works, even when `widget` is not
     /// realized yet.
     @inlinable var clipboard: Gdk.ClipboardRef! {
+        /// Gets the clipboard object for `widget`.
+        /// 
         /// This is a utility function to get the clipboard object for the
         /// `GdkDisplay` that `widget` is using.
         /// 
@@ -7166,14 +7517,14 @@ public extension WidgetProtocol {
         }
     }
 
-    /// Returns the list of css classes applied to `widget`.
+    /// Returns the list of style classes applied to `widget`.
     @inlinable var cssClasses: UnsafeMutablePointer<UnsafeMutablePointer<CChar>?>! {
-        /// Returns the list of css classes applied to `widget`.
+        /// Returns the list of style classes applied to `widget`.
         get {
             let rv = gtk_widget_get_css_classes(widget_ptr)
             return rv
         }
-        /// Will clear all css classes applied to `widget`
+        /// Will clear all style classes applied to `widget`
         /// and replace them with `classes`.
         nonmutating set {
             gtk_widget_set_css_classes(widget_ptr, unsafeBitCast(newValue, to: UnsafeMutablePointer<UnsafePointer<CChar>?>.self))
@@ -7189,60 +7540,69 @@ public extension WidgetProtocol {
         }
     }
 
-    /// The cursor used by `widget`. See `gtk_widget_set_cursor()` for details.
+    /// The cursor used by `widget`.
     @inlinable var cursor: Gdk.CursorRef! {
-        /// Queries the cursor set via `gtk_widget_set_cursor()`. See that function for
-        /// details.
+        /// Queries the cursor set on `widget`.
+        /// 
+        /// See [method`Gtk.Widget.set_cursor`] for details.
         get {
             let rv = Gdk.CursorRef(gtk_widget_get_cursor(widget_ptr))
             return rv
         }
-        /// Sets the cursor to be shown when pointer devices point towards `widget`.
+        /// Sets the cursor to be shown when pointer devices point
+        /// towards `widget`.
         /// 
-        /// If the `cursor` is NULL, `widget` will use the cursor inherited from the
-        /// parent widget.
+        /// If the `cursor` is NULL, `widget` will use the cursor
+        /// inherited from the parent widget.
         nonmutating set {
             gtk_widget_set_cursor(widget_ptr, UnsafeMutablePointer<GdkCursor>(newValue?.cursor_ptr))
         }
     }
 
-    /// Gets the reading direction for a particular widget. See
-    /// `gtk_widget_set_direction()`.
+    /// Gets the reading direction for a particular widget.
+    /// 
+    /// See [method`Gtk.Widget.set_direction`].
     @inlinable var direction: GtkTextDirection {
-        /// Gets the reading direction for a particular widget. See
-        /// `gtk_widget_set_direction()`.
+        /// Gets the reading direction for a particular widget.
+        /// 
+        /// See [method`Gtk.Widget.set_direction`].
         get {
             let rv = gtk_widget_get_direction(widget_ptr)
             return rv
         }
-        /// Sets the reading direction on a particular widget. This direction
-        /// controls the primary direction for widgets containing text,
-        /// and also the direction in which the children of a container are
-        /// packed. The ability to set the direction is present in order
-        /// so that correct localization into languages with right-to-left
-        /// reading directions can be done. Generally, applications will
-        /// let the default reading direction present, except for containers
+        /// Sets the reading direction on a particular widget.
+        /// 
+        /// This direction controls the primary direction for widgets
+        /// containing text, and also the direction in which the children
+        /// of a container are packed. The ability to set the direction is
+        /// present in order so that correct localization into languages with
+        /// right-to-left reading directions can be done. Generally, applications
+        /// will let the default reading direction present, except for containers
         /// where the containers are arranged in an order that is explicitly
         /// visual rather than logical (such as buttons for text justification).
         /// 
         /// If the direction is set to `GTK_TEXT_DIR_NONE`, then the value
-        /// set by `gtk_widget_set_default_direction()` will be used.
+        /// set by [func`Gtk.Widget.set_default_direction`] will be used.
         nonmutating set {
             gtk_widget_set_direction(widget_ptr, newValue)
         }
     }
 
     /// Get the `GdkDisplay` for the toplevel window associated with
-    /// this widget. This function can only be called after the widget
-    /// has been added to a widget hierarchy with a `GtkWindow` at the top.
+    /// this widget.
+    /// 
+    /// This function can only be called after the widget has been
+    /// added to a widget hierarchy with a `GtkWindow` at the top.
     /// 
     /// In general, you should only create display specific
     /// resources when a widget has been realized, and you should
     /// free those resources when the widget is unrealized.
     @inlinable var display: Gdk.DisplayRef! {
         /// Get the `GdkDisplay` for the toplevel window associated with
-        /// this widget. This function can only be called after the widget
-        /// has been added to a widget hierarchy with a `GtkWindow` at the top.
+        /// this widget.
+        /// 
+        /// This function can only be called after the widget has been
+        /// added to a widget hierarchy with a `GtkWindow` at the top.
         /// 
         /// In general, you should only create display specific
         /// resources when a widget has been realized, and you should
@@ -7273,30 +7633,37 @@ public extension WidgetProtocol {
             guard let rv = WidgetRef(gconstpointer: gconstpointer(gtk_widget_get_focus_child(widget_ptr))) else { return nil }
             return rv
         }
-        /// Set `child` as the current focus child of `widget`. The previous
-        /// focus child will be unset.
+        /// Set `child` as the current focus child of `widget`.
+        /// 
+        /// The previous focus child will be unset.
         /// 
         /// This function is only suitable for widget implementations.
         /// If you want a certain widget to get the input focus, call
-        /// `gtk_widget_grab_focus()` on it.
+        /// [method`Gtk.Widget.grab_focus`] on it.
         nonmutating set {
             gtk_widget_set_focus_child(widget_ptr, widget_ptr)
         }
     }
 
-    /// Returns whether the widget should grab focus when it is clicked with the mouse.
-    /// See `gtk_widget_set_focus_on_click()`.
+    /// Returns whether the widget should grab focus when it is clicked
+    /// with the mouse.
+    /// 
+    /// See [method`Gtk.Widget.set_focus_on_click`].
     @inlinable var focusOnClick: Bool {
-        /// Returns whether the widget should grab focus when it is clicked with the mouse.
-        /// See `gtk_widget_set_focus_on_click()`.
+        /// Returns whether the widget should grab focus when it is clicked
+        /// with the mouse.
+        /// 
+        /// See [method`Gtk.Widget.set_focus_on_click`].
         get {
             let rv = ((gtk_widget_get_focus_on_click(widget_ptr)) != 0)
             return rv
         }
-        /// Sets whether the widget should grab focus when it is clicked with the mouse.
-        /// Making mouse clicks not grab focus is useful in places like toolbars where
-        /// you don’t want the keyboard focus removed from the main area of the
-        /// application.
+        /// Sets whether the widget should grab focus when it is clicked
+        /// with the mouse.
+        /// 
+        /// Making mouse clicks not grab focus is useful in places like
+        /// toolbars where you don’t want the keyboard focus removed from
+        /// the main area of the application.
         nonmutating set {
             gtk_widget_set_focus_on_click(widget_ptr, gboolean((newValue) ? 1 : 0))
         }
@@ -7305,7 +7672,8 @@ public extension WidgetProtocol {
     /// Whether this widget itself will accept the input focus.
     @inlinable var focusable: Bool {
         /// Determines whether `widget` can own the input focus.
-        /// See `gtk_widget_set_focusable()`.
+        /// 
+        /// See [method`Gtk.Widget.set_focusable`].
         get {
             let rv = ((gtk_widget_get_focusable(widget_ptr)) != 0)
             return rv
@@ -7321,24 +7689,30 @@ public extension WidgetProtocol {
         /// that is marked as not can-focus in order to receive input
         /// focus.
         /// 
-        /// See `gtk_widget_grab_focus()` for actually setting the input
-        /// focus on a widget.
+        /// See [method`Gtk.Widget.grab_focus`] for actually setting
+        /// the input focus on a widget.
         nonmutating set {
             gtk_widget_set_focusable(widget_ptr, gboolean((newValue) ? 1 : 0))
         }
     }
 
-    /// Gets the font map that has been set with `gtk_widget_set_font_map()`.
+    /// Gets the font map of `widget`.
+    /// 
+    /// See [method`Gtk.Widget.set_font_map`].
     @inlinable var fontMap: Pango.FontMapRef! {
-        /// Gets the font map that has been set with `gtk_widget_set_font_map()`.
+        /// Gets the font map of `widget`.
+        /// 
+        /// See [method`Gtk.Widget.set_font_map`].
         get {
             let rv = Pango.FontMapRef(gtk_widget_get_font_map(widget_ptr))
             return rv
         }
-        /// Sets the font map to use for Pango rendering. The font map is the
-        /// object that is used to look up fonts. Setting a custom font map
-        /// can be useful in special situations, e.g. when you need to add
-        /// application-specific fonts to the set of available fonts.
+        /// Sets the font map to use for Pango rendering.
+        /// 
+        /// The font map is the object that is used to look up fonts.
+        /// Setting a custom font map can be useful in special situations,
+        /// e.g. when you need to add application-specific fonts to the set
+        /// of available fonts.
         /// 
         /// When not set, the widget will inherit the font map from its parent.
         nonmutating set {
@@ -7346,34 +7720,42 @@ public extension WidgetProtocol {
         }
     }
 
-    /// Returns the `cairo_font_options_t` used for Pango rendering. When not set,
-    /// the defaults font options for the `GdkDisplay` will be used.
+    /// Returns the `cairo_font_options_t` used for Pango rendering.
+    /// 
+    /// When not set, the defaults font options for the `GdkDisplay`
+    /// will be used.
     @inlinable var fontOptions: Cairo.FontOptionsRef! {
-        /// Returns the `cairo_font_options_t` used for Pango rendering. When not set,
-        /// the defaults font options for the `GdkDisplay` will be used.
+        /// Returns the `cairo_font_options_t` used for Pango rendering.
+        /// 
+        /// When not set, the defaults font options for the `GdkDisplay`
+        /// will be used.
         get {
             let rv = Cairo.FontOptionsRef(gtk_widget_get_font_options(widget_ptr))
             return rv
         }
-        /// Sets the `cairo_font_options_t` used for Pango rendering in this widget.
-        /// When not set, the default font options for the `GdkDisplay` will be used.
+        /// Sets the `cairo_font_options_t` used for Pango rendering
+        /// in this widget.
+        /// 
+        /// When not set, the default font options for the `GdkDisplay`
+        /// will be used.
         nonmutating set {
             gtk_widget_set_font_options(widget_ptr, UnsafePointer<cairo_font_options_t>(newValue?._ptr))
         }
     }
 
-    /// Obtains the frame clock for a widget. The frame clock is a global
-    /// “ticker” that can be used to drive animations and repaints.  The
-    /// most common reason to get the frame clock is to call
-    /// `gdk_frame_clock_get_frame_time()`, in order to get a time to use for
-    /// animating. For example you might record the start of the animation
-    /// with an initial value from `gdk_frame_clock_get_frame_time()`, and
-    /// then update the animation by calling
-    /// `gdk_frame_clock_get_frame_time()` again during each repaint.
+    /// Obtains the frame clock for a widget.
     /// 
-    /// `gdk_frame_clock_request_phase()` will result in a new frame on the
+    /// The frame clock is a global “ticker” that can be used to drive
+    /// animations and repaints. The most common reason to get the frame
+    /// clock is to call [method`Gdk.FrameClock.get_frame_time`], in order
+    /// to get a time to use for animating. For example you might record
+    /// the start of the animation with an initial value from
+    /// [method`Gdk.FrameClock.get_frame_time`], and then update the animation
+    /// by calling [method`Gdk.FrameClock.get_frame_time`] again during each repaint.
+    /// 
+    /// [method`Gdk.FrameClock.request_phase`] will result in a new frame on the
     /// clock, but won’t necessarily repaint any widgets. To repaint a
-    /// widget, you have to use `gtk_widget_queue_draw()` which invalidates
+    /// widget, you have to use [method`Gtk.Widget.queue_draw`] which invalidates
     /// the widget (thus scheduling it to receive a draw on the next
     /// frame). `gtk_widget_queue_draw()` will also end up requesting a frame
     /// on the appropriate frame clock.
@@ -7384,18 +7766,19 @@ public extension WidgetProtocol {
     /// 
     /// Unrealized widgets do not have a frame clock.
     @inlinable var frameClock: Gdk.FrameClockRef! {
-        /// Obtains the frame clock for a widget. The frame clock is a global
-        /// “ticker” that can be used to drive animations and repaints.  The
-        /// most common reason to get the frame clock is to call
-        /// `gdk_frame_clock_get_frame_time()`, in order to get a time to use for
-        /// animating. For example you might record the start of the animation
-        /// with an initial value from `gdk_frame_clock_get_frame_time()`, and
-        /// then update the animation by calling
-        /// `gdk_frame_clock_get_frame_time()` again during each repaint.
+        /// Obtains the frame clock for a widget.
         /// 
-        /// `gdk_frame_clock_request_phase()` will result in a new frame on the
+        /// The frame clock is a global “ticker” that can be used to drive
+        /// animations and repaints. The most common reason to get the frame
+        /// clock is to call [method`Gdk.FrameClock.get_frame_time`], in order
+        /// to get a time to use for animating. For example you might record
+        /// the start of the animation with an initial value from
+        /// [method`Gdk.FrameClock.get_frame_time`], and then update the animation
+        /// by calling [method`Gdk.FrameClock.get_frame_time`] again during each repaint.
+        /// 
+        /// [method`Gdk.FrameClock.request_phase`] will result in a new frame on the
         /// clock, but won’t necessarily repaint any widgets. To repaint a
-        /// widget, you have to use `gtk_widget_queue_draw()` which invalidates
+        /// widget, you have to use [method`Gtk.Widget.queue_draw`] which invalidates
         /// the widget (thus scheduling it to receive a draw on the next
         /// frame). `gtk_widget_queue_draw()` will also end up requesting a frame
         /// on the appropriate frame clock.
@@ -7411,9 +7794,9 @@ public extension WidgetProtocol {
         }
     }
 
-    /// How to distribute horizontal space if widget gets extra space, see `GtkAlign`
+    /// How to distribute horizontal space if widget gets extra space.
     @inlinable var halign: GtkAlign {
-        /// Gets the value of the `GtkWidget:halign` property.
+        /// Gets the horizontal alignment of `widget`.
         /// 
         /// For backwards compatibility reasons this method will never return
         /// `GTK_ALIGN_BASELINE`, but instead it will convert it to
@@ -7424,51 +7807,57 @@ public extension WidgetProtocol {
             return rv
         }
         /// Sets the horizontal alignment of `widget`.
-        /// See the `GtkWidget:halign` property.
         nonmutating set {
             gtk_widget_set_halign(widget_ptr, newValue)
         }
     }
 
-    /// Returns the current value of the has-tooltip property.  See
-    /// `GtkWidget:has-tooltip` for more information.
+    /// Returns the current value of the `has-tooltip` property.
     @inlinable var hasTooltip: Bool {
-        /// Returns the current value of the has-tooltip property.  See
-        /// `GtkWidget:has-tooltip` for more information.
+        /// Returns the current value of the `has-tooltip` property.
         get {
             let rv = ((gtk_widget_get_has_tooltip(widget_ptr)) != 0)
             return rv
         }
-        /// Sets the has-tooltip property on `widget` to `has_tooltip`.  See
-        /// `GtkWidget:has-tooltip` for more information.
+        /// Sets the `has-tooltip` property on `widget` to `has_tooltip`.
         nonmutating set {
             gtk_widget_set_has_tooltip(widget_ptr, gboolean((newValue) ? 1 : 0))
         }
     }
 
-    /// Returns the content height of the widget, as passed to its size-allocate implementation.
-    /// This is the size you should be using in `GtkWidgetClass.snapshot()`. For pointer
-    /// events, see `gtk_widget_contains()`.
+    /// Returns the content height of the widget.
+    /// 
+    /// This function returns the size passed to its
+    /// size-allocate implementation, which is the size you
+    /// should be using in `GtkWidgetClass.snapshot()`.
+    /// 
+    /// For pointer events, see [method`Gtk.Widget.contains`].
     @inlinable var height: Int {
-        /// Returns the content height of the widget, as passed to its size-allocate implementation.
-        /// This is the size you should be using in `GtkWidgetClass.snapshot()`. For pointer
-        /// events, see `gtk_widget_contains()`.
+        /// Returns the content height of the widget.
+        /// 
+        /// This function returns the size passed to its
+        /// size-allocate implementation, which is the size you
+        /// should be using in `GtkWidgetClass.snapshot()`.
+        /// 
+        /// For pointer events, see [method`Gtk.Widget.contains`].
         get {
             let rv = Int(gtk_widget_get_height(widget_ptr))
             return rv
         }
     }
 
-    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
+    /// Whether to expand horizontally.
     @inlinable var hexpand: Bool {
         /// Gets whether the widget would like any available extra horizontal
-        /// space. When a user resizes a `GtkWindow`, widgets with expand=TRUE
+        /// space.
+        /// 
+        /// When a user resizes a `GtkWindow`, widgets with expand=TRUE
         /// generally receive the extra space. For example, a list or
         /// scrollable area or document in your window would often be set to
         /// expand.
         /// 
-        /// Containers should use `gtk_widget_compute_expand()` rather than
-        /// this function, to see whether a widget, or any of its children,
+        /// Containers should use [method`Gtk.Widget.compute_expand`] rather
+        /// than this function, to see whether a widget, or any of its children,
         /// has the expand flag set. If any child of a widget wants to
         /// expand, the parent may ask to expand also.
         /// 
@@ -7480,7 +7869,9 @@ public extension WidgetProtocol {
             return rv
         }
         /// Sets whether the widget would like any available extra horizontal
-        /// space. When a user resizes a `GtkWindow`, widgets with expand=TRUE
+        /// space.
+        /// 
+        /// When a user resizes a `GtkWindow`, widgets with expand=TRUE
         /// generally receive the extra space. For example, a list or
         /// scrollable area or document in your window would often be set to
         /// expand.
@@ -7491,8 +7882,8 @@ public extension WidgetProtocol {
         /// 
         /// By default, widgets automatically expand if any of their children
         /// want to expand. (To see if a widget will automatically expand given
-        /// its current children and state, call `gtk_widget_compute_expand()`. A
-        /// container can decide how the expandability of children affects the
+        /// its current children and state, call [method`Gtk.Widget.compute_expand`].
+        /// A container can decide how the expandability of children affects the
         /// expansion of the container by overriding the compute_expand virtual
         /// method on `GtkWidget`.).
         /// 
@@ -7501,32 +7892,32 @@ public extension WidgetProtocol {
         /// 
         /// This function forces the widget to expand or not to expand,
         /// regardless of children.  The override occurs because
-        /// `gtk_widget_set_hexpand()` sets the hexpand-set property (see
-        /// `gtk_widget_set_hexpand_set()`) which causes the widget’s hexpand
+        /// [method`Gtk.Widget.set_hexpand`] sets the hexpand-set property (see
+        /// [method`Gtk.Widget.set_hexpand_set`]) which causes the widget’s hexpand
         /// value to be used, rather than looking at children and widget state.
         nonmutating set {
             gtk_widget_set_hexpand(widget_ptr, gboolean((newValue) ? 1 : 0))
         }
     }
 
-    /// Gets whether `gtk_widget_set_hexpand()` has been used to
-    /// explicitly set the expand flag on this widget.
+    /// Gets whether `gtk_widget_set_hexpand()` has been used
+    /// to explicitly set the expand flag on this widget.
     /// 
-    /// If hexpand is set, then it overrides any computed
-    /// expand value based on child widgets. If hexpand is not
-    /// set, then the expand value depends on whether any
-    /// children of the widget would like to expand.
+    /// If [property`Gtk.Widget:hexpand`] property is set, then it
+    /// overrides any computed expand value based on child widgets.
+    /// If `hexpand` is not set, then the expand value depends on
+    /// whether any children of the widget would like to expand.
     /// 
     /// There are few reasons to use this function, but it’s here
     /// for completeness and consistency.
     @inlinable var hexpandSet: Bool {
-        /// Gets whether `gtk_widget_set_hexpand()` has been used to
-        /// explicitly set the expand flag on this widget.
+        /// Gets whether `gtk_widget_set_hexpand()` has been used
+        /// to explicitly set the expand flag on this widget.
         /// 
-        /// If hexpand is set, then it overrides any computed
-        /// expand value based on child widgets. If hexpand is not
-        /// set, then the expand value depends on whether any
-        /// children of the widget would like to expand.
+        /// If [property`Gtk.Widget:hexpand`] property is set, then it
+        /// overrides any computed expand value based on child widgets.
+        /// If `hexpand` is not set, then the expand value depends on
+        /// whether any children of the widget would like to expand.
         /// 
         /// There are few reasons to use this function, but it’s here
         /// for completeness and consistency.
@@ -7534,13 +7925,12 @@ public extension WidgetProtocol {
             let rv = ((gtk_widget_get_hexpand_set(widget_ptr)) != 0)
             return rv
         }
-        /// Sets whether the hexpand flag (see `gtk_widget_get_hexpand()`) will
-        /// be used.
+        /// Sets whether the hexpand flag will be used.
         /// 
-        /// The hexpand-set property will be set automatically when you call
-        /// `gtk_widget_set_hexpand()` to set hexpand, so the most likely
-        /// reason to use this function would be to unset an explicit expand
-        /// flag.
+        /// The [property`Gtk.Widget:hexpand-set`] property will be set
+        /// automatically when you call [method`Gtk.Widget.set_hexpand`]
+        /// to set hexpand, so the most likely reason to use this function
+        /// would be to unset an explicit expand flag.
         /// 
         /// If hexpand is set, then it overrides any computed
         /// expand value based on child widgets. If hexpand is not
@@ -7554,11 +7944,13 @@ public extension WidgetProtocol {
         }
     }
 
-    /// Determines whether `widget` can be drawn to. A widget can be drawn
-    /// if it is mapped and visible.
+    /// Determines whether `widget` can be drawn to.
+    /// 
+    /// A widget can be drawn if it is mapped and visible.
     @inlinable var isDrawable: Bool {
-        /// Determines whether `widget` can be drawn to. A widget can be drawn
-        /// if it is mapped and visible.
+        /// Determines whether `widget` can be drawn to.
+        /// 
+        /// A widget can be drawn if it is mapped and visible.
         get {
             let rv = ((gtk_widget_is_drawable(widget_ptr)) != 0)
             return rv
@@ -7566,25 +7958,35 @@ public extension WidgetProtocol {
     }
 
     /// Determines if the widget is the focus widget within its
-    /// toplevel. (This does not mean that the `GtkWidget:has-focus` property is
-    /// necessarily set; `GtkWidget:has-focus` will only be set if the
-    /// toplevel widget additionally has the global input focus.)
+    /// toplevel.
+    /// 
+    /// This does not mean that the [property`Gtk.Widget:has-focus`]
+    /// property is necessarily set; [property`Gtk`,Widget:has-focus]
+    /// will only be set if the toplevel widget additionally has the
+    /// global input focus.)
     @inlinable var isFocus: Bool {
         /// Determines if the widget is the focus widget within its
-        /// toplevel. (This does not mean that the `GtkWidget:has-focus` property is
-        /// necessarily set; `GtkWidget:has-focus` will only be set if the
-        /// toplevel widget additionally has the global input focus.)
+        /// toplevel.
+        /// 
+        /// This does not mean that the [property`Gtk.Widget:has-focus`]
+        /// property is necessarily set; [property`Gtk`,Widget:has-focus]
+        /// will only be set if the toplevel widget additionally has the
+        /// global input focus.)
         get {
             let rv = ((gtk_widget_is_focus(widget_ptr)) != 0)
             return rv
         }
     }
 
-    /// Returns the widget’s effective sensitivity, which means
-    /// it is sensitive itself and also its parent widget is sensitive
+    /// Returns the widget’s effective sensitivity.
+    /// 
+    /// This means it is sensitive itself and also its
+    /// parent widget is sensitive.
     @inlinable var isSensitive: Bool {
-        /// Returns the widget’s effective sensitivity, which means
-        /// it is sensitive itself and also its parent widget is sensitive
+        /// Returns the widget’s effective sensitivity.
+        /// 
+        /// This means it is sensitive itself and also its
+        /// parent widget is sensitive.
         get {
             let rv = ((gtk_widget_is_sensitive(widget_ptr)) != 0)
             return rv
@@ -7596,14 +7998,16 @@ public extension WidgetProtocol {
     /// 
     /// This function does not check if the widget is obscured in any way.
     /// 
-    /// See also `gtk_widget_get_visible()` and `gtk_widget_set_visible()`
+    /// See also [method`Gtk.Widget.get_visible`] and
+    /// [method`Gtk.Widget.set_visible`].
     @inlinable var isVisible: Bool {
         /// Determines whether the widget and all its parents are marked as
         /// visible.
         /// 
         /// This function does not check if the widget is obscured in any way.
         /// 
-        /// See also `gtk_widget_get_visible()` and `gtk_widget_set_visible()`
+        /// See also [method`Gtk.Widget.get_visible`] and
+        /// [method`Gtk.Widget.set_visible`].
         get {
             let rv = ((gtk_widget_is_visible(widget_ptr)) != 0)
             return rv
@@ -7623,15 +8027,20 @@ public extension WidgetProtocol {
         }
     }
 
-    /// Retrieves the layout manager set using `gtk_widget_set_layout_manager()`.
+    /// Retrieves the layout manager used by `widget`
+    /// 
+    /// See [method`Gtk.Widget.set_layout_manager`].
     @inlinable var layoutManager: LayoutManagerRef! {
-        /// Retrieves the layout manager set using `gtk_widget_set_layout_manager()`.
+        /// Retrieves the layout manager used by `widget`
+        /// 
+        /// See [method`Gtk.Widget.set_layout_manager`].
         get {
             let rv = LayoutManagerRef(gconstpointer: gconstpointer(gtk_widget_get_layout_manager(widget_ptr)))
             return rv
         }
-        /// Sets the layout manager delegate instance that provides an implementation
-        /// for measuring and allocating the children of `widget`.
+        /// Sets the layout manager delegate instance that
+        /// provides an implementation for measuring and
+        /// allocating the children of `widget`.
         nonmutating set {
             gtk_widget_set_layout_manager(widget_ptr, UnsafeMutablePointer<GtkLayoutManager>(newValue?.layout_manager_ptr))
         }
@@ -7646,73 +8055,73 @@ public extension WidgetProtocol {
         }
     }
 
-    /// Gets the value of the `GtkWidget:margin-bottom` property.
+    /// Gets the bottom margin of `widget`.
     @inlinable var marginBottom: Int {
-        /// Gets the value of the `GtkWidget:margin-bottom` property.
+        /// Gets the bottom margin of `widget`.
         get {
             let rv = Int(gtk_widget_get_margin_bottom(widget_ptr))
             return rv
         }
         /// Sets the bottom margin of `widget`.
-        /// See the `GtkWidget:margin-bottom` property.
         nonmutating set {
             gtk_widget_set_margin_bottom(widget_ptr, gint(newValue))
         }
     }
 
-    /// Gets the value of the `GtkWidget:margin-end` property.
+    /// Gets the end margin of `widget`.
     @inlinable var marginEnd: Int {
-        /// Gets the value of the `GtkWidget:margin-end` property.
+        /// Gets the end margin of `widget`.
         get {
             let rv = Int(gtk_widget_get_margin_end(widget_ptr))
             return rv
         }
         /// Sets the end margin of `widget`.
-        /// See the `GtkWidget:margin-end` property.
         nonmutating set {
             gtk_widget_set_margin_end(widget_ptr, gint(newValue))
         }
     }
 
-    /// Gets the value of the `GtkWidget:margin-start` property.
+    /// Gets the start margin of `widget`.
     @inlinable var marginStart: Int {
-        /// Gets the value of the `GtkWidget:margin-start` property.
+        /// Gets the start margin of `widget`.
         get {
             let rv = Int(gtk_widget_get_margin_start(widget_ptr))
             return rv
         }
         /// Sets the start margin of `widget`.
-        /// See the `GtkWidget:margin-start` property.
         nonmutating set {
             gtk_widget_set_margin_start(widget_ptr, gint(newValue))
         }
     }
 
-    /// Gets the value of the `GtkWidget:margin-top` property.
+    /// Gets the top margin of `widget`.
     @inlinable var marginTop: Int {
-        /// Gets the value of the `GtkWidget:margin-top` property.
+        /// Gets the top margin of `widget`.
         get {
             let rv = Int(gtk_widget_get_margin_top(widget_ptr))
             return rv
         }
         /// Sets the top margin of `widget`.
-        /// See the `GtkWidget:margin-top` property.
         nonmutating set {
             gtk_widget_set_margin_top(widget_ptr, gint(newValue))
         }
     }
 
+    /// The name of the widget.
     @inlinable var name: String! {
-        /// Retrieves the name of a widget. See `gtk_widget_set_name()` for the
-        /// significance of widget names.
+        /// Retrieves the name of a widget.
+        /// 
+        /// See [method`Gtk.Widget.set_name`] for the significance of widget names.
         get {
             let rv = gtk_widget_get_name(widget_ptr).map({ String(cString: $0) })
             return rv
         }
-        /// Widgets can be named, which allows you to refer to them from a
+        /// Sets a widgets name.
+        /// 
+        /// Setting a name allows you to refer to the widget from a
         /// CSS file. You can apply a style to widgets with a particular name
         /// in the CSS file. See the documentation for the CSS syntax (on the
-        /// same page as the docs for `GtkStyleContext`).
+        /// same page as the docs for [class`Gtk.StyleContext`].
         /// 
         /// Note that the CSS syntax has certain special characters to delimit
         /// and represent elements in a selector (period, #, &gt;, *...), so using
@@ -7723,15 +8132,17 @@ public extension WidgetProtocol {
         }
     }
 
-    /// Returns the GtkNative widget that contains `widget`,
-    /// or `nil` if the widget is not contained inside a
-    /// widget tree with a native ancestor.
+    /// Returns the `GtkNative` widget that contains `widget`.
+    /// 
+    /// This function will return `nil` if the widget is not
+    /// contained inside a widget tree with a native ancestor.
     /// 
     /// `GtkNative` widgets will return themselves here.
     @inlinable var native: NativeRef! {
-        /// Returns the GtkNative widget that contains `widget`,
-        /// or `nil` if the widget is not contained inside a
-        /// widget tree with a native ancestor.
+        /// Returns the `GtkNative` widget that contains `widget`.
+        /// 
+        /// This function will return `nil` if the widget is not
+        /// contained inside a widget tree with a native ancestor.
         /// 
         /// `GtkNative` widgets will return themselves here.
         get {
@@ -7753,18 +8164,19 @@ public extension WidgetProtocol {
         }
     }
 
-    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
-    /// more details about window opacity.
+    /// The requested opacity of the widget.
     @inlinable var opacity: CDouble {
-        /// Fetches the requested opacity for this widget.
-        /// See `gtk_widget_set_opacity()`.
+        /// `Fetches` the requested opacity for this widget.
+        /// 
+        /// See [method`Gtk.Widget.set_opacity`].
         get {
             let rv = gtk_widget_get_opacity(widget_ptr)
             return rv
         }
-        /// Request the `widget` to be rendered partially transparent, with
-        /// opacity 0 being fully transparent and 1 fully opaque. (Opacity
-        /// values are clamped to the [0,1] range).
+        /// Request the `widget` to be rendered partially transparent.
+        /// 
+        /// An opacity of 0 is fully transparent and an opacity of 1
+        /// is fully opaque.
         /// 
         /// Opacity works on both toplevel widgets and child widgets, although
         /// there are some limitations: For toplevel widgets, applying opacity
@@ -7779,8 +8191,8 @@ public extension WidgetProtocol {
         /// appear translucent, since it is ultimatively rendered on that
         /// toplevel. The opacity value itself is not inherited by child
         /// widgets (since that would make widgets deeper in the hierarchy
-        /// progressively more translucent). As a consequence, `GtkPopovers`
-        /// and other `GtkNative` widgets with their own surface will use their
+        /// progressively more translucent). As a consequence, [class`Gtk.Popover`]s
+        /// and other [class`Gtk.Native`] widgets with their own surface will use their
         /// own opacity value, and thus by default appear non-translucent,
         /// even if they are attached to a toplevel that is translucent.
         nonmutating set {
@@ -7793,16 +8205,18 @@ public extension WidgetProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     @inlinable var overflow: GtkOverflow {
-        /// Returns the value set via `gtk_widget_set_overflow()`.
+        /// Returns the widgets overflow value.
         get {
             let rv = gtk_widget_get_overflow(widget_ptr)
             return rv
         }
-        /// Sets how `widget` treats content that is drawn outside the widget's content area.
-        /// See the definition of `GtkOverflow` for details.
+        /// Sets how `widget` treats content that is drawn outside the
+        /// widget's content area.
         /// 
-        /// This setting is provided for widget implementations and should not be used by
-        /// application code.
+        /// See the definition of [enum`Gtk.Overflow`] for details.
+        /// 
+        /// This setting is provided for widget implementations and
+        /// should not be used by application code.
         /// 
         /// The default value is `GTK_OVERFLOW_VISIBLE`.
         nonmutating set {
@@ -7811,39 +8225,45 @@ public extension WidgetProtocol {
     }
 
     /// Gets a `PangoContext` with the appropriate font map, font description,
-    /// and base direction for this widget. Unlike the context returned
-    /// by `gtk_widget_create_pango_context()`, this context is owned by
-    /// the widget (it can be used until the screen for the widget changes
-    /// or the widget is removed from its toplevel), and will be updated to
-    /// match any changes to the widget’s attributes. This can be tracked
-    /// by listening to changes of the `GtkWidget:root` property on the widget.
+    /// and base direction for this widget.
+    /// 
+    /// Unlike the context returned by [method`Gtk.Widget.create_pango_context`],
+    /// this context is owned by the widget (it can be used until the screen
+    /// for the widget changes or the widget is removed from its toplevel),
+    /// and will be updated to match any changes to the widget’s attributes.
+    /// This can be tracked by listening to changes of the
+    /// [property`Gtk.Widget:root`] property on the widget.
     @inlinable var pangoContext: Pango.ContextRef! {
         /// Gets a `PangoContext` with the appropriate font map, font description,
-        /// and base direction for this widget. Unlike the context returned
-        /// by `gtk_widget_create_pango_context()`, this context is owned by
-        /// the widget (it can be used until the screen for the widget changes
-        /// or the widget is removed from its toplevel), and will be updated to
-        /// match any changes to the widget’s attributes. This can be tracked
-        /// by listening to changes of the `GtkWidget:root` property on the widget.
+        /// and base direction for this widget.
+        /// 
+        /// Unlike the context returned by [method`Gtk.Widget.create_pango_context`],
+        /// this context is owned by the widget (it can be used until the screen
+        /// for the widget changes or the widget is removed from its toplevel),
+        /// and will be updated to match any changes to the widget’s attributes.
+        /// This can be tracked by listening to changes of the
+        /// [property`Gtk.Widget:root`] property on the widget.
         get {
             let rv = Pango.ContextRef(gtk_widget_get_pango_context(widget_ptr))
             return rv
         }
     }
 
+    /// The parent widget of this widget.
     @inlinable var parent: WidgetRef! {
         /// Returns the parent widget of `widget`.
         get {
             guard let rv = WidgetRef(gconstpointer: gconstpointer(gtk_widget_get_parent(widget_ptr))) else { return nil }
             return rv
         }
+        /// Sets `parent` as the parent widget of `widget`.
+        /// 
+        /// This takes care of details such as updating the state and style
+        /// of the child to reflect its new location and resizing the parent.
+        /// The opposite function is [method`Gtk.Widget.unparent`].
+        /// 
         /// This function is useful only when implementing subclasses of
         /// `GtkWidget`.
-        /// 
-        /// Sets `parent` as the parent widget of `widget`, and takes care of
-        /// some details such as updating the state and style of the child
-        /// to reflect its new location and resizing the parent. The opposite
-        /// function is `gtk_widget_unparent()`.
         nonmutating set {
             gtk_widget_set_parent(widget_ptr, widget_ptr)
         }
@@ -7862,12 +8282,16 @@ public extension WidgetProtocol {
         }
     }
 
+    /// Gets the primary clipboard of `widget`.
+    /// 
     /// This is a utility function to get the primary clipboard object
     /// for the `GdkDisplay` that `widget` is using.
     /// 
     /// Note that this function always works, even when `widget` is not
     /// realized yet.
     @inlinable var primaryClipboard: Gdk.ClipboardRef! {
+        /// Gets the primary clipboard of `widget`.
+        /// 
         /// This is a utility function to get the primary clipboard object
         /// for the `GdkDisplay` that `widget` is using.
         /// 
@@ -7892,13 +8316,13 @@ public extension WidgetProtocol {
     /// within its toplevel when it has the focus, even if another widget
     /// is the default.
     /// 
-    /// See `gtk_widget_set_receives_default()`.
+    /// See [method`Gtk.Widget.set_receives_default`].
     @inlinable var receivesDefault: Bool {
         /// Determines whether `widget` is always treated as the default widget
         /// within its toplevel when it has the focus, even if another widget
         /// is the default.
         /// 
-        /// See `gtk_widget_set_receives_default()`.
+        /// See [method`Gtk.Widget.set_receives_default`].
         get {
             let rv = ((gtk_widget_get_receives_default(widget_ptr)) != 0)
             return rv
@@ -7914,28 +8338,31 @@ public extension WidgetProtocol {
     /// Gets whether the widget prefers a height-for-width layout
     /// or a width-for-height layout.
     /// 
-    /// `GtkBin` widgets generally propagate the preference of
-    /// their child, container widgets need to request something either in
-    /// context of their children or in context of their allocation
-    /// capabilities.
+    /// Single-child widgets generally propagate the preference of
+    /// their child, more complex widgets need to request something
+    /// either in context of their children or in context of their
+    /// allocation capabilities.
     @inlinable var requestMode: GtkSizeRequestMode {
         /// Gets whether the widget prefers a height-for-width layout
         /// or a width-for-height layout.
         /// 
-        /// `GtkBin` widgets generally propagate the preference of
-        /// their child, container widgets need to request something either in
-        /// context of their children or in context of their allocation
-        /// capabilities.
+        /// Single-child widgets generally propagate the preference of
+        /// their child, more complex widgets need to request something
+        /// either in context of their children or in context of their
+        /// allocation capabilities.
         get {
             let rv = gtk_widget_get_request_mode(widget_ptr)
             return rv
         }
     }
 
-    /// The `GtkRoot` widget of the widget tree containing this widget or `nil` if
-    /// the widget is not contained in a root widget.
+    /// The `GtkRoot` widget of the widget tree containing this widget.
+    /// 
+    /// This will be `nil` if the widget is not contained in a root widget.
     @inlinable var root: RootRef! {
-        /// Returns the `GtkRoot` widget of `widget` or `nil` if the widget is not contained
+        /// Returns the `GtkRoot` widget of `widget`.
+        /// 
+        /// This function will return `nil` if the widget is not contained
         /// inside a widget tree with a root widget.
         /// 
         /// `GtkRoot` widgets will return themselves here.
@@ -7945,36 +8372,46 @@ public extension WidgetProtocol {
         }
     }
 
-    /// Retrieves the internal scale factor that maps from window coordinates
-    /// to the actual device pixels. On traditional systems this is 1, on
-    /// high density outputs, it can be a higher value (typically 2).
+    /// Retrieves the internal scale factor that maps from window
+    /// coordinates to the actual device pixels.
     /// 
-    /// See `gdk_surface_get_scale_factor()`.
+    /// On traditional systems this is 1, on high density outputs,
+    /// it can be a higher value (typically 2).
+    /// 
+    /// See [method`Gdk.Surface.get_scale_factor`].
     @inlinable var scaleFactor: Int {
-        /// Retrieves the internal scale factor that maps from window coordinates
-        /// to the actual device pixels. On traditional systems this is 1, on
-        /// high density outputs, it can be a higher value (typically 2).
+        /// Retrieves the internal scale factor that maps from window
+        /// coordinates to the actual device pixels.
         /// 
-        /// See `gdk_surface_get_scale_factor()`.
+        /// On traditional systems this is 1, on high density outputs,
+        /// it can be a higher value (typically 2).
+        /// 
+        /// See [method`Gdk.Surface.get_scale_factor`].
         get {
             let rv = Int(gtk_widget_get_scale_factor(widget_ptr))
             return rv
         }
     }
 
+    /// Whether the widget responds to input.
     @inlinable var sensitive: Bool {
-        /// Returns the widget’s sensitivity (in the sense of returning
-        /// the value that has been set using `gtk_widget_set_sensitive()`).
+        /// Returns the widget’s sensitivity.
         /// 
-        /// The effective sensitivity of a widget is however determined by both its
-        /// own and its parent widget’s sensitivity. See `gtk_widget_is_sensitive()`.
+        /// This function returns the value that has been set using
+        /// [method`Gtk.Widget.set_sensitive`]).
+        /// 
+        /// The effective sensitivity of a widget is however determined
+        /// by both its own and its parent widget’s sensitivity.
+        /// See [method`Gtk.Widget.is_sensitive`].
         get {
             let rv = ((gtk_widget_get_sensitive(widget_ptr)) != 0)
             return rv
         }
-        /// Sets the sensitivity of a widget. A widget is sensitive if the user
-        /// can interact with it. Insensitive widgets are “grayed out” and the
-        /// user can’t interact with them. Insensitive widgets are known as
+        /// Sets the sensitivity of a widget.
+        /// 
+        /// A widget is sensitive if the user can interact with it.
+        /// Insensitive widgets are “grayed out” and the user can’t
+        /// interact with them. Insensitive widgets are known as
         /// “inactive”, “disabled”, or “ghosted” in some other toolkits.
         nonmutating set {
             gtk_widget_set_sensitive(widget_ptr, gboolean((newValue) ? 1 : 0))
@@ -8000,57 +8437,69 @@ public extension WidgetProtocol {
         }
     }
 
-    /// Returns the widget state as a flag set. It is worth mentioning
-    /// that the effective `GTK_STATE_FLAG_INSENSITIVE` state will be
-    /// returned, that is, also based on parent insensitivity, even if
-    /// `widget` itself is sensitive.
+    /// Returns the widget state as a flag set.
+    /// 
+    /// It is worth mentioning that the effective `GTK_STATE_FLAG_INSENSITIVE`
+    /// state will be returned, that is, also based on parent insensitivity,
+    /// even if `widget` itself is sensitive.
     /// 
     /// Also note that if you are looking for a way to obtain the
-    /// `GtkStateFlags` to pass to a `GtkStyleContext` method, you
-    /// should look at `gtk_style_context_get_state()`.
+    /// [flags`Gtk.StateFlags`] to pass to a [class`Gtk.StyleContext`]
+    /// method, you should look at [method`Gtk.StyleContext.get_state`].
     @inlinable var stateFlags: StateFlags {
-        /// Returns the widget state as a flag set. It is worth mentioning
-        /// that the effective `GTK_STATE_FLAG_INSENSITIVE` state will be
-        /// returned, that is, also based on parent insensitivity, even if
-        /// `widget` itself is sensitive.
+        /// Returns the widget state as a flag set.
+        /// 
+        /// It is worth mentioning that the effective `GTK_STATE_FLAG_INSENSITIVE`
+        /// state will be returned, that is, also based on parent insensitivity,
+        /// even if `widget` itself is sensitive.
         /// 
         /// Also note that if you are looking for a way to obtain the
-        /// `GtkStateFlags` to pass to a `GtkStyleContext` method, you
-        /// should look at `gtk_style_context_get_state()`.
+        /// [flags`Gtk.StateFlags`] to pass to a [class`Gtk.StyleContext`]
+        /// method, you should look at [method`Gtk.StyleContext.get_state`].
         get {
             let rv = StateFlags(gtk_widget_get_state_flags(widget_ptr))
             return rv
         }
     }
 
-    /// Returns the style context associated to `widget`. The returned object is
-    /// guaranteed to be the same for the lifetime of `widget`.
+    /// Returns the style context associated to `widget`.
+    /// 
+    /// The returned object is guaranteed to be the same
+    /// for the lifetime of `widget`.
     @inlinable var styleContext: StyleContextRef! {
-        /// Returns the style context associated to `widget`. The returned object is
-        /// guaranteed to be the same for the lifetime of `widget`.
+        /// Returns the style context associated to `widget`.
+        /// 
+        /// The returned object is guaranteed to be the same
+        /// for the lifetime of `widget`.
         get {
             let rv = StyleContextRef(gconstpointer: gconstpointer(gtk_widget_get_style_context(widget_ptr)))
             return rv
         }
     }
 
-    /// Gets the contents of the tooltip for `widget` set using
-    /// `gtk_widget_set_tooltip_markup()`.
+    /// Gets the contents of the tooltip for `widget`.
+    /// 
+    /// If the tooltip has not been set using
+    /// [method`Gtk.Widget.set_tooltip_markup`], this
+    /// function returns `nil`.
     @inlinable var tooltipMarkup: String! {
-        /// Gets the contents of the tooltip for `widget` set using
-        /// `gtk_widget_set_tooltip_markup()`.
+        /// Gets the contents of the tooltip for `widget`.
+        /// 
+        /// If the tooltip has not been set using
+        /// [method`Gtk.Widget.set_tooltip_markup`], this
+        /// function returns `nil`.
         get {
             let rv = gtk_widget_get_tooltip_markup(widget_ptr).map({ String(cString: $0) })
             return rv
         }
-        /// Sets `markup` as the contents of the tooltip, which is marked up with
-        /// the [Pango text markup language](#PangoMarkupFormat).
+        /// Sets `markup` as the contents of the tooltip, which is marked
+        /// up with Pango markup.
         /// 
-        /// This function will take care of setting the `GtkWidget:has-tooltip` as
-        /// a side effect, and of the default handler for the `GtkWidget::query-tooltip` signal.
+        /// This function will take care of setting the
+        /// [property`Gtk.Widget:has-tooltip`] as a side effect, and of the
+        /// default handler for the [signal`Gtk.Widget::query-tooltip`] signal.
         /// 
-        /// See also the `GtkWidget:tooltip-markup` property and
-        /// `gtk_tooltip_set_markup()`.
+        /// See also [method`Gtk.Tooltip.set_markup`].
         nonmutating set {
             gtk_widget_set_tooltip_markup(widget_ptr, newValue)
         }
@@ -8058,12 +8507,14 @@ public extension WidgetProtocol {
 
     /// Gets the contents of the tooltip for `widget`.
     /// 
-    /// If the `widget`'s tooltip was set using `gtk_widget_set_tooltip_markup()`,
+    /// If the `widget`'s tooltip was set using
+    /// [method`Gtk.Widget.set_tooltip_markup`],
     /// this function will return the escaped text.
     @inlinable var tooltipText: String! {
         /// Gets the contents of the tooltip for `widget`.
         /// 
-        /// If the `widget`'s tooltip was set using `gtk_widget_set_tooltip_markup()`,
+        /// If the `widget`'s tooltip was set using
+        /// [method`Gtk.Widget.set_tooltip_markup`],
         /// this function will return the escaped text.
         get {
             let rv = gtk_widget_get_tooltip_text(widget_ptr).map({ String(cString: $0) })
@@ -8073,37 +8524,36 @@ public extension WidgetProtocol {
         /// 
         /// If `text` contains any markup, it will be escaped.
         /// 
-        /// This function will take care of setting `GtkWidget:has-tooltip`
-        /// as a side effect, and of the default handler for the
-        /// `GtkWidget::query-tooltip` signal.
+        /// This function will take care of setting
+        /// [property`Gtk.Widget:has-tooltip`] as a side effect,
+        /// and of the default handler for the
+        /// [signal`Gtk.Widget::query-tooltip`] signal.
         /// 
-        /// See also the `GtkWidget:tooltip-text` property and
-        /// `gtk_tooltip_set_text()`.
+        /// See also [method`Gtk.Tooltip.set_text`].
         nonmutating set {
             gtk_widget_set_tooltip_text(widget_ptr, newValue)
         }
     }
 
-    /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
+    /// How to distribute vertical space if widget gets extra space.
     @inlinable var valign: GtkAlign {
-        /// Gets the value of the `GtkWidget:valign` property.
+        /// Gets the vertical alignment of `widget`.
         get {
             let rv = gtk_widget_get_valign(widget_ptr)
             return rv
         }
         /// Sets the vertical alignment of `widget`.
-        /// See the `GtkWidget:valign` property.
         nonmutating set {
             gtk_widget_set_valign(widget_ptr, newValue)
         }
     }
 
-    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
+    /// Whether to expand vertically.
     @inlinable var vexpand: Bool {
         /// Gets whether the widget would like any available extra vertical
         /// space.
         /// 
-        /// See `gtk_widget_get_hexpand()` for more detail.
+        /// See [method`Gtk.Widget.get_hexpand`] for more detail.
         get {
             let rv = ((gtk_widget_get_vexpand(widget_ptr)) != 0)
             return rv
@@ -8111,7 +8561,7 @@ public extension WidgetProtocol {
         /// Sets whether the widget would like any available extra vertical
         /// space.
         /// 
-        /// See `gtk_widget_set_hexpand()` for more detail.
+        /// See [method`Gtk.Widget.set_hexpand`] for more detail.
         nonmutating set {
             gtk_widget_set_vexpand(widget_ptr, gboolean((newValue) ? 1 : 0))
         }
@@ -8120,56 +8570,68 @@ public extension WidgetProtocol {
     /// Gets whether `gtk_widget_set_vexpand()` has been used to
     /// explicitly set the expand flag on this widget.
     /// 
-    /// See `gtk_widget_get_hexpand_set()` for more detail.
+    /// See [method`Gtk.Widget.get_hexpand_set`] for more detail.
     @inlinable var vexpandSet: Bool {
         /// Gets whether `gtk_widget_set_vexpand()` has been used to
         /// explicitly set the expand flag on this widget.
         /// 
-        /// See `gtk_widget_get_hexpand_set()` for more detail.
+        /// See [method`Gtk.Widget.get_hexpand_set`] for more detail.
         get {
             let rv = ((gtk_widget_get_vexpand_set(widget_ptr)) != 0)
             return rv
         }
-        /// Sets whether the vexpand flag (see `gtk_widget_get_vexpand()`) will
-        /// be used.
+        /// Sets whether the vexpand flag will be used.
         /// 
-        /// See `gtk_widget_set_hexpand_set()` for more detail.
+        /// See [method`Gtk.Widget.set_hexpand_set`] for more detail.
         nonmutating set {
             gtk_widget_set_vexpand_set(widget_ptr, gboolean((newValue) ? 1 : 0))
         }
     }
 
+    /// Whether the widget is visible.
     @inlinable var visible: Bool {
-        /// Determines whether the widget is visible. If you want to
-        /// take into account whether the widget’s parent is also marked as
-        /// visible, use `gtk_widget_is_visible()` instead.
+        /// Determines whether the widget is visible.
         /// 
-        /// This function does not check if the widget is obscured in any way.
+        /// If you want to take into account whether the widget’s
+        /// parent is also marked as visible, use
+        /// [method`Gtk.Widget.is_visible`] instead.
         /// 
-        /// See `gtk_widget_set_visible()`.
+        /// This function does not check if the widget is
+        /// obscured in any way.
+        /// 
+        /// See [method`Gtk.Widget.set_visible`].
         get {
             let rv = ((gtk_widget_get_visible(widget_ptr)) != 0)
             return rv
         }
-        /// Sets the visibility state of `widget`. Note that setting this to
-        /// `true` doesn’t mean the widget is actually viewable, see
-        /// `gtk_widget_get_visible()`.
+        /// Sets the visibility state of `widget`.
         /// 
-        /// This function simply calls `gtk_widget_show()` or `gtk_widget_hide()`
-        /// but is nicer to use when the visibility of the widget depends on
-        /// some condition.
+        /// Note that setting this to `true` doesn’t mean the widget is
+        /// actually viewable, see [method`Gtk.Widget.get_visible`].
+        /// 
+        /// This function simply calls [method`Gtk.Widget.show`] or
+        /// [method`Gtk.Widget.hide`] but is nicer to use when the
+        /// visibility of the widget depends on some condition.
         nonmutating set {
             gtk_widget_set_visible(widget_ptr, gboolean((newValue) ? 1 : 0))
         }
     }
 
-    /// Returns the content width of the widget, as passed to its size-allocate implementation.
-    /// This is the size you should be using in `GtkWidgetClass.snapshot()`. For pointer
-    /// events, see `gtk_widget_contains()`.
+    /// Returns the content width of the widget.
+    /// 
+    /// This function returns the size passed to its
+    /// size-allocate implementation, which is the size you
+    /// should be using in `GtkWidgetClass.snapshot()`.
+    /// 
+    /// For pointer events, see [method`Gtk.Widget.contains`].
     @inlinable var width: Int {
-        /// Returns the content width of the widget, as passed to its size-allocate implementation.
-        /// This is the size you should be using in `GtkWidgetClass.snapshot()`. For pointer
-        /// events, see `gtk_widget_contains()`.
+        /// Returns the content width of the widget.
+        /// 
+        /// This function returns the size passed to its
+        /// size-allocate implementation, which is the size you
+        /// should be using in `GtkWidgetClass.snapshot()`.
+        /// 
+        /// For pointer events, see [method`Gtk.Widget.contains`].
         get {
             let rv = Int(gtk_widget_get_width(widget_ptr))
             return rv

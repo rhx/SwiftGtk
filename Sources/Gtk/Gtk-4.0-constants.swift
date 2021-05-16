@@ -20,12 +20,14 @@ public let ACCESSIBLE_VALUE_UNDEFINED = GTK_ACCESSIBLE_VALUE_UNDEFINED // -1
 /// Like `gtk_get_binary_age()`, but from the headers used at
 /// application compile time, rather than from the library linked
 /// against at application run time.
-public let BINARY_AGE = GTK_BINARY_AGE // 1
+public let BINARY_AGE = GTK_BINARY_AGE // 201
 
 public let IM_MODULE_EXTENSION_POINT_NAME = "gtk-im-module" // 2
 
-/// Constant to return from a signal handler for the `GtkSpinButton::input`
+/// Constant to return from a signal handler for the `input`
 /// signal in case of conversion failure.
+/// 
+/// See [signal`Gtk.SpinButton::input`].
 public let INPUT_ERROR = GTK_INPUT_ERROR // -1
 
 /// Like `gtk_get_interface_age()`, but from the headers used at
@@ -47,7 +49,6 @@ public let LEVEL_BAR_OFFSET_LOW = GTK_LEVEL_BAR_OFFSET_LOW // 7
 /// against at application run time.
 public let MAJOR_VERSION = GTK_MAJOR_VERSION // 4
 
-/// The maximum length of sequences in compose tables.
 public let MAX_COMPOSE_LEN = GTK_MAX_COMPOSE_LEN // 7
 
 public let MEDIA_FILE_EXTENSION_POINT_NAME = GTK_MEDIA_FILE_EXTENSION_POINT_NAME // 10
@@ -60,7 +61,7 @@ public let MICRO_VERSION = GTK_MICRO_VERSION // 1
 /// Like `gtk_get_minor_version()`, but from the headers used at
 /// application compile time, rather than from the library linked
 /// against at application run time.
-public let MINOR_VERSION = GTK_MINOR_VERSION // 0
+public let MINOR_VERSION = GTK_MINOR_VERSION // 2
 
 /// Name for the A3 paper size.
 public let PAPER_NAME_A3 = GTK_PAPER_NAME_A3 // 13
@@ -199,14 +200,12 @@ public let STYLE_PROVIDER_PRIORITY_USER = GTK_STYLE_PROVIDER_PRIORITY_USER // 80
 /// in an idle job in the background.
 public let TEXT_VIEW_PRIORITY_VALIDATE = 125 // GTK_TEXT_VIEW_PRIORITY_VALIDATE
 
-/// The GTK_TREE_SORTABLE_DEFAULT_SORT_COLUMN_ID can be used to make a
-/// `GtkTreeSortable` use the default sort function.
+/// Uses the default sort function in a [interface`Gtk.TreeSortable`].
 /// 
-/// See also `gtk_tree_sortable_set_sort_column_id()`
+/// See also: [method`Gtk.TreeSortable.set_sort_column_id`]
 public let TREE_SORTABLE_DEFAULT_SORT_COLUMN_ID = GTK_TREE_SORTABLE_DEFAULT_SORT_COLUMN_ID // -1
 
-/// The GTK_TREE_SORTABLE_UNSORTED_SORT_COLUMN_ID can be used to make a
-/// `GtkTreeSortable` use no sorting.
+/// Disables sorting in a [interface`Gtk.TreeSortable`].
 /// 
-/// See also `gtk_tree_sortable_set_sort_column_id()`
+/// See also: [method`Gtk.TreeSortable.set_sort_column_id`]
 public let TREE_SORTABLE_UNSORTED_SORT_COLUMN_ID = GTK_TREE_SORTABLE_UNSORTED_SORT_COLUMN_ID // -2

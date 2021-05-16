@@ -1984,6 +1984,10 @@ public extension IMContextClassProtocol {
 
     // var getSurrounding is unavailable because get_surrounding is void
 
+    // var setSurroundingWithSelection is unavailable because set_surrounding_with_selection is void
+
+    // var getSurroundingWithSelection is unavailable because get_surrounding_with_selection is void
+
     // var GtkReserved1 is unavailable because _gtk_reserved1 is void
 
     // var GtkReserved2 is unavailable because _gtk_reserved2 is void
@@ -1993,8 +1997,6 @@ public extension IMContextClassProtocol {
     // var GtkReserved4 is unavailable because _gtk_reserved4 is void
 
     // var GtkReserved5 is unavailable because _gtk_reserved5 is void
-
-    // var GtkReserved6 is unavailable because _gtk_reserved6 is void
 
 }
 

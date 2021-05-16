@@ -1488,13 +1488,16 @@ public extension EveryFilterClassProtocol {
 /// For a concrete class that implements these methods and properties, see `ExpressionWatch`.
 /// Alternatively, use `ExpressionWatchRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
+/// An opaque structure representing a watched `GtkExpression`.
+/// 
+/// The contents of `GtkExpressionWatch` should only be accessed through the
+/// provided API.
 public protocol ExpressionWatchProtocol {
         /// Untyped pointer to the underlying `GtkExpressionWatch` instance.
     var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GtkExpressionWatch` instance.
-    var _ptr: UnsafeMutablePointer<GtkExpressionWatch>! { get }
+    var expression_watch_ptr: UnsafeMutablePointer<GtkExpressionWatch>! { get }
 
     /// Required Initialiser for types conforming to `ExpressionWatchProtocol`
     init(raw: UnsafeMutableRawPointer)
@@ -1504,10 +1507,13 @@ public protocol ExpressionWatchProtocol {
 /// It exposes methods that can operate on this data type through `ExpressionWatchProtocol` conformance.
 /// Use `ExpressionWatchRef` only as an `unowned` reference to an existing `GtkExpressionWatch` instance.
 ///
-
+/// An opaque structure representing a watched `GtkExpression`.
+/// 
+/// The contents of `GtkExpressionWatch` should only be accessed through the
+/// provided API.
 public struct ExpressionWatchRef: ExpressionWatchProtocol {
         /// Untyped pointer to the underlying `GtkExpressionWatch` instance.
-    /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
+    /// For type-safe access, use the generated, typed pointer `expression_watch_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer!
 }
 
@@ -1587,10 +1593,13 @@ public extension ExpressionWatchRef {
 /// It provides the methods that can operate on this data type through `ExpressionWatchProtocol` conformance.
 /// Use `ExpressionWatch` as a strong reference or owner of a `GtkExpressionWatch` instance.
 ///
-
+/// An opaque structure representing a watched `GtkExpression`.
+/// 
+/// The contents of `GtkExpressionWatch` should only be accessed through the
+/// provided API.
 open class ExpressionWatch: ExpressionWatchProtocol {
         /// Untyped pointer to the underlying `GtkExpressionWatch` instance.
-    /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
+    /// For type-safe access, use the generated, typed pointer `expression_watch_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
@@ -1740,21 +1749,21 @@ open class ExpressionWatch: ExpressionWatchProtocol {
 // MARK: ExpressionWatch Record: ExpressionWatchProtocol extension (methods and fields)
 public extension ExpressionWatchProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkExpressionWatch` instance.
-    @inlinable var _ptr: UnsafeMutablePointer<GtkExpressionWatch>! { return ptr?.assumingMemoryBound(to: GtkExpressionWatch.self) }
+    @inlinable var expression_watch_ptr: UnsafeMutablePointer<GtkExpressionWatch>! { return ptr?.assumingMemoryBound(to: GtkExpressionWatch.self) }
 
     /// Evaluates the watched expression and on success stores the result
     /// in `value`.
     /// 
-    /// This is equivalent to calling `gtk_expression_evaluate()` with the
+    /// This is equivalent to calling [method`Gtk.Expression.evaluate`] with the
     /// expression and this pointer originally used to create `watch`.
     @inlinable func evaluate<ValueT: GLibObject.ValueProtocol>(value: ValueT) -> Bool {
-        let rv = ((gtk_expression_watch_evaluate(_ptr, value.value_ptr)) != 0)
+        let rv = ((gtk_expression_watch_evaluate(expression_watch_ptr, value.value_ptr)) != 0)
         return rv
     }
 
     /// Acquires a reference on the given `GtkExpressionWatch`.
     @discardableResult @inlinable func ref() -> ExpressionWatchRef! {
-        guard let rv = ExpressionWatchRef(gconstpointer: gconstpointer(gtk_expression_watch_ref(_ptr))) else { return nil }
+        guard let rv = ExpressionWatchRef(gconstpointer: gconstpointer(gtk_expression_watch_ref(expression_watch_ptr))) else { return nil }
         return rv
     }
 
@@ -1763,13 +1772,16 @@ public extension ExpressionWatchProtocol {
     /// If the reference was the last, the resources associated to `self` are
     /// freed.
     @inlinable func unref() {
-        gtk_expression_watch_unref(_ptr)
+        gtk_expression_watch_unref(expression_watch_ptr)
     
     }
 
-    /// Stops watching an expression that was established via `gtk_expression_watch()`.
+    /// Stops watching an expression.
+    /// 
+    /// See [method`Gtk.Expression.watch`] for how the watch
+    /// was established.
     @inlinable func unwatch() {
-        gtk_expression_watch_unwatch(_ptr)
+        gtk_expression_watch_unwatch(expression_watch_ptr)
     
     }
 

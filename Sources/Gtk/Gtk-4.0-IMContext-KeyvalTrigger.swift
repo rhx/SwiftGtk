@@ -20,76 +20,43 @@ import Gdk
 /// For a concrete class that implements these methods and properties, see `IMContext`.
 /// Alternatively, use `IMContextRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// `GtkIMContext` defines the interface for GTK input methods. An input method
-/// is used by GTK text input widgets like `GtkEntry` to map from key events to
-/// Unicode character strings.
+/// `GtkIMContext` defines the interface for GTK input methods.
 /// 
-/// The default input method can be set programmatically via the
-/// `GtkSettings:gtk-im-module` GtkSettings property. Alternatively, you may set
-/// the GTK_IM_MODULE environment variable as documented in
-/// [Running GTK Applications](#gtk-running).
+/// `GtkIMContext` is used by GTK text input widgets like `GtkText`
+/// to map from key events to Unicode character strings.
 /// 
-/// The `GtkEntry` `GtkEntry:im-module` and `GtkTextView` `GtkTextView:im-module`
-/// properties may also be used to set input methods for specific widget
-/// instances. For instance, a certain entry widget might be expected to contain
-/// certain characters which would be easier to input with a certain input
-/// method.
+/// By default, GTK uses a platform-dependent default input method.
+/// On Windows, the default implementation is IME-based and on Wayland,
+/// it is using the Wayland text protocol. The choice can be overridden
+/// programmatically via the [property`Gtk.Settings:gtk-im-module`] setting.
+/// Users may set the `GTK_IM_MODULE` environment variable to override the
+/// default.
 /// 
-/// An input method may consume multiple key events in sequence and finally
-/// output the composed result. This is called preediting, and an input method
-/// may provide feedback about this process by displaying the intermediate
-/// composition states as preedit text. For instance, the default GTK input
-/// method implements the input of arbitrary Unicode code points by holding down
-/// the Control and Shift keys and then typing “U” followed by the hexadecimal
-/// digits of the code point.  When releasing the Control and Shift keys,
-/// preediting ends and the character is inserted as text. Ctrl+Shift+u20AC for
-/// example results in the € sign.
+/// Text widgets have a :im-module property (e.g. [property`Gtk.TextView:im-module`])
+/// that may also be used to set input methods for specific widget instances.
+/// For instance, a certain entry widget might be expected to contain
+/// certain characters which would be easier to input with a specific
+/// input method.
+/// 
+/// An input method may consume multiple key events in sequence before finally
+/// outputting the composed result. This is called *preediting*, and an input
+/// method may provide feedback about this process by displaying the intermediate
+/// composition states as preedit text.
+/// 
+/// For instance, the built-in GTK input method `GtkIMContextSimple` implements
+/// the input of arbitrary Unicode code points by holding down the
+/// &lt;kbd&gt;Control&lt;/kbd&gt; and &lt;kbd&gt;Shift&lt;/kbd&gt; keys and then typing &lt;kbd&gt;U&lt;/kbd&gt;
+/// followed by the hexadecimal digits of the code point. When releasing the
+/// &lt;kbd&gt;Control&lt;/kbd&gt; and &lt;kbd&gt;Shift&lt;/kbd&gt; keys, preediting ends and the
+/// character is inserted as text. For example,
+/// 
+///     Ctrl+Shift+u 2 0 A C
+/// 
+/// results in the € sign.
 /// 
 /// Additional input methods can be made available for use by GTK widgets as
 /// loadable modules. An input method module is a small shared library which
-/// implements a subclass of `GtkIMContext` or `GtkIMContextSimple` and exports
-/// these four functions:
-/// 
-/// (C Language Example):
-/// ```C
-/// void im_module_init(GTypeModule *module);
-/// ```
-/// This function should register the `GType` of the `GtkIMContext` subclass which
-/// implements the input method by means of `g_type_module_register_type()`. Note
-/// that `g_type_register_static()` cannot be used as the type needs to be
-/// registered dynamically.
-/// 
-/// (C Language Example):
-/// ```C
-/// void im_module_exit(void);
-/// ```
-/// Here goes any cleanup code your input method might require on module unload.
-/// 
-/// (C Language Example):
-/// ```C
-/// void im_module_list(const GtkIMContextInfo ***contexts, int *n_contexts)
-/// {
-///   *contexts = info_list;
-///   *n_contexts = G_N_ELEMENTS (info_list);
-/// }
-/// ```
-/// This function returns the list of input methods provided by the module. The
-/// example implementation above shows a common solution and simply returns a
-/// pointer to statically defined array of `GtkIMContextInfo` items for each
-/// provided input method.
-/// 
-/// (C Language Example):
-/// ```C
-/// GtkIMContext * im_module_create(const char *context_id);
-/// ```
-/// This function should return a pointer to a newly created instance of the
-/// `GtkIMContext` subclass identified by `context_id`. The context ID is the same
-/// as specified in the `GtkIMContextInfo` array returned by `im_module_list()`.
-/// 
-/// After a new loadable input method module has been installed on the system,
-/// the configuration file `gtk.immodules` needs to be
-/// regenerated by [gtk-query-immodules-3.0](#gtk-query-immodules-3.0),
-/// in order for the new input method to become available to GTK applications.
+/// provides a `GIOExtension` for the extension point named "gtk-im-module".
 public protocol IMContextProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GtkIMContext` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -105,76 +72,43 @@ public protocol IMContextProtocol: GLibObject.ObjectProtocol {
 /// It exposes methods that can operate on this data type through `IMContextProtocol` conformance.
 /// Use `IMContextRef` only as an `unowned` reference to an existing `GtkIMContext` instance.
 ///
-/// `GtkIMContext` defines the interface for GTK input methods. An input method
-/// is used by GTK text input widgets like `GtkEntry` to map from key events to
-/// Unicode character strings.
+/// `GtkIMContext` defines the interface for GTK input methods.
 /// 
-/// The default input method can be set programmatically via the
-/// `GtkSettings:gtk-im-module` GtkSettings property. Alternatively, you may set
-/// the GTK_IM_MODULE environment variable as documented in
-/// [Running GTK Applications](#gtk-running).
+/// `GtkIMContext` is used by GTK text input widgets like `GtkText`
+/// to map from key events to Unicode character strings.
 /// 
-/// The `GtkEntry` `GtkEntry:im-module` and `GtkTextView` `GtkTextView:im-module`
-/// properties may also be used to set input methods for specific widget
-/// instances. For instance, a certain entry widget might be expected to contain
-/// certain characters which would be easier to input with a certain input
-/// method.
+/// By default, GTK uses a platform-dependent default input method.
+/// On Windows, the default implementation is IME-based and on Wayland,
+/// it is using the Wayland text protocol. The choice can be overridden
+/// programmatically via the [property`Gtk.Settings:gtk-im-module`] setting.
+/// Users may set the `GTK_IM_MODULE` environment variable to override the
+/// default.
 /// 
-/// An input method may consume multiple key events in sequence and finally
-/// output the composed result. This is called preediting, and an input method
-/// may provide feedback about this process by displaying the intermediate
-/// composition states as preedit text. For instance, the default GTK input
-/// method implements the input of arbitrary Unicode code points by holding down
-/// the Control and Shift keys and then typing “U” followed by the hexadecimal
-/// digits of the code point.  When releasing the Control and Shift keys,
-/// preediting ends and the character is inserted as text. Ctrl+Shift+u20AC for
-/// example results in the € sign.
+/// Text widgets have a :im-module property (e.g. [property`Gtk.TextView:im-module`])
+/// that may also be used to set input methods for specific widget instances.
+/// For instance, a certain entry widget might be expected to contain
+/// certain characters which would be easier to input with a specific
+/// input method.
+/// 
+/// An input method may consume multiple key events in sequence before finally
+/// outputting the composed result. This is called *preediting*, and an input
+/// method may provide feedback about this process by displaying the intermediate
+/// composition states as preedit text.
+/// 
+/// For instance, the built-in GTK input method `GtkIMContextSimple` implements
+/// the input of arbitrary Unicode code points by holding down the
+/// &lt;kbd&gt;Control&lt;/kbd&gt; and &lt;kbd&gt;Shift&lt;/kbd&gt; keys and then typing &lt;kbd&gt;U&lt;/kbd&gt;
+/// followed by the hexadecimal digits of the code point. When releasing the
+/// &lt;kbd&gt;Control&lt;/kbd&gt; and &lt;kbd&gt;Shift&lt;/kbd&gt; keys, preediting ends and the
+/// character is inserted as text. For example,
+/// 
+///     Ctrl+Shift+u 2 0 A C
+/// 
+/// results in the € sign.
 /// 
 /// Additional input methods can be made available for use by GTK widgets as
 /// loadable modules. An input method module is a small shared library which
-/// implements a subclass of `GtkIMContext` or `GtkIMContextSimple` and exports
-/// these four functions:
-/// 
-/// (C Language Example):
-/// ```C
-/// void im_module_init(GTypeModule *module);
-/// ```
-/// This function should register the `GType` of the `GtkIMContext` subclass which
-/// implements the input method by means of `g_type_module_register_type()`. Note
-/// that `g_type_register_static()` cannot be used as the type needs to be
-/// registered dynamically.
-/// 
-/// (C Language Example):
-/// ```C
-/// void im_module_exit(void);
-/// ```
-/// Here goes any cleanup code your input method might require on module unload.
-/// 
-/// (C Language Example):
-/// ```C
-/// void im_module_list(const GtkIMContextInfo ***contexts, int *n_contexts)
-/// {
-///   *contexts = info_list;
-///   *n_contexts = G_N_ELEMENTS (info_list);
-/// }
-/// ```
-/// This function returns the list of input methods provided by the module. The
-/// example implementation above shows a common solution and simply returns a
-/// pointer to statically defined array of `GtkIMContextInfo` items for each
-/// provided input method.
-/// 
-/// (C Language Example):
-/// ```C
-/// GtkIMContext * im_module_create(const char *context_id);
-/// ```
-/// This function should return a pointer to a newly created instance of the
-/// `GtkIMContext` subclass identified by `context_id`. The context ID is the same
-/// as specified in the `GtkIMContextInfo` array returned by `im_module_list()`.
-/// 
-/// After a new loadable input method module has been installed on the system,
-/// the configuration file `gtk.immodules` needs to be
-/// regenerated by [gtk-query-immodules-3.0](#gtk-query-immodules-3.0),
-/// in order for the new input method to become available to GTK applications.
+/// provides a `GIOExtension` for the extension point named "gtk-im-module".
 public struct IMContextRef: IMContextProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkIMContext` instance.
     /// For type-safe access, use the generated, typed pointer `im_context_ptr` property instead.
@@ -260,76 +194,43 @@ public extension IMContextRef {
 /// It provides the methods that can operate on this data type through `IMContextProtocol` conformance.
 /// Use `IMContext` as a strong reference or owner of a `GtkIMContext` instance.
 ///
-/// `GtkIMContext` defines the interface for GTK input methods. An input method
-/// is used by GTK text input widgets like `GtkEntry` to map from key events to
-/// Unicode character strings.
+/// `GtkIMContext` defines the interface for GTK input methods.
 /// 
-/// The default input method can be set programmatically via the
-/// `GtkSettings:gtk-im-module` GtkSettings property. Alternatively, you may set
-/// the GTK_IM_MODULE environment variable as documented in
-/// [Running GTK Applications](#gtk-running).
+/// `GtkIMContext` is used by GTK text input widgets like `GtkText`
+/// to map from key events to Unicode character strings.
 /// 
-/// The `GtkEntry` `GtkEntry:im-module` and `GtkTextView` `GtkTextView:im-module`
-/// properties may also be used to set input methods for specific widget
-/// instances. For instance, a certain entry widget might be expected to contain
-/// certain characters which would be easier to input with a certain input
-/// method.
+/// By default, GTK uses a platform-dependent default input method.
+/// On Windows, the default implementation is IME-based and on Wayland,
+/// it is using the Wayland text protocol. The choice can be overridden
+/// programmatically via the [property`Gtk.Settings:gtk-im-module`] setting.
+/// Users may set the `GTK_IM_MODULE` environment variable to override the
+/// default.
 /// 
-/// An input method may consume multiple key events in sequence and finally
-/// output the composed result. This is called preediting, and an input method
-/// may provide feedback about this process by displaying the intermediate
-/// composition states as preedit text. For instance, the default GTK input
-/// method implements the input of arbitrary Unicode code points by holding down
-/// the Control and Shift keys and then typing “U” followed by the hexadecimal
-/// digits of the code point.  When releasing the Control and Shift keys,
-/// preediting ends and the character is inserted as text. Ctrl+Shift+u20AC for
-/// example results in the € sign.
+/// Text widgets have a :im-module property (e.g. [property`Gtk.TextView:im-module`])
+/// that may also be used to set input methods for specific widget instances.
+/// For instance, a certain entry widget might be expected to contain
+/// certain characters which would be easier to input with a specific
+/// input method.
+/// 
+/// An input method may consume multiple key events in sequence before finally
+/// outputting the composed result. This is called *preediting*, and an input
+/// method may provide feedback about this process by displaying the intermediate
+/// composition states as preedit text.
+/// 
+/// For instance, the built-in GTK input method `GtkIMContextSimple` implements
+/// the input of arbitrary Unicode code points by holding down the
+/// &lt;kbd&gt;Control&lt;/kbd&gt; and &lt;kbd&gt;Shift&lt;/kbd&gt; keys and then typing &lt;kbd&gt;U&lt;/kbd&gt;
+/// followed by the hexadecimal digits of the code point. When releasing the
+/// &lt;kbd&gt;Control&lt;/kbd&gt; and &lt;kbd&gt;Shift&lt;/kbd&gt; keys, preediting ends and the
+/// character is inserted as text. For example,
+/// 
+///     Ctrl+Shift+u 2 0 A C
+/// 
+/// results in the € sign.
 /// 
 /// Additional input methods can be made available for use by GTK widgets as
 /// loadable modules. An input method module is a small shared library which
-/// implements a subclass of `GtkIMContext` or `GtkIMContextSimple` and exports
-/// these four functions:
-/// 
-/// (C Language Example):
-/// ```C
-/// void im_module_init(GTypeModule *module);
-/// ```
-/// This function should register the `GType` of the `GtkIMContext` subclass which
-/// implements the input method by means of `g_type_module_register_type()`. Note
-/// that `g_type_register_static()` cannot be used as the type needs to be
-/// registered dynamically.
-/// 
-/// (C Language Example):
-/// ```C
-/// void im_module_exit(void);
-/// ```
-/// Here goes any cleanup code your input method might require on module unload.
-/// 
-/// (C Language Example):
-/// ```C
-/// void im_module_list(const GtkIMContextInfo ***contexts, int *n_contexts)
-/// {
-///   *contexts = info_list;
-///   *n_contexts = G_N_ELEMENTS (info_list);
-/// }
-/// ```
-/// This function returns the list of input methods provided by the module. The
-/// example implementation above shows a common solution and simply returns a
-/// pointer to statically defined array of `GtkIMContextInfo` items for each
-/// provided input method.
-/// 
-/// (C Language Example):
-/// ```C
-/// GtkIMContext * im_module_create(const char *context_id);
-/// ```
-/// This function should return a pointer to a newly created instance of the
-/// `GtkIMContext` subclass identified by `context_id`. The context ID is the same
-/// as specified in the `GtkIMContextInfo` array returned by `im_module_list()`.
-/// 
-/// After a new loadable input method module has been installed on the system,
-/// the configuration file `gtk.immodules` needs to be
-/// regenerated by [gtk-query-immodules-3.0](#gtk-query-immodules-3.0),
-/// in order for the new input method to become available to GTK applications.
+/// provides a `GIOExtension` for the extension point named "gtk-im-module".
 open class IMContext: GLibObject.Object, IMContextProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -869,9 +770,10 @@ public extension IMContextProtocol {
 
     /// Asks the widget that the input context is attached to delete
     /// characters around the cursor position by emitting the
-    /// GtkIMContext`delete_surrounding` signal. Note that `offset` and `n_chars`
-    /// are in characters not in bytes which differs from the usage other
-    /// places in `GtkIMContext`.
+    /// GtkIMContext`delete_surrounding` signal.
+    /// 
+    /// Note that `offset` and `n_chars` are in characters not in bytes
+    /// which differs from the usage other places in `GtkIMContext`.
     /// 
     /// In order to use this function, you should first call
     /// `gtk_im_context_get_surrounding()` to get the current context, and
@@ -889,7 +791,7 @@ public extension IMContextProtocol {
     }
 
     /// Allow an input method to forward key press and release events
-    /// to another input method, without necessarily having a GdkEvent
+    /// to another input methodm without necessarily having a `GdkEvent`
     /// available.
     @inlinable func filterKey<DeviceT: Gdk.DeviceProtocol, SurfaceT: Gdk.SurfaceProtocol>(press: Bool, surface: SurfaceT, device: DeviceT, time: guint32, keycode: Int, state: Gdk.ModifierType, group: Int) -> Bool {
         let rv = ((gtk_im_context_filter_key(im_context_ptr, gboolean((press) ? 1 : 0), surface.surface_ptr, device.device_ptr, time, guint(keycode), state.value, gint(group))) != 0)
@@ -897,7 +799,9 @@ public extension IMContextProtocol {
     }
 
     /// Allow an input method to internally handle key press and release
-    /// events. If this function returns `true`, then no further processing
+    /// events.
+    /// 
+    /// If this function returns `true`, then no further processing
     /// should be done for this key event.
     @inlinable func filterKeypress<EventT: Gdk.EventProtocol>(event: EventT) -> Bool {
         let rv = ((gtk_im_context_filter_keypress(im_context_ptr, event.event_ptr)) != 0)
@@ -905,18 +809,20 @@ public extension IMContextProtocol {
     }
 
     /// Notify the input method that the widget to which this
-    /// input context corresponds has gained focus. The input method
-    /// may, for example, change the displayed feedback to reflect
-    /// this change.
+    /// input context corresponds has gained focus.
+    /// 
+    /// The input method may, for example, change the displayed
+    /// feedback to reflect this change.
     @inlinable func focusIn() {
         gtk_im_context_focus_in(im_context_ptr)
     
     }
 
     /// Notify the input method that the widget to which this
-    /// input context corresponds has lost focus. The input method
-    /// may, for example, change the displayed feedback or reset the contexts
-    /// state to reflect this change.
+    /// input context corresponds has lost focus.
+    /// 
+    /// The input method may, for example, change the displayed
+    /// feedback or reset the contexts state to reflect this change.
     @inlinable func focusOut() {
         gtk_im_context_focus_out(im_context_ptr)
     
@@ -924,48 +830,77 @@ public extension IMContextProtocol {
 
     /// Retrieve the current preedit string for the input context,
     /// and a list of attributes to apply to the string.
-    /// This string should be displayed inserted at the insertion
-    /// point.
+    /// 
+    /// This string should be displayed inserted at the insertion point.
     @inlinable func getPreeditString(str: UnsafeMutablePointer<UnsafeMutablePointer<CChar>?>!, attrs: UnsafeMutablePointer<UnsafeMutablePointer<PangoAttrList>?>!, cursorPos: UnsafeMutablePointer<gint>!) {
         gtk_im_context_get_preedit_string(im_context_ptr, str, attrs, cursorPos)
     
     }
 
-    /// Retrieves context around the insertion point. Input methods
-    /// typically want context in order to constrain input text based on
-    /// existing text; this is important for languages such as Thai where
-    /// only some sequences of characters are allowed.
+    /// Retrieves context around the insertion point.
+    /// 
+    /// Input methods typically want context in order to constrain input text
+    /// based on existing text; this is important for languages such as Thai
+    /// where only some sequences of characters are allowed.
     /// 
     /// This function is implemented by emitting the
-    /// GtkIMContext`retrieve_surrounding` signal on the input method; in
-    /// response to this signal, a widget should provide as much context as
+    /// [signal`Gtk.IMContext::retrieve-surrounding`] signal on the input method;
+    /// in response to this signal, a widget should provide as much context as
     /// is available, up to an entire paragraph, by calling
-    /// `gtk_im_context_set_surrounding()`. Note that there is no obligation
-    /// for a widget to respond to the `retrieve_surrounding` signal, so input
-    /// methods must be prepared to function without context.
-    @inlinable func getSurrounding(text: UnsafeMutablePointer<UnsafeMutablePointer<CChar>?>!, cursorIndex: UnsafeMutablePointer<gint>!) -> Bool {
+    /// [method`Gtk.IMContext.set_surrounding`].
+    /// 
+    /// Note that there is no obligation for a widget to respond to the
+    /// ``retrieve-surrounding`` signal, so input methods must be prepared to
+    /// function without context.
+    ///
+    /// **get_surrounding is deprecated:**
+    /// Use [method@Gtk.IMContext.get_surrounding_with_selection] instead.
+    @available(*, deprecated) @inlinable func getSurrounding(text: UnsafeMutablePointer<UnsafeMutablePointer<CChar>?>!, cursorIndex: UnsafeMutablePointer<gint>!) -> Bool {
         let rv = ((gtk_im_context_get_surrounding(im_context_ptr, text, cursorIndex)) != 0)
         return rv
     }
 
+    /// Retrieves context around the insertion point.
+    /// 
+    /// Input methods typically want context in order to constrain input
+    /// text based on existing text; this is important for languages such
+    /// as Thai where only some sequences of characters are allowed.
+    /// 
+    /// This function is implemented by emitting the
+    /// [signal`Gtk.IMContext::retrieve-surrounding`] signal on the input method;
+    /// in response to this signal, a widget should provide as much context as
+    /// is available, up to an entire paragraph, by calling
+    /// [method`Gtk.IMContext.set_surrounding_with_selection`].
+    /// 
+    /// Note that there is no obligation for a widget to respond to the
+    /// ``retrieve-surrounding`` signal, so input methods must be prepared to
+    /// function without context.
+    @inlinable func getSurroundingWithSelection(text: UnsafeMutablePointer<UnsafeMutablePointer<CChar>?>!, cursorIndex: UnsafeMutablePointer<gint>!, anchorIndex: UnsafeMutablePointer<gint>!) -> Bool {
+        let rv = ((gtk_im_context_get_surrounding_with_selection(im_context_ptr, text, cursorIndex, anchorIndex)) != 0)
+        return rv
+    }
+
     /// Notify the input method that a change such as a change in cursor
-    /// position has been made. This will typically cause the input
-    /// method to clear the preedit state.
+    /// position has been made.
+    /// 
+    /// This will typically cause the input method to clear the preedit state.
     @inlinable func reset() {
         gtk_im_context_reset(im_context_ptr)
     
     }
 
-    /// Set the client window for the input context; this is the
-    /// `GtkWidget` holding the input focus. This widget is
+    /// Set the client widget for the input context.
+    /// 
+    /// This is the `GtkWidget` holding the input focus. This widget is
     /// used in order to correctly position status windows, and may
     /// also be used for purposes internal to the input method.
     @inlinable func setClient(widget: WidgetRef? = nil) {
         gtk_im_context_set_client_widget(im_context_ptr, widget?.widget_ptr)
     
     }
-    /// Set the client window for the input context; this is the
-    /// `GtkWidget` holding the input focus. This widget is
+    /// Set the client widget for the input context.
+    /// 
+    /// This is the `GtkWidget` holding the input focus. This widget is
     /// used in order to correctly position status windows, and may
     /// also be used for purposes internal to the input method.
     @inlinable func setClient<WidgetT: WidgetProtocol>(widget: WidgetT?) {
@@ -974,10 +909,25 @@ public extension IMContextProtocol {
     }
 
     /// Notify the input method that a change in cursor
-    /// position has been made. The location is relative to the client
-    /// window.
+    /// position has been made.
+    /// 
+    /// The location is relative to the client window.
     @inlinable func setCursorLocation<RectangleT: Gdk.RectangleProtocol>(area: RectangleT) {
         gtk_im_context_set_cursor_location(im_context_ptr, area.rectangle_ptr)
+    
+    }
+
+    /// Sets surrounding context around the insertion point and preedit
+    /// string.
+    /// 
+    /// This function is expected to be called in response to the
+    /// [signal`Gtk.IMContext::retrieve-surrounding`] signal, and will
+    /// likely have no effect if called at other times.
+    ///
+    /// **set_surrounding is deprecated:**
+    /// Use [method@Gtk.IMContext.set_surrounding_with_selection] instead
+    @available(*, deprecated) @inlinable func setSurrounding(text: UnsafePointer<CChar>!, len: Int, cursorIndex: Int) {
+        gtk_im_context_set_surrounding(im_context_ptr, text, gint(len), gint(cursorIndex))
     
     }
 
@@ -985,15 +935,17 @@ public extension IMContextProtocol {
     /// string. This function is expected to be called in response to the
     /// GtkIMContext`retrieve_surrounding` signal, and will likely have no
     /// effect if called at other times.
-    @inlinable func setSurrounding(text: UnsafePointer<CChar>!, len: Int, cursorIndex: Int) {
-        gtk_im_context_set_surrounding(im_context_ptr, text, gint(len), gint(cursorIndex))
+    @inlinable func setSurroundingWithSelection(text: UnsafePointer<CChar>!, len: Int, cursorIndex: Int, anchorIndex: Int) {
+        gtk_im_context_set_surrounding_with_selection(im_context_ptr, text, gint(len), gint(cursorIndex), gint(anchorIndex))
     
     }
 
     /// Sets whether the IM context should use the preedit string
-    /// to display feedback. If `use_preedit` is FALSE (default
-    /// is TRUE), then the IM context may use some other method to display
-    /// feedback, such as displaying it in a child of the root window.
+    /// to display feedback.
+    /// 
+    /// If `use_preedit` is `false` (default is `true`), then the IM context
+    /// may use some other method to display feedback, such as displaying
+    /// it in a child of the root window.
     @inlinable func set(usePreedit: Bool) {
         gtk_im_context_set_use_preedit(im_context_ptr, gboolean((usePreedit) ? 1 : 0))
     
@@ -1017,11 +969,12 @@ public extension IMContextProtocol {
 /// For a concrete class that implements these methods and properties, see `IMContextSimple`.
 /// Alternatively, use `IMContextSimpleRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// GtkIMContextSimple is a simple input method context supporting table-based
-/// input methods. It has a built-in table of compose sequences that is derived
-/// from the X11 Compose files.
+/// `GtkIMContextSimple` is an input method supporting table-based input methods.
 /// 
-/// GtkIMContextSimple reads additional compose sequences from the first of the
+/// `GtkIMContextSimple` has a built-in table of compose sequences that is
+/// derived from the X11 Compose files.
+/// 
+/// `GtkIMContextSimple` reads additional compose sequences from the first of the
 /// following files that is found: ~/.config/gtk-4.0/Compose, ~/.XCompose,
 /// /usr/share/X11/locale/$locale/Compose (for locales that have a nontrivial
 /// Compose file). The syntax of these files is described in the `Compose(5)`
@@ -1029,10 +982,15 @@ public extension IMContextProtocol {
 /// 
 /// ## Unicode characters
 /// 
-/// GtkIMContextSimple also supports numeric entry of Unicode characters
-/// by typing Ctrl-Shift-u, followed by a hexadecimal Unicode codepoint.
-/// For example, Ctrl-Shift-u 1 2 3 Enter yields U+0123 LATIN SMALL LETTER
-/// G WITH CEDILLA, i.e. ģ.
+/// `GtkIMContextSimple` also supports numeric entry of Unicode characters
+/// by typing &lt;kbd&gt;Ctrl&lt;/kbd&gt;-&lt;kbd&gt;Shift&lt;/kbd&gt;-&lt;kbd&gt;u&lt;/kbd&gt;, followed by a
+/// hexadecimal Unicode codepoint.
+/// 
+/// For example,
+/// 
+///     Ctrl-Shift-u 1 2 3 Enter
+/// 
+/// yields U+0123 LATIN SMALL LETTER G WITH CEDILLA, i.e. ģ.
 public protocol IMContextSimpleProtocol: IMContextProtocol {
         /// Untyped pointer to the underlying `GtkIMContextSimple` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1048,11 +1006,12 @@ public protocol IMContextSimpleProtocol: IMContextProtocol {
 /// It exposes methods that can operate on this data type through `IMContextSimpleProtocol` conformance.
 /// Use `IMContextSimpleRef` only as an `unowned` reference to an existing `GtkIMContextSimple` instance.
 ///
-/// GtkIMContextSimple is a simple input method context supporting table-based
-/// input methods. It has a built-in table of compose sequences that is derived
-/// from the X11 Compose files.
+/// `GtkIMContextSimple` is an input method supporting table-based input methods.
 /// 
-/// GtkIMContextSimple reads additional compose sequences from the first of the
+/// `GtkIMContextSimple` has a built-in table of compose sequences that is
+/// derived from the X11 Compose files.
+/// 
+/// `GtkIMContextSimple` reads additional compose sequences from the first of the
 /// following files that is found: ~/.config/gtk-4.0/Compose, ~/.XCompose,
 /// /usr/share/X11/locale/$locale/Compose (for locales that have a nontrivial
 /// Compose file). The syntax of these files is described in the `Compose(5)`
@@ -1060,10 +1019,15 @@ public protocol IMContextSimpleProtocol: IMContextProtocol {
 /// 
 /// ## Unicode characters
 /// 
-/// GtkIMContextSimple also supports numeric entry of Unicode characters
-/// by typing Ctrl-Shift-u, followed by a hexadecimal Unicode codepoint.
-/// For example, Ctrl-Shift-u 1 2 3 Enter yields U+0123 LATIN SMALL LETTER
-/// G WITH CEDILLA, i.e. ģ.
+/// `GtkIMContextSimple` also supports numeric entry of Unicode characters
+/// by typing &lt;kbd&gt;Ctrl&lt;/kbd&gt;-&lt;kbd&gt;Shift&lt;/kbd&gt;-&lt;kbd&gt;u&lt;/kbd&gt;, followed by a
+/// hexadecimal Unicode codepoint.
+/// 
+/// For example,
+/// 
+///     Ctrl-Shift-u 1 2 3 Enter
+/// 
+/// yields U+0123 LATIN SMALL LETTER G WITH CEDILLA, i.e. ģ.
 public struct IMContextSimpleRef: IMContextSimpleProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkIMContextSimple` instance.
     /// For type-safe access, use the generated, typed pointer `im_context_simple_ptr` property instead.
@@ -1154,11 +1118,12 @@ public extension IMContextSimpleRef {
 /// It provides the methods that can operate on this data type through `IMContextSimpleProtocol` conformance.
 /// Use `IMContextSimple` as a strong reference or owner of a `GtkIMContextSimple` instance.
 ///
-/// GtkIMContextSimple is a simple input method context supporting table-based
-/// input methods. It has a built-in table of compose sequences that is derived
-/// from the X11 Compose files.
+/// `GtkIMContextSimple` is an input method supporting table-based input methods.
 /// 
-/// GtkIMContextSimple reads additional compose sequences from the first of the
+/// `GtkIMContextSimple` has a built-in table of compose sequences that is
+/// derived from the X11 Compose files.
+/// 
+/// `GtkIMContextSimple` reads additional compose sequences from the first of the
 /// following files that is found: ~/.config/gtk-4.0/Compose, ~/.XCompose,
 /// /usr/share/X11/locale/$locale/Compose (for locales that have a nontrivial
 /// Compose file). The syntax of these files is described in the `Compose(5)`
@@ -1166,10 +1131,15 @@ public extension IMContextSimpleRef {
 /// 
 /// ## Unicode characters
 /// 
-/// GtkIMContextSimple also supports numeric entry of Unicode characters
-/// by typing Ctrl-Shift-u, followed by a hexadecimal Unicode codepoint.
-/// For example, Ctrl-Shift-u 1 2 3 Enter yields U+0123 LATIN SMALL LETTER
-/// G WITH CEDILLA, i.e. ģ.
+/// `GtkIMContextSimple` also supports numeric entry of Unicode characters
+/// by typing &lt;kbd&gt;Ctrl&lt;/kbd&gt;-&lt;kbd&gt;Shift&lt;/kbd&gt;-&lt;kbd&gt;u&lt;/kbd&gt;, followed by a
+/// hexadecimal Unicode codepoint.
+/// 
+/// For example,
+/// 
+///     Ctrl-Shift-u 1 2 3 Enter
+/// 
+/// yields U+0123 LATIN SMALL LETTER G WITH CEDILLA, i.e. ģ.
 open class IMContextSimple: IMContext, IMContextSimpleProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -1462,7 +1432,12 @@ public extension IMContextSimpleProtocol {
 /// For a concrete class that implements these methods and properties, see `IMMulticontext`.
 /// Alternatively, use `IMMulticontextRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
+/// `GtkIMMulticontext` is input method supporting multiple, switchable input
+/// methods.
+/// 
+/// Text widgets such as `GtkText` or `GtkTextView` use a `GtkIMMultiContext`
+/// to implement their `im-module` property for switching between different
+/// input methods.
 public protocol IMMulticontextProtocol: IMContextProtocol {
         /// Untyped pointer to the underlying `GtkIMMulticontext` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1478,7 +1453,12 @@ public protocol IMMulticontextProtocol: IMContextProtocol {
 /// It exposes methods that can operate on this data type through `IMMulticontextProtocol` conformance.
 /// Use `IMMulticontextRef` only as an `unowned` reference to an existing `GtkIMMulticontext` instance.
 ///
-
+/// `GtkIMMulticontext` is input method supporting multiple, switchable input
+/// methods.
+/// 
+/// Text widgets such as `GtkText` or `GtkTextView` use a `GtkIMMultiContext`
+/// to implement their `im-module` property for switching between different
+/// input methods.
 public struct IMMulticontextRef: IMMulticontextProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkIMMulticontext` instance.
     /// For type-safe access, use the generated, typed pointer `im_multicontext_ptr` property instead.
@@ -1569,7 +1549,12 @@ public extension IMMulticontextRef {
 /// It provides the methods that can operate on this data type through `IMMulticontextProtocol` conformance.
 /// Use `IMMulticontext` as a strong reference or owner of a `GtkIMMulticontext` instance.
 ///
-
+/// `GtkIMMulticontext` is input method supporting multiple, switchable input
+/// methods.
+/// 
+/// Text widgets such as `GtkText` or `GtkTextView` use a `GtkIMMultiContext`
+/// to implement their `im-module` property for switching between different
+/// input methods.
 open class IMMulticontext: IMContext, IMMulticontextProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -1872,8 +1857,9 @@ public extension IMMulticontextProtocol {
 /// For a concrete class that implements these methods and properties, see `IconPaintable`.
 /// Alternatively, use `IconPaintableRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Contains information found when looking up an icon in
-/// an icon theme and supports painting it as a `GdkPaintable`.
+/// Contains information found when looking up an icon in `GtkIconTheme`.
+/// 
+/// `GtkIconPaintable` implements `GdkPaintable`.
 public protocol IconPaintableProtocol: GLibObject.ObjectProtocol, Gdk.PaintableProtocol {
         /// Untyped pointer to the underlying `GtkIconPaintable` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1889,8 +1875,9 @@ public protocol IconPaintableProtocol: GLibObject.ObjectProtocol, Gdk.PaintableP
 /// It exposes methods that can operate on this data type through `IconPaintableProtocol` conformance.
 /// Use `IconPaintableRef` only as an `unowned` reference to an existing `GtkIconPaintable` instance.
 ///
-/// Contains information found when looking up an icon in
-/// an icon theme and supports painting it as a `GdkPaintable`.
+/// Contains information found when looking up an icon in `GtkIconTheme`.
+/// 
+/// `GtkIconPaintable` implements `GdkPaintable`.
 public struct IconPaintableRef: IconPaintableProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkIconPaintable` instance.
     /// For type-safe access, use the generated, typed pointer `icon_paintable_ptr` property instead.
@@ -1970,14 +1957,16 @@ public extension IconPaintableRef {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
-        /// Creates a `GtkIconPaintable` for a file with a given size and scale
-    /// `GtkIconPaintable`. The icon can then be rendered by using it as a `GdkPaintable`.
+        /// Creates a `GtkIconPaintable` for a file with a given size and scale.
+    /// 
+    /// The icon can then be rendered by using it as a `GdkPaintable`.
     @inlinable init<FileT: GIO.FileProtocol>(file: FileT, size: Int, scale: Int) {
         let rv = gtk_icon_paintable_new_for_file(file.file_ptr, gint(size), gint(scale))
         ptr = UnsafeMutableRawPointer(rv)
     }
-    /// Creates a `GtkIconPaintable` for a file with a given size and scale
-    /// `GtkIconPaintable`. The icon can then be rendered by using it as a `GdkPaintable`.
+    /// Creates a `GtkIconPaintable` for a file with a given size and scale.
+    /// 
+    /// The icon can then be rendered by using it as a `GdkPaintable`.
     @inlinable static func newFor<FileT: GIO.FileProtocol>(file: FileT, size: Int, scale: Int) -> IconPaintableRef! {
         guard let rv = IconPaintableRef(gconstpointer: gconstpointer(gtk_icon_paintable_new_for_file(file.file_ptr, gint(size), gint(scale)))) else { return nil }
         return rv
@@ -1988,8 +1977,9 @@ public extension IconPaintableRef {
 /// It provides the methods that can operate on this data type through `IconPaintableProtocol` conformance.
 /// Use `IconPaintable` as a strong reference or owner of a `GtkIconPaintable` instance.
 ///
-/// Contains information found when looking up an icon in
-/// an icon theme and supports painting it as a `GdkPaintable`.
+/// Contains information found when looking up an icon in `GtkIconTheme`.
+/// 
+/// `GtkIconPaintable` implements `GdkPaintable`.
 open class IconPaintable: GLibObject.Object, IconPaintableProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -2115,16 +2105,18 @@ open class IconPaintable: GLibObject.Object, IconPaintableProtocol {
         super.init(retainingOpaquePointer: p)
     }
 
-    /// Creates a `GtkIconPaintable` for a file with a given size and scale
-    /// `GtkIconPaintable`. The icon can then be rendered by using it as a `GdkPaintable`.
+    /// Creates a `GtkIconPaintable` for a file with a given size and scale.
+    /// 
+    /// The icon can then be rendered by using it as a `GdkPaintable`.
     @inlinable public init<FileT: GIO.FileProtocol>(file: FileT, size: Int, scale: Int) {
         let rv = gtk_icon_paintable_new_for_file(file.file_ptr, gint(size), gint(scale))
         super.init(gpointer: gpointer(rv))
         if typeIsA(type: self.type, isAType: InitiallyUnownedClassRef.metatypeReference) { _ = self.refSink() } 
     }
 
-    /// Creates a `GtkIconPaintable` for a file with a given size and scale
-    /// `GtkIconPaintable`. The icon can then be rendered by using it as a `GdkPaintable`.
+    /// Creates a `GtkIconPaintable` for a file with a given size and scale.
+    /// 
+    /// The icon can then be rendered by using it as a `GdkPaintable`.
     @inlinable public static func newFor<FileT: GIO.FileProtocol>(file: FileT, size: Int, scale: Int) -> IconPaintable! {
         guard let rv = IconPaintable(gconstpointer: gconstpointer(gtk_icon_paintable_new_for_file(file.file_ptr, gint(size), gint(scale)))) else { return nil }
         if typeIsA(type: rv.type, isAType: InitiallyUnownedClassRef.metatypeReference) { _ = rv.refSink() } 
@@ -2235,8 +2227,9 @@ public extension IconPaintableProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkIconPaintable` instance.
     @inlinable var icon_paintable_ptr: UnsafeMutablePointer<GtkIconPaintable>! { return ptr?.assumingMemoryBound(to: GtkIconPaintable.self) }
 
-    /// Gets the `GFile` that was used to load the icon, or `nil` if the icon was
-    /// not loaded from a file.
+    /// Gets the `GFile` that was used to load the icon.
+    /// 
+    /// Returns `nil` if the icon was not loaded from a file.
     @inlinable func getFile() -> GIO.FileRef! {
         let rv = GIO.FileRef(gtk_icon_paintable_get_file(icon_paintable_ptr))
         return rv
@@ -2249,15 +2242,17 @@ public extension IconPaintableProtocol {
     /// `gtk_icon_theme_lookup_icon()` or the always-available
     /// "image-missing". The icon chosen is returned by this function.
     /// 
-    /// If the icon was created without an icon theme, this function returns `nil`.
+    /// If the icon was created without an icon theme, this function
+    /// returns `nil`.
     @inlinable func getIconName() -> String! {
         let rv = gtk_icon_paintable_get_icon_name(icon_paintable_ptr).map({ String(cString: $0) })
         return rv
     }
     /// The file representing the icon, if any.
     @inlinable var file: GIO.FileRef! {
-        /// Gets the `GFile` that was used to load the icon, or `nil` if the icon was
-        /// not loaded from a file.
+        /// Gets the `GFile` that was used to load the icon.
+        /// 
+        /// Returns `nil` if the icon was not loaded from a file.
         get {
             let rv = GIO.FileRef(gtk_icon_paintable_get_file(icon_paintable_ptr))
             return rv
@@ -2271,7 +2266,8 @@ public extension IconPaintableProtocol {
     /// `gtk_icon_theme_lookup_icon()` or the always-available
     /// "image-missing". The icon chosen is returned by this function.
     /// 
-    /// If the icon was created without an icon theme, this function returns `nil`.
+    /// If the icon was created without an icon theme, this function
+    /// returns `nil`.
     @inlinable var iconName: String! {
         /// Get the icon name being used for this icon.
         /// 
@@ -2280,23 +2276,26 @@ public extension IconPaintableProtocol {
         /// `gtk_icon_theme_lookup_icon()` or the always-available
         /// "image-missing". The icon chosen is returned by this function.
         /// 
-        /// If the icon was created without an icon theme, this function returns `nil`.
+        /// If the icon was created without an icon theme, this function
+        /// returns `nil`.
         get {
             let rv = gtk_icon_paintable_get_icon_name(icon_paintable_ptr).map({ String(cString: $0) })
             return rv
         }
     }
 
-    /// Checks if the icon is symbolic or not. This currently uses only
-    /// the file name and not the file contents for determining this.
-    /// This behaviour may change in the future.
+    /// Checks if the icon is symbolic or not.
+    /// 
+    /// This currently uses only the file name and not the file contents
+    /// for determining this. This behaviour may change in the future.
     /// 
     /// Note that to render a symbolic `GtkIconPaintable` properly (with
     /// recoloring), you have to set its icon name on a `GtkImage`.
     @inlinable var isSymbolic: Bool {
-        /// Checks if the icon is symbolic or not. This currently uses only
-        /// the file name and not the file contents for determining this.
-        /// This behaviour may change in the future.
+        /// Checks if the icon is symbolic or not.
+        /// 
+        /// This currently uses only the file name and not the file contents
+        /// for determining this. This behaviour may change in the future.
         /// 
         /// Note that to render a symbolic `GtkIconPaintable` properly (with
         /// recoloring), you have to set its icon name on a `GtkImage`.
@@ -2318,26 +2317,24 @@ public extension IconPaintableProtocol {
 /// For a concrete class that implements these methods and properties, see `IconTheme`.
 /// Alternatively, use `IconThemeRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// `GtkIconTheme` provides a facility for looking up icons by name
-/// and size. The main reason for using a name rather than simply
-/// providing a filename is to allow different icons to be used
-/// depending on what “icon theme” is selected
-/// by the user. The operation of icon themes on Linux and Unix
+/// `GtkIconTheme` provides a facility for loading themed icons.
+/// 
+/// The main reason for using a name rather than simply providing a filename
+/// is to allow different icons to be used depending on what “icon theme” is
+/// selected by the user. The operation of icon themes on Linux and Unix
 /// follows the [Icon Theme Specification](http://www.freedesktop.org/Standards/icon-theme-spec)
 /// There is a fallback icon theme, named `hicolor`, where applications
 /// should install their icons, but additional icon themes can be installed
 /// as operating system vendors and users choose.
 /// 
-/// In many cases, named themes are used indirectly, via `GtkImage`
-/// rather than directly, but looking up icons
-/// directly is also simple. The `GtkIconTheme` object acts
-/// as a database of all the icons in the current theme. You
-/// can create new `GtkIconTheme` objects, but it’s much more
-/// efficient to use the standard icon theme of the `GtkWidget`
-/// so that the icon information is shared with other people
-/// looking up icons.
-/// (C Language Example):
-/// ```C
+/// In many cases, named themes are used indirectly, via [class`Gtk.Image`]
+/// rather than directly, but looking up icons directly is also simple. The
+/// `GtkIconTheme` object acts as a database of all the icons in the current
+/// theme. You can create new `GtkIconTheme` objects, but it’s much more
+/// efficient to use the standard icon theme of the `GtkWidget` so that the
+/// icon information is shared with other people looking up icons.
+/// 
+/// ```c
 /// GtkIconTheme *icon_theme;
 /// GtkIconPaintable *icon;
 /// GdkPaintable *paintable;
@@ -2348,11 +2345,10 @@ public extension IconPaintableProtocol {
 ///                                    48, // icon size
 ///                                    1,  // scale
 ///                                    0,  // flags);
-///  paintable = GDK_PAINTABLE (icon);
-///  // Use the paintable
-///  g_object_unref (icon);
+/// paintable = GDK_PAINTABLE (icon);
+/// // Use the paintable
+/// g_object_unref (icon);
 /// ```
-/// 
 public protocol IconThemeProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GtkIconTheme` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2368,26 +2364,24 @@ public protocol IconThemeProtocol: GLibObject.ObjectProtocol {
 /// It exposes methods that can operate on this data type through `IconThemeProtocol` conformance.
 /// Use `IconThemeRef` only as an `unowned` reference to an existing `GtkIconTheme` instance.
 ///
-/// `GtkIconTheme` provides a facility for looking up icons by name
-/// and size. The main reason for using a name rather than simply
-/// providing a filename is to allow different icons to be used
-/// depending on what “icon theme” is selected
-/// by the user. The operation of icon themes on Linux and Unix
+/// `GtkIconTheme` provides a facility for loading themed icons.
+/// 
+/// The main reason for using a name rather than simply providing a filename
+/// is to allow different icons to be used depending on what “icon theme” is
+/// selected by the user. The operation of icon themes on Linux and Unix
 /// follows the [Icon Theme Specification](http://www.freedesktop.org/Standards/icon-theme-spec)
 /// There is a fallback icon theme, named `hicolor`, where applications
 /// should install their icons, but additional icon themes can be installed
 /// as operating system vendors and users choose.
 /// 
-/// In many cases, named themes are used indirectly, via `GtkImage`
-/// rather than directly, but looking up icons
-/// directly is also simple. The `GtkIconTheme` object acts
-/// as a database of all the icons in the current theme. You
-/// can create new `GtkIconTheme` objects, but it’s much more
-/// efficient to use the standard icon theme of the `GtkWidget`
-/// so that the icon information is shared with other people
-/// looking up icons.
-/// (C Language Example):
-/// ```C
+/// In many cases, named themes are used indirectly, via [class`Gtk.Image`]
+/// rather than directly, but looking up icons directly is also simple. The
+/// `GtkIconTheme` object acts as a database of all the icons in the current
+/// theme. You can create new `GtkIconTheme` objects, but it’s much more
+/// efficient to use the standard icon theme of the `GtkWidget` so that the
+/// icon information is shared with other people looking up icons.
+/// 
+/// ```c
 /// GtkIconTheme *icon_theme;
 /// GtkIconPaintable *icon;
 /// GdkPaintable *paintable;
@@ -2398,11 +2392,10 @@ public protocol IconThemeProtocol: GLibObject.ObjectProtocol {
 ///                                    48, // icon size
 ///                                    1,  // scale
 ///                                    0,  // flags);
-///  paintable = GDK_PAINTABLE (icon);
-///  // Use the paintable
-///  g_object_unref (icon);
+/// paintable = GDK_PAINTABLE (icon);
+/// // Use the paintable
+/// g_object_unref (icon);
 /// ```
-/// 
 public struct IconThemeRef: IconThemeProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkIconTheme` instance.
     /// For type-safe access, use the generated, typed pointer `icon_theme_ptr` property instead.
@@ -2482,22 +2475,24 @@ public extension IconThemeRef {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
-        /// Creates a new icon theme object. Icon theme objects are used
-    /// to lookup up an icon by name in a particular icon theme.
-    /// Usually, you’ll want to use `gtk_icon_theme_get_for_display()`
-    /// rather than creating a new icon theme object for scratch.
+        /// Creates a new icon theme object.
+    /// 
+    /// Icon theme objects are used to lookup up an icon by name
+    /// in a particular icon theme. Usually, you’ll want to use
+    /// [func`Gtk.IconTheme.get_for_display`] rather than creating
+    /// a new icon theme object for scratch.
     @inlinable init() {
         let rv = gtk_icon_theme_new()
         ptr = UnsafeMutableRawPointer(rv)
     }
-    /// Gets the icon theme object associated with `display`; if this
-    /// function has not previously been called for the given
-    /// display, a new icon theme object will be created and
-    /// associated with the display. Icon theme objects are
-    /// fairly expensive to create, so using this function
-    /// is usually a better choice than calling than `gtk_icon_theme_new()`
-    /// and setting the display yourself; by using this function
-    /// a single icon theme object will be shared between users.
+    /// Gets the icon theme object associated with `display`.
+    /// 
+    /// If this function has not previously been called for the given
+    /// display, a new icon theme object will be created and associated
+    /// with the display. Icon theme objects are fairly expensive to create,
+    /// so using this function is usually a better choice than calling
+    /// [ctor`Gtk.IconTheme.new`] and setting the display yourself; by using
+    /// this function a single icon theme object will be shared between users.
     @inlinable static func getFor<DisplayT: Gdk.DisplayProtocol>(display: DisplayT) -> IconThemeRef! {
         guard let rv = IconThemeRef(gconstpointer: gconstpointer(gtk_icon_theme_get_for_display(display.display_ptr))) else { return nil }
         return rv
@@ -2508,26 +2503,24 @@ public extension IconThemeRef {
 /// It provides the methods that can operate on this data type through `IconThemeProtocol` conformance.
 /// Use `IconTheme` as a strong reference or owner of a `GtkIconTheme` instance.
 ///
-/// `GtkIconTheme` provides a facility for looking up icons by name
-/// and size. The main reason for using a name rather than simply
-/// providing a filename is to allow different icons to be used
-/// depending on what “icon theme” is selected
-/// by the user. The operation of icon themes on Linux and Unix
+/// `GtkIconTheme` provides a facility for loading themed icons.
+/// 
+/// The main reason for using a name rather than simply providing a filename
+/// is to allow different icons to be used depending on what “icon theme” is
+/// selected by the user. The operation of icon themes on Linux and Unix
 /// follows the [Icon Theme Specification](http://www.freedesktop.org/Standards/icon-theme-spec)
 /// There is a fallback icon theme, named `hicolor`, where applications
 /// should install their icons, but additional icon themes can be installed
 /// as operating system vendors and users choose.
 /// 
-/// In many cases, named themes are used indirectly, via `GtkImage`
-/// rather than directly, but looking up icons
-/// directly is also simple. The `GtkIconTheme` object acts
-/// as a database of all the icons in the current theme. You
-/// can create new `GtkIconTheme` objects, but it’s much more
-/// efficient to use the standard icon theme of the `GtkWidget`
-/// so that the icon information is shared with other people
-/// looking up icons.
-/// (C Language Example):
-/// ```C
+/// In many cases, named themes are used indirectly, via [class`Gtk.Image`]
+/// rather than directly, but looking up icons directly is also simple. The
+/// `GtkIconTheme` object acts as a database of all the icons in the current
+/// theme. You can create new `GtkIconTheme` objects, but it’s much more
+/// efficient to use the standard icon theme of the `GtkWidget` so that the
+/// icon information is shared with other people looking up icons.
+/// 
+/// ```c
 /// GtkIconTheme *icon_theme;
 /// GtkIconPaintable *icon;
 /// GdkPaintable *paintable;
@@ -2538,11 +2531,10 @@ public extension IconThemeRef {
 ///                                    48, // icon size
 ///                                    1,  // scale
 ///                                    0,  // flags);
-///  paintable = GDK_PAINTABLE (icon);
-///  // Use the paintable
-///  g_object_unref (icon);
+/// paintable = GDK_PAINTABLE (icon);
+/// // Use the paintable
+/// g_object_unref (icon);
 /// ```
-/// 
 open class IconTheme: GLibObject.Object, IconThemeProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -2668,24 +2660,26 @@ open class IconTheme: GLibObject.Object, IconThemeProtocol {
         super.init(retainingOpaquePointer: p)
     }
 
-    /// Creates a new icon theme object. Icon theme objects are used
-    /// to lookup up an icon by name in a particular icon theme.
-    /// Usually, you’ll want to use `gtk_icon_theme_get_for_display()`
-    /// rather than creating a new icon theme object for scratch.
+    /// Creates a new icon theme object.
+    /// 
+    /// Icon theme objects are used to lookup up an icon by name
+    /// in a particular icon theme. Usually, you’ll want to use
+    /// [func`Gtk.IconTheme.get_for_display`] rather than creating
+    /// a new icon theme object for scratch.
     @inlinable public init() {
         let rv = gtk_icon_theme_new()
         super.init(gpointer: gpointer(rv))
         if typeIsA(type: self.type, isAType: InitiallyUnownedClassRef.metatypeReference) { _ = self.refSink() } 
     }
 
-    /// Gets the icon theme object associated with `display`; if this
-    /// function has not previously been called for the given
-    /// display, a new icon theme object will be created and
-    /// associated with the display. Icon theme objects are
-    /// fairly expensive to create, so using this function
-    /// is usually a better choice than calling than `gtk_icon_theme_new()`
-    /// and setting the display yourself; by using this function
-    /// a single icon theme object will be shared between users.
+    /// Gets the icon theme object associated with `display`.
+    /// 
+    /// If this function has not previously been called for the given
+    /// display, a new icon theme object will be created and associated
+    /// with the display. Icon theme objects are fairly expensive to create,
+    /// so using this function is usually a better choice than calling
+    /// [ctor`Gtk.IconTheme.new`] and setting the display yourself; by using
+    /// this function a single icon theme object will be shared between users.
     @inlinable public static func getFor<DisplayT: Gdk.DisplayProtocol>(display: DisplayT) -> IconTheme! {
         guard let rv = IconTheme(gconstpointer: gconstpointer(gtk_icon_theme_get_for_display(display.display_ptr))) else { return nil }
         if typeIsA(type: rv.type, isAType: InitiallyUnownedClassRef.metatypeReference) { _ = rv.refSink() } 
@@ -2778,9 +2772,11 @@ public extension IconThemeProtocol {
 }
 
 public enum IconThemeSignalName: String, SignalNameProtocol {
-    /// Emitted when the current icon theme is switched or GTK detects
-    /// that a change has occurred in the contents of the current
-    /// icon theme.
+    /// Emitted when the icon theme changes.
+    /// 
+    /// This can happen becuase current icon theme is switched or
+    /// because GTK detects that a change has occurred in the
+    /// contents of the current icon theme.
     case changed = "changed"
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -2864,9 +2860,11 @@ public extension IconThemeProtocol {
     }
     
     
-    /// Emitted when the current icon theme is switched or GTK detects
-    /// that a change has occurred in the contents of the current
-    /// icon theme.
+    /// Emitted when the icon theme changes.
+    /// 
+    /// This can happen becuase current icon theme is switched or
+    /// because GTK detects that a change has occurred in the
+    /// contents of the current icon theme.
     /// - Note: This represents the underlying `changed` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -3146,7 +3144,7 @@ public extension IconThemeProtocol {
     /// Adds a resource path that will be looked at when looking
     /// for icons, similar to search paths.
     /// 
-    /// See `gtk_icon_theme_set_resource_path()`.
+    /// See [method`Gtk.IconTheme.set_resource_path`].
     /// 
     /// This function should be used to make application-specific icons
     /// available as part of the icon theme.
@@ -3156,13 +3154,14 @@ public extension IconThemeProtocol {
     }
 
     /// Appends a directory to the search path.
-    /// See `gtk_icon_theme_set_search_path()`.
+    /// 
+    /// See [method`Gtk.IconTheme.set_search_path`].
     @inlinable func addSearch(path: UnsafePointer<CChar>!) {
         gtk_icon_theme_add_search_path(icon_theme_ptr, path)
     
     }
 
-    /// Returns the display that the GtkIconTheme object was
+    /// Returns the display that the `GtkIconTheme` object was
     /// created for.
     @inlinable func getDisplay() -> Gdk.DisplayRef! {
         let rv = Gdk.DisplayRef(gtk_icon_theme_get_display(icon_theme_ptr))
@@ -3176,9 +3175,10 @@ public extension IconThemeProtocol {
     }
 
     /// Returns an array of integers describing the sizes at which
-    /// the icon is available without scaling. A size of -1 means
-    /// that the icon is available in a scalable format. The array
-    /// is zero-terminated.
+    /// the icon is available without scaling.
+    /// 
+    /// A size of -1 means that the icon is available in a scalable
+    /// format. The array is zero-terminated.
     @inlinable func getIconSizes(iconName: UnsafePointer<CChar>!) -> UnsafeMutablePointer<CInt>! {
         let rv = gtk_icon_theme_get_icon_sizes(icon_theme_ptr, iconName)
         return rv
@@ -3186,13 +3186,15 @@ public extension IconThemeProtocol {
 
     /// Gets the current resource path.
     /// 
-    /// See `gtk_icon_theme_set_resource_path()`.
+    /// See [method`Gtk.IconTheme.set_resource_path`].
     @inlinable func getResourcePath() -> UnsafeMutablePointer<UnsafeMutablePointer<CChar>?>! {
         let rv = gtk_icon_theme_get_resource_path(icon_theme_ptr)
         return rv
     }
 
-    /// Gets the current search path. See `gtk_icon_theme_set_search_path()`.
+    /// Gets the current search path.
+    /// 
+    /// See [method`Gtk.IconTheme.set_search_path`].
     @inlinable func getSearchPath() -> UnsafeMutablePointer<UnsafeMutablePointer<CChar>?>! {
         let rv = gtk_icon_theme_get_search_path(icon_theme_ptr)
         return rv
@@ -3207,34 +3209,44 @@ public extension IconThemeProtocol {
     }
 
     /// Checks whether an icon theme includes an icon
+    /// for a particular `GIcon`.
+    @inlinable func has<IconT: GIO.IconProtocol>(gicon: IconT) -> Bool {
+        let rv = ((gtk_icon_theme_has_gicon(icon_theme_ptr, gicon.icon_ptr)) != 0)
+        return rv
+    }
+
+    /// Checks whether an icon theme includes an icon
     /// for a particular name.
     @inlinable func hasIcon(iconName: UnsafePointer<CChar>!) -> Bool {
         let rv = ((gtk_icon_theme_has_icon(icon_theme_ptr, iconName)) != 0)
         return rv
     }
 
-    /// Looks up a icon for a desired size and window scale, returning a
-    /// `GtkIconPaintable`. The icon can then be rendered by using it as a `GdkPaintable`,
+    /// Looks up a icon for a desired size and window scale.
+    /// 
+    /// The icon can then be rendered by using it as a `GdkPaintable`,
     /// or you can get information such as the filename and size.
     @inlinable func lookupByGicon<IconT: GIO.IconProtocol>(icon: IconT, size: Int, scale: Int, direction: GtkTextDirection, flags: IconLookupFlags) -> IconPaintableRef! {
         let rv = IconPaintableRef(gconstpointer: gconstpointer(gtk_icon_theme_lookup_by_gicon(icon_theme_ptr, icon.icon_ptr, gint(size), gint(scale), direction, flags.value)))
         return rv
     }
 
-    /// Looks up a named icon for a desired size and window scale, returning a
-    /// `GtkIconPaintable`. The icon can then be rendered by using it as a `GdkPaintable`,
+    /// Looks up a named icon for a desired size and window scale,
+    /// returning a `GtkIconPaintable`.
+    /// 
+    /// The icon can then be rendered by using it as a `GdkPaintable`,
     /// or you can get information such as the filename and size.
     /// 
-    /// If the available `icon_name` is not available and `fallbacks` are provided,
-    /// they will be tried in order.
+    /// If the available `icon_name` is not available and `fallbacks` are
+    /// provided, they will be tried in order.
     /// 
     /// If no matching icon is found, then a paintable that renders the
     /// "missing icon" icon is returned. If you need to do something else
-    /// for missing icons you need to use `gtk_icon_theme_has_icon()`.
+    /// for missing icons you need to use [method`Gtk.IconTheme.has_icon`].
     /// 
     /// Note that you probably want to listen for icon theme changes and
     /// update the icon. This is usually done by overriding the
-    /// `GtkWidgetClass.css-changed``()` function.
+    /// `GtkWidgetClass.css-changed()` function.
     @inlinable func lookupIcon(iconName: UnsafePointer<CChar>!, fallbacks: UnsafeMutablePointer<UnsafePointer<CChar>?>! = nil, size: Int, scale: Int, direction: GtkTextDirection, flags: IconLookupFlags) -> IconPaintableRef! {
         let rv = IconPaintableRef(gconstpointer: gconstpointer(gtk_icon_theme_lookup_icon(icon_theme_ptr, iconName, fallbacks, gint(size), gint(scale), direction, flags.value)))
         return rv
@@ -3256,9 +3268,10 @@ public extension IconThemeProtocol {
     
     }
 
-    /// Sets the search path for the icon theme object. When looking
-    /// for an icon theme, GTK will search for a subdirectory of
-    /// one or more of the directories in `path` with the same name
+    /// Sets the search path for the icon theme object.
+    /// 
+    /// When looking for an icon theme, GTK will search for a subdirectory
+    /// of one or more of the directories in `path` with the same name
     /// as the icon theme containing an index.theme file. (Themes from
     /// multiple of the path elements are combined to allow themes to be
     /// extended by adding icons in the user’s home directory.)
@@ -3276,15 +3289,17 @@ public extension IconThemeProtocol {
     }
 
     /// Sets the name of the icon theme that the `GtkIconTheme` object uses
-    /// overriding system configuration. This function cannot be called
-    /// on the icon theme objects returned from `gtk_icon_theme_get_for_display()`.
+    /// overriding system configuration.
+    /// 
+    /// This function cannot be called on the icon theme objects returned
+    /// from [type_func`Gtk.IconTheme.get_for_display`].
     @inlinable func set(themeName: UnsafePointer<CChar>? = nil) {
         gtk_icon_theme_set_theme_name(icon_theme_ptr, themeName)
     
     }
     /// The display that this icon theme object is attached to.
     @inlinable var display: Gdk.DisplayRef! {
-        /// Returns the display that the GtkIconTheme object was
+        /// Returns the display that the `GtkIconTheme` object was
         /// created for.
         get {
             let rv = Gdk.DisplayRef(gtk_icon_theme_get_display(icon_theme_ptr))
@@ -3303,11 +3318,11 @@ public extension IconThemeProtocol {
 
     /// Gets the current resource path.
     /// 
-    /// See `gtk_icon_theme_set_resource_path()`.
+    /// See [method`Gtk.IconTheme.set_resource_path`].
     @inlinable var resourcePath: UnsafeMutablePointer<UnsafeMutablePointer<CChar>?>! {
         /// Gets the current resource path.
         /// 
-        /// See `gtk_icon_theme_set_resource_path()`.
+        /// See [method`Gtk.IconTheme.set_resource_path`].
         get {
             let rv = gtk_icon_theme_get_resource_path(icon_theme_ptr)
             return rv
@@ -3328,16 +3343,21 @@ public extension IconThemeProtocol {
         }
     }
 
-    /// Gets the current search path. See `gtk_icon_theme_set_search_path()`.
+    /// Gets the current search path.
+    /// 
+    /// See [method`Gtk.IconTheme.set_search_path`].
     @inlinable var searchPath: UnsafeMutablePointer<UnsafeMutablePointer<CChar>?>! {
-        /// Gets the current search path. See `gtk_icon_theme_set_search_path()`.
+        /// Gets the current search path.
+        /// 
+        /// See [method`Gtk.IconTheme.set_search_path`].
         get {
             let rv = gtk_icon_theme_get_search_path(icon_theme_ptr)
             return rv
         }
-        /// Sets the search path for the icon theme object. When looking
-        /// for an icon theme, GTK will search for a subdirectory of
-        /// one or more of the directories in `path` with the same name
+        /// Sets the search path for the icon theme object.
+        /// 
+        /// When looking for an icon theme, GTK will search for a subdirectory
+        /// of one or more of the directories in `path` with the same name
         /// as the icon theme containing an index.theme file. (Themes from
         /// multiple of the path elements are combined to allow themes to be
         /// extended by adding icons in the user’s home directory.)
@@ -3366,8 +3386,10 @@ public extension IconThemeProtocol {
             return rv
         }
         /// Sets the name of the icon theme that the `GtkIconTheme` object uses
-        /// overriding system configuration. This function cannot be called
-        /// on the icon theme objects returned from `gtk_icon_theme_get_for_display()`.
+        /// overriding system configuration.
+        /// 
+        /// This function cannot be called on the icon theme objects returned
+        /// from [type_func`Gtk.IconTheme.get_for_display`].
         nonmutating set {
             gtk_icon_theme_set_theme_name(icon_theme_ptr, newValue)
         }
@@ -3385,10 +3407,12 @@ public extension IconThemeProtocol {
 /// For a concrete class that implements these methods and properties, see `IconView`.
 /// Alternatively, use `IconViewRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
+/// `GtkIconView` is a widget which displays data in a grid of icons.
+/// 
 /// `GtkIconView` provides an alternative view on a `GtkTreeModel`.
 /// It displays the model as a grid of icons with labels. Like
-/// `GtkTreeView`, it allows to select one or multiple items
-/// (depending on the selection mode, see `gtk_icon_view_set_selection_mode()`).
+/// [class`Gtk.TreeView`], it allows to select one or multiple items
+/// (depending on the selection mode, see [method`Gtk.IconView.set_selection_mode`]).
 /// In addition to selection with the arrow keys, `GtkIconView` supports
 /// rubberband selection, which is controlled by dragging the pointer.
 /// 
@@ -3399,13 +3423,12 @@ public extension IconThemeProtocol {
 /// 
 /// # CSS nodes
 /// 
-/// (plain Language Example):
-/// ```plain
+/// ```
 /// iconview.view
 /// ╰── [rubberband]
 /// ```
 /// 
-/// GtkIconView has a single CSS node with name iconview and style class .view.
+/// `GtkIconView` has a single CSS node with name iconview and style class .view.
 /// For rubberband selection, a subnode with name rubberband is used.
 public protocol IconViewProtocol: WidgetProtocol, CellLayoutProtocol, ScrollableProtocol {
         /// Untyped pointer to the underlying `GtkIconView` instance.
@@ -3422,10 +3445,12 @@ public protocol IconViewProtocol: WidgetProtocol, CellLayoutProtocol, Scrollable
 /// It exposes methods that can operate on this data type through `IconViewProtocol` conformance.
 /// Use `IconViewRef` only as an `unowned` reference to an existing `GtkIconView` instance.
 ///
+/// `GtkIconView` is a widget which displays data in a grid of icons.
+/// 
 /// `GtkIconView` provides an alternative view on a `GtkTreeModel`.
 /// It displays the model as a grid of icons with labels. Like
-/// `GtkTreeView`, it allows to select one or multiple items
-/// (depending on the selection mode, see `gtk_icon_view_set_selection_mode()`).
+/// [class`Gtk.TreeView`], it allows to select one or multiple items
+/// (depending on the selection mode, see [method`Gtk.IconView.set_selection_mode`]).
 /// In addition to selection with the arrow keys, `GtkIconView` supports
 /// rubberband selection, which is controlled by dragging the pointer.
 /// 
@@ -3436,13 +3461,12 @@ public protocol IconViewProtocol: WidgetProtocol, CellLayoutProtocol, Scrollable
 /// 
 /// # CSS nodes
 /// 
-/// (plain Language Example):
-/// ```plain
+/// ```
 /// iconview.view
 /// ╰── [rubberband]
 /// ```
 /// 
-/// GtkIconView has a single CSS node with name iconview and style class .view.
+/// `GtkIconView` has a single CSS node with name iconview and style class .view.
 /// For rubberband selection, a subnode with name rubberband is used.
 public struct IconViewRef: IconViewProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkIconView` instance.
@@ -3559,10 +3583,12 @@ public extension IconViewRef {
 /// It provides the methods that can operate on this data type through `IconViewProtocol` conformance.
 /// Use `IconView` as a strong reference or owner of a `GtkIconView` instance.
 ///
+/// `GtkIconView` is a widget which displays data in a grid of icons.
+/// 
 /// `GtkIconView` provides an alternative view on a `GtkTreeModel`.
 /// It displays the model as a grid of icons with labels. Like
-/// `GtkTreeView`, it allows to select one or multiple items
-/// (depending on the selection mode, see `gtk_icon_view_set_selection_mode()`).
+/// [class`Gtk.TreeView`], it allows to select one or multiple items
+/// (depending on the selection mode, see [method`Gtk.IconView.set_selection_mode`]).
 /// In addition to selection with the arrow keys, `GtkIconView` supports
 /// rubberband selection, which is controlled by dragging the pointer.
 /// 
@@ -3573,13 +3599,12 @@ public extension IconViewRef {
 /// 
 /// # CSS nodes
 /// 
-/// (plain Language Example):
-/// ```plain
+/// ```
 /// iconview.view
 /// ╰── [rubberband]
 /// ```
 /// 
-/// GtkIconView has a single CSS node with name iconview and style class .view.
+/// `GtkIconView` has a single CSS node with name iconview and style class .view.
 /// For rubberband selection, a subnode with name rubberband is used.
 open class IconView: Widget, IconViewProtocol {
         /// Designated initialiser from the underlying `C` data type.
@@ -3755,6 +3780,7 @@ public enum IconViewPropertyName: String, PropertyNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case canFocus = "can-focus"
+    /// Whether the widget can receive pointer events.
     case canTarget = "can-target"
     /// The `GtkCellArea` used to layout cell renderers for this view.
     /// 
@@ -3775,7 +3801,7 @@ public enum IconViewPropertyName: String, PropertyNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case cssName = "css-name"
-    /// The cursor used by `widget`. See `gtk_widget_set_cursor()` for details.
+    /// The cursor used by `widget`.
     case cursor = "cursor"
     /// Whether the widget should grab focus when it is clicked with the mouse.
     /// 
@@ -3783,19 +3809,25 @@ public enum IconViewPropertyName: String, PropertyNameProtocol {
     case focusOnClick = "focus-on-click"
     /// Whether this widget itself will accept the input focus.
     case focusable = "focusable"
-    /// How to distribute horizontal space if widget gets extra space, see `GtkAlign`
+    /// How to distribute horizontal space if widget gets extra space.
     case halign = "halign"
+    /// Whether the widget is the default widget.
     case hasDefault = "has-default"
+    /// Whether the widget has the input focus.
     case hasFocus = "has-focus"
-    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
+    /// Enables or disables the emission of the `query-tooltip` signal on `widget`.
+    /// 
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
-    /// whether it will provide a tooltip or not.
+    /// the widget will be queried using [signal`Gtk.Widget::query-tooltip`] to
+    /// determine whether it will provide a tooltip or not.
     case hasTooltip = "has-tooltip"
+    /// Override for height request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case heightRequest = "height-request"
-    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
+    /// Whether to expand horizontally.
     case hexpand = "hexpand"
-    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
+    /// Whether to use the `hexpand` property.
     case hexpandSet = "hexpand-set"
     /// The item-orientation property specifies how the cells (i.e. the icon and
     /// the text) of the item are positioned relative to each other.
@@ -3820,27 +3852,31 @@ public enum IconViewPropertyName: String, PropertyNameProtocol {
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginBottom = "margin-bottom"
-    /// Margin on end of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on end of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginEnd = "margin-end"
-    /// Margin on start of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on start of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginStart = "margin-start"
     /// Margin on top side of widget.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginTop = "margin-top"
     /// The `markup-column` property contains the number of the model column
     /// containing markup information to be displayed. The markup column must be
@@ -3849,38 +3885,41 @@ public enum IconViewPropertyName: String, PropertyNameProtocol {
     /// If both are set to -1, no texts are displayed.
     case markupColumn = "markup-column"
     case model = "model"
+    /// The name of the widget.
     case name = "name"
-    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
-    /// more details about window opacity.
+    /// The requested opacity of the widget.
     case opacity = "opacity"
     /// How content outside the widget's content area is treated.
     /// 
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case overflow = "overflow"
+    /// The parent widget of this widget.
     case parent = "parent"
     /// The `pixbuf-column` property contains the number of the model column
     /// containing the pixbufs which are displayed. The pixbuf column must be
     /// of type `GDK_TYPE_PIXBUF`. Setting this property to -1 turns off the
     /// display of pixbufs.
     case pixbufColumn = "pixbuf-column"
+    /// Whether the widget will receive the default action when it is focused.
     case receivesDefault = "receives-default"
     /// The reorderable property specifies if the items can be reordered
     /// by DND.
     case reorderable = "reorderable"
-    /// The `GtkRoot` widget of the widget tree containing this widget or `nil` if
-    /// the widget is not contained in a root widget.
+    /// The `GtkRoot` widget of the widget tree containing this widget.
+    /// 
+    /// This will be `nil` if the widget is not contained in a root widget.
     case root = "root"
     /// The row-spacing property specifies the space which is inserted between
     /// the rows of the icon view.
     case rowSpacing = "row-spacing"
-    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
-    /// more details about widget scaling.
+    /// The scale factor of the widget.
     case scaleFactor = "scale-factor"
     /// The `selection-mode` property specifies the selection mode of
     /// icon view. If the mode is `GTK_SELECTION_MULTIPLE`, rubberband selection
     /// is enabled, for the other modes, only keyboard selection is possible.
     case selectionMode = "selection-mode"
+    /// Whether the widget responds to input.
     case sensitive = "sensitive"
     /// The spacing property specifies the space which is inserted between
     /// the cells (i.e. the icon and the text) of an item.
@@ -3892,36 +3931,43 @@ public enum IconViewPropertyName: String, PropertyNameProtocol {
     case textColumn = "text-column"
     case tooltipColumn = "tooltip-column"
     /// Sets the text of tooltip to be the given string, which is marked up
-    /// with the [Pango text markup language](#PangoMarkupFormat).
-    /// Also see `gtk_tooltip_set_markup()`.
+    /// with Pango markup.
+    /// 
+    /// Also see [method`Gtk.Tooltip.set_markup`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case tooltipMarkup = "tooltip-markup"
     /// Sets the text of tooltip to be the given string.
     /// 
-    /// Also see `gtk_tooltip_set_text()`.
+    /// Also see [method`Gtk.Tooltip.set_text`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case tooltipText = "tooltip-text"
-    /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
+    /// How to distribute vertical space if widget gets extra space.
     case valign = "valign"
-    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
+    /// Whether to expand vertically.
     case vexpand = "vexpand"
-    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
+    /// Whether to use the `vexpand` property.
     case vexpandSet = "vexpand-set"
+    /// Whether the widget is visible.
     case visible = "visible"
+    /// Override for width request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case widthRequest = "width-request"
 }
 
@@ -3990,16 +4036,15 @@ public enum IconViewSignalName: String, SignalNameProtocol {
     /// The default bindings for this signal are Space, Return and Enter.
     case activateCursorItem = "activate-cursor-item"
     /// Signals that all holders of a reference to the widget should release
-    /// the reference that they hold. May result in finalization of the widget
-    /// if all references are released.
+    /// the reference that they hold.
+    /// 
+    /// May result in finalization of the widget if all references are released.
     /// 
     /// This signal is not suitable for saving widget state.
     case destroy = "destroy"
-    /// The `direction-changed` signal is emitted when the text direction
-    /// of a widget changes.
+    /// Emitted when the text direction of a widget changes.
     case directionChanged = "direction-changed"
-    /// The `hide` signal is emitted when `widget` is hidden, for example with
-    /// `gtk_widget_hide()`.
+    /// Emitted when `widget` is hidden.
     case hide = "hide"
     /// The `item-activated` signal is emitted when the method
     /// `gtk_icon_view_item_activated()` is called, when the user double
@@ -4009,18 +4054,22 @@ public enum IconViewSignalName: String, SignalNameProtocol {
     /// emitted when a non-editable item is selected and one of the keys:
     /// Space, Return or Enter is pressed.
     case itemActivated = "item-activated"
-    /// Gets emitted if keyboard navigation fails.
-    /// See `gtk_widget_keynav_failed()` for details.
+    /// Emitted if keyboard navigation fails.
+    /// 
+    /// See [method`Gtk.Widget.keynav_failed`] for details.
     case keynavFailed = "keynav-failed"
-    /// The `map` signal is emitted when `widget` is going to be mapped, that is
-    /// when the widget is visible (which is controlled with
-    /// `gtk_widget_set_visible()`) and all its parents up to the toplevel widget
+    /// Emitted when `widget` is going to be mapped.
+    /// 
+    /// A widget is mapped when the widget is visible (which is controlled with
+    /// [property`Gtk.Widget:visible`]) and all its parents up to the toplevel widget
     /// are also visible.
     /// 
     /// The `map` signal can be used to determine whether a widget will be drawn,
     /// for instance it can resume an animation that was stopped during the
-    /// emission of `GtkWidget::unmap`.
+    /// emission of [signal`Gtk.Widget::unmap`].
     case map = "map"
+    /// Emitted when a widget is activated via a mnemonic.
+    /// 
     /// The default handler for this signal activates `widget` if `group_cycling`
     /// is `false`, or just makes `widget` grab focus if `group_cycling` is `true`.
     case mnemonicActivate = "mnemonic-activate"
@@ -4066,9 +4115,11 @@ public enum IconViewSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// Emitted when `GtkWidget:has-tooltip` is `true` and the hover timeout
-    /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
-    /// focus in keyboard mode.
+    /// Emitted when the widgets tooltip is about to be shown.
+    /// 
+    /// This happens when the [property`Gtk.Widget:has-tooltip`] property
+    /// is `true` and the hover timeout has expired with the cursor hovering
+    /// "above" `widget`; or emitted when `widget` got focus in keyboard mode.
     /// 
     /// Using the given coordinates, the signal handler should determine
     /// whether a tooltip should be shown for `widget`. If this is the case
@@ -4079,9 +4130,10 @@ public enum IconViewSignalName: String, SignalNameProtocol {
     /// The signal handler is free to manipulate `tooltip` with the therefore
     /// destined function calls.
     case queryTooltip = "query-tooltip"
-    /// The `realize` signal is emitted when `widget` is associated with a
-    /// `GdkSurface`, which means that `gtk_widget_realize()` has been called or the
-    /// widget has been mapped (that is, it is going to be drawn).
+    /// Emitted when `widget` is associated with a `GdkSurface`.
+    /// 
+    /// This means that [method`Gtk.Widget.realize`] has been called
+    /// or the widget has been mapped (that is, it is going to be drawn).
     case realize = "realize"
     /// A [keybinding signal](#GtkSignalAction)
     /// which gets emitted when the user selects all items.
@@ -4105,11 +4157,11 @@ public enum IconViewSignalName: String, SignalNameProtocol {
     /// The `selection-changed` signal is emitted when the selection
     /// (i.e. the set of selected items) changes.
     case selectionChanged = "selection-changed"
-    /// The `show` signal is emitted when `widget` is shown, for example with
-    /// `gtk_widget_show()`.
+    /// Emitted when `widget` is shown.
     case show = "show"
-    /// The `state-flags-changed` signal is emitted when the widget state
-    /// changes, see `gtk_widget_get_state_flags()`.
+    /// Emitted when the widget state changes.
+    /// 
+    /// See [method`Gtk.Widget.get_state_flags`].
     case stateFlagsChanged = "state-flags-changed"
     /// A [keybinding signal](#GtkSignalAction)
     /// which gets emitted when the user toggles whether the currently
@@ -4122,17 +4174,18 @@ public enum IconViewSignalName: String, SignalNameProtocol {
     /// 
     /// There is no default binding for this signal is Ctrl-Space.
     case toggleCursorItem = "toggle-cursor-item"
-    /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
-    /// means that either it or any of its parents up to the toplevel widget have
-    /// been set as hidden.
+    /// Emitted when `widget` is going to be unmapped.
     /// 
-    /// As `unmap` indicates that a widget will not be shown any longer, it can be
-    /// used to, for example, stop an animation on the widget.
+    /// A widget is unmapped when either it or any of its parents up to the
+    /// toplevel widget have been set as hidden.
+    /// 
+    /// As `unmap` indicates that a widget will not be shown any longer,
+    /// it can be used to, for example, stop an animation on the widget.
     case unmap = "unmap"
-    /// The `unrealize` signal is emitted when the `GdkSurface` associated with
-    /// `widget` is destroyed, which means that `gtk_widget_unrealize()` has been
-    /// called or the widget has been unmapped (that is, it is going to be
-    /// hidden).
+    /// Emitted when the `GdkSurface` associated with `widget` is destroyed.
+    /// 
+    /// This means that [method`Gtk.Widget.unrealize`] has been called
+    /// or the widget has been unmapped (that is, it is going to be hidden).
     case unrealize = "unrealize"
     /// A [keybinding signal](#GtkSignalAction)
     /// which gets emitted when the user unselects all items.
@@ -4152,6 +4205,7 @@ public enum IconViewSignalName: String, SignalNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case notifyCanFocus = "notify::can-focus"
+    /// Whether the widget can receive pointer events.
     case notifyCanTarget = "notify::can-target"
     /// The `GtkCellArea` used to layout cell renderers for this view.
     /// 
@@ -4172,7 +4226,7 @@ public enum IconViewSignalName: String, SignalNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case notifyCssName = "notify::css-name"
-    /// The cursor used by `widget`. See `gtk_widget_set_cursor()` for details.
+    /// The cursor used by `widget`.
     case notifyCursor = "notify::cursor"
     /// Whether the widget should grab focus when it is clicked with the mouse.
     /// 
@@ -4180,19 +4234,25 @@ public enum IconViewSignalName: String, SignalNameProtocol {
     case notifyFocusOnClick = "notify::focus-on-click"
     /// Whether this widget itself will accept the input focus.
     case notifyFocusable = "notify::focusable"
-    /// How to distribute horizontal space if widget gets extra space, see `GtkAlign`
+    /// How to distribute horizontal space if widget gets extra space.
     case notifyHalign = "notify::halign"
+    /// Whether the widget is the default widget.
     case notifyHasDefault = "notify::has-default"
+    /// Whether the widget has the input focus.
     case notifyHasFocus = "notify::has-focus"
-    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
+    /// Enables or disables the emission of the `query-tooltip` signal on `widget`.
+    /// 
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
-    /// whether it will provide a tooltip or not.
+    /// the widget will be queried using [signal`Gtk.Widget::query-tooltip`] to
+    /// determine whether it will provide a tooltip or not.
     case notifyHasTooltip = "notify::has-tooltip"
+    /// Override for height request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case notifyHeightRequest = "notify::height-request"
-    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
+    /// Whether to expand horizontally.
     case notifyHexpand = "notify::hexpand"
-    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
+    /// Whether to use the `hexpand` property.
     case notifyHexpandSet = "notify::hexpand-set"
     /// The item-orientation property specifies how the cells (i.e. the icon and
     /// the text) of the item are positioned relative to each other.
@@ -4217,27 +4277,31 @@ public enum IconViewSignalName: String, SignalNameProtocol {
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginBottom = "notify::margin-bottom"
-    /// Margin on end of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on end of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginEnd = "notify::margin-end"
-    /// Margin on start of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on start of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginStart = "notify::margin-start"
     /// Margin on top side of widget.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginTop = "notify::margin-top"
     /// The `markup-column` property contains the number of the model column
     /// containing markup information to be displayed. The markup column must be
@@ -4246,38 +4310,41 @@ public enum IconViewSignalName: String, SignalNameProtocol {
     /// If both are set to -1, no texts are displayed.
     case notifyMarkupColumn = "notify::markup-column"
     case notifyModel = "notify::model"
+    /// The name of the widget.
     case notifyName = "notify::name"
-    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
-    /// more details about window opacity.
+    /// The requested opacity of the widget.
     case notifyOpacity = "notify::opacity"
     /// How content outside the widget's content area is treated.
     /// 
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case notifyOverflow = "notify::overflow"
+    /// The parent widget of this widget.
     case notifyParent = "notify::parent"
     /// The `pixbuf-column` property contains the number of the model column
     /// containing the pixbufs which are displayed. The pixbuf column must be
     /// of type `GDK_TYPE_PIXBUF`. Setting this property to -1 turns off the
     /// display of pixbufs.
     case notifyPixbufColumn = "notify::pixbuf-column"
+    /// Whether the widget will receive the default action when it is focused.
     case notifyReceivesDefault = "notify::receives-default"
     /// The reorderable property specifies if the items can be reordered
     /// by DND.
     case notifyReorderable = "notify::reorderable"
-    /// The `GtkRoot` widget of the widget tree containing this widget or `nil` if
-    /// the widget is not contained in a root widget.
+    /// The `GtkRoot` widget of the widget tree containing this widget.
+    /// 
+    /// This will be `nil` if the widget is not contained in a root widget.
     case notifyRoot = "notify::root"
     /// The row-spacing property specifies the space which is inserted between
     /// the rows of the icon view.
     case notifyRowSpacing = "notify::row-spacing"
-    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
-    /// more details about widget scaling.
+    /// The scale factor of the widget.
     case notifyScaleFactor = "notify::scale-factor"
     /// The `selection-mode` property specifies the selection mode of
     /// icon view. If the mode is `GTK_SELECTION_MULTIPLE`, rubberband selection
     /// is enabled, for the other modes, only keyboard selection is possible.
     case notifySelectionMode = "notify::selection-mode"
+    /// Whether the widget responds to input.
     case notifySensitive = "notify::sensitive"
     /// The spacing property specifies the space which is inserted between
     /// the cells (i.e. the icon and the text) of an item.
@@ -4289,36 +4356,43 @@ public enum IconViewSignalName: String, SignalNameProtocol {
     case notifyTextColumn = "notify::text-column"
     case notifyTooltipColumn = "notify::tooltip-column"
     /// Sets the text of tooltip to be the given string, which is marked up
-    /// with the [Pango text markup language](#PangoMarkupFormat).
-    /// Also see `gtk_tooltip_set_markup()`.
+    /// with Pango markup.
+    /// 
+    /// Also see [method`Gtk.Tooltip.set_markup`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case notifyTooltipMarkup = "notify::tooltip-markup"
     /// Sets the text of tooltip to be the given string.
     /// 
-    /// Also see `gtk_tooltip_set_text()`.
+    /// Also see [method`Gtk.Tooltip.set_text`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case notifyTooltipText = "notify::tooltip-text"
-    /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
+    /// How to distribute vertical space if widget gets extra space.
     case notifyValign = "notify::valign"
-    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
+    /// Whether to expand vertically.
     case notifyVexpand = "notify::vexpand"
-    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
+    /// Whether to use the `vexpand` property.
     case notifyVexpandSet = "notify::vexpand-set"
+    /// Whether the widget is visible.
     case notifyVisible = "notify::visible"
+    /// Override for width request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case notifyWidthRequest = "notify::width-request"
 }
 
@@ -6281,37 +6355,45 @@ public extension IconViewProtocol {
 /// For a concrete class that implements these methods and properties, see `Image`.
 /// Alternatively, use `ImageRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// The `GtkImage` widget displays an image. Various kinds of object
-/// can be displayed as an image; most typically, you would load a
-/// `GdkTexture` from a file, and then display that.
-/// There’s a convenience function to do this, `gtk_image_new_from_file()`,
-/// used as follows:
-/// (C Language Example):
-/// ```C
-///   GtkWidget *image;
-///   image = gtk_image_new_from_file ("myfile.png");
+/// The `GtkImage` widget displays an image.
+/// 
+/// ![An example GtkImage](image.png)
+/// 
+/// Various kinds of object can be displayed as an image; most typically,
+/// you would load a `GdkTexture` from a file, using the convenience function
+/// [ctor`Gtk.Image.new_from_file`], for instance:
+/// 
+/// ```c
+/// GtkWidget *image = gtk_image_new_from_file ("myfile.png");
 /// ```
+/// 
 /// If the file isn’t loaded successfully, the image will contain a
 /// “broken image” icon similar to that used in many web browsers.
+/// 
 /// If you want to handle errors in loading the file yourself,
 /// for example by displaying an error message, then load the image with
-/// `gdk_texture_new_from_file()`, then create the `GtkImage` with
-/// `gtk_image_new_from_paintable()`.
+/// [ctor`Gdk.Texture.new_from_file`], then create the `GtkImage` with
+/// [ctor`Gtk.Image.new_from_paintable`].
 /// 
 /// Sometimes an application will want to avoid depending on external data
-/// files, such as image files. See the documentation of `GResource` for details.
-/// In this case, the `GtkImage:resource`, `gtk_image_new_from_resource()` and
-/// `gtk_image_set_from_resource()` should be used.
+/// files, such as image files. See the documentation of `GResource` inside
+/// GIO, for details. In this case, [property`Gtk.Image:resource`],
+/// [ctor`Gtk.Image.new_from_resource`], and [method`Gtk.Image.set_from_resource`]
+/// should be used.
 /// 
-/// # CSS nodes
+/// `GtkImage` displays its image as an icon, with a size that is determined
+/// by the application. See [class`Gtk.Picture`] if you want to show an image
+/// at is actual size.
 /// 
-/// GtkImage has a single CSS node with the name image. The style classes
-/// .normal-icons or .large-icons may appear, depending on the `GtkImage:icon-size`
-/// property.
+/// ## CSS nodes
 /// 
-/// # Accessibility
+/// `GtkImage` has a single CSS node with the name `image`. The style classes
+/// `.normal-icons` or `.large-icons` may appear, depending on the
+/// [property`Gtk.Image:icon-size`] property.
 /// 
-/// GtkImage uses the `GTK_ACCESSIBLE_ROLE_IMG` role.
+/// ## Accessibility
+/// 
+/// `GtkImage` uses the `GTK_ACCESSIBLE_ROLE_IMG` role.
 public protocol ImageProtocol: WidgetProtocol {
         /// Untyped pointer to the underlying `GtkImage` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -6327,37 +6409,45 @@ public protocol ImageProtocol: WidgetProtocol {
 /// It exposes methods that can operate on this data type through `ImageProtocol` conformance.
 /// Use `ImageRef` only as an `unowned` reference to an existing `GtkImage` instance.
 ///
-/// The `GtkImage` widget displays an image. Various kinds of object
-/// can be displayed as an image; most typically, you would load a
-/// `GdkTexture` from a file, and then display that.
-/// There’s a convenience function to do this, `gtk_image_new_from_file()`,
-/// used as follows:
-/// (C Language Example):
-/// ```C
-///   GtkWidget *image;
-///   image = gtk_image_new_from_file ("myfile.png");
+/// The `GtkImage` widget displays an image.
+/// 
+/// ![An example GtkImage](image.png)
+/// 
+/// Various kinds of object can be displayed as an image; most typically,
+/// you would load a `GdkTexture` from a file, using the convenience function
+/// [ctor`Gtk.Image.new_from_file`], for instance:
+/// 
+/// ```c
+/// GtkWidget *image = gtk_image_new_from_file ("myfile.png");
 /// ```
+/// 
 /// If the file isn’t loaded successfully, the image will contain a
 /// “broken image” icon similar to that used in many web browsers.
+/// 
 /// If you want to handle errors in loading the file yourself,
 /// for example by displaying an error message, then load the image with
-/// `gdk_texture_new_from_file()`, then create the `GtkImage` with
-/// `gtk_image_new_from_paintable()`.
+/// [ctor`Gdk.Texture.new_from_file`], then create the `GtkImage` with
+/// [ctor`Gtk.Image.new_from_paintable`].
 /// 
 /// Sometimes an application will want to avoid depending on external data
-/// files, such as image files. See the documentation of `GResource` for details.
-/// In this case, the `GtkImage:resource`, `gtk_image_new_from_resource()` and
-/// `gtk_image_set_from_resource()` should be used.
+/// files, such as image files. See the documentation of `GResource` inside
+/// GIO, for details. In this case, [property`Gtk.Image:resource`],
+/// [ctor`Gtk.Image.new_from_resource`], and [method`Gtk.Image.set_from_resource`]
+/// should be used.
 /// 
-/// # CSS nodes
+/// `GtkImage` displays its image as an icon, with a size that is determined
+/// by the application. See [class`Gtk.Picture`] if you want to show an image
+/// at is actual size.
 /// 
-/// GtkImage has a single CSS node with the name image. The style classes
-/// .normal-icons or .large-icons may appear, depending on the `GtkImage:icon-size`
-/// property.
+/// ## CSS nodes
 /// 
-/// # Accessibility
+/// `GtkImage` has a single CSS node with the name `image`. The style classes
+/// `.normal-icons` or `.large-icons` may appear, depending on the
+/// [property`Gtk.Image:icon-size`] property.
 /// 
-/// GtkImage uses the `GTK_ACCESSIBLE_ROLE_IMG` role.
+/// ## Accessibility
+/// 
+/// `GtkImage` uses the `GTK_ACCESSIBLE_ROLE_IMG` role.
 public struct ImageRef: ImageProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkImage` instance.
     /// For type-safe access, use the generated, typed pointer `image_ptr` property instead.
@@ -6443,53 +6533,49 @@ public extension ImageRef {
         ptr = UnsafeMutableRawPointer(rv)
     }
 
-    /// Creates a new `GtkImage` displaying the file `filename`. If the file
-    /// isn’t found or can’t be loaded, the resulting `GtkImage` will
-    /// display a “broken image” icon. This function never returns `nil`,
+    /// Creates a new `GtkImage` displaying the file `filename`.
+    /// 
+    /// If the file isn’t found or can’t be loaded, the resulting `GtkImage`
+    /// will display a “broken image” icon. This function never returns `nil`,
     /// it always returns a valid `GtkImage` widget.
     /// 
     /// If you need to detect failures to load the file, use
-    /// `gdk_texture_new_from_file()` to load the file yourself, then create
-    /// the `GtkImage` from the texture.
+    /// [ctor`Gdk.Texture.new_from_file`] to load the file yourself,
+    /// then create the `GtkImage` from the texture.
     /// 
-    /// The storage type (`gtk_image_get_storage_type()`) of the returned
-    /// image is not defined, it will be whatever is appropriate for
-    /// displaying the file.
+    /// The storage type (see [method`Gtk.Image.get_storage_type`])
+    /// of the returned image is not defined, it will be whatever
+    /// is appropriate for displaying the file.
     @inlinable init(file filename: UnsafePointer<CChar>!) {
         let rv = gtk_image_new_from_file(filename)
         ptr = UnsafeMutableRawPointer(rv)
     }
 
     /// Creates a `GtkImage` displaying an icon from the current icon theme.
-    /// If the icon name isn’t known, a “broken image” icon will be
-    /// displayed instead.  If the current icon theme is changed, the icon
-    /// will be updated appropriately.
     /// 
-    /// Note: Before 3.94, this function was taking an extra icon size
-    /// argument. See `gtk_image_set_icon_size()` for another way to set
-    /// the icon size.
+    /// If the icon name isn’t known, a “broken image” icon will be
+    /// displayed instead. If the current icon theme is changed, the icon
+    /// will be updated appropriately.
     @inlinable init<IconT: GIO.IconProtocol>(gicon icon: IconT) {
         let rv = gtk_image_new_from_gicon(icon.icon_ptr)
         ptr = UnsafeMutableRawPointer(rv)
     }
 
     /// Creates a `GtkImage` displaying an icon from the current icon theme.
-    /// If the icon name isn’t known, a “broken image” icon will be
-    /// displayed instead.  If the current icon theme is changed, the icon
-    /// will be updated appropriately.
     /// 
-    /// Note: Before 3.94, this function was taking an extra icon size
-    /// argument. See `gtk_image_set_icon_size()` for another way to set
-    /// the icon size.
+    /// If the icon name isn’t known, a “broken image” icon will be
+    /// displayed instead. If the current icon theme is changed, the icon
+    /// will be updated appropriately.
     @inlinable init(iconName iconName: UnsafePointer<CChar>? = nil) {
         let rv = gtk_image_new_from_icon_name(iconName)
         ptr = UnsafeMutableRawPointer(rv)
     }
 
     /// Creates a new `GtkImage` displaying `paintable`.
-    /// The `GtkImage` does not assume a reference to the
-    /// paintable; you still need to unref it if you own references.
-    /// `GtkImage` will add its own reference rather than adopting yours.
+    /// 
+    /// The `GtkImage` does not assume a reference to the paintable; you still
+    /// need to unref it if you own references. `GtkImage` will add its own
+    /// reference rather than adopting yours.
     /// 
     /// The `GtkImage` will track changes to the `paintable` and update
     /// its size and contents in response to it.
@@ -6499,84 +6585,82 @@ public extension ImageRef {
     }
 
     /// Creates a new `GtkImage` displaying `pixbuf`.
-    /// The `GtkImage` does not assume a reference to the
-    /// pixbuf; you still need to unref it if you own references.
-    /// `GtkImage` will add its own reference rather than adopting yours.
     /// 
-    /// This is a helper for `gtk_image_new_from_paintable()`, and you can't
+    /// The `GtkImage` does not assume a reference to the pixbuf; you still
+    /// need to unref it if you own references. `GtkImage` will add its own
+    /// reference rather than adopting yours.
+    /// 
+    /// This is a helper for [ctor`Gtk.Image.new_from_paintable`], and you can't
     /// get back the exact pixbuf once this is called, only a texture.
     /// 
-    /// Note that this function just creates an `GtkImage` from the pixbuf. The
-    /// `GtkImage` created will not react to state changes. Should you want that,
-    /// you should use `gtk_image_new_from_icon_name()`.
+    /// Note that this function just creates an `GtkImage` from the pixbuf.
+    /// The `GtkImage` created will not react to state changes. Should you
+    /// want that, you should use [ctor`Gtk.Image.new_from_icon_name`].
     @inlinable init<PixbufT: PixbufProtocol>(pixbuf: PixbufT?) {
         let rv = gtk_image_new_from_pixbuf(pixbuf?.pixbuf_ptr)
         ptr = UnsafeMutableRawPointer(rv)
     }
 
-    /// Creates a new `GtkImage` displaying the resource file `resource_path`. If the file
-    /// isn’t found or can’t be loaded, the resulting `GtkImage` will
+    /// Creates a new `GtkImage` displaying the resource file `resource_path`.
+    /// 
+    /// If the file isn’t found or can’t be loaded, the resulting `GtkImage` will
     /// display a “broken image” icon. This function never returns `nil`,
     /// it always returns a valid `GtkImage` widget.
     /// 
     /// If you need to detect failures to load the file, use
-    /// `gdk_pixbuf_new_from_file()` to load the file yourself, then create
-    /// the `GtkImage` from the pixbuf.
+    /// [ctor`GdkPixbuf.Pixbuf.new_from_file`] to load the file yourself,
+    /// then create the `GtkImage` from the pixbuf.
     /// 
-    /// The storage type (`gtk_image_get_storage_type()`) of the returned
-    /// image is not defined, it will be whatever is appropriate for
-    /// displaying the file.
+    /// The storage type (see [method`Gtk.Image.get_storage_type`]) of
+    /// the returned image is not defined, it will be whatever is
+    /// appropriate for displaying the file.
     @inlinable init(resource resourcePath: UnsafePointer<CChar>!) {
         let rv = gtk_image_new_from_resource(resourcePath)
         ptr = UnsafeMutableRawPointer(rv)
     }
-    /// Creates a new `GtkImage` displaying the file `filename`. If the file
-    /// isn’t found or can’t be loaded, the resulting `GtkImage` will
-    /// display a “broken image” icon. This function never returns `nil`,
+    /// Creates a new `GtkImage` displaying the file `filename`.
+    /// 
+    /// If the file isn’t found or can’t be loaded, the resulting `GtkImage`
+    /// will display a “broken image” icon. This function never returns `nil`,
     /// it always returns a valid `GtkImage` widget.
     /// 
     /// If you need to detect failures to load the file, use
-    /// `gdk_texture_new_from_file()` to load the file yourself, then create
-    /// the `GtkImage` from the texture.
+    /// [ctor`Gdk.Texture.new_from_file`] to load the file yourself,
+    /// then create the `GtkImage` from the texture.
     /// 
-    /// The storage type (`gtk_image_get_storage_type()`) of the returned
-    /// image is not defined, it will be whatever is appropriate for
-    /// displaying the file.
+    /// The storage type (see [method`Gtk.Image.get_storage_type`])
+    /// of the returned image is not defined, it will be whatever
+    /// is appropriate for displaying the file.
     @inlinable static func newFrom(file filename: UnsafePointer<CChar>!) -> WidgetRef! {
         guard let rv = WidgetRef(gconstpointer: gconstpointer(gtk_image_new_from_file(filename))) else { return nil }
         return rv
     }
 
     /// Creates a `GtkImage` displaying an icon from the current icon theme.
-    /// If the icon name isn’t known, a “broken image” icon will be
-    /// displayed instead.  If the current icon theme is changed, the icon
-    /// will be updated appropriately.
     /// 
-    /// Note: Before 3.94, this function was taking an extra icon size
-    /// argument. See `gtk_image_set_icon_size()` for another way to set
-    /// the icon size.
+    /// If the icon name isn’t known, a “broken image” icon will be
+    /// displayed instead. If the current icon theme is changed, the icon
+    /// will be updated appropriately.
     @inlinable static func newFromG<IconT: GIO.IconProtocol>(gicon icon: IconT) -> WidgetRef! {
         guard let rv = WidgetRef(gconstpointer: gconstpointer(gtk_image_new_from_gicon(icon.icon_ptr))) else { return nil }
         return rv
     }
 
     /// Creates a `GtkImage` displaying an icon from the current icon theme.
-    /// If the icon name isn’t known, a “broken image” icon will be
-    /// displayed instead.  If the current icon theme is changed, the icon
-    /// will be updated appropriately.
     /// 
-    /// Note: Before 3.94, this function was taking an extra icon size
-    /// argument. See `gtk_image_set_icon_size()` for another way to set
-    /// the icon size.
+    /// If the icon name isn’t known, a “broken image” icon will be
+    /// displayed instead. If the current icon theme is changed, the icon
+    /// will be updated appropriately.
     @inlinable static func newFrom(iconName iconName: UnsafePointer<CChar>? = nil) -> WidgetRef! {
         guard let rv = WidgetRef(gconstpointer: gconstpointer(gtk_image_new_from_icon_name(iconName))) else { return nil }
         return rv
     }
 
     /// Creates a new `GtkImage` displaying `paintable`.
-    /// The `GtkImage` does not assume a reference to the
-    /// paintable; you still need to unref it if you own references.
-    /// `GtkImage` will add its own reference rather than adopting yours.
+    /// 
+    /// The `GtkImage` does not assume a reference to the paintable; you still
+    /// need to unref it if you own references. `GtkImage` will add its own
+    /// reference rather than adopting yours.
     /// 
     /// The `GtkImage` will track changes to the `paintable` and update
     /// its size and contents in response to it.
@@ -6586,33 +6670,35 @@ public extension ImageRef {
     }
 
     /// Creates a new `GtkImage` displaying `pixbuf`.
-    /// The `GtkImage` does not assume a reference to the
-    /// pixbuf; you still need to unref it if you own references.
-    /// `GtkImage` will add its own reference rather than adopting yours.
     /// 
-    /// This is a helper for `gtk_image_new_from_paintable()`, and you can't
+    /// The `GtkImage` does not assume a reference to the pixbuf; you still
+    /// need to unref it if you own references. `GtkImage` will add its own
+    /// reference rather than adopting yours.
+    /// 
+    /// This is a helper for [ctor`Gtk.Image.new_from_paintable`], and you can't
     /// get back the exact pixbuf once this is called, only a texture.
     /// 
-    /// Note that this function just creates an `GtkImage` from the pixbuf. The
-    /// `GtkImage` created will not react to state changes. Should you want that,
-    /// you should use `gtk_image_new_from_icon_name()`.
+    /// Note that this function just creates an `GtkImage` from the pixbuf.
+    /// The `GtkImage` created will not react to state changes. Should you
+    /// want that, you should use [ctor`Gtk.Image.new_from_icon_name`].
     @inlinable static func newFrom<PixbufT: PixbufProtocol>(pixbuf: PixbufT?) -> WidgetRef! {
         guard let rv = WidgetRef(gconstpointer: gconstpointer(gtk_image_new_from_pixbuf(pixbuf?.pixbuf_ptr))) else { return nil }
         return rv
     }
 
-    /// Creates a new `GtkImage` displaying the resource file `resource_path`. If the file
-    /// isn’t found or can’t be loaded, the resulting `GtkImage` will
+    /// Creates a new `GtkImage` displaying the resource file `resource_path`.
+    /// 
+    /// If the file isn’t found or can’t be loaded, the resulting `GtkImage` will
     /// display a “broken image” icon. This function never returns `nil`,
     /// it always returns a valid `GtkImage` widget.
     /// 
     /// If you need to detect failures to load the file, use
-    /// `gdk_pixbuf_new_from_file()` to load the file yourself, then create
-    /// the `GtkImage` from the pixbuf.
+    /// [ctor`GdkPixbuf.Pixbuf.new_from_file`] to load the file yourself,
+    /// then create the `GtkImage` from the pixbuf.
     /// 
-    /// The storage type (`gtk_image_get_storage_type()`) of the returned
-    /// image is not defined, it will be whatever is appropriate for
-    /// displaying the file.
+    /// The storage type (see [method`Gtk.Image.get_storage_type`]) of
+    /// the returned image is not defined, it will be whatever is
+    /// appropriate for displaying the file.
     @inlinable static func newFrom(resource resourcePath: UnsafePointer<CChar>!) -> WidgetRef! {
         guard let rv = WidgetRef(gconstpointer: gconstpointer(gtk_image_new_from_resource(resourcePath))) else { return nil }
         return rv
@@ -6623,37 +6709,45 @@ public extension ImageRef {
 /// It provides the methods that can operate on this data type through `ImageProtocol` conformance.
 /// Use `Image` as a strong reference or owner of a `GtkImage` instance.
 ///
-/// The `GtkImage` widget displays an image. Various kinds of object
-/// can be displayed as an image; most typically, you would load a
-/// `GdkTexture` from a file, and then display that.
-/// There’s a convenience function to do this, `gtk_image_new_from_file()`,
-/// used as follows:
-/// (C Language Example):
-/// ```C
-///   GtkWidget *image;
-///   image = gtk_image_new_from_file ("myfile.png");
+/// The `GtkImage` widget displays an image.
+/// 
+/// ![An example GtkImage](image.png)
+/// 
+/// Various kinds of object can be displayed as an image; most typically,
+/// you would load a `GdkTexture` from a file, using the convenience function
+/// [ctor`Gtk.Image.new_from_file`], for instance:
+/// 
+/// ```c
+/// GtkWidget *image = gtk_image_new_from_file ("myfile.png");
 /// ```
+/// 
 /// If the file isn’t loaded successfully, the image will contain a
 /// “broken image” icon similar to that used in many web browsers.
+/// 
 /// If you want to handle errors in loading the file yourself,
 /// for example by displaying an error message, then load the image with
-/// `gdk_texture_new_from_file()`, then create the `GtkImage` with
-/// `gtk_image_new_from_paintable()`.
+/// [ctor`Gdk.Texture.new_from_file`], then create the `GtkImage` with
+/// [ctor`Gtk.Image.new_from_paintable`].
 /// 
 /// Sometimes an application will want to avoid depending on external data
-/// files, such as image files. See the documentation of `GResource` for details.
-/// In this case, the `GtkImage:resource`, `gtk_image_new_from_resource()` and
-/// `gtk_image_set_from_resource()` should be used.
+/// files, such as image files. See the documentation of `GResource` inside
+/// GIO, for details. In this case, [property`Gtk.Image:resource`],
+/// [ctor`Gtk.Image.new_from_resource`], and [method`Gtk.Image.set_from_resource`]
+/// should be used.
 /// 
-/// # CSS nodes
+/// `GtkImage` displays its image as an icon, with a size that is determined
+/// by the application. See [class`Gtk.Picture`] if you want to show an image
+/// at is actual size.
 /// 
-/// GtkImage has a single CSS node with the name image. The style classes
-/// .normal-icons or .large-icons may appear, depending on the `GtkImage:icon-size`
-/// property.
+/// ## CSS nodes
 /// 
-/// # Accessibility
+/// `GtkImage` has a single CSS node with the name `image`. The style classes
+/// `.normal-icons` or `.large-icons` may appear, depending on the
+/// [property`Gtk.Image:icon-size`] property.
 /// 
-/// GtkImage uses the `GTK_ACCESSIBLE_ROLE_IMG` role.
+/// ## Accessibility
+/// 
+/// `GtkImage` uses the `GTK_ACCESSIBLE_ROLE_IMG` role.
 open class Image: Widget, ImageProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -6786,18 +6880,19 @@ open class Image: Widget, ImageProtocol {
         if typeIsA(type: self.type, isAType: InitiallyUnownedClassRef.metatypeReference) { _ = self.refSink() } 
     }
 
-    /// Creates a new `GtkImage` displaying the file `filename`. If the file
-    /// isn’t found or can’t be loaded, the resulting `GtkImage` will
-    /// display a “broken image” icon. This function never returns `nil`,
+    /// Creates a new `GtkImage` displaying the file `filename`.
+    /// 
+    /// If the file isn’t found or can’t be loaded, the resulting `GtkImage`
+    /// will display a “broken image” icon. This function never returns `nil`,
     /// it always returns a valid `GtkImage` widget.
     /// 
     /// If you need to detect failures to load the file, use
-    /// `gdk_texture_new_from_file()` to load the file yourself, then create
-    /// the `GtkImage` from the texture.
+    /// [ctor`Gdk.Texture.new_from_file`] to load the file yourself,
+    /// then create the `GtkImage` from the texture.
     /// 
-    /// The storage type (`gtk_image_get_storage_type()`) of the returned
-    /// image is not defined, it will be whatever is appropriate for
-    /// displaying the file.
+    /// The storage type (see [method`Gtk.Image.get_storage_type`])
+    /// of the returned image is not defined, it will be whatever
+    /// is appropriate for displaying the file.
     @inlinable public init(file filename: UnsafePointer<CChar>!) {
         let rv = gtk_image_new_from_file(filename)
         super.init(gpointer: gpointer(rv))
@@ -6805,13 +6900,10 @@ open class Image: Widget, ImageProtocol {
     }
 
     /// Creates a `GtkImage` displaying an icon from the current icon theme.
-    /// If the icon name isn’t known, a “broken image” icon will be
-    /// displayed instead.  If the current icon theme is changed, the icon
-    /// will be updated appropriately.
     /// 
-    /// Note: Before 3.94, this function was taking an extra icon size
-    /// argument. See `gtk_image_set_icon_size()` for another way to set
-    /// the icon size.
+    /// If the icon name isn’t known, a “broken image” icon will be
+    /// displayed instead. If the current icon theme is changed, the icon
+    /// will be updated appropriately.
     @inlinable public init<IconT: GIO.IconProtocol>(gicon icon: IconT) {
         let rv = gtk_image_new_from_gicon(icon.icon_ptr)
         super.init(gpointer: gpointer(rv))
@@ -6819,13 +6911,10 @@ open class Image: Widget, ImageProtocol {
     }
 
     /// Creates a `GtkImage` displaying an icon from the current icon theme.
-    /// If the icon name isn’t known, a “broken image” icon will be
-    /// displayed instead.  If the current icon theme is changed, the icon
-    /// will be updated appropriately.
     /// 
-    /// Note: Before 3.94, this function was taking an extra icon size
-    /// argument. See `gtk_image_set_icon_size()` for another way to set
-    /// the icon size.
+    /// If the icon name isn’t known, a “broken image” icon will be
+    /// displayed instead. If the current icon theme is changed, the icon
+    /// will be updated appropriately.
     @inlinable public init(iconName iconName: UnsafePointer<CChar>? = nil) {
         let rv = gtk_image_new_from_icon_name(iconName)
         super.init(gpointer: gpointer(rv))
@@ -6833,9 +6922,10 @@ open class Image: Widget, ImageProtocol {
     }
 
     /// Creates a new `GtkImage` displaying `paintable`.
-    /// The `GtkImage` does not assume a reference to the
-    /// paintable; you still need to unref it if you own references.
-    /// `GtkImage` will add its own reference rather than adopting yours.
+    /// 
+    /// The `GtkImage` does not assume a reference to the paintable; you still
+    /// need to unref it if you own references. `GtkImage` will add its own
+    /// reference rather than adopting yours.
     /// 
     /// The `GtkImage` will track changes to the `paintable` and update
     /// its size and contents in response to it.
@@ -6846,52 +6936,55 @@ open class Image: Widget, ImageProtocol {
     }
 
     /// Creates a new `GtkImage` displaying `pixbuf`.
-    /// The `GtkImage` does not assume a reference to the
-    /// pixbuf; you still need to unref it if you own references.
-    /// `GtkImage` will add its own reference rather than adopting yours.
     /// 
-    /// This is a helper for `gtk_image_new_from_paintable()`, and you can't
+    /// The `GtkImage` does not assume a reference to the pixbuf; you still
+    /// need to unref it if you own references. `GtkImage` will add its own
+    /// reference rather than adopting yours.
+    /// 
+    /// This is a helper for [ctor`Gtk.Image.new_from_paintable`], and you can't
     /// get back the exact pixbuf once this is called, only a texture.
     /// 
-    /// Note that this function just creates an `GtkImage` from the pixbuf. The
-    /// `GtkImage` created will not react to state changes. Should you want that,
-    /// you should use `gtk_image_new_from_icon_name()`.
+    /// Note that this function just creates an `GtkImage` from the pixbuf.
+    /// The `GtkImage` created will not react to state changes. Should you
+    /// want that, you should use [ctor`Gtk.Image.new_from_icon_name`].
     @inlinable public init<PixbufT: PixbufProtocol>(pixbuf: PixbufT?) {
         let rv = gtk_image_new_from_pixbuf(pixbuf?.pixbuf_ptr)
         super.init(gpointer: gpointer(rv))
         if typeIsA(type: self.type, isAType: InitiallyUnownedClassRef.metatypeReference) { _ = self.refSink() } 
     }
 
-    /// Creates a new `GtkImage` displaying the resource file `resource_path`. If the file
-    /// isn’t found or can’t be loaded, the resulting `GtkImage` will
+    /// Creates a new `GtkImage` displaying the resource file `resource_path`.
+    /// 
+    /// If the file isn’t found or can’t be loaded, the resulting `GtkImage` will
     /// display a “broken image” icon. This function never returns `nil`,
     /// it always returns a valid `GtkImage` widget.
     /// 
     /// If you need to detect failures to load the file, use
-    /// `gdk_pixbuf_new_from_file()` to load the file yourself, then create
-    /// the `GtkImage` from the pixbuf.
+    /// [ctor`GdkPixbuf.Pixbuf.new_from_file`] to load the file yourself,
+    /// then create the `GtkImage` from the pixbuf.
     /// 
-    /// The storage type (`gtk_image_get_storage_type()`) of the returned
-    /// image is not defined, it will be whatever is appropriate for
-    /// displaying the file.
+    /// The storage type (see [method`Gtk.Image.get_storage_type`]) of
+    /// the returned image is not defined, it will be whatever is
+    /// appropriate for displaying the file.
     @inlinable public init(resource resourcePath: UnsafePointer<CChar>!) {
         let rv = gtk_image_new_from_resource(resourcePath)
         super.init(gpointer: gpointer(rv))
         if typeIsA(type: self.type, isAType: InitiallyUnownedClassRef.metatypeReference) { _ = self.refSink() } 
     }
 
-    /// Creates a new `GtkImage` displaying the file `filename`. If the file
-    /// isn’t found or can’t be loaded, the resulting `GtkImage` will
-    /// display a “broken image” icon. This function never returns `nil`,
+    /// Creates a new `GtkImage` displaying the file `filename`.
+    /// 
+    /// If the file isn’t found or can’t be loaded, the resulting `GtkImage`
+    /// will display a “broken image” icon. This function never returns `nil`,
     /// it always returns a valid `GtkImage` widget.
     /// 
     /// If you need to detect failures to load the file, use
-    /// `gdk_texture_new_from_file()` to load the file yourself, then create
-    /// the `GtkImage` from the texture.
+    /// [ctor`Gdk.Texture.new_from_file`] to load the file yourself,
+    /// then create the `GtkImage` from the texture.
     /// 
-    /// The storage type (`gtk_image_get_storage_type()`) of the returned
-    /// image is not defined, it will be whatever is appropriate for
-    /// displaying the file.
+    /// The storage type (see [method`Gtk.Image.get_storage_type`])
+    /// of the returned image is not defined, it will be whatever
+    /// is appropriate for displaying the file.
     @inlinable public static func newFrom(file filename: UnsafePointer<CChar>!) -> Widget! {
         guard let rv = Widget(gconstpointer: gconstpointer(gtk_image_new_from_file(filename))) else { return nil }
         if typeIsA(type: rv.type, isAType: InitiallyUnownedClassRef.metatypeReference) { _ = rv.refSink() } 
@@ -6899,13 +6992,10 @@ open class Image: Widget, ImageProtocol {
     }
 
     /// Creates a `GtkImage` displaying an icon from the current icon theme.
-    /// If the icon name isn’t known, a “broken image” icon will be
-    /// displayed instead.  If the current icon theme is changed, the icon
-    /// will be updated appropriately.
     /// 
-    /// Note: Before 3.94, this function was taking an extra icon size
-    /// argument. See `gtk_image_set_icon_size()` for another way to set
-    /// the icon size.
+    /// If the icon name isn’t known, a “broken image” icon will be
+    /// displayed instead. If the current icon theme is changed, the icon
+    /// will be updated appropriately.
     @inlinable public static func newFromG<IconT: GIO.IconProtocol>(gicon icon: IconT) -> Widget! {
         guard let rv = Widget(gconstpointer: gconstpointer(gtk_image_new_from_gicon(icon.icon_ptr))) else { return nil }
         if typeIsA(type: rv.type, isAType: InitiallyUnownedClassRef.metatypeReference) { _ = rv.refSink() } 
@@ -6913,13 +7003,10 @@ open class Image: Widget, ImageProtocol {
     }
 
     /// Creates a `GtkImage` displaying an icon from the current icon theme.
-    /// If the icon name isn’t known, a “broken image” icon will be
-    /// displayed instead.  If the current icon theme is changed, the icon
-    /// will be updated appropriately.
     /// 
-    /// Note: Before 3.94, this function was taking an extra icon size
-    /// argument. See `gtk_image_set_icon_size()` for another way to set
-    /// the icon size.
+    /// If the icon name isn’t known, a “broken image” icon will be
+    /// displayed instead. If the current icon theme is changed, the icon
+    /// will be updated appropriately.
     @inlinable public static func newFrom(iconName iconName: UnsafePointer<CChar>? = nil) -> Widget! {
         guard let rv = Widget(gconstpointer: gconstpointer(gtk_image_new_from_icon_name(iconName))) else { return nil }
         if typeIsA(type: rv.type, isAType: InitiallyUnownedClassRef.metatypeReference) { _ = rv.refSink() } 
@@ -6927,9 +7014,10 @@ open class Image: Widget, ImageProtocol {
     }
 
     /// Creates a new `GtkImage` displaying `paintable`.
-    /// The `GtkImage` does not assume a reference to the
-    /// paintable; you still need to unref it if you own references.
-    /// `GtkImage` will add its own reference rather than adopting yours.
+    /// 
+    /// The `GtkImage` does not assume a reference to the paintable; you still
+    /// need to unref it if you own references. `GtkImage` will add its own
+    /// reference rather than adopting yours.
     /// 
     /// The `GtkImage` will track changes to the `paintable` and update
     /// its size and contents in response to it.
@@ -6940,34 +7028,36 @@ open class Image: Widget, ImageProtocol {
     }
 
     /// Creates a new `GtkImage` displaying `pixbuf`.
-    /// The `GtkImage` does not assume a reference to the
-    /// pixbuf; you still need to unref it if you own references.
-    /// `GtkImage` will add its own reference rather than adopting yours.
     /// 
-    /// This is a helper for `gtk_image_new_from_paintable()`, and you can't
+    /// The `GtkImage` does not assume a reference to the pixbuf; you still
+    /// need to unref it if you own references. `GtkImage` will add its own
+    /// reference rather than adopting yours.
+    /// 
+    /// This is a helper for [ctor`Gtk.Image.new_from_paintable`], and you can't
     /// get back the exact pixbuf once this is called, only a texture.
     /// 
-    /// Note that this function just creates an `GtkImage` from the pixbuf. The
-    /// `GtkImage` created will not react to state changes. Should you want that,
-    /// you should use `gtk_image_new_from_icon_name()`.
+    /// Note that this function just creates an `GtkImage` from the pixbuf.
+    /// The `GtkImage` created will not react to state changes. Should you
+    /// want that, you should use [ctor`Gtk.Image.new_from_icon_name`].
     @inlinable public static func newFrom<PixbufT: PixbufProtocol>(pixbuf: PixbufT?) -> Widget! {
         guard let rv = Widget(gconstpointer: gconstpointer(gtk_image_new_from_pixbuf(pixbuf?.pixbuf_ptr))) else { return nil }
         if typeIsA(type: rv.type, isAType: InitiallyUnownedClassRef.metatypeReference) { _ = rv.refSink() } 
         return rv
     }
 
-    /// Creates a new `GtkImage` displaying the resource file `resource_path`. If the file
-    /// isn’t found or can’t be loaded, the resulting `GtkImage` will
+    /// Creates a new `GtkImage` displaying the resource file `resource_path`.
+    /// 
+    /// If the file isn’t found or can’t be loaded, the resulting `GtkImage` will
     /// display a “broken image” icon. This function never returns `nil`,
     /// it always returns a valid `GtkImage` widget.
     /// 
     /// If you need to detect failures to load the file, use
-    /// `gdk_pixbuf_new_from_file()` to load the file yourself, then create
-    /// the `GtkImage` from the pixbuf.
+    /// [ctor`GdkPixbuf.Pixbuf.new_from_file`] to load the file yourself,
+    /// then create the `GtkImage` from the pixbuf.
     /// 
-    /// The storage type (`gtk_image_get_storage_type()`) of the returned
-    /// image is not defined, it will be whatever is appropriate for
-    /// displaying the file.
+    /// The storage type (see [method`Gtk.Image.get_storage_type`]) of
+    /// the returned image is not defined, it will be whatever is
+    /// appropriate for displaying the file.
     @inlinable public static func newFrom(resource resourcePath: UnsafePointer<CChar>!) -> Widget! {
         guard let rv = Widget(gconstpointer: gconstpointer(gtk_image_new_from_resource(resourcePath))) else { return nil }
         if typeIsA(type: rv.type, isAType: InitiallyUnownedClassRef.metatypeReference) { _ = rv.refSink() } 
@@ -6983,6 +7073,7 @@ public enum ImagePropertyName: String, PropertyNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case canFocus = "can-focus"
+    /// Whether the widget can receive pointer events.
     case canTarget = "can-target"
     /// A list of css classes applied to this widget.
     case cssClasses = "css-classes"
@@ -6991,8 +7082,9 @@ public enum ImagePropertyName: String, PropertyNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case cssName = "css-name"
-    /// The cursor used by `widget`. See `gtk_widget_set_cursor()` for details.
+    /// The cursor used by `widget`.
     case cursor = "cursor"
+    /// The `GFile to display.
     case file = "file"
     /// Whether the widget should grab focus when it is clicked with the mouse.
     /// 
@@ -7000,27 +7092,36 @@ public enum ImagePropertyName: String, PropertyNameProtocol {
     case focusOnClick = "focus-on-click"
     /// Whether this widget itself will accept the input focus.
     case focusable = "focusable"
-    /// The GIcon displayed in the GtkImage. For themed icons,
-    /// If the icon theme is changed, the image will be updated
+    /// The `GIcon` displayed in the GtkImage.
+    /// 
+    /// For themed icons, If the icon theme is changed, the image will be updated
     /// automatically.
     case gicon = "gicon"
-    /// How to distribute horizontal space if widget gets extra space, see `GtkAlign`
+    /// How to distribute horizontal space if widget gets extra space.
     case halign = "halign"
+    /// Whether the widget is the default widget.
     case hasDefault = "has-default"
+    /// Whether the widget has the input focus.
     case hasFocus = "has-focus"
-    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
+    /// Enables or disables the emission of the `query-tooltip` signal on `widget`.
+    /// 
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
-    /// whether it will provide a tooltip or not.
+    /// the widget will be queried using [signal`Gtk.Widget::query-tooltip`] to
+    /// determine whether it will provide a tooltip or not.
     case hasTooltip = "has-tooltip"
+    /// Override for height request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case heightRequest = "height-request"
-    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
+    /// Whether to expand horizontally.
     case hexpand = "hexpand"
-    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
+    /// Whether to use the `hexpand` property.
     case hexpandSet = "hexpand-set"
-    /// The name of the icon in the icon theme. If the icon theme is
-    /// changed, the image will be updated automatically.
+    /// The name of the icon in the icon theme.
+    /// 
+    /// If the icon theme is changed, the image will be updated automatically.
     case iconName = "icon-name"
+    /// The symbolic size to display icons at.
     case iconSize = "icon-size"
     /// The `GtkLayoutManager` instance to use to compute the preferred size
     /// of the widget, and allocate its children.
@@ -7032,90 +7133,109 @@ public enum ImagePropertyName: String, PropertyNameProtocol {
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginBottom = "margin-bottom"
-    /// Margin on end of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on end of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginEnd = "margin-end"
-    /// Margin on start of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on start of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginStart = "margin-start"
     /// Margin on top side of widget.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginTop = "margin-top"
+    /// The name of the widget.
     case name = "name"
-    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
-    /// more details about window opacity.
+    /// The requested opacity of the widget.
     case opacity = "opacity"
     /// How content outside the widget's content area is treated.
     /// 
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case overflow = "overflow"
+    /// The `GdkPaintable` to display.
     case paintable = "paintable"
+    /// The parent widget of this widget.
     case parent = "parent"
-    /// The "pixel-size" property can be used to specify a fixed size
-    /// overriding the `GtkImage:icon-size` property for images of type
+    /// The size in pixels to display icons at.
+    /// 
+    /// If set to a value != -1, this property overrides the
+    /// [property`Gtk.Image:icon-size`] property for images of type
     /// `GTK_IMAGE_ICON_NAME`.
     case pixelSize = "pixel-size"
+    /// Whether the widget will receive the default action when it is focused.
     case receivesDefault = "receives-default"
     /// A path to a resource file to display.
     case resource = "resource"
-    /// The `GtkRoot` widget of the widget tree containing this widget or `nil` if
-    /// the widget is not contained in a root widget.
+    /// The `GtkRoot` widget of the widget tree containing this widget.
+    /// 
+    /// This will be `nil` if the widget is not contained in a root widget.
     case root = "root"
-    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
-    /// more details about widget scaling.
+    /// The scale factor of the widget.
     case scaleFactor = "scale-factor"
+    /// Whether the widget responds to input.
     case sensitive = "sensitive"
+    /// The representation being used for image data.
     case storageType = "storage-type"
     /// Sets the text of tooltip to be the given string, which is marked up
-    /// with the [Pango text markup language](#PangoMarkupFormat).
-    /// Also see `gtk_tooltip_set_markup()`.
+    /// with Pango markup.
+    /// 
+    /// Also see [method`Gtk.Tooltip.set_markup`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case tooltipMarkup = "tooltip-markup"
     /// Sets the text of tooltip to be the given string.
     /// 
-    /// Also see `gtk_tooltip_set_text()`.
+    /// Also see [method`Gtk.Tooltip.set_text`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case tooltipText = "tooltip-text"
-    /// Whether the icon displayed in the GtkImage will use
-    /// standard icon names fallback. The value of this property
-    /// is only relevant for images of type `GTK_IMAGE_ICON_NAME`
-    /// and `GTK_IMAGE_GICON`.
+    /// Whether the icon displayed in the `GtkImage` will use
+    /// standard icon names fallback.
+    /// 
+    /// The value of this property is only relevant for images of type
+    /// `GTK_IMAGE_ICON_NAME` and `GTK_IMAGE_GICON`.
     case useFallback = "use-fallback"
-    /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
+    /// How to distribute vertical space if widget gets extra space.
     case valign = "valign"
-    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
+    /// Whether to expand vertically.
     case vexpand = "vexpand"
-    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
+    /// Whether to use the `vexpand` property.
     case vexpandSet = "vexpand-set"
+    /// Whether the widget is visible.
     case visible = "visible"
+    /// Override for width request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case widthRequest = "width-request"
 }
 
@@ -7174,29 +7294,32 @@ public extension ImageProtocol {
 
 public enum ImageSignalName: String, SignalNameProtocol {
     /// Signals that all holders of a reference to the widget should release
-    /// the reference that they hold. May result in finalization of the widget
-    /// if all references are released.
+    /// the reference that they hold.
+    /// 
+    /// May result in finalization of the widget if all references are released.
     /// 
     /// This signal is not suitable for saving widget state.
     case destroy = "destroy"
-    /// The `direction-changed` signal is emitted when the text direction
-    /// of a widget changes.
+    /// Emitted when the text direction of a widget changes.
     case directionChanged = "direction-changed"
-    /// The `hide` signal is emitted when `widget` is hidden, for example with
-    /// `gtk_widget_hide()`.
+    /// Emitted when `widget` is hidden.
     case hide = "hide"
-    /// Gets emitted if keyboard navigation fails.
-    /// See `gtk_widget_keynav_failed()` for details.
+    /// Emitted if keyboard navigation fails.
+    /// 
+    /// See [method`Gtk.Widget.keynav_failed`] for details.
     case keynavFailed = "keynav-failed"
-    /// The `map` signal is emitted when `widget` is going to be mapped, that is
-    /// when the widget is visible (which is controlled with
-    /// `gtk_widget_set_visible()`) and all its parents up to the toplevel widget
+    /// Emitted when `widget` is going to be mapped.
+    /// 
+    /// A widget is mapped when the widget is visible (which is controlled with
+    /// [property`Gtk.Widget:visible`]) and all its parents up to the toplevel widget
     /// are also visible.
     /// 
     /// The `map` signal can be used to determine whether a widget will be drawn,
     /// for instance it can resume an animation that was stopped during the
-    /// emission of `GtkWidget::unmap`.
+    /// emission of [signal`Gtk.Widget::unmap`].
     case map = "map"
+    /// Emitted when a widget is activated via a mnemonic.
+    /// 
     /// The default handler for this signal activates `widget` if `group_cycling`
     /// is `false`, or just makes `widget` grab focus if `group_cycling` is `true`.
     case mnemonicActivate = "mnemonic-activate"
@@ -7227,9 +7350,11 @@ public enum ImageSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// Emitted when `GtkWidget:has-tooltip` is `true` and the hover timeout
-    /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
-    /// focus in keyboard mode.
+    /// Emitted when the widgets tooltip is about to be shown.
+    /// 
+    /// This happens when the [property`Gtk.Widget:has-tooltip`] property
+    /// is `true` and the hover timeout has expired with the cursor hovering
+    /// "above" `widget`; or emitted when `widget` got focus in keyboard mode.
     /// 
     /// Using the given coordinates, the signal handler should determine
     /// whether a tooltip should be shown for `widget`. If this is the case
@@ -7240,27 +7365,29 @@ public enum ImageSignalName: String, SignalNameProtocol {
     /// The signal handler is free to manipulate `tooltip` with the therefore
     /// destined function calls.
     case queryTooltip = "query-tooltip"
-    /// The `realize` signal is emitted when `widget` is associated with a
-    /// `GdkSurface`, which means that `gtk_widget_realize()` has been called or the
-    /// widget has been mapped (that is, it is going to be drawn).
-    case realize = "realize"
-    /// The `show` signal is emitted when `widget` is shown, for example with
-    /// `gtk_widget_show()`.
-    case show = "show"
-    /// The `state-flags-changed` signal is emitted when the widget state
-    /// changes, see `gtk_widget_get_state_flags()`.
-    case stateFlagsChanged = "state-flags-changed"
-    /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
-    /// means that either it or any of its parents up to the toplevel widget have
-    /// been set as hidden.
+    /// Emitted when `widget` is associated with a `GdkSurface`.
     /// 
-    /// As `unmap` indicates that a widget will not be shown any longer, it can be
-    /// used to, for example, stop an animation on the widget.
+    /// This means that [method`Gtk.Widget.realize`] has been called
+    /// or the widget has been mapped (that is, it is going to be drawn).
+    case realize = "realize"
+    /// Emitted when `widget` is shown.
+    case show = "show"
+    /// Emitted when the widget state changes.
+    /// 
+    /// See [method`Gtk.Widget.get_state_flags`].
+    case stateFlagsChanged = "state-flags-changed"
+    /// Emitted when `widget` is going to be unmapped.
+    /// 
+    /// A widget is unmapped when either it or any of its parents up to the
+    /// toplevel widget have been set as hidden.
+    /// 
+    /// As `unmap` indicates that a widget will not be shown any longer,
+    /// it can be used to, for example, stop an animation on the widget.
     case unmap = "unmap"
-    /// The `unrealize` signal is emitted when the `GdkSurface` associated with
-    /// `widget` is destroyed, which means that `gtk_widget_unrealize()` has been
-    /// called or the widget has been unmapped (that is, it is going to be
-    /// hidden).
+    /// Emitted when the `GdkSurface` associated with `widget` is destroyed.
+    /// 
+    /// This means that [method`Gtk.Widget.unrealize`] has been called
+    /// or the widget has been unmapped (that is, it is going to be hidden).
     case unrealize = "unrealize"
     /// Whether the widget or any of its descendents can accept
     /// the input focus.
@@ -7268,6 +7395,7 @@ public enum ImageSignalName: String, SignalNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case notifyCanFocus = "notify::can-focus"
+    /// Whether the widget can receive pointer events.
     case notifyCanTarget = "notify::can-target"
     /// A list of css classes applied to this widget.
     case notifyCssClasses = "notify::css-classes"
@@ -7276,8 +7404,9 @@ public enum ImageSignalName: String, SignalNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case notifyCssName = "notify::css-name"
-    /// The cursor used by `widget`. See `gtk_widget_set_cursor()` for details.
+    /// The cursor used by `widget`.
     case notifyCursor = "notify::cursor"
+    /// The `GFile to display.
     case notifyFile = "notify::file"
     /// Whether the widget should grab focus when it is clicked with the mouse.
     /// 
@@ -7285,27 +7414,36 @@ public enum ImageSignalName: String, SignalNameProtocol {
     case notifyFocusOnClick = "notify::focus-on-click"
     /// Whether this widget itself will accept the input focus.
     case notifyFocusable = "notify::focusable"
-    /// The GIcon displayed in the GtkImage. For themed icons,
-    /// If the icon theme is changed, the image will be updated
+    /// The `GIcon` displayed in the GtkImage.
+    /// 
+    /// For themed icons, If the icon theme is changed, the image will be updated
     /// automatically.
     case notifyGicon = "notify::gicon"
-    /// How to distribute horizontal space if widget gets extra space, see `GtkAlign`
+    /// How to distribute horizontal space if widget gets extra space.
     case notifyHalign = "notify::halign"
+    /// Whether the widget is the default widget.
     case notifyHasDefault = "notify::has-default"
+    /// Whether the widget has the input focus.
     case notifyHasFocus = "notify::has-focus"
-    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
+    /// Enables or disables the emission of the `query-tooltip` signal on `widget`.
+    /// 
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
-    /// whether it will provide a tooltip or not.
+    /// the widget will be queried using [signal`Gtk.Widget::query-tooltip`] to
+    /// determine whether it will provide a tooltip or not.
     case notifyHasTooltip = "notify::has-tooltip"
+    /// Override for height request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case notifyHeightRequest = "notify::height-request"
-    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
+    /// Whether to expand horizontally.
     case notifyHexpand = "notify::hexpand"
-    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
+    /// Whether to use the `hexpand` property.
     case notifyHexpandSet = "notify::hexpand-set"
-    /// The name of the icon in the icon theme. If the icon theme is
-    /// changed, the image will be updated automatically.
+    /// The name of the icon in the icon theme.
+    /// 
+    /// If the icon theme is changed, the image will be updated automatically.
     case notifyIconName = "notify::icon-name"
+    /// The symbolic size to display icons at.
     case notifyIconSize = "notify::icon-size"
     /// The `GtkLayoutManager` instance to use to compute the preferred size
     /// of the widget, and allocate its children.
@@ -7317,90 +7455,109 @@ public enum ImageSignalName: String, SignalNameProtocol {
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginBottom = "notify::margin-bottom"
-    /// Margin on end of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on end of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginEnd = "notify::margin-end"
-    /// Margin on start of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on start of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginStart = "notify::margin-start"
     /// Margin on top side of widget.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginTop = "notify::margin-top"
+    /// The name of the widget.
     case notifyName = "notify::name"
-    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
-    /// more details about window opacity.
+    /// The requested opacity of the widget.
     case notifyOpacity = "notify::opacity"
     /// How content outside the widget's content area is treated.
     /// 
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case notifyOverflow = "notify::overflow"
+    /// The `GdkPaintable` to display.
     case notifyPaintable = "notify::paintable"
+    /// The parent widget of this widget.
     case notifyParent = "notify::parent"
-    /// The "pixel-size" property can be used to specify a fixed size
-    /// overriding the `GtkImage:icon-size` property for images of type
+    /// The size in pixels to display icons at.
+    /// 
+    /// If set to a value != -1, this property overrides the
+    /// [property`Gtk.Image:icon-size`] property for images of type
     /// `GTK_IMAGE_ICON_NAME`.
     case notifyPixelSize = "notify::pixel-size"
+    /// Whether the widget will receive the default action when it is focused.
     case notifyReceivesDefault = "notify::receives-default"
     /// A path to a resource file to display.
     case notifyResource = "notify::resource"
-    /// The `GtkRoot` widget of the widget tree containing this widget or `nil` if
-    /// the widget is not contained in a root widget.
+    /// The `GtkRoot` widget of the widget tree containing this widget.
+    /// 
+    /// This will be `nil` if the widget is not contained in a root widget.
     case notifyRoot = "notify::root"
-    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
-    /// more details about widget scaling.
+    /// The scale factor of the widget.
     case notifyScaleFactor = "notify::scale-factor"
+    /// Whether the widget responds to input.
     case notifySensitive = "notify::sensitive"
+    /// The representation being used for image data.
     case notifyStorageType = "notify::storage-type"
     /// Sets the text of tooltip to be the given string, which is marked up
-    /// with the [Pango text markup language](#PangoMarkupFormat).
-    /// Also see `gtk_tooltip_set_markup()`.
+    /// with Pango markup.
+    /// 
+    /// Also see [method`Gtk.Tooltip.set_markup`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case notifyTooltipMarkup = "notify::tooltip-markup"
     /// Sets the text of tooltip to be the given string.
     /// 
-    /// Also see `gtk_tooltip_set_text()`.
+    /// Also see [method`Gtk.Tooltip.set_text`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case notifyTooltipText = "notify::tooltip-text"
-    /// Whether the icon displayed in the GtkImage will use
-    /// standard icon names fallback. The value of this property
-    /// is only relevant for images of type `GTK_IMAGE_ICON_NAME`
-    /// and `GTK_IMAGE_GICON`.
+    /// Whether the icon displayed in the `GtkImage` will use
+    /// standard icon names fallback.
+    /// 
+    /// The value of this property is only relevant for images of type
+    /// `GTK_IMAGE_ICON_NAME` and `GTK_IMAGE_GICON`.
     case notifyUseFallback = "notify::use-fallback"
-    /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
+    /// How to distribute vertical space if widget gets extra space.
     case notifyValign = "notify::valign"
-    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
+    /// Whether to expand vertically.
     case notifyVexpand = "notify::vexpand"
-    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
+    /// Whether to use the `vexpand` property.
     case notifyVexpandSet = "notify::vexpand-set"
+    /// Whether the widget is visible.
     case notifyVisible = "notify::visible"
+    /// Override for width request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case notifyWidthRequest = "notify::width-request"
 }
 
@@ -7416,29 +7573,23 @@ public extension ImageProtocol {
     
     }
 
-    /// Gets the `GIcon` and size being displayed by the `GtkImage`.
+    /// Gets the `GIcon` being displayed by the `GtkImage`.
+    /// 
     /// The storage type of the image must be `GTK_IMAGE_EMPTY` or
-    /// `GTK_IMAGE_GICON` (see `gtk_image_get_storage_type()`).
+    /// `GTK_IMAGE_GICON` (see [method`Gtk.Image.get_storage_type`]).
     /// The caller of this function does not own a reference to the
     /// returned `GIcon`.
-    /// 
-    /// Note: This function was changed in 3.94 not to use out parameters
-    /// anymore, but return the GIcon directly. See `gtk_image_get_icon_size()`
-    /// for a way to get the icon size.
     @inlinable func getGicon() -> GIO.IconRef! {
         let rv = GIO.IconRef(gtk_image_get_gicon(image_ptr))
         return rv
     }
 
     /// Gets the icon name and size being displayed by the `GtkImage`.
+    /// 
     /// The storage type of the image must be `GTK_IMAGE_EMPTY` or
-    /// `GTK_IMAGE_ICON_NAME` (see `gtk_image_get_storage_type()`).
+    /// `GTK_IMAGE_ICON_NAME` (see [method`Gtk.Image.get_storage_type`]).
     /// The returned string is owned by the `GtkImage` and should not
     /// be freed.
-    /// 
-    /// Note: This function was changed in 3.94 not to use out parameters
-    /// anymore, but return the icon name directly. See `gtk_image_get_icon_size()`
-    /// for a way to get the icon size.
     @inlinable func getIconName() -> String! {
         let rv = gtk_image_get_icon_name(image_ptr).map({ String(cString: $0) })
         return rv
@@ -7451,8 +7602,9 @@ public extension ImageProtocol {
     }
 
     /// Gets the image `GdkPaintable` being displayed by the `GtkImage`.
+    /// 
     /// The storage type of the image must be `GTK_IMAGE_EMPTY` or
-    /// `GTK_IMAGE_PAINTABLE` (see `gtk_image_get_storage_type()`).
+    /// `GTK_IMAGE_PAINTABLE` (see [method`Gtk.Image.get_storage_type`]).
     /// The caller of this function does not own a reference to the
     /// returned paintable.
     @inlinable func getPaintable() -> Gdk.PaintableRef! {
@@ -7467,68 +7619,80 @@ public extension ImageProtocol {
     }
 
     /// Gets the type of representation being used by the `GtkImage`
-    /// to store image data. If the `GtkImage` has no image data,
-    /// the return value will be `GTK_IMAGE_EMPTY`.
+    /// to store image data.
+    /// 
+    /// If the `GtkImage` has no image data, the return value will
+    /// be `GTK_IMAGE_EMPTY`.
     @inlinable func getStorageType() -> GtkImageType {
         let rv = gtk_image_get_storage_type(image_ptr)
         return rv
     }
 
-    /// See `gtk_image_new_from_file()` for details.
+    /// Sets a `GtkImage` to show a file.
+    /// 
+    /// See [ctor`Gtk.Image.new_from_file`] for details.
     @inlinable func setFromFile(filename: UnsafePointer<CChar>? = nil) {
         gtk_image_set_from_file(image_ptr, filename)
     
     }
 
-    /// See `gtk_image_new_from_gicon()` for details.
+    /// Sets a `GtkImage` to show a `GIcon`.
     /// 
-    /// Note: Before 3.94, this function was taking an extra icon size
-    /// argument. See `gtk_image_set_icon_size()` for another way to set
-    /// the icon size.
+    /// See [ctor`Gtk.Image.new_from_gicon`] for details.
     @inlinable func setFromGicon<IconT: GIO.IconProtocol>(icon: IconT) {
         gtk_image_set_from_gicon(image_ptr, icon.icon_ptr)
     
     }
 
-    /// See `gtk_image_new_from_icon_name()` for details.
+    /// Sets a `GtkImage` to show a named icon.
     /// 
-    /// Note: Before 3.94, this function was taking an extra icon size
-    /// argument. See `gtk_image_set_icon_size()` for another way to set
-    /// the icon size.
+    /// See [ctor`Gtk.Image.new_from_icon_name`] for details.
     @inlinable func setFrom(iconName: UnsafePointer<CChar>? = nil) {
         gtk_image_set_from_icon_name(image_ptr, iconName)
     
     }
 
-    /// See `gtk_image_new_from_paintable()` for details.
+    /// Sets a `GtkImage` to show a `GdkPaintable`.
+    /// 
+    /// See [ctor`Gtk.Image.new_from_paintable`] for details.
     @inlinable func setFrom(paintable: Gdk.PaintableRef? = nil) {
         gtk_image_set_from_paintable(image_ptr, paintable?.paintable_ptr)
     
     }
-    /// See `gtk_image_new_from_paintable()` for details.
+    /// Sets a `GtkImage` to show a `GdkPaintable`.
+    /// 
+    /// See [ctor`Gtk.Image.new_from_paintable`] for details.
     @inlinable func setFrom<PaintableT: Gdk.PaintableProtocol>(paintable: PaintableT?) {
         gtk_image_set_from_paintable(image_ptr, paintable?.paintable_ptr)
     
     }
 
-    /// See `gtk_image_new_from_pixbuf()` for details.
+    /// Sets a `GtkImage` to show a `GdkPixbuf`.
     /// 
-    /// Note: This is a helper for `gtk_image_set_from_paintable()`, and you can't
-    /// get back the exact pixbuf once this is called, only a paintable.
+    /// See [ctor`Gtk.Image.new_from_pixbuf`] for details.
+    /// 
+    /// Note: This is a helper for [method`Gtk.Image.set_from_paintable`],
+    /// and you can't get back the exact pixbuf once this is called,
+    /// only a paintable.
     @inlinable func setFrom(pixbuf: PixbufRef? = nil) {
         gtk_image_set_from_pixbuf(image_ptr, pixbuf?.pixbuf_ptr)
     
     }
-    /// See `gtk_image_new_from_pixbuf()` for details.
+    /// Sets a `GtkImage` to show a `GdkPixbuf`.
     /// 
-    /// Note: This is a helper for `gtk_image_set_from_paintable()`, and you can't
-    /// get back the exact pixbuf once this is called, only a paintable.
+    /// See [ctor`Gtk.Image.new_from_pixbuf`] for details.
+    /// 
+    /// Note: This is a helper for [method`Gtk.Image.set_from_paintable`],
+    /// and you can't get back the exact pixbuf once this is called,
+    /// only a paintable.
     @inlinable func setFrom<PixbufT: PixbufProtocol>(pixbuf: PixbufT?) {
         gtk_image_set_from_pixbuf(image_ptr, pixbuf?.pixbuf_ptr)
     
     }
 
-    /// See `gtk_image_new_from_resource()` for details.
+    /// Sets a `GtkImage` to show a resource.
+    /// 
+    /// See [ctor`Gtk.Image.new_from_resource`] for details.
     @inlinable func setFromResource(resourcePath: UnsafePointer<CChar>? = nil) {
         gtk_image_set_from_resource(image_ptr, resourcePath)
     
@@ -7540,26 +7704,25 @@ public extension ImageProtocol {
     
     }
 
-    /// Sets the pixel size to use for named icons. If the pixel size is set
-    /// to a value != -1, it is used instead of the icon size set by
-    /// `gtk_image_set_from_icon_name()`.
+    /// Sets the pixel size to use for named icons.
+    /// 
+    /// If the pixel size is set to a value != -1, it is used instead
+    /// of the icon size set by [method`Gtk.Image.set_from_icon_name`].
     @inlinable func set(pixelSize: Int) {
         gtk_image_set_pixel_size(image_ptr, gint(pixelSize))
     
     }
-    /// The GIcon displayed in the GtkImage. For themed icons,
-    /// If the icon theme is changed, the image will be updated
+    /// The `GIcon` displayed in the GtkImage.
+    /// 
+    /// For themed icons, If the icon theme is changed, the image will be updated
     /// automatically.
     @inlinable var gicon: GIO.IconRef! {
-        /// Gets the `GIcon` and size being displayed by the `GtkImage`.
+        /// Gets the `GIcon` being displayed by the `GtkImage`.
+        /// 
         /// The storage type of the image must be `GTK_IMAGE_EMPTY` or
-        /// `GTK_IMAGE_GICON` (see `gtk_image_get_storage_type()`).
+        /// `GTK_IMAGE_GICON` (see [method`Gtk.Image.get_storage_type`]).
         /// The caller of this function does not own a reference to the
         /// returned `GIcon`.
-        /// 
-        /// Note: This function was changed in 3.94 not to use out parameters
-        /// anymore, but return the GIcon directly. See `gtk_image_get_icon_size()`
-        /// for a way to get the icon size.
         get {
             let rv = GIO.IconRef(gtk_image_get_gicon(image_ptr))
             return rv
@@ -7567,24 +7730,18 @@ public extension ImageProtocol {
     }
 
     /// Gets the icon name and size being displayed by the `GtkImage`.
+    /// 
     /// The storage type of the image must be `GTK_IMAGE_EMPTY` or
-    /// `GTK_IMAGE_ICON_NAME` (see `gtk_image_get_storage_type()`).
+    /// `GTK_IMAGE_ICON_NAME` (see [method`Gtk.Image.get_storage_type`]).
     /// The returned string is owned by the `GtkImage` and should not
     /// be freed.
-    /// 
-    /// Note: This function was changed in 3.94 not to use out parameters
-    /// anymore, but return the icon name directly. See `gtk_image_get_icon_size()`
-    /// for a way to get the icon size.
     @inlinable var iconName: String! {
         /// Gets the icon name and size being displayed by the `GtkImage`.
+        /// 
         /// The storage type of the image must be `GTK_IMAGE_EMPTY` or
-        /// `GTK_IMAGE_ICON_NAME` (see `gtk_image_get_storage_type()`).
+        /// `GTK_IMAGE_ICON_NAME` (see [method`Gtk.Image.get_storage_type`]).
         /// The returned string is owned by the `GtkImage` and should not
         /// be freed.
-        /// 
-        /// Note: This function was changed in 3.94 not to use out parameters
-        /// anymore, but return the icon name directly. See `gtk_image_get_icon_size()`
-        /// for a way to get the icon size.
         get {
             let rv = gtk_image_get_icon_name(image_ptr).map({ String(cString: $0) })
             return rv
@@ -7604,10 +7761,12 @@ public extension ImageProtocol {
         }
     }
 
+    /// The `GdkPaintable` to display.
     @inlinable var paintable: Gdk.PaintableRef! {
         /// Gets the image `GdkPaintable` being displayed by the `GtkImage`.
+        /// 
         /// The storage type of the image must be `GTK_IMAGE_EMPTY` or
-        /// `GTK_IMAGE_PAINTABLE` (see `gtk_image_get_storage_type()`).
+        /// `GTK_IMAGE_PAINTABLE` (see [method`Gtk.Image.get_storage_type`]).
         /// The caller of this function does not own a reference to the
         /// returned paintable.
         get {
@@ -7623,21 +7782,26 @@ public extension ImageProtocol {
             let rv = Int(gtk_image_get_pixel_size(image_ptr))
             return rv
         }
-        /// Sets the pixel size to use for named icons. If the pixel size is set
-        /// to a value != -1, it is used instead of the icon size set by
-        /// `gtk_image_set_from_icon_name()`.
+        /// Sets the pixel size to use for named icons.
+        /// 
+        /// If the pixel size is set to a value != -1, it is used instead
+        /// of the icon size set by [method`Gtk.Image.set_from_icon_name`].
         nonmutating set {
             gtk_image_set_pixel_size(image_ptr, gint(newValue))
         }
     }
 
     /// Gets the type of representation being used by the `GtkImage`
-    /// to store image data. If the `GtkImage` has no image data,
-    /// the return value will be `GTK_IMAGE_EMPTY`.
+    /// to store image data.
+    /// 
+    /// If the `GtkImage` has no image data, the return value will
+    /// be `GTK_IMAGE_EMPTY`.
     @inlinable var storageType: GtkImageType {
         /// Gets the type of representation being used by the `GtkImage`
-        /// to store image data. If the `GtkImage` has no image data,
-        /// the return value will be `GTK_IMAGE_EMPTY`.
+        /// to store image data.
+        /// 
+        /// If the `GtkImage` has no image data, the return value will
+        /// be `GTK_IMAGE_EMPTY`.
         get {
             let rv = gtk_image_get_storage_type(image_ptr)
             return rv
@@ -7656,28 +7820,29 @@ public extension ImageProtocol {
 /// For a concrete class that implements these methods and properties, see `InfoBar`.
 /// Alternatively, use `InfoBarRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// `GtkInfoBar` is a widget that can be used to show messages to
-/// the user without showing a dialog. It is often temporarily shown
-/// at the top or bottom of a document. In contrast to `GtkDialog`, which
-/// has an action area at the bottom, `GtkInfoBar` has an action area
-/// at the side.
+/// `GtkInfoBar` can be show messages to the user without a dialog.
+/// 
+/// ![An example GtkInfoBar](info-bar.png)
+/// 
+/// It is often temporarily shown at the top or bottom of a document.
+/// In contrast to [class`Gtk.Dialog`], which has an action area at the
+/// bottom, `GtkInfoBar` has an action area at the side.
 /// 
 /// The API of `GtkInfoBar` is very similar to `GtkDialog`, allowing you
-/// to add buttons to the action area with `gtk_info_bar_add_button()` or
-/// `gtk_info_bar_new_with_buttons()`. The sensitivity of action widgets
-/// can be controlled with `gtk_info_bar_set_response_sensitive()`.
+/// to add buttons to the action area with [method`Gtk.InfoBar.add_button`]
+/// or [ctor`Gtk.InfoBar.new_with_buttons`]. The sensitivity of action widgets
+/// can be controlled with [method`Gtk.InfoBar.set_response_sensitive`].
 /// 
 /// To add widgets to the main content area of a `GtkInfoBar`, use
-/// `gtk_info_bar_add_child()`.
+/// [method`Gtk.InfoBar.add_child`].
 /// 
-/// Similar to `GtkMessageDialog`, the contents of a `GtkInfoBar` can by
-/// classified as error message, warning, informational message, etc,
-/// by using `gtk_info_bar_set_message_type()`. GTK may use the message type
-/// to determine how the message is displayed.
+/// Similar to [class`Gtk.MessageDialog`], the contents of a `GtkInfoBar`
+/// can by classified as error message, warning, informational message, etc,
+/// by using [method`Gtk.InfoBar.set_message_type`]. GTK may use the message
+/// type to determine how the message is displayed.
 /// 
-/// A simple example for using a `GtkInfoBar:`
-/// (C Language Example):
-/// ```C
+/// A simple example for using a `GtkInfoBar`:
+/// ```c
 /// GtkWidget *message_label;
 /// GtkWidget *widget;
 /// GtkWidget *grid;
@@ -7691,7 +7856,7 @@ public extension ImageProtocol {
 /// message_label = gtk_label_new ("");
 /// gtk_info_bar_add_child (bar, message_label);
 /// gtk_info_bar_add_button (bar,
-///                          _("_OK"),
+///                          `_("_OK")`,
 ///                          GTK_RESPONSE_OK);
 /// g_signal_connect (bar,
 ///                   "response",
@@ -7711,18 +7876,18 @@ public extension ImageProtocol {
 /// 
 /// # GtkInfoBar as GtkBuildable
 /// 
-/// The GtkInfoBar implementation of the GtkBuildable interface exposes
+/// The `GtkInfoBar` implementation of the `GtkBuildable` interface exposes
 /// the content area and action area as internal children with the names
 /// “content_area” and “action_area”.
 /// 
-/// GtkInfoBar supports a custom &lt;action-widgets&gt; element, which can contain
+/// `GtkInfoBar` supports a custom &lt;action-widgets&gt; element, which can contain
 /// multiple &lt;action-widget&gt; elements. The “response” attribute specifies a
 /// numeric response, and the content of the element is the id of widget
 /// (which should be a child of the dialogs `action_area`).
 /// 
 /// # CSS nodes
 /// 
-/// GtkInfoBar has a single CSS node with name infobar. The node may get
+/// `GtkInfoBar` has a single CSS node with name infobar. The node may get
 /// one of the style classes .info, .warning, .error or .question, depending
 /// on the message type.
 /// If the info bar shows a close button, that button will have the .close
@@ -7742,28 +7907,29 @@ public protocol InfoBarProtocol: WidgetProtocol {
 /// It exposes methods that can operate on this data type through `InfoBarProtocol` conformance.
 /// Use `InfoBarRef` only as an `unowned` reference to an existing `GtkInfoBar` instance.
 ///
-/// `GtkInfoBar` is a widget that can be used to show messages to
-/// the user without showing a dialog. It is often temporarily shown
-/// at the top or bottom of a document. In contrast to `GtkDialog`, which
-/// has an action area at the bottom, `GtkInfoBar` has an action area
-/// at the side.
+/// `GtkInfoBar` can be show messages to the user without a dialog.
+/// 
+/// ![An example GtkInfoBar](info-bar.png)
+/// 
+/// It is often temporarily shown at the top or bottom of a document.
+/// In contrast to [class`Gtk.Dialog`], which has an action area at the
+/// bottom, `GtkInfoBar` has an action area at the side.
 /// 
 /// The API of `GtkInfoBar` is very similar to `GtkDialog`, allowing you
-/// to add buttons to the action area with `gtk_info_bar_add_button()` or
-/// `gtk_info_bar_new_with_buttons()`. The sensitivity of action widgets
-/// can be controlled with `gtk_info_bar_set_response_sensitive()`.
+/// to add buttons to the action area with [method`Gtk.InfoBar.add_button`]
+/// or [ctor`Gtk.InfoBar.new_with_buttons`]. The sensitivity of action widgets
+/// can be controlled with [method`Gtk.InfoBar.set_response_sensitive`].
 /// 
 /// To add widgets to the main content area of a `GtkInfoBar`, use
-/// `gtk_info_bar_add_child()`.
+/// [method`Gtk.InfoBar.add_child`].
 /// 
-/// Similar to `GtkMessageDialog`, the contents of a `GtkInfoBar` can by
-/// classified as error message, warning, informational message, etc,
-/// by using `gtk_info_bar_set_message_type()`. GTK may use the message type
-/// to determine how the message is displayed.
+/// Similar to [class`Gtk.MessageDialog`], the contents of a `GtkInfoBar`
+/// can by classified as error message, warning, informational message, etc,
+/// by using [method`Gtk.InfoBar.set_message_type`]. GTK may use the message
+/// type to determine how the message is displayed.
 /// 
-/// A simple example for using a `GtkInfoBar:`
-/// (C Language Example):
-/// ```C
+/// A simple example for using a `GtkInfoBar`:
+/// ```c
 /// GtkWidget *message_label;
 /// GtkWidget *widget;
 /// GtkWidget *grid;
@@ -7777,7 +7943,7 @@ public protocol InfoBarProtocol: WidgetProtocol {
 /// message_label = gtk_label_new ("");
 /// gtk_info_bar_add_child (bar, message_label);
 /// gtk_info_bar_add_button (bar,
-///                          _("_OK"),
+///                          `_("_OK")`,
 ///                          GTK_RESPONSE_OK);
 /// g_signal_connect (bar,
 ///                   "response",
@@ -7797,18 +7963,18 @@ public protocol InfoBarProtocol: WidgetProtocol {
 /// 
 /// # GtkInfoBar as GtkBuildable
 /// 
-/// The GtkInfoBar implementation of the GtkBuildable interface exposes
+/// The `GtkInfoBar` implementation of the `GtkBuildable` interface exposes
 /// the content area and action area as internal children with the names
 /// “content_area” and “action_area”.
 /// 
-/// GtkInfoBar supports a custom &lt;action-widgets&gt; element, which can contain
+/// `GtkInfoBar` supports a custom &lt;action-widgets&gt; element, which can contain
 /// multiple &lt;action-widget&gt; elements. The “response” attribute specifies a
 /// numeric response, and the content of the element is the id of widget
 /// (which should be a child of the dialogs `action_area`).
 /// 
 /// # CSS nodes
 /// 
-/// GtkInfoBar has a single CSS node with name infobar. The node may get
+/// `GtkInfoBar` has a single CSS node with name infobar. The node may get
 /// one of the style classes .info, .warning, .error or .question, depending
 /// on the message type.
 /// If the info bar shows a close button, that button will have the .close
@@ -7910,28 +8076,29 @@ public extension InfoBarRef {
 /// It provides the methods that can operate on this data type through `InfoBarProtocol` conformance.
 /// Use `InfoBar` as a strong reference or owner of a `GtkInfoBar` instance.
 ///
-/// `GtkInfoBar` is a widget that can be used to show messages to
-/// the user without showing a dialog. It is often temporarily shown
-/// at the top or bottom of a document. In contrast to `GtkDialog`, which
-/// has an action area at the bottom, `GtkInfoBar` has an action area
-/// at the side.
+/// `GtkInfoBar` can be show messages to the user without a dialog.
+/// 
+/// ![An example GtkInfoBar](info-bar.png)
+/// 
+/// It is often temporarily shown at the top or bottom of a document.
+/// In contrast to [class`Gtk.Dialog`], which has an action area at the
+/// bottom, `GtkInfoBar` has an action area at the side.
 /// 
 /// The API of `GtkInfoBar` is very similar to `GtkDialog`, allowing you
-/// to add buttons to the action area with `gtk_info_bar_add_button()` or
-/// `gtk_info_bar_new_with_buttons()`. The sensitivity of action widgets
-/// can be controlled with `gtk_info_bar_set_response_sensitive()`.
+/// to add buttons to the action area with [method`Gtk.InfoBar.add_button`]
+/// or [ctor`Gtk.InfoBar.new_with_buttons`]. The sensitivity of action widgets
+/// can be controlled with [method`Gtk.InfoBar.set_response_sensitive`].
 /// 
 /// To add widgets to the main content area of a `GtkInfoBar`, use
-/// `gtk_info_bar_add_child()`.
+/// [method`Gtk.InfoBar.add_child`].
 /// 
-/// Similar to `GtkMessageDialog`, the contents of a `GtkInfoBar` can by
-/// classified as error message, warning, informational message, etc,
-/// by using `gtk_info_bar_set_message_type()`. GTK may use the message type
-/// to determine how the message is displayed.
+/// Similar to [class`Gtk.MessageDialog`], the contents of a `GtkInfoBar`
+/// can by classified as error message, warning, informational message, etc,
+/// by using [method`Gtk.InfoBar.set_message_type`]. GTK may use the message
+/// type to determine how the message is displayed.
 /// 
-/// A simple example for using a `GtkInfoBar:`
-/// (C Language Example):
-/// ```C
+/// A simple example for using a `GtkInfoBar`:
+/// ```c
 /// GtkWidget *message_label;
 /// GtkWidget *widget;
 /// GtkWidget *grid;
@@ -7945,7 +8112,7 @@ public extension InfoBarRef {
 /// message_label = gtk_label_new ("");
 /// gtk_info_bar_add_child (bar, message_label);
 /// gtk_info_bar_add_button (bar,
-///                          _("_OK"),
+///                          `_("_OK")`,
 ///                          GTK_RESPONSE_OK);
 /// g_signal_connect (bar,
 ///                   "response",
@@ -7965,18 +8132,18 @@ public extension InfoBarRef {
 /// 
 /// # GtkInfoBar as GtkBuildable
 /// 
-/// The GtkInfoBar implementation of the GtkBuildable interface exposes
+/// The `GtkInfoBar` implementation of the `GtkBuildable` interface exposes
 /// the content area and action area as internal children with the names
 /// “content_area” and “action_area”.
 /// 
-/// GtkInfoBar supports a custom &lt;action-widgets&gt; element, which can contain
+/// `GtkInfoBar` supports a custom &lt;action-widgets&gt; element, which can contain
 /// multiple &lt;action-widget&gt; elements. The “response” attribute specifies a
 /// numeric response, and the content of the element is the id of widget
 /// (which should be a child of the dialogs `action_area`).
 /// 
 /// # CSS nodes
 /// 
-/// GtkInfoBar has a single CSS node with name infobar. The node may get
+/// `GtkInfoBar` has a single CSS node with name infobar. The node may get
 /// one of the style classes .info, .warning, .error or .question, depending
 /// on the message type.
 /// If the info bar shows a close button, that button will have the .close
@@ -8130,6 +8297,7 @@ public enum InfoBarPropertyName: String, PropertyNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case canFocus = "can-focus"
+    /// Whether the widget can receive pointer events.
     case canTarget = "can-target"
     /// A list of css classes applied to this widget.
     case cssClasses = "css-classes"
@@ -8138,7 +8306,7 @@ public enum InfoBarPropertyName: String, PropertyNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case cssName = "css-name"
-    /// The cursor used by `widget`. See `gtk_widget_set_cursor()` for details.
+    /// The cursor used by `widget`.
     case cursor = "cursor"
     /// Whether the widget should grab focus when it is clicked with the mouse.
     /// 
@@ -8146,19 +8314,25 @@ public enum InfoBarPropertyName: String, PropertyNameProtocol {
     case focusOnClick = "focus-on-click"
     /// Whether this widget itself will accept the input focus.
     case focusable = "focusable"
-    /// How to distribute horizontal space if widget gets extra space, see `GtkAlign`
+    /// How to distribute horizontal space if widget gets extra space.
     case halign = "halign"
+    /// Whether the widget is the default widget.
     case hasDefault = "has-default"
+    /// Whether the widget has the input focus.
     case hasFocus = "has-focus"
-    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
+    /// Enables or disables the emission of the `query-tooltip` signal on `widget`.
+    /// 
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
-    /// whether it will provide a tooltip or not.
+    /// the widget will be queried using [signal`Gtk.Widget::query-tooltip`] to
+    /// determine whether it will provide a tooltip or not.
     case hasTooltip = "has-tooltip"
+    /// Override for height request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case heightRequest = "height-request"
-    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
+    /// Whether to expand horizontally.
     case hexpand = "hexpand"
-    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
+    /// Whether to use the `hexpand` property.
     case hexpandSet = "hexpand-set"
     /// The `GtkLayoutManager` instance to use to compute the preferred size
     /// of the widget, and allocate its children.
@@ -8170,84 +8344,99 @@ public enum InfoBarPropertyName: String, PropertyNameProtocol {
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginBottom = "margin-bottom"
-    /// Margin on end of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on end of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginEnd = "margin-end"
-    /// Margin on start of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on start of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginStart = "margin-start"
     /// Margin on top side of widget.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginTop = "margin-top"
     /// The type of the message.
     /// 
     /// The type may be used to determine the appearance of the info bar.
     case messageType = "message-type"
+    /// The name of the widget.
     case name = "name"
-    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
-    /// more details about window opacity.
+    /// The requested opacity of the widget.
     case opacity = "opacity"
     /// How content outside the widget's content area is treated.
     /// 
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case overflow = "overflow"
+    /// The parent widget of this widget.
     case parent = "parent"
+    /// Whether the widget will receive the default action when it is focused.
     case receivesDefault = "receives-default"
+    /// Whether the info bar shows its contents.
     case revealed = "revealed"
-    /// The `GtkRoot` widget of the widget tree containing this widget or `nil` if
-    /// the widget is not contained in a root widget.
+    /// The `GtkRoot` widget of the widget tree containing this widget.
+    /// 
+    /// This will be `nil` if the widget is not contained in a root widget.
     case root = "root"
-    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
-    /// more details about widget scaling.
+    /// The scale factor of the widget.
     case scaleFactor = "scale-factor"
+    /// Whether the widget responds to input.
     case sensitive = "sensitive"
     /// Whether to include a standard close button.
     case showCloseButton = "show-close-button"
     /// Sets the text of tooltip to be the given string, which is marked up
-    /// with the [Pango text markup language](#PangoMarkupFormat).
-    /// Also see `gtk_tooltip_set_markup()`.
+    /// with Pango markup.
+    /// 
+    /// Also see [method`Gtk.Tooltip.set_markup`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case tooltipMarkup = "tooltip-markup"
     /// Sets the text of tooltip to be the given string.
     /// 
-    /// Also see `gtk_tooltip_set_text()`.
+    /// Also see [method`Gtk.Tooltip.set_text`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case tooltipText = "tooltip-text"
-    /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
+    /// How to distribute vertical space if widget gets extra space.
     case valign = "valign"
-    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
+    /// Whether to expand vertically.
     case vexpand = "vexpand"
-    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
+    /// Whether to use the `vexpand` property.
     case vexpandSet = "vexpand-set"
+    /// Whether the widget is visible.
     case visible = "visible"
+    /// Override for width request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case widthRequest = "width-request"
 }
 
@@ -8305,37 +8494,39 @@ public extension InfoBarProtocol {
 }
 
 public enum InfoBarSignalName: String, SignalNameProtocol {
-    /// The `close` signal is a
-    /// [keybinding signal](#GtkSignalAction)
-    /// which gets emitted when the user uses a keybinding to dismiss
-    /// the info bar.
+    /// Gets emitted when the user uses a keybinding to dismiss the info bar.
+    /// 
+    /// The `close` signal is a [keybinding signal](class.SignalAction.html).
     /// 
     /// The default binding for this signal is the Escape key.
     case close = "close"
     /// Signals that all holders of a reference to the widget should release
-    /// the reference that they hold. May result in finalization of the widget
-    /// if all references are released.
+    /// the reference that they hold.
+    /// 
+    /// May result in finalization of the widget if all references are released.
     /// 
     /// This signal is not suitable for saving widget state.
     case destroy = "destroy"
-    /// The `direction-changed` signal is emitted when the text direction
-    /// of a widget changes.
+    /// Emitted when the text direction of a widget changes.
     case directionChanged = "direction-changed"
-    /// The `hide` signal is emitted when `widget` is hidden, for example with
-    /// `gtk_widget_hide()`.
+    /// Emitted when `widget` is hidden.
     case hide = "hide"
-    /// Gets emitted if keyboard navigation fails.
-    /// See `gtk_widget_keynav_failed()` for details.
+    /// Emitted if keyboard navigation fails.
+    /// 
+    /// See [method`Gtk.Widget.keynav_failed`] for details.
     case keynavFailed = "keynav-failed"
-    /// The `map` signal is emitted when `widget` is going to be mapped, that is
-    /// when the widget is visible (which is controlled with
-    /// `gtk_widget_set_visible()`) and all its parents up to the toplevel widget
+    /// Emitted when `widget` is going to be mapped.
+    /// 
+    /// A widget is mapped when the widget is visible (which is controlled with
+    /// [property`Gtk.Widget:visible`]) and all its parents up to the toplevel widget
     /// are also visible.
     /// 
     /// The `map` signal can be used to determine whether a widget will be drawn,
     /// for instance it can resume an animation that was stopped during the
-    /// emission of `GtkWidget::unmap`.
+    /// emission of [signal`Gtk.Widget::unmap`].
     case map = "map"
+    /// Emitted when a widget is activated via a mnemonic.
+    /// 
     /// The default handler for this signal activates `widget` if `group_cycling`
     /// is `false`, or just makes `widget` grab focus if `group_cycling` is `true`.
     case mnemonicActivate = "mnemonic-activate"
@@ -8366,9 +8557,11 @@ public enum InfoBarSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// Emitted when `GtkWidget:has-tooltip` is `true` and the hover timeout
-    /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
-    /// focus in keyboard mode.
+    /// Emitted when the widgets tooltip is about to be shown.
+    /// 
+    /// This happens when the [property`Gtk.Widget:has-tooltip`] property
+    /// is `true` and the hover timeout has expired with the cursor hovering
+    /// "above" `widget`; or emitted when `widget` got focus in keyboard mode.
     /// 
     /// Using the given coordinates, the signal handler should determine
     /// whether a tooltip should be shown for `widget`. If this is the case
@@ -8379,31 +8572,35 @@ public enum InfoBarSignalName: String, SignalNameProtocol {
     /// The signal handler is free to manipulate `tooltip` with the therefore
     /// destined function calls.
     case queryTooltip = "query-tooltip"
-    /// The `realize` signal is emitted when `widget` is associated with a
-    /// `GdkSurface`, which means that `gtk_widget_realize()` has been called or the
-    /// widget has been mapped (that is, it is going to be drawn).
-    case realize = "realize"
-    /// Emitted when an action widget is clicked or the application programmer
-    /// calls `gtk_info_bar_response()`. The `response_id` depends on which action
-    /// widget was clicked.
-    case response = "response"
-    /// The `show` signal is emitted when `widget` is shown, for example with
-    /// `gtk_widget_show()`.
-    case show = "show"
-    /// The `state-flags-changed` signal is emitted when the widget state
-    /// changes, see `gtk_widget_get_state_flags()`.
-    case stateFlagsChanged = "state-flags-changed"
-    /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
-    /// means that either it or any of its parents up to the toplevel widget have
-    /// been set as hidden.
+    /// Emitted when `widget` is associated with a `GdkSurface`.
     /// 
-    /// As `unmap` indicates that a widget will not be shown any longer, it can be
-    /// used to, for example, stop an animation on the widget.
+    /// This means that [method`Gtk.Widget.realize`] has been called
+    /// or the widget has been mapped (that is, it is going to be drawn).
+    case realize = "realize"
+    /// Emitted when an action widget is clicked.
+    /// 
+    /// The signal is also emitted when the application programmer
+    /// calls [method`Gtk.InfoBar.response`]. The `response_id` depends
+    /// on which action widget was clicked.
+    case response = "response"
+    /// Emitted when `widget` is shown.
+    case show = "show"
+    /// Emitted when the widget state changes.
+    /// 
+    /// See [method`Gtk.Widget.get_state_flags`].
+    case stateFlagsChanged = "state-flags-changed"
+    /// Emitted when `widget` is going to be unmapped.
+    /// 
+    /// A widget is unmapped when either it or any of its parents up to the
+    /// toplevel widget have been set as hidden.
+    /// 
+    /// As `unmap` indicates that a widget will not be shown any longer,
+    /// it can be used to, for example, stop an animation on the widget.
     case unmap = "unmap"
-    /// The `unrealize` signal is emitted when the `GdkSurface` associated with
-    /// `widget` is destroyed, which means that `gtk_widget_unrealize()` has been
-    /// called or the widget has been unmapped (that is, it is going to be
-    /// hidden).
+    /// Emitted when the `GdkSurface` associated with `widget` is destroyed.
+    /// 
+    /// This means that [method`Gtk.Widget.unrealize`] has been called
+    /// or the widget has been unmapped (that is, it is going to be hidden).
     case unrealize = "unrealize"
     /// Whether the widget or any of its descendents can accept
     /// the input focus.
@@ -8411,6 +8608,7 @@ public enum InfoBarSignalName: String, SignalNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case notifyCanFocus = "notify::can-focus"
+    /// Whether the widget can receive pointer events.
     case notifyCanTarget = "notify::can-target"
     /// A list of css classes applied to this widget.
     case notifyCssClasses = "notify::css-classes"
@@ -8419,7 +8617,7 @@ public enum InfoBarSignalName: String, SignalNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case notifyCssName = "notify::css-name"
-    /// The cursor used by `widget`. See `gtk_widget_set_cursor()` for details.
+    /// The cursor used by `widget`.
     case notifyCursor = "notify::cursor"
     /// Whether the widget should grab focus when it is clicked with the mouse.
     /// 
@@ -8427,19 +8625,25 @@ public enum InfoBarSignalName: String, SignalNameProtocol {
     case notifyFocusOnClick = "notify::focus-on-click"
     /// Whether this widget itself will accept the input focus.
     case notifyFocusable = "notify::focusable"
-    /// How to distribute horizontal space if widget gets extra space, see `GtkAlign`
+    /// How to distribute horizontal space if widget gets extra space.
     case notifyHalign = "notify::halign"
+    /// Whether the widget is the default widget.
     case notifyHasDefault = "notify::has-default"
+    /// Whether the widget has the input focus.
     case notifyHasFocus = "notify::has-focus"
-    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
+    /// Enables or disables the emission of the `query-tooltip` signal on `widget`.
+    /// 
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
-    /// whether it will provide a tooltip or not.
+    /// the widget will be queried using [signal`Gtk.Widget::query-tooltip`] to
+    /// determine whether it will provide a tooltip or not.
     case notifyHasTooltip = "notify::has-tooltip"
+    /// Override for height request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case notifyHeightRequest = "notify::height-request"
-    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
+    /// Whether to expand horizontally.
     case notifyHexpand = "notify::hexpand"
-    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
+    /// Whether to use the `hexpand` property.
     case notifyHexpandSet = "notify::hexpand-set"
     /// The `GtkLayoutManager` instance to use to compute the preferred size
     /// of the widget, and allocate its children.
@@ -8451,84 +8655,99 @@ public enum InfoBarSignalName: String, SignalNameProtocol {
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginBottom = "notify::margin-bottom"
-    /// Margin on end of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on end of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginEnd = "notify::margin-end"
-    /// Margin on start of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on start of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginStart = "notify::margin-start"
     /// Margin on top side of widget.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginTop = "notify::margin-top"
     /// The type of the message.
     /// 
     /// The type may be used to determine the appearance of the info bar.
     case notifyMessageType = "notify::message-type"
+    /// The name of the widget.
     case notifyName = "notify::name"
-    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
-    /// more details about window opacity.
+    /// The requested opacity of the widget.
     case notifyOpacity = "notify::opacity"
     /// How content outside the widget's content area is treated.
     /// 
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case notifyOverflow = "notify::overflow"
+    /// The parent widget of this widget.
     case notifyParent = "notify::parent"
+    /// Whether the widget will receive the default action when it is focused.
     case notifyReceivesDefault = "notify::receives-default"
+    /// Whether the info bar shows its contents.
     case notifyRevealed = "notify::revealed"
-    /// The `GtkRoot` widget of the widget tree containing this widget or `nil` if
-    /// the widget is not contained in a root widget.
+    /// The `GtkRoot` widget of the widget tree containing this widget.
+    /// 
+    /// This will be `nil` if the widget is not contained in a root widget.
     case notifyRoot = "notify::root"
-    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
-    /// more details about widget scaling.
+    /// The scale factor of the widget.
     case notifyScaleFactor = "notify::scale-factor"
+    /// Whether the widget responds to input.
     case notifySensitive = "notify::sensitive"
     /// Whether to include a standard close button.
     case notifyShowCloseButton = "notify::show-close-button"
     /// Sets the text of tooltip to be the given string, which is marked up
-    /// with the [Pango text markup language](#PangoMarkupFormat).
-    /// Also see `gtk_tooltip_set_markup()`.
+    /// with Pango markup.
+    /// 
+    /// Also see [method`Gtk.Tooltip.set_markup`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case notifyTooltipMarkup = "notify::tooltip-markup"
     /// Sets the text of tooltip to be the given string.
     /// 
-    /// Also see `gtk_tooltip_set_text()`.
+    /// Also see [method`Gtk.Tooltip.set_text`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case notifyTooltipText = "notify::tooltip-text"
-    /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
+    /// How to distribute vertical space if widget gets extra space.
     case notifyValign = "notify::valign"
-    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
+    /// Whether to expand vertically.
     case notifyVexpand = "notify::vexpand"
-    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
+    /// Whether to use the `vexpand` property.
     case notifyVexpandSet = "notify::vexpand-set"
+    /// Whether the widget is visible.
     case notifyVisible = "notify::visible"
+    /// Override for width request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case notifyWidthRequest = "notify::width-request"
 }
 
@@ -8560,10 +8779,9 @@ public extension InfoBarProtocol {
     }
     
     
-    /// The `close` signal is a
-    /// [keybinding signal](#GtkSignalAction)
-    /// which gets emitted when the user uses a keybinding to dismiss
-    /// the info bar.
+    /// Gets emitted when the user uses a keybinding to dismiss the info bar.
+    /// 
+    /// The `close` signal is a [keybinding signal](class.SignalAction.html).
     /// 
     /// The default binding for this signal is the Escape key.
     /// - Note: This represents the underlying `close` signal
@@ -8590,9 +8808,11 @@ public extension InfoBarProtocol {
     /// Typed `close` signal for using the `connect(signal:)` methods
     static var closeSignal: InfoBarSignalName { .close }
     
-    /// Emitted when an action widget is clicked or the application programmer
-    /// calls `gtk_info_bar_response()`. The `response_id` depends on which action
-    /// widget was clicked.
+    /// Emitted when an action widget is clicked.
+    /// 
+    /// The signal is also emitted when the application programmer
+    /// calls [method`Gtk.InfoBar.response`]. The `response_id` depends
+    /// on which action widget was clicked.
     /// - Note: This represents the underlying `response` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -8772,20 +8992,23 @@ public extension InfoBarProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkInfoBar` instance.
     @inlinable var info_bar_ptr: UnsafeMutablePointer<GtkInfoBar>! { return ptr?.assumingMemoryBound(to: GtkInfoBar.self) }
 
-    /// Add an activatable widget to the action area of a `GtkInfoBar`,
-    /// connecting a signal handler that will emit the `GtkInfoBar::response`
-    /// signal on the message area when the widget is activated. The widget
-    /// is appended to the end of the message areas action area.
+    /// Add an activatable widget to the action area of a `GtkInfoBar`.
+    /// 
+    /// This also connects a signal handler that will emit the
+    /// [signal`Gtk.InfoBar::response`] signal on the message area
+    /// when the widget is activated. The widget is appended to the
+    /// end of the message areas action area.
     @inlinable func addActionWidget<WidgetT: WidgetProtocol>(child: WidgetT, responseId: Int) {
         gtk_info_bar_add_action_widget(info_bar_ptr, child.widget_ptr, gint(responseId))
     
     }
 
-    /// Adds a button with the given text and sets things up so that
-    /// clicking the button will emit the “response” signal with the given
-    /// response_id. The button is appended to the end of the info bars's
-    /// action area. The button widget is returned, but usually you don't
-    /// need it.
+    /// Adds a button with the given text.
+    /// 
+    /// Clicking the button will emit the [signal`Gtk.InfoBar::response`]
+    /// signal with the given response_id. The button is appended to the
+    /// end of the info bars's action area. The button widget is returned,
+    /// but usually you don't need it.
     @inlinable func addButton(buttonText: UnsafePointer<CChar>!, responseId: Int) -> ButtonRef! {
         let rv = ButtonRef(gconstpointer: gconstpointer(gtk_info_bar_add_button(info_bar_ptr, buttonText, gint(responseId))))
         return rv
@@ -8819,16 +9042,16 @@ public extension InfoBarProtocol {
         return rv
     }
 
-    /// Removes a widget from the action area of `info_bar`, after
-    /// it been put there by a call to `gtk_info_bar_add_action_widget()`
-    /// or `gtk_info_bar_add_button()`.
+    /// Removes a widget from the action area of `info_bar`.
+    /// 
+    /// The widget must have been put there by a call to
+    /// [method`Gtk.InfoBar.add_action_widget`] or [method`Gtk.InfoBar.add_button`].
     @inlinable func removeAction<WidgetT: WidgetProtocol>(widget: WidgetT) {
         gtk_info_bar_remove_action_widget(info_bar_ptr, widget.widget_ptr)
     
     }
 
-    /// Removes a widget from the content area of the info bar,
-    /// after it has been added with `gtk_info_bar_add_child()`.
+    /// Removes a widget from the content area of the info bar.
     @inlinable func removeChild<WidgetT: WidgetProtocol>(widget: WidgetT) {
         gtk_info_bar_remove_child(info_bar_ptr, widget.widget_ptr)
     
@@ -8842,6 +9065,7 @@ public extension InfoBarProtocol {
 
     /// Sets the last widget in the info bar’s action area with
     /// the given response_id as the default widget for the dialog.
+    /// 
     /// Pressing “Enter” normally activates the default widget.
     /// 
     /// Note that this function currently requires `info_bar` to
@@ -8859,26 +9083,32 @@ public extension InfoBarProtocol {
     
     }
 
-    /// Calls gtk_widget_set_sensitive (widget, setting) for each
-    /// widget in the info bars’s action area with the given response_id.
-    /// A convenient way to sensitize/desensitize dialog buttons.
+    /// Sets the sensitivity of action widgets for `response_id`.
+    /// 
+    /// Calls `gtk_widget_set_sensitive (widget, setting)` for each
+    /// widget in the info bars’s action area with the given `response_id`.
+    /// A convenient way to sensitize/desensitize buttons.
     @inlinable func setResponseSensitive(responseId: Int, setting: Bool) {
         gtk_info_bar_set_response_sensitive(info_bar_ptr, gint(responseId), gboolean((setting) ? 1 : 0))
     
     }
 
-    /// Sets the `GtkInfoBar:revealed` property to `revealed`. Changing this will make
-    /// `info_bar` reveal (`true`) or conceal (`false`) itself via a sliding transition.
+    /// Sets whether the `GtkInfoBar` is revealed.
     /// 
-    /// Note: this does not show or hide `info_bar` in the `GtkWidget:visible` sense,
-    /// so revealing has no effect if `GtkWidget:visible` is `false`.
+    /// Changing this will make `info_bar` reveal or conceal
+    /// itself via a sliding transition.
+    /// 
+    /// Note: this does not show or hide `info_bar` in the
+    /// [property`Gtk.Widget:visible`] sense, so revealing has no effect
+    /// if [property`Gtk.Widget:visible`] is `false`.
     @inlinable func set(revealed: Bool) {
         gtk_info_bar_set_revealed(info_bar_ptr, gboolean((revealed) ? 1 : 0))
     
     }
 
-    /// If true, a standard close button is shown. When clicked it emits
-    /// the response `GTK_RESPONSE_CLOSE`.
+    /// If true, a standard close button is shown.
+    /// 
+    /// When clicked it emits the response `GTK_RESPONSE_CLOSE`.
     @inlinable func setShowCloseButton(setting: Bool) {
         gtk_info_bar_set_show_close_button(info_bar_ptr, gboolean((setting) ? 1 : 0))
     
@@ -8898,17 +9128,21 @@ public extension InfoBarProtocol {
         }
     }
 
+    /// Whether the info bar shows its contents.
     @inlinable var revealed: Bool {
         /// Returns whether the info bar is currently revealed.
         get {
             let rv = ((gtk_info_bar_get_revealed(info_bar_ptr)) != 0)
             return rv
         }
-        /// Sets the `GtkInfoBar:revealed` property to `revealed`. Changing this will make
-        /// `info_bar` reveal (`true`) or conceal (`false`) itself via a sliding transition.
+        /// Sets whether the `GtkInfoBar` is revealed.
         /// 
-        /// Note: this does not show or hide `info_bar` in the `GtkWidget:visible` sense,
-        /// so revealing has no effect if `GtkWidget:visible` is `false`.
+        /// Changing this will make `info_bar` reveal or conceal
+        /// itself via a sliding transition.
+        /// 
+        /// Note: this does not show or hide `info_bar` in the
+        /// [property`Gtk.Widget:visible`] sense, so revealing has no effect
+        /// if [property`Gtk.Widget:visible`] is `false`.
         nonmutating set {
             gtk_info_bar_set_revealed(info_bar_ptr, gboolean((newValue) ? 1 : 0))
         }
@@ -8921,8 +9155,9 @@ public extension InfoBarProtocol {
             let rv = ((gtk_info_bar_get_show_close_button(info_bar_ptr)) != 0)
             return rv
         }
-        /// If true, a standard close button is shown. When clicked it emits
-        /// the response `GTK_RESPONSE_CLOSE`.
+        /// If true, a standard close button is shown.
+        /// 
+        /// When clicked it emits the response `GTK_RESPONSE_CLOSE`.
         nonmutating set {
             gtk_info_bar_set_show_close_button(info_bar_ptr, gboolean((newValue) ? 1 : 0))
         }
@@ -8940,8 +9175,7 @@ public extension InfoBarProtocol {
 /// For a concrete class that implements these methods and properties, see `KeyvalTrigger`.
 /// Alternatively, use `KeyvalTriggerRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// A `GtkShortcutTrigger` that triggers when a specific keyval
-/// and (optionally) modifiers are pressed.
+/// A `GtkShortcutTrigger` that triggers when a specific keyval and modifiers are pressed.
 public protocol KeyvalTriggerProtocol: ShortcutTriggerProtocol {
         /// Untyped pointer to the underlying `GtkKeyvalTrigger` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -8957,8 +9191,7 @@ public protocol KeyvalTriggerProtocol: ShortcutTriggerProtocol {
 /// It exposes methods that can operate on this data type through `KeyvalTriggerProtocol` conformance.
 /// Use `KeyvalTriggerRef` only as an `unowned` reference to an existing `GtkKeyvalTrigger` instance.
 ///
-/// A `GtkShortcutTrigger` that triggers when a specific keyval
-/// and (optionally) modifiers are pressed.
+/// A `GtkShortcutTrigger` that triggers when a specific keyval and modifiers are pressed.
 public struct KeyvalTriggerRef: KeyvalTriggerProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkKeyvalTrigger` instance.
     /// For type-safe access, use the generated, typed pointer `keyval_trigger_ptr` property instead.
@@ -9050,8 +9283,7 @@ public extension KeyvalTriggerRef {
 /// It provides the methods that can operate on this data type through `KeyvalTriggerProtocol` conformance.
 /// Use `KeyvalTrigger` as a strong reference or owner of a `GtkKeyvalTrigger` instance.
 ///
-/// A `GtkShortcutTrigger` that triggers when a specific keyval
-/// and (optionally) modifiers are pressed.
+/// A `GtkShortcutTrigger` that triggers when a specific keyval and modifiers are pressed.
 open class KeyvalTrigger: ShortcutTrigger, KeyvalTriggerProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain

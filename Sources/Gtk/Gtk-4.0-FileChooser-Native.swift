@@ -21,11 +21,14 @@ import Gdk
 /// Alternatively, use `FileChooserRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
 /// `GtkFileChooser` is an interface that can be implemented by file
-/// selection widgets.  In GTK, the main objects that implement this
-/// interface are `GtkFileChooserWidget` and `GtkFileChooserDialog`.  You do not
-/// need to write an object that implements the `GtkFileChooser` interface
-/// unless you are trying to adapt an existing file selector to expose a
-/// standard programming interface.
+/// selection widgets.
+/// 
+/// In GTK, the main objects that implement this interface are
+/// [class`Gtk.FileChooserWidget`] and [class`Gtk.FileChooserDialog`].
+/// 
+/// You do not need to write an object that implements the `GtkFileChooser`
+/// interface unless you are trying to adapt an existing file selector to
+/// expose a standard programming interface.
 /// 
 /// `GtkFileChooser` allows for shortcuts to various places in the filesystem.
 /// In the default implementation these are displayed in the left pane. It
@@ -45,15 +48,14 @@ import Gdk
 /// 
 /// # File Names and Encodings
 /// 
-/// When the user is finished selecting files in a
-/// `GtkFileChooser`, your program can get the selected filenames as
-/// `GFiles`.
+/// When the user is finished selecting files in a `GtkFileChooser`, your
+/// program can get the selected filenames as `GFile`s.
 /// 
 /// # Adding options
 /// 
 /// You can add extra widgets to a file chooser to provide options
 /// that are not present in the default design, by using
-/// `gtk_file_chooser_add_choice()`. Each choice has an identifier and
+/// [method`Gtk.FileChooser.add_choice`]. Each choice has an identifier and
 /// a user visible label; additionally, each choice can have multiple
 /// options. If a choice has no option, it will be rendered as a
 /// check button with the given label; if a choice has options, it will
@@ -74,11 +76,14 @@ public protocol FileChooserProtocol {
 /// Use `FileChooserRef` only as an `unowned` reference to an existing `GtkFileChooser` instance.
 ///
 /// `GtkFileChooser` is an interface that can be implemented by file
-/// selection widgets.  In GTK, the main objects that implement this
-/// interface are `GtkFileChooserWidget` and `GtkFileChooserDialog`.  You do not
-/// need to write an object that implements the `GtkFileChooser` interface
-/// unless you are trying to adapt an existing file selector to expose a
-/// standard programming interface.
+/// selection widgets.
+/// 
+/// In GTK, the main objects that implement this interface are
+/// [class`Gtk.FileChooserWidget`] and [class`Gtk.FileChooserDialog`].
+/// 
+/// You do not need to write an object that implements the `GtkFileChooser`
+/// interface unless you are trying to adapt an existing file selector to
+/// expose a standard programming interface.
 /// 
 /// `GtkFileChooser` allows for shortcuts to various places in the filesystem.
 /// In the default implementation these are displayed in the left pane. It
@@ -98,15 +103,14 @@ public protocol FileChooserProtocol {
 /// 
 /// # File Names and Encodings
 /// 
-/// When the user is finished selecting files in a
-/// `GtkFileChooser`, your program can get the selected filenames as
-/// `GFiles`.
+/// When the user is finished selecting files in a `GtkFileChooser`, your
+/// program can get the selected filenames as `GFile`s.
 /// 
 /// # Adding options
 /// 
 /// You can add extra widgets to a file chooser to provide options
 /// that are not present in the default design, by using
-/// `gtk_file_chooser_add_choice()`. Each choice has an identifier and
+/// [method`Gtk.FileChooser.add_choice`]. Each choice has an identifier and
 /// a user visible label; additionally, each choice can have multiple
 /// options. If a choice has no option, it will be rendered as a
 /// check button with the given label; if a choice has options, it will
@@ -194,11 +198,14 @@ public extension FileChooserRef {
 /// Use `FileChooser` as a strong reference or owner of a `GtkFileChooser` instance.
 ///
 /// `GtkFileChooser` is an interface that can be implemented by file
-/// selection widgets.  In GTK, the main objects that implement this
-/// interface are `GtkFileChooserWidget` and `GtkFileChooserDialog`.  You do not
-/// need to write an object that implements the `GtkFileChooser` interface
-/// unless you are trying to adapt an existing file selector to expose a
-/// standard programming interface.
+/// selection widgets.
+/// 
+/// In GTK, the main objects that implement this interface are
+/// [class`Gtk.FileChooserWidget`] and [class`Gtk.FileChooserDialog`].
+/// 
+/// You do not need to write an object that implements the `GtkFileChooser`
+/// interface unless you are trying to adapt an existing file selector to
+/// expose a standard programming interface.
 /// 
 /// `GtkFileChooser` allows for shortcuts to various places in the filesystem.
 /// In the default implementation these are displayed in the left pane. It
@@ -218,15 +225,14 @@ public extension FileChooserRef {
 /// 
 /// # File Names and Encodings
 /// 
-/// When the user is finished selecting files in a
-/// `GtkFileChooser`, your program can get the selected filenames as
-/// `GFiles`.
+/// When the user is finished selecting files in a `GtkFileChooser`, your
+/// program can get the selected filenames as `GFile`s.
 /// 
 /// # Adding options
 /// 
 /// You can add extra widgets to a file chooser to provide options
 /// that are not present in the default design, by using
-/// `gtk_file_chooser_add_choice()`. Each choice has an identifier and
+/// [method`Gtk.FileChooser.add_choice`]. Each choice has an identifier and
 /// a user visible label; additionally, each choice can have multiple
 /// options. If a choice has no option, it will be rendered as a
 /// check button with the given label; if a choice has options, it will
@@ -376,10 +382,12 @@ open class FileChooser: FileChooserProtocol {
 }
 
 public enum FileChooserPropertyName: String, PropertyNameProtocol {
+    /// The type of operation that the file chooser is performing.
     case action = "action"
     /// Whether a file chooser not in `GTK_FILE_CHOOSER_ACTION_OPEN` mode
     /// will offer the user to create new folders.
     case createFolders = "create-folders"
+    /// The current filter for selecting files that are displayed.
     case filter = "filter"
     /// A `GListModel` containing the filters that have been
     /// added with `gtk_file_chooser_add_filter()`.
@@ -387,6 +395,7 @@ public enum FileChooserPropertyName: String, PropertyNameProtocol {
     /// The returned object should not be modified. It may
     /// or may not be updated for later changes.
     case filters = "filters"
+    /// Whether to allow multiple files to be selected.
     case selectMultiple = "select-multiple"
     /// A `GListModel` containing the shortcut folders that have been
     /// added with `gtk_file_chooser_add_shortcut_folder()`.
@@ -451,10 +460,12 @@ public extension FileChooserProtocol {
 
 public enum FileChooserSignalName: String, SignalNameProtocol {
 
+    /// The type of operation that the file chooser is performing.
     case notifyAction = "notify::action"
     /// Whether a file chooser not in `GTK_FILE_CHOOSER_ACTION_OPEN` mode
     /// will offer the user to create new folders.
     case notifyCreateFolders = "notify::create-folders"
+    /// The current filter for selecting files that are displayed.
     case notifyFilter = "notify::filter"
     /// A `GListModel` containing the filters that have been
     /// added with `gtk_file_chooser_add_filter()`.
@@ -462,6 +473,7 @@ public enum FileChooserSignalName: String, SignalNameProtocol {
     /// The returned object should not be modified. It may
     /// or may not be updated for later changes.
     case notifyFilters = "notify::filters"
+    /// Whether to allow multiple files to be selected.
     case notifySelectMultiple = "notify::select-multiple"
     /// A `GListModel` containing the shortcut folders that have been
     /// added with `gtk_file_chooser_add_shortcut_folder()`.
@@ -477,17 +489,21 @@ public extension FileChooserProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkFileChooser` instance.
     @inlinable var file_chooser_ptr: UnsafeMutablePointer<GtkFileChooser>! { return ptr?.assumingMemoryBound(to: GtkFileChooser.self) }
 
-    /// Adds a 'choice' to the file chooser. This is typically implemented
-    /// as a combobox or, for boolean choices, as a checkbutton. You can select
-    /// a value using `gtk_file_chooser_set_choice()` before the dialog is shown,
-    /// and you can obtain the user-selected value in the `response` signal handler
-    /// using `gtk_file_chooser_get_choice()`.
+    /// Adds a 'choice' to the file chooser.
+    /// 
+    /// This is typically implemented as a combobox or, for boolean choices,
+    /// as a checkbutton. You can select a value using
+    /// [method`Gtk.FileChooser.set_choice`] before the dialog is shown,
+    /// and you can obtain the user-selected value in the
+    /// [signal`Gtk.Dialog::response`] signal handler using
+    /// [method`Gtk.FileChooser.get_choice`].
     @inlinable func addChoice(id: UnsafePointer<CChar>!, label: UnsafePointer<CChar>!, options: UnsafeMutablePointer<UnsafePointer<CChar>?>! = nil, optionLabels: UnsafeMutablePointer<UnsafePointer<CChar>?>! = nil) {
         gtk_file_chooser_add_choice(file_chooser_ptr, id, label, options, optionLabels)
     
     }
 
     /// Adds `filter` to the list of filters that the user can select between.
+    /// 
     /// When a filter is selected, only files that are passed by that
     /// filter are displayed.
     /// 
@@ -498,7 +514,8 @@ public extension FileChooserProtocol {
     
     }
 
-    /// Adds a folder to be displayed with the shortcut folders in a file chooser.
+    /// Adds a folder to be displayed with the shortcut folders
+    /// in a file chooser.
     @inlinable func addShortcut<FileT: GIO.FileProtocol>(folder: FileT) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
         let rv = ((gtk_file_chooser_add_shortcut_folder(file_chooser_ptr, folder.file_ptr, &error)) != 0)
@@ -506,8 +523,7 @@ public extension FileChooserProtocol {
         return rv
     }
 
-    /// Gets the type of operation that the file chooser is performing; see
-    /// `gtk_file_chooser_set_action()`.
+    /// Gets the type of operation that the file chooser is performing.
     @inlinable func getAction() -> GtkFileChooserAction {
         let rv = gtk_file_chooser_get_action(file_chooser_ptr)
         return rv
@@ -520,7 +536,6 @@ public extension FileChooserProtocol {
     }
 
     /// Gets whether file chooser will offer to create new folders.
-    /// See `gtk_file_chooser_set_create_folders()`.
     @inlinable func getCreateFolders() -> Bool {
         let rv = ((gtk_file_chooser_get_create_folders(file_chooser_ptr)) != 0)
         return rv
@@ -532,22 +547,23 @@ public extension FileChooserProtocol {
         return rv
     }
 
-    /// Gets the current name in the file selector, as entered by the user in the
-    /// text entry for “Name”.
+    /// Gets the current name in the file selector, as entered by the user.
     /// 
-    /// This is meant to be used in save dialogs, to get the currently typed filename
-    /// when the file itself does not exist yet.
+    /// This is meant to be used in save dialogs, to get the currently typed
+    /// filename when the file itself does not exist yet.
     @inlinable func getCurrentName() -> String! {
         let rv = gtk_file_chooser_get_current_name(file_chooser_ptr).map({ String(cString: $0) })
         return rv
     }
 
     /// Gets the `GFile` for the currently selected file in
-    /// the file selector. If multiple files are selected,
-    /// one of the files will be returned at random.
+    /// the file selector.
     /// 
-    /// If the file chooser is in folder mode, this function returns the selected
-    /// folder.
+    /// If multiple files are selected, one of the files will be
+    /// returned at random.
+    /// 
+    /// If the file chooser is in folder mode, this function returns
+    /// the selected folder.
     @inlinable func getFile() -> GIO.FileRef! {
         let rv = GIO.FileRef(gtk_file_chooser_get_file(file_chooser_ptr))
         return rv
@@ -560,14 +576,16 @@ public extension FileChooserProtocol {
         return rv
     }
 
-    /// Gets the current filter; see `gtk_file_chooser_set_filter()`.
+    /// Gets the current filter.
     @inlinable func getFilter() -> FileFilterRef! {
         let rv = FileFilterRef(gconstpointer: gconstpointer(gtk_file_chooser_get_filter(file_chooser_ptr)))
         return rv
     }
 
-    /// Gets the current set of user-selectable filters, as a list model; see
-    /// `gtk_file_chooser_add_filter()`, `gtk_file_chooser_remove_filter()`.
+    /// Gets the current set of user-selectable filters, as a list model.
+    /// 
+    /// See [method`Gtk.FileChooser.add_filter`] and
+    /// [method`Gtk.FileChooser.remove_filter`] for changing individual filters.
     /// 
     /// You should not modify the returned list model. Future changes to
     /// `chooser` may or may not affect the returned model.
@@ -577,14 +595,13 @@ public extension FileChooserProtocol {
     }
 
     /// Gets whether multiple files can be selected in the file
-    /// selector. See `gtk_file_chooser_set_select_multiple()`.
+    /// chooser.
     @inlinable func getSelectMultiple() -> Bool {
         let rv = ((gtk_file_chooser_get_select_multiple(file_chooser_ptr)) != 0)
         return rv
     }
 
-    /// Queries the list of shortcut folders in the file chooser, as set by
-    /// `gtk_file_chooser_add_shortcut_folder()`.
+    /// Queries the list of shortcut folders in the file chooser.
     /// 
     /// You should not modify the returned list model. Future changes to
     /// `chooser` may or may not affect the returned model.
@@ -613,25 +630,29 @@ public extension FileChooserProtocol {
         return rv
     }
 
-    /// Sets the type of operation that the chooser is performing; the
-    /// user interface is adapted to suit the selected action. For example,
-    /// an option to create a new folder might be shown if the action is
-    /// `GTK_FILE_CHOOSER_ACTION_SAVE` but not if the action is
-    /// `GTK_FILE_CHOOSER_ACTION_OPEN`.
+    /// Sets the type of operation that the chooser is performing.
+    /// 
+    /// The user interface is adapted to suit the selected action.
+    /// 
+    /// For example, an option to create a new folder might be shown
+    /// if the action is `GTK_FILE_CHOOSER_ACTION_SAVE` but not if the
+    /// action is `GTK_FILE_CHOOSER_ACTION_OPEN`.
     @inlinable func set(action: GtkFileChooserAction) {
         gtk_file_chooser_set_action(file_chooser_ptr, action)
     
     }
 
     /// Selects an option in a 'choice' that has been added with
-    /// `gtk_file_chooser_add_choice()`. For a boolean choice, the
-    /// possible options are "true" and "false".
+    /// `gtk_file_chooser_add_choice()`.
+    /// 
+    /// For a boolean choice, the possible options are "true" and "false".
     @inlinable func setChoice(id: UnsafePointer<CChar>!, option: UnsafePointer<CChar>!) {
         gtk_file_chooser_set_choice(file_chooser_ptr, id, option)
     
     }
 
     /// Sets whether file chooser will offer to create new folders.
+    /// 
     /// This is only relevant if the action is not set to be
     /// `GTK_FILE_CHOOSER_ACTION_OPEN`.
     @inlinable func set(createFolders: Bool) {
@@ -648,25 +669,28 @@ public extension FileChooserProtocol {
     }
 
     /// Sets the current name in the file selector, as if entered
-    /// by the user. Note that the name passed in here is a UTF-8
-    /// string rather than a filename. This function is meant for
-    /// such uses as a suggested name in a “Save As...” dialog.  You can
-    /// pass “Untitled.doc” or a similarly suitable suggestion for the `name`.
+    /// by the user.
     /// 
-    /// If you want to preselect a particular existing file, you should use
-    /// `gtk_file_chooser_set_file()` instead.
+    /// Note that the name passed in here is a UTF-8 string rather
+    /// than a filename. This function is meant for such uses as a
+    /// suggested name in a “Save As...” dialog.  You can pass
+    /// “Untitled.doc” or a similarly suitable suggestion for the `name`.
     /// 
-    /// Please see the documentation for those functions for an example of using
-    /// `gtk_file_chooser_set_current_name()` as well.
+    /// If you want to preselect a particular existing file, you should
+    /// use [method`Gtk.FileChooser.set_file`] instead.
+    /// 
+    /// Please see the documentation for those functions for an example
+    /// of using [method`Gtk.FileChooser.set_current_name`] as well.
     @inlinable func setCurrent(name: UnsafePointer<CChar>!) {
         gtk_file_chooser_set_current_name(file_chooser_ptr, name)
     
     }
 
-    /// Sets `file` as the current filename for the file chooser, by changing
-    /// to the file’s parent folder and actually selecting the file in list.  If
-    /// the `chooser` is in `GTK_FILE_CHOOSER_ACTION_SAVE` mode, the file’s base name
-    /// will also appear in the dialog’s file name entry.
+    /// Sets `file` as the current filename for the file chooser.
+    /// 
+    /// This includes changing to the file’s parent folder and actually selecting
+    /// the file in list. If the `chooser` is in `GTK_FILE_CHOOSER_ACTION_SAVE` mode,
+    /// the file’s base name will also appear in the dialog’s file name entry.
     /// 
     /// If the file name isn’t in the current folder of `chooser`, then the current
     /// folder of `chooser` will be changed to the folder containing `filename`.
@@ -674,15 +698,15 @@ public extension FileChooserProtocol {
     /// Note that the file must exist, or nothing will be done except
     /// for the directory change.
     /// 
-    /// If you are implementing a save dialog,
-    /// you should use this function if you already have a file name to which the
-    /// user may save; for example, when the user opens an existing file and then
-    /// does Save As...  If you don’t have
-    /// a file name already — for example, if the user just created a new
-    /// file and is saving it for the first time, do not call this function.
+    /// If you are implementing a save dialog, you should use this function if
+    /// you already have a file name to which the user may save; for example,
+    /// when the user opens an existing file and then does “Save As…”. If you
+    /// don’t have a file name already — for example, if the user just created
+    /// a new file and is saving it for the first time, do not call this function.
+    /// 
     /// Instead, use something similar to this:
-    /// (C Language Example):
-    /// ```C
+    /// 
+    /// ```c
     /// static void
     /// prepare_file_chooser (GtkFileChooser *chooser,
     ///                       GFile          *existing_file)
@@ -704,7 +728,6 @@ public extension FileChooserProtocol {
     ///     }
     /// }
     /// ```
-    /// 
     @inlinable func set<FileT: GIO.FileProtocol>(file: FileT) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
         let rv = ((gtk_file_chooser_set_file(file_chooser_ptr, file.file_ptr, &error)) != 0)
@@ -712,51 +735,57 @@ public extension FileChooserProtocol {
         return rv
     }
 
-    /// Sets the current filter; only the files that pass the
-    /// filter will be displayed. If the user-selectable list of filters
-    /// is non-empty, then the filter should be one of the filters
-    /// in that list. Setting the current filter when the list of
-    /// filters is empty is useful if you want to restrict the displayed
+    /// Sets the current filter.
+    /// 
+    /// Only the files that pass the filter will be displayed.
+    /// If the user-selectable list of filters is non-empty, then
+    /// the filter should be one of the filters in that list.
+    /// 
+    /// Setting the current filter when the list of filters is
+    /// empty is useful if you want to restrict the displayed
     /// set of files without letting the user change it.
     @inlinable func set<FileFilterT: FileFilterProtocol>(filter: FileFilterT) {
         gtk_file_chooser_set_filter(file_chooser_ptr, filter.file_filter_ptr)
     
     }
 
-    /// Sets whether multiple files can be selected in the file selector.  This is
-    /// only relevant if the action is set to be `GTK_FILE_CHOOSER_ACTION_OPEN` or
+    /// Sets whether multiple files can be selected in the file chooser.
+    /// 
+    /// This is only relevant if the action is set to be
+    /// `GTK_FILE_CHOOSER_ACTION_OPEN` or
     /// `GTK_FILE_CHOOSER_ACTION_SELECT_FOLDER`.
     @inlinable func set(selectMultiple: Bool) {
         gtk_file_chooser_set_select_multiple(file_chooser_ptr, gboolean((selectMultiple) ? 1 : 0))
     
     }
+    /// The type of operation that the file chooser is performing.
     @inlinable var action: GtkFileChooserAction {
-        /// Gets the type of operation that the file chooser is performing; see
-        /// `gtk_file_chooser_set_action()`.
+        /// Gets the type of operation that the file chooser is performing.
         get {
             let rv = gtk_file_chooser_get_action(file_chooser_ptr)
             return rv
         }
-        /// Sets the type of operation that the chooser is performing; the
-        /// user interface is adapted to suit the selected action. For example,
-        /// an option to create a new folder might be shown if the action is
-        /// `GTK_FILE_CHOOSER_ACTION_SAVE` but not if the action is
-        /// `GTK_FILE_CHOOSER_ACTION_OPEN`.
+        /// Sets the type of operation that the chooser is performing.
+        /// 
+        /// The user interface is adapted to suit the selected action.
+        /// 
+        /// For example, an option to create a new folder might be shown
+        /// if the action is `GTK_FILE_CHOOSER_ACTION_SAVE` but not if the
+        /// action is `GTK_FILE_CHOOSER_ACTION_OPEN`.
         nonmutating set {
             gtk_file_chooser_set_action(file_chooser_ptr, newValue)
         }
     }
 
     /// Gets whether file chooser will offer to create new folders.
-    /// See `gtk_file_chooser_set_create_folders()`.
     @inlinable var createFolders: Bool {
         /// Gets whether file chooser will offer to create new folders.
-        /// See `gtk_file_chooser_set_create_folders()`.
         get {
             let rv = ((gtk_file_chooser_get_create_folders(file_chooser_ptr)) != 0)
             return rv
         }
         /// Sets whether file chooser will offer to create new folders.
+        /// 
         /// This is only relevant if the action is not set to be
         /// `GTK_FILE_CHOOSER_ACTION_OPEN`.
         nonmutating set {
@@ -779,58 +808,63 @@ public extension FileChooserProtocol {
         }
     }
 
-    /// Gets the current name in the file selector, as entered by the user in the
-    /// text entry for “Name”.
+    /// Gets the current name in the file selector, as entered by the user.
     /// 
-    /// This is meant to be used in save dialogs, to get the currently typed filename
-    /// when the file itself does not exist yet.
+    /// This is meant to be used in save dialogs, to get the currently typed
+    /// filename when the file itself does not exist yet.
     @inlinable var currentName: String! {
-        /// Gets the current name in the file selector, as entered by the user in the
-        /// text entry for “Name”.
+        /// Gets the current name in the file selector, as entered by the user.
         /// 
-        /// This is meant to be used in save dialogs, to get the currently typed filename
-        /// when the file itself does not exist yet.
+        /// This is meant to be used in save dialogs, to get the currently typed
+        /// filename when the file itself does not exist yet.
         get {
             let rv = gtk_file_chooser_get_current_name(file_chooser_ptr).map({ String(cString: $0) })
             return rv
         }
         /// Sets the current name in the file selector, as if entered
-        /// by the user. Note that the name passed in here is a UTF-8
-        /// string rather than a filename. This function is meant for
-        /// such uses as a suggested name in a “Save As...” dialog.  You can
-        /// pass “Untitled.doc” or a similarly suitable suggestion for the `name`.
+        /// by the user.
         /// 
-        /// If you want to preselect a particular existing file, you should use
-        /// `gtk_file_chooser_set_file()` instead.
+        /// Note that the name passed in here is a UTF-8 string rather
+        /// than a filename. This function is meant for such uses as a
+        /// suggested name in a “Save As...” dialog.  You can pass
+        /// “Untitled.doc” or a similarly suitable suggestion for the `name`.
         /// 
-        /// Please see the documentation for those functions for an example of using
-        /// `gtk_file_chooser_set_current_name()` as well.
+        /// If you want to preselect a particular existing file, you should
+        /// use [method`Gtk.FileChooser.set_file`] instead.
+        /// 
+        /// Please see the documentation for those functions for an example
+        /// of using [method`Gtk.FileChooser.set_current_name`] as well.
         nonmutating set {
             gtk_file_chooser_set_current_name(file_chooser_ptr, newValue)
         }
     }
 
     /// Gets the `GFile` for the currently selected file in
-    /// the file selector. If multiple files are selected,
-    /// one of the files will be returned at random.
+    /// the file selector.
     /// 
-    /// If the file chooser is in folder mode, this function returns the selected
-    /// folder.
+    /// If multiple files are selected, one of the files will be
+    /// returned at random.
+    /// 
+    /// If the file chooser is in folder mode, this function returns
+    /// the selected folder.
     @inlinable var file: GIO.FileRef! {
         /// Gets the `GFile` for the currently selected file in
-        /// the file selector. If multiple files are selected,
-        /// one of the files will be returned at random.
+        /// the file selector.
         /// 
-        /// If the file chooser is in folder mode, this function returns the selected
-        /// folder.
+        /// If multiple files are selected, one of the files will be
+        /// returned at random.
+        /// 
+        /// If the file chooser is in folder mode, this function returns
+        /// the selected folder.
         get {
             let rv = GIO.FileRef(gtk_file_chooser_get_file(file_chooser_ptr))
             return rv
         }
-        /// Sets `file` as the current filename for the file chooser, by changing
-        /// to the file’s parent folder and actually selecting the file in list.  If
-        /// the `chooser` is in `GTK_FILE_CHOOSER_ACTION_SAVE` mode, the file’s base name
-        /// will also appear in the dialog’s file name entry.
+        /// Sets `file` as the current filename for the file chooser.
+        /// 
+        /// This includes changing to the file’s parent folder and actually selecting
+        /// the file in list. If the `chooser` is in `GTK_FILE_CHOOSER_ACTION_SAVE` mode,
+        /// the file’s base name will also appear in the dialog’s file name entry.
         /// 
         /// If the file name isn’t in the current folder of `chooser`, then the current
         /// folder of `chooser` will be changed to the folder containing `filename`.
@@ -838,15 +872,15 @@ public extension FileChooserProtocol {
         /// Note that the file must exist, or nothing will be done except
         /// for the directory change.
         /// 
-        /// If you are implementing a save dialog,
-        /// you should use this function if you already have a file name to which the
-        /// user may save; for example, when the user opens an existing file and then
-        /// does Save As...  If you don’t have
-        /// a file name already — for example, if the user just created a new
-        /// file and is saving it for the first time, do not call this function.
+        /// If you are implementing a save dialog, you should use this function if
+        /// you already have a file name to which the user may save; for example,
+        /// when the user opens an existing file and then does “Save As…”. If you
+        /// don’t have a file name already — for example, if the user just created
+        /// a new file and is saving it for the first time, do not call this function.
+        /// 
         /// Instead, use something similar to this:
-        /// (C Language Example):
-        /// ```C
+        /// 
+        /// ```c
         /// static void
         /// prepare_file_chooser (GtkFileChooser *chooser,
         ///                       GFile          *existing_file)
@@ -868,7 +902,6 @@ public extension FileChooserProtocol {
         ///     }
         /// }
         /// ```
-        /// 
         nonmutating set {
             var error: UnsafeMutablePointer<GError>?
             _ = gtk_file_chooser_set_file(file_chooser_ptr, UnsafeMutablePointer<GFile>(newValue?.file_ptr), &error)
@@ -887,17 +920,21 @@ public extension FileChooserProtocol {
         }
     }
 
+    /// The current filter for selecting files that are displayed.
     @inlinable var filter: FileFilterRef! {
-        /// Gets the current filter; see `gtk_file_chooser_set_filter()`.
+        /// Gets the current filter.
         get {
             let rv = FileFilterRef(gconstpointer: gconstpointer(gtk_file_chooser_get_filter(file_chooser_ptr)))
             return rv
         }
-        /// Sets the current filter; only the files that pass the
-        /// filter will be displayed. If the user-selectable list of filters
-        /// is non-empty, then the filter should be one of the filters
-        /// in that list. Setting the current filter when the list of
-        /// filters is empty is useful if you want to restrict the displayed
+        /// Sets the current filter.
+        /// 
+        /// Only the files that pass the filter will be displayed.
+        /// If the user-selectable list of filters is non-empty, then
+        /// the filter should be one of the filters in that list.
+        /// 
+        /// Setting the current filter when the list of filters is
+        /// empty is useful if you want to restrict the displayed
         /// set of files without letting the user change it.
         nonmutating set {
             gtk_file_chooser_set_filter(file_chooser_ptr, UnsafeMutablePointer<GtkFileFilter>(newValue?.file_filter_ptr))
@@ -910,8 +947,10 @@ public extension FileChooserProtocol {
     /// The returned object should not be modified. It may
     /// or may not be updated for later changes.
     @inlinable var filters: GIO.ListModelRef! {
-        /// Gets the current set of user-selectable filters, as a list model; see
-        /// `gtk_file_chooser_add_filter()`, `gtk_file_chooser_remove_filter()`.
+        /// Gets the current set of user-selectable filters, as a list model.
+        /// 
+        /// See [method`Gtk.FileChooser.add_filter`] and
+        /// [method`Gtk.FileChooser.remove_filter`] for changing individual filters.
         /// 
         /// You should not modify the returned list model. Future changes to
         /// `chooser` may or may not affect the returned model.
@@ -922,30 +961,30 @@ public extension FileChooserProtocol {
     }
 
     /// Gets whether multiple files can be selected in the file
-    /// selector. See `gtk_file_chooser_set_select_multiple()`.
+    /// chooser.
     @inlinable var selectMultiple: Bool {
         /// Gets whether multiple files can be selected in the file
-        /// selector. See `gtk_file_chooser_set_select_multiple()`.
+        /// chooser.
         get {
             let rv = ((gtk_file_chooser_get_select_multiple(file_chooser_ptr)) != 0)
             return rv
         }
-        /// Sets whether multiple files can be selected in the file selector.  This is
-        /// only relevant if the action is set to be `GTK_FILE_CHOOSER_ACTION_OPEN` or
+        /// Sets whether multiple files can be selected in the file chooser.
+        /// 
+        /// This is only relevant if the action is set to be
+        /// `GTK_FILE_CHOOSER_ACTION_OPEN` or
         /// `GTK_FILE_CHOOSER_ACTION_SELECT_FOLDER`.
         nonmutating set {
             gtk_file_chooser_set_select_multiple(file_chooser_ptr, gboolean((newValue) ? 1 : 0))
         }
     }
 
-    /// Queries the list of shortcut folders in the file chooser, as set by
-    /// `gtk_file_chooser_add_shortcut_folder()`.
+    /// Queries the list of shortcut folders in the file chooser.
     /// 
     /// You should not modify the returned list model. Future changes to
     /// `chooser` may or may not affect the returned model.
     @inlinable var shortcutFolders: GIO.ListModelRef! {
-        /// Queries the list of shortcut folders in the file chooser, as set by
-        /// `gtk_file_chooser_add_shortcut_folder()`.
+        /// Queries the list of shortcut folders in the file chooser.
         /// 
         /// You should not modify the returned list model. Future changes to
         /// `chooser` may or may not affect the returned model.
@@ -968,9 +1007,11 @@ public extension FileChooserProtocol {
 /// Alternatively, use `FontChooserRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
 /// `GtkFontChooser` is an interface that can be implemented by widgets
-/// displaying the list of fonts. In GTK, the main objects
-/// that implement this interface are `GtkFontChooserWidget`,
-/// `GtkFontChooserDialog` and `GtkFontButton`.
+/// for choosing fonts.
+/// 
+/// In GTK, the main objects that implement this interface are
+/// [class`Gtk.FontChooserWidget`], [class`Gtk.FontChooserDialog`] and
+/// [class`Gtk.FontButton`].
 public protocol FontChooserProtocol {
         /// Untyped pointer to the underlying `GtkFontChooser` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -987,9 +1028,11 @@ public protocol FontChooserProtocol {
 /// Use `FontChooserRef` only as an `unowned` reference to an existing `GtkFontChooser` instance.
 ///
 /// `GtkFontChooser` is an interface that can be implemented by widgets
-/// displaying the list of fonts. In GTK, the main objects
-/// that implement this interface are `GtkFontChooserWidget`,
-/// `GtkFontChooserDialog` and `GtkFontButton`.
+/// for choosing fonts.
+/// 
+/// In GTK, the main objects that implement this interface are
+/// [class`Gtk.FontChooserWidget`], [class`Gtk.FontChooserDialog`] and
+/// [class`Gtk.FontButton`].
 public struct FontChooserRef: FontChooserProtocol {
         /// Untyped pointer to the underlying `GtkFontChooser` instance.
     /// For type-safe access, use the generated, typed pointer `font_chooser_ptr` property instead.
@@ -1073,9 +1116,11 @@ public extension FontChooserRef {
 /// Use `FontChooser` as a strong reference or owner of a `GtkFontChooser` instance.
 ///
 /// `GtkFontChooser` is an interface that can be implemented by widgets
-/// displaying the list of fonts. In GTK, the main objects
-/// that implement this interface are `GtkFontChooserWidget`,
-/// `GtkFontChooserDialog` and `GtkFontButton`.
+/// for choosing fonts.
+/// 
+/// In GTK, the main objects that implement this interface are
+/// [class`Gtk.FontChooserWidget`], [class`Gtk.FontChooserDialog`] and
+/// [class`Gtk.FontButton`].
 open class FontChooser: FontChooserProtocol {
         /// Untyped pointer to the underlying `GtkFontChooser` instance.
     /// For type-safe access, use the generated, typed pointer `font_chooser_ptr` property instead.
@@ -1225,12 +1270,12 @@ public enum FontChooserPropertyName: String, PropertyNameProtocol {
     case font = "font"
     /// The font description as a `PangoFontDescription`.
     case fontDesc = "font-desc"
-    /// The selected font features, in a format that is compatible with
+    /// The selected font features.
+    /// 
+    /// The format of the string is compatible with
     /// CSS and with Pango attributes.
     case fontFeatures = "font-features"
-    /// The language for which the `GtkFontChooser:font-features` were
-    /// selected, in a format that is compatible with CSS and with Pango
-    /// attributes.
+    /// The language for which the font features were selected.
     case language = "language"
     /// The level of granularity to offer for selecting fonts.
     case level = "level"
@@ -1295,6 +1340,7 @@ public extension FontChooserProtocol {
 
 public enum FontChooserSignalName: String, SignalNameProtocol {
     /// Emitted when a font is activated.
+    /// 
     /// This usually happens when the user double clicks an item,
     /// or an item is selected and the user presses one of the keys
     /// Space, Shift+Space, Return or Enter.
@@ -1303,12 +1349,12 @@ public enum FontChooserSignalName: String, SignalNameProtocol {
     case notifyFont = "notify::font"
     /// The font description as a `PangoFontDescription`.
     case notifyFontDesc = "notify::font-desc"
-    /// The selected font features, in a format that is compatible with
+    /// The selected font features.
+    /// 
+    /// The format of the string is compatible with
     /// CSS and with Pango attributes.
     case notifyFontFeatures = "notify::font-features"
-    /// The language for which the `GtkFontChooser:font-features` were
-    /// selected, in a format that is compatible with CSS and with Pango
-    /// attributes.
+    /// The language for which the font features were selected.
     case notifyLanguage = "notify::language"
     /// The level of granularity to offer for selecting fonts.
     case notifyLevel = "notify::level"
@@ -1347,6 +1393,7 @@ public extension FontChooserProtocol {
     
     
     /// Emitted when a font is activated.
+    /// 
     /// This usually happens when the user double clicks an item,
     /// or an item is selected and the user presses one of the keys
     /// Space, Shift+Space, Return or Enter.
@@ -1728,12 +1775,12 @@ public extension FontChooserProtocol {
     /// Gets the currently-selected font name.
     /// 
     /// Note that this can be a different string than what you set with
-    /// `gtk_font_chooser_set_font()`, as the font chooser widget may
+    /// [method`Gtk.FontChooser.set_font`], as the font chooser widget may
     /// normalize font names and thus return a string with a different
     /// structure. For example, “Helvetica Italic Bold 12” could be
     /// normalized to “Helvetica Bold Italic 12”.
     /// 
-    /// Use `pango_font_description_equal()` if you want to compare two
+    /// Use [method`Pango.FontDescription.equal`] if you want to compare two
     /// font descriptions.
     @inlinable func getFont() -> String! {
         let rv = gtk_font_chooser_get_font(font_chooser_ptr).map({ String(cString: $0) })
@@ -1743,12 +1790,12 @@ public extension FontChooserProtocol {
     /// Gets the currently-selected font.
     /// 
     /// Note that this can be a different string than what you set with
-    /// `gtk_font_chooser_set_font()`, as the font chooser widget may
+    /// [method`Gtk.FontChooser.set_font`], as the font chooser widget may
     /// normalize font names and thus return a string with a different
     /// structure. For example, “Helvetica Italic Bold 12” could be
     /// normalized to “Helvetica Bold Italic 12”.
     /// 
-    /// Use `pango_font_description_equal()` if you want to compare two
+    /// Use [method`Pango.FontDescription.equal`] if you want to compare two
     /// font descriptions.
     @inlinable func getFontDesc() -> Pango.FontDescriptionRef! {
         let rv = Pango.FontDescriptionRef(gtk_font_chooser_get_font_desc(font_chooser_ptr))
@@ -1765,6 +1812,7 @@ public extension FontChooserProtocol {
     }
 
     /// Gets the `PangoFontFamily` representing the selected font family.
+    /// 
     /// Font families are a collection of font faces.
     /// 
     /// If the selected font is not installed, returns `nil`.
@@ -1836,11 +1884,11 @@ public extension FontChooserProtocol {
     }
 
     /// Sets a custom font map to use for this font chooser widget.
+    /// 
     /// A custom font map can be used to present application-specific
     /// fonts instead of or in addition to the normal system fonts.
     /// 
-    /// (C Language Example):
-    /// ```C
+    /// ```c
     /// FcConfig *config;
     /// PangoFontMap *fontmap;
     /// 
@@ -1853,24 +1901,23 @@ public extension FontChooserProtocol {
     /// gtk_font_chooser_set_font_map (font_chooser, fontmap);
     /// ```
     /// 
-    /// Note that other GTK widgets will only be able to use the application-specific
-    /// font if it is present in the font map they use:
+    /// Note that other GTK widgets will only be able to use the
+    /// application-specific font if it is present in the font map they use:
     /// 
-    /// ```
+    /// ```c
     /// context = gtk_widget_get_pango_context (label);
     /// pango_context_set_font_map (context, fontmap);
     /// ```
-    /// 
     @inlinable func setFontMap(fontmap: Pango.FontMapRef? = nil) {
         gtk_font_chooser_set_font_map(font_chooser_ptr, fontmap?.font_map_ptr)
     
     }
     /// Sets a custom font map to use for this font chooser widget.
+    /// 
     /// A custom font map can be used to present application-specific
     /// fonts instead of or in addition to the normal system fonts.
     /// 
-    /// (C Language Example):
-    /// ```C
+    /// ```c
     /// FcConfig *config;
     /// PangoFontMap *fontmap;
     /// 
@@ -1883,14 +1930,13 @@ public extension FontChooserProtocol {
     /// gtk_font_chooser_set_font_map (font_chooser, fontmap);
     /// ```
     /// 
-    /// Note that other GTK widgets will only be able to use the application-specific
-    /// font if it is present in the font map they use:
+    /// Note that other GTK widgets will only be able to use the
+    /// application-specific font if it is present in the font map they use:
     /// 
-    /// ```
+    /// ```c
     /// context = gtk_widget_get_pango_context (label);
     /// pango_context_set_font_map (context, fontmap);
     /// ```
-    /// 
     @inlinable func setFontMap<FontMapT: Pango.FontMapProtocol>(fontmap: FontMapT?) {
         gtk_font_chooser_set_font_map(font_chooser_ptr, fontmap?.font_map_ptr)
     
@@ -1909,6 +1955,7 @@ public extension FontChooserProtocol {
     }
 
     /// Sets the text displayed in the preview area.
+    /// 
     /// The `text` is used to show how the selected font looks.
     @inlinable func setPreview(text: UnsafePointer<CChar>!) {
         gtk_font_chooser_set_preview_text(font_chooser_ptr, text)
@@ -1925,12 +1972,12 @@ public extension FontChooserProtocol {
         /// Gets the currently-selected font name.
         /// 
         /// Note that this can be a different string than what you set with
-        /// `gtk_font_chooser_set_font()`, as the font chooser widget may
+        /// [method`Gtk.FontChooser.set_font`], as the font chooser widget may
         /// normalize font names and thus return a string with a different
         /// structure. For example, “Helvetica Italic Bold 12” could be
         /// normalized to “Helvetica Bold Italic 12”.
         /// 
-        /// Use `pango_font_description_equal()` if you want to compare two
+        /// Use [method`Pango.FontDescription.equal`] if you want to compare two
         /// font descriptions.
         get {
             let rv = gtk_font_chooser_get_font(font_chooser_ptr).map({ String(cString: $0) })
@@ -1945,23 +1992,23 @@ public extension FontChooserProtocol {
     /// Gets the currently-selected font.
     /// 
     /// Note that this can be a different string than what you set with
-    /// `gtk_font_chooser_set_font()`, as the font chooser widget may
+    /// [method`Gtk.FontChooser.set_font`], as the font chooser widget may
     /// normalize font names and thus return a string with a different
     /// structure. For example, “Helvetica Italic Bold 12” could be
     /// normalized to “Helvetica Bold Italic 12”.
     /// 
-    /// Use `pango_font_description_equal()` if you want to compare two
+    /// Use [method`Pango.FontDescription.equal`] if you want to compare two
     /// font descriptions.
     @inlinable var fontDesc: Pango.FontDescriptionRef! {
         /// Gets the currently-selected font.
         /// 
         /// Note that this can be a different string than what you set with
-        /// `gtk_font_chooser_set_font()`, as the font chooser widget may
+        /// [method`Gtk.FontChooser.set_font`], as the font chooser widget may
         /// normalize font names and thus return a string with a different
         /// structure. For example, “Helvetica Italic Bold 12” could be
         /// normalized to “Helvetica Bold Italic 12”.
         /// 
-        /// Use `pango_font_description_equal()` if you want to compare two
+        /// Use [method`Pango.FontDescription.equal`] if you want to compare two
         /// font descriptions.
         get {
             let rv = Pango.FontDescriptionRef(gtk_font_chooser_get_font_desc(font_chooser_ptr))
@@ -1989,11 +2036,13 @@ public extension FontChooserProtocol {
     }
 
     /// Gets the `PangoFontFamily` representing the selected font family.
+    /// 
     /// Font families are a collection of font faces.
     /// 
     /// If the selected font is not installed, returns `nil`.
     @inlinable var fontFamily: Pango.FontFamilyRef! {
         /// Gets the `PangoFontFamily` representing the selected font family.
+        /// 
         /// Font families are a collection of font faces.
         /// 
         /// If the selected font is not installed, returns `nil`.
@@ -2022,11 +2071,11 @@ public extension FontChooserProtocol {
             return rv
         }
         /// Sets a custom font map to use for this font chooser widget.
+        /// 
         /// A custom font map can be used to present application-specific
         /// fonts instead of or in addition to the normal system fonts.
         /// 
-        /// (C Language Example):
-        /// ```C
+        /// ```c
         /// FcConfig *config;
         /// PangoFontMap *fontmap;
         /// 
@@ -2039,14 +2088,13 @@ public extension FontChooserProtocol {
         /// gtk_font_chooser_set_font_map (font_chooser, fontmap);
         /// ```
         /// 
-        /// Note that other GTK widgets will only be able to use the application-specific
-        /// font if it is present in the font map they use:
+        /// Note that other GTK widgets will only be able to use the
+        /// application-specific font if it is present in the font map they use:
         /// 
-        /// ```
+        /// ```c
         /// context = gtk_widget_get_pango_context (label);
         /// pango_context_set_font_map (context, fontmap);
         /// ```
-        /// 
         nonmutating set {
             gtk_font_chooser_set_font_map(font_chooser_ptr, UnsafeMutablePointer<PangoFontMap>(newValue?.font_map_ptr))
         }
@@ -2061,9 +2109,7 @@ public extension FontChooserProtocol {
         }
     }
 
-    /// The language for which the `GtkFontChooser:font-features` were
-    /// selected, in a format that is compatible with CSS and with Pango
-    /// attributes.
+    /// The language for which the font features were selected.
     @inlinable var language: String! {
         /// Gets the language that is used for font features.
         get {
@@ -2097,6 +2143,7 @@ public extension FontChooserProtocol {
             return rv
         }
         /// Sets the text displayed in the preview area.
+        /// 
         /// The `text` is used to show how the selected font looks.
         nonmutating set {
             gtk_font_chooser_set_preview_text(font_chooser_ptr, newValue)
@@ -2128,10 +2175,21 @@ public extension FontChooserProtocol {
 /// For a concrete class that implements these methods and properties, see `Native`.
 /// Alternatively, use `NativeRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// `GtkNative` is the interface implemented by all widgets that can provide
-/// a GdkSurface for widgets to render on.
+/// `GtkNative` is the interface implemented by all widgets that have
+/// their own `GdkSurface`.
 /// 
 /// The obvious example of a `GtkNative` is `GtkWindow`.
+/// 
+/// Every widget that is not itself a `GtkNative` is contained in one,
+/// and you can get it with [method`Gtk.Widget.get_native`].
+/// 
+/// To get the surface of a `GtkNative`, use [method`Gtk.Native.get_surface`].
+/// It is also possible to find the `GtkNative` to which a surface
+/// belongs, with [func`Gtk.Native.get_for_surface`].
+/// 
+/// In addition to a [class`Gdk.Surface`], a `GtkNative` also provides
+/// a [class`Gsk.Renderer`] for rendering on that surface. To get the
+/// renderer, use [method`Gtk.Native.get_renderer`].
 public protocol NativeProtocol: WidgetProtocol {
         /// Untyped pointer to the underlying `GtkNative` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2147,10 +2205,21 @@ public protocol NativeProtocol: WidgetProtocol {
 /// It exposes methods that can operate on this data type through `NativeProtocol` conformance.
 /// Use `NativeRef` only as an `unowned` reference to an existing `GtkNative` instance.
 ///
-/// `GtkNative` is the interface implemented by all widgets that can provide
-/// a GdkSurface for widgets to render on.
+/// `GtkNative` is the interface implemented by all widgets that have
+/// their own `GdkSurface`.
 /// 
 /// The obvious example of a `GtkNative` is `GtkWindow`.
+/// 
+/// Every widget that is not itself a `GtkNative` is contained in one,
+/// and you can get it with [method`Gtk.Widget.get_native`].
+/// 
+/// To get the surface of a `GtkNative`, use [method`Gtk.Native.get_surface`].
+/// It is also possible to find the `GtkNative` to which a surface
+/// belongs, with [func`Gtk.Native.get_for_surface`].
+/// 
+/// In addition to a [class`Gdk.Surface`], a `GtkNative` also provides
+/// a [class`Gsk.Renderer`] for rendering on that surface. To get the
+/// renderer, use [method`Gtk.Native.get_renderer`].
 public struct NativeRef: NativeProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkNative` instance.
     /// For type-safe access, use the generated, typed pointer `native_ptr` property instead.
@@ -2230,7 +2299,7 @@ public extension NativeRef {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
-        /// Finds the GtkNative associated with the surface.
+        /// Finds the `GtkNative` associated with the surface.
     @inlinable static func getFor<SurfaceT: Gdk.SurfaceProtocol>(surface: SurfaceT) -> NativeRef! {
         guard let rv = NativeRef(gconstpointer: gconstpointer(gtk_native_get_for_surface(surface.surface_ptr))) else { return nil }
         return rv
@@ -2241,10 +2310,21 @@ public extension NativeRef {
 /// It provides the methods that can operate on this data type through `NativeProtocol` conformance.
 /// Use `Native` as a strong reference or owner of a `GtkNative` instance.
 ///
-/// `GtkNative` is the interface implemented by all widgets that can provide
-/// a GdkSurface for widgets to render on.
+/// `GtkNative` is the interface implemented by all widgets that have
+/// their own `GdkSurface`.
 /// 
 /// The obvious example of a `GtkNative` is `GtkWindow`.
+/// 
+/// Every widget that is not itself a `GtkNative` is contained in one,
+/// and you can get it with [method`Gtk.Widget.get_native`].
+/// 
+/// To get the surface of a `GtkNative`, use [method`Gtk.Native.get_surface`].
+/// It is also possible to find the `GtkNative` to which a surface
+/// belongs, with [func`Gtk.Native.get_for_surface`].
+/// 
+/// In addition to a [class`Gdk.Surface`], a `GtkNative` also provides
+/// a [class`Gsk.Renderer`] for rendering on that surface. To get the
+/// renderer, use [method`Gtk.Native.get_renderer`].
 open class Native: Widget, NativeProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -2371,7 +2451,7 @@ open class Native: Widget, NativeProtocol {
     }
 
 
-    /// Finds the GtkNative associated with the surface.
+    /// Finds the `GtkNative` associated with the surface.
     @inlinable public static func getFor<SurfaceT: Gdk.SurfaceProtocol>(surface: SurfaceT) -> Native! {
         guard let rv = Native(gconstpointer: gconstpointer(gtk_native_get_for_surface(surface.surface_ptr))) else { return nil }
         if typeIsA(type: rv.type, isAType: InitiallyUnownedClassRef.metatypeReference) { _ = rv.refSink() } 
@@ -2387,6 +2467,7 @@ public enum NativePropertyName: String, PropertyNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case canFocus = "can-focus"
+    /// Whether the widget can receive pointer events.
     case canTarget = "can-target"
     /// A list of css classes applied to this widget.
     case cssClasses = "css-classes"
@@ -2395,7 +2476,7 @@ public enum NativePropertyName: String, PropertyNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case cssName = "css-name"
-    /// The cursor used by `widget`. See `gtk_widget_set_cursor()` for details.
+    /// The cursor used by `widget`.
     case cursor = "cursor"
     /// Whether the widget should grab focus when it is clicked with the mouse.
     /// 
@@ -2403,19 +2484,25 @@ public enum NativePropertyName: String, PropertyNameProtocol {
     case focusOnClick = "focus-on-click"
     /// Whether this widget itself will accept the input focus.
     case focusable = "focusable"
-    /// How to distribute horizontal space if widget gets extra space, see `GtkAlign`
+    /// How to distribute horizontal space if widget gets extra space.
     case halign = "halign"
+    /// Whether the widget is the default widget.
     case hasDefault = "has-default"
+    /// Whether the widget has the input focus.
     case hasFocus = "has-focus"
-    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
+    /// Enables or disables the emission of the `query-tooltip` signal on `widget`.
+    /// 
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
-    /// whether it will provide a tooltip or not.
+    /// the widget will be queried using [signal`Gtk.Widget::query-tooltip`] to
+    /// determine whether it will provide a tooltip or not.
     case hasTooltip = "has-tooltip"
+    /// Override for height request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case heightRequest = "height-request"
-    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
+    /// Whether to expand horizontally.
     case hexpand = "hexpand"
-    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
+    /// Whether to use the `hexpand` property.
     case hexpandSet = "hexpand-set"
     /// The `GtkLayoutManager` instance to use to compute the preferred size
     /// of the widget, and allocate its children.
@@ -2427,77 +2514,91 @@ public enum NativePropertyName: String, PropertyNameProtocol {
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginBottom = "margin-bottom"
-    /// Margin on end of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on end of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginEnd = "margin-end"
-    /// Margin on start of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on start of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginStart = "margin-start"
     /// Margin on top side of widget.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginTop = "margin-top"
+    /// The name of the widget.
     case name = "name"
-    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
-    /// more details about window opacity.
+    /// The requested opacity of the widget.
     case opacity = "opacity"
     /// How content outside the widget's content area is treated.
     /// 
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case overflow = "overflow"
+    /// The parent widget of this widget.
     case parent = "parent"
+    /// Whether the widget will receive the default action when it is focused.
     case receivesDefault = "receives-default"
-    /// The `GtkRoot` widget of the widget tree containing this widget or `nil` if
-    /// the widget is not contained in a root widget.
+    /// The `GtkRoot` widget of the widget tree containing this widget.
+    /// 
+    /// This will be `nil` if the widget is not contained in a root widget.
     case root = "root"
-    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
-    /// more details about widget scaling.
+    /// The scale factor of the widget.
     case scaleFactor = "scale-factor"
+    /// Whether the widget responds to input.
     case sensitive = "sensitive"
     /// Sets the text of tooltip to be the given string, which is marked up
-    /// with the [Pango text markup language](#PangoMarkupFormat).
-    /// Also see `gtk_tooltip_set_markup()`.
+    /// with Pango markup.
+    /// 
+    /// Also see [method`Gtk.Tooltip.set_markup`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case tooltipMarkup = "tooltip-markup"
     /// Sets the text of tooltip to be the given string.
     /// 
-    /// Also see `gtk_tooltip_set_text()`.
+    /// Also see [method`Gtk.Tooltip.set_text`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case tooltipText = "tooltip-text"
-    /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
+    /// How to distribute vertical space if widget gets extra space.
     case valign = "valign"
-    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
+    /// Whether to expand vertically.
     case vexpand = "vexpand"
-    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
+    /// Whether to use the `vexpand` property.
     case vexpandSet = "vexpand-set"
+    /// Whether the widget is visible.
     case visible = "visible"
+    /// Override for width request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case widthRequest = "width-request"
 }
 
@@ -2556,29 +2657,32 @@ public extension NativeProtocol {
 
 public enum NativeSignalName: String, SignalNameProtocol {
     /// Signals that all holders of a reference to the widget should release
-    /// the reference that they hold. May result in finalization of the widget
-    /// if all references are released.
+    /// the reference that they hold.
+    /// 
+    /// May result in finalization of the widget if all references are released.
     /// 
     /// This signal is not suitable for saving widget state.
     case destroy = "destroy"
-    /// The `direction-changed` signal is emitted when the text direction
-    /// of a widget changes.
+    /// Emitted when the text direction of a widget changes.
     case directionChanged = "direction-changed"
-    /// The `hide` signal is emitted when `widget` is hidden, for example with
-    /// `gtk_widget_hide()`.
+    /// Emitted when `widget` is hidden.
     case hide = "hide"
-    /// Gets emitted if keyboard navigation fails.
-    /// See `gtk_widget_keynav_failed()` for details.
+    /// Emitted if keyboard navigation fails.
+    /// 
+    /// See [method`Gtk.Widget.keynav_failed`] for details.
     case keynavFailed = "keynav-failed"
-    /// The `map` signal is emitted when `widget` is going to be mapped, that is
-    /// when the widget is visible (which is controlled with
-    /// `gtk_widget_set_visible()`) and all its parents up to the toplevel widget
+    /// Emitted when `widget` is going to be mapped.
+    /// 
+    /// A widget is mapped when the widget is visible (which is controlled with
+    /// [property`Gtk.Widget:visible`]) and all its parents up to the toplevel widget
     /// are also visible.
     /// 
     /// The `map` signal can be used to determine whether a widget will be drawn,
     /// for instance it can resume an animation that was stopped during the
-    /// emission of `GtkWidget::unmap`.
+    /// emission of [signal`Gtk.Widget::unmap`].
     case map = "map"
+    /// Emitted when a widget is activated via a mnemonic.
+    /// 
     /// The default handler for this signal activates `widget` if `group_cycling`
     /// is `false`, or just makes `widget` grab focus if `group_cycling` is `true`.
     case mnemonicActivate = "mnemonic-activate"
@@ -2609,9 +2713,11 @@ public enum NativeSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// Emitted when `GtkWidget:has-tooltip` is `true` and the hover timeout
-    /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
-    /// focus in keyboard mode.
+    /// Emitted when the widgets tooltip is about to be shown.
+    /// 
+    /// This happens when the [property`Gtk.Widget:has-tooltip`] property
+    /// is `true` and the hover timeout has expired with the cursor hovering
+    /// "above" `widget`; or emitted when `widget` got focus in keyboard mode.
     /// 
     /// Using the given coordinates, the signal handler should determine
     /// whether a tooltip should be shown for `widget`. If this is the case
@@ -2622,27 +2728,29 @@ public enum NativeSignalName: String, SignalNameProtocol {
     /// The signal handler is free to manipulate `tooltip` with the therefore
     /// destined function calls.
     case queryTooltip = "query-tooltip"
-    /// The `realize` signal is emitted when `widget` is associated with a
-    /// `GdkSurface`, which means that `gtk_widget_realize()` has been called or the
-    /// widget has been mapped (that is, it is going to be drawn).
-    case realize = "realize"
-    /// The `show` signal is emitted when `widget` is shown, for example with
-    /// `gtk_widget_show()`.
-    case show = "show"
-    /// The `state-flags-changed` signal is emitted when the widget state
-    /// changes, see `gtk_widget_get_state_flags()`.
-    case stateFlagsChanged = "state-flags-changed"
-    /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
-    /// means that either it or any of its parents up to the toplevel widget have
-    /// been set as hidden.
+    /// Emitted when `widget` is associated with a `GdkSurface`.
     /// 
-    /// As `unmap` indicates that a widget will not be shown any longer, it can be
-    /// used to, for example, stop an animation on the widget.
+    /// This means that [method`Gtk.Widget.realize`] has been called
+    /// or the widget has been mapped (that is, it is going to be drawn).
+    case realize = "realize"
+    /// Emitted when `widget` is shown.
+    case show = "show"
+    /// Emitted when the widget state changes.
+    /// 
+    /// See [method`Gtk.Widget.get_state_flags`].
+    case stateFlagsChanged = "state-flags-changed"
+    /// Emitted when `widget` is going to be unmapped.
+    /// 
+    /// A widget is unmapped when either it or any of its parents up to the
+    /// toplevel widget have been set as hidden.
+    /// 
+    /// As `unmap` indicates that a widget will not be shown any longer,
+    /// it can be used to, for example, stop an animation on the widget.
     case unmap = "unmap"
-    /// The `unrealize` signal is emitted when the `GdkSurface` associated with
-    /// `widget` is destroyed, which means that `gtk_widget_unrealize()` has been
-    /// called or the widget has been unmapped (that is, it is going to be
-    /// hidden).
+    /// Emitted when the `GdkSurface` associated with `widget` is destroyed.
+    /// 
+    /// This means that [method`Gtk.Widget.unrealize`] has been called
+    /// or the widget has been unmapped (that is, it is going to be hidden).
     case unrealize = "unrealize"
     /// Whether the widget or any of its descendents can accept
     /// the input focus.
@@ -2650,6 +2758,7 @@ public enum NativeSignalName: String, SignalNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case notifyCanFocus = "notify::can-focus"
+    /// Whether the widget can receive pointer events.
     case notifyCanTarget = "notify::can-target"
     /// A list of css classes applied to this widget.
     case notifyCssClasses = "notify::css-classes"
@@ -2658,7 +2767,7 @@ public enum NativeSignalName: String, SignalNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case notifyCssName = "notify::css-name"
-    /// The cursor used by `widget`. See `gtk_widget_set_cursor()` for details.
+    /// The cursor used by `widget`.
     case notifyCursor = "notify::cursor"
     /// Whether the widget should grab focus when it is clicked with the mouse.
     /// 
@@ -2666,19 +2775,25 @@ public enum NativeSignalName: String, SignalNameProtocol {
     case notifyFocusOnClick = "notify::focus-on-click"
     /// Whether this widget itself will accept the input focus.
     case notifyFocusable = "notify::focusable"
-    /// How to distribute horizontal space if widget gets extra space, see `GtkAlign`
+    /// How to distribute horizontal space if widget gets extra space.
     case notifyHalign = "notify::halign"
+    /// Whether the widget is the default widget.
     case notifyHasDefault = "notify::has-default"
+    /// Whether the widget has the input focus.
     case notifyHasFocus = "notify::has-focus"
-    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
+    /// Enables or disables the emission of the `query-tooltip` signal on `widget`.
+    /// 
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
-    /// whether it will provide a tooltip or not.
+    /// the widget will be queried using [signal`Gtk.Widget::query-tooltip`] to
+    /// determine whether it will provide a tooltip or not.
     case notifyHasTooltip = "notify::has-tooltip"
+    /// Override for height request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case notifyHeightRequest = "notify::height-request"
-    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
+    /// Whether to expand horizontally.
     case notifyHexpand = "notify::hexpand"
-    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
+    /// Whether to use the `hexpand` property.
     case notifyHexpandSet = "notify::hexpand-set"
     /// The `GtkLayoutManager` instance to use to compute the preferred size
     /// of the widget, and allocate its children.
@@ -2690,77 +2805,91 @@ public enum NativeSignalName: String, SignalNameProtocol {
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginBottom = "notify::margin-bottom"
-    /// Margin on end of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on end of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginEnd = "notify::margin-end"
-    /// Margin on start of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on start of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginStart = "notify::margin-start"
     /// Margin on top side of widget.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginTop = "notify::margin-top"
+    /// The name of the widget.
     case notifyName = "notify::name"
-    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
-    /// more details about window opacity.
+    /// The requested opacity of the widget.
     case notifyOpacity = "notify::opacity"
     /// How content outside the widget's content area is treated.
     /// 
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case notifyOverflow = "notify::overflow"
+    /// The parent widget of this widget.
     case notifyParent = "notify::parent"
+    /// Whether the widget will receive the default action when it is focused.
     case notifyReceivesDefault = "notify::receives-default"
-    /// The `GtkRoot` widget of the widget tree containing this widget or `nil` if
-    /// the widget is not contained in a root widget.
+    /// The `GtkRoot` widget of the widget tree containing this widget.
+    /// 
+    /// This will be `nil` if the widget is not contained in a root widget.
     case notifyRoot = "notify::root"
-    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
-    /// more details about widget scaling.
+    /// The scale factor of the widget.
     case notifyScaleFactor = "notify::scale-factor"
+    /// Whether the widget responds to input.
     case notifySensitive = "notify::sensitive"
     /// Sets the text of tooltip to be the given string, which is marked up
-    /// with the [Pango text markup language](#PangoMarkupFormat).
-    /// Also see `gtk_tooltip_set_markup()`.
+    /// with Pango markup.
+    /// 
+    /// Also see [method`Gtk.Tooltip.set_markup`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case notifyTooltipMarkup = "notify::tooltip-markup"
     /// Sets the text of tooltip to be the given string.
     /// 
-    /// Also see `gtk_tooltip_set_text()`.
+    /// Also see [method`Gtk.Tooltip.set_text`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case notifyTooltipText = "notify::tooltip-text"
-    /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
+    /// How to distribute vertical space if widget gets extra space.
     case notifyValign = "notify::valign"
-    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
+    /// Whether to expand vertically.
     case notifyVexpand = "notify::vexpand"
-    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
+    /// Whether to use the `vexpand` property.
     case notifyVexpandSet = "notify::vexpand-set"
+    /// Whether the widget is visible.
     case notifyVisible = "notify::visible"
+    /// Override for width request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case notifyWidthRequest = "notify::width-request"
 }
 
@@ -2782,20 +2911,26 @@ public extension NativeProtocol {
         return rv
     }
 
-    /// Retrieves the surface transform of `self`. This is the translation
-    /// from `self`'s surface coordinates into `self`'s widget coordinates.
+    /// Retrieves the surface transform of `self`.
+    /// 
+    /// This is the translation from `self`'s surface coordinates into
+    /// `self`'s widget coordinates.
     @inlinable func getSurfaceTransform(x: UnsafeMutablePointer<CDouble>!, y: UnsafeMutablePointer<CDouble>!) {
         gtk_native_get_surface_transform(native_ptr, x, y)
     
     }
 
     /// Realizes a `GtkNative`.
+    /// 
+    /// This should only be used by subclasses.
     @inlinable func realize() {
         gtk_native_realize(native_ptr)
     
     }
 
     /// Unrealizes a `GtkNative`.
+    /// 
+    /// This should only be used by subclasses.
     @inlinable func unrealize() {
         gtk_native_unrealize(native_ptr)
     

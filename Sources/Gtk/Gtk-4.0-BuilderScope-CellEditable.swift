@@ -20,31 +20,20 @@ import Gdk
 /// For a concrete class that implements these methods and properties, see `BuilderScope`.
 /// Alternatively, use `BuilderScopeRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// `GtkBuilderScope` is an interface to provide support to `GtkBuilder`, primarily
-/// for looking up programming-language-specific values for strings that are
-/// given in a `GtkBuilder` UI file.
+/// `GtkBuilderScope` is an interface to provide language binding support
+/// to `GtkBuilder`.
 /// 
-/// The primary intended audience is bindings that want to provide deeper integration
-/// of `GtkBuilder` into the language.
+/// The goal of `GtkBuilderScope` is to look up programming-language-specific
+/// values for strings that are given in a `GtkBuilder` UI file.
 /// 
-/// A `GtkBuilderScope` instance may be used with multiple `GtkBuilder` objects, even
-/// at once.
+/// The primary intended audience is bindings that want to provide deeper
+/// integration of `GtkBuilder` into the language.
 /// 
-/// By default, GTK will use its own implementation of `GtkBuilderScope` for the C
-/// language which can be created via `gtk_builder_cscope_new()`.
+/// A `GtkBuilderScope` instance may be used with multiple `GtkBuilder` objects,
+/// even at once.
 /// 
-/// `GtkBuilderCScope` instances use symbols explicitly added to `builder`
-/// with prior calls to `gtk_builder_cscope_add_callback_symbol()`. If developers want
-/// to do that, they are encouraged to create their own scopes for that purpose.
-/// 
-/// In the case that symbols are not explicitly added; GTK will uses `GModule`’s
-/// introspective features (by opening the module `nil`) to look at the application’s
-/// symbol table. From here it tries to match the signal function names given in the
-/// interface description with symbols in the application.
-/// 
-/// Note that unless `gtk_builder_cscope_add_callback_symbol()` is called for
-/// all signal callbacks which are referenced by the loaded XML, this
-/// functionality will require that `GModule` be supported on the platform.
+/// By default, GTK will use its own implementation of `GtkBuilderScope`
+/// for the C language which can be created via [ctor`Gtk.BuilderCScope.new`].
 public protocol BuilderScopeProtocol {
         /// Untyped pointer to the underlying `GtkBuilderScope` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -60,31 +49,20 @@ public protocol BuilderScopeProtocol {
 /// It exposes methods that can operate on this data type through `BuilderScopeProtocol` conformance.
 /// Use `BuilderScopeRef` only as an `unowned` reference to an existing `GtkBuilderScope` instance.
 ///
-/// `GtkBuilderScope` is an interface to provide support to `GtkBuilder`, primarily
-/// for looking up programming-language-specific values for strings that are
-/// given in a `GtkBuilder` UI file.
+/// `GtkBuilderScope` is an interface to provide language binding support
+/// to `GtkBuilder`.
 /// 
-/// The primary intended audience is bindings that want to provide deeper integration
-/// of `GtkBuilder` into the language.
+/// The goal of `GtkBuilderScope` is to look up programming-language-specific
+/// values for strings that are given in a `GtkBuilder` UI file.
 /// 
-/// A `GtkBuilderScope` instance may be used with multiple `GtkBuilder` objects, even
-/// at once.
+/// The primary intended audience is bindings that want to provide deeper
+/// integration of `GtkBuilder` into the language.
 /// 
-/// By default, GTK will use its own implementation of `GtkBuilderScope` for the C
-/// language which can be created via `gtk_builder_cscope_new()`.
+/// A `GtkBuilderScope` instance may be used with multiple `GtkBuilder` objects,
+/// even at once.
 /// 
-/// `GtkBuilderCScope` instances use symbols explicitly added to `builder`
-/// with prior calls to `gtk_builder_cscope_add_callback_symbol()`. If developers want
-/// to do that, they are encouraged to create their own scopes for that purpose.
-/// 
-/// In the case that symbols are not explicitly added; GTK will uses `GModule`’s
-/// introspective features (by opening the module `nil`) to look at the application’s
-/// symbol table. From here it tries to match the signal function names given in the
-/// interface description with symbols in the application.
-/// 
-/// Note that unless `gtk_builder_cscope_add_callback_symbol()` is called for
-/// all signal callbacks which are referenced by the loaded XML, this
-/// functionality will require that `GModule` be supported on the platform.
+/// By default, GTK will use its own implementation of `GtkBuilderScope`
+/// for the C language which can be created via [ctor`Gtk.BuilderCScope.new`].
 public struct BuilderScopeRef: BuilderScopeProtocol {
         /// Untyped pointer to the underlying `GtkBuilderScope` instance.
     /// For type-safe access, use the generated, typed pointer `builder_scope_ptr` property instead.
@@ -167,31 +145,20 @@ public extension BuilderScopeRef {
 /// It provides the methods that can operate on this data type through `BuilderScopeProtocol` conformance.
 /// Use `BuilderScope` as a strong reference or owner of a `GtkBuilderScope` instance.
 ///
-/// `GtkBuilderScope` is an interface to provide support to `GtkBuilder`, primarily
-/// for looking up programming-language-specific values for strings that are
-/// given in a `GtkBuilder` UI file.
+/// `GtkBuilderScope` is an interface to provide language binding support
+/// to `GtkBuilder`.
 /// 
-/// The primary intended audience is bindings that want to provide deeper integration
-/// of `GtkBuilder` into the language.
+/// The goal of `GtkBuilderScope` is to look up programming-language-specific
+/// values for strings that are given in a `GtkBuilder` UI file.
 /// 
-/// A `GtkBuilderScope` instance may be used with multiple `GtkBuilder` objects, even
-/// at once.
+/// The primary intended audience is bindings that want to provide deeper
+/// integration of `GtkBuilder` into the language.
 /// 
-/// By default, GTK will use its own implementation of `GtkBuilderScope` for the C
-/// language which can be created via `gtk_builder_cscope_new()`.
+/// A `GtkBuilderScope` instance may be used with multiple `GtkBuilder` objects,
+/// even at once.
 /// 
-/// `GtkBuilderCScope` instances use symbols explicitly added to `builder`
-/// with prior calls to `gtk_builder_cscope_add_callback_symbol()`. If developers want
-/// to do that, they are encouraged to create their own scopes for that purpose.
-/// 
-/// In the case that symbols are not explicitly added; GTK will uses `GModule`’s
-/// introspective features (by opening the module `nil`) to look at the application’s
-/// symbol table. From here it tries to match the signal function names given in the
-/// interface description with symbols in the application.
-/// 
-/// Note that unless `gtk_builder_cscope_add_callback_symbol()` is called for
-/// all signal callbacks which are referenced by the loaded XML, this
-/// functionality will require that `GModule` be supported on the platform.
+/// By default, GTK will use its own implementation of `GtkBuilderScope`
+/// for the C language which can be created via [ctor`Gtk.BuilderCScope.new`].
 open class BuilderScope: BuilderScopeProtocol {
         /// Untyped pointer to the underlying `GtkBuilderScope` instance.
     /// For type-safe access, use the generated, typed pointer `builder_scope_ptr` property instead.
@@ -359,6 +326,8 @@ public extension BuilderScopeProtocol {
 /// For a concrete class that implements these methods and properties, see `CellEditable`.
 /// Alternatively, use `CellEditableRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
+/// Interface for widgets that can be used for editing cells
+/// 
 /// The `GtkCellEditable` interface must be implemented for widgets to be usable
 /// to edit the contents of a `GtkTreeView` cell. It provides a way to specify how
 /// temporary widgets should be configured for editing, get the new value, etc.
@@ -377,6 +346,8 @@ public protocol CellEditableProtocol: WidgetProtocol {
 /// It exposes methods that can operate on this data type through `CellEditableProtocol` conformance.
 /// Use `CellEditableRef` only as an `unowned` reference to an existing `GtkCellEditable` instance.
 ///
+/// Interface for widgets that can be used for editing cells
+/// 
 /// The `GtkCellEditable` interface must be implemented for widgets to be usable
 /// to edit the contents of a `GtkTreeView` cell. It provides a way to specify how
 /// temporary widgets should be configured for editing, get the new value, etc.
@@ -465,6 +436,8 @@ public extension CellEditableRef {
 /// It provides the methods that can operate on this data type through `CellEditableProtocol` conformance.
 /// Use `CellEditable` as a strong reference or owner of a `GtkCellEditable` instance.
 ///
+/// Interface for widgets that can be used for editing cells
+/// 
 /// The `GtkCellEditable` interface must be implemented for widgets to be usable
 /// to edit the contents of a `GtkTreeView` cell. It provides a way to specify how
 /// temporary widgets should be configured for editing, get the new value, etc.
@@ -604,6 +577,7 @@ public enum CellEditablePropertyName: String, PropertyNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case canFocus = "can-focus"
+    /// Whether the widget can receive pointer events.
     case canTarget = "can-target"
     /// A list of css classes applied to this widget.
     case cssClasses = "css-classes"
@@ -612,7 +586,7 @@ public enum CellEditablePropertyName: String, PropertyNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case cssName = "css-name"
-    /// The cursor used by `widget`. See `gtk_widget_set_cursor()` for details.
+    /// The cursor used by `widget`.
     case cursor = "cursor"
     /// Indicates whether editing on the cell has been canceled.
     case editingCanceled = "editing-canceled"
@@ -622,19 +596,25 @@ public enum CellEditablePropertyName: String, PropertyNameProtocol {
     case focusOnClick = "focus-on-click"
     /// Whether this widget itself will accept the input focus.
     case focusable = "focusable"
-    /// How to distribute horizontal space if widget gets extra space, see `GtkAlign`
+    /// How to distribute horizontal space if widget gets extra space.
     case halign = "halign"
+    /// Whether the widget is the default widget.
     case hasDefault = "has-default"
+    /// Whether the widget has the input focus.
     case hasFocus = "has-focus"
-    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
+    /// Enables or disables the emission of the `query-tooltip` signal on `widget`.
+    /// 
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
-    /// whether it will provide a tooltip or not.
+    /// the widget will be queried using [signal`Gtk.Widget::query-tooltip`] to
+    /// determine whether it will provide a tooltip or not.
     case hasTooltip = "has-tooltip"
+    /// Override for height request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case heightRequest = "height-request"
-    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
+    /// Whether to expand horizontally.
     case hexpand = "hexpand"
-    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
+    /// Whether to use the `hexpand` property.
     case hexpandSet = "hexpand-set"
     /// The `GtkLayoutManager` instance to use to compute the preferred size
     /// of the widget, and allocate its children.
@@ -646,77 +626,91 @@ public enum CellEditablePropertyName: String, PropertyNameProtocol {
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginBottom = "margin-bottom"
-    /// Margin on end of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on end of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginEnd = "margin-end"
-    /// Margin on start of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on start of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginStart = "margin-start"
     /// Margin on top side of widget.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginTop = "margin-top"
+    /// The name of the widget.
     case name = "name"
-    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
-    /// more details about window opacity.
+    /// The requested opacity of the widget.
     case opacity = "opacity"
     /// How content outside the widget's content area is treated.
     /// 
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case overflow = "overflow"
+    /// The parent widget of this widget.
     case parent = "parent"
+    /// Whether the widget will receive the default action when it is focused.
     case receivesDefault = "receives-default"
-    /// The `GtkRoot` widget of the widget tree containing this widget or `nil` if
-    /// the widget is not contained in a root widget.
+    /// The `GtkRoot` widget of the widget tree containing this widget.
+    /// 
+    /// This will be `nil` if the widget is not contained in a root widget.
     case root = "root"
-    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
-    /// more details about widget scaling.
+    /// The scale factor of the widget.
     case scaleFactor = "scale-factor"
+    /// Whether the widget responds to input.
     case sensitive = "sensitive"
     /// Sets the text of tooltip to be the given string, which is marked up
-    /// with the [Pango text markup language](#PangoMarkupFormat).
-    /// Also see `gtk_tooltip_set_markup()`.
+    /// with Pango markup.
+    /// 
+    /// Also see [method`Gtk.Tooltip.set_markup`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case tooltipMarkup = "tooltip-markup"
     /// Sets the text of tooltip to be the given string.
     /// 
-    /// Also see `gtk_tooltip_set_text()`.
+    /// Also see [method`Gtk.Tooltip.set_text`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case tooltipText = "tooltip-text"
-    /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
+    /// How to distribute vertical space if widget gets extra space.
     case valign = "valign"
-    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
+    /// Whether to expand vertically.
     case vexpand = "vexpand"
-    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
+    /// Whether to use the `vexpand` property.
     case vexpandSet = "vexpand-set"
+    /// Whether the widget is visible.
     case visible = "visible"
+    /// Override for width request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case widthRequest = "width-request"
 }
 
@@ -775,13 +769,13 @@ public extension CellEditableProtocol {
 
 public enum CellEditableSignalName: String, SignalNameProtocol {
     /// Signals that all holders of a reference to the widget should release
-    /// the reference that they hold. May result in finalization of the widget
-    /// if all references are released.
+    /// the reference that they hold.
+    /// 
+    /// May result in finalization of the widget if all references are released.
     /// 
     /// This signal is not suitable for saving widget state.
     case destroy = "destroy"
-    /// The `direction-changed` signal is emitted when the text direction
-    /// of a widget changes.
+    /// Emitted when the text direction of a widget changes.
     case directionChanged = "direction-changed"
     /// This signal is a sign for the cell renderer to update its
     /// value from the `cell_editable`.
@@ -795,21 +789,24 @@ public enum CellEditableSignalName: String, SignalNameProtocol {
     /// `gtk_cell_editable_editing_done()` is a convenience method
     /// for emitting `GtkCellEditable::editing-done`.
     case editingDone = "editing-done"
-    /// The `hide` signal is emitted when `widget` is hidden, for example with
-    /// `gtk_widget_hide()`.
+    /// Emitted when `widget` is hidden.
     case hide = "hide"
-    /// Gets emitted if keyboard navigation fails.
-    /// See `gtk_widget_keynav_failed()` for details.
+    /// Emitted if keyboard navigation fails.
+    /// 
+    /// See [method`Gtk.Widget.keynav_failed`] for details.
     case keynavFailed = "keynav-failed"
-    /// The `map` signal is emitted when `widget` is going to be mapped, that is
-    /// when the widget is visible (which is controlled with
-    /// `gtk_widget_set_visible()`) and all its parents up to the toplevel widget
+    /// Emitted when `widget` is going to be mapped.
+    /// 
+    /// A widget is mapped when the widget is visible (which is controlled with
+    /// [property`Gtk.Widget:visible`]) and all its parents up to the toplevel widget
     /// are also visible.
     /// 
     /// The `map` signal can be used to determine whether a widget will be drawn,
     /// for instance it can resume an animation that was stopped during the
-    /// emission of `GtkWidget::unmap`.
+    /// emission of [signal`Gtk.Widget::unmap`].
     case map = "map"
+    /// Emitted when a widget is activated via a mnemonic.
+    /// 
     /// The default handler for this signal activates `widget` if `group_cycling`
     /// is `false`, or just makes `widget` grab focus if `group_cycling` is `true`.
     case mnemonicActivate = "mnemonic-activate"
@@ -840,9 +837,11 @@ public enum CellEditableSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// Emitted when `GtkWidget:has-tooltip` is `true` and the hover timeout
-    /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
-    /// focus in keyboard mode.
+    /// Emitted when the widgets tooltip is about to be shown.
+    /// 
+    /// This happens when the [property`Gtk.Widget:has-tooltip`] property
+    /// is `true` and the hover timeout has expired with the cursor hovering
+    /// "above" `widget`; or emitted when `widget` got focus in keyboard mode.
     /// 
     /// Using the given coordinates, the signal handler should determine
     /// whether a tooltip should be shown for `widget`. If this is the case
@@ -853,9 +852,10 @@ public enum CellEditableSignalName: String, SignalNameProtocol {
     /// The signal handler is free to manipulate `tooltip` with the therefore
     /// destined function calls.
     case queryTooltip = "query-tooltip"
-    /// The `realize` signal is emitted when `widget` is associated with a
-    /// `GdkSurface`, which means that `gtk_widget_realize()` has been called or the
-    /// widget has been mapped (that is, it is going to be drawn).
+    /// Emitted when `widget` is associated with a `GdkSurface`.
+    /// 
+    /// This means that [method`Gtk.Widget.realize`] has been called
+    /// or the widget has been mapped (that is, it is going to be drawn).
     case realize = "realize"
     /// This signal is meant to indicate that the cell is finished
     /// editing, and the `cell_editable` widget is being removed and may
@@ -870,23 +870,24 @@ public enum CellEditableSignalName: String, SignalNameProtocol {
     /// `gtk_cell_editable_remove_widget()` is a convenience method
     /// for emitting `GtkCellEditable::remove-widget`.
     case removeWidget = "remove-widget"
-    /// The `show` signal is emitted when `widget` is shown, for example with
-    /// `gtk_widget_show()`.
+    /// Emitted when `widget` is shown.
     case show = "show"
-    /// The `state-flags-changed` signal is emitted when the widget state
-    /// changes, see `gtk_widget_get_state_flags()`.
-    case stateFlagsChanged = "state-flags-changed"
-    /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
-    /// means that either it or any of its parents up to the toplevel widget have
-    /// been set as hidden.
+    /// Emitted when the widget state changes.
     /// 
-    /// As `unmap` indicates that a widget will not be shown any longer, it can be
-    /// used to, for example, stop an animation on the widget.
+    /// See [method`Gtk.Widget.get_state_flags`].
+    case stateFlagsChanged = "state-flags-changed"
+    /// Emitted when `widget` is going to be unmapped.
+    /// 
+    /// A widget is unmapped when either it or any of its parents up to the
+    /// toplevel widget have been set as hidden.
+    /// 
+    /// As `unmap` indicates that a widget will not be shown any longer,
+    /// it can be used to, for example, stop an animation on the widget.
     case unmap = "unmap"
-    /// The `unrealize` signal is emitted when the `GdkSurface` associated with
-    /// `widget` is destroyed, which means that `gtk_widget_unrealize()` has been
-    /// called or the widget has been unmapped (that is, it is going to be
-    /// hidden).
+    /// Emitted when the `GdkSurface` associated with `widget` is destroyed.
+    /// 
+    /// This means that [method`Gtk.Widget.unrealize`] has been called
+    /// or the widget has been unmapped (that is, it is going to be hidden).
     case unrealize = "unrealize"
     /// Whether the widget or any of its descendents can accept
     /// the input focus.
@@ -894,6 +895,7 @@ public enum CellEditableSignalName: String, SignalNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case notifyCanFocus = "notify::can-focus"
+    /// Whether the widget can receive pointer events.
     case notifyCanTarget = "notify::can-target"
     /// A list of css classes applied to this widget.
     case notifyCssClasses = "notify::css-classes"
@@ -902,7 +904,7 @@ public enum CellEditableSignalName: String, SignalNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case notifyCssName = "notify::css-name"
-    /// The cursor used by `widget`. See `gtk_widget_set_cursor()` for details.
+    /// The cursor used by `widget`.
     case notifyCursor = "notify::cursor"
     /// Indicates whether editing on the cell has been canceled.
     case notifyEditingCanceled = "notify::editing-canceled"
@@ -912,19 +914,25 @@ public enum CellEditableSignalName: String, SignalNameProtocol {
     case notifyFocusOnClick = "notify::focus-on-click"
     /// Whether this widget itself will accept the input focus.
     case notifyFocusable = "notify::focusable"
-    /// How to distribute horizontal space if widget gets extra space, see `GtkAlign`
+    /// How to distribute horizontal space if widget gets extra space.
     case notifyHalign = "notify::halign"
+    /// Whether the widget is the default widget.
     case notifyHasDefault = "notify::has-default"
+    /// Whether the widget has the input focus.
     case notifyHasFocus = "notify::has-focus"
-    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
+    /// Enables or disables the emission of the `query-tooltip` signal on `widget`.
+    /// 
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
-    /// whether it will provide a tooltip or not.
+    /// the widget will be queried using [signal`Gtk.Widget::query-tooltip`] to
+    /// determine whether it will provide a tooltip or not.
     case notifyHasTooltip = "notify::has-tooltip"
+    /// Override for height request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case notifyHeightRequest = "notify::height-request"
-    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
+    /// Whether to expand horizontally.
     case notifyHexpand = "notify::hexpand"
-    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
+    /// Whether to use the `hexpand` property.
     case notifyHexpandSet = "notify::hexpand-set"
     /// The `GtkLayoutManager` instance to use to compute the preferred size
     /// of the widget, and allocate its children.
@@ -936,77 +944,91 @@ public enum CellEditableSignalName: String, SignalNameProtocol {
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginBottom = "notify::margin-bottom"
-    /// Margin on end of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on end of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginEnd = "notify::margin-end"
-    /// Margin on start of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on start of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginStart = "notify::margin-start"
     /// Margin on top side of widget.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginTop = "notify::margin-top"
+    /// The name of the widget.
     case notifyName = "notify::name"
-    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
-    /// more details about window opacity.
+    /// The requested opacity of the widget.
     case notifyOpacity = "notify::opacity"
     /// How content outside the widget's content area is treated.
     /// 
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case notifyOverflow = "notify::overflow"
+    /// The parent widget of this widget.
     case notifyParent = "notify::parent"
+    /// Whether the widget will receive the default action when it is focused.
     case notifyReceivesDefault = "notify::receives-default"
-    /// The `GtkRoot` widget of the widget tree containing this widget or `nil` if
-    /// the widget is not contained in a root widget.
+    /// The `GtkRoot` widget of the widget tree containing this widget.
+    /// 
+    /// This will be `nil` if the widget is not contained in a root widget.
     case notifyRoot = "notify::root"
-    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
-    /// more details about widget scaling.
+    /// The scale factor of the widget.
     case notifyScaleFactor = "notify::scale-factor"
+    /// Whether the widget responds to input.
     case notifySensitive = "notify::sensitive"
     /// Sets the text of tooltip to be the given string, which is marked up
-    /// with the [Pango text markup language](#PangoMarkupFormat).
-    /// Also see `gtk_tooltip_set_markup()`.
+    /// with Pango markup.
+    /// 
+    /// Also see [method`Gtk.Tooltip.set_markup`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case notifyTooltipMarkup = "notify::tooltip-markup"
     /// Sets the text of tooltip to be the given string.
     /// 
-    /// Also see `gtk_tooltip_set_text()`.
+    /// Also see [method`Gtk.Tooltip.set_text`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case notifyTooltipText = "notify::tooltip-text"
-    /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
+    /// How to distribute vertical space if widget gets extra space.
     case notifyValign = "notify::valign"
-    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
+    /// Whether to expand vertically.
     case notifyVexpand = "notify::vexpand"
-    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
+    /// Whether to use the `vexpand` property.
     case notifyVexpandSet = "notify::vexpand-set"
+    /// Whether the widget is visible.
     case notifyVisible = "notify::visible"
+    /// Override for width request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case notifyWidthRequest = "notify::width-request"
 }
 

@@ -20,6 +20,8 @@ import Gdk
 /// For a concrete class that implements these methods and properties, see `CellLayout`.
 /// Alternatively, use `CellLayoutRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
+/// An interface for packing cells
+/// 
 /// `GtkCellLayout` is an interface to be implemented by all objects which
 /// want to provide a `GtkTreeViewColumn` like API for packing cells,
 /// setting attributes and data funcs.
@@ -140,6 +142,8 @@ public protocol CellLayoutProtocol {
 /// It exposes methods that can operate on this data type through `CellLayoutProtocol` conformance.
 /// Use `CellLayoutRef` only as an `unowned` reference to an existing `GtkCellLayout` instance.
 ///
+/// An interface for packing cells
+/// 
 /// `GtkCellLayout` is an interface to be implemented by all objects which
 /// want to provide a `GtkTreeViewColumn` like API for packing cells,
 /// setting attributes and data funcs.
@@ -327,6 +331,8 @@ public extension CellLayoutRef {
 /// It provides the methods that can operate on this data type through `CellLayoutProtocol` conformance.
 /// Use `CellLayout` as a strong reference or owner of a `GtkCellLayout` instance.
 ///
+/// An interface for packing cells
+/// 
 /// `GtkCellLayout` is an interface to be implemented by all objects which
 /// want to provide a `GtkTreeViewColumn` like API for packing cells,
 /// setting attributes and data funcs.
@@ -704,11 +710,13 @@ public extension CellLayoutProtocol {
 /// Alternatively, use `ColorChooserRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
 /// `GtkColorChooser` is an interface that is implemented by widgets
-/// for choosing colors. Depending on the situation, colors may be
-/// allowed to have alpha (translucency).
+/// for choosing colors.
+/// 
+/// Depending on the situation, colors may be allowed to have alpha (translucency).
 /// 
 /// In GTK, the main widgets that implement this interface are
-/// `GtkColorChooserWidget`, `GtkColorChooserDialog` and `GtkColorButton`.
+/// [class`Gtk.ColorChooserWidget`], [class`Gtk.ColorChooserDialog`] and
+/// [class`Gtk.ColorButton`].
 public protocol ColorChooserProtocol {
         /// Untyped pointer to the underlying `GtkColorChooser` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -725,11 +733,13 @@ public protocol ColorChooserProtocol {
 /// Use `ColorChooserRef` only as an `unowned` reference to an existing `GtkColorChooser` instance.
 ///
 /// `GtkColorChooser` is an interface that is implemented by widgets
-/// for choosing colors. Depending on the situation, colors may be
-/// allowed to have alpha (translucency).
+/// for choosing colors.
+/// 
+/// Depending on the situation, colors may be allowed to have alpha (translucency).
 /// 
 /// In GTK, the main widgets that implement this interface are
-/// `GtkColorChooserWidget`, `GtkColorChooserDialog` and `GtkColorButton`.
+/// [class`Gtk.ColorChooserWidget`], [class`Gtk.ColorChooserDialog`] and
+/// [class`Gtk.ColorButton`].
 public struct ColorChooserRef: ColorChooserProtocol {
         /// Untyped pointer to the underlying `GtkColorChooser` instance.
     /// For type-safe access, use the generated, typed pointer `color_chooser_ptr` property instead.
@@ -813,11 +823,13 @@ public extension ColorChooserRef {
 /// Use `ColorChooser` as a strong reference or owner of a `GtkColorChooser` instance.
 ///
 /// `GtkColorChooser` is an interface that is implemented by widgets
-/// for choosing colors. Depending on the situation, colors may be
-/// allowed to have alpha (translucency).
+/// for choosing colors.
+/// 
+/// Depending on the situation, colors may be allowed to have alpha (translucency).
 /// 
 /// In GTK, the main widgets that implement this interface are
-/// `GtkColorChooserWidget`, `GtkColorChooserDialog` and `GtkColorButton`.
+/// [class`Gtk.ColorChooserWidget`], [class`Gtk.ColorChooserDialog`] and
+/// [class`Gtk.ColorButton`].
 open class ColorChooser: ColorChooserProtocol {
         /// Untyped pointer to the underlying `GtkColorChooser` instance.
     /// For type-safe access, use the generated, typed pointer `color_chooser_ptr` property instead.
@@ -963,14 +975,16 @@ open class ColorChooser: ColorChooserProtocol {
 }
 
 public enum ColorChooserPropertyName: String, PropertyNameProtocol {
-    /// The `rgba` property contains the currently selected color,
-    /// as a `GdkRGBA` struct. The property can be set to change
-    /// the current selection programmatically.
+    /// The currently selected color, as a `GdkRGBA` struct.
+    /// 
+    /// The property can be set to change the current selection
+    /// programmatically.
     case rgba = "rgba"
-    /// When `use-alpha` is `true`, colors may have alpha (translucency)
-    /// information. When it is `false`, the `GdkRGBA` struct obtained
-    /// via the `GtkColorChooser:rgba` property will be forced to have
-    /// alpha == 1.
+    /// Whether colors may have alpha (translucency).
+    /// 
+    /// When `use-alpha` is `false`, the `GdkRGBA` struct obtained
+    /// via the [property`Gtk.ColorChooser:rgba`] property will be
+    /// forced to have alpha == 1.
     /// 
     /// Implementations are expected to show alpha by rendering the color
     /// over a non-uniform background (like a checkerboard pattern).
@@ -1032,18 +1046,21 @@ public extension ColorChooserProtocol {
 
 public enum ColorChooserSignalName: String, SignalNameProtocol {
     /// Emitted when a color is activated from the color chooser.
+    /// 
     /// This usually happens when the user clicks a color swatch,
     /// or a color is selected and the user presses one of the keys
     /// Space, Shift+Space, Return or Enter.
     case colorActivated = "color-activated"
-    /// The `rgba` property contains the currently selected color,
-    /// as a `GdkRGBA` struct. The property can be set to change
-    /// the current selection programmatically.
+    /// The currently selected color, as a `GdkRGBA` struct.
+    /// 
+    /// The property can be set to change the current selection
+    /// programmatically.
     case notifyRgba = "notify::rgba"
-    /// When `use-alpha` is `true`, colors may have alpha (translucency)
-    /// information. When it is `false`, the `GdkRGBA` struct obtained
-    /// via the `GtkColorChooser:rgba` property will be forced to have
-    /// alpha == 1.
+    /// Whether colors may have alpha (translucency).
+    /// 
+    /// When `use-alpha` is `false`, the `GdkRGBA` struct obtained
+    /// via the [property`Gtk.ColorChooser:rgba`] property will be
+    /// forced to have alpha == 1.
     /// 
     /// Implementations are expected to show alpha by rendering the color
     /// over a non-uniform background (like a checkerboard pattern).
@@ -1079,6 +1096,7 @@ public extension ColorChooserProtocol {
     
     
     /// Emitted when a color is activated from the color chooser.
+    /// 
     /// This usually happens when the user clicks a color swatch,
     /// or a color is selected and the user presses one of the keys
     /// Space, Shift+Space, Return or Enter.
@@ -1212,21 +1230,21 @@ public extension ColorChooserProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkColorChooser` instance.
     @inlinable var color_chooser_ptr: UnsafeMutablePointer<GtkColorChooser>! { return ptr?.assumingMemoryBound(to: GtkColorChooser.self) }
 
-    /// Adds a palette to the color chooser. If `orientation` is horizontal,
-    /// the colors are grouped in rows, with `colors_per_line` colors
-    /// in each row. If `horizontal` is `false`, the colors are grouped
-    /// in columns instead.
+    /// Adds a palette to the color chooser.
     /// 
-    /// The default color palette of `GtkColorChooserWidget` has
-    /// 27 colors, organized in columns of 3 colors. The default gray
-    /// palette has 9 grays in a single row.
+    /// If `orientation` is horizontal, the colors are grouped in rows,
+    /// with `colors_per_line` colors in each row. If `horizontal` is `false`,
+    /// the colors are grouped in columns instead.
+    /// 
+    /// The default color palette of [class`Gtk.ColorChooserWidget`] has
+    /// 45 colors, organized in columns of 5 colors (this includes some
+    /// grays).
     /// 
     /// The layout of the color chooser widget works best when the
     /// palettes have 9-10 columns.
     /// 
-    /// Calling this function for the first time has the
-    /// side effect of removing the default color and gray palettes
-    /// from the color chooser.
+    /// Calling this function for the first time has the side effect
+    /// of removing the default color palette from the color chooser.
     /// 
     /// If `colors` is `nil`, removes all previously added palettes.
     @inlinable func addPalette(orientation: GtkOrientation, colorsPerLine: Int, nColors: Int, colors: UnsafeMutablePointer<GdkRGBA>! = nil) {
@@ -1282,9 +1300,10 @@ public extension ColorChooserProtocol {
 /// For a concrete class that implements these methods and properties, see `ConstraintTarget`.
 /// Alternatively, use `ConstraintTargetRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// The GtkConstraintTarget interface is implemented by objects that
-/// can be used as source or target in `GtkConstraints`. Besides
-/// `GtkWidget`, it is also implemented by `GtkConstraintGuide`.
+/// The `GtkConstraintTarget` interface is implemented by objects that
+/// can be used as source or target in `GtkConstraint`s.
+/// 
+/// Besides `GtkWidget`, it is also implemented by `GtkConstraintGuide`.
 public protocol ConstraintTargetProtocol {
         /// Untyped pointer to the underlying `GtkConstraintTarget` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1300,9 +1319,10 @@ public protocol ConstraintTargetProtocol {
 /// It exposes methods that can operate on this data type through `ConstraintTargetProtocol` conformance.
 /// Use `ConstraintTargetRef` only as an `unowned` reference to an existing `GtkConstraintTarget` instance.
 ///
-/// The GtkConstraintTarget interface is implemented by objects that
-/// can be used as source or target in `GtkConstraints`. Besides
-/// `GtkWidget`, it is also implemented by `GtkConstraintGuide`.
+/// The `GtkConstraintTarget` interface is implemented by objects that
+/// can be used as source or target in `GtkConstraint`s.
+/// 
+/// Besides `GtkWidget`, it is also implemented by `GtkConstraintGuide`.
 public struct ConstraintTargetRef: ConstraintTargetProtocol {
         /// Untyped pointer to the underlying `GtkConstraintTarget` instance.
     /// For type-safe access, use the generated, typed pointer `constraint_target_ptr` property instead.
@@ -1385,9 +1405,10 @@ public extension ConstraintTargetRef {
 /// It provides the methods that can operate on this data type through `ConstraintTargetProtocol` conformance.
 /// Use `ConstraintTarget` as a strong reference or owner of a `GtkConstraintTarget` instance.
 ///
-/// The GtkConstraintTarget interface is implemented by objects that
-/// can be used as source or target in `GtkConstraints`. Besides
-/// `GtkWidget`, it is also implemented by `GtkConstraintGuide`.
+/// The `GtkConstraintTarget` interface is implemented by objects that
+/// can be used as source or target in `GtkConstraint`s.
+/// 
+/// Besides `GtkWidget`, it is also implemented by `GtkConstraintGuide`.
 open class ConstraintTarget: ConstraintTargetProtocol {
         /// Untyped pointer to the underlying `GtkConstraintTarget` instance.
     /// For type-safe access, use the generated, typed pointer `constraint_target_ptr` property instead.
@@ -1555,21 +1576,22 @@ public extension ConstraintTargetProtocol {
 /// For a concrete class that implements these methods and properties, see `Editable`.
 /// Alternatively, use `EditableRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// The `GtkEditable` interface is an interface which should be implemented by
-/// text editing widgets, such as `GtkEntry` and `GtkSpinButton`. It contains functions
-/// for generically manipulating an editable widget, a large number of action
-/// signals used for key bindings, and several signals that an application can
-/// connect to modify the behavior of a widget.
+/// `GtkEditable` is an interface for text editing widgets.
 /// 
-/// As an example of the latter usage, by connecting
-/// the following handler to `GtkEditable::insert-text`, an application
-/// can convert all entry into a widget into uppercase.
+/// Typical examples of editable widgets are [class`Gtk.Entry`] and
+/// [class`Gtk.SpinButton`]. It contains functions for generically manipulating
+/// an editable widget, a large number of action signals used for key bindings,
+/// and several signals that an application can connect to modify the behavior
+/// of a widget.
+/// 
+/// As an example of the latter usage, by connecting the following handler to
+/// [signal`Gtk.Editable::insert-text`], an application can convert all entry
+/// into a widget into uppercase.
 /// 
 /// ## Forcing entry to uppercase.
 /// 
-/// (C Language Example):
-/// ```C
-/// #include <ctype.h>
+/// ```c
+/// `include` &lt;ctype.h&gt;
 /// 
 /// void
 /// insert_text_handler (GtkEditable *editable,
@@ -1594,78 +1616,78 @@ public extension ConstraintTargetProtocol {
 /// 
 /// ## Implementing GtkEditable
 /// 
-/// The most likely scenario for implementing GtkEditable on your own widget
+/// The most likely scenario for implementing `GtkEditable` on your own widget
 /// is that you will embed a `GtkText` inside a complex widget, and want to
-/// delegate the editable functionality to that text widget. GtkEditable
+/// delegate the editable functionality to that text widget. `GtkEditable`
 /// provides some utility functions to make this easy.
 /// 
-/// In your class_init function, call `gtk_editable_install_properties()`,
+/// In your class_init function, call [func`Gtk.Editable.install_properties`],
 /// passing the first available property ID:
 /// 
-/// ```
+/// ```c
 /// static void
 /// my_class_init (MyClass *class)
 /// {
-///    ...
-///    g_object_class_install_properties (object_class, NUM_PROPERTIES, props);
-///    gtk_editable_install_properties (object_clas, NUM_PROPERTIES);
-///    ...
+///   ...
+///   g_object_class_install_properties (object_class, NUM_PROPERTIES, props);
+///   gtk_editable_install_properties (object_clas, NUM_PROPERTIES);
+///   ...
 /// }
 /// ```
 /// 
-/// In your interface_init function for the GtkEditable interface, provide
+/// In your interface_init function for the `GtkEditable` interface, provide
 /// an implementation for the get_delegate vfunc that returns your text widget:
 /// 
-/// ```
+/// ```c
 /// GtkEditable *
 /// get_editable_delegate (GtkEditable *editable)
 /// {
-///   return GTK_EDITABLE (MY_WIDGET (editable)->text_widget);
+///   return GTK_EDITABLE (MY_WIDGET (editable)-&gt;text_widget);
 /// }
 /// 
 /// static void
 /// my_editable_init (GtkEditableInterface *iface)
 /// {
-///   iface->get_delegate = get_editable_delegate;
+///   iface-&gt;get_delegate = get_editable_delegate;
 /// }
 /// ```
 /// 
 /// You don't need to provide any other vfuncs. The default implementations
-/// work by forwarding to the delegate that the `GtkEditableInterface.get_delegate``()`
+/// work by forwarding to the delegate that the `GtkEditableInterface.get_delegate()`
 /// vfunc returns.
 /// 
 /// In your instance_init function, create your text widget, and then call
-/// `gtk_editable_init_delegate()`:
+/// [method`Gtk.Editable.init_delegate`]:
 /// 
-/// ```
+/// ```c
 /// static void
 /// my_widget_init (MyWidget *self)
 /// {
 ///   ...
-///   self->text_widget = gtk_text_new ();
+///   self-&gt;text_widget = gtk_text_new ();
 ///   gtk_editable_init_delegate (GTK_EDITABLE (self));
 ///   ...
 /// }
 /// ```
 /// 
-/// In your dispose function, call `gtk_editable_finish_delegate()` before
+/// In your dispose function, call [method`Gtk.Editable.finish_delegate`] before
 /// destroying your text widget:
 /// 
-/// ```
+/// ```c
 /// static void
 /// my_widget_dispose (GObject *object)
 /// {
 ///   ...
 ///   gtk_editable_finish_delegate (GTK_EDITABLE (self));
-///   g_clear_pointer (&self->text_widget, gtk_widget_unparent);
+///   g_clear_pointer (&self-&gt;text_widget, gtk_widget_unparent);
 ///   ...
 /// }
 /// ```
 /// 
-/// Finally, use `gtk_editable_delegate_set_property()` in your `set_property`
+/// Finally, use [func`Gtk.Editable.delegate_set_property`] in your `set_property`
 /// function (and similar for `get_property`), to set the editable properties:
 /// 
-/// ```
+/// ```c
 ///   ...
 ///   if (gtk_editable_delegate_set_property (object, prop_id, value, pspec))
 ///     return;
@@ -1674,13 +1696,14 @@ public extension ConstraintTargetProtocol {
 ///   ...
 /// ```
 /// 
-/// It is important to note that if you create a GtkEditable that uses a delegate,
-/// the low level `GtkEditable::insert-text` and `GtkEditable::delete-text` signals
-/// will be propagated from the "wrapper" editable to the delegate, but they will
-/// not be propagated from the delegate to the "wrapper" editable, as they would
-/// cause an infinite recursion. If you wish to connect to the `GtkEditable::insert-text`
-/// and `GtkEditable::delete-text` signals, you will need to connect to them on
-/// the delegate obtained via `gtk_editable_get_delegate()`.
+/// It is important to note that if you create a `GtkEditable` that uses
+/// a delegate, the low level [signal`Gtk.Editable::insert-text`] and
+/// [signal`Gtk.Editable::delete-text`] signals will be propagated from the
+/// "wrapper" editable to the delegate, but they will not be propagated from
+/// the delegate to the "wrapper" editable, as they would cause an infinite
+/// recursion. If you wish to connect to the [signal`Gtk.Editable::insert-text`]
+/// and [signal`Gtk.Editable::delete-text`] signals, you will need to connect
+/// to them on the delegate obtained via [method`Gtk.Editable.get_delegate`].
 public protocol EditableProtocol: WidgetProtocol {
         /// Untyped pointer to the underlying `GtkEditable` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1696,21 +1719,22 @@ public protocol EditableProtocol: WidgetProtocol {
 /// It exposes methods that can operate on this data type through `EditableProtocol` conformance.
 /// Use `EditableRef` only as an `unowned` reference to an existing `GtkEditable` instance.
 ///
-/// The `GtkEditable` interface is an interface which should be implemented by
-/// text editing widgets, such as `GtkEntry` and `GtkSpinButton`. It contains functions
-/// for generically manipulating an editable widget, a large number of action
-/// signals used for key bindings, and several signals that an application can
-/// connect to modify the behavior of a widget.
+/// `GtkEditable` is an interface for text editing widgets.
 /// 
-/// As an example of the latter usage, by connecting
-/// the following handler to `GtkEditable::insert-text`, an application
-/// can convert all entry into a widget into uppercase.
+/// Typical examples of editable widgets are [class`Gtk.Entry`] and
+/// [class`Gtk.SpinButton`]. It contains functions for generically manipulating
+/// an editable widget, a large number of action signals used for key bindings,
+/// and several signals that an application can connect to modify the behavior
+/// of a widget.
+/// 
+/// As an example of the latter usage, by connecting the following handler to
+/// [signal`Gtk.Editable::insert-text`], an application can convert all entry
+/// into a widget into uppercase.
 /// 
 /// ## Forcing entry to uppercase.
 /// 
-/// (C Language Example):
-/// ```C
-/// #include <ctype.h>
+/// ```c
+/// `include` &lt;ctype.h&gt;
 /// 
 /// void
 /// insert_text_handler (GtkEditable *editable,
@@ -1735,78 +1759,78 @@ public protocol EditableProtocol: WidgetProtocol {
 /// 
 /// ## Implementing GtkEditable
 /// 
-/// The most likely scenario for implementing GtkEditable on your own widget
+/// The most likely scenario for implementing `GtkEditable` on your own widget
 /// is that you will embed a `GtkText` inside a complex widget, and want to
-/// delegate the editable functionality to that text widget. GtkEditable
+/// delegate the editable functionality to that text widget. `GtkEditable`
 /// provides some utility functions to make this easy.
 /// 
-/// In your class_init function, call `gtk_editable_install_properties()`,
+/// In your class_init function, call [func`Gtk.Editable.install_properties`],
 /// passing the first available property ID:
 /// 
-/// ```
+/// ```c
 /// static void
 /// my_class_init (MyClass *class)
 /// {
-///    ...
-///    g_object_class_install_properties (object_class, NUM_PROPERTIES, props);
-///    gtk_editable_install_properties (object_clas, NUM_PROPERTIES);
-///    ...
+///   ...
+///   g_object_class_install_properties (object_class, NUM_PROPERTIES, props);
+///   gtk_editable_install_properties (object_clas, NUM_PROPERTIES);
+///   ...
 /// }
 /// ```
 /// 
-/// In your interface_init function for the GtkEditable interface, provide
+/// In your interface_init function for the `GtkEditable` interface, provide
 /// an implementation for the get_delegate vfunc that returns your text widget:
 /// 
-/// ```
+/// ```c
 /// GtkEditable *
 /// get_editable_delegate (GtkEditable *editable)
 /// {
-///   return GTK_EDITABLE (MY_WIDGET (editable)->text_widget);
+///   return GTK_EDITABLE (MY_WIDGET (editable)-&gt;text_widget);
 /// }
 /// 
 /// static void
 /// my_editable_init (GtkEditableInterface *iface)
 /// {
-///   iface->get_delegate = get_editable_delegate;
+///   iface-&gt;get_delegate = get_editable_delegate;
 /// }
 /// ```
 /// 
 /// You don't need to provide any other vfuncs. The default implementations
-/// work by forwarding to the delegate that the `GtkEditableInterface.get_delegate``()`
+/// work by forwarding to the delegate that the `GtkEditableInterface.get_delegate()`
 /// vfunc returns.
 /// 
 /// In your instance_init function, create your text widget, and then call
-/// `gtk_editable_init_delegate()`:
+/// [method`Gtk.Editable.init_delegate`]:
 /// 
-/// ```
+/// ```c
 /// static void
 /// my_widget_init (MyWidget *self)
 /// {
 ///   ...
-///   self->text_widget = gtk_text_new ();
+///   self-&gt;text_widget = gtk_text_new ();
 ///   gtk_editable_init_delegate (GTK_EDITABLE (self));
 ///   ...
 /// }
 /// ```
 /// 
-/// In your dispose function, call `gtk_editable_finish_delegate()` before
+/// In your dispose function, call [method`Gtk.Editable.finish_delegate`] before
 /// destroying your text widget:
 /// 
-/// ```
+/// ```c
 /// static void
 /// my_widget_dispose (GObject *object)
 /// {
 ///   ...
 ///   gtk_editable_finish_delegate (GTK_EDITABLE (self));
-///   g_clear_pointer (&self->text_widget, gtk_widget_unparent);
+///   g_clear_pointer (&self-&gt;text_widget, gtk_widget_unparent);
 ///   ...
 /// }
 /// ```
 /// 
-/// Finally, use `gtk_editable_delegate_set_property()` in your `set_property`
+/// Finally, use [func`Gtk.Editable.delegate_set_property`] in your `set_property`
 /// function (and similar for `get_property`), to set the editable properties:
 /// 
-/// ```
+/// ```c
 ///   ...
 ///   if (gtk_editable_delegate_set_property (object, prop_id, value, pspec))
 ///     return;
@@ -1815,13 +1839,14 @@ public protocol EditableProtocol: WidgetProtocol {
 ///   ...
 /// ```
 /// 
-/// It is important to note that if you create a GtkEditable that uses a delegate,
-/// the low level `GtkEditable::insert-text` and `GtkEditable::delete-text` signals
-/// will be propagated from the "wrapper" editable to the delegate, but they will
-/// not be propagated from the delegate to the "wrapper" editable, as they would
-/// cause an infinite recursion. If you wish to connect to the `GtkEditable::insert-text`
-/// and `GtkEditable::delete-text` signals, you will need to connect to them on
-/// the delegate obtained via `gtk_editable_get_delegate()`.
+/// It is important to note that if you create a `GtkEditable` that uses
+/// a delegate, the low level [signal`Gtk.Editable::insert-text`] and
+/// [signal`Gtk.Editable::delete-text`] signals will be propagated from the
+/// "wrapper" editable to the delegate, but they will not be propagated from
+/// the delegate to the "wrapper" editable, as they would cause an infinite
+/// recursion. If you wish to connect to the [signal`Gtk.Editable::insert-text`]
+/// and [signal`Gtk.Editable::delete-text`] signals, you will need to connect
+/// to them on the delegate obtained via [method`Gtk.Editable.get_delegate`].
 public struct EditableRef: EditableProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkEditable` instance.
     /// For type-safe access, use the generated, typed pointer `editable_ptr` property instead.
@@ -1907,21 +1932,22 @@ public extension EditableRef {
 /// It provides the methods that can operate on this data type through `EditableProtocol` conformance.
 /// Use `Editable` as a strong reference or owner of a `GtkEditable` instance.
 ///
-/// The `GtkEditable` interface is an interface which should be implemented by
-/// text editing widgets, such as `GtkEntry` and `GtkSpinButton`. It contains functions
-/// for generically manipulating an editable widget, a large number of action
-/// signals used for key bindings, and several signals that an application can
-/// connect to modify the behavior of a widget.
+/// `GtkEditable` is an interface for text editing widgets.
 /// 
-/// As an example of the latter usage, by connecting
-/// the following handler to `GtkEditable::insert-text`, an application
-/// can convert all entry into a widget into uppercase.
+/// Typical examples of editable widgets are [class`Gtk.Entry`] and
+/// [class`Gtk.SpinButton`]. It contains functions for generically manipulating
+/// an editable widget, a large number of action signals used for key bindings,
+/// and several signals that an application can connect to modify the behavior
+/// of a widget.
+/// 
+/// As an example of the latter usage, by connecting the following handler to
+/// [signal`Gtk.Editable::insert-text`], an application can convert all entry
+/// into a widget into uppercase.
 /// 
 /// ## Forcing entry to uppercase.
 /// 
-/// (C Language Example):
-/// ```C
-/// #include <ctype.h>
+/// ```c
+/// `include` &lt;ctype.h&gt;
 /// 
 /// void
 /// insert_text_handler (GtkEditable *editable,
@@ -1946,78 +1972,78 @@ public extension EditableRef {
 /// 
 /// ## Implementing GtkEditable
 /// 
-/// The most likely scenario for implementing GtkEditable on your own widget
+/// The most likely scenario for implementing `GtkEditable` on your own widget
 /// is that you will embed a `GtkText` inside a complex widget, and want to
-/// delegate the editable functionality to that text widget. GtkEditable
+/// delegate the editable functionality to that text widget. `GtkEditable`
 /// provides some utility functions to make this easy.
 /// 
-/// In your class_init function, call `gtk_editable_install_properties()`,
+/// In your class_init function, call [func`Gtk.Editable.install_properties`],
 /// passing the first available property ID:
 /// 
-/// ```
+/// ```c
 /// static void
 /// my_class_init (MyClass *class)
 /// {
-///    ...
-///    g_object_class_install_properties (object_class, NUM_PROPERTIES, props);
-///    gtk_editable_install_properties (object_clas, NUM_PROPERTIES);
-///    ...
+///   ...
+///   g_object_class_install_properties (object_class, NUM_PROPERTIES, props);
+///   gtk_editable_install_properties (object_clas, NUM_PROPERTIES);
+///   ...
 /// }
 /// ```
 /// 
-/// In your interface_init function for the GtkEditable interface, provide
+/// In your interface_init function for the `GtkEditable` interface, provide
 /// an implementation for the get_delegate vfunc that returns your text widget:
 /// 
-/// ```
+/// ```c
 /// GtkEditable *
 /// get_editable_delegate (GtkEditable *editable)
 /// {
-///   return GTK_EDITABLE (MY_WIDGET (editable)->text_widget);
+///   return GTK_EDITABLE (MY_WIDGET (editable)-&gt;text_widget);
 /// }
 /// 
 /// static void
 /// my_editable_init (GtkEditableInterface *iface)
 /// {
-///   iface->get_delegate = get_editable_delegate;
+///   iface-&gt;get_delegate = get_editable_delegate;
 /// }
 /// ```
 /// 
 /// You don't need to provide any other vfuncs. The default implementations
-/// work by forwarding to the delegate that the `GtkEditableInterface.get_delegate``()`
+/// work by forwarding to the delegate that the `GtkEditableInterface.get_delegate()`
 /// vfunc returns.
 /// 
 /// In your instance_init function, create your text widget, and then call
-/// `gtk_editable_init_delegate()`:
+/// [method`Gtk.Editable.init_delegate`]:
 /// 
-/// ```
+/// ```c
 /// static void
 /// my_widget_init (MyWidget *self)
 /// {
 ///   ...
-///   self->text_widget = gtk_text_new ();
+///   self-&gt;text_widget = gtk_text_new ();
 ///   gtk_editable_init_delegate (GTK_EDITABLE (self));
 ///   ...
 /// }
 /// ```
 /// 
-/// In your dispose function, call `gtk_editable_finish_delegate()` before
+/// In your dispose function, call [method`Gtk.Editable.finish_delegate`] before
 /// destroying your text widget:
 /// 
-/// ```
+/// ```c
 /// static void
 /// my_widget_dispose (GObject *object)
 /// {
 ///   ...
 ///   gtk_editable_finish_delegate (GTK_EDITABLE (self));
-///   g_clear_pointer (&self->text_widget, gtk_widget_unparent);
+///   g_clear_pointer (&self-&gt;text_widget, gtk_widget_unparent);
 ///   ...
 /// }
 /// ```
 /// 
-/// Finally, use `gtk_editable_delegate_set_property()` in your `set_property`
+/// Finally, use [func`Gtk.Editable.delegate_set_property`] in your `set_property`
 /// function (and similar for `get_property`), to set the editable properties:
 /// 
-/// ```
+/// ```c
 ///   ...
 ///   if (gtk_editable_delegate_set_property (object, prop_id, value, pspec))
 ///     return;
@@ -2026,13 +2052,14 @@ public extension EditableRef {
 ///   ...
 /// ```
 /// 
-/// It is important to note that if you create a GtkEditable that uses a delegate,
-/// the low level `GtkEditable::insert-text` and `GtkEditable::delete-text` signals
-/// will be propagated from the "wrapper" editable to the delegate, but they will
-/// not be propagated from the delegate to the "wrapper" editable, as they would
-/// cause an infinite recursion. If you wish to connect to the `GtkEditable::insert-text`
-/// and `GtkEditable::delete-text` signals, you will need to connect to them on
-/// the delegate obtained via `gtk_editable_get_delegate()`.
+/// It is important to note that if you create a `GtkEditable` that uses
+/// a delegate, the low level [signal`Gtk.Editable::insert-text`] and
+/// [signal`Gtk.Editable::delete-text`] signals will be propagated from the
+/// "wrapper" editable to the delegate, but they will not be propagated from
+/// the delegate to the "wrapper" editable, as they would cause an infinite
+/// recursion. If you wish to connect to the [signal`Gtk.Editable::insert-text`]
+/// and [signal`Gtk.Editable::delete-text`] signals, you will need to connect
+/// to them on the delegate obtained via [method`Gtk.Editable.get_delegate`].
 open class Editable: Widget, EditableProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -2169,6 +2196,7 @@ public enum EditablePropertyName: String, PropertyNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case canFocus = "can-focus"
+    /// Whether the widget can receive pointer events.
     case canTarget = "can-target"
     /// A list of css classes applied to this widget.
     case cssClasses = "css-classes"
@@ -2177,10 +2205,13 @@ public enum EditablePropertyName: String, PropertyNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case cssName = "css-name"
-    /// The cursor used by `widget`. See `gtk_widget_set_cursor()` for details.
+    /// The cursor used by `widget`.
     case cursor = "cursor"
+    /// The current position of the insertion cursor in chars.
     case cursorPosition = "cursor-position"
+    /// Whether the entry contents can be edited.
     case editable = "editable"
+    /// If undo/redo should be enabled for the editable.
     case enableUndo = "enable-undo"
     /// Whether the widget should grab focus when it is clicked with the mouse.
     /// 
@@ -2188,19 +2219,25 @@ public enum EditablePropertyName: String, PropertyNameProtocol {
     case focusOnClick = "focus-on-click"
     /// Whether this widget itself will accept the input focus.
     case focusable = "focusable"
-    /// How to distribute horizontal space if widget gets extra space, see `GtkAlign`
+    /// How to distribute horizontal space if widget gets extra space.
     case halign = "halign"
+    /// Whether the widget is the default widget.
     case hasDefault = "has-default"
+    /// Whether the widget has the input focus.
     case hasFocus = "has-focus"
-    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
+    /// Enables or disables the emission of the `query-tooltip` signal on `widget`.
+    /// 
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
-    /// whether it will provide a tooltip or not.
+    /// the widget will be queried using [signal`Gtk.Widget::query-tooltip`] to
+    /// determine whether it will provide a tooltip or not.
     case hasTooltip = "has-tooltip"
+    /// Override for height request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case heightRequest = "height-request"
-    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
+    /// Whether to expand horizontally.
     case hexpand = "hexpand"
-    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
+    /// Whether to use the `hexpand` property.
     case hexpandSet = "hexpand-set"
     /// The `GtkLayoutManager` instance to use to compute the preferred size
     /// of the widget, and allocate its children.
@@ -2212,82 +2249,103 @@ public enum EditablePropertyName: String, PropertyNameProtocol {
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginBottom = "margin-bottom"
-    /// Margin on end of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on end of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginEnd = "margin-end"
-    /// Margin on start of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on start of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginStart = "margin-start"
     /// Margin on top side of widget.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case marginTop = "margin-top"
+    /// The desired maximum width of the entry, in characters.
     case maxWidthChars = "max-width-chars"
+    /// The name of the widget.
     case name = "name"
-    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
-    /// more details about window opacity.
+    /// The requested opacity of the widget.
     case opacity = "opacity"
     /// How content outside the widget's content area is treated.
     /// 
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case overflow = "overflow"
+    /// The parent widget of this widget.
     case parent = "parent"
+    /// Whether the widget will receive the default action when it is focused.
     case receivesDefault = "receives-default"
-    /// The `GtkRoot` widget of the widget tree containing this widget or `nil` if
-    /// the widget is not contained in a root widget.
+    /// The `GtkRoot` widget of the widget tree containing this widget.
+    /// 
+    /// This will be `nil` if the widget is not contained in a root widget.
     case root = "root"
-    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
-    /// more details about widget scaling.
+    /// The scale factor of the widget.
     case scaleFactor = "scale-factor"
+    /// The position of the opposite end of the selection from the cursor in chars.
     case selectionBound = "selection-bound"
+    /// Whether the widget responds to input.
     case sensitive = "sensitive"
+    /// The contents of the entry.
     case text = "text"
     /// Sets the text of tooltip to be the given string, which is marked up
-    /// with the [Pango text markup language](#PangoMarkupFormat).
-    /// Also see `gtk_tooltip_set_markup()`.
+    /// with Pango markup.
+    /// 
+    /// Also see [method`Gtk.Tooltip.set_markup`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case tooltipMarkup = "tooltip-markup"
     /// Sets the text of tooltip to be the given string.
     /// 
-    /// Also see `gtk_tooltip_set_text()`.
+    /// Also see [method`Gtk.Tooltip.set_text`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case tooltipText = "tooltip-text"
-    /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
+    /// How to distribute vertical space if widget gets extra space.
     case valign = "valign"
-    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
+    /// Whether to expand vertically.
     case vexpand = "vexpand"
-    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
+    /// Whether to use the `vexpand` property.
     case vexpandSet = "vexpand-set"
+    /// Whether the widget is visible.
     case visible = "visible"
+    /// Number of characters to leave space for in the entry.
     case widthChars = "width-chars"
+    /// Override for width request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case widthRequest = "width-request"
+    /// The horizontal alignment, from 0 (left) to 1 (right).
+    /// 
+    /// Reversed for RTL layouts.
     case xalign = "xalign"
 }
 
@@ -2345,8 +2403,8 @@ public extension EditableProtocol {
 }
 
 public enum EditableSignalName: String, SignalNameProtocol {
-    /// The `changed` signal is emitted at the end of a single
-    /// user-visible operation on the contents of the `GtkEditable`.
+    /// Emitted at the end of a single user-visible operation on the
+    /// contents.
     /// 
     /// E.g., a paste operation that replaces the contents of the
     /// selection will cause only one signal emission (even though it
@@ -2354,48 +2412,50 @@ public enum EditableSignalName: String, SignalNameProtocol {
     /// the new content, and may cause multiple `notify::text` signals
     /// to be emitted).
     case changed = "changed"
-    /// This signal is emitted when text is deleted from
-    /// the widget by the user. The default handler for
-    /// this signal will normally be responsible for deleting
-    /// the text, so by connecting to this signal and then
-    /// stopping the signal with `g_signal_stop_emission()`, it
-    /// is possible to modify the range of deleted text, or
-    /// prevent it from being deleted entirely. The `start_pos`
-    /// and `end_pos` parameters are interpreted as for
-    /// `gtk_editable_delete_text()`.
+    /// Emitted when text is deleted from the widget by the user.
+    /// 
+    /// The default handler for this signal will normally be responsible for
+    /// deleting the text, so by connecting to this signal and then stopping
+    /// the signal with `g_signal_stop_emission()`, it is possible to modify the
+    /// range of deleted text, or prevent it from being deleted entirely.
+    /// 
+    /// The `start_pos` and `end_pos` parameters are interpreted as for
+    /// [method`Gtk.Editable.delete_text`].
     case deleteText = "delete-text"
     /// Signals that all holders of a reference to the widget should release
-    /// the reference that they hold. May result in finalization of the widget
-    /// if all references are released.
+    /// the reference that they hold.
+    /// 
+    /// May result in finalization of the widget if all references are released.
     /// 
     /// This signal is not suitable for saving widget state.
     case destroy = "destroy"
-    /// The `direction-changed` signal is emitted when the text direction
-    /// of a widget changes.
+    /// Emitted when the text direction of a widget changes.
     case directionChanged = "direction-changed"
-    /// The `hide` signal is emitted when `widget` is hidden, for example with
-    /// `gtk_widget_hide()`.
+    /// Emitted when `widget` is hidden.
     case hide = "hide"
-    /// This signal is emitted when text is inserted into
-    /// the widget by the user. The default handler for
-    /// this signal will normally be responsible for inserting
-    /// the text, so by connecting to this signal and then
-    /// stopping the signal with `g_signal_stop_emission()`, it
-    /// is possible to modify the inserted text, or prevent
-    /// it from being inserted entirely.
+    /// Emitted when text is inserted into the widget by the user.
+    /// 
+    /// The default handler for this signal will normally be responsible
+    /// for inserting the text, so by connecting to this signal and then
+    /// stopping the signal with `g_signal_stop_emission()`, it is possible
+    /// to modify the inserted text, or prevent it from being inserted entirely.
     case insertText = "insert-text"
-    /// Gets emitted if keyboard navigation fails.
-    /// See `gtk_widget_keynav_failed()` for details.
+    /// Emitted if keyboard navigation fails.
+    /// 
+    /// See [method`Gtk.Widget.keynav_failed`] for details.
     case keynavFailed = "keynav-failed"
-    /// The `map` signal is emitted when `widget` is going to be mapped, that is
-    /// when the widget is visible (which is controlled with
-    /// `gtk_widget_set_visible()`) and all its parents up to the toplevel widget
+    /// Emitted when `widget` is going to be mapped.
+    /// 
+    /// A widget is mapped when the widget is visible (which is controlled with
+    /// [property`Gtk.Widget:visible`]) and all its parents up to the toplevel widget
     /// are also visible.
     /// 
     /// The `map` signal can be used to determine whether a widget will be drawn,
     /// for instance it can resume an animation that was stopped during the
-    /// emission of `GtkWidget::unmap`.
+    /// emission of [signal`Gtk.Widget::unmap`].
     case map = "map"
+    /// Emitted when a widget is activated via a mnemonic.
+    /// 
     /// The default handler for this signal activates `widget` if `group_cycling`
     /// is `false`, or just makes `widget` grab focus if `group_cycling` is `true`.
     case mnemonicActivate = "mnemonic-activate"
@@ -2426,9 +2486,11 @@ public enum EditableSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// Emitted when `GtkWidget:has-tooltip` is `true` and the hover timeout
-    /// has expired with the cursor hovering "above" `widget`; or emitted when `widget` got
-    /// focus in keyboard mode.
+    /// Emitted when the widgets tooltip is about to be shown.
+    /// 
+    /// This happens when the [property`Gtk.Widget:has-tooltip`] property
+    /// is `true` and the hover timeout has expired with the cursor hovering
+    /// "above" `widget`; or emitted when `widget` got focus in keyboard mode.
     /// 
     /// Using the given coordinates, the signal handler should determine
     /// whether a tooltip should be shown for `widget`. If this is the case
@@ -2439,27 +2501,29 @@ public enum EditableSignalName: String, SignalNameProtocol {
     /// The signal handler is free to manipulate `tooltip` with the therefore
     /// destined function calls.
     case queryTooltip = "query-tooltip"
-    /// The `realize` signal is emitted when `widget` is associated with a
-    /// `GdkSurface`, which means that `gtk_widget_realize()` has been called or the
-    /// widget has been mapped (that is, it is going to be drawn).
-    case realize = "realize"
-    /// The `show` signal is emitted when `widget` is shown, for example with
-    /// `gtk_widget_show()`.
-    case show = "show"
-    /// The `state-flags-changed` signal is emitted when the widget state
-    /// changes, see `gtk_widget_get_state_flags()`.
-    case stateFlagsChanged = "state-flags-changed"
-    /// The `unmap` signal is emitted when `widget` is going to be unmapped, which
-    /// means that either it or any of its parents up to the toplevel widget have
-    /// been set as hidden.
+    /// Emitted when `widget` is associated with a `GdkSurface`.
     /// 
-    /// As `unmap` indicates that a widget will not be shown any longer, it can be
-    /// used to, for example, stop an animation on the widget.
+    /// This means that [method`Gtk.Widget.realize`] has been called
+    /// or the widget has been mapped (that is, it is going to be drawn).
+    case realize = "realize"
+    /// Emitted when `widget` is shown.
+    case show = "show"
+    /// Emitted when the widget state changes.
+    /// 
+    /// See [method`Gtk.Widget.get_state_flags`].
+    case stateFlagsChanged = "state-flags-changed"
+    /// Emitted when `widget` is going to be unmapped.
+    /// 
+    /// A widget is unmapped when either it or any of its parents up to the
+    /// toplevel widget have been set as hidden.
+    /// 
+    /// As `unmap` indicates that a widget will not be shown any longer,
+    /// it can be used to, for example, stop an animation on the widget.
     case unmap = "unmap"
-    /// The `unrealize` signal is emitted when the `GdkSurface` associated with
-    /// `widget` is destroyed, which means that `gtk_widget_unrealize()` has been
-    /// called or the widget has been unmapped (that is, it is going to be
-    /// hidden).
+    /// Emitted when the `GdkSurface` associated with `widget` is destroyed.
+    /// 
+    /// This means that [method`Gtk.Widget.unrealize`] has been called
+    /// or the widget has been unmapped (that is, it is going to be hidden).
     case unrealize = "unrealize"
     /// Whether the widget or any of its descendents can accept
     /// the input focus.
@@ -2467,6 +2531,7 @@ public enum EditableSignalName: String, SignalNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case notifyCanFocus = "notify::can-focus"
+    /// Whether the widget can receive pointer events.
     case notifyCanTarget = "notify::can-target"
     /// A list of css classes applied to this widget.
     case notifyCssClasses = "notify::css-classes"
@@ -2475,10 +2540,13 @@ public enum EditableSignalName: String, SignalNameProtocol {
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case notifyCssName = "notify::css-name"
-    /// The cursor used by `widget`. See `gtk_widget_set_cursor()` for details.
+    /// The cursor used by `widget`.
     case notifyCursor = "notify::cursor"
+    /// The current position of the insertion cursor in chars.
     case notifyCursorPosition = "notify::cursor-position"
+    /// Whether the entry contents can be edited.
     case notifyEditable = "notify::editable"
+    /// If undo/redo should be enabled for the editable.
     case notifyEnableUndo = "notify::enable-undo"
     /// Whether the widget should grab focus when it is clicked with the mouse.
     /// 
@@ -2486,19 +2554,25 @@ public enum EditableSignalName: String, SignalNameProtocol {
     case notifyFocusOnClick = "notify::focus-on-click"
     /// Whether this widget itself will accept the input focus.
     case notifyFocusable = "notify::focusable"
-    /// How to distribute horizontal space if widget gets extra space, see `GtkAlign`
+    /// How to distribute horizontal space if widget gets extra space.
     case notifyHalign = "notify::halign"
+    /// Whether the widget is the default widget.
     case notifyHasDefault = "notify::has-default"
+    /// Whether the widget has the input focus.
     case notifyHasFocus = "notify::has-focus"
-    /// Enables or disables the emission of `GtkWidget::query-tooltip` on `widget`.
+    /// Enables or disables the emission of the `query-tooltip` signal on `widget`.
+    /// 
     /// A value of `true` indicates that `widget` can have a tooltip, in this case
-    /// the widget will be queried using `GtkWidget::query-tooltip` to determine
-    /// whether it will provide a tooltip or not.
+    /// the widget will be queried using [signal`Gtk.Widget::query-tooltip`] to
+    /// determine whether it will provide a tooltip or not.
     case notifyHasTooltip = "notify::has-tooltip"
+    /// Override for height request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case notifyHeightRequest = "notify::height-request"
-    /// Whether to expand horizontally. See `gtk_widget_set_hexpand()`.
+    /// Whether to expand horizontally.
     case notifyHexpand = "notify::hexpand"
-    /// Whether to use the `GtkWidget:hexpand` property. See `gtk_widget_get_hexpand_set()`.
+    /// Whether to use the `hexpand` property.
     case notifyHexpandSet = "notify::hexpand-set"
     /// The `GtkLayoutManager` instance to use to compute the preferred size
     /// of the widget, and allocate its children.
@@ -2510,82 +2584,103 @@ public enum EditableSignalName: String, SignalNameProtocol {
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginBottom = "notify::margin-bottom"
-    /// Margin on end of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on end of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginEnd = "notify::margin-end"
-    /// Margin on start of widget, horizontally. This property supports
-    /// left-to-right and right-to-left text directions.
+    /// Margin on start of widget, horizontally.
+    /// 
+    /// This property supports left-to-right and right-to-left text
+    /// directions.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginStart = "notify::margin-start"
     /// Margin on top side of widget.
     /// 
     /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
-    /// `gtk_widget_set_size_request()` for example.
+    /// [method`Gtk.Widget.set_size_request`] for example.
     case notifyMarginTop = "notify::margin-top"
+    /// The desired maximum width of the entry, in characters.
     case notifyMaxWidthChars = "notify::max-width-chars"
+    /// The name of the widget.
     case notifyName = "notify::name"
-    /// The requested opacity of the widget. See `gtk_widget_set_opacity()` for
-    /// more details about window opacity.
+    /// The requested opacity of the widget.
     case notifyOpacity = "notify::opacity"
     /// How content outside the widget's content area is treated.
     /// 
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
     case notifyOverflow = "notify::overflow"
+    /// The parent widget of this widget.
     case notifyParent = "notify::parent"
+    /// Whether the widget will receive the default action when it is focused.
     case notifyReceivesDefault = "notify::receives-default"
-    /// The `GtkRoot` widget of the widget tree containing this widget or `nil` if
-    /// the widget is not contained in a root widget.
+    /// The `GtkRoot` widget of the widget tree containing this widget.
+    /// 
+    /// This will be `nil` if the widget is not contained in a root widget.
     case notifyRoot = "notify::root"
-    /// The scale factor of the widget. See `gtk_widget_get_scale_factor()` for
-    /// more details about widget scaling.
+    /// The scale factor of the widget.
     case notifyScaleFactor = "notify::scale-factor"
+    /// The position of the opposite end of the selection from the cursor in chars.
     case notifySelectionBound = "notify::selection-bound"
+    /// Whether the widget responds to input.
     case notifySensitive = "notify::sensitive"
+    /// The contents of the entry.
     case notifyText = "notify::text"
     /// Sets the text of tooltip to be the given string, which is marked up
-    /// with the [Pango text markup language](#PangoMarkupFormat).
-    /// Also see `gtk_tooltip_set_markup()`.
+    /// with Pango markup.
+    /// 
+    /// Also see [method`Gtk.Tooltip.set_markup`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case notifyTooltipMarkup = "notify::tooltip-markup"
     /// Sets the text of tooltip to be the given string.
     /// 
-    /// Also see `gtk_tooltip_set_text()`.
+    /// Also see [method`Gtk.Tooltip.set_text`].
     /// 
     /// This is a convenience property which will take care of getting the
-    /// tooltip shown if the given string is not `nil`: `GtkWidget:has-tooltip`
-    /// will automatically be set to `true` and there will be taken care of
-    /// `GtkWidget::query-tooltip` in the default signal handler.
+    /// tooltip shown if the given string is not `nil`:
+    /// [property`Gtk.Widget:has-tooltip`] will automatically be set to `true`
+    /// and there will be taken care of [signal`Gtk.Widget::query-tooltip`] in
+    /// the default signal handler.
     /// 
-    /// Note that if both `GtkWidget:tooltip-text` and `GtkWidget:tooltip-markup`
-    /// are set, the last one wins.
+    /// Note that if both [property`Gtk.Widget:tooltip-text`] and
+    /// [property`Gtk.Widget:tooltip-markup`] are set, the last one wins.
     case notifyTooltipText = "notify::tooltip-text"
-    /// How to distribute vertical space if widget gets extra space, see `GtkAlign`
+    /// How to distribute vertical space if widget gets extra space.
     case notifyValign = "notify::valign"
-    /// Whether to expand vertically. See `gtk_widget_set_vexpand()`.
+    /// Whether to expand vertically.
     case notifyVexpand = "notify::vexpand"
-    /// Whether to use the `GtkWidget:vexpand` property. See `gtk_widget_get_vexpand_set()`.
+    /// Whether to use the `vexpand` property.
     case notifyVexpandSet = "notify::vexpand-set"
+    /// Whether the widget is visible.
     case notifyVisible = "notify::visible"
+    /// Number of characters to leave space for in the entry.
     case notifyWidthChars = "notify::width-chars"
+    /// Override for width request of the widget.
+    /// 
+    /// If this is -1, the natural request will be used.
     case notifyWidthRequest = "notify::width-request"
+    /// The horizontal alignment, from 0 (left) to 1 (right).
+    /// 
+    /// Reversed for RTL layouts.
     case notifyXalign = "notify::xalign"
 }
 
@@ -2617,13 +2712,12 @@ public extension EditableProtocol {
     }
     
     
-    /// This signal is emitted when text is inserted into
-    /// the widget by the user. The default handler for
-    /// this signal will normally be responsible for inserting
-    /// the text, so by connecting to this signal and then
-    /// stopping the signal with `g_signal_stop_emission()`, it
-    /// is possible to modify the inserted text, or prevent
-    /// it from being inserted entirely.
+    /// Emitted when text is inserted into the widget by the user.
+    /// 
+    /// The default handler for this signal will normally be responsible
+    /// for inserting the text, so by connecting to this signal and then
+    /// stopping the signal with `g_signal_stop_emission()`, it is possible
+    /// to modify the inserted text, or prevent it from being inserted entirely.
     /// - Note: This represents the underlying `insert-text` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -2634,8 +2728,8 @@ public extension EditableProtocol {
     /// - Warning: a `onInsertText` wrapper for this signal could not be generated because it contains unimplemented features: { (1) argument with ownership transfer is not allowed, (2)  `out` or `inout` argument direction is not allowed }
     /// - Note: Instead, you can connect `insertTextSignal` using the `connect(signal:)` methods
     static var insertTextSignal: EditableSignalName { .insertText }
-    /// The `changed` signal is emitted at the end of a single
-    /// user-visible operation on the contents of the `GtkEditable`.
+    /// Emitted at the end of a single user-visible operation on the
+    /// contents.
     /// 
     /// E.g., a paste operation that replaces the contents of the
     /// selection will cause only one signal emission (even though it
@@ -2666,15 +2760,15 @@ public extension EditableProtocol {
     /// Typed `changed` signal for using the `connect(signal:)` methods
     static var changedSignal: EditableSignalName { .changed }
     
-    /// This signal is emitted when text is deleted from
-    /// the widget by the user. The default handler for
-    /// this signal will normally be responsible for deleting
-    /// the text, so by connecting to this signal and then
-    /// stopping the signal with `g_signal_stop_emission()`, it
-    /// is possible to modify the range of deleted text, or
-    /// prevent it from being deleted entirely. The `start_pos`
-    /// and `end_pos` parameters are interpreted as for
-    /// `gtk_editable_delete_text()`.
+    /// Emitted when text is deleted from the widget by the user.
+    /// 
+    /// The default handler for this signal will normally be responsible for
+    /// deleting the text, so by connecting to this signal and then stopping
+    /// the signal with `g_signal_stop_emission()`, it is possible to modify the
+    /// range of deleted text, or prevent it from being deleted entirely.
+    /// 
+    /// The `start_pos` and `end_pos` parameters are interpreted as for
+    /// [method`Gtk.Editable.delete_text`].
     /// - Note: This represents the underlying `delete-text` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -3101,16 +3195,19 @@ public extension EditableProtocol {
     @inlinable var editable_ptr: UnsafeMutablePointer<GtkEditable>! { return ptr?.assumingMemoryBound(to: GtkEditable.self) }
 
     /// Deletes the currently selected text of the editable.
+    /// 
     /// This call doesn’t do anything if there is no selected text.
     @inlinable func deleteSelection() {
         gtk_editable_delete_selection(editable_ptr)
     
     }
 
-    /// Deletes a sequence of characters. The characters that are deleted are
-    /// those characters at positions from `start_pos` up to, but not including
-    /// `end_pos`. If `end_pos` is negative, then the characters deleted
-    /// are those from `start_pos` to the end of the text.
+    /// Deletes a sequence of characters.
+    /// 
+    /// The characters that are deleted are those characters at positions
+    /// from `start_pos` up to, but not including `end_pos`. If `end_pos` is
+    /// negative, then the characters deleted are those from `start_pos` to
+    /// the end of the text.
     /// 
     /// Note that the positions are specified in characters, not bytes.
     @inlinable func deleteText(startPos: Int, endPos: Int) {
@@ -3118,7 +3215,7 @@ public extension EditableProtocol {
     
     }
 
-    /// Undoes the setup done by `gtk_editable_init_delegate()`.
+    /// Undoes the setup done by [method`Gtk.Editable.init_delegate`].
     /// 
     /// This is a helper function that should be called from dispose,
     /// before removing the delegate object.
@@ -3127,16 +3224,18 @@ public extension EditableProtocol {
     
     }
 
-    /// Gets the value set by `gtk_editable_set_alignment()`.
+    /// Gets the alignment of the editable.
     @inlinable func getAlignment() -> CFloat {
         let rv = gtk_editable_get_alignment(editable_ptr)
         return rv
     }
 
-    /// Retrieves a sequence of characters. The characters that are retrieved
-    /// are those characters at positions from `start_pos` up to, but not
-    /// including `end_pos`. If `end_pos` is negative, then the characters
-    /// retrieved are those characters from `start_pos` to the end of the text.
+    /// Retrieves a sequence of characters.
+    /// 
+    /// The characters that are retrieved are those characters at positions
+    /// from `start_pos` up to, but not including `end_pos`. If `end_pos` is negative,
+    /// then the characters retrieved are those characters from `start_pos` to
+    /// the end of the text.
     /// 
     /// Note that positions are specified in characters, not bytes.
     @inlinable func getChars(startPos: Int, endPos: Int) -> String! {
@@ -3145,14 +3244,15 @@ public extension EditableProtocol {
     }
 
     /// Gets the `GtkEditable` that `editable` is delegating its
-    /// implementation to. Typically, the delegate is a `GtkText` widget.
+    /// implementation to.
+    /// 
+    /// Typically, the delegate is a [class`Gtk.Text`] widget.
     @inlinable func getDelegate() -> EditableRef! {
         guard let rv = EditableRef(gconstpointer: gconstpointer(gtk_editable_get_delegate(editable_ptr))) else { return nil }
         return rv
     }
 
     /// Retrieves whether `editable` is editable.
-    /// See `gtk_editable_set_editable()`.
     @inlinable func getEditable() -> Bool {
         let rv = ((gtk_editable_get_editable(editable_ptr)) != 0)
         return rv
@@ -3165,14 +3265,13 @@ public extension EditableProtocol {
     }
 
     /// Retrieves the desired maximum width of `editable`, in characters.
-    /// See `gtk_editable_set_max_width_chars()`.
     @inlinable func getMaxWidthChars() -> Int {
         let rv = Int(gtk_editable_get_max_width_chars(editable_ptr))
         return rv
     }
 
-    /// Retrieves the current position of the cursor relative to the start
-    /// of the content of the editable.
+    /// Retrieves the current position of the cursor relative
+    /// to the start of the content of the editable.
     /// 
     /// Note that this position is in characters, not in bytes.
     @inlinable func getPosition() -> Int {
@@ -3192,22 +3291,25 @@ public extension EditableProtocol {
         return rv
     }
 
-    /// Retrieves the contents of `editable`. The returned string is
-    /// owned by GTK and must not be modified or freed.
+    /// Retrieves the contents of `editable`.
+    /// 
+    /// The returned string is owned by GTK and must not be modified or freed.
     @inlinable func getText() -> String! {
         let rv = gtk_editable_get_text(editable_ptr).map({ String(cString: $0) })
         return rv
     }
 
-    /// Gets the value set by `gtk_editable_set_width_chars()`.
+    /// Gets the number of characters of space reserved
+    /// for the contents of the editable.
     @inlinable func getWidthChars() -> Int {
         let rv = Int(gtk_editable_get_width_chars(editable_ptr))
         return rv
     }
 
-    /// Sets up a delegate for `GtkEditable`, assuming that the
-    /// get_delegate vfunc in the `GtkEditable` interface has been
-    /// set up for the `editable`'s type.
+    /// Sets up a delegate for `GtkEditable`.
+    /// 
+    /// This is assuming that the get_delegate vfunc in the `GtkEditable`
+    /// interface has been set up for the `editable`'s type.
     /// 
     /// This is a helper function that should be called in instance init,
     /// after creating the delegate object.
@@ -3220,7 +3322,8 @@ public extension EditableProtocol {
     /// widget, at position `position`.
     /// 
     /// Note that the position is in characters, not in bytes.
-    /// The function updates `position` to point after the newly inserted text.
+    /// The function updates `position` to point after the newly
+    /// inserted text.
     @inlinable func insert(text: UnsafePointer<CChar>!, length: Int, position: UnsafeMutablePointer<gint>!) {
         gtk_editable_insert_text(editable_ptr, text, gint(length), position)
     
@@ -3248,18 +3351,18 @@ public extension EditableProtocol {
     
     }
 
-    /// Determines if the user can edit the text
-    /// in the editable widget or not.
+    /// Determines if the user can edit the text in the editable widget.
     @inlinable func setEditable(isEditable: Bool) {
         gtk_editable_set_editable(editable_ptr, gboolean((isEditable) ? 1 : 0))
     
     }
 
-    /// If enabled, changes to `editable` will be saved for undo/redo actions.
+    /// If enabled, changes to `editable` will be saved for undo/redo
+    /// actions.
     /// 
-    /// This results in an additional copy of text changes and are not stored in
-    /// secure memory. As such, undo is forcefully disabled when `GtkText:visibility`
-    /// is set to `false`.
+    /// This results in an additional copy of text changes and are not
+    /// stored in secure memory. As such, undo is forcefully disabled
+    /// when [property`Gtk.Text:visibility`] is set to `false`.
     @inlinable func set(enableUndo: Bool) {
         gtk_editable_set_enable_undo(editable_ptr, gboolean((enableUndo) ? 1 : 0))
     
@@ -3274,8 +3377,8 @@ public extension EditableProtocol {
     /// Sets the cursor position in the editable to the given value.
     /// 
     /// The cursor is displayed before the character with the given (base 0)
-    /// index in the contents of the editable. The value must be less than or
-    /// equal to the number of characters in the editable. A value of -1
+    /// index in the contents of the editable. The value must be less than
+    /// or equal to the number of characters in the editable. A value of -1
     /// indicates that the position should be set after the last character
     /// of the editable. Note that `position` is in characters, not in bytes.
     @inlinable func set(position: Int) {
@@ -3283,8 +3386,9 @@ public extension EditableProtocol {
     
     }
 
-    /// Sets the text in the editable to the given value,
-    /// replacing the current contents.
+    /// Sets the text in the editable to the given value.
+    /// 
+    /// This is replacing the current contents.
     @inlinable func set(text: UnsafePointer<CChar>!) {
         gtk_editable_set_text(editable_ptr, text)
     
@@ -3300,9 +3404,9 @@ public extension EditableProtocol {
         gtk_editable_set_width_chars(editable_ptr, gint(nChars))
     
     }
-    /// Gets the value set by `gtk_editable_set_alignment()`.
+    /// Gets the alignment of the editable.
     @inlinable var alignment: CFloat {
-        /// Gets the value set by `gtk_editable_set_alignment()`.
+        /// Gets the alignment of the editable.
         get {
             let rv = gtk_editable_get_alignment(editable_ptr)
             return rv
@@ -3317,25 +3421,28 @@ public extension EditableProtocol {
     }
 
     /// Gets the `GtkEditable` that `editable` is delegating its
-    /// implementation to. Typically, the delegate is a `GtkText` widget.
+    /// implementation to.
+    /// 
+    /// Typically, the delegate is a [class`Gtk.Text`] widget.
     @inlinable var delegate: EditableRef! {
         /// Gets the `GtkEditable` that `editable` is delegating its
-        /// implementation to. Typically, the delegate is a `GtkText` widget.
+        /// implementation to.
+        /// 
+        /// Typically, the delegate is a [class`Gtk.Text`] widget.
         get {
             guard let rv = EditableRef(gconstpointer: gconstpointer(gtk_editable_get_delegate(editable_ptr))) else { return nil }
             return rv
         }
     }
 
+    /// Whether the entry contents can be edited.
     @inlinable var editable: Bool {
         /// Retrieves whether `editable` is editable.
-        /// See `gtk_editable_set_editable()`.
         get {
             let rv = ((gtk_editable_get_editable(editable_ptr)) != 0)
             return rv
         }
-        /// Determines if the user can edit the text
-        /// in the editable widget or not.
+        /// Determines if the user can edit the text in the editable widget.
         nonmutating set {
             gtk_editable_set_editable(editable_ptr, gboolean((newValue) ? 1 : 0))
         }
@@ -3348,21 +3455,20 @@ public extension EditableProtocol {
             let rv = ((gtk_editable_get_enable_undo(editable_ptr)) != 0)
             return rv
         }
-        /// If enabled, changes to `editable` will be saved for undo/redo actions.
+        /// If enabled, changes to `editable` will be saved for undo/redo
+        /// actions.
         /// 
-        /// This results in an additional copy of text changes and are not stored in
-        /// secure memory. As such, undo is forcefully disabled when `GtkText:visibility`
-        /// is set to `false`.
+        /// This results in an additional copy of text changes and are not
+        /// stored in secure memory. As such, undo is forcefully disabled
+        /// when [property`Gtk.Text:visibility`] is set to `false`.
         nonmutating set {
             gtk_editable_set_enable_undo(editable_ptr, gboolean((newValue) ? 1 : 0))
         }
     }
 
     /// Retrieves the desired maximum width of `editable`, in characters.
-    /// See `gtk_editable_set_max_width_chars()`.
     @inlinable var maxWidthChars: Int {
         /// Retrieves the desired maximum width of `editable`, in characters.
-        /// See `gtk_editable_set_max_width_chars()`.
         get {
             let rv = Int(gtk_editable_get_max_width_chars(editable_ptr))
             return rv
@@ -3373,13 +3479,13 @@ public extension EditableProtocol {
         }
     }
 
-    /// Retrieves the current position of the cursor relative to the start
-    /// of the content of the editable.
+    /// Retrieves the current position of the cursor relative
+    /// to the start of the content of the editable.
     /// 
     /// Note that this position is in characters, not in bytes.
     @inlinable var position: Int {
-        /// Retrieves the current position of the cursor relative to the start
-        /// of the content of the editable.
+        /// Retrieves the current position of the cursor relative
+        /// to the start of the content of the editable.
         /// 
         /// Note that this position is in characters, not in bytes.
         get {
@@ -3389,8 +3495,8 @@ public extension EditableProtocol {
         /// Sets the cursor position in the editable to the given value.
         /// 
         /// The cursor is displayed before the character with the given (base 0)
-        /// index in the contents of the editable. The value must be less than or
-        /// equal to the number of characters in the editable. A value of -1
+        /// index in the contents of the editable. The value must be less than
+        /// or equal to the number of characters in the editable. A value of -1
         /// indicates that the position should be set after the last character
         /// of the editable. Note that `position` is in characters, not in bytes.
         nonmutating set {
@@ -3398,23 +3504,28 @@ public extension EditableProtocol {
         }
     }
 
+    /// The contents of the entry.
     @inlinable var text: String! {
-        /// Retrieves the contents of `editable`. The returned string is
-        /// owned by GTK and must not be modified or freed.
+        /// Retrieves the contents of `editable`.
+        /// 
+        /// The returned string is owned by GTK and must not be modified or freed.
         get {
             let rv = gtk_editable_get_text(editable_ptr).map({ String(cString: $0) })
             return rv
         }
-        /// Sets the text in the editable to the given value,
-        /// replacing the current contents.
+        /// Sets the text in the editable to the given value.
+        /// 
+        /// This is replacing the current contents.
         nonmutating set {
             gtk_editable_set_text(editable_ptr, newValue)
         }
     }
 
-    /// Gets the value set by `gtk_editable_set_width_chars()`.
+    /// Gets the number of characters of space reserved
+    /// for the contents of the editable.
     @inlinable var widthChars: Int {
-        /// Gets the value set by `gtk_editable_set_width_chars()`.
+        /// Gets the number of characters of space reserved
+        /// for the contents of the editable.
         get {
             let rv = Int(gtk_editable_get_width_chars(editable_ptr))
             return rv
