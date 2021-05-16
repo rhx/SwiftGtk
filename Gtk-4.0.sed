@@ -1,6 +1,6 @@
 s/GTK_IM_MODULE_EXTENSION_POINT_NAME/"gtk-im-module"/
 s/applicationId/applicationID/g
-s/\(public init\!*([_a-z]* op: Unsafe.*Pointer<GtkSnapshot>\?*)\)/override \1/
+s/\(public init\!*([_a-z]* op: Unsafe.*Pointer<GtkSnapshot>[?]*)\)/override \1/
 s/\(public init<T: SnapshotProtocol>(\)snapshot \(other: T)\)/\1_ \2/
 s/\(public init<T: ApplicationProtocol>(\)application \(other: T)\)/\1_ \2/
 s/\(public init<T: MountOperationProtocol>(\)mountOperation \(other: T)\)/\1_ \2/
