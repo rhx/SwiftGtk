@@ -51,11 +51,11 @@ was compiled against libraries built with earlier versions of `gir2swift`.
 
 ## Usage
 
-Normally, you don't build this package directly (but for testing you can - see 'Building' below). Instead you need to embed SwiftGtk into your own project using the [Swift Package Manager](https://swift.org/package-manager/).  After installing the prerequisites (see 'Prerequisites' below), you can do this by creating a new, empty project folder and then running the [projgen.sh](https://github.com/rhx/SwiftGtk/blob/gtk4/projgen.sh) script, e.g.:
+Normally, you don't build this package directly (but for testing you can - see 'Building' below). Instead you need to embed SwiftGtk into your own project using the [Swift Package Manager](https://swift.org/package-manager/).  After installing the prerequisites (see 'Prerequisites' below), you can do this by creating a new, empty project folder and then running the [projgen.sh](https://github.com/rhx/SwiftGtk/blob/gtk3/projgen.sh) script, e.g.:
 ```
 mkdir MyProject
 cd MyProject
-curl https://raw.githubusercontent.com/rhx/SwiftGtk/gtk4/projgen.sh | sh
+curl https://raw.githubusercontent.com/rhx/SwiftGtk/gtk3/projgen.sh | sh
 ./run-gir2swift.sh
 ```
 
