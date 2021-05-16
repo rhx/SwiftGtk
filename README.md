@@ -132,16 +132,10 @@ The Swift wrappers have been tested with glib-2.56, 2.58, 2.60, 2.62, 2.64, 2.66
 
 ##### Ubuntu
 
-On Ubuntu 20.04 and 18.04, you can use the gtk that comes with the distribution.  Just install with the `apt` package manager:
+On Ubuntu 21.04, you can use the gtk that comes with the distribution.  Just install with the `apt` package manager:
 
 	sudo apt update
-	sudo apt install libgtk-3-dev gir1.2-gtksource-3.0 gobject-introspection libgirepository1.0-dev libxml2-dev jq
-
-##### Fedora
-
-On Fedora 29, you can use the gtk that comes with the distribution.  Just install with the `dnf` package manager:
-
-	sudo dnf install gtk3-devel pango-devel cairo-devel cairo-gobject-devel glib2-devel gobject-introspection-devel libxml2-devel jq
+	sudo apt install libgtk-4-bin libgtk-4-common libgtk-4-dev libgtk-4-doc gir1.2-gtksource-4 gobject-introspection libgirepository1.0-dev libxml2-dev jq
 
 #### macOS
 
