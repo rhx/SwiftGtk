@@ -55,7 +55,7 @@ Normally, you don't build this package directly (but for testing you can - see '
 ```
 mkdir MyProject
 cd MyProject
-curl https://raw.githubusercontent.com/rhx/SwiftGtk/gtk3/projgen.sh | sh
+curl -L https://git.io/SwiftGtk3.sh | sh
 ./run-gir2swift.sh
 ```
 
