@@ -9,7 +9,7 @@ if [ -n "`ls -A`" ]; then
 	echo ""
 	echo "mkdir $projdir"
 	echo "cd $projdir"
-	echo "curl https://raw.githubusercontent.com/rhx/SwiftGtk/gtk4/projgen.sh | sh"
+	echo "curl https://raw.githubusercontent.com/rhx/SwiftGtk/gtk3/projgen.sh | sh"
 	echo ""
 	echo "Then you can generate the Swift wrappers and build your project:"
 	echo ""
@@ -57,7 +57,7 @@ if ! git commit -am "Add Package.resolved" ; then
 fi
 if ! ( sed \
    -e 's|// Dependencies.*|.package(name: "gir2swift", url: "https://github.com/rhx/gir2swift.git", .branch("main")),|' \
-   -e 's|// .package.url:.*|.package(name: "Gtk", url: "https://github.com/rhx/SwiftGtk.git", .branch("gtk4")),|' \
+   -e 's|// .package.url:.*|.package(name: "Gtk", url: "https://github.com/rhx/SwiftGtk.git", .branch("gtk3")),|' \
    -e 's|dependencies: ...,|dependencies: ["Gtk"]),|' \
    < Package.swift > Package.swift.out && \
    mv Package.swift.out Package.swift ) ; then
