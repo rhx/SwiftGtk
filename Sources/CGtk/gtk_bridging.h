@@ -326,6 +326,11 @@ struct _GtkMountOperationHandlerSkeletonPrivate {};
 struct _GtkHeaderBarAccessiblePrivate {};
 #    include <gtk/a11y/gtkheaderbaraccessible.h>
 #  endif
+#  ifndef __GTK_FILE_CHOOSER_WIDGET_ACCESSIBLE_H__
+#    undef  GTK_COMPILATION
+#    define GTK_COMPILATION
+#    include <gtk/a11y/gtkfilechooserwidgetaccessible.h>
+#  endif
 #endif
 #endif
 
