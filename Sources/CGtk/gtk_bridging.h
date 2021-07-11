@@ -311,7 +311,9 @@ struct _GtkShortcutLabelInterface {};
 #    define GTK_COMPILATION
 #    include <gtk/a11y/gtkstackaccessible.h>
 #  endif
-#if GTK_MINOR_VERSION > 24 || (GTK_MINOR_VERSION == 24 && GTK_MICRO_VERSION >= 10)
+#endif
+#if GTK_MINOR_VERSION >= 24
+# if GTK_MINOR_VERSION > 24 || GTK_MICRO_VERSION >= 10
 #  ifndef GTK_TYPE_HEADER_BAR_ACCESSIBLE
 #    undef  GTK_COMPILATION
 #    define GTK_COMPILATION
@@ -326,7 +328,14 @@ struct _GtkMountOperationHandlerSkeletonPrivate {};
 struct _GtkHeaderBarAccessiblePrivate {};
 #    include <gtk/a11y/gtkheaderbaraccessible.h>
 #  endif
-#endif
+# endif
+# if GTK_MINOR_VERSION > 24 || GTK_MICRO_VERSION >= 30
+#  ifndef __GTK_FILE_CHOOSER_WIDGET_ACCESSIBLE_H__
+#    undef  GTK_COMPILATION
+#    define GTK_COMPILATION
+#    include <gtk/a11y/gtkfilechooserwidgetaccessible.h>
+#  endif
+# endif
 #endif
 
 // gtk+-3.8
