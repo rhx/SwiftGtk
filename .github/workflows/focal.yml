@@ -64,5 +64,5 @@ jobs:
         with:
           name: build-artefact-20.04-5.3
           path: |
-            SwiftGtk/
+            SwiftGtk/Sources/
           retention-days: 1
