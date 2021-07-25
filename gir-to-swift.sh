@@ -22,8 +22,3 @@ if [ ! -e "${GIR}" ] ; then
 	exit 1
 fi
 gir2swift -o Sources/${Mod} -p ${GIR_DIR}/GLib-2.0.gir -p ${GIR_DIR}/GObject-2.0.gir -p ${GIR_DIR}/Gio-2.0.gir -p ${GIR_DIR}/Pango-1.0.gir -p ${GIR_DIR}/cairo-1.0.gir -p ${GIR_DIR}/PangoCairo-1.0.gir -p ${GIR_DIR}/GdkPixbuf-2.0.gir -p ${GIR_DIR}/Atk-1.0.gir -p ${GIR_DIR}/Gdk-3.0.gir "${GIR}"
-if ! pkg-config --atleast-version=3.24 $module ; then
-	rm -f Sources/${Mod}/EventControllerSignal.swift
-	rm -f Sources/${Mod}/GestureSignal.swift
-fi
-touch Sources/${Mod}/${Module}.swift
