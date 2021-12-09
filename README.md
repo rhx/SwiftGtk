@@ -51,7 +51,16 @@ was compiled against libraries built with earlier versions of `gir2swift`.
 
 ## Usage
 
-Normally, you don't build this package directly (but for testing you can - see 'Building' below), but you embed it into your own project.  To use SwiftGtk, you need to use the [Swift Package Manager](https://swift.org/package-manager/).  After installing the prerequisites (see 'Prerequisites' below), add `SwiftGtk` as a dependency to your `Package.swift` file, e.g.:
+Normally, you don't build this package directly (but for testing you can - see 'Building' below). Instead you need to embed SwiftGtk into your own project using the [Swift Package Manager](https://swift.org/package-manager/).  After installing the prerequisites (see 'Prerequisites' below), you can do this by creating a new, empty project folder and then running the [projgen.sh](https://github.com/rhx/SwiftGtk/blob/gtk4/projgen.sh) script, e.g.:
+```
+mkdir MyProject
+cd MyProject
+curl -L https://git.io/SwiftGtk4.sh | sh
+./run-gir2swift.sh
+```
+
+After this, you should be able to `import Gtk` in your sources and use `swift build` to build your project.
+Alternatively, you can manually download [run-gir2swift.sh](https://github.com/rhx/gir2swift/raw/main/run-gir2swift.sh ) and add `SwiftGtk` as a dependency to your `Package.swift` file, e.g.:
 
 ```Swift
 // swift-tools-version:5.3
@@ -112,7 +121,7 @@ After that, use the (usual) Build and Test buttons to build/test this package.  
 
 ### Swift
 
-To build, you need at least Swift 5.2 (Swift 5.3 is required for `gtk4`), download from https://swift.org/download/ -- if you are using macOS, make sure you have the command line tools installed as well).  Test that your compiler works using `swift --version`, which should give you something like
+To build, you need at least Swift 5.2 (Swift 5.3 is required for `gtk4`; also some Linux distributions have issues and seem to **require at least Swift 5.5**), download from https://swift.org/download/ -- if you are using macOS, make sure you have the command line tools installed as well).  Test that your compiler works using `swift --version`, which should give you something like
 
 	$ swift --version
 	Apple Swift version 5.4 (swiftlang-1205.0.26.9 clang-1205.0.19.55)
@@ -121,27 +130,21 @@ To build, you need at least Swift 5.2 (Swift 5.3 is required for `gtk4`), downlo
 on macOS, or on Linux you should get something like:
 
 	$ swift --version
-	Swift version 5.4 (swift-5.4-RELEASE)
+	Swift version 5.5 (swift-5.5-RELEASE)
 	Target: x86_64-unknown-linux-gnu
 
 ### Gtk 3.22 or higher
 
-The Swift wrappers have been tested with glib-2.56, 2.58, 2.60, 2.62, 2.64, 2.66 and 2.68, and gdk/gtk 3.22, 3.24 as well as 4.0 and 4.2 on the `gtk4` branch.  They should work with higher versions, but YMMV.  Also make sure you have `gobject-introspection` and its `.gir` files installed.
+The Swift wrappers have been tested with glib-2.56, 2.58, 2.60, 2.62, 2.64, 2.66, 2.68 and 2.70, and gdk/gtk 3.22, 3.24 as well as 4.0, 4.2 and 4.4 on the `gtk4` branch.  They should work with higher versions, but YMMV.  Also make sure you have `gobject-introspection` and its `.gir` files installed.
 
 #### Linux
 
 ##### Ubuntu
 
-On Ubuntu 20.04 and 18.04, you can use the gtk that comes with the distribution.  Just install with the `apt` package manager:
+On Ubuntu 21.04, you can use the gtk that comes with the distribution.  Just install with the `apt` package manager:
 
 	sudo apt update
-	sudo apt install libgtk-3-dev gir1.2-gtksource-3.0 gobject-introspection libgirepository1.0-dev libxml2-dev jq
-
-##### Fedora
-
-On Fedora 29, you can use the gtk that comes with the distribution.  Just install with the `dnf` package manager:
-
-	sudo dnf install gtk3-devel pango-devel cairo-devel cairo-gobject-devel glib2-devel gobject-introspection-devel libxml2-devel
+	sudo apt install libgtk-4-bin libgtk-4-common libgtk-4-dev libgtk-4-doc gir1.2-gtksource-4 gobject-introspection libgirepository1.0-dev libxml2-dev jq
 
 #### macOS
 
@@ -180,7 +183,7 @@ After that, use the (usual) Build and Test buttons to build/test this package.
 
 ## Documentation
 
-You can find reference documentation inside the [docs](https://rhx.github.io/SwiftGLib/) folder.
+You can find reference documentation inside the [docs](https://rhx.github.io/SwiftGtk/) folder.
 This was generated using the [jazzy](https://github.com/realm/jazzy) tool.
 If you want to generate your own documentation, matching your local installation,
 you can use the `generate-documentation.sh` script in the repository.
@@ -200,14 +203,20 @@ Here are some common errors you might encounter and how to fix them.
 
 Yes, `gtk` is a huge beast.  The Swift interface generated from the `gtk` header files is close to 300,000 lines.  This takes a long time to build!
 
-### Old Swift toolchain or Xcode
+### Missing `.gir` Files
 If you get an error such as
 
-	$ ./build.sh 
-	error: unable to invoke subcommand: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swift-package (No such file or directory)
-	
-this probably means that your Swift toolchain is too old.  Make sure the latest toolchain is the one that is found when you run the Swift compiler (see above).
+	Girs located at
+	Cannot open '/GLib-2.0.gir': No such file or directory
 
+Make sure that you have the relevant `gobject-introspection` packages installed (as per the Pre-requisites section), including their `.gir` and `.pc` files.
+
+### Old Swift toolchain or Xcode
+If, when you run `swift build`, you get a `Segmentation fault (core dumped)` or circular dependency error such as
+
+	warning: circular dependency detected while parsing pangocairo: harfbuzz -> freetype2 -> harfbuzz
+	
+this probably means that your Swift toolchain is too old, particularly on Linux (at the time of this writing, some Linux distributions require at least Swift 5.5).  Make sure the latest toolchain is the one that is found when you run the Swift compiler (see above).
 
   If you get an older version, make sure that the right version of the swift compiler is found first in your `PATH`.  On macOS, use xcode-select to select and install the latest version, e.g.:
 

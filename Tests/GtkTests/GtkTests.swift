@@ -101,7 +101,7 @@ class GtkTests: XCTestCase {
         var activated = false
         treeView.onRowActivated { (tv, tp, tc) in
             isTV = tv.ptr == treeView.ptr
-            isTC = tc.ptr == treeColumn.ptr
+            isTC = tc?.ptr == treeColumn.ptr
             isTP = tp.compare(b: treePath) == 0
             activated = true
         }
